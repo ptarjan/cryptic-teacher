@@ -30,7 +30,30 @@ window.CRYPTIC_PUZZLES["everyman-4094"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OTTO",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "OTTO",
+    "definition": "German lad",
+    "indicators": [
+     "Serving of"
+    ],
+    "indicatorNotes": {
+     "Serving of": "A serving is a portion dished out of something bigger, so only a stretch of the word that follows is wanted."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "risotto’s",
+      "gives": "OTTO",
+      "note": "four consecutive letters sit inside this one word, starting at its third letter"
+     }
+    ],
+    "surface": "A plate of rice being dished up for a boy from Germany.",
+    "walkthrough": "'Serving of' belongs to the restaurant picture and is also the instruction; the letters are already lying in order inside the dish, needing nothing done to them.",
+    "definitionFit": "Otto is a standard German boy's name — Bismarck's first name — so the definition points at a forename rather than at anything to do with rice."
+   }
   },
   {
    "id": "2-down",
@@ -51,7 +74,30 @@ window.CRYPTIC_PUZZLES["everyman-4094"] = /*JSON-START*/ {
     ]
    },
    "solution": "THEFORCES",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "THE FORCES",
+    "definition": "Combatants",
+    "indicators": [
+     "mustered"
+    ],
+    "indicatorNotes": {
+     "mustered": "Troops are mustered when they are called together and drawn up in a fresh formation, which is what happens to these letters."
+    },
+    "anagram": {
+     "fodder": "OF CHESTER"
+    },
+    "blocks": [
+     {
+      "clueFragment": "of Chester",
+      "gives": "THEFORCES",
+      "note": "nine letters of raw material, the little joining word included, coming out in another order"
+     }
+    ],
+    "surface": "Soldiers from a Cheshire city being called out on parade.",
+    "walkthrough": "The city name does no geographical work at all; it is nine letters of fodder, and the 'of' that looks like grammar goes into the shuffle with it.",
+    "definitionFit": "The forces are the army, navy and air force taken together — the people whose job is fighting, which is what 'combatants' names."
+   }
   },
   {
    "id": "3-down",
@@ -68,7 +114,52 @@ window.CRYPTIC_PUZZLES["everyman-4094"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OPHELIA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letters",
+    "answer": "OPHELIA",
+    "definition": "her",
+    "definitionNote": "The definition is the bare pronoun 'her', which would fit any woman at all; the prince and the afflicted love interest in the wordplay are what narrow it to one.",
+    "indicators": [
+     "principally"
+    ],
+    "indicatorNotes": {
+     "principally": "Principally means chiefly or at the head, so the leading letter of each word it governs is all that is taken."
+    },
+    "linkWords": [
+     "will get"
+    ],
+    "pieces": [
+     "O",
+     "P",
+     "HE",
+     "LIA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Love",
+      "gives": "O",
+      "note": "a score of love in tennis is nothing, and nothing is written as a nought"
+     },
+     {
+      "clueFragment": "Prince?",
+      "gives": "P",
+      "note": "P is the standard abbreviation for prince, and the question mark admits it is a squeeze"
+     },
+     {
+      "clueFragment": "He",
+      "gives": "HE",
+      "note": "the clue's own pronoun, used exactly as it stands"
+     },
+     {
+      "clueFragment": "love interest afflicted",
+      "gives": "LIA",
+      "note": "the opening letter of each of these three words, in the order printed"
+     }
+    ],
+    "surface": "A prince's romance going badly wrong for the woman caught up in it.",
+    "walkthrough": "Shakespeare is never named: a prince and a love interest driven out of her wits are all the pointing the clue does, and both of those words are wordplay as well.",
+    "definitionFit": "'her' works only with the clue's prince and madness around it, narrowing the pronoun to Hamlet's love, who loses her reason and drowns."
+   }
   },
   {
    "id": "4-across",
@@ -85,7 +176,39 @@ window.CRYPTIC_PUZZLES["everyman-4094"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PRAT",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "PRAT",
+    "definition": "Nitwit",
+    "indicators": [
+     "taken aback"
+    ],
+    "indicatorNotes": {
+     "taken aback": "To be taken aback is to be knocked backwards, and in an across entry backwards means read from the right-hand end."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "PRAT"
+    ],
+    "subReversals": [
+     {
+      "from": "TARP",
+      "to": "PRAT"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "protective cover",
+      "gives": "PRAT",
+      "note": "a tarp is the waterproof sheet thrown over whatever has to stay dry, and those four letters are then read from the far end"
+     }
+    ],
+    "surface": "An idiot startled while sheltering under a tarpaulin.",
+    "walkthrough": "'Taken aback' is surprise in the surface and a direction of travel in the wordplay, which is the only thing hiding a very ordinary four-letter word.",
+    "definitionFit": "A prat is a fool in ordinary British usage — the mild insult you throw at someone who has just done something silly."
+   }
   },
   {
    "id": "4-down",
@@ -102,7 +225,36 @@ window.CRYPTIC_PUZZLES["everyman-4094"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PARAPET",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PARAPET",
+    "definition": "defensive structure",
+    "indicators": [],
+    "indicatorNotes": {},
+    "linkWords": [
+     "having",
+     "in"
+    ],
+    "pieces": [
+     "PARA",
+     "PET"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Elite soldier",
+      "gives": "PARA",
+      "note": "a para is a paratrooper, one of the airborne troops"
+     },
+     {
+      "clueFragment": "hissy fit",
+      "gives": "PET",
+      "note": "to be in a pet is to be in a sulk — an old British word for a fit of temper, nothing to do with animals"
+     }
+    ],
+    "surface": "A crack soldier throwing a tantrum up on the battlements.",
+    "walkthrough": "'Pet' meaning a sulk has almost left speech and survives in the phrase 'in a pet', and nothing in the clue warns you that the family cat is not wanted.",
+    "definitionFit": "A parapet is the low wall running along the top of a rampart or roof that soldiers shelter behind, so it is both defensive and a structure."
+   }
   },
   {
    "id": "5-down",
@@ -119,7 +271,32 @@ window.CRYPTIC_PUZZLES["everyman-4094"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ACORN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ACORN",
+    "definition": "treat for Piglet",
+    "indicators": [],
+    "indicatorNotes": {},
+    "pieces": [
+     "A",
+     "CORN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "No, a",
+      "gives": "A",
+      "note": "the setter withdraws the foot reading with 'No' and hands over the little word beside it exactly as printed"
+     },
+     {
+      "clueFragment": "Something unpleasant afoot",
+      "gives": "CORN",
+      "note": "the hard painful patch a walker gets on a toe, which is what 'afoot' pins the fragment to"
+     }
+    ],
+    "surface": "A foot complaint being ruled out in favour of something a small pig would enjoy.",
+    "walkthrough": "'Afoot' sets up the toe complaint and the comma then throws it away, because the same letters read as one word rather than two are a thing to eat.",
+    "definitionFit": "Piglet, in Winnie-the-Pooh, is forever after acorns — he calls them haycorns — so the definition names the answer by who eats it."
+   }
   },
   {
    "id": "6-down",
@@ -140,7 +317,35 @@ window.CRYPTIC_PUZZLES["everyman-4094"] = /*JSON-START*/ {
     ]
    },
    "solution": "CRYOFF",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CRY OFF",
+    "definition": "Decide against",
+    "indicators": [],
+    "indicatorNotes": {},
+    "linkWords": [
+     "that’s"
+    ],
+    "pieces": [
+     "CRY",
+     "OFF"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "show of emotion",
+      "gives": "CRY",
+      "note": "tears are the most obvious show of emotion there is"
+     },
+     {
+      "clueFragment": "rotten",
+      "gives": "OFF",
+      "note": "milk that has gone off has gone bad, which is the British way of saying food is rotten"
+     }
+    ],
+    "surface": "Ruling out a display of tears on the grounds that it is a rotten thing to do.",
+    "walkthrough": "The colon does the work of an equals sign, so the sentence reads as a moral judgement while it is quietly a sum, and 'rotten' points at food rather than at behaviour.",
+    "definitionFit": "To cry off is to back out of something you had already agreed to do, which is deciding against it after the fact."
+   }
   },
   {
    "id": "7-down",
@@ -157,7 +362,27 @@ window.CRYPTIC_PUZZLES["everyman-4094"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REMARK",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "REMARK",
+    "definition": "Give another grade to",
+    "definition2": "statement",
+    "blocks": [
+     {
+      "clueFragment": "Give another grade to",
+      "gives": "",
+      "note": "an examiner going over a script a second time does exactly this, and the hyphen the sense needs has been left off on purpose"
+     },
+     {
+      "clueFragment": "statement",
+      "gives": "",
+      "note": "the everyday noun for something said in passing"
+     }
+    ],
+    "surface": "A teacher being asked to grade a written statement all over again.",
+    "walkthrough": "One printed word covers two unrelated ones, kept apart only by a hyphen that is missing: with it an examiner's job, without it a thing somebody said.",
+    "definitionFit": "To re-mark a paper is to grade it again, while a remark is an aside — the same six letters covering an examiner's task and a scrap of speech."
+   }
   },
   {
    "id": "8-across",
@@ -178,7 +403,30 @@ window.CRYPTIC_PUZZLES["everyman-4094"] = /*JSON-START*/ {
     ]
    },
    "solution": "REFRESHERCOURSE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "REFRESHER COURSE",
+    "definition": "update",
+    "indicators": [
+     "nonsensical"
+    ],
+    "indicatorNotes": {
+     "nonsensical": "Something nonsensical makes no sense as written, so the words in front of it are not to be read in the order they stand."
+    },
+    "anagram": {
+     "fodder": "RESCUERS HERE FOR"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Rescuers here for",
+      "gives": "REFRESHERCOURSE",
+      "note": "fifteen letters of raw material across three words, coming out in a new order"
+     }
+    ],
+    "surface": "A caption saying where the rescue party is and what they have come about.",
+    "walkthrough": "'Rescuers here for' reads like the start of a news bulletin, and every letter of it is fodder — including the 'for' that looks like nothing but joinery.",
+    "definitionFit": "A refresher course is training taken to bring worn knowledge back up to date, so 'update' names it by what it does to the person on it."
+   }
   },
   {
    "id": "9-down",
@@ -199,7 +447,47 @@ window.CRYPTIC_PUZZLES["everyman-4094"] = /*JSON-START*/ {
     ]
    },
    "solution": "FINDINGNEMO",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion + anagram",
+    "answer": "FINDING NEMO",
+    "definition": "children’s film",
+    "indicators": [
+     "Not quite",
+     "drunk"
+    ],
+    "indicatorNotes": {
+     "Not quite": "Not quite means falling just short of the whole thing, so the word before it arrives one letter light.",
+     "drunk": "A drunk cannot walk a straight line, and letters in that state do not stay in the order they were handed over in."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "FIN",
+     "DINGNEMO"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "DEMONGIN",
+      "gives": "DINGNEMO"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "OK?",
+      "gives": "FIN",
+      "note": "OK is FINE, and this stops short of that word's last letter"
+     },
+     {
+      "clueFragment": "demon gin",
+      "gives": "DINGNEMO",
+      "note": "eight letters of raw material across the two words, re-sorted"
+     }
+    ],
+    "surface": "Checking whether somebody is all right after a bottle of fearsome gin.",
+    "walkthrough": "'Demon' describes the gin in the surface and is plain fodder in the wordplay, while the question mark after the first word makes an instruction look like concern.",
+    "definitionFit": "Finding Nemo is the Pixar animation about a clownfish father hunting for his lost son, made for and watched by children."
+   }
   },
   {
    "id": "10-down",
@@ -216,7 +504,45 @@ window.CRYPTIC_PUZZLES["everyman-4094"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ROCKEFELLER",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "ROCKEFELLER",
+    "definition": "Wealthy businessman",
+    "indicators": [
+     "finally"
+    ],
+    "indicatorNotes": {
+     "finally": "Finally means at the very end, so only the closing letter of the name beside it is taken."
+    },
+    "linkWords": [
+     "and"
+    ],
+    "pieces": [
+     "ROCK",
+     "E",
+     "FELLER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to surprise",
+      "gives": "ROCK",
+      "note": "news that rocks you is news that shakes you badly"
+     },
+     {
+      "clueFragment": "Claude",
+      "gives": "E",
+      "note": "the last letter of the name, and nothing else from it"
+     },
+     {
+      "clueFragment": "Hewer",
+      "gives": "FELLER",
+      "note": "a feller brings trees down, which is one way of hewing wood"
+     }
+    ],
+    "surface": "A tycoon springing something on two men, Claude and Hewer.",
+    "walkthrough": "The capital H makes the last word read as a surname standing beside Claude, which is the whole disguise on a six-letter chunk that is really a job.",
+    "definitionFit": "John D. Rockefeller made an oil fortune vast enough that the name became shorthand for a rich businessman, so the definition works by example."
+   }
   },
   {
    "id": "11-across",
@@ -237,7 +563,24 @@ window.CRYPTIC_PUZZLES["everyman-4094"] = /*JSON-START*/ {
     ]
    },
    "solution": "OWNGOAL",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "OWN GOAL",
+    "definition": "In which defence alas is best form of attack?",
+    "blocks": [
+     {
+      "clueFragment": "In which defence alas",
+      "note": "the surface offers a maxim about tactics; 'defence' here means the players at the back, the ones furthest from the net they are supposed to be shooting at, and 'alas' is the setter wincing"
+     },
+     {
+      "clueFragment": "is best form of attack?",
+      "note": "the saying runs the other way round — attack is the best form of defence — and turned over it describes a defender putting the ball where only the opposition should"
+     }
+    ],
+    "surface": "Somebody offering a fresh version of the old sporting maxim about attack and defence.",
+    "walkthrough": "The proverb is printed back to front, and read that way it describes the moment a defender beats his own keeper. 'Alas' is the one word admitting whose misfortune this is.",
+    "definitionFit": "The whole clue describes the football mishap in which a defending player puts the ball into his own net, so his defending is what produces the other side's score."
+   }
   },
   {
    "id": "12-across",
@@ -254,7 +597,40 @@ window.CRYPTIC_PUZZLES["everyman-4094"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PANACEA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + homophone",
+    "answer": "PANACEA",
+    "definition": "cure-all",
+    "indicators": [
+     "Loudly"
+    ],
+    "indicatorNotes": {
+     "Loudly": "Something said loudly is said out loud, so what matters is the noise the words make rather than the way they are spelt."
+    },
+    "linkWords": [
+     "’s"
+    ],
+    "pieces": [
+     "PAN",
+     "ACEA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "criticise",
+      "gives": "PAN",
+      "note": "to pan a film is to review it savagely"
+     },
+     {
+      "clueFragment": "a prophet",
+      "soundsLike": "A SEER",
+      "gives": "ACEA",
+      "note": "a prophet is a seer, and in most British speech that final R is not sounded, so what you hear is four more letters"
+     }
+    ],
+    "surface": "Shouting down the miracle remedy some prophet is peddling.",
+    "walkthrough": "Non-rhotic British speech is what makes this work: the R at the end goes unsounded, so a two-word phrase comes out as the tail of a word about medicine.",
+    "definitionFit": "A panacea is a remedy claimed to cure everything, which is what 'cure-all' says — the word is used mostly of solutions that turn out not to work."
+   }
   },
   {
    "id": "13-across",
@@ -275,7 +651,43 @@ window.CRYPTIC_PUZZLES["everyman-4094"] = /*JSON-START*/ {
     ]
    },
    "solution": "FLIPCHART",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "FLIP CHART",
+    "definition": "it helps the presentation",
+    "indicators": [
+     "overcoming"
+    ],
+    "indicatorNotes": {
+     "overcoming": "To come over something is to go over the top of it, so the word beside this closes across the letter named next."
+    },
+    "pieces": [
+     "FLIP",
+     "CHA",
+     "R",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Facetious",
+      "gives": "FLIP",
+      "note": "a flip remark is a glib, not-quite-serious one"
+     },
+     {
+      "clueFragment": "chat",
+      "gives": "CHAT",
+      "note": "the clue's own word, used exactly as it stands"
+     },
+     {
+      "clueFragment": "resistance",
+      "gives": "R",
+      "note": "R is the physicist's symbol for resistance, as in Ohm's law"
+     }
+    ],
+    "surface": "Jokey small talk winning round a reluctant audience.",
+    "walkthrough": "'Overcoming' reads as winning an argument and works as a physical instruction, and the definition is a whole clause rather than a synonym — the object a speaker stands beside.",
+    "definitionFit": "A flip chart is the pad of big paper on an easel that a speaker turns over sheet by sheet, so it genuinely helps a presentation along."
+   }
   },
   {
    "id": "14-across",
@@ -292,7 +704,28 @@ window.CRYPTIC_PUZZLES["everyman-4094"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BREAK",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "BREAK",
+    "definition": "stop working",
+    "indicators": [
+     "You can hear"
+    ],
+    "indicatorNotes": {
+     "You can hear": "What you can hear is the sound of a word, so the spelling wanted is the other one that makes the same noise."
+    },
+    "blocks": [
+     {
+      "clueFragment": "part of car",
+      "soundsLike": "BRAKE",
+      "gives": "BREAK",
+      "note": "the pedal that slows a car down, written the other way once only the sound survives"
+     }
+    ],
+    "surface": "A noise from somewhere in the car, just before the thing packs up.",
+    "walkthrough": "'Part of car' looks as though it wants a hidden word, since parts of words hide inside phrases all the time. The whole component is meant, and only the noise of its name.",
+    "definitionFit": "A machine that breaks has stopped working, so the definition is the intransitive verb — what the car does, not what anyone does to it."
+   }
   },
   {
    "id": "14-down",
@@ -309,7 +742,47 @@ window.CRYPTIC_PUZZLES["everyman-4094"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BETHLEHEM",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram + deletion",
+    "answer": "BETHLEHEM",
+    "definition": "ancient town",
+    "indicators": [
+     "refurbished",
+     "endlessly"
+    ],
+    "indicatorNotes": {
+     "refurbished": "Something refurbished has been stripped down and put back together looking different, which is what happens to the letters beside it.",
+     "endlessly": "Endlessly means without an end, so the final letter of the word it follows is left off."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "BETH",
+     "LEHEM"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "HELME",
+      "gives": "LEHEM"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Liz",
+      "gives": "BETH",
+      "note": "Liz and Beth are both short for Elizabeth, so either can stand in for the other"
+     },
+     {
+      "clueFragment": "helmet",
+      "gives": "LEHEM",
+      "note": "six letters with the last one struck off, and the five left over re-sorted"
+     }
+    ],
+    "surface": "Liz doing up a helmet, on and on, somewhere very old indeed.",
+    "walkthrough": "'Refurbished' sits between the two halves and only works on the second. The first is a swap between two pet forms of the same name, which no word in the clue signals at all.",
+    "definitionFit": "Bethlehem is the West Bank town thousands of years old, known as the birthplace of King David and of Jesus."
+   }
   },
   {
    "id": "15-across",
@@ -326,7 +799,33 @@ window.CRYPTIC_PUZZLES["everyman-4094"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SAGAS",
-   "annotation": null
+   "annotation": {
+    "type": "palindrome",
+    "answer": "SAGAS",
+    "definition": "Epic tales",
+    "indicators": [
+     "whichever way you look at it"
+    ],
+    "indicatorNotes": {
+     "whichever way you look at it": "Reading from either end is the only sense in which a word can be looked at two ways, so the letters have to be symmetrical."
+    },
+    "pieces": [
+     "SAGAS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Epic tales",
+      "note": "the definition end of the clue: long heroic stories, the Norse ones first of all"
+     },
+     {
+      "clueFragment": "whichever way you look at it",
+      "note": "the wordplay end: five letters that read the same from either direction, which is the whole of the help on offer"
+     }
+    ],
+    "surface": "A shrug of a remark: these long dramatic stories are what they are, from any angle.",
+    "walkthrough": "Norse literature gives us the word, and it is the plural that makes the symmetry work — the singular would not read the same in both directions.",
+    "definitionFit": "A saga is a long heroic narrative, the Icelandic ones above all, and the plural matches 'tales' while 'epic' names their scale."
+   }
   },
   {
    "id": "15-down",
@@ -343,7 +842,32 @@ window.CRYPTIC_PUZZLES["everyman-4094"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SNIFFY",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SNIFFY",
+    "definition": "Disdainful",
+    "indicators": [],
+    "indicatorNotes": {},
+    "pieces": [
+     "S",
+     "NIFFY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the standard abbreviation for son, as written on a family tree"
+     },
+     {
+      "clueFragment": "humming",
+      "gives": "NIFFY",
+      "note": "in British slang a thing that is humming smells bad, and niffy says the same — a niff is a nasty smell"
+     }
+    ],
+    "surface": "A superior young man who badly needs a wash.",
+    "walkthrough": "'Humming' has nothing to do with music here, and both it and its replacement are informal British words for a bad smell, which is what makes the swap fair.",
+    "definitionFit": "To be sniffy about something is to look down your nose at it — disdain expressed through the nose, which is also where the smell came in."
+   }
   },
   {
    "id": "16-across",
@@ -364,7 +888,46 @@ window.CRYPTIC_PUZZLES["everyman-4094"] = /*JSON-START*/ {
     ]
    },
    "solution": "JETSTREAM",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "JET STREAM",
+    "definition": "that affects current events",
+    "indicators": [
+     "invested in"
+    ],
+    "indicatorNotes": {
+     "invested in": "Money invested in a business goes into it, so the letter named before this ends up inside the word named after."
+    },
+    "linkWords": [
+     "by"
+    ],
+    "pieces": [
+     "JE",
+     "T",
+     "ST",
+     "REAM"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "joke",
+      "gives": "JEST",
+      "note": "a jest is a joke"
+     },
+     {
+      "clueFragment": "Time",
+      "gives": "T",
+      "note": "T is the standard abbreviation for time"
+     },
+     {
+      "clueFragment": "paper",
+      "gives": "REAM",
+      "note": "a ream is five hundred sheets of paper"
+     }
+    ],
+    "surface": "Somebody putting time into a gag for a newspaper that shapes the news.",
+    "walkthrough": "'Paper' looks like a publication and is the physical stuff, sold five hundred sheets at a time, while 'current events' hides a second sense: currents of air, not news.",
+    "definitionFit": "The jet stream is the fast ribbon of high-altitude air current that steers weather systems, so it does affect events, and 'current' is the joke."
+   }
   },
   {
    "id": "16-down",
@@ -381,7 +944,49 @@ window.CRYPTIC_PUZZLES["everyman-4094"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "JADEDLY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram + deletion",
+    "answer": "JADEDLY",
+    "definition": "without enthusiasm",
+    "indicators": [
+     "terribly",
+     "dropping"
+    ],
+    "indicatorNotes": {
+     "terribly": "Anything done terribly is done badly, and letters handled badly do not stay in the order they were set down in.",
+     "dropping": "What drops out of something is no longer part of it, so the letter named just before this leaves the material."
+    },
+    "pieces": [
+     "J",
+     "ADEDLY"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "DELAYD",
+      "gives": "ADEDLY"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Justice",
+      "gives": "J",
+      "note": "J is the standard abbreviation for a judge or justice, printed after the name in law reports"
+     },
+     {
+      "clueFragment": "delayed",
+      "gives": "ADEDLY",
+      "note": "seven letters of raw material with one struck out, and the six left over re-sorted"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "",
+      "note": "energy is E to a physicist, and that is the letter taken out of the material"
+     }
+    ],
+    "surface": "A court case dragging on while everyone involved runs out of energy.",
+    "walkthrough": "Justice delayed is justice denied — the phrase the surface leans on — and the pair of dashes make the middle clause read as a weary aside rather than as an order.",
+    "definitionFit": "To do something jadedly is to do it wearily, with the appetite worn out of you, which is doing it without enthusiasm."
+   }
   },
   {
    "id": "17-down",
@@ -398,7 +1003,33 @@ window.CRYPTIC_PUZZLES["everyman-4094"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TOYLAND",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "TOYLAND",
+    "definition": "realm of children’s tales",
+    "indicators": [
+     "cobblers"
+    ],
+    "indicatorNotes": {
+     "cobblers": "Cobblers is British slang for rubbish or nonsense, and letters called nonsense are not sitting in any sensible order."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "anagram": {
+     "fodder": "TOLD ANY"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Told any",
+      "gives": "TOYLAND",
+      "note": "seven letters of raw material across the two words, coming out in a new order"
+     }
+    ],
+    "surface": "Accusing somebody of talking rubbish about a storybook world.",
+    "walkthrough": "'Cobblers' comes from rhyming slang — cobbler's awls — and so means nonsense, which is what lets it order a shuffle while reading as part of the accusation.",
+    "definitionFit": "Toyland is the setting of Enid Blyton's Noddy books, the make-believe country those children's stories take place in."
+   }
   },
   {
    "id": "18-down",
@@ -415,7 +1046,45 @@ window.CRYPTIC_PUZZLES["everyman-4094"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MAGNET",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "MAGNET",
+    "definition": "that’s attractive",
+    "indicators": [
+     "rising",
+     "embracing"
+    ],
+    "indicatorNotes": {
+     "rising": "A down entry read upwards runs from its foot to its head, and anything that rises travels in exactly that direction.",
+     "embracing": "To embrace someone is to close your arms round them, so whatever is named next finishes up inside."
+    },
+    "pieces": [
+     "MA",
+     "G",
+     "NET"
+    ],
+    "subReversals": [
+     {
+      "from": "TENAM",
+      "to": "MANET"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "10am, rising",
+      "gives": "MANET",
+      "note": "ten in the morning spelled out gives five letters, then read from the bottom of the column upwards"
+     },
+     {
+      "clueFragment": "German",
+      "gives": "G",
+      "note": "G is the standard dictionary abbreviation for German"
+     }
+    ],
+    "surface": "Someone getting up at ten and hugging a good-looking German.",
+    "walkthrough": "The digits have to be spelled out before anything can be done to them, and the clue never says so. 'Attractive' is meant physically rather than as a compliment.",
+    "definitionFit": "A magnet is the thing that literally attracts, pulling iron towards it, so 'that's attractive' is the plain physical sense and not the flattering one."
+   }
   },
   {
    "id": "19-across",
@@ -432,7 +1101,30 @@ window.CRYPTIC_PUZZLES["everyman-4094"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ICELAND",
-   "annotation": null,
+   "annotation": {
+    "type": "hidden word",
+    "answer": "ICELAND",
+    "definition": "Northern location",
+    "indicators": [
+     "Some"
+    ],
+    "indicatorNotes": {
+     "Some": "Some of a thing is a part of it and never the whole, so only a stretch of the words that follow is wanted."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chic élan demonstrated",
+      "gives": "ICELAND",
+      "note": "seven consecutive letters run from partway through the first word into the start of the third"
+     }
+    ],
+    "surface": "Stylish flair being shown off somewhere well to the north.",
+    "walkthrough": "'Some' at the front reads as a quantity of style and is the extraction order, while the italicised French word looks like a definition by example and is only letters.",
+    "definitionFit": "Iceland is the island republic out in the North Atlantic, further north than anywhere else in Europe, so the definition names it by where it sits."
+   },
    "clueItalics": [
     [
      10,
@@ -455,7 +1147,36 @@ window.CRYPTIC_PUZZLES["everyman-4094"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ARSON",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + first letters",
+    "answer": "ARSON",
+    "definition": "Arouse radiant smouldering – only, naughtily, primarily?",
+    "indicators": [
+     "primarily"
+    ],
+    "indicatorNotes": {
+     "primarily": "Primarily means in the first place, so only the opening letter of each word it governs is taken."
+    },
+    "pieces": [
+     "ARS",
+     "ON"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Arouse radiant smouldering",
+      "gives": "ARS",
+      "note": "the letter each of these three words begins with, in the order printed"
+     },
+     {
+      "clueFragment": "only, naughtily",
+      "gives": "ON",
+      "note": "the opening letter of each of these two words, keeping the run going after the dash"
+     }
+    ],
+    "surface": "Someone stirring up a warm glow, and being wicked about it.",
+    "walkthrough": "The sentence describes the crime and, taken a letter at a time off the front of each word, spells it. 'Radiant smouldering' is fire being admired rather than reported.",
+    "definitionFit": "The whole clue reads straight as a description of the crime: rousing a radiant smouldering, and doing it naughtily, is deliberate fire-raising."
+   }
   },
   {
    "id": "21-across",
@@ -476,7 +1197,33 @@ window.CRYPTIC_PUZZLES["everyman-4094"] = /*JSON-START*/ {
     ]
    },
    "solution": "YULELOG",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "YULE LOG",
+    "definition": "piece of cake",
+    "definitionNote": "'Piece of cake' names a slice while the answer is the whole cake, and the setter is trading on the idiom for something easy, which is where the joke sits.",
+    "indicators": [],
+    "indicatorNotes": {},
+    "pieces": [
+     "YULE",
+     "LOG"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Christmas",
+      "gives": "YULE",
+      "note": "Yule is the old word for Christmas, still heard in yuletide"
+     },
+     {
+      "clueFragment": "list",
+      "gives": "LOG",
+      "note": "a ship's log is the running list of everything that happens aboard"
+     }
+    ],
+    "surface": "Working down the Christmas to-do list and finding it no trouble at all.",
+    "walkthrough": "'Piece of cake' is an idiom for something easy in the surface and is meant literally in the definition — the chocolate roll iced to look like firewood.",
+    "definitionFit": "A yule log is the chocolate-and-cream sponge rolled and iced to resemble a log, eaten at Christmas, so the definition is meant literally."
+   }
   },
   {
    "id": "22-across",
@@ -499,7 +1246,35 @@ window.CRYPTIC_PUZZLES["everyman-4094"] = /*JSON-START*/ {
     ]
    },
    "solution": "FLOGSADEADHORSE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "FLOGS A DEAD HORSE",
+    "definition": "Pursues lost cause",
+    "indicators": [],
+    "indicatorNotes": {},
+    "linkWords": [
+     "at"
+    ],
+    "pieces": [
+     "FLOGS",
+     "ADEADHORSE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seeks money",
+      "gives": "FLOGS",
+      "note": "to flog something is to sell it, British slang for shifting goods for cash"
+     },
+     {
+      "clueFragment": "proverbial glue factory",
+      "gives": "ADEADHORSE",
+      "note": "the glue factory is where worn-out horses were proverbially sent, so this names what you would find waiting there"
+     }
+    ],
+    "surface": "A trader trying to get paid at the place where old horses end up.",
+    "walkthrough": "Horses past working age were once sent for rendering into glue, which is why the idiom reaches for a dead one: nothing you do to it will get it moving again.",
+    "definitionFit": "To flog a dead horse is to keep pushing at something that cannot go anywhere, which is exactly what pursuing a lost cause amounts to."
+   }
   },
   {
    "id": "23-across",
@@ -516,7 +1291,35 @@ window.CRYPTIC_PUZZLES["everyman-4094"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ENVY",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "ENVY",
+    "definition": "Begrudge",
+    "indicators": [
+     "wanting"
+    ],
+    "indicatorNotes": {
+     "wanting": "Something wanting is missing what it ought to have, so the word beside it turns up short of the letter named next."
+    },
+    "pieces": [
+     "ENVY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "diplomat",
+      "gives": "ENVOY",
+      "note": "an envoy is a diplomat sent out to represent a government"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "nothing is written as a nought, and that is the letter which goes"
+     }
+    ],
+    "surface": "Resenting a diplomat who appears to lack for nothing.",
+    "walkthrough": "'Wanting nothing' reads as a comfortable life and is really an instruction, because wanting here is the older sense of lacking rather than of wishing for.",
+    "definitionFit": "To envy someone is to begrudge them what they have — resenting their good fortune, not merely wishing for the same thing yourself."
+   }
   },
   {
    "id": "24-across",
@@ -533,7 +1336,36 @@ window.CRYPTIC_PUZZLES["everyman-4094"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DAME",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letters",
+    "answer": "DAME",
+    "definition": "Woman",
+    "indicators": [
+     "starts to"
+    ],
+    "indicatorNotes": {
+     "starts to": "A start is a first letter, and the plural of it covers both of the words that follow rather than just the nearer one."
+    },
+    "pieces": [
+     "DA",
+     "ME"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drowse alongside",
+      "gives": "DA",
+      "note": "the opening letter of each of these two words"
+     },
+     {
+      "clueFragment": "Everyman",
+      "gives": "ME",
+      "note": "Everyman is the pen name this puzzle's setter signs, so the word means the setter himself"
+     }
+    ],
+    "surface": "Nodding off in the seat next to the setter.",
+    "walkthrough": "Setters slip themselves into their own clues constantly, and this one's pen name is printed above the grid — so the last word is worth two letters rather than none.",
+    "definitionFit": "Dame is an old general word for a woman, and in Britain the formal title given to a woman honoured at the rank of a knight."
+   }
   }
  ]
 } /*JSON-END*/;
