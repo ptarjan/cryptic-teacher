@@ -30,7 +30,44 @@ window.CRYPTIC_PUZZLES["quiptic-1367"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CLEANSE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container + outer letters",
+    "answer": "CLEANSE",
+    "definition": "Remove dirt from",
+    "indicators": [
+     "winding",
+     "in",
+     "borders of"
+    ],
+    "indicatorNotes": {
+     "winding": "A winding lane bends one way then another, and letters told to wind will not stay in the order they were handed over.",
+     "in": "Whatever is described as in something else sits inside it, so the reshuffled letters land between the pair already found.",
+     "borders of": "The borders of a county are its outer edges, so only the opening and closing letters of the word are wanted."
+    },
+    "pieces": [
+     "C",
+     "LEANS",
+     "E"
+    ],
+    "anagram": {
+     "fodder": "C LANES E"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Cheshire",
+      "gives": "CE",
+      "note": "the outer pair of CheshirE, an English county in the north-west"
+     },
+     {
+      "clueFragment": "lanes",
+      "gives": "LEANS",
+      "note": "the five letters of LANES put in a new order"
+     }
+    ],
+    "surface": "Scrubbing the mud off twisting country lanes at the edge of Cheshire.",
+    "walkthrough": "'Winding lanes' reads as one picture of country roads, and its two words belong to opposite halves of the wordplay: one is the instruction, the other the material.",
+    "definitionFit": "Remove dirt from → CLEANSE: the thorough verb for washing a thing clean, stronger than 'clean' and used of wounds and skin."
+   }
   },
   {
    "id": "2-down",
@@ -47,7 +84,39 @@ window.CRYPTIC_PUZZLES["quiptic-1367"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LEATHER",
-   "annotation": null
+   "annotation": {
+    "type": "container + first letter",
+    "answer": "LEATHER",
+    "definition": "material made from skin",
+    "indicators": [
+     "about",
+     "origin of"
+    ],
+    "indicatorNotes": {
+     "about": "To go about a thing is to go round it, so the word in front closes over the letter named next.",
+     "origin of": "The origin of something is where it begins, so its opening letter is the one taken."
+    },
+    "pieces": [
+     "L",
+     "E",
+     "ATHER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "State of agitation",
+      "gives": "LATHER",
+      "note": "a lather is the froth soap works up, and a person worked up is in one"
+     },
+     {
+      "clueFragment": "exotic",
+      "gives": "E",
+      "note": "the first letter of Exotic"
+     }
+    ],
+    "surface": "Someone in a flap about where an exotic import came from.",
+    "walkthrough": "'State' looks like the start of a definition — a country, perhaps — and it is nothing of the kind; the definition is the whole tail of the clue.",
+    "definitionFit": "material made from skin → LEATHER: animal hide tanned into something durable, the everyday name for skin turned into a workable fabric."
+   }
   },
   {
    "id": "3-down",
@@ -64,7 +133,27 @@ window.CRYPTIC_PUZZLES["quiptic-1367"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ALLOW",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "ALLOW",
+    "definition": "Permit",
+    "indicators": [
+     "shown in"
+    ],
+    "indicatorNotes": {
+     "shown in": "Something shown in a place is already sitting there, so the letters are read straight out of the words that follow."
+    },
+    "blocks": [
+     {
+      "clueFragment": "general lowdown",
+      "gives": "ALLOW",
+      "note": "the letters sit consecutively across the join between the two words, in the order given"
+     }
+    ],
+    "surface": "A permit turning up in the general gossip.",
+    "walkthrough": "'Lowdown' is the informal word for inside information, which keeps the surface sounding like an office briefing rather than a letter hunt.",
+    "definitionFit": "Permit → ALLOW: the verb for letting something happen, matching 'permit' used as a verb rather than the noun for a licence."
+   }
   },
   {
    "id": "4-down",
@@ -81,7 +170,41 @@ window.CRYPTIC_PUZZLES["quiptic-1367"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCOURGE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "SCOURGE",
+    "definition": "cause of great trouble",
+    "linkWords": [
+     "is"
+    ],
+    "indicators": [
+     "almost",
+     "on"
+    ],
+    "indicatorNotes": {
+     "almost": "Almost means falling just short of the whole, so the word gives up its final letter.",
+     "on": "In a down clue one thing sitting on another is written above it, so this piece comes first."
+    },
+    "pieces": [
+     "SCO",
+     "URGE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Celt almost",
+      "gives": "SCO",
+      "note": "a Scot is a Celt, and SCOT written almost to the end stops a letter short"
+     },
+     {
+      "clueFragment": "impulse",
+      "gives": "URGE",
+      "note": "a sudden impulse to do something is the urge to do it"
+     }
+    ],
+    "surface": "A Scotsman acting on the spur of the moment and causing havoc.",
+    "walkthrough": "'Celt' names a whole family of peoples and a Scot is only one of them, which is a definition by example and quite fair.",
+    "definitionFit": "cause of great trouble → SCOURGE: the word for something that afflicts a whole population, a plague or a pest rather than a minor nuisance."
+   }
   },
   {
    "id": "5-across",
@@ -98,7 +221,31 @@ window.CRYPTIC_PUZZLES["quiptic-1367"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCRAWLS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SCRAWLS",
+    "definition": "illegible pieces of handwriting",
+    "indicators": [],
+    "pieces": [
+     "S",
+     "CRAWLS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Son",
+      "gives": "S",
+      "note": "s is the standard abbreviation for son, the one used on a family tree"
+     },
+     {
+      "clueFragment": "slowly moves",
+      "gives": "CRAWLS",
+      "note": "traffic that moves slowly crawls"
+     }
+    ],
+    "surface": "A boy shifting a pile of unreadable papers at a snail's pace.",
+    "walkthrough": "'S' for son is one of the family abbreviations crosswords lean on constantly, alongside 'w' for wife and 'd' for daughter.",
+    "definitionFit": "illegible pieces of handwriting → SCRAWLS: the plural noun for hasty scribbles, writing done too fast for anyone to read."
+   }
   },
   {
    "id": "6-down",
@@ -115,7 +262,39 @@ window.CRYPTIC_PUZZLES["quiptic-1367"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CREAMS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "CREAMS",
+    "definition": "ointments",
+    "linkWords": [
+     "for"
+    ],
+    "indicators": [
+     "principally"
+    ],
+    "indicatorNotes": {
+     "principally": "Principally means first and foremost, so the leading letter of the word beside it is the one taken."
+    },
+    "pieces": [
+     "CREAM",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Best",
+      "gives": "CREAM",
+      "note": "the cream of something is its best part, as in the cream of the crop"
+     },
+     {
+      "clueFragment": "shop",
+      "gives": "S",
+      "note": "the first letter of Shop"
+     }
+    ],
+    "surface": "The best shop to visit if ointment is mainly what you want.",
+    "walkthrough": "'Best' looks like a superlative adjective opening a definition, and it is a noun instead — the cream of the crop.",
+    "definitionFit": "ointments → CREAMS: the tubes of medicated preparation rubbed into the skin, the everyday word for such salves."
+   }
   },
   {
    "id": "7-down",
@@ -132,7 +311,33 @@ window.CRYPTIC_PUZZLES["quiptic-1367"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ARGENTINA",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ARGENTINA",
+    "definition": "Spanish-speaking country",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "varying"
+    ],
+    "indicatorNotes": {
+     "varying": "Something varying keeps changing, so the letters beside it do not hold the order they were given in."
+    },
+    "anagram": {
+     "fodder": "RENT AGAIN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Rent again",
+      "gives": "RENTAGAIN",
+      "note": "the nine letters that get reordered"
+     }
+    ],
+    "surface": "Rents going up and down again in a country where Spanish is spoken.",
+    "walkthrough": "Plenty of countries speak Spanish, so the definition can only point at one of them; the enumeration and the letters settle which.",
+    "definitionFit": "Spanish-speaking country → ARGENTINA: one instance of many such countries, the South American republic whose national language is Spanish."
+   }
   },
   {
    "id": "8-down",
@@ -149,7 +354,37 @@ window.CRYPTIC_PUZZLES["quiptic-1367"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LIMITED",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "LIMITED",
+    "definition": "of a narrow nature",
+    "indicators": [
+     "about"
+    ],
+    "indicatorNotes": {
+     "about": "To be about a thing is to be round it, so the word in front wraps itself over the letters named next."
+    },
+    "pieces": [
+     "LI",
+     "MIT",
+     "ED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Was dishonest",
+      "gives": "LIED",
+      "note": "somebody who was dishonest lied"
+     },
+     {
+      "clueFragment": "US college",
+      "gives": "MIT",
+      "note": "MIT is the Massachusetts Institute of Technology"
+     }
+    ],
+    "surface": "Telling lies about an American university, in a small-minded sort of way.",
+    "walkthrough": "MIT is the Massachusetts Institute of Technology, the American college crosswords reach for whenever three letters are needed.",
+    "definitionFit": "of a narrow nature → LIMITED: restricted in scope and kept within bounds, the adjective for an outlook or a supply that does not stretch far."
+   }
   },
   {
    "id": "9-down",
@@ -170,7 +405,30 @@ window.CRYPTIC_PUZZLES["quiptic-1367"] = /*JSON-START*/ {
     ]
    },
    "solution": "BOUNDARYFENCE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "BOUNDARY FENCE",
+    "definition": "Barrier between properties",
+    "indicators": [
+     "needs rebuilding"
+    ],
+    "indicatorNotes": {
+     "needs rebuilding": "A thing that needs rebuilding has to go up again out of the very same parts, put together in a different arrangement."
+    },
+    "anagram": {
+     "fodder": "BEYOND FURNACE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "beyond furnace",
+      "gives": "BEYONDFURNACE",
+      "note": "the thirteen letters that get reordered"
+     }
+    ],
+    "surface": "The wall just past the boiler is falling down and has to be put up again.",
+    "walkthrough": "'Needs rebuilding' does double duty: in the surface a real structure is coming apart, and in the wordplay it is the letters that must be reassembled.",
+    "definitionFit": "Barrier between properties → BOUNDARY FENCE: the fence standing on the line that divides one plot of land from the next."
+   }
   },
   {
    "id": "10-across",
@@ -187,7 +445,31 @@ window.CRYPTIC_PUZZLES["quiptic-1367"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FAIL",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "FAIL",
+    "definition": "Lack success",
+    "indicators": [],
+    "pieces": [
+     "F",
+     "AIL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "following",
+      "gives": "F",
+      "note": "f. is the abbreviation for 'following' used in page references"
+     },
+     {
+      "clueFragment": "trouble",
+      "gives": "AIL",
+      "note": "to trouble somebody is to ail them, as in 'what ails you?'"
+     }
+    ],
+    "surface": "Coming to grief in the wake of some trouble.",
+    "walkthrough": "'Following' looks like a positional instruction telling you where the next piece goes, and it is a letter of the answer in its own right.",
+    "definitionFit": "Lack success → FAIL: the ordinary verb for coming up short of what was attempted, not the narrower school sense of a failed exam."
+   }
   },
   {
    "id": "11-across",
@@ -209,7 +491,52 @@ window.CRYPTIC_PUZZLES["quiptic-1367"] = /*JSON-START*/ {
     ]
    },
    "solution": "ONONESGAME",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "ON ONE'S GAME",
+    "definition": "playing well",
+    "linkWords": [
+     "with",
+     "and"
+    ],
+    "indicators": [
+     "lately"
+    ],
+    "indicatorNotes": {
+     "lately": "Lately points at the latter end of things, so the closing letter of the word before it is the one taken."
+    },
+    "pieces": [
+     "ON",
+     "ONE",
+     "S",
+     "GAME"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cricket side",
+      "gives": "ON",
+      "note": "in cricket the on side, or leg side, is the half of the field behind the batter's legs"
+     },
+     {
+      "clueFragment": "individual",
+      "gives": "ONE",
+      "note": "an individual is a single one"
+     },
+     {
+      "clueFragment": "batters",
+      "gives": "S",
+      "note": "the last letter of batterS"
+     },
+     {
+      "clueFragment": "plucky",
+      "gives": "GAME",
+      "note": "somebody game for anything is plucky"
+     }
+    ],
+    "surface": "A cricket team whose batters have lately been brave and in good form.",
+    "walkthrough": "Cricket fills the surface and only its first two words are cricketing wordplay; 'batters' is there for its final letter alone.",
+    "definitionFit": "playing well → ON ONE'S GAME: the sporting idiom for somebody performing at their best, in the form they are capable of."
+   }
   },
   {
    "id": "12-across",
@@ -226,7 +553,30 @@ window.CRYPTIC_PUZZLES["quiptic-1367"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SHOWER",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "SHOWER",
+    "definition": "Group not up to much",
+    "definition2": "brief fall of rain",
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Group not up to much",
+      "gives": "",
+      "note": "British slang, out of forces use, for a collection of useless people"
+     },
+     {
+      "clueFragment": "brief fall of rain",
+      "gives": "",
+      "note": "read straight: a short burst of wet weather that soon passes over"
+     }
+    ],
+    "surface": "A useless crowd caught out in a quick downpour.",
+    "walkthrough": "'What a shower!' is the British insult behind the first half, a hopeless rabble, and the weather filling the rest of the clue keeps it out of sight.",
+    "definitionFit": "Group not up to much → SHOWER: British slang for a hopeless rabble; brief fall of rain → SHOWER, the short burst of wet weather."
+   }
   },
   {
    "id": "13-across",
@@ -243,7 +593,39 @@ window.CRYPTIC_PUZZLES["quiptic-1367"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NOMINATE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "NOMINATE",
+    "definition": "Put forward",
+    "indicators": [
+     "possibly"
+    ],
+    "indicatorNotes": {
+     "possibly": "Possibly says the letters beside it could come out in any arrangement, not only the one printed."
+    },
+    "pieces": [
+     "NO",
+     "MINATE"
+    ],
+    "anagram": {
+     "fodder": "NO IN TEAM"
+    },
+    "blocks": [
+     {
+      "clueFragment": "number",
+      "gives": "NO",
+      "note": "no. is the standard short form for number"
+     },
+     {
+      "clueFragment": "in team",
+      "gives": "MINATE",
+      "note": "the six letters of IN TEAM put in a new order"
+     }
+    ],
+    "surface": "Suggesting a squad number for somebody who might make the team.",
+    "walkthrough": "'Number in team' reads as the digit on a shirt, and 'possibly' is carrying an instruction rather than hedging about who gets picked.",
+    "definitionFit": "Put forward → NOMINATE: to propose a person's name for a post or a prize, the formal verb for putting a candidate up."
+   }
   },
   {
    "id": "14-across",
@@ -260,7 +642,33 @@ window.CRYPTIC_PUZZLES["quiptic-1367"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BRIDLEWAY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "BRIDLEWAY",
+    "definition": "track for riders",
+    "linkWords": [
+     "to get"
+    ],
+    "indicators": [
+     "formulated"
+    ],
+    "indicatorNotes": {
+     "formulated": "A formula is drawn up by setting its parts out in a chosen order, so the letters beside it are arranged anew."
+    },
+    "anagram": {
+     "fodder": "BID LAWYER"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Bid lawyer",
+      "gives": "BIDLAWYER",
+      "note": "the nine letters that get reordered"
+     }
+    ],
+    "surface": "An offer drawn up by a solicitor that ends up producing a horse trail.",
+    "walkthrough": "'Bid lawyer' sits together in the surface as an offer somebody drafted, and 'formulated' looks like the rest of that phrase while it is really the instruction.",
+    "definitionFit": "track for riders → BRIDLEWAY: a British public right of way that horse riders may legally use, named from the bridle they ride with."
+   }
   },
   {
    "id": "15-down",
@@ -277,7 +685,40 @@ window.CRYPTIC_PUZZLES["quiptic-1367"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DESIRABLE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + middle letters",
+    "answer": "DESIRABLE",
+    "definition": "Attractive",
+    "linkWords": [
+     "with"
+    ],
+    "indicators": [
+     "baked",
+     "essentially"
+    ],
+    "indicatorNotes": {
+     "baked": "Dough goes into the oven one shape and comes out another, so the letters beside it are reshaped too.",
+     "essentially": "The essence of a word sits at its centre, so the middle letters are the ones wanted."
+    },
+    "anagram": {
+     "fodder": "BREAD IS LE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "bread is",
+      "gives": "BREADIS",
+      "note": "seven of the nine letters that get reordered"
+     },
+     {
+      "clueFragment": "glee",
+      "gives": "LE",
+      "note": "the two middle letters of gLEe"
+     }
+    ],
+    "surface": "Tempting bread, baked with real joy at the heart of it.",
+    "walkthrough": "'Baked' belongs to the bread in the surface and to the letters in the wordplay, doing both jobs in the one word.",
+    "definitionFit": "Attractive → DESIRABLE: worth wanting, the adjective an estate agent reaches for about a house people would like to own."
+   }
   },
   {
    "id": "16-across",
@@ -294,7 +735,36 @@ window.CRYPTIC_PUZZLES["quiptic-1367"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WINDY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "WINDY",
+    "definition": "affected by gusts?",
+    "indicators": [
+     "avoiding"
+    ],
+    "indicatorNotes": {
+     "avoiding": "To avoid something is to keep clear of it, so the letter named is left out of the word in front."
+    },
+    "pieces": [
+     "WIN",
+     "DY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Secure",
+      "gives": "WIN",
+      "note": "to secure a prize is to win it"
+     },
+     {
+      "clueFragment": "day avoiding area",
+      "gives": "DY",
+      "note": "area is A, and DAY with that letter kept out leaves D…Y"
+     }
+    ],
+    "surface": "Getting hold of a safe day out, keeping clear of the region the gales are hitting.",
+    "walkthrough": "'Area' is A in crossword shorthand, out of maps and mathematics, and here it is a letter to take away rather than one to add.",
+    "definitionFit": "affected by gusts? → WINDY: exposed to strong blowing wind, the adjective for a day or a hillside the wind keeps hitting."
+   }
   },
   {
    "id": "17-across",
@@ -311,7 +781,27 @@ window.CRYPTIC_PUZZLES["quiptic-1367"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STASH",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "STASH",
+    "definition": "Secret consignment",
+    "indicators": [
+     "put in"
+    ],
+    "indicatorNotes": {
+     "put in": "Something put in a place ends up inside it, so the letters are sitting inside the words that follow."
+    },
+    "blocks": [
+     {
+      "clueFragment": "chest as highlighted",
+      "gives": "STASH",
+      "note": "the letters run consecutively from inside the first word across the two after it"
+     }
+    ],
+    "surface": "A smuggled parcel packed into a chest, exactly as the marking showed.",
+    "walkthrough": "'Secret' describes the consignment in the surface and describes what the wordplay has done with the letters, the one adjective covering both.",
+    "definitionFit": "Secret consignment → STASH: a quantity of something hidden away, the word for a hoard of drugs or loot kept out of sight."
+   }
   },
   {
    "id": "18-down",
@@ -328,7 +818,45 @@ window.CRYPTIC_PUZZLES["quiptic-1367"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TRAVAIL",
-   "annotation": null
+   "annotation": {
+    "type": "container + first letter",
+    "answer": "TRAVAIL",
+    "definition": "ordeal",
+    "indicators": [
+     "first sign of",
+     "in"
+    ],
+    "indicatorNotes": {
+     "first sign of": "The first sign of something is the earliest hint of it, so only the opening letter of the word is taken.",
+     "in": "Whatever is in something else sits inside it, so these letters are planted in the middle of the word beside them."
+    },
+    "pieces": [
+     "TR",
+     "A",
+     "V",
+     "AIL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nature walk",
+      "gives": "TRAIL",
+      "note": "a marked nature walk through a wood is a trail"
+     },
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "the letter A, lifted straight off the front of the clue"
+     },
+     {
+      "clueFragment": "visitor",
+      "gives": "V",
+      "note": "the first letter of Visitor"
+     }
+    ],
+    "surface": "Spotting the season's first visitor on a nature walk turns into a slog.",
+    "walkthrough": "'A' is usually just the article holding a surface upright, and here it is a letter of the answer in its own right.",
+    "definitionFit": "ordeal → TRAVAIL: painful and laborious effort, the older word for toil hard enough to count as suffering."
+   }
   },
   {
    "id": "19-across",
@@ -349,7 +877,30 @@ window.CRYPTIC_PUZZLES["quiptic-1367"] = /*JSON-START*/ {
     ]
    },
    "solution": "BYDEFAULT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "BY DEFAULT",
+    "definition": "through lack of positive action?",
+    "indicators": [
+     "misguided"
+    ],
+    "indicatorNotes": {
+     "misguided": "Somebody misguided has been led the wrong way, and letters led the wrong way come out in the wrong order."
+    },
+    "anagram": {
+     "fodder": "DUB A LEFTY"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Dub a lefty",
+      "gives": "DUBALEFTY",
+      "note": "the nine letters that get reordered"
+     }
+    ],
+    "surface": "Writing off a left-winger as thoroughly misguided.",
+    "walkthrough": "'Dub' is the verb for giving somebody a name, which is what makes the surface read as name-calling rather than as nine letters to reorder.",
+    "definitionFit": "through lack of positive action? → BY DEFAULT: describing what comes about simply because nobody did anything to prevent it."
+   }
   },
   {
    "id": "20-down",
@@ -366,7 +917,39 @@ window.CRYPTIC_PUZZLES["quiptic-1367"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ENVELOP",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + charade",
+    "answer": "ENVELOP",
+    "definition": "Cover",
+    "indicators": [
+     "stewed"
+    ],
+    "indicatorNotes": {
+     "stewed": "Long stewing breaks a thing down until its pieces sit in the pot every which way, and the letters beside it change places the same way."
+    },
+    "pieces": [
+     "ENVE",
+     "LOP"
+    ],
+    "anagram": {
+     "fodder": "EVEN LOP"
+    },
+    "blocks": [
+     {
+      "clueFragment": "even",
+      "gives": "ENVE",
+      "note": "the four letters of EVEN put in a new order"
+     },
+     {
+      "clueFragment": "prune",
+      "gives": "LOP",
+      "note": "to prune a branch is to lop it off"
+     }
+    ],
+    "surface": "Putting a lid on a dish of stewed prunes.",
+    "walkthrough": "'Prune' is a gardener's verb here, not the dried fruit that the stewing beside it points at.",
+    "definitionFit": "Cover → ENVELOP: to wrap something up completely, the verb behind the envelope that closes right round a letter."
+   }
   },
   {
    "id": "21-down",
@@ -383,7 +966,37 @@ window.CRYPTIC_PUZZLES["quiptic-1367"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LOUNGER",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "LOUNGER",
+    "definition": "comfortable chair",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "A thing put in another sits inside it, so this letter goes into the middle of the word beside it."
+    },
+    "pieces": [
+     "LO",
+     "U",
+     "NGER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "more extensive",
+      "gives": "LONGER",
+      "note": "something more extensive in space or in time is longer"
+     },
+     {
+      "clueFragment": "Turn",
+      "gives": "U",
+      "note": "a U-turn is the turn you make to double back, so a turn is U"
+     }
+    ],
+    "surface": "Swivelling round in a bigger, comfier armchair.",
+    "walkthrough": "'Turn in' opens as one phrase — going to bed, or handing something over — and its two words are doing quite different jobs.",
+    "definitionFit": "comfortable chair → LOUNGER: the long padded chair you stretch out on beside a pool, named for the lounging done in it."
+   }
   },
   {
    "id": "22-down",
@@ -400,7 +1013,39 @@ window.CRYPTIC_PUZZLES["quiptic-1367"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RATTLE",
-   "annotation": null
+   "annotation": {
+    "type": "container + outer letters",
+    "answer": "RATTLE",
+    "definition": "Unnerve",
+    "indicators": [
+     "describing",
+     "case for"
+    ],
+    "indicatorNotes": {
+     "describing": "To describe a circle is to draw one round something, so the word in front goes around the letters named next.",
+     "case for": "A case is the shell a thing sits in, so the outside letters of the word are what is wanted."
+    },
+    "pieces": [
+     "RAT",
+     "TL",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "judge",
+      "gives": "RATE",
+      "note": "to judge a performance is to rate it"
+     },
+     {
+      "clueFragment": "trial",
+      "gives": "TL",
+      "note": "the first and last letters of TriaL"
+     }
+    ],
+    "surface": "A judge outlining the case that is about to come to trial.",
+    "walkthrough": "The surface is all courtroom, and the only legal word doing wordplay is 'judge'; 'trial' is in the clue for its outside letters.",
+    "definitionFit": "Unnerve → RATTLE: to shake somebody's composure until they lose their nerve, the verb for putting a person off their stride."
+   }
   },
   {
    "id": "23-across",
@@ -417,7 +1062,33 @@ window.CRYPTIC_PUZZLES["quiptic-1367"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MARRIAGE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "MARRIAGE",
+    "definition": "union",
+    "linkWords": [
+     "for"
+    ],
+    "indicators": [
+     "sadly"
+    ],
+    "indicatorNotes": {
+     "sadly": "Sadly says things have gone badly for the words beside it, and letters things have gone badly for do not keep their order."
+    },
+    "anagram": {
+     "fodder": "A GRIM ERA"
+    },
+    "blocks": [
+     {
+      "clueFragment": "A grim era",
+      "gives": "AGRIMERA",
+      "note": "the eight letters that get reordered"
+     }
+    ],
+    "surface": "Looking back sadly on a bleak stretch of history.",
+    "walkthrough": "'Union' pulls towards trade unions in a clue this gloomy, and the older sense — two people joined — is the one wanted.",
+    "definitionFit": "union → MARRIAGE: the joining of two people in law, 'union' as a formal bond rather than a workers' organisation."
+   }
   },
   {
    "id": "24-across",
@@ -434,7 +1105,35 @@ window.CRYPTIC_PUZZLES["quiptic-1367"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "VAPOUR",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "VAPOUR",
+    "definition": "Mist",
+    "linkWords": [
+     "in",
+     "and"
+    ],
+    "indicators": [],
+    "pieces": [
+     "VA",
+     "POUR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Virginia",
+      "gives": "VA",
+      "note": "VA is the postal abbreviation for the state of Virginia"
+     },
+     {
+      "clueFragment": "rain",
+      "gives": "POUR",
+      "note": "when it rains hard it pours"
+     }
+    ],
+    "surface": "Fog hanging over Virginia, followed by heavy rain.",
+    "walkthrough": "'Rain' is a verb here, which is why it can sit at the end of the clue and still be wordplay rather than a second definition.",
+    "definitionFit": "Mist → VAPOUR: water hanging in the air as a fine cloud, 'mist' in its physical, steam-like sense."
+   }
   },
   {
    "id": "25-down",
@@ -451,7 +1150,45 @@ window.CRYPTIC_PUZZLES["quiptic-1367"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PANIC",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PANIC",
+    "definition": "alarm",
+    "linkWords": [
+     "produces"
+    ],
+    "indicators": [
+     "leading"
+    ],
+    "indicatorNotes": {
+     "leading": "Whatever leads goes at the front of the line, so this piece is written before the rest."
+    },
+    "pieces": [
+     "PA",
+     "N",
+     "IC"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old man",
+      "gives": "PA",
+      "note": "pa is the familiar word for a father"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "n is the standard abbreviation for name"
+     },
+     {
+      "clueFragment": "in charge",
+      "gives": "IC",
+      "note": "i/c is the services' short form for the person in charge"
+     }
+    ],
+    "surface": "Dad taking charge and causing a scare.",
+    "walkthrough": "Three short conventions stack up in a row — a father, a name and a rank — and the smooth surface hides every join.",
+    "definitionFit": "alarm → PANIC: sudden fright that takes hold and spreads, 'alarm' at its most uncontrolled rather than a mild worry."
+   }
   },
   {
    "id": "26-across",
@@ -468,7 +1205,48 @@ window.CRYPTIC_PUZZLES["quiptic-1367"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SABBATICAL",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "SABBATICAL",
+    "definition": "period of leave",
+    "linkWords": [
+     "has"
+    ],
+    "indicators": [
+     "at work"
+    ],
+    "indicatorNotes": {
+     "at work": "Letters described as at work are busy doing something, and what they are busy doing here is taking up new places."
+    },
+    "pieces": [
+     "S",
+     "AB",
+     "BATICAL"
+    ],
+    "anagram": {
+     "fodder": "S AB A BALTIC"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Southern",
+      "gives": "S",
+      "note": "s is the standard abbreviation for southern"
+     },
+     {
+      "clueFragment": "sailor",
+      "gives": "AB",
+      "note": "an AB is an able seaman, the Royal Navy rating crosswords use for any sailor"
+     },
+     {
+      "clueFragment": "one in Baltic",
+      "gives": "BATICAL",
+      "note": "one is A, and the letters of A BALTIC come out in a new order"
+     }
+    ],
+    "surface": "A southern seaman working somewhere in the Baltic earns himself some time off.",
+    "walkthrough": "The surface is entirely nautical and 'Baltic' is the one sea word in it contributing letters rather than meaning.",
+    "definitionFit": "period of leave → SABBATICAL: the stretch of paid leave a university grants a scholar, originally one year in every seven."
+   }
   },
   {
    "id": "27-across",
@@ -485,7 +1263,30 @@ window.CRYPTIC_PUZZLES["quiptic-1367"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NAGS",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "NAGS",
+    "definition": "Badgers",
+    "definition2": "horses in poor condition",
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Badgers",
+      "gives": "",
+      "note": "the verb: keeps on at somebody until they give in"
+     },
+     {
+      "clueFragment": "horses in poor condition",
+      "gives": "",
+      "note": "read straight: worn-out old animals fit for very little"
+     }
+    ],
+    "surface": "Badgers alongside a few broken-down horses.",
+    "walkthrough": "'Badgers' reads as the striped animals, matching the horses beside it, and it is the verb — to badger somebody is to keep on at them.",
+    "definitionFit": "Badgers → NAGS: pesters somebody over and over; and horses in poor condition → NAGS, the dismissive word for tired old horses."
+   }
   },
   {
    "id": "28-across",
@@ -502,7 +1303,30 @@ window.CRYPTIC_PUZZLES["quiptic-1367"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SLEEPER",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "SLEEPER",
+    "definition": "One covertly placed",
+    "definition2": "overnight train",
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One covertly placed",
+      "gives": "",
+      "note": "an agent planted inside an organisation and left dormant for years"
+     },
+     {
+      "clueFragment": "overnight train",
+      "gives": "",
+      "note": "the night service with berths, where you book a bunk rather than a seat"
+     }
+    ],
+    "surface": "A spy quietly slipped aboard the night train.",
+    "walkthrough": "Both senses come out of lying dormant: one waits years for orders, the other carries passengers who are asleep.",
+    "definitionFit": "One covertly placed → SLEEPER: an agent planted long in advance and left inactive; overnight train → SLEEPER, the service with berths for the night."
+   }
   },
   {
    "id": "29-across",
@@ -519,7 +1343,37 @@ window.CRYPTIC_PUZZLES["quiptic-1367"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SPECTRE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SPECTRE",
+    "definition": "ghostly figure",
+    "indicators": [],
+    "pieces": [
+     "SP",
+     "ECT",
+     "RE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Special",
+      "gives": "SP",
+      "note": "sp is the standard short form for special"
+     },
+     {
+      "clueFragment": "form of therapy",
+      "gives": "ECT",
+      "note": "ECT is electroconvulsive therapy, the shock treatment"
+     },
+     {
+      "clueFragment": "to do with",
+      "gives": "RE",
+      "note": "re means concerning, as at the head of a memo"
+     }
+    ],
+    "surface": "A specialised course of treatment for somebody who keeps seeing an apparition.",
+    "walkthrough": "'Special' looks like an adjective describing the therapy, and it is a piece of the answer on its own; the clue holds back its definition until the last two words.",
+    "definitionFit": "ghostly figure → SPECTRE: an apparition, the literary word for a ghost seen as a shape rather than felt as a presence."
+   }
   }
  ]
 } /*JSON-END*/;
