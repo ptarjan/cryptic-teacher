@@ -30,7 +30,24 @@ window.CRYPTIC_PUZZLES["quiptic-1372"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SHAVER",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "SHAVER",
+    "definition": "What leaves one exhibiting bare-faced cheek?",
+    "blocks": [
+     {
+      "clueFragment": "What leaves one exhibiting",
+      "note": "The surface asks what would give a person the nerve to behave like that, so 'leaves' reads as causes and 'one' as a human being."
+     },
+     {
+      "clueFragment": "bare-faced cheek",
+      "note": "The idiom for brazen impudence has been pulled back into its literal parts: a face with nothing growing on it, and the side of that face."
+     }
+    ],
+    "surface": "What on earth would give somebody the nerve to be quite that brazen?",
+    "walkthrough": "There are no letters to find here. A shaver is a razor — the sense kept alive by 'electric shaver' — and what a razor leaves behind is a cheek with no stubble on it.",
+    "definitionFit": "A shaver is a razor, and the thing a razor leaves is a smooth face, so the whole clue is a description of what one does."
+   }
   },
   {
    "id": "1-down",
@@ -47,7 +64,40 @@ window.CRYPTIC_PUZZLES["quiptic-1372"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STATURE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "STATURE",
+    "definition": "Eminence",
+    "linkWords": [
+     "of"
+    ],
+    "indicators": [
+     "possessed by"
+    ],
+    "indicatorNotes": {
+     "possessed by": "What one thing possesses is held within it, so the letter belonging to the queen sits inside her owner."
+    },
+    "pieces": [
+     "STATU",
+     "R",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Venus de Milo?",
+      "gives": "STATUE",
+      "note": "The Venus de Milo is a famous marble statue, and the question mark admits that it is only one example of one"
+     },
+     {
+      "clueFragment": "Queen",
+      "gives": "R",
+      "note": "R is for Regina, the Latin a British queen signs after her name"
+     }
+    ],
+    "surface": "The armless marble goddess is credited with a queen's grandeur.",
+    "walkthrough": "R for Regina is worth owning outright: it follows the monarch's signature, and it is all any clue ever wants from a queen. The surface offers a whole goddess to distract from one letter.",
+    "definitionFit": "Eminence → STATURE: both name the standing a person has come to hold in others' eyes, not physical height."
+   }
   },
   {
    "id": "2-down",
@@ -64,7 +114,37 @@ window.CRYPTIC_PUZZLES["quiptic-1372"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ABETS",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "ABETS",
+    "definition": "Helps offender",
+    "indicators": [
+     "being impaled with"
+    ],
+    "indicatorNotes": {
+     "being impaled with": "Impaling drives something through the middle of a thing, so the word is split open and the piercing letters lodge inside."
+    },
+    "pieces": [
+     "A",
+     "BET",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "since",
+      "gives": "AS",
+      "note": "'Since' and 'as' both mean because, so one swaps straight in for the other"
+     },
+     {
+      "clueFragment": "stake",
+      "gives": "BET",
+      "note": "A stake is money laid on an outcome, which is a bet"
+     }
+    ],
+    "surface": "A criminal is being helped after somebody ran a wooden post through him.",
+    "walkthrough": "The stake is money on a wager rather than a vampire-hunter's post, and 'since' is the causal one you could replace with 'as'. Both words have quietly changed sense between surface and wordplay.",
+    "definitionFit": "Helps offender → ABETS: to abet is not merely to help but to help somebody do wrong, which is why the definition carries the criminal with it."
+   }
   },
   {
    "id": "3-down",
@@ -81,7 +161,43 @@ window.CRYPTIC_PUZZLES["quiptic-1372"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ELEVATE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "ELEVATE",
+    "definition": "Raise",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "Putting the tax 'in' the shelter means exactly that: those three letters go bodily inside, splitting the host word apart."
+    },
+    "pieces": [
+     "E",
+     "LE",
+     "VAT",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the standard abbreviation for European"
+     },
+     {
+      "clueFragment": "shelter",
+      "gives": "LEE",
+      "note": "The lee of anything is its sheltered side, the one the wind does not reach"
+     },
+     {
+      "clueFragment": "tax",
+      "gives": "VAT",
+      "note": "VAT is value added tax, the sales tax charged in Britain"
+     }
+    ],
+    "surface": "Taxes are being put up inside some European refuge.",
+    "walkthrough": "'Raise' sits at the front of a down clue, which is exactly where a reversal instruction usually goes, and here it is the definition instead. The shelter is the nautical kind.",
+    "definitionFit": "Raise → ELEVATE: both mean to lift a thing to a higher position or rank, one plain and one Latin-rooted."
+   }
   },
   {
    "id": "4-across",
@@ -98,7 +214,38 @@ window.CRYPTIC_PUZZLES["quiptic-1372"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GAFFES",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "GAFFES",
+    "definition": "Blunders",
+    "linkWords": [
+     "made by"
+    ],
+    "indicators": [
+     "away"
+    ],
+    "indicatorNotes": {
+     "away": "What has gone away is no longer there, so the letter named beside it never makes it into the word."
+    },
+    "pieces": [
+     "GAFFES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bosses",
+      "gives": "GAFFERS",
+      "note": "A gaffer is a boss in British working slang — the foreman on a site, or the chief electrician on a film crew"
+     },
+     {
+      "clueFragment": "run",
+      "gives": "R",
+      "note": "R is the cricket scorebook's abbreviation for a run, and it is the letter that goes"
+     }
+    ],
+    "surface": "The bosses have fled, and their mistakes are all that is left of them.",
+    "walkthrough": "'Having run away' does double duty: it paints the bosses making a getaway and it issues an instruction. Cricket's R is one of the letters a British setter can drop in unannounced.",
+    "definitionFit": "Blunders → GAFFES: a gaffe is the social sort of blunder, the remark everybody hears and politely ignores."
+   }
   },
   {
    "id": "5-down",
@@ -115,7 +262,42 @@ window.CRYPTIC_PUZZLES["quiptic-1372"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ADDRESS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "ADDRESS",
+    "definition": "Speak to",
+    "indicators": [
+     "about"
+    ],
+    "indicatorNotes": {
+     "about": "'About' asks for one piece to be wrapped round another, though the wrapping here is all on one side: the daughter lands at the front edge."
+    },
+    "pieces": [
+     "A",
+     "D",
+     "DRESS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "The clue's own 'a' is taken as a single letter"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the genealogist's abbreviation for daughter"
+     },
+     {
+      "clueFragment": "groom",
+      "gives": "DRESS",
+      "note": "To groom is to dress or smarten up, so the verb swaps for its synonym"
+     }
+    ],
+    "surface": "Somebody is having a quiet word with a groom on the subject of his daughter.",
+    "walkthrough": "'Groom' is the verb, to dress or smarten, and not the man at the wedding or the one in the stable — both of whom the surface is happy for you to picture instead.",
+    "definitionFit": "Speak to → ADDRESS: to address someone is to direct words straight at them, the verb of addressing a meeting."
+   }
   },
   {
    "id": "6-down",
@@ -149,7 +331,38 @@ window.CRYPTIC_PUZZLES["quiptic-1372"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SECRETE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters",
+    "answer": "SECRETE",
+    "definition": "Hide",
+    "indicators": [
+     "case of",
+     "on"
+    ],
+    "indicatorNotes": {
+     "case of": "A case is what encloses a thing, so the word gives up its casing — the outside letters — and nothing from within.",
+     "on": "In a down clue, one piece sitting on another rests on top of it, which fixes these letters above the island rather than beside it."
+    },
+    "pieces": [
+     "SE",
+     "CRETE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "case of sleaze",
+      "gives": "SE",
+      "note": "SLEAZE keeps only its shell, the first letter and the last"
+     },
+     {
+      "clueFragment": "Mediterranean island",
+      "gives": "CRETE",
+      "note": "Crete is the largest of the Greek islands, well out in the eastern Mediterranean"
+     }
+    ],
+    "surface": "A dossier of scandal is being buried somewhere on a Greek island.",
+    "walkthrough": "'On' carries real information in a down clue: the piece before it goes above the piece after it, and that is the order the letters take. Across, the same word would only mean 'next to'.",
+    "definitionFit": "Hide → SECRETE: the verb behind 'secret', meaning to stow something away where it will not be found, rather than the glandular sense."
+   }
   },
   {
    "id": "8-down",
@@ -166,7 +379,37 @@ window.CRYPTIC_PUZZLES["quiptic-1372"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MATTER",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "MATTER",
+    "definition": "affair",
+    "indicators": [
+     "embraces"
+    ],
+    "indicatorNotes": {
+     "embraces": "To embrace is to close your arms round something, so the mother's word shuts over the letter and holds it inside."
+    },
+    "pieces": [
+     "MA",
+     "T",
+     "TER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mother",
+      "gives": "MATER",
+      "note": "Mater is Latin for mother, the word British public schools kept in circulation"
+     },
+     {
+      "clueFragment": "tense",
+      "gives": "T",
+      "note": "T is the grammarian's abbreviation for tense"
+     }
+    ],
+    "surface": "A mother wraps her arms around a fraught love affair.",
+    "walkthrough": "'Tense' is grammar rather than nerves, and MATER is a crossword regular worth learning — Latin for mother, and the reason so many clues about mothers are really about three or five letters.",
+    "definitionFit": "affair → MATTER: an affair in the sense of a business or concern, as in 'a serious matter', not the romantic sense the surface offers."
+   }
   },
   {
    "id": "9-across",
@@ -189,7 +432,24 @@ window.CRYPTIC_PUZZLES["quiptic-1372"] = /*JSON-START*/ {
     ]
    },
    "solution": "GAMESETANDMATCH",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "GAME, SET AND MATCH",
+    "definition": "Summing-up after court battle",
+    "blocks": [
+     {
+      "clueFragment": "Summing-up",
+      "note": "In the surface this is counsel's closing address to the jury, the speech that gathers a whole trial together."
+     },
+     {
+      "clueFragment": "after court battle",
+      "note": "The court the setter has in mind has a net across the middle of it, and the battle is a contest between two players."
+     }
+    ],
+    "surface": "A barrister's closing address at the end of a long and bitter trial.",
+    "walkthrough": "Nothing here comes apart into letters. 'Game, set and match' is the umpire's formula, called when the last point of a tennis match has been taken, and 'court' is the only word that has to switch meaning.",
+    "definitionFit": "The umpire's call totals up a completed tennis match, so the phrase really is a summing-up delivered after a battle fought on a court."
+   }
   },
   {
    "id": "10-across",
@@ -206,7 +466,28 @@ window.CRYPTIC_PUZZLES["quiptic-1372"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RUSSIA",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "RUSSIA",
+    "definition": "Country",
+    "indicators": [
+     "reportedly"
+    ],
+    "indicatorNotes": {
+     "reportedly": "Something reported has been said out loud, so the clue is handing you a sound and leaving the spelling to you."
+    },
+    "blocks": [
+     {
+      "clueFragment": "one that moves swiftly",
+      "soundsLike": "RUSHER",
+      "gives": "RUSSIA",
+      "note": "Somebody who rushes is a rusher, and spoken aloud that is what you write in the grid"
+     }
+    ],
+    "surface": "A nation gets a mention in the same breath as somebody in a tearing hurry.",
+    "walkthrough": "The match works in a non-rhotic British accent, where the final -er of 'rusher' flattens to the same unstressed vowel that ends RUSSIA. Homophone clues in these papers are calibrated to that accent.",
+    "definitionFit": "Country → RUSSIA: the plainest relation there is, a category naming one of its members, which is why the whole difficulty of the clue sits in the sound."
+   }
   },
   {
    "id": "11-across",
@@ -227,7 +508,27 @@ window.CRYPTIC_PUZZLES["quiptic-1372"] = /*JSON-START*/ {
     ]
    },
    "solution": "THEASHES",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "THE ASHES",
+    "definition": "trophy",
+    "indicators": [
+     "secures"
+    ],
+    "indicatorNotes": {
+     "secures": "To secure is to hold something fast, and what these two names are holding fast is a run of consecutive letters."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Seethe as Hesketh",
+      "gives": "THEASHES",
+      "note": "The letters run consecutively through these three words, starting three letters into the first"
+     }
+    ],
+    "surface": "Hesketh wins a cup while somebody else quietly boils with rage.",
+    "walkthrough": "The Ashes is the tiny urn England and Australia have played Test cricket for since an 1882 newspaper printed a mock obituary of English cricket. Hesketh is there only to supply letters.",
+    "definitionFit": "trophy → the urn two national cricket teams compete for, so the definition names the class and the answer supplies one very famous member."
+   }
   },
   {
    "id": "12-across",
@@ -244,7 +545,42 @@ window.CRYPTIC_PUZZLES["quiptic-1372"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REAPPEAR",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "REAPPEAR",
+    "definition": "To be published again",
+    "indicators": [
+     "most of",
+     "amended"
+    ],
+    "indicatorNotes": {
+     "most of": "Most is not all, so the word hands over everything but its final letter.",
+     "amended": "To amend is to alter, and altering a set of letters means writing them down in a different order."
+    },
+    "anagram": {
+     "fodder": "PAPER ARE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "most of papers",
+      "gives": "PAPER",
+      "note": "PAPERS gives up its last letter, so five of its six letters go into the fodder"
+     },
+     {
+      "clueFragment": "are",
+      "gives": "ARE",
+      "note": "The word itself joins the fodder, three more letters taken as written"
+     },
+     {
+      "clueFragment": "amended",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "A newspaper's correction notice: most of the papers are being amended.",
+    "walkthrough": "'Papers are' reads as the subject of an ordinary sentence and is really a heap of eight letters. The only sign that they are fodder is 'amended' sitting immediately after them.",
+    "definitionFit": "To be published again → REAPPEAR: for a book or an issue, to appear is to come out in print, so appearing again is being published again."
+   }
   },
   {
    "id": "13-down",
@@ -261,7 +597,46 @@ window.CRYPTIC_PUZZLES["quiptic-1372"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "POISONOUS",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "POISONOUS",
+    "definition": "Toxic",
+    "indicators": [
+     "externally",
+     "pinches"
+    ],
+    "indicatorNotes": {
+     "externally": "'Externally' puts the devout word on the outside, wrapping the boy rather than being laid end to end with him.",
+     "pinches": "To pinch is to nick, and what the assembly nicks it keeps inside itself."
+    },
+    "pieces": [
+     "P",
+     "O",
+     "I",
+     "SON",
+     "OUS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "devout",
+      "gives": "PIOUS",
+      "note": "Pious means devout, and it is the word that goes round the outside"
+     },
+     {
+      "clueFragment": "boy",
+      "gives": "SON",
+      "note": "A boy of the family is a son, three letters dropped into the middle"
+     },
+     {
+      "clueFragment": "ring",
+      "gives": "O",
+      "note": "A ring is a circle, and O is the crossword's circle"
+     }
+    ],
+    "surface": "A wicked boy who looks holy from the outside has stolen some jewellery.",
+    "walkthrough": "'Toxic boy' reads as a single insult, and the two words belong to opposite halves of the clue: the first is the definition, the second is three letters of wordplay.",
+    "definitionFit": "Toxic → POISONOUS: the everyday word for something that will harm you if swallowed, where 'toxic' is its technical twin."
+   }
   },
   {
    "id": "14-across",
@@ -278,7 +653,39 @@ window.CRYPTIC_PUZZLES["quiptic-1372"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SWANEE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters",
+    "answer": "SWANEE",
+    "definition": "River",
+    "linkWords": [
+     "with"
+    ],
+    "indicators": [
+     "wings of"
+    ],
+    "indicatorNotes": {
+     "wings of": "Wings are what stick out at either side, so the word surrenders its first and last letters and nothing in between."
+    },
+    "pieces": [
+     "SWAN",
+     "EE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bird",
+      "gives": "SWAN",
+      "note": "The bird is a swan, taken whole with nothing done to it"
+     },
+     {
+      "clueFragment": "wings of eagle",
+      "gives": "EE",
+      "note": "EAGLE gives up the letter at each of its wingtips"
+     }
+    ],
+    "surface": "A river bird that has somehow borrowed an eagle's wings.",
+    "walkthrough": "The Swanee is the Florida river of Stephen Foster's 'Old Folks at Home', which spells it a syllable shorter than the map does — and that song spelling is the one crosswords use.",
+    "definitionFit": "River → SWANEE: a definition by example, the general word standing in for one particular waterway that happens to fit."
+   }
   },
   {
    "id": "15-across",
@@ -295,7 +702,35 @@ window.CRYPTIC_PUZZLES["quiptic-1372"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SPRING",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "SPRING",
+    "definition": "rise",
+    "indicators": [
+     "refusing"
+    ],
+    "indicatorNotes": {
+     "refusing": "To refuse a thing is to decline to take it, so the letter offered next is left out of the word."
+    },
+    "pieces": [
+     "SPRING"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Economical",
+      "gives": "SPARING",
+      "note": "Sparing means economical, careful with however much there is to use"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "The single letter A is what gets refused, lifted out of the middle"
+     }
+    ],
+    "surface": "Somebody thrifty is turning down the offer of a pay rise.",
+    "walkthrough": "'A rise' reads as one thing, the increase you ask your boss for, and the clue needs it in two: the A is what gets refused and the rise is the definition.",
+    "definitionFit": "rise → SPRING: to spring is to rise suddenly, the sense in 'spring to one's feet', and both are plain verbs in the same form."
+   }
   },
   {
    "id": "16-down",
@@ -312,7 +747,36 @@ window.CRYPTIC_PUZZLES["quiptic-1372"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PROFFER",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "PROFFER",
+    "definition": "Tender",
+    "indicators": [
+     "Not half"
+    ],
+    "indicatorNotes": {
+     "Not half": "Refusing half of a word leaves the other half standing, and here it is the front half that survives."
+    },
+    "pieces": [
+     "PROF",
+     "FER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "academic",
+      "gives": "PROF",
+      "note": "A prof is an academic, the everyday short form of professor"
+     },
+     {
+      "clueFragment": "intensely passionate",
+      "gives": "FER",
+      "note": "FERVID means intensely passionate, and three of its six letters survive the halving"
+     }
+    ],
+    "surface": "An academic is being asked just how deeply passionate they really are.",
+    "walkthrough": "'Tender' is the verb, to put something forward, and not the adjective about softness that the passionate surface points you at. Which half 'not half' keeps is the setter's choice.",
+    "definitionFit": "Tender → PROFFER: to tender is to hold something out for acceptance — a resignation, a bid — which is what proffering is."
+   }
   },
   {
    "id": "17-down",
@@ -329,7 +793,35 @@ window.CRYPTIC_PUZZLES["quiptic-1372"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GLUCOSE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "GLUCOSE",
+    "definition": "Compound",
+    "indicators": [
+     "astray"
+    ],
+    "indicatorNotes": {
+     "astray": "Anything that goes astray has wandered off the path it was set on, and these letters wander out of the order they were given in."
+    },
+    "anagram": {
+     "fodder": "CLUES GO"
+    },
+    "blocks": [
+     {
+      "clueFragment": "clues go",
+      "gives": "CLUESGO",
+      "note": "anagram fodder, seven letters"
+     },
+     {
+      "clueFragment": "astray",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "A puzzle in which the clues themselves have wandered off course.",
+    "walkthrough": "'Compound' looks like an instruction to put pieces together, which is what a charade would want from it, and it is the definition — the chemist's noun, not the verb.",
+    "definitionFit": "Compound → GLUCOSE: a compound is a substance made of more than one element, and this is sugar under its chemical name rather than its kitchen one."
+   }
   },
   {
    "id": "18-across",
@@ -346,7 +838,46 @@ window.CRYPTIC_PUZZLES["quiptic-1372"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "COALFACE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "COALFACE",
+    "definition": "Site of mining",
+    "linkWords": [
+     "with"
+    ],
+    "indicators": [],
+    "pieces": [
+     "CO",
+     "A",
+     "L",
+     "FACE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "company",
+      "gives": "CO",
+      "note": "Co is the abbreviation printed on a firm's letterhead"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "The clue's own 'a' is taken as a single letter"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the size label's abbreviation for large"
+     },
+     {
+      "clueFragment": "clock",
+      "gives": "FACE",
+      "note": "The face is the part of a clock you read, and in British slang a person's clock is their face"
+     }
+    ],
+    "surface": "A mining company's premises, complete with a big clock over the gate.",
+    "walkthrough": "Reading 'a large clock' as one object is what hides three separate pieces of wordplay inside it. The clue never signals a join, so the only way in is to try the words singly.",
+    "definitionFit": "Site of mining → COALFACE: the exposed seam a miner actually cuts at, which is why 'at the coalface' now means wherever the real work happens."
+   }
   },
   {
    "id": "18-down",
@@ -363,7 +894,28 @@ window.CRYPTIC_PUZZLES["quiptic-1372"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "COURSE",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "COURSE",
+    "definition": "race",
+    "indicators": [
+     "Announced"
+    ],
+    "indicatorNotes": {
+     "Announced": "Something announced has been said out loud, so what the clue describes is a sound and you choose which spelling of it fits."
+    },
+    "blocks": [
+     {
+      "clueFragment": "vulgar",
+      "soundsLike": "COARSE",
+      "gives": "COURSE",
+      "note": "Coarse means vulgar, and spoken aloud it is indistinguishable from the word the grid wants"
+     }
+    ],
+    "surface": "Someone has publicly called a race a crude affair.",
+    "walkthrough": "The two spellings are a perfect pair of homophones, which is why the clue needs only three words. 'Vulgar' is doing all the work and 'race' is the definition.",
+    "definitionFit": "race → COURSE: a course is a single run or chase, the sense kept alive in coursing, where each pursuit after a hare is one course."
+   }
   },
   {
    "id": "19-down",
@@ -380,7 +932,43 @@ window.CRYPTIC_PUZZLES["quiptic-1372"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ANTIQUE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "ANTIQUE",
+    "definition": "Ancient",
+    "indicators": [
+     "covering up"
+    ],
+    "indicatorNotes": {
+     "covering up": "Covering something up hides it under what lies over it, so the two letters that follow disappear inside the pair before them."
+    },
+    "pieces": [
+     "ANT",
+     "I",
+     "QU",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "social worker",
+      "gives": "ANT",
+      "note": "The crossword's worker is an ant, and ants are the social insects above all others"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is the Latin id est, which translates as 'that is'"
+     },
+     {
+      "clueFragment": "question",
+      "gives": "QU",
+      "note": "Qu. is the standard written abbreviation for question"
+     }
+    ],
+    "surface": "An elderly social worker is hushing up an awkward question.",
+    "walkthrough": "'Social worker' earns its ant twice over — the insect is a worker and it is social — and 'that is' is always the Latin i.e. Neither has anything to do with the caseworker the surface draws.",
+    "definitionFit": "Ancient → ANTIQUE: the adjective sense, belonging to the far past, which the noun for a collectable object tends to eclipse."
+   }
   },
   {
    "id": "20-down",
@@ -418,7 +1006,48 @@ window.CRYPTIC_PUZZLES["quiptic-1372"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HONOLULU",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "HONOLULU",
+    "definition": "capital",
+    "indicators": [
+     "nets"
+    ],
+    "indicatorNotes": {
+     "nets": "To net a thing is to catch it inside your net, so those letters end up trapped within the pieces already assembled."
+    },
+    "pieces": [
+     "H",
+     "ON",
+     "O",
+     "LULU"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hard",
+      "gives": "H",
+      "note": "H is the grade stamped on a hard pencil"
+     },
+     {
+      "clueFragment": "working",
+      "gives": "ON",
+      "note": "A machine that is working is on"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the standard abbreviation for old"
+     },
+     {
+      "clueFragment": "Scottish singer",
+      "gives": "LULU",
+      "note": "Lulu is the Glasgow-born singer of 'Shout' and 'Boom Bang-a-Bang', a household name in Britain since the 1960s"
+     }
+    ],
+    "surface": "A tough old Scottish singer is bringing in working capital.",
+    "walkthrough": "'Working capital' is the accountant's phrase the surface leans on, and the clue cuts it down the middle: the first word is wordplay and the second is the definition.",
+    "definitionFit": "capital → HONOLULU: the seat of government of a US state, Hawaii's, so the definition names the class and the answer supplies the city."
+   }
   },
   {
    "id": "22-across",
@@ -435,7 +1064,27 @@ window.CRYPTIC_PUZZLES["quiptic-1372"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TANDEM",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "TANDEM",
+    "definition": "Bicycle",
+    "indicators": [
+     "partly"
+    ],
+    "indicatorNotes": {
+     "partly": "'Partly' says you want only some of what is written, and the part wanted is an unbroken run of letters."
+    },
+    "blocks": [
+     {
+      "clueFragment": "stand emptied",
+      "gives": "TANDEM",
+      "note": "The six letters lie consecutively across the join between these two words"
+     }
+    ],
+    "surface": "A bike rack has been cleared out, or most of it has.",
+    "walkthrough": "'Emptied' is the trap. It looks like an instruction to hollow a word out, and it is fodder — one of the two words the letters run through — with 'partly' the only instruction here.",
+    "definitionFit": "Bicycle → TANDEM: a bicycle built for two, so the definition is the general word and the answer one particular kind of it."
+   }
   },
   {
    "id": "23-down",
@@ -474,7 +1123,49 @@ window.CRYPTIC_PUZZLES["quiptic-1372"] = /*JSON-START*/ {
     ]
    },
    "solution": "OFNOCONSEQUENCE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "OF NO CONSEQUENCE",
+    "definition": "Petty",
+    "indicators": [
+     "involving"
+    ],
+    "indicatorNotes": {
+     "involving": "To involve something is to wrap it up in what you are doing, so the letter it introduces is taken inside the word before it."
+    },
+    "pieces": [
+     "OF",
+     "NO",
+     "C",
+     "ON",
+     "SEQUENCE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "From",
+      "gives": "OF",
+      "note": "From and of both mark origin — made from oak, made of oak"
+     },
+     {
+      "clueFragment": "midday",
+      "gives": "NOON",
+      "note": "Midday is noon, four letters that are about to be split open"
+     },
+     {
+      "clueFragment": "Charlie",
+      "gives": "C",
+      "note": "Charlie is C in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "series",
+      "gives": "SEQUENCE",
+      "note": "A sequence is a series, one thing following another"
+     }
+    ],
+    "surface": "From noon onwards, a television series featuring somebody called Charlie Petty.",
+    "walkthrough": "'Charlie Petty' reads as a person's name, and the two words sit on opposite sides of the clue: Charlie is a single letter of wordplay, Petty the definition.",
+    "definitionFit": "Petty → OF NO CONSEQUENCE: calling a matter petty says it is trivial and not worth attention, which is what having no consequence amounts to."
+   }
   },
   {
    "id": "25-across",
@@ -491,7 +1182,25 @@ window.CRYPTIC_PUZZLES["quiptic-1372"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RASHER",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "RASHER",
+    "definition": "More reckless",
+    "definition2": "swine, to a tiny extent",
+    "blocks": [
+     {
+      "clueFragment": "More reckless",
+      "note": "The comparative of rash: one degree further into heedlessness than the last person."
+     },
+     {
+      "clueFragment": "swine, to a tiny extent",
+      "note": "A pig reduced to a single thin slice, the sort you lay in a frying pan."
+     }
+    ],
+    "surface": "A pig behaving rather more recklessly than it usually does.",
+    "walkthrough": "Both readings hang on the same -ER ending, and only one of them is grammar: the reckless sense really is 'more rash', while the breakfast sense is a plain noun that happens to end the same way.",
+    "definitionFit": "More reckless → the comparative of rash; swine to a tiny extent → a rasher, the thin slice of bacon that is about as little pig as you can have."
+   }
   },
   {
    "id": "26-across",
@@ -508,7 +1217,37 @@ window.CRYPTIC_PUZZLES["quiptic-1372"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BEDSIT",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "BEDSIT",
+    "definition": "living room?",
+    "indicators": [
+     "outside"
+    ],
+    "indicatorNotes": {
+     "outside": "Standing outside something means going round it, so the biting word opens up and the editor's letters go in."
+    },
+    "pieces": [
+     "B",
+     "EDS",
+     "IT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Took effect",
+      "gives": "BIT",
+      "note": "Bit is the past tense of bite, and a thing that bites has taken effect — the frost bit, the medicine bit"
+     },
+     {
+      "clueFragment": "editor’s",
+      "gives": "EDS",
+      "note": "Ed is the abbreviation for editor, and the possessive supplies the S"
+     }
+    ],
+    "surface": "Something began to bite just outside the editor's front room.",
+    "walkthrough": "'Living room' is the trap: a bedsit is a room lived in rather than the room a house calls its lounge, and the question mark is the setter conceding the stretch.",
+    "definitionFit": "living room? → BEDSIT: a single rented room that is bedroom and sitting room at once, so it is literally a room lived in."
+   }
   }
  ]
 } /*JSON-END*/;
