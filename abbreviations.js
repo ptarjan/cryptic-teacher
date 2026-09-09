@@ -62,6 +62,13 @@ const ABBREVIATIONS = {
   "before noon",
   "morning"
  ],
+ "ANS": [
+  "answer"
+ ],
+ "AR": [
+  "arabian",
+  "arabic"
+ ],
  "ARE": [
   "area"
  ],
@@ -118,6 +125,7 @@ const ABBREVIATIONS = {
   "carbon",
   "catholic",
   "caught",
+  "celsius",
   "century",
   "chapter",
   "charlie",
@@ -150,6 +158,7 @@ const ABBREVIATIONS = {
  ],
  "CH": [
   "central heating",
+  "chain",
   "check",
   "child",
   "children",
@@ -157,9 +166,13 @@ const ABBREVIATIONS = {
   "church",
   "companion of honour"
  ],
+ "CI": [
+  "channel islands"
+ ],
  "CO": [
   "colombia",
   "commanding officer",
+  "commanding officers",
   "company",
   "firm"
  ],
@@ -198,6 +211,10 @@ const ABBREVIATIONS = {
   "capital",
   "direct current"
  ],
+ "DEG": [
+  "degree",
+  "degrees"
+ ],
  "DEM": [
   "democrat"
  ],
@@ -226,6 +243,10 @@ const ABBREVIATIONS = {
  ],
  "EA": [
   "each"
+ ],
+ "ECT": [
+  "shock treatment",
+  "therapy"
  ],
  "ED": [
   "edited",
@@ -276,6 +297,7 @@ const ABBREVIATIONS = {
   "foxtrot",
   "franc",
   "france",
+  "french",
   "function",
   "loud"
  ],
@@ -360,6 +382,9 @@ const ABBREVIATIONS = {
   "hour",
   "human resources"
  ],
+ "HS": [
+  "high school"
+ ],
  "I": [
   "current",
   "independence",
@@ -376,6 +401,10 @@ const ABBREVIATIONS = {
  ],
  "IC": [
   "in charge"
+ ],
+ "ID": [
+  "identification",
+  "identity"
  ],
  "IE": [
   "that is"
@@ -443,6 +472,7 @@ const ABBREVIATIONS = {
   "learner",
   "lecturer",
   "left",
+  "length",
   "liberal",
   "lima",
   "line",
@@ -529,6 +559,9 @@ const ABBREVIATIONS = {
  "MIN": [
   "minute"
  ],
+ "MIT": [
+  "us college"
+ ],
  "MO": [
   "doctor",
   "modus operandi",
@@ -569,13 +602,15 @@ const ABBREVIATIONS = {
  ],
  "NA": [
   "north american",
-  "not applicable"
+  "not applicable",
+  "not available"
  ],
  "NB": [
   "note",
   "note well"
  ],
  "NE": [
+  "neon",
   "north eastern",
   "northeast"
  ],
@@ -624,6 +659,9 @@ const ABBREVIATIONS = {
  ],
  "OE": [
   "old english"
+ ],
+ "OJ": [
+  "orange juice"
  ],
  "OK": [
   "all right",
@@ -681,6 +719,7 @@ const ABBREVIATIONS = {
   "dad",
   "father",
   "per annum",
+  "personal assistant",
   "public address"
  ],
  "PC": [
@@ -729,6 +768,7 @@ const ABBREVIATIONS = {
   "postscript"
  ],
  "PT": [
+  "part",
   "physical training",
   "pint",
   "point",
@@ -791,6 +831,7 @@ const ABBREVIATIONS = {
   "republican"
  ],
  "RES": [
+  "reservation",
   "reserve",
   "resolution"
  ],
@@ -815,6 +856,7 @@ const ABBREVIATIONS = {
  "S": [
   "sabbath",
   "saint",
+  "saints",
   "satisfactory",
   "second",
   "seconds",
@@ -919,8 +961,15 @@ const ABBREVIATIONS = {
  "TE": [
   "note"
  ],
+ "TEL": [
+  "telephone"
+ ],
  "TER": [
   "territory"
+ ],
+ "TR": [
+  "translated",
+  "translator"
  ],
  "TT": [
   "dry",
@@ -939,6 +988,7 @@ const ABBREVIATIONS = {
   "acceptable",
   "turn",
   "uniform",
+  "union",
   "unionist",
   "united",
   "universal",
@@ -949,6 +999,9 @@ const ABBREVIATIONS = {
  "UN": [
   "one",
   "peacekeepers"
+ ],
+ "UNI": [
+  "university"
  ],
  "UP": [
   "in court",
@@ -973,6 +1026,9 @@ const ABBREVIATIONS = {
   "volt",
   "volts",
   "volume"
+ ],
+ "VA": [
+  "virginia"
  ],
  "VI": [
   "six"

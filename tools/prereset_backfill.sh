@@ -904,6 +904,10 @@ python3 tools/validate_annotations.py --tighten ||
 # pages and the ?v= stamps have to move together, and the smoke test is the last
 # word on whether the app still boots against what we just wrote.
 python3 tools/fetch_puzzle.py --reindex
+# The glossary is generated too, and annotating is what adds to it: leaving it
+# out meant a wave that learned a new abbreviation committed a tree whose
+# abbreviations.js no longer matched its own JSON.
+python3 tools/build_abbreviations.py
 python3 tools/build_seo_pages.py
 python3 tools/stamp_assets.py
 if command -v node >/dev/null 2>&1; then
