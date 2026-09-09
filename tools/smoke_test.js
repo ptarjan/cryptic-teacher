@@ -2623,6 +2623,20 @@ registry["reset-puzzle"].onclick();
   assert(global.navigator.clipboard.text === code,
     "Copy puts exactly the shown code on the clipboard");
 
+  // Taking a code has to work on a device that ALREADY has one: two devices that
+  // each turned sync on separately can only be joined by one of them adopting the
+  // other's code, and that is the device holding the phone at the QR. Asserted
+  // against the markup, because getElementById() in the stub invents any id it is
+  // asked for and would answer happily for a field nobody can reach.
+  const syncOffBlock = fs.readFileSync(path.join(ROOT, "index.html"), "utf8")
+    .split('<div id="sync-off">')[1].split("</div>")[0];
+  assert(!syncOffBlock.includes('id="sync-join-code"'),
+    "the join field lives outside the sync-off block, so sync being on cannot hide it");
+  registry["sync-join-code"].value = "ABCD2345";
+  registry["sync-join"].onclick();
+  assert(JSON.parse(storage["ct:sync"]) === "ABCD2345",
+    "a device that is already syncing can adopt another device's code");
+
   // Seeded rather than relied on: the reset test just above deliberately clears
   // this puzzle's save, and what is being asserted is that *stopping sync* does
   // not delete grids, not what some earlier test left lying around.
