@@ -918,11 +918,11 @@ window.CRYPTIC_PUZZLES["cryptic-29971"] = /*JSON-START*/ {
     "definitionFit": "The Tartars were the Mongol horsemen of the Golden Horde, so a horde in the old spelling is exactly what the definition asks for.",
     "indicators": [
      "left",
-     "head"
+     "skinhead’s"
     ],
     "indicatorNotes": {
      "left": "In an across entry, letters sent to the left are read in the opposite direction to the way the answer is written.",
-     "head": "The head of a word is the letter at its front, so only the first of these four is taken."
+     "skinhead’s": "One word doing two jobs: 'head' asks for the letter at the front, and 'skin' is the word it asks it of, so the pair yield S."
     },
     "pieces": [
      "TAR",
