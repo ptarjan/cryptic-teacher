@@ -30,7 +30,48 @@ window.CRYPTIC_PUZZLES["indysunday-1875"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UNREFORMED",
-   "annotation": null
+   "annotation": {
+    "type": "charade + alternate letters",
+    "answer": "UNREFORMED",
+    "definition": "remaining the same",
+    "indicators": [
+     "oddly"
+    ],
+    "indicatorNotes": {
+     "oddly": "the odd numbers are one, three and five, so the letters standing in those places are the ones taken"
+    },
+    "pieces": [
+     "U",
+     "NRE",
+     "FOR",
+     "MED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "University",
+      "gives": "U",
+      "note": "U is the standard abbreviation for university"
+     },
+     {
+      "clueFragment": "nurses",
+      "gives": "NRE",
+      "note": "the first, third and fifth letters of the word"
+     },
+     {
+      "clueFragment": "in favour of",
+      "gives": "FOR",
+      "note": "to be for something is to be in favour of it"
+     },
+     {
+      "clueFragment": "master's degree",
+      "gives": "MED",
+      "note": "MEd is a Master of Education, a taught master's degree"
+     }
+    ],
+    "surface": "A university looking after the odd student through a master's degree.",
+    "walkthrough": "'Nurses' looks like the verb the surface needs, a university caring for someone, and it is there to be sliced into alternate letters. MEd is a genuine postgraduate qualification.",
+    "definitionFit": "Something unreformed has had no change made to it, so it stays exactly as it always was."
+   }
   },
   {
    "id": "2-down",
@@ -47,7 +88,34 @@ window.CRYPTIC_PUZZLES["indysunday-1875"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STITCHER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "STITCHER",
+    "definition": "Sewer",
+    "linkWords": [
+     "in",
+     "'s"
+    ],
+    "pieces": [
+     "ST",
+     "ITCHER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "street",
+      "gives": "ST",
+      "note": "ST is the standard abbreviation for street"
+     },
+     {
+      "clueFragment": "an irritating thing",
+      "gives": "ITCHER",
+      "note": "a thing that itches is an irritating one, and the word for it is built the ordinary way, from the verb"
+     }
+    ],
+    "surface": "A drain under the road being blamed for a nuisance.",
+    "walkthrough": "'Sewer' is the trap: it reads as the drain the street sits over and it means one who sews. The question mark owns up to 'itcher' being a word nobody says.",
+    "definitionFit": "A sewer is someone who sews, and both words are agent nouns for the person working the needle."
+   }
   },
   {
    "id": "3-down",
@@ -64,7 +132,35 @@ window.CRYPTIC_PUZZLES["indysunday-1875"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ASPIRE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "ASPIRE",
+    "definition": "hope",
+    "indicators": [
+     "Head lost",
+     "abandoned"
+    ],
+    "indicatorNotes": {
+     "Head lost": "the head of a word is the letter at its front, and losing it takes that letter off before anything else happens",
+     "abandoned": "abandoned behaviour is wild and unrestrained, so what it touches will not stay in the order it was handed over in"
+    },
+    "linkWords": [
+     "in"
+    ],
+    "anagram": {
+     "fodder": "ESPAIR"
+    },
+    "blocks": [
+     {
+      "clueFragment": "despair",
+      "gives": "ESPAIR",
+      "note": "the seven letters of the word without the D at the front"
+     }
+    ],
+    "surface": "Somebody so sunk in despair that they have given up altogether.",
+    "walkthrough": "The surface runs as one continuous state of mind, which lets 'abandoned' pass for part of the picture instead of the instruction to shuffle. The beheading comes first.",
+    "definitionFit": "To aspire is to hope for something and reach after it, so the verb matches 'hope' used as a verb."
+   }
   },
   {
    "id": "4-down",
@@ -81,7 +177,36 @@ window.CRYPTIC_PUZZLES["indysunday-1875"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GUNS",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "GUNS",
+    "definition": "Arsenal reserves",
+    "indicators": [
+     "up"
+    ],
+    "indicatorNotes": {
+     "up": "a down entry read from its foot back to its head runs upwards, which is the direction this word sends the letters"
+    },
+    "pieces": [
+     "GUNS"
+    ],
+    "subReversals": [
+     {
+      "from": "SNUG",
+      "to": "GUNS"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "warm",
+      "gives": "GUNS",
+      "note": "snug means warm and cosy, and those four letters are then read from the bottom of the column upwards"
+     }
+    ],
+    "surface": "Arsenal's second team having a warm-up before kick-off.",
+    "walkthrough": "Arsenal are nicknamed the Gunners, so club and armoury pull the same way and the football picture holds together while the wordplay quietly wants an adjective.",
+    "definitionFit": "An arsenal is a store of weapons, so the things it holds in reserve are guns."
+   }
   },
   {
    "id": "5-down",
@@ -98,7 +223,50 @@ window.CRYPTIC_PUZZLES["indysunday-1875"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SHROPSHIRE",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade + middle letter",
+    "answer": "SHROPSHIRE",
+    "definition": "County",
+    "indicators": [
+     "perhaps",
+     "centrally",
+     "within"
+    ],
+    "indicatorNotes": {
+     "perhaps": "'perhaps' marks a for-instance, so the word in front of it is only one example of what the wordplay really wants",
+     "centrally": "the centre of a word is the single letter with the same number of letters either side of it",
+     "within": "one thing within another sits inside it, so the letter goes into the middle of what follows"
+    },
+    "linkWords": [
+     "has"
+    ],
+    "pieces": [
+     "SH",
+     "R",
+     "OPS",
+     "HIRE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mall",
+      "gives": "SHOPS",
+      "note": "a mall is one kind of place where shops are gathered together, and the word opens up after its first two letters"
+     },
+     {
+      "clueFragment": "address",
+      "gives": "R",
+      "note": "the middle letter of the seven"
+     },
+     {
+      "clueFragment": "to let",
+      "gives": "HIRE",
+      "note": "a house to let is a house for hire"
+     }
+    ],
+    "surface": "An estate agent's advert for a place with a central address in a mall, up for rent.",
+    "walkthrough": "British counties are stock crossword scenery, and this one hides behind property jargon. 'Perhaps' is the quiet signal that a mall is only an example of the word actually wanted.",
+    "definitionFit": "Shropshire is an English county on the Welsh border, so the definition names the class it belongs to."
+   }
   },
   {
    "id": "6-down",
@@ -115,7 +283,37 @@ window.CRYPTIC_PUZZLES["indysunday-1875"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TENEMENT",
-   "annotation": null
+   "annotation": {
+    "type": "container + &lit",
+    "answer": "TENEMENT",
+    "definition": "People accommodated in principle here?",
+    "indicators": [
+     "accommodated in"
+    ],
+    "indicatorNotes": {
+     "accommodated in": "to accommodate someone is to house them inside, so one word is lodged in the middle of the other"
+    },
+    "pieces": [
+     "TENE",
+     "MEN",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "principle",
+      "gives": "TENET",
+      "note": "a tenet is a principle somebody holds to, and it splits after its fourth letter"
+     },
+     {
+      "clueFragment": "People",
+      "gives": "MEN",
+      "note": "men are people, and these are the three letters looking for lodgings"
+     }
+    ],
+    "surface": "A question about where, in theory, people are put up.",
+    "walkthrough": "Every word does two jobs at once: read straight the clue asks where people are housed, and read as instruction it houses one word inside another. 'In principle' means both 'in theory' and 'inside a tenet'.",
+    "definitionFit": "A tenement is a block of cheap flats, so the whole clue reads straight as a description of the place people are housed in."
+   }
   },
   {
    "id": "7-down",
@@ -132,7 +330,47 @@ window.CRYPTIC_PUZZLES["indysunday-1875"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PARDON",
-   "annotation": null
+   "annotation": {
+    "type": "charade + middle letter",
+    "answer": "PARDON",
+    "definition": "What",
+    "indicators": [
+     "is below",
+     "essentially"
+    ],
+    "indicatorNotes": {
+     "is below": "in a down entry whatever is below comes further down the column, so that piece is added at the end",
+     "essentially": "the essence of a word is the letter at its very centre, with the rest falling away either side"
+    },
+    "linkWords": [
+     "’s"
+    ],
+    "pieces": [
+     "PAR",
+     "D",
+     "ON"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "standard",
+      "gives": "PAR",
+      "note": "par is the standard score set for a hole of golf"
+     },
+     {
+      "clueFragment": "today",
+      "gives": "D",
+      "note": "the central letter of the five"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "the clue's own two letters, used exactly as they stand"
+     }
+    ],
+    "surface": "Tonight's television schedule being poorer than usual.",
+    "walkthrough": "'What's on' reads as one phrase about the evening's viewing, and the definition stops after the very first word — the request you make when you did not catch what someone said.",
+    "definitionFit": "'Pardon?' and 'What?' are the same one-word request to have something said again."
+   }
   },
   {
    "id": "8-down",
@@ -149,7 +387,23 @@ window.CRYPTIC_PUZZLES["indysunday-1875"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WERE",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "WERE",
+    "definition": "One is or used to be",
+    "blocks": [
+     {
+      "clueFragment": "One is",
+      "note": "the reading the surface pushes: a plain present-tense statement, which turns into 'we are' when the speaker counts themselves in and then contracts to four letters"
+     },
+     {
+      "clueFragment": "or used to be",
+      "note": "the reading meant: the past tense of the verb to be, the form that belongs with a plural subject"
+     }
+    ],
+    "walkthrough": "Both halves are the verb 'to be'. WERE is its past tense, and the contraction of 'we are' comes out as the same four letters once a grid drops the apostrophe it has no square for.",
+    "definitionFit": "WERE is the past tense of 'to be', and it is also how a grid must spell the contraction of 'we are' with the apostrophe gone."
+   }
   },
   {
    "id": "9-across",
@@ -171,7 +425,40 @@ window.CRYPTIC_PUZZLES["indysunday-1875"] = /*JSON-START*/ {
     ]
    },
    "solution": "NOTASMUCH",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "NOT AS MUCH",
+    "definition": "less",
+    "indicators": [
+     "wasted"
+    ],
+    "indicatorNotes": {
+     "wasted": "something wasted has been thrown about and spoiled, and letters thrown about come back in no particular order"
+    },
+    "anagram": {
+     "fodder": "S AMOUNT CH"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "gives": "S",
+      "note": "S is the standard abbreviation for small, as printed on a clothing label"
+     },
+     {
+      "clueFragment": "amount",
+      "gives": "AMOUNT",
+      "note": "the clue's own six letters, used as they stand"
+     },
+     {
+      "clueFragment": "order",
+      "gives": "CH",
+      "note": "CH is a Companion of Honour, a member of a British order founded in 1917 whose members put those letters after their name"
+     }
+    ],
+    "surface": "A little food going to waste, with a sharp instruction to order less next time.",
+    "walkthrough": "The dash hides where the wordplay stops and the definition starts, so the last two words look like one phrase when only the second is the meaning. CH for the honour is worth keeping.",
+    "definitionFit": "'Less' and 'not as much' both name a smaller quantity than before, and either will stand in for the other after a verb like 'eat'."
+   }
   },
   {
    "id": "10-across",
@@ -188,7 +475,44 @@ window.CRYPTIC_PUZZLES["indysunday-1875"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EVADE",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + charade + last letter",
+    "answer": "EVADE",
+    "definition": "Duck",
+    "indicators": [
+     "held back",
+     "final part of"
+    ],
+    "indicatorNotes": {
+     "held back": "an across entry read backwards runs right to left, and something held back travels the way it came",
+     "final part of": "the final part of a word is the last letter of it, so only that one is taken"
+    },
+    "pieces": [
+     "EVAD",
+     "E"
+    ],
+    "subReversals": [
+     {
+      "from": "DAVE",
+      "to": "EVAD"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "TV channel once",
+      "gives": "EVAD",
+      "note": "Dave is the British television channel of that name, since rebranded, and its four letters are then read right to left"
+     },
+     {
+      "clueFragment": "final part of Daphne",
+      "gives": "E",
+      "note": "the last letter of the name"
+     }
+    ],
+    "surface": "A defunct channel holding back the closing seconds of a cartoon.",
+    "walkthrough": "'Daphne Duck' reads as one character's name and the split runs straight between the two words: the duck is the definition, and it is the verb rather than the bird.",
+    "definitionFit": "To duck a question is to evade it, the verb sense of dodging something rather than the bird."
+   }
   },
   {
    "id": "11-across",
@@ -205,7 +529,35 @@ window.CRYPTIC_PUZZLES["indysunday-1875"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ENTRIES",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "ENTRIES",
+    "definition": "access points",
+    "indicators": [
+     "opening",
+     "exits"
+    ],
+    "indicatorNotes": {
+     "opening": "the opening of a word is the letter it begins with",
+     "exits": "something that exits leaves the place it was in, so that letter is gone from the front"
+    },
+    "linkWords": [
+     "and"
+    ],
+    "pieces": [
+     "ENTRIES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Guards",
+      "gives": "SENTRIES",
+      "note": "sentries are the guards posted to keep watch, and it is their first letter that walks off"
+     }
+    ],
+    "surface": "Guards unbolting the exits, and the ways in.",
+    "walkthrough": "'Opening exits' reads as a single action, guards unlocking a door, and it is really two instructions about one letter at the front of the longer word.",
+    "definitionFit": "An entry is the point at which you get into a building, so the plural names its access points."
+   }
   },
   {
    "id": "12-across",
@@ -222,7 +574,46 @@ window.CRYPTIC_PUZZLES["indysunday-1875"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OVERDUE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "OVERDUE",
+    "definition": "late",
+    "indicators": [
+     "out of",
+     "throughout"
+    ],
+    "indicatorNotes": {
+     "out of": "what is out of a word has been taken out of it, so that letter goes",
+     "throughout": "the removal runs throughout, applying to both of the words in front of it and not only the nearer one"
+    },
+    "linkWords": [
+     "and"
+    ],
+    "pieces": [
+     "OVER",
+     "DUE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Public",
+      "gives": "OVER",
+      "note": "overt means public and out in the open, and it gives up its last letter"
+     },
+     {
+      "clueFragment": "performance by couple",
+      "gives": "DUE",
+      "note": "a duet is a performance by two, and it gives up its last letter as well"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the standard abbreviation for time, and it is the letter each of those two words loses"
+     }
+    ],
+    "surface": "A couple performing in public, off the beat the whole way through and running late.",
+    "walkthrough": "Two separate words each drop a T, which is the job 'throughout' is quietly doing: it says the instruction covers both halves and not just the one beside it.",
+    "definitionFit": "Something overdue has gone past the moment it was due, which is what being late amounts to."
+   }
   },
   {
    "id": "13-across",
@@ -239,7 +630,39 @@ window.CRYPTIC_PUZZLES["indysunday-1875"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OCHRE",
-   "annotation": null
+   "annotation": {
+    "type": "container + first letters",
+    "answer": "OCHRE",
+    "definition": "Yellow",
+    "indicators": [
+     "containing",
+     "primarily"
+    ],
+    "indicatorNotes": {
+     "containing": "what a thing contains sits inside it, so the letters that follow are planted in the middle",
+     "primarily": "primary means first, so only the opening letter of each word named is taken"
+    },
+    "pieces": [
+     "O",
+     "CH",
+     "RE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "aggregate",
+      "gives": "ORE",
+      "note": "an ore is a naturally occurring mineral aggregate, and the word opens after its first letter"
+     },
+     {
+      "clueFragment": "clay and hematite",
+      "gives": "CH",
+      "note": "the opening letters of the two minerals named"
+     }
+    ],
+    "surface": "A yellowish gravel with clay and iron mixed through it.",
+    "walkthrough": "Every word belongs to geology, which is what hides the mechanism: 'aggregate' is a mineral mass rather than a total, and 'primarily' is not describing the main ingredient.",
+    "definitionFit": "Ochre is an earth pigment running from yellow to brown, and yellow ochre is the commonest form of it."
+   }
   },
   {
    "id": "14-across",
@@ -256,7 +679,33 @@ window.CRYPTIC_PUZZLES["indysunday-1875"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EASTERNER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "EASTERNER",
+    "definition": "One well ahead of our time",
+    "indicators": [
+     "new style of"
+    ],
+    "indicatorNotes": {
+     "new style of": "a new style is a fresh arrangement, so the words after it are set out in a different order"
+    },
+    "linkWords": [
+     "with"
+    ],
+    "anagram": {
+     "fodder": "SERENE ART"
+    },
+    "blocks": [
+     {
+      "clueFragment": "serene art",
+      "gives": "SERENEART",
+      "note": "anagram fodder, nine letters"
+     }
+    ],
+    "surface": "An artist ahead of their time, working in a calm new style.",
+    "walkthrough": "'Well ahead of our time' reads as praise for a visionary and it is about clocks instead: somebody living east of us reaches every hour before we do.",
+    "definitionFit": "An Easterner lives in a time zone east of ours, so their clock genuinely runs ahead of ours."
+   }
   },
   {
    "id": "14-down",
@@ -273,7 +722,50 @@ window.CRYPTIC_PUZZLES["indysunday-1875"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ELEVATIONS",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade + first letter + alternate letters",
+    "answer": "ELEVATIONS",
+    "definition": "Promotions",
+    "indicators": [
+     "at first",
+     "occasionally",
+     "admitted"
+    ],
+    "indicatorNotes": {
+     "at first": "at first means at the front, so only the opening letter of the word before it is taken",
+     "occasionally": "what happens occasionally happens every so often rather than every time, so alternate letters are picked out",
+     "admitted": "to be admitted is to be let in, so those letters go inside what has already been built"
+    },
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "EL",
+     "EV",
+     "ATION",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "delight",
+      "gives": "ELATION",
+      "note": "elation is delight, and the word opens up after its first two letters"
+     },
+     {
+      "clueFragment": "envy",
+      "gives": "EV",
+      "note": "the first and third letters, taken every other one"
+     },
+     {
+      "clueFragment": "some",
+      "gives": "S",
+      "note": "the opening letter of the word"
+     }
+    ],
+    "surface": "Word of promotions pleasing a few people at first, with some envy creeping in.",
+    "walkthrough": "'At first' and 'occasionally' both pass for ordinary comment on how the news went down, and each is really an instruction about which letters to pick out.",
+    "definitionFit": "An elevation is a raising to higher rank, so promotions at work are elevations in the plural."
+   }
   },
   {
    "id": "15-down",
@@ -290,7 +782,33 @@ window.CRYPTIC_PUZZLES["indysunday-1875"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REHEARSALS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "REHEARSALS",
+    "definition": "practice sessions",
+    "indicators": [
+     "injured"
+    ],
+    "indicatorNotes": {
+     "injured": "an injured player has been knocked out of shape, and letters knocked out of shape do not come back in the order they left"
+    },
+    "linkWords": [
+     "in"
+    ],
+    "anagram": {
+     "fodder": "AL SHEARERS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Al Shearer’s",
+      "gives": "ALSHEARERS",
+      "note": "anagram fodder, ten letters — the S of the possessive counts as one of them"
+     }
+    ],
+    "surface": "Alan Shearer picking up a knock in training.",
+    "walkthrough": "Alan Shearer is England's record Premier League goalscorer, shortened to Al here so the letters come out right, and the apostrophe-S is part of the fodder rather than a joining word.",
+    "definitionFit": "A rehearsal is a practice run of a performance, so the plural covers the sessions a cast puts in before opening night."
+   }
   },
   {
    "id": "16-across",
@@ -311,7 +829,38 @@ window.CRYPTIC_PUZZLES["indysunday-1875"] = /*JSON-START*/ {
     ]
    },
    "solution": "MARLENEDIETRICH",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "MARLENE DIETRICH",
+    "definition": "Old singer",
+    "indicators": [
+     "broadcast"
+    ],
+    "indicatorNotes": {
+     "broadcast": "to broadcast seed is to scatter it wide across a field, and scattered letters land in a new order"
+    },
+    "linkWords": [
+     "and"
+    ],
+    "anagram": {
+     "fodder": "HIT REAL MEN CRIED"
+    },
+    "blocks": [
+     {
+      "clueFragment": "hit",
+      "gives": "HIT",
+      "note": "the first three letters of the fodder"
+     },
+     {
+      "clueFragment": "real men cried",
+      "gives": "REALMENCRIED",
+      "note": "anagram fodder, twelve more letters"
+     }
+    ],
+    "surface": "A record that had grown men in tears when it was played on the radio.",
+    "walkthrough": "'Broadcast' can mean said out loud, which would point at a sound; here it is the farming sense, scattered. Fifteen letters is a lot to hold, so count the fodder against the enumeration first.",
+    "definitionFit": "Marlene Dietrich was the German-American film star and cabaret singer of the 1930s, so 'old' is placing her by era."
+   }
   },
   {
    "id": "17-down",
@@ -328,7 +877,42 @@ window.CRYPTIC_PUZZLES["indysunday-1875"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EVILNESS",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + charade",
+    "answer": "EVILNESS",
+    "definition": "Sinister force",
+    "indicators": [
+     "to the North"
+    ],
+    "indicatorNotes": {
+     "to the North": "north is up the page, and a down entry read upwards runs from its foot back to its head"
+    },
+    "pieces": [
+     "EVIL",
+     "NESS"
+    ],
+    "subReversals": [
+     {
+      "from": "LIVE",
+      "to": "EVIL"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "existing",
+      "gives": "EVIL",
+      "note": "something existing is live, and those four letters are then read from the bottom of the column upwards"
+     },
+     {
+      "clueFragment": "where the monster lurks",
+      "gives": "NESS",
+      "note": "Loch Ness in the Scottish Highlands, the lake its famous monster is supposed to live in"
+     }
+    ],
+    "surface": "A dark power up in the north, in the loch where the monster is.",
+    "walkthrough": "The monster gives itself away once you think of Loch Ness rather than a horror film, and 'existing' wants the adjective 'live' rather than any form of the verb.",
+    "definitionFit": "Evilness is wickedness regarded as a power at work in the world, which is what a sinister force means."
+   }
   },
   {
    "id": "18-down",
@@ -345,7 +929,33 @@ window.CRYPTIC_PUZZLES["indysunday-1875"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ISOTOPES",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ISOTOPES",
+    "definition": "Variations in chemical make-up",
+    "linkWords": [
+     "established by"
+    ],
+    "pieces": [
+     "ISO",
+     "TOPES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "organisation that standardises",
+      "gives": "ISO",
+      "note": "the International Organization for Standardization, whose initials head every standard it publishes"
+     },
+     {
+      "clueFragment": "drinks",
+      "gives": "TOPES",
+      "note": "to tope is to drink heavily, an old verb that survives mostly in crosswords"
+     }
+    ],
+    "surface": "A standards body for the drinks trade reporting on chemical variation.",
+    "walkthrough": "'Drinks' is a verb here, not the noun the surface offers, and the archaic word for it is the piece a solver has to be told once.",
+    "definitionFit": "Isotopes of an element differ only in their neutron count, so they are variations within one chemical make-up."
+   }
   },
   {
    "id": "19-across",
@@ -362,7 +972,41 @@ window.CRYPTIC_PUZZLES["indysunday-1875"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DISSIPATE",
-   "annotation": null
+   "annotation": {
+    "type": "spoonerism",
+    "answer": "DISSIPATE",
+    "definition": "Break up",
+    "indicators": [
+     "Spooner’s"
+    ],
+    "indicatorNotes": {
+     "Spooner’s": "the Reverend Spooner was famous for trading the opening sounds of two words, so his name alone is the instruction to swap them"
+    },
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "DISSI",
+     "PATE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tetchy",
+      "soundsLike": "PISSY",
+      "gives": "DISSI",
+      "note": "somebody tetchy is pissy, short-tempered and snappy, and this word hands its opening sound over to its neighbour"
+     },
+     {
+      "clueFragment": "American girlfriend",
+      "soundsLike": "DATE",
+      "gives": "PATE",
+      "note": "an American calls a girlfriend a date, and this word collects the sound the other one gave up"
+     }
+    ],
+    "surface": "Splitting up with a bad-tempered girlfriend from the States.",
+    "walkthrough": "Say the plain version aloud first, since a pissy date is exactly what the surface is offering, and trading the two opening sounds turns it into a word for scattering away to nothing.",
+    "definitionFit": "To dissipate is to break up and disperse — a crowd, a mist or a fortune all dissipate as they scatter."
+   }
   },
   {
    "id": "20-down",
@@ -379,7 +1023,32 @@ window.CRYPTIC_PUZZLES["indysunday-1875"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SIESTA",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion + &lit",
+    "answer": "SIESTA",
+    "definition": "It’s mostly easy relaxing",
+    "indicators": [
+     "mostly",
+     "relaxing"
+    ],
+    "indicatorNotes": {
+     "mostly": "most of a word is all of it bar the final letter, so that last one is dropped before anything else",
+     "relaxing": "letters that relax let go of the order they were handed over in and settle somewhere else"
+    },
+    "anagram": {
+     "fodder": "ITS EAS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "It’s mostly easy",
+      "gives": "ITSEAS",
+      "note": "the two words run together with the last letter of the second one dropped, giving six letters"
+     }
+    ],
+    "surface": "Somebody making the case that lounging about takes no effort at all.",
+    "walkthrough": "The whole clue is the definition and the whole clue is the wordplay: read once it describes an afternoon nap, read again it hands over six letters and tells you to shuffle them.",
+    "definitionFit": "A siesta is the afternoon sleep taken in hot countries, so easy relaxing is a fair description of what one is."
+   }
   },
   {
    "id": "21-across",
@@ -396,7 +1065,38 @@ window.CRYPTIC_PUZZLES["indysunday-1875"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FLORA",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "FLORA",
+    "definition": "plants",
+    "definitionNote": "Flora is a collective singular: it names all the plant life of a place at once and takes a singular verb, so the plural definition matches the sense rather than the grammar.",
+    "indicators": [
+     "boxes"
+    ],
+    "indicatorNotes": {
+     "boxes": "to box something is to shut it inside a box, so the letters that follow go within the ones before"
+    },
+    "pieces": [
+     "F",
+     "LO",
+     "RA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Italian brother",
+      "gives": "FRA",
+      "note": "fra is the Italian title for a friar, as in Fra Angelico, and the word opens after its first letter"
+     },
+     {
+      "clueFragment": "leftover",
+      "gives": "LO",
+      "note": "two abbreviations from one word: left is L, and over is O, the cricket scorer's mark for a set of six balls"
+     }
+    ],
+    "surface": "An Italian monk packing away the plants nobody wanted.",
+    "walkthrough": "'Leftover' reads as a single adjective and is really two separate abbreviations laid end to end. Fra Angelico is the painter who makes the Italian title familiar.",
+    "definitionFit": "The flora of a region is its plant life taken as a whole, so the definition names the members of what the answer collects."
+   }
   },
   {
    "id": "21-down",
@@ -413,7 +1113,33 @@ window.CRYPTIC_PUZZLES["indysunday-1875"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FORAGE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "FORAGE",
+    "definition": "Hunt",
+    "indicators": [
+     "changing"
+    ],
+    "indicatorNotes": {
+     "changing": "what changes does not stay as it was, and letters that do not stay as they were end up in another order"
+    },
+    "linkWords": [
+     "'s"
+    ],
+    "anagram": {
+     "fodder": "OF GEAR"
+    },
+    "blocks": [
+     {
+      "clueFragment": "of gear",
+      "gives": "OFGEAR",
+      "note": "anagram fodder, six letters"
+     }
+    ],
+    "surface": "Somebody called Hunt changing gear.",
+    "walkthrough": "'Hunt's' looks like a surname with a possessive on it, and it is 'hunt is' — the definition plus the little word that joins it to the wordplay.",
+    "definitionFit": "To forage is to hunt about for food or supplies, so the verb stands in for 'hunt' as a verb."
+   }
   },
   {
    "id": "22-across",
@@ -430,7 +1156,39 @@ window.CRYPTIC_PUZZLES["indysunday-1875"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHENNAI",
-   "annotation": null
+   "annotation": {
+    "type": "alternate letters + container",
+    "answer": "CHENNAI",
+    "definition": "Madras",
+    "indicators": [
+     "regularly taken",
+     "eating"
+    ],
+    "indicatorNotes": {
+     "regularly taken": "letters taken at regular intervals means every other one, counted from the start of the word",
+     "eating": "one thing eating another swallows it whole, so those letters end up inside"
+    },
+    "pieces": [
+     "C",
+     "HEN",
+     "NAI"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cannabis",
+      "gives": "CNAI",
+      "note": "the first, third, fifth and seventh letters of the word, which then opens up after the first of them"
+     },
+     {
+      "clueFragment": "chicken",
+      "gives": "HEN",
+      "note": "a hen is a chicken, and it is what gets swallowed"
+     }
+    ],
+    "surface": "Someone taking drugs regularly over a chicken Madras.",
+    "walkthrough": "The surface is one long curry-house evening and every word of it is an instruction. Chicken Madras is a British restaurant dish named after the city, which is what makes the definition look like food.",
+    "definitionFit": "Chennai is the Indian city that was called Madras until it was renamed in 1996, so the two names are one place."
+   }
   },
   {
    "id": "22-down",
@@ -447,7 +1205,33 @@ window.CRYPTIC_PUZZLES["indysunday-1875"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "COLD",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "COLD",
+    "definition": "stiff",
+    "linkWords": [
+     "and"
+    ],
+    "pieces": [
+     "C",
+     "OLD"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One hundred",
+      "gives": "C",
+      "note": "C is a hundred in Roman numerals"
+     },
+     {
+      "clueFragment": "worn-out",
+      "gives": "OLD",
+      "note": "something worn-out is old"
+     }
+    ],
+    "surface": "A hundred-year-old, worn out and stiff with it.",
+    "walkthrough": "'Stiff' is doing double work: the surface wants aching joints at a great age, and the definition wants the manner of somebody unfriendly and formal.",
+    "definitionFit": "A cold manner and a stiff manner are the same distant formality, the sense of the word that has nothing to do with temperature."
+   }
   },
   {
    "id": "23-across",
@@ -464,7 +1248,33 @@ window.CRYPTIC_PUZZLES["indysunday-1875"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CARGOES",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CARGOES",
+    "definition": "Loads",
+    "linkWords": [
+     "of"
+    ],
+    "pieces": [
+     "CAR",
+     "GOES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "‘brrm brrm’",
+      "gives": "CAR",
+      "note": "the engine noise a child makes, which names the thing making it"
+     },
+     {
+      "clueFragment": "when this happens",
+      "gives": "GOES",
+      "note": "the noise happens when the thing is running, so this supplies the verb that goes with it"
+     }
+    ],
+    "surface": "Plenty of engine noise whenever this occurs.",
+    "walkthrough": "'Loads of' reads as 'lots of' and is really the definition plus a joining word, so the mechanism starts at the noise. The question mark admits how childish that noise is.",
+    "definitionFit": "The cargoes of a ship or a lorry are the loads it carries, so the plural noun stands in for 'loads' exactly."
+   }
   },
   {
    "id": "23-down",
@@ -481,7 +1291,41 @@ window.CRYPTIC_PUZZLES["indysunday-1875"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CUBE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "CUBE",
+    "definition": "block",
+    "indicators": [
+     "on",
+     "missing half"
+    ],
+    "indicatorNotes": {
+     "on": "in a down entry one thing sits on another by being above it, so the first piece goes on top",
+     "missing half": "half of a four-letter word is two letters, and it is the back half that goes missing"
+    },
+    "linkWords": [
+     "of"
+    ],
+    "pieces": [
+     "CU",
+     "BE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Copper",
+      "gives": "CU",
+      "note": "Cu is the chemical symbol for copper, taken from the Latin cuprum"
+     },
+     {
+      "clueFragment": "beat",
+      "gives": "BE",
+      "note": "the front half of the word, with the AT taken off"
+     }
+    ],
+    "surface": "A policeman walking his beat, half a block short of the end.",
+    "walkthrough": "'Copper' is the policeman in the surface and the metal in the wordplay, and the beat he walks gets cut in half. The symbol comes from Latin, not English.",
+    "definitionFit": "A cube is a solid block with six equal square faces, so 'block' names it by its everyday shape."
+   }
   },
   {
    "id": "24-across",
@@ -498,7 +1342,39 @@ window.CRYPTIC_PUZZLES["indysunday-1875"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LOTUS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "LOTUS",
+    "definition": "prestigious car",
+    "indicators": [
+     "laid out by"
+    ],
+    "indicatorNotes": {
+     "laid out by": "things laid out by one another are set side by side, so the two pieces run end to end in that order"
+    },
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "LOT",
+     "US"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fortune",
+      "gives": "LOT",
+      "note": "a person's lot is the fortune that falls to them in life"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US is the standard abbreviation for American"
+     }
+    ],
+    "surface": "A fortune spent by an American on a smart car.",
+    "walkthrough": "'Fortune' is not money here but destiny, the lot that falls to you, and the surface leans on the money sense to keep it hidden.",
+    "definitionFit": "Lotus is the British maker of the Elise and the Esprit, so the definition names a marque by describing it."
+   }
   },
   {
    "id": "25-across",
@@ -520,7 +1396,37 @@ window.CRYPTIC_PUZZLES["indysunday-1875"] = /*JSON-START*/ {
     ]
    },
    "solution": "NOBIGDEAL",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + outer letters",
+    "answer": "NO BIG DEAL",
+    "definition": "Trifling",
+    "indicators": [
+     "extremely",
+     "funny"
+    ],
+    "indicatorNotes": {
+     "extremely": "the extremes of a word are its two end letters, so everything between them is left behind",
+     "funny": "a funny arrangement is an odd one, and letters put into an odd arrangement are no longer in the order they came"
+    },
+    "anagram": {
+     "fodder": "IG NOBEL AD"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Ig Nobel",
+      "gives": "IGNOBEL",
+      "note": "fodder as printed, seven letters"
+     },
+     {
+      "clueFragment": "award",
+      "gives": "AD",
+      "note": "the two extreme letters of the word, its A and its D"
+     }
+    ],
+    "surface": "A spoof science prize that turned out to be hilarious.",
+    "walkthrough": "The Ig Nobels are real — annual spoof prizes for research that makes you laugh and then think — which is why 'extremely funny' reads as ordinary praise for one.",
+    "definitionFit": "Something trifling is no big deal: both say the matter is too small to be worth minding."
+   }
   }
  ]
 } /*JSON-END*/;
