@@ -391,13 +391,22 @@ def puzzle_page(puz, meta, prev_p, next_p):
     # anonymous since 1945 — the attribution is already in the title, so drop it.
     by = "" if setter == what else f" by {setter}"
 
-    title = f"{paper} {what} Crossword No {pretty}{by} — answers explained"
-    desc = (f"Every clue in {paper} {lower} crossword No {pretty}{by}"
-            + (f", published {when}" if when else "")
-            + ", with the answer, the definition and how the wordplay works."
+    # Intent word early, identifier early, paper last. A result is chosen on the
+    # first few words of its title, and a searcher after "everyman 4117 answers"
+    # needs to see "answers" there, not after the paper's name and "Crossword No".
+    # The setter stays wherever there is one, because setter names get searched;
+    # that costs the characters "clue by clue" spends where there is no setter.
+    title = (f"{what} {pretty} answers explained — {paper},{by}" if by
+             else f"{what} {pretty} answers explained, clue by clue — {paper}")
+    # The snippet leads with the same promise for the same reason, and still says
+    # which of the two pages this is: explained clue by clue, or answers only.
+    desc = (f"Answers to every clue in {what} {pretty}{by}, each with its definition "
+            f"and how the wordplay works. {paper} {lower} crossword"
+            + (f", {when}." if when else ".")
             if annotated else
-            f"Answers to every clue in {paper} {lower} crossword No {pretty}{by}"
-            + (f", published {when}." if when else "."))
+            f"Answers to every clue in {what} {pretty}{by} — the full solution to the "
+            f"{paper} {lower} crossword"
+            + (f", {when}." if when else "."))
 
     crumbs = [("Cryptic Teacher", "/"), ("Puzzles", "/puzzles/"),
               (f"{what} No {pretty}", "")]
