@@ -50,9 +50,8 @@ run() {  # $1 = MODE ("" for a clean first run), $2 = a session the ledger holds
     "${2:+\"test-1\": {\"attempts\": 1, \"session\": \"$2\"}}" > "$ANNOTATE_ATTEMPTS_FILE"
   . tools/claude_session.sh
   local ANNOTATE_MODEL=opus ann_tools=Read ann_turns=80 num=test-1 run_log
-  local CLAUDE_CODE_MAX_OUTPUT_TOKENS=128000 ANNOTATE_RETRY_CEILING=200000
   local ann_sids="" ann_prior
-  local ann_task="Annotate." ann_sid ann_sess ann_ceiling ann_prompt ann_ok ann_retried
+  local ann_task="Annotate." ann_sid ann_sess ann_prompt ann_ok ann_retried
   run_log=$(mktemp)
   # session_exists must say yes, since the fake CLI writes no transcript.
   session_exists() { [ -n "${1:-}" ]; }
