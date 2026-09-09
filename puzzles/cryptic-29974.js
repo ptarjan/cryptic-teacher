@@ -35,7 +35,53 @@ window.CRYPTIC_PUZZLES["cryptic-29974"] = /*JSON-START*/ {
     ]
    },
    "solution": "DARESSALAAM",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + reversal + container",
+    "answer": "DAR ES SALAAM",
+    "definition": "city",
+    "definitionFit": "Dar es Salaam is Tanzania's largest city and its former capital, so the bare word names the answer by its class.",
+    "indicators": [
+     "turning over",
+     "when disturbed",
+     "in"
+    ],
+    "indicatorNotes": {
+     "turning over": "A sleeper turning over finishes the other way round, and so do the letters this phrase is applied to.",
+     "when disturbed": "Something disturbed has been knocked out of its settled arrangement, so these letters will not stay in the order they are given.",
+     "in": "Being in a thing means being surrounded by it, so the piece named first is planted among the shuffled letters."
+    },
+    "pieces": [
+     "DARE",
+     "SSALA",
+     "AM"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "ADREAM",
+      "gives": "DAREAM"
+     }
+    ],
+    "subReversals": [
+     {
+      "from": "ALASS",
+      "to": "SSALA"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a dream",
+      "gives": "DAREAM",
+      "note": "six letters resettled into a new order, then parted to make room"
+     },
+     {
+      "clueFragment": "A girl",
+      "gives": "SSALA",
+      "note": "a girl is A LASS, and these are its five letters set down the other way round"
+     }
+    ],
+    "surface": "A girl tossing and turning through a troubled dream somewhere in a city.",
+    "walkthrough": "'A girl' reads as the opening of the anagram fodder and is a separate five-letter piece; only 'a dream' gets shuffled. The answer is the Indian Ocean port that was Tanzania's capital."
+   }
   },
   {
    "id": "1-down",
@@ -56,7 +102,35 @@ window.CRYPTIC_PUZZLES["cryptic-29974"] = /*JSON-START*/ {
     ]
    },
    "solution": "DIPLOMATICCORPS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "DIPLOMATIC CORPS",
+    "definition": "group representing country",
+    "definitionFit": "The diplomatic corps is the whole body of ambassadors and their staff posted abroad to speak for their country.",
+    "indicators": [
+     "Awful"
+    ],
+    "indicatorNotes": {
+     "Awful": "Calling a thing awful says it has come out badly, and letters that have come out badly are letters no longer in order."
+    },
+    "anagram": {
+     "fodder": "MOD POLITICS CRAP"
+    },
+    "blocks": [
+     {
+      "clueFragment": "mod politics",
+      "gives": "MODPOLITICS",
+      "note": "eleven of the fifteen letters, taken exactly as they stand"
+     },
+     {
+      "clueFragment": "crap",
+      "gives": "CRAP",
+      "note": "the remaining four letters of the fodder"
+     }
+    ],
+    "surface": "Mod-scene politics at its worst, and a hopeless band being sent abroad to represent the nation.",
+    "walkthrough": "'Crap group' reads as one insult about a band, and its two words fall on opposite sides of the clue: one is fodder, the other opens the definition."
+   }
   },
   {
    "id": "2-down",
@@ -73,7 +147,42 @@ window.CRYPTIC_PUZZLES["cryptic-29974"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RASTA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "RASTA",
+    "definition": "adherent of African religion",
+    "definitionFit": "A Rasta follows Rastafari, the Afrocentric faith built around Ethiopia's emperor Haile Selassie, which is what the clue calls an African religion.",
+    "indicators": [
+     "upset"
+    ],
+    "indicatorNotes": {
+     "upset": "Upset means overturned, and an overturned answer running down the grid reads its letters from the bottom upwards."
+    },
+    "pieces": [
+     "RAST",
+     "A"
+    ],
+    "subReversals": [
+     {
+      "from": "TSAR",
+      "to": "RAST"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prominent Russian",
+      "gives": "RAST",
+      "note": "the tsar was Russia's emperor, his four letters read from the bottom up"
+     },
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "the clue's own opening letter, taken as it stands"
+     }
+    ],
+    "surface": "A well-known Russian upsetting a believer in some African faith.",
+    "walkthrough": "'Upset' reads as the surface's verb, the Russian annoying somebody, and it is an instruction instead. Tsars have been gone since 1917 but remain a setter's most dependable Russian."
+   }
   },
   {
    "id": "3-down",
@@ -94,7 +203,41 @@ window.CRYPTIC_PUZZLES["cryptic-29974"] = /*JSON-START*/ {
     ]
    },
    "solution": "SHOOTUP",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "SHOOT UP",
+    "definition": "to increase dramatically",
+    "definitionFit": "Prices or numbers that shoot up climb suddenly and steeply, which is increasing dramatically rather than merely rising.",
+    "indicators": [
+     "around"
+    ],
+    "indicatorNotes": {
+     "around": "To hold a thing around something is to wrap right round it, so the drink's letters open up and close over the piece named next."
+    },
+    "linkWords": [
+     "With",
+     "is"
+    ],
+    "pieces": [
+     "S",
+     "HOOT",
+     "UP"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drink",
+      "gives": "SUP",
+      "note": "to sup is to drink, and the word parts in the middle to make room"
+     },
+     {
+      "clueFragment": "sound",
+      "gives": "HOOT",
+      "note": "a hoot is the sound an owl or a car horn makes"
+     }
+    ],
+    "surface": "With drinks going round, the noise in the room climbs sharply.",
+    "walkthrough": "'Sound is' reads as one grammatical joint and it is where the clue splits: 'sound' ends the wordplay and 'is' is the setter's equals sign."
+   }
   },
   {
    "id": "4-down",
@@ -111,7 +254,49 @@ window.CRYPTIC_PUZZLES["cryptic-29974"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ARSENAL",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "ARSENAL",
+    "definition": "club",
+    "definitionFit": "Arsenal is a north London football club, so 'club' names the answer as one example of the species rather than defining it.",
+    "indicators": [
+     "may be set up"
+    ],
+    "indicatorNotes": {
+     "may be set up": "Something set up stands on end, and a down answer stood on end reads its letters from the bottom of the grid upwards."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "AR",
+     "SENAL"
+    ],
+    "subReversals": [
+     {
+      "from": "RA",
+      "to": "AR"
+     },
+     {
+      "from": "LANES",
+      "to": "SENAL"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "academy",
+      "gives": "AR",
+      "note": "the Royal Academy is RA, here written from the bottom up"
+     },
+     {
+      "clueFragment": "Ways",
+      "gives": "SENAL",
+      "note": "ways are lanes, and these are its letters read upwards"
+     }
+    ],
+    "surface": "The paths around a school being laid out to suit a club that uses it.",
+    "walkthrough": "Reading 'ways academy' as one thing — a school of methods — is what stalls this clue; they are two separate pieces, and the club at the end is a football one."
+   }
   },
   {
    "id": "5-down",
@@ -128,7 +313,58 @@ window.CRYPTIC_PUZZLES["cryptic-29974"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ADMONISH",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "ADMONISH",
+    "definition": "reproach",
+    "definitionFit": "To admonish is to tell somebody off firmly but not furiously, which is what reproach means as a verb.",
+    "indicators": [
+     "hugging"
+    ],
+    "indicatorNotes": {
+     "hugging": "A hug closes right round whatever is being hugged, so the word doing it opens up and takes the next letter inside."
+    },
+    "linkWords": [
+     "getting"
+    ],
+    "pieces": [
+     "A",
+     "D",
+     "M",
+     "ON",
+     "IS",
+     "H"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "the clue's own first letter, taken as it stands"
+     },
+     {
+      "clueFragment": "fellow",
+      "gives": "DON",
+      "note": "a don is a fellow of an Oxford or Cambridge college"
+     },
+     {
+      "clueFragment": "maiden",
+      "gives": "M",
+      "note": "M is the scorer's mark for a maiden over"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "the word itself, its two letters going straight in"
+     },
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "H is the standard abbreviation for husband"
+     }
+    ],
+    "surface": "A man with his arm round a young woman turns out to be her husband.",
+    "walkthrough": "'Maiden' is cricket here, not romance: an over from which no runs are scored is written M on the scorecard, and it is one of the most reliable single letters a setter has."
+   }
   },
   {
    "id": "6-down",
@@ -149,7 +385,30 @@ window.CRYPTIC_PUZZLES["cryptic-29974"] = /*JSON-START*/ {
     ]
    },
    "solution": "MONTAGUSHARRIER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "MONTAGU'S HARRIER",
+    "definition": "Bird",
+    "definitionFit": "Montagu's harrier is a slender bird of prey that quarters open ground, named after the naturalist George Montagu.",
+    "indicators": [
+     "exceptionally"
+    ],
+    "indicatorNotes": {
+     "exceptionally": "What is exceptional departs from the ordinary arrangement, so these letters are to be taken out of the order they arrive in."
+    },
+    "anagram": {
+     "fodder": "SMART HUNG OER AIR"
+    },
+    "blocks": [
+     {
+      "clueFragment": "smart, hung o’er air",
+      "gives": "SMARTHUNGOERAIR",
+      "note": "anagram fodder, fifteen letters"
+     }
+    ],
+    "surface": "A strikingly handsome bird holding itself motionless above open ground.",
+    "walkthrough": "'O'er' is poetry's clipped 'over', and its three letters do the same job as any other three in the fodder — the apostrophe carries no instruction at all."
+   }
   },
   {
    "id": "7-down",
@@ -166,7 +425,30 @@ window.CRYPTIC_PUZZLES["cryptic-29974"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "KIPPER",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "KIPPER",
+    "definition": "one’s smoked before meal",
+    "definitionFit": "A kipper is a herring split and smoked before it ever reaches the breakfast table, so the definition names the fish by what is done to it.",
+    "indicators": [
+     "not opener"
+    ],
+    "indicatorNotes": {
+     "not opener": "An opener is whatever comes first, so saying it is not there strikes the leading letter off the word in front of it."
+    },
+    "pieces": [
+     "KIPPER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Captain",
+      "gives": "SKIPPER",
+      "note": "the captain of a boat or a team is the skipper, and its leading S is the letter that goes"
+     }
+    ],
+    "surface": "A ship's captain who does not open the batting, and something smoked served before dinner.",
+    "walkthrough": "'Opener' is cricket's word for the batter who goes in first, which is what lets it stand for the first letter of a word without ever looking like an instruction."
+   }
   },
   {
    "id": "8-down",
@@ -183,7 +465,34 @@ window.CRYPTIC_PUZZLES["cryptic-29974"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CLEAVE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CLEAVE",
+    "definition": "Stick",
+    "definitionFit": "To cleave to something is to stick fast to it, the old sense kept alive in 'cleave to your principles'.",
+    "indicators": [],
+    "linkWords": [
+     "then"
+    ],
+    "pieces": [
+     "C",
+     "LEAVE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "around",
+      "gives": "C",
+      "note": "c. is short for circa, the 'around' put in front of an approximate date"
+     },
+     {
+      "clueFragment": "go",
+      "gives": "LEAVE",
+      "note": "to leave is to go"
+     }
+    ],
+    "surface": "Being told to hang about for a while and then head off.",
+    "walkthrough": "'Stick around' is the trap: it reads as one phrase meaning wait, and its two words belong to opposite halves of the clue. The answer is its own opposite, since it also means to split."
+   }
   },
   {
    "id": "9-across",
@@ -200,7 +509,52 @@ window.CRYPTIC_PUZZLES["cryptic-29974"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IMPASTO",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "IMPASTO",
+    "definition": "painting",
+    "definitionFit": "Impasto is paint laid on thick enough to keep the brush marks, so it names a manner of painting rather than a picture.",
+    "indicators": [],
+    "linkWords": [
+     "revealed by"
+    ],
+    "pieces": [
+     "IM",
+     "P",
+     "A",
+     "ST",
+     "O"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "This writer’s",
+      "gives": "IM",
+      "note": "a setter writing about himself says I'm, which is two letters"
+     },
+     {
+      "clueFragment": "quiet",
+      "gives": "P",
+      "note": "p is piano on a musical score, the mark for quiet"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the clue's own word, one letter taken as it stands"
+     },
+     {
+      "clueFragment": "holy person",
+      "gives": "ST",
+      "note": "ST is the standing abbreviation for saint"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the usual abbreviation for old"
+     }
+    ],
+    "surface": "A modest writer letting slip that a saint turned up in an old picture.",
+    "walkthrough": "'This writer's' is the setter talking about himself, and it is worth owning: it means I'M in every puzzle you will ever meet, not only this one."
+   }
   },
   {
    "id": "10-across",
@@ -217,7 +571,39 @@ window.CRYPTIC_PUZZLES["cryptic-29974"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SEMINAL",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "SEMINAL",
+    "definition": "Pioneering",
+    "definitionFit": "A seminal work is one whose ideas seed everything that follows, which is what pioneering means of a piece of work.",
+    "indicators": [
+     "in",
+     "short"
+    ],
+    "indicatorNotes": {
+     "in": "Putting one thing in another leaves it surrounded, so the artist's letters sit inside the letters named after.",
+     "short": "Cutting a word short takes something off its end, so the trade event turns up one letter down."
+    },
+    "pieces": [
+     "S",
+     "EMIN",
+     "AL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trade event",
+      "gives": "SAL",
+      "note": "a sale is a trade event, and it arrives here one letter short"
+     },
+     {
+      "clueFragment": "conceptual artist",
+      "gives": "EMIN",
+      "note": "Tracey Emin is the British conceptual artist of the unmade bed"
+     }
+    ],
+    "surface": "A ground-breaking conceptual artist showing up at a brief trade fair.",
+    "walkthrough": "'Conceptual artist' reads as a description and is really a surname. Tracey Emin's unmade bed, My Bed, was shortlisted for the Turner Prize in 1999."
+   }
   },
   {
    "id": "11-across",
@@ -234,7 +620,40 @@ window.CRYPTIC_PUZZLES["cryptic-29974"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PROLACTIN",
-   "annotation": null
+   "annotation": {
+    "type": "charade + homophone",
+    "answer": "PROLACTIN",
+    "definition": "milk producer’s helper",
+    "definitionFit": "Prolactin is the hormone that switches milk production on after a birth, so it is what helps the milk producer do the job.",
+    "indicators": [
+     "it’s said"
+    ],
+    "indicatorNotes": {
+     "it’s said": "Saying how a thing is said points at sound rather than spelling, so write down what the phrase sounds like and not how it looks."
+    },
+    "linkWords": [
+     "as"
+    ],
+    "pieces": [
+     "PRO",
+     "LACTIN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Expert",
+      "gives": "PRO",
+      "note": "a pro is an expert, short for professional"
+     },
+     {
+      "clueFragment": "not to have enough money",
+      "soundsLike": "LACK TIN",
+      "gives": "LACTIN",
+      "note": "tin is old slang for money, so to lack tin is to be short of it; run together the sound is spelt differently"
+     }
+    ],
+    "surface": "An expert who is permanently broke, according to what people are saying.",
+    "walkthrough": "'Tin' for money is Victorian slang that survives mainly in crosswords, and hearing the two words run together as one is what makes a hormone appear."
+   }
   },
   {
    "id": "12-across",
@@ -251,7 +670,31 @@ window.CRYPTIC_PUZZLES["cryptic-29974"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NYALA",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "NYALA",
+    "definition": "wild animal",
+    "definitionFit": "The nyala is a spiral-horned antelope of southern Africa's thickets, so 'wild animal' names it by the broadest class available.",
+    "indicators": [],
+    "pieces": [
+     "NY",
+     "ALA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "US state",
+      "gives": "NY",
+      "note": "NY is the postal abbreviation for New York"
+     },
+     {
+      "clueFragment": "in the role of",
+      "gives": "ALA",
+      "note": "à la is French for 'in the manner of', used in English of doing something in somebody's style"
+     }
+    ],
+    "surface": "An American state playing the part of some wild creature.",
+    "walkthrough": "'In the role of' is a stretched way of reaching à la, which properly means 'in the manner of' — the setter is trading on how close playing a part sits to imitating a style."
+   }
   },
   {
    "id": "13-across",
@@ -268,7 +711,33 @@ window.CRYPTIC_PUZZLES["cryptic-29974"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RIAL",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "RIAL",
+    "definition": "Bit of cash",
+    "definitionFit": "The rial is the currency of Iran, so a single one is a bit of cash in the plainest possible sense.",
+    "indicators": [
+     "heartless"
+    ],
+    "indicatorNotes": {
+     "heartless": "A heartless thing has had its middle taken out, so the word loses the single letter sitting at its centre."
+    },
+    "linkWords": [
+     "made by"
+    ],
+    "pieces": [
+     "RIAL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "opponent",
+      "gives": "RIVAL",
+      "note": "an opponent is a rival, and the V at its centre is the letter that goes"
+     }
+    ],
+    "surface": "Small change handed over by a rival with no heart.",
+    "walkthrough": "Setters lean on the world's currencies whenever a short entry needs filling, and this one — Iran's, and Oman's too — is among the regulars."
+   }
   },
   {
    "id": "14-across",
@@ -289,7 +758,33 @@ window.CRYPTIC_PUZZLES["cryptic-29974"] = /*JSON-START*/ {
     ]
    },
    "solution": "APPLESAUCE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "APPLE SAUCE",
+    "definition": "stewed fruit",
+    "definitionFit": "Apple sauce is apples cooked down to a pulp, so 'stewed fruit' describes the dish literally rather than by any figurative sense.",
+    "indicators": [
+     "Supply"
+    ],
+    "indicatorNotes": {
+     "Supply": "Read as the adverb from supple — SUP-lee, meaning flexibly — it tells you the letters beside it bend into another shape."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "anagram": {
+     "fodder": "A CUP PLEASE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "a cup please",
+      "gives": "ACUPPLEASE",
+      "note": "anagram fodder, ten letters"
+     }
+    ],
+    "surface": "Somebody politely asking for a cup to be brought out with the stewed fruit.",
+    "walkthrough": "'Supply' is not the verb it looks like: said SUP-lee it is the adverb of 'supple', meaning flexibly. Pasquale puts it in the first word, before you are suspicious of anything."
+   }
   },
   {
    "id": "15-down",
@@ -306,7 +801,39 @@ window.CRYPTIC_PUZZLES["cryptic-29974"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PARAMOUR",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "PARAMOUR",
+    "definition": "Lover",
+    "definitionFit": "A paramour is a lover, and specifically the illicit kind — the one somebody is seeing outside a marriage.",
+    "indicators": [
+     "in",
+     "losing heart"
+    ],
+    "indicatorNotes": {
+     "in": "Being in a room means being surrounded by it, so the letters named first end up inside the ones named after.",
+     "losing heart": "Losing heart is losing whatever sits at the centre, so the room's middle letter drops out before anything is put in."
+    },
+    "pieces": [
+     "PAR",
+     "AM",
+     "OUR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "room",
+      "gives": "PARLOUR",
+      "note": "a parlour is a room, and the L at its centre is the letter that goes"
+     },
+     {
+      "clueFragment": "the morning",
+      "gives": "AM",
+      "note": "AM marks the hours before noon"
+     }
+    ],
+    "surface": "A lover sitting in a room early in the day, quietly losing heart.",
+    "walkthrough": "'Losing heart' carries the surface's emotional note and a deletion instruction at the same time, which is why it never reads as one; 'in the morning' hides AM the same way."
+   }
   },
   {
    "id": "16-across",
@@ -323,7 +850,46 @@ window.CRYPTIC_PUZZLES["cryptic-29974"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BRIGANDAGE",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "BRIGANDAGE",
+    "definition": "plundering",
+    "definitionFit": "Brigandage is robbery carried out by roving bands of armed men, which is plundering under an older and more formal name.",
+    "indicators": [
+     "capturing"
+    ],
+    "indicatorNotes": {
+     "capturing": "To capture a thing is to take it and hold it inside, so the group closes around the letters named next."
+    },
+    "linkWords": [
+     "taking"
+    ],
+    "pieces": [
+     "B",
+     "RIG",
+     "AND",
+     "AGE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Group",
+      "gives": "BAND",
+      "note": "a band is a group, and it parts in the middle to take something in"
+     },
+     {
+      "clueFragment": "apparatus",
+      "gives": "RIG",
+      "note": "a rig is the apparatus set up for a job — drilling, lighting, sailing"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "AGE",
+      "note": "an age is a stretch of time"
+     }
+    ],
+    "surface": "A gang seizing equipment and taking their time over it.",
+    "walkthrough": "'Taking time plundering' reads as one leisurely phrase and it breaks across the clue's seam: 'time' is the last of the wordplay and 'plundering' is the definition."
+   }
   },
   {
    "id": "16-down",
@@ -340,7 +906,35 @@ window.CRYPTIC_PUZZLES["cryptic-29974"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BEMUSE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "BEMUSE",
+    "definition": "puzzle",
+    "definitionFit": "To bemuse somebody is to leave them bewildered, which is what 'puzzle' means as a verb rather than as a crossword.",
+    "indicators": [],
+    "linkWords": [
+     "to have",
+     "producing"
+    ],
+    "pieces": [
+     "BEM",
+     "USE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Honour",
+      "gives": "BEM",
+      "note": "the British Empire Medal, BEM, is a state honour for civil or military service"
+     },
+     {
+      "clueFragment": "value",
+      "gives": "USE",
+      "note": "the use of a thing is its value — 'what use is it?'"
+     }
+    ],
+    "surface": "An award that turns out to be worth having, and the confusion that follows.",
+    "walkthrough": "British honours supply setters with a whole family of short letter groups — OBE, MBE, CBE, DSO — and this is the one that non-British solvers meet least often."
+   }
   },
   {
    "id": "17-down",
@@ -357,7 +951,47 @@ window.CRYPTIC_PUZZLES["cryptic-29974"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DESKTOP",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "DESKTOP",
+    "definition": "computer location",
+    "definitionFit": "The desktop is the screen a computer shows when nothing is open, the place its files and shortcuts are kept.",
+    "indicators": [
+     "discarded",
+     "before"
+    ],
+    "indicatorNotes": {
+     "discarded": "What is discarded is thrown away, so the letter named just in front of it leaves the word it was sitting in.",
+     "before": "One thing before another comes first in the reading, so this piece is laid down ahead of the one named after it."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "DES",
+     "KT",
+     "OP"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Some French",
+      "gives": "DES",
+      "note": "'des' is the French for 'some', as in 'des amis'"
+     },
+     {
+      "clueFragment": "kit I discarded",
+      "gives": "KT",
+      "note": "KIT with its I thrown out"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "OP",
+      "note": "op. is short for opus, a composer's numbered work"
+     }
+    ],
+    "surface": "Somebody in France throwing out a bit of kit before settling down to work.",
+    "walkthrough": "'Some French' asks for the French word for 'some', not a piece of the word 'French' — a Guardian staple that also yields UN, UNE, LES and DU."
+   }
   },
   {
    "id": "18-down",
@@ -374,7 +1008,39 @@ window.CRYPTIC_PUZZLES["cryptic-29974"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GLIMPSE",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "GLIMPSE",
+    "definition": "Quickly observe",
+    "definitionFit": "To glimpse something is to see it briefly and by chance, which is exactly what observing it quickly amounts to.",
+    "indicators": [
+     "in",
+     "endless"
+    ],
+    "indicatorNotes": {
+     "in": "Something in a thing is inside it, so the devils named first are planted within the letters named after.",
+     "endless": "An endless word has had its final letter taken off, so the merriment turns up one letter shorter."
+    },
+    "pieces": [
+     "GL",
+     "IMPS",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "merriment",
+      "gives": "GLE",
+      "note": "merriment is glee, arriving here without its last letter"
+     },
+     {
+      "clueFragment": "little devils",
+      "gives": "IMPS",
+      "note": "an imp is a little devil"
+     }
+    ],
+    "surface": "Naughty children spotted in the middle of a party that never quite ends.",
+    "walkthrough": "'Endless merriment' is a phrase anybody would use about a good party, and here it names a word and then trims it."
+   }
   },
   {
    "id": "19-across",
@@ -391,7 +1057,41 @@ window.CRYPTIC_PUZZLES["cryptic-29974"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SHOO",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SHOO",
+    "definition": "Go away",
+    "definitionFit": "Shoo is what you say to drive a cat or a bird off, so it is 'go away' spoken as an instruction.",
+    "indicators": [],
+    "linkWords": [
+     "and",
+     "with"
+    ],
+    "pieces": [
+     "SH",
+     "O",
+     "O"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "make no noise",
+      "gives": "SH",
+      "note": "sh! is the sound you make telling somebody to be quiet"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is nil in tennis, written as the O-shaped zero"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "O is the scorer's abbreviation for a cricket over, six deliveries from one end"
+     }
+    ],
+    "surface": "Being told to leave quietly now that the love affair is over.",
+    "walkthrough": "'Love over' reads as a finished romance and is two separate scoreboards, one from tennis and one from cricket, both writing the same round letter."
+   }
   },
   {
    "id": "20-down",
@@ -412,7 +1112,27 @@ window.CRYPTIC_PUZZLES["cryptic-29974"] = /*JSON-START*/ {
     ]
    },
    "solution": "OLDAGE",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "OLD AGE",
+    "definition": "senior citizenship",
+    "definitionFit": "Old age is the stage of life a senior citizen has reached, so the state and the status name the same stretch of years.",
+    "indicators": [
+     "to conceal"
+    ],
+    "indicatorNotes": {
+     "to conceal": "Concealing a thing means it is there but not showing, so these letters are already written out and only need spotting."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Told a gentleman",
+      "gives": "OLDAGE",
+      "note": "six consecutive letters run from inside the first word, straight across the second and into the third"
+     }
+    ],
+    "surface": "Somebody being asked to keep a gentleman's pensioner status quiet.",
+    "walkthrough": "'Told' looks like an instruction to listen for a sound and is only the first word of the hiding place. Spanning three words is what keeps the letters out of sight."
+   }
   },
   {
    "id": "21-across",
@@ -429,7 +1149,34 @@ window.CRYPTIC_PUZZLES["cryptic-29974"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MOCHA",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MOCHA",
+    "definition": "One drink",
+    "definitionFit": "A mocha is coffee made with chocolate, so 'one drink' reaches the answer as an instance of the class rather than as a synonym.",
+    "indicators": [],
+    "linkWords": [
+     "and"
+    ],
+    "pieces": [
+     "MO",
+     "CHA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "second",
+      "gives": "MO",
+      "note": "a mo is a moment — 'hang on a mo' — which is a second of time"
+     },
+     {
+      "clueFragment": "drink that’s different",
+      "gives": "CHA",
+      "note": "cha is tea, a different beverage and a different word for drink"
+     }
+    ],
+    "surface": "Somebody ordering a drink and then a second one of quite a different sort.",
+    "walkthrough": "'Drink' appears twice on purpose and means two different things: once it is the definition and once it is wordplay, and 'that's different' is Pasquale saying so."
+   }
   },
   {
    "id": "22-across",
@@ -446,7 +1193,48 @@ window.CRYPTIC_PUZZLES["cryptic-29974"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SNICKERED",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "SNICKERED",
+    "definition": "expressed a little amusement",
+    "definitionFit": "To snicker is to let out a half-smothered laugh, which is amusement expressed in a small and slightly unkind way.",
+    "indicators": [
+     "ultimately"
+    ],
+    "indicatorNotes": {
+     "ultimately": "What comes ultimately comes last of all, so only the final letter of the word beside it is taken."
+    },
+    "pieces": [
+     "S",
+     "NICK",
+     "E",
+     "RED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Son",
+      "gives": "S",
+      "note": "S is the standard abbreviation for son"
+     },
+     {
+      "clueFragment": "sent to prison",
+      "gives": "NICK",
+      "note": "in British slang the nick is prison, the place an offender is sent to"
+     },
+     {
+      "clueFragment": "one ultimately",
+      "gives": "E",
+      "note": "the last letter of onE"
+     },
+     {
+      "clueFragment": "angry-looking",
+      "gives": "RED",
+      "note": "a face gone red is a face gone angry"
+     }
+    ],
+    "surface": "A man's son locked up, and somebody with a furious face finding it funny.",
+    "walkthrough": "'The nick' is British slang for prison and 'nicked' for arrested; the word turns up constantly in these puzzles and almost nowhere outside Britain."
+   }
   },
   {
    "id": "23-down",
@@ -463,7 +1251,57 @@ window.CRYPTIC_PUZZLES["cryptic-29974"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "KUDOS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion + reversal",
+    "answer": "KUDOS",
+    "definition": "commendation",
+    "definitionFit": "Kudos is the credit and praise that an achievement earns, which is commendation taken as an uncountable noun.",
+    "indicators": [
+     "not",
+     "reverse of"
+    ],
+    "indicatorNotes": {
+     "not": "Saying a letter is not there is saying it comes out, so the century's C leaves the word standing in front of it.",
+     "reverse of": "The wordplay is built to read the opposite way round from the definition, so what it spells has to be turned end for end."
+    },
+    "linkWords": [
+     "getting",
+     "brings"
+    ],
+    "pieces": [
+     "KUD",
+     "OS"
+    ],
+    "subReversals": [
+     {
+      "from": "DUK",
+      "to": "KUD"
+     },
+     {
+      "from": "SO",
+      "to": "OS"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "duck not century",
+      "gives": "KUD",
+      "note": "in cricket a duck is a score of nought and a century a hundred; DUCK loses the C, and the three letters left are read the other way up"
+     },
+     {
+      "clueFragment": "So",
+      "gives": "OS",
+      "note": "the clue's own opening word, its two letters turned back to front"
+     },
+     {
+      "clueFragment": "needed",
+      "gives": "",
+      "note": "surface only: it rounds the sentence off and hands over no letters"
+     }
+    ],
+    "surface": "A cricketer scoring nothing instead of a hundred, and the praise that does not follow.",
+    "walkthrough": "'Reverse of' sits on the definition's side of the clue rather than the wordplay's, so the letters you assemble come out spelling the answer backwards."
+   }
   },
   {
    "id": "24-across",
@@ -484,7 +1322,37 @@ window.CRYPTIC_PUZZLES["cryptic-29974"] = /*JSON-START*/ {
     ]
    },
    "solution": "SORTOUT",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "SORT OUT",
+    "definition": "Discipline",
+    "definitionFit": "To sort somebody out is to deal with them firmly — the British sense of putting a person straight, which is disciplining them.",
+    "indicators": [
+     "sunk in"
+    ],
+    "indicatorNotes": {
+     "sunk in": "Whatever is sunk in something finishes below the surface and surrounded by it, so those letters go inside the drink."
+    },
+    "pieces": [
+     "S",
+     "OR",
+     "TOUT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "alcoholic drink",
+      "gives": "STOUT",
+      "note": "stout is the dark, heavy beer, and it opens up to take something in"
+     },
+     {
+      "clueFragment": "soldiers",
+      "gives": "OR",
+      "note": "OR is the army's abbreviation for other ranks, the soldiers who are not officers"
+     }
+    ],
+    "surface": "Troops being disciplined after sinking rather too much of a dark beer.",
+    "walkthrough": "'I'll sort him out' is British and unmistakably physical, and that threatening sense is how a phrase which ordinarily means tidying reaches 'discipline'."
+   }
   },
   {
    "id": "25-across",
@@ -501,7 +1369,43 @@ window.CRYPTIC_PUZZLES["cryptic-29974"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PUDDING",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "PUDDING",
+    "definition": "Food",
+    "definitionFit": "A pudding is the sweet course at the end of a British meal, so 'food' names it by the broadest class it belongs to.",
+    "indicators": [
+     "being fed to"
+    ],
+    "indicatorNotes": {
+     "being fed to": "What is fed to an animal goes inside it, so the letters named before this phrase are swallowed by the dog."
+    },
+    "pieces": [
+     "PU",
+     "DD",
+     "IN",
+     "G"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dog",
+      "gives": "PUG",
+      "note": "a pug is a small flat-faced dog"
+     },
+     {
+      "clueFragment": "theologian",
+      "gives": "DD",
+      "note": "DD is Doctor of Divinity, the degree a theologian holds"
+     },
+     {
+      "clueFragment": "favoured",
+      "gives": "IN",
+      "note": "what is in is what is favoured or fashionable"
+     }
+    ],
+    "surface": "A theologian who is well thought of being handed to a dog as its dinner.",
+    "walkthrough": "'Being fed to' reads as part of the picture and is the instruction that puts one word inside another. A Doctor of Divinity is a real degree, which is how a theologian shrinks to two letters."
+   }
   },
   {
    "id": "26-across",
@@ -518,7 +1422,33 @@ window.CRYPTIC_PUZZLES["cryptic-29974"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STRIPTEASER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "STRIPTEASER",
+    "definition": "entertainer who needs good figure?",
+    "definitionFit": "A stripteaser undresses slowly for an audience, so a good figure is a working requirement rather than a synonym for the word.",
+    "indicators": [
+     "wrong"
+    ],
+    "indicatorNotes": {
+     "wrong": "Something wrong is not as it should be, and letters not as they should be are letters out of their proper order."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "anagram": {
+     "fodder": "STARTER PIES"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Starter and pies",
+      "gives": "STARTERPIES",
+      "note": "anagram fodder, eleven letters"
+     }
+    ],
+    "surface": "The starter and the pies coming out wrong for a performer's dinner.",
+    "walkthrough": "The question mark is doing real work: it flags a definition that describes the job rather than naming it, which is the setter's licence for the joke."
+   }
   }
  ]
 } /*JSON-END*/;
