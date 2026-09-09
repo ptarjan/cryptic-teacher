@@ -30,7 +30,42 @@ window.CRYPTIC_PUZZLES["indysunday-1858"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "APPARENT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "APPARENT",
+    "definition": "glaring",
+    "indicators": [
+     "with heads together"
+    ],
+    "indicatorNotes": {
+     "with heads together": "a word's head is its first letter, and two heads put together means the first word is turned round so that the two initials meet in the middle"
+    },
+    "pieces": [
+     "APPA",
+     "RENT"
+    ],
+    "subReversals": [
+     {
+      "from": "PA",
+      "to": "AP"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old men",
+      "gives": "APPA",
+      "note": "a pa is an old man; there are two of them, and the first is turned round so the two Ps touch"
+     },
+     {
+      "clueFragment": "pulled apart",
+      "gives": "RENT",
+      "note": "cloth pulled apart is rent, the past participle of rend"
+     }
+    ],
+    "surface": "Two old men huddled head to head, then pulled apart, glowering.",
+    "walkthrough": "'Glaring' reads as the old men's angry stare and means blatant instead, as in a glaring error. The instruction to reverse one PA is buried in the picture of two heads leaning together.",
+    "definitionFit": "Something glaring is obvious at a glance, so this is the plainly-visible sense of the answer rather than the 'seeming but not real' one."
+   }
   },
   {
    "id": "2-down",
@@ -47,7 +82,39 @@ window.CRYPTIC_PUZZLES["indysunday-1858"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PLUMMET",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "PLUMMET",
+    "definition": "Quickly drop",
+    "indicators": [
+     "empty",
+     "in"
+    ],
+    "indicatorNotes": {
+     "empty": "a container called empty has had everything between its walls taken out, so only the letters at the two ends are left",
+     "in": "one thing in another sits inside it, so these letters are lodged between the two that survive beside them"
+    },
+    "pieces": [
+     "P",
+     "LUMME",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "empty pot",
+      "gives": "PT",
+      "note": "the vessel emptied of its insides keeps only its first and last letters"
+     },
+     {
+      "clueFragment": "crumbs",
+      "gives": "LUMME",
+      "note": "'crumbs!' and 'lumme!' are the same mild British cry of surprise, lumme being a worn-down 'lord love me'"
+     }
+    ],
+    "surface": "Dropping crumbs into a pot with nothing in it.",
+    "walkthrough": "'Crumbs' is not the food but the exclamation, and it is swapped for another exclamation almost nobody says any more. Both belong to a politely startled kind of British English.",
+    "definitionFit": "To plummet is to fall fast and straight down, so 'quickly drop' is the same verb with the speed built into it."
+   }
   },
   {
    "id": "3-down",
@@ -64,7 +131,43 @@ window.CRYPTIC_PUZZLES["indysunday-1858"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AEGIS",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "AEGIS",
+    "definition": "Protection",
+    "indicators": [
+     "wear"
+    ],
+    "indicatorNotes": {
+     "wear": "what you wear goes round the outside of the wearer, so the letters named after this word wrap themselves about the ones named before it"
+    },
+    "pieces": [
+     "A",
+     "E",
+     "GI",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "equally",
+      "gives": "AS",
+      "note": "as tall as, as good as: 'as' is the little word that says two things measure the same, and it opens up round what it covers"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the standard abbreviation for English"
+     },
+     {
+      "clueFragment": "American soldier",
+      "gives": "GI",
+      "note": "a GI is an American private soldier, from 'government issue'"
+     }
+    ],
+    "surface": "English and American troops turning out in identical kit.",
+    "walkthrough": "'Wear' sits in the sentence as the soldiers' uniform and works as the instruction to wrap. The word itself is Greek: the aegis was the shield Zeus carried, which is why it now means somebody's protection.",
+    "definitionFit": "Under someone's aegis you are under their protection or sponsorship, the sense that outlived the shield the word started as."
+   }
   },
   {
    "id": "4-down",
@@ -81,7 +184,30 @@ window.CRYPTIC_PUZZLES["indysunday-1858"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ERRONEOUS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ERRONEOUS",
+    "definition": "bum",
+    "indicators": [
+     "tossed"
+    ],
+    "indicatorNotes": {
+     "tossed": "something tossed is thrown up and lands however it lands, which is what happens to the letters it is holding"
+    },
+    "anagram": {
+     "fodder": "EURO SENOR"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Euro Senor",
+      "gives": "EUROSENOR",
+      "note": "anagram fodder, nine letters"
+     }
+    ],
+    "surface": "A euro tossed to a Spanish gentleman turns out to be a bad one.",
+    "walkthrough": "'Bum' is the adjective, not the noun: a bum steer, bum information. Senor keeps a Spanish look right up to the point where it hands over ordinary letters.",
+    "definitionFit": "A bum steer is wrong information, so 'bum' is the informal adjective for mistaken that this nine-letter word states formally."
+   }
   },
   {
    "id": "5-down",
@@ -102,7 +228,37 @@ window.CRYPTIC_PUZZLES["indysunday-1858"] = /*JSON-START*/ {
     ]
    },
    "solution": "TAILEND",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "TAIL END",
+    "definition": "Heel",
+    "indicators": [
+     "occupies"
+    ],
+    "indicatorNotes": {
+     "occupies": "to occupy a space is to sit inside it, so these letters take up room in the middle of the word beside them"
+    },
+    "pieces": [
+     "T",
+     "AIL",
+     "END"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mind",
+      "gives": "TEND",
+      "note": "to mind a shop or a child is to tend it"
+     },
+     {
+      "clueFragment": "pain",
+      "gives": "AIL",
+      "note": "whatever ails you is giving you pain, and the verb supplies three letters"
+     }
+    ],
+    "surface": "An aching heel filling somebody's thoughts.",
+    "walkthrough": "'Heel' is the last inch of a loaf, not the back of a foot, which is how a two-word answer comes to define it. 'Mind' and 'tend' are the same verb of looking after.",
+    "definitionFit": "The heel of a loaf is its very last piece, and the tail end of anything is that same final scrap."
+   }
   },
   {
    "id": "6-across",
@@ -119,7 +275,39 @@ window.CRYPTIC_PUZZLES["indysunday-1858"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "COVERT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "COVERT",
+    "definition": "Cryptic",
+    "linkWords": [
+     "equivalent of"
+    ],
+    "pieces": [
+     "C",
+     "OVER",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Celsius",
+      "gives": "C",
+      "note": "C is the abbreviation for Celsius on any thermometer"
+     },
+     {
+      "clueFragment": "into",
+      "gives": "OVER",
+      "note": "'four into twelve' is the schoolroom way of saying twelve divided by four, and a division is written as one number over another"
+     },
+     {
+      "clueFragment": "temperature",
+      "gives": "T",
+      "note": "T is the standard abbreviation for temperature"
+     }
+    ],
+    "surface": "A quiz question about converting a temperature into Celsius.",
+    "walkthrough": "The question mark is the setter owning up: 'into' is not an insertion here but arithmetic, and division is the one operation you write as a word.",
+    "definitionFit": "Cryptic and covert both mean deliberately hidden: a covert operation is kept out of sight, and a cryptic remark keeps its meaning out of sight."
+   }
   },
   {
    "id": "6-down",
@@ -136,7 +324,31 @@ window.CRYPTIC_PUZZLES["indysunday-1858"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CUFFS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CUFFS",
+    "definition": "showing restraint?",
+    "definitionNote": "The answer is a plural noun and the definition is a participle phrase, which is what the question mark concedes: the joke is that these things show restraint by applying it, not by exercising self-control.",
+    "pieces": [
+     "CU",
+     "FFS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Copper",
+      "gives": "CU",
+      "note": "Cu is the chemical symbol for copper, from the Latin cuprum"
+     },
+     {
+      "clueFragment": "that takes the biscuit",
+      "gives": "FFS",
+      "note": "something that takes the biscuit beats everything, and FFS is the texted expletive of exasperation fired back at it"
+     }
+    ],
+    "surface": "A policeman who is the absolute limit, yet holding back.",
+    "walkthrough": "Copper is the metal, not the policeman the surface is selling, and the second half is not a definition at all but a whole exclamation shortened the way a phone would shorten it.",
+    "definitionFit": "Cuffs are handcuffs, the restraints an officer carries, and the question mark flags the pun: they show restraint by holding somebody still."
+   }
   },
   {
    "id": "7-down",
@@ -153,7 +365,30 @@ window.CRYPTIC_PUZZLES["indysunday-1858"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "VERSATILE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "VERSATILE",
+    "definition": "good all round",
+    "indicators": [
+     "off"
+    ],
+    "indicatorNotes": {
+     "off": "someone whose aim is off has gone astray, and letters sent astray come back in a different order"
+    },
+    "anagram": {
+     "fodder": "RIVALS TEE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Rivals tee",
+      "gives": "RIVALSTEE",
+      "note": "anagram fodder, nine letters"
+     }
+    ],
+    "surface": "Golfers driving off the first tee in fine all-round form.",
+    "walkthrough": "'Tee off' reads as one golfing phrase and has to be split: the tee joins the fodder and 'off' does the shuffling. 'Good all round' sounds like praise for a sportsman and is the definition.",
+    "definitionFit": "Someone versatile can turn a hand to anything, which is exactly the claim made by calling a player good all round."
+   }
   },
   {
    "id": "8-down",
@@ -170,7 +405,44 @@ window.CRYPTIC_PUZZLES["indysunday-1858"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RESIDUE",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "RESIDUE",
+    "definition": "surplus",
+    "indicators": [
+     "dons",
+     "after"
+    ],
+    "indicatorNotes": {
+     "dons": "to don a coat is to pull it on over yourself, so what is donned finishes up on the outside of the one wearing it",
+     "after": "one thing after another follows it, so the piece named first here is written down second"
+    },
+    "pieces": [
+     "RESID",
+     "U",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dealing with",
+      "gives": "RE",
+      "note": "re is the 'concerning' at the top of a memo: re your letter of the 3rd"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "SIDE",
+      "note": "a party to an argument is one side of it"
+     },
+     {
+      "clueFragment": "University",
+      "gives": "U",
+      "note": "U is the standard abbreviation for university"
+     }
+    ],
+    "surface": "College tutors going to a party once the paperwork is done.",
+    "walkthrough": "'Dons' is the trap: it looks like the university's teaching staff and it is the verb, putting a garment on. 'Party' is a side in a dispute rather than a celebration.",
+    "definitionFit": "The residue is what is left in the pan once everything else has gone, and a surplus is that same leftover amount."
+   }
   },
   {
    "id": "9-across",
@@ -187,7 +459,30 @@ window.CRYPTIC_PUZZLES["indysunday-1858"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BUNG",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "BUNG",
+    "definition": "Chuck",
+    "definition2": "ready to corrupt official, perhaps",
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chuck",
+      "gives": "",
+      "note": "the informal verb for throwing something without taking much care over it"
+     },
+     {
+      "clueFragment": "ready to corrupt official, perhaps",
+      "gives": "",
+      "note": "the ready is old slang for cash in hand, and cash pressed on an official to bend a decision has its own name in football reporting"
+     }
+    ],
+    "surface": "Chuck has the cash to bribe an official.",
+    "walkthrough": "'Chuck' sits at the front of the sentence looking like a man's name and is a verb. The whole of the rest of the clue is the second definition, resting on 'the ready' meaning money.",
+    "definitionFit": "To chuck something is to bung it, informally; and a bung is the wad of ready money slipped to an official to buy a decision."
+   }
   },
   {
    "id": "10-across",
@@ -204,7 +499,42 @@ window.CRYPTIC_PUZZLES["indysunday-1858"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RAINFOREST",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "RAINFOREST",
+    "definition": "soaking wood",
+    "pieces": [
+     "RA",
+     "IN",
+     "FOR",
+     "EST"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Artist",
+      "gives": "RA",
+      "note": "an RA is a Royal Academician, the crossword's standard artist"
+     },
+     {
+      "clueFragment": "chosen",
+      "gives": "IN",
+      "note": "a player chosen for the team is in"
+     },
+     {
+      "clueFragment": "to replace",
+      "gives": "FOR",
+      "note": "a substitute comes on for the player going off, which is 'for' meaning in place of"
+     },
+     {
+      "clueFragment": "Parisian is",
+      "gives": "EST",
+      "note": "'est' is the French for 'is', so a Parisian says it"
+     }
+    ],
+    "surface": "A painter picked to stand in for a French one.",
+    "walkthrough": "'To replace' looks like an instruction to swap something over and is only the word 'for'. Nothing in this clue asks you to do anything: four short words are each traded for a shorter one and laid end to end.",
+    "definitionFit": "A rainforest is woodland soaked by constant rain, so 'soaking wood' describes it literally rather than by any figure of speech."
+   }
   },
   {
    "id": "11-across",
@@ -221,7 +551,48 @@ window.CRYPTIC_PUZZLES["indysunday-1858"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MISUNDERSTAND",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MISUNDERSTAND",
+    "definition": "Take wrong",
+    "indicators": [
+     "east of"
+    ],
+    "indicatorNotes": {
+     "east of": "east is to the right on any map, and in an across entry the letters to the right are the ones written later"
+    },
+    "pieces": [
+     "MI",
+     "SUNDER",
+     "ST",
+     "AND"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "motorway",
+      "gives": "MI",
+      "note": "the M1 runs north out of London, and in a grid its number does duty as the letter I"
+     },
+     {
+      "clueFragment": "split",
+      "gives": "SUNDER",
+      "note": "to sunder something is to split it in two"
+     },
+     {
+      "clueFragment": "street",
+      "gives": "ST",
+      "note": "ST is the standard abbreviation for street"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "AND",
+      "note": "bread with butter, bread and butter: the two words join things in the same way"
+     }
+    ],
+    "surface": "Taking the wrong street east of where the motorway divides.",
+    "walkthrough": "'Take wrong' is a verb phrase, not a driving error, and that is the whole misdirection, since every other word is doing map work. Road numbers become letters freely in grids, which have no squares for digits.",
+    "definitionFit": "To take something wrong is to misunderstand it, 'take' being the sense in which you take a remark badly."
+   }
   },
   {
    "id": "12-across",
@@ -238,7 +609,44 @@ window.CRYPTIC_PUZZLES["indysunday-1858"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STUCCO",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "STUCCO",
+    "definition": "Plaster",
+    "indicators": [
+     "put on",
+     "in retreat"
+    ],
+    "indicatorNotes": {
+     "put on": "plaster is put on a wall, and here one piece is laid onto the end of the other",
+     "in retreat": "an army in retreat goes back the way it came, and in an across entry going back means the letters run right to left"
+    },
+    "pieces": [
+     "STUC",
+     "CO"
+    ],
+    "subReversals": [
+     {
+      "from": "CUTS",
+      "to": "STUC"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wounds",
+      "gives": "STUC",
+      "note": "wounds are cuts, and those four letters are then read backwards"
+     },
+     {
+      "clueFragment": "commanding officers",
+      "gives": "CO",
+      "note": "the CO is the commanding officer of a unit"
+     }
+    ],
+    "surface": "Commanding officers dressing wounds while the army falls back.",
+    "walkthrough": "'In retreat' does two jobs at once, keeping the army picture going and turning four letters round. Plaster here is the render on a wall, not the dressing the surface offers you.",
+    "definitionFit": "Stucco is the fine plaster spread onto walls and mouldings, so 'plaster' names the material by its general kind."
+   }
   },
   {
    "id": "13-down",
@@ -255,7 +663,35 @@ window.CRYPTIC_PUZZLES["indysunday-1858"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CONTUMELY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "CONTUMELY",
+    "definition": "insult",
+    "indicators": [
+     "terrible"
+    ],
+    "indicatorNotes": {
+     "terrible": "a terrible mess is a thing in complete disorder, and letters in disorder have to be set down in a new arrangement"
+    },
+    "anagram": {
+     "fodder": "UNCLE TOM Y"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Uncle Tom",
+      "gives": "UNCLETOM",
+      "note": "anagram fodder, eight letters"
+     },
+     {
+      "clueFragment": "yankee",
+      "gives": "Y",
+      "note": "Y is yankee in the phonetic alphabet used over the radio"
+     }
+    ],
+    "surface": "Calling somebody an Uncle Tom, which is a dreadful American insult.",
+    "walkthrough": "Every word of the surface is an insult, which hides the fact that only the letters of two of them matter. Contumely is Hamlet's word, from 'the proud man's contumely', and it means abuse heaped on someone.",
+    "definitionFit": "Contumely is insulting language or scornful abuse, so 'insult' names it as a noun, though it survives now mostly in that soliloquy."
+   }
   },
   {
    "id": "14-across",
@@ -272,7 +708,32 @@ window.CRYPTIC_PUZZLES["indysunday-1858"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DEPRIVED",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "DEPRIVED",
+    "definition": "Stripped",
+    "indicators": [
+     "at sea",
+     "using half the energy"
+    ],
+    "indicatorNotes": {
+     "at sea": "a swimmer at sea is adrift with nothing to hold position by, so the letters lose the order they arrived in",
+     "using half the energy": "energy is E, four of them are handed over, and only half that many are used"
+    },
+    "anagram": {
+     "fodder": "DIVE DEPR"
+    },
+    "blocks": [
+     {
+      "clueFragment": "dive deeper",
+      "gives": "DIVEDEPR",
+      "note": "the ten letters of the two words with two of their four Es dropped, leaving eight"
+     }
+    ],
+    "surface": "Free divers going down further on less air.",
+    "walkthrough": "'Stripped' looks exactly like an anagram signal and is the definition instead, so the word you would reach for first is the one word not giving an instruction. The Es are counted, not chosen.",
+    "definitionFit": "To be deprived of something is to have been stripped of it, and both are past participles for having had a thing taken away."
+   }
   },
   {
    "id": "15-down",
@@ -289,7 +750,42 @@ window.CRYPTIC_PUZZLES["indysunday-1858"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PROVENDER",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters",
+    "answer": "PROVENDER",
+    "definition": "Food",
+    "indicators": [
+     "cleared out"
+    ],
+    "indicatorNotes": {
+     "cleared out": "a room cleared out has had everything between its walls carried away, so only the two ends are left standing"
+    },
+    "pieces": [
+     "PRO",
+     "VEND",
+     "ER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for",
+      "gives": "PRO",
+      "note": "the pros and cons are the fors and againsts"
+     },
+     {
+      "clueFragment": "retail",
+      "gives": "VEND",
+      "note": "to vend something is to retail it, as a vending machine does"
+     },
+     {
+      "clueFragment": "earlier",
+      "gives": "ER",
+      "note": "the first and last letters of the word, everything between them cleared away"
+     }
+    ],
+    "surface": "A shop that sold food having been emptied earlier.",
+    "walkthrough": "'Food for retail' reads as one phrase off a wholesaler's invoice, and the definition stops dead after the first word. Provender is the old word for fodder: feed for animals, and by extension supplies for people.",
+    "definitionFit": "Provender is fodder, the feed put by for livestock and by extension the provisions people store, so 'food' names the general kind."
+   }
   },
   {
    "id": "16-across",
@@ -310,7 +806,30 @@ window.CRYPTIC_PUZZLES["indysunday-1858"] = /*JSON-START*/ {
     ]
    },
    "solution": "STANDSUP",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "STANDS UP",
+    "definition": "Despite arrangement, doesn't date",
+    "pieces": [
+     "STAND",
+     "SUP"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pay for",
+      "gives": "STAND",
+      "note": "to stand somebody a drink is to pay for it"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "SUP",
+      "note": "to sup is to drink, the old northern verb still heard in 'supping ale'"
+     }
+    ],
+    "surface": "Somebody who made an arrangement and then neither turns up nor pays for the drinks.",
+    "walkthrough": "The definition runs on for five words and the wordplay is only the last three, which is why the join is so hard to find. Both halves of the wordplay are pub verbs, so the sentence never changes subject.",
+    "definitionFit": "To arrange a date and then not appear is to stand somebody up, and the definition is that failure to show, put in the third person."
+   }
   },
   {
    "id": "17-down",
@@ -327,7 +846,35 @@ window.CRYPTIC_PUZZLES["indysunday-1858"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TICKLER",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "TICKLER",
+    "definition": "difficult puzzle",
+    "indicators": [
+     "not starting"
+    ],
+    "indicatorNotes": {
+     "not starting": "a word not starting has not got its opening letter, so that first one never appears"
+    },
+    "pieces": [
+     "TICKLER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pedant",
+      "gives": "STICKLER",
+      "note": "a stickler is somebody who insists on a rule down to the last detail"
+     },
+     {
+      "clueFragment": "not starting",
+      "gives": "",
+      "note": "the S at the front comes off, leaving the other seven letters as they stand"
+     }
+    ],
+    "surface": "A pedant who will not begin a hard crossword.",
+    "walkthrough": "A tickler is a problem that teases you, the clue that sits unsolved half the morning, and the surface pretends the pedant is simply too grand to start one.",
+    "definitionFit": "A tickler is a poser, a problem that keeps niggling at you, so the noun phrase names the thing rather than describing it."
+   }
   },
   {
    "id": "18-down",
@@ -344,7 +891,48 @@ window.CRYPTIC_PUZZLES["indysunday-1858"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PERHAPS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "PERHAPS",
+    "definition": "That could be",
+    "indicators": [
+     "rising"
+    ],
+    "indicatorNotes": {
+     "rising": "a down entry read from its foot back to its head runs upwards, which is the direction this word sends the letters"
+    },
+    "pieces": [
+     "PER",
+     "H",
+     "APS"
+    ],
+    "subReversals": [
+     {
+      "from": "SPA",
+      "to": "APS"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "PER",
+      "note": "five pounds a day is five pounds per day, so the two words swap freely"
+     },
+     {
+      "clueFragment": "hot",
+      "gives": "H",
+      "note": "H is the letter on the hot tap"
+     },
+     {
+      "clueFragment": "spring",
+      "gives": "APS",
+      "note": "a spa is a spring of mineral water, and its three letters are read up the column"
+     }
+    ],
+    "surface": "A hot spring welling up out of the ground.",
+    "walkthrough": "'A' standing for 'per' is the step solvers miss and it is worth banking, because setters use it constantly. The geyser keeps you hunting for something geological.",
+    "definitionFit": "Offer a guess, get 'that could be' back, and you have been told perhaps: both are the same non-committal maybe."
+   }
   },
   {
    "id": "19-across",
@@ -361,7 +949,43 @@ window.CRYPTIC_PUZZLES["indysunday-1858"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OVERLY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "OVERLY",
+    "definition": "Too",
+    "indicators": [
+     "to snort"
+    ],
+    "indicatorNotes": {
+     "to snort": "a line snorted is drawn up inside the person taking it, so this letter goes inside the word beside it"
+    },
+    "pieces": [
+     "O",
+     "VER",
+     "L",
+     "Y"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the standard abbreviation for old"
+     },
+     {
+      "clueFragment": "really",
+      "gives": "VERY",
+      "note": "really good, very good: the two intensifiers do the same job"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L is the standard abbreviation for line"
+     }
+    ],
+    "surface": "An elderly person really snorting a line of cocaine.",
+    "walkthrough": "Every word of the surface is about drugs and every word of the wordplay is about grammar. 'Too' is the adverb of excess, as in too keen, not the one meaning 'as well'.",
+    "definitionFit": "'Too' in the sense of excessively, as in too keen, is exactly what this adverb means, and it is not the first sense that comes to mind."
+   }
   },
   {
    "id": "20-down",
@@ -378,7 +1002,30 @@ window.CRYPTIC_PUZZLES["indysunday-1858"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LETDOWN",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "LETDOWN",
+    "definition": "disappointing outcome",
+    "indicators": [
+     "Doctor"
+    ],
+    "indicatorNotes": {
+     "Doctor": "to doctor a document is to tamper with it, so what stands beside it comes out altered"
+    },
+    "anagram": {
+     "fodder": "DWELT ON"
+    },
+    "blocks": [
+     {
+      "clueFragment": "dwelt on",
+      "gives": "DWELTON",
+      "note": "anagram fodder, seven letters"
+     }
+    ],
+    "surface": "A doctor who kept going on about a poor result.",
+    "walkthrough": "'Doctor' is the very first word and reads as a person, which is where setters most like to hide the instruction. 'Dwelt on' is a phrase in its own right and is only letters here.",
+    "definitionFit": "A letdown is an outcome that falls short of what was promised, the noun for the flat feeling left behind."
+   }
   },
   {
    "id": "21-across",
@@ -395,7 +1042,48 @@ window.CRYPTIC_PUZZLES["indysunday-1858"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "COUNTERWEIGHT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "COUNTERWEIGHT",
+    "definition": "Opposing force",
+    "indicators": [
+     "on"
+    ],
+    "indicatorNotes": {
+     "on": "one thing set on another in an across entry is written after it, so the pieces named before this word follow the one named after it"
+    },
+    "pieces": [
+     "COUNT",
+     "ER",
+     "W",
+     "EIGHT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tally",
+      "gives": "COUNT",
+      "note": "to tally votes is to count them"
+     },
+     {
+      "clueFragment": "Queen Elizabeth",
+      "gives": "ER",
+      "note": "ER is Elizabeth Regina, the royal monogram on British postboxes and stamps"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "W is the standard abbreviation for with"
+     },
+     {
+      "clueFragment": "crew",
+      "gives": "EIGHT",
+      "note": "an eight is the standard racing boat rowed at Henley, so its crew and its name are the same number"
+     }
+    ],
+    "surface": "The ship's company mustering aboard the liner Queen Elizabeth.",
+    "walkthrough": "'Crew' means the number eight because a rowing eight is a boatload, a piece of British sporting shorthand worth keeping. The liner in the surface has nothing to do with the letters.",
+    "definitionFit": "A counterweight is the mass hung on the far side to pull against a load, so 'opposing force' names the job it does."
+   }
   },
   {
    "id": "22-down",
@@ -412,7 +1100,29 @@ window.CRYPTIC_PUZZLES["indysunday-1858"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TRIAD",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "TRIAD",
+    "definition": "Criminal group",
+    "indicators": [
+     "from beneath",
+     "shelters"
+    ],
+    "indicatorNotes": {
+     "from beneath": "a down entry picked up from its foot comes from beneath, so the letters are collected in that upward direction",
+     "shelters": "to shelter something is to keep it hidden inside, and these words are keeping letters between them"
+    },
+    "blocks": [
+     {
+      "clueFragment": "lasered air traffic",
+      "gives": "TRIAD",
+      "note": "five consecutive letters run from the end of the first word across the second, and they are collected from the far end backwards"
+     }
+    ],
+    "surface": "Gangsters aiming lasers at aircraft from under cover.",
+    "walkthrough": "'Criminal group lasered' reads as a headline about a gang being targeted, and it is really the definition followed by the start of the hiding place. Triads are the Chinese crime syndicates of Hong Kong and beyond.",
+    "definitionFit": "A triad is one of those Chinese criminal societies, so 'criminal group' names the class it belongs to rather than defining the word."
+   }
   },
   {
    "id": "23-down",
@@ -429,7 +1139,39 @@ window.CRYPTIC_PUZZLES["indysunday-1858"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GAMUT",
-   "annotation": null
+   "annotation": {
+    "type": "container + first letters",
+    "answer": "GAMUT",
+    "definition": "spread",
+    "indicators": [
+     "sandwiches",
+     "primarily"
+    ],
+    "indicatorNotes": {
+     "sandwiches": "to sandwich something is to put it between two others, so these letters go inside the word in front of them",
+     "primarily": "what comes primarily comes first, so only the opening letter of each word named is taken"
+    },
+    "pieces": [
+     "G",
+     "AM",
+     "UT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dieter's good",
+      "gives": "GUT",
+      "note": "Dieter is a German name, and 'gut' is the German for good"
+     },
+     {
+      "clueFragment": "are primarily meat",
+      "gives": "AM",
+      "note": "the opening letters of the two words on either side of the instruction"
+     }
+    ],
+    "surface": "A dieter's sandwich that turns out to be mostly meat paste.",
+    "walkthrough": "Dieter is a man's name in German rather than somebody counting calories, and that swap is what hands over 'gut'. 'Spread' looks like more of the sandwich and means a range.",
+    "definitionFit": "A gamut is the whole range from one end to the other, originally the full scale of notes, and a spread is that same span."
+   }
   },
   {
    "id": "24-across",
@@ -450,7 +1192,32 @@ window.CRYPTIC_PUZZLES["indysunday-1858"] = /*JSON-START*/ {
     ]
    },
    "solution": "BLUERIBAND",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + substitution",
+    "answer": "BLUE RIBAND",
+    "definition": "Atlantic voyage's record",
+    "indicators": [
+     "sabotaged",
+     "with hidden typo?"
+    ],
+    "indicatorNotes": {
+     "sabotaged": "sabotage wrecks the working order of a thing, so what it touches does not survive in the order it was given in",
+     "with hidden typo?": "a typo is one letter standing where another should be, and this is the setter warning that the word as printed is not the word you think you are reading"
+    },
+    "anagram": {
+     "fodder": "IAND LUBBER"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Iand-lubber",
+      "gives": "IANDLUBBER",
+      "note": "as printed the word opens with a capital I where an L belongs: ten letters, and that swapped letter is the typo"
+     }
+    ],
+    "surface": "A sailor's record-breaking Atlantic crossing wrecked by a landlubber.",
+    "walkthrough": "The typo is real and it is on the page, a capital I standing in for the L, and those printed letters are the ones that work. Read the word as 'landlubber' and the anagram will not come out.",
+    "definitionFit": "The Blue Riband was the trophy for the fastest Atlantic crossing by a passenger liner, so the definition names that record by its prize."
+   }
   },
   {
    "id": "25-across",
@@ -467,7 +1234,39 @@ window.CRYPTIC_PUZZLES["indysunday-1858"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MOOR",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MOOR",
+    "definition": "Usually high area",
+    "indicators": [
+     "next to"
+    ],
+    "indicatorNotes": {
+     "next to": "one thing next to another is written alongside it, so the two pieces simply run together"
+    },
+    "linkWords": [
+     "'s"
+    ],
+    "pieces": [
+     "MOO",
+     "R"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "low",
+      "gives": "MOO",
+      "note": "cattle low, and the noise they make is spelt this way"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the standard abbreviation for right"
+     }
+    ],
+    "surface": "A weather map with an area of high pressure right beside a low.",
+    "walkthrough": "The surface is a forecast, high pressure beside low, and 'low' is the cow instead. 'Usually' is the setter conceding that not every stretch of this ground is upland.",
+    "definitionFit": "A moor is rough open upland, the high ground of the Pennines and Dartmoor, and 'usually' allows for the boggy low-lying sort."
+   }
   },
   {
    "id": "26-across",
@@ -488,7 +1287,37 @@ window.CRYPTIC_PUZZLES["indysunday-1858"] = /*JSON-START*/ {
     ]
    },
    "solution": "XRAYED",
-   "annotation": null
+   "annotation": {
+    "type": "homophone + charade",
+    "answer": "X-RAYED",
+    "definition": "shot inside",
+    "indicators": [
+     "on"
+    ],
+    "indicatorNotes": {
+     "on": "in an across entry one thing on another is written after it, so the sounded word follows the single letter"
+    },
+    "pieces": [
+     "X",
+     "RAYED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unknown",
+      "gives": "X",
+      "note": "x is the unknown quantity in algebra"
+     },
+     {
+      "clueFragment": "Report of attack",
+      "soundsLike": "RAID",
+      "gives": "RAYED",
+      "note": "an attack is a raid, and 'report of' asks for the sound of the word rather than its spelling"
+     }
+    ],
+    "surface": "News of an attack on someone unidentified who was shot indoors.",
+    "walkthrough": "'Report' does two jobs: a news report of an attack, and the signal that a sound is wanted. 'Shot' is a photograph, which is the other half of the trap.",
+    "definitionFit": "Something x-rayed has been photographed from the inside out, so 'shot inside' is that picture taken as a verb."
+   }
   },
   {
    "id": "27-across",
@@ -505,7 +1334,46 @@ window.CRYPTIC_PUZZLES["indysunday-1858"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCRUTINY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "SCRUTINY",
+    "definition": "gaze",
+    "indicators": [
+     "behind",
+     "avoiding"
+    ],
+    "indicatorNotes": {
+     "behind": "what stands behind something comes after it, so this piece is added at the end",
+     "avoiding": "a word avoiding a letter does without it, so that letter is dropped before the rest is used"
+    },
+    "linkWords": [
+     "'s"
+    ],
+    "pieces": [
+     "SCRU",
+     "TINY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bushes",
+      "gives": "SCRUB",
+      "note": "scrub is rough ground covered in low bushes"
+     },
+     {
+      "clueFragment": "bachelor",
+      "gives": "",
+      "note": "bachelor is B, and that is the letter dropped off the end of the word above"
+     },
+     {
+      "clueFragment": "Wee",
+      "gives": "TINY",
+      "note": "wee is the Scottish word for very small"
+     }
+    ],
+    "surface": "Somebody slipping behind the bushes for a wee, out of the bachelor's sight.",
+    "walkthrough": "'Wee' is Scottish for small and the surface wants the other, cruder noun entirely. 'Gaze' has to carry the sense of a long hard look rather than a glance.",
+    "definitionFit": "Scrutiny is close searching examination, so 'gaze' names it as a noun: the steady looking, not the passing glance."
+   }
   }
  ]
 } /*JSON-END*/;
