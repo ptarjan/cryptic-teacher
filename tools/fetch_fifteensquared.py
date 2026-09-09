@@ -44,6 +44,9 @@ UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
 # Their own robots.txt. Not negotiable and not a tuning knob.
 CRAWL_DELAY = 20
 PER_PAGE = 100
+# Posts per comments request. Small enough that a busy day's threads still fit
+# in a page or two, large enough that the archive is tens of requests.
+BATCH = 25
 
 # The categories that overlap what we hold. Ids come from /categories; names are
 # kept beside them so a renumbering is visible rather than silent.
@@ -132,27 +135,49 @@ def fetch_posts(cat_id, name, pages_max):
 
 def fetch_comments(post_ids):
     """Comments for many posts per request. A post with none still gets a file,
-    so 'no comments' is cached as an answer rather than retried forever."""
+    so 'no comments' is cached as an answer rather than retried forever.
+
+    per_page caps the RESPONSE, not the batch: the posts in one batch share a
+    single page of 100 comments, and everything past that is on page 2. So every
+    page is walked before anything is stored — a batch stored from page 1 alone
+    writes an empty file for most of its posts, and an empty file here is
+    indistinguishable from a post that genuinely has no comments, so the cache
+    never retries it and the error is permanent and silent.
+    """
     todo = [i for i in sorted(post_ids) if i not in cached_comment_ids()]
-    for i in range(0, len(todo), 50):
-        batch = todo[i:i + 50]
-        rows, _ = get("comments", post=",".join(map(str, batch)),
-                      per_page=PER_PAGE, _fields="id,post,author_name,content,date")
+    for i in range(0, len(todo), BATCH):
+        batch = todo[i:i + BATCH]
         by_post = {p: [] for p in batch}
-        for row in rows:
-            by_post.setdefault(row["post"], []).append(row)
+        page, pages = 1, 1
+        while page <= pages:
+            rows, pages = get("comments", post=",".join(map(str, batch)), page=page,
+                              per_page=PER_PAGE, _fields="id,post,author_name,content,date")
+            for row in rows:
+                by_post.setdefault(row["post"], []).append(row)
+            page += 1
+        # Stored only once the batch is complete, for the same reason.
         for post_id, items in by_post.items():
             store(COMMENTS, post_id, items)
-        print(f"  comments {i + len(batch)}/{len(todo)}", flush=True)
+        got = sum(len(v) for v in by_post.values())
+        print(f"  comments {i + len(batch)}/{len(todo)}  (+{got} in {pages} page(s))", flush=True)
     return len(todo)
 
 
 def status():
     posts, comments = cached_post_ids(), cached_comment_ids()
     size = sum(p.stat().st_size for p in CACHE.rglob("*.json")) if CACHE.exists() else 0
+    # The comment TOTAL is printed, not just the coverage: a truncated fetch
+    # leaves every post covered and nearly all of them empty, which reads as a
+    # finished job until you look at the number of comments in it.
+    n = 0
+    for c in COMMENTS.glob("*.json"):
+        try:
+            n += len(json.loads(c.read_text(encoding="utf-8")))
+        except ValueError:
+            continue
     print(f"cache: {CACHE}")
     print(f"  posts    {len(posts)}")
-    print(f"  comments {len(comments)} posts covered")
+    print(f"  comments {n} on {len(comments)} posts covered")
     print(f"  on disk  {size / 1e6:.1f} MB")
     if posts:
         dates = []
