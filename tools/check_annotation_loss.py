@@ -81,9 +81,10 @@ def main(argv):
                 print(f"{pid}: {', '.join(ids)} {why} — nothing to solve, "
                       f"so nothing is owed")
     for pid, done, total, unsolved, wordless, corrupt in short:
-        why = [f"could not solve {', '.join(unsolved)} — if that keeps "
-               f"happening the model is failing to solve the puzzle, "
-               f"which is a quality problem, not a spend one"]
+        why = [f"left {', '.join(unsolved)} blank — read the run's own report "
+               f"before concluding anything: a blank is either a clue the model "
+               f"could not solve or one it solved and then dropped to get under "
+               f"a validator rule, and those want opposite fixes"]
         if wordless:
             why.append(f"{', '.join(wordless)} published with no clue text, so "
                        f"there is nothing to solve there")
