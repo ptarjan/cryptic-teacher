@@ -75,7 +75,25 @@ window.CRYPTIC_PUZZLES["cryptic-30003"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LAP",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "LAP",
+    "definition": "Part of body",
+    "definition2": "disappearing as one stands",
+    "blocks": [
+     {
+      "clueFragment": "Part of body",
+      "note": "the shelf a seated person makes from waist to knees, where the cat settles and the plate goes"
+     },
+     {
+      "clueFragment": "disappearing as one stands",
+      "note": "a children's riddle used as the second pointer: which bit of you is only there while you are sitting down?"
+     }
+    ],
+    "surface": "A piece of anatomy that vanishes the moment its owner gets to their feet.",
+    "walkthrough": "Chambers has it as the fold of clothes and body from waist to knees of a person sitting down, so what goes missing when you get up is a shape you make rather than any flesh.",
+    "definitionFit": "A lap is the fold from waist to knees of a seated person — a real part of the body, and one that exists only while you are sitting."
+   }
   },
   {
    "id": "3-down",
