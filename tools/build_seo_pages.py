@@ -709,6 +709,12 @@ def abbreviations_page(solved, pages):
     page_ld = {"@context": "https://schema.org", "@type": "DefinedTermSet",
                "name": "Cryptic crossword abbreviations", "url": canonical,
                "description": desc,
+               # Every other page type says who wrote it; this one was the
+               # exception, so the site's own name was the one word a search for
+               # it could not match. DefinedTermSet is a CreativeWork, so author
+               # is as valid here as it is on the lesson.
+               "author": {"@type": "Person", "name": "Paul Tarjan",
+                          "url": "https://paultarjan.com/"},
                "hasDefinedTerm": [
                    {"@type": "DefinedTerm", "name": w,
                     "description": f"stands for {', '.join(sorted(senses[w]))}",
