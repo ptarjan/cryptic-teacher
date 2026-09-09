@@ -34,7 +34,53 @@ window.CRYPTIC_PUZZLES["quiptic-1371"] = /*JSON-START*/ {
     ]
    },
    "solution": "LETDOWN",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter + anagram",
+    "answer": "LET-DOWN",
+    "definition": "disappointment",
+    "indicators": [
+     "close to",
+     "in a mess"
+    ],
+    "indicatorNotes": {
+     "close to": "Being close to the end of a word puts you at its final letter, so that one letter is all that is taken.",
+     "in a mess": "A thing in a mess has been tipped out of the arrangement it was given, so the letters beside it will not stay in their printed order."
+    },
+    "linkWords": [
+     "That’s"
+    ],
+    "pieces": [
+     "LET",
+     "D",
+     "OWN"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "NOW",
+      "gives": "OWN"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rental property",
+      "gives": "LET",
+      "note": "a property on the rental market is a let"
+     },
+     {
+      "clueFragment": "ground",
+      "gives": "D",
+      "note": "the last letter of the word, taken on its own"
+     },
+     {
+      "clueFragment": "now",
+      "gives": "OWN",
+      "note": "the three letters of the word resettled into another order"
+     }
+    ],
+    "surface": "A rented flat right beside the ground has been left in a complete state.",
+    "walkthrough": "'Close to ground' looks like a description of where the flat is, and it is an instruction to take the last letter of a single word.",
+    "definitionFit": "A LET-DOWN is the flat feeling left when something promised turns out worse than expected, which is a disappointment."
+   }
   },
   {
    "id": "2-down",
@@ -51,7 +97,39 @@ window.CRYPTIC_PUZZLES["quiptic-1371"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EARLIER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "EARLIER",
+    "definition": "previously",
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "EARL",
+     "I",
+     "ER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Titled figure",
+      "gives": "EARL",
+      "note": "an earl holds a rank in the peerage, so he is a figure with a title"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "old queen",
+      "gives": "ER",
+      "note": "ER is the royal cipher Elizabeth Regina, and 'old' marks the reign as the last one rather than the present"
+     }
+    ],
+    "surface": "A nobleman standing beside somebody who used to be a queen.",
+    "walkthrough": "Two letters of royal shorthand carry the whole back end of this clue, and 'old' is not padding: it is what tells you which monarch's cipher is wanted.",
+    "definitionFit": "EARLIER and 'previously' both mean at a time before the one being talked about, and either can replace the other unchanged."
+   }
   },
   {
    "id": "3-down",
@@ -68,7 +146,27 @@ window.CRYPTIC_PUZZLES["quiptic-1371"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DRESS",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "DRESS",
+    "definition": "Prepare",
+    "definition2": "article of clothing",
+    "blocks": [
+     {
+      "clueFragment": "Prepare",
+      "gives": "",
+      "note": "the verb used of getting a wound, a salad or a shop window ready"
+     },
+     {
+      "clueFragment": "article of clothing",
+      "gives": "",
+      "note": "the one-piece garment a woman puts on over her head"
+     }
+    ],
+    "surface": "An instruction to get a garment ready to wear.",
+    "walkthrough": "Both halves define, so the clue asserts nothing at all, and the join is invisible because 'Prepare article of clothing' reads as one sensible order.",
+    "definitionFit": "As a verb DRESS means to make ready — a wound, a salad, a window; as a noun it is the frock itself."
+   }
   },
   {
    "id": "4-down",
@@ -89,7 +187,33 @@ window.CRYPTIC_PUZZLES["quiptic-1371"] = /*JSON-START*/ {
     ]
    },
    "solution": "WEAROFF",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "WEAR OFF",
+    "definition": "Lose intensity",
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "WEAR",
+     "OFF"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sport",
+      "gives": "WEAR",
+      "note": "to sport a hat or a badge is to wear it where everyone can see"
+     },
+     {
+      "clueFragment": "cancelled",
+      "gives": "OFF",
+      "note": "a match called off has been cancelled"
+     }
+    ],
+    "surface": "A fixture called off, and the excitement draining away with it.",
+    "walkthrough": "'Sport' reads as a noun in the surface, a game, and it is a verb in the wordplay, the one used of wearing something conspicuously.",
+    "definitionFit": "When a drug or an ache WEARS OFF its force fades away gradually, which is losing intensity."
+   }
   },
   {
    "id": "5-across",
@@ -106,7 +230,48 @@ window.CRYPTIC_PUZZLES["quiptic-1371"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FUCHSIA",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + charade",
+    "answer": "FUCHSIA",
+    "definition": "Plant",
+    "indicators": [
+     "to be cultivated"
+    ],
+    "indicatorNotes": {
+     "to be cultivated": "Cultivating ground means turning it over and breaking it up, so the letters handed to you get broken up and reset."
+    },
+    "linkWords": [
+     "by"
+    ],
+    "anagram": {
+     "fodder": "IF SUCH A"
+    },
+    "pieces": [
+     "FUCHSI",
+     "A"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "IFSUCH",
+      "gives": "FUCHSI"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "if such",
+      "gives": "FUCHSI",
+      "note": "the six letters of these two little words, put down in another order"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "a is the standard abbreviation for area"
+     }
+    ],
+    "surface": "A gardener being told to grow something of that kind in a particular patch.",
+    "walkthrough": "'If such' is a phrase doing no work in the sentence at all, which is the tell — setters write filler that awkward only when they need its letters.",
+    "definitionFit": "A FUCHSIA is the garden shrub with hanging bell-shaped flowers, so 'Plant' defines it by naming the class it belongs to."
+   }
   },
   {
    "id": "6-down",
@@ -123,7 +288,45 @@ window.CRYPTIC_PUZZLES["quiptic-1371"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UPROAR",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "UPROAR",
+    "definition": "Commotion",
+    "indicators": [
+     "over"
+    ],
+    "indicatorNotes": {
+     "over": "One thing sitting over another is written above it, and in a down entry above means earlier, so these letters go on top."
+    },
+    "linkWords": [
+     "from"
+    ],
+    "pieces": [
+     "U",
+     "PR",
+     "OAR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "posh",
+      "gives": "U",
+      "note": "U is the crossword's letter for upper class, from the U and non-U labels once given to posh and common usage"
+     },
+     {
+      "clueFragment": "pair",
+      "gives": "PR",
+      "note": "pr is the catalogue abbreviation for a pair"
+     },
+     {
+      "clueFragment": "thing for rowing",
+      "gives": "OAR",
+      "note": "the blade you pull a boat along with"
+     }
+    ],
+    "surface": "Two well-bred people kicking up a din above somebody's boating gear.",
+    "walkthrough": "'Rowing' can mean quarrelling, which is where the surface points, and the wordplay wants the boating sense instead.",
+    "definitionFit": "An UPROAR is a burst of loud confused noise and protest, which is what a commotion is."
+   }
   },
   {
    "id": "7-down",
@@ -140,7 +343,30 @@ window.CRYPTIC_PUZZLES["quiptic-1371"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HEADLIGHT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "HEADLIGHT",
+    "definition": "feature of a car",
+    "indicators": [
+     "repaired"
+    ],
+    "indicatorNotes": {
+     "repaired": "Repairing something means taking its broken pieces and fitting them back together differently, which is what happens to these letters."
+    },
+    "anagram": {
+     "fodder": "EIGHTHLAD"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Eighth lad",
+      "gives": "EIGHTHLAD",
+      "note": "nine letters of fodder, the two H's easy to lose count of"
+     }
+    ],
+    "surface": "The eighth boy in the line got a bit of somebody's car working again.",
+    "walkthrough": "'Repaired' sits exactly where a solver expects a plain past tense, so the sentence reads as somebody fixing a car rather than as an instruction about letters.",
+    "definitionFit": "A HEADLIGHT is one of the lamps at the front of a car, so the definition names it by the machine it belongs to."
+   }
   },
   {
    "id": "8-down",
@@ -157,7 +383,33 @@ window.CRYPTIC_PUZZLES["quiptic-1371"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INCENSE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + homophone",
+    "answer": "INCENSE",
+    "definition": "Source of sweet smell",
+    "indicators": [
+     "reportedly"
+    ],
+    "indicatorNotes": {
+     "reportedly": "What is reported is spoken rather than written, so the letters have to be spelled out of the sound and not out of the words."
+    },
+    "blocks": [
+     {
+      "clueFragment": "faculty",
+      "gives": "SENSE",
+      "note": "sight, hearing and smell are the senses, and a faculty is exactly one of those powers"
+     },
+     {
+      "clueFragment": "in faculty",
+      "soundsLike": "IN SENSE",
+      "gives": "INCENSE",
+      "note": "run the little word and that five-letter word together, say them aloud, and they come out as one word spelled differently"
+     }
+    ],
+    "surface": "A pleasant scent said to be drifting through a university department.",
+    "walkthrough": "A faculty is a university department in the surface and a bodily power in the wordplay, and it is the second sense the sound gets built on.",
+    "definitionFit": "INCENSE is the resin burned in churches and temples for its fragrance, so it literally is a source of sweet smell."
+   }
   },
   {
    "id": "9-down",
@@ -178,7 +430,30 @@ window.CRYPTIC_PUZZLES["quiptic-1371"] = /*JSON-START*/ {
     ]
    },
    "solution": "EVICTIONORDER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "EVICTION ORDER",
+    "definition": "A court could issue this",
+    "indicators": [
+     "criminal"
+    ],
+    "indicatorNotes": {
+     "criminal": "A criminal is someone who will not keep to the rules, and letters that will not keep to the rules of their spelling come out rearranged."
+    },
+    "anagram": {
+     "fodder": "DIRECTION OVER"
+    },
+    "blocks": [
+     {
+      "clueFragment": "direction over",
+      "gives": "DIRECTIONOVER",
+      "note": "thirteen letters of fodder, the preposition counting as letters like any other word"
+     }
+    ],
+    "surface": "A judge weighing up what instruction to hand down about an offender.",
+    "walkthrough": "'Over criminal' reads as 'concerning a wrongdoer', which hides the fact that both words are letters to be shuffled rather than sense to be followed.",
+    "definitionFit": "An EVICTION ORDER is the instruction a court issues requiring an occupier to leave a property, so the opening phrase points straight at it."
+   }
   },
   {
    "id": "10-across",
@@ -195,7 +470,38 @@ window.CRYPTIC_PUZZLES["quiptic-1371"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "URGE",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "URGE",
+    "definition": "Impulse",
+    "indicators": [
+     "after loss of"
+    ],
+    "indicatorNotes": {
+     "after loss of": "Losing a thing means it is gone, so the letter named next comes out of the word rather than being added to it."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "URGE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "abrupt removal of people",
+      "gives": "PURGE",
+      "note": "a purge is a sudden clearing-out of unwanted people from a party or an office"
+     },
+     {
+      "clueFragment": "power",
+      "gives": "P",
+      "note": "P is the standard abbreviation for power, and it is the letter struck out"
+     }
+    ],
+    "surface": "A political clear-out happening the moment the leadership loses its grip.",
+    "walkthrough": "'Loss of power' reads as a government falling from office, which is the very same political story the first half of the clue is telling.",
+    "definitionFit": "An URGE is a sudden strong wish to do something, the same inner push that 'impulse' names."
+   }
   },
   {
    "id": "11-across",
@@ -216,7 +522,30 @@ window.CRYPTIC_PUZZLES["quiptic-1371"] = /*JSON-START*/ {
     ]
    },
    "solution": "ATVARIANCE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "AT VARIANCE",
+    "definition": "in conflict",
+    "indicators": [
+     "suffering turmoil"
+    ],
+    "indicatorNotes": {
+     "suffering turmoil": "Turmoil is violent disorder, and whatever is suffering it does not keep its parts where they were."
+    },
+    "anagram": {
+     "fodder": "VACATE IRAN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Vacate Iran",
+      "gives": "VACATEIRAN",
+      "note": "ten letters of fodder, the verb and the country together"
+     }
+    ],
+    "surface": "People being told to leave Iran while the country is in upheaval.",
+    "walkthrough": "The surface is a news bulletin, and the two words carrying the story — the order to leave and the country it applies to — are the letters themselves.",
+    "definitionFit": "Two people AT VARIANCE openly disagree with each other, which is what being in conflict describes."
+   }
   },
   {
    "id": "12-across",
@@ -233,7 +562,27 @@ window.CRYPTIC_PUZZLES["quiptic-1371"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FIASCO",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "FIASCO",
+    "definition": "Debacle",
+    "indicators": [
+     "taking place in"
+    ],
+    "indicatorNotes": {
+     "taking place in": "Something taking place in a spot is sitting right there inside it, so the letters wanted are already present in the words that follow."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Sofia’s condemned",
+      "gives": "FIASCO",
+      "note": "six letters in a row, starting inside the first word and running on through the apostrophe into the second"
+     }
+    ],
+    "surface": "A disaster unfolding in Sofia, in a building that had already been condemned.",
+    "walkthrough": "Sofia is the Bulgarian capital, so the sentence reads as a news report from abroad, and the possessive apostrophe does nothing but disguise the seam.",
+    "definitionFit": "A FIASCO is a complete and humiliating failure, which is exactly what a debacle is."
+   }
   },
   {
    "id": "13-across",
@@ -250,7 +599,45 @@ window.CRYPTIC_PUZZLES["quiptic-1371"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHATLINE",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + charade",
+    "answer": "CHATLINE",
+    "definition": "conversational service",
+    "indicators": [
+     "not"
+    ],
+    "indicatorNotes": {
+     "not": "Putting this in front of a word cancels it, so the letter that word stands for comes out of the assembly instead of joining it."
+    },
+    "linkWords": [
+     "linked to",
+     "for"
+    ],
+    "pieces": [
+     "CHAT",
+     "LINE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Repeated word",
+      "gives": "CHANT",
+      "note": "a chant is a phrase a crowd says over and over"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the standard abbreviation for new, and it is the letter cancelled"
+     },
+     {
+      "clueFragment": "policy",
+      "gives": "LINE",
+      "note": "a party's line is the policy it expects its members to take"
+     }
+    ],
+    "surface": "Somebody dropping a stale slogan and sticking to the official position instead.",
+    "walkthrough": "The party line is worth filing away as an equation: 'policy', 'stance' or 'official position' will all turn into the same four letters.",
+    "definitionFit": "A CHATLINE is a phone or online service people ring up simply to talk to strangers, which makes it a conversational service."
+   }
   },
   {
    "id": "14-across",
@@ -271,7 +658,45 @@ window.CRYPTIC_PUZZLES["quiptic-1371"] = /*JSON-START*/ {
     ]
    },
    "solution": "TRADEFAIR",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + charade",
+    "answer": "TRADE FAIR",
+    "definition": "Commercial exhibition",
+    "indicators": [
+     "somehow"
+    ],
+    "indicatorNotes": {
+     "somehow": "The word admits the letters arrived by a route it will not name, and an unnamed route is a reordering."
+    },
+    "anagram": {
+     "fodder": "RATED FAIR"
+    },
+    "pieces": [
+     "TRADE",
+     "FAIR"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "RATED",
+      "gives": "TRADE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rated",
+      "gives": "TRADE",
+      "note": "the five letters of the word, resettled into another order"
+     },
+     {
+      "clueFragment": "reasonable",
+      "gives": "FAIR",
+      "note": "a fair price or a fair hearing is a reasonable one"
+     }
+    ],
+    "surface": "An exhibition that somebody has judged to be decent enough.",
+    "walkthrough": "'Rated reasonable' reads as one verdict on the show, but the two words are doing different jobs: one supplies letters, the other a synonym.",
+    "definitionFit": "A TRADE FAIR is the exhibition where firms in one industry show their products to buyers, which is a commercial exhibition."
+   }
   },
   {
    "id": "15-down",
@@ -288,7 +713,42 @@ window.CRYPTIC_PUZZLES["quiptic-1371"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DISHONOUR",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "DISHONOUR",
+    "definition": "Scandal",
+    "indicators": [
+     "repressed by"
+    ],
+    "indicatorNotes": {
+     "repressed by": "Something repressed is held down and kept out of sight, so this word ends up buried among the letters on either side of it."
+    },
+    "pieces": [
+     "D",
+     "IS",
+     "HONOUR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dutch",
+      "gives": "D",
+      "note": "D is the standard abbreviation for Dutch"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "the little word is taken straight off the page, letters and all"
+     },
+     {
+      "clueFragment": "queen, perhaps",
+      "gives": "HONOUR",
+      "note": "in bridge and whist the honours are the top cards — ace, king, queen, jack, ten — so a queen is one instance of one"
+     }
+    ],
+    "surface": "A scandal being quietly hushed up by a Dutch monarch.",
+    "walkthrough": "'Perhaps' is the standard marker for definition by example: the queen is not the word wanted, only one of the things it covers.",
+    "definitionFit": "DISHONOUR is the public disgrace attaching to someone whose wrongdoing comes out, which is what a scandal leaves behind."
+   }
   },
   {
    "id": "16-across",
@@ -305,7 +765,39 @@ window.CRYPTIC_PUZZLES["quiptic-1371"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AGREE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "AGREE",
+    "definition": "Correspond",
+    "indicators": [
+     "shortly"
+    ],
+    "indicatorNotes": {
+     "shortly": "Saying a thing shortly is saying it cut short, so the word it follows gives up its final letter."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "A",
+     "GREE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the indefinite article supplies its own single letter"
+     },
+     {
+      "clueFragment": "person keen on recycling",
+      "gives": "GREEN",
+      "note": "someone who champions recycling and conservation goes by this name, after the colour the environmental movement adopted"
+     }
+    ],
+    "surface": "Exchanging letters with an environmentally minded person before long.",
+    "walkthrough": "'Correspond' looks like writing letters, which is the picture the surface wants; the definition needs the other sense, of two accounts matching.",
+    "definitionFit": "Two sets of figures that AGREE correspond with each other — the tallying sense of the word rather than the sense of getting on."
+   }
   },
   {
    "id": "17-across",
@@ -322,7 +814,30 @@ window.CRYPTIC_PUZZLES["quiptic-1371"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FLOSS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "FLOSS",
+    "definition": "Perform dental hygiene",
+    "pieces": [
+     "F",
+     "LOSS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "following",
+      "gives": "F",
+      "note": "f is the abbreviation printed in references to mean the page following"
+     },
+     {
+      "clueFragment": "feeling of deprivation",
+      "gives": "LOSS",
+      "note": "the ache of being deprived of somebody is a sense of loss"
+     }
+    ],
+    "surface": "Cleaning your teeth after a spell of feeling bereft.",
+    "walkthrough": "'Following' looks like a joining word telling you which piece comes after which, and it is a piece in its own right.",
+    "definitionFit": "To FLOSS is to work waxed thread between the teeth, which is performing dental hygiene."
+   }
   },
   {
    "id": "18-down",
@@ -343,7 +858,46 @@ window.CRYPTIC_PUZZLES["quiptic-1371"] = /*JSON-START*/ {
     ]
    },
    "solution": "LOOKSEE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "LOOK-SEE",
+    "definition": "brief inspection",
+    "indicators": [
+     "largely"
+    ],
+    "indicatorNotes": {
+     "largely": "Taking most of a thing but not all of it is what this asks for, so the word it follows keeps everything except its final letter."
+    },
+    "linkWords": [
+     "with",
+     "for"
+    ],
+    "pieces": [
+     "LOO",
+     "K",
+     "SEE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gents, maybe",
+      "gives": "LOO",
+      "note": "the Gents is a British public lavatory, and loo is the everyday British word for one"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "K",
+      "note": "K is the standard abbreviation for king, as on a playing card or a chess score sheet"
+     },
+     {
+      "clueFragment": "appear",
+      "gives": "SEEM",
+      "note": "to seem and to appear are the same verb, and the last letter of it goes"
+     }
+    ],
+    "surface": "The men's toilets and a king, by and large, turning up for a quick once-over.",
+    "walkthrough": "The enumeration is the biggest hint here: a hyphenated four-and-three in a clue about a quick glance narrows the field hard before any parsing starts.",
+    "definitionFit": "A LOOK-SEE is an informal quick glance at something to check it over, which is a brief inspection."
+   }
   },
   {
    "id": "19-across",
@@ -360,7 +914,39 @@ window.CRYPTIC_PUZZLES["quiptic-1371"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ENTERTAIN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ENTERTAIN",
+    "definition": "Consider",
+    "linkWords": [
+     "by"
+    ],
+    "pieces": [
+     "ENTER",
+     "TA",
+     "IN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "register",
+      "gives": "ENTER",
+      "note": "to enter a name in a book is to register it"
+     },
+     {
+      "clueFragment": "old military reserve",
+      "gives": "TA",
+      "note": "the TA was the Territorial Army, Britain's part-time volunteer reserve force, renamed in 2014"
+     },
+     {
+      "clueFragment": "at home",
+      "gives": "IN",
+      "note": "somebody at home is in"
+     }
+    ],
+    "surface": "Signing up with a former volunteer force without leaving the house.",
+    "walkthrough": "The TA is worth filing away: 'volunteers', 'reserves' or 'territorials' in a British clue almost always want those two letters.",
+    "definitionFit": "To ENTERTAIN a proposal is to hold it in mind and give it a hearing without committing, which is exactly to consider it."
+   }
   },
   {
    "id": "20-down",
@@ -377,7 +963,52 @@ window.CRYPTIC_PUZZLES["quiptic-1371"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EXACTLY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "EXACTLY",
+    "definition": "in a precise way",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "The small word is doing positional work: whatever is in a place sits inside it, so the pieces before it get planted within the letters that follow."
+    },
+    "linkWords": [
+     "shown by"
+    ],
+    "pieces": [
+     "E",
+     "X",
+     "A",
+     "CT",
+     "LY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fenland place",
+      "gives": "ELY",
+      "note": "Ely is the small cathedral city out in the Cambridgeshire fens"
+     },
+     {
+      "clueFragment": "Times",
+      "gives": "X",
+      "note": "the multiplication sign, read aloud as 'times'"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article is taken at face value"
+     },
+     {
+      "clueFragment": "court",
+      "gives": "CT",
+      "note": "ct is the abbreviation for Court used in street addresses"
+     }
+    ],
+    "surface": "The sitting times displayed by a courthouse somewhere out in the fens.",
+    "walkthrough": "The Fens are the flat drained marshland of eastern England, and the cathedral city buried in this clue stands on what was once an island in them.",
+    "definitionFit": "EXACTLY means with complete precision, so the adverb stands in for the phrase 'in a precise way' word for word."
+   }
   },
   {
    "id": "21-down",
@@ -394,7 +1025,45 @@ window.CRYPTIC_PUZZLES["quiptic-1371"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IMMENSE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "IMMENSE",
+    "definition": "huge",
+    "indicators": [
+     "surprisingly"
+    ],
+    "indicatorNotes": {
+     "surprisingly": "A surprise is a thing turning out other than expected, and letters turning out other than expected have swapped places."
+    },
+    "linkWords": [
+     "to be"
+    ],
+    "pieces": [
+     "IMM",
+     "ENSE"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "SEEN",
+      "gives": "ENSE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small measure",
+      "gives": "IMM",
+      "note": "one millimetre written out in symbols: the Roman numeral for one, then the two letters for millimetre"
+     },
+     {
+      "clueFragment": "seen",
+      "gives": "ENSE",
+      "note": "the four letters of the word, resettled into another order"
+     }
+    ],
+    "surface": "Something tiny that turns out, against all expectation, to be enormous.",
+    "walkthrough": "'Small' and 'huge' sit at opposite ends of one short sentence, and the setter is banking on you reading the first as part of the definition rather than as a unit of length.",
+    "definitionFit": "IMMENSE means vast in extent or degree, an everyday synonym for huge that carries a hint of being past measuring."
+   }
   },
   {
    "id": "22-down",
@@ -411,7 +1080,40 @@ window.CRYPTIC_PUZZLES["quiptic-1371"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EDITED",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "EDITED",
+    "definition": "Like a checked report",
+    "indicators": [
+     "kept by"
+    ],
+    "indicatorNotes": {
+     "kept by": "Something kept by somebody is held in their keeping, so this piece ends up shut inside the letters around it."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "ED",
+     "IT",
+     "ED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "two journalists",
+      "gives": "EDED",
+      "note": "ed is short for editor, and the clue asks for a pair of them side by side"
+     },
+     {
+      "clueFragment": "appeal",
+      "gives": "IT",
+      "note": "IT is the crossword's shorthand for sex appeal"
+     }
+    ],
+    "surface": "Two newspapermen hanging on to the charm in a piece of writing.",
+    "walkthrough": "IT for sex appeal comes from Elinor Glyn's 1927 novel and the It girl who followed it, and crosswords have kept the sense long after ordinary speech dropped it.",
+    "definitionFit": "A report that has been EDITED has been gone over and corrected, so 'like a checked report' describes the state it is in."
+   }
   },
   {
    "id": "23-across",
@@ -432,7 +1134,30 @@ window.CRYPTIC_PUZZLES["quiptic-1371"] = /*JSON-START*/ {
     ]
    },
    "solution": "NOWONDER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "NO WONDER",
+    "definition": "Hardly a surprise!",
+    "pieces": [
+     "NO",
+     "WONDER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Absence of",
+      "gives": "NO",
+      "note": "having an absence of something is having none of it"
+     },
+     {
+      "clueFragment": "singer Stevie",
+      "gives": "WONDER",
+      "note": "Stevie is only the forename; the wordplay wants the surname of the Motown singer and pianist"
+     }
+    ],
+    "surface": "Noticing that a famous soul singer has not turned up after all.",
+    "walkthrough": "Reading 'Absence of' as an instruction rather than as part of the picture is the whole step, and the question mark is the setter owning up to the join.",
+    "definitionFit": "'NO WONDER' is what you say when an outcome was entirely predictable, which is what calling something hardly a surprise means."
+   }
   },
   {
    "id": "24-across",
@@ -449,7 +1174,45 @@ window.CRYPTIC_PUZZLES["quiptic-1371"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ASSUME",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters + container",
+    "answer": "ASSUME",
+    "definition": "Take on",
+    "indicators": [
+     "case for",
+     "about"
+    ],
+    "indicatorNotes": {
+     "case for": "A case is the shell round a thing rather than the thing itself, so only the outside letters of the word named are taken.",
+     "about": "Something placed about a thing is wrapped round the outside of it, so these letters close over the piece that follows."
+    },
+    "pieces": [
+     "A",
+     "S",
+     "SUM",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article is taken at face value"
+     },
+     {
+      "clueFragment": "some",
+      "gives": "SE",
+      "note": "the first and last letters of the word, which are its outside"
+     },
+     {
+      "clueFragment": "particular amount of money",
+      "gives": "SUM",
+      "note": "a sum is a specified quantity of money"
+     }
+    ],
+    "surface": "A lawyer agreeing to act for a group of people in a dispute over money.",
+    "walkthrough": "'Case' is one of the setter's favourite words for the outside of something — a shell, a cover, a suitcase — and it never means the contents.",
+    "definitionFit": "To ASSUME a duty is to take it on yourself, the sense of shouldering a role rather than the sense of supposing something."
+   }
   },
   {
    "id": "25-down",
@@ -466,7 +1229,34 @@ window.CRYPTIC_PUZZLES["quiptic-1371"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SWISH",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SWISH",
+    "definition": "impressively smart",
+    "linkWords": [
+     "has",
+     "to be"
+    ],
+    "pieces": [
+     "S",
+     "WISH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Soprano",
+      "gives": "S",
+      "note": "S is the standard abbreviation for soprano on a choral score"
+     },
+     {
+      "clueFragment": "desire",
+      "gives": "WISH",
+      "note": "a wish is a thing desired"
+     }
+    ],
+    "surface": "An opera singer who wants to look glamorous.",
+    "walkthrough": "The four choral voices all shorten to single letters on a score — S, A, T and B — so a clue naming any of them is usually after just the letter.",
+    "definitionFit": "SWISH is British informal for smart in an expensive, eye-catching way: a swish hotel, a swish car."
+   }
   },
   {
    "id": "26-across",
@@ -483,7 +1273,30 @@ window.CRYPTIC_PUZZLES["quiptic-1371"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ASSORTMENT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ASSORTMENT",
+    "definition": "Variety of things",
+    "indicators": [
+     "scattered"
+    ],
+    "indicatorNotes": {
+     "scattered": "Things scattered have been thrown about and no longer lie where they were put, so the letters land in a fresh order."
+    },
+    "anagram": {
+     "fodder": "ON MATTRESS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "on mattress",
+      "gives": "ONMATTRESS",
+      "note": "ten letters of fodder, the preposition counting as letters like any other word"
+     }
+    ],
+    "surface": "Odds and ends thrown down all over somebody's bed.",
+    "walkthrough": "'On' is the word to notice: it looks like the preposition holding the picture together, and it is two of the answer's letters.",
+    "definitionFit": "An ASSORTMENT is a mixed collection of different sorts of thing, which is what a variety of things amounts to."
+   }
   },
   {
    "id": "27-across",
@@ -500,7 +1313,33 @@ window.CRYPTIC_PUZZLES["quiptic-1371"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INNS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "INNS",
+    "definition": "Hostelries",
+    "linkWords": [
+     "by"
+    ],
+    "pieces": [
+     "IN",
+     "NS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "favoured",
+      "gives": "IN",
+      "note": "whatever is in is currently favoured or fashionable"
+     },
+     {
+      "clueFragment": "two Poles",
+      "gives": "NS",
+      "note": "the north and south poles, each written as the initial it goes by on a compass or a magnet"
+     }
+    ],
+    "surface": "Pubs that a couple of Polish visitors are fond of.",
+    "walkthrough": "The capital P on 'Poles' points at Poland, and the clue means the ends of the earth's axis instead.",
+    "definitionFit": "An inn is a house offering travellers lodging and drink, so 'hostelries' is the same old-fashioned idea in the plural."
+   }
   },
   {
    "id": "28-across",
@@ -517,7 +1356,42 @@ window.CRYPTIC_PUZZLES["quiptic-1371"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DEGRADE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "DEGRADE",
+    "definition": "Cheapen",
+    "indicators": [
+     "when reviewed"
+    ],
+    "indicatorNotes": {
+     "when reviewed": "To review is to look at a thing again from a fresh angle, and letters looked at afresh come out in a different sequence."
+    },
+    "pieces": [
+     "DEG",
+     "RADE"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "DEAR",
+      "gives": "RADE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "degree",
+      "gives": "DEG",
+      "note": "deg is the standard written abbreviation for degree"
+     },
+     {
+      "clueFragment": "dear",
+      "gives": "RADE",
+      "note": "the four letters of the word, resettled into another order"
+     }
+    ],
+    "surface": "Talking down the worth of a qualification that cost a lot to get.",
+    "walkthrough": "'Reviewed' is the trap: it usually tells you to turn a word backwards, and backwards those four letters give a run that fits nothing.",
+    "definitionFit": "To DEGRADE a thing is to lower it in worth or standing, which is what cheapening does to its value."
+   }
   },
   {
    "id": "29-across",
@@ -534,7 +1408,30 @@ window.CRYPTIC_PUZZLES["quiptic-1371"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LYCHEES",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "LYCHEES",
+    "definition": "tropical fruits",
+    "indicators": [
+     "Some"
+    ],
+    "indicatorNotes": {
+     "Some": "Asking for some of a thing asks for part of it, and the part wanted is a run of letters lying inside the words that follow."
+    },
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bubbly, cheese",
+      "gives": "LYCHEES",
+      "note": "seven letters in a row, beginning inside the first word and running straight across the comma"
+     }
+    ],
+    "surface": "Champagne, cheese and fruit laid out for guests at a party.",
+    "walkthrough": "A comma reads to the eye as a stop, which is exactly why a setter puts the join of a hidden answer on top of one.",
+    "definitionFit": "LYCHEES are the small sweet white-fleshed fruits, grown across the tropics, that come in a rough pink shell."
+   }
   }
  ]
 } /*JSON-END*/;
