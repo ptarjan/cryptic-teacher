@@ -30,7 +30,46 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GRAMMAR",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "GRAMMAR",
+    "definition": "Rules regarding language",
+    "definitionNote": "The definition is plural and the answer is a singular mass noun, but the word names a whole body of rules at once, the way 'the law' stands in for laws.",
+    "indicators": [
+     "ultimately"
+    ],
+    "indicatorNotes": {
+     "ultimately": "'Ultimately' means at the very end of things, so it points at the final letter of the word beside it."
+    },
+    "linkWords": [
+     "to"
+    ],
+    "pieces": [
+     "G",
+     "RAM",
+     "MAR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ultimately applying",
+      "gives": "G",
+      "note": "the closing letter of 'applying'"
+     },
+     {
+      "clueFragment": "crash",
+      "gives": "RAM",
+      "note": "to ram something is to crash into it"
+     },
+     {
+      "clueFragment": "damage",
+      "gives": "MAR",
+      "note": "to mar is to damage or spoil"
+     }
+    ],
+    "surface": "Small print about wording that ends up governing what a collision costs.",
+    "walkthrough": "'Crash damage' is a single insurance phrase in the surface, and the clue quietly splits it into two unrelated synonyms that happen to sit next to each other.",
+    "definitionFit": "Grammar is the body of rules governing how a language is put together, so the definition is the plain sense of the word."
+   }
   },
   {
    "id": "1-down",
@@ -47,7 +86,39 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GATECRASH",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "GATECRASH",
+    "definition": "Arrive without a ticket",
+    "indicators": [
+     "after"
+    ],
+    "indicatorNotes": {
+     "after": "In a down clue 'after' means further down the page, so the second piece is written underneath the first."
+    },
+    "linkWords": [
+     "and"
+    ],
+    "pieces": [
+     "GATE",
+     "CRASH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "those attending",
+      "gives": "GATE",
+      "note": "the gate at a football match is the crowd that turned up, and the money they paid at the turnstiles"
+     },
+     {
+      "clueFragment": "go down",
+      "gives": "CRASH",
+      "note": "a plane or a market that goes down has crashed"
+     }
+    ],
+    "surface": "Turning up unpaid and then flopping down behind the people who bought seats.",
+    "walkthrough": "'Gate' meaning the attendance at a sporting fixture is British sports-page vocabulary, and it does the same job in the picture as it does in the letters.",
+    "definitionFit": "To gatecrash is to turn up at a party or event uninvited and unpaid, which is exactly arriving without a ticket."
+   }
   },
   {
    "id": "2-down",
@@ -64,7 +135,37 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ALIMONY",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "ALIMONY",
+    "definition": "Post-match expense",
+    "indicators": [
+     "will involve"
+    ],
+    "indicatorNotes": {
+     "will involve": "To involve something is to wrap it up in whatever you are doing, so the car ends up inside the other word."
+    },
+    "pieces": [
+     "A",
+     "LIMO",
+     "NY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Some",
+      "gives": "ANY",
+      "note": "'some' and 'any' are the same quantifier once a sentence turns into a question"
+     },
+     {
+      "clueFragment": "flash car",
+      "gives": "LIMO",
+      "note": "a limo is the flashy hired car of choice"
+     }
+    ],
+    "surface": "The bill after a sporting fixture, some of which runs to a hired limousine.",
+    "walkthrough": "'Match' is a marriage rather than a fixture, which is the whole misdirection, and 'will involve' passes as a prediction about costs instead of an instruction.",
+    "definitionFit": "Alimony is the maintenance a divorced spouse pays, so it is the expense that arrives after a match — a marriage — has ended."
+   }
   },
   {
    "id": "3-down",
@@ -81,7 +182,48 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MALT",
-   "annotation": null
+   "annotation": {
+    "type": "first letters",
+    "answer": "MALT",
+    "definition": "Whisky?",
+    "indicators": [
+     "for starters"
+    ],
+    "indicatorNotes": {
+     "for starters": "'For starters' means to begin with, so only the opening letter of each name is being served."
+    },
+    "pieces": [
+     "M",
+     "A",
+     "L",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Macallan",
+      "gives": "M",
+      "note": "the leading letter of the first of four distilleries"
+     },
+     {
+      "clueFragment": "Ardbeg",
+      "gives": "A",
+      "note": "an Islay distillery, contributing its initial"
+     },
+     {
+      "clueFragment": "Lagavulin",
+      "gives": "L",
+      "note": "another Islay name, handing over the letter it starts with"
+     },
+     {
+      "clueFragment": "Talisker",
+      "gives": "T",
+      "note": "the Skye distillery, closing the run with its first letter"
+     }
+    ],
+    "surface": "A whisky lover reeling off the distilleries they would open the evening with.",
+    "walkthrough": "All four names are Scottish single malt distilleries, so the definition is hiding among four things that are already examples of it, and the list reads as flavour.",
+    "definitionFit": "Malt is whisky made from malted barley alone, so 'Whisky?' defines it by the wider class it belongs to, with the question mark marking that looseness."
+   }
   },
   {
    "id": "4-down",
@@ -102,7 +244,39 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
     ]
    },
    "solution": "RAKEIN",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "RAKE IN",
+    "definition": "Acquire",
+    "indicators": [
+     "mostly",
+     "around"
+    ],
+    "indicatorNotes": {
+     "mostly": "'Mostly' means most of it but not all, so the word gives up the letter it ends on.",
+     "around": "Something placed around another thing encircles it, so these letters open up and take the drug inside."
+    },
+    "pieces": [
+     "RAK",
+     "E",
+     "IN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mostly sloping",
+      "gives": "RAKIN",
+      "note": "a stage or a windscreen that slopes is RAKING, here docked of its last letter"
+     },
+     {
+      "clueFragment": "Ecstasy",
+      "gives": "E",
+      "note": "E is the standard abbreviation for the drug"
+     }
+    ],
+    "surface": "Someone getting hold of a pill and then lounging about at an angle.",
+    "walkthrough": "A rake is a slope — the pitch of a theatre stage or the angle of a windscreen — and that is the sense doing the work, not the garden tool.",
+    "definitionFit": "To rake in money is to acquire it fast and in quantity, the phrase used of profits rather than of a single purchase."
+   }
   },
   {
    "id": "5-across",
@@ -119,7 +293,39 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WHISTLE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "WHISTLE",
+    "definition": "Sound from police, perhaps",
+    "indicators": [
+     "sealing off",
+     "in"
+    ],
+    "indicatorNotes": {
+     "sealing off": "Sealing a place off closes it in on every side, so the word named next is shut inside another.",
+     "in": "'In' puts the piece before it within the piece after it, rather than alongside."
+    },
+    "pieces": [
+     "WHI",
+     "ST",
+     "LE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time",
+      "gives": "WHILE",
+      "note": "a while is a stretch of time"
+     },
+     {
+      "clueFragment": "street",
+      "gives": "ST",
+      "note": "ST is the standard abbreviation on any address"
+     }
+    ],
+    "surface": "Police cordoning off a road for a spell.",
+    "walkthrough": "The surface has officers taping up a street, so 'sealing off' reads as police work rather than as a direction about where one word goes inside another.",
+    "definitionFit": "A whistle is the shrill blast a police officer blows, and 'perhaps' marks that as one example of a sound they might make."
+   }
   },
   {
    "id": "5-down",
@@ -136,7 +342,42 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WORMHOLE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "WORMHOLE",
+    "definition": "interstellar transport option",
+    "indicators": [
+     "blocking"
+    ],
+    "indicatorNotes": {
+     "blocking": "Anything blocking a passage sits in the middle of it, so these letters lodge inside the word that follows."
+    },
+    "pieces": [
+     "W",
+     "ORM",
+     "HOLE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "entire",
+      "gives": "WHOLE",
+      "note": "whole means entire"
+     },
+     {
+      "clueFragment": "Old",
+      "gives": "O",
+      "note": "O is the standard abbreviation for old"
+     },
+     {
+      "clueFragment": "military group",
+      "gives": "RM",
+      "note": "RM is the Royal Marines, Britain's amphibious infantry corps"
+     }
+    ],
+    "surface": "An ancient regiment barring the only route between the stars.",
+    "walkthrough": "The question mark is doing real work: nobody has ever travelled by one, so the definition is offered as a possibility rather than as a fact.",
+    "definitionFit": "A wormhole is a hypothetical tunnel folding two distant regions of space together, which is why fiction uses it to cross between stars."
+   }
   },
   {
    "id": "6-down",
@@ -153,7 +394,37 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INTERREGAL",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "INTERREGAL",
+    "definition": "before another ruler is named",
+    "indicators": [
+     "Bizarre",
+     "involving"
+    ],
+    "indicatorNotes": {
+     "Bizarre": "Something bizarre is out of its normal shape, and letters out of their normal shape have been put in a new order.",
+     "involving": "'Involving' folds the extra pair of letters into the mixture rather than leaving them standing outside it."
+    },
+    "anagram": {
+     "fodder": "TRIANGLE ER"
+    },
+    "blocks": [
+     {
+      "clueFragment": "triangle",
+      "gives": "TRIANGLE",
+      "note": "eight letters of fodder"
+     },
+     {
+      "clueFragment": "former Queen",
+      "gives": "ER",
+      "note": "ER was Elizabeth Regina's royal cypher, and 'former' dates her as the previous monarch"
+     }
+    ],
+    "surface": "An odd love triangle drawing in the late Queen, dated to the gap before the next monarch.",
+    "walkthrough": "ER is the crossword's standing pair of letters for a queen, from Elizabeth Regina, and 'former' is there to date her rather than to change anything.",
+    "definitionFit": "Interregal means falling between reigns, so it describes the stretch after one ruler has gone and before a successor is proclaimed."
+   }
   },
   {
    "id": "7-down",
@@ -170,7 +441,44 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TRIPOLI",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "TRIPOLI",
+    "definition": "African city",
+    "indicators": [
+     "over",
+     "distribution of"
+    ],
+    "indicatorNotes": {
+     "over": "In a down clue 'over' is vertical: the piece named first sits on top of whatever comes next.",
+     "distribution of": "Distributing something deals it out, so these letters are dealt into an order the clue has not printed."
+    },
+    "subAnagrams": [
+     {
+      "fodder": "OIL",
+      "gives": "OLI"
+     }
+    ],
+    "pieces": [
+     "TRIP",
+     "OLI"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mistake",
+      "gives": "TRIP",
+      "note": "a trip is a stumble, and so a mistake"
+     },
+     {
+      "clueFragment": "oil",
+      "gives": "OLI",
+      "note": "three letters dealt into a new order"
+     }
+    ],
+    "surface": "A north African capital's blunder over how the oil gets shared out.",
+    "walkthrough": "Oil is the commodity the surface is arguing about and the raw material of the letters at the same time, so the word looks like part of the story.",
+    "definitionFit": "Tripoli is the capital and largest city of Libya, on the North African coast, so the definition names it by continent and kind."
+   }
   },
   {
    "id": "8-down",
@@ -187,7 +495,35 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ENTRY",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "ENTRY",
+    "definition": "access",
+    "indicators": [
+     "offering no"
+    ],
+    "indicatorNotes": {
+     "offering no": "Offering none of a thing is refusing to supply it, so the letter named next is simply not there."
+    },
+    "pieces": [
+     "ENTRY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nobles",
+      "gives": "GENTRY",
+      "note": "the gentry are the British landowning class, ranked just below the titled nobility"
+     },
+     {
+      "clueFragment": "Government",
+      "gives": "G",
+      "note": "G is the standard abbreviation for government, and it is the letter withheld"
+     }
+    ],
+    "surface": "Landed families refusing to let anyone from Whitehall through the door.",
+    "walkthrough": "'Offering no Government' passes as a political refusal and is an instruction to drop a single letter, which is the only mechanism in the clue.",
+    "definitionFit": "Entry is the act or right of going in, so 'access' is the same idea in its noun form — a way in rather than permission to use something."
+   }
   },
   {
    "id": "9-across",
@@ -204,7 +540,45 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TRIAL",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "TRIAL",
+    "definition": "court-martial",
+    "indicators": [
+     "adopted by",
+     "backing"
+    ],
+    "indicatorNotes": {
+     "adopted by": "To adopt someone is to take them into your own household, so the officer takes the other piece inside.",
+     "backing": "Backing is going back the way you came, and in an across entry that means the letters read from the right."
+    },
+    "subReversals": [
+     {
+      "from": "LAIRT",
+      "to": "TRIAL"
+     }
+    ],
+    "pieces": [
+     "T",
+     "RIA",
+     "L"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "officer",
+      "gives": "LT",
+      "note": "LT is the rank abbreviation for a lieutenant"
+     },
+     {
+      "clueFragment": "Manner",
+      "gives": "AIR",
+      "note": "an air is the manner someone carries themselves with"
+     }
+    ],
+    "surface": "An officer whose bearing is what got him hauled up before a military court.",
+    "walkthrough": "'Court-martial?' is one particular species of the thing rather than a synonym for it, which is what the question mark is quietly admitting.",
+    "definitionFit": "A court-martial is a trial held under military law, so the definition points at the answer through a single example of it."
+   }
   },
   {
    "id": "10-across",
@@ -221,7 +595,30 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "KARATEIST",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "KARATEIST",
+    "definition": "Chopper",
+    "indicators": [
+     "whirling"
+    ],
+    "indicatorNotes": {
+     "whirling": "Whirling spins something so fast that you can no longer tell which part was where, which is what happens to these letters."
+    },
+    "anagram": {
+     "fodder": "AT A STRIKE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "at a strike",
+      "gives": "ATASTRIKE",
+      "note": "nine letters of fodder"
+     }
+    ],
+    "surface": "A helicopter circling above a picket line.",
+    "walkthrough": "'Chopper' wants to be the helicopter the surface is flying, and it means a person who chops. Karateist really is the noun for someone who practises karate.",
+    "definitionFit": "A karateist practises karate, whose signature blow is the chop, so 'chopper' names the person by the strike they deliver."
+   }
   },
   {
    "id": "11-across",
@@ -238,7 +635,40 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "COOT",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "COOT",
+    "definition": "Nellie",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "'In' puts the letter before it inside the word after it, rather than next to it."
+    },
+    "linkWords": [
+     "getting"
+    ],
+    "pieces": [
+     "C",
+     "OO",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bed",
+      "gives": "COT",
+      "note": "a cot is a small bed"
+     },
+     {
+      "clueFragment": "twice the love",
+      "gives": "O",
+      "note": "love is the tennis score of nil, written as a nought, and a second one joins the one the bed already carries"
+     }
+    ],
+    "surface": "Nellie enjoying a double helping of affection at bedtime.",
+    "walkthrough": "'Twice the love' does not ask for two letters to be inserted — one goes in, landing beside the one that was already sitting there.",
+    "definitionFit": "Both words are dated slang for a simpleton: this is the coot of 'you old coot' rather than the black waterbird of the same name."
+   }
   },
   {
    "id": "12-across",
@@ -255,7 +685,39 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DISHARMONY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "DISHARMONY",
+    "definition": "conflict",
+    "indicators": [
+     "out of sync"
+    ],
+    "indicatorNotes": {
+     "out of sync": "Things out of sync have slipped out of the order they should keep, which is exactly what happens to these letters."
+    },
+    "linkWords": [
+     "with",
+     "makes for"
+    ],
+    "anagram": {
+     "fodder": "MAINS HYDRO"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Mains",
+      "gives": "MAINS",
+      "note": "five letters of fodder"
+     },
+     {
+      "clueFragment": "hydro",
+      "gives": "HYDRO",
+      "note": "five more, shuffled together with the first five"
+     }
+    ],
+    "surface": "The national grid and the hydroelectric stations failing to keep in step.",
+    "walkthrough": "Mains and hydro belong to the same electrical picture, so the sentence reads as a technical complaint about power supply rather than as ten letters to rearrange.",
+    "definitionFit": "Disharmony is the state of not getting along, which is conflict in its abstract sense of discord between people or ideas rather than open fighting."
+   }
   },
   {
    "id": "13-down",
@@ -276,7 +738,46 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
     ]
    },
    "solution": "ANNODOMINI",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ANNO DOMINI",
+    "definition": "the present time",
+    "indicators": [],
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "AN",
+     "NOD",
+     "O",
+     "MINI"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "An",
+      "gives": "AN",
+      "note": "the clue's own opening word, taken as it stands"
+     },
+     {
+      "clueFragment": "agreement",
+      "gives": "NOD",
+      "note": "a nod is how agreement is given without speaking"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "O is the scorer's abbreviation for a cricket over, the six balls bowled from one end"
+     },
+     {
+      "clueFragment": "small car",
+      "gives": "MINI",
+      "note": "the Mini is the British small car"
+     }
+    ],
+    "surface": "A deal struck over a little car, signed off in the here and now.",
+    "walkthrough": "'Over' looks like a positional instruction in a down clue and is a cricket abbreviation instead, and it is the one piece nothing in the sentence flags.",
+    "definitionFit": "Anno Domini is the era our dates are counted in — AD — so 'the present time' is the age we are living through rather than this instant."
+   }
   },
   {
    "id": "14-across",
@@ -293,7 +794,43 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ANYONE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "ANYONE",
+    "definition": "no matter who’s involved",
+    "indicators": [
+     "about"
+    ],
+    "indicatorNotes": {
+     "about": "'About' means round the outside of a thing, so the article wraps itself round the cricket term."
+    },
+    "pieces": [
+     "AN",
+     "Y",
+     "ON",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "An",
+      "gives": "AN",
+      "note": "the clue's own first word, used as it stands"
+     },
+     {
+      "clueFragment": "old article",
+      "gives": "YE",
+      "note": "YE is the archaic form of 'the', as in ye olde shoppe"
+     },
+     {
+      "clueFragment": "cricket side",
+      "gives": "ON",
+      "note": "the on side is the half of a cricket field lying behind the batter's legs"
+     }
+    ],
+    "surface": "An old newspaper piece about a cricket team, whoever happened to be playing.",
+    "walkthrough": "'Article' is the grammarian's article rather than a piece of writing, and cricket's 'on' side is the leg side, the half behind the batter as they stand.",
+    "definitionFit": "Anyone means any person at all, which is precisely what 'no matter who' says — the answer supplies the person the phrase deliberately leaves open."
+   }
   },
   {
    "id": "15-across",
@@ -310,7 +847,43 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BLUEBIRD",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "BLUEBIRD",
+    "definition": "One flies in America",
+    "indicators": [
+     "about"
+    ],
+    "indicatorNotes": {
+     "about": "'About' wraps the offer round the outside, leaving the other letter sitting in its middle."
+    },
+    "pieces": [
+     "BLUE",
+     "BI",
+     "R",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Low",
+      "gives": "BLUE",
+      "note": "feeling low is feeling blue"
+     },
+     {
+      "clueFragment": "offer",
+      "gives": "BID",
+      "note": "a bid is an offer at auction"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the standard abbreviation for right"
+     }
+    ],
+    "surface": "A lowball offer being judged more or less fair.",
+    "walkthrough": "'Low offer's about right' reads as one flat verdict on a cheap bid, which is why none of its three words looks like machinery.",
+    "definitionFit": "The bluebird is a North American thrush, so 'one flies in America' points at it by where it lives instead of naming the family."
+   }
   },
   {
    "id": "16-down",
@@ -331,7 +904,45 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
     ]
    },
    "solution": "DEEPSPACE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "DEEP SPACE",
+    "definition": "interplanetary region",
+    "indicators": [
+     "in different directions"
+    ],
+    "indicatorNotes": {
+     "in different directions": "If the two words run different ways, one of them has to be written out backwards — and it is the first."
+    },
+    "linkWords": [
+     "to reach"
+    ],
+    "subReversals": [
+     {
+      "from": "SPEED",
+      "to": "DEEPS"
+     }
+    ],
+    "pieces": [
+     "DEEPS",
+     "PACE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hurry",
+      "gives": "DEEPS",
+      "note": "a hurry is a SPEED, turned round to run the other way up the grid"
+     },
+     {
+      "clueFragment": "twice",
+      "gives": "PACE",
+      "note": "'twice' calls for a second word meaning hurry, and PACE goes in as it stands"
+     }
+    ],
+    "surface": "Rushing about in two directions at once in the hope of getting somewhere.",
+    "walkthrough": "Both halves mean hurry and only one of them is disturbed; 'twice' is the clue's way of asking for a synonym it never prints.",
+    "definitionFit": "Deep space is the near-empty region out beyond the planets, so 'interplanetary region' names the emptiness between worlds rather than any body in it."
+   }
   },
   {
    "id": "17-down",
@@ -348,7 +959,47 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TRUMPETS",
-   "annotation": null
+   "annotation": {
+    "type": "container + outer letters",
+    "answer": "TRUMPETS",
+    "definition": "blares",
+    "indicators": [
+     "gutted",
+     "among",
+     "after"
+    ],
+    "indicatorNotes": {
+     "gutted": "A gutted fish has had its insides taken out, leaving only what was sitting on the outside.",
+     "among": "Something among others is in the middle of them, so the politician lands inside the other word.",
+     "after": "In a down clue 'after' means further down, so these letters follow underneath the rest."
+    },
+    "pieces": [
+     "TRU",
+     "MP",
+     "E",
+     "TS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Right",
+      "gives": "TRUE",
+      "note": "right in the sense of correct is true"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "MP",
+      "note": "MP is a Member of Parliament"
+     },
+     {
+      "clueFragment": "Tories gutted",
+      "gives": "TS",
+      "note": "'Tories' emptied of its insides keeps only the letters at its two ends"
+     }
+    ],
+    "surface": "The Conservatives hollowed out, with one member of theirs left among the party's right wing.",
+    "walkthrough": "'Right' is not the political right the surface is arguing about but plain correctness, and it is the word that opens up to take the member inside.",
+    "definitionFit": "To trumpet something is to blare it out — to announce it loudly and publicly — so the two verbs are the same brazen noise."
+   }
   },
   {
    "id": "18-across",
@@ -365,7 +1016,40 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HARLOTRY",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "HARLOTRY",
+    "definition": "prostitutes’ activity",
+    "indicators": [
+     "brought in"
+    ],
+    "indicatorNotes": {
+     "brought in": "To bring something in is to carry it inside, so these letters are set down in the middle of the other word."
+    },
+    "linkWords": [
+     "to"
+    ],
+    "pieces": [
+     "HAR",
+     "LOT",
+     "RY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hound",
+      "gives": "HARRY",
+      "note": "to harry someone is to hound or harass them"
+     },
+     {
+      "clueFragment": "A good many",
+      "gives": "LOT",
+      "note": "a good many of something is a lot of it"
+     }
+    ],
+    "surface": "A crowd brought in to chase somebody down.",
+    "walkthrough": "Harry sounds like a first name in the surface and is a verb meaning to harass, which is the reading the wordplay needs and the surface never suggests.",
+    "definitionFit": "Harlotry is the trade of a harlot, the old word for a prostitute, so the definition names the activity rather than the woman."
+   }
   },
   {
    "id": "19-down",
@@ -386,7 +1070,41 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
     ]
    },
    "solution": "RUNINTO",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "RUN INTO",
+    "definition": "Come across",
+    "indicators": [
+     "leaving"
+    ],
+    "indicatorNotes": {
+     "leaving": "If the wife is leaving, her letter walks out of the word she was standing in."
+    },
+    "pieces": [
+     "RUNIN",
+     "TO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dispute",
+      "gives": "RUNIN",
+      "note": "a run-in is a dispute or confrontation"
+     },
+     {
+      "clueFragment": "couple",
+      "gives": "TWO",
+      "note": "a couple is two"
+     },
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "W is the standard abbreviation for wife, and it is the letter that departs"
+     }
+    ],
+    "surface": "A quarrel breaks out and the wife walks out on the pair of them.",
+    "walkthrough": "The two pieces do not break where the answer does: the dispute ends one letter past the gap, so the spaces move once the letters are laid down.",
+    "definitionFit": "To run into someone is to meet them by chance, which is the 'come across' sense of stumbling upon rather than the sense of seeming a certain way."
+   }
   },
   {
    "id": "20-across",
@@ -403,7 +1121,37 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PARADE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "PARADE",
+    "definition": "Display",
+    "indicators": [
+     "including"
+    ],
+    "indicatorNotes": {
+     "including": "To include something is to have it inside you, so the shorter piece sits within the longer one."
+    },
+    "pieces": [
+     "PAR",
+     "AD",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cut",
+      "gives": "PARE",
+      "note": "to pare is to cut or trim"
+     },
+     {
+      "clueFragment": "promotional item",
+      "gives": "AD",
+      "note": "an ad is the standard shortening of an advertisement"
+     }
+    ],
+    "surface": "A budget cut that still leaves room for advertising.",
+    "walkthrough": "'Display' serves as both noun and verb, and so does the answer, so the definition gives away nothing about which of the two is wanted.",
+    "definitionFit": "A parade is a public display — of troops, of floats, or of one's learning — so the two words swap as noun or as verb."
+   }
   },
   {
    "id": "21-down",
@@ -420,7 +1168,45 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ALEMBIC",
-   "annotation": null
+   "annotation": {
+    "type": "container + anagram",
+    "answer": "ALEMBIC",
+    "definition": "still",
+    "indicators": [
+     "keeping",
+     "unsettled"
+    ],
+    "indicatorNotes": {
+     "keeping": "To keep something is to hold on to it, so the letters named next are held inside.",
+     "unsettled": "Anything unsettled will not stay in the arrangement it was given, so these three letters settle somewhere new."
+    },
+    "subAnagrams": [
+     {
+      "fodder": "IBM",
+      "gives": "MBI"
+     }
+    ],
+    "pieces": [
+     "ALE",
+     "MBI",
+     "C"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Smart guy",
+      "gives": "ALEC",
+      "note": "a smart alec is a know-all"
+     },
+     {
+      "clueFragment": "IBM",
+      "gives": "MBI",
+      "note": "the computer firm's three letters, resettled"
+     }
+    ],
+    "surface": "A clever operator keeping the computer giant permanently on edge.",
+    "walkthrough": "'Still' closes the sentence reading as 'even so' and is the definition, and a noun at that — a piece of equipment rather than an adverb.",
+    "definitionFit": "An alembic is the gourd-shaped vessel alchemists distilled in, so 'still' names it by the job it does: distilling."
+   }
   },
   {
    "id": "22-down",
@@ -437,7 +1223,45 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STATIM",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + container",
+    "answer": "STATIM",
+    "definition": "right now",
+    "indicators": [
+     "picked up",
+     "going round"
+    ],
+    "indicatorNotes": {
+     "picked up": "Picking a thing up lifts it, and in a down entry a lifted word is read from the bottom upwards.",
+     "going round": "Going round something means encircling it, so the area ends up enclosed by the rest."
+    },
+    "subReversals": [
+     {
+      "from": "MITTS",
+      "to": "STTIM"
+     }
+    ],
+    "pieces": [
+     "ST",
+     "A",
+     "TIM"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gloves",
+      "gives": "MITTS",
+      "note": "mitts are gloves, and here they are lifted up the grid"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "A is the standard abbreviation for area"
+     }
+    ],
+    "surface": "Someone snatching up their gloves and heading straight out.",
+    "walkthrough": "Statim is the Latin for 'at once', the word behind the 'stat!' shouted in hospital dramas, and English keeps it almost only on prescriptions.",
+    "definitionFit": "Statim means immediately in Latin, so 'right now' is the plain English of a word that survives in medicine and in crosswords."
+   }
   },
   {
    "id": "23-across",
@@ -454,7 +1278,37 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CONFORMITY",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "CONFORMITY",
+    "definition": "following the crowd",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "'In' places what comes before it inside what comes after, so the phrase sits within the town."
+    },
+    "pieces": [
+     "C",
+     "ONFORM",
+     "ITY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "town",
+      "gives": "CITY",
+      "note": "a city is a town, on the large side"
+     },
+     {
+      "clueFragment": "Doing well",
+      "gives": "ONFORM",
+      "note": "a player doing well is on form, the British sporting phrase"
+     }
+    ],
+    "surface": "Somebody prospering in town by doing exactly what everybody else does.",
+    "walkthrough": "'Doing well in town' reads as one continuous statement about a person's fortunes, which is why the join between its two ideas is invisible.",
+    "definitionFit": "Conformity is going along with what everyone else does, so 'following the crowd' is the idiom for the very same behaviour."
+   }
   },
   {
    "id": "23-down",
@@ -471,7 +1325,36 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "COSEC",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "COSEC",
+    "definition": "function",
+    "indicators": [
+     "to support"
+    ],
+    "indicatorNotes": {
+     "to support": "Whatever supports another thing is underneath it, and underneath in a down entry means later in the answer."
+    },
+    "pieces": [
+     "CO",
+     "SEC"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "company",
+      "gives": "CO",
+      "note": "CO is the standard abbreviation for a company"
+     },
+     {
+      "clueFragment": "Little time",
+      "gives": "SEC",
+      "note": "a sec is a second, time's smallest everyday unit"
+     }
+    ],
+    "surface": "A brief spell of time propping up a firm.",
+    "walkthrough": "'Function' is mathematical rather than a party or a role, and cosec is the short form of cosecant, the reciprocal of the sine.",
+    "definitionFit": "Cosec is the trigonometric function cosecant in its usual abbreviated form, so 'function' names it by the mathematical class it belongs to."
+   }
   },
   {
    "id": "24-across",
@@ -488,7 +1371,27 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MESS",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "MESS",
+    "definition": "Eatery",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "'In' says the letters are already sitting inside the words that follow and need only picking out."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Times Square",
+      "gives": "MESS",
+      "note": "four consecutive letters bridge the gap, starting two letters into the first word"
+     }
+    ],
+    "surface": "Somewhere to grab a bite just off Times Square.",
+    "walkthrough": "New York's landmark is a strong enough picture to stop you reading the two words as a run of letters, and that is the whole of the concealment.",
+    "definitionFit": "A mess is the room where soldiers or sailors eat together, so 'eatery' is the general word standing in for a specifically military one."
+   }
   },
   {
    "id": "25-down",
@@ -505,7 +1408,30 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STAR",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "STAR",
+    "definition": "glower",
+    "indicators": [
+     "endlessly"
+    ],
+    "indicatorNotes": {
+     "endlessly": "Endlessly means without an end, so the word loses the letter it finishes on."
+    },
+    "pieces": [
+     "STAR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Look hard",
+      "gives": "STARE",
+      "note": "to stare is to look hard at something"
+     }
+    ],
+    "surface": "One person glaring at another and never letting up.",
+    "walkthrough": "'Glower' is not the scowl the surface wants but glow-er, a thing that glows, which is why the setter leaves a question mark behind it.",
+    "definitionFit": "Read as glow-er, the definition means a thing that glows, and a star is the original one — burning gas seen from an enormous distance."
+   }
   },
   {
    "id": "26-across",
@@ -522,7 +1448,40 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SENTIMENT",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "SENTIMENT",
+    "definition": "emotion",
+    "indicators": [
+     "accommodate"
+    ],
+    "indicatorNotes": {
+     "accommodate": "To accommodate someone is to find room for them indoors, so the letter is housed inside."
+    },
+    "linkWords": [
+     "to"
+    ],
+    "pieces": [
+     "SENTI",
+     "M",
+     "ENT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Living",
+      "gives": "SENTIENT",
+      "note": "a sentient creature is one capable of feeling, and so living"
+     },
+     {
+      "clueFragment": "mass",
+      "gives": "M",
+      "note": "M is the physicist's abbreviation for mass"
+     }
+    ],
+    "surface": "A way of living that leaves room for feeling on a grand scale.",
+    "walkthrough": "'Mass emotion' looks like one phrase — a crowd's shared feeling — and its two words belong to opposite halves of the clue.",
+    "definitionFit": "Sentiment is feeling as opposed to reason, so it is emotion in its milder, more considered sense rather than raw passion."
+   }
   },
   {
    "id": "27-across",
@@ -539,7 +1498,45 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TIBIA",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + container",
+    "answer": "TIBIA",
+    "definition": "Bone",
+    "indicators": [
+     "twisted",
+     "should probe that"
+    ],
+    "indicatorNotes": {
+     "twisted": "Twisting a thing turns it round, so these letters come out running the other way.",
+     "should probe that": "To probe is to push into something, so the pronoun is driven inside the letters just turned."
+    },
+    "subReversals": [
+     {
+      "from": "ABIT",
+      "to": "TIBA"
+     }
+    ],
+    "pieces": [
+     "TIB",
+     "I",
+     "A"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "somewhat",
+      "gives": "ABIT",
+      "note": "somewhat means 'a bit', and those four letters are turned round"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "the pronoun stands for the single letter it is written with"
+     }
+    ],
+    "surface": "A slightly warped bone that somebody ought to examine.",
+    "walkthrough": "'Somewhat' has to be swapped for a phrase before anything can be done to it, and that unsignalled first step is where the clue is hardest.",
+    "definitionFit": "The tibia is the shinbone, the thicker of the two bones between knee and ankle, so 'Bone' defines it by its class."
+   }
   },
   {
    "id": "28-across",
@@ -556,7 +1553,48 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "COOKIES",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "COOKIES",
+    "definition": "biscuits",
+    "indicators": [
+     "beginning to"
+    ],
+    "indicatorNotes": {
+     "beginning to": "'Beginning to' takes you only as far as the start of the word that follows, which is its first letter."
+    },
+    "pieces": [
+     "CO",
+     "OK",
+     "IE",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Military leader",
+      "gives": "CO",
+      "note": "the CO is the commanding officer in charge of a unit"
+     },
+     {
+      "clueFragment": "acceptable",
+      "gives": "OK",
+      "note": "OK means acceptable"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is short for the Latin id est, 'that is'"
+     },
+     {
+      "clueFragment": "beginning to supply",
+      "gives": "S",
+      "note": "the opening letter of 'supply'"
+     }
+    ],
+    "surface": "A commander pronounced acceptable, and now starting to hand out the biscuits.",
+    "walkthrough": "Nothing in the sentence announces a join, because every piece is an abbreviation that also passes as an ordinary word of the surface.",
+    "definitionFit": "Cookies are biscuits in American English — the same object under a different name on the other side of the Atlantic."
+   }
   },
   {
    "id": "29-across",
@@ -573,7 +1611,40 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MIRACLE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "MIRACLE",
+    "definition": "amazing experience",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "'In' drops the motorists inside the word that follows instead of leaving them beside it."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "MI",
+     "RAC",
+     "LE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the distance",
+      "gives": "MILE",
+      "note": "a mile is a set distance"
+     },
+     {
+      "clueFragment": "Group of motorists",
+      "gives": "RAC",
+      "note": "the RAC is the Royal Automobile Club, one of Britain's two big roadside breakdown organisations"
+     }
+    ],
+    "surface": "A convoy of drivers glimpsed far off down the road.",
+    "walkthrough": "'In the distance' is one phrase in the surface and three separate jobs in the wordplay, with the definite article belonging to the measurement rather than the view.",
+    "definitionFit": "A miracle is an event so extraordinary that it defies explanation, and 'amazing experience' is the weakened everyday use of exactly that word."
+   }
   }
  ]
 } /*JSON-END*/;
