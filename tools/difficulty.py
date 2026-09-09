@@ -37,25 +37,27 @@ because a number pasted into prose is true on the day it is pasted:
                 strongest external agreement available here. Run it for the
                 margin and the p; it has passed at every corpus size so far.
 
-  WEEKDAY       What the SNITCH buys us is the shape of the thing — Mon 72 to
-                Fri 128, strictly monotonic, Friday 78% slower than Monday (see
-                SNITCH_BY_DAY). A day-of-week term is a real effect in a graded
-                paper. It is NOT in this model, and the bar for adding one was
-                set in advance: ~100 scored Guardian cryptics. That bar exists
-                precisely so the term is not added on the look where the p
-                happens to fall below 0.05 — this correlation has already
-                wandered from a clear null at n=22 to nominal significance well
-                short of 100, which is what an underpowered statistic does.
-                Print it as often as you like; do not act on it early. The bar
-                is WEEKDAY_BAR and the nightly run watches it — `--weekday-bar`
-                is silent until the corpus crosses it, then says so every night
-                until somebody decides, so nobody has to remember this.
+  WEEKDAY       The Guardian has no graded weekday, so no day-of-week term is
+                in this model — decided 2026-09-09 at 139 scored cryptics,
+                against a bar of 100 set while the count was 22 and the
+                correlation a null. What the correlation was picking up is a
+                Mon/Tue step: those two days sit 0.345 sd below the rest
+                (p = 0.0004) and Wed to Sat are flat behind it (rho = -0.06,
+                p = 0.59). That is not the SNITCH's shape at all — theirs
+                climbs Mon 72 to Fri 128 without a break (SNITCH_BY_DAY), and
+                our Friday, their hardest day, is dead average. Hold each
+                setter's own mean constant and the step falls to 0.124 sd,
+                p = 0.14: Monday is gentle because Monday is Vulcan, and the
+                rotation is already in the score through the clues those
+                setters write. --validate prints the step both ways, so a
+                Guardian that started grading by day would show up there as a
+                step that survives its setters.
 
-A weekday null would be a finding about the Guardian, not a failure of the
-index: the Guardian grades by setter rotation rather than by editorial fiat, so
-there may be no weekday effect to find. Do not fit a term before the bar, and do
-not substitute the unannotated puzzles to pad n: see the Quiptic control group
-in score() for why grid-only scores measure the grid.
+That null is a finding about the Guardian, not a failure of the index: it
+grades by setter rotation rather than by editorial fiat, and the rotation is
+what the measurement found. Do not reopen it by padding n with the unannotated
+puzzles: see the Quiptic control group in score() for why grid-only scores
+measure the grid.
 
 Everything is scored RELATIVE, and that is the whole trick. The first version
 of this file scored the raw numbers absolutely and rated all 35 puzzles
@@ -136,15 +138,6 @@ WEIGHTS = {"checking": 0.45, "obscurity": 0.30, "device": 0.25}
 SNITCH_BY_DAY = {0: 72, 1: 83, 2: 92, 3: 101, 4: 128, 5: 97}   # Mon..Sat
 DAY_NAMES = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 GENTLE_SERIES = {"quiptic", "everyman"}
-
-# How many scored Guardian cryptics before the weekday term gets a decision.
-# Set at 100 while the count was 22 and the correlation a clear null, which is
-# the only honest time to set it: by the time the number is interesting, picking
-# a threshold is picking an answer. `--weekday-bar` is silent below it and the
-# nightly run alerts when it stops being silent, so the decision arrives on its
-# own rather than being remembered. Raising it is allowed and needs a reason
-# written here; "not significant yet" is not one.
-WEEKDAY_BAR = 100
 
 # Per-device hardness, 0 = gives itself away, 1 = you may never be certain.
 # Ordered by how much confirmation the solver gets back ONCE THE ANSWER IS BUILT
@@ -514,38 +507,40 @@ def scored_meta():
 
 
 def cryptic_weekdays(scores, meta):
-    """(weekday, index) for every scored Guardian cryptic."""
+    """(weekday, index, setter) for every scored Guardian cryptic."""
     return [(datetime.fromtimestamp(meta[p]["date"] / 1000, timezone.utc).weekday(),
-             s["index"]) for p, s in scores.items()
+             s["index"], meta[p].get("setter") or "")
+            for p, s in scores.items()
             if meta[p].get("series", "cryptic") == "cryptic"]
 
 
-def weekday_bar():
-    """Print nothing until the corpus can answer the weekday question.
+def _step(ix, wd):
+    """Mon+Tue against the rest of the week, in sd.
 
-    Silence is the feature. A line printed every night saying "still not enough
-    cryptics" is furniture by the second week, and the night it changes to
-    something that matters reads exactly like the 200 before it. So this speaks
-    once there is a decision to make, and the nightly run alerts on the fact
-    that it spoke rather than on having run at all.
+    The only weekday shape the Guardian actually has, so it is the statistic
+    rather than a rank correlation across the six days: a rho reads a two-day
+    step as a gradient and so reports a climb through the week that nobody
+    publishes and the day means do not show.
     """
-    scores, meta = scored_meta()
-    rows = cryptic_weekdays(scores, meta)
-    if len(rows) < WEEKDAY_BAR:
-        return 0
+    a = [i for i, w in zip(ix, wd) if w < 2]
+    b = [i for i, w in zip(ix, wd) if w >= 2]
+    return sum(b) / len(b) - sum(a) / len(a) if a and b else 0.0
 
-    wd, ix = [r[0] for r in rows], [r[1] for r in rows]
-    rho, p = _spearman(wd, ix), _perm_p(_spearman, wd, ix)
-    verdict = ("significant, so fit the day-of-week term" if p < 0.05 else
-               "not significant, so the Guardian has no weekday effect to find "
-               "and the index is right to leave it out")
-    print(f"the weekday term is due its decision: {len(rows)} scored Guardian "
-          f"cryptics, past the {WEEKDAY_BAR} set back when the count was 22 and "
-          f"the correlation a null. rho = {rho:+.3f}, p = {p:.3f} — {verdict}. "
-          f"Whichever it is, decide it: this repeats every night until the term "
-          f"is in the model or WEEKDAY_BAR in tools/difficulty.py is raised with "
-          f"a reason next to it.")
-    return 0
+
+def hold_setter(rows, floor=3):
+    """The same rows with each setter's own mean removed.
+
+    Whatever survives that is the day rather than who sets that day, which is
+    the difference between an editor grading Monday and a rotation that happens
+    to put a gentle setter there. Setters below `floor` puzzles are dropped
+    rather than centred: one seen once is centred onto exactly zero, which
+    would report itself as perfect agreement.
+    """
+    by = {}
+    for _, i, setter in rows:
+        by.setdefault(setter, []).append(i)
+    return [(w, i - sum(by[st]) / len(by[st]), st) for w, i, st in rows
+            if st and len(by[st]) >= floor]
 
 
 def validate():
@@ -605,16 +600,14 @@ def validate():
         print(f"\nSERIES ORDER  skipped: {len(gentle)} gentle / {len(hard)} daily scored")
 
     rows = cryptic_weekdays(scores, meta)
-    days = sorted({d for d, _ in rows})
+    days = sorted({d for d, _, _ in rows})
     if len(rows) >= 20 and len(days) > 1:
         wd, ix = [r[0] for r in rows], [r[1] for r in rows]
-        rho = _spearman(wd, ix)
-        print(f"\nWEEKDAY       Guardian cryptic n={len(rows)}: rho = {rho:+.3f}, "
-              f"p = {_perm_p(_spearman, wd, ix):.3f}")
+        print(f"\nWEEKDAY       Guardian cryptic n={len(rows)}")
         print("              day   n   mean index   SNITCH")
         means = {}
         for d in days:
-            vals = [i for w, i in rows if w == d]
+            vals = [i for w, i, _ in rows if w == d]
             means[d] = sum(vals) / len(vals)
             print(f"              {DAY_NAMES[d]}  {len(vals):>3}   {means[d]:+.3f}"
                   f"       {SNITCH_BY_DAY.get(d, '-')}")
@@ -623,20 +616,29 @@ def validate():
             r = _spearman([means[d] for d in paired], [SNITCH_BY_DAY[d] for d in paired])
             print(f"              our weekday means vs the SNITCH's, over "
                   f"{len(paired)} days: rho = {r:+.3f}")
-        # Naming the bar and the distance to it stops this readout from being
-        # re-litigated every time the p wanders under 0.05 on the way there.
-        print(f"              a weekday term stays out of the model until "
-              f"{WEEKDAY_BAR} scored cryptics ({max(0, WEEKDAY_BAR - len(rows))} "
-              f"to go), whatever the p does before then")
+        # These two numbers are the whole of the weekday decision, so they are
+        # printed rather than remembered. The held one is the one that matters:
+        # a Guardian that started grading by day would keep its step with every
+        # setter centred on themselves.
+        print(f"              Mon+Tue below the rest: {_step(ix, wd):+.3f} sd, "
+              f"p = {_perm_p(_step, ix, wd):.4f}")
+        held = hold_setter(rows)
+        if held:
+            h_wd, h_ix = [r[0] for r in held], [r[1] for r in held]
+            print(f"              the same step with each setter's own mean held: "
+                  f"{_step(h_ix, h_wd):+.3f} sd, p = {_perm_p(_step, h_ix, h_wd):.4f} "
+                  f"(n={len(held)} over {len({r[2] for r in held})} setters)")
+        print("              decided 2026-09-09: the day is the setter, so the "
+              "model has no day-of-week term")
     return 0
 
 
 def main():
-    if "--validate" in sys.argv or "--weekday-bar" in sys.argv:
+    if "--validate" in sys.argv:
         if not BASELINE.exists():
             print("no baseline — run --rebaseline first", file=sys.stderr)
             return 1
-        return weekday_bar() if "--weekday-bar" in sys.argv else validate()
+        return validate()
     if not LEXICON.exists():
         print("note: tools/data/lexicon.tsv not fetched — scoring without the "
               "obscurity component (bash tools/fetch_lexicon.sh)", file=sys.stderr)
