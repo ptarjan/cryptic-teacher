@@ -34,7 +34,37 @@ window.CRYPTIC_PUZZLES["everyman-4136"] = /*JSON-START*/ {
     ]
    },
    "solution": "GOODNESSME",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "GOODNESS ME",
+    "definition": "that's surprising",
+    "definitionNote": "The answer is an exclamation and the definition a remark about one, so the setter is naming what the phrase conveys rather than offering a word you could swap straight in.",
+    "definitionFit": "It is what people blurt out when something takes them aback, so the definition names the reaction the phrase exists to express.",
+    "indicators": [
+     "adhering to"
+    ],
+    "indicatorNotes": {
+     "adhering to": "To adhere to something is to stick fast against it, so this piece is glued on to the end of the word beside it rather than tucked inside it."
+    },
+    "pieces": [
+     "GOODNESS",
+     "ME"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "decency",
+      "gives": "GOODNESS",
+      "note": "Decency is the abstract moral quality — the noun for what a decent person has."
+     },
+     {
+      "clueFragment": "Everyman",
+      "gives": "ME",
+      "note": "Everyman is the pen name of the Observer's setter, so the clue is pointing at whoever wrote it."
+     }
+    ],
+    "surface": "The setter sticking to the proprieties, which apparently comes as a shock.",
+    "walkthrough": "Everyman signs the Observer's puzzle every week, so a clue naming him is naming its own author — and setters write themselves in as ME."
+   }
   },
   {
    "id": "1-down",
@@ -51,7 +81,38 @@ window.CRYPTIC_PUZZLES["everyman-4136"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GEMS",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "GEMS",
+    "definition": "stones",
+    "definitionFit": "Gems are cut precious stones — the jeweller's word for the stones themselves rather than the rings they end up in.",
+    "indicators": [
+     "away from"
+    ],
+    "indicatorNotes": {
+     "away from": "Taking something away from a word removes it, so the letter just named is lifted out of the longer word that follows."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "GEMS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bugs",
+      "gives": "GERMS",
+      "note": "Bugs in the infection sense are germs — what you catch, not what crawls."
+     },
+     {
+      "clueFragment": "Runs",
+      "gives": "",
+      "note": "R is what a cricket scorecard writes for runs, and that is the letter taken out."
+     }
+    ],
+    "surface": "Somebody bolting from the creepy-crawlies under the rocks.",
+    "walkthrough": "'Runs away' reads as fleeing the insects; the only thing running away is a single letter, and cricket is where that letter comes from."
+   }
   },
   {
    "id": "2-down",
@@ -68,7 +129,41 @@ window.CRYPTIC_PUZZLES["everyman-4136"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OINK",
-   "annotation": null
+   "annotation": {
+    "type": "charade + regular letters",
+    "answer": "OINK",
+    "definition": "swinish outburst",
+    "definitionFit": "It is the noise a pig makes: 'swinish' points at the animal, and 'outburst' says this is a sound let out rather than a word.",
+    "indicators": [
+     "regularly"
+    ],
+    "indicatorNotes": {
+     "regularly": "Regularly means picked out at a fixed step, and unusually the step here is three rather than the every-other-letter it normally asks for."
+    },
+    "pieces": [
+     "OI",
+     "NK"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hey you",
+      "gives": "OI",
+      "note": "'Oi!' is the British shout for hailing somebody rudely across a street."
+     },
+     {
+      "clueFragment": "nookie",
+      "gives": "NK",
+      "note": "Count through the word in threes and only its first and its fourth letters are left standing."
+     },
+     {
+      "clueFragment": "getting",
+      "gives": "",
+      "note": "Surface only: it turns the quoted line into a question about somebody's love life and hands over no letters."
+     }
+    ],
+    "surface": "A crude proposition yelled across a room.",
+    "walkthrough": "Most solvers try alternate letters first, because that is what 'regularly' almost always asks for; the step here is three, so only two letters survive."
+   }
   },
   {
    "id": "3-down",
@@ -90,7 +185,38 @@ window.CRYPTIC_PUZZLES["everyman-4136"] = /*JSON-START*/ {
     ]
    },
    "solution": "NECKANDNECK",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "NECK AND NECK",
+    "definition": "Even",
+    "definitionFit": "Two horses running neck and neck are exactly level, so 'even' is the racing sense of dead level rather than anything to do with numbers.",
+    "indicators": [],
+    "indicatorNotes": {},
+    "pieces": [
+     "NECK",
+     "AND",
+     "NECK"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cheeks",
+      "gives": "NECK",
+      "note": "Cheek in the British sense of brazen nerve — 'what a cheek!' — has a one-syllable slang twin, and that is what these letters spell."
+     },
+     {
+      "clueFragment": "pair of",
+      "gives": "AND",
+      "note": "A pair is two of the same thing, and the little word that joins two of anything stands between them."
+     },
+     {
+      "clueFragment": "cheeks",
+      "gives": "NECK",
+      "note": "The plural is asking for that same slang word a second time."
+     }
+    ],
+    "surface": "A well-matched pair of buttocks.",
+    "walkthrough": "Cheek meaning nerve is the sense in play — 'he had the neck to ask' — not the face or the backside the surface is pointing at."
+   }
   },
   {
    "id": "4-down",
@@ -107,7 +233,37 @@ window.CRYPTIC_PUZZLES["everyman-4136"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STRIKER",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "STRIKER",
+    "definition": "Sportsperson",
+    "definitionFit": "A striker is the forward whose job is scoring goals in football, so 'sportsperson' defines by category, one kind of player standing for the whole.",
+    "indicators": [
+     "astride"
+    ],
+    "indicatorNotes": {
+     "astride": "Sitting astride something means having a leg on either side of it, so the short piece ends up split around the longer one."
+    },
+    "pieces": [
+     "S",
+     "TRIKE",
+     "R"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "senior",
+      "gives": "SR",
+      "note": "Sr is the tag added to a father's name to tell him apart from a son called the same thing."
+     },
+     {
+      "clueFragment": "pedalled vehicle",
+      "gives": "TRIKE",
+      "note": "A trike is a tricycle, pedalled like a bicycle but on three wheels."
+     }
+    ],
+    "surface": "An elderly athlete perched on a tricycle.",
+    "walkthrough": "Nothing points at football until the first word, and 'sportsperson' is deliberately vague — the surface would much rather you pictured a veteran cyclist."
+   }
   },
   {
    "id": "5-down",
@@ -124,7 +280,38 @@ window.CRYPTIC_PUZZLES["everyman-4136"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MEMPHIS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MEMPHIS",
+    "definition": "ruined city",
+    "definitionFit": "Memphis, the capital of ancient Egypt, survives only as ruins south of Cairo, so the definition names it by the state it is in.",
+    "indicators": [],
+    "indicatorNotes": {},
+    "pieces": [
+     "ME",
+     "MP",
+     "HIS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The writer",
+      "gives": "ME",
+      "note": "The writer of a clue is its setter, and a setter writes themselves in with this two-letter word."
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "MP",
+      "note": "MP is a Member of Parliament, the standard British shorthand for a politician."
+     },
+     {
+      "clueFragment": "that man's",
+      "gives": "HIS",
+      "note": "What belongs to that man is his."
+     }
+    ],
+    "surface": "A writer and a politician standing about in some other man's wrecked city.",
+    "walkthrough": "'Ruined' is the trap: it looks like an instruction to shuffle letters, and it is part of the definition, since the Egyptian city has been ruins for centuries."
+   }
   },
   {
    "id": "6-across",
@@ -141,7 +328,30 @@ window.CRYPTIC_PUZZLES["everyman-4136"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCAT",
-   "annotation": null
+   "annotation": {
+    "type": "cycling",
+    "answer": "SCAT",
+    "definition": "Improvise lyrics",
+    "definitionFit": "To scat is to sing improvised nonsense syllables in place of a song's words, which is what a jazz singer does through a solo chorus.",
+    "indicators": [
+     "with bit of sax moved to intro"
+    ],
+    "indicatorNotes": {
+     "with bit of sax moved to intro": "The bit of 'sax' is the S it starts with, and an intro is an opening, so that letter travels from the back of the word to the front."
+    },
+    "pieces": [
+     "SCAT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jazz fans",
+      "gives": "CATS",
+      "note": "Cats is jazz slang for the players and for the people who love them."
+     }
+    ],
+    "surface": "A band shifting a snatch of saxophone to the top of the number.",
+    "walkthrough": "Nothing is lost in the move: the letter pushed off the end rejoins at the front, which is what separates this from a deletion."
+   }
   },
   {
    "id": "7-down",
@@ -158,7 +368,30 @@ window.CRYPTIC_PUZZLES["everyman-4136"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CASUALTIES",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "CASUALTIES",
+    "definition": "hospital wards",
+    "definitionFit": "Casualty is the British hospital's emergency department, where ambulances bring the injured, so the plural names those wards.",
+    "indicators": [
+     "After reshuffle"
+    ],
+    "indicatorNotes": {
+     "After reshuffle": "A reshuffle deals the same cards out into new places, so the word beside it keeps its letters and loses their order."
+    },
+    "anagram": {
+     "fodder": "ACTUALISES"
+    },
+    "blocks": [
+     {
+      "clueFragment": "actualises",
+      "gives": "ACTUALISES",
+      "note": "anagram fodder, ten letters"
+     }
+    ],
+    "surface": "A shake-up that finally makes the hospital's wards happen.",
+    "walkthrough": "Casualty is what British hospitals call A&E, the department the ambulances pull up at, and 'wards' in the plural is the setter's extension of it."
+   }
   },
   {
    "id": "8-down",
@@ -179,7 +412,30 @@ window.CRYPTIC_PUZZLES["everyman-4136"] = /*JSON-START*/ {
     ]
    },
    "solution": "TRICKSHOTS",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + anagram",
+    "answer": "TRICK SHOTS",
+    "definition": "Short stick in play might effect these?",
+    "definitionFit": "Read straight it describes them: a cue is the stick, and the fancy pots a player brings off with an awkward short one are what 'these' names.",
+    "indicators": [
+     "in play"
+    ],
+    "indicatorNotes": {
+     "in play": "A ball in play is loose and being knocked about, so the letters beside it will not stay in the order they are printed."
+    },
+    "anagram": {
+     "fodder": "SHORT STICK"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Short stick",
+      "gives": "SHORTSTICK",
+      "note": "anagram fodder, ten letters"
+     }
+    ],
+    "surface": "A snooker player reaching for the short rest cue halfway through a frame.",
+    "walkthrough": "The same two words are the picture and the fodder: the sentence describes what a cue can do while its opening words spell out the result."
+   }
   },
   {
    "id": "9-across",
@@ -196,7 +452,33 @@ window.CRYPTIC_PUZZLES["everyman-4136"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MONOCHROME",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "MONOCHROME",
+    "definition": "all black-and-white",
+    "definitionFit": "A monochrome image is made in a single colour — in practice black, white and the greys between — which is what the phrase names in everyday speech.",
+    "indicators": [
+     "ground"
+    ],
+    "indicatorNotes": {
+     "ground": "Coffee is ground down to powder, and letters given that treatment can be swept back together in any order at all."
+    },
+    "linkWords": [
+     "it's"
+    ],
+    "anagram": {
+     "fodder": "HERO COMMON"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Hero - common",
+      "gives": "HEROCOMMON",
+      "note": "anagram fodder, ten letters"
+     }
+    ],
+    "surface": "A hero, some common ground, and a situation with no grey areas anywhere in it.",
+    "walkthrough": "'Common ground' is such a natural pair that splitting it takes some doing — the second word is the instruction, not half of the phrase."
+   }
   },
   {
    "id": "10-across",
@@ -213,7 +495,27 @@ window.CRYPTIC_PUZZLES["everyman-4136"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ASTI",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "ASTI",
+    "definition": "Sparkling wine",
+    "definitionFit": "Asti is the sparkling white from the Piedmont town of the same name — Asti Spumante on the label — so the definition names it by type.",
+    "indicators": [
+     "in course of"
+    ],
+    "indicatorNotes": {
+     "in course of": "Whatever happens in the course of something happens inside it, so the letters wanted lie within the word that follows."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Lammas-tide",
+      "gives": "ASTI",
+      "note": "Four consecutive letters, starting in the middle of the word and running straight across its hyphen."
+     }
+    ],
+    "surface": "A glass of fizz drunk during the harvest festival.",
+    "walkthrough": "Lammas is the old English harvest festival on 1 August and Lammas-tide the season around it; the word is here only for the letters it carries."
+   }
   },
   {
    "id": "11-across",
@@ -235,7 +537,26 @@ window.CRYPTIC_PUZZLES["everyman-4136"] = /*JSON-START*/ {
     ]
    },
    "solution": "WALKTHEPLANK",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "WALK THE PLANK",
+    "definition": "In the main, disembark?",
+    "definitionFit": "Walking the plank is how a pirate crew made a prisoner leave the ship, so 'disembark' is the polite word for a forced exit over the side.",
+    "indicators": [],
+    "indicatorNotes": {},
+    "blocks": [
+     {
+      "clueFragment": "In the main",
+      "note": "The reading the surface pushes is the everyday one — 'mostly', 'on the whole'."
+     },
+     {
+      "clueFragment": "disembark?",
+      "note": "The setter's reading is the pirate one: leaving the ship at cutlass point, with 'the main' as the open sea."
+     }
+    ],
+    "surface": "A general remark about the business of getting off a boat.",
+    "walkthrough": "'The main' is an old word for the open sea — the Spanish Main — which is what turns a mild qualifier into a location."
+   }
   },
   {
    "id": "12-down",
@@ -252,7 +573,26 @@ window.CRYPTIC_PUZZLES["everyman-4136"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PYROMANIACS",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "PYROMANIACS",
+    "definition": "Those drawn to light?",
+    "definitionFit": "A pyromaniac has an uncontrollable urge to set fires, so the phrase only works once 'light' is read as the verb, meaning to set alight.",
+    "indicators": [],
+    "indicatorNotes": {},
+    "blocks": [
+     {
+      "clueFragment": "Those drawn to light?",
+      "note": "The surface picture is moths circling a lamp — creatures that cannot help heading for a bulb."
+     },
+     {
+      "clueFragment": "drawn to light",
+      "note": "Taken the setter's way the pull is towards lighting things, and 'drawn' shifts from being attracted to being compelled."
+     }
+    ],
+    "surface": "Moths circling a lamp on a summer night.",
+    "walkthrough": "'Light' reads as a noun the whole way through the clue and is a verb — the one word that has to change job before the answer appears."
+   }
   },
   {
    "id": "13-down",
@@ -273,7 +613,33 @@ window.CRYPTIC_PUZZLES["everyman-4136"] = /*JSON-START*/ {
     ]
    },
    "solution": "EMILYBLUNT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "EMILY BLUNT",
+    "definition": "name of English actress",
+    "definitionFit": "Emily Blunt is the English actor of The Devil Wears Prada and A Quiet Place, so what the answer supplies is exactly what the definition asks for: her name.",
+    "indicators": [
+     "edited"
+    ],
+    "indicatorNotes": {
+     "edited": "An edited text has been cut about and reordered, so the words named give up their letters but not their arrangement."
+    },
+    "linkWords": [
+     "to provide"
+    ],
+    "anagram": {
+     "fodder": "MY BULLETIN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "My bulletin",
+      "gives": "MYBULLETIN",
+      "note": "anagram fodder, ten letters"
+     }
+    ],
+    "surface": "A journalist's own news report going under a sub-editor's pencil.",
+    "walkthrough": "The surface hides the join by making 'edited' sound like part of the newsroom story rather than the instruction it is."
+   }
   },
   {
    "id": "14-down",
@@ -290,7 +656,30 @@ window.CRYPTIC_PUZZLES["everyman-4136"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STRATEGIST",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "STRATEGIST",
+    "definition": "Tactician",
+    "definitionFit": "A strategist plans the whole campaign; 'tactician' is the loose everyday synonym for the same planning mind, though tactics are strictly the smaller moves inside it.",
+    "indicators": [
+     "in a lather"
+    ],
+    "indicatorNotes": {
+     "in a lather": "Something worked into a lather has been whipped up and churned about, so the letters just named come out thoroughly disturbed."
+    },
+    "anagram": {
+     "fodder": "GETS ARTIST"
+    },
+    "blocks": [
+     {
+      "clueFragment": "gets artist",
+      "gives": "GETSARTIST",
+      "note": "anagram fodder, ten letters"
+     }
+    ],
+    "surface": "A planner working an artist up into a rage.",
+    "walkthrough": "'Gets' looks like a link word joining the tactician to the artist, and it is fodder — that misdirection is what costs solvers the letter count."
+   }
   },
   {
    "id": "15-across",
@@ -307,7 +696,33 @@ window.CRYPTIC_PUZZLES["everyman-4136"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MATADOR",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "MATADOR",
+    "definition": "a fighter",
+    "definitionFit": "A matador is the bullfighter who faces the bull and makes the kill, so 'fighter' names him by his trade rather than by his temperament.",
+    "indicators": [
+     "Adjusting"
+    ],
+    "indicatorNotes": {
+     "Adjusting": "Adjusting something shifts its parts into new positions, which is exactly what happens to the two words after it."
+    },
+    "linkWords": [
+     "I'm"
+    ],
+    "anagram": {
+     "fodder": "TO DRAMA"
+    },
+    "blocks": [
+     {
+      "clueFragment": "to drama",
+      "gives": "TODRAMA",
+      "note": "anagram fodder, seven letters"
+     }
+    ],
+    "surface": "An actor settling into a play and declaring himself a scrapper.",
+    "walkthrough": "The clue speaks in the answer's own voice — 'I'm a fighter' — which is why the definition arrives sounding like a boast."
+   }
   },
   {
    "id": "16-across",
@@ -324,7 +739,30 @@ window.CRYPTIC_PUZZLES["everyman-4136"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STRETCH",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "STRETCH",
+    "definition": "Type of jeans",
+    "definition2": "expanse",
+    "definitionFit": "Stretch jeans are the ones woven with elastane so they give, and a stretch of road or water is an expanse of it: the give and the extent.",
+    "indicators": [],
+    "indicatorNotes": {},
+    "linkWords": [
+     "covering"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Type of jeans",
+      "note": "The denim sold with elastane in it takes this word in front of its name."
+     },
+     {
+      "clueFragment": "expanse",
+      "note": "A long unbroken run of road, water or open country goes by the same word."
+     }
+    ],
+    "surface": "A pair of jeans roomy enough to cover a lot of ground.",
+    "walkthrough": "'Covering' does nothing but join the two senses, and it is what makes the clue read as a single thought about oversized denim."
+   }
   },
   {
    "id": "17-across",
@@ -347,7 +785,32 @@ window.CRYPTIC_PUZZLES["everyman-4136"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LEANEST",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "LEANEST",
+    "definition": "minimal in extremis",
+    "definitionFit": "The leanest of anything has had every spare ounce taken off it, which is what 'minimal' pushed to its limit describes.",
+    "indicators": [],
+    "indicatorNotes": {},
+    "pieces": [
+     "LEA",
+     "NEST"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bucolic site",
+      "gives": "LEA",
+      "note": "A lea is a meadow, the poets' word for open pasture."
+     },
+     {
+      "clueFragment": "comfy home",
+      "gives": "NEST",
+      "note": "A nest is the snuggest home a bird could ask for."
+     }
+    ],
+    "surface": "An estate agent's advert for a snug country place with nothing surplus in it.",
+    "walkthrough": "'In extremis' looks like the standard instruction to take a word's outer letters, and it does no such thing: it belongs to the definition, pushing 'minimal' to its limit."
+   }
   },
   {
    "id": "18-down",
@@ -374,7 +837,38 @@ window.CRYPTIC_PUZZLES["everyman-4136"] = /*JSON-START*/ {
     ]
    },
    "solution": "TSHAPED",
-   "annotation": null
+   "annotation": {
+    "type": "spoonerism",
+    "answer": "T-SHAPED",
+    "definition": "description of a certain road junction",
+    "definitionFit": "A T-junction is a side road meeting another head-on, drawing the letter T on the map, so the answer describes its layout.",
+    "indicators": [
+     "Per Spooner"
+    ],
+    "indicatorNotes": {
+     "Per Spooner": "The Reverend Spooner was famous for swapping the opening sounds of two words, so the pair named here trade their fronts."
+    },
+    "pieces": [
+     "T",
+     "SHAPED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that woman",
+      "soundsLike": "SHE",
+      "gives": "T",
+      "note": "That woman is she; the word gives up its SH, takes a T in exchange, and the noise left is a letter's own name."
+     },
+     {
+      "clueFragment": "recorded",
+      "soundsLike": "TAPED",
+      "gives": "SHAPED",
+      "note": "Something recorded has been taped; it hands over its T, takes the SH, and what comes back is spelt this way."
+     }
+    ],
+    "surface": "A woman who taped a description of some road junction, as the Reverend might have put it.",
+    "walkthrough": "Say 'she taped' aloud and swap the noises at the front of each word; the vowel drifts from 'ay' to 'ee' on the way, which is normal in a spoonerism."
+   }
   },
   {
    "id": "19-across",
@@ -397,7 +891,27 @@ window.CRYPTIC_PUZZLES["everyman-4136"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GAMIEST",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "GAMIEST",
+    "definition": "extremely stinky",
+    "definitionFit": "Gamy meat has hung long enough to smell high, so the superlative is the strongest-smelling of a set and 'extremely' carries the -est.",
+    "indicators": [
+     "component of"
+    ],
+    "indicatorNotes": {
+     "component of": "A component sits inside the thing it belongs to, so what is wanted is a run of letters lying within the words that follow."
+    },
+    "blocks": [
+     {
+      "clueFragment": "amalgam - i.e., stinkiest",
+      "gives": "GAMIEST",
+      "note": "Seven consecutive letters starting inside the first word, running through the two-letter abbreviation and on into the last."
+     }
+    ],
+    "surface": "The part of a mixture that reeks worse than anything else in it.",
+    "walkthrough": "The dash and the full stops make the letters look separated when they run straight on, and 'i.e.' does surface duty while lending two letters."
+   }
   },
   {
    "id": "19-down",
@@ -420,7 +934,30 @@ window.CRYPTIC_PUZZLES["everyman-4136"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GABRIEL",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + first letters",
+    "answer": "GABRIEL",
+    "definition": "Primarily, God's archangel bringing reports (I.eleven, Luke)?",
+    "definitionFit": "The whole clue reads straight: Gabriel is the archangel who carries God's announcements, and Luke chapter 1, verse 11 is where he turns up.",
+    "indicators": [
+     "Primarily"
+    ],
+    "indicatorNotes": {
+     "Primarily": "Primarily asks for what comes first, so every word in the list gives up only the letter it opens with."
+    },
+    "pieces": [
+     "GABRIEL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "God's archangel bringing reports (I.eleven, Luke)",
+      "gives": "GABRIEL",
+      "note": "Seven words in order, each handing over its opening letter, with the bracketed reference supplying the last three."
+     }
+    ],
+    "surface": "A Bible citation for the angel who brings the messages.",
+    "walkthrough": "The bracket looks like nothing but a citation and is fodder as well: 'I', 'eleven' and 'Luke' each surrender a first letter, so the reference spells while it cites."
+   }
   },
   {
    "id": "20-across",
@@ -442,7 +979,27 @@ window.CRYPTIC_PUZZLES["everyman-4136"] = /*JSON-START*/ {
     ]
    },
    "solution": "BREAKTHEBANK",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "BREAK THE BANK",
+    "definition": "As a flooded river may",
+    "definition2": "come at too high a price",
+    "definitionFit": "Two senses of bank in one phrase: the river's edge a flood bursts through, and the store of money an expense empties.",
+    "indicators": [],
+    "indicatorNotes": {},
+    "blocks": [
+     {
+      "clueFragment": "As a flooded river may",
+      "note": "Taken literally, going over the top is what a river in spate does to its edges."
+     },
+     {
+      "clueFragment": "come at too high a price",
+      "note": "The idiom for costing more than anybody can afford, where the bank is the one that holds money."
+     }
+    ],
+    "surface": "A river in spate and the bill for the damage it leaves behind.",
+    "walkthrough": "The phrase started at the gaming table, where a player wins more than the house has set aside to pay out; the flood is the older, more literal picture."
+   }
   },
   {
    "id": "21-down",
@@ -459,7 +1016,36 @@ window.CRYPTIC_PUZZLES["everyman-4136"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TIME",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "TIME",
+    "definition": "prison sentence",
+    "definitionFit": "Doing time is serving a prison sentence, and the word carries that sense on its own once a judge has handed one down.",
+    "indicators": [
+     "Upon rising"
+    ],
+    "indicatorNotes": {
+     "Upon rising": "A down entry read upwards runs from the bottom of the grid to the top, so a word said to be rising arrives back to front."
+    },
+    "pieces": [
+     "TIME"
+    ],
+    "subReversals": [
+     {
+      "from": "EMIT",
+      "to": "TIME"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "give out",
+      "gives": "EMIT",
+      "note": "To give out heat, light or a smell is to emit it."
+     }
+    ],
+    "surface": "A judge who gets out of bed and hands down a jail term.",
+    "walkthrough": "'Give out' looks as though it belongs with the sentencing, since giving out sentences is what courts do, and it is the wordplay instead."
+   }
   },
   {
    "id": "22-down",
@@ -476,7 +1062,28 @@ window.CRYPTIC_PUZZLES["everyman-4136"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CENT",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "CENT",
+    "definition": "Money",
+    "definitionFit": "A cent is the hundredth part of a dollar or a euro, so 'money' defines by example: one small coin standing in for the category.",
+    "indicators": [
+     "we're told"
+    ],
+    "indicatorNotes": {
+     "we're told": "Being told something means hearing it, so the word wanted is one that sounds the same rather than one that looks the same."
+    },
+    "blocks": [
+     {
+      "clueFragment": "posted",
+      "soundsLike": "SENT",
+      "gives": "CENT",
+      "note": "Something posted has been sent, and that word said aloud is written the coin's way."
+     }
+    ],
+    "surface": "Cash that has gone off in the post, by all accounts.",
+    "walkthrough": "Nothing is hidden or shuffled here: the whole device is hearing the postal word instead of reading it, in a clue three words long."
+   }
   },
   {
    "id": "23-across",
@@ -493,7 +1100,35 @@ window.CRYPTIC_PUZZLES["everyman-4136"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UNIT",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "UNIT",
+    "definition": "Military subdivision",
+    "definitionFit": "A unit is the army's standard block of organisation — a platoon, a company, a regiment — so it is any subdivision of a larger force.",
+    "indicators": [
+     "lost"
+    ],
+    "indicatorNotes": {
+     "lost": "Something lost has gone missing, so the letter named just before it is the one that drops out of the word."
+    },
+    "pieces": [
+     "UNIT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "incapable",
+      "gives": "UNFIT",
+      "note": "Somebody incapable of a job is unfit for it."
+     },
+     {
+      "clueFragment": "France",
+      "gives": "",
+      "note": "F is the international vehicle registration letter for France — the oval sticker on the back of the car — and it is what goes."
+     }
+    ],
+    "surface": "A section of the army written off as useless after a defeat in France.",
+    "walkthrough": "'France lost' reads as a result on a scoreboard and works as an instruction to drop a letter, which is what keeps the military surface intact."
+   }
   },
   {
    "id": "24-across",
@@ -516,7 +1151,32 @@ window.CRYPTIC_PUZZLES["everyman-4136"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OPTIMALISE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "OPTIMALISE",
+    "definition": "Maximally improve",
+    "definitionFit": "To optimalise something is to make it as good as it can possibly be — the verb built straight off 'optimal', a longer form of optimise.",
+    "indicators": [
+     "almost",
+     "dubiously"
+    ],
+    "indicatorNotes": {
+     "almost": "Almost all of a word is that word with its last letter gone, so the little word it sits in front of arrives one letter short.",
+     "dubiously": "Something done dubiously has not been done properly, so these letters have not been set down in their proper order."
+    },
+    "anagram": {
+     "fodder": "AI TO SIMPLE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "A.I. - almost too simple",
+      "gives": "AITOSIMPLE",
+      "note": "Ten letters of fodder: the abbreviation for artificial intelligence, then 'too' docked to almost all of itself, then the last word whole."
+     }
+    ],
+    "surface": "Somebody claiming, not very believably, that improving artificial intelligence is almost too easy.",
+    "walkthrough": "'Almost' is the piece solvers lose: it takes a letter off 'too' before anything is shuffled, so the fodder is ten letters and not eleven."
+   }
   },
   {
    "id": "25-across",
@@ -537,7 +1197,41 @@ window.CRYPTIC_PUZZLES["everyman-4136"] = /*JSON-START*/ {
     ]
    },
    "solution": "TATA",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "TA-TA",
+    "definition": "I'm off",
+    "definitionFit": "Ta-ta is the British goodbye, nursery and pub alike, so 'I'm off' is what somebody is saying at the moment they use it.",
+    "indicators": [
+     "Flipping"
+    ],
+    "indicatorNotes": {
+     "Flipping": "Flipping something turns it over end for end, so the two pieces once assembled are read the other way round."
+    },
+    "pieces": [
+     "TATA"
+    ],
+    "subReversals": [
+     {
+      "from": "ATAT",
+      "to": "TATA"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is the standard abbreviation for American."
+     },
+     {
+      "clueFragment": "junk",
+      "gives": "TAT",
+      "note": "Tat is British for cheap rubbish — the stuff on a jumble-sale table."
+     }
+    ],
+    "surface": "Dumping some cheap American rubbish and walking out.",
+    "walkthrough": "'Flipping' is a mild British swear word in the surface, where it seems to be insulting the junk rather than turning anything round."
+   }
   },
   {
    "id": "26-across",
@@ -554,7 +1248,52 @@ window.CRYPTIC_PUZZLES["everyman-4136"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ADOLESCENT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters",
+    "answer": "ADOLESCENT",
+    "definition": "Youngster",
+    "definitionFit": "An adolescent is somebody in their teens, between child and adult, so 'youngster' is the everyday word for the same person.",
+    "indicators": [
+     "after vacation"
+    ],
+    "indicatorNotes": {
+     "after vacation": "A vacated word has had its insides emptied out, leaving only the letters standing at either end."
+    },
+    "linkWords": [
+     "'s",
+     "with"
+    ],
+    "pieces": [
+     "A",
+     "DO",
+     "LE",
+     "SCENT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "amateur",
+      "gives": "A",
+      "note": "A is the standard abbreviation for amateur, as on an amateur golfer's entry."
+     },
+     {
+      "clueFragment": "haircut",
+      "gives": "DO",
+      "note": "A do is a hairdo, what you come out of the salon with."
+     },
+     {
+      "clueFragment": "loathsome",
+      "gives": "LE",
+      "note": "Emptied out, the word is left with only the letters at its two ends."
+     },
+     {
+      "clueFragment": "cologne",
+      "gives": "SCENT",
+      "note": "Cologne is a scent, and the lower-case c says the perfume rather than the city."
+     }
+    ],
+    "surface": "A kid with a home-done haircut and a bottle of horrible aftershave.",
+    "walkthrough": "Cologne keeps a lower-case c because it is the perfume, not the German city that gave the perfume its name — a capital would have given the game away."
+   }
   }
  ]
 } /*JSON-END*/;
