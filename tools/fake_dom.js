@@ -312,18 +312,21 @@ function boot(opts) {
   // tests that had happened to run so far and never mentioning the rest.
   global.realSetTimeout = realSetTimeout;
   const pending = new Map();
-  let nextTimer = 1;
+  // What comes back is the real Timeout object, not a number of our own. A
+  // browser hands out a number, but this global is node's too: node's bundled
+  // http client calls .unref() on whatever setTimeout returns, and a number
+  // takes the whole suite down mid-file the first time anything touches it.
   global.setTimeout = (fn, ms, ...args) => {
-    const id = nextTimer++;
-    const handle = realSetTimeout(() => { pending.delete(id); fn(...args); }, ms);
-    pending.set(id, { fn, args, ms: Number(ms) || 0, handle });
-    return id;
+    let handle;
+    handle = realSetTimeout(() => { pending.delete(handle); fn(...args); }, ms);
+    pending.set(handle, { fn, args, ms: Number(ms) || 0, handle });
+    return handle;
   };
-  global.clearTimeout = (id) => {
-    const t = pending.get(id);
-    if (!t) return realClearTimeout(id);
+  global.clearTimeout = (handle) => {
+    const t = pending.get(handle);
+    if (!t) return realClearTimeout(handle);
     realClearTimeout(t.handle);
-    pending.delete(id);
+    pending.delete(handle);
   };
   global.flushTimers = (ms = 0) => {
     for (const [id, t] of [...pending]) {
