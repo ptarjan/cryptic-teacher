@@ -17,7 +17,7 @@ import re
 import sys
 from urllib.parse import parse_qs, urlparse
 
-SITE = "https://paultarjan.com/cryptic-teacher/?p=quiptic-1394"
+SITE = "https://cryptic.paultarjan.com/?p=quiptic-1394"
 
 
 def main():

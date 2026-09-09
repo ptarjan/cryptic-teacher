@@ -26,8 +26,8 @@ const MAX_REPORT = 2 * 1024;    // a sentence about a hint, with room for a long
 const MAX_NOTE = 400;           // what fits in the one-line box on the page
 const REPORT_TTL = 60 * 60 * 24 * 365;
 
-const INDEX_URL = "https://paultarjan.com/cryptic-teacher/puzzles/index.json";
-const PUZZLE_URL = "https://paultarjan.com/cryptic-teacher/?p=";
+const INDEX_URL = "https://cryptic.paultarjan.com/puzzles/index.json";
+const PUZZLE_URL = "https://cryptic.paultarjan.com/?p=";
 // A phone that has not opened the site in half a year has stopped solving. The
 // page re-registers on every load, so a device still in use never reaches this.
 const PUSH_TTL = 60 * 60 * 24 * 180;

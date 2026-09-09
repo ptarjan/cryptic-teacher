@@ -25,7 +25,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import kv  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SITE = "https://paultarjan.com/cryptic-teacher/"
+SITE = "https://cryptic.paultarjan.com/"
 PUZZLE = "quiptic-1394"
 
 
