@@ -546,6 +546,14 @@ const patBoxes = () => (patHTML().match(/class="pat-box [^"]*"/g) || []);
   assert(paths.status === 0,
     "tools/test_prereset_paths.sh: the burn finds the bridge transcripts and "
     + "wake.sh from its worktree\n" + (paths.stdout || "") + (paths.stderr || ""));
+
+  /* The catch-all alert, which exists to report failures nobody thought of --
+     and so must not re-report the one the run already explained. */
+  const claimed = require("child_process").spawnSync(
+    "bash", [path.join(ROOT, "tools/test_alert_claimed.sh")], { encoding: "utf8" });
+  assert(claimed.status === 0,
+    "tools/test_alert_claimed.sh: a traceback an alert already quoted is not "
+    + "sent again as unexplained\n" + (claimed.stdout || "") + (claimed.stderr || ""));
 }
 
 // --- escape hatch: reveal a letter BEFORE using any ladder hints ---
