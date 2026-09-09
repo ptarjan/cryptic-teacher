@@ -451,7 +451,7 @@ window.CRYPTIC_PUZZLES["quiptic-1372"] = /*JSON-START*/ {
    "solution": "GAMESETANDMATCH",
    "annotation": {
     "type": "cryptic definition",
-    "answer": "GAME, SET AND MATCH",
+    "answer": "GAME SET AND MATCH",
     "definition": "Summing-up after court battle",
     "blocks": [
      {

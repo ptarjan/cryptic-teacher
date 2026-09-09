@@ -976,11 +976,11 @@ window.CRYPTIC_PUZZLES["cryptic-29971"] = /*JSON-START*/ {
     "definition": "pastry",
     "definitionFit": "Stollen is the German Christmas loaf, heavy with dried fruit and marzipan, which 'pastry' covers as a sweet bake.",
     "indicators": [
-     "top",
+     "Laptop",
      "dropped into"
     ],
     "indicatorNotes": {
-     "top": "The top of a word in a down entry is its first letter, and that single letter is all this takes.",
+     "Laptop": "Read it as lap-top: the top of LAP is its first letter, and that single letter is all this takes.",
      "dropped into": "What is dropped into something lands inside it, so this letter goes within the longer word rather than beside it."
     },
     "pieces": [
@@ -1335,10 +1335,10 @@ window.CRYPTIC_PUZZLES["cryptic-29971"] = /*JSON-START*/ {
     "definition": "Biscuit",
     "definitionFit": "An Oreo is the chocolate sandwich cookie with a white cream filling, which British English files under biscuits.",
     "indicators": [
-     "switch"
+     "switcheroo"
     ],
     "indicatorNotes": {
-     "switch": "To switch things is to make them change places, and the four letters that follow this word change places."
+     "switcheroo": "One word doing both jobs: its front half is the instruction to change places, and the four letters behind it are what change places."
     },
     "anagram": {
      "fodder": "EROO"

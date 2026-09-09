@@ -624,11 +624,11 @@ window.CRYPTIC_PUZZLES["cryptic-29975"] = /*JSON-START*/ {
     "definition": "Pay",
     "definitionFit": "Income is the money that comes in over a year — wages, salary, rent — which is 'pay' as a noun rather than as a verb.",
     "indicators": [
-     "craft",
+     "Minecraft",
      "to be involved in"
     ],
     "indicatorNotes": {
-     "craft": "To craft a thing is to work it by hand into a new shape, and what gets reshaped is the four letters sitting in front of it.",
+     "Minecraft": "One word doing both jobs: to craft a thing is to work it into a new shape, and what gets reshaped is the four letters in front of that instruction.",
      "to be involved in": "Being involved in something means being mixed up inside it, so one piece ends up within the other."
     },
     "pieces": [
