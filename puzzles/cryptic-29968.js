@@ -30,7 +30,30 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ELECTROMAGNETIC",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + charade",
+    "answer": "ELECTROMAGNETIC",
+    "definition": "Currently attractive?",
+    "pieces": [
+     "ELECTRO",
+     "MAGNETIC"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Currently",
+      "gives": "ELECTRO",
+      "note": "the current meant is the electric one, and electro- is the prefix that says so"
+     },
+     {
+      "clueFragment": "attractive",
+      "gives": "MAGNETIC",
+      "note": "whatever hauls iron filings towards itself is attractive in the physicist's sense"
+     }
+    ],
+    "surface": "Somebody who is good-looking at the moment, whatever they may look like later on.",
+    "walkthrough": "'Currently' is the physicist's current rather than the adverb for right now, and the pull in 'attractive' is on iron, not on people. Read straight, the sentence describes the field itself.",
+    "definitionFit": "An electromagnetic field is made by a current and does the attracting, so both words of the clue describe it literally."
+   }
   },
   {
    "id": "1-down",
@@ -51,7 +74,29 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
     ]
    },
    "solution": "EXCLAMATIONMARK",
-   "annotation": null
+   "annotation": {
+    "type": "&lit",
+    "answer": "EXCLAMATION MARK",
+    "definition": "The last thing you’ll see here!",
+    "pieces": [
+     "EXCLAMATIONMARK"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The last thing you’ll see",
+      "gives": "",
+      "note": "read straight, a description of whatever stands at the very end of a written line"
+     },
+     {
+      "clueFragment": "here!",
+      "gives": "",
+      "note": "'here' is the clue in front of you, so look at the character it stops on"
+     }
+    ],
+    "surface": "A warning that whatever you are looking at now is the last sight you will get.",
+    "walkthrough": "'Here' means this clue, and the clue ends on the very piece of punctuation it is describing, so the setter has shown you the answer without spelling a letter of it.",
+    "definitionFit": "An exclamation mark closes a sentence, so the final character of this clue is at once the definition and the thing defined."
+   }
   },
   {
    "id": "2-down",
@@ -68,7 +113,39 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EVIAN",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "EVIAN",
+    "definition": "French spa town",
+    "indicators": [
+     "Turned up"
+    ],
+    "indicatorNotes": {
+     "Turned up": "Turned up is an about-face on a down entry: the letters climb the column, arriving in the opposite order to the one the clue prints."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "EVIAN"
+    ],
+    "subReversals": [
+     {
+      "from": "NAIVE",
+      "to": "EVIAN"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unsophisticated",
+      "gives": "EVIAN",
+      "note": "someone unsophisticated is naive, and those five letters are written back to front"
+     }
+    ],
+    "surface": "A rustic simplicity that turns up in a smart French watering place.",
+    "walkthrough": "The town's name sits on restaurant tables all over the world as a brand of bottled water, which is why it reads as scenery rather than as a definition.",
+    "definitionFit": "Évian-les-Bains is a spa town on the French side of Lake Geneva, famous for the mineral water bottled there."
+   }
   },
   {
    "id": "3-down",
@@ -85,7 +162,33 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TRESTLE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "TRESTLE",
+    "definition": "Support",
+    "indicators": [
+     "unsettled"
+    ],
+    "indicatorNotes": {
+     "unsettled": "Something unsettled has been shaken out of its place, so these letters will not stay where the clue put them."
+    },
+    "linkWords": [
+     "from"
+    ],
+    "anagram": {
+     "fodder": "SETTLER"
+    },
+    "blocks": [
+     {
+      "clueFragment": "settler",
+      "gives": "SETTLER",
+      "note": "seven letters of fodder, the word the shuffle works on"
+     }
+    ],
+    "surface": "A pioneer who never managed to settle down.",
+    "walkthrough": "The joke is the contradiction: an unsettled settler is a person who will not stay put, which is exactly what the letters of the word do here.",
+    "definitionFit": "A trestle is the braced A-frame a plank rests on, so it supports a table top or a bridge span."
+   }
   },
   {
    "id": "4-down",
@@ -102,7 +205,48 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ORINOCO",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "ORINOCO",
+    "definition": "Womble",
+    "indicators": [
+     "tossed"
+    ],
+    "indicatorNotes": {
+     "tossed": "A tossed coin lands whichever way up it pleases, so the letters it names come down in a fresh order."
+    },
+    "subAnagrams": [
+     {
+      "fodder": "COIN",
+      "gives": "INOC"
+     }
+    ],
+    "pieces": [
+     "OR",
+     "INOC",
+     "O"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gold",
+      "gives": "OR",
+      "note": "or is gold in heraldry, the tincture used on a coat of arms"
+     },
+     {
+      "clueFragment": "coin",
+      "gives": "INOC",
+      "note": "the four letters of the word for money, landed in a new order"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "o is the cricket scorer's mark for an over of six balls"
+     }
+    ],
+    "surface": "A gold coin flipped over the head of a small furry creature.",
+    "walkthrough": "'Over' looks like part of the tossing and is a cricket abbreviation standing on its own, which is what makes the last letter so hard to place.",
+    "definitionFit": "Orinoco is one of the Wombles of Wimbledon Common, the burrowing television creatures each named after a place on the map."
+   }
   },
   {
    "id": "5-down",
@@ -119,7 +263,30 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AMENDED",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "AMENDED",
+    "definition": "Changed",
+    "pieces": [
+     "AM",
+     "ENDED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "at noon",
+      "gives": "AM",
+      "note": "the hours before midday are the a.m., and midday is where they stop"
+     },
+     {
+      "clueFragment": "what happened",
+      "gives": "ENDED",
+      "note": "what the morning did when twelve o'clock arrived"
+     }
+    ],
+    "surface": "A question about the event that took place at midday.",
+    "walkthrough": "Nothing is being timed here: the clue asks what the morning itself did at twelve, and the reply to that question goes straight into the grid.",
+    "definitionFit": "To amend something is to alter it, usually a text or a law, so 'changed' is the plain past-tense synonym."
+   }
   },
   {
    "id": "6-down",
@@ -136,7 +303,37 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NOTICES",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "NOTICES",
+    "definition": "spies",
+    "indicators": [
+     "around"
+    ],
+    "indicatorNotes": {
+     "around": "To go around something is to close on both sides of it, so one piece wraps the other instead of following it."
+    },
+    "pieces": [
+     "NOTI",
+     "C",
+     "ES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lack of commitments",
+      "gives": "NOTIES",
+      "note": "a person with no ties has nothing holding them to anyone or anywhere"
+     },
+     {
+      "clueFragment": "a hundred",
+      "gives": "C",
+      "note": "C is the Roman numeral for a hundred"
+     }
+    ],
+    "surface": "A footloose life spent circling a hundred secret agents.",
+    "walkthrough": "'Spies' is the everyday verb — catches sight of — and not the noun that the surface's hundred agents has you expecting.",
+    "definitionFit": "To spy something is to catch sight of it, the plain verb sense rather than anything to do with espionage."
+   }
   },
   {
    "id": "7-down",
@@ -157,7 +354,30 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
     ]
    },
    "solution": "TONYBLAIR",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "TONY BLAIR",
+    "definition": "former PM",
+    "indicators": [
+     "worried"
+    ],
+    "indicatorNotes": {
+     "worried": "A worried person cannot keep still, and letters described that way will not stay in the order printed."
+    },
+    "anagram": {
+     "fodder": "ONLY A BRIT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Only a Brit",
+      "gives": "ONLYABRIT",
+      "note": "nine letters of fodder, exactly as the clue prints them"
+     }
+    ],
+    "surface": "One anxious Briton, alone in a room full of foreigners.",
+    "walkthrough": "The fodder is a joke at the man's expense: a prime minister who took the country to war beside an American president is cut down here to being only a Brit.",
+    "definitionFit": "Tony Blair was Prime Minister from 1997 to 2007, so 'former PM' names him by the office he no longer holds."
+   }
   },
   {
    "id": "8-down",
@@ -178,7 +398,30 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
     ]
    },
    "solution": "CHARLOTTEBRONTE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "CHARLOTTE BRONTE",
+    "definition": "sister",
+    "indicators": [
+     "bother"
+    ],
+    "indicatorNotes": {
+     "bother": "To bother someone is to disturb them, and letters disturbed like that come out in a different arrangement."
+    },
+    "anagram": {
+     "fodder": "ACTON LET BROTHER"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Acton let brother",
+      "gives": "ACTONLETBROTHER",
+      "note": "fifteen letters of fodder, and Acton Bell was the pen name of the youngest of three novelist sisters"
+     }
+    ],
+    "surface": "One sibling standing back while another one pesters a third.",
+    "walkthrough": "The three sisters published as Currer, Ellis and Acton Bell, all of them men's names, and it is the eldest of the three that these fifteen letters rearrange into.",
+    "definitionFit": "Acton Bell was the pen name of Anne Brontë, whose elder sister Charlotte is the novelist the definition points at."
+   }
   },
   {
    "id": "9-across",
@@ -199,7 +442,40 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
     ]
    },
    "solution": "CHILEPINE",
-   "annotation": null
+   "annotation": {
+    "type": "homophone + charade",
+    "answer": "CHILE PINE",
+    "definition": "Tree",
+    "indicators": [
+     "sounding"
+    ],
+    "indicatorNotes": {
+     "sounding": "Sounding points at the ear rather than the page: what matters is the noise the word makes, not the way it is spelt."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "CHILE",
+     "PINE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sounding cool",
+      "soundsLike": "CHILLY",
+      "gives": "CHILE",
+      "note": "cool weather is chilly, and said aloud that is the South American country"
+     },
+     {
+      "clueFragment": "long",
+      "gives": "PINE",
+      "note": "to long for something is to pine for it"
+     }
+    ],
+    "surface": "A tree that has been fashionable for a very long time.",
+    "walkthrough": "The two halves come from different worlds — one from the thermometer, one from yearning — and 'for' belongs to the second of them, since you pine for what you long for.",
+    "definitionFit": "The Chile pine is the monkey puzzle, the spiky South American conifer planted in Victorian front gardens."
+   }
   },
   {
    "id": "10-across",
@@ -216,7 +492,36 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TONGA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "TONGA",
+    "definition": "horse-drawn carriage",
+    "indicators": [
+     "shed"
+    ],
+    "indicatorNotes": {
+     "shed": "What is shed drops off and is gone, so the letters named next leave the word that was carrying them."
+    },
+    "pieces": [
+     "TON",
+     "GA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Weight",
+      "gives": "TON",
+      "note": "a ton is a large unit of weight"
+     },
+     {
+      "clueFragment": "gain shed in",
+      "gives": "GA",
+      "note": "GAIN loses the letters I and N, the 'in' the clue names"
+     }
+    ],
+    "surface": "Weight somebody put on and has now managed to lose.",
+    "walkthrough": "'Shed in' is two instructions in two words, one saying what goes and one saying which letters go, and the surface hides both inside an ordinary story about dieting.",
+    "definitionFit": "A tonga is the light two-wheeled horse-drawn carriage of India and Pakistan, still seen in country towns."
+   }
   },
   {
    "id": "11-across",
@@ -233,7 +538,42 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ANNATTO",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "ANNATTO",
+    "definition": "food colouring",
+    "indicators": [
+     "sent back"
+    ],
+    "indicatorNotes": {
+     "sent back": "Something sent back retraces the way it came, so this piece is written in the reverse of its usual order."
+    },
+    "pieces": [
+     "ANNA",
+     "TTO"
+    ],
+    "subReversals": [
+     {
+      "from": "OTT",
+      "to": "TTO"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Girl",
+      "gives": "ANNA",
+      "note": "Anna is the girl's name, four letters and the same either way round"
+     },
+     {
+      "clueFragment": "too much",
+      "gives": "TTO",
+      "note": "too much is over the top, OTT, and the reversal turns those three letters round"
+     }
+    ],
+    "surface": "A girl sent home for putting far too much colour in the food.",
+    "walkthrough": "OTT is worth owning — over the top, the crossword's standard three letters for excess — and it is one of the few abbreviations that reads as a whole phrase.",
+    "definitionFit": "Annatto is the orange-red dye made from achiote seeds, used to colour cheeses such as Red Leicester."
+   }
   },
   {
    "id": "12-across",
@@ -250,7 +590,35 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DECIBEL",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "DECIBEL",
+    "definition": "Sound measure",
+    "indicators": [
+     "could be"
+    ],
+    "indicatorNotes": {
+     "could be": "Could be admits the letters are only a possibility in the order given, which is licence to try them in another."
+    },
+    "anagram": {
+     "fodder": "CEDIBLE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "credible",
+      "gives": "CREDIBLE",
+      "note": "eight letters offered up before anything is taken away"
+     },
+     {
+      "clueFragment": "not right",
+      "gives": "",
+      "note": "right is R, and 'not' is the word that throws that one letter out"
+     }
+    ],
+    "surface": "An account that would be believable if one detail in it were not wrong.",
+    "walkthrough": "The exclamation mark makes 'not right!' read as indignation about the story, when it is a flat instruction to drop a letter before shuffling.",
+    "definitionFit": "A decibel is the unit sound intensity is measured in, so 'sound measure' names it by exactly what it counts."
+   }
   },
   {
    "id": "13-across",
@@ -267,7 +635,31 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CUE",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "CUE",
+    "definition": "Rod",
+    "indicators": [
+     "spoken of"
+    ],
+    "indicatorNotes": {
+     "spoken of": "Spoken of asks for the sound of the thing rather than its written form, so say it aloud and write down what you hear."
+    },
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "letter",
+      "soundsLike": "Q",
+      "gives": "CUE",
+      "note": "the seventeenth letter of the alphabet, whose name takes three letters to write down"
+     }
+    ],
+    "surface": "Somebody discussing a letter that belongs to a man called Rod.",
+    "walkthrough": "'Rod' is capitalised only because it opens the clue, and it is not a man's name at all but a plain noun doing the whole of the defining.",
+    "definitionFit": "A cue is the long tapering rod a snooker or billiards player strikes the ball with."
+   }
   },
   {
    "id": "14-across",
@@ -288,7 +680,42 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
     ]
    },
    "solution": "ARTDECO",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + charade",
+    "answer": "ART DECO",
+    "definition": "C20th style",
+    "indicators": [
+     "affected"
+    ],
+    "indicatorNotes": {
+     "affected": "An affected manner is not the natural one, so these letters are put on in an order other than their own."
+    },
+    "subAnagrams": [
+     {
+      "fodder": "TRADE",
+      "gives": "ARTDE"
+     }
+    ],
+    "pieces": [
+     "ARTDE",
+     "CO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trade",
+      "gives": "ARTDE",
+      "note": "the five letters of the word for business, rearranged"
+     },
+     {
+      "clueFragment": "company",
+      "gives": "CO",
+      "note": "co. is the standard abbreviation after a firm's name"
+     }
+    ],
+    "surface": "A trading company that puts on airs.",
+    "walkthrough": "'Affected' is also the setter's wink at a style its critics called mannered; as an instruction it reaches only as far as the word beside it, and the firm is added afterwards.",
+    "definitionFit": "Art deco is the geometric decorative style of the 1920s and 1930s, so 'C20th style' dates it by its century."
+   }
   },
   {
    "id": "15-down",
@@ -305,7 +732,35 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TANGERINE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "TANGERINE",
+    "definition": "Fruit",
+    "indicators": [
+     "perplexed"
+    ],
+    "indicatorNotes": {
+     "perplexed": "A perplexed person has lost track of how things go, and so do these letters once the instruction bites."
+    },
+    "anagram": {
+     "fodder": "GENERATIN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "generations",
+      "gives": "GENERATIONS",
+      "note": "eleven letters, the raw material the clue hands over"
+     },
+     {
+      "clueFragment": "not so",
+      "gives": "",
+      "note": "the S and O of 'so' are the two letters that do not survive"
+     }
+    ],
+    "surface": "Generations of people left baffled, and somebody insisting it was not so.",
+    "walkthrough": "'Not so!' reads as a flat contradiction and is a pair of letters to remove; the count gives it away, because eleven letters will never fill nine cells.",
+    "definitionFit": "A tangerine is the small loose-skinned citrus named after Tangier, so 'fruit' defines it by naming its kind."
+   }
   },
   {
    "id": "16-down",
@@ -322,7 +777,35 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "COE",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "COE",
+    "definition": "athlete",
+    "indicators": [
+     "from which falls"
+    ],
+    "indicatorNotes": {
+     "from which falls": "Whatever falls from a thing leaves it behind, so the letters named drop out of the word standing before them."
+    },
+    "pieces": [
+     "COE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Canoe",
+      "gives": "CANOE",
+      "note": "the small paddled boat, five letters"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "",
+      "note": "the article names its own two letters, A and N, and they are the ones lost"
+     }
+    ],
+    "surface": "An athlete tipping out of a canoe.",
+    "walkthrough": "The picture is a capsize, and the instruction runs the other way round: it is the canoe that loses something, not the paddler.",
+    "definitionFit": "Sebastian Coe is the British middle-distance runner who won Olympic 1500m gold in 1980 and again in 1984."
+   }
   },
   {
    "id": "17-across",
@@ -339,7 +822,39 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DISTANT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "DISTANT",
+    "definition": "Reserved",
+    "indicators": [
+     "half"
+    ],
+    "indicatorNotes": {
+     "half": "Half a word is one of its two equal parts, and it is the opening four letters that are kept here."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "DIST",
+     "ANT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the area",
+      "gives": "DIST",
+      "note": "an area is a district, and only the front half of that eight-letter word is wanted"
+     },
+     {
+      "clueFragment": "worker",
+      "gives": "ANT",
+      "note": "the crossword's standard worker is the ant"
+     }
+    ],
+    "surface": "Half a plot of land set aside, with a labourer thrown in.",
+    "walkthrough": "'Reserved' means aloof rather than booked in advance, and that switch is what the surface's talk of land and labour is built to hide.",
+    "definitionFit": "A distant manner is a cool, unforthcoming one, which is what 'reserved' describes in a person."
+   }
   },
   {
    "id": "18-down",
@@ -356,7 +871,37 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IDE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "IDE",
+    "definition": "Fish",
+    "indicators": [
+     "around"
+    ],
+    "indicatorNotes": {
+     "around": "Going around something means closing on both sides of it, so the short piece ends up in the middle."
+    },
+    "pieces": [
+     "I",
+     "D",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e., short for the Latin id est, is 'that is'"
+     },
+     {
+      "clueFragment": "delta",
+      "gives": "D",
+      "note": "delta is D in the radio alphabet"
+     }
+    ],
+    "surface": "A fish swimming about somewhere near a river delta.",
+    "walkthrough": "Both halves are crossword staples worth keeping: the Latin abbreviation for 'that is', and the radio alphabet where Delta stands in for its own initial.",
+    "definitionFit": "An ide is a silver freshwater fish of the carp family, common in northern Europe and also called the orfe."
+   }
   },
   {
    "id": "19-across",
@@ -373,7 +918,30 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IGNORES",
-   "annotation": null
+   "annotation": {
+    "type": "cycling",
+    "answer": "IGNORES",
+    "definition": "Gives the cold shoulder to",
+    "indicators": [
+     "cycling"
+    ],
+    "indicatorNotes": {
+     "cycling": "Cycling sends the letter at one end round to the other, everyone else keeping their place in the queue."
+    },
+    "pieces": [
+     "IGNORES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Italian fellow",
+      "gives": "SIGNORE",
+      "note": "a signore is an Italian gentleman, and one of these letters is about to move house"
+     }
+    ],
+    "surface": "An Italian gentleman out on his bicycle.",
+    "walkthrough": "Every letter is there from the start and only the first one travels, which is why the word looks so nearly right before you touch it.",
+    "definitionFit": "To give someone the cold shoulder is to ignore them pointedly, so the phrase is the idiomatic equivalent of the answer."
+   }
   },
   {
    "id": "20-down",
@@ -390,7 +958,36 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ROSELLA",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ROSELLA",
+    "definition": "Australian parakeet",
+    "indicators": [
+     "touching"
+    ],
+    "indicatorNotes": {
+     "touching": "Two things touching are set side by side with nothing between, so the pieces run straight into each other."
+    },
+    "pieces": [
+     "ROS",
+     "ELLA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Two girls",
+      "gives": "ROS",
+      "note": "the first of them is Ros, the short form of Rosalind"
+     },
+     {
+      "clueFragment": "Two girls",
+      "gives": "ELLA",
+      "note": "the second is Ella, a name in its own right and the tail of several longer ones"
+     }
+    ],
+    "surface": "Two girls standing shoulder to shoulder.",
+    "walkthrough": "Neither name is signalled beyond the word 'girls', so the way in is to try short women's names against the crossing letters until a pair of them meet.",
+    "definitionFit": "A rosella is one of the bright broad-tailed parakeets of Australia, common in gardens along the east coast."
+   }
   },
   {
    "id": "21-down",
@@ -407,7 +1004,45 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SANGRIA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "SANGRIA",
+    "definition": "drink",
+    "indicators": [
+     "about"
+    ],
+    "indicatorNotes": {
+     "about": "About here means turned about, so the piece it governs is written in the opposite direction to its ordinary spelling."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "SANG",
+     "RIA"
+    ],
+    "subReversals": [
+     {
+      "from": "AIR",
+      "to": "RIA"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Squealed",
+      "gives": "SANG",
+      "note": "an informer who talks to the police has sung"
+     },
+     {
+      "clueFragment": "tune",
+      "gives": "RIA",
+      "note": "a tune is an air, and here those three letters are written backwards"
+     }
+    ],
+    "surface": "Somebody squealing about a tune in exchange for a drink.",
+    "walkthrough": "'Squealed' is the gangster's sense, informing rather than shrieking, and 'about' does turning work instead of meaning 'concerning'.",
+    "definitionFit": "Sangria is the Spanish punch of red wine, fruit and soda, so 'drink' names it by its plainest category."
+   }
   },
   {
    "id": "22-across",
@@ -424,7 +1059,33 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REVERIE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "REVERIE",
+    "definition": "musing",
+    "linkWords": [
+     "on"
+    ],
+    "pieces": [
+     "REV",
+     "ERIE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vicar",
+      "gives": "REV",
+      "note": "Rev is the title written in front of a clergyman's name"
+     },
+     {
+      "clueFragment": "lake",
+      "gives": "ERIE",
+      "note": "Erie is one of the five Great Lakes"
+     }
+    ],
+    "surface": "A vicar out on a lake, lost in thought.",
+    "walkthrough": "Erie is the crossword's lake of choice, four letters and three of them vowels, and the vicar in front of it is a title rather than a person.",
+    "definitionFit": "A reverie is a spell of pleasant daydreaming, which is what musing names as a state of mind."
+   }
   },
   {
    "id": "22-down",
@@ -441,7 +1102,32 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ROSSINI",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "ROSSINI",
+    "definition": "composer",
+    "indicators": [
+     "some",
+     "back out"
+    ],
+    "indicatorNotes": {
+     "some": "Some of the words means part of them, so what is wanted is a run of letters already sitting in the clue.",
+     "back out": "Back out asks for that run to be lifted in the opposite direction to the way it is printed."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Putin is so reactionary",
+      "gives": "ROSSINI",
+      "note": "seven letters lie in a row across those words, and they are read from the right"
+     }
+    ],
+    "surface": "A hard-line view of Putin, with some people quietly withdrawing.",
+    "walkthrough": "'Reactionary' does two jobs at once: it lends its opening letter to the run of hidden letters, and its meaning is the setter's nudge to read them the other way.",
+    "definitionFit": "Rossini wrote The Barber of Seville and William Tell, so 'composer' names him by his trade."
+   }
   },
   {
    "id": "23-down",
@@ -458,7 +1144,40 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "VIOLENT",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "VIOLENT",
+    "definition": "Furious",
+    "indicators": [
+     "concealed"
+    ],
+    "indicatorNotes": {
+     "concealed": "Something concealed is put out of sight inside something bigger, so the letter goes within the word rather than beside it."
+    },
+    "linkWords": [
+     "as"
+    ],
+    "pieces": [
+     "VIOLE",
+     "N",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flower",
+      "gives": "VIOLET",
+      "note": "a violet is the small purple spring flower"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "n is the standard abbreviation for name"
+     }
+    ],
+    "surface": "Somebody in a rage because a flower's name is being kept secret.",
+    "walkthrough": "'Flower' is a genuine bloom here, not the crossword's usual trick of a thing that flows, and the name hidden in it is a single letter.",
+    "definitionFit": "Violent means marked by great force or fury, so 'furious' is a straight synonym in the sense of uncontrolled rage."
+   }
   },
   {
    "id": "24-across",
@@ -475,7 +1194,37 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AGO",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + first letter",
+    "answer": "AGO",
+    "definition": "Previously",
+    "indicators": [
+     "leading",
+     "cut"
+    ],
+    "indicatorNotes": {
+     "leading": "The leading letter of a word is the one at its head, and that single letter is what this instruction picks out.",
+     "cut": "Cut takes away what has just been named, so the letter singled out is removed from the word before it."
+    },
+    "pieces": [
+     "AGO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Argo",
+      "gives": "ARGO",
+      "note": "the ship Jason sailed in search of the golden fleece"
+     },
+     {
+      "clueFragment": "role",
+      "gives": "",
+      "note": "the letter at its head is R, and that R is the piece taken out"
+     }
+    ],
+    "surface": "A production of Argo that has lost its starring part.",
+    "walkthrough": "'Leading role' is one phrase in the surface and two instructions in the wordplay: find the letter at the head of the second word, and lose it.",
+    "definitionFit": "Ago and previously both place something at an earlier time, though ago follows its period — two years ago — where previously stands alone."
+   }
   },
   {
    "id": "25-across",
@@ -492,7 +1241,42 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NIELSEN",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "NIELSEN",
+    "definition": "Composer",
+    "indicators": [
+     "in",
+     "drunk"
+    ],
+    "indicatorNotes": {
+     "in": "In puts one piece inside another, so what follows is not laid alongside the rest but buried within it.",
+     "drunk": "A drunk cannot walk a straight line, and letters in that state do not keep the order they were given."
+    },
+    "linkWords": [
+     "is"
+    ],
+    "pieces": [
+     "NI",
+     "ELSE",
+     "N"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "inn, drunk",
+      "gives": "NIN",
+      "note": "the three letters of the pub, staggering"
+     },
+     {
+      "clueFragment": "otherwise",
+      "gives": "ELSE",
+      "note": "'or otherwise' is 'or else'"
+     }
+    ],
+    "surface": "A composer who would rather be anywhere else than in this pub.",
+    "walkthrough": "Danish music is thin on the ground in crosswords, and this symphonist is the name that turns up: worth stocking on the shelf beside Grieg and Sibelius.",
+    "definitionFit": "Carl Nielsen was Denmark's leading symphonist, so 'composer' defines him by example rather than by any property of the word."
+   }
   },
   {
    "id": "26-across",
@@ -509,7 +1293,33 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SLOGGER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SLOGGER",
+    "definition": "T20 batsman",
+    "linkWords": [
+     "as"
+    ],
+    "pieces": [
+     "S",
+     "LOGGER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the clothing size small"
+     },
+     {
+      "clueFragment": "Canadian woodsman",
+      "gives": "LOGGER",
+      "note": "a logger fells trees for timber, the lumberjack of the Canadian forests"
+     }
+    ],
+    "surface": "A cricketer likened to a small Canadian lumberjack.",
+    "walkthrough": "T20 is Twenty20, the twenty-over game in which batters swing at nearly everything, so the definition wants a hitter rather than a stylist.",
+    "definitionFit": "A slogger is a batter who hits hard and without finesse, exactly the type the short cricket format rewards."
+   }
   },
   {
    "id": "27-down",
@@ -526,7 +1336,33 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GRAIN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "GRAIN",
+    "definition": "seed",
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "G",
+     "RAIN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Good",
+      "gives": "G",
+      "note": "g is the standard abbreviation for good"
+     },
+     {
+      "clueFragment": "supply of water",
+      "gives": "RAIN",
+      "note": "the water the sky supplies"
+     }
+    ],
+    "surface": "Plenty of water, which is exactly what a seed wants.",
+    "walkthrough": "'Good' is not describing the water at all but handing over a letter, and it is the abbreviation that turns up on a school report.",
+    "definitionFit": "A grain is a single seed of a cereal such as wheat or rice, so 'seed' names it by what it is."
+   }
   },
   {
    "id": "28-across",
@@ -543,7 +1379,40 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ARIEL",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "ARIEL",
+    "definition": "Shakespearean spirit",
+    "indicators": [
+     "Heartless",
+     "confused"
+    ],
+    "indicatorNotes": {
+     "Heartless": "A heartless word has lost the letter at its very centre, and that letter is gone before the shuffle begins.",
+     "confused": "Confused things are out of their proper arrangement, so these letters take up a new order."
+    },
+    "linkWords": [
+     "and"
+    ],
+    "anagram": {
+     "fodder": "ELAR I"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Heartless Elgar",
+      "gives": "ELAR",
+      "note": "the composer's five letters lose the G sitting at their centre"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "the clue's own I joins the letters to be mixed"
+     }
+    ],
+    "surface": "The speaker and a hard-hearted Elgar, thoroughly muddled between them.",
+    "walkthrough": "'Heartless' is a character judgement in the surface and a surgical instruction in the wordplay — one letter, taken from the exact middle of the name.",
+    "definitionFit": "Ariel is the airy spirit bound to Prospero in The Tempest, so the definition names the character by play and by kind."
+   }
   },
   {
    "id": "29-across",
@@ -564,7 +1433,27 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
     ]
    },
    "solution": "RAISECAIN",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "RAISE CAIN",
+    "definition": "Cause trouble",
+    "definition2": "as Adam and Eve did?",
+    "blocks": [
+     {
+      "clueFragment": "Cause trouble",
+      "gives": "",
+      "note": "the idiom for kicking up a violent fuss"
+     },
+     {
+      "clueFragment": "as Adam and Eve did?",
+      "gives": "",
+      "note": "the first couple brought up a first son, which is these words read one at a time"
+     }
+    ],
+    "surface": "Adam and Eve blamed for starting all the trouble there has ever been.",
+    "walkthrough": "The question mark flags the second half as a joke rather than a dictionary sense: the phrase for an uproar is also, word for word, a description of the world's first parenting.",
+    "definitionFit": "To raise Cain is to make a violent fuss; word for word it is also what Adam and Eve did in bringing up their firstborn son."
+   }
   },
   {
    "id": "30-across",
@@ -587,7 +1476,30 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
     ]
    },
    "solution": "KEEPATADISTANCE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "KEEP AT A DISTANCE",
+    "definition": "Stay away from",
+    "pieces": [
+     "KEEP",
+     "ATADISTANCE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fortress",
+      "gives": "KEEP",
+      "note": "the keep is the strong central tower of a castle"
+     },
+     {
+      "clueFragment": "far off",
+      "gives": "ATADISTANCE",
+      "note": "something far off is a long way from where you stand"
+     }
+    ],
+    "surface": "Advice to give a remote castle a wide berth.",
+    "walkthrough": "'Far off fortress' looks like one noun phrase with an adjective in front, and the two words are separate pieces that swap places on the way into the grid.",
+    "definitionFit": "To keep someone at a distance is to hold them off and stay away from them, the idiom for refusing any closeness."
+   }
   }
  ]
 } /*JSON-END*/;
