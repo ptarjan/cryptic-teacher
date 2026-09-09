@@ -577,6 +577,11 @@
     drawSyncQr(code);
     $("sync-on").classList.toggle("hidden", !code);
     $("sync-off").classList.toggle("hidden", !!code);
+    // Taking a code is offered in both states, so the wording has to say what
+    // pressing it does to a device that already has one.
+    $("sync-join-label").textContent = code
+      ? "Scanned another device? Its code replaces this one here, and these grids merge into it."
+      : "Already have a code from another device?";
     syncNote(code ? "" : "Not syncing — this machine only.");
   }
 
