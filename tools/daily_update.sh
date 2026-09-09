@@ -83,15 +83,12 @@ export CLAUDE_CONFIG_DIR="${CLAUDE_CONFIG_DIR:-$HOME/.claude}"
 # Defaults live here, not in the scheduler's environment: a value only the
 # scheduler knows is a value the script cannot be run by hand with, and both of
 # these are unset on this machine.
+# 128000 is also the model's own maximum, and the CLI clamps to that rather
+# than rejecting a larger number: this ceiling cannot be raised, only lowered.
+# A turn truncated here is writing too much at once, so the only thing left to
+# ask of it is smaller edits — which is what the one retry below asks.
 export CLAUDE_CODE_MAX_OUTPUT_TOKENS="${CLAUDE_CODE_MAX_OUTPUT_TOKENS:-128000}"
 export MAX_THINKING_TOKENS="${MAX_THINKING_TOKENS:-31999}"
-
-# What the ceiling becomes on the one retry below: high enough to be nobody's
-# limit but the model's. The CLI clamps this to the model's own maximum rather
-# than rejecting it, so a number above that maximum simply means OURS is out of
-# the way, which is all a retry can ask of it — a turn the model itself
-# truncates is a turn writing too much at once, and the retry says so in words.
-ANNOTATE_RETRY_CEILING="${ANNOTATE_RETRY_CEILING:-200000}"
 
 # claude-auth.sh is deliberately not sourced: the CLI finds its own stored
 # login under CLAUDE_CONFIG_DIR, and that file's env token would override the
@@ -573,7 +570,6 @@ if [ -n "$pending" ]; then
       # that again. --resume replays the transcript and carries on from it.
       ann_sid=$(session_id) || ann_sid=""
       ann_sess=(--session-id "$ann_sid")
-      ann_ceiling="$CLAUDE_CODE_MAX_OUTPUT_TOKENS"
       ann_prompt="$ann_task Follow the instructions in tools/annotate_prompt.md exactly, including running 'python3 tools/annotate_check.py <ID>' until it reports clean. Every clue needs a definitionFit, and every indicator needs an indicatorNotes entry saying why THAT word carries THAT instruction. Do not commit — the calling script commits."
       # A conversation from a night that failed, if the ledger kept one and the
       # CLI still holds its transcript. This is the retry below, stretched over
@@ -594,8 +590,7 @@ if [ -n "$pending" ]; then
       ann_ok=""
       ann_retried=0
       while :; do
-        CLAUDE_CODE_MAX_OUTPUT_TOKENS="$ann_ceiling" \
-          claude -p "$ann_prompt" "${ann_sess[@]}" \
+        claude -p "$ann_prompt" "${ann_sess[@]}" \
             --model "$ANNOTATE_MODEL" \
             --allowedTools "$ann_tools" \
             --max-turns "$ann_turns" 2>&1 | tee "$run_log" && ann_ok=1
@@ -603,20 +598,19 @@ if [ -n "$pending" ]; then
         # Exactly one failure earns another attempt, and it is the one that
         # costs the most: a turn killed for overrunning the output ceiling
         # emits no tool call, so everything the run spent buys nothing at all.
-        # Retry it ONCE, resuming that same conversation with our ceiling out
-        # of the way and told to write in pieces — raising a number cannot
-        # help a turn the model's own maximum truncates, but splitting the
-        # write can. A usage lockout wants the next window rather than another
-        # attempt now, and an expired login wants a person; both of those fall
-        # through to the alert below unchanged.
+        # Retry it ONCE, resuming that same conversation and told to write in
+        # pieces. Splitting the write is the whole of the retry: the ceiling is
+        # the model's own maximum, so there is no number to raise. A usage
+        # lockout wants the next window rather than another attempt now, and an
+        # expired login wants a person; both of those fall through to the alert
+        # below unchanged.
         [ "$ann_retried" = 0 ] || break
         grep -q "output token maximum" "$run_log" || break
         session_exists "$ann_sid" || break
         ann_retried=1
-        ann_ceiling="$ANNOTATE_RETRY_CEILING"
         ann_sess=(--resume "$ann_sid")
         ann_prompt="Your last turn was cut off for going past the output token limit, so whatever it was writing was never saved. Everything you did BEFORE that turn is intact — read puzzles/$num.js to see how far you actually got, and carry on from there rather than starting again. Write in several smaller edits instead of one large one: an edit big enough to hit that limit will be cut off again. Finish the task you were given and run 'python3 tools/annotate_check.py $num' until it reports clean. Do not commit."
-        echo "  $num overran the output ceiling — resuming that same session at $ann_ceiling rather than paying for it twice"
+        echo "  $num overran the output ceiling — resuming that same session, told to write in smaller edits, rather than paying for it twice"
       done
       if [ -n "$ann_ok" ]; then
         annotated_ok=$((annotated_ok + 1))
