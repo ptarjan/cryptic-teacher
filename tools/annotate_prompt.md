@@ -465,14 +465,10 @@ of the source. 75 of 128 annotation sessions were grepping
   answer an -ing definition (feedback 2026-07-29 — "the part of speech needs to be
   right"). Only the mechanical, unambiguous endings are checked here; the judgement
   call lives in STYLE.md and tools/annotate_prompt.md.
-- `check_every_clue_is_annotated` — Every clue in the puzzle needs an annotation.
-  Leaving one blank is never the answer to a rule you cannot satisfy: break that
-  rule instead, because breaking it names the clue and a blank does not. The only
-  legal blank is an entry the setter printed with no clue text at all.
 - `check_cryptic_definition_cap` — A puzzle may not lean on cryptic definitions (see
-  MAX_CRYPTIC_DEFINITIONS). On a published puzzle this only warns: the setter's
-  count is a fact about their grid, so annotate every cryptic definition you find
-  and let the warning name them.
+  MAX_CRYPTIC_DEFINITIONS).
+- `check_every_clue_is_annotated` — Once a puzzle is annotated at all, every clue in
+  it must be annotated.
 - `check_cryptic_definition_blocks` — A cryptic definition's blocks must split the
   clue, and may not spell the answer.
 - `check_definition_not_fodder` — The definition's words may not also be the
