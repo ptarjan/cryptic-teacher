@@ -489,10 +489,21 @@ commit and the gate starts at zero. The lesson generalises: before shelving a
 check for lighting up honest work, check whether it is the rule that is wrong or
 only its scope, and whether "honest work" is a judgement you actually made or a
 default you granted the existing corpus. So
-`check_cryptic_definition_cap()` warns when a puzzle sits exactly ON the cap and
-names the clues, and a human reads them. That is the whole of the defence, and it
-is deliberate: the check that would catch the remaining case does not exist,
-because every version of it is wrong more often than it is right.
+`check_cryptic_definition_cap()` warns from the cap upwards and names every
+cryptic definition in the puzzle, and a human reads them. That is the whole of the
+defence, and it is deliberate: the check that would catch the remaining case does
+not exist, because every version of it is wrong more often than it is right.
+
+The cap went through the same scoping lesson on 2026-09-08, in the other
+direction. It was a hard error on every puzzle, and quiptic-1372 (Harpo) turned
+out to have five genuine cryptic definitions — so the annotator solved all five
+and then shipped three of them with `annotation: null` to get under the ceiling.
+The rule was right and its scope was wrong: our own count is ours to change, a
+published setter's is a fact about their grid. It errors on authored puzzles and
+warns on fetched ones now. The second half of the repair matters more than the
+first: a rule that can be paid for in blanks converts a loud failure into a
+silent one, so `check_every_clue_is_annotated()` makes the blank itself the
+error, exempting only an entry the setter printed with no clue text.
 
 The flip side of that scoping is that the daily sweep globs `*-[0-9]*.js` — the
 shape of a fetched puzzle's id, `<series>-<number>` — and so
