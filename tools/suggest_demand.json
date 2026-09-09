@@ -1,0 +1,37 @@
+{
+ "_why": "Google autocomplete co-occurrence, used to fill the gap in tools/search_demand.json: that file only measures puzzles whose pages already rank in Search Console, so ~95 of ~132 queued-for-annotation puzzles are invisible to it. This is NOT impressions and NOT click volume -- it is how many distinct autocomplete prefixes volunteered a given puzzle number, which is query-log-derived signal from searches across the web, not just our own site. A puzzle scoring 0 or absent here was not offered by any probed prefix; it is not proven low-demand, only unprobed or below Google's return threshold. Consecutive numeric runs (Google's autocomplete filling out results, not real query-log entries) are filtered out per-query before scoring.",
+ "_window": {
+  "date": "2026-09-08",
+  "endpoint": "https://suggestqueries.google.com/complete/search",
+  "run_filter_min_consecutive": 4
+ },
+ "scores": {
+  "cryptic-30014": 2,
+  "cryptic-30022": 2,
+  "cryptic-30027": 2,
+  "cryptic-30012": 1,
+  "cryptic-30015": 1,
+  "cryptic-30028": 1,
+  "cryptic-30029": 1,
+  "cryptic-30043": 1,
+  "cryptic-30064": 1,
+  "cryptic-30066": 1,
+  "quiptic-1383": 1,
+  "quiptic-1384": 1,
+  "quiptic-1393": 2,
+  "quiptic-1394": 1,
+  "everyman-4153": 2,
+  "everyman-4154": 2,
+  "everyman-4159": 2,
+  "everyman-4160": 2,
+  "everyman-4096": 1,
+  "everyman-4097": 1,
+  "everyman-4099": 1,
+  "everyman-4152": 1,
+  "everyman-4156": 1,
+  "everyman-4158": 1,
+  "everyman-4162": 1,
+  "everyman-4163": 1,
+  "everyman-4164": 1
+ }
+}
