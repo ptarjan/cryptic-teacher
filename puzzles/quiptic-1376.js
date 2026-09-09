@@ -30,7 +30,45 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LONELY",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade + last letter",
+    "answer": "LONELY",
+    "definition": "wanting company",
+    "indicators": [
+     "in",
+     "ultimately"
+    ],
+    "indicatorNotes": {
+     "in": "Something placed 'in' another thing sits inside it, so the piece before this word goes between the letters that follow.",
+     "ultimately": "Ultimately means at the very end, so only the final letter of the word beside it is taken."
+    },
+    "pieces": [
+     "L",
+     "ONE",
+     "L",
+     "Y"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fifties",
+      "gives": "LL",
+      "note": "L is the Roman numeral for fifty, and the plural asks for two of them"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "ONE",
+      "note": "the number written out, dropped between the pair"
+     },
+     {
+      "clueFragment": "ultimately unhappy",
+      "gives": "Y",
+      "note": "the last letter of 'unhappy'"
+     }
+    ],
+    "surface": "Someone in their fifties, thoroughly miserable and short of company.",
+    "walkthrough": "L is the Roman fifty and the plural 'fifties' quietly asks for two of them, one on each side. 'Ultimately' is the crossword's standard word for a final letter.",
+    "definitionFit": "LONELY means wanting company — being on your own and feeling the absence of anyone else."
+   }
   },
   {
    "id": "1-down",
@@ -47,7 +85,35 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LYRICIST",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "LYRICIST",
+    "definition": "songwriter",
+    "indicators": [
+     "Crazy"
+    ],
+    "indicatorNotes": {
+     "Crazy": "A crazy person is out of their right mind, and letters described that way will not stay in the order handed over."
+    },
+    "anagram": {
+     "fodder": "T CYRIL IS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "tenor",
+      "gives": "T",
+      "note": "T is the standard abbreviation for tenor on a piece of music"
+     },
+     {
+      "clueFragment": "Cyril is",
+      "gives": "CYRILIS",
+      "note": "the rest of the fodder, seven letters taken as they stand"
+     }
+    ],
+    "surface": "A wild-tempered singer called Cyril who writes songs.",
+    "walkthrough": "'Tenor' does two jobs at once: it makes Cyril a singer in the surface and hands over the eighth letter the fodder needs to reach the enumeration.",
+    "definitionFit": "A LYRICIST is a songwriter in the sense of writing a song's words; the tune is the composer's half of the job."
+   }
   },
   {
    "id": "2-down",
@@ -68,7 +134,46 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
     ]
    },
    "solution": "NONHUMAN",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "NON-HUMAN",
+    "definition": "alien",
+    "indicators": [
+     "accepts"
+    ],
+    "indicatorNotes": {
+     "accepts": "To accept something is to take it in, so the word doing the accepting opens up and holds the next piece inside it."
+    },
+    "linkWords": [
+     "it’s"
+    ],
+    "pieces": [
+     "NO",
+     "N",
+     "HUM",
+     "AN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "No",
+      "gives": "NO",
+      "note": "the word itself, two letters lifted straight out"
+     },
+     {
+      "clueFragment": "grandmother",
+      "gives": "NAN",
+      "note": "nan is the everyday British word for a grandmother"
+     },
+     {
+      "clueFragment": "bad smell",
+      "gives": "HUM",
+      "note": "in British usage something that hums stinks — if the bins hum, they smell"
+     }
+    ],
+    "surface": "No grandmother will put up with a bad smell, and there is something otherworldly about this one.",
+    "walkthrough": "'No' looks like the refusal that starts the sentence and it is really two letters standing on their own, which is the hardest kind of piece to see.",
+    "definitionFit": "Something NON-HUMAN is alien in the adjective's core sense: belonging to another kind altogether, not one of us."
+   }
   },
   {
    "id": "3-down",
@@ -85,7 +190,36 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LOOT",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "LOOT",
+    "definition": "Raid",
+    "indicators": [
+     "turned up"
+    ],
+    "indicatorNotes": {
+     "turned up": "Turned up sends the letters back the way they came, and this entry runs down the grid, so they are read from the bottom upwards."
+    },
+    "subReversals": [
+     {
+      "from": "TOOL",
+      "to": "LOOT"
+     }
+    ],
+    "pieces": [
+     "LOOT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "implement",
+      "gives": "TOOL",
+      "note": "an implement is a tool, and this is the word before it gets turned round"
+     }
+    ],
+    "surface": "A burglar's tool showing up after a break-in.",
+    "walkthrough": "'Raid' looks like the noun any sentence about a robbery would open with, and it is the verb doing the defining. LOOT and TOOL are each other backwards.",
+    "definitionFit": "To LOOT is to raid — both mean stripping a place of its goods by force, usually in the confusion after a fight."
+   }
   },
   {
    "id": "4-across",
@@ -102,7 +236,30 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SABOTAGE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "SABOTAGE",
+    "definition": "Deliberately damage",
+    "indicators": [
+     "recklessly"
+    ],
+    "indicatorNotes": {
+     "recklessly": "Doing something recklessly means doing it with no care for how it turns out, so the letters land wherever they fall."
+    },
+    "anagram": {
+     "fodder": "BOG AT SEA"
+    },
+    "blocks": [
+     {
+      "clueFragment": "bog at sea",
+      "gives": "BOGATSEA",
+      "note": "the fodder, eight letters, exactly the length wanted"
+     }
+    ],
+    "surface": "Wrecking a stretch of marshland out on the open water without a care.",
+    "walkthrough": "'At sea' is itself one of the commonest anagram indicators, which is why it looks like the instruction when it is really part of the fodder. 'Recklessly' at the end is the real one.",
+    "definitionFit": "To SABOTAGE something is to damage it deliberately — wrecking done on purpose rather than by accident."
+   }
   },
   {
    "id": "5-down",
@@ -119,7 +276,33 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ABBREVIATIONS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ABBREVIATIONS",
+    "definition": "Short forms",
+    "indicators": [
+     "Brahms and Liszt"
+    ],
+    "indicatorNotes": {
+     "Brahms and Liszt": "Brahms and Liszt is Cockney rhyming slang for pissed, meaning drunk, and a drunk cannot keep anything in a straight line."
+    },
+    "linkWords": [
+     "of"
+    ],
+    "anagram": {
+     "fodder": "ABBAS NO I RIVET"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Abba’s no 1 rivet",
+      "gives": "ABBASNOIRIVET",
+      "note": "the fodder, thirteen letters, with the numeral 1 taken as the letter I"
+     }
+    ],
+    "surface": "Abba's number one single gripping a couple of nineteenth-century composers.",
+    "walkthrough": "Brahms and Liszt sitting in a clue about Abba looks like a joke about musical taste, and the numeral 1 slips into the fodder as a letter rather than a number.",
+    "definitionFit": "ABBREVIATIONS are short forms — the cut-down spellings words are given so they take up less room."
+   }
   },
   {
    "id": "6-down",
@@ -141,7 +324,47 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
     ]
    },
    "solution": "ONALLFOURS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + last letter",
+    "answer": "ON ALL FOURS",
+    "definition": "down at floor level",
+    "indicators": [
+     "crashing",
+     "tail"
+    ],
+    "indicatorNotes": {
+     "crashing": "A crash leaves everything in a heap, so nothing it lands on keeps the order it arrived in.",
+     "tail": "An animal's tail is at its rear end, so this takes the final letter of the word beside it."
+    },
+    "anagram": {
+     "fodder": "FALLS O OUR N"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Falls",
+      "gives": "FALLS",
+      "note": "straight fodder, five letters as written"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "O is the scorer's abbreviation for an over, the set of six deliveries a cricket bowler sends down"
+     },
+     {
+      "clueFragment": "our",
+      "gives": "OUR",
+      "note": "more fodder, three letters as written"
+     },
+     {
+      "clueFragment": "Doberman’s tail",
+      "gives": "N",
+      "note": "the last letter of the dog's name"
+     }
+    ],
+    "surface": "Tripping over the dog's tail and going down in a heap.",
+    "walkthrough": "'Falls over' reads as one phrase — a tumble — and it is two separate pieces, with 'over' supplying the cricketing O that the count needs.",
+    "definitionFit": "Someone ON ALL FOURS is down at floor level, hands and knees on the ground, about as low as a person gets."
+   }
   },
   {
    "id": "7-down",
@@ -158,7 +381,45 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AVIATE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters",
+    "answer": "AVIATE",
+    "definition": "Fly",
+    "indicators": [
+     "borders of"
+    ],
+    "indicatorNotes": {
+     "borders of": "A country's borders are its outer edges, so this takes the first and last letters of the name and nothing between them."
+    },
+    "linkWords": [
+     "from"
+    ],
+    "pieces": [
+     "A",
+     "VIA",
+     "TE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "America",
+      "gives": "A",
+      "note": "A is a standard abbreviation for America"
+     },
+     {
+      "clueFragment": "passing through",
+      "gives": "VIA",
+      "note": "via means by way of, passing through somewhere on the route"
+     },
+     {
+      "clueFragment": "borders of Timor-Leste",
+      "gives": "TE",
+      "note": "the outer letters of the country's name"
+     }
+    ],
+    "surface": "A flight leaving the States and crossing the edges of Timor-Leste.",
+    "walkthrough": "Timor-Leste counts as one hyphenated name, so its borders are the T at the very front and the E at the very back, not the edges of each half.",
+    "definitionFit": "To AVIATE is to fly — the verb behind 'aviation', used of piloting an aircraft."
+   }
   },
   {
    "id": "8-down",
@@ -175,7 +436,27 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ELEVEN",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "ELEVEN",
+    "definition": "Time for a snack, perhaps",
+    "indicators": [
+     "bite of"
+    ],
+    "indicatorNotes": {
+     "bite of": "A bite is a small piece taken out of something bigger, which is what is being done to the words that follow."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Kissabel Eve nicked",
+      "gives": "ELEVEN",
+      "note": "the letters run on unbroken from the end of the apple's name, through the next word and into the one after"
+     }
+    ],
+    "surface": "Eve pinching a bite of an apple.",
+    "walkthrough": "Kissabel is a red-fleshed apple variety, so the surface is Eve helping herself in the garden. Elevenses is the British mid-morning break the definition is pointing at.",
+    "definitionFit": "ELEVEN o'clock is elevenses in Britain, the mid-morning snack break, so the hour stands for the snack; 'perhaps' flags one example."
+   }
   },
   {
    "id": "9-across",
@@ -192,7 +473,34 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RINGO",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "RINGO",
+    "definition": "Drummer",
+    "indicators": [],
+    "linkWords": [
+     "’s"
+    ],
+    "pieces": [
+     "RING",
+     "O"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "jingle bell",
+      "gives": "RING",
+      "note": "a jingle bell exists to ring, and the noise it makes is a ring"
+     },
+     {
+      "clueFragment": "ball",
+      "gives": "O",
+      "note": "a ball is round, drawn as a single circle"
+     }
+    ],
+    "surface": "A drummer's festive kit: a jingling bell and a ball.",
+    "walkthrough": "O for anything round is one of the most reliable equations in cryptics — a ball, a ring, a duck at cricket, love at tennis all come out as the same letter.",
+    "definitionFit": "RINGO Starr drummed for the Beatles, so 'drummer' defines him by example — one famous holder of the job standing for the name."
+   }
   },
   {
    "id": "10-across",
@@ -209,7 +517,27 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SUBMARINE",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "SUBMARINE",
+    "definition": "Transport provider in deep water!",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Transport provider",
+      "gives": "",
+      "note": "reads as a bus or rail company; the setter means a single vessel that carries people and cargo"
+     },
+     {
+      "clueFragment": "in deep water",
+      "gives": "",
+      "note": "the idiom for being in serious trouble is the trap — read straight, it says the vessel travels below the surface of the sea"
+     }
+    ],
+    "surface": "A travel firm that has landed itself in serious trouble.",
+    "walkthrough": "There is no wordplay to take apart: both halves of the description are literally true of the same thing at once. It joins RINGO, HELP and YELLOW in the puzzle's Beatles thread.",
+    "definitionFit": "A SUBMARINE is transport that operates in deep water, so both halves of the clue describe it straight — which is the whole joke."
+   }
   },
   {
    "id": "10-down",
@@ -226,7 +554,30 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SHAKESPEAREAN",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "SHAKESPEAREAN",
+    "definition": "something to do with the Bard",
+    "indicators": [
+     "bananas"
+    ],
+    "indicatorNotes": {
+     "bananas": "Going bananas is going mad, and letters described that way will not keep the order they arrived in."
+    },
+    "anagram": {
+     "fodder": "ARE SNAKE-SHAPE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Are snake-shape",
+      "gives": "ARESNAKESHAPE",
+      "note": "the fodder, thirteen letters, hyphen ignored"
+     }
+    ],
+    "surface": "Bananas bent into snake shapes, and whether Shakespeare has anything to do with it.",
+    "walkthrough": "Thirteen letters of fodder is far too many to shuffle in your head, so count them against the enumeration first — the -EAN ending is where this one starts to give way.",
+    "definitionFit": "The Bard is Shakespeare, so anything SHAKESPEAREAN has to do with him: his plays, his language, his period."
+   }
   },
   {
    "id": "11-across",
@@ -243,7 +594,41 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CLUB",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion + first letter",
+    "answer": "CLUB",
+    "definition": "association",
+    "indicators": [
+     "endlessly",
+     "start to"
+    ],
+    "indicatorNotes": {
+     "endlessly": "Something endless has no end, so the final letter of the word beside it comes off.",
+     "start to": "The start of a word is its opening letter, and that is all this one takes."
+    },
+    "linkWords": [
+     "and"
+    ],
+    "pieces": [
+     "CLU",
+     "B"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hint",
+      "gives": "CLU",
+      "note": "a hint is a clue, with its last letter taken off"
+     },
+     {
+      "clueFragment": "badger",
+      "gives": "B",
+      "note": "the opening letter of the animal"
+     }
+    ],
+    "surface": "Dropping hints forever, then starting to pester someone.",
+    "walkthrough": "'Hint' is a noun here rather than a verb, and a hint is a clue — the setter winking at the thing you are holding.",
+    "definitionFit": "A CLUB is an association: a body of people formally joined together around a shared interest."
+   }
   },
   {
    "id": "12-across",
@@ -260,7 +645,34 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FAME",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "FAME",
+    "definition": "renown",
+    "indicators": [],
+    "linkWords": [
+     "’s"
+    ],
+    "pieces": [
+     "FA",
+     "ME"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Note",
+      "gives": "FA",
+      "note": "fa is the fourth note of the sol-fa scale"
+     },
+     {
+      "clueFragment": "setter",
+      "gives": "ME",
+      "note": "the setter is the person who wrote the puzzle, and writing about himself he is me"
+     }
+    ],
+    "surface": "Making a note of how well known the compiler is.",
+    "walkthrough": "A setter referring to himself as ME is one of the first conventions worth owning, and the sol-fa scale supplies half the short notes in cryptics: DOH, RE, MI, FA, SO, LA, TE.",
+    "definitionFit": "FAME is renown — both name the state of being widely known and talked about."
+   }
   },
   {
    "id": "13-across",
@@ -277,7 +689,30 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LATTE",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "LATTE",
+    "definition": "coffee",
+    "indicators": [
+     "Not finishing"
+    ],
+    "indicatorNotes": {
+     "Not finishing": "Not finishing a word means stopping before its last letter, so the final one never gets written."
+    },
+    "pieces": [
+     "LATTE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "most recent",
+      "gives": "LATTE",
+      "note": "of two things the more recent is the second one, and the six-letter adjective for that is stopped a letter early"
+     }
+    ],
+    "surface": "Abandoning your latest coffee half-drunk.",
+    "walkthrough": "'Most recent' is LATTER only where there are two things to choose between, which is the sense the setter needs and the last one a solver reaches for.",
+    "definitionFit": "A LATTE is a coffee — espresso lengthened with steamed milk — so 'coffee' defines it by example."
+   }
   },
   {
    "id": "14-down",
@@ -298,7 +733,28 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
     ]
    },
    "solution": "NINETYNINE",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "NINETY-NINE",
+    "definition": "Ice cream",
+    "definition2": "almost a ton",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Ice cream",
+      "gives": "",
+      "note": "the British cone with a chocolate Flake pushed into it, ordered from the van by its number"
+     },
+     {
+      "clueFragment": "almost a ton",
+      "gives": "",
+      "note": "a ton is British slang for a hundred, so stopping one short of it gives the number wanted"
+     }
+    ],
+    "surface": "A helping of ice cream so enormous it nearly weighs a ton.",
+    "walkthrough": "A ton is British slang for a hundred — of miles an hour, or of runs at cricket — so 'almost a ton' is arithmetic rather than weight.",
+    "definitionFit": "A 99 is the British ice-cream cone with a Flake in it, and a ton is a hundred, so one short of a ton is NINETY-NINE."
+   }
   },
   {
    "id": "15-across",
@@ -315,7 +771,37 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SEASIDE",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "SEASIDE",
+    "definition": "the beach",
+    "indicators": [
+     "We heard"
+    ],
+    "indicatorNotes": {
+     "We heard": "Heard reports the words by ear, so what matters is the noise they make rather than the way they are spelt."
+    },
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spy",
+      "soundsLike": "SEE",
+      "gives": "SEA",
+      "note": "to spy something is to see it, and that word said aloud is written this way when it means the water"
+     },
+     {
+      "clueFragment": "let out a long breath",
+      "soundsLike": "SIGHED",
+      "gives": "SIDE",
+      "note": "letting out a long breath is to sigh, and the past tense of it sounds identical to a word meaning edge"
+     }
+    ],
+    "surface": "We overheard a spy exhaling heavily down at the beach.",
+    "walkthrough": "'We heard' governs both halves of the wordplay rather than just the word next to it — a single sound indicator can cover an entire phrase, which is what makes the second half easy to miss.",
+    "definitionFit": "The SEASIDE is the beach: the stretch of coast people go to in order to be beside the sea."
+   }
   },
   {
    "id": "16-across",
@@ -332,7 +818,31 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IDOL",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "IDOL",
+    "definition": "God",
+    "indicators": [
+     "by the sounds of it"
+    ],
+    "indicatorNotes": {
+     "by the sounds of it": "By the sounds of it points at how a word is pronounced instead of how it is written down."
+    },
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lazy",
+      "soundsLike": "IDLE",
+      "gives": "IDOL",
+      "note": "lazy means idle, and that word said aloud can be written the other way"
+     }
+    ],
+    "surface": "A deity accused of being work-shy.",
+    "walkthrough": "The two words are pronounced identically and share only two letters, which is exactly the gap a homophone clue lives in.",
+    "definitionFit": "An IDOL is a god — the image or figure worshipped as one, and by extension the deity itself."
+   }
   },
   {
    "id": "17-down",
@@ -349,7 +859,28 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PARALLEL",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "PARALLEL",
+    "definition": "running alongside",
+    "indicators": [
+     "ferries"
+    ],
+    "indicatorNotes": {
+     "ferries": "To ferry something is to carry it along, and these words are carrying the letters across inside them."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Spar all-electric",
+      "gives": "PARALLEL",
+      "note": "the letters run straight on from inside the first word into the second, across the hyphen"
+     }
+    ],
+    "surface": "Electric ferries sailing side by side past a mooring spar.",
+    "walkthrough": "'Spar all-electric' reads as a boat's specification, and the hyphen does the camouflage: the letters carry on straight through it as though it were not there.",
+    "definitionFit": "Lines that are PARALLEL run alongside one another at a constant distance and never meet.",
+    "definitionNote": "The definition is a participle phrase and the answer an adjective; 'running alongside' is how you would describe two parallel lines rather than a word you could swap in."
+   }
   },
   {
    "id": "18-down",
@@ -366,7 +897,38 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ROADSHOW",
-   "annotation": null
+   "annotation": {
+    "type": "spoonerism",
+    "answer": "ROADSHOW",
+    "definition": "mobile exhibition",
+    "indicators": [
+     "Spooner’s"
+    ],
+    "indicatorNotes": {
+     "Spooner’s": "Spooner was the Oxford don famous for swapping the opening sounds of two words, so his name asks you to trade them here."
+    },
+    "pieces": [
+     "ROAD",
+     "SHOW"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "displayed",
+      "soundsLike": "SHOWED",
+      "gives": "ROAD",
+      "note": "displayed means showed; hand its opening sh- over to the other word and take back an r- in exchange"
+     },
+     {
+      "clueFragment": "fish eggs",
+      "soundsLike": "ROE",
+      "gives": "SHOW",
+      "note": "fish eggs are roe; give up its r- for the sh- that has just been swapped across"
+     }
+    ],
+    "surface": "A display of fish eggs billed as a touring exhibition.",
+    "walkthrough": "Say 'showed roe' and trade the sounds at the front of the two words. The vowels drift a little as you write down what you hear, which is normal for a spoonerism and why the spelling looks nothing like the source.",
+    "definitionFit": "A ROADSHOW is a mobile exhibition — a display that travels from town to town instead of staying in one hall."
+   }
   },
   {
    "id": "19-across",
@@ -383,7 +945,39 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HELP",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "HELP",
+    "definition": "Give me a hand",
+    "indicators": [
+     "skipping intro"
+    ],
+    "indicatorNotes": {
+     "skipping intro": "An intro is the opening, and skipping it means starting the word one letter in."
+    },
+    "linkWords": [
+     "’s"
+    ],
+    "pieces": [
+     "HE",
+     "LP"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the",
+      "gives": "HE",
+      "note": "the definite article with its opening letter skipped"
+     },
+     {
+      "clueFragment": "record",
+      "gives": "LP",
+      "note": "an LP is a long-playing record"
+     }
+    ],
+    "surface": "A plea for assistance while the record jumps its opening bars.",
+    "walkthrough": "The surface is a scratched vinyl skipping its intro, and the answer is another of the Beatles titles scattered across this grid.",
+    "definitionFit": "'Give me a hand' is what HELP means when it is shouted: both are the same request for someone to come and assist."
+   }
   },
   {
    "id": "20-across",
@@ -400,7 +994,37 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TORNADO",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "TORNADO",
+    "definition": "Violent storm",
+    "indicators": [],
+    "pieces": [
+     "TORN",
+     "A",
+     "DO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "split",
+      "gives": "TORN",
+      "note": "something split down the middle has been torn"
+     },
+     {
+      "clueFragment": "academy",
+      "gives": "A",
+      "note": "A is a standard abbreviation for academy"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "DO",
+      "note": "a do is British for a party or social function — a works do, a bit of a do"
+     }
+    ],
+    "surface": "A fierce storm breaking up a college party.",
+    "walkthrough": "'Split' looks like the verb the sentence turns on, a storm breaking something up, and it is a piece of the answer instead.",
+    "definitionFit": "A TORNADO is a violent storm — the whirling column of wind that tears its way across the ground."
+   }
   },
   {
    "id": "21-down",
@@ -417,7 +1041,48 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HEARTS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "HEARTS",
+    "definition": "signs of love",
+    "indicators": [
+     "at last"
+    ],
+    "indicatorNotes": {
+     "at last": "At last points to the very end, so only the final letter of the word before it is used."
+    },
+    "pieces": [
+     "H",
+     "EAR",
+     "T",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hot",
+      "gives": "H",
+      "note": "H is the letter on the hot tap"
+     },
+     {
+      "clueFragment": "ear",
+      "gives": "EAR",
+      "note": "the word itself, three letters as written"
+     },
+     {
+      "clueFragment": "left at last",
+      "gives": "T",
+      "note": "the final letter of 'left'"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the clothing size for small"
+     }
+    ],
+    "surface": "Someone complaining of a hot left ear, alongside small tokens of affection.",
+    "walkthrough": "The definition wants the drawn symbol rather than the organ that beats, which is why the plural sits so oddly at the end of a sentence about one ear.",
+    "definitionFit": "HEARTS are signs of love: the symbol drawn on cards and letters, so the plural names the shapes themselves."
+   }
   },
   {
    "id": "22-down",
@@ -434,7 +1099,31 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PEPPER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PEPPER",
+    "definition": "season",
+    "indicators": [],
+    "pieces": [
+     "PEP",
+     "PER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Energy",
+      "gives": "PEP",
+      "note": "pep is energy, liveliness, get-up-and-go"
+     },
+     {
+      "clueFragment": "for every",
+      "gives": "PER",
+      "note": "per means for each or for every, as in miles per hour"
+     }
+    ],
+    "surface": "Vitality to see you through any time of year.",
+    "walkthrough": "'Season' is the verb, not the noun — nothing to do with spring or autumn, everything to do with what you shake over dinner.",
+    "definitionFit": "To PEPPER food is to season it, peppering being the commonest single act of seasoning there is."
+   }
   },
   {
    "id": "23-across",
@@ -451,7 +1140,34 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ENEMY",
-   "annotation": null
+   "annotation": {
+    "type": "first letters",
+    "answer": "ENEMY",
+    "definition": "Opponent",
+    "indicators": [
+     "at first"
+    ],
+    "indicatorNotes": {
+     "at first": "At first asks for the opening letter of each word that follows and nothing else from any of them."
+    },
+    "pieces": [
+     "E",
+     "N",
+     "E",
+     "M",
+     "Y"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "escaped, nevertheless eventually must yield",
+      "gives": "ENEMY",
+      "note": "the opening letter of each of these five words, taken in order"
+     }
+    ],
+    "surface": "An opponent who got away at first but has to give in eventually.",
+    "walkthrough": "'At first' can reach across as many words as the enumeration needs — five of them here — which is what makes an acrostic so hard to spot inside a sentence that reads naturally.",
+    "definitionFit": "An ENEMY is an opponent: the person ranged against you in a fight, a game or an argument."
+   }
   },
   {
    "id": "24-across",
@@ -468,7 +1184,38 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ANON",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + charade + first letters",
+    "answer": "ANON",
+    "definition": "Name at the end, A N Other, concisely?",
+    "indicators": [
+     "concisely",
+     "at the end"
+    ],
+    "indicatorNotes": {
+     "concisely": "Concisely asks for the shortest possible writing of what it governs, which here means keeping initials and dropping the rest.",
+     "at the end": "At the end says where a piece goes rather than which letters it is, so the one it governs is tacked on last."
+    },
+    "pieces": [
+     "ANO",
+     "N"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A N Other",
+      "gives": "ANO",
+      "note": "A N Other is the British team-sheet placeholder for a player not yet named; take the initial of each of its three parts"
+     },
+     {
+      "clueFragment": "Name",
+      "gives": "N",
+      "note": "N is the standard abbreviation for name, and it is sent to the back"
+     }
+    ],
+    "surface": "Filling in a team sheet with the last name left blank.",
+    "walkthrough": "The whole sentence is doing both jobs at once: it spells the word out of initials and describes what the word is for. A N Other is what British team sheets print when the eleventh player has not been picked.",
+    "definitionFit": "The clue reads straight: ANON is the concise thing written at the end when the author is some unnamed other person."
+   }
   },
   {
    "id": "25-across",
@@ -485,7 +1232,28 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BAND",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "BAND",
+    "definition": "Group",
+    "indicators": [
+     "broadcasting"
+    ],
+    "indicatorNotes": {
+     "broadcasting": "Broadcasting sends words out over the air, so you judge them by what they sound like."
+    },
+    "blocks": [
+     {
+      "clueFragment": "prohibited",
+      "soundsLike": "BANNED",
+      "gives": "BAND",
+      "note": "prohibited means banned, and said aloud that word can be written a letter shorter"
+     }
+    ],
+    "surface": "A group forbidden from going on air.",
+    "walkthrough": "The doubled N disappears completely when you say it. This entry is also the last word of the Beatles album spread across the grid.",
+    "definitionFit": "A BAND is a group — a set of musicians, or more generally any set of people acting together."
+   }
   },
   {
    "id": "26-down",
@@ -502,7 +1270,33 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OBOE",
-   "annotation": null
+   "annotation": {
+    "type": "last letters",
+    "answer": "OBOE",
+    "definition": "Instrument",
+    "indicators": [
+     "ends"
+    ],
+    "indicatorNotes": {
+     "ends": "The end of a word is its final letter, and this takes one from each of the words before it."
+    },
+    "pieces": [
+     "O",
+     "B",
+     "O",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to plumb loo pipe",
+      "gives": "OBOE",
+      "note": "the final letter of each of these four words, taken in order"
+     }
+    ],
+    "surface": "Sounding the depths of the lavatory pipework.",
+    "walkthrough": "'Instrument' looks like it will be a plumber's tool in a sentence about pipes, which is the whole of the misdirection — it is the woodwind.",
+    "definitionFit": "An OBOE is an instrument — the double-reed woodwind — so 'instrument' defines it by example."
+   }
   },
   {
    "id": "27-across",
@@ -519,7 +1313,31 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REPAIRERS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "REPAIRERS",
+    "definition": "Fixers",
+    "indicators": [],
+    "pieces": [
+     "RE",
+     "PAIRERS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "again",
+      "gives": "RE",
+      "note": "RE- is the prefix meaning doing a thing over again"
+     },
+     {
+      "clueFragment": "they get couples back together",
+      "gives": "PAIRERS",
+      "note": "people who put two things into a couple are pairers, and 'they' makes it plural"
+     }
+    ],
+    "surface": "Menders who also reunite estranged couples.",
+    "walkthrough": "A hyphen is the joke: re-pairers put two things back into a couple, and run the same nine letters together without it and they mend things instead.",
+    "definitionFit": "REPAIRERS are fixers: people whose job is putting broken things back into working order."
+   }
   },
   {
    "id": "28-across",
@@ -536,7 +1354,27 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BELCH",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "BELCH",
+    "definition": "burp",
+    "indicators": [
+     "conceals"
+    ],
+    "indicatorNotes": {
+     "conceals": "To conceal something is to keep it out of sight inside, which is where these letters are sitting."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Rebel chorister",
+      "gives": "BELCH",
+      "note": "the letters run on from the end of the first word into the start of the second"
+     }
+    ],
+    "surface": "A mutinous choirboy stifling a burp.",
+    "walkthrough": "A hidden answer that straddles the join between two words is far harder to see than one sitting inside a single word, and the space is what hides it.",
+    "definitionFit": "To BELCH is to burp — both name the noisy release of air back up from the stomach."
+   }
   },
   {
    "id": "29-across",
@@ -553,7 +1391,30 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SERGEANT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "SERGEANT",
+    "definition": "police officer",
+    "indicators": [
+     "Doctor"
+    ],
+    "indicatorNotes": {
+     "Doctor": "To doctor something is to tamper with it, so the letters do not come out the way they went in."
+    },
+    "anagram": {
+     "fodder": "GETS NEAR"
+    },
+    "blocks": [
+     {
+      "clueFragment": "gets near",
+      "gives": "GETSNEAR",
+      "note": "the fodder, eight letters, exactly the length wanted"
+     }
+    ],
+    "surface": "A physician drawing closer to a policeman.",
+    "walkthrough": "'Doctor' is the instruction, not the man the surface puts in the room. The answer joins PEPPER, LONELY, HEARTS, CLUB and BAND — the Beatles album spread across this grid.",
+    "definitionFit": "A SERGEANT is a police officer: the rank between constable and inspector in a British force."
+   }
   },
   {
    "id": "30-across",
@@ -570,7 +1431,31 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "YELLOW",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "YELLOW",
+    "definition": "Cowardly",
+    "indicators": [],
+    "pieces": [
+     "YELL",
+     "OW"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shout",
+      "gives": "YELL",
+      "note": "to shout is to yell"
+     },
+     {
+      "clueFragment": "that hurts",
+      "gives": "OW",
+      "note": "the noise you make when something hurts"
+     }
+    ],
+    "surface": "A cowardly yelp of pain.",
+    "walkthrough": "'Cowardly' looks like an adjective describing the shout that follows it, and it is the definition standing on its own at the front.",
+    "definitionFit": "YELLOW means cowardly — the colour has carried that sense for well over a century, as in 'yellow-bellied'."
+   }
   }
  ]
 } /*JSON-END*/;
