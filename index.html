@@ -72,11 +72,6 @@
     <p class="muted small-note">Your grids live in this browser only. Turn on sync and you get a
        code to scan or type on another device, and both stay up to date.</p>
     <p><button id="sync-start" class="tool">Turn on sync</button></p>
-    <p class="muted small-note">Already have a code from another device?</p>
-    <p><input id="sync-join-code" type="text" autocomplete="off" spellcheck="false"
-              autocapitalize="characters" maxlength="9" placeholder="ABCD2345"
-              aria-label="Sync code from your other device">
-       <button id="sync-join" class="tool">Use this code</button></p>
   </div>
   <div id="sync-on" class="hidden">
     <p class="muted small-note">Point the other device's camera at this. There is no app to
@@ -90,6 +85,17 @@
        code and not a password: there is nothing here but crossword letters. Progress only ever
        merges, so no device can wipe another's work.</p>
     <p><button id="sync-stop" class="tool danger">Stop syncing this device</button></p>
+  </div>
+
+  <!-- Outside both blocks, because taking a code is offered whether or not this
+       device already has one: the device somebody scans a second QR on is
+       usually one that is already syncing. -->
+  <div id="sync-join-row">
+    <p class="muted small-note" id="sync-join-label">Already have a code from another device?</p>
+    <p><input id="sync-join-code" type="text" autocomplete="off" spellcheck="false"
+              autocapitalize="characters" maxlength="9" placeholder="ABCD2345"
+              aria-label="Sync code from your other device">
+       <button id="sync-join" class="tool">Use this code</button></p>
   </div>
   <p class="muted small-note" id="sync-status" role="status" aria-live="polite"></p>
 </div>
@@ -238,7 +244,7 @@
 <!-- Only the sync panel draws one, and only once it is opened, so this sits with
      app.js at the end rather than blocking the first paint. -->
 <script src="qr.js?v=b795920c"></script>
-<script src="app.js?v=b8054ab2"></script>
+<script src="app.js?v=90f4b42b"></script>
 <script>
 // Reload once when the page in the cache is older than the page on the server.
 //
