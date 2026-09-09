@@ -215,7 +215,12 @@ button:disabled:hover { border-color: var(--line); }
    made up, so it stays outlined and quieter than the facts around it. */
 .badge.full   { background: var(--badge-cov-bg);    color: var(--badge-cov-fg); }
 .badge.auto   { background: var(--badge-none-bg);   color: var(--badge-none-fg); }
-.badge.series { background: var(--badge-series-bg); color: var(--badge-series-fg); }
+/* Padded to the widest paper name — "independent", "indy sunday" — for the
+   same reason .badge.diff is: it is the FIRST badge in the row, so anything
+   variable about its width moves every badge behind it. Sizing only the
+   middle one lined that column up with itself and nothing else. */
+.badge.series { background: var(--badge-series-bg); color: var(--badge-series-fg);
+                min-width: 7.2em; text-align: center; }
 /* Cryptic is the default and keeps the plain series colour above; the other
    four papers get their own so the picker's paper legend — the one place all
    five sit in a row together — reads at a glance instead of by label alone. */
@@ -295,7 +300,7 @@ button:disabled:hover { border-color: var(--line); }
    strip that wraps, so where the line breaks is not left to the viewport. */
 .picker-filters { display: flex; flex-direction: column; gap: 6px; margin: 8px 0 0; }
 .picker-group { display: flex; flex-wrap: wrap; gap: 6px; align-items: baseline; }
-.picker-filters .badge.diff { min-width: 0; }
+.picker-filters .badge.diff, .picker-filters .badge.series { min-width: 0; }
 @media (pointer: coarse) { .picker-filters button.badge { padding: 5px 10px; } }
 
 /* ---------- layout ---------- */
