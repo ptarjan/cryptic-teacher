@@ -30,7 +30,39 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SLIGHT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "SLIGHT",
+    "definition": "flimsy",
+    "indicators": [
+     "Back of"
+    ],
+    "indicatorNotes": {
+     "Back of": "The back of a word is its final letter, so only the rear end of the word that follows is wanted."
+    },
+    "linkWords": [
+     "is"
+    ],
+    "pieces": [
+     "S",
+     "LIGHT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "glass",
+      "gives": "S",
+      "note": "the closing letter of 'glass', taken because only its rear is asked for"
+     },
+     {
+      "clueFragment": "lamp",
+      "gives": "LIGHT",
+      "note": "a lamp is a light, the ordinary word for the thing on the table"
+     }
+    ],
+    "surface": "The rear of a glass lamp turns out to be poorly made.",
+    "walkthrough": "'Back of' looks like part of the picture — the rear of the lamp — and it is an instruction about letters instead.",
+    "definitionFit": "Slight means thin and insubstantial, as a slight partition or a slight frame is, which is what calling something flimsy says of it."
+   }
   },
   {
    "id": "1-down",
@@ -47,7 +79,31 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SPRINGS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SPRINGS",
+    "definition": "Suddenly starts",
+    "indicators": [],
+    "pieces": [
+     "SP",
+     "RINGS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "special",
+      "gives": "SP",
+      "note": "sp is the standard short form of special, as chalked on a menu board"
+     },
+     {
+      "clueFragment": "syndicates",
+      "gives": "RINGS",
+      "note": "a ring is a syndicate of people running something crooked — a drugs ring, a betting ring"
+     }
+    ],
+    "surface": "Somebody abruptly sets up a few special consortia.",
+    "walkthrough": "'Special' looks like an adjective attached to the syndicates beside it, and it is a two-letter abbreviation standing entirely on its own.",
+    "definitionFit": "To spring is to move all at once and without warning, so a thing that springs starts suddenly rather than merely beginning."
+   }
   },
   {
    "id": "2-down",
@@ -64,7 +120,27 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INDUS",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "INDUS",
+    "definition": "River",
+    "indicators": [
+     "shrouded by"
+    ],
+    "indicatorNotes": {
+     "shrouded by": "A shroud wraps right round whatever it covers, so the words after it are concealing what is wanted inside themselves."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Berlin dusk",
+      "gives": "INDUS",
+      "note": "five consecutive letters running out of the middle of the first word and into the second"
+     }
+    ],
+    "surface": "Nightfall coming down over Berlin, with a river somewhere in the gloom.",
+    "walkthrough": "Berlin and dusk together paint a German evening, and the river hidden in them runs through Pakistan — the picture points at the wrong continent entirely.",
+    "definitionFit": "The Indus is the great river of Pakistan, so 'river' defines it by class: one named instance of the thing."
+   }
   },
   {
    "id": "3-down",
@@ -81,7 +157,33 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HINDSIGHT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "HINDSIGHT",
+    "definition": "retrospect",
+    "indicators": [
+     "carelessly"
+    ],
+    "indicatorNotes": {
+     "carelessly": "Anything done carelessly is done without attention to where things end up, so these letters land out of their proper places."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "anagram": {
+     "fodder": "HID THINGS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Hid things",
+      "gives": "HIDTHINGS",
+      "note": "nine letters of raw material, the verb and its object run together"
+     }
+    ],
+    "surface": "Someone who stashed their possessions sloppily, looking back on it later.",
+    "walkthrough": "'Hid' invites you to hunt for something buried inside the clue, which is what a concealed answer would ask for; the two words are raw material to be shuffled.",
+    "definitionFit": "Retrospect is the backward look taken at events once they are over, the same understanding-after-the-fact that hindsight names."
+   }
   },
   {
    "id": "4-across",
@@ -98,7 +200,28 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BESIDES",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "BESIDES",
+    "definition": "as well",
+    "indicators": [
+     "Broadcast"
+    ],
+    "indicatorNotes": {
+     "Broadcast": "What is broadcast goes out over the air and arrives as sound, so what follows is wanted for the noise it makes rather than the way it is written."
+    },
+    "blocks": [
+     {
+      "clueFragment": "lesser-known tracks",
+      "soundsLike": "B-SIDES",
+      "gives": "BESIDES",
+      "note": "the flip side of a single carried the song nobody bought the record for, and those two syllables said aloud can be written a second way"
+     }
+    ],
+    "surface": "An instruction to the radio station to play the obscure old songs too.",
+    "walkthrough": "'Broadcast' is a favourite anagram indicator and here it means the other thing, said aloud. A seven-inch single had its hit on one face and a filler on the other.",
+    "definitionFit": "'As well' means in addition, and besides carries that same additive sense — 'besides, there's the cost' — rather than its other meaning of alongside."
+   }
   },
   {
    "id": "4-down",
@@ -115,7 +238,34 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BITTERN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "BITTERN",
+    "definition": "Bird",
+    "indicators": [],
+    "linkWords": [
+     "found in"
+    ],
+    "pieces": [
+     "BITTER",
+     "N"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "freezing",
+      "gives": "BITTER",
+      "note": "a bitter wind is a freezing one, the word English keeps for cold that hurts"
+     },
+     {
+      "clueFragment": "north",
+      "gives": "N",
+      "note": "n is the compass abbreviation for north, as printed on any map"
+     }
+    ],
+    "surface": "A bird you would only come across in the icy far north.",
+    "walkthrough": "'Found in' looks like a container instruction, one thing sitting inside another, and it is only joinery saying the definition equals what comes next.",
+    "definitionFit": "A bittern is a heron of the reedbeds, famous for its foghorn boom, so 'bird' defines it by class."
+   }
   },
   {
    "id": "5-down",
@@ -132,7 +282,54 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCHWA",
-   "annotation": null
+   "annotation": {
+    "type": "last letters",
+    "answer": "SCHWA",
+    "definition": "Vowel sound",
+    "indicators": [
+     "endings in"
+    ],
+    "indicatorNotes": {
+     "endings in": "An ending is the letter a word finishes on, and 'in' points at the list following, so every word there gives up its last one."
+    },
+    "pieces": [
+     "S",
+     "C",
+     "H",
+     "W",
+     "A"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Thomas’",
+      "gives": "S",
+      "note": "the closing letter of the poet's name"
+     },
+     {
+      "clueFragment": "poetic",
+      "gives": "C",
+      "note": "the closing letter of 'poetic'"
+     },
+     {
+      "clueFragment": "triumph",
+      "gives": "H",
+      "note": "the closing letter of 'triumph'"
+     },
+     {
+      "clueFragment": "wow",
+      "gives": "W",
+      "note": "the closing letter of 'wow', which is the letter it opens with as well"
+     },
+     {
+      "clueFragment": "Swansea",
+      "gives": "A",
+      "note": "the closing letter of the Welsh city where Dylan Thomas was born and grew up"
+     }
+    ],
+    "surface": "A poetic triumph of Thomas's leaving his home town delighted.",
+    "walkthrough": "Dylan Thomas came from Swansea, which is what holds the surface together. A schwa is the flat unstressed uh at the end of 'sofa', the commonest vowel in English speech.",
+    "definitionFit": "A schwa is the neutral unstressed vowel written ə, so it is a vowel sound rather than any vowel letter."
+   }
   },
   {
    "id": "6-down",
@@ -149,7 +346,36 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DISCHARGE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "DISCHARGE",
+    "definition": "Free",
+    "indicators": [
+     "before"
+    ],
+    "indicatorNotes": {
+     "before": "'Before' fixes the running order: what it follows is placed in front of what comes after it."
+    },
+    "pieces": [
+     "DIS",
+     "CHARGE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "police officers",
+      "gives": "DIS",
+      "note": "a DI is a detective inspector in a British force, and the plural of that rank adds the s"
+     },
+     {
+      "clueFragment": "accusation",
+      "gives": "CHARGE",
+      "note": "the formal accusation read out when somebody is booked is a charge"
+     }
+    ],
+    "surface": "Setting some policemen at liberty before anyone gets round to accusing them.",
+    "walkthrough": "'Free' reads as an adjective describing those officers, which is the wrong part of speech: the word wanted is the verb, what a court does to a defendant.",
+    "definitionFit": "To discharge somebody is to release them from custody or from a duty, which is 'free' used as a verb: to set at liberty."
+   }
   },
   {
    "id": "7-down",
@@ -166,7 +392,37 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCANDAL",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "SCANDAL",
+    "definition": "mud",
+    "indicators": [
+     "absorbs"
+    ],
+    "indicatorNotes": {
+     "absorbs": "What a thing absorbs is taken into it and kept there, so the letter named next vanishes inside the word before it."
+    },
+    "pieces": [
+     "S",
+     "C",
+     "ANDAL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shoe",
+      "gives": "SANDAL",
+      "note": "the open summer shoe held on by straps"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "c is the letter on the cold tap and the weather map's short form"
+     }
+    ],
+    "surface": "A sandal soaking up the cold wet dirt of a puddle.",
+    "walkthrough": "'Mud' is the slung sort, the stuff a reputation gets dragged through, rather than anything on the path — which is where the shoe is trying to send you.",
+    "definitionFit": "Mud in the sense of damaging talk — mud-slinging, a name dragged through it — is the same currency as a scandal, so the two swap."
+   }
   },
   {
    "id": "8-down",
@@ -183,7 +439,34 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SAMPLE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SAMPLE",
+    "definition": "Portion",
+    "indicators": [],
+    "linkWords": [
+     "is"
+    ],
+    "pieces": [
+     "S",
+     "AMPLE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "s is the size printed on a clothing label"
+     },
+     {
+      "clueFragment": "enough",
+      "gives": "AMPLE",
+      "note": "an ample supply is more than enough, a plain synonym"
+     }
+    ],
+    "surface": "A helping quite big enough for anybody.",
+    "walkthrough": "'Small enough' looks like a single measurement of the portion, and the setter has split it down the middle into two unrelated jobs.",
+    "definitionFit": "A sample is the small portion taken to stand for the whole — the spoonful at the deli counter — so 'portion' is its plain sense."
+   }
   },
   {
    "id": "9-across",
@@ -200,7 +483,30 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REDUNDANT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "REDUNDANT",
+    "definition": "No longer needed",
+    "indicators": [
+     "around"
+    ],
+    "indicatorNotes": {
+     "around": "Sending something around moves it out of its place and back by another route, so these letters arrive in a fresh order."
+    },
+    "anagram": {
+     "fodder": "AND TURNED"
+    },
+    "blocks": [
+     {
+      "clueFragment": "and turned",
+      "gives": "ANDTURNED",
+      "note": "nine letters of raw material, the little conjunction counted in"
+     }
+    ],
+    "surface": "Something nobody wants any more, and spun about for good measure.",
+    "walkthrough": "'And' looks like the joint between the two halves of the clue, and it is material itself — leave it out and the letter count comes up three short.",
+    "definitionFit": "A redundant worker or part is one there is no further need for, so 'no longer needed' is the phrase the workplace uses for it."
+   }
   },
   {
    "id": "10-across",
@@ -217,7 +523,31 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HOSTA",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "HOSTA",
+    "definition": "plant",
+    "indicators": [],
+    "pieces": [
+     "HOST",
+     "A"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Crush",
+      "gives": "HOST",
+      "note": "a crush is a dense pack of people, and a host is that same multitude"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the clue's own indefinite article, taken as the single letter it already is"
+     }
+    ],
+    "surface": "Somebody stamping a plant flat.",
+    "walkthrough": "'Crush' reads as the verb, stamp it flat, and the noun is wanted: the crowd sense, as in a crush at the doors.",
+    "definitionFit": "A hosta is the broad-leaved shade plant of countless gardens, so 'plant' names it by class."
+   }
   },
   {
    "id": "11-across",
@@ -234,7 +564,39 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NESTS",
-   "annotation": null
+   "annotation": {
+    "type": "container + third letter",
+    "answer": "NESTS",
+    "definition": "dens",
+    "indicators": [
+     "contains",
+     "third of"
+    ],
+    "indicatorNotes": {
+     "contains": "What contains something has it inside itself, so the letter named next goes within the word before it.",
+     "third of": "'Third of' counts three letters into the word that follows and takes only the one it lands on."
+    },
+    "pieces": [
+     "NES",
+     "T",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Loch",
+      "gives": "NESS",
+      "note": "the most famous loch in Scotland, the one with the monster"
+     },
+     {
+      "clueFragment": "otters’",
+      "gives": "T",
+      "note": "counting three letters in from the start of the word lands on this one"
+     }
+    ],
+    "surface": "A loch holding a third of the local otters' homes.",
+    "walkthrough": "'Contains third of' reads as a fraction, a third of all the dens, and it is really two separate instructions about letters standing side by side.",
+    "definitionFit": "Nests are the homes animals build for themselves and their young, which is what dens are — the same lair sense, and plural to match."
+   }
   },
   {
    "id": "12-across",
@@ -255,7 +617,37 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
     ]
    },
    "solution": "PREWASHED",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + first letter",
+    "answer": "PRE-WASHED",
+    "definition": "laid initial coat of paint?",
+    "indicators": [
+     "working over",
+     "introduction to"
+    ],
+    "indicatorNotes": {
+     "working over": "To give something a working over is to knock it thoroughly out of shape, which is what becomes of the order of these letters.",
+     "introduction to": "An introduction comes at the very front, so only the opening letter of the name that follows is taken."
+    },
+    "anagram": {
+     "fodder": "E SHEPARD W"
+    },
+    "blocks": [
+     {
+      "clueFragment": "E Shepard",
+      "gives": "ESHEPARD",
+      "note": "eight letters of raw material: E. H. Shepard drew the original illustrations for A. A. Milne's bear"
+     },
+     {
+      "clueFragment": "Winnie-the-Pooh",
+      "gives": "W",
+      "note": "the opening letter of the bear's name, joining the material to be shuffled"
+     }
+    ],
+    "surface": "Shepard labouring over the opening of Winnie-the-Pooh, having put down a first coat of paint.",
+    "walkthrough": "A wash is a thin coat of paint brushed on before the proper one, which is the sense the definition turns on, and the hyphen falls after three letters.",
+    "definitionFit": "Something pre-washed has had that preliminary wash of colour laid on first, and the question mark flags how far the setter is stretching the everyday word."
+   }
   },
   {
    "id": "13-across",
@@ -272,7 +664,38 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SHINGLE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "SHINGLE",
+    "definition": "pebbles",
+    "definitionNote": "The definition is plural and the answer singular: it is a mass noun naming the pebbles of a beach collectively, which is why a plural gloss is fair.",
+    "indicators": [
+     "holding"
+    ],
+    "indicatorNotes": {
+     "holding": "What holds a thing keeps it inside itself, so the letter named next sits within the word before it."
+    },
+    "pieces": [
+     "S",
+     "H",
+     "INGLE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "SINGLE",
+      "note": "a single is one of anything — one room, one ticket, one record"
+     },
+     {
+      "clueFragment": "hot",
+      "gives": "H",
+      "note": "h is the letter on the hot tap"
+     }
+    ],
+    "surface": "Someone carrying a handful of warm stones.",
+    "walkthrough": "Shingle is the coarse pebble covering of a beach, the stuff that crunches underfoot at Brighton, and 'One' is not the numeral but the word for a solitary thing.",
+    "definitionFit": "Shingle is the mass of water-worn stones that makes up such a beach, so 'pebbles' names exactly what it consists of."
+   }
   },
   {
    "id": "14-down",
@@ -289,7 +712,38 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ISOSCELES",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ISOSCELES",
+    "definition": "with two sides the same",
+    "indicators": [
+     "designed"
+    ],
+    "indicatorNotes": {
+     "designed": "Something designed has been deliberately laid out afresh, so these letters are set down in an order somebody else chose."
+    },
+    "linkWords": [
+     "by"
+    ],
+    "anagram": {
+     "fodder": "COSSIE LES"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Cossie",
+      "gives": "COSSIE",
+      "note": "six letters of raw material; a cossie is what British beachgoers call a swimming costume"
+     },
+     {
+      "clueFragment": "the French",
+      "gives": "LES",
+      "note": "'the' in French, in the form used before a plural noun"
+     }
+    ],
+    "surface": "A swimsuit run up by French designers, cut identically on both sides.",
+    "walkthrough": "Nothing in the sentence mentions triangles: it reads as a fashion credit, and the French definite article is a piece of crossword vocabulary worth keeping by you.",
+    "definitionFit": "An isosceles triangle is the one whose two sides are of equal length, so the phrase gives its defining property rather than a synonym."
+   }
   },
   {
    "id": "15-across",
@@ -306,7 +760,27 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NOSTRIL",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "NOSTRIL",
+    "definition": "Opening",
+    "indicators": [
+     "part of"
+    ],
+    "indicatorNotes": {
+     "part of": "'Part of' says what is wanted is a stretch already sitting inside the words that follow, in the order they are given."
+    },
+    "blocks": [
+     {
+      "clueFragment": "journo’s trilogy",
+      "gives": "NOSTRIL",
+      "note": "seven consecutive letters beginning four into the first word and stepping over the apostrophe into the second"
+     }
+    ],
+    "surface": "The first instalment of a journalist's three-book series.",
+    "walkthrough": "'Opening' reads as the start of that trilogy and means an aperture instead. The apostrophe is stepped straight over, which is where the run of letters usually gets lost.",
+    "definitionFit": "A nostril is one of the two openings of the nose, so 'opening' defines it by what it is: a hole letting something through."
+   }
   },
   {
    "id": "16-down",
@@ -323,7 +797,37 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STRINGENT",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "STRINGENT",
+    "definition": "Tight",
+    "indicators": [
+     "restrains"
+    ],
+    "indicatorNotes": {
+     "restrains": "What restrains a thing holds it in and stops it getting out, so the piece named next is trapped inside the word before it."
+    },
+    "pieces": [
+     "ST",
+     "RING",
+     "ENT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "temporary splint",
+      "gives": "STENT",
+      "note": "a stent is the little tube a surgeon leaves in an artery to hold it open"
+     },
+     {
+      "clueFragment": "band",
+      "gives": "RING",
+      "note": "a plain band of metal worn on a finger"
+     }
+    ],
+    "surface": "A splint fitted for the time being, stopping a bandage from slipping.",
+    "walkthrough": "'Tight' is the strict sense — tight rules, tight security — not anything physically taut, and 'band' is the metal kind rather than the musical one.",
+    "definitionFit": "Stringent rules are tightly drawn and rigidly enforced, which is 'tight' in its figurative sense: a tight ship, tight controls."
+   }
   },
   {
    "id": "17-across",
@@ -340,7 +844,39 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ROOSTER",
-   "annotation": null
+   "annotation": {
+    "type": "container + last letter",
+    "answer": "ROOSTER",
+    "definition": "Chicken",
+    "indicators": [
+     "includes",
+     "last slice of"
+    ],
+    "indicatorNotes": {
+     "includes": "What includes something has it in among its own parts, so the letter named next goes inside the word before it.",
+     "last slice of": "A slice off the end of a word is one letter, and 'last' says take the one at the back."
+    },
+    "pieces": [
+     "R",
+     "O",
+     "OSTER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "roll",
+      "gives": "ROSTER",
+      "note": "a roll of names, the list read out at a meeting, is a roster"
+     },
+     {
+      "clueFragment": "tomato",
+      "gives": "O",
+      "note": "the closing letter of the word"
+     }
+    ],
+    "surface": "A chicken roll made up with the end slice of a tomato in it.",
+    "walkthrough": "Every word of the surface is food — chicken, roll, tomato — and not one of them is doing food work: the bird is alive and the roll is a list of names.",
+    "definitionFit": "A rooster is a male chicken, the farmyard cock, so 'chicken' names it by species: one member of the kind."
+   }
   },
   {
    "id": "17-down",
@@ -357,7 +893,31 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REACHES",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "REACHES",
+    "definition": "Stretches out",
+    "indicators": [],
+    "pieces": [
+     "RE",
+     "ACHES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "concerning",
+      "gives": "RE",
+      "note": "re heads a memo to mean 'concerning', and crosswords lean on it constantly"
+     },
+     {
+      "clueFragment": "pains",
+      "gives": "ACHES",
+      "note": "the dull pains left by a cold or a long walk are aches"
+     }
+    ],
+    "surface": "A body stretching itself out to ease a set of nagging pains.",
+    "walkthrough": "RE is the crossword's workhorse for 'concerning', the word at the head of a memo, and it opens more answers than any other pair of letters.",
+    "definitionFit": "To reach is to stretch a hand out towards something, so the plural verb matches the definition's own stretching sense."
+   }
   },
   {
    "id": "18-down",
@@ -374,7 +934,34 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RAREBIT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "RAREBIT",
+    "definition": "cheese toastie",
+    "indicators": [],
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "RARE",
+     "BIT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Underdone",
+      "gives": "RARE",
+      "note": "a steak served underdone is a rare one"
+     },
+     {
+      "clueFragment": "piece",
+      "gives": "BIT",
+      "note": "a bit is a piece of something — a bit of cake, a bit of string"
+     }
+    ],
+    "surface": "An undercooked scrap of something found in a toasted cheese sandwich.",
+    "walkthrough": "Welsh rarebit is seasoned melted cheese poured over toast, a British supper dish, and 'in' is doing nothing but joining the clue's two halves.",
+    "definitionFit": "Rarebit is that dish of melted cheese on toast, still on pub menus as Welsh rarebit, which is what 'cheese toastie' describes in modern words."
+   }
   },
   {
    "id": "19-across",
@@ -391,7 +978,34 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CURRENT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CURRENT",
+    "definition": "moving water",
+    "indicators": [],
+    "linkWords": [
+     "into"
+    ],
+    "pieces": [
+     "CUR",
+     "RENT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dog",
+      "gives": "CUR",
+      "note": "a cur is a mongrel, the crossword's usual scruffy dog"
+     },
+     {
+      "clueFragment": "tore",
+      "gives": "RENT",
+      "note": "rent is the past tense of rend: cloth that was torn was rent"
+     }
+    ],
+    "surface": "A dog ripping its way into a river.",
+    "walkthrough": "'Tore into' reads as one phrase, the dog laying about something, and 'into' is only the joint between the wordplay and the definition.",
+    "definitionFit": "A current is the body of water moving steadily in one direction through a river or a sea, so 'moving water' says what it is."
+   }
   },
   {
    "id": "19-down",
@@ -408,7 +1022,40 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CELERY",
-   "annotation": null
+   "annotation": {
+    "type": "homophone + charade",
+    "answer": "CELERY",
+    "definition": "vegetable",
+    "indicators": [
+     "caught"
+    ],
+    "indicatorNotes": {
+     "caught": "To catch what somebody says is to hear it, so the word before is wanted for its sound — a loose signal, and the only pointer to sound the clue offers."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "CELER",
+     "Y"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trader",
+      "soundsLike": "SELLER",
+      "gives": "CELER",
+      "note": "somebody who trades is a seller, and those two syllables said aloud can be written another way"
+     },
+     {
+      "clueFragment": "unknown",
+      "gives": "Y",
+      "note": "y is the algebra teacher's unknown quantity, alongside x and z"
+     }
+    ],
+    "surface": "A market trader stopped by the police with an unidentified vegetable on him.",
+    "walkthrough": "The unknown vegetable is a policeman's problem in the surface and a single letter in the wordplay, tacked onto the end of a spoken 'seller'.",
+    "definitionFit": "Celery is the pale ribbed stalk eaten raw with cheese or chopped into a soup base, so 'vegetable' names it by class."
+   }
   },
   {
    "id": "20-down",
@@ -425,7 +1072,40 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TERRACE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "TERRACE",
+    "definition": "bank",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "'In' is the plainest of the insertion instructions: the letters just named are dropped inside the word that follows."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "T",
+     "ER",
+     "RACE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Express hesitation",
+      "gives": "ER",
+      "note": "the noise a speaker makes while groping for the next word, written down as two letters"
+     },
+     {
+      "clueFragment": "outline",
+      "gives": "TRACE",
+      "note": "to outline a shape on paper is to trace it"
+     }
+    ],
+    "surface": "Someone voicing their doubts about a sketch drawn up for a bank.",
+    "walkthrough": "'Bank' sends everybody to money and the sense wanted is a level bank of earth cut into a slope — the same word gardeners and hillside farmers use.",
+    "definitionFit": "A terrace is a flat bank of ground raised or cut out of a hillside, so 'bank' means the ridge of earth and nothing financial."
+   }
   },
   {
    "id": "21-across",
@@ -442,7 +1122,30 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ANCESTRAL",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ANCESTRAL",
+    "definition": "Family",
+    "indicators": [
+     "badly"
+    ],
+    "indicatorNotes": {
+     "badly": "A thing run badly is not kept in proper order, so the letters beside it come out in disarray."
+    },
+    "anagram": {
+     "fodder": "RAN CASTLE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "ran castle",
+      "gives": "RANCASTLE",
+      "note": "nine letters of raw material, the verb and the building together"
+     }
+    ],
+    "surface": "A family that managed its castle poorly.",
+    "walkthrough": "'Family' is doing adjective work — the family home, the family silver — which is how it sits at the front looking like the subject of the sentence.",
+    "definitionFit": "Ancestral means belonging to one's forebears, and 'family' does the same adjectival job: the family seat is the ancestral seat."
+   }
   },
   {
    "id": "22-down",
@@ -459,7 +1162,36 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SIDLE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "SIDLE",
+    "definition": "creep",
+    "indicators": [
+     "Finally"
+    ],
+    "indicatorNotes": {
+     "Finally": "'Finally' asks for what comes at the very end, so only the closing letter of the next word is taken."
+    },
+    "pieces": [
+     "S",
+     "IDLE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dismiss",
+      "gives": "S",
+      "note": "the closing letter of the word"
+     },
+     {
+      "clueFragment": "lazy",
+      "gives": "IDLE",
+      "note": "an idle worker is a lazy one, straight synonym"
+     }
+    ],
+    "surface": "Sacking somebody bone-idle at long last.",
+    "walkthrough": "'Creep' reads as the noun a sacked colleague might be called, and the verb is wanted: to move sideways and furtively along a wall.",
+    "definitionFit": "To sidle is to edge along sideways hoping not to be noticed, which is 'creep' in its verb sense of moving unseen."
+   }
   },
   {
    "id": "23-across",
@@ -476,7 +1208,31 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NEWER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "NEWER",
+    "definition": "more recently discovered",
+    "indicators": [],
+    "pieces": [
+     "N",
+     "EWER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Norse",
+      "gives": "N",
+      "note": "N is the dictionary's short form for Norse, the label stamped on Old Norse word origins"
+     },
+     {
+      "clueFragment": "jug",
+      "gives": "EWER",
+      "note": "an ewer is the wide-lipped jug that stood beside a washbasin"
+     }
+    ],
+    "surface": "A Viking pitcher dug up later than the rest of the hoard.",
+    "walkthrough": "EWER is one of those words crosswords keep in circulation long after the object left the house, and it turns up wherever a clue says jug or pitcher.",
+    "definitionFit": "Newer means of a later date, so between two finds the newer one is whichever came to light more recently."
+   }
   },
   {
    "id": "24-down",
@@ -493,7 +1249,37 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WHOOP",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letters",
+    "answer": "WHOOP",
+    "definition": "cheer",
+    "indicators": [
+     "starts to"
+    ],
+    "indicatorNotes": {
+     "starts to": "A word's start is its first letter, and the plural reading takes one from the front of each word that follows."
+    },
+    "pieces": [
+     "WHO",
+     "O",
+     "P"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Which person",
+      "gives": "WHO",
+      "note": "the question word that asks exactly that"
+     },
+     {
+      "clueFragment": "organise party",
+      "gives": "OP",
+      "note": "the opening letter of each of the two words, taken in order"
+     }
+    ],
+    "surface": "Somebody asking who is going to start getting the party cheer organised.",
+    "walkthrough": "The whole sentence reads as one question about who will get things going, and only the final word is the definition — everything before it is instructions.",
+    "definitionFit": "A whoop is the loud cry of delight let out at good news, so 'cheer' means a shout of approval rather than comfort or good spirits."
+   }
   },
   {
    "id": "25-across",
@@ -510,7 +1296,28 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HOLED",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "HOLED",
+    "definition": "scuttled",
+    "indicators": [
+     "Reported"
+    ],
+    "indicatorNotes": {
+     "Reported": "What is reported is passed on by word of mouth, so the words beside it are wanted for the way they sound."
+    },
+    "blocks": [
+     {
+      "clueFragment": "part of ship",
+      "soundsLike": "HOLD",
+      "gives": "HOLED",
+      "note": "the cargo space below a ship's deck is its hold, and that syllable said aloud can be spelt a second way"
+     }
+    ],
+    "surface": "News coming in that part of a ship has been deliberately sunk.",
+    "walkthrough": "To scuttle a vessel is to sink it on purpose by breaching the hull, which is the state the definition is describing rather than any hurried movement.",
+    "definitionFit": "A scuttled ship has had its hull opened up to let the sea in, so it has been holed, and both words sit in the past tense."
+   }
   },
   {
    "id": "26-across",
@@ -527,7 +1334,51 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BARCELONA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "BARCELONA",
+    "definition": "the city",
+    "indicators": [
+     "dancing"
+    ],
+    "indicatorNotes": {
+     "dancing": "Dancers keep changing places with one another, so the letters told to dance finish somewhere other than where they started."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "BAR",
+     "C",
+     "ELONA"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "ALONE",
+      "gives": "ELONA"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ban",
+      "gives": "BAR",
+      "note": "to bar somebody from a place is to ban them"
+     },
+     {
+      "clueFragment": "Charlie",
+      "gives": "C",
+      "note": "Charlie is C in the radio alphabet, alongside Alpha and Bravo"
+     },
+     {
+      "clueFragment": "alone",
+      "gives": "ELONA",
+      "note": "five letters of raw material, shuffled out of their given order"
+     }
+    ],
+    "surface": "Charlie barred from the club and dancing by himself somewhere in town.",
+    "walkthrough": "The surface is one picture of a lone reveller, and the definition is only the last two words; the place meant is Spain's second-largest, on the Mediterranean.",
+    "definitionFit": "Barcelona is the Catalan capital on Spain's east coast, so 'the city' defines it by class: one particular example of one."
+   }
   },
   {
    "id": "27-across",
@@ -544,7 +1395,35 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SUSPECT",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "SUSPECT",
+    "definition": "Dodgy",
+    "indicators": [
+     "extract of",
+     "sent back"
+    ],
+    "indicatorNotes": {
+     "extract of": "To extract is to pull something out of what it is sitting in, so the letters wanted are already there in the words that follow.",
+     "sent back": "In an across entry, something sent back is read the other way along the row, from the right-hand end towards the left."
+    },
+    "subReversals": [
+     {
+      "from": "TCEPSUS",
+      "to": "SUSPECT"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "forest ceps usually",
+      "gives": "SUSPECT",
+      "note": "seven consecutive letters spanning the three words, read from the right-hand end back towards the left"
+     }
+    ],
+    "surface": "A dubious mushroom extract that customers usually send back.",
+    "walkthrough": "Ceps are the fat brown wild mushrooms prized in French cooking, and every word of the sentence keeps that food-complaint picture going except the first.",
+    "definitionFit": "Something dodgy is not to be trusted, and suspect wiring or a suspect motive is exactly that — the adjective, not the noun for a person."
+   }
   },
   {
    "id": "28-across",
@@ -561,7 +1440,28 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STAPLE",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "STAPLE",
+    "definition": "Secure",
+    "definition2": "essential food stuff",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Secure",
+      "gives": "",
+      "note": "the verb: to fasten sheets of paper together with a little wire clip"
+     },
+     {
+      "clueFragment": "essential food stuff",
+      "gives": "",
+      "note": "the noun: the basic food a whole diet rests on, rice or maize or bread"
+     }
+    ],
+    "surface": "An instruction to lock down the food supplies nobody can do without.",
+    "walkthrough": "'Secure' reads as an adjective describing that food, safely stored away, and the sense wanted is the office verb done with a wire clip.",
+    "definitionFit": "To staple is to fasten with such a clip, and a staple is the basic foodstuff a diet depends on, so the two senses share only a spelling."
+   }
   }
  ]
 } /*JSON-END*/;
