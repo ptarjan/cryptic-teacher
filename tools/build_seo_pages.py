@@ -57,7 +57,7 @@ from make_og_card import alt_text as card_alt  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 PUZZLE_DIR = ROOT / "puzzles"
-BASE = "https://paultarjan.com/cryptic-teacher"
+BASE = "https://cryptic.paultarjan.com"
 JSON_START = "/*JSON-START*/"
 JSON_END = "/*JSON-END*/"
 

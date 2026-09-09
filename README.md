@@ -1,6 +1,6 @@
 # Cryptic Teacher
 
-**[paultarjan.com/cryptic-teacher](https://paultarjan.com/cryptic-teacher)**
+**[cryptic.paultarjan.com](https://cryptic.paultarjan.com)**
 
 A static, no-framework web app that teaches you to solve cryptic crosswords using real
 broadsheet puzzles — the Guardian's cryptic and Quiptic, the Independent's daily and

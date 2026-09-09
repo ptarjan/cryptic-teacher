@@ -35,8 +35,8 @@ QUIET = 4      # modules of white margin, as the standard requires
 # encode or one that overflows.
 CAPACITY = [14, 26, 42, 62, 84, 106, 122, 152, 180, 213]
 CASES = [
-    "https://paultarjan.com/cryptic-teacher/?sync=ABCD2345",
-    "https://paultarjan.com/cryptic-teacher/?sync=99999999",
+    "https://cryptic.paultarjan.com/?sync=ABCD2345",
+    "https://cryptic.paultarjan.com/?sync=99999999",
     "http://localhost:8000/?sync=ABCD2345",
     "A",
 ]

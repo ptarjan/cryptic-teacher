@@ -31,7 +31,7 @@ import urllib.request
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-URL = "https://paultarjan.com/cryptic-teacher/"
+URL = "https://cryptic.paultarjan.com/"
 STAMP = re.compile(r'(app\.js|style\.css|puzzles/index\.js)\?v=([a-f0-9]+)')
 
 

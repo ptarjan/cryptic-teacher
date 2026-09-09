@@ -96,7 +96,7 @@ const numberOf = (id) => (((global.CRYPTIC_INDEX || {}).puzzles || [])
     for (const m of src.matchAll(/(?:href|src)="([^"]+\.(?:js|css))\?v=([0-9a-f]{8})"/g)) {
       const url = m[1];
       const rel = /^https?:/.test(url)
-        ? url.replace(/^https?:\/\/[^/]+\/cryptic-teacher\//, "")
+        ? url.replace(/^https?:\/\/[^/]+\//, "")
         : path.relative(ROOT, path.resolve(path.dirname(file), url));
       if (!fs.existsSync(path.join(ROOT, rel))) continue;  // someone else's asset
       stampsChecked++;
@@ -202,7 +202,7 @@ const numberOf = (id) => (((global.CRYPTIC_INDEX || {}).puzzles || [])
   const learn = fs.readFileSync(path.join(ROOT, "learn/index.html"), "utf8");
   assert(!learn.includes('<table class="glossary">'),
     "/learn/ points at /abbreviations/ rather than duplicating the table");
-  assert(learn.includes("/cryptic-teacher/abbreviations/"),
+  assert(/href="[^"]*abbreviations\/"/.test(learn),
     "/learn/ links to the standalone glossary");
 }
 
@@ -305,7 +305,7 @@ assert(openPuz, "the opened puzzle's data is loaded: " + openId);
 // under "alternate page with proper canonical tag" (2026-08-07). With no ?p the
 // URL really is the homepage, and so is the canonical.
 {
-  const home = "https://paultarjan.com/cryptic-teacher/";
+  const home = "https://cryptic.paultarjan.com/";
   const asked = new URLSearchParams(global.location.search).get("p");
   const meta = (global.CRYPTIC_INDEX.puzzles || []).find((p) => p.id === asked);
   const want = (meta && meta.hasSolutions) ? `${home}puzzles/${meta.id}/` : home;
@@ -1012,11 +1012,11 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
   // And the clue really does get named, so "look at 3 down" is a link.
   assert(/&c=\d+[AD]$/.test(urls[urls.length - 1]),
     `the address bar should name the selected clue too, got ${urls[urls.length - 1]}`);
-  const want = `https://paultarjan.com/cryptic-teacher/puzzles/${autoPuzzle.id}/`;
+  const want = `https://cryptic.paultarjan.com/puzzles/${autoPuzzle.id}/`;
   assert(canonicalLink.href === want,
     `canonical should follow the opened puzzle to ${want}, got ${canonicalLink.href}`);
   // And the front door stays the front door. Booting on the remembered puzzle is
-  // not a choice anybody made, so a bare /cryptic-teacher/ must not rewrite
+  // not a choice anybody made, so a bare site root must not rewrite
   // itself — a homepage declaring a puzzle as its canonical is the 2026-08-07
   // de-indexing bug pointed the other way.
   if (!new URLSearchParams(global.location.search).get("p")) {

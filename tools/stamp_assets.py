@@ -27,7 +27,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 INDEX_HTML = ROOT / "index.html"
-SITE = "https://paultarjan.com/cryptic-teacher/"
+SITE = "https://cryptic.paultarjan.com/"
 # The generated pages write these as absolute URLs and index.html as relative
 # ones; both forms are stamped, so the same file is one cache entry either way.
 ASSETS = ["style.css", "app.js", "analytics.js", "abbreviations.js", "qr.js", "sync/merge.js",

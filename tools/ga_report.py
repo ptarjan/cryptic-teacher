@@ -89,9 +89,11 @@ def table(title, pairs, note=""):
 def page_label(path, width=24):
     """A page path shortened from the LEFT, so the tail survives.
 
-    Every path here starts /cryptic-teacher/ and the part that says which page it
-    is sits at the end, so cutting the tail to fit printed fifteen rows all
-    reading "/cryptic-teacher/puzzles". Drop the shared prefix, then keep the end.
+    Rows from before the move to cryptic.paultarjan.com all start
+    /cryptic-teacher/, and the part that says which page it is sits at the end,
+    so cutting the tail to fit printed fifteen rows all reading
+    "/cryptic-teacher/puzzles". Drop that prefix when it is there, then keep
+    the end.
     """
     if path.startswith(PREFIX):
         path = path[len(PREFIX):] or "/"

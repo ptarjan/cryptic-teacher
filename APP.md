@@ -663,7 +663,7 @@ all 55:
   homepage `<head>` is checked against the same list by
   `assert_names_all_papers()`, which fails the build rather than shipping a
   half-true sentence. Prefer "broadsheet" where a stable phrase is wanted.
-- The canonical URL is `https://paultarjan.com/cryptic-teacher/`. It appears in
+- The canonical URL is `https://cryptic.paultarjan.com/`. It appears in
   `<link rel=canonical>`, `og:url`, `og:image`, the JSON-LD, `sitemap.xml`,
   `robots.txt` and `tools/og_card.html` — if it ever moves, all seven change
   together. Note that crawlers only honour robots.txt at the DOMAIN root, so the
