@@ -1158,10 +1158,15 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
 /* The sync code is going to be read off one screen and typed into another, by
    hand, probably on a phone. Monospaced and spaced out so O/0-style misreads
    are impossible to make — the alphabet in app.js already excludes the
-   ambiguous glyphs, this makes the rest legible from arm's length. */
-/* The code is read off one screen and typed into another, so it is monospaced,
-   spaced out, and select-all on a single tap for anyone whose browser will not
-   give us the clipboard. */
+   ambiguous glyphs, this makes the rest legible from arm's length — and
+   select-all on a single tap for anyone whose browser withholds the clipboard.
+
+   The QR above it keeps its white surround in dark mode. The border is not
+   decoration: a scanner locks onto the quiet zone, and a code that runs into a
+   dark panel is one a camera will sit and stare at. */
+.sync-qr { display: block; margin: 10px auto; background: #fff; border: 8px solid #fff;
+           border-radius: 6px; }
+.sync-qr[hidden] { display: none; }
 .sync-code-row { display: flex; align-items: baseline; gap: 10px; }
 .sync-code {
   font: 700 1.6rem/1.2 ui-monospace, SFMono-Regular, Menlo, monospace;

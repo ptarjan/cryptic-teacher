@@ -529,9 +529,52 @@
     );
   }
 
+  /* The QR is the same handover as the code, with the typing taken out: it
+     encodes a link back to this page carrying the code, so the other device's
+     camera - which is on its lock screen already - lands on the join panel with
+     the code filled in. Drawn here rather than fetched from an image service
+     for the same reason there is no login: the code IS the account, and that
+     service would be handed every grid on it.
+
+     Black on white whatever the theme. A scanner locks onto the quiet zone, and
+     a code inverted into a dark panel is one a camera will sit and stare at. */
+  const SYNC_QUIET = 4;    // modules of margin, as the standard requires
+  const SYNC_QR_CSS_PX = 176;
+
+  const syncJoinURL = (code) => new URL("?sync=" + encodeURIComponent(code), location.href).href;
+
+  function drawSyncQr(code) {
+    const canvas = $("sync-qr");
+    if (!canvas || !canvas.getContext) return;
+    let rows = null;
+    try { rows = code && window.CTQR ? window.CTQR.encode(syncJoinURL(code)) : null; }
+    catch (e) { rows = null; }
+    // Nothing to encode, or qr.js never loaded: the code itself is still on
+    // screen, so the panel loses a shortcut rather than the feature.
+    canvas.hidden = !rows;
+    if (!rows) return;
+    const span = rows.length + 2 * SYNC_QUIET;
+    const dpr = window.devicePixelRatio || 1;
+    // Whole device pixels per module, or the modules land on half pixels and
+    // the edges blur into each other.
+    const px = Math.max(2, Math.round((SYNC_QR_CSS_PX / span) * dpr));
+    canvas.width = canvas.height = span * px;
+    canvas.style.width = canvas.style.height = (span * px) / dpr + "px";
+    const ctx = canvas.getContext("2d");
+    ctx.fillStyle = "#fff";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "#000";
+    for (let r = 0; r < rows.length; r++) {
+      for (let c = 0; c < rows.length; c++) {
+        if (rows[r][c]) ctx.fillRect((c + SYNC_QUIET) * px, (r + SYNC_QUIET) * px, px, px);
+      }
+    }
+  }
+
   function renderSyncPanel() {
     const code = store.get("ct:sync", null);
     $("sync-code").textContent = code || "—";
+    drawSyncQr(code);
     $("sync-on").classList.toggle("hidden", !code);
     $("sync-off").classList.toggle("hidden", !!code);
     syncNote(code ? "" : "Not syncing — this machine only.");
@@ -4345,6 +4388,27 @@
       if (want) { renderSyncPanel(); if (syncOn()) syncPull(); }
     };
     $("btn-sync-close").onclick = () => $("sync-panel").classList.add("hidden");
+
+    /* Arriving from a scan. The code is filled in and the panel opened, but
+       joining is still a press: a link is a thing anyone can send you, and a
+       silent join would pour a stranger's crosswords into these ones. The
+       parameter is dropped from the address bar either way, so a bookmark or a
+       shared link is of the site and not of somebody's grids. */
+    const params = new URLSearchParams(location.search);
+    const scanned = (params.get("sync") || "").toUpperCase().replace(/[^A-Z0-9]/g, "");
+    if (scanned.length === 8) {
+      params.delete("sync");
+      const rest = params.toString();
+      if (window.history && window.history.replaceState) {
+        window.history.replaceState(null, "", location.pathname + (rest ? "?" + rest : ""));
+      }
+      $("sync-panel").classList.remove("hidden");
+      const already = store.get("ct:sync", null) === scanned;
+      if (!already) $("sync-join-code").value = scanned;
+      renderSyncPanel();
+      syncNote(already ? "Already syncing with this code."
+                       : "Scanned — press “Use this code” to join.");
+    }
 
     // ---- notifications ----
     if (!notifyAvailable()) $("btn-notify").classList.add("hidden");
