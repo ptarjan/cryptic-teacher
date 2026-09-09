@@ -30,7 +30,36 @@ window.CRYPTIC_PUZZLES["quiptic-1377"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MOTIVE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MOTIVE",
+    "definition": "reason to act",
+    "indicators": [
+     "After"
+    ],
+    "indicatorNotes": {
+     "After": "'After' fixes the running order, telling you the piece it introduces trails the vehicle test rather than leading it."
+    },
+    "pieces": [
+     "MOT",
+     "IVE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vehicle test",
+      "gives": "MOT",
+      "note": "the MOT is Britain's compulsory annual roadworthiness test for cars"
+     },
+     {
+      "clueFragment": "I have",
+      "gives": "IVE",
+      "note": "'I have' contracts to I've in ordinary speech"
+     }
+    ],
+    "surface": "A driver whose car has just been through its annual check now has a reason to do something.",
+    "walkthrough": "'I have reason to act' hangs together as one phrase in the surface, which hides the fact that the definition is only its last three words.",
+    "definitionFit": "A motive is the reason someone has for acting — the word a detective reaches for when asking why a suspect did it."
+   }
   },
   {
    "id": "1-down",
@@ -47,7 +76,38 @@ window.CRYPTIC_PUZZLES["quiptic-1377"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MADEIRA",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "MADEIRA",
+    "definition": "island",
+    "indicators": [
+     "around"
+    ],
+    "indicatorNotes": {
+     "around": "'Around' is used in its loose sense of all over the place, not encircling, and letters strewn all over the place land in fresh positions."
+    },
+    "linkWords": [
+     "has"
+    ],
+    "anagram": {
+     "fodder": "MA A RIDE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Mum",
+      "gives": "MA",
+      "note": "ma is the informal word for a mum"
+     },
+     {
+      "clueFragment": "a ride",
+      "gives": "ARIDE",
+      "note": "five more letters of fodder, taken as written"
+     }
+    ],
+    "surface": "Mum out for a drive round an island.",
+    "walkthrough": "'Around' looks like it should be wrapping one word inside another, and it is the shuffle instruction instead. Madeira is the Portuguese island in the Atlantic, better known for its wine and its cake.",
+    "definitionFit": "Madeira is a Portuguese island off north-west Africa, so 'island' defines by category — the wine and the sponge cake are both named after it."
+   }
   },
   {
    "id": "2-down",
@@ -64,7 +124,38 @@ window.CRYPTIC_PUZZLES["quiptic-1377"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "THETA",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + first letter",
+    "answer": "THETA",
+    "definition": "Greek letter",
+    "indicators": [
+     "awful"
+    ],
+    "indicatorNotes": {
+     "awful": "'Awful' describes a thing in a bad state, and a word in a bad state is one whose letters have stopped keeping their proper places."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "anagram": {
+     "fodder": "E THAT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Bit of English",
+      "gives": "E",
+      "note": "the opening bit of E-nglish"
+     },
+     {
+      "clueFragment": "that",
+      "gives": "THAT",
+      "note": "four letters of fodder, joined by the E to make five"
+     }
+    ],
+    "surface": "A scrap of English turning up inside some dreadful Greek.",
+    "walkthrough": "'In' reads as an insertion instruction — a bit of English going inside something — but nothing here encloses anything; the E simply joins the letters being shuffled.",
+    "definitionFit": "Theta is the eighth letter of the Greek alphabet, written θ, so the definition names its category and leaves you to pick which of the twenty-four."
+   }
   },
   {
    "id": "3-down",
@@ -81,7 +172,50 @@ window.CRYPTIC_PUZZLES["quiptic-1377"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "VESPERS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "VESPERS",
+    "definition": "service of prayer",
+    "definitionNote": "The answer carries a plural -s but names a single service, like matins or lauds, so the setter's singular definition agrees with it.",
+    "indicators": [
+     "holding"
+    ],
+    "indicatorNotes": {
+     "holding": "'Holding' is what the saints do to the word after it — they keep it enclosed, so those letters go inside the pair rather than after them."
+    },
+    "pieces": [
+     "V",
+     "E",
+     "S",
+     "PER",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Five",
+      "gives": "V",
+      "note": "the Roman numeral for five"
+     },
+     {
+      "clueFragment": "Eastern",
+      "gives": "E",
+      "note": "the compass point abbreviated as on a map"
+     },
+     {
+      "clueFragment": "saints",
+      "gives": "SS",
+      "note": "one saint is S, so a plural of them doubles it"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "PER",
+      "note": "per stands in for a, as sixty miles per hour is sixty miles an hour"
+     }
+    ],
+    "surface": "Five holy men from the East keeping something safe during worship.",
+    "walkthrough": "Setters swap 'a' for 'per' the way 'sixty miles an hour' becomes 'sixty miles per hour', and that one-letter word is the piece doing most of the work here.",
+    "definitionFit": "Vespers is the evening office of the Catholic and Anglican church, sung or said at dusk, so it is a service of prayer by name."
+   }
   },
   {
    "id": "4-across",
@@ -98,7 +232,30 @@ window.CRYPTIC_PUZZLES["quiptic-1377"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RAFFIA",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "RAFFIA",
+    "definition": "Plant grown for fibre",
+    "indicators": [
+     "tricky"
+    ],
+    "indicatorNotes": {
+     "tricky": "A tricky affair is one that will not behave itself, and letters that will not behave do not stay in the order they were handed over in."
+    },
+    "anagram": {
+     "fodder": "AFFAIR"
+    },
+    "blocks": [
+     {
+      "clueFragment": "affair",
+      "gives": "AFFAIR",
+      "note": "six letters of fodder, exactly the length wanted"
+     }
+    ],
+    "surface": "A fibre crop set beside a difficult business, as though listing two unrelated troubles.",
+    "walkthrough": "The dash does the work of an equals sign, so the definition is everything before it. Raffia is the fibre stripped from a Madagascan palm, used for garden ties and basketwork.",
+    "definitionFit": "Raffia is the palm whose leaf fibre is dried for tying plants and weaving baskets, and both the palm and its fibre carry the name."
+   }
   },
   {
    "id": "5-down",
@@ -115,7 +272,48 @@ window.CRYPTIC_PUZZLES["quiptic-1377"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ANTHEM",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "ANTHEM",
+    "definition": "piece for choir to sing",
+    "indicators": [
+     "includes"
+    ],
+    "indicatorNotes": {
+     "includes": "'Includes' says the words before it open up to take the next word inside, so nothing is simply added on the end."
+    },
+    "pieces": [
+     "A",
+     "N",
+     "THE",
+     "M"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "the clue's own opening word, taken as a letter"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "n is the standard abbreviation for new"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "the definite article, lifted from the clue as it stands"
+     },
+     {
+      "clueFragment": "Mass",
+      "gives": "M",
+      "note": "m is mass, the physicist's symbol"
+     }
+    ],
+    "surface": "A newly composed church Mass with a singable number in it.",
+    "walkthrough": "Both halves of the clue live in church, which is what makes the seam hard to find: everything up to 'the' is instruction, and only the last four words define.",
+    "definitionFit": "An anthem is a choral setting sung by the choir during a service, which is the older sense behind the national songs that borrowed the word."
+   }
   },
   {
    "id": "6-down",
@@ -132,7 +330,37 @@ window.CRYPTIC_PUZZLES["quiptic-1377"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FIRELIGHT",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "FIRELIGHT",
+    "definition": "Visible sign of conflagration?",
+    "indicators": [
+     "hiding"
+    ],
+    "indicatorNotes": {
+     "hiding": "'Hiding' means the anger is kept out of sight, and letters kept out of sight sit inside another word instead of beside it."
+    },
+    "pieces": [
+     "F",
+     "IRE",
+     "LIGHT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Escape",
+      "gives": "FLIGHT",
+      "note": "flight is escape — taking flight from danger"
+     },
+     {
+      "clueFragment": "anger",
+      "gives": "IRE",
+      "note": "ire is anger, a crossword staple"
+     }
+    ],
+    "surface": "Someone fleeing a blaze while keeping their temper under wraps.",
+    "walkthrough": "Escape reads as a verb in the surface — run! — and the wordplay wants the noun, the flight you take from a burning building.",
+    "definitionFit": "Firelight is the light a fire throws out, which is what you see of a blaze from a distance, so the question mark flags a definition by consequence."
+   }
   },
   {
    "id": "7-down",
@@ -149,7 +377,39 @@ window.CRYPTIC_PUZZLES["quiptic-1377"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AMASSED",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "AMASSED",
+    "definition": "Gathered",
+    "linkWords": [
+     "to meet"
+    ],
+    "pieces": [
+     "AM",
+     "ASS",
+     "ED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in the morning",
+      "gives": "AM",
+      "note": "am marks the hours before noon"
+     },
+     {
+      "clueFragment": "idiot",
+      "gives": "ASS",
+      "note": "an ass is a fool"
+     },
+     {
+      "clueFragment": "paper boss",
+      "gives": "ED",
+      "note": "ed is short for the editor who runs a newspaper"
+     }
+    ],
+    "surface": "A morning appointment with a fool and a newspaper's editor.",
+    "walkthrough": "The surface reads as a diary entry, and every word of it except the first is doing wordplay duty. Ed for editor and am for morning are both stock crossword shorthand.",
+    "definitionFit": "To amass is to gather things up in quantity, and both words are past tense here, so 'gathered' swaps straight in."
+   }
   },
   {
    "id": "8-down",
@@ -170,7 +430,39 @@ window.CRYPTIC_PUZZLES["quiptic-1377"] = /*JSON-START*/ {
     ]
    },
    "solution": "POLICESTATION",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "POLICE STATION",
+    "definition": "public building",
+    "indicators": [
+     "sprayed"
+    ],
+    "indicatorNotes": {
+     "sprayed": "Anything sprayed is scattered in droplets that land where they like, which is what becomes of these thirteen letters."
+    },
+    "linkWords": [
+     "with",
+     "in"
+    ],
+    "anagram": {
+     "fodder": "LOO ANTISEPTIC"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Loo",
+      "gives": "LOO",
+      "note": "three letters of fodder"
+     },
+     {
+      "clueFragment": "antiseptic",
+      "gives": "ANTISEPTIC",
+      "note": "ten more, making thirteen for a (6,7) entry"
+     }
+    ],
+    "surface": "A lavatory being disinfected somewhere open to the public.",
+    "walkthrough": "Thirteen letters of fodder in plain sight is the hardest anagram to spot, because 'Loo sprayed with antiseptic' reads as an ordinary sentence about cleaning.",
+    "definitionFit": "A police station is a public building in the plainest sense — municipal premises anyone may walk into — a definition so broad it narrows nothing."
+   }
   },
   {
    "id": "9-across",
@@ -187,7 +479,27 @@ window.CRYPTIC_PUZZLES["quiptic-1377"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ADZE",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "ADZE",
+    "definition": "Cutting tool",
+    "indicators": [
+     "carried by"
+    ],
+    "indicatorNotes": {
+     "carried by": "'Carried by' says the tool is being transported by something else, so its letters ride along unbroken inside the words that follow."
+    },
+    "blocks": [
+     {
+      "clueFragment": "mad zealot",
+      "gives": "ADZE",
+      "note": "four consecutive letters, running straight across the gap between the two words"
+     }
+    ],
+    "surface": "A crazed fanatic going about with something sharp in hand.",
+    "walkthrough": "The join between the two words is where the letters hide, and 'mad zealot' is exactly the vivid phrase that stops you reading letter by letter. An adze shapes timber, its blade set across the handle.",
+    "definitionFit": "An adze is a woodworker's tool with the blade mounted crosswise, swung to cut and dress timber, so 'cutting tool' is its plain category."
+   }
   },
   {
    "id": "10-across",
@@ -204,7 +516,30 @@ window.CRYPTIC_PUZZLES["quiptic-1377"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SHORTBREAD",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "SHORTBREAD",
+    "definition": "biscuit",
+    "indicators": [
+     "munched"
+    ],
+    "indicatorNotes": {
+     "munched": "Something munched has been chewed up, and chewed letters come out in a different arrangement from the one they went in as."
+    },
+    "anagram": {
+     "fodder": "SAD BROTHER"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Sad brother",
+      "gives": "SADBROTHER",
+      "note": "ten letters of fodder, matching the enumeration"
+     }
+    ],
+    "surface": "A gloomy sibling working his way through the biscuit tin.",
+    "walkthrough": "'Munched' does both jobs at once — the eating in the surface, the shuffling in the wordplay — which is why nothing in the sentence looks like an instruction.",
+    "definitionFit": "Shortbread is the thick Scottish butter biscuit, 'short' being the baker's word for crumbly with fat, as in shortcrust."
+   }
   },
   {
    "id": "11-across",
@@ -221,7 +556,37 @@ window.CRYPTIC_PUZZLES["quiptic-1377"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "VIVACE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "VIVACE",
+    "definition": "Lively",
+    "indicators": [
+     "sunk in"
+    ],
+    "indicatorNotes": {
+     "sunk in": "Something sunk in has gone below the surface of what surrounds it, so Virginia's letters drop inside the other word."
+    },
+    "pieces": [
+     "VI",
+     "VA",
+     "CE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wickedness",
+      "gives": "VICE",
+      "note": "vice is wickedness"
+     },
+     {
+      "clueFragment": "Virginia",
+      "gives": "VA",
+      "note": "VA is the postal abbreviation for the American state"
+     }
+    ],
+    "surface": "A spirited woman called Virginia caught up in wrongdoing.",
+    "walkthrough": "Lively is a musical direction here — vivace is what an Italian composer writes above a bright, quick movement — which is why a one-word definition can look too vague to be one.",
+    "definitionFit": "Vivace is the tempo marking telling players to go at it lively and brisk, so the English adjective is what a score would translate it into."
+   }
   },
   {
    "id": "12-across",
@@ -238,7 +603,51 @@ window.CRYPTIC_PUZZLES["quiptic-1377"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IDEALISM",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "IDEALISM",
+    "definition": "unrealistic outlook?",
+    "indicators": [
+     "initially"
+    ],
+    "indicatorNotes": {
+     "initially": "'Initially' points at the very start of the word beside it, so only what stands at the front of 'mooted' is taken."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "I",
+     "DEAL",
+     "IS",
+     "M"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "trade arrangement",
+      "gives": "DEAL",
+      "note": "a deal is an arrangement to trade"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "the clue's own word, taken as two letters"
+     },
+     {
+      "clueFragment": "mooted",
+      "gives": "M",
+      "note": "the first letter of 'mooted', as instructed"
+     }
+    ],
+    "surface": "A first business deal being floated by someone with hopelessly rosy expectations.",
+    "walkthrough": "'Mooted' is the only word being operated on; everything else is handed over whole, which is why the clue reads as smooth boardroom language throughout.",
+    "definitionFit": "Idealism is judging things by how they ought to be rather than how they are, and that gap between the two is what makes the outlook unrealistic."
+   }
   },
   {
    "id": "13-across",
@@ -255,7 +664,40 @@ window.CRYPTIC_PUZZLES["quiptic-1377"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BARRISTER",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "BARRISTER",
+    "definition": "lawyer",
+    "indicators": [
+     "restricting"
+    ],
+    "indicatorNotes": {
+     "restricting": "Restricting is what a hindrance does — it closes round a thing and pens it in — so the holy person is trapped within those letters."
+    },
+    "linkWords": [
+     "and"
+    ],
+    "pieces": [
+     "BARRI",
+     "ST",
+     "ER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hindrance",
+      "gives": "BARRIER",
+      "note": "a barrier is a hindrance"
+     },
+     {
+      "clueFragment": "holy person",
+      "gives": "ST",
+      "note": "st is the abbreviation for saint"
+     }
+    ],
+    "surface": "Something in the way, hemming in a saint and a lawyer together.",
+    "walkthrough": "'And' reads as though the clue is listing two people, when it is only the join between the wordplay and the definition. St for saint is worth owning: it turns up in containers constantly.",
+    "definitionFit": "A barrister is the courtroom lawyer in England and Wales — the one who argues before a judge, as against the solicitor who prepares the case."
+   }
   },
   {
    "id": "14-down",
@@ -272,7 +714,30 @@ window.CRYPTIC_PUZZLES["quiptic-1377"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RECONDITE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "RECONDITE",
+    "definition": "Not straightforward",
+    "indicators": [
+     "to reform"
+    ],
+    "indicatorNotes": {
+     "to reform": "Reform read as re-form is an instruction to make the thing over again, and letters made over again need not return to their old places."
+    },
+    "anagram": {
+     "fodder": "TRIED ONCE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Tried once",
+      "gives": "TRIEDONCE",
+      "note": "nine letters of fodder, the length of the entry"
+     }
+    ],
+    "surface": "A repeat offender, once put on trial, who might yet mend his ways.",
+    "walkthrough": "The question mark invites you to read the whole clue as a criminal record, with 'tried once' as a court appearance. Recondite means obscure, understood only by the few.",
+    "definitionFit": "Recondite means abstruse or deeply obscure — the sort of subject nobody outside it finds straightforward — and both are adjectives about difficulty."
+   }
   },
   {
    "id": "15-across",
@@ -289,7 +754,33 @@ window.CRYPTIC_PUZZLES["quiptic-1377"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EGAD",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "EGAD",
+    "definition": "Expression of surprise",
+    "linkWords": [
+     "when given"
+    ],
+    "pieces": [
+     "EG",
+     "AD"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "say",
+      "gives": "EG",
+      "note": "eg introduces an example, which is the job 'say' does in a sentence"
+     },
+     {
+      "clueFragment": "notice",
+      "gives": "AD",
+      "note": "an ad is a notice placed in a paper"
+     }
+    ],
+    "surface": "Someone startled at the moment they are handed their notice.",
+    "walkthrough": "Notice leads two lives here: the sacking the surface means, and the small advertisement the wordplay wants. Egad is an old-fashioned oath, a softened 'by God'.",
+    "definitionFit": "Egad is an archaic exclamation of surprise or dismay, a minced oath for 'by God', so the definition names the kind of noise it is."
+   }
   },
   {
    "id": "16-across",
@@ -306,7 +797,33 @@ window.CRYPTIC_PUZZLES["quiptic-1377"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FACE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "FACE",
+    "definition": "Grimace",
+    "linkWords": [
+     "shown by"
+    ],
+    "pieces": [
+     "F",
+     "ACE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "f is the standard abbreviation for female"
+     },
+     {
+      "clueFragment": "star",
+      "gives": "ACE",
+      "note": "an ace is a star performer"
+     }
+    ],
+    "surface": "A famous actress pulling a sour expression.",
+    "walkthrough": "Grimace is a noun here, the face you pull, not the verb — the swap worth saying out loud before accepting any one-word definition.",
+    "definitionFit": "To pull a face is to grimace, so the noun carries the sense of a deliberate contorted expression rather than the features you were born with."
+   }
   },
   {
    "id": "16-down",
@@ -329,7 +846,36 @@ window.CRYPTIC_PUZZLES["quiptic-1377"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FORBEAR",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "FORBEAR",
+    "definition": "Hold back!",
+    "indicators": [
+     "confronting"
+    ],
+    "indicatorNotes": {
+     "confronting": "To confront a thing is to stand square in front of it, so the piece named first is written ahead of the animal."
+    },
+    "pieces": [
+     "FOR",
+     "BEAR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Not against",
+      "gives": "FOR",
+      "note": "the opposite of against, as in voting for or against a motion"
+     },
+     {
+      "clueFragment": "wild animal?",
+      "gives": "BEAR",
+      "note": "one wild animal among many, which is what the question mark admits"
+     }
+    ],
+    "surface": "Standing your ground in front of a wild animal instead of running.",
+    "walkthrough": "The exclamation mark makes 'Hold back!' read as an order shouted at someone facing a bear, and it is the definition. Forbear is the verb; a forebear, with the extra E, is an ancestor.",
+    "definitionFit": "To forbear is to hold back from something you could do — to refrain — so the clue's imperative and the plain verb are the same instruction."
+   }
   },
   {
    "id": "17-across",
@@ -346,7 +892,34 @@ window.CRYPTIC_PUZZLES["quiptic-1377"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ATHLETICS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ATHLETICS",
+    "definition": "sport",
+    "definitionNote": "The answer ends in -s but takes a singular verb — athletics is a sport — so the singular definition agrees with it.",
+    "indicators": [
+     "adapted"
+    ],
+    "indicatorNotes": {
+     "adapted": "Something adapted has been altered to suit a new purpose, and letters altered that way arrive in a new arrangement."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "anagram": {
+     "fodder": "CHALET ITS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Chalet – it’s",
+      "gives": "CHALETITS",
+      "note": "nine letters of fodder, the apostrophe counting for nothing"
+     }
+    ],
+    "surface": "A holiday chalet being converted for sporting use.",
+    "walkthrough": "The dash makes the clue look like two separate ideas, one of them a mountain holiday, and every letter of both is fodder. Apostrophes never count in an anagram.",
+    "definitionFit": "Athletics is the track-and-field sport of running, jumping and throwing, so the definition names the category the answer sits in."
+   }
   },
   {
    "id": "18-down",
@@ -363,7 +936,36 @@ window.CRYPTIC_PUZZLES["quiptic-1377"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LEANEST",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "LEANEST",
+    "definition": "Most meagre",
+    "indicators": [
+     "to south of"
+    ],
+    "indicatorNotes": {
+     "to south of": "South is downwards on the page, so in a down entry this places the bird's home below the meadow rather than after it."
+    },
+    "pieces": [
+     "LEA",
+     "NEST"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "meadow",
+      "gives": "LEA",
+      "note": "a lea is a meadow, a poet's word that crosswords kept"
+     },
+     {
+      "clueFragment": "bird’s home",
+      "gives": "NEST",
+      "note": "a nest is where a bird lives"
+     }
+    ],
+    "surface": "A bird's nest at the bottom edge of a field.",
+    "walkthrough": "Placement words describe the grid, not the compass in the surface: this is a down entry, so 'south of' means nothing more than underneath.",
+    "definitionFit": "Leanest is the superlative of lean — thinnest, with least flesh or least to spare — and 'most meagre' is that same superlative in other words."
+   }
   },
   {
    "id": "19-down",
@@ -380,7 +982,40 @@ window.CRYPTIC_PUZZLES["quiptic-1377"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "COLLEGE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "COLLEGE",
+    "definition": "academic institution",
+    "indicators": [
+     "embracing"
+    ],
+    "indicatorNotes": {
+     "embracing": "To embrace someone is to put your arms right round them, so the old king's letters close on either side of the member."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "COL",
+     "LEG",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old king",
+      "gives": "COLE",
+      "note": "Old King Cole, the merry old soul of the English nursery rhyme"
+     },
+     {
+      "clueFragment": "member",
+      "gives": "LEG",
+      "note": "a limb is a member of the body"
+     }
+    ],
+    "surface": "An ancient monarch hugging one of his subjects at a seat of learning.",
+    "walkthrough": "Member is the trap: it reads as somebody enrolled and wants the body-part sense instead. Old King Cole is a crossword regular precisely because his name splits so usefully.",
+    "definitionFit": "A college is an institution of higher education, or a self-governing part of a university, so the definition names its category plainly."
+   }
   },
   {
    "id": "20-down",
@@ -397,7 +1032,39 @@ window.CRYPTIC_PUZZLES["quiptic-1377"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SOOTHE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SOOTHE",
+    "definition": "calm down",
+    "linkWords": [
+     "that makes you"
+    ],
+    "pieces": [
+     "SO",
+     "O",
+     "THE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Thus",
+      "gives": "SO",
+      "note": "so means thus"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is a nil score at tennis, written as a zero"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "THE",
+      "note": "the definite article, one of the three English articles"
+     }
+    ],
+    "surface": "Love, in the end, is what settles people.",
+    "walkthrough": "Three small scraps in a row — a conjunction, a tennis score and an article — is the shape of a pure charade, and love for O is worth learning once and keeping.",
+    "definitionFit": "To soothe someone is to calm them down, the transitive verb used of a crying baby, so the two-word definition swaps in unchanged."
+   }
   },
   {
    "id": "21-across",
@@ -418,7 +1085,37 @@ window.CRYPTIC_PUZZLES["quiptic-1377"] = /*JSON-START*/ {
     ]
    },
    "solution": "BRINGOUT",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "BRING OUT",
+    "definition": "Produce",
+    "indicators": [
+     "to interrupt"
+    ],
+    "indicatorNotes": {
+     "to interrupt": "To interrupt something is to break into it partway through, so the sound is written into the middle of the fight."
+    },
+    "pieces": [
+     "B",
+     "RING",
+     "OUT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fight",
+      "gives": "BOUT",
+      "note": "a bout is a fight, the boxer's word for one contest"
+     },
+     {
+      "clueFragment": "sort of sound",
+      "gives": "RING",
+      "note": "a ring is one sort of sound, the noise a bell makes"
+     }
+    ],
+    "surface": "A noise breaking into a boxing match.",
+    "walkthrough": "Produce means publish here — what a firm does with a new model, or a publisher with a book — rather than manufacture, and that single word is the whole definition.",
+    "definitionFit": "To bring out a book or a product is to produce it, in the sense of releasing it to the public, so the phrasal verb matches the plain one."
+   }
   },
   {
    "id": "22-across",
@@ -435,7 +1132,38 @@ window.CRYPTIC_PUZZLES["quiptic-1377"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ANGOLA",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ANGOLA",
+    "definition": "Country",
+    "indicators": [
+     "extraordinary"
+    ],
+    "indicatorNotes": {
+     "extraordinary": "Something extraordinary is outside the ordinary order of things, and letters outside their ordinary order are exactly what is wanted."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "anagram": {
+     "fodder": "AN GOAL"
+    },
+    "blocks": [
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "two letters of fodder"
+     },
+     {
+      "clueFragment": "goal",
+      "gives": "GOAL",
+      "note": "four more, six in all for a six-letter entry"
+     }
+    ],
+    "surface": "A remarkable goal scored in an international match.",
+    "walkthrough": "Football language runs the length of the clue, and the country appears only once you stop reading the sentence as a match report.",
+    "definitionFit": "Angola is a country on the Atlantic coast of southern Africa, so 'Country' is definition by category and offers nothing beyond the letter count."
+   }
   },
   {
    "id": "23-down",
@@ -452,7 +1180,37 @@ window.CRYPTIC_PUZZLES["quiptic-1377"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GRAIN",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "GRAIN",
+    "definition": "bit of cereal?",
+    "indicators": [
+     "eating"
+    ],
+    "indicatorNotes": {
+     "eating": "Eating is swallowing something whole, so what follows disappears inside Nana instead of standing next to her."
+    },
+    "pieces": [
+     "GRA",
+     "I",
+     "N"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nana",
+      "gives": "GRAN",
+      "note": "nana and gran are both British children's words for a grandmother"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "surface": "Grandma having a small snack.",
+    "walkthrough": "Swapping one homely word for a grandmother for another is the whole first step, and the question mark admits that a grain is only one bit of cereal among many.",
+    "definitionFit": "A grain is a single seed of a cereal crop such as wheat or oats, so the definition works by example rather than by synonym."
+   }
   },
   {
    "id": "24-across",
@@ -469,7 +1227,45 @@ window.CRYPTIC_PUZZLES["quiptic-1377"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HELIOTROPE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "HELIOTROPE",
+    "definition": "plant",
+    "indicators": [
+     "put around"
+    ],
+    "indicatorNotes": {
+     "put around": "'Put around' has the cord wrapped rather than laid alongside, so it opens up and the poet ends up between its letters."
+    },
+    "linkWords": [
+     "needs"
+    ],
+    "pieces": [
+     "H",
+     "ELIOT",
+     "ROPE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "h is the hardness grade stamped on a pencil"
+     },
+     {
+      "clueFragment": "Poet",
+      "gives": "ELIOT",
+      "note": "T. S. Eliot, the poet of The Waste Land"
+     },
+     {
+      "clueFragment": "cord",
+      "gives": "ROPE",
+      "note": "a rope is a cord"
+     }
+    ],
+    "surface": "A poet who needs stout string to tie a plant up.",
+    "walkthrough": "Heliotrope is the garden shrub whose flowers turn to follow the sun, from the Greek for sun-turning, and Eliot is the crossword setter's default poet.",
+    "definitionFit": "Heliotrope names a fragrant garden shrub of the borage family, so the bare word 'plant' gives its category and no more."
+   }
   },
   {
    "id": "25-across",
@@ -486,7 +1282,36 @@ window.CRYPTIC_PUZZLES["quiptic-1377"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AMEN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "AMEN",
+    "definition": "last word of prayer",
+    "indicators": [
+     "appearing after"
+    ],
+    "indicatorNotes": {
+     "appearing after": "'Appearing after' settles the order: the soldiers turn up behind the a, not in front of it."
+    },
+    "pieces": [
+     "A",
+     "MEN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the clue's own word, used as it stands"
+     },
+     {
+      "clueFragment": "Soldiers",
+      "gives": "MEN",
+      "note": "the men are the rank and file of an army"
+     }
+    ],
+    "surface": "Troops arriving just as a prayer finishes.",
+    "walkthrough": "Amen closes a prayer in Hebrew, Greek, Latin and English alike, which is why the definition can be that precise without naming a religion.",
+    "definitionFit": "Amen is the word said at the close of a prayer to affirm it, Hebrew for 'so be it', so the definition is literal."
+   }
   },
   {
    "id": "26-across",
@@ -503,7 +1328,30 @@ window.CRYPTIC_PUZZLES["quiptic-1377"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REEFER",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "REEFER",
+    "definition": "Midshipman",
+    "definition2": "joint",
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Midshipman",
+      "gives": "",
+      "note": "old naval slang for the junior officer who oversaw the reefing of sails"
+     },
+     {
+      "clueFragment": "joint",
+      "gives": "",
+      "note": "the drug slang sense: a hand-rolled cannabis cigarette"
+     }
+    ],
+    "surface": "Whatever belongs to a young naval officer — his knee, or the bar he drinks in.",
+    "walkthrough": "Two definitions with nothing between them but an apostrophe and an s, and both senses are period pieces: the midshipman who reefed sails, and the 1930s word for a cannabis cigarette.",
+    "definitionFit": "A reefer is naval slang for a midshipman, from reefing sail, and separately the slang name for a cannabis cigarette, which is the joint."
+   }
   },
   {
    "id": "27-across",
@@ -524,7 +1372,30 @@ window.CRYPTIC_PUZZLES["quiptic-1377"] = /*JSON-START*/ {
     ]
    },
    "solution": "ATONCE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "AT ONCE",
+    "definition": "immediately",
+    "indicators": [
+     "to be doctored"
+    ],
+    "indicatorNotes": {
+     "to be doctored": "Doctoring a thing is tampering with it, and letters tampered with come back in a different order from the one given."
+    },
+    "anagram": {
+     "fodder": "ONE CAT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "One cat",
+      "gives": "ONECAT",
+      "note": "six letters of fodder, matching the (2,4) enumeration"
+     }
+    ],
+    "surface": "A single cat booked in for treatment at the vet's.",
+    "walkthrough": "'Doctored' is the vet in the surface and the instruction in the wordplay, and it is the only part of the clue that is neither fodder nor definition.",
+    "definitionFit": "At once means immediately, this very instant, so the two-word phrase and the adverb drop into the same sentence interchangeably."
+   }
   }
  ]
 } /*JSON-END*/;
