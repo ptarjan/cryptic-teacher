@@ -642,7 +642,7 @@ commit_puzzle() {
   # Solved-but-short is not a failure anywhere else in this pipeline: the nulled
   # clues just ship as "auto hints". Say so, once, per puzzle.
   loss=$(python3 tools/check_annotation_loss.py "$num" 2>&1) || \
-    alert "pre-reset backfill left clues unsolved — $loss. They ship with no teaching ladder. Repeated across a night this means the model is not solving these puzzles."
+    alert "pre-reset backfill left clues blank — $loss. They ship with no teaching ladder, and validate_annotations.py fails the puzzle for it."
   echo "$loss"
   if [ -n "$(git status --porcelain -- "puzzles/$num.js")" ]; then
     # One puzzle, on purpose: this job runs for hours and publishes as it goes,
