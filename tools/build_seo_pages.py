@@ -251,8 +251,7 @@ FOOTER = f"""<footer>
 def site_url(path):
     """A crumb path made absolute. Both renderings of a crumb go through here.
 
-    The site lives at /cryptic-teacher/, so a root-relative href is never right:
-    it points at paultarjan.com, which is a different site. The crumb tuples used
+    Every crumb href is absolute or page-relative, never root-relative. The crumb tuples used
     to be joined to BASE by breadcrumb_ld and emitted raw by masthead, so the
     structured data was correct while the link a crawler could actually follow
     was `/puzzles/` — a 404 on every one of the 70-odd puzzle pages, reported by
@@ -904,13 +903,18 @@ def outputs():
 
 
 def assert_no_root_relative(files):
-    """No generated link may start at /, because the site does not.
+    """No generated link may start at /.
 
-    GitHub Pages serves this out of /cryptic-teacher/; `/puzzles/` resolves to
-    paultarjan.com/puzzles/, which 404s. Nothing in a browser catches that — the
-    page renders fine and only the crawler notices — so it is checked here, where
-    every generated href passes through. Links are absolute (BASE + path) or
-    relative to the page; a leading slash is neither.
+    This was load-bearing when the site was served out of paultarjan.com/cryptic-teacher/,
+    where `/puzzles/` resolved to the personal site and 404'd on every one of the
+    70-odd puzzle pages. Since the move to its own host a leading slash would in
+    fact resolve, so the check now guards a weaker thing: relative hrefs are what
+    let the generated pages be opened straight off disk, and what made that move
+    a one-line change to BASE instead of a rewrite. Keep it for the next move.
+
+    Nothing in a browser catches a wrong link — the page renders fine and only a
+    crawler notices — so it is checked here, where every generated href passes
+    through. Links are absolute (BASE + path) or relative to the page.
     """
     bad = []
     for path, text in files.items():

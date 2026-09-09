@@ -4184,7 +4184,7 @@
   // leaving the site take one press per puzzle browsed.
   //
   // Only when the reader CHOSE this puzzle, though. Booting on the remembered
-  // one is not a choice, and a bare `/cryptic-teacher/` that rewrites itself
+  // one is not a choice, and a bare site root that rewrites itself
   // would leave the homepage declaring a puzzle as its canonical — which is the
   // 2026-08-07 de-indexing bug again, pointed the other way. The front door
   // stays the front door until somebody picks.
@@ -4355,7 +4355,7 @@
   // the ceiling and lose the lot.
   //
   // Only ever a refinement of a URL that already names a puzzle: a bare
-  // /cryptic-teacher/ has to stay the front door, for the reason spelled out
+  // the bare site root has to stay the front door, for the reason spelled out
   // above pointUrlAtPuzzle.
   let urlClue = null;
   function syncClueUrl() {
