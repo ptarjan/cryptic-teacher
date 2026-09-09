@@ -34,7 +34,30 @@ window.CRYPTIC_PUZZLES["indysunday-1856"] = /*JSON-START*/ {
     ]
    },
    "solution": "PASSEDPAWN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PASSED PAWN",
+    "definition": "Future queen perhaps",
+    "pieces": [
+     "PASSED",
+     "PAWN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "declined",
+      "gives": "PASSED",
+      "note": "to decline an offer is to pass on it"
+     },
+     {
+      "clueFragment": "uncle's security",
+      "gives": "PAWN",
+      "note": "'uncle' is old British slang for a pawnbroker, and the thing you leave with him as security is the pawn"
+     }
+    ],
+    "surface": "A royal heir turning down the protection her uncle had arranged for her.",
+    "walkthrough": "A pawn that reaches the far end of the board is promoted, almost always to a queen, so a monarch in waiting is a fair description of one. 'Uncle' for the pawnbroker is Victorian street slang.",
+    "definitionFit": "A passed pawn has no enemy pawn left to stop it, so it is the one likely to reach the eighth rank and be promoted."
+   }
   },
   {
    "id": "1-down",
@@ -51,7 +74,37 @@ window.CRYPTIC_PUZZLES["indysunday-1856"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PUSH",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "PUSH",
+    "definition": "Offensive",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "what happens in a thing happens inside it, so the letters before this word are planted in the middle of the word after it"
+    },
+    "pieces": [
+     "P",
+     "US",
+     "H"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pub",
+      "gives": "PH",
+      "note": "PH is a public house, the abbreviation printed on British maps; it opens up to take the insert"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US = American, the standard abbreviation"
+     }
+    ],
+    "surface": "An American making trouble in a bar.",
+    "walkthrough": "'Offensive' looks like the adjective, and the clue wants the noun: an army's big attack. PH for pub is map shorthand, not a word anyone says.",
+    "definitionFit": "An army's push is its offensive — a concerted advance, so this is the military noun rather than the everyday shove."
+   }
   },
   {
    "id": "2-down",
@@ -68,7 +121,44 @@ window.CRYPTIC_PUZZLES["indysunday-1856"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCARECROW",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "SCARECROW",
+    "definition": "It'll help the farmer",
+    "definitionNote": "The definition is a sentence about the answer rather than a synonym for it: 'it' stands in for the thing, so what the setter offers is a job description, not a substitutable noun.",
+    "indicators": [
+     "feeding"
+    ],
+    "indicatorNotes": {
+     "feeding": "to feed something into a machine is to put it in, so what comes before this word goes inside what comes after"
+    },
+    "pieces": [
+     "S",
+     "CARE",
+     "CR",
+     "OW"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pig",
+      "gives": "SOW",
+      "note": "a sow is a female pig, and it splits after its first letter"
+     },
+     {
+      "clueFragment": "Mind",
+      "gives": "CARE",
+      "note": "to mind about something is to care about it"
+     },
+     {
+      "clueFragment": "Charles",
+      "gives": "CR",
+      "note": "Carolus Rex, the king's cypher, with R for rex"
+     }
+    ],
+    "surface": "A warning to keep an eye on Charles while he feeds the pig.",
+    "walkthrough": "CR is the royal cypher — Carolus Rex, Charles the King — and it is the piece a solver has to be told about once. The farmhand the definition promises turns out to be stuffed with straw.",
+    "definitionFit": "A scarecrow works for the farmer by keeping birds off the crop, so the definition says what the thing does rather than naming it."
+   }
   },
   {
    "id": "3-down",
@@ -85,7 +175,30 @@ window.CRYPTIC_PUZZLES["indysunday-1856"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EXPLAIN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "EXPLAIN",
+    "definition": "subject to analysis",
+    "pieces": [
+     "EX",
+     "PLAIN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Partner no longer",
+      "gives": "EX",
+      "note": "an ex is a former partner"
+     },
+     {
+      "clueFragment": "straight",
+      "gives": "PLAIN",
+      "note": "plain speaking is straight speaking, direct and unadorned"
+     }
+    ],
+    "surface": "A former partner, no longer honest, being sent off to the analyst.",
+    "walkthrough": "The surface glues 'no longer straight' into one idea about the ex, and the cryptic reading breaks it in half, with 'straight' beginning the second piece.",
+    "definitionFit": "To explain something is to take it apart and account for it, which is what putting it under analysis amounts to."
+   }
   },
   {
    "id": "4-down",
@@ -102,7 +215,37 @@ window.CRYPTIC_PUZZLES["indysunday-1856"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PUPAE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + first letters",
+    "answer": "PUPAE",
+    "definition": "developing bugs",
+    "indicators": [
+     "New",
+     "starts to"
+    ],
+    "indicatorNotes": {
+     "New": "something remade comes out new, and letters that have been remade do not stay in the order they were handed over in",
+     "starts to": "a start is the front of a word, so only the opening letter of each word that follows is taken"
+    },
+    "anagram": {
+     "fodder": "APPUE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "app",
+      "gives": "APP",
+      "note": "the clue's own three letters, used as they stand"
+     },
+     {
+      "clueFragment": "unravel early",
+      "gives": "UE",
+      "note": "the opening letter of each of the two words"
+     }
+    ],
+    "surface": "A new phone app coming apart early on and proving full of bugs.",
+    "walkthrough": "'Developing' sits right beside 'bugs' and looks like the shuffling word; the instruction is 'New' at the very front, and those last two words are the definition.",
+    "definitionFit": "Pupae are insects in the middle stage of metamorphosis, still turning into adults, so the definition names a stage rather than a species."
+   }
   },
   {
    "id": "5-down",
@@ -119,7 +262,30 @@ window.CRYPTIC_PUZZLES["indysunday-1856"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WRESTLING",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "WRESTLING",
+    "definition": "occasionally muddy sport",
+    "indicators": [
+     "off"
+    ],
+    "indicatorNotes": {
+     "off": "food that has gone off has turned, and turned letters do not stay in the order they arrived in"
+    },
+    "anagram": {
+     "fodder": "GIRLSWENT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Girls went",
+      "gives": "GIRLSWENT",
+      "note": "nine letters to rearrange — count them against the enumeration before you start"
+     }
+    ],
+    "surface": "Girls storming off from a sport that sometimes ends up played in mud.",
+    "walkthrough": "The definition runs to three words, because 'occasionally muddy' is the setter's nod to the novelty version of the sport; 'sport' on its own would leave two words with nothing to do.",
+    "definitionFit": "Wrestling is the sport named, and 'occasionally muddy' points at the mud-wrestling version rather than at any part of the mechanism."
+   }
   },
   {
    "id": "6-across",
@@ -136,7 +302,39 @@ window.CRYPTIC_PUZZLES["indysunday-1856"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NOOB",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "NOOB",
+    "definition": "rookie",
+    "indicators": [
+     "Return"
+    ],
+    "indicatorNotes": {
+     "Return": "to return something is to send it back the way it came, so the letters run the other way along the row"
+    },
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "NOOB"
+    ],
+    "subReversals": [
+     {
+      "from": "BOON",
+      "to": "NOOB"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "favour",
+      "gives": "BOON",
+      "note": "a boon is a favour or blessing"
+     }
+    ],
+    "surface": "Paying a kindness back to the newest recruit.",
+    "walkthrough": "Noob is internet slang for a raw beginner, squashed out of 'newbie', and it is far newer vocabulary than most grids allow themselves.",
+    "definitionFit": "A rookie is a first-timer who has not learned the ropes, which is precisely the scorn the online word carries."
+   }
   },
   {
    "id": "7-down",
@@ -159,7 +357,47 @@ window.CRYPTIC_PUZZLES["indysunday-1856"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OPERA",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + charade + last letter",
+    "answer": "OPERA",
+    "definition": "An answer given after 'term for Rigoletto?'",
+    "indicators": [
+     "term",
+     "after"
+    ],
+    "indicatorNotes": {
+     "term": "'term' is standing in for termination, the end of a thing, so it asks for the final letter of the word beside it",
+     "after": "what comes after a thing follows it, so the letters just built are parked behind the letter already found"
+    },
+    "linkWords": [
+     "given"
+    ],
+    "pieces": [
+     "O",
+     "PER",
+     "A"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "term for Rigoletto?",
+      "gives": "O",
+      "note": "the termination — the last letter — of Rigoletto"
+     },
+     {
+      "clueFragment": "An",
+      "gives": "PER",
+      "note": "fifty miles an hour is fifty miles per hour, so 'an' = per"
+     },
+     {
+      "clueFragment": "answer",
+      "gives": "A",
+      "note": "a = answer, as in a Q and A"
+     }
+    ],
+    "surface": "A quiz question about Verdi's hunchbacked jester, and the answer somebody gives to it.",
+    "walkthrough": "Read straight, this is a question with its own answer attached; read as wordplay, 'term' is short for termination and hands over Rigoletto's last letter. Both readings use every word.",
+    "definitionFit": "Rigoletto is one of Verdi's, so naming the form it belongs to is exactly what answers the question the clue asks."
+   }
   },
   {
    "id": "8-down",
@@ -180,7 +418,39 @@ window.CRYPTIC_PUZZLES["indysunday-1856"] = /*JSON-START*/ {
     ]
    },
    "solution": "BUTTERDISH",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "BUTTER DISH",
+    "definition": "Fat keeper",
+    "linkWords": [
+     "by"
+    ],
+    "pieces": [
+     "B",
+     "UTTER",
+     "DISH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bowled",
+      "gives": "B",
+      "note": "b for bowled, as it is written on a cricket scorecard against a batter dismissed that way"
+     },
+     {
+      "clueFragment": "absolute",
+      "gives": "UTTER",
+      "note": "utter nonsense is absolute nonsense"
+     },
+     {
+      "clueFragment": "beauty",
+      "gives": "DISH",
+      "note": "a dish is a good-looking person, in the dated slang sense"
+     }
+    ],
+    "surface": "A cricketer knocked over by the sight of a beautiful woman.",
+    "walkthrough": "The scorecard's b for 'bowled' is the piece to spot first, and 'keeper' plays two parts: the wicketkeeper of the surface, and a thing that keeps something on the kitchen table.",
+    "definitionFit": "Butter is a fat, and the dish is the lidded thing that keeps it, so the definition names contents plus function."
+   }
   },
   {
    "id": "9-down",
@@ -197,7 +467,45 @@ window.CRYPTIC_PUZZLES["indysunday-1856"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NIMBUS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "NIMBUS",
+    "definition": "Cloud",
+    "indicators": [
+     "lifted"
+    ],
+    "indicatorNotes": {
+     "lifted": "in a down clue, lifting a thing carries it up the grid, so those letters are read from the bottom upwards"
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "NIM",
+     "BUS"
+    ],
+    "subReversals": [
+     {
+      "from": "SUBMIN",
+      "to": "NIMBUS"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "less than",
+      "gives": "SUB",
+      "note": "sub- means under or below, as in subzero"
+     },
+     {
+      "clueFragment": "60 seconds",
+      "gives": "MIN",
+      "note": "min is the everyday shortening of minute, which is sixty seconds"
+     }
+    ],
+    "surface": "A weather front clearing away in under a minute.",
+    "walkthrough": "A nimbus is the dark rain-bearing cloud, and elsewhere the halo painted round a saint's head. The surface's promise of a time limit is the misdirection.",
+    "definitionFit": "Nimbus is a specific type of cloud, the rain-bearing one, so the definition names the class the answer is an instance of."
+   }
   },
   {
    "id": "10-across",
@@ -214,7 +522,30 @@ window.CRYPTIC_PUZZLES["indysunday-1856"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SHARP",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SHARP",
+    "definition": "out of tune",
+    "pieces": [
+     "S",
+     "HARP"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "gives": "S",
+      "note": "s = small, as on a clothing label"
+     },
+     {
+      "clueFragment": "instrument with strings",
+      "gives": "HARP",
+      "note": "the harp is the stringed instrument being described the long way round"
+     }
+    ],
+    "surface": "A little stringed instrument that has drifted off pitch.",
+    "walkthrough": "'Small instrument' wants to read as one phrase, a modest little thing; the S breaks off on its own and the instrument is everything after it.",
+    "definitionFit": "A note played sharp sits above the pitch it should have, which is one particular way of being out of tune."
+   }
   },
   {
    "id": "11-across",
@@ -231,7 +562,30 @@ window.CRYPTIC_PUZZLES["indysunday-1856"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PRESIDENT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PRESIDENT",
+    "definition": "Chief executive",
+    "pieces": [
+     "P",
+     "RESIDENT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "parking",
+      "gives": "P",
+      "note": "p = parking, the letter on the road sign"
+     },
+     {
+      "clueFragment": "at home",
+      "gives": "RESIDENT",
+      "note": "someone at home in a place is resident there"
+     }
+    ],
+    "surface": "A driver leaving the car outside the house.",
+    "walkthrough": "The surface is a car and a house with nothing corporate in sight, so 'Chief executive' at the front reads as scene-setting when it is doing all the defining.",
+    "definitionFit": "A president heads the executive branch of a state, or a company's board, so 'chief executive' is the job title rather than a loose synonym."
+   }
   },
   {
    "id": "12-across",
@@ -248,7 +602,66 @@ window.CRYPTIC_PUZZLES["indysunday-1856"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MEGAVERTEBRATE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "MEGAVERTEBRATE",
+    "definition": "large spined creature",
+    "indicators": [
+     "knocked over"
+    ],
+    "indicatorNotes": {
+     "knocked over": "a thing knocked over ends up the wrong way round, so the whole chain is read from its far end back"
+    },
+    "pieces": [
+     "MEG",
+     "A",
+     "VER",
+     "TEB",
+     "RAT",
+     "E"
+    ],
+    "subReversals": [
+     {
+      "from": "ETARBETREVAGEM",
+      "to": "MEGAVERTEBRATE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "e = English, the standard abbreviation"
+     },
+     {
+      "clueFragment": "sailor",
+      "gives": "TAR",
+      "note": "a tar is a sailor, from the tarpaulin clothing of the old navy"
+     },
+     {
+      "clueFragment": "bet",
+      "gives": "BET",
+      "note": "the clue's own word, used as it stands"
+     },
+     {
+      "clueFragment": "priest",
+      "gives": "REV",
+      "note": "the Reverend, shortened the way it is written on an envelope"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "used literally"
+     },
+     {
+      "clueFragment": "stone",
+      "gives": "GEM",
+      "note": "a gem is a precious stone"
+     }
+    ],
+    "surface": "An English sailor wagering a jewel with a clergyman, and the stake getting knocked over.",
+    "walkthrough": "TAR for a sailor and REV for a priest are the two bits of crossword vocabulary worth banking here. The answer is a real if chunky term from conservation biology, used of big backboned animals.",
+    "definitionFit": "A vertebrate is a creature with a backbone and mega- makes it a large one, so the definition translates the coinage piece by piece."
+   }
   },
   {
    "id": "13-down",
@@ -269,7 +682,45 @@ window.CRYPTIC_PUZZLES["indysunday-1856"] = /*JSON-START*/ {
     ]
    },
    "solution": "JAMAICARUM",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "JAMAICA RUM",
+    "definition": "WI produce?",
+    "indicators": [
+     "sandwiches",
+     "cut"
+    ],
+    "indicatorNotes": {
+     "sandwiches": "a sandwich keeps its filling between two slices, so the word before this one splits and takes the rest inside",
+     "cut": "something cut is left shorter than it was, and here the trimming takes the final letter"
+    },
+    "pieces": [
+     "JA",
+     "MA",
+     "ICARU",
+     "M"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jam",
+      "gives": "JAM",
+      "note": "the clue's own word, splitting after two letters to take the filling"
+     },
+     {
+      "clueFragment": "mother",
+      "gives": "MA",
+      "note": "ma is mother"
+     },
+     {
+      "clueFragment": "son taking flight",
+      "gives": "ICARUS",
+      "note": "Icarus, the son who flew on wax wings until the sun got at them"
+     }
+    ],
+    "surface": "A mother and son making a run for it, with jam sandwiches packed for the journey.",
+    "walkthrough": "'Jam' and 'WI' together summon the Women's Institute and its jam stall, and the WI wanted here is the West Indies. Icarus arrives one letter short.",
+    "definitionFit": "WI is the West Indies, and rum from Jamaica is the islands' best-known export — a product named for where it is made."
+   }
   },
   {
    "id": "14-across",
@@ -286,7 +737,37 @@ window.CRYPTIC_PUZZLES["indysunday-1856"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "APRONED",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "APRONED",
+    "definition": "in a pinny",
+    "indicators": [
+     "keeps"
+    ],
+    "indicatorNotes": {
+     "keeps": "to keep something is to hold on to it, so the word before this one closes around what comes next"
+    },
+    "pieces": [
+     "A",
+     "PRONE",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bill",
+      "gives": "AD",
+      "note": "a bill pasted on a wall is an ad, and it opens between its two letters"
+     },
+     {
+      "clueFragment": "lying down",
+      "gives": "PRONE",
+      "note": "prone means lying face down"
+     }
+    ],
+    "surface": "Bill lying about instead of doing the cooking he is dressed for.",
+    "walkthrough": "A pinny is British household shorthand for a pinafore apron, the thing you tie on to cook. 'Bill' is the poster on a wall, not the man the surface offers.",
+    "definitionFit": "Someone in a pinny is wearing one, and aproned is the adjective for exactly that state, kept alive mostly in descriptions of cooks."
+   }
   },
   {
    "id": "15-down",
@@ -303,7 +784,48 @@ window.CRYPTIC_PUZZLES["indysunday-1856"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DETONATOR",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "DETONATOR",
+    "definition": "Setter off",
+    "indicators": [
+     "upcoming"
+    ],
+    "indicatorNotes": {
+     "upcoming": "in a down clue, something upcoming is travelling up the grid, so those letters are read from the bottom of the entry"
+    },
+    "pieces": [
+     "DE",
+     "TON",
+     "ATOR"
+    ],
+    "subReversals": [
+     {
+      "from": "ROTANOTED",
+      "to": "DETONATOR"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "schedule",
+      "gives": "ROTA",
+      "note": "a rota is a duty schedule — whose turn it is, week by week"
+     },
+     {
+      "clueFragment": "denied",
+      "gives": "NOT",
+      "note": "to deny a thing is to say it is not so"
+     },
+     {
+      "clueFragment": "Ed",
+      "gives": "ED",
+      "note": "the name as it stands"
+     }
+    ],
+    "surface": "A setter taking time off, and the timetable the editor has refused.",
+    "walkthrough": "'Setter off' reads as a setter having a day off, and the definition wants a setter-off: a thing that sets something else going. Ed is the editor of the surface and just a name in the wordplay.",
+    "definitionFit": "A detonator sets off a charge, so the definition is an agent noun built from the verb rather than a dictionary synonym."
+   }
   },
   {
    "id": "16-across",
@@ -320,7 +842,36 @@ window.CRYPTIC_PUZZLES["indysunday-1856"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INSIPID",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "INSIPID",
+    "definition": "without much taste",
+    "pieces": [
+     "IN",
+     "SIP",
+     "ID"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Filling",
+      "gives": "IN",
+      "note": "a filling is what sits in a thing, whether a sandwich or a tooth"
+     },
+     {
+      "clueFragment": "little drink",
+      "gives": "SIP",
+      "note": "a sip is the smallest drink you can take"
+     },
+     {
+      "clueFragment": "I had",
+      "gives": "ID",
+      "note": "I had contracts to I'd, and the apostrophe is dropped on the way into the grid"
+     }
+    ],
+    "surface": "A modest snack and a small drink that turn out to be bland.",
+    "walkthrough": "'Filling' looks like an instruction to put one thing inside another and is only a word for 'in'. Dropping the apostrophe from I'd is a liberty every setter takes.",
+    "definitionFit": "Insipid food lacks savour, so 'without much taste' is the plain sense, ahead of the word's other use for a dull person."
+   }
   },
   {
    "id": "17-down",
@@ -337,7 +888,30 @@ window.CRYPTIC_PUZZLES["indysunday-1856"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PARTRIDGE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PARTRIDGE",
+    "definition": "First thing true love offered",
+    "pieces": [
+     "PART",
+     "RIDGE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "some",
+      "gives": "PART",
+      "note": "some of a thing is a part of it"
+     },
+     {
+      "clueFragment": "Crest",
+      "gives": "RIDGE",
+      "note": "the crest of a hill is its ridge"
+     }
+    ],
+    "surface": "A sweetheart's opening present, with a bit of a hilltop thrown in.",
+    "walkthrough": "In 'The Twelve Days of Christmas' the true love's first gift is a partridge in a pear tree, which is why the definition runs to a whole clause. The capital C on 'Crest' is surface dressing and carries no instruction.",
+    "definitionFit": "The song's first day brings the bird in the pear tree, so the definition identifies it by its place in the list of gifts."
+   }
   },
   {
    "id": "18-across",
@@ -358,7 +932,49 @@ window.CRYPTIC_PUZZLES["indysunday-1856"] = /*JSON-START*/ {
     ]
    },
    "solution": "ATWORST",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "AT WORST",
+    "definition": "dreadful prognosis",
+    "definitionNote": "'At worst' is an adverbial phrase and 'dreadful prognosis' a noun phrase, so they will not swap places in a sentence; the setter is defining by what the words introduce, the grimmest outcome on offer.",
+    "indicators": [
+     "bitten by",
+     "mad"
+    ],
+    "indicatorNotes": {
+     "bitten by": "a bite closes around whatever it takes hold of, so what is bitten ends up inside the biter",
+     "mad": "a mad thing is deranged, and deranged letters do not keep the arrangement they were given"
+    },
+    "linkWords": [
+     "given"
+    ],
+    "pieces": [
+     "A",
+     "TWO",
+     "RST"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "RATS",
+      "gives": "ARST"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mad rats",
+      "gives": "ARST",
+      "note": "RATS with its four letters deranged, opening up after the A"
+     },
+     {
+      "clueFragment": "Couple",
+      "gives": "TWO",
+      "note": "a couple is two"
+     }
+    ],
+    "surface": "Someone bitten by rabid rats being handed the grimmest possible diagnosis.",
+    "walkthrough": "'Mad rats' does double duty on the surface, where rabies is exactly what produces a dreadful prognosis. The definition is the phrase you reach for when naming a worst case.",
+    "definitionFit": "You say 'at worst' when naming the grimmest outcome available, which is what a dreadful prognosis states."
+   }
   },
   {
    "id": "19-down",
@@ -375,7 +991,36 @@ window.CRYPTIC_PUZZLES["indysunday-1856"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RUSTIC",
-   "annotation": null
+   "annotation": {
+    "type": "charade + middle letters",
+    "answer": "RUSTIC",
+    "definition": "Coarse",
+    "indicators": [
+     "on the inside"
+    ],
+    "indicatorNotes": {
+     "on the inside": "what is on the inside of a word is its core, so the outer letters are dropped and the middle kept"
+    },
+    "pieces": [
+     "RUST",
+     "IC"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "orange coat",
+      "gives": "RUST",
+      "note": "rust is the orange coating iron grows when it is left out in the wet"
+     },
+     {
+      "clueFragment": "nice",
+      "gives": "IC",
+      "note": "the two letters at the centre of the word"
+     }
+    ],
+    "surface": "A rough orange jacket that is pleasant enough against the skin.",
+    "walkthrough": "'Coat' is the layer that forms on neglected iron rather than a garment. Rustic means countrified and, by an old snobbery, unpolished — the definition takes that second step.",
+    "definitionFit": "Rustic describes the countryside and then, by transfer, the manners attributed to it, and coarse is that transferred sense."
+   }
   },
   {
    "id": "20-across",
@@ -396,7 +1041,44 @@ window.CRYPTIC_PUZZLES["indysunday-1856"] = /*JSON-START*/ {
     ]
    },
    "solution": "GOCARTS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + charade",
+    "answer": "GO-CARTS",
+    "definition": "soapboxes",
+    "indicators": [
+     "hectored",
+     "on"
+    ],
+    "indicatorNotes": {
+     "hectored": "to hector is to bully and harangue, and a name knocked about like that comes out in a different order",
+     "on": "in an across clue, one thing on another sits after it, so the shuffled letters follow the single letter"
+    },
+    "pieces": [
+     "G",
+     "OCARTS"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "CASTRO",
+      "gives": "OCARTS"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "grand",
+      "gives": "G",
+      "note": "g = grand, the standard abbreviation"
+     },
+     {
+      "clueFragment": "Castro",
+      "gives": "OCARTS",
+      "note": "the six letters of CASTRO rearranged"
+     }
+    ],
+    "surface": "Fidel Castro being harangued from a grand platform.",
+    "walkthrough": "A soapbox in Britain is the home-made cart children race downhill as well as the box an orator stands on, and the surface is leaning on the orator.",
+    "definitionFit": "A soapbox is the British name for a home-made downhill racer, so the definition is the same vehicles under their nickname."
+   }
   },
   {
    "id": "21-down",
@@ -413,7 +1095,42 @@ window.CRYPTIC_PUZZLES["indysunday-1856"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHELSEA",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "CHELSEA",
+    "definition": "Football team",
+    "indicators": [
+     "briefly",
+     "involved"
+    ],
+    "indicatorNotes": {
+     "briefly": "said briefly, a word is cut short, and the letter that goes is the last one",
+     "involved": "getting someone involved is bringing them in, so the golfer's letters land inside the other word"
+    },
+    "linkWords": [
+     "getting"
+    ],
+    "pieces": [
+     "CH",
+     "ELS",
+     "EA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "break the rules",
+      "gives": "CHEAT",
+      "note": "to break the rules is to cheat"
+     },
+     {
+      "clueFragment": "golfer",
+      "gives": "ELS",
+      "note": "Ernie Els, the South African major winner, whose three letters make him a crossword regular"
+     }
+    ],
+    "surface": "A team bending the rules and dragging a golfer into the business.",
+    "walkthrough": "'Football team' looks like the sort of phrase that would be the wordplay's subject and is the definition. Els turns up constantly in grids because his surname is three useful letters.",
+    "definitionFit": "Chelsea is a west London club in the Premier League, so the definition is by example: one team standing in for the category."
+   }
   },
   {
    "id": "22-across",
@@ -435,7 +1152,30 @@ window.CRYPTIC_PUZZLES["indysunday-1856"] = /*JSON-START*/ {
     ]
    },
    "solution": "CROSSONESHEART",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "CROSS ONE'S HEART",
+    "definition": "Show you really mean it",
+    "indicators": [
+     "ordered"
+    ],
+    "indicatorNotes": {
+     "ordered": "this is the sense of being told to form up anew, not of being put into sequence, so the letters fall in differently"
+    },
+    "anagram": {
+     "fodder": "ACTRESSONHORSE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Actress on horse",
+      "gives": "ACTRESSONHORSE",
+      "note": "fourteen letters to rearrange — check them against the enumeration before you start"
+     }
+    ],
+    "surface": "A film star on horseback barking an instruction at somebody.",
+    "walkthrough": "The phrase is the children's promise — cross my heart and hope to die — which is why the definition is a whole instruction rather than a noun.",
+    "definitionFit": "Crossing your heart is the gesture that swears you are telling the truth, so the definition says what the action is for."
+   }
   },
   {
    "id": "23-down",
@@ -456,7 +1196,39 @@ window.CRYPTIC_PUZZLES["indysunday-1856"] = /*JSON-START*/ {
     ]
    },
    "solution": "OPART",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "OP ART",
+    "definition": "moving pictures, apparently",
+    "indicators": [
+     "before"
+    ],
+    "indicatorNotes": {
+     "before": "what goes before a thing is placed in front of it, so the single letter leads and the rest follows"
+    },
+    "linkWords": [
+     "given"
+    ],
+    "pieces": [
+     "O",
+     "PART"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Oscar",
+      "gives": "O",
+      "note": "Oscar is O in the phonetic alphabet"
+     },
+     {
+      "clueFragment": "Role",
+      "gives": "PART",
+      "note": "an actor's role is a part"
+     }
+    ],
+    "surface": "An actor handed a role and an Academy Award before the film even opens.",
+    "walkthrough": "'Moving pictures' wants to be the cinema, and 'apparently' quietly turns it into paintings that only seem to move — the 1960s optical-illusion style.",
+    "definitionFit": "Op art paintings appear to shimmer and shift while hanging perfectly still, so 'apparently' is what makes the definition exact."
+   }
   },
   {
    "id": "24-down",
@@ -479,7 +1251,35 @@ window.CRYPTIC_PUZZLES["indysunday-1856"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SOCKS",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "SOCKS",
+    "definition": "Tootsie covers",
+    "indicators": [
+     "hidden in"
+    ],
+    "indicatorNotes": {
+     "hidden in": "something hidden in a word is tucked inside it out of sight, so the letter named is the one to take back out"
+    },
+    "pieces": [
+     "SOCKS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "blouses",
+      "gives": "SMOCKS",
+      "note": "smocks are the loose blouse-like tops"
+     },
+     {
+      "clueFragment": "male",
+      "gives": "M",
+      "note": "m = male, the standard abbreviation, and it is the letter being concealed"
+     }
+    ],
+    "surface": "The film Tootsie, in which a man conceals himself in women's clothes.",
+    "walkthrough": "The instruction runs the opposite way to usual: conceal the M inside the answer and the blouses appear. Tootsies are feet in nursery slang, which the italicised film title is there to disguise.",
+    "definitionFit": "Tootsies are feet in nursery slang, and socks are what cover them, so the definition names the body part instead of the garment."
+   }
   },
   {
    "id": "25-down",
@@ -496,7 +1296,40 @@ window.CRYPTIC_PUZZLES["indysunday-1856"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "COPT",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "COPT",
+    "definition": "Christian",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "a thing in another thing sits inside it, so the letter is planted in the middle of the word that follows"
+    },
+    "linkWords": [
+     "'s"
+    ],
+    "pieces": [
+     "CO",
+     "P",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bed",
+      "gives": "COT",
+      "note": "a cot is a bed, and it opens after its first two letters"
+     },
+     {
+      "clueFragment": "quiet",
+      "gives": "P",
+      "note": "p is piano in music, the mark telling you to play quietly"
+     }
+    ],
+    "surface": "A man called Christian lying quiet in bed.",
+    "walkthrough": "'Christian' reads as a first name on the surface, which is what makes the possessive apostrophe-s look like part of it; in the cryptic reading it only means 'is'.",
+    "definitionFit": "A Copt belongs to the Egyptian church founded by tradition by St Mark, so the definition names the faith and the answer one of its members."
+   }
   },
   {
    "id": "26-across",
@@ -513,7 +1346,45 @@ window.CRYPTIC_PUZZLES["indysunday-1856"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REALISTIC",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "REALISTIC",
+    "definition": "Sensible",
+    "indicators": [
+     "divides",
+     "half of"
+    ],
+    "indicatorNotes": {
+     "divides": "to divide a thing is to come between its parts, so what precedes this word splits the word that follows",
+     "half of": "keeping half of a six-letter word leaves its first three letters and throws the rest away"
+    },
+    "pieces": [
+     "R",
+     "E",
+     "ALIST",
+     "IC"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "half of wealth",
+      "gives": "RIC",
+      "note": "the front half of RICHES, split again to take the insert"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "e = English, the standard abbreviation"
+     },
+     {
+      "clueFragment": "celebrity",
+      "gives": "ALIST",
+      "note": "an A-lister is a celebrity of the top rank"
+     }
+    ],
+    "surface": "A well-known Englishman splitting a fortune down the middle.",
+    "walkthrough": "'Divides' is the surface's word for splitting money and the wordplay's word for splitting a word. A-list for celebrity is modern crossword shorthand worth having ready.",
+    "definitionFit": "Being realistic is taking a sober view of what can actually happen, which is what we mean by calling a person sensible."
+   }
   },
   {
    "id": "27-across",
@@ -530,7 +1401,42 @@ window.CRYPTIC_PUZZLES["indysunday-1856"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SADDO",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "SADDO",
+    "definition": "One's not groovy",
+    "indicators": [
+     "twisting"
+    ],
+    "indicatorNotes": {
+     "twisting": "a thing that twists turns right about, so the pieces just assembled come out the other way round"
+    },
+    "pieces": [
+     "SA",
+     "DDO"
+    ],
+    "subReversals": [
+     {
+      "from": "ODDAS",
+      "to": "SADDO"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not even",
+      "gives": "ODD",
+      "note": "a number that is not even is odd"
+     },
+     {
+      "clueFragment": "when",
+      "gives": "AS",
+      "note": "as = when, in the sense of 'he arrived as I left'"
+     }
+    ],
+    "surface": "A person with no groove in them, not even out on the dance floor.",
+    "walkthrough": "The Twist is the dance the surface has in mind, and 'groovy' comes from the same decade. The answer is British slang for someone pitiably uncool.",
+    "definitionFit": "A saddo is British slang for a person nobody could call cool, and 'not groovy' is the sixties way of saying it of them."
+   }
   },
   {
    "id": "28-across",
@@ -547,7 +1453,30 @@ window.CRYPTIC_PUZZLES["indysunday-1856"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MITE",
-   "annotation": null
+   "annotation": {
+    "type": "cycling",
+    "answer": "MITE",
+    "definition": "a little bit",
+    "indicators": [
+     "cycled"
+    ],
+    "indicatorNotes": {
+     "cycled": "a cycle brings the end round to the front, the letters keeping their order but starting from a different point"
+    },
+    "pieces": [
+     "MITE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Couple",
+      "gives": "ITEM",
+      "note": "a couple going out together are an item"
+     }
+    ],
+    "surface": "A pair who went out on their bikes for a short ride.",
+    "walkthrough": "The surface has two people on bicycles, and the instruction is the wheel rather than the ride. A mite is a small amount as well as a very small creature.",
+    "definitionFit": "A mite is a small quantity — 'wait a mite', 'a mite tired' — so this is the everyday sense rather than the insect."
+   }
   },
   {
    "id": "29-across",
@@ -568,7 +1497,48 @@ window.CRYPTIC_PUZZLES["indysunday-1856"] = /*JSON-START*/ {
     ]
    },
    "solution": "PRESSAGENT",
-   "annotation": null
+   "annotation": {
+    "type": "substitution",
+    "answer": "PRESS AGENT",
+    "definition": "PR man",
+    "indicators": [
+     "for"
+    ],
+    "indicatorNotes": {
+     "for": "'for' is the word of exchange — one thing standing in place of another, as a deputy stands for a boss"
+    },
+    "pieces": [
+     "PRE",
+     "S",
+     "SAGE",
+     "NT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "11's",
+      "gives": "PRESIDENT",
+      "note": "the answer to 11 across, which is the word being operated on"
+     },
+     {
+      "clueFragment": "team",
+      "gives": "SIDE",
+      "note": "a side is a team, and one is sitting in the middle of that word: pre-SIDE-nt"
+     },
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "s = second, as written on a stopwatch"
+     },
+     {
+      "clueFragment": "wise guy",
+      "gives": "SAGE",
+      "note": "a sage is a wise man"
+     }
+    ],
+    "surface": "A publicist and a smart alec picked out for the boss's line-up.",
+    "walkthrough": "11 across has to be solved first, because its answer is the raw material here. 'Wise guy' is a smart alec on the surface and a sage underneath.",
+    "definitionFit": "A press agent handles publicity for a client, which is the job 'PR man' names — public relations, by its initials."
+   }
   }
  ]
 } /*JSON-END*/;
