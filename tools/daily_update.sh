@@ -172,8 +172,15 @@ in tonight's queue and will be rewritten against the real answer."
 # so it runs unconditionally and never blocks the puzzle work. Failures print
 # and are ignored — a scrape of somebody else's bundle is expected to break the
 # day they change it, and that is not a reason to hold back tonight's puzzle.
+# The guard says so out loud. Their daily clue is only ever offered on the day,
+# so a silent skip is not a deferral, it is a permanent hole in daily.jsonl --
+# eleven days of them, when node went missing between 2026-08-28 and the
+# container cutover and this printed nothing either way.
 if command -v node >/dev/null 2>&1; then
   node tools/fetch_minutecryptic.js --quiet || echo "WARNING: minutecryptic capture failed"
+else
+  echo "WARNING: no node on PATH ($PATH) — skipping the minutecryptic capture;" \
+       "today's clue is only offered today and will not be recoverable"
 fi
 
 # --- 3. annotate the newest un-annotated puzzles, if any and if claude exists ---
