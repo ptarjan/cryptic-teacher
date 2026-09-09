@@ -105,14 +105,21 @@ TYPE_PARTS = {
 
 
 # A cryptic definition has no checkable mechanism: the solver either sees the
-# joke or is stuck. One or two per puzzle is a treat, more is a quiz. Measured
-# over the annotated puzzles in puzzles/: only one published puzzle (30039)
-# carries any cryptic definitions at all, and it carries exactly two — so this
-# ceiling has never fired on a Guardian grid. It exists because OUR authoring
-# pass drifts over it: chasing a funny surface produced six in one rewrite of
-# A001, since a funny sentence is far easier to find than a funny mechanism
-# (feedback 2026-07-29: "they don't have wordplay anymore"). See AUTHORING.md,
-# "The sentence AND the wordplay".
+# joke or is stuck. One or two per puzzle is a treat, more is a quiz. It exists
+# because OUR authoring pass drifts over it: chasing a funny surface produced
+# six in one rewrite of A001, since a funny sentence is far easier to find than
+# a funny mechanism (feedback 2026-07-29: "they don't have wordplay anymore").
+# See AUTHORING.md, "The sentence AND the wordplay".
+#
+# The cap is a HARD limit on authored puzzles and only a warning on fetched
+# ones, because a published setter's count is a fact about their puzzle and not
+# a budget we get to set. Measured over the 331 annotated puzzles in puzzles/:
+# 200 carry no cryptic definitions, 89 carry one, 42 carry two. Nothing carried
+# three until quiptic-1372 (Harpo), which genuinely has five — and because the
+# cap was an error there, the annotator solved all five and then shipped three
+# of them BLANK to stay under it. A blank clue teaches nothing and no check
+# could see it, so the cap was buying a silent failure at the price of a loud
+# one. check_every_clue_is_annotated is the loud one now.
 MAX_CRYPTIC_DEFINITIONS = 2
 
 
@@ -1095,16 +1102,19 @@ def multiset_diff(a, b):
     return extra, missing
 
 
-def check_cryptic_definition_cap(entries, errors, warnings=None):
+def check_cryptic_definition_cap(entries, errors, warnings=None, authored=False):
     """A puzzle may not lean on cryptic definitions (see MAX_CRYPTIC_DEFINITIONS).
 
     This is the one check that looks at the puzzle rather than the clue: every
     individual cryptic definition can be perfectly good and the set still be
     wrong, which is exactly how six of them got into A001 unnoticed.
 
-    Sitting exactly ON the cap warns as well as going over it, because a
-    cryptic definition is the only type an annotator can reach for without
-    solving anything, which makes the count a measure of giving up. The
+    Over the cap is an error only when we set the puzzle, because that is the
+    only case where the count is ours to change. On a fetched puzzle it warns,
+    at the cap or over it, and names every cryptic definition for a human to
+    read. Reaching the cap warns at all because a cryptic definition is the
+    only type an annotator can reach for without solving anything, which makes
+    the count a measure of giving up. The
     2026-08-08 model benchmark is the evidence: Sonnet annotated two puzzles
     and landed on exactly 2 in both, passing by spending its whole surrender
     budget — and on 30078, where Fable's annotation of the same clues existed
@@ -1121,18 +1131,54 @@ def check_cryptic_definition_cap(entries, errors, warnings=None):
     cds = [f"{e['number']}{'A' if e['direction'] == 'across' else 'D'}"
            for e in entries
            if (e.get("annotation") or {}).get("type") == "cryptic definition"]
-    if len(cds) == MAX_CRYPTIC_DEFINITIONS and warnings is not None:
-        warnings.append(
-            f"puzzle: at the cryptic-definition cap ({', '.join(cds)}). Not an error, "
-            f"but this is where an annotator that could not solve a clue puts it, and "
-            f"nothing downstream can tell that from a real cryptic definition. Read "
-            f"those two clues and satisfy yourself there is no wordplay in them")
-    if len(cds) > MAX_CRYPTIC_DEFINITIONS:
+    if len(cds) < MAX_CRYPTIC_DEFINITIONS:
+        return
+    if len(cds) > MAX_CRYPTIC_DEFINITIONS and authored:
         errors.append(
             f"puzzle: {len(cds)} cryptic definitions ({', '.join(cds)}) — at most "
-            f"{MAX_CRYPTIC_DEFINITIONS} allowed. A cryptic definition has no checkable "
-            f"wordplay, so past two the puzzle stops being solvable and starts being "
-            f"guessable; find the mechanism these clues are hiding (AUTHORING.md)")
+            f"{MAX_CRYPTIC_DEFINITIONS} allowed in a puzzle we set ourselves. A cryptic "
+            f"definition has no checkable wordplay, so past two the puzzle stops being "
+            f"solvable and starts being guessable; rewrite these clues around a "
+            f"mechanism (AUTHORING.md)")
+        return
+    if warnings is not None:
+        warnings.append(
+            f"puzzle: {len(cds)} cryptic definitions ({', '.join(cds)}), at or over the "
+            f"cap of {MAX_CRYPTIC_DEFINITIONS}. Not an error, but this is where an "
+            f"annotator that could not solve a clue puts it, and nothing downstream can "
+            f"tell that from a real cryptic definition. Read those clues and satisfy "
+            f"yourself there is no wordplay in them")
+
+
+def check_every_clue_is_annotated(entries, errors, warnings):
+    """Once a puzzle is annotated at all, every clue in it must be annotated.
+
+    A blank annotation is the one failure no other check can see: it claims
+    nothing, so it contradicts nothing, and the puzzle ships a clue with no
+    teaching ladder behind it. It is also the escape hatch from every other
+    rule here — quiptic-1372 solved five cryptic definitions and blanked three
+    of them rather than fail check_cryptic_definition_cap, which turned a loud
+    failure into a silent one. Erroring here is what stops a rule elsewhere
+    from being paid for in blanks.
+
+    The one legitimate blank is a clue the setter left blank on purpose (a
+    grid entry with no clue text, as in cryptic-30098 12A). That is detectable
+    from the clue itself rather than from an allowlist: strip the enumeration
+    and nothing is left.
+    """
+    for e in entries:
+        if e.get("annotation"):
+            continue
+        tag = f"{e['number']}{'A' if e['direction'] == 'across' else 'D'}"
+        if not re.sub(r"\([\d,\-\s]+\)\s*$", "", e["clue"]).strip():
+            warnings.append(f"{tag}: no annotation, and no clue to annotate — "
+                            f"the setter left this entry blank on purpose")
+            continue
+        errors.append(
+            f"{tag}: no annotation. Every clue in an annotated puzzle needs one — "
+            f"a blank ships a clue with nothing to teach, and no other check can "
+            f"see it. If a rule elsewhere is what stopped you, break that rule "
+            f"loudly instead: it names the clue, a blank does not")
 
 
 def check_cryptic_definition_blocks(tag, ann, errors, warnings):
@@ -1603,8 +1649,7 @@ def validate_puzzle(puzzle):
         ann = e.get("annotation")
         tag = f"{e['number']}{'A' if e['direction'] == 'across' else 'D'}"
         if ann is None:
-            warnings.append(f"{tag}: no annotation")
-            continue
+            continue        # check_every_clue_is_annotated reports these
         annotated += 1
 
         if "linkedTo" in ann:
@@ -1753,7 +1798,9 @@ def validate_puzzle(puzzle):
                 errors.append(f"{tag}: subReversal {sub['from']} reversed != {sub['to']}")
 
     if annotated:
-        check_cryptic_definition_cap(puzzle["entries"], errors, warnings)
+        check_every_clue_is_annotated(puzzle["entries"], errors, warnings)
+        check_cryptic_definition_cap(puzzle["entries"], errors, warnings,
+                                     authored=authored)
         check_definition_not_fodder(puzzle["entries"], errors, warnings)
         check_blocks_account_for_answer(puzzle["entries"], errors, warnings)
         check_blocks_decompose(puzzle["entries"], errors, warnings)

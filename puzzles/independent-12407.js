@@ -159,14 +159,41 @@ window.CRYPTIC_PUZZLES["independent-12407"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 8,
-   "clue": "a well-mannered fellow, extremely ideal, being “good breeding” as they once said - (8)",
+   "clue": "developed there at noon to foreshadow (8)",
    "group": [
     "4-down"
    ],
    "separatorLocations": {},
    "solution": "THREATEN",
-   "annotation": null,
-   "clueCorrupt": "The Independent printed 5-down's clue here, with a different ending glued on. The setter's own wordplay for this one, in the paper's data feed, is an anagram of THERE AT plus N — words that never appeared on the page."
+   "annotation": {
+    "type": "anagram",
+    "answer": "THREATEN",
+    "definition": "to foreshadow",
+    "indicators": [
+     "developed"
+    ],
+    "indicatorNotes": {
+     "developed": "something developed has been worked up into a new shape, and a new shape for a set of letters is a new order for them"
+    },
+    "anagram": {
+     "fodder": "THERE AT N"
+    },
+    "blocks": [
+     {
+      "clueFragment": "there at",
+      "gives": "THEREAT",
+      "note": "seven letters of fodder, taken straight from the clue"
+     },
+     {
+      "clueFragment": "noon",
+      "gives": "N",
+      "note": "N is the standard abbreviation for noon, as printed on a timetable"
+     }
+    ],
+    "walkthrough": "'Developed' is the shuffle. Anagram THERE AT together with the N of noon and the eight letters fall into THREATEN.",
+    "definitionFit": "to foreshadow → THREATEN: when the sky threatens rain it is giving warning of rain to come, so to threaten a thing is to foreshadow it."
+   },
+   "clueCorrupt": "The Independent printed 5-down's clue here, with a different ending glued on, and the paper's own data feed carried the real wordplay (an anagram of THERE AT plus N) that never appeared on the page. The clue above is the one Atrica confirmed in the Fifteensquared comments; the printed text is not recoverable as a solvable clue and is not kept."
   },
   {
    "id": "5-down",

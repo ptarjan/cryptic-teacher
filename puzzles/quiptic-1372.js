@@ -314,7 +314,24 @@ window.CRYPTIC_PUZZLES["quiptic-1372"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FLAGSTAFF",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "FLAGSTAFF",
+    "definition": "One used to keep up standards?",
+    "blocks": [
+     {
+      "clueFragment": "One used to keep up",
+      "note": "In the surface this is a person who maintains quality; read literally it is an object whose job is to hold something aloft."
+     },
+     {
+      "clueFragment": "standards",
+      "note": "A standard is a banner or ensign — the sense in the Royal Standard — so the word swings from levels of quality to pieces of cloth."
+     }
+    ],
+    "surface": "Somebody relied on to stop the rest of us letting things slide.",
+    "walkthrough": "No letters come apart here. A flagstaff is the pole a flag flies from, and a standard is a flag, so the thing that keeps standards up is the pole holding them in the air.",
+    "definitionFit": "One used to keep up standards? → FLAGSTAFF: a staff exists to hold a flag up, and a standard is a flag."
+   }
   },
   {
    "id": "7-down",
@@ -989,7 +1006,24 @@ window.CRYPTIC_PUZZLES["quiptic-1372"] = /*JSON-START*/ {
     ]
    },
    "solution": "CREWCUT",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "CREW CUT",
+    "definition": "Rather brief form of shock?",
+    "blocks": [
+     {
+      "clueFragment": "Rather brief",
+      "note": "Quite short — and the shortness is literal, a measurement of length rather than of time."
+     },
+     {
+      "clueFragment": "form of shock",
+      "note": "A shock is a thick unruly mass of hair, as in a shock of red hair, so a form of shock is a way of wearing it."
+     }
+    ],
+    "surface": "Something startling, but only mildly and not for long.",
+    "walkthrough": "Nothing here comes apart into letters. 'Shock' has to stop meaning a jolt and start meaning a head of hair; the briefest way to wear one is clipped to a crew cut.",
+    "definitionFit": "Rather brief form of shock? → CREW CUT: a shock is a mass of hair, and a crew cut is that hair worn very short."
+   }
   },
   {
    "id": "21-across",
@@ -1101,7 +1135,24 @@ window.CRYPTIC_PUZZLES["quiptic-1372"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NEEDS",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "NEEDS",
+    "definition": "The more of these you have, the more you want",
+    "blocks": [
+     {
+      "clueFragment": "The more of these you have",
+      "note": "'These' stands in for the answer itself, which is what makes the sentence a definition rather than a statement about anything."
+     },
+     {
+      "clueFragment": "the more you want",
+      "note": "'Want' is doing both jobs at once: to desire, and — in the older sense of 'for want of' — to lack."
+     }
+    ],
+    "surface": "The familiar complaint that getting things never leaves you satisfied.",
+    "walkthrough": "There are no letters to find. The clue is a small paradox that only resolves once you notice a need is a thing you want and a thing you lack at the same time, so collecting them cannot possibly reduce them.",
+    "definitionFit": "The more of these you have, the more you want → NEEDS: a need is something wanted and not yet had, so more needs is more wanting."
+   }
   },
   {
    "id": "24-across",
