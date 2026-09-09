@@ -34,7 +34,36 @@ window.CRYPTIC_PUZZLES["indysunday-1853"] = /*JSON-START*/ {
     ]
    },
    "solution": "SNAPUP",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SNAP UP",
+    "definition": "Eagerly buy",
+    "indicators": [
+     "on back of"
+    ],
+    "indicatorNotes": {
+     "on back of": "Riding on the back of something means coming along behind it, so the worthless item's letters trail the metal rather than lead it."
+    },
+    "pieces": [
+     "SN",
+     "APUP"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tin",
+      "gives": "SN",
+      "note": "the chemical symbol for tin, element 50 on the periodic table"
+     },
+     {
+      "clueFragment": "something worthless",
+      "gives": "APUP",
+      "note": "to be sold a pup is to be fobbed off with a worthless thing, and the idiom keeps its article"
+     }
+    ],
+    "surface": "A shopper keenly buying a bit of junk stuck to the back of a can.",
+    "walkthrough": "'Tin' is the metal rather than the container, and metals reach cryptics as their periodic-table symbols. The pup is the swindler's classic worthless goods.",
+    "definitionFit": "Eagerly buy -> SNAP UP: to snap something up is to buy it fast, before anyone else can, with the eagerness built into the phrase."
+   }
   },
   {
    "id": "2-down",
@@ -51,7 +80,33 @@ window.CRYPTIC_PUZZLES["indysunday-1853"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NOON",
-   "annotation": null
+   "annotation": {
+    "type": "palindrome",
+    "answer": "NOON",
+    "definition": "Turning point for the sun",
+    "indicators": [
+     "going up and down"
+    ],
+    "indicatorNotes": {
+     "going up and down": "A word that reads the same climbing as it does descending is the only kind that survives being sent both ways, which is what this asks for."
+    },
+    "pieces": [
+     "NOON"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Turning point for the sun",
+      "note": "the sun climbs all morning and drops all afternoon, so its turning point is one moment in the middle of the day"
+     },
+     {
+      "clueFragment": "going up and down",
+      "note": "this is the whole of the wordplay - the four letters must read identically from either end, so the outer pair matches and the inner pair matches"
+     }
+    ],
+    "surface": "The sun rising and sinking through the day, and the moment it changes its mind.",
+    "walkthrough": "A down entry is read top to bottom, so 'up and down' is asking for letters that come out the same whichever way you travel them. Nothing turns into anything else.",
+    "definitionFit": "Turning point for the sun -> NOON: the sun stops climbing at midday and starts down again, so noon is literally where its course turns."
+   }
   },
   {
    "id": "3-down",
@@ -72,7 +127,44 @@ window.CRYPTIC_PUZZLES["indysunday-1853"] = /*JSON-START*/ {
     ]
    },
    "solution": "POFACED",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + charade",
+    "answer": "PO-FACED",
+    "definition": "Not amused",
+    "indicators": [
+     "picking up",
+     "after"
+    ],
+    "indicatorNotes": {
+     "picking up": "Anything picked up in a down entry travels back towards the top, so the letters assembled below arrive in the opposite order.",
+     "after": "Coming after something puts it behind, so the work sits at the tail of the coffee before the pair is lifted."
+    },
+    "pieces": [
+     "PO",
+     "FACED"
+    ],
+    "subReversals": [
+     {
+      "from": "DECAFOP",
+      "to": "POFACED"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ineffective coffee",
+      "gives": "DECAF",
+      "note": "coffee with the caffeine taken out does not do coffee's job"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "OP",
+      "note": "an op is a work, the same shortening as a composer's opus"
+     }
+    ],
+    "surface": "A humourless employee collecting a job after a cup of coffee that did nothing for them.",
+    "walkthrough": "'Picking up' reads as collecting the work and is the instruction that turns the whole assembly over, both pieces at once rather than either on its own.",
+    "definitionFit": "Not amused -> PO-FACED: po-faced means humourless and disapproving, wearing the solemn expression of someone refusing to see the joke."
+   }
   },
   {
    "id": "4-down",
@@ -89,7 +181,43 @@ window.CRYPTIC_PUZZLES["indysunday-1853"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PROMENADE",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "PROMENADE",
+    "definition": "Walk",
+    "indicators": [
+     "comprehending"
+    ],
+    "indicatorNotes": {
+     "comprehending": "To comprehend something is to take it in and hold it there, so what follows lands inside the word doing the comprehending."
+    },
+    "pieces": [
+     "PR",
+     "OMEN",
+     "AD",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "before",
+      "gives": "PRE",
+      "note": "pre- is the prefix meaning before, and the three letters open up after the second"
+     },
+     {
+      "clueFragment": "warning",
+      "gives": "OMEN",
+      "note": "an omen is a sign that warns of what is coming"
+     },
+     {
+      "clueFragment": "notice",
+      "gives": "AD",
+      "note": "a notice in a paper is an ad, the classified sort"
+     }
+    ],
+    "surface": "Strolling along before you take in a sign telling you to keep off.",
+    "walkthrough": "'Warning notice' looks like one object on a post and is two separate words to translate. The definition is a noun as well as a verb: the seafront kind you walk along.",
+    "definitionFit": "Walk -> PROMENADE: a promenade is both the paved walk along a seafront and the leisurely stroll you take on it."
+   }
   },
   {
    "id": "5-across",
@@ -106,7 +234,35 @@ window.CRYPTIC_PUZZLES["indysunday-1853"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "POSITION",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "POSITION",
+    "definition": "standing",
+    "indicators": [
+     "New"
+    ],
+    "indicatorNotes": {
+     "New": "New means made afresh, and letters remade from scratch have no obligation to come back in the order they were handed over."
+    },
+    "anagram": {
+     "fodder": "TIPI SOON"
+    },
+    "blocks": [
+     {
+      "clueFragment": "tipi soon",
+      "gives": "TIPISOON",
+      "note": "anagram fodder, eight letters"
+     },
+     {
+      "clueFragment": "New",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "A freshly pitched tipi that will soon be up and standing on the campsite.",
+    "walkthrough": "'Standing' reads as the tent staying upright and means status instead - the rank someone holds in the world.",
+    "definitionFit": "standing -> POSITION: both are nouns for the rank or status someone holds, as in a position of authority or standing in the community."
+   }
   },
   {
    "id": "5-down",
@@ -123,7 +279,43 @@ window.CRYPTIC_PUZZLES["indysunday-1853"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PARASOL",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "PARASOL",
+    "definition": "shade",
+    "indicators": [
+     "in friend's"
+    ],
+    "indicatorNotes": {
+     "in friend's": "Being in a friend rather than beside one puts the pieces just named between that friend's letters."
+    },
+    "pieces": [
+     "PA",
+     "RA",
+     "SO",
+     "L"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "friend's",
+      "gives": "PAL",
+      "note": "a pal is a friend, and the three letters part after the second"
+     },
+     {
+      "clueFragment": "Painter",
+      "gives": "RA",
+      "note": "an RA is a Royal Academician, a painter elected to London's Royal Academy"
+     },
+     {
+      "clueFragment": "really",
+      "gives": "SO",
+      "note": "so tired is really tired, the word working as an intensifier"
+     }
+    ],
+    "surface": "A painter genuinely overshadowed by a friend.",
+    "walkthrough": "'Shade' is where the trap sits: it reads as the shadow one artist casts over another, and it means the thing that makes shade.",
+    "definitionFit": "shade -> PARASOL: a parasol is carried to make shade, so the setter defines it by what it produces rather than what it is made of."
+   }
   },
   {
    "id": "6-down",
@@ -140,7 +332,37 @@ window.CRYPTIC_PUZZLES["indysunday-1853"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SIENA",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + anagram",
+    "answer": "SIENA",
+    "definition": "here?",
+    "indicators": [
+     "having no end of",
+     "jockeys"
+    ],
+    "indicatorNotes": {
+     "having no end of": "The end of a word is its last letter, and having none of it is the instruction to drop that letter before anything else happens.",
+     "jockeys": "To jockey for position is to shove and jostle, and letters jostled about no longer sit where they started."
+    },
+    "anagram": {
+     "fodder": "INSAE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Insane",
+      "gives": "INSANE",
+      "note": "the fodder handed over whole, six letters where the grid wants five"
+     },
+     {
+      "clueFragment": "fun",
+      "gives": "N",
+      "note": "the end of fun is N, and that is the letter surrendered before the jostling"
+     }
+    ],
+    "surface": "Jockeys riding like lunatics and enjoying every second of it, with a nudge at where.",
+    "walkthrough": "The Palio is a bareback horse race twice each summer round the sloping main square of Siena, ridden hard enough to make 'insane jockeys' fair comment.",
+    "definitionFit": "here? -> SIENA: the Tuscan city stages the Palio, so 'here' points at the one place those riders are doing this."
+   }
   },
   {
    "id": "7-down",
@@ -157,7 +379,51 @@ window.CRYPTIC_PUZZLES["indysunday-1853"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TANDOOR",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade + first letter",
+    "answer": "TANDOOR",
+    "definition": "Oven",
+    "indicators": [
+     "in to",
+     "initially"
+    ],
+    "indicatorNotes": {
+     "in to": "'In' asks for an insertion and 'to' is what it inserts into, the two letters of that little word taken at face value.",
+     "initially": "Initially means at the outset, so only the opening letter of the word beside it is wanted."
+    },
+    "pieces": [
+     "T",
+     "AND",
+     "O",
+     "O",
+     "R"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "the word used literally, two letters that open up after the first"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "AND",
+      "note": "with joins two things together and so does and"
+     },
+     {
+      "clueFragment": "duck",
+      "gives": "O",
+      "note": "a batter dismissed without scoring in cricket has made a duck, and no score is written as a nought"
+     },
+     {
+      "clueFragment": "roast, initially",
+      "gives": "R",
+      "note": "the opening letter of roast, which is all that is asked for"
+     }
+    ],
+    "surface": "A duck going into the oven to roast, or at least starting to.",
+    "walkthrough": "'In to' belongs to the cooking on the surface - the bird goes in to roast - and splits into an instruction plus the two letters it operates on.",
+    "definitionFit": "Oven -> TANDOOR: a tandoor is the clay charcoal oven of north Indian and Pakistani kitchens, so the plain word covers it exactly."
+   }
   },
   {
    "id": "8-down",
@@ -174,7 +440,48 @@ window.CRYPTIC_PUZZLES["indysunday-1853"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OVERTURNED",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + charade",
+    "answer": "OVERTURNED",
+    "definition": "Upset",
+    "indicators": [
+     "rattled"
+    ],
+    "indicatorNotes": {
+     "rattled": "Something rattled has been shaken hard, and letters shaken hard come to rest in an order nobody chose."
+    },
+    "pieces": [
+     "OVERT",
+     "URN",
+     "ED"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "VOTER",
+      "gives": "OVERT"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "voter rattled",
+      "gives": "OVERT",
+      "note": "the five letters of VOTER shaken into a new order"
+     },
+     {
+      "clueFragment": "ballot box",
+      "gives": "URN",
+      "note": "votes are posted into an urn, which is what a ballot box is"
+     },
+     {
+      "clueFragment": "Lib Dem leader?",
+      "gives": "ED",
+      "note": "Ed Davey has led the Liberal Democrats, Britain's third party, since 2020"
+     }
+    ],
+    "surface": "A furious voter shaking the ballot box, with a glance at the man running the Liberal Democrats.",
+    "walkthrough": "'Lib Dem leader' looks like the party's initial letter and wants the leader's first name instead, which is the one piece of the charade you cannot work out from a dictionary.",
+    "definitionFit": "Upset -> OVERTURNED: a boat or a verdict that has been overturned has been upset - tipped over, or reversed by a higher authority."
+   }
   },
   {
    "id": "9-across",
@@ -195,7 +502,46 @@ window.CRYPTIC_PUZZLES["indysunday-1853"] = /*JSON-START*/ {
     ]
    },
    "solution": "GOLFCOURSE",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade + first letter",
+    "answer": "GOLF COURSE",
+    "definition": "Holes",
+    "definitionNote": "A golf course is one place, and the setter names it by the eighteen holes it is made of, so a plural definition stands for a singular answer.",
+    "indicators": [
+     "beginning to",
+     "around"
+    ],
+    "indicatorNotes": {
+     "beginning to": "The beginning of a word is its first letter, and 'beginning to grow' asks for no more of that word than its start.",
+     "around": "What goes around something encloses it, so the letters named before this close over the lake instead of sitting beside it."
+    },
+    "pieces": [
+     "G",
+     "O",
+     "L",
+     "FCOURSE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beginning to grow",
+      "gives": "G",
+      "note": "the first letter of grow, and nothing more of it"
+     },
+     {
+      "clueFragment": "naturally",
+      "gives": "OFCOURSE",
+      "note": "naturally means of course, and the phrase opens up after its first letter"
+     },
+     {
+      "clueFragment": "lake",
+      "gives": "L",
+      "note": "L is the map-maker's short form for a lake"
+     }
+    ],
+    "surface": "Holes that have started to appear of their own accord in the ground round a lake.",
+    "walkthrough": "'Naturally' looks like an adverb describing how the holes are spreading, and it is a two-word phrase waiting to be spelled out in full.",
+    "definitionFit": "Holes -> GOLF COURSE: a course is its eighteen holes taken together, so the setter names the place by the only feature that counts on it."
+   }
   },
   {
    "id": "10-across",
@@ -212,7 +558,28 @@ window.CRYPTIC_PUZZLES["indysunday-1853"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NEED",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "NEED",
+    "definition": "Want",
+    "indicators": [
+     "from lecturer?"
+    ],
+    "indicatorNotes": {
+     "from lecturer?": "A lecturer delivers everything out loud, so a word arriving from one reaches you as a sound and may be spelled quite differently."
+    },
+    "blocks": [
+     {
+      "clueFragment": "massage",
+      "soundsLike": "KNEAD",
+      "gives": "NEED",
+      "note": "to massage dough or a stiff shoulder is to knead it, and the opening K goes silent as soon as you say the word"
+     }
+    ],
+    "surface": "Fancying a massage, and the unlikely thought of getting one from your lecturer.",
+    "walkthrough": "The silent K is the whole trick. 'Want' works as noun or verb, and so does the answer, so the definition fits whichever way you read the clue's first word.",
+    "definitionFit": "Want -> NEED: both name what you lack and must have, though need carries more urgency than a mere wish does."
+   }
   },
   {
    "id": "11-across",
@@ -233,7 +600,39 @@ window.CRYPTIC_PUZZLES["indysunday-1853"] = /*JSON-START*/ {
     ]
    },
    "solution": "CHELSEABOOTS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CHELSEA BOOTS",
+    "definition": "Elasticated foot warmers",
+    "indicators": [
+     "on"
+    ],
+    "indicatorNotes": {
+     "on": "A shop described as on a road stands along it, so in an across entry the chemist's letters take up position after the road's."
+    },
+    "linkWords": [
+     "from"
+    ],
+    "pieces": [
+     "CHELSEA",
+     "BOOTS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "King's Road?",
+      "gives": "CHELSEA",
+      "note": "the King's Road is the long shopping street that runs through Chelsea in west London"
+     },
+     {
+      "clueFragment": "chemist",
+      "gives": "BOOTS",
+      "note": "Boots is the chemist on nearly every British high street"
+     }
+    ],
+    "surface": "Stretchy footwear bought at the chemist's shop on the King's Road.",
+    "walkthrough": "Both pieces are proper names dressed as plain description, a shop and a street, and the footwear took its name from that same corner of London.",
+    "definitionFit": "Elasticated foot warmers -> CHELSEA BOOTS: ankle boots with an elastic gusset at each side, which is what lets you pull them on without laces."
+   }
   },
   {
    "id": "12-down",
@@ -250,7 +649,43 @@ window.CRYPTIC_PUZZLES["indysunday-1853"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GUILLOTINE",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "GUILLOTINE",
+    "definition": "chopper",
+    "indicators": [
+     "to take"
+    ],
+    "indicatorNotes": {
+     "to take": "Taking something in is holding it inside you, so what the cunning takes ends up between its letters."
+    },
+    "pieces": [
+     "GUIL",
+     "LOT",
+     "IN",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cunning",
+      "gives": "GUILE",
+      "note": "guile is cunning, and the five letters part after the fourth"
+     },
+     {
+      "clueFragment": "group",
+      "gives": "LOT",
+      "note": "a lot is a group of people or things taken together"
+     },
+     {
+      "clueFragment": "on board",
+      "gives": "IN",
+      "note": "a passenger on board a boat is in it"
+     }
+    ],
+    "surface": "Cleverly getting a whole party on board a helicopter.",
+    "walkthrough": "'Chopper' is the helicopter the group are boarding on the surface and a machine that chops in the definition.",
+    "definitionFit": "chopper -> GUILLOTINE: a guillotine chops, whether it is taking off heads or trimming a ream of paper, so the blunt word covers it."
+   }
   },
   {
    "id": "13-across",
@@ -267,7 +702,42 @@ window.CRYPTIC_PUZZLES["indysunday-1853"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TUNDRA",
-   "annotation": null
+   "annotation": {
+    "type": "container + outer letters",
+    "answer": "TUNDRA",
+    "definition": "Cold plain",
+    "indicators": [
+     "sandwiches",
+     "outside"
+    ],
+    "indicatorNotes": {
+     "sandwiches": "To sandwich something is to put it between two slices, so the fish closes over the letters named next.",
+     "outside": "The outside of a word is its first and last letters, and that pair is all this hands over."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "TUN",
+     "DR",
+     "A"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fish",
+      "gives": "TUNA",
+      "note": "tuna is the fish, and the four letters open up before the last"
+     },
+     {
+      "clueFragment": "docker",
+      "gives": "DR",
+      "note": "the first and last letters of docker, the pair on the outside"
+     }
+    ],
+    "surface": "Plain fish sandwiches served cold and outdoors to a man working the docks.",
+    "walkthrough": "'Sandwiches' is the verb, not the lunch, and 'Cold plain' is two words of a single definition rather than a description of the food.",
+    "definitionFit": "Cold plain -> TUNDRA: the treeless Arctic flat where the subsoil never thaws, which is a cold plain and little else."
+   }
   },
   {
    "id": "14-across",
@@ -284,7 +754,45 @@ window.CRYPTIC_PUZZLES["indysunday-1853"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LITERARY",
-   "annotation": null
+   "annotation": {
+    "type": "container + anagram",
+    "answer": "LITERARY",
+    "definition": "Writer's arty",
+    "indicators": [
+     "novel",
+     "containing"
+    ],
+    "indicatorNotes": {
+     "novel": "Novel means new, and letters made new are letters that no longer stand in the order they arrived in.",
+     "containing": "What contains something holds it within, so the two letters named next go inside the shuffled six rather than after them."
+    },
+    "pieces": [
+     "L",
+     "IT",
+     "ERARY"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "RARELY",
+      "gives": "LERARY"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rarely",
+      "gives": "LERARY",
+      "note": "the six letters of RARELY resettled, and they open up after the first"
+     },
+     {
+      "clueFragment": "sex?",
+      "gives": "IT",
+      "note": "'it' is the old coy word for sex and for sex appeal, as in a girl who has it"
+     }
+    ],
+    "surface": "A writer's arty new book that hardly ever has any sex in it.",
+    "walkthrough": "'Novel' is the noun everywhere in this sentence except in the wordplay, where it is the adjective meaning new.",
+    "definitionFit": "Writer's arty -> LITERARY: the adjective for writing pursued as art, which is what a writer's arty side amounts to."
+   }
   },
   {
    "id": "15-down",
@@ -301,7 +809,43 @@ window.CRYPTIC_PUZZLES["indysunday-1853"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TOOTHACHE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "TOOTHACHE",
+    "definition": "Something nasty in your mug",
+    "indicators": [
+     "cutting"
+    ],
+    "indicatorNotes": {
+     "cutting": "Cutting into something opens a gap in it, and the letter named just before this drops into the gap."
+    },
+    "pieces": [
+     "TOO",
+     "T",
+     "H",
+     "ACHE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "as well",
+      "gives": "TOO",
+      "note": "as well means too, and it takes the front"
+     },
+     {
+      "clueFragment": "facial hair?",
+      "gives": "TACHE",
+      "note": "a tache is a moustache, clipped the way British speech clips it, and the five letters open up after the first"
+     },
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "H is the standard short form of husband, as on a form"
+     }
+    ],
+    "surface": "Something unpleasant floating in your cup, and a husband trimming his moustache.",
+    "walkthrough": "'Mug' is the cup you are drinking from until you remember it is British slang for a face, and the nasty thing is in your teeth.",
+    "definitionFit": "Something nasty in your mug -> TOOTHACHE: mug is slang for the face, and a bad tooth is about the nastiest thing a face can be holding."
+   }
   },
   {
    "id": "16-across",
@@ -318,7 +862,37 @@ window.CRYPTIC_PUZZLES["indysunday-1853"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BLOOMERS",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "BLOOMERS",
+    "definition": "knickers",
+    "indicators": [
+     "packing"
+    ],
+    "indicatorNotes": {
+     "packing": "Packing something means stowing it inside, so the letter named next slots into the word doing the packing."
+    },
+    "pieces": [
+     "B",
+     "L",
+     "OOMERS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Joey's father's",
+      "gives": "BOOMERS",
+      "note": "a joey is a young kangaroo and the adult male of the species is a boomer; the possessive s supplies the last letter"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the clothing size, as printed on the label"
+     }
+    ],
+    "surface": "Joey's dad packing a large pair of underwear for the trip.",
+    "walkthrough": "'Joey' looks like a boy's name and is a kangaroo cub; boomer for the adult male is Australian usage rather than crossword convention.",
+    "definitionFit": "knickers -> BLOOMERS: the loose gathered drawers Victorian women wore, and still the joke word for voluminous knickers."
+   }
   },
   {
    "id": "17-down",
@@ -339,7 +913,45 @@ window.CRYPTIC_PUZZLES["indysunday-1853"] = /*JSON-START*/ {
     ]
    },
    "solution": "ONGUARD",
-   "annotation": null
+   "annotation": {
+    "type": "container + anagram",
+    "answer": "ON GUARD",
+    "definition": "Suspicious",
+    "indicators": [
+     "covered with",
+     "nuts"
+    ],
+    "indicatorNotes": {
+     "covered with": "Something covered with earth is buried in it, so the article ends up inside those letters rather than next to them.",
+     "nuts": "Nuts means crazy, and a crazy arrangement of letters is not the arrangement you were given."
+    },
+    "pieces": [
+     "ONGU",
+     "A",
+     "RD"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "GROUND",
+      "gives": "ONGURD"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ground nuts",
+      "gives": "ONGURD",
+      "note": "the six letters of GROUND in a new order, opening up after the fourth"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "the indefinite article, one letter of it"
+     }
+    ],
+    "surface": "An object coated all over in crushed peanuts.",
+    "walkthrough": "'Ground nuts' is one space away from groundnuts, which is what the surface wants it to be, and it is really two instructions: the earth and the word that scrambles it.",
+    "definitionFit": "Suspicious -> ON GUARD: someone on guard is wary and watchful, expecting trouble - the sense of suspicious that means alert rather than dubious."
+   }
   },
   {
    "id": "18-down",
@@ -356,7 +968,42 @@ window.CRYPTIC_PUZZLES["indysunday-1853"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SNIPPET",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SNIPPET",
+    "definition": "bit",
+    "indicators": [
+     "after"
+    ],
+    "indicatorNotes": {
+     "after": "Coming after something puts you behind it, so the son's letter takes the top of a down entry and the rest queue up below."
+    },
+    "pieces": [
+     "S",
+     "NIP",
+     "PET"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the standard short form of son, as in a family record"
+     },
+     {
+      "clueFragment": "Bite",
+      "gives": "NIP",
+      "note": "a nip is a small sharp bite"
+     },
+     {
+      "clueFragment": "dog, perhaps",
+      "gives": "PET",
+      "note": "'perhaps' marks definition by example: a dog is one kind of pet"
+     }
+    ],
+    "surface": "A dog that has nipped the son, and the thought of biting it back.",
+    "walkthrough": "'Bit' is the definition, sitting at the end where it reads as part of the story - the size of the bite rather than a piece of news.",
+    "definitionFit": "bit -> SNIPPET: a snippet is a small piece snipped off something bigger, usually of news or talk, which is exactly a bit of it."
+   }
   },
   {
    "id": "19-across",
@@ -373,7 +1020,43 @@ window.CRYPTIC_PUZZLES["indysunday-1853"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OODLES",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "OODLES",
+    "definition": "Lots",
+    "indicators": [
+     "in poetry"
+    ],
+    "indicatorNotes": {
+     "in poetry": "A poem is made of lines, so a line that is in poetry goes inside those letters rather than alongside them."
+    },
+    "pieces": [
+     "O",
+     "OD",
+     "L",
+     "ES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is nil in tennis, and nil is written as a nought"
+     },
+     {
+      "clueFragment": "poetry",
+      "gives": "ODES",
+      "note": "odes are poetry, and the four letters open up after the second"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L is the short form of line, as on a railway map"
+     }
+    ],
+    "surface": "Plenty of people love a good line of verse.",
+    "walkthrough": "'Lots love' reads as a crowd of admirers, and each of those words is doing another job: one is the definition, the other a nought.",
+    "definitionFit": "Lots -> OODLES: oodles is the informal word for a great quantity, and like lots it takes a plural verb after it."
+   }
   },
   {
    "id": "20-down",
@@ -390,7 +1073,37 @@ window.CRYPTIC_PUZZLES["indysunday-1853"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DISCARD",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "DISCARD",
+    "definition": "Reject",
+    "indicators": [
+     "to conceal"
+    ],
+    "indicatorNotes": {
+     "to conceal": "Anything concealed is hidden inside something bigger, so the stigma disappears between the letters that hide it."
+    },
+    "pieces": [
+     "DI",
+     "SCAR",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "managed",
+      "gives": "DID",
+      "note": "if you managed it, you did it, and the three letters part after the second"
+     },
+     {
+      "clueFragment": "stigma",
+      "gives": "SCAR",
+      "note": "a scar is the mark an injury leaves, and a stigma is that mark on a reputation"
+     }
+    ],
+    "surface": "Someone who has managed to keep a shameful mark hidden.",
+    "walkthrough": "The plainest word in the clue is the one carrying letters: 'managed' is a past tense standing in for another past tense rather than describing anybody.",
+    "definitionFit": "Reject -> DISCARD: to discard is to throw out what you no longer want, a card from your hand or a plan from a meeting."
+   }
   },
   {
    "id": "21-across",
@@ -411,7 +1124,50 @@ window.CRYPTIC_PUZZLES["indysunday-1853"] = /*JSON-START*/ {
     ]
    },
    "solution": "BOOGIENIGHTS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "BOOGIE NIGHTS",
+    "definition": "porn film",
+    "indicators": [
+     "wobbly",
+     "on"
+    ],
+    "indicatorNotes": {
+     "wobbly": "Something wobbly will not hold its shape, and letters that will not hold their shape will not hold their order.",
+     "on": "In an across entry one thing standing on another is written after it, so the shuffled letters follow the German."
+    },
+    "pieces": [
+     "BOO",
+     "G",
+     "IENIGHTS"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "THINGIES",
+      "gives": "IENIGHTS"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Show disapproval of",
+      "gives": "BOO",
+      "note": "an audience shows disapproval by booing"
+     },
+     {
+      "clueFragment": "German",
+      "gives": "G",
+      "note": "G is the standard short form for German, as on a school timetable"
+     },
+     {
+      "clueFragment": "wobbly thingies",
+      "gives": "IENIGHTS",
+      "note": "the eight letters of THINGIES refuse to stay put and settle in this order"
+     }
+    ],
+    "surface": "Booing the wobbly bits on show in a German adult film.",
+    "walkthrough": "Boogie Nights is Paul Thomas Anderson's 1997 film about the Californian porn trade, so the definition is a title and not a description of a genre.",
+    "definitionFit": "porn film -> BOOGIE NIGHTS: definition by example, the 1997 picture about the seventies porn industry, so one particular film rather than the type."
+   }
   },
   {
    "id": "22-down",
@@ -428,7 +1184,39 @@ window.CRYPTIC_PUZZLES["indysunday-1853"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ELITE",
-   "annotation": null
+   "annotation": {
+    "type": "middle letter + charade",
+    "answer": "ELITE",
+    "definition": "Cream",
+    "indicators": [
+     "filling"
+    ],
+    "indicatorNotes": {
+     "filling": "The filling of a sandwich is the bit in the middle, so what is wanted from the word after it is its middle letter."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "E",
+     "LITE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "her",
+      "gives": "E",
+      "note": "the middle letter of the three"
+     },
+     {
+      "clueFragment": "diet",
+      "gives": "LITE",
+      "note": "lite is how the label spells the diet version of a drink or a snack"
+     }
+    ],
+    "surface": "Cream filling in a pudding that is meant to be part of her diet.",
+    "walkthrough": "'Cream' is not dairy: the cream of something is its best part. 'Filling' looks like the middle of a cake and is an instruction about the middle of a word.",
+    "definitionFit": "Cream -> ELITE: the cream of a group is its choicest few, which is what an elite is - the pick of the crop."
+   }
   },
   {
    "id": "23-down",
@@ -445,7 +1233,30 @@ window.CRYPTIC_PUZZLES["indysunday-1853"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ALAS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ALAS",
+    "definition": "That stinks",
+    "pieces": [
+     "ALA",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in a similar way to",
+      "gives": "ALA",
+      "note": "a la is the borrowed French for in the manner of, familiar from a la carte"
+     },
+     {
+      "clueFragment": "sulphur",
+      "gives": "S",
+      "note": "S is sulphur's symbol in the periodic table"
+     }
+    ],
+    "surface": "A smell being compared to the reek of sulphur.",
+    "walkthrough": "The definition is today's grumble standing in for an old-fashioned cry of regret, which is why it hides so well at the front.",
+    "definitionFit": "That stinks -> ALAS: alas is the cry for something gone wrong, which is what 'that stinks' says in modern slang."
+   }
   },
   {
    "id": "24-across",
@@ -462,7 +1273,36 @@ window.CRYPTIC_PUZZLES["indysunday-1853"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DIVA",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "DIVA",
+    "definition": "woman that acts like one",
+    "pieces": [
+     "DI",
+     "V",
+     "A"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Princess",
+      "gives": "DI",
+      "note": "Princess Diana was Di in every headline of the eighties and nineties"
+     },
+     {
+      "clueFragment": "up against",
+      "gives": "V",
+      "note": "two sides up against each other are written with a v between them, short for versus"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the word taken as the single letter it is"
+     }
+    ],
+    "surface": "A princess squaring up to a woman with airs of her own.",
+    "walkthrough": "'One' at the end points back at the princess, so the definition is a woman who behaves as though she were royalty.",
+    "definitionFit": "woman that acts like one -> DIVA: a diva is a star who carries on with the grandeur of a princess and expects to be treated as one."
+   }
   },
   {
    "id": "25-across",
@@ -479,7 +1319,37 @@ window.CRYPTIC_PUZZLES["indysunday-1853"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IMPECCABLE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + homophone",
+    "answer": "IMPECCABLE",
+    "definition": "Free of sin",
+    "indicators": [
+     "in audience"
+    ],
+    "indicatorNotes": {
+     "in audience": "An audience takes everything in by ear, so the phrase before it is wanted as a sound and comes out spelled another way."
+    },
+    "pieces": [
+     "IM",
+     "PECCABLE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one's",
+      "gives": "IM",
+      "note": "one's is I am, which shortens to two letters"
+     },
+     {
+      "clueFragment": "fit to be kissed",
+      "soundsLike": "PECKABLE",
+      "gives": "PECCABLE",
+      "note": "a peck is a quick kiss, so anything fit for one is peckable"
+     }
+    ],
+    "surface": "Being sinless, and worth a kiss in front of everybody watching.",
+    "walkthrough": "The word you hear is a real one: peccable means liable to sin, from Latin peccare, so the negative prefix on the front of it means exactly what the definition says.",
+    "definitionFit": "Free of sin -> IMPECCABLE: literally not able to sin, and now used of anything faultless - manners, timing, a performance."
+   }
   },
   {
    "id": "26-across",
@@ -496,7 +1366,30 @@ window.CRYPTIC_PUZZLES["indysunday-1853"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DEADBEAT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "DEADBEAT",
+    "definition": "Bum",
+    "pieces": [
+     "DEAD",
+     "BEAT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "numb",
+      "gives": "DEAD",
+      "note": "a numb limb is dead - you feel nothing in it"
+     },
+     {
+      "clueFragment": "Perhaps cane",
+      "gives": "BEAT",
+      "note": "'perhaps' marks definition by example: caning is one way of beating somebody"
+     }
+    ],
+    "surface": "Someone asking whether a numbed backside calls for a caning.",
+    "walkthrough": "'Bum' is the definition and the joke at once: the American noun for a loafer sitting next to the British one for a backside.",
+    "definitionFit": "Bum -> DEADBEAT: a deadbeat is an idle sponger who never pays their way, which is what bum means in American usage."
+   }
   },
   {
    "id": "27-across",
@@ -517,7 +1410,36 @@ window.CRYPTIC_PUZZLES["indysunday-1853"] = /*JSON-START*/ {
     ]
    },
    "solution": "ENDASH",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "EN DASH",
+    "definition": "mark",
+    "indicators": [
+     "on"
+    ],
+    "indicatorNotes": {
+     "on": "In an across entry what sits on something else is written after it, so the remains follow the bottom."
+    },
+    "pieces": [
+     "END",
+     "ASH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bottom",
+      "gives": "END",
+      "note": "the bottom of a list is its end"
+     },
+     {
+      "clueFragment": "remains",
+      "gives": "ASH",
+      "note": "what remains of a fire is ash"
+     }
+    ],
+    "surface": "The mark left at the bottom where something has burned away.",
+    "walkthrough": "The two pieces break one letter later than the answer does, which is what makes them so hard to see. An en is the printer's width of a letter N, and it names this dash.",
+    "definitionFit": "mark -> EN DASH: a punctuation mark one en wide, the dash printers use for ranges such as 1914-18."
+   }
   }
  ]
 } /*JSON-END*/;
