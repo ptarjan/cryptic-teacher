@@ -34,7 +34,38 @@ window.CRYPTIC_PUZZLES["indysunday-1850"] = /*JSON-START*/ {
     ]
    },
    "solution": "ATPEACE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "AT PEACE",
+    "definition": "content",
+    "linkWords": [
+     "with"
+    ],
+    "indicators": [
+     "Mix"
+    ],
+    "indicatorNotes": {
+     "Mix": "Mixing things stirs them together until nothing is where it started, so these letters come out in a different order."
+    },
+    "anagram": {
+     "fodder": "TAPE ACE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "tape",
+      "gives": "TAPE",
+      "note": "anagram fodder, four letters"
+     },
+     {
+      "clueFragment": "excellent",
+      "gives": "ACE",
+      "note": "ace is the everyday word for excellent, top-notch"
+     }
+    ],
+    "surface": "Someone compiling a mixtape and filling it with excellent tracks.",
+    "walkthrough": "'Content' looks like the noun — what is on the tape — and it is the adjective meaning satisfied. Mixtapes really are compiled, which is what lets 'Mix' pass as scene-setting rather than an order.",
+    "definitionFit": "content → AT PEACE: to be content is to be at peace with how things are, untroubled; both work as adjectives after 'he is'."
+   }
   },
   {
    "id": "1-down",
@@ -51,7 +82,37 @@ window.CRYPTIC_PUZZLES["indysunday-1850"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ALLEGE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "ALLEGE",
+    "definition": "Claim",
+    "indicators": [
+     "drowning in"
+    ],
+    "indicatorNotes": {
+     "drowning in": "Whatever is drowning in a liquid has gone under the surface of it, so the limb ends up inside the drink rather than beside it."
+    },
+    "pieces": [
+     "AL",
+     "LEG",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "alcohol",
+      "gives": "ALE",
+      "note": "ale is the crossword's shortest alcohol"
+     },
+     {
+      "clueFragment": "member's",
+      "gives": "LEG",
+      "note": "a member is a limb, and the leg is the one that fits"
+     }
+    ],
+    "surface": "One of the group is said to be sinking into drink.",
+    "walkthrough": "'Member' reads as somebody belonging to a club and means a limb, an old sense the crossword keeps alive. 'Claim' is the verb, the guarded kind a newspaper uses when nothing is proved yet.",
+    "definitionFit": "Claim → ALLEGE: to allege is to claim something as fact without offering proof, which is why lawyers and reporters reach for it."
+   }
   },
   {
    "id": "2-down",
@@ -68,7 +129,46 @@ window.CRYPTIC_PUZZLES["indysunday-1850"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PARROT",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "PARROT",
+    "definition": "ape",
+    "linkWords": [
+     "and"
+    ],
+    "indicators": [
+     "squirrels"
+    ],
+    "indicatorNotes": {
+     "squirrels": "To squirrel something away is to stash it out of sight, so the money word closes over the pieces it is hiding."
+    },
+    "pieces": [
+     "P",
+     "A",
+     "RR",
+     "OT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Kitty",
+      "gives": "POT",
+      "note": "the kitty in a card game is the pot everybody has paid into"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the clue's own 'a' goes down as it stands"
+     },
+     {
+      "clueFragment": "couple of rooks",
+      "gives": "RR",
+      "note": "a rook is R on a chess score sheet, and a couple of them doubles the letter"
+     }
+    ],
+    "surface": "A list of creatures: the cat, some squirrels, a pair of rooks and an ape.",
+    "walkthrough": "The surface is a menagerie and not one animal in it is doing animal work — the kitty is money, squirrelling is hoarding, and the rooks are chess pieces.",
+    "definitionFit": "ape → PARROT: to parrot is to repeat words without understanding them, and to ape is to copy without understanding; both are imitation as mockery."
+   }
   },
   {
    "id": "3-down",
@@ -85,7 +185,49 @@ window.CRYPTIC_PUZZLES["indysunday-1850"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AUDITORIUM",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "AUDITORIUM",
+    "definition": "concert hall",
+    "indicators": [
+     "goes around"
+    ],
+    "indicatorNotes": {
+     "goes around": "Something that goes around a thing passes right by both sides of it, so the border's letters open up and take the university in."
+    },
+    "pieces": [
+     "AUDI",
+     "TO",
+     "RI",
+     "U",
+     "M"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Car",
+      "gives": "AUDI",
+      "note": "the German marque, four letters long and the crossword's favourite car"
+     },
+     {
+      "clueFragment": "heading to",
+      "gives": "TO",
+      "note": "the car is heading TO the border, and that little word goes down as it stands"
+     },
+     {
+      "clueFragment": "border",
+      "gives": "RIM",
+      "note": "a rim is the border running round the edge of a thing"
+     },
+     {
+      "clueFragment": "university",
+      "gives": "U",
+      "note": "U is the standard abbreviation for university"
+     }
+    ],
+    "surface": "A car driving up towards the frontier, skirting a university on the way.",
+    "walkthrough": "'Border' wants to be a national frontier, which is what the driving surface is about, and it is the rim — the edge running round something. Cars in crosswords are very often this marque.",
+    "definitionFit": "concert hall → AUDITORIUM: the auditorium is the part of a building where an audience sits, and the word stands for the whole hall."
+   }
   },
   {
    "id": "4-down",
@@ -102,7 +244,39 @@ window.CRYPTIC_PUZZLES["indysunday-1850"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EAGER",
-   "annotation": null
+   "annotation": {
+    "type": "container + last letters",
+    "answer": "EAGER",
+    "definition": "Keen",
+    "indicators": [
+     "comprehending",
+     "finally"
+    ],
+    "indicatorNotes": {
+     "comprehending": "To comprehend in its older sense is to take something in and hold it, so the listener's word closes round what follows.",
+     "finally": "It asks what each word finishes on, and it reaches back over both of the words in front of it."
+    },
+    "pieces": [
+     "EA",
+     "GE",
+     "R"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "listener",
+      "gives": "EAR",
+      "note": "the ear is the organ that listens"
+     },
+     {
+      "clueFragment": "long lecture finally",
+      "gives": "GE",
+      "note": "the closing letters of lonG and lecturE, taken in that order"
+     }
+    ],
+    "surface": "An attentive listener sitting patiently through the end of a long lecture.",
+    "walkthrough": "'Keen listener' reads as one phrase, which is the trap — the definition stops after the first word. 'Long lecture' is not something to be understood but a pair of words giving up their tails.",
+    "definitionFit": "Keen → EAGER: keen in the sense of raring to go, impatient to start, rather than keen as in sharp or cheap."
+   }
   },
   {
    "id": "5-across",
@@ -119,7 +293,38 @@ window.CRYPTIC_PUZZLES["indysunday-1850"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MUDBATH",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "MUDBATH",
+    "definition": "treatment in spa",
+    "linkWords": [
+     "for"
+    ],
+    "indicators": [
+     "manufactured"
+    ],
+    "indicatorNotes": {
+     "manufactured": "Manufacturing takes raw material and makes something else out of it, so the letters are built up into a new shape."
+    },
+    "anagram": {
+     "fodder": "M HAD TUB"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Mark",
+      "gives": "M",
+      "note": "M is the abbreviation for the mark, Germany's old currency"
+     },
+     {
+      "clueFragment": "had tub",
+      "gives": "HADTUB",
+      "note": "anagram fodder, six letters"
+     }
+    ],
+    "surface": "Mark having a tub specially built so he can be treated at the spa.",
+    "walkthrough": "'Mark' is placed to look like the man the story is about, and it is a unit of money worth one letter. Anagram indicators pass unnoticed when the surface really does involve something being made.",
+    "definitionFit": "treatment in spa → MUDBATH: wallowing in warm mineral mud is a standard spa treatment, and the answer names that treatment itself."
+   }
   },
   {
    "id": "5-down",
@@ -136,7 +341,47 @@ window.CRYPTIC_PUZZLES["indysunday-1850"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MILLIPEDE",
-   "annotation": null
+   "annotation": {
+    "type": "container + first letters",
+    "answer": "MILLIPEDE",
+    "definition": "Creeper",
+    "indicators": [
+     "originally",
+     "in",
+     "close to"
+    ],
+    "indicatorNotes": {
+     "originally": "The original letter of a word is the one it begins with, and here it is wanted from each of the two words around it.",
+     "in": "It puts those letters down inside the word before it rather than in front of it.",
+     "close to": "The close of a word is where it stops, so only its final letter is wanted."
+    },
+    "pieces": [
+     "MILL",
+     "IP",
+     "ED",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ground",
+      "gives": "MILLED",
+      "note": "grain that has been ground has been milled"
+     },
+     {
+      "clueFragment": "I originally planted",
+      "gives": "IP",
+      "note": "the opening letters of I and Planted"
+     },
+     {
+      "clueFragment": "fence",
+      "gives": "E",
+      "note": "the letter fencE closes on"
+     }
+    ],
+    "surface": "A gardener putting a creeper into the soil right up against the fence.",
+    "walkthrough": "'Creeper' invites a climbing plant, which is exactly what the gardening surface wants you to picture, and it means the many-legged kind. 'Ground' is the past tense of grind, not the soil.",
+    "definitionFit": "Creeper → MILLIPEDE: a creeper is anything that creeps along the ground, and this one does it on a famously large number of legs."
+   }
   },
   {
    "id": "6-down",
@@ -153,7 +398,27 @@ window.CRYPTIC_PUZZLES["indysunday-1850"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DAMP",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "DAMP",
+    "definition": "a bit wet",
+    "indicators": [
+     "keeping"
+    ],
+    "indicatorNotes": {
+     "keeping": "To keep something is to hold on to it, so the words in front are holding a run of letters inside them."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Red amphibian",
+      "gives": "DAMP",
+      "note": "the letters run consecutively across the join between these two words"
+     }
+    ],
+    "surface": "A red amphibian that likes to stay slightly wet.",
+    "walkthrough": "A red amphibian is a perfectly believable creature — the red eft, the fire salamander — and believing in it is what stops you looking at the letters instead of the animal.",
+    "definitionFit": "a bit wet → DAMP: damp is precisely that slight wetness, past dry and well short of soaked."
+   }
   },
   {
    "id": "7-down",
@@ -170,7 +435,59 @@ window.CRYPTIC_PUZZLES["indysunday-1850"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ABDICATE",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade + last letter",
+    "answer": "ABDICATE",
+    "definition": "resign",
+    "linkWords": [
+     "to"
+    ],
+    "indicators": [
+     "in",
+     "ultimately"
+    ],
+    "indicatorNotes": {
+     "in": "It drops the two police letters inside what surrounds them rather than leaving them out in front.",
+     "ultimately": "Ultimately means at the very end, so only the last letter of the word beside it is taken."
+    },
+    "pieces": [
+     "A",
+     "B",
+     "DI",
+     "C",
+     "ATE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the clue's own 'a' goes down as it stands"
+     },
+     {
+      "clueFragment": "club ultimately",
+      "gives": "B",
+      "note": "the letter cluB ends on"
+     },
+     {
+      "clueFragment": "Detective Inspector",
+      "gives": "DI",
+      "note": "DI is the rank's usual written form in the British police"
+     },
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "c is how a cricket scorecard records a batsman caught"
+     },
+     {
+      "clueFragment": "had",
+      "gives": "ATE",
+      "note": "had in the sense of having a meal"
+     }
+    ],
+    "surface": "A detective inspector caught out at a club and finally forced to step down.",
+    "walkthrough": "'Caught in a club' paints a scandal and both halves are wordplay instead. 'Had' is the eating kind — you had lunch — which is the hardest of the five pieces to spot.",
+    "definitionFit": "resign → ABDICATE: to abdicate is to give up an office or a throne formally, resigning in the grandest available way."
+   }
   },
   {
    "id": "8-down",
@@ -187,7 +504,48 @@ window.CRYPTIC_PUZZLES["indysunday-1850"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HALLWAYS",
-   "annotation": null
+   "annotation": {
+    "type": "container + first letter",
+    "answer": "HALLWAYS",
+    "definition": "corridors",
+    "indicators": [
+     "patrols",
+     "start to",
+     "through"
+    ],
+    "indicatorNotes": {
+     "patrols": "A patrol walks round the outside of a place, so the school's letters go round the whole of the rest.",
+     "start to": "The start of a word is the letter it opens with, so only that one is taken from what follows.",
+     "through": "Going through a thing means passing inside it, so the letter lands in the middle of the word for quieten."
+    },
+    "pieces": [
+     "H",
+     "ALL",
+     "W",
+     "AY",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "High school",
+      "gives": "HS",
+      "note": "HS is the standard short form of high school"
+     },
+     {
+      "clueFragment": "quiet",
+      "gives": "ALLAY",
+      "note": "to allay is to quiet something down, as you allay a fear"
+     },
+     {
+      "clueFragment": "start to walk",
+      "gives": "W",
+      "note": "the letter Walk starts on"
+     }
+    ],
+    "surface": "Security staff walking the quiet corridors of a high school.",
+    "walkthrough": "'Quiet' is a verb here, not an adjective describing corridors: to allay is to quieten. Every word of the surface belongs to the school patrol, so none of them looks like an instruction.",
+    "definitionFit": "corridors → HALLWAYS: hallways are the passages running between the rooms of a building, corridors under another name."
+   }
   },
   {
    "id": "9-across",
@@ -204,7 +562,37 @@ window.CRYPTIC_PUZZLES["indysunday-1850"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LURID",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "LURID",
+    "definition": "Bright coloured",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "It says the two letters before it go inside the hat rather than beside it, which is the whole of the instruction."
+    },
+    "pieces": [
+     "L",
+     "UR",
+     "ID"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hat",
+      "gives": "LID",
+      "note": "a lid is slang for a hat, the thing that goes on top"
+     },
+     {
+      "clueFragment": "you're",
+      "gives": "UR",
+      "note": "the two letters a text message uses for 'you are'"
+     }
+    ],
+    "surface": "A hat that somebody happens to be wearing.",
+    "walkthrough": "Nothing in the surface hints at colour at all — it is four words about headgear. Text-message spelling is worth expecting from a modern setter: 'you're' shrinks to the letters you would thumb into a phone.",
+    "definitionFit": "Bright coloured → LURID: glaringly, unnaturally bright — the colour of a cheap paperback cover rather than any pleasant brightness."
+   }
   },
   {
    "id": "10-across",
@@ -225,7 +613,33 @@ window.CRYPTIC_PUZZLES["indysunday-1850"] = /*JSON-START*/ {
     ]
    },
    "solution": "GOLDMEDAL",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "GOLD MEDAL",
+    "definition": "award",
+    "linkWords": [
+     "to get"
+    ],
+    "indicators": [
+     "Fashion"
+    ],
+    "indicatorNotes": {
+     "Fashion": "To fashion something is to shape it with your hands, so the letters are worked into another shape — the catwalk noun is the disguise."
+    },
+    "anagram": {
+     "fodder": "MODEL GLAD"
+    },
+    "blocks": [
+     {
+      "clueFragment": "model glad",
+      "gives": "MODELGLAD",
+      "note": "anagram fodder, nine letters"
+     }
+    ],
+    "surface": "A model in the fashion world delighted to be picking up a prize.",
+    "walkthrough": "'Fashion model' is one job on the surface and comes apart in the middle: the first word gives the order and the second is part of what it operates on.",
+    "definitionFit": "award → GOLD MEDAL: the award for finishing first, the thing hung round an Olympic champion's neck."
+   }
   },
   {
    "id": "11-across",
@@ -246,7 +660,30 @@ window.CRYPTIC_PUZZLES["indysunday-1850"] = /*JSON-START*/ {
     ]
    },
    "solution": "GHOSTTRAIN",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "GHOST TRAIN",
+    "definition": "Ride",
+    "indicators": [
+     "to work"
+    ],
+    "indicatorNotes": {
+     "to work": "Working material means kneading and reshaping it, the way you work dough, so the letters in front come out rearranged."
+    },
+    "anagram": {
+     "fodder": "STRAIGHT ON"
+    },
+    "blocks": [
+     {
+      "clueFragment": "straight on",
+      "gives": "STRAIGHTON",
+      "note": "anagram fodder, ten letters"
+     }
+    ],
+    "surface": "Directions for a commute: ride straight on and you are at the office.",
+    "walkthrough": "The clue reads as a route to work, so 'Ride' looks like the journey rather than a fairground attraction, and not one word of it hints at ghosts.",
+    "definitionFit": "Ride → GHOST TRAIN: the fairground ride that carries you through the dark past skeletons and shrieks."
+   }
   },
   {
    "id": "12-across",
@@ -263,7 +700,38 @@ window.CRYPTIC_PUZZLES["indysunday-1850"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CAW",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "CAW",
+    "definition": "Cry",
+    "linkWords": [
+     "of"
+    ],
+    "indicators": [
+     "missing"
+    ],
+    "indicatorNotes": {
+     "missing": "What is missing is not there, so the letters named after it are absent from the bird's name."
+    },
+    "pieces": [
+     "CAW"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bird",
+      "gives": "MACAW",
+      "note": "the macaw is a big South American parrot"
+     },
+     {
+      "clueFragment": "mother",
+      "gives": "MA",
+      "note": "ma is the nursery word for mother, and it is what goes"
+     }
+    ],
+    "surface": "A chick calling out with its mother nowhere about.",
+    "walkthrough": "'Bird' looks like the general word the definition needs and it names one particular species instead, which is where the letters come from.",
+    "definitionFit": "Cry → CAW: the harsh cry a crow or a rook makes, the word being the noise itself rather than a description of it."
+   }
   },
   {
    "id": "13-down",
@@ -280,7 +748,51 @@ window.CRYPTIC_PUZZLES["indysunday-1850"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FORMIDABLE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container + first letter",
+    "answer": "FORMIDABLE",
+    "definition": "Frightening",
+    "indicators": [
+     "head to",
+     "in"
+    ],
+    "indicatorNotes": {
+     "head to": "The head of a word is the letter at its front, so 'battle' hands over only its first.",
+     "in": "It drops that letter inside the valley's word instead of leaving it standing alongside."
+    },
+    "pieces": [
+     "FORM",
+     "I",
+     "DA",
+     "B",
+     "LE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "figure",
+      "gives": "FORM",
+      "note": "a figure seen at a distance is a form, an outline of a person"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "the clue's own 'I' goes down as the letter"
+     },
+     {
+      "clueFragment": "valley",
+      "gives": "DALE",
+      "note": "a dale is a valley, the northern English word the Yorkshire Dales keep in use"
+     },
+     {
+      "clueFragment": "head to battle",
+      "gives": "B",
+      "note": "the letter Battle heads with"
+     }
+    ],
+    "surface": "A daunting figure leading the charge down into the valley.",
+    "walkthrough": "'Head to battle' reads as marching off to fight, which is what makes it invisible as an instruction, and 'figure' is the shape-of-a-person sense rather than a number.",
+    "definitionFit": "Frightening → FORMIDABLE: a formidable opponent is one to be feared, the word carrying awe alongside the alarm."
+   }
   },
   {
    "id": "14-across",
@@ -297,7 +809,30 @@ window.CRYPTIC_PUZZLES["indysunday-1850"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PRAISEWORTHY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "PRAISEWORTHY",
+    "definition": "commendable",
+    "indicators": [
+     "oddly"
+    ],
+    "indicatorNotes": {
+     "oddly": "Something done oddly is done in a strange way, so the letters arrive in a strange order — this is not the odd-numbered-positions trick it resembles."
+    },
+    "anagram": {
+     "fodder": "THE PRIORY WAS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "The priory was",
+      "gives": "THEPRIORYWAS",
+      "note": "anagram fodder, twelve letters"
+     }
+    ],
+    "surface": "A priory that turned out to be admirable in some strange way.",
+    "walkthrough": "'Oddly' would usually have you picking out the first, third and fifth letters; here it simply means peculiarly. The whole sentence up to the definition is fodder, which is why nothing is left over.",
+    "definitionFit": "commendable → PRAISEWORTHY: worth commending is worth praising, and both adjectives sit in the same slot before a noun."
+   }
   },
   {
    "id": "15-down",
@@ -314,7 +849,32 @@ window.CRYPTIC_PUZZLES["indysunday-1850"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INDICATOR",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "INDICATOR",
+    "definition": "Sign",
+    "indicators": [
+     "new",
+     "abridged"
+    ],
+    "indicatorNotes": {
+     "new": "Something made new is remade from what was there, so the letters come back in a fresh arrangement.",
+     "abridged": "An abridged book has been shortened, so the word gives up its last letter before anything else is done to it."
+    },
+    "anagram": {
+     "fodder": "DICTIONAR"
+    },
+    "blocks": [
+     {
+      "clueFragment": "abridged dictionary",
+      "gives": "DICTIONAR",
+      "note": "DICTIONARY shortened by its final letter, leaving nine"
+     }
+    ],
+    "surface": "A cut-down new edition of a dictionary.",
+    "walkthrough": "'Sign' is doing definition work while dressed as part of the publishing scene — signing for a new book. The car sense of the answer, the flashing light saying which way you are turning, is the everyday one.",
+    "definitionFit": "Sign → INDICATOR: an indicator is whatever points a thing out or shows how it stands, which is what a sign does."
+   }
   },
   {
    "id": "16-down",
@@ -331,7 +891,51 @@ window.CRYPTIC_PUZZLES["indysunday-1850"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MISCHIEF",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MISCHIEF",
+    "definition": "Bad behaviour",
+    "linkWords": [
+     "coming from"
+    ],
+    "indicators": [
+     "next to"
+    ],
+    "indicatorNotes": {
+     "next to": "It only says the two pieces touch, not which of them comes first — the grid settles that."
+    },
+    "pieces": [
+     "MI",
+     "SCH",
+     "IE",
+     "F"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "motorway",
+      "gives": "MI",
+      "note": "the M1 is Britain's first motorway, running north out of London, and its name is written here as letters"
+     },
+     {
+      "clueFragment": "school",
+      "gives": "SCH",
+      "note": "sch is the usual short form of school, as on a road sign"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is Latin id est, that is"
+     },
+     {
+      "clueFragment": "loud",
+      "gives": "F",
+      "note": "f is forte on a sheet of music"
+     }
+    ],
+    "surface": "Trouble spilling out of a school beside a roaring motorway.",
+    "walkthrough": "Four separate shorthands hide in eight ordinary words, and 'that is loud' is the pair to watch — both halves of it are conventions rather than description.",
+    "definitionFit": "Bad behaviour → MISCHIEF: the light end of bad behaviour, pranks and troublemaking rather than anything criminal."
+   }
   },
   {
    "id": "17-down",
@@ -348,7 +952,36 @@ window.CRYPTIC_PUZZLES["indysunday-1850"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GYRATING",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters",
+    "answer": "GYRATING",
+    "definition": "spinning around",
+    "indicators": [
+     "Extremely"
+    ],
+    "indicatorNotes": {
+     "Extremely": "It points at the extremes of the word beside it, the letter at each far end, and throws away everything between."
+    },
+    "pieces": [
+     "GY",
+     "RATING"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Extremely giddy",
+      "gives": "GY",
+      "note": "the outermost letters of Giddy, one from each end"
+     },
+     {
+      "clueFragment": "sailor",
+      "gives": "RATING",
+      "note": "a rating is an ordinary seaman in the Royal Navy, anyone below officer rank"
+     }
+    ],
+    "surface": "A thoroughly dizzy sailor whirling about on deck.",
+    "walkthrough": "'Extremely giddy' sounds like a description of the sailor's state and is an instruction about letters. Ratings are the crossword's standard sailors, so the word is worth keeping.",
+    "definitionFit": "spinning around → GYRATING: to gyrate is to whirl round and round on the spot, which is what spinning around describes."
+   }
   },
   {
    "id": "18-across",
@@ -370,7 +1003,28 @@ window.CRYPTIC_PUZZLES["indysunday-1850"] = /*JSON-START*/ {
     ]
    },
    "solution": "INYOURDREAMS",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "IN YOUR DREAMS",
+    "definition": "Unlikely",
+    "definition2": "place to find REM shows?",
+    "definitionNote": "'Unlikely' is an adjective and the answer is a whole retort; both are used to wave away something that is never going to happen.",
+    "blocks": [
+     {
+      "clueFragment": "Unlikely",
+      "gives": "",
+      "note": "said on its own, as a flat rebuff to somebody's hopes"
+     },
+     {
+      "clueFragment": "place to find REM shows?",
+      "gives": "",
+      "note": "REM sleep is the dreaming phase, and R.E.M. the band stopped playing in 2011"
+     }
+    ],
+    "surface": "Somewhere improbable to catch the band R.E.M. playing live.",
+    "walkthrough": "REM does double duty: rapid eye movement is the phase of sleep people dream in, and R.E.M. the Athens band broke up years ago, so their gigs are exactly the thing you can only wish for.",
+    "definitionFit": "Unlikely → IN YOUR DREAMS: the retort dismissing something as never going to happen; and dreams are where REM sleep, or any REM show, happens."
+   }
   },
   {
    "id": "19-down",
@@ -387,7 +1041,43 @@ window.CRYPTIC_PUZZLES["indysunday-1850"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCOLDS",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "SCOLDS",
+    "definition": "carpets",
+    "indicators": [
+     "carrying"
+    ],
+    "indicatorNotes": {
+     "carrying": "A ship carrying cargo has it stowed inside the hull, so the two pieces go within the vessel's letters."
+    },
+    "pieces": [
+     "S",
+     "C",
+     "OLD",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ship",
+      "gives": "SS",
+      "note": "SS is the prefix on a steamship's name"
+     },
+     {
+      "clueFragment": "100",
+      "gives": "C",
+      "note": "C is a hundred in Roman numerals"
+     },
+     {
+      "clueFragment": "antique",
+      "gives": "OLD",
+      "note": "an antique thing is simply an old one"
+     }
+    ],
+    "surface": "A vessel bringing home a hundred old rugs.",
+    "walkthrough": "'Carpets' is the trap: it looks like the cargo the surface describes, and in British usage to carpet somebody is to haul them in for a dressing-down — once done standing on the boss's carpet.",
+    "definitionFit": "carpets → SCOLDS: to carpet someone is British for calling them in and telling them off, so the two verbs match in sense and in tense."
+   }
   },
   {
    "id": "20-down",
@@ -404,7 +1094,31 @@ window.CRYPTIC_PUZZLES["indysunday-1850"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STRESS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "STRESS",
+    "definition": "Highlight",
+    "indicators": [],
+    "pieces": [
+     "S",
+     "TRESS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the size label on a garment"
+     },
+     {
+      "clueFragment": "lock of hair",
+      "gives": "TRESS",
+      "note": "a tress is a long lock of hair"
+     }
+    ],
+    "surface": "A short curl of somebody's hair.",
+    "walkthrough": "'Highlight' is planted to suggest the hairdresser's kind, which is the wrong salon entirely — it is the verb meaning to emphasise, and the hair belongs to the other half of the clue.",
+    "definitionFit": "Highlight → STRESS: to stress a point is to highlight it, giving it the emphasis that makes it stand out from the rest."
+   }
   },
   {
    "id": "21-across",
@@ -421,7 +1135,38 @@ window.CRYPTIC_PUZZLES["indysunday-1850"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHA",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "CHA",
+    "definition": "a drink",
+    "linkWords": [
+     "for"
+    ],
+    "indicators": [
+     "leaves"
+    ],
+    "indicatorNotes": {
+     "leaves": "Someone who leaves goes away, so the letter named in front of it departs from the word before that."
+    },
+    "pieces": [
+     "CHA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fellow",
+      "gives": "CHAP",
+      "note": "a chap is a fellow, a bloke"
+     },
+     {
+      "clueFragment": "quietly",
+      "gives": "P",
+      "note": "p is piano on a sheet of music, the instruction to play quietly, and it is the letter that goes"
+     }
+    ],
+    "surface": "A chap slipping quietly off to the pub.",
+    "walkthrough": "'Leaves' is the deletion instruction and also, once you have the answer, the leaves the drink is brewed from. Cha is the British colloquial word for tea, taken straight from the Chinese.",
+    "definitionFit": "a drink → CHA: cha is tea, the everyday British slang for a cup of it, so the definition names the drink by category."
+   }
   },
   {
    "id": "22-across",
@@ -442,7 +1187,46 @@ window.CRYPTIC_PUZZLES["indysunday-1850"] = /*JSON-START*/ {
     ]
    },
    "solution": "SCAREDYCAT",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "SCAREDY-CAT",
+    "definition": "coward",
+    "indicators": [
+     "to besiege",
+     "trapping"
+    ],
+    "indicatorNotes": {
+     "to besiege": "An army besieging a town sits all the way round it, so the word for leave closes on both sides of everything else.",
+     "trapping": "Whatever is trapped is caught inside with no way out, so the colour ends up within the island's letters."
+    },
+    "pieces": [
+     "S",
+     "CA",
+     "RED",
+     "Y",
+     "CAT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Leave",
+      "gives": "SCAT",
+      "note": "scat is what you say to send an animal packing"
+     },
+     {
+      "clueFragment": "small island",
+      "gives": "CAY",
+      "note": "a cay is a low sandy island on a reef, the word behind the Florida Keys"
+     },
+     {
+      "clueFragment": "bloody",
+      "gives": "RED",
+      "note": "bloody in the colour sense, the shade of blood rather than the swear word"
+     }
+    ],
+    "surface": "Troops moving out to lay siege to a small island, catching a bloodstained coward there.",
+    "walkthrough": "The joke is that the word for shooing a cat away is the very thing wrapped round the rest, and 'bloody' is the colour rather than the expletive the surface invites.",
+    "definitionFit": "coward → SCAREDY-CAT: the playground name for somebody too frightened to try anything, the cat being the byword for timidity."
+   }
   },
   {
    "id": "23-down",
@@ -459,7 +1243,31 @@ window.CRYPTIC_PUZZLES["indysunday-1850"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ROWED",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "ROWED",
+    "definition": "Went by boat",
+    "linkWords": [
+     "and"
+    ],
+    "indicators": [
+     "reportedly"
+    ],
+    "indicatorNotes": {
+     "reportedly": "What is reported is passed on by mouth, so the wordplay hands you a sound and leaves the spelling to you."
+    },
+    "blocks": [
+     {
+      "clueFragment": "by bike",
+      "soundsLike": "RODE",
+      "gives": "ROWED",
+      "note": "somebody who went by bike rode, and that word said aloud is spelt a second way"
+     }
+    ],
+    "surface": "Somebody describing a journey made partly by boat and partly on a bicycle.",
+    "walkthrough": "The two halves of the trip are set side by side so they read as one journey, and only the second is a sound. Both spellings are pronounced identically, which is the whole of the wordplay.",
+    "definitionFit": "Went by boat → ROWED: to row is to drive a boat with oars, so somebody who went by boat under their own power rowed."
+   }
   },
   {
    "id": "24-down",
@@ -476,7 +1284,39 @@ window.CRYPTIC_PUZZLES["indysunday-1850"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHAT",
-   "annotation": null
+   "annotation": {
+    "type": "container + last letter",
+    "answer": "CHAT",
+    "definition": "a small bird",
+    "indicators": [
+     "traps",
+     "tail of"
+    ],
+    "indicatorNotes": {
+     "traps": "A trap shuts round whatever it catches, so the cat's letters close over the one that follows.",
+     "tail of": "The tail of a word is the letter at its very end, which is all that is wanted from the thrush."
+    },
+    "pieces": [
+     "C",
+     "H",
+     "AT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cat",
+      "gives": "CAT",
+      "note": "the clue's own cat, taken as three letters"
+     },
+     {
+      "clueFragment": "tail of thrush",
+      "gives": "H",
+      "note": "the letter thrusH ends on"
+     }
+    ],
+    "surface": "A cat catching a thrush by the tail.",
+    "walkthrough": "One bird in the clue is fodder and the other is the definition, which is the neat bit: a thrush loses a letter so that a different bird can be built out of the cat that caught it.",
+    "definitionFit": "a small bird → CHAT: chats are small perching birds — the stonechat and the whinchat — named for their clacking call."
+   }
   },
   {
    "id": "25-across",
@@ -497,7 +1337,46 @@ window.CRYPTIC_PUZZLES["indysunday-1850"] = /*JSON-START*/ {
     ]
    },
    "solution": "IRISHSTEW",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "IRISH STEW",
+    "definition": "something to eat",
+    "linkWords": [
+     "to get"
+    ],
+    "indicators": [
+     "across"
+    ],
+    "indicatorNotes": {
+     "across": "Laying one thing across another puts it over the middle of it, so the street's letters land inside the word for cut."
+    },
+    "pieces": [
+     "IRIS",
+     "H",
+     "ST",
+     "EW"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Iris",
+      "gives": "IRIS",
+      "note": "the name goes down letter for letter, exactly as printed"
+     },
+     {
+      "clueFragment": "cut",
+      "gives": "HEW",
+      "note": "to hew is to cut, as you hew wood"
+     },
+     {
+      "clueFragment": "street",
+      "gives": "ST",
+      "note": "St is how street is abbreviated on an address"
+     }
+    ],
+    "surface": "Iris nipping over the road to grab a bite to eat.",
+    "walkthrough": "'Cut across' is one movement in the surface — taking a short cut over the road — and it splits into a piece of wordplay and the instruction for where it goes. Iris is a woman only on the page.",
+    "definitionFit": "something to eat → IRISH STEW: the lamb, onion and potato stew that is Ireland's national dish, so the definition names a dish by its category."
+   }
   },
   {
    "id": "26-across",
@@ -514,7 +1393,52 @@ window.CRYPTIC_PUZZLES["indysunday-1850"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BULGE",
-   "annotation": null
+   "annotation": {
+    "type": "container + first letter + middle letter",
+    "answer": "BULGE",
+    "definition": "swelling",
+    "linkWords": [
+     "causing"
+    ],
+    "indicators": [
+     "bites",
+     "face",
+     "middle of",
+     "near"
+    ],
+    "indicatorNotes": {
+     "bites": "A bite closes teeth round something, so the insect's letters shut over what comes next.",
+     "face": "A face is the front a thing presents, and the front of a word is the letter it opens with.",
+     "middle of": "It wants the letter sitting at the dead centre of the word, with the same number on each side.",
+     "near": "Near means alongside, so that letter is set beside what has been built rather than tucked inside it."
+    },
+    "pieces": [
+     "BU",
+     "L",
+     "G",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bug",
+      "gives": "BUG",
+      "note": "the clue's own bug, taken as three letters"
+     },
+     {
+      "clueFragment": "lady's",
+      "gives": "L",
+      "note": "the letter Lady presents at the front"
+     },
+     {
+      "clueFragment": "middle of cheek",
+      "gives": "E",
+      "note": "chEek has five letters, and this is the third"
+     }
+    ],
+    "surface": "An insect biting a woman on the cheek and raising a lump.",
+    "walkthrough": "The whole thing reads as one insect bite, so not a word of it looks like an order. 'Face' meaning the front of a thing is the piece of vocabulary to take away.",
+    "definitionFit": "swelling → BULGE: a bulge is a rounded swelling pushing outwards, the shape something makes under a surface."
+   }
   },
   {
    "id": "27-across",
@@ -531,7 +1455,35 @@ window.CRYPTIC_PUZZLES["indysunday-1850"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FIGHTER",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "FIGHTER",
+    "definition": "Soldier",
+    "indicators": [
+     "to depart from"
+    ],
+    "indicatorNotes": {
+     "to depart from": "To depart from a place is to go out of it, so the letters named beforehand leave the longer word."
+    },
+    "pieces": [
+     "FIGHTER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ship",
+      "gives": "FREIGHTER",
+      "note": "a freighter is a ship that carries cargo"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about, as at the head of a memo, and it is what goes"
+     }
+    ],
+    "surface": "A soldier on the point of leaving the ship.",
+    "walkthrough": "'About to depart' reads as a man on the point of going ashore, and both of its halves are instructions. RE for 'about' is worth owning: it is the crossword's commonest two letters.",
+    "definitionFit": "Soldier → FIGHTER: soldiers fight for a living, so the definition points at the general word from one of its standing examples."
+   }
   },
   {
    "id": "28-across",
@@ -548,7 +1500,35 @@ window.CRYPTIC_PUZZLES["indysunday-1850"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DRESSES",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "DRESSES",
+    "definition": "Prepares",
+    "indicators": [
+     "with no"
+    ],
+    "indicatorNotes": {
+     "with no": "It says a piece is absent, so the letters named after it come out of the longer word."
+    },
+    "pieces": [
+     "DRESSES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "speeches",
+      "gives": "ADDRESSES",
+      "note": "an address is a formal speech, and the clue asks for more than one"
+     },
+     {
+      "clueFragment": "notice",
+      "gives": "AD",
+      "note": "an ad is a notice in a paper, short for advertisement, and it is what goes"
+     }
+    ],
+    "surface": "Somebody getting speeches ready at no warning at all.",
+    "walkthrough": "'With no notice' reads as being sprung on somebody at the last minute and is the removal instruction instead. 'Prepares' is the kitchen sense: you dress a salad, and a doctor dresses a wound.",
+    "definitionFit": "Prepares → DRESSES: to dress a salad, a wound or a shop window is to prepare it, get it ready for use."
+   }
   }
  ]
 } /*JSON-END*/;
