@@ -30,7 +30,30 @@ window.CRYPTIC_PUZZLES["quiptic-1370"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PASTURE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PASTURE",
+    "definition": "Grazing land",
+    "pieces": [
+     "PAST",
+     "URE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beyond",
+      "gives": "PAST",
+      "note": "once you are beyond a point you are past it"
+     },
+     {
+      "clueFragment": "river in Yorkshire",
+      "gives": "URE",
+      "note": "the Ure runs down Wensleydale in North Yorkshire, and setters reach for it whenever they want three quiet letters"
+     }
+    ],
+    "surface": "Sheep country lying on the far side of a Yorkshire river.",
+    "walkthrough": "British rivers are worth collecting — Ure, Exe, Cam, Dee — because a setter who needs two or three vowel-heavy letters will call on one of them every time.",
+    "definitionFit": "PASTURE is the grass land that livestock are turned out onto to feed, which is exactly grazing land."
+   }
   },
   {
    "id": "2-down",
@@ -47,7 +70,40 @@ window.CRYPTIC_PUZZLES["quiptic-1370"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ARMENIA",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "ARMENIA",
+    "definition": "former Soviet state",
+    "indicators": [
+     "about"
+    ],
+    "indicatorNotes": {
+     "about": "Something written about a subject is wrapped round it, so the first word's letters open out and the second word sits in the gap."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "AR",
+     "MEN",
+     "IA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Song",
+      "gives": "ARIA",
+      "note": "an aria is the big solo song in an opera"
+     },
+     {
+      "clueFragment": "blokes",
+      "gives": "MEN",
+      "note": "blokes is everyday British for men"
+     }
+    ],
+    "surface": "A tune going round about the lads, sung in a country once behind the Iron Curtain.",
+    "walkthrough": "'About' is doing two jobs at once — what a song is about, and where one word goes relative to another — which is why the sentence never sounds like an instruction.",
+    "definitionFit": "ARMENIA was a republic of the USSR until 1991 and has been independent since, so 'former Soviet state' names it exactly."
+   }
   },
   {
    "id": "3-down",
@@ -64,7 +120,37 @@ window.CRYPTIC_PUZZLES["quiptic-1370"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TITLE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "TITLE",
+    "definition": "Perhaps Mr",
+    "indicators": [
+     "wearing"
+    ],
+    "indicatorNotes": {
+     "wearing": "You wear a hat on top of yourself, so the single letter ends up tucked inside the word for the headgear."
+    },
+    "pieces": [
+     "TI",
+     "T",
+     "LE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "T",
+      "gives": "T",
+      "note": "the letter is used exactly as printed"
+     },
+     {
+      "clueFragment": "hat",
+      "gives": "TILE",
+      "note": "a tile is old slang for a hat, the sort of word that survives mainly in crosswords"
+     }
+    ],
+    "surface": "Mr T of the A-Team in a piece of headgear.",
+    "walkthrough": "'Perhaps' is doing the work of 'for example': Mr is not the answer but one instance of it, and that little word is the only warning you get.",
+    "definitionFit": "Mr, Dr, Lady and Sir are all titles, so 'Perhaps Mr' defines by holding up a single example of the class."
+   }
   },
   {
    "id": "4-down",
@@ -81,7 +167,46 @@ window.CRYPTIC_PUZZLES["quiptic-1370"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REGATTA",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + reversal",
+    "answer": "REGATTA",
+    "definition": "sporting event",
+    "indicators": [
+     "wanting",
+     "turned up"
+    ],
+    "indicatorNotes": {
+     "wanting": "A thing that is wanting is short of something, so whatever is named next is missing from the letters you assemble.",
+     "turned up": "In a down entry the answer runs towards the bottom, so reading it up the column means reading the letters the other way round."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "REGATTA"
+    ],
+    "subReversals": [
+     {
+      "from": "ATTAGER",
+      "to": "REGATTA"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A cottager",
+      "gives": "ACOTTAGER",
+      "note": "the two words run together, all nine letters, before anything comes out"
+     },
+     {
+      "clueFragment": "company",
+      "gives": "CO",
+      "note": "co is the standard abbreviation, the one on the end of a firm's name"
+     }
+    ],
+    "surface": "A lonely cottage-dweller showing up for a day's sport.",
+    "walkthrough": "'Wanting' reads as lonely in the sentence and as short of in the wordplay, which is the double duty that keeps the surface smooth enough to believe.",
+    "definitionFit": "A REGATTA is a meeting of boat races held over a day or a week, so the definition names the class it belongs to."
+   }
   },
   {
    "id": "5-across",
@@ -98,7 +223,39 @@ window.CRYPTIC_PUZZLES["quiptic-1370"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TRIGGER",
-   "annotation": null
+   "annotation": {
+    "type": "container + first letter",
+    "answer": "TRIGGER",
+    "definition": "Set off",
+    "indicators": [
+     "taking",
+     "primarily"
+    ],
+    "indicatorNotes": {
+     "taking": "Somebody taking a pill has swallowed it, so the letter goes inside the longer word rather than beside it.",
+     "primarily": "Primarily means first of all, so only the opening letter of the word it marks is used."
+    },
+    "pieces": [
+     "T",
+     "R",
+     "IGGER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bouncy character",
+      "gives": "TIGGER",
+      "note": "the tiger in Winnie-the-Pooh who bounces everywhere on his tail"
+     },
+     {
+      "clueFragment": "Ritalin",
+      "gives": "R",
+      "note": "the first letter of the drug's name, and nothing else of it"
+     }
+    ],
+    "surface": "A hyperactive character being medicated to calm down.",
+    "walkthrough": "Tigger is the bounciest character in Winnie-the-Pooh, so the surface reads as somebody prescribing him something to settle him, and 'bouncy character' does not look like a name.",
+    "definitionFit": "To TRIGGER something is to set it off, a sense borrowed straight from the part of a gun you pull to fire it."
+   }
   },
   {
    "id": "6-down",
@@ -115,7 +272,33 @@ window.CRYPTIC_PUZZLES["quiptic-1370"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RESITE",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "RESITE",
+    "definition": "Change location",
+    "indicators": [
+     "heartlessly"
+    ],
+    "indicatorNotes": {
+     "heartlessly": "A word robbed of its heart loses the letter at its exact centre, which a seven-letter word has."
+    },
+    "linkWords": [
+     "of"
+    ],
+    "pieces": [
+     "RESITE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "temporary relief",
+      "gives": "RESPITE",
+      "note": "a respite is a short break from something hard, and it is the letter at its dead centre that goes"
+     }
+    ],
+    "surface": "A brief let-up granted without a scrap of sympathy.",
+    "walkthrough": "'Heartlessly' reads as cruelly in the sentence and as an instruction underneath, and the convention is worth owning: the heart of a word is its middle letter.",
+    "definitionFit": "To RESITE something is to take it down and put it up somewhere else, which is changing its location."
+   }
   },
   {
    "id": "7-down",
@@ -132,7 +315,30 @@ window.CRYPTIC_PUZZLES["quiptic-1370"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GARIBALDI",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "GARIBALDI",
+    "definition": "revolutionary",
+    "indicators": [
+     "Content"
+    ],
+    "indicatorNotes": {
+     "Content": "Taken as a noun rather than an adjective, the content of something is what sits inside it, so a run of letters is already lying there."
+    },
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "snog a ribald Italian",
+      "gives": "GARIBALDI",
+      "note": "nine letters in a row, starting inside the first word and stopping one letter into the last"
+     }
+    ],
+    "surface": "Somebody quite happy to kiss a coarse-humoured Italian.",
+    "walkthrough": "'Content' is the trap: it reads as the adjective, meaning willing, and the noun is what flags the hiding place. Nine buried letters are harder to spot than four, because nobody scans for a span that long.",
+    "definitionFit": "Giuseppe Garibaldi led the red-shirted volunteers whose campaigns unified Italy in the 1860s, so 'revolutionary' names the trade."
+   }
   },
   {
    "id": "8-down",
@@ -149,7 +355,30 @@ window.CRYPTIC_PUZZLES["quiptic-1370"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EVADERS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "EVADERS",
+    "definition": "People who dodge",
+    "indicators": [
+     "exercises"
+    ],
+    "indicatorNotes": {
+     "exercises": "Exercising a body moves its parts about, so the letters put through the workout come out standing somewhere else."
+    },
+    "anagram": {
+     "fodder": "ADVERSE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "adverse",
+      "gives": "ADVERSE",
+      "note": "seven letters of fodder, with two E's to keep count of"
+     }
+    ],
+    "surface": "A punishing set of drills that nobody is enjoying.",
+    "walkthrough": "'Adverse exercises' reads as one ordinary phrase — hard training — which is exactly why neither word looks like it has a job to do.",
+    "definitionFit": "An EVADER is somebody who ducks a duty, a question or the taxman, so the plural matches 'People who dodge'."
+   }
   },
   {
    "id": "9-down",
@@ -170,7 +399,30 @@ window.CRYPTIC_PUZZLES["quiptic-1370"] = /*JSON-START*/ {
     ]
    },
    "solution": "CLINTEASTWOOD",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "CLINT EASTWOOD",
+    "definition": "film director",
+    "indicators": [
+     "with action"
+    ],
+    "indicatorNotes": {
+     "with action": "Something done with action is in motion, and letters in motion do not stay in the order they were printed."
+    },
+    "anagram": {
+     "fodder": "TWIT CANOODLES"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Twit canoodles",
+      "gives": "TWITCANOODLES",
+      "note": "thirteen letters of fodder, splitting 5 and 8 as the enumeration asks"
+     }
+    ],
+    "surface": "A fool having a cuddle in the middle of an action picture.",
+    "walkthrough": "The fodder is a complete little sentence in itself, which is the disguise — nothing in 'Twit canoodles' reads as an instruction, so the eye slides past to the film.",
+    "definitionFit": "Clint Eastwood directed Unforgiven and Million Dollar Baby among many more, so 'film director' names the job behind the acting fame."
+   }
   },
   {
    "id": "10-across",
@@ -187,7 +439,36 @@ window.CRYPTIC_PUZZLES["quiptic-1370"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EMIT",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "EMIT",
+    "definition": "Give out",
+    "indicators": [
+     "on return"
+    ],
+    "indicatorNotes": {
+     "on return": "Coming back means retracing the way you came, so the letters are read from their far end backwards."
+    },
+    "pieces": [
+     "EMIT"
+    ],
+    "subReversals": [
+     {
+      "from": "TIME",
+      "to": "EMIT"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "porridge",
+      "gives": "TIME",
+      "note": "doing porridge is British slang for serving a prison sentence, so porridge is time"
+     }
+    ],
+    "surface": "Handing round the breakfast when somebody comes back.",
+    "walkthrough": "Porridge for a prison stretch is British prison slang old enough to have named a sitcom, and it is one of the words a setter uses whenever a clue needs four ordinary letters.",
+    "definitionFit": "To EMIT light, heat or a smell is to send it out from yourself, which is what 'give out' means as a verb."
+   }
   },
   {
    "id": "11-across",
@@ -208,7 +489,33 @@ window.CRYPTIC_PUZZLES["quiptic-1370"] = /*JSON-START*/ {
     ]
    },
    "solution": "GULFSTREAM",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "GULF STREAM",
+    "definition": "current across the pond",
+    "indicators": [
+     "confused"
+    ],
+    "indicatorNotes": {
+     "confused": "Something confused has lost track of what goes where, so the letters beside the word do not keep the arrangement they arrived in."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "anagram": {
+     "fodder": "FULMAR GETS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Fulmar gets",
+      "gives": "FULMARGETS",
+      "note": "ten letters of fodder, which is what the 4,6 enumeration asks for"
+     }
+    ],
+    "surface": "A seabird getting itself thoroughly muddled out at sea.",
+    "walkthrough": "A fulmar is a stiff-winged North Atlantic seabird, so bird and definition share an ocean, and 'the pond' is the British nickname for that same Atlantic.",
+    "definitionFit": "The GULF STREAM is the warm current running from the Gulf of Mexico across the Atlantic to Europe, and 'the pond' is that ocean."
+   }
   },
   {
    "id": "12-across",
@@ -225,7 +532,36 @@ window.CRYPTIC_PUZZLES["quiptic-1370"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INTENT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "INTENT",
+    "definition": "Earnest",
+    "indicators": [
+     "like this?"
+    ],
+    "indicatorNotes": {
+     "like this?": "The question points at the letters in front of you: split them into two words and they describe the state named just before."
+    },
+    "pieces": [
+     "IN",
+     "TENT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "camping",
+      "gives": "IN",
+      "note": "a camper spends the night inside something, and the two-letter word for inside comes first"
+     },
+     {
+      "clueFragment": "camping",
+      "gives": "TENT",
+      "note": "the canvas that camper is sleeping under supplies the other four letters"
+     }
+    ],
+    "surface": "A serious-minded camping trip, done in exactly this fashion.",
+    "walkthrough": "Read as one word the answer is a state of mind; read as two it is where a camper sleeps, and the question mark is the setter admitting the join.",
+    "definitionFit": "INTENT as an adjective means fixed earnestly on something — an intent stare, intent on winning — which is the sense 'Earnest' carries."
+   }
   },
   {
    "id": "13-across",
@@ -242,7 +578,33 @@ window.CRYPTIC_PUZZLES["quiptic-1370"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NOTABLES",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "NOTABLES",
+    "definition": "Celebrities",
+    "linkWords": [
+     "for this reason"
+    ],
+    "pieces": [
+     "NO",
+     "TABLES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "can’t",
+      "gives": "NO",
+      "note": "the flat two-letter refusal that explains why something cannot happen"
+     },
+     {
+      "clueFragment": "play snooker",
+      "gives": "TABLES",
+      "note": "snooker is played on big baize-covered tables, so the game hands over its own equipment"
+     }
+    ],
+    "surface": "A room full of famous people who cannot get a game of snooker.",
+    "walkthrough": "The reason really is spelled out: say the eight letters as two words and you have the shortage that stops the game, which is why 'for this reason' is a promise rather than padding.",
+    "definitionFit": "NOTABLES are the people worth noting — the distinguished names on a guest list — which is what 'Celebrities' means."
+   }
   },
   {
    "id": "14-across",
@@ -259,7 +621,30 @@ window.CRYPTIC_PUZZLES["quiptic-1370"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PACEMAKER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "PACEMAKER",
+    "definition": "frontrunner",
+    "indicators": [
+     "for training"
+    ],
+    "indicatorNotes": {
+     "for training": "Training a squad knocks it into a different shape, so the letters put through it do not come out standing where they started."
+    },
+    "anagram": {
+     "fodder": "MAP A CREEK"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Map a creek",
+      "gives": "MAPACREEK",
+      "note": "nine letters of fodder, with the two A's and two E's easy to lose count of"
+     }
+    ],
+    "surface": "Charting a small tidal inlet as part of somebody's training.",
+    "walkthrough": "'Frontrunner' looks like one more piece of the training story, which is the whole disguise — a map and a creek belong to an exercise, not to a race.",
+    "definitionFit": "A PACEMAKER is the runner who leads a race and sets the speed for the field, so the definition names that position."
+   }
   },
   {
    "id": "15-down",
@@ -276,7 +661,35 @@ window.CRYPTIC_PUZZLES["quiptic-1370"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ETERNALLY",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "ETERNALLY",
+    "definition": "for ever",
+    "indicators": [
+     "less"
+    ],
+    "indicatorNotes": {
+     "less": "Less works as minus here, so whatever is named after it comes away from the letters you already have."
+    },
+    "pieces": [
+     "ETERNALLY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Superficially",
+      "gives": "EXTERNALLY",
+      "note": "what is superficial is on the outside only, and the adverb for that is the ten letters to start from"
+     },
+     {
+      "clueFragment": "cross",
+      "gives": "X",
+      "note": "a cross is written as the letter X, as on a ballot paper or the end of a note"
+     }
+    ],
+    "surface": "Somebody only slightly less bad-tempered, and staying that way.",
+    "walkthrough": "'Cross' reads as the mood in the sentence and is the shape of a letter in the wordplay, which is one of the standard ways a setter clues X.",
+    "definitionFit": "ETERNALLY means going on without any end, which is what 'for ever' says in two words."
+   }
   },
   {
    "id": "16-across",
@@ -293,7 +706,33 @@ window.CRYPTIC_PUZZLES["quiptic-1370"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GLOSS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "GLOSS",
+    "definition": "sheen",
+    "linkWords": [
+     "provides"
+    ],
+    "pieces": [
+     "G",
+     "LOSS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "German",
+      "gives": "G",
+      "note": "g is the standard abbreviation for the language and the nationality"
+     },
+     {
+      "clueFragment": "defeat",
+      "gives": "LOSS",
+      "note": "a match you did not win goes down as a loss"
+     }
+    ],
+    "surface": "A German setback that turns out to have a bright side.",
+    "walkthrough": "Both halves read as a single idea, a German defeat, so the join between the one-letter piece and the four-letter one leaves no seam to see.",
+    "definitionFit": "GLOSS is the shine on a polished surface — gloss paint, a glossy magazine — so 'sheen' is a plain synonym for the noun."
+   }
   },
   {
    "id": "17-across",
@@ -310,7 +749,30 @@ window.CRYPTIC_PUZZLES["quiptic-1370"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ESSEX",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "ESSEX",
+    "definition": "part of eastern England",
+    "indicators": [
+     "Some"
+    ],
+    "indicatorNotes": {
+     "Some": "Some of a phrase is a piece of it taken as it stands, so a run of letters is wanted rather than the words themselves."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "males sexualised",
+      "gives": "ESSEX",
+      "note": "five letters in a row, beginning inside the first word and finishing inside the second"
+     }
+    ],
+    "surface": "An observation about the way some men get sexualised.",
+    "walkthrough": "A buried answer hides best inside a phrase that reads as ordinary comment, and this one sounds like a line from a newspaper column rather than a set of letters.",
+    "definitionFit": "ESSEX is the county on the North Sea coast immediately east of London, so the definition places it geographically."
+   }
   },
   {
    "id": "18-down",
@@ -327,7 +789,30 @@ window.CRYPTIC_PUZZLES["quiptic-1370"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCREECH",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SCREECH",
+    "definition": "High pitched squawk",
+    "pieces": [
+     "SCREE",
+     "CH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rocks",
+      "gives": "SCREE",
+      "note": "scree is the loose broken rock that piles up down a mountainside"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CH",
+      "note": "ch is the standard abbreviation, the one printed on maps"
+     }
+    ],
+    "surface": "A noise loud enough to shake a church.",
+    "walkthrough": "'Rocks' reads as a verb, the noise shaking the building, and is a plain noun in the wordplay — the loose stuff lying on a hillside.",
+    "definitionFit": "A SCREECH is a harsh high-pitched cry, the noise an owl or a set of brakes makes, which is the squawk described."
+   }
   },
   {
    "id": "19-across",
@@ -348,7 +833,42 @@ window.CRYPTIC_PUZZLES["quiptic-1370"] = /*JSON-START*/ {
     ]
    },
    "solution": "ASIAMINOR",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ASIA MINOR",
+    "definition": "part of Turkey",
+    "pieces": [
+     "AS",
+     "IAM",
+     "IN",
+     "OR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "When",
+      "gives": "AS",
+      "note": "as and when open a clause interchangeably"
+     },
+     {
+      "clueFragment": "I am",
+      "gives": "IAM",
+      "note": "the two words used exactly as printed"
+     },
+     {
+      "clueFragment": "wearing",
+      "gives": "IN",
+      "note": "somebody wearing black is in black, so the word stands in for the little preposition"
+     },
+     {
+      "clueFragment": "gold",
+      "gives": "OR",
+      "note": "or is the heraldic word for gold, the metal on a coat of arms"
+     }
+    ],
+    "surface": "Somebody describing themselves turned out in gold.",
+    "walkthrough": "'Wearing' looks like the container instruction this clue never uses; it is a piece in its own right, standing in for a two-letter preposition.",
+    "definitionFit": "ASIA MINOR is the old name for the Anatolian peninsula, which makes up the great bulk of modern Turkey."
+   }
   },
   {
    "id": "20-down",
@@ -365,7 +885,40 @@ window.CRYPTIC_PUZZLES["quiptic-1370"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AMENITY",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "AMENITY",
+    "definition": "convenience",
+    "linkWords": [
+     "with",
+     "for"
+    ],
+    "pieces": [
+     "AMEN",
+     "IT",
+     "Y"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "So be it",
+      "gives": "AMEN",
+      "note": "the word said at the close of a prayer means precisely that"
+     },
+     {
+      "clueFragment": "sex",
+      "gives": "IT",
+      "note": "it is the coy old word for sex, as in the 1920s It girl who had sex appeal"
+     },
+     {
+      "clueFragment": "unknown",
+      "gives": "Y",
+      "note": "x, y and z are the letters algebra keeps for quantities not yet known"
+     }
+    ],
+    "surface": "A shrug of agreement to a fling with a stranger.",
+    "walkthrough": "Three scraps of shorthand stacked up, and the one to keep is the algebra: any of x, y or z can be an unknown, so the crossing letters decide which one is wanted.",
+    "definitionFit": "An AMENITY is a facility that makes life easier — a park bench, a laundry room — which is what a convenience is, public ones included."
+   }
   },
   {
    "id": "21-down",
@@ -382,7 +935,30 @@ window.CRYPTIC_PUZZLES["quiptic-1370"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OVERRUN",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "OVERRUN",
+    "definition": "Go on too long",
+    "definition2": "swamp",
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Go on too long",
+      "gives": "",
+      "note": "what a meeting or a speech does when it eats into the next slot"
+     },
+     {
+      "clueFragment": "swamp",
+      "gives": "",
+      "note": "the verb, meaning to flood a place or overwhelm somebody with more than they can take"
+     }
+    ],
+    "surface": "A meeting dragging on somewhere marshy.",
+    "walkthrough": "'Swamp' is the trap: it reads as the noun, a patch of wet ground, and the clue wants the verb, to overwhelm by sheer numbers.",
+    "definitionFit": "A talk that OVERRUNS goes past its allotted time, and to OVERRUN a country or a system is to swamp it with more than it can hold."
+   }
   },
   {
    "id": "22-down",
@@ -399,7 +975,37 @@ window.CRYPTIC_PUZZLES["quiptic-1370"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GRASPS",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "GRASPS",
+    "definition": "Seizes",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "The piece named before it goes inside the word named after it, rather than being written alongside."
+    },
+    "pieces": [
+     "GRAS",
+     "P",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shop",
+      "gives": "GRASS",
+      "note": "to shop somebody is to inform on them, and grass is the same British slang for doing it"
+     },
+     {
+      "clueFragment": "power",
+      "gives": "P",
+      "note": "p is the standard abbreviation in physics"
+     }
+    ],
+    "surface": "A power grab in a corner shop.",
+    "walkthrough": "'Shop' is not the place you buy things but the verb, to inform on somebody — the same idea as grassing on them, which is why the two words swap so neatly.",
+    "definitionFit": "To GRASP something is to take firm hold of it, so 'Seizes' matches both the sense and the third-person ending."
+   }
   },
   {
    "id": "23-across",
@@ -420,7 +1026,39 @@ window.CRYPTIC_PUZZLES["quiptic-1370"] = /*JSON-START*/ {
     ]
    },
    "solution": "FRONTROW",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "FRONT ROW",
+    "definition": "Some rugby players",
+    "indicators": [
+     "at first"
+    ],
+    "indicatorNotes": {
+     "at first": "This fixes a position rather than picking out a letter: the piece just named goes at the start of the answer."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "FRONT",
+     "ROW"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "impudence",
+      "gives": "FRONT",
+      "note": "front is cheek or nerve — 'what a front!' — said of somebody brazen"
+     },
+     {
+      "clueFragment": "argue",
+      "gives": "ROW",
+      "note": "a row is a noisy quarrel, the one that rhymes with cow"
+     }
+    ],
+    "surface": "Rugby forwards squaring up and giving lip before anything else happens.",
+    "walkthrough": "'At first' looks like an instruction to take initial letters and is only saying which piece leads. A front row is the two props and the hooker who bind at the head of a rugby scrum.",
+    "definitionFit": "The FRONT ROW is that trio of forwards at the head of the scrum, so the definition names them as one group within a rugby team."
+   }
   },
   {
    "id": "24-across",
@@ -437,7 +1075,38 @@ window.CRYPTIC_PUZZLES["quiptic-1370"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EARNER",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "EARNER",
+    "definition": "source of money",
+    "indicators": [
+     "out"
+    ],
+    "indicatorNotes": {
+     "out": "Out marks a removal: the letter named just before it is taken out of the longer word it sits in."
+    },
+    "linkWords": [
+     "has"
+    ],
+    "pieces": [
+     "EARNER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Student",
+      "gives": "LEARNER",
+      "note": "a student is a learner, and those seven letters are what you start from"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "l is the standard abbreviation, the one on a pair of gloves"
+     }
+    ],
+    "surface": "A student who has walked out on a steady income.",
+    "walkthrough": "'Has left' reads as departed, and that hides both halves of the instruction at once: 'left' names the letter and 'out' says what becomes of it.",
+    "definitionFit": "An EARNER is a thing that brings money in — 'a nice little earner' — so it is a source of money rather than the person paid."
+   }
   },
   {
    "id": "25-down",
@@ -454,7 +1123,39 @@ window.CRYPTIC_PUZZLES["quiptic-1370"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RUMBA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "RUMBA",
+    "definition": "Dance",
+    "indicators": [
+     "mostly"
+    ],
+    "indicatorNotes": {
+     "mostly": "Most of a word is all of it bar the last letter, so the tail is dropped before the piece is used."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "RUM",
+     "BA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "strange",
+      "gives": "RUM",
+      "note": "rum is an old British adjective for odd or peculiar — 'a rum do'"
+     },
+     {
+      "clueFragment": "bar",
+      "gives": "BA",
+      "note": "the three-letter word with its tail taken off"
+     }
+    ],
+    "surface": "A dance held in a decidedly odd little bar.",
+    "walkthrough": "'Rum' for strange is Victorian slang that survives almost nowhere but crosswords, and it slides into a sentence about a bar without a sound.",
+    "definitionFit": "The RUMBA is the Cuban ballroom dance, so 'Dance' defines it by naming the class it belongs to."
+   }
   },
   {
    "id": "26-across",
@@ -471,7 +1172,35 @@ window.CRYPTIC_PUZZLES["quiptic-1370"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BERLUSCONI",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "BERLUSCONI",
+    "definition": "this PM",
+    "indicators": [
+     "when partying"
+    ],
+    "indicatorNotes": {
+     "when partying": "A party is where order breaks down and everybody ends up somewhere they did not start, and so do these letters."
+    },
+    "anagram": {
+     "fodder": "RUB CLOSE IN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Rub close-in",
+      "gives": "RUBCLOSEIN",
+      "note": "ten letters of fodder, the hyphen ignored as hyphens always are"
+     },
+     {
+      "clueFragment": "liked to",
+      "gives": "",
+      "note": "surface only: it ties the picture to the man and hands over no letters"
+     }
+    ],
+    "surface": "A politician with a taste for getting far too close to people at parties.",
+    "walkthrough": "The 'bunga bunga' parties were front-page news across Europe for years, which is what lets the fodder read as biography instead of as a bag of letters.",
+    "definitionFit": "Silvio Berlusconi was Italy's prime minister four separate times, so 'this PM' points at one particular holder of that office."
+   }
   },
   {
    "id": "27-across",
@@ -488,7 +1217,33 @@ window.CRYPTIC_PUZZLES["quiptic-1370"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MIRE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MIRE",
+    "definition": "Unpleasant situation",
+    "linkWords": [
+     "of"
+    ],
+    "pieces": [
+     "M",
+     "IRE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "male",
+      "gives": "M",
+      "note": "m is the standard abbreviation, the box you tick on a form"
+     },
+     {
+      "clueFragment": "anger",
+      "gives": "IRE",
+      "note": "ire is the poetic word for anger, three letters setters lean on constantly"
+     }
+    ],
+    "surface": "One man's temper making everything worse.",
+    "walkthrough": "A MIRE is literally a bog, and it is the figurative sense the definition wants — stuck fast in something you cannot get yourself out of.",
+    "definitionFit": "To be in a MIRE is to be bogged down in a mess with no easy way out, which is an unpleasant situation."
+   }
   },
   {
    "id": "28-across",
@@ -505,7 +1260,52 @@ window.CRYPTIC_PUZZLES["quiptic-1370"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WHEYISH",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "WHEYISH",
+    "definition": "like dairy product?",
+    "indicators": [
+     "claiming"
+    ],
+    "indicatorNotes": {
+     "claiming": "To claim something is to take it in and keep hold of it, so the letter named is swallowed inside the word doing the claiming."
+    },
+    "linkWords": [
+     "is"
+    ],
+    "pieces": [
+     "WH",
+     "E",
+     "Y",
+     "IS",
+     "H"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Why",
+      "gives": "WHY",
+      "note": "the question word spelled out, three letters waiting to be opened up"
+     },
+     {
+      "clueFragment": "base",
+      "gives": "E",
+      "note": "e is the base of natural logarithms in mathematics"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "the little verb used exactly as printed"
+     },
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "h is the standard abbreviation, the one on a family tree"
+     }
+    ],
+    "surface": "A husband staking a claim to the base, and somebody demanding to know why.",
+    "walkthrough": "'Base' is the mathematician's e, the number at the bottom of natural logarithms, and it is the kind of one-letter convention worth keeping for good.",
+    "definitionFit": "WHEYISH means resembling whey, the thin liquid left when milk curdles for cheese, so the definition points at that dairy product."
+   }
   },
   {
    "id": "29-across",
@@ -522,7 +1322,46 @@ window.CRYPTIC_PUZZLES["quiptic-1370"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TYRANNY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters + deletion",
+    "answer": "TYRANNY",
+    "definition": "Absolute power",
+    "indicators": [
+     "extremely",
+     "not"
+    ],
+    "indicatorNotes": {
+     "extremely": "Extremely sends you to both far ends of the word it marks, so the first and last letters are all you keep.",
+     "not": "Not marks an absence: whatever is named after it is missing from the letters you have just been given."
+    },
+    "linkWords": [
+     "of"
+    ],
+    "pieces": [
+     "TY",
+     "RANNY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "extremely tetchy",
+      "gives": "TY",
+      "note": "the two letters at the outer edges of the word, taken at its extremes"
+     },
+     {
+      "clueFragment": "grandma",
+      "gives": "GRANNY",
+      "note": "granny is the everyday word for a grandmother"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "g is the standard abbreviation, as in a grade on a school report"
+     }
+    ],
+    "surface": "A short-tempered grandmother behaving at her absolute worst.",
+    "walkthrough": "'Not good' reads as a verdict on the old lady and is really a pair of instructions: the abbreviation for good, and the word that takes it away again.",
+    "definitionFit": "TYRANNY is rule by someone whose power has no check on it at all, which is what 'Absolute power' describes."
+   }
   }
  ]
 } /*JSON-END*/;
