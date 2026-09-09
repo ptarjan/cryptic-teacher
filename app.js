@@ -1784,8 +1784,13 @@
   // building-blocks rung. First match wins, so the list is ordered by which
   // mechanism dominates a compound type. Every part in TYPE_PARTS (validator)
   // must be claimed by exactly one family here. See APP.md.
+  //
+  // `n` is how many annotated clues in puzzles/ this family is a correct answer
+  // for — grading accepts every family a compound type uses, so that is the
+  // count a solver's odds actually run on. It orders the chips, not this array;
+  // tools/smoke_test.js recounts the corpus and fails if a share has drifted.
   const FAMILIES = [
-    { label: "Definitions only",
+    { label: "Definitions only", n: 805,
       // Says what the family IS and stops. It used to add that the work is
       // spotting which words define, which on a two-word double definition is a
       // claim the page then disproves: both words define, so the definition
@@ -1799,22 +1804,22 @@
       // they cannot use a word that is ever an answer if a synonym will do.
       blurb: "No letter mechanics at all — nothing is shuffled, hidden or spelled out. Either two plain definitions sit side by side, or one sly one describes the answer the long way round.",
       match: (t) => t.includes("double definition") || t.includes("cryptic definition") },
-    { label: "&lit",
+    { label: "&lit", n: 160,
       blurb: "The whole clue does double duty: read it once as a definition, then read the very same words again as wordplay.",
       match: (t) => t.includes("&lit") },
-    { label: "Rearrangement",
+    { label: "Rearrangement", n: 2181,
       blurb: "Letters handed to you in the clue get shuffled into the answer. Find the fodder and count it against the enumeration.",
       match: (t) => t.includes("anagram") || t.includes("cycling") },
-    { label: "Sound",
+    { label: "Sound", n: 475,
       blurb: "The wordplay describes how the answer sounds rather than how it is spelled.",
       match: (t) => t.includes("homophone") || t.includes("spoonerism") },
-    { label: "Charade",
+    { label: "Charade", n: 4646,
       blurb: "The answer is built from pieces laid end to end, each clued separately — read the wordplay left to right.",
       match: (t) => t.includes("charade") },
-    { label: "Alteration",
+    { label: "Alteration", n: 4434,
       blurb: "A piece of the wordplay is changed rather than just joined on: put inside something, turned around, or trimmed.",
       match: (t) => t.includes("container") || t.includes("reversal") || t.includes("deletion") || t.includes("substitution") || t.includes("palindrome") },
-    { label: "Extraction",
+    { label: "Extraction", n: 2200,
       blurb: "The answer's letters are already sitting in the clue in order — the job is working out which ones to pick out.",
       match: (t) => t.includes("hidden") || t.includes("letter") }
   ];
@@ -1826,6 +1831,13 @@
   // because a headline has to pick, but marking the others wrong teaches the
   // solver that a clue has exactly one mechanism, which is the opposite of what
   // this rung is for.
+  // The chips the type rung offers, commonest first (Paul, 2026-09-09). The
+  // array above is a precedence order — first match wins — so it cannot also be
+  // the order a solver reads, and read as one it opened with the two rarest
+  // families, putting "Definitions only" and "&lit" in front of every solver on
+  // every clue when between them they answer one clue in fourteen.
+  const FAMILY_CHIPS = FAMILIES.slice().sort((a, b) => b.n - a.n).map((f) => f.label);
+
   function familiesOf(type) {
     const t = (type || "").toLowerCase();
     return FAMILIES.filter((f) => f.match(t));
@@ -2715,16 +2727,16 @@
   // so what comes back has `choices` where the others have `tokens`, and every
   // reader downstream branches on that one field.
   //
-  // All seven are always offered, in ladder order and never shuffled: the list
-  // IS the vocabulary this site is trying to teach, and seeing the same seven
-  // under every clue is most of how it gets learned. Narrowing it to plausible
-  // ones would make the question easier and the lesson smaller.
+  // All seven are always offered, commonest first and never shuffled: the list
+  // IS the vocabulary this site is trying to teach, and seeing the same seven in
+  // the same order under every clue is most of how it gets learned. Narrowing it
+  // to plausible ones would make the question easier and the lesson smaller.
   function familyAsk(ann) {
     // Empty for a type no rule claims: there would be no right answer to pick, so
     // there is no question, and the rung behaves exactly as it always did.
     const right = familiesOf(ann.type).map((f) => f.label);
     if (!right.length) return null;
-    return { prompt: "Which of these is it?", choices: FAMILIES.map((f) => f.label),
+    return { prompt: "Which of these is it?", choices: FAMILY_CHIPS,
              answer: right[0], answers: right, step: 0 };
   }
 

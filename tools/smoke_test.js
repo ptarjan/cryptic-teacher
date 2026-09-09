@@ -411,6 +411,48 @@ const patBoxes = () => (patHTML().match(/class="pat-box [^"]*"/g) || []);
     `type part '${p}' is claimed by a clue family in app.js`));
 }
 
+// --- the chips are offered commonest first, and `n` still says how common ---
+{
+  // The order is computed from `n`, so the only thing that can rot is `n`
+  // itself: annotate a few hundred more clues and a hand-typed count from an
+  // older corpus quietly stops being the reason the chips sit where they do.
+  // Shares rather than raw counts, because the corpus only grows and a count
+  // that grew with it is not wrong.
+  const famBlock = appSrc.slice(appSrc.indexOf("const FAMILIES"),
+                                appSrc.indexOf("const FAMILY_CHIPS"));
+  const fams = famBlock.split(/\{ label: "/).slice(1).map((chunk) => ({
+    label: chunk.slice(0, chunk.indexOf('"')),
+    n: +(/^[^\n]*\bn: (\d+)/.exec(chunk) || [0, 0])[1],
+    keys: [...chunk.matchAll(/t\.includes\("([^"]+)"\)/g)].map((m) => m[1])
+  }));
+  assert(fams.length === 7 && fams.every((f) => f.n > 0),
+    "every clue family in app.js declares its corpus count: " + JSON.stringify(fams.map((f) => [f.label, f.n])));
+
+  const seen = {};
+  fs.readdirSync(path.join(ROOT, "puzzles"))
+    .filter((f) => f.endsWith(".js") && f !== "index.js")
+    .forEach((f) => {
+      const src = fs.readFileSync(path.join(ROOT, "puzzles", f), "utf8");
+      [...src.matchAll(/"type"\s*:\s*"([^"]*)"/g)].forEach((m) => {
+        const t = m[1].toLowerCase();
+        // Every family the type uses, not just the dominant one: gradeChoice
+        // accepts any of them, so that is what a chip's odds run on.
+        fams.forEach((fam) => {
+          if (fam.keys.some((k) => t.includes(k))) seen[fam.label] = (seen[fam.label] || 0) + 1;
+        });
+      });
+    });
+  const total = (o) => fams.reduce((a, f) => a + (typeof o === "function" ? o(f) : o[f.label] || 0), 0);
+  const declaredTotal = total((f) => f.n), countedTotal = total(seen);
+  assert(countedTotal > 5000, "the corpus was actually read: " + countedTotal + " family hits");
+  fams.forEach((f) => {
+    const want = (seen[f.label] || 0) / countedTotal, got = f.n / declaredTotal;
+    assert(Math.abs(want - got) <= 0.03,
+      `app.js says ${f.label} is ${(got * 100).toFixed(1)}% of family hits; the corpus `
+      + `now says ${(want * 100).toFixed(1)}% (${seen[f.label] || 0}) — retype its n so the chip order stays true`);
+  });
+}
+
 // --- every series in the index must have a badge in app.js ---
 {
   // The badge names which paper a row is from. It used to skip the Guardian on
@@ -3634,13 +3676,17 @@ global.realSetTimeout(() => {
   // What it wanted, learned the expensive way, so the two answers below can be
   // told apart without this test knowing the app's own table of families.
   registry["guess-tell"].onclick();
-  const named = /kind of clue is this\?<\/span><p><strong>([^<]+)</.exec(registry["hint-body"].innerHTML);
-  assert(named, "the rung names the family it was after: " + registry["hint-body"].innerHTML);
-  const right = named[1];
+  const told = registry["hint-body"].innerHTML.slice(
+    registry["hint-body"].innerHTML.indexOf("kind of clue is this?"));
+  // Every family it names, not just the first: a compound clue is graded right
+  // for any of them, so "the one it named" and "not wrong" are different sets.
+  const accepted = [...told.matchAll(/<p><strong>([^<]+)<\/strong>/g)].map((m) => m[1]);
+  assert(accepted.length, "the rung names the family it was after: " + told);
+  const right = accepted[0];
 
   // Wrong is never a dead end: the rung opens all the same, and is charged for.
   const paid = open();
-  const wrong = [...choices().keys()].find((k) => k !== right);
+  const wrong = [...choices().keys()].find((k) => accepted.indexOf(k) < 0);
   registry["gc-" + choices().get(wrong)].onclick();
   html = registry["hint-body"].innerHTML;
   assert(html.includes("guess-verdict miss"), "a wrong family is graded: " + html);
