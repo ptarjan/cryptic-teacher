@@ -48,6 +48,10 @@ const ABBREVIATIONS = {
  "ADM": [
   "admiral"
  ],
+ "AI": [
+  "artificial intelligence",
+  "smart tech"
+ ],
  "AL": [
   "alabama",
   "aluminium"
@@ -83,11 +87,13 @@ const ABBREVIATIONS = {
   "book",
   "born",
   "bowled",
+  "bravo",
   "britain",
   "british"
  ],
  "BA": [
   "arts degree",
+  "bachelor",
   "degree",
   "graduate"
  ],
@@ -97,6 +103,9 @@ const ABBREVIATIONS = {
  ],
  "BI": [
   "bismuth"
+ ],
+ "BO": [
+  "box office"
  ],
  "BR": [
   "british",
@@ -144,6 +153,7 @@ const ABBREVIATIONS = {
   "check",
   "child",
   "children",
+  "chinese",
   "church",
   "companion of honour"
  ],
@@ -152,6 +162,9 @@ const ABBREVIATIONS = {
   "commanding officer",
   "company",
   "firm"
+ ],
+ "CR": [
+  "credit"
  ],
  "CV": [
   "career record",
@@ -163,17 +176,23 @@ const ABBREVIATIONS = {
   "daughters",
   "day",
   "dead",
+  "delta",
   "democrat",
   "departs",
   "diameter",
   "diamonds",
   "died",
   "director",
+  "down",
   "drive",
   "duke",
   "dutch",
   "five hundred",
   "penny"
+ ],
+ "DA": [
+  "district attorney",
+  "prosecutor"
  ],
  "DC": [
   "capital",
@@ -223,6 +242,11 @@ const ABBREVIATIONS = {
  "EN": [
   "printer's measure",
   "space"
+ ],
+ "EP": [
+  "epistle",
+  "letter",
+  "record"
  ],
  "ER": [
   "hesitation",
@@ -309,6 +333,7 @@ const ABBREVIATIONS = {
   "height",
   "henry",
   "heroin",
+  "home",
   "hospital",
   "hot",
   "hotel",
@@ -337,6 +362,7 @@ const ABBREVIATIONS = {
  ],
  "I": [
   "current",
+  "independence",
   "independent",
   "india",
   "individual",
@@ -347,6 +373,9 @@ const ABBREVIATIONS = {
   "italy",
   "me",
   "one"
+ ],
+ "IC": [
+  "in charge"
  ],
  "IE": [
   "that is"
@@ -371,6 +400,7 @@ const ABBREVIATIONS = {
  ],
  "IT": [
   "computing",
+  "information technology",
   "sex appeal",
   "vermouth"
  ],
@@ -383,6 +413,7 @@ const ABBREVIATIONS = {
  ],
  "J": [
   "jack",
+  "japanese",
   "judge",
   "juliet",
   "justice"
@@ -405,6 +436,7 @@ const ABBREVIATIONS = {
  "L": [
   "fifty",
   "lake",
+  "lambert",
   "large",
   "latin",
   "league",
@@ -417,6 +449,7 @@ const ABBREVIATIONS = {
   "litre",
   "live",
   "long",
+  "luxembourg",
   "pound"
  ],
  "LA": [
@@ -525,6 +558,7 @@ const ABBREVIATIONS = {
   "new",
   "newton",
   "noon",
+  "norse",
   "north",
   "northern",
   "norway",
@@ -621,8 +655,15 @@ const ABBREVIATIONS = {
   "huge",
   "outsize"
  ],
+ "OZ": [
+  "australia",
+  "australian",
+  "ounce",
+  "ounces"
+ ],
  "P": [
   "page",
+  "papa",
   "parking",
   "pawn",
   "pee",
@@ -644,6 +685,7 @@ const ABBREVIATIONS = {
  ],
  "PC": [
   "computer",
+  "police constable",
   "policeman",
   "politically correct"
  ],
@@ -656,6 +698,10 @@ const ABBREVIATIONS = {
  "PH": [
   "acidity"
  ],
+ "PI": [
+  "private eye",
+  "private investigator"
+ ],
  "PL": [
   "place"
  ],
@@ -665,6 +711,7 @@ const ABBREVIATIONS = {
  ],
  "PO": [
   "loo",
+  "petty officer",
   "post office"
  ],
  "POP": [
@@ -712,6 +759,7 @@ const ABBREVIATIONS = {
   "right",
   "river",
   "romeo",
+  "rook",
   "royal",
   "run",
   "runs",
@@ -733,6 +781,7 @@ const ABBREVIATIONS = {
   "concerning",
   "engineers",
   "note",
+  "religious education",
   "sappers"
  ],
  "REL": [
@@ -782,6 +831,7 @@ const ABBREVIATIONS = {
   "spades",
   "special",
   "square",
+  "stokes",
   "succeeded",
   "sulphur",
   "sun",
@@ -789,7 +839,9 @@ const ABBREVIATIONS = {
  ],
  "SA": [
   "sex appeal",
-  "south africa"
+  "south africa",
+  "south america",
+  "south american"
  ],
  "SC": [
   "self catering",
@@ -932,8 +984,10 @@ const ABBREVIATIONS = {
   "watt",
   "week",
   "welsh",
+  "weight",
   "west",
   "whiskey",
+  "whisky",
   "wife",
   "with",
   "women"
@@ -955,6 +1009,9 @@ const ABBREVIATIONS = {
   "unknown",
   "wrong"
  ],
+ "XC": [
+  "ninety"
+ ],
  "XI": [
   "eleven",
   "side",
@@ -971,6 +1028,10 @@ const ABBREVIATIONS = {
   "year",
   "years",
   "yen"
+ ],
+ "YD": [
+  "yard",
+  "yards"
  ],
  "Z": [
   "sleep",
