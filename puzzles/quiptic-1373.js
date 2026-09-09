@@ -30,7 +30,34 @@ window.CRYPTIC_PUZZLES["quiptic-1373"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DAFFODIL",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "DAFFODIL",
+    "definition": "national emblem",
+    "indicators": [
+     "holds",
+     "revolutionary"
+    ],
+    "indicatorNotes": {
+     "holds": "What a thing holds is inside it, so these words are keeping a run of letters rather than being shuffled or abbreviated.",
+     "revolutionary": "A revolutionary turns things round, so the run that has been found is read back the other way."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Pallid Offa defiantly",
+      "gives": "LIDOFFAD",
+      "note": "eight consecutive letters start inside the first word and stop inside the third"
+     },
+     {
+      "clueFragment": "revolutionary",
+      "gives": "",
+      "note": "reversal indicator: read that run from its far end"
+     }
+    ],
+    "surface": "A pale but defiant King Offa clutching some patriotic badge.",
+    "walkthrough": "Offa was a Mercian king and 'pallid' keeps you in Anglo-Saxon England, which is the wrong country: the daffodil is the national emblem of Wales, worn on St David's Day.",
+    "definitionFit": "The daffodil is the flower Wales adopts as its emblem, so 'national emblem' points at a plant rather than a flag or crest."
+   }
   },
   {
    "id": "2-down",
@@ -47,7 +74,31 @@ window.CRYPTIC_PUZZLES["quiptic-1373"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AIR",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "AIR",
+    "definition": "Broadcast",
+    "indicators": [],
+    "pieces": [
+     "AI",
+     "R"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "top",
+      "gives": "AI",
+      "note": "A1 means top quality, and the one in it is written as the Roman numeral"
+     },
+     {
+      "clueFragment": "recipe",
+      "gives": "R",
+      "note": "R is the R of an old prescription, from Latin recipe, 'take'"
+     }
+    ],
+    "surface": "A headline offering to share somebody's best recipe.",
+    "walkthrough": "A1 comes from the shipping register's mark for a first-class vessel, and crosswords spell its one as I. Both halves here are conventions worth owning outright.",
+    "definitionFit": "To air a programme is to put it out on radio or television, the verb sense broadcasters use every day."
+   }
   },
   {
    "id": "3-down",
@@ -64,7 +115,45 @@ window.CRYPTIC_PUZZLES["quiptic-1373"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FRESH",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + charade",
+    "answer": "FRESH",
+    "definition": "Cheeky",
+    "indicators": [
+     "returns"
+    ],
+    "indicatorNotes": {
+     "returns": "Something that returns comes back the way it went, so the underling's letters are entered in the opposite order."
+    },
+    "linkWords": [
+     "to"
+    ],
+    "pieces": [
+     "FRES",
+     "H"
+    ],
+    "subReversals": [
+     {
+      "from": "SERF",
+      "to": "FRES"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "underling",
+      "gives": "FRES",
+      "note": "a SERF is a feudal underling, tied to the land, and here he is turned round"
+     },
+     {
+      "clueFragment": "hotel",
+      "gives": "H",
+      "note": "hotel is H in the international radio alphabet"
+     }
+    ],
+    "surface": "An impertinent junior being sent back to the hotel.",
+    "walkthrough": "'Cheeky' is the informal adjective — being fresh with someone — while the surface reads the word as an errand. The serf is the medieval labourer, a crossword regular for a lowly worker.",
+    "definitionFit": "To be fresh with someone is to be impertinent to them, so 'Cheeky' is that slangy adjective sense, not newly made."
+   }
   },
   {
    "id": "4-down",
@@ -85,7 +174,27 @@ window.CRYPTIC_PUZZLES["quiptic-1373"] = /*JSON-START*/ {
     ]
    },
    "solution": "DRESSSHIRT",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "DRESS SHIRT",
+    "definition": "Part of DJ’s accompaniment?",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "DJ’s accompaniment?",
+      "gives": "",
+      "note": "the reading the surface wants: the backing music a disc jockey puts on"
+     },
+     {
+      "clueFragment": "Part of",
+      "gives": "",
+      "note": "the reading the setter meant: one item out of an outfit, because in Britain a DJ is a dinner jacket"
+     }
+    ],
+    "surface": "Somebody asking which bit of a disc jockey's backing music is meant.",
+    "walkthrough": "In Britain a DJ is a dinner jacket as often as a disc jockey, and what goes with one is the stiff white dress shirt. There is no separable wordplay: the whole clue is the definition.",
+    "definitionFit": "A dress shirt is the stiff-fronted white shirt worn with a dinner jacket, so it accompanies the DJ as part of the same outfit."
+   }
   },
   {
    "id": "5-down",
@@ -102,7 +211,43 @@ window.CRYPTIC_PUZZLES["quiptic-1373"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LIAISE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "LIAISE",
+    "definition": "Connect",
+    "indicators": [
+     "renovated"
+    ],
+    "indicatorNotes": {
+     "renovated": "Renovating a building keeps every brick and rearranges them, which is exactly what happens to these letters."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "anagram": {
+     "fodder": "AISLE I"
+    },
+    "blocks": [
+     {
+      "clueFragment": "aisle",
+      "gives": "AISLE",
+      "note": "five of the six letters, waiting to be reordered"
+     },
+     {
+      "clueFragment": "electric current",
+      "gives": "I",
+      "note": "I is the physicist's symbol for current, and it joins the shuffle"
+     },
+     {
+      "clueFragment": "renovated",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "Wiring being run through the aisle of a church that is being done up.",
+    "walkthrough": "I for electric current comes up whenever a clue mentions amps or current, and it is worth learning once. 'Connect' here is the committee sense: to act as a go-between.",
+    "definitionFit": "To liaise is to keep two parties in touch with each other, the go-between sense of 'Connect' rather than plugging anything in."
+   }
   },
   {
    "id": "6-across",
@@ -119,7 +264,36 @@ window.CRYPTIC_PUZZLES["quiptic-1373"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GENTLE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letters",
+    "answer": "GENTLE",
+    "definition": "Kind",
+    "indicators": [
+     "starts to"
+    ],
+    "indicatorNotes": {
+     "starts to": "A word's start is the letter it begins with, and the plural sense here takes one from each of the two words that follow."
+    },
+    "pieces": [
+     "GENT",
+     "LE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chap",
+      "gives": "GENT",
+      "note": "a gent is a chap, short for gentleman"
+     },
+     {
+      "clueFragment": "lend encouragement",
+      "gives": "LE",
+      "note": "the first letters of these two words"
+     }
+    ],
+    "surface": "A kindly man beginning to offer a few words of support.",
+    "walkthrough": "'Kind chap' reads as a single description, which is the trap — only the first word is defining, and the chap belongs to the wordplay.",
+    "definitionFit": "A gentle manner is a kind one, so the adjective swaps straight in: gentle words, kind words."
+   }
   },
   {
    "id": "6-down",
@@ -136,7 +310,30 @@ window.CRYPTIC_PUZZLES["quiptic-1373"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GAME",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "GAME",
+    "definition": "football, say",
+    "indicators": [
+     "part of"
+    ],
+    "indicatorNotes": {
+     "part of": "Being part of something means sitting inside it, so the letters are already present, unbroken, in the words that follow."
+    },
+    "linkWords": [
+     "It’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "playing American",
+      "gives": "GAME",
+      "note": "four consecutive letters bridge the gap between the two words"
+     }
+    ],
+    "surface": "American football offered as an example of something you play.",
+    "walkthrough": "'Say' marks a definition by example: the answer is the whole category and American football is one instance of it. 'Playing' is doing double duty, defining the surface and hiding the letters.",
+    "definitionFit": "American football is one game among many, so 'say' flags a definition by example rather than a synonym."
+   }
   },
   {
    "id": "7-down",
@@ -153,7 +350,42 @@ window.CRYPTIC_PUZZLES["quiptic-1373"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NOTATIONS",
-   "annotation": null
+   "annotation": {
+    "type": "container + first letters",
+    "answer": "NOTATIONS",
+    "definition": "Signs",
+    "indicators": [
+     "encircling",
+     "capitals of"
+    ],
+    "indicatorNotes": {
+     "encircling": "To encircle is to go round the outside, so the word for states opens up and takes the other piece within it.",
+     "capitals of": "The surface means capital cities, but a capital is also the big letter a name begins with — one from each name here."
+    },
+    "linkWords": [
+     "from"
+    ],
+    "pieces": [
+     "N",
+     "OT",
+     "ATIONS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "states",
+      "gives": "NATIONS",
+      "note": "states in the sense of sovereign countries; this is the piece that opens up"
+     },
+     {
+      "clueFragment": "capitals of Oklahoma and Texas",
+      "gives": "OT",
+      "note": "the initial letter of each name, slipped in after the first letter of the piece above"
+     }
+    ],
+    "surface": "Warnings coming out of American states that ring the capital cities of Oklahoma and Texas.",
+    "walkthrough": "'Capitals' is the trap: the clue wants capital letters, not Oklahoma City and Austin. 'Signs' is the written-symbol sense, the marks used in music or maths.",
+    "definitionFit": "Notations are the systems of written symbols used in music, chess or maths, so 'Signs' means marks on a page."
+   }
   },
   {
    "id": "8-down",
@@ -170,7 +402,53 @@ window.CRYPTIC_PUZZLES["quiptic-1373"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LEGERDEMAIN",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter + last letter",
+    "answer": "LEGERDEMAIN",
+    "definition": "Finesse",
+    "indicators": [
+     "opening",
+     "finale of"
+    ],
+    "indicatorNotes": {
+     "opening": "The opening of a word is the letter it begins with, so England contributes just the one.",
+     "finale of": "A finale is the last thing to happen, so what is wanted is the closing letter of Tour."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "LEG",
+     "E",
+     "R",
+     "DEMAIN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stage",
+      "gives": "LEG",
+      "note": "a leg is a stage of a journey or a relay"
+     },
+     {
+      "clueFragment": "opening in England",
+      "gives": "E",
+      "note": "the letter England opens with"
+     },
+     {
+      "clueFragment": "finale of Tour",
+      "gives": "R",
+      "note": "the last letter of Tour"
+     },
+     {
+      "clueFragment": "tomorrow in France",
+      "gives": "DEMAIN",
+      "note": "demain is French for tomorrow"
+     }
+    ],
+    "surface": "A cycling stage that starts in England, with the Tour's last day falling tomorrow in France.",
+    "walkthrough": "Legerdemain is sleight of hand — literally 'light of hand' — so 'Finesse' is the conjuror's dexterity rather than a bridge player's play. The Tour de France really has begun in England, which is what makes the surface sit still.",
+    "definitionFit": "Legerdemain is skilled trickery performed with the hands, and finesse is that same lightness of touch."
+   }
   },
   {
    "id": "9-across",
@@ -187,7 +465,31 @@ window.CRYPTIC_PUZZLES["quiptic-1373"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BREEZE",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "BREEZE",
+    "definition": "Piece of cake",
+    "indicators": [
+     "we’re told"
+    ],
+    "indicatorNotes": {
+     "we’re told": "Being told something means hearing it, so the cheeses count for the noise they make and not for their spelling."
+    },
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "some cheeses",
+      "gives": "BREEZE",
+      "soundsLike": "BRIES",
+      "note": "brie is the soft French cheese, and more than one of them are bries"
+     }
+    ],
+    "surface": "A cake and a cheeseboard being described to somebody.",
+    "walkthrough": "'Piece of cake' is a phrase rather than a food, which is what the cheeseboard is there to disguise: both it and the answer mean something that takes no effort at all.",
+    "definitionFit": "A breeze is anything achieved without effort, exactly what the idiom 'Piece of cake' means, so the two phrases swap as nouns."
+   }
   },
   {
    "id": "10-across",
@@ -204,7 +506,42 @@ window.CRYPTIC_PUZZLES["quiptic-1373"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ARMITAGE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ARMITAGE",
+    "definition": "poet",
+    "indicators": [
+     "Lively",
+     "embraces"
+    ],
+    "indicatorNotes": {
+     "Lively": "Something lively will not stay still, so the town's letters refuse to keep the order they are given in.",
+     "embraces": "To embrace is to take something in, so the extra letter is drawn into the shuffle rather than added on the end."
+    },
+    "anagram": {
+     "fodder": "MARGATE I"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Margate",
+      "gives": "MARGATE",
+      "note": "seven letters to be rearranged; Margate is a seaside town in Kent"
+     },
+     {
+      "clueFragment": "independent",
+      "gives": "I",
+      "note": "I is the standard abbreviation for independent, as beside a candidate's name on a ballot"
+     },
+     {
+      "clueFragment": "Lively",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "A jolly seaside town taking in a writer who belongs to no party.",
+    "walkthrough": "Simon Armitage has been Britain's Poet Laureate since 2019, so 'poet' defines him by example — and with no question mark to warn you that a single person is meant.",
+    "definitionFit": "Armitage is Simon Armitage, the Poet Laureate, so 'poet' names him as an instance of the category rather than as a synonym."
+   }
   },
   {
    "id": "11-across",
@@ -221,7 +558,44 @@ window.CRYPTIC_PUZZLES["quiptic-1373"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EMPHASISE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + outer letters",
+    "answer": "EMPHASISE",
+    "definition": "Stress",
+    "indicators": [
+     "when preparing",
+     "before",
+     "on vacation"
+    ],
+    "indicatorNotes": {
+     "when preparing": "Preparing a dish chops and combines its ingredients, so the food arrives with its letters reordered.",
+     "before": "This one is positional: the reordered food goes in front of what survives of suppertime.",
+     "on vacation": "A house on vacation stands empty, so suppertime loses everything between its two end letters."
+    },
+    "anagram": {
+     "fodder": "PIEMASH SE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "pie and mash",
+      "gives": "PIEMASH",
+      "note": "seven letters to be reordered, the 'and' merely joining the dish together"
+     },
+     {
+      "clueFragment": "suppertime on vacation",
+      "gives": "SE",
+      "note": "the two end letters of suppertime, everything between them emptied out"
+     },
+     {
+      "clueFragment": "when preparing",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "Someone cooking pie and mash ahead of an evening meal while away on holiday.",
+    "walkthrough": "Pie and mash is a London working-class dish, which is what makes the cooking surface hold together. 'Stress' is a verb here, not the noun of pressure the kitchen scene invites.",
+    "definitionFit": "To emphasise a point is to stress it — the verb of underlining what matters, which both words share exactly."
+   }
   },
   {
    "id": "12-down",
@@ -238,7 +612,36 @@ window.CRYPTIC_PUZZLES["quiptic-1373"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MISANTHROPE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "MISANTHROPE",
+    "definition": "She distrusts everyone",
+    "definitionNote": "The definition is a whole sentence rather than a noun: read it as 'one who distrusts everyone', which is the person the answer names.",
+    "indicators": [
+     "working"
+    ],
+    "indicatorNotes": {
+     "working": "Something working is being put through its paces, and letters put through their paces come out in a new order."
+    },
+    "anagram": {
+     "fodder": "IN METAPHORS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "in metaphors",
+      "gives": "INMETAPHORS",
+      "note": "eleven letters, exactly the length the grid wants"
+     },
+     {
+      "clueFragment": "working",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "A suspicious woman who takes against everybody who talks in figures of speech.",
+    "walkthrough": "The exclamation mark papers over the seam: 'in metaphors' is not part of the description at all but the letters themselves, the little word 'in' included.",
+    "definitionFit": "A misanthrope distrusts and dislikes people in general, so 'everyone' is standing for the whole of humankind."
+   }
   },
   {
    "id": "13-across",
@@ -255,7 +658,27 @@ window.CRYPTIC_PUZZLES["quiptic-1373"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STORM",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "STORM",
+    "definition": "Charge",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "Here 'in' is meant literally: the letters sit inside the two words that follow, unbroken and in order."
+    },
+    "blocks": [
+     {
+      "clueFragment": "transistor mechanism",
+      "gives": "STORM",
+      "note": "five consecutive letters run across the join between the two words"
+     }
+    ],
+    "surface": "An electric charge somewhere inside the workings of a transistor.",
+    "walkthrough": "'Charge' is a verb here — troops storm a position — while the surface keeps your eye on electronics, where charge is a noun.",
+    "definitionFit": "To storm a building is to charge at it in force, so 'Charge' is the verb of assault rather than anything electrical."
+   }
   },
   {
    "id": "14-down",
@@ -272,7 +695,35 @@ window.CRYPTIC_PUZZLES["quiptic-1373"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CAREERISTS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "CAREERISTS",
+    "definition": "Those intent on advancement",
+    "indicators": [
+     "ill-advisedly"
+    ],
+    "indicatorNotes": {
+     "ill-advisedly": "Doing a thing ill-advisedly is doing it wrongly, and letters set down wrongly are letters out of their proper order."
+    },
+    "anagram": {
+     "fodder": "AIR SECRETS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "air secrets",
+      "gives": "AIRSECRETS",
+      "note": "ten letters, matching the enumeration exactly"
+     },
+     {
+      "clueFragment": "ill-advisedly",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "Ambitious people leaking confidential information when they ought to keep quiet.",
+    "walkthrough": "'Air' wants to be the instruction — to air something is to broadcast it — but it is fodder, and the word doing the shuffling waits until the very end of the clue.",
+    "definitionFit": "Careerists are people who put getting on ahead of everything else, so the plural definition names them by that ambition."
+   }
   },
   {
    "id": "15-across",
@@ -289,7 +740,28 @@ window.CRYPTIC_PUZZLES["quiptic-1373"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SLIGHT",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "SLIGHT",
+    "definition": "Ignore",
+    "indicators": [
+     "in speech"
+    ],
+    "indicatorNotes": {
+     "in speech": "What happens in speech is heard rather than written, so the trickery counts only for the sound it makes."
+    },
+    "blocks": [
+     {
+      "clueFragment": "trickery",
+      "gives": "SLIGHT",
+      "soundsLike": "SLEIGHT",
+      "note": "sleight, as in sleight of hand, is a conjuror's trickery"
+     }
+    ],
+    "surface": "Some deception being practised in the course of a conversation.",
+    "walkthrough": "The two words differ by one silent letter and sound identical, which is why setters love the pair. 'Ignore' is the verb of the snub: you slight someone by passing them over.",
+    "definitionFit": "To slight a person is to snub them, deliberately taking no notice, which is the pointed sense of 'Ignore'."
+   }
   },
   {
    "id": "16-down",
@@ -306,7 +778,28 @@ window.CRYPTIC_PUZZLES["quiptic-1373"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IMPERFECT",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "IMPERFECT",
+    "definition": "Tense",
+    "definition2": "describing what was happening?",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Tense",
+      "gives": "",
+      "note": "the grammatical sense: one of the forms a verb can take"
+     },
+     {
+      "clueFragment": "describing what was happening?",
+      "gives": "",
+      "note": "the job that tense does: reporting an action still going on in the past"
+     }
+    ],
+    "surface": "An anxious person giving an account of events as they unfolded.",
+    "walkthrough": "'Tense' reads first as nervous, and the second half quietly quotes itself: 'was happening' is written in the very tense the clue is defining, which is the setter's joke.",
+    "definitionFit": "The imperfect is a verb tense, and it is the one used for an action in progress in the past — what was happening."
+   }
   },
   {
    "id": "17-across",
@@ -323,7 +816,36 @@ window.CRYPTIC_PUZZLES["quiptic-1373"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PAROLE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PAROLE",
+    "definition": "Release",
+    "indicators": [
+     "on the continent"
+    ],
+    "indicatorNotes": {
+     "on the continent": "Continental Europe signals a foreign word, and the shout wanted here is the Spanish one."
+    },
+    "pieces": [
+     "PAR",
+     "OLE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "standard",
+      "gives": "PAR",
+      "note": "par is the standard score set for a golf hole"
+     },
+     {
+      "clueFragment": "expression of approval",
+      "gives": "OLE",
+      "note": "olé is the shout of approval at a bullfight or a flamenco"
+     }
+    ],
+    "surface": "The usual roar of approval you would hear from a crowd somewhere in Europe.",
+    "walkthrough": "'Release' is the noun the parole board grants — a prisoner let out on conditions — and PAR for standard is the golfer's word crosswords lean on constantly.",
+    "definitionFit": "Parole is conditional release from prison, so 'Release' is the noun a prisoner is granted, not the act of freeing."
+   }
   },
   {
    "id": "18-across",
@@ -340,7 +862,37 @@ window.CRYPTIC_PUZZLES["quiptic-1373"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NAPERY",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "NAPERY",
+    "definition": "Linen",
+    "indicators": [],
+    "pieces": [
+     "NA",
+     "PER",
+     "Y"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not available",
+      "gives": "NA",
+      "note": "NA is the shorthand a list uses for something not available"
+     },
+     {
+      "clueFragment": "for every",
+      "gives": "PER",
+      "note": "per means for each: fifty pence per person"
+     },
+     {
+      "clueFragment": "year",
+      "gives": "Y",
+      "note": "y is the usual short form of year, as in 3y"
+     }
+    ],
+    "surface": "A shop reporting that its linen is out of stock for the whole year.",
+    "walkthrough": "Napery is household table linen — cloths and napkins, from the same root as napkin — and it is built here out of three everyday abbreviations laid end to end.",
+    "definitionFit": "Napery is the tablecloths and napkins a household keeps, so 'Linen' is the collective drapery sense rather than the fabric."
+   }
   },
   {
    "id": "19-across",
@@ -361,7 +913,38 @@ window.CRYPTIC_PUZZLES["quiptic-1373"] = /*JSON-START*/ {
     ]
    },
    "solution": "REDSEA",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "RED SEA",
+    "definition": "area near Egypt",
+    "indicators": [
+     "cultivated"
+    ],
+    "indicatorNotes": {
+     "cultivated": "Cultivating ground turns it over and breaks it up, and the letters given get the same treatment."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "anagram": {
+     "fodder": "A REEDS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "A reed’s",
+      "gives": "AREEDS",
+      "note": "six letters, the s of the contraction counting as one of them"
+     },
+     {
+      "clueFragment": "cultivated",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "A single reed being grown somewhere close to Egypt.",
+    "walkthrough": "The apostrophe-s is fodder rather than a verb, which is the hard part: it quietly supplies the sixth letter while reading as 'a reed is'.",
+    "definitionFit": "The Red Sea runs the length of Egypt's eastern coast, so the definition places the answer geographically instead of describing it."
+   }
   },
   {
    "id": "20-down",
@@ -378,7 +961,37 @@ window.CRYPTIC_PUZZLES["quiptic-1373"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MUSEUM",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "MUSEUM",
+    "definition": "place of study",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "'in' puts one piece within the other: the word for employ goes inside the word for quiet."
+    },
+    "pieces": [
+     "M",
+     "USE",
+     "UM"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quiet",
+      "gives": "MUM",
+      "note": "keeping mum is keeping quiet; this is the piece that opens up"
+     },
+     {
+      "clueFragment": "Employ",
+      "gives": "USE",
+      "note": "to use something is to employ it"
+     }
+    ],
+    "surface": "Taking staff on in a hushed reading room.",
+    "walkthrough": "'Quiet place of study' reads as one phrase, and it sounds like a library — but only the last three words are the definition, and the first is wordplay.",
+    "definitionFit": "A museum keeps objects for scholars as well as visitors, the sense preserved in its Greek root mouseion, the hall of the Muses."
+   }
   },
   {
    "id": "21-across",
@@ -395,7 +1008,36 @@ window.CRYPTIC_PUZZLES["quiptic-1373"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHARY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "CHARY",
+    "definition": "Fastidious",
+    "indicators": [
+     "back from"
+    ],
+    "indicatorNotes": {
+     "back from": "The back of a word is the letter it ends with, so factory gives up its final letter only."
+    },
+    "pieces": [
+     "CHAR",
+     "Y"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cleaner",
+      "gives": "CHAR",
+      "note": "a char is a domestic cleaner in Britain, short for charwoman"
+     },
+     {
+      "clueFragment": "back from factory",
+      "gives": "Y",
+      "note": "the last letter of factory"
+     }
+    ],
+    "surface": "A fussy cleaner coming home from a shift at the factory.",
+    "walkthrough": "'Back' looks like a reversal instruction and is not — it asks for the final letter, and the surface's journey home is what sells the misdirection.",
+    "definitionFit": "Chary means wary and careful about what one will accept, and that choosiness is the 'Fastidious' sense rather than tidiness."
+   }
   },
   {
    "id": "22-across",
@@ -412,7 +1054,36 @@ window.CRYPTIC_PUZZLES["quiptic-1373"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HURRICANE",
-   "annotation": null
+   "annotation": {
+    "type": "homophone + charade",
+    "answer": "HURRICANE",
+    "definition": "old aeroplane",
+    "indicators": [
+     "Reportedly"
+    ],
+    "indicatorNotes": {
+     "Reportedly": "Something reported is passed on by word of mouth, so the next word counts for its sound rather than its spelling."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fly",
+      "gives": "HURRI",
+      "soundsLike": "HURRY",
+      "note": "to fly somewhere is to hurry, and it is the noise of the word that is wanted"
+     },
+     {
+      "clueFragment": "staff",
+      "gives": "CANE",
+      "note": "a cane is a staff you walk with"
+     }
+    ],
+    "surface": "An urgent instruction to fly some employees out in a vintage plane.",
+    "walkthrough": "The Hurricane was the RAF fighter that flew alongside the Spitfire in the Battle of Britain, so 'old aeroplane' names one particular machine.",
+    "definitionFit": "The Hawker Hurricane is a Second World War fighter, so 'old aeroplane' defines the answer by example rather than by synonym."
+   }
   },
   {
    "id": "23-down",
@@ -429,7 +1100,39 @@ window.CRYPTIC_PUZZLES["quiptic-1373"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CURIO",
-   "annotation": null
+   "annotation": {
+    "type": "alternate letters + charade",
+    "answer": "CURIO",
+    "definition": "unusual object",
+    "indicators": [
+     "Regularly"
+    ],
+    "indicatorNotes": {
+     "Regularly": "Letters taken regularly come at a fixed interval, and the interval here is every second letter of the word that follows."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "CU",
+     "RIO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Regularly scour",
+      "gives": "CU",
+      "note": "every second letter of scour: s-C-o-U-r"
+     },
+     {
+      "clueFragment": "port city",
+      "gives": "RIO",
+      "note": "Rio de Janeiro is a Brazilian port, and its short name is a crossword staple"
+     }
+    ],
+    "surface": "Someone regularly combing a port city for something odd to buy.",
+    "walkthrough": "'Scour' is the wrong sort of searching: it is not telling you to hunt, it is handing over two of its own letters. The port city is a named one, not a general description.",
+    "definitionFit": "A curio is a small object kept precisely because it is odd or rare, which is the curiosity 'unusual object' describes."
+   }
   },
   {
    "id": "24-down",
@@ -446,7 +1149,27 @@ window.CRYPTIC_PUZZLES["quiptic-1373"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CALM",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "CALM",
+    "definition": "Serenity",
+    "indicators": [
+     "derived from"
+    ],
+    "indicatorNotes": {
+     "derived from": "What is derived from something is taken out of it, so the letters come straight out of the words as written."
+    },
+    "blocks": [
+     {
+      "clueFragment": "mathematical musings",
+      "gives": "CALM",
+      "note": "four consecutive letters straddle the space between the two words"
+     }
+    ],
+    "surface": "Peace of mind found in an afternoon of thinking about mathematics.",
+    "walkthrough": "Hidden words hide best across a word break, and a long adjective like 'mathematical' is chosen to make you read for meaning instead of counting letters.",
+    "definitionFit": "Calm is the noun for an untroubled state, and serenity is that same settled quiet, so the two swap as nouns."
+   }
   },
   {
    "id": "25-across",
@@ -463,7 +1186,31 @@ window.CRYPTIC_PUZZLES["quiptic-1373"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MODERATE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MODERATE",
+    "definition": "Uncontroversial",
+    "indicators": [],
+    "pieces": [
+     "MODE",
+     "RATE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fashion",
+      "gives": "MODE",
+      "note": "mode is fashion, as in à la mode"
+     },
+     {
+      "clueFragment": "degree",
+      "gives": "RATE",
+      "note": "rate is the degree or extent at which something happens"
+     }
+    ],
+    "surface": "A safe, unremarkable university course in fashion.",
+    "walkthrough": "'Degree' is the extent sense — the rate at which a thing runs — not a university qualification, which is where the fashion-course surface is pointing you.",
+    "definitionFit": "A moderate view is a middle-of-the-road one that nobody takes offence at, which is what 'Uncontroversial' describes."
+   }
   },
   {
    "id": "26-across",
@@ -480,7 +1227,37 @@ window.CRYPTIC_PUZZLES["quiptic-1373"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STRONG",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "STRONG",
+    "definition": "Powerful",
+    "indicators": [
+     "absorbs"
+    ],
+    "indicatorNotes": {
+     "absorbs": "To absorb something is to take it right in, so the ballad closes over the two letters offered."
+    },
+    "pieces": [
+     "S",
+     "TR",
+     "ONG"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ballad",
+      "gives": "SONG",
+      "note": "a ballad is a song; this is the piece that opens up"
+     },
+     {
+      "clueFragment": "translator",
+      "gives": "TR",
+      "note": "tr. is the standard abbreviation for translator on a title page"
+     }
+    ],
+    "surface": "A stirring ballad drawing in the person who is translating it.",
+    "walkthrough": "The surface has the ballad absorbing someone emotionally while the wordplay has it swallowing two letters, and tr. is the title-page abbreviation worth keeping.",
+    "definitionFit": "A strong wind or a strong argument is a powerful one, so the swap is the everyday adjective sense of force."
+   }
   },
   {
    "id": "27-down",
@@ -497,7 +1274,37 @@ window.CRYPTIC_PUZZLES["quiptic-1373"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NUN",
-   "annotation": null
+   "annotation": {
+    "type": "palindrome",
+    "answer": "NUN",
+    "definition": "sister",
+    "indicators": [
+     "On reflection",
+     "doesn’t change"
+    ],
+    "indicatorNotes": {
+     "On reflection": "A reflection is a mirror image, so the word is to be read from its far end as well as its near one.",
+     "doesn’t change": "Read the other way it comes out identical, which is the whole instruction: nothing turns into anything else."
+    },
+    "pieces": [
+     "NUN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "this sister",
+      "gives": "",
+      "note": "the definition end of the clue: a woman in a religious order"
+     },
+     {
+      "clueFragment": "On reflection",
+      "gives": "",
+      "note": "the wordplay end: three letters that read the same in either direction, which is all the help offered"
+     }
+    ],
+    "surface": "Second thoughts about a sister who never alters her ways.",
+    "walkthrough": "NUN reads the same backwards, and 'doesn't change' is the setter saying so out loud. Nothing is turned into anything else, so there are no letters to hand over.",
+    "definitionFit": "Nuns are addressed as Sister, so 'sister' names one by her religious title rather than by any family relation."
+   }
   },
   {
    "id": "28-across",
@@ -514,7 +1321,44 @@ window.CRYPTIC_PUZZLES["quiptic-1373"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SEPTUM",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + first letter",
+    "answer": "SEPTUM",
+    "definition": "Partition",
+    "indicators": [
+     "badly",
+     "before",
+     "beginning of"
+    ],
+    "indicatorNotes": {
+     "badly": "Something done badly comes out wrong, and letters set down wrong are letters out of order.",
+     "before": "This one is positional: the reordered pair of words goes in front of the single letter that follows.",
+     "beginning of": "The beginning of a word is its first letter, so meeting contributes one letter and no more."
+    },
+    "anagram": {
+     "fodder": "SETUP M"
+    },
+    "blocks": [
+     {
+      "clueFragment": "set up",
+      "gives": "SETUP",
+      "note": "five letters waiting to be rearranged"
+     },
+     {
+      "clueFragment": "beginning of meeting",
+      "gives": "M",
+      "note": "the first letter of meeting"
+     },
+     {
+      "clueFragment": "badly",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "A screen clumsily erected just before a meeting is due to start.",
+    "walkthrough": "A septum is the wall of tissue dividing two cavities — the one in your nose is the familiar example — so 'Partition' is anatomical rather than a screen in an office.",
+    "definitionFit": "A septum is the dividing wall between two chambers, in the nose or the heart, so it partitions a space in the body."
+   }
   },
   {
    "id": "29-across",
@@ -531,7 +1375,39 @@ window.CRYPTIC_PUZZLES["quiptic-1373"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MISCOUNT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "MISCOUNT",
+    "definition": "Error",
+    "indicators": [
+     "loses head"
+    ],
+    "indicatorNotes": {
+     "loses head": "Losing your head means losing what sits on top, so the nobleman's first letter is the one that goes."
+    },
+    "linkWords": [
+     "when"
+    ],
+    "pieces": [
+     "M",
+     "ISCOUNT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "married",
+      "gives": "M",
+      "note": "m is the standard abbreviation for married on a form"
+     },
+     {
+      "clueFragment": "nobleman loses head",
+      "gives": "ISCOUNT",
+      "note": "a VISCOUNT is a nobleman, and the V at his front is dropped"
+     }
+    ],
+    "surface": "A husband of noble birth losing his composure and getting something wrong.",
+    "walkthrough": "The joke is the beheading: a viscount, the rank just below an earl, literally loses his head here. 'Error' is a noun, so the answer has to be one too.",
+    "definitionFit": "A miscount is a specific error, the mistake made in counting — the sort a returning officer orders a recount over."
+   }
   }
  ]
 } /*JSON-END*/;
