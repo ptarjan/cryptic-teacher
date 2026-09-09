@@ -223,11 +223,25 @@ UNINDICATED_COST = 0.06
 # prices that; bumping it too would just re-level the whole class.
 ALWAYS_UNINDICATED = {"double definition", "cryptic definition"}
 
-# Cut points in standard deviations from the baseline mean, so the band names
-# mean "…for a Guardian daily cryptic" — not "…for a crossword". A median
-# Guardian cryptic is a hard puzzle by any general standard; saying so on every
-# single one would tell a reader nothing about which to pick tonight.
+# Cut points in standard deviations of the index, so the band names mean
+# "…for a Guardian daily cryptic" — not "…for a crossword". A median Guardian
+# cryptic is a hard puzzle by any general standard; saying so on every single
+# one would tell a reader nothing about which to pick tonight.
+#
+# The index is a WEIGHTED MEAN of z-scores, so it does not itself have sd 1 —
+# averaging partly-uncorrelated components shrinks the spread to about 0.6.
+# Comparing these cut points against the raw index therefore reads every band
+# a notch harder than it was written to: it put 5% of the corpus in Gentle and
+# 67% in Tough-or-Brutal, and it could not call an Everyman gentle. The index
+# is standardised against its own frozen mean and sd (banding(), below) before
+# it meets these numbers.
 BANDS = [(-0.90, "Gentle"), (-0.25, "Moderate"), (0.60, "Tough"), (float("inf"), "Brutal")]
+
+
+def banding(index, base):
+    """The index in units of its own spread, which is what BANDS is written in."""
+    ref = base.get("index")
+    return (index - ref["mean"]) / ref["sd"] if ref and ref.get("sd") else index
 
 
 def load(path):
@@ -384,7 +398,7 @@ def score(puz, rank, base):
     total = sum(WEIGHTS[k] for k in zs)
     index = sum(WEIGHTS[k] * z for k, z in zs.items()) / total
     return {"index": round(index, 3),
-            "band": next(n for hi, n in BANDS if index < hi),
+            "band": next(n for hi, n in BANDS if banding(index, base) < hi),
             "raw": {k: round(v, 4) for k, v in parts.items()},
             "z": {k: round(v, 2) for k, v in zs.items()},
             "basis": sorted(zs)}
@@ -417,6 +431,12 @@ def load_baseline():
     return {}
 
 
+def moments(vals):
+    mean = sum(vals) / len(vals)
+    var = sum((v - mean) ** 2 for v in vals) / max(len(vals) - 1, 1)
+    return {"mean": round(mean, 6), "sd": round(math.sqrt(var), 6), "n": len(vals)}
+
+
 def rebaseline():
     """Freeze the current corpus as the reference distribution, showing the diff."""
     rank = ranks()
@@ -428,9 +448,11 @@ def rebaseline():
                 cols.setdefault(k, []).append(v)
     comps = {}
     for k, vals in sorted(cols.items()):
-        mean = sum(vals) / len(vals)
-        var = sum((v - mean) ** 2 for v in vals) / max(len(vals) - 1, 1)
-        comps[k] = {"mean": round(mean, 6), "sd": round(math.sqrt(var), 6), "n": len(vals)}
+        comps[k] = moments(vals)
+    # Not a component: the composite's own mean and spread, frozen alongside
+    # them so BANDS can be written in real standard deviations. It has to be a
+    # second pass, because the index it describes is built out of the first.
+    comps["index"] = moments([s["index"] for s in all_scores(comps).values()])
     BASELINE.write_text(json.dumps(
         {"_comment": "Frozen reference distribution for tools/difficulty.py. "
                      "Regenerate deliberately with --rebaseline; every stored "
