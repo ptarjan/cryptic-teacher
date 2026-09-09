@@ -34,7 +34,34 @@ window.CRYPTIC_PUZZLES["cryptic-29976"] = /*JSON-START*/ {
     ]
    },
    "solution": "SHEEPRUN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SHEEP RUN",
+    "definition": "Place to ruminate",
+    "definitionFit": "A sheep run is a stretch of grazing land a flock is turned out on, and sheep are ruminants — so it is literally a place to ruminate.",
+    "indicators": [],
+    "linkWords": [
+     "clue for"
+    ],
+    "pieces": [
+     "SHEEP",
+     "RUN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "‘ewer’",
+      "gives": "SHEEP",
+      "note": "the first three letters inside the quotes spell a ewe, and a ewe is a female of the flock"
+     },
+     {
+      "clueFragment": "‘ewer’",
+      "gives": "RUN",
+      "note": "the letter left at the end is R, cricket's abbreviation for a single score"
+     }
+    ],
+    "surface": "Somewhere quiet to sit and mull over how you might go about cluing the word 'ewer'.",
+    "walkthrough": "The answer is itself a cryptic clue, and reading it as one spells the quoted word. Ruminants chew the cud, so 'ruminate' is pointing at grazing animals rather than at thinking."
+   }
   },
   {
    "id": "2-down",
@@ -54,7 +81,9 @@ window.CRYPTIC_PUZZLES["cryptic-29976"] = /*JSON-START*/ {
     ",": []
    },
    "solution": "BELT",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "10-across"
+   }
   },
   {
    "id": "3-down",
@@ -74,7 +103,9 @@ window.CRYPTIC_PUZZLES["cryptic-29976"] = /*JSON-START*/ {
     ",": []
    },
    "solution": "POLISH",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "12-across"
+   }
   },
   {
    "id": "4-down",
@@ -91,7 +122,42 @@ window.CRYPTIC_PUZZLES["cryptic-29976"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MONOTONE",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "MONOTONE",
+    "definition": "One colour only",
+    "definitionFit": "Monotone describes something carried out in a single colour or shade throughout, with no variation from end to end.",
+    "indicators": [
+     "included"
+    ],
+    "indicatorNotes": {
+     "included": "Something included in a package is carried along inside it, so this word is planted between the two pieces around it."
+    },
+    "pieces": [
+     "MO",
+     "NOT",
+     "ONE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "second",
+      "gives": "MO",
+      "note": "a mo is a moment — 'half a mo' — which is a second in the loose sense"
+     },
+     {
+      "clueFragment": "not",
+      "gives": "NOT",
+      "note": "the word goes in whole, exactly as it stands"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "ONE",
+      "note": "likewise taken as written"
+     }
+    ],
+    "surface": "A price quoted for a single colour, with the second item excluded from the deal.",
+    "walkthrough": "The dash reads as a dealer's small print and 'second one not included' as the exclusion clause. Read as instructions, 'included' does the opposite job — it puts something in."
+   }
   },
   {
    "id": "5-down",
@@ -112,7 +178,30 @@ window.CRYPTIC_PUZZLES["cryptic-29976"] = /*JSON-START*/ {
     ]
    },
    "solution": "MONTECARLO",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "MONTE CARLO",
+    "definition": "Resort",
+    "definitionFit": "Monte Carlo is the casino quarter of Monaco on the Riviera, a place people travel to for pleasure — a resort in the holiday sense.",
+    "indicators": [
+     "unfortunately"
+    ],
+    "indicatorNotes": {
+     "unfortunately": "An unfortunate turn of events leaves things in a state nobody arranged, which is what happens to these letters."
+    },
+    "anagram": {
+     "fodder": "TO CORNMEAL"
+    },
+    "blocks": [
+     {
+      "clueFragment": "to cornmeal",
+      "gives": "TOCORNMEAL",
+      "note": "anagram fodder, ten letters"
+     }
+    ],
+    "surface": "Somebody down on their luck having to fall back on cornmeal for dinner.",
+    "walkthrough": "'Resort to' reads as one phrase — falling back on something — and the definition is only the first word of it. The 're-sort' buried in that word is the setter's wink."
+   }
   },
   {
    "id": "6-down",
@@ -129,7 +218,41 @@ window.CRYPTIC_PUZZLES["cryptic-29976"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CRIMEA",
-   "annotation": null
+   "annotation": {
+    "type": "alternate letters + reversal",
+    "answer": "CRIMEA",
+    "definition": "Peninsula",
+    "definitionFit": "The Crimea is the diamond-shaped peninsula hanging off the northern coast of the Black Sea.",
+    "indicators": [
+     "climbing",
+     "regularly"
+    ],
+    "indicatorNotes": {
+     "climbing": "In a down clue, climbing runs from the foot of the entry towards the top, so the letters are read the other way up.",
+     "regularly": "Regular means at a fixed interval rather than at every step, so only every second letter is picked up."
+    },
+    "linkWords": [
+     "of"
+    ],
+    "pieces": [
+     "CRIMEA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Palermo – if rock",
+      "gives": "AEMIRC",
+      "note": "the second, fourth, sixth, eighth, tenth and twelfth letters of this run of words"
+     }
+    ],
+    "subReversals": [
+     {
+      "from": "AEMIRC",
+      "to": "CRIMEA"
+     }
+    ],
+    "surface": "A regular rock-climbing trip on the headland somewhere near Palermo.",
+    "walkthrough": "Palermo sits on Sicily, an island, so 'Peninsula of Palermo' cannot be the definition it pretends to be — the town is in the clue only to lend letters."
+   }
   },
   {
    "id": "7-across",
@@ -146,7 +269,25 @@ window.CRYPTIC_PUZZLES["cryptic-29976"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SHOEHORN",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "SHOEHORN",
+    "definition": "Its application could help you get into Oxford?",
+    "definitionFit": "A shoehorn is the smooth curved blade you slip behind your heel to ease a tight shoe on, and an Oxford is a shoe.",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Its application",
+      "note": "The reading the surface pushes is a university application — the form you fill in and post off."
+     },
+     {
+      "clueFragment": "could help you get into Oxford?",
+      "note": "The reading the setter means is physical: an Oxford is a plain lace-up, and getting into one is a matter of a tight heel."
+     }
+    ],
+    "surface": "A hopeful student wondering what might improve their chances of a place at the university.",
+    "walkthrough": "Oxford is a style of lace-up shoe as well as a university, and 'application' slides from a form you send off to a tool you press into use."
+   }
   },
   {
    "id": "8-down",
@@ -168,7 +309,9 @@ window.CRYPTIC_PUZZLES["cryptic-29976"] = /*JSON-START*/ {
     ]
    },
    "solution": "NOGAIN",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "15-across"
+   }
   },
   {
    "id": "9-across",
@@ -185,7 +328,27 @@ window.CRYPTIC_PUZZLES["cryptic-29976"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ODOURS",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "ODOURS",
+    "definition": "smells",
+    "definitionFit": "Odours are smells — the neutral noun for whatever the nose picks up, though it leans towards the unpleasant end.",
+    "indicators": [
+     "bedding"
+    ],
+    "indicatorNotes": {
+     "bedding": "Something bedded into a surface lies embedded within it, so the letters sit unbroken inside the words around them."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Understood our son’s",
+      "gives": "ODOURS",
+      "note": "six consecutive letters run from the tail of the first word, straight through the second and into the third"
+     }
+    ],
+    "surface": "A family agreeing that their son's bedclothes have started to smell.",
+    "walkthrough": "The apostrophe-s reads as an ordinary possessive, and the letters run straight on through it, which is what makes this span so hard to see."
+   }
   },
   {
    "id": "10-across",
@@ -207,7 +370,32 @@ window.CRYPTIC_PUZZLES["cryptic-29976"] = /*JSON-START*/ {
     ]
    },
    "solution": "SEAT",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "charade",
+    "answer": "SEAT BELT",
+    "definition": "feature in saloon",
+    "definitionFit": "A saloon is the standard enclosed four-door car, and a seat belt is one of the fittings every one of them carries.",
+    "indicators": [],
+    "pieces": [
+     "SEAT",
+     "BELT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "House",
+      "gives": "SEAT",
+      "note": "a country seat is a grand house — the family seat"
+     },
+     {
+      "clueFragment": "band",
+      "gives": "BELT",
+      "note": "a band running round something is a belt"
+     }
+    ],
+    "surface": "The resident band that plays most nights in a bar.",
+    "walkthrough": "'House band' is one phrase in the surface and two separate pieces in the wordplay, and 'saloon' is a body style of car rather than a drinking den."
+   }
   },
   {
    "id": "11-across",
@@ -229,7 +417,40 @@ window.CRYPTIC_PUZZLES["cryptic-29976"] = /*JSON-START*/ {
     ]
    },
    "solution": "INGOODTIME",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "IN GOOD TIME",
+    "definition": "Early",
+    "definitionFit": "In good time means with time still in hand rather than at the last minute, which is the sense of early wanted here — ahead of schedule.",
+    "indicators": [
+     "to party",
+     "deviant"
+    ],
+    "indicatorNotes": {
+     "to party": "To party is to let loose and mix freely, and letters told to do that will not stay in the order they were given.",
+     "deviant": "Something deviant departs from the expected pattern, which is what these letters do to the sequence they arrive in."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "anagram": {
+     "fodder": "ON I GO ID MET"
+    },
+    "blocks": [
+     {
+      "clueFragment": "on, I go",
+      "gives": "ONIGO",
+      "note": "anagram fodder, five letters"
+     },
+     {
+      "clueFragment": "I’d met",
+      "gives": "IDMET",
+      "note": "anagram fodder, five letters"
+     }
+    ],
+    "surface": "The speaker setting off early for a party in the company of an oddball they had run into before.",
+    "walkthrough": "Two anagrams sit side by side and neither indicator announces itself: 'to party' is the invitation the whole surface is built on, and 'deviant' is the odd guest."
+   }
   },
   {
    "id": "12-across",
@@ -251,7 +472,40 @@ window.CRYPTIC_PUZZLES["cryptic-29976"] = /*JSON-START*/ {
     ]
    },
    "solution": "FRENCH",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "charade + reversal",
+    "answer": "FRENCH POLISH",
+    "definition": "Finish",
+    "definitionFit": "French polish is the shellac coating rubbed into wood in many thin layers, so 'Finish' names the surface treatment rather than an ending.",
+    "indicators": [
+     "transposed"
+    ],
+    "indicatorNotes": {
+     "transposed": "Transposing two things exchanges their places, so the two halves of the description swap ends."
+    },
+    "linkWords": [
+     "as"
+    ],
+    "pieces": [
+     "FRENCH",
+     "POLISH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "elements of Marie Curie’s typical description",
+      "gives": "FRENCH",
+      "note": "she took French nationality, and this is the back half of the usual Polish-French label"
+     },
+     {
+      "clueFragment": "elements of Marie Curie’s typical description",
+      "gives": "POLISH",
+      "note": "she was born Maria Skłodowska in Warsaw, which is the front half of that label"
+     }
+    ],
+    "surface": "The two-nationality label usually hung on Marie Curie, and what happens when its halves change places.",
+    "walkthrough": "'Elements' is the joke — she discovered polonium and radium, and named polonium after her birthplace. 'Finish' looks like the end of something and turns out to be a substance."
+   }
   },
   {
    "id": "13-down",
@@ -272,7 +526,42 @@ window.CRYPTIC_PUZZLES["cryptic-29976"] = /*JSON-START*/ {
     ]
    },
    "solution": "NAPKINRING",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "NAPKIN RING",
+    "definition": "part of table setting?",
+    "definitionFit": "A napkin ring is the little band each rolled napkin is threaded through, one of the small objects laid out in a formal table setting.",
+    "indicators": [
+     "first"
+    ],
+    "indicatorNotes": {
+     "first": "The instruction places this piece at the head of the answer, ahead of the two clued before it."
+    },
+    "pieces": [
+     "NAP",
+     "KIN",
+     "RING"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "putting down",
+      "gives": "NAP",
+      "note": "the nap of a fabric is its down — the soft pile raised on velvet or baize"
+     },
+     {
+      "clueFragment": "Family",
+      "gives": "KIN",
+      "note": "your kin are your family"
+     },
+     {
+      "clueFragment": "group",
+      "gives": "RING",
+      "note": "a ring is a group acting together, as in a smuggling ring"
+     }
+    ],
+    "surface": "A household laying the table, beginning with the very first thing they set down.",
+    "walkthrough": "'Family group' reads as one phrase and is two separate pieces, and 'down' is the fabric word here — the pile on velvet — not a direction."
+   }
   },
   {
    "id": "14-across",
@@ -293,7 +582,34 @@ window.CRYPTIC_PUZZLES["cryptic-29976"] = /*JSON-START*/ {
     ]
    },
    "solution": "IRONCLAD",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "IRON-CLAD",
+    "definition": "Warship",
+    "definitionFit": "An ironclad was the mid-Victorian warship built of wood and sheathed in iron armour plate, so the word names the ship itself.",
+    "indicators": [],
+    "linkWords": [
+     "by"
+    ],
+    "pieces": [
+     "IRON",
+     "CLAD"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "press",
+      "gives": "IRON",
+      "note": "to press a shirt is to iron it"
+     },
+     {
+      "clueFragment": "covered",
+      "gives": "CLAD",
+      "note": "clad means clothed or covered over"
+     }
+    ],
+    "surface": "A naval vessel getting plenty of coverage in the newspapers.",
+    "walkthrough": "'Covered by press' reads as newspaper attention; the press here is the household appliance and 'covered' is the clothing word."
+   }
   },
   {
    "id": "15-across",
@@ -316,7 +632,41 @@ window.CRYPTIC_PUZZLES["cryptic-29976"] = /*JSON-START*/ {
     ]
    },
    "solution": "NOPAIN",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "charade + anagram",
+    "answer": "NO PAIN NO GAIN",
+    "definition": "motivation for fitness class?",
+    "definitionFit": "No pain, no gain is the gym-wall slogan saying effort has to hurt before it pays — exactly the line an instructor shouts at a class.",
+    "indicators": [
+     "Turning",
+     "to begin"
+    ],
+    "indicatorNotes": {
+     "Turning": "Something turning is being spun round rather than left alone, so these letters come out in a different order.",
+     "to begin": "Whatever comes 'to begin' is set at the front, so this piece leads the answer instead of following."
+    },
+    "linkWords": [
+     "as"
+    ],
+    "anagram": {
+     "fodder": "NO ON PAGANINI"
+    },
+    "blocks": [
+     {
+      "clueFragment": "number",
+      "gives": "NO",
+      "note": "No. is the everyday abbreviation for number"
+     },
+     {
+      "clueFragment": "on Paganini",
+      "gives": "ONPAGANINI",
+      "note": "anagram fodder, ten letters"
+     }
+    ],
+    "surface": "Putting a Paganini piece on to get going, the way some people psych themselves up before the gym.",
+    "walkthrough": "'Turning on' reads as switching a stereo on and 'number' as a piece of music; here 'number' is the abbreviation and 'turning' is a plain instruction."
+   }
   },
   {
    "id": "16-down",
@@ -333,7 +683,46 @@ window.CRYPTIC_PUZZLES["cryptic-29976"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IMITATED",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "IMITATED",
+    "definition": "copied",
+    "definitionFit": "Imitated and copied are plain synonyms; imitating leans towards reproducing a manner or style, copying towards duplicating a thing.",
+    "indicators": [
+     "boring"
+    ],
+    "indicatorNotes": {
+     "boring": "To bore is to drill a hole through something, so what is boring ends up right inside the word it attacks."
+    },
+    "linkWords": [
+     "will be"
+    ],
+    "pieces": [
+     "I",
+     "MIT",
+     "ATE",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "papers",
+      "gives": "ID",
+      "note": "your ID is the papers that prove who you are"
+     },
+     {
+      "clueFragment": "Cambridge university",
+      "gives": "MIT",
+      "note": "the Massachusetts Institute of Technology stands in Cambridge, Massachusetts"
+     },
+     {
+      "clueFragment": "worried",
+      "gives": "ATE",
+      "note": "what eats at you is what worries you — 'what's eating him?'"
+     }
+    ],
+    "surface": "An anxious Cambridge academic ploughing through a pile of dull papers.",
+    "walkthrough": "The Cambridge in play is the Massachusetts one, and 'boring' means drilling rather than dull — two misreadings the surface works hard to keep in place."
+   }
   },
   {
    "id": "17-across",
@@ -355,7 +744,47 @@ window.CRYPTIC_PUZZLES["cryptic-29976"] = /*JSON-START*/ {
     ]
    },
    "solution": "FERRIS",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "deletion + charade",
+    "answer": "FERRIS WHEELS",
+    "definition": "joy rides?",
+    "definitionFit": "A Ferris wheel is the giant upright fairground wheel with hanging cars, ridden purely for the fun of it — joy rides in the fairground sense.",
+    "indicators": [
+     "mostly",
+     "stolen"
+    ],
+    "indicatorNotes": {
+     "mostly": "Most of a word is all of it bar the last letter, so only the opening pair of this one is wanted.",
+     "stolen": "What is stolen is carried off, so those two letters disappear from the word they were sitting in."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "FERRIS",
+     "WHEELS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "are mostly",
+      "gives": "AR",
+      "note": "'are' docked of its final letter, and this pair is what gets taken"
+     },
+     {
+      "clueFragment": "Ferraris",
+      "gives": "FERRIS",
+      "note": "the sports-car marque with that pair lifted out of its middle"
+     },
+     {
+      "clueFragment": "Rolls",
+      "gives": "WHEELS",
+      "note": "a Rolls is a motor car, and the capital letter marks it as one example of the slang plural for cars"
+     }
+    ],
+    "surface": "Expensive cars being taken without permission by people who only want to drive them fast.",
+    "walkthrough": "'Joy rides' is the pivot — joyriding in a stolen car on the surface, a paying fairground customer in the answer. 'Rolls' keeps its capital to flag an example."
+   }
   },
   {
    "id": "18-down",
@@ -372,7 +801,36 @@ window.CRYPTIC_PUZZLES["cryptic-29976"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SUITABLE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SUITABLE",
+    "definition": "Appropriate",
+    "definitionFit": "Suitable and appropriate are near-exact synonyms, both saying a thing fits the occasion, with 'appropriate' the more formal of the pair.",
+    "indicators": [
+     "potentially"
+    ],
+    "indicatorNotes": {
+     "potentially": "Clubs are only one of four, so the word says to move up from the instance to the class it belongs to."
+    },
+    "pieces": [
+     "SUIT",
+     "ABLE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clubs",
+      "gives": "SUIT",
+      "note": "clubs is one of the four suits in a pack of cards"
+     },
+     {
+      "clueFragment": "qualified",
+      "gives": "ABLE",
+      "note": "someone able is qualified to do the job"
+     }
+    ],
+    "surface": "A set of golf clubs that might just turn out to be good enough.",
+    "walkthrough": "'Clubs' is a card suit rather than golf equipment, and 'potentially' is the small word doing the lifting from example to category."
+   }
   },
   {
    "id": "19-down",
@@ -392,7 +850,9 @@ window.CRYPTIC_PUZZLES["cryptic-29976"] = /*JSON-START*/ {
     ",": []
    },
    "solution": "WHEELS",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "17-across"
+   }
   },
   {
    "id": "20-across",
@@ -409,7 +869,47 @@ window.CRYPTIC_PUZZLES["cryptic-29976"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DEVILISH",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal + alternate letters",
+    "answer": "DEVILISH",
+    "definition": "diabolical",
+    "definitionFit": "Devilish and diabolical both mean 'of the devil', and both have drifted into everyday use for anything fiendishly difficult.",
+    "indicators": [
+     "over",
+     "oddly"
+    ],
+    "indicatorNotes": {
+     "over": "Something turned over ends up the other way round, so the word in front of it is read backwards.",
+     "oddly": "Odd counts positions here rather than describing behaviour: the first, third and fifth letters are the ones taken."
+    },
+    "linkWords": [
+     "it’s"
+    ],
+    "pieces": [
+     "DEVIL",
+     "ISH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stayed",
+      "gives": "LIVED",
+      "note": "somebody who stayed in a place lived there"
+     },
+     {
+      "clueFragment": "in Soho",
+      "gives": "ISH",
+      "note": "the first, third and fifth letters of these two words"
+     }
+    ],
+    "subReversals": [
+     {
+      "from": "LIVED",
+      "to": "DEVIL"
+     }
+    ],
+    "surface": "Someone who spent the night in Soho reporting that, strangely, the experience was dreadful.",
+    "walkthrough": "'Stayed over' reads as spending the night, which is exactly where the clue wants you, and the little word 'in' is not scenery — it is lending letters."
+   }
   },
   {
    "id": "21-down",
@@ -426,7 +926,53 @@ window.CRYPTIC_PUZZLES["cryptic-29976"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EMEERS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal + container",
+    "answer": "EMEERS",
+    "definition": "Arabic rulers",
+    "definitionFit": "An emeer — the older spelling of emir — is an Arab prince or commander, so the plural names a set of rulers in the Arab world.",
+    "indicators": [
+     "upset",
+     "about",
+     "supporting"
+    ],
+    "indicatorNotes": {
+     "upset": "In a down clue, upset means turned on its head, so the word is read from its foot upwards.",
+     "about": "To go about something is to go round it, so one piece wraps itself around the letter that follows.",
+     "supporting": "A support sits underneath whatever it holds up, so this assembly goes below the piece named next."
+    },
+    "pieces": [
+     "E",
+     "MEE",
+     "R",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Eastern",
+      "gives": "E",
+      "note": "E is the compass abbreviation for eastern"
+     },
+     {
+      "clueFragment": "Appear",
+      "gives": "SEEM",
+      "note": "to appear anxious is to seem anxious"
+     },
+     {
+      "clueFragment": "King",
+      "gives": "R",
+      "note": "R for Rex, Latin for king, as on coins and royal signatures"
+     }
+    ],
+    "subReversals": [
+     {
+      "from": "SEEM",
+      "to": "MEES"
+     }
+    ],
+    "surface": "Looking annoyed that the King has come out in support of rulers in the East.",
+    "walkthrough": "'Upset' and 'supporting' are both down-clue words: one turns a word on its head, the other puts a piece underneath rather than behind."
+   }
   },
   {
    "id": "22-across",
@@ -448,7 +994,37 @@ window.CRYPTIC_PUZZLES["cryptic-29976"] = /*JSON-START*/ {
     ]
    },
    "solution": "COOKIE",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "charade",
+    "answer": "COOKIE-CUTTER",
+    "definition": "Template",
+    "definitionFit": "A cookie cutter is the shaped tin pressed into rolled dough so that every biscuit comes out identical, which makes it a template in the literal sense.",
+    "indicators": [
+     "used after"
+    ],
+    "indicatorNotes": {
+     "used after": "'After' fixes the running order, so the piece it governs follows the other rather than leading."
+    },
+    "pieces": [
+     "COOKIE",
+     "CUTTER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "identifying code",
+      "gives": "COOKIE",
+      "note": "a cookie is the small file a website leaves on your machine so it recognises you next time"
+     },
+     {
+      "clueFragment": "censor",
+      "gives": "CUTTER",
+      "note": "a censor's work is snipping material out"
+     }
+    ],
+    "surface": "An official blanking out material once a piece of code has identified it.",
+    "walkthrough": "Both halves read as modern office language — the tracking file and the censor's shears — while the definition is quietly asking for a kitchen object."
+   }
   },
   {
    "id": "22-down",
@@ -468,7 +1044,9 @@ window.CRYPTIC_PUZZLES["cryptic-29976"] = /*JSON-START*/ {
     "-": []
    },
    "solution": "CUTTER",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "22-across"
+   }
   },
   {
    "id": "23-across",
@@ -485,7 +1063,42 @@ window.CRYPTIC_PUZZLES["cryptic-29976"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REARMAMENT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "REARMAMENT",
+    "definition": "Fresh investment in Arsenal",
+    "definitionFit": "Rearmament is fresh spending on a country's arsenal, its stock of weapons, building the stockpile back up after years of running it down.",
+    "indicators": [
+     "changes",
+     "at kick-off"
+    ],
+    "indicatorNotes": {
+     "changes": "What changes does not stay as it was, so these letters are re-set into a new order.",
+     "at kick-off": "Kick-off is the start of the match, so the piece it governs is placed at the very front."
+    },
+    "anagram": {
+     "fodder": "RE ARM MEANT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "'re' is the standard word for 'on the subject of', as at the head of a memo"
+     },
+     {
+      "clueFragment": "wing",
+      "gives": "ARM",
+      "note": "a wing of an organisation is one of its arms"
+     },
+     {
+      "clueFragment": "meant",
+      "gives": "MEANT",
+      "note": "anagram fodder, five letters"
+     }
+    ],
+    "surface": "A football club putting new money in and reshuffling its wingers before the whistle goes.",
+    "walkthrough": "Arsenal is a north London football club and also a store of weapons, and 'wing' plays the same double game — a winger on the pitch, a branch of a movement."
+   }
   },
   {
    "id": "24-across",
@@ -507,7 +1120,43 @@ window.CRYPTIC_PUZZLES["cryptic-29976"] = /*JSON-START*/ {
     ]
    },
    "solution": "STAR",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "first letters + anagram",
+    "answer": "STAR SIGN",
+    "definition": "Leo",
+    "definitionFit": "Leo is one of the twelve signs of the zodiac, so it defines by example: the answer is the category, not the instance.",
+    "indicators": [
+     "Perhaps",
+     "initially",
+     "moving note lower"
+    ],
+    "indicatorNotes": {
+     "Perhaps": "The word flags the name beside it as one instance of something larger, so what is wanted is the class it belongs to.",
+     "initially": "Initially points at the beginnings of words, so only the opening letter of each is taken.",
+     "moving note lower": "'Note' is the abbreviation n, and lower in a down entry means further down the column, so that letter slides to the end."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "anagram": {
+     "fodder": "STAR SING"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Sayer’s trying another rewrite",
+      "gives": "STAR",
+      "note": "the opening letters of these four words, taken in order"
+     },
+     {
+      "clueFragment": "chorus",
+      "gives": "SING",
+      "note": "to chorus a line is to sing it in unison"
+     }
+    ],
+    "surface": "Leo Sayer having another go at reworking a song, with the chorus dropped a note.",
+    "walkthrough": "Leo Sayer is the British pop singer of the 1970s, so 'Leo' reads as a first name; the definition stops there and hands 'Sayer' over to the wordplay."
+   }
   },
   {
    "id": "24-down",
@@ -527,7 +1176,9 @@ window.CRYPTIC_PUZZLES["cryptic-29976"] = /*JSON-START*/ {
     ",": []
    },
    "solution": "SIGN",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "24-across"
+   }
   },
   {
    "id": "25-across",
@@ -544,7 +1195,34 @@ window.CRYPTIC_PUZZLES["cryptic-29976"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FRINGE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "FRINGE",
+    "definition": "Less important",
+    "definitionFit": "Fringe as a modifier means out at the edge of the main event — fringe theatre, fringe politics — so it reads as less important than the centre.",
+    "indicators": [],
+    "linkWords": [
+     "when"
+    ],
+    "pieces": [
+     "F",
+     "RING",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "14",
+      "gives": "FE",
+      "note": "14 across is a word meaning clad in iron, and Fe is iron's chemical symbol"
+     },
+     {
+      "clueFragment": "call",
+      "gives": "RING",
+      "note": "to call a friend is to ring them"
+     }
+    ],
+    "walkthrough": "The cross-reference is an instruction and not just a source of letters: 14 across means clad in iron, so iron's chemical symbol wraps itself round the other piece."
+   }
   },
   {
    "id": "26-across",
@@ -561,7 +1239,37 @@ window.CRYPTIC_PUZZLES["cryptic-29976"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SVENGALI",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + first letter",
+    "answer": "SVENGALI",
+    "definition": "Supreme influencer",
+    "definitionFit": "Svengali, the hypnotist in du Maurier's Trilby, gave his name to anyone who dominates and controls another person — influence at its most complete.",
+    "indicators": [
+     "out",
+     "a little"
+    ],
+    "indicatorNotes": {
+     "out": "Out here means out of order rather than removed, and that is the sense that disturbs the letters.",
+     "a little": "A little of a word is a small piece of it — its opening letter — rather than a small quantity of anything."
+    },
+    "anagram": {
+     "fodder": "LEAVING S"
+    },
+    "blocks": [
+     {
+      "clueFragment": "leaving",
+      "gives": "LEAVING",
+      "note": "anagram fodder, seven letters"
+     },
+     {
+      "clueFragment": "something",
+      "gives": "S",
+      "note": "just the opening letter of the word"
+     }
+    ],
+    "surface": "A hugely powerful influencer quietly omitting one small detail.",
+    "walkthrough": "'Leaving ... out' begs to be read as an instruction to delete something, and that is the trap: 'leaving' supplies the letters and 'out' is what disturbs them."
+   }
   }
  ]
 } /*JSON-END*/;
