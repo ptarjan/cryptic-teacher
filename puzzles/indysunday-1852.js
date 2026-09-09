@@ -30,7 +30,51 @@ window.CRYPTIC_PUZZLES["indysunday-1852"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FIREARM",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + charade",
+    "answer": "FIREARM",
+    "definition": "Weapon",
+    "definitionFit": "A firearm is any gun that fires a shot with an explosive charge, so the definition names the wider class the answer belongs to.",
+    "indicators": [
+     "in retirement"
+    ],
+    "indicatorNotes": {
+     "in retirement": "Somebody in retirement has withdrawn, gone back the way they came, and the word in front of the phrase is written out backwards to match."
+    },
+    "linkWords": [
+     "to"
+    ],
+    "pieces": [
+     "FI",
+     "REAR",
+     "M"
+    ],
+    "subReversals": [
+     {
+      "from": "IF",
+      "to": "FI"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "provided in retirement",
+      "gives": "FI",
+      "note": "'provided' in the sense of 'if', turned round"
+     },
+     {
+      "clueFragment": "raise",
+      "gives": "REAR",
+      "note": "to rear a child is to raise one"
+     },
+     {
+      "clueFragment": "money",
+      "gives": "M",
+      "note": "M is the standard abbreviation for money"
+     }
+    ],
+    "surface": "A pensioner handed a gun as a way of bringing in some extra cash.",
+    "walkthrough": "'Raise money' looks like one idea and is two separate pieces; 'provided' is the everyday 'if', as in 'provided that you come'."
+   }
   },
   {
    "id": "1-down",
@@ -47,7 +91,42 @@ window.CRYPTIC_PUZZLES["indysunday-1852"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FRIDAY",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "FRIDAY",
+    "definition": "just before the weekend",
+    "definitionFit": "Friday is the last working day, sitting immediately before Saturday and Sunday, so the definition locates the day rather than naming it.",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "One thing described as in another is inside it, so the letters named first are dropped between the letters of the word that follows."
+    },
+    "pieces": [
+     "FR",
+     "ID",
+     "AY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fight",
+      "gives": "FRAY",
+      "note": "a fray is a brawl or a fight"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "one written as a Roman numeral"
+     },
+     {
+      "clueFragment": "died",
+      "gives": "D",
+      "note": "d is the abbreviation used for 'died' on gravestones and in family trees"
+     }
+    ],
+    "surface": "A single death in a brawl at the end of the working week.",
+    "walkthrough": "'Just' here means immediately rather than merely, which is what turns the last four words into a definition instead of a remark about the fight."
+   }
   },
   {
    "id": "2-down",
@@ -64,7 +143,24 @@ window.CRYPTIC_PUZZLES["indysunday-1852"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RIGHTS",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "RIGHTS",
+    "definition": "Just claims",
+    "definitionFit": "Rights are the claims a person is entitled to press, and 'just' is doing the work of legitimate — the ones law or morality allows.",
+    "blocks": [
+     {
+      "clueFragment": "Just claims",
+      "note": "entitlements: the things you are owed and may demand"
+     },
+     {
+      "clueFragment": "R and R?",
+      "note": "R is the standard abbreviation for right, and the clue hands you two of them; the surface wants rest and recreation"
+     }
+    ],
+    "surface": "Somebody insisting that all they are owed is a little rest and recreation.",
+    "walkthrough": "R and R is the soldier's rest and recreation in the surface. Read the two letters separately and each is an abbreviation, which makes the pair of them a plural — and the question mark carries the joke."
+   }
   },
   {
    "id": "3-down",
@@ -81,7 +177,36 @@ window.CRYPTIC_PUZZLES["indysunday-1852"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ANTIFREEZE",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "ANTIFREEZE",
+    "definition": "essential for motorists in winter",
+    "definitionFit": "Antifreeze is the additive poured into a car's radiator to stop the coolant icing up, which is what makes it a winter essential.",
+    "indicators": [
+     "In Manchester",
+     "broadcast"
+    ],
+    "indicatorNotes": {
+     "In Manchester": "A Manchester speaker uses a short flat A, and that northern vowel is what changes the sound of the first word being spoken here.",
+     "broadcast": "Broadcasting is putting something out to be heard, so the words in front of it are wanted for their sound rather than their spelling."
+    },
+    "blocks": [
+     {
+      "clueFragment": "BBC",
+      "soundsLike": "AUNTIE",
+      "gives": "ANTI",
+      "note": "the BBC's long-standing nickname is Auntie, said here with a northern short A"
+     },
+     {
+      "clueFragment": "releases",
+      "soundsLike": "FREES",
+      "gives": "FREEZE",
+      "note": "to release someone is to free them, and the verb is said exactly like the winter one"
+     }
+    ],
+    "surface": "A BBC news bulletin out of Manchester about something drivers cannot do without in the cold.",
+    "walkthrough": "The BBC has been Auntie since the 1930s, a nickname for its prim manner, and the northern vowel is what closes the gap between the two sounds."
+   }
   },
   {
    "id": "4-down",
@@ -98,7 +223,42 @@ window.CRYPTIC_PUZZLES["indysunday-1852"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MUSIC",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + charade",
+    "answer": "MUSIC",
+    "definition": "country perhaps",
+    "definitionFit": "Country is one kind of music among many, so the definition works by example — which is what 'perhaps' and the question mark are admitting.",
+    "indicators": [
+     "revolutionary"
+    ],
+    "indicatorNotes": {
+     "revolutionary": "A revolution turns a thing full circle, so the word in front of this one is read from its far end back."
+    },
+    "pieces": [
+     "MUS",
+     "IC"
+    ],
+    "subReversals": [
+     {
+      "from": "SUM",
+      "to": "MUS"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Total revolutionary",
+      "gives": "MUS",
+      "note": "a total is a sum, written out from the back"
+     },
+     {
+      "clueFragment": "in command of",
+      "gives": "IC",
+      "note": "i/c is the services' short form for the officer in charge"
+     }
+    ],
+    "surface": "A rebel leader running an entire country.",
+    "walkthrough": "'Country' wants to be a nation and is a genre, which is the one step the surface works hardest to hide."
+   }
   },
   {
    "id": "5-across",
@@ -115,7 +275,33 @@ window.CRYPTIC_PUZZLES["indysunday-1852"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CONFORM",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CONFORM",
+    "definition": "Accommodate",
+    "definitionFit": "To conform is to fall in with what is required, which is 'accommodate' in its sense of adapting yourself rather than finding somebody a bed.",
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "CON",
+     "FORM"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prisoner",
+      "gives": "CON",
+      "note": "a con is a convict"
+     },
+     {
+      "clueFragment": "criminal record",
+      "gives": "FORM",
+      "note": "form is British slang for a police record — somebody with form has previous convictions"
+     }
+    ],
+    "surface": "Finding room for a convict who has previous convictions.",
+    "walkthrough": "'Accommodate' is the trap: it reads as putting somebody up and means bending to fit. Racing gave English 'form' for a past record, and the police borrowed it."
+   }
   },
   {
    "id": "5-down",
@@ -132,7 +318,37 @@ window.CRYPTIC_PUZZLES["indysunday-1852"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "COLLAPSED",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "COLLAPSED",
+    "definition": "fell",
+    "definitionFit": "To collapse is to fall down suddenly and completely, and the past tense of 'fall' matches the answer's own past tense exactly.",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "Falling in something puts you inside it, so the piece named first goes between the letters of the word named next."
+    },
+    "pieces": [
+     "COL",
+     "LAPSE",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "freezing",
+      "gives": "COLD",
+      "note": "freezing weather is cold"
+     },
+     {
+      "clueFragment": "Fall",
+      "gives": "LAPSE",
+      "note": "a lapse is a fall — a lapse from grace"
+     }
+    ],
+    "surface": "A tumble taken on a freezing hillside.",
+    "walkthrough": "A fell is a hill in the north of England, which is the picture the surface paints; the definition is the other 'fell', the past tense of fall."
+   }
   },
   {
    "id": "6-down",
@@ -149,7 +365,36 @@ window.CRYPTIC_PUZZLES["indysunday-1852"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NUDE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "NUDE",
+    "definition": "in Emperor's new clothes",
+    "definitionFit": "Andersen's emperor is paraded in clothes that do not exist, so anybody wearing them is wearing nothing at all.",
+    "indicators": [
+     "dropping"
+    ],
+    "indicatorNotes": {
+     "dropping": "Dropping something is letting it fall away, so the letter named next is taken out of the word in front of it."
+    },
+    "pieces": [
+     "N",
+     "UDE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Note",
+      "gives": "N",
+      "note": "N is the abbreviation for a musical note"
+     },
+     {
+      "clueFragment": "stylish man dropping dead",
+      "gives": "UDE",
+      "note": "a dude is a stylish man, and D is the abbreviation for dead"
+     }
+    ],
+    "surface": "A well-dressed man keeling over in the middle of a fairy tale.",
+    "walkthrough": "'Dropping dead' reads as a man collapsing and instructs you to remove a single letter, the D that stands for dead."
+   }
   },
   {
    "id": "7-down",
@@ -166,7 +411,42 @@ window.CRYPTIC_PUZZLES["indysunday-1852"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ORATORIO",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + container",
+    "answer": "ORATORIO",
+    "definition": "Musical story",
+    "definitionFit": "An oratorio is a large sacred work for singers and orchestra that tells a story without staging it, so the definition names the form.",
+    "indicators": [
+     "heading off",
+     "to capture"
+    ],
+    "indicatorNotes": {
+     "heading off": "Heading off is leaving, and what leaves here is the head itself — the opening letter of the name.",
+     "to capture": "Capturing somebody is holding them inside your own walls, so the letters named next go within the ones already assembled."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "ORAT",
+     "OR",
+     "IO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hornblower possibly heading off",
+      "gives": "ORATIO",
+      "note": "Horatio Hornblower is C. S. Forester's Napoleonic naval officer, and his first name loses its head"
+     },
+     {
+      "clueFragment": "gold",
+      "gives": "OR",
+      "note": "or is gold in heraldry, from the French"
+     }
+    ],
+    "surface": "A seafaring musical whose hero slips away to seize some treasure.",
+    "walkthrough": "'Possibly' is the flag for an example rather than a synonym, and OR is heraldry's gold — two conventions that turn up in every other puzzle."
+   }
   },
   {
    "id": "8-down",
@@ -187,7 +467,31 @@ window.CRYPTIC_PUZZLES["indysunday-1852"] = /*JSON-START*/ {
     ]
    },
    "solution": "MUSTDASH",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "MUST DASH",
+    "definition": "I have to leave quickly",
+    "definitionFit": "Dash means to move at speed, so the phrase is the apology you make on your way out of the door in a hurry.",
+    "indicators": [
+     "Gathered"
+    ],
+    "indicatorNotes": {
+     "Gathered": "To have gathered something is to have picked it up by ear — I gathered from what was said — so the words after it are wanted as sound."
+    },
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "facial hair",
+      "soundsLike": "MOUSTACHE",
+      "gives": "MUST DASH",
+      "note": "the growth on a man's upper lip, said out loud"
+     }
+    ],
+    "surface": "Somebody notices a moustache and makes an excuse to hurry away.",
+    "walkthrough": "The question mark flags a definition that is a whole spoken sentence rather than a synonym, and 'as' is the hinge holding the two halves together."
+   }
   },
   {
    "id": "9-across",
@@ -204,7 +508,27 @@ window.CRYPTIC_PUZZLES["indysunday-1852"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INGOT",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "INGOT",
+    "definition": "Metal bar",
+    "definitionFit": "An ingot is metal cast into a solid block for storage or transport, which is the bar shape gold bullion comes in.",
+    "indicators": [
+     "traps"
+    ],
+    "indicatorNotes": {
+     "traps": "Something trapped is held fast by whatever sits on either side of it, which is where the letters wanted here are caught."
+    },
+    "blocks": [
+     {
+      "clueFragment": "securing otter",
+      "gives": "INGOT",
+      "note": "five consecutive letters run across the join between these two words"
+     }
+    ],
+    "surface": "A metal bar holding shut the traps set for an otter.",
+    "walkthrough": "'Traps' reads as the noun an otter gets caught in and works as the verb doing the holding, which is the only instruction in the line."
+   }
   },
   {
    "id": "10-across",
@@ -225,7 +549,35 @@ window.CRYPTIC_PUZZLES["indysunday-1852"] = /*JSON-START*/ {
     ]
    },
    "solution": "SALADDAYS",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "SALAD DAYS",
+    "definition": "good times",
+    "definitionFit": "Salad days are the carefree early years of a life, so 'good times' names them in the loose, nostalgic sense the exclamation mark points at.",
+    "indicators": [
+     "bring back",
+     "entertaining"
+    ],
+    "indicatorNotes": {
+     "bring back": "Bringing something back is fetching it the other way, so the run of letters reads right to left along this across answer.",
+     "entertaining": "To entertain guests is to have them inside the house, so this stretch of the clue is holding something within it."
+    },
+    "subReversals": [
+     {
+      "from": "SYADDALAS",
+      "to": "SALADDAYS"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Easy-peasy, add a lasagne",
+      "gives": "SALAD DAYS",
+      "note": "nine consecutive letters sit inside this stretch, running backwards"
+     }
+    ],
+    "surface": "A breezy recipe note about throwing a lasagne together.",
+    "walkthrough": "The phrase is Cleopatra's in Antony and Cleopatra — 'my salad days, when I was green in judgement' — where green means young and untried."
+   }
   },
   {
    "id": "11-across",
@@ -242,7 +594,47 @@ window.CRYPTIC_PUZZLES["indysunday-1852"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ARTIFICIAL",
-   "annotation": null
+   "annotation": {
+    "type": "charade + middle letters + deletion",
+    "answer": "ARTIFICIAL",
+    "definition": "plastic",
+    "definitionFit": "Plastic used as an adjective means synthetic or insincere — a plastic smile — and that is the sense in which it matches the answer.",
+    "indicators": [
+     "unprotected",
+     "releases"
+    ],
+    "indicatorNotes": {
+     "unprotected": "A word left unprotected loses the letters standing guard at each end, and only the middle survives.",
+     "releases": "To release something is to let it go, so the two letters named straight afterwards leave the word they were sitting in."
+    },
+    "linkWords": [
+     "With"
+    ],
+    "pieces": [
+     "ART",
+     "I",
+     "FICIAL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Earth unprotected",
+      "gives": "ART",
+      "note": "EARTH with the letters at each end stripped away"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "the single letter is used just as it stands"
+     },
+     {
+      "clueFragment": "authorised releases of",
+      "gives": "FICIAL",
+      "note": "something authorised is official, and OF is what it lets go"
+     }
+    ],
+    "surface": "An official admitting they signed off plastic waste while the planet lay unprotected.",
+    "walkthrough": "'Releases of plastic' is an environmental phrase in the surface and an instruction in the wordplay, where 'of' is a thing to be thrown away rather than a joining word."
+   }
   },
   {
    "id": "12-across",
@@ -259,7 +651,30 @@ window.CRYPTIC_PUZZLES["indysunday-1852"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BOLD",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "BOLD",
+    "definition": "Striking",
+    "definitionFit": "Bold means standing out — a bold colour, bold type — which is what 'striking' describes when it is used of appearance.",
+    "pieces": [
+     "B",
+     "OLD"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bachelor",
+      "gives": "B",
+      "note": "B is the abbreviation for bachelor, as in BA and BSc"
+     },
+     {
+      "clueFragment": "of long standing",
+      "gives": "OLD",
+      "note": "a friendship of long standing is an old one"
+     }
+    ],
+    "surface": "An eye-catching man who has been unmarried for years.",
+    "walkthrough": "'Of long standing' is an adjective phrase meaning long-established, not a comment on how long anybody has been waiting about."
+   }
   },
   {
    "id": "13-down",
@@ -276,7 +691,45 @@ window.CRYPTIC_PUZZLES["indysunday-1852"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MILLSTREAM",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "MILLSTREAM",
+    "definition": "race",
+    "definitionFit": "A race is the fast channel of water that drives a mill wheel — the mill race — so the definition is the technical term for the thing itself.",
+    "indicators": [
+     "to form"
+    ],
+    "indicatorNotes": {
+     "to form": "Forming something is making a new shape out of material you already have, so the letters named next are built into a different order."
+    },
+    "anagram": {
+     "fodder": "MILL MASTER"
+    },
+    "subAnagrams": [
+     {
+      "fodder": "MASTER",
+      "gives": "STREAM"
+     }
+    ],
+    "pieces": [
+     "MILL",
+     "STREAM"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Instruction for cryptic solvers",
+      "gives": "MILL",
+      "note": "to mill is to move about in a confused mass, which is what setters use such words to ask you to do to letters"
+     },
+     {
+      "clueFragment": "master",
+      "gives": "STREAM",
+      "note": "the six letters of MASTER, rebuilt"
+     }
+    ],
+    "surface": "Crossword solvers being told to go away and breed a master race.",
+    "walkthrough": "The first three words define one of the setter's own instruction words, and 'race' at the end is a channel of water rather than people."
+   }
   },
   {
    "id": "14-across",
@@ -297,7 +750,38 @@ window.CRYPTIC_PUZZLES["indysunday-1852"] = /*JSON-START*/ {
     ]
    },
    "solution": "EVILSPIRITS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "EVIL SPIRITS",
+    "definition": "gremlins",
+    "definitionFit": "Gremlins are the mischievous imps blamed when machinery goes wrong, so they are one species of the answer and the question mark says so.",
+    "indicators": [
+     "blighted"
+    ],
+    "indicatorNotes": {
+     "blighted": "A blighted crop is spoiled and misshapen, and letters blighted the same way come out in a shape they did not start in."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "anagram": {
+     "fodder": "ELVIS TRIP IS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Elvis trip is",
+      "gives": "ELVISTRIPIS",
+      "note": "eleven letters of fodder, three small words taken whole"
+     },
+     {
+      "clueFragment": "blighted",
+      "gives": "",
+      "note": "the shuffling instruction"
+     }
+    ],
+    "surface": "An Elvis-themed holiday ruined by things going mysteriously wrong.",
+    "walkthrough": "'Is' belongs to the letters rather than to the grammar, which is the count most solvers get wrong here — eleven, not nine."
+   }
   },
   {
    "id": "15-down",
@@ -314,7 +798,48 @@ window.CRYPTIC_PUZZLES["indysunday-1852"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IMMEDIATE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "IMMEDIATE",
+    "definition": "Instant",
+    "definitionFit": "An immediate reply comes with no delay at all, which is what 'instant' means when it describes an action rather than a moment in time.",
+    "indicators": [
+     "off",
+     "restricting"
+    ],
+    "indicatorNotes": {
+     "off": "Milk that is off has gone bad, and a word that has gone off the same way no longer holds its letters in the right order.",
+     "restricting": "Restricting something is closing round it, so the letters just rebuilt shut around whatever the clue names next."
+    },
+    "linkWords": [
+     "is"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "TIME",
+      "gives": "IMTE"
+     }
+    ],
+    "pieces": [
+     "IM",
+     "MEDIA",
+     "TE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time off",
+      "gives": "IMTE",
+      "note": "the four letters of TIME, put into a new order"
+     },
+     {
+      "clueFragment": "newspapers and magazines",
+      "gives": "MEDIA",
+      "note": "newspapers and magazines together are the media"
+     }
+    ],
+    "surface": "A break from work being spoiled by the papers.",
+    "walkthrough": "'Time off' reads as a holiday and is an instruction with its material: 'off' is the spoiling word, used the way milk goes off."
+   }
   },
   {
    "id": "16-down",
@@ -331,7 +856,40 @@ window.CRYPTIC_PUZZLES["indysunday-1852"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ABBACIES",
-   "annotation": null
+   "annotation": {
+    "type": "charade + homophone",
+    "answer": "ABBACIES",
+    "definition": "offices of religious leadership",
+    "definitionFit": "An abbacy is the office and jurisdiction of an abbot, so the plural names exactly these posts at the head of a religious house.",
+    "indicators": [
+     "Reportedly"
+    ],
+    "indicatorNotes": {
+     "Reportedly": "Something reported is passed on by word of mouth, so the word straight after it is wanted for its sound and not its spelling."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "ABBA",
+     "CIES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "backing singers from Sweden",
+      "gives": "ABBA",
+      "note": "Sweden's Eurovision-winning quartet; 'backing' belongs to the surface's picture of session singers and does nothing to the letters"
+     },
+     {
+      "clueFragment": "seize",
+      "soundsLike": "SEIZE",
+      "gives": "CIES",
+      "note": "the verb said out loud, then spelt the way the rest of the assembly needs"
+     }
+    ],
+    "surface": "A report that Swedish backing singers are being grabbed to fill church posts.",
+    "walkthrough": "The group's name is the initials of Agnetha, Bjorn, Benny and Anni-Frid, and the second half of the answer is the spelling of a noise rather than of a word."
+   }
   },
   {
    "id": "17-down",
@@ -348,7 +906,35 @@ window.CRYPTIC_PUZZLES["indysunday-1852"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PONYTAIL",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "PONYTAIL",
+    "definition": "hairstyle",
+    "definitionFit": "A ponytail is hair gathered at the back and left to hang the way a horse's tail does, which is one named way of wearing it.",
+    "indicators": [
+     "awful"
+    ],
+    "indicatorNotes": {
+     "awful": "An awful version of a thing is a badly made one, and letters made up badly are not left in the order they arrived in."
+    },
+    "anagram": {
+     "fodder": "TOY PLAIN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Toy with plain",
+      "gives": "TOYPLAIN",
+      "note": "eight letters of fodder, from the words on either side of 'with'"
+     },
+     {
+      "clueFragment": "awful",
+      "gives": "",
+      "note": "the shuffling instruction"
+     }
+    ],
+    "surface": "Somebody idly playing with a drab and dreadful haircut.",
+    "walkthrough": "'Toy with' reads as a single verb meaning to fiddle, and prising the two words apart is what frees the three letters of the toy itself."
+   }
   },
   {
    "id": "18-across",
@@ -369,7 +955,45 @@ window.CRYPTIC_PUZZLES["indysunday-1852"] = /*JSON-START*/ {
     ]
    },
    "solution": "BRONZEMEDAL",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + first letter",
+    "answer": "BRONZE MEDAL",
+    "definition": "third-rate award",
+    "definitionFit": "The bronze medal goes to whoever finishes third, so 'third-rate' is being used literally here instead of as the insult it usually is.",
+    "indicators": [
+     "Face of",
+     "wrongly"
+    ],
+    "indicatorNotes": {
+     "Face of": "The face of a thing is its front, so only the opening letter of the word after this phrase is wanted.",
+     "wrongly": "A job done wrongly comes out in the wrong order, which is what happens to the letters gathered before it."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "anagram": {
+     "fodder": "N ZERO BLAMED"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Face of net",
+      "gives": "N",
+      "note": "the front letter of 'net'"
+     },
+     {
+      "clueFragment": "zero blamed",
+      "gives": "ZEROBLAMED",
+      "note": "ten more letters of fodder, the two words taken whole"
+     },
+     {
+      "clueFragment": "wrongly",
+      "gives": "",
+      "note": "the shuffling instruction"
+     }
+    ],
+    "surface": "Net zero policy being unfairly blamed for a poor showing.",
+    "walkthrough": "'Third-rate' is an insult everywhere except on a podium, where third is simply a placing; 'net zero' is a policy in the surface and one letter in the wordplay."
+   }
   },
   {
    "id": "19-down",
@@ -386,7 +1010,33 @@ window.CRYPTIC_PUZZLES["indysunday-1852"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REFUSE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "REFUSE",
+    "definition": "Decline",
+    "definitionFit": "To decline an invitation is to refuse it: both are the polite verb for saying no, so one stands in for the other exactly.",
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "REF",
+     "USE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "official",
+      "gives": "REF",
+      "note": "the referee, the official in charge of a match"
+     },
+     {
+      "clueFragment": "employment",
+      "gives": "USE",
+      "note": "employing a thing is putting it to use"
+     }
+    ],
+    "surface": "A drop in the number of people in public-sector jobs.",
+    "walkthrough": "'Employment' wants to mean holding down a job and means use, the plain noun — and the answer here is the verb, stressed on its second syllable, not the rubbish you put out."
+   }
   },
   {
    "id": "20-down",
@@ -403,7 +1053,43 @@ window.CRYPTIC_PUZZLES["indysunday-1852"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ASPECT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ASPECT",
+    "definition": "Feature",
+    "definitionFit": "An aspect is one of the faces a thing turns towards you — the most rewarding aspect of the job — which is what 'feature' names.",
+    "indicators": [
+     "distorted"
+    ],
+    "indicatorNotes": {
+     "distorted": "A distorted shape has been pulled out of true, and letters pulled out of true no longer sit where they started."
+    },
+    "linkWords": [
+     "of"
+    ],
+    "anagram": {
+     "fodder": "SPACE T"
+    },
+    "blocks": [
+     {
+      "clueFragment": "space",
+      "gives": "SPACE",
+      "note": "five letters of fodder"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "t is the symbol physicists write for time"
+     },
+     {
+      "clueFragment": "distorted",
+      "gives": "",
+      "note": "the shuffling instruction"
+     }
+    ],
+    "surface": "Something worth noticing about the way gravity warps space-time.",
+    "walkthrough": "The hyphenated physics phrase splits into a whole word and a single symbol, which is the join the clue is banking on you not seeing."
+   }
   },
   {
    "id": "21-across",
@@ -420,7 +1106,37 @@ window.CRYPTIC_PUZZLES["indysunday-1852"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AMYL",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "AMYL",
+    "definition": "Radical",
+    "definitionFit": "In chemistry a radical is a group of atoms that travels between compounds intact, and amyl is the five-carbon group C5H11.",
+    "indicators": [
+     "imprisoned in"
+    ],
+    "indicatorNotes": {
+     "imprisoned in": "Being imprisoned in a place puts you within its walls, so this piece sits between the letters of whatever follows."
+    },
+    "pieces": [
+     "A",
+     "MY",
+     "L"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Alabama",
+      "gives": "AL",
+      "note": "AL is the two-letter postal abbreviation for the state"
+     },
+     {
+      "clueFragment": "setter's",
+      "gives": "MY",
+      "note": "the setter speaks in the first person, so anything belonging to them is 'my'"
+     }
+    ],
+    "surface": "A political extremist locked up in an Alabama jail.",
+    "walkthrough": "'Radical' is a political word everywhere but the laboratory, and the setter talking about themselves is one of the most-used tricks in the game."
+   }
   },
   {
    "id": "22-across",
@@ -437,7 +1153,45 @@ window.CRYPTIC_PUZZLES["indysunday-1852"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ADROITNESS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "ADROITNESS",
+    "definition": "dexterity",
+    "definitionFit": "Adroitness is skill with the hands or the wits — literally right-handedness, from the French a droit — which is what dexterity names.",
+    "indicators": [
+     "Confounded",
+     "about"
+    ],
+    "indicatorNotes": {
+     "Confounded": "Something confounded has been thrown into confusion, and letters in confusion do not keep the order they came in.",
+     "about": "Putting one thing about another wraps it round, so the letter named next ends up inside the rebuilt letters."
+    },
+    "subAnagrams": [
+     {
+      "fodder": "ASSERTION",
+      "gives": "AROITNESS"
+     }
+    ],
+    "pieces": [
+     "A",
+     "D",
+     "ROITNESS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "assertion",
+      "gives": "AROITNESS",
+      "note": "the nine letters of ASSERTION, rebuilt"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the standard abbreviation for daughter"
+     }
+    ],
+    "surface": "A disputed claim about how nimble somebody's daughter is.",
+    "walkthrough": "'Confounded' is an exclamation of annoyance in the surface — confounded nuisance — and an instruction in the wordplay, which is why it can sit at the front."
+   }
   },
   {
    "id": "23-down",
@@ -454,7 +1208,33 @@ window.CRYPTIC_PUZZLES["indysunday-1852"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OMEGA",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "OMEGA",
+    "definition": "Conclusion",
+    "definitionFit": "Omega is the last letter of the Greek alphabet, so it stands for the end of a thing — the alpha and the omega.",
+    "linkWords": [
+     "is"
+    ],
+    "pieces": [
+     "O",
+     "MEGA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "the letter is a nought by its shape"
+     },
+     {
+      "clueFragment": "great",
+      "gives": "MEGA",
+      "note": "mega is Greek for large or great"
+     }
+    ],
+    "surface": "Somebody dismissing an ending as nothing special.",
+    "walkthrough": "'Nothing great' reads as faint praise and is two separate pieces, one of them the Greek word that gave English megaphone and megabyte."
+   }
   },
   {
    "id": "24-down",
@@ -471,7 +1251,37 @@ window.CRYPTIC_PUZZLES["indysunday-1852"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DYED",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "DYED",
+    "definition": "Coloured",
+    "definitionFit": "Dyed is the past participle of dye, and cloth that has been dyed has been given colour, which is what the definition says of it.",
+    "indicators": [
+     "houses"
+    ],
+    "indicatorNotes": {
+     "houses": "A house holds people within it, and used as a verb the word puts whatever came before between these letters."
+    },
+    "pieces": [
+     "D",
+     "YE",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "religious academic",
+      "gives": "DD",
+      "note": "a Doctor of Divinity is an academic in religion, and DD is the degree's letters"
+     },
+     {
+      "clueFragment": "the ancient",
+      "gives": "YE",
+      "note": "ye is the antique spelling of 'the', as on a Ye Olde Tea Shoppe sign"
+     }
+    ],
+    "surface": "Elderly divinity scholars living in college rooms.",
+    "walkthrough": "That Y is a printer's substitute for the lost letter thorn, so the old spelling was always pronounced 'the' — the mock-medieval shop sign is a much later joke."
+   }
   },
   {
    "id": "25-across",
@@ -493,7 +1303,27 @@ window.CRYPTIC_PUZZLES["indysunday-1852"] = /*JSON-START*/ {
     ]
    },
    "solution": "INANYCASE",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "IN ANY CASE",
+    "definition": "Whatever",
+    "definition2": "Upper or lower",
+    "definitionFit": "The phrase is the shrug that means whatever happens, anyway; the second reading is printer's talk, since every letter is set in upper or lower case.",
+    "blocks": [
+     {
+      "clueFragment": "Upper or lower?",
+      "gives": "",
+      "note": "the two forms a printed letter can take, capital or small"
+     },
+     {
+      "clueFragment": "Whatever!",
+      "gives": "",
+      "note": "the dismissive shrug: it makes no difference which one you pick"
+     }
+    ],
+    "surface": "Somebody offered a choice between two things and refusing to care which.",
+    "walkthrough": "Read as dialogue it is a question about berths or decks, answered with a shrug; the pun is on 'case', which printers use for capitals and small letters."
+   }
   },
   {
    "id": "26-across",
@@ -510,7 +1340,41 @@ window.CRYPTIC_PUZZLES["indysunday-1852"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EXUDE",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + charade",
+    "answer": "EXUDE",
+    "definition": "discharge",
+    "definitionFit": "To exude something is to let it ooze out through a surface, which is 'discharge' in its seeping sense rather than its sacking one.",
+    "indicators": [
+     "missing",
+     "heading"
+    ],
+    "indicatorNotes": {
+     "missing": "What is missing has been taken out, so the letter named just before this word is gone from the word it sat in.",
+     "heading": "Something heading for a place is on its way to the front of it, which is where this pair of letters ends up."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "EX",
+     "UDE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "former partner's",
+      "gives": "EX",
+      "note": "an ex is a former partner"
+     },
+     {
+      "clueFragment": "From 6 November missing",
+      "gives": "UDE",
+      "note": "the answer at 6 down, less the N that November stands for in the phonetic alphabet"
+     }
+    ],
+    "surface": "Since 6 November a missing former partner has been heading for a discharge.",
+    "walkthrough": "A bare number sends you to another light for your letters, and 'November' is the phonetic alphabet's N — a whole word standing in for one letter."
+   }
   },
   {
    "id": "27-across",
@@ -527,7 +1391,51 @@ window.CRYPTIC_PUZZLES["indysunday-1852"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SPLODGE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "SPLODGE",
+    "definition": "a big splash",
+    "definitionFit": "A splodge is a big irregular blot of something wet, paint or mud landing all at once, which is a splash where it lands.",
+    "indicators": [
+     "on the counter"
+    ],
+    "indicatorNotes": {
+     "on the counter": "Counter means against, so everything assembled so far runs against the grid's direction — right to left in an across answer."
+    },
+    "linkWords": [
+     "make"
+    ],
+    "pieces": [
+     "SPL",
+     "OD",
+     "GE"
+    ],
+    "subReversals": [
+     {
+      "from": "EGDOLPS",
+      "to": "SPLODGE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Say",
+      "gives": "EG",
+      "note": "eg is short for exempli gratia, the Latin for 'for example'"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "DO",
+      "note": "a do is a party or a social function"
+     },
+     {
+      "clueFragment": "records",
+      "gives": "LPS",
+      "note": "LPs are long-playing records"
+     }
+    ],
+    "surface": "Records for a party, left out on the counter, causing quite a sensation.",
+    "walkthrough": "'Make a big splash' is idiom for causing a sensation and is meant literally here, and 'on the counter' is a position in the surface and a direction in the wordplay."
+   }
   },
   {
    "id": "28-across",
@@ -544,7 +1452,38 @@ window.CRYPTIC_PUZZLES["indysunday-1852"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ARMREST",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ARMREST",
+    "definition": "support",
+    "definitionFit": "An armrest is the padded bar on a chair that takes the weight of your arm, so it supports you in the plainest physical sense.",
+    "indicators": [
+     "struggling"
+    ],
+    "indicatorNotes": {
+     "struggling": "Somebody struggling is thrashing about, and letters thrashing about will not stay in the order they were handed over in."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "anagram": {
+     "fodder": "STARMER"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Starmer",
+      "gives": "STARMER",
+      "note": "seven letters of fodder, the surname taken whole"
+     },
+     {
+      "clueFragment": "struggling",
+      "gives": "",
+      "note": "the shuffling instruction"
+     }
+    ],
+    "surface": "The Prime Minister having a hard time of it and looking for backing.",
+    "walkthrough": "Keir Starmer is the British prime minister, and the question mark admits 'support' is doing double duty — political backing in the surface, furniture in the answer."
+   }
   }
  ]
 } /*JSON-END*/;
