@@ -30,7 +30,30 @@ window.CRYPTIC_PUZZLES["everyman-4107"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DEFECT",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "DEFECT",
+    "definition": "Desert",
+    "definition2": "imperfection",
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Desert",
+      "gives": "",
+      "note": "the verb, stressed on its second syllable: to walk out on your own side and go over to the other one"
+     },
+     {
+      "clueFragment": "imperfection",
+      "gives": "",
+      "note": "the noun, stressed on its first syllable: a fault in a manufactured thing or a character"
+     }
+    ],
+    "surface": "The flaw in a desert — whatever is wrong with a great expanse of sand.",
+    "walkthrough": "'Desert' is the verb stressed on its second syllable, the soldier's crime, not the Sahara the surface puts in front of you. The two senses of the answer are stressed differently too.",
+    "definitionFit": "To DEFECT is to abandon your side for the other, and a DEFECT is a flaw: verb and noun, spelled alike and stressed on different syllables."
+   }
   },
   {
    "id": "1-down",
@@ -51,7 +74,30 @@ window.CRYPTIC_PUZZLES["everyman-4107"] = /*JSON-START*/ {
     ]
    },
    "solution": "DOUBLECHIN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "DOUBLE CHIN",
+    "definition": "Feature",
+    "pieces": [
+     "DOUBLE",
+     "CHIN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cryptic depiction of",
+      "gives": "DOUBLE",
+      "note": "a sideways write-up of a word said twice reports that it is doubled instead of repeating it"
+     },
+     {
+      "clueFragment": "toast",
+      "gives": "CHIN",
+      "note": "'Chin-chin!' is the British toast raised over drinks, and it is one short word said twice"
+     }
+    ],
+    "surface": "Someone wondering how a cryptic crossword would go about drawing a slice of toast.",
+    "walkthrough": "The toast wanted is the drinkers' greeting rather than the browned bread, and describing that greeting instead of saying it gets you a part of the face.",
+    "definitionFit": "A DOUBLE CHIN is the fold of flesh under the jaw, so 'feature' is the ordinary word for a part of somebody's face."
+   }
   },
   {
    "id": "2-down",
@@ -68,7 +114,28 @@ window.CRYPTIC_PUZZLES["everyman-4107"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FARES",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "FARES",
+    "definition": "Succeeds",
+    "indicators": [
+     "to be heard"
+    ],
+    "indicatorNotes": {
+     "to be heard": "'to be heard' asks for the word as the ear takes it in, which need not be how the page spells it."
+    },
+    "blocks": [
+     {
+      "clueFragment": "where Chair-O-Planes are seen",
+      "soundsLike": "FAIRS",
+      "gives": "FARES",
+      "note": "Chair-O-Planes are the swinging chairs on chains that tour with a travelling funfair, so the places they are seen are fairs"
+     }
+    ],
+    "surface": "How well somebody is getting on, measured against the funfairs where the swinging chairs spin.",
+    "walkthrough": "The dashes make the middle look like an aside dropped into a sentence about succeeding, when that aside is the whole of the wordplay.",
+    "definitionFit": "To FARE is to get along or manage — 'how did you fare?' — so FARES stands in for 'succeeds' as a third-person verb."
+   }
   },
   {
    "id": "3-down",
@@ -85,7 +152,27 @@ window.CRYPTIC_PUZZLES["everyman-4107"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHANNEL",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "CHANNEL",
+    "definition": "Embody spirit of",
+    "definition2": "BBC2",
+    "blocks": [
+     {
+      "clueFragment": "Embody spirit of",
+      "gives": "",
+      "note": "what a medium at a seance claims to do, letting the dead speak through them"
+     },
+     {
+      "clueFragment": "BBC2",
+      "gives": "",
+      "note": "a British television station, so one instance of the broader word rather than a synonym for it"
+     }
+    ],
+    "surface": "Asking whether a television station has a soul anyone would want to summon.",
+    "walkthrough": "A medium at a seance is said to channel the dead, which is the verb; the question mark is the warning that the second definition names one instance rather than a synonym.",
+    "definitionFit": "To CHANNEL a spirit is to let it speak through you, and BBC2 is a television CHANNEL — a definition by example, which is what the question mark flags."
+   }
   },
   {
    "id": "4-across",
@@ -102,7 +189,39 @@ window.CRYPTIC_PUZZLES["everyman-4107"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EMISSARY",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "EMISSARY",
+    "definition": "agent",
+    "indicators": [
+     "clasped by",
+     "topless"
+    ],
+    "indicatorNotes": {
+     "clasped by": "to clasp something is to close your arms right round it, so one piece here shuts over another.",
+     "topless": "'topless' takes the top off a word, meaning its opening letter, even though this entry runs across rather than down."
+    },
+    "pieces": [
+     "E",
+     "MISS",
+     "ARY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "topless emotional",
+      "gives": "EARY",
+      "note": "an emotional person is teary, and the top letter is removed"
+     },
+     {
+      "clueFragment": "Young woman",
+      "gives": "MISS",
+      "note": "a young woman is a miss"
+     }
+    ],
+    "surface": "A tearful operative holding a young woman close.",
+    "walkthrough": "'Topless' is doing the job usually given to 'beheaded', and the surface counts on you reading 'topless emotional agent' as one description of a person instead of as separate instructions.",
+    "definitionFit": "An EMISSARY is somebody sent to represent another, so 'agent' catches it in the diplomatic sense — a person acting on someone else's behalf."
+   }
   },
   {
    "id": "5-down",
@@ -119,7 +238,24 @@ window.CRYPTIC_PUZZLES["everyman-4107"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MICHELANGELO",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "MICHELANGELO",
+    "definition": "Is his the finest of Renaissance art? It's up there",
+    "blocks": [
+     {
+      "clueFragment": "Is his the finest of Renaissance art?",
+      "note": "a question about which Renaissance master stands at the top, and it wants a name rather than the title of a work"
+     },
+     {
+      "clueFragment": "It's up there",
+      "note": "reads as 'it ranks with the very best', and is also meant literally — the work in question is over your head"
+     }
+    ],
+    "surface": "A gallery argument about who the greatest artist of the Renaissance really was.",
+    "walkthrough": "The painting the clue points at is the Sistine Chapel ceiling in Rome, four years of work done on scaffolding, so 'up there' is a ranking and a direction at once.",
+    "definitionFit": "The whole clue describes MICHELANGELO: the sculptor and painter usually named first among Renaissance artists, and the man whose most famous painting is overhead on a chapel ceiling."
+   }
   },
   {
    "id": "6-down",
@@ -136,7 +272,39 @@ window.CRYPTIC_PUZZLES["everyman-4107"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SHELLAC",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SHELLAC",
+    "definition": "varnish",
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "SHE",
+     "LL",
+     "AC"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "That woman",
+      "gives": "SHE",
+      "note": "'that woman' is she"
+     },
+     {
+      "clueFragment": "will",
+      "gives": "LL",
+      "note": "'will' contracts to 'll, as in she'll"
+     },
+     {
+      "clueFragment": "account",
+      "gives": "AC",
+      "note": "a/c is the banker's standing short form of account"
+     }
+    ],
+    "surface": "A woman promising to settle the bill for a bit of varnishing.",
+    "walkthrough": "'Will' is not a future tense in the wordplay but a contraction you write down, and 'account' is the bank's a/c rather than an explanation of anything.",
+    "definitionFit": "SHELLAC is a resin dissolved in alcohol and brushed onto wood as a finish, so 'varnish' is the plain noun sense."
+   }
   },
   {
    "id": "7-down",
@@ -153,7 +321,45 @@ window.CRYPTIC_PUZZLES["everyman-4107"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ALLOTMENT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ALLOTMENT",
+    "definition": "room to grow",
+    "linkWords": [
+     "giving"
+    ],
+    "pieces": [
+     "ALL",
+     "OT",
+     "MEN",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "All",
+      "gives": "ALL",
+      "note": "the clue's own word, taken exactly as it stands"
+     },
+     {
+      "clueFragment": "holy books",
+      "gives": "OT",
+      "note": "OT is the Old Testament, the collection of books that opens the Bible"
+     },
+     {
+      "clueFragment": "people",
+      "gives": "MEN",
+      "note": "men in the old general sense of people"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the standard abbreviation for time"
+     }
+    ],
+    "surface": "Scripture handed round to everybody, sparing them the hours and the space to develop.",
+    "walkthrough": "'Room to grow' sounds like the figurative space a person needs, and it is soil: in Britain an allotment is a numbered patch of council ground rented out for vegetables.",
+    "definitionFit": "An ALLOTMENT is a small plot of council land let to a household for growing vegetables, which is literally room to grow."
+   }
   },
   {
    "id": "8-down",
@@ -170,7 +376,27 @@ window.CRYPTIC_PUZZLES["everyman-4107"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "YANK",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "YANK",
+    "definition": "Pull",
+    "definition2": "one across the pond",
+    "blocks": [
+     {
+      "clueFragment": "Pull",
+      "gives": "",
+      "note": "a sharp tug, the sort that gets a stuck drawer open"
+     },
+     {
+      "clueFragment": "one across the pond",
+      "gives": "",
+      "note": "'the pond' is British joke-shorthand for the Atlantic, so the person on the far side of it is an American"
+     }
+    ],
+    "surface": "Tugging hard at somebody standing on the far side of a stretch of water.",
+    "walkthrough": "'The pond' is British joke-shorthand for the Atlantic, so the person across it is an American. The pull and the nationality are unrelated words that happen to be spelled alike.",
+    "definitionFit": "To YANK is to pull something sharply, and a YANK is British slang for an American — 'across the pond' being the standing joke for the far Atlantic shore."
+   }
   },
   {
    "id": "9-across",
@@ -187,7 +413,29 @@ window.CRYPTIC_PUZZLES["everyman-4107"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UNREAL",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "UNREAL",
+    "definition": "fairytale",
+    "definitionNote": "'Fairytale' is a noun pressed into adjective duty — a fairytale ending, a fairytale season — and it is that adjectival sense the answer matches.",
+    "indicators": [
+     "In audition"
+    ],
+    "indicatorNotes": {
+     "In audition": "an audition is a hearing, so the clue is after what the words sound like rather than how they are written down."
+    },
+    "blocks": [
+     {
+      "clueFragment": "roll out",
+      "soundsLike": "UNREEL",
+      "gives": "UNREAL",
+      "note": "to unreel something is to roll it out off its spool"
+     }
+    ],
+    "surface": "A casting director at an audition unrolling a script full of make-believe.",
+    "walkthrough": "'Roll out' is a spool being let out rather than a product launch, and the definition sits at the far end where a noun would normally be doing surface work.",
+    "definitionFit": "UNREAL means too good or too strange to be true, which is exactly what 'fairytale' means of a wedding or a comeback."
+   }
   },
   {
    "id": "10-across",
@@ -204,7 +452,54 @@ window.CRYPTIC_PUZZLES["everyman-4107"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MCKELLEN",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram + container",
+    "answer": "MCKELLEN",
+    "definition": "actor",
+    "linkWords": [
+     "and this"
+    ],
+    "indicators": [
+     "trembling",
+     "enthralled"
+    ],
+    "indicatorNotes": {
+     "trembling": "something trembling will not hold its shape, so the letters described refuse to stay in the order given.",
+     "enthralled": "to be enthralled is to be held captive, so the letter it applies to is shut inside the other piece."
+    },
+    "subAnagrams": [
+     {
+      "fodder": "KNEEL",
+      "gives": "KELEN"
+     }
+    ],
+    "pieces": [
+     "MC",
+     "KE",
+     "L",
+     "LEN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Master of Ceremonies",
+      "gives": "MC",
+      "note": "MC is the compere who introduces the acts at an event"
+     },
+     {
+      "clueFragment": "'Kneel, trembling, left enthralled'",
+      "gives": "KELLEN",
+      "note": "KNEEL shaken into KELEN, with L for left held captive among those letters"
+     },
+     {
+      "clueFragment": "is knighted",
+      "gives": "",
+      "note": "surface only — it narrows the field to a knight of the realm without contributing any letters"
+     }
+    ],
+    "surface": "A master of ceremonies barking a theatrical order at somebody kneeling in front of him.",
+    "walkthrough": "The colon and the quotation marks dress the middle of the clue up as a line spoken aloud, when those words are handing out instructions. Sir Ian McKellen was knighted in 1991.",
+    "definitionFit": "MCKELLEN is the surname of Sir Ian McKellen, so 'actor' defines the answer by naming the profession he is knighted for."
+   }
   },
   {
    "id": "11-down",
@@ -225,7 +520,34 @@ window.CRYPTIC_PUZZLES["everyman-4107"] = /*JSON-START*/ {
     ]
    },
    "solution": "STANLEYKNIFE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "STANLEY KNIFE",
+    "definition": "that's cutting",
+    "definitionNote": "The definition is a relative clause rather than a noun: 'that's cutting' means 'the thing which does the cutting', and the answer is that thing.",
+    "linkWords": [
+     "with"
+    ],
+    "indicators": [
+     "review"
+    ],
+    "indicatorNotes": {
+     "review": "a review is a fresh look at material you already have, and looking again here means seeing the same letters in a new order."
+    },
+    "anagram": {
+     "fodder": "STIFLE KENYAN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Stifle Kenyan",
+      "gives": "STANLEYKNIFE",
+      "note": "twelve letters of fodder — S, T, I, F, L, E, K, E, N, Y, A and N — rearranged"
+     }
+    ],
+    "surface": "A Kenyan being silenced and then appraised afresh by somebody with a sharp tongue.",
+    "walkthrough": "'Review' passes as part of the surface's appraisal while quietly giving the order. A Stanley knife is the British name for a retractable-blade utility knife, after the toolmaker.",
+    "definitionFit": "A STANLEY KNIFE is a retractable-blade utility knife, a trade name gone generic in Britain, so 'that's cutting' names it by the one thing it does."
+   }
   },
   {
    "id": "12-across",
@@ -247,7 +569,27 @@ window.CRYPTIC_PUZZLES["everyman-4107"] = /*JSON-START*/ {
     ]
    },
    "solution": "LOSINGTHEPLOT",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "LOSING THE PLOT",
+    "definition": "Going crazy",
+    "definition2": "like the 7d user growing only weeds",
+    "blocks": [
+     {
+      "clueFragment": "Going crazy",
+      "gives": "",
+      "note": "the idiom for somebody whose grip on sense is slipping away"
+     },
+     {
+      "clueFragment": "like the 7d user growing only weeds",
+      "gives": "",
+      "note": "read word by word: the 7 down answer is a rented patch of council ground, and this gardener has let his get away from him"
+     }
+    ],
+    "surface": "An allotment holder cracking up while his patch produces nothing but weeds.",
+    "walkthrough": "Read as idiom the phrase is about a mind; read word by word it is about a gardener whose ground has got away from him, and the cross-reference to 7 down is what ties the two together.",
+    "definitionFit": "'Going crazy' is the everyday idiom, and taken literally the same words describe an allotment holder who has lost hold of his patch of ground."
+   }
   },
   {
    "id": "13-down",
@@ -264,7 +606,42 @@ window.CRYPTIC_PUZZLES["everyman-4107"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DOWNSTREAM",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "DOWNSTREAM",
+    "definition": "where it was caught",
+    "indicators": [
+     "headless"
+    ],
+    "indicatorNotes": {
+     "headless": "a headless word has lost the letter at its head, which in a down entry is the one sitting at the top."
+    },
+    "pieces": [
+     "DOWNS",
+     "T",
+     "REAM"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Consumes",
+      "gives": "DOWNS",
+      "note": "to down a drink or a pie is to consume it"
+     },
+     {
+      "clueFragment": "in the north, the",
+      "gives": "T",
+      "note": "northern English speech clips 'the' right down to a bare t', as in 't'pub'"
+     },
+     {
+      "clueFragment": "headless fish",
+      "gives": "REAM",
+      "note": "a bream is a freshwater fish, and the letter at its head comes off"
+     }
+    ],
+    "surface": "A northerner eating a fish at the very spot on the river where it was landed.",
+    "walkthrough": "The comma after 'north' hides the join: 'the' belongs to the dialect wordplay, not to 'the headless fish'. The definition then covers the whole picture of a fish carried along the water.",
+    "definitionFit": "DOWNSTREAM means further along in the direction a river flows, so 'where it was caught?' points at a spot below wherever the speaker is standing."
+   }
   },
   {
    "id": "14-across",
@@ -281,7 +658,47 @@ window.CRYPTIC_PUZZLES["everyman-4107"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CATALONIA",
-   "annotation": null
+   "annotation": {
+    "type": "substitution + last letter",
+    "answer": "CATALONIA",
+    "definition": "part of Iberia",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "to oust",
+     "finally"
+    ],
+    "indicatorNotes": {
+     "to oust": "to oust somebody is to drive them out and take over the place they held, which is what one letter does to another here.",
+     "finally": "'finally' points at the very end of the word beside it, so only its closing letter is taken."
+    },
+    "pieces": [
+     "CATA",
+     "L",
+     "ONIA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stunned state",
+      "gives": "CATATONIA",
+      "note": "catatonia is a stupor in which a person goes rigid and unresponsive"
+     },
+     {
+      "clueFragment": "technocrat finally",
+      "gives": "T",
+      "note": "the closing letter of technocrat, and the letter that gets driven out"
+     },
+     {
+      "clueFragment": "Liberal",
+      "gives": "L",
+      "note": "L is the standard abbreviation for Liberal in British politics"
+     }
+    ],
+    "surface": "A Liberal politician forcing a technocrat out of office in Spain, everybody shocked.",
+    "walkthrough": "'State' pulls two ways: the surface wants a country on the map, while the word to build on is a medical condition in which a patient neither moves nor speaks.",
+    "definitionFit": "CATALONIA is an autonomous community in north-eastern Spain, and so is one part of the Iberian peninsula."
+   }
   },
   {
    "id": "15-down",
@@ -302,7 +719,27 @@ window.CRYPTIC_PUZZLES["everyman-4107"] = /*JSON-START*/ {
     ]
    },
    "solution": "TASMANSEA",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "TASMAN SEA",
+    "definition": "here",
+    "indicators": [
+     "Carried by"
+    ],
+    "indicatorNotes": {
+     "Carried by": "an airline carries its load inside the aircraft, and these letters ride inside the words in exactly the same way."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Qantas, man's eastbound",
+      "gives": "TASMANSEA",
+      "note": "nine consecutive letters run through this phrase, starting partway into the airline's name and crossing three word breaks"
+     }
+    ],
+    "surface": "A man flying east with the Australian airline, wondering what is underneath him.",
+    "walkthrough": "'Here?' is the entire definition and it leans on the surface: a passenger heading east out of Australia is over the water named for the Dutch navigator Abel Tasman.",
+    "definitionFit": "The TASMAN SEA is the stretch of ocean between Australia and New Zealand, so 'here?' names it as the place the eastbound passenger has reached."
+   }
   },
   {
    "id": "16-across",
@@ -319,7 +756,49 @@ window.CRYPTIC_PUZZLES["everyman-4107"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CREDO",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "CREDO",
+    "definition": "beliefs",
+    "definitionNote": "'Beliefs' is plural where the answer is singular: a credo is one statement of faith, and what it holds is the beliefs.",
+    "indicators": [
+     "withdrawing"
+    ],
+    "indicatorNotes": {
+     "withdrawing": "to withdraw is to draw back the way you came, so the word beside it is written out from its far end."
+    },
+    "subReversals": [
+     {
+      "from": "ODE",
+      "to": "EDO"
+     }
+    ],
+    "pieces": [
+     "C",
+     "R",
+     "EDO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "About",
+      "gives": "C",
+      "note": "c. for circa is the standing short form of about in front of a date"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the standard abbreviation for right"
+     },
+     {
+      "clueFragment": "song of praise withdrawing",
+      "gives": "EDO",
+      "note": "a song of praise is an ode, drawn back the other way"
+     }
+    ],
+    "surface": "Roughly correct: a hymn being taken back, and the convictions behind it going with it.",
+    "walkthrough": "The colon makes 'About right' look like a verdict on everything after it, when those two words have already been spent as two separate letters.",
+    "definitionFit": "A CREDO is a statement of what somebody holds true — the Latin for 'I believe' — used of a personal or religious set of beliefs."
+   }
   },
   {
    "id": "17-across",
@@ -336,7 +815,39 @@ window.CRYPTIC_PUZZLES["everyman-4107"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IBSEN",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters",
+    "answer": "IBSEN",
+    "definition": "Playwright",
+    "linkWords": [
+     "'s"
+    ],
+    "indicators": [
+     "'vacuous'"
+    ],
+    "indicatorNotes": {
+     "'vacuous'": "a vacuous thing is empty in the middle, so the word beside it keeps only the letters at either end."
+    },
+    "pieces": [
+     "IBS",
+     "EN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "uncomfortable condition",
+      "gives": "IBS",
+      "note": "IBS is irritable bowel syndrome, a thoroughly uncomfortable gut complaint"
+     },
+     {
+      "clueFragment": "'vacuous' Elton",
+      "gives": "EN",
+      "note": "Elton hollowed out leaves its first and last letters standing"
+     }
+    ],
+    "surface": "A dramatist's medical complaint, and an empty-headed Elton alongside it.",
+    "walkthrough": "The setter's scare quotes round 'vacuous' are the nudge that the word is an instruction rather than a rude remark about Elton John.",
+    "definitionFit": "IBSEN is Henrik Ibsen, the Norwegian dramatist of A Doll's House and Hedda Gabler, so 'playwright' defines him by his trade."
+   }
   },
   {
    "id": "18-down",
@@ -353,7 +864,30 @@ window.CRYPTIC_PUZZLES["everyman-4107"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NULLIFY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "NULLIFY",
+    "definition": "declare void",
+    "indicators": [
+     "flames"
+    ],
+    "indicatorNotes": {
+     "flames": "flames destroy the shape of whatever they take hold of, leaving the letters to settle into some other arrangement."
+    },
+    "anagram": {
+     "fodder": "FULLY IN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Fully in",
+      "gives": "NULLIFY",
+      "note": "seven letters of fodder — F, U, L, L, Y, I and N — rearranged"
+     }
+    ],
+    "surface": "A building thoroughly alight, and a contract being cancelled.",
+    "walkthrough": "'In flames' reads as one phrase in the surface, but 'in' belongs with the letters being burnt and only 'flames' does any burning.",
+    "definitionFit": "To NULLIFY something is to declare it void — to strip a contract, a result or a law of any legal force."
+   }
   },
   {
    "id": "19-across",
@@ -370,7 +904,30 @@ window.CRYPTIC_PUZZLES["everyman-4107"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EDGBASTON",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "EDGBASTON",
+    "definition": "where many balls thrown",
+    "indicators": [
+     "recovered"
+    ],
+    "indicatorNotes": {
+     "recovered": "read as re-covered rather than 'got better', it means covered over again, the same material laid out afresh."
+    },
+    "anagram": {
+     "fodder": "ABSENT DOG"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Absent dog",
+      "gives": "EDGBASTON",
+      "note": "nine letters of fodder — A, B, S, E, N, T, D, O and G — rearranged"
+     }
+    ],
+    "surface": "A missing dog turning up again somewhere balls are flying about.",
+    "walkthrough": "'Recovered' is the pivot: the surface wants the lost dog found, while the wordplay wants the letters covered over a second time. Edgbaston is the Test cricket ground in Birmingham.",
+    "definitionFit": "EDGBASTON is a Birmingham cricket ground that stages Test matches, so 'where many balls thrown' describes it by the bowling delivered there over five days."
+   }
   },
   {
    "id": "20-down",
@@ -387,7 +944,24 @@ window.CRYPTIC_PUZZLES["everyman-4107"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ANAGRAM",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "ANAGRAM",
+    "definition": "Integral of triangle, say?",
+    "blocks": [
+     {
+      "clueFragment": "Integral of triangle",
+      "note": "the surface offers a piece of calculus, an integral evaluated over a triangular region"
+     },
+     {
+      "clueFragment": "say?",
+      "note": "'say' means 'for example', so the clue is holding itself up as an instance: INTEGRAL is built from TRIANGLE's own eight letters"
+     }
+    ],
+    "surface": "A maths exercise setting you an integral over a triangle.",
+    "walkthrough": "Everyman is not so much describing the answer as demonstrating it, and 'say?' is the invitation to name what the relationship between those two words is called.",
+    "definitionFit": "The whole clue is an example of the thing it defines: one of its words is made of the other's letters, and ANAGRAM is what that arrangement is called."
+   }
   },
   {
    "id": "21-across",
@@ -410,7 +984,30 @@ window.CRYPTIC_PUZZLES["everyman-4107"] = /*JSON-START*/ {
     ]
    },
    "solution": "ASLIKELYASNOT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "AS LIKELY AS NOT",
+    "definition": "probably",
+    "indicators": [
+     "Following Restoration"
+    ],
+    "indicatorNotes": {
+     "Following Restoration": "a restoration puts a thing back together in a fresh arrangement, and 'following' one is the point at which these letters have been rebuilt."
+    },
+    "anagram": {
+     "fodder": "LOYALIST SNEAK"
+    },
+    "blocks": [
+     {
+      "clueFragment": "loyalist - sneak",
+      "gives": "ASLIKELYASNOT",
+      "note": "thirteen letters of fodder — L, O, Y, A, L, I, S, T, S, N, E, A and K — rearranged"
+     }
+    ],
+    "surface": "After Charles II came back, a king's man was probably an informer as well.",
+    "walkthrough": "'Restoration' with its capital letter looks like the historical event the surface is built on, the return of Charles II to the throne in 1660, and it is the order to rebuild.",
+    "definitionFit": "AS LIKELY AS NOT puts the odds at evens or a little better, which is the loose sense 'probably' carries in ordinary speech."
+   }
   },
   {
    "id": "22-down",
@@ -427,7 +1024,45 @@ window.CRYPTIC_PUZZLES["everyman-4107"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NEPAL",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "NEPAL",
+    "definition": "mountainous land",
+    "linkWords": [
+     "finding"
+    ],
+    "indicators": [
+     "rises"
+    ],
+    "indicatorNotes": {
+     "rises": "in a down entry, letters that rise are read from the foot of the column upwards, which turns the assembly round."
+    },
+    "subReversals": [
+     {
+      "from": "LAPEN",
+      "to": "NEPAL"
+     }
+    ],
+    "pieces": [
+     "NEP",
+     "AL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In the Pyrenees, the",
+      "gives": "LA",
+      "note": "the Pyrenees are shared by France, Spain and Catalonia, and 'the' in all three tongues is la"
+     },
+     {
+      "clueFragment": "swan",
+      "gives": "PEN",
+      "note": "a pen is the proper name for a female swan"
+     }
+    ],
+    "surface": "Somewhere in the Pyrenees a swan lifts off, and the sight brings a mountain country to mind.",
+    "walkthrough": "'In the Pyrenees' is not a place at all but a cue about language — the range straddles three of them, and they agree on this word.",
+    "definitionFit": "NEPAL is the Himalayan republic that holds Everest and eight of the world's ten highest peaks, so 'mountainous land' defines it by its geography."
+   }
   },
   {
    "id": "23-down",
@@ -444,7 +1079,48 @@ window.CRYPTIC_PUZZLES["everyman-4107"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SIKH",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + first letters",
+    "answer": "SIKH",
+    "definition": "Someone in Kachera - holy, primarily",
+    "indicators": [
+     "primarily"
+    ],
+    "indicatorNotes": {
+     "primarily": "'primarily' means first of all, so each word gives up nothing but the letter it begins with."
+    },
+    "pieces": [
+     "S",
+     "I",
+     "K",
+     "H"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Someone",
+      "gives": "S",
+      "note": "the opening letter of the word, taken because of the instruction at the end"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "I",
+      "note": "the opening letter of this small word, which is fodder rather than joinery"
+     },
+     {
+      "clueFragment": "Kachera",
+      "gives": "K",
+      "note": "the opening letter of a word for the cotton undergarment worn as one of the Five Ks"
+     },
+     {
+      "clueFragment": "holy",
+      "gives": "H",
+      "note": "the opening letter of the last word in the run"
+     }
+    ],
+    "surface": "Asking who it is that wears a kachera, and whether they are a religious sort.",
+    "walkthrough": "The clue spells the answer and describes it with the very same words. The kachera is one of the Five Ks, the articles of faith an initiated member of that religion wears at all times.",
+    "definitionFit": "Read straight through, the whole clue describes a SIKH: an initiated member of the faith wears the kachera, and the faith is a religious one."
+   }
   },
   {
    "id": "24-across",
@@ -465,7 +1141,39 @@ window.CRYPTIC_PUZZLES["everyman-4107"] = /*JSON-START*/ {
     ]
    },
    "solution": "INSPIRIT",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + charade",
+    "answer": "IN SPIRIT",
+    "definition": "that's not actually there",
+    "linkWords": [
+     "with"
+    ],
+    "indicators": [
+     "not entirely"
+    ],
+    "indicatorNotes": {
+     "not entirely": "'not entirely' means stopping short of the whole word, so its final letter never gets written down."
+    },
+    "pieces": [
+     "INSPIR",
+     "IT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Encourage - not entirely",
+      "gives": "INSPIR",
+      "note": "to inspire somebody is to encourage them, and the word is stopped one letter short"
+     },
+     {
+      "clueFragment": "tech",
+      "gives": "IT",
+      "note": "IT is information technology"
+     }
+    ],
+    "surface": "Egging somebody on, though only partly, and doing it with gadgetry that isn't really there.",
+    "walkthrough": "The dashes make 'not entirely' read as a qualification on the encouragement, when it is the instruction to dock a letter. Being somewhere in spirit is being present and absent at once.",
+    "definitionFit": "IN SPIRIT is the idiom for being present in feeling but not in body, so 'that's not actually there' is precisely the absence it describes."
+   }
   },
   {
    "id": "25-across",
@@ -482,7 +1190,36 @@ window.CRYPTIC_PUZZLES["everyman-4107"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FRAPPE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "FRAPPE",
+    "definition": "Cold drink",
+    "indicators": [
+     "Not quite"
+    ],
+    "indicatorNotes": {
+     "Not quite": "'not quite' stops you just before the end of a word, so its last letter is left off."
+    },
+    "pieces": [
+     "F",
+     "RAPPE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fine",
+      "gives": "F",
+      "note": "F is the pencil grade marked on a fine lead"
+     },
+     {
+      "clueFragment": "'Ice T', perhaps",
+      "gives": "RAPPE",
+      "note": "Ice-T is a rapper, and the word is cut short of its last letter"
+     }
+    ],
+    "surface": "Somebody offered a cold drink and settling on iced tea, more or less.",
+    "walkthrough": "'Ice T' is the American rapper rather than the iced tea the surface hands you, and 'perhaps' is the warning that he is one example of a broader word.",
+    "definitionFit": "A FRAPPE is a drink whipped up with crushed ice — the Greek iced coffee, or a milkshake — so 'cold drink' is the plain sense."
+   }
   },
   {
    "id": "26-across",
@@ -503,7 +1240,45 @@ window.CRYPTIC_PUZZLES["everyman-4107"] = /*JSON-START*/ {
     ]
    },
    "solution": "HEAVYSET",
-   "annotation": null
+   "annotation": {
+    "type": "container + anagram",
+    "answer": "HEAVY-SET",
+    "definition": "Stocky",
+    "indicators": [
+     "suffering",
+     "in"
+    ],
+    "indicatorNotes": {
+     "suffering": "somebody suffering is not themselves, and letters put through it come out in a different arrangement.",
+     "in": "'in' is doing positional work rather than joining the sentence up: the shaken name goes inside the other word instead of beside it."
+    },
+    "subAnagrams": [
+     {
+      "fodder": "YVES",
+      "gives": "VYSE"
+     }
+    ],
+    "pieces": [
+     "HEA",
+     "VYSE",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "high temperature",
+      "gives": "HEAT",
+      "note": "a high temperature is heat"
+     },
+     {
+      "clueFragment": "Yves suffering",
+      "gives": "VYSE",
+      "note": "four letters of fodder — Y, V, E and S — rearranged"
+     }
+    ],
+    "surface": "Yves in distress in the sweltering weather, and solidly built with it.",
+    "walkthrough": "'In' looks like the sentence's own preposition and is really an instruction, while Yves — the French name behind Saint Laurent — is fodder rather than someone to sympathise with.",
+    "definitionFit": "HEAVY-SET describes a thickset, solidly built body, which is what 'stocky' says of a person."
+   }
   },
   {
    "id": "27-across",
@@ -520,7 +1295,52 @@ window.CRYPTIC_PUZZLES["everyman-4107"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EMBLEM",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + container + alternate letters",
+    "answer": "EMBLEM",
+    "definition": "Sign",
+    "indicators": [
+     "backsliding",
+     "defending",
+     "regularly"
+    ],
+    "indicatorNotes": {
+     "backsliding": "to backslide is to slip back the way you came, so the letters are written out in reverse along the row.",
+     "defending": "a defender stands round whatever it is protecting, so the outer pieces close over what sits between them.",
+     "regularly": "taking a word regularly means moving through it at a fixed step, picking every other letter."
+    },
+    "subReversals": [
+     {
+      "from": "ME",
+      "to": "EM"
+     }
+    ],
+    "pieces": [
+     "EM",
+     "BL",
+     "EM"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Everyman's backsliding",
+      "gives": "EM",
+      "note": "the setter refers to himself as ME, here slipping back the other way"
+     },
+     {
+      "clueFragment": "bull regularly",
+      "gives": "BL",
+      "note": "every other letter of BULL, counting from the first"
+     },
+     {
+      "clueFragment": "twice",
+      "gives": "EM",
+      "note": "the same reversed pair written a second time, on the far side of what it shields"
+     }
+    ],
+    "surface": "Everyman relapsing again and again while standing up for a bull now and then.",
+    "walkthrough": "Everyman writes himself into his own puzzles as 'me', a habit worth pocketing: wherever the pseudonym turns up in one of these clues, it is those two letters.",
+    "definitionFit": "An EMBLEM is a figure that stands for something else — a badge, a flag, a heraldic device — which is one settled sense of 'sign'."
+   }
   }
  ]
 } /*JSON-END*/;
