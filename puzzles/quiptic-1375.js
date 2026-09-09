@@ -30,7 +30,38 @@ window.CRYPTIC_PUZZLES["quiptic-1375"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LANDGRAB",
-   "annotation": null
+   "annotation": {
+    "type": "spoonerism",
+    "answer": "LANDGRAB",
+    "definition": "what Trump has planned for Canada",
+    "definitionFit": "A land grab is a sudden seizure of territory belonging to somebody else, which is what annexing a neighbouring country would amount to.",
+    "indicators": [
+     "Spooner’s"
+    ],
+    "indicatorNotes": {
+     "Spooner’s": "William Spooner was the Oxford don whose tongue slipped, trading the opening sounds of two neighbouring words, so his name asks for that same exchange."
+    },
+    "pieces": [
+     "LAND",
+     "GRAB"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "magnificent",
+      "soundsLike": "GRAND",
+      "gives": "LAND",
+      "note": "magnificent = grand; it hands its opening GR noise over and takes an L back in exchange"
+     },
+     {
+      "clueFragment": "research area",
+      "soundsLike": "LAB",
+      "gives": "GRAB",
+      "note": "a research area is a lab; it gives up its L and picks up the GR noise it was handed"
+     }
+    ],
+    "surface": "A splendid laboratory, and the designs an American president is said to have on his northern neighbour.",
+    "walkthrough": "Say the two words aloud and swap the noises at their fronts — the vowels stay put, only the openings move. The colon does the work of an equals sign between the halves."
+   }
   },
   {
    "id": "2-down",
@@ -47,7 +78,37 @@ window.CRYPTIC_PUZZLES["quiptic-1375"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AIR",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "AIR",
+    "definition": "feeling",
+    "definitionFit": "An air of menace or an air of calm is the impression a place gives off, so 'feeling' means the atmosphere something has rather than an emotion felt inside.",
+    "indicators": [
+     "perhaps",
+     "losing wings"
+    ],
+    "indicatorNotes": {
+     "perhaps": "Titania is one instance of a larger class, and 'perhaps' is the setter admitting he wants the general word rather than her name.",
+     "losing wings": "Wings are the parts on either edge of a thing — a bird's, an army's, a stage's — so losing them strips one letter off each end."
+    },
+    "pieces": [
+     "AIR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Titania, perhaps",
+      "gives": "FAIRY",
+      "note": "Titania is the queen of the fairies in A Midsummer Night's Dream"
+     },
+     {
+      "clueFragment": "losing wings",
+      "gives": "",
+      "note": "the letters standing at the two outer edges, F and Y, drop away"
+     }
+    ],
+    "surface": "Shakespeare's fairy queen grounded, and the mood that loss leaves behind.",
+    "walkthrough": "The apostrophe pushes you to read 'wings’ feeling' as one possessive phrase, so the definition looks longer than it is — only the last word of the clue defines."
+   }
   },
   {
    "id": "3-down",
@@ -64,7 +125,40 @@ window.CRYPTIC_PUZZLES["quiptic-1375"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DOWNS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "DOWNS",
+    "definition": "rolling uplands",
+    "definitionFit": "The Downs are the chalk ridges of southern England, so the name means high open country despite sounding like the opposite.",
+    "indicators": [],
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "DO",
+     "W",
+     "NS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Party",
+      "gives": "DO",
+      "note": "a do is a party in British usage — an office do, a birthday do"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "w/ is the everyday shorthand for 'with'"
+     },
+     {
+      "clueFragment": "Poles",
+      "gives": "NS",
+      "note": "north and south, the two ends of the earth's axis, taken in that order"
+     }
+    ],
+    "surface": "A knees-up with some Polish guests, held somewhere out in gentle hill country.",
+    "walkthrough": "'Rolling' reads like an order to jumble letters and belongs to the definition instead: the South Downs and the Sussex Downs are named for exactly that rolling chalk."
+   }
   },
   {
    "id": "4-down",
@@ -81,7 +175,31 @@ window.CRYPTIC_PUZZLES["quiptic-1375"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REPUBLICAN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "REPUBLICAN",
+    "definition": "American rightwinger",
+    "definitionFit": "A Republican is a member of the American right-wing party, and the nationality is what separates that sense from a plain opponent of monarchy.",
+    "indicators": [],
+    "pieces": [
+     "RE",
+     "PUBLICAN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "concerning",
+      "gives": "RE",
+      "note": "RE = concerning, the way a memo heading uses it: 'Re: your letter'"
+     },
+     {
+      "clueFragment": "landlord",
+      "gives": "PUBLICAN",
+      "note": "a publican is the licensee who runs a British pub"
+     }
+    ],
+    "surface": "An American conservative with something to say about the man who runs the pub.",
+    "walkthrough": "Lower case, a republican is anyone who wants rid of a monarch, which is why 'American' is doing real work in the definition rather than decorating it."
+   }
   },
   {
    "id": "5-down",
@@ -98,7 +216,41 @@ window.CRYPTIC_PUZZLES["quiptic-1375"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BASICS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + homophone",
+    "answer": "BASICS",
+    "definition": "Fundamental principles",
+    "definitionFit": "The basics of a subject are the fundamental principles you have to have before anything else makes sense — plural, as the definition is.",
+    "indicators": [
+     "announced"
+    ],
+    "indicatorNotes": {
+     "announced": "Something announced is said rather than written, so what the wordplay builds is a noise, and you write down its ordinary spelling."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stall",
+      "gives": "BAY",
+      "note": "a bay is a partitioned-off space — a loading bay, a stall in a stable"
+     },
+     {
+      "clueFragment": "F",
+      "gives": "SIX",
+      "note": "F is the sixth letter of the alphabet, so the stall lettered F is the sixth one along"
+     },
+     {
+      "clueFragment": "stall F",
+      "soundsLike": "BAY SIX",
+      "gives": "BASICS",
+      "note": "run those two pieces together, say them aloud, and write down what you hear"
+     }
+    ],
+    "surface": "Ground rules being read out at stall F, as if at a market or a stable.",
+    "walkthrough": "Letters stand in for numbers all the time in seats and stalls, and this one has to be counted through the alphabet. The question mark is the setter conceding the sound is a shade approximate."
+   }
   },
   {
    "id": "6-across",
@@ -115,7 +267,39 @@ window.CRYPTIC_PUZZLES["quiptic-1375"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SOLEMN",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters",
+    "answer": "SOLEMN",
+    "definition": "August",
+    "definitionFit": "August as an adjective means imposing and dignified, stressed on the second syllable, which is how a solemn occasion feels.",
+    "indicators": [
+     "on vacation"
+    ],
+    "indicatorNotes": {
+     "on vacation": "A room that is vacated is emptied, so the word beside it loses everything in the middle and keeps only the letters at its two ends."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "SOLE",
+     "MN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Single",
+      "gives": "SOLE",
+      "note": "sole = single, the one and only"
+     },
+     {
+      "clueFragment": "men",
+      "gives": "MN",
+      "note": "the M and the N at either end, with the middle cleared out"
+     }
+    ],
+    "surface": "Bachelors away on their summer holidays.",
+    "walkthrough": "The capital A makes the last word look like the month, and a capital proves nothing in a crossword — the adjective for grave and imposing is the word wanted."
+   }
   },
   {
    "id": "6-down",
@@ -132,7 +316,39 @@ window.CRYPTIC_PUZZLES["quiptic-1375"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SEAM",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "SEAM",
+    "definition": "Join",
+    "definitionFit": "A seam is the join where two pieces of cloth are stitched together, so the definition is the noun for the line itself, not the act of joining.",
+    "indicators": [
+     "introduction"
+    ],
+    "indicatorNotes": {
+     "introduction": "An introduction comes at the very front of a thing, so only the opening letter of the word before it is wanted."
+    },
+    "linkWords": [
+     "’s"
+    ],
+    "pieces": [
+     "SEA",
+     "M"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "main",
+      "gives": "SEA",
+      "note": "the main is the open sea, the sense kept alive in 'the Spanish Main'"
+     },
+     {
+      "clueFragment": "man",
+      "gives": "M",
+      "note": "the first letter of the word, taken because only its introduction is wanted"
+     }
+    ],
+    "surface": "Being introduced to the principal man in the room.",
+    "walkthrough": "'Main man' reads as one phrase for the boss, and the split falls between the two words. The main for the open sea is an old poetic noun crosswords keep in circulation."
+   }
   },
   {
    "id": "7-down",
@@ -149,7 +365,45 @@ window.CRYPTIC_PUZZLES["quiptic-1375"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LIBRARIAN",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "LIBRARIAN",
+    "definition": "individual working quietly with books",
+    "definitionFit": "A librarian is the person who looks after books in a hushed room, so the definition describes the job in full rather than naming it.",
+    "indicators": [
+     "worried"
+    ],
+    "indicatorNotes": {
+     "worried": "Somebody worried cannot sit still, and the four letters beside it will not stay in the order they are given either."
+    },
+    "pieces": [
+     "LIBRA",
+     "RIAN"
+    ],
+    "anagram": {
+     "fodder": "LIBRA IRAN"
+    },
+    "subAnagrams": [
+     {
+      "fodder": "IRAN",
+      "gives": "RIAN"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sign",
+      "gives": "LIBRA",
+      "note": "Libra is the zodiac sign of the scales"
+     },
+     {
+      "clueFragment": "Iran",
+      "gives": "RIAN",
+      "note": "the same four letters, shaken into a new order"
+     }
+    ],
+    "surface": "A news headline about a worried Iran being asked to sign something.",
+    "walkthrough": "'Sign Iran' reads as a single headline instruction, and the setter has cut it in two: the first word is the zodiac, not a signature."
+   }
   },
   {
    "id": "8-down",
@@ -170,7 +424,30 @@ window.CRYPTIC_PUZZLES["quiptic-1375"] = /*JSON-START*/ {
     ]
    },
    "solution": "MARIEOSMOND",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "MARIE OSMOND",
+    "definition": "Singer",
+    "definitionFit": "Marie Osmond is the American country and pop singer of the Osmond family, so 'Singer' names her by her trade.",
+    "indicators": [
+     "exercising"
+    ],
+    "indicatorNotes": {
+     "exercising": "Exercise puts a body through its paces and leaves nothing where it started, so the letters beside it end up in new positions."
+    },
+    "anagram": {
+     "fodder": "MORMON IDEAS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Mormon ideas",
+      "gives": "MORMONIDEAS",
+      "note": "anagram fodder, eleven letters"
+     }
+    ],
+    "surface": "A singer putting Latter-day Saint beliefs into daily practice.",
+    "walkthrough": "The fodder also describes the answer — she is a lifelong member of the Church of Jesus Christ of Latter-day Saints — and the question mark is the setter's wink at that."
+   }
   },
   {
    "id": "9-across",
@@ -191,7 +468,37 @@ window.CRYPTIC_PUZZLES["quiptic-1375"] = /*JSON-START*/ {
     ]
    },
    "solution": "GROWUP",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "GROW UP",
+    "definition": "Mature",
+    "definitionFit": "To grow up is to mature, the verb for leaving childhood behind, and also what people snap at somebody behaving childishly.",
+    "indicators": [
+     "infiltrating"
+    ],
+    "indicatorNotes": {
+     "infiltrating": "To infiltrate is to work your way inside an organisation without being noticed, so the letter named goes inside the other piece."
+    },
+    "pieces": [
+     "GRO",
+     "W",
+     "UP"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "party",
+      "gives": "GROUP",
+      "note": "a group is a party of people — a party of walkers is a group of them"
+     },
+     {
+      "clueFragment": "women",
+      "gives": "W",
+      "note": "W is the standard label for women, on a door or a clothing size"
+     }
+    ],
+    "surface": "Experienced women quietly working their way into a political party.",
+    "walkthrough": "'Mature women' wants to be read as one phrase, and the split falls after the first word — which is a verb here, not the adjective the surface offers."
+   }
   },
   {
    "id": "10-across",
@@ -208,7 +515,49 @@ window.CRYPTIC_PUZZLES["quiptic-1375"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCABBARD",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "SCABBARD",
+    "definition": "sheath",
+    "definitionFit": "A scabbard is the fitted case a sword slides into, so 'sheath' is a plain synonym for the covering rather than for the blade.",
+    "indicators": [
+     "Revolutionary"
+    ],
+    "indicatorNotes": {
+     "Revolutionary": "A revolution takes a thing full circle, so what the wordplay assembles is read back from the other end."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "SCAB",
+     "BARD"
+    ],
+    "subReversals": [
+     {
+      "from": "BACS",
+      "to": "SCAB"
+     },
+     {
+      "from": "DRAB",
+      "to": "BARD"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "way to transfer money",
+      "gives": "SCAB",
+      "note": "BACS is the British clearing system banks use to move money between accounts, read backwards"
+     },
+     {
+      "clueFragment": "dull",
+      "gives": "BARD",
+      "note": "dull = drab, and it is read backwards too"
+     }
+    ],
+    "surface": "A radical dismissing a boring way of sending money about.",
+    "walkthrough": "'Revolutionary' reads as a person in the surface and is an instruction here. BACS is the system behind British salary payments and direct debits, printed on bank statements every month."
+   }
   },
   {
    "id": "11-across",
@@ -230,7 +579,30 @@ window.CRYPTIC_PUZZLES["quiptic-1375"] = /*JSON-START*/ {
     ]
    },
    "solution": "AFASTBUCK",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "A FAST BUCK",
+    "definition": "easy money",
+    "definition2": "Speedy male hare perhaps",
+    "definitionNote": "Both definitions are bare noun phrases while the answer carries its own indefinite article; the (1,4,4) enumeration is the setter's warning that the A is part of the entry.",
+    "definitionFit": "To make a fast buck is to earn money quickly and with little effort, buck being the American dollar, while read literally the phrase describes a swift male animal.",
+    "indicators": [],
+    "linkWords": [
+     "makes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Speedy male hare perhaps",
+      "note": "the literal reading: a quick-running male animal, with 'perhaps' conceding that hares are only one species whose male is called this"
+     },
+     {
+      "clueFragment": "easy money",
+      "note": "the idiom: cash come by quickly and without much work"
+     }
+    ],
+    "surface": "A speedy male hare, of all things, credited with turning a quick profit.",
+    "walkthrough": "Both halves are straight definitions, and the joke is that one of them is meant literally — an animal, not an income. The American slang for a dollar is what lets the two meet."
+   }
   },
   {
    "id": "12-down",
@@ -251,7 +623,33 @@ window.CRYPTIC_PUZZLES["quiptic-1375"] = /*JSON-START*/ {
     ]
    },
    "solution": "FIRESTATION",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "FIRE STATION",
+    "definition": "emergency response centre",
+    "definitionFit": "A fire station is where engines and crews wait to be called out, so it is the centre an emergency response goes out from.",
+    "indicators": [
+     "Burst"
+    ],
+    "indicatorNotes": {
+     "Burst": "Something that bursts flies apart and its contents scatter, so the words beside it do not keep the order they are printed in."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "anagram": {
+     "fodder": "INTO TEARS IF"
+    },
+    "blocks": [
+     {
+      "clueFragment": "into tears if",
+      "gives": "INTOTEARSIF",
+      "note": "anagram fodder, eleven letters"
+     }
+    ],
+    "surface": "Somebody dissolving into tears in the middle of an emergency call.",
+    "walkthrough": "'Burst into tears' is one phrase in the surface and the setter has cut it after the first word: only that word is the instruction, and the rest is raw material."
+   }
   },
   {
    "id": "13-across",
@@ -268,7 +666,27 @@ window.CRYPTIC_PUZZLES["quiptic-1375"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CADET",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "CADET",
+    "definition": "army trainee",
+    "definitionFit": "A cadet is a young trainee at a military academy, so 'army trainee' names the rank-in-waiting exactly.",
+    "indicators": [
+     "protecting"
+    ],
+    "indicatorNotes": {
+     "protecting": "What you protect you keep close and out of harm's way, so the words in front of it are sheltering something inside themselves."
+    },
+    "blocks": [
+     {
+      "clueFragment": "America determinedly",
+      "gives": "CADET",
+      "note": "five consecutive letters running across the gap between the two words"
+     }
+    ],
+    "surface": "America, resolute, standing guard over a young soldier.",
+    "walkthrough": "A concealed answer needs a long innocent-looking span to hide in, which is why 'determinedly' is in the clue at all: it reads as resolve and it is there to lend letters."
+   }
   },
   {
    "id": "14-down",
@@ -285,7 +703,34 @@ window.CRYPTIC_PUZZLES["quiptic-1375"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REARRANGER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "REARRANGER",
+    "definition": "someone doing reorganisation",
+    "definitionFit": "A rearranger is simply one who rearranges, so the definition names the person doing the job rather than the job itself.",
+    "indicators": [],
+    "linkWords": [
+     "is"
+    ],
+    "pieces": [
+     "REAR",
+     "RANGER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Behind",
+      "gives": "REAR",
+      "note": "the rear of anything is its behind, the back part"
+     },
+     {
+      "clueFragment": "park officer",
+      "gives": "RANGER",
+      "note": "a ranger is the officer who patrols a park or forest"
+     }
+    ],
+    "surface": "Standing behind the park warden is the person brought in to reorganise everything.",
+    "walkthrough": "'Behind' is doing a noun's work here — a person's behind — while the surface wants it as a preposition saying where somebody is standing."
+   }
   },
   {
    "id": "15-across",
@@ -302,7 +747,36 @@ window.CRYPTIC_PUZZLES["quiptic-1375"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REPAIR",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "REPAIR",
+    "definition": "Make good",
+    "definitionFit": "To repair something is to make it good again, the sense in 'make good the damage' rather than 'make good' meaning to succeed in life.",
+    "indicators": [
+     "on"
+    ],
+    "indicatorNotes": {
+     "on": "In an across clue one thing can only sit on another by following it, so the piece named first ends up second."
+    },
+    "pieces": [
+     "REP",
+     "AIR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "salesperson",
+      "gives": "REP",
+      "note": "a rep is a sales representative, the one with samples in the car boot"
+     },
+     {
+      "clueFragment": "broadcast",
+      "gives": "AIR",
+      "note": "to air a programme is to broadcast it"
+     }
+    ],
+    "surface": "Getting a decent television programme made about somebody in sales.",
+    "walkthrough": "'Broadcast' looks like an instruction about how something is said and is a plain synonym to translate instead. 'Make good' is two words of definition, not three."
+   }
   },
   {
    "id": "16-down",
@@ -319,7 +793,45 @@ window.CRYPTIC_PUZZLES["quiptic-1375"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PERSONNEL",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letters",
+    "answer": "PERSONNEL",
+    "definition": "office at work",
+    "definitionFit": "Personnel is the office in a workplace that deals with staff — the department now usually called HR — as well as the staff themselves.",
+    "indicators": [
+     "primarily"
+    ],
+    "indicatorNotes": {
+     "primarily": "Primarily means first of all, so each of the three words beside it is worth nothing but the letter it opens with."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "PER",
+     "SON",
+     "NEL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "PER",
+      "note": "'per' stands in for 'a': fifty miles per hour is fifty miles an hour"
+     },
+     {
+      "clueFragment": "male child",
+      "gives": "SON",
+      "note": "a male child is a son"
+     },
+     {
+      "clueFragment": "needs extra love",
+      "gives": "NEL",
+      "note": "the opening letters of those three words, in the order they stand"
+     }
+    ],
+    "surface": "A small boy who above all needs more affection while his parent is at the office.",
+    "walkthrough": "PER for 'a' is the piece worth keeping — five pounds per head is five pounds a head — and the comma after 'love' is the only thing marking where the letter-picking stops."
+   }
   },
   {
    "id": "17-across",
@@ -336,7 +848,37 @@ window.CRYPTIC_PUZZLES["quiptic-1375"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DENIES",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "DENIES",
+    "definition": "Rejects",
+    "definitionFit": "To deny an accusation is to reject it, and the third-person ending matches: he rejects, he denies.",
+    "indicators": [],
+    "pieces": [
+     "DEN",
+     "IE",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "study",
+      "gives": "DEN",
+      "note": "a den is the small room at home you work in"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is the Latin id est, 'that is'"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the size label for small"
+     }
+    ],
+    "surface": "Turning down a piece of research on the grounds that it is too small.",
+    "walkthrough": "'That is small' reads as one clause about the study, which hides the fact that it is two separate pieces — the Latin abbreviation and the clothing size."
+   }
   },
   {
    "id": "18-across",
@@ -353,7 +895,31 @@ window.CRYPTIC_PUZZLES["quiptic-1375"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCREAM",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SCREAM",
+    "definition": "shriek",
+    "definitionFit": "A scream is a shriek — the same sudden high cry — and both are the noun here rather than the verb.",
+    "indicators": [],
+    "pieces": [
+     "S",
+     "CREAM"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Second",
+      "gives": "S",
+      "note": "s is the abbreviation for a second of time, as on a stopwatch"
+     },
+     {
+      "clueFragment": "best",
+      "gives": "CREAM",
+      "note": "the cream of the crop is the best of it"
+     }
+    ],
+    "surface": "A cry that was only the second best of the evening.",
+    "walkthrough": "'Second best' is such a settled phrase that the join inside it is invisible, and a three-word clue leaves nowhere else for the definition to hide."
+   }
   },
   {
    "id": "19-across",
@@ -370,7 +936,30 @@ window.CRYPTIC_PUZZLES["quiptic-1375"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PRONTO",
-   "annotation": null
+   "annotation": {
+    "type": "first letters",
+    "answer": "PRONTO",
+    "definition": "Immediately",
+    "definitionFit": "Pronto is the borrowed everyday word for at once, so 'Immediately' is an adverb swapped for an adverb.",
+    "indicators": [
+     "starts to"
+    ],
+    "indicatorNotes": {
+     "starts to": "A word's start is the letter it begins with, and this hands over that letter from each of the words that follow."
+    },
+    "pieces": [
+     "PRONTO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "put rapeseed oil next to olives",
+      "gives": "PRONTO",
+      "note": "the letter each of those six words begins with, in the order they stand"
+     }
+    ],
+    "surface": "A cook lining bottles of rapeseed oil up beside the olives.",
+    "walkthrough": "Six words in a row each giving a letter is a long run, and the tidy shopping-list surface is what stops it looking like a list of initials."
+   }
   },
   {
    "id": "20-down",
@@ -387,7 +976,26 @@ window.CRYPTIC_PUZZLES["quiptic-1375"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FATHOM",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "FATHOM",
+    "definition": "Understand",
+    "definition2": "what 6 ft is",
+    "definitionFit": "To fathom something is to understand it, and a fathom is the six-foot unit of depth — the verb grew out of the measurement.",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Understand",
+      "note": "the verb: to get to the bottom of something"
+     },
+     {
+      "clueFragment": "what 6 ft is",
+      "note": "the unit of depth still printed on nautical charts and used by divers"
+     }
+    ],
+    "surface": "Somebody being asked to get their head round what six feet amounts to.",
+    "walkthrough": "Sailors measured depth by the span of a man's outstretched arms, about six feet, and getting to the bottom of a mystery took the same word."
+   }
   },
   {
    "id": "21-across",
@@ -404,7 +1012,33 @@ window.CRYPTIC_PUZZLES["quiptic-1375"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SALON",
-   "annotation": null
+   "annotation": {
+    "type": "alternate letters",
+    "answer": "SALON",
+    "definition": "shop",
+    "definitionFit": "A salon is the shop where hair is cut or beauty treatments given, so 'shop' names it by its ordinary high-street function.",
+    "indicators": [
+     "Regulars"
+    ],
+    "indicatorNotes": {
+     "Regulars": "The regulars of a word are the letters standing at a steady interval, here every second one, not the customers who turn up every night."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "SALON"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small town’s",
+      "gives": "SALON",
+      "note": "the first, third, fifth, seventh and ninth letters of those words run together"
+     }
+    ],
+    "surface": "The regular customers keeping a business going in a small town.",
+    "walkthrough": "'Regulars' is the pub sense in the surface and a counting instruction in the parse, and the apostrophe counts for nothing when the letters are run together."
+   }
   },
   {
    "id": "22-across",
@@ -421,7 +1055,51 @@ window.CRYPTIC_PUZZLES["quiptic-1375"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CAVALCADE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters",
+    "answer": "CAVALCADE",
+    "definition": "procession",
+    "definitionFit": "A cavalcade is a ceremonial procession of riders or cars, so the definition is the plain noun for the parade itself.",
+    "indicators": [
+     "outskirts of"
+    ],
+    "indicatorNotes": {
+     "outskirts of": "The outskirts of a town are its edges, so the word that follows keeps only its first and last letters."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "CAVA",
+     "L",
+     "CA",
+     "DE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fizzy wine",
+      "gives": "CAVA",
+      "note": "cava is the Spanish sparkling wine"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the standard abbreviation for left"
+     },
+     {
+      "clueFragment": "around",
+      "gives": "CA",
+      "note": "ca. is short for circa, Latin for around, written before an approximate date"
+     },
+     {
+      "clueFragment": "outskirts of Dundee",
+      "gives": "DE",
+      "note": "the first and last letters of the Scottish city's name"
+     }
+    ],
+    "surface": "Sparkling wine left standing on the edge of a Scottish city.",
+    "walkthrough": "'Around' looks like an order to wrap one piece round another and is a piece itself — the circa that turns up before an uncertain date on a gravestone or a painting."
+   }
   },
   {
    "id": "23-down",
@@ -438,7 +1116,31 @@ window.CRYPTIC_PUZZLES["quiptic-1375"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CONGO",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CONGO",
+    "definition": "course in Africa",
+    "definitionFit": "The Congo is the great river of central Africa, so 'course' is the watercourse sense and 'in Africa' says which continent's.",
+    "indicators": [],
+    "pieces": [
+     "CON",
+     "GO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prisoner",
+      "gives": "CON",
+      "note": "a con is a convict"
+     },
+     {
+      "clueFragment": "to leave",
+      "gives": "GO",
+      "note": "to leave is to go"
+     }
+    ],
+    "surface": "A newspaper line about a prisoner walking out of a course held in Africa.",
+    "walkthrough": "'Course' reads as classes or a golf layout and means a river's course, which is why the definition has to say where in the world to look."
+   }
   },
   {
    "id": "24-down",
@@ -455,7 +1157,29 @@ window.CRYPTIC_PUZZLES["quiptic-1375"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FINE",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "FINE",
+    "definition": "Penalty",
+    "definition2": "OK",
+    "definitionFit": "A fine is the money penalty a court or a warden imposes, and the same word means perfectly acceptable — two unrelated senses.",
+    "indicators": [],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Penalty",
+      "note": "the noun: money a court or a parking warden makes you pay"
+     },
+     {
+      "clueFragment": "OK",
+      "note": "the adjective: acceptable, as in 'that's OK by me'"
+     }
+    ],
+    "surface": "Somebody shrugging that the punishment is perfectly acceptable.",
+    "walkthrough": "Three words, one of them joinery, so the clue reads as a flat statement rather than as two definitions set side by side — a noun's sense and an adjective's."
+   }
   },
   {
    "id": "25-across",
@@ -472,7 +1196,30 @@ window.CRYPTIC_PUZZLES["quiptic-1375"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FIENDISH",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "FIENDISH",
+    "definition": "like a devil",
+    "definitionFit": "Fiendish means devilish — behaving as a fiend would — so the adjective phrase substitutes straight in.",
+    "indicators": [
+     "up"
+    ],
+    "indicatorNotes": {
+     "up": "Something stirred up or mixed up is in disorder, so the word in front is not left in the order it arrived in."
+    },
+    "anagram": {
+     "fodder": "FINISHED"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Finished",
+      "gives": "FINISHED",
+      "note": "anagram fodder, eight letters"
+     }
+    ],
+    "surface": "Somebody who has ended up looking every inch the devil.",
+    "walkthrough": "'Finished up' reads as one phrasal verb meaning ended up, which is what hides the join: the first word is material and the second is the whole instruction."
+   }
   },
   {
    "id": "26-across",
@@ -489,7 +1236,37 @@ window.CRYPTIC_PUZZLES["quiptic-1375"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GANGES",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "GANGES",
+    "definition": "holy water",
+    "definitionFit": "The Ganges is the river Hindus hold sacred and bathe in to be purified, so 'holy water' points at it by description rather than by synonym.",
+    "indicators": [
+     "pinching"
+    ],
+    "indicatorNotes": {
+     "pinching": "The gripping sense, not the thieving one: what is nipped between finger and thumb is held inside whatever does the nipping."
+    },
+    "pieces": [
+     "GANG",
+     "E",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bands of criminals",
+      "gives": "GANGS",
+      "note": "bands of criminals are gangs"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the standard abbreviation for English"
+     }
+    ],
+    "surface": "Criminals stealing consecrated water from a church.",
+    "walkthrough": "The thieving sense of 'pinching' is what the surface sells, and the question mark admits the definition is a description of one particular river rather than a dictionary synonym."
+   }
   },
   {
    "id": "27-down",
@@ -506,7 +1283,42 @@ window.CRYPTIC_PUZZLES["quiptic-1375"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EYE",
-   "annotation": null
+   "annotation": {
+    "type": "last letters",
+    "answer": "EYE",
+    "definition": "with this you can see",
+    "definitionFit": "The organ you see with is defined here by what it does for you rather than by any word that could replace it.",
+    "indicators": [
+     "Back to"
+    ],
+    "indicatorNotes": {
+     "Back to": "The back of a word is the letter it finishes on, and the instruction is repeated in front of each phrase in the chant."
+    },
+    "pieces": [
+     "E",
+     "Y",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Back to life",
+      "gives": "E",
+      "note": "the letter that word ends on"
+     },
+     {
+      "clueFragment": "back to reality",
+      "gives": "Y",
+      "note": "the final letter again, this time of the middle phrase"
+     },
+     {
+      "clueFragment": "back to life",
+      "gives": "E",
+      "note": "the same word repeated, giving the same closing letter"
+     }
+    ],
+    "surface": "The chorus of a well-known song, chanted at somebody who needs waking up.",
+    "walkthrough": "The repeated line is Soul II Soul's 1989 hit Back to Life. Three final letters could spell almost anything, so the definition at the end is what pins the answer down."
+   }
   },
   {
    "id": "28-across",
@@ -527,7 +1339,39 @@ window.CRYPTIC_PUZZLES["quiptic-1375"] = /*JSON-START*/ {
     ]
    },
    "solution": "ANGLEE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "ANG LEE",
+    "definition": "Director",
+    "definitionFit": "Ang Lee is the Taiwanese film-maker behind Brokeback Mountain and Life of Pi, so 'Director' defines the name by his profession.",
+    "indicators": [
+     "close to"
+    ],
+    "indicatorNotes": {
+     "close to": "The close of a word is where it stops, so only the last letter of the one that follows is taken."
+    },
+    "linkWords": [
+     "’s"
+    ],
+    "pieces": [
+     "ANGLE",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "point of view",
+      "gives": "ANGLE",
+      "note": "your angle on a subject is your point of view"
+     },
+     {
+      "clueFragment": "unconscionable",
+      "gives": "E",
+      "note": "the letter that long word finishes on"
+     }
+    ],
+    "surface": "A film director's take on something outrageous.",
+    "walkthrough": "The (3,3) enumeration is the tip-off that a name is wanted rather than a word, and the possessive 's is joinery, not a letter."
+   }
   },
   {
    "id": "29-across",
@@ -544,7 +1388,40 @@ window.CRYPTIC_PUZZLES["quiptic-1375"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MARMOSET",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MARMOSET",
+    "definition": "primate",
+    "definitionFit": "A marmoset is a small tropical monkey, and monkeys are primates, so the definition names the order it belongs to.",
+    "indicators": [],
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "MAR",
+     "MO",
+     "SET"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spoil",
+      "gives": "MAR",
+      "note": "to mar something is to spoil it"
+     },
+     {
+      "clueFragment": "moment",
+      "gives": "MO",
+      "note": "a mo is a moment in casual British speech — 'back in a mo'"
+     },
+     {
+      "clueFragment": "appointed",
+      "gives": "SET",
+      "note": "an appointed hour is a set hour"
+     }
+    ],
+    "surface": "A moment ruined by the arrival of a newly appointed archbishop.",
+    "walkthrough": "A primate is an archbishop as well as a monkey, and the church sense is the one the surface is selling right up to the last word."
+   }
   }
  ]
 } /*JSON-END*/;
