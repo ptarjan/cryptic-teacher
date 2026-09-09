@@ -46,6 +46,7 @@ LAYOUT = [
     ("", "index.html, style.css, app.js", "the app (vanilla HTML/CSS/JS)"),
     ("", "abbreviations.js", "generated letter→clue-word map, read by app.js"),
     ("", "analytics.js", "the one shared GA snippet every page loads, so there is exactly one id"),
+    ("", "qr.js", "the QR encoder, drawn in the page: the sync code is the account, so it is never handed to an image service"),
     ("", "learn/", "the “How cryptic clues work” lesson, built from tools/tutorial.html"),
     ("", "abbreviations/", "the glossary of standard abbreviations the blocks rung links into"),
     ("", "og/", "one 1200x630 social card per puzzle, drawn from one of its clues"),
@@ -55,6 +56,7 @@ LAYOUT = [
 
     ("the rest of the site", "site.webmanifest", "PWA name, icons and display mode"),
     ("the rest of the site", "robots.txt", "crawler policy, and where the sitemap is"),
+    ("the rest of the site", "CNAME", "the domain GitHub Pages answers on"),
     ("the rest of the site", "sitemap.xml", "every URL, regenerated with the static pages"),
     ("the rest of the site", "og.png", "the default social card, for pages that aren’t one puzzle"),
     ("the rest of the site", "favicon.*, icon-*.png, apple-touch-icon.png",
@@ -65,6 +67,8 @@ LAYOUT = [
     ("fetching", "tools/fetch_observer.py", "the Observer’s Everyman"),
     ("fetching", "tools/extend_archive.py", "walks the archives backwards to keep the annotation queue deeper than the job's best week"),
     ("fetching", "tools/fetch_minutecryptic.js", "Minute Cryptic’s daily hints, as a corpus to be measured against"),
+    ("fetching", "tools/recover_minutecryptic.py", "refills days that capture missed from Minute Cryptic’s own video titles, dated by clue number because the upload date lags"),
+    ("fetching", "tools/fetch_fifteensquared.py", "caches the blog that covers all five series, and its comments — fetched once each, at their 20-second crawl delay"),
     ("fetching", "tools/fetch_lexicon.sh", "downloads the Lufz/Exet lexicon the grid filler needs"),
 
     ("annotating", "tools/annotate_prompt.md", "the prompt the daily Claude Code job follows to annotate"),
@@ -111,6 +115,8 @@ LAYOUT = [
     ("building and checking the site", "tools/wait_for_deploy.py", "blocks until Pages is serving the pushed commit, so nobody is told to reload early"),
     ("building and checking the site", "tools/test_webpush.js", "runs the RFC 8291 test vector through sync/webpush.js, so the encryption is checked against something other than itself"),
     ("building and checking the site", "tools/test_push_hold.js", "runs the cron fan-out over a fake night, so a puzzle held until morning is proved to arrive exactly once"),
+    ("building and checking the site", "tools/test_notify_race.js", "ticks two papers over a slow network, where a tick that landed during a save used to be thrown away"),
+    ("building and checking the site", "tools/qr_check.py", "decodes qr.js’s own output with a real decoder — a wrong QR code draws perfectly and simply never scans"),
     ("building and checking the site", "tools/tutorial.html", "source of the learn/ lesson"),
     ("building and checking the site", "tools/og_card.html", "source and type for og.png, the site’s one social card"),
 
@@ -142,6 +148,8 @@ LAYOUT = [
     ("scheduling", "tools/test_push_conflict.sh", "proves the nightly push rebuilds a generated file the remote also rebuilt, and refuses to resolve anything else"),
     ("scheduling", "tools/prereset_plan.py", "how many puzzles the remaining quota will carry before the reset"),
     ("scheduling", "tools/backlog_burndown.py", "the annotation backlog over time, rebuilt from git history, and how long the rest will take at that pace"),
+    ("scheduling", "tools/test_prereset_paths.sh", "resolves the two paths the burn builds at runtime, instead of matching the text of the lines that build them"),
+    ("scheduling", "tools/test_alert_claimed.sh", "runs a real failing run past alert.sh, so the catch-all cannot report a failure somebody already alerted on a second time"),
 
     ("finding out whether any of it is working", "tools/reports.py", "reads and clears the bad-hint reports solvers sent in"),
     ("finding out whether any of it is working", "tools/rung_report.py", "where on the ladder solvers give up, from synced hintsShown data"),
@@ -149,6 +157,9 @@ LAYOUT = [
     ("finding out whether any of it is working", "tools/ga_report.py", "the same milestones as Google Analytics counts them, to see what a blocker hides"),
     ("finding out whether any of it is working", "tools/ga_wire_check.py", "watches the wire to confirm GA hits actually leave the browser"),
     ("finding out whether any of it is working", "tools/difficulty.py", "rates a puzzle from what its own file contains, banded against the corpus"),
+    ("finding out whether any of it is working", "tools/craft_score.py", "rates how well a puzzle is set, which is the question solvers argue about and is independent of how hard it is"),
+    ("finding out whether any of it is working", "tools/favourites_survey.py", "joins the favourite clues commenters name back to our own clues, so craft_score.py has something outside this project to be tested against"),
+    ("finding out whether any of it is working", "tools/suggest_demand.py", "asks Google autocomplete which puzzle numbers people search for, for the puzzles no page of ours ranks for yet"),
     ("finding out whether any of it is working", "tools/turn_cost.py", "how many turns an annotation session takes, from the transcripts — logged nightly so the figure can’t go stale unnoticed"),
     ("finding out whether any of it is working", "tools/make_hint_packets.js", "blind solve-packets, to grade a hint by whether it gets a solver unstuck"),
     ("finding out whether any of it is working", "tools/grade_clues.py", "blind A/B/C/D packets of our clues against real setters’ for the same answers"),
@@ -165,6 +176,7 @@ LAYOUT = [
     ("tables everything else reads", "tools/data/sample_fill_11.json", "the worked 11x11 fill tools/AUTHORING.md walks through"),
     ("tables everything else reads", "tools/data/authored_A001_clues.json", "the hand-written clues for that fill"),
     ("tables everything else reads", "tools/data/annotate_attempts.json", "which puzzles have already had an annotation run spent on them and lost"),
+    ("tables everything else reads", "tools/suggest_demand.json", "the last autocomplete reading, advisory only: nothing downstream sorts on it"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the
