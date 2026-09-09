@@ -35,7 +35,7 @@
  "author":{"@type":"Person","name":"Paul Tarjan","url":"https://paultarjan.com/"}}
 </script>
 
-<link rel="stylesheet" href="style.css?v=a30c29f7">
+<link rel="stylesheet" href="style.css?v=eafb4938">
 <!-- Not deferred: app.js reports its milestones through gtag, and a deferred
      script runs after the parser-blocking one at the end of the body, so the
      first events of a session would find no gtag to call. -->
@@ -70,7 +70,7 @@
   </div>
   <div id="sync-off">
     <p class="muted small-note">Your grids live in this browser only. Turn on sync and you get a
-       short code — type it on another device and both stay up to date.</p>
+       code to scan or type on another device, and both stay up to date.</p>
     <p><button id="sync-start" class="tool">Turn on sync</button></p>
     <p class="muted small-note">Already have a code from another device?</p>
     <p><input id="sync-join-code" type="text" autocomplete="off" spellcheck="false"
@@ -79,7 +79,11 @@
        <button id="sync-join" class="tool">Use this code</button></p>
   </div>
   <div id="sync-on" class="hidden">
-    <p class="muted small-note">Type this on your other device — same panel, “Use this code”.</p>
+    <p class="muted small-note">Point the other device's camera at this. There is no app to
+       install: the square is a link to this page, carrying the code.</p>
+    <canvas id="sync-qr" class="sync-qr" role="img" width="0" height="0"
+            aria-label="Scan to carry this progress to another device"></canvas>
+    <p class="muted small-note">Or type it in by hand over there — same panel, “Use this code”.</p>
     <p class="sync-code-row"><span class="sync-code" id="sync-code">—</span><button
        id="sync-copy" class="ghost small" title="Copy the code">Copy</button></p>
     <p class="muted small-note">Anyone with the code can see and change these grids, so it is a
@@ -231,7 +235,10 @@
 
 <script src="puzzles/index.js?v=345dfd5a"></script>
 <script src="abbreviations.js?v=b2387236"></script>
-<script src="app.js?v=958fbe0a"></script>
+<!-- Only the sync panel draws one, and only once it is opened, so this sits with
+     app.js at the end rather than blocking the first paint. -->
+<script src="qr.js?v=b795920c"></script>
+<script src="app.js?v=b8054ab2"></script>
 <script>
 // Reload once when the page in the cache is older than the page on the server.
 //
