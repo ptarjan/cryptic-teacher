@@ -53,17 +53,30 @@ ALERT_REPEAT_HOURS="${ALERT_REPEAT_HOURS:-12}"
 #
 # The lines travel IN the message. "See the log" is not a report: the reader is
 # on a phone and the log is on the mini.
+#
+# A line a hand-placed alert already carried is not unclaimed. The bad-hint
+# alert quotes the traceback that explains it, and that quote goes to stdout
+# with the alert, into this same log — so on 2026-09-08 one broken KV read
+# arrived twice: once explained, and once as a bare `Traceback` line nobody
+# had written an alert for. Filtered on the text an alert really sent, so a
+# new alert that quotes its own cause is covered without editing this list.
 alert_run_failures() {
-  local log="$1" hits
+  local log="$1" hits claimed line
   [ -r "$log" ] || return 0
+  claimed="$(mktemp "${TMPDIR:-/tmp}/cryptic-claimed.XXXXXX")"
+  printf '%s' "${ALERT_CLAIMED:-}" > "$claimed"
   hits=$(grep -nE '^Traceback \(most recent call last\)|^[a-zA-Z_./]+\.py: error:|^usage: [a-zA-Z_]+\.py|: command not found|^VALIDATION FAILED|rejected — nothing written|^refresh .* failed:|^ERROR: |^[a-zA-Z_./]+: line [0-9]+: ' "$log" |
-    cut -c1-200 | head -8)
+    while IFS= read -r line; do
+      grep -qxF -- "${line#*:}" "$claimed" || printf '%s\n' "$line"
+    done | cut -c1-200 | head -8)
+  rm -f "$claimed"
   [ -n "$hits" ] || return 0
   alert "the run printed $(printf '%s\n' "$hits" | wc -l | tr -d ' ') failure line(s) nobody had written an alert for:"$'\n'"\`\`\`"$'\n'"$hits"$'\n'"\`\`\`"
 }
 
 alert() {
   echo "ALERT: $*"
+  ALERT_CLAIMED="${ALERT_CLAIMED:-}$*"$'\n'
   local stamp
   stamp="$ALERT_STATE_DIR/$(printf '%s' "$*" | shasum | cut -c1-16)"
   mkdir -p "$ALERT_STATE_DIR" 2>/dev/null || true
