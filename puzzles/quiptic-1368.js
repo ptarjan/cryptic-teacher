@@ -30,7 +30,42 @@ window.CRYPTIC_PUZZLES["quiptic-1368"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SEQUEL",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "SEQUEL",
+    "definition": "continuing story",
+    "indicators": [
+     "covering"
+    ],
+    "indicatorNotes": {
+     "covering": "A cover lies over a thing on both sides, so the short piece ends up wrapped inside the word in front of it."
+    },
+    "pieces": [
+     "SE",
+     "QU",
+     "EL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Picture",
+      "gives": "SEE",
+      "note": "to picture something is to see it in your mind"
+     },
+     {
+      "clueFragment": "Queen",
+      "gives": "QU",
+      "note": "Qu. is the standard short form for a queen, as in Qu. Victoria"
+     },
+     {
+      "clueFragment": "long",
+      "gives": "L",
+      "note": "l is the abbreviation for long, the letter on a clothing label"
+     }
+    ],
+    "surface": "A film telling the long-running story of the Queen's reign.",
+    "walkthrough": "'Picture' is a noun everywhere in the surface — a film about royalty — and a verb in the wordplay, the everyday sense of seeing a thing in your head.",
+    "definitionFit": "continuing story → SEQUEL: the book or film that carries an earlier story onward, a story continued rather than a fresh one."
+   }
   },
   {
    "id": "2-down",
@@ -47,7 +82,45 @@ window.CRYPTIC_PUZZLES["quiptic-1368"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EXCELLENT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + alternate letters",
+    "answer": "EXCELLENT",
+    "definition": "Select",
+    "linkWords": [
+     "and"
+    ],
+    "indicators": [
+     "occasionally"
+    ],
+    "indicatorNotes": {
+     "occasionally": "Something done occasionally happens at intervals rather than every time, so only every other letter of the word beside it is picked up."
+    },
+    "pieces": [
+     "EXCEL",
+     "LE",
+     "NT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spreadsheet program",
+      "gives": "EXCEL",
+      "note": "Microsoft's spreadsheet is the one everybody names"
+     },
+     {
+      "clueFragment": "alter",
+      "gives": "LE",
+      "note": "the second and fourth letters of aLtEr"
+     },
+     {
+      "clueFragment": "books",
+      "gives": "NT",
+      "note": "NT is the New Testament, the crossword's usual books"
+     }
+    ],
+    "surface": "Choosing a spreadsheet package and now and then quietly fiddling with the accounts.",
+    "walkthrough": "'Books' is the New Testament in most clues that use it, while the surface has it as the ledgers somebody is altering.",
+    "definitionFit": "Select → EXCELLENT: 'select' in the sense of choice, picked out as the best, as in a select few rather than the verb."
+   }
   },
   {
    "id": "3-down",
@@ -64,7 +137,34 @@ window.CRYPTIC_PUZZLES["quiptic-1368"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UPTURN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "UPTURN",
+    "definition": "advancement",
+    "linkWords": [
+     "for"
+    ],
+    "indicators": [],
+    "pieces": [
+     "UP",
+     "TURN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "At university",
+      "gives": "UP",
+      "note": "a British student in residence at Oxford or Cambridge is said to be up"
+     },
+     {
+      "clueFragment": "go",
+      "gives": "TURN",
+      "note": "your go in a game is your turn"
+     }
+    ],
+    "surface": "Advice to a student: aim high while you are still at university.",
+    "walkthrough": "'Go for' reads as one phrase, the encouragement to chase something, and its two words belong to different halves of the clue.",
+    "definitionFit": "advancement → UPTURN: a turn upwards in fortunes, the noun for things improving after a flat stretch."
+   }
   },
   {
    "id": "4-down",
@@ -86,7 +186,52 @@ window.CRYPTIC_PUZZLES["quiptic-1368"] = /*JSON-START*/ {
     ]
    },
    "solution": "LAYTOREST",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "LAY TO REST",
+    "definition": "Bury",
+    "indicators": [
+     "ultimate",
+     "on",
+     "behind"
+    ],
+    "indicatorNotes": {
+     "ultimate": "The ultimate thing in a series is the final one, so only the closing letter of the word beside it is wanted.",
+     "on": "In a down clue whatever is placed on something else is written above it, so this piece goes in first.",
+     "behind": "Whatever stands behind a thing comes after it, so those two letters follow the piece just named."
+    },
+    "pieces": [
+     "LAY",
+     "T",
+     "ORE",
+     "ST"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "put",
+      "gives": "LAY",
+      "note": "to put something down is to lay it"
+     },
+     {
+      "clueFragment": "market",
+      "gives": "T",
+      "note": "the last letter of markeT"
+     },
+     {
+      "clueFragment": "Rock",
+      "gives": "ORE",
+      "note": "ore is rock with metal in it, hacked out of a mine"
+     },
+     {
+      "clueFragment": "street",
+      "gives": "ST",
+      "note": "st is the standard abbreviation on any address"
+     }
+    ],
+    "surface": "Bury's last market being moved to the street behind the rock venue.",
+    "walkthrough": "Bury is a town in Greater Manchester, which is what the capital letter and the market are for, and the definition is the plain verb.",
+    "definitionFit": "Bury → LAY TO REST: the gentle phrase used of a funeral, where saying 'bury' outright would sound blunt."
+   }
   },
   {
    "id": "5-across",
@@ -103,7 +248,42 @@ window.CRYPTIC_PUZZLES["quiptic-1368"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FLABBY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "FLABBY",
+    "definition": "slack",
+    "indicators": [
+     "cutting"
+    ],
+    "indicatorNotes": {
+     "cutting": "To cut something is to take a piece out of it, so the letters named next come away from the word in front."
+    },
+    "pieces": [
+     "F",
+     "LAB",
+     "BY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fine",
+      "gives": "F",
+      "note": "f is the grade stamped on a fine pencil"
+     },
+     {
+      "clueFragment": "scientific establishment",
+      "gives": "LAB",
+      "note": "a lab is where the science actually gets done"
+     },
+     {
+      "clueFragment": "busy cutting American",
+      "gives": "BY",
+      "note": "American is US, and BUSY with those two cut out of it leaves B…Y"
+     }
+    ],
+    "surface": "A first-rate laboratory hard at work trimming the slack out of an American budget.",
+    "walkthrough": "'Fine' opens as praise for the laboratory and is a single letter, the grade printed on the side of a pencil.",
+    "definitionFit": "slack → FLABBY: loose and lacking firmness, the sense of slack used of a rope or a waistline rather than an idle worker."
+   }
   },
   {
    "id": "5-down",
@@ -120,7 +300,39 @@ window.CRYPTIC_PUZZLES["quiptic-1368"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FLOOD",
-   "annotation": null
+   "annotation": {
+    "type": "container + last letter",
+    "answer": "FLOOD",
+    "definition": "major leak",
+    "indicators": [
+     "finally",
+     "plugging"
+    ],
+    "indicatorNotes": {
+     "finally": "What comes finally is at the end, so the closing letter of the word before it is the one taken.",
+     "plugging": "A plug is pushed into a hole, so this letter goes inside the word rather than alongside it."
+    },
+    "pieces": [
+     "F",
+     "L",
+     "OOD"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fare",
+      "gives": "FOOD",
+      "note": "fare is what is set before you at table"
+     },
+     {
+      "clueFragment": "well",
+      "gives": "L",
+      "note": "the last letter of welL"
+     }
+    ],
+    "surface": "Saying goodbye while at last getting round to stopping a burst pipe.",
+    "walkthrough": "'Fare well' looks like a farewell split in two, and 'fare' is the old word for the food put in front of a guest.",
+    "definitionFit": "major leak → FLOOD: water escaping in overwhelming quantity, a leak scaled up until it fills the room."
+   }
   },
   {
    "id": "6-down",
@@ -137,7 +349,42 @@ window.CRYPTIC_PUZZLES["quiptic-1368"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ALIENATE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters",
+    "answer": "ALIENATE",
+    "definition": "Repel",
+    "indicators": [
+     "that’s drained"
+    ],
+    "indicatorNotes": {
+     "that’s drained": "A thing drained has had its middle emptied out, leaving only what sat at either end of the word."
+    },
+    "pieces": [
+     "ALIEN",
+     "AT",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "extra-terrestrial",
+      "gives": "ALIEN",
+      "note": "the ordinary word for a being from another planet"
+     },
+     {
+      "clueFragment": "assault",
+      "gives": "AT",
+      "note": "the outside letters of AssaulT, its middle poured away"
+     },
+     {
+      "clueFragment": "earth",
+      "gives": "E",
+      "note": "E marks the earth wire in a plug"
+     }
+    ],
+    "surface": "Fighting off an attack from space that has left the planet dried out.",
+    "walkthrough": "'Extra-terrestrial assault' reads as one phrase off a science-fiction poster, and the two words are separate pieces of wordplay.",
+    "definitionFit": "Repel → ALIENATE: to drive people away by making them hostile, repelling in the social sense rather than the physical one."
+   }
   },
   {
    "id": "7-down",
@@ -154,7 +401,34 @@ window.CRYPTIC_PUZZLES["quiptic-1368"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BHAJI",
-   "annotation": null
+   "annotation": {
+    "type": "first letters",
+    "answer": "BHAJI",
+    "definition": "side dish",
+    "indicators": [
+     "Starters in"
+    ],
+    "indicatorNotes": {
+     "Starters in": "A starter comes first, so the opening letter of each word that follows is what the clue hands over."
+    },
+    "pieces": [
+     "B",
+     "H",
+     "A",
+     "J",
+     "I"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bengal have additional jhalmuri in",
+      "gives": "BHAJI",
+      "note": "the opening letters of those five words, taken in the order given"
+     }
+    ],
+    "surface": "An Indian meal where puffed-rice snacks arrive with something extra alongside.",
+    "walkthrough": "Jhalmuri is a Bengali street snack of spiced puffed rice, so the sentence reads as a genuine menu — which is what hides the run of initials.",
+    "definitionFit": "side dish → BHAJI: the deep-fried onion fritter served beside an Indian main course, a dish that only ever turns up on the side."
+   }
   },
   {
    "id": "8-across",
@@ -171,7 +445,45 @@ window.CRYPTIC_PUZZLES["quiptic-1368"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TACITLY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container + first letter",
+    "answer": "TACITLY",
+    "definition": "Silently",
+    "indicators": [
+     "securing",
+     "lead in"
+    ],
+    "indicatorNotes": {
+     "securing": "To secure something is to hold it fast inside, so the letter goes within the word rather than after it.",
+     "lead in": "The lead is whatever goes in front, so the first letter of the word following is the one taken."
+    },
+    "pieces": [
+     "TA",
+     "CIT",
+     "L",
+     "Y"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cheers",
+      "gives": "TA",
+      "note": "ta is the British thank-you, and cheers does the same job when a drink is handed over"
+     },
+     {
+      "clueFragment": "Leicester perhaps",
+      "gives": "CITY",
+      "note": "Leicester City is the football club, so 'perhaps' offers the town as one example of the word that follows it"
+     },
+     {
+      "clueFragment": "League",
+      "gives": "L",
+      "note": "the first letter of League"
+     }
+    ],
+    "surface": "Fans quietly cheering Leicester as the club takes top place in the league.",
+    "walkthrough": "The whole sentence is football, and 'cheers' is not the noise from the terraces but the word you say when somebody buys you a drink.",
+    "definitionFit": "Silently → TACITLY: done without saying it aloud, the way a tacit agreement is one nobody ever spoke."
+   }
   },
   {
    "id": "8-down",
@@ -188,7 +500,41 @@ window.CRYPTIC_PUZZLES["quiptic-1368"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TABLESPOONS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "TABLESPOONS",
+    "definition": "Cutlery",
+    "definitionNote": "Cutlery is a mass noun covering knives, forks and spoons together, so it names a set of items where the answer names several of one kind.",
+    "linkWords": [
+     "with"
+    ],
+    "indicators": [
+     "carved",
+     "captivating"
+    ],
+    "indicatorNotes": {
+     "carved": "Carving cuts a thing into fresh shapes, so the letters beside it are cut into a different order.",
+     "captivating": "To captivate is to hold somebody captive, so the shuffled letters close around the single letter named."
+    },
+    "anagram": {
+     "fodder": "APOSTLES ON B"
+    },
+    "blocks": [
+     {
+      "clueFragment": "apostles on",
+      "gives": "APOSTLESON",
+      "note": "anagram fodder, ten letters"
+     },
+     {
+      "clueFragment": "bishop",
+      "gives": "B",
+      "note": "B is the bishop on a chess board"
+     }
+    ],
+    "surface": "Church silverware showing the carved apostles, with a bishop worked into the design.",
+    "walkthrough": "'Carved apostles' sounds like church woodwork and 'on' passes for a preposition, so the word that looks least like fodder is part of it.",
+    "definitionFit": "Cutlery → TABLESPOONS: the knives, forks and spoons of a place setting, tablespoons being the large ones, so an example of cutlery."
+   }
   },
   {
    "id": "9-across",
@@ -205,7 +551,51 @@ window.CRYPTIC_PUZZLES["quiptic-1368"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ORIGAMI",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "ORIGAMI",
+    "definition": "Paper craft",
+    "linkWords": [
+     "has"
+    ],
+    "indicators": [
+     "recalled"
+    ],
+    "indicatorNotes": {
+     "recalled": "Something recalled is called back the way it came, so those letters are read from the far end backwards."
+    },
+    "pieces": [
+     "O",
+     "RIG",
+     "AMI"
+    ],
+    "subReversals": [
+     {
+      "from": "IMA",
+      "to": "AMI"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "o is the standard abbreviation for old"
+     },
+     {
+      "clueFragment": "sails etc",
+      "gives": "RIG",
+      "note": "a ship's rig is its whole arrangement of masts and sails"
+     },
+     {
+      "clueFragment": "one master",
+      "gives": "AMI",
+      "note": "one is the Roman numeral I and a master of arts is MA, the pair then turned round"
+     }
+    ],
+    "surface": "An old sailing ship's rigging remembered by a single skipper.",
+    "walkthrough": "'Paper craft' is the trap: in a clue full of sails it reads as a boat folded out of paper, and it is the definition.",
+    "definitionFit": "Paper craft → ORIGAMI: the Japanese art of folding paper into shapes, craft in the sense of skilled handiwork."
+   }
   },
   {
    "id": "10-down",
@@ -222,7 +612,34 @@ window.CRYPTIC_PUZZLES["quiptic-1368"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INGREDIENTS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "INGREDIENTS",
+    "definition": "Stuff for recipe",
+    "definitionNote": "Stuff is a mass noun naming the material as a whole, so it does not agree in number with the plural answer it stands for.",
+    "linkWords": [
+     "needs"
+    ],
+    "indicators": [
+     "vigorous"
+    ],
+    "indicatorNotes": {
+     "vigorous": "A vigorous action is a violent shaking-about, and letters shaken that hard do not come back in the order they went in."
+    },
+    "anagram": {
+     "fodder": "TENDERISING"
+    },
+    "blocks": [
+     {
+      "clueFragment": "tenderising",
+      "gives": "TENDERISING",
+      "note": "anagram fodder, eleven letters — the same count as the enumeration"
+     }
+    ],
+    "surface": "A cook beating a tough cut of meat hard before it goes into the pot.",
+    "walkthrough": "Every word here belongs to the kitchen, so the one doing letter work reads as ordinary cookery, and it is the longest word in the clue.",
+    "definitionFit": "Stuff for recipe → INGREDIENTS: the things a recipe lists, 'stuff' being the informal word for the material something is made from."
+   }
   },
   {
    "id": "11-across",
@@ -249,7 +666,46 @@ window.CRYPTIC_PUZZLES["quiptic-1368"] = /*JSON-START*/ {
     ]
    },
    "solution": "BALLROOMDANCING",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "BALLROOM DANCING",
+    "definition": "Strictly’s content",
+    "linkWords": [
+     "to",
+     "and"
+    ],
+    "indicators": [
+     "condemn",
+     "mostly"
+    ],
+    "indicatorNotes": {
+     "condemn": "A building condemned is declared unfit and pulled apart, so the word beside it comes down and is rebuilt.",
+     "mostly": "Mostly means nearly all of it, so the word gives up its final letter and the rest goes into the mix."
+    },
+    "anagram": {
+     "fodder": "CANOODLING BLAM R"
+    },
+    "blocks": [
+     {
+      "clueFragment": "canoodling",
+      "gives": "CANOODLING",
+      "note": "anagram fodder, ten letters"
+     },
+     {
+      "clueFragment": "blame",
+      "gives": "BLAM",
+      "note": "BLAME without its last letter"
+     },
+     {
+      "clueFragment": "Romeo",
+      "gives": "R",
+      "note": "Romeo is R in the radio alphabet"
+     }
+    ],
+    "surface": "Television judges tearing into a couple for canoodling and putting most of the blame on the romantic one.",
+    "walkthrough": "Strictly Come Dancing is the BBC's Saturday-night contest, so its content is a fair definition, and 'condemn' passes as the judges' verdict rather than an instruction.",
+    "definitionFit": "Strictly’s content → BALLROOM DANCING: what the television show consists of, the waltzes and quicksteps its couples perform week after week."
+   }
   },
   {
    "id": "12-across",
@@ -266,7 +722,50 @@ window.CRYPTIC_PUZZLES["quiptic-1368"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EWER",
-   "annotation": null
+   "annotation": {
+    "type": "container + first letter + last letter",
+    "answer": "EWER",
+    "definition": "Pitcher",
+    "linkWords": [
+     "gets"
+    ],
+    "indicators": [
+     "initially",
+     "retained by",
+     "in the end"
+    ],
+    "indicatorNotes": {
+     "initially": "Initially means at the very start, so only the opening letter of the name is used.",
+     "retained by": "To retain something is to keep hold of it inside, so the letter sits within the word that follows.",
+     "in the end": "The end is where a word's last letter lives, so that closing letter is the one taken."
+    },
+    "pieces": [
+     "E",
+     "W",
+     "E",
+     "R"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "phone company",
+      "gives": "EE",
+      "note": "EE is one of Britain's big mobile networks"
+     },
+     {
+      "clueFragment": "Webb",
+      "gives": "W",
+      "note": "the first letter of the surname"
+     },
+     {
+      "clueFragment": "sponsor",
+      "gives": "R",
+      "note": "the last letter of sponsoR"
+     }
+    ],
+    "surface": "A baseball pitcher called Webb kept on by a phone firm until a sponsor steps in.",
+    "walkthrough": "'Pitcher' is a baseball player in the surface and a jug in the definition, and the phone company is EE, a British network a solver elsewhere would never have met.",
+    "definitionFit": "Pitcher → EWER: the tall wide-lipped jug that stands on a washstand, pitcher in its water-carrying sense."
+   }
   },
   {
    "id": "13-across",
@@ -283,7 +782,53 @@ window.CRYPTIC_PUZZLES["quiptic-1368"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RECEPTACLE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram + deletion",
+    "answer": "RECEPTACLE",
+    "definition": "vessel",
+    "linkWords": [
+     "for"
+    ],
+    "indicators": [
+     "dubiously",
+     "abridged"
+    ],
+    "indicatorNotes": {
+     "dubiously": "Something done dubiously is not done straight, so the letters beside it are not taken in the order they are given.",
+     "abridged": "An abridged book has been cut short, so this word gives up its final letter."
+    },
+    "pieces": [
+     "RE",
+     "CEPTAC",
+     "LE"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "ACCEPT",
+      "gives": "CEPTAC"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Engineers",
+      "gives": "RE",
+      "note": "RE is the Royal Engineers, the army's builders"
+     },
+     {
+      "clueFragment": "accept",
+      "gives": "CEPTAC",
+      "note": "the six letters of ACCEPT in a new order"
+     },
+     {
+      "clueFragment": "permit",
+      "gives": "LE",
+      "note": "to permit is to let, and that word is cut short here"
+     }
+    ],
+    "surface": "Army engineers doubtfully taking a shortened licence for a ship.",
+    "walkthrough": "'Engineers' opens the clue looking like the people who will do something and is two letters — the Royal Engineers are the crossword's standard sappers.",
+    "definitionFit": "vessel → RECEPTACLE: anything made to hold something, vessel in the bowl-and-jar sense rather than the ship the surface offers."
+   }
   },
   {
    "id": "14-down",
@@ -304,7 +849,54 @@ window.CRYPTIC_PUZZLES["quiptic-1368"] = /*JSON-START*/ {
     ]
    },
    "solution": "EASILYLED",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container + reversal",
+    "answer": "EASILY LED",
+    "definition": "Trusting",
+    "definitionNote": "Trusting is the adjective of 'a trusting soul', which is how it stands in for a phrase describing a person rather than for a verb.",
+    "indicators": [
+     "order",
+     "to enter",
+     "rising"
+    ],
+    "indicatorNotes": {
+     "order": "To order things is to put them in an arrangement, so those letters come out in an arrangement of the setter's choosing.",
+     "to enter": "Entering something means going inside it, so this group is placed within the other rather than after it.",
+     "rising": "A down entry read upwards climbs the grid, so the word said to be rising arrives back to front."
+    },
+    "pieces": [
+     "E",
+     "ASILYL",
+     "ED"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "A SILLY",
+      "gives": "ASILYL"
+     }
+    ],
+    "subReversals": [
+     {
+      "from": "DEE",
+      "to": "EED"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "river",
+      "gives": "EED",
+      "note": "the Dee runs through Aberdeen and past Chester, and it is climbing here"
+     },
+     {
+      "clueFragment": "a silly",
+      "gives": "ASILYL",
+      "note": "those six letters rearranged and dropped inside"
+     }
+    ],
+    "surface": "Somebody obeying a foolish command to sail up a swollen river.",
+    "walkthrough": "'Trusting a silly order' reads as one continuous phrase, a soldier doing as he is told, and the definition stops after its first word.",
+    "definitionFit": "Trusting → EASILY LED: someone easily led believes whatever they are told, which is trusting taken as far as gullible."
+   }
   },
   {
    "id": "15-down",
@@ -321,7 +913,51 @@ window.CRYPTIC_PUZZLES["quiptic-1368"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "COSMONAUT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram + container",
+    "answer": "COSMONAUT",
+    "definition": "space traveller",
+    "indicators": [
+     "scheme",
+     "engaging"
+    ],
+    "indicatorNotes": {
+     "scheme": "To scheme is to contrive something new out of what you already have, and the letters beside it are contrived into a new order.",
+     "engaging": "Engaging something draws it in, so the single letter is taken inside the group rather than added at the end."
+    },
+    "pieces": [
+     "CO",
+     "SMON",
+     "A",
+     "UT"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "MOUNTS",
+      "gives": "SMONUT"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Company",
+      "gives": "CO",
+      "note": "co. is the short form on any firm's letterhead"
+     },
+     {
+      "clueFragment": "mounts",
+      "gives": "SMONUT",
+      "note": "the six letters of MOUNTS in a new order"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the word 'a' taken exactly as it stands"
+     }
+    ],
+    "surface": "A business launching a plan and signing up an astronaut for it.",
+    "walkthrough": "'Mounts' looks like the verb a company does to a scheme — mounting a campaign — and it is the letters instead. A cosmonaut is a Russian astronaut.",
+    "definitionFit": "space traveller → COSMONAUT: the Russian word for an astronaut, naming a space traveller of one particular nationality."
+   }
   },
   {
    "id": "16-down",
@@ -338,7 +974,39 @@ window.CRYPTIC_PUZZLES["quiptic-1368"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DIVISION",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "DIVISION",
+    "definition": "Conflict",
+    "linkWords": [
+     "with"
+    ],
+    "indicators": [
+     "on"
+    ],
+    "indicatorNotes": {
+     "on": "In a down clue whatever sits on something else is written above it, so these two letters go in first."
+    },
+    "pieces": [
+     "DI",
+     "VISION"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "detective",
+      "gives": "DI",
+      "note": "DI is a detective inspector, the rank in every British police drama"
+     },
+     {
+      "clueFragment": "plan for future",
+      "gives": "VISION",
+      "note": "a leader's vision is the future they intend to bring about"
+     }
+    ],
+    "surface": "A row with the detective about what the plan should be.",
+    "walkthrough": "'Conflict with detective' reads as a quarrel involving the police, which is where the definition ends: only its first word belongs to the answer.",
+    "definitionFit": "Conflict → DIVISION: a split between people who disagree, conflict in the sense of a party divided rather than a battle."
+   }
   },
   {
    "id": "17-across",
@@ -355,7 +1023,30 @@ window.CRYPTIC_PUZZLES["quiptic-1368"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PATRIOTISM",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "PATRIOTISM",
+    "definition": "love for one’s country",
+    "linkWords": [
+     "as"
+    ],
+    "indicators": [
+     "Some"
+    ],
+    "indicatorNotes": {
+     "Some": "Only some of what follows is wanted — a run of letters inside those words rather than what they mean."
+    },
+    "blocks": [
+     {
+      "clueFragment": "fellowship at riot is misrepresented",
+      "gives": "PATRIOTISM",
+      "note": "the letters run consecutively from inside the first word across to the start of the last, in the order given"
+     }
+    ],
+    "surface": "A group's friendship at a riot being spun into something it never was.",
+    "walkthrough": "The clue accuses somebody of misrepresenting a fellowship, which reads as political commentary, and its first word is the only one telling you to look at letters.",
+    "definitionFit": "love for one’s country → PATRIOTISM: the noun for exactly that devotion, the word a dictionary offers for loving one's nation."
+   }
   },
   {
    "id": "18-across",
@@ -372,7 +1063,39 @@ window.CRYPTIC_PUZZLES["quiptic-1368"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ASTI",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "ASTI",
+    "definition": "sparkling wine",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "revolution"
+    ],
+    "indicatorNotes": {
+     "revolution": "A revolution turns a thing full circle, so what comes before it is read the other way round."
+    },
+    "pieces": [
+     "ASTI"
+    ],
+    "subReversals": [
+     {
+      "from": "ITSA",
+      "to": "ASTI"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "It’s a",
+      "gives": "ITSA",
+      "note": "the opening two words run together as four letters before anything is done to them"
+     }
+    ],
+    "surface": "A breakthrough being announced in the world of fizzy wine.",
+    "walkthrough": "'It's a revolution' is the sort of line a wine advert uses, so the two words that carry the letters look like a verdict on something rather than material.",
+    "definitionFit": "sparkling wine → ASTI: the sweet fizz from the Italian town of Asti, so the definition names the class it is one example of."
+   }
   },
   {
    "id": "19-down",
@@ -389,7 +1112,45 @@ window.CRYPTIC_PUZZLES["quiptic-1368"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REAGAN",
-   "annotation": null
+   "annotation": {
+    "type": "container + anagram",
+    "answer": "REAGAN",
+    "definition": "Former president",
+    "indicators": [
+     "to hide",
+     "confusion of"
+    ],
+    "indicatorNotes": {
+     "to hide": "Hiding a thing puts it out of sight inside, so the letters named go within the word before them.",
+     "confusion of": "Things in confusion are jumbled together, so the letters that follow arrive in a muddled order."
+    },
+    "pieces": [
+     "R",
+     "EAG",
+     "AN"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "AGE",
+      "gives": "EAG"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "managed",
+      "gives": "RAN",
+      "note": "someone who managed a business ran it"
+     },
+     {
+      "clueFragment": "age",
+      "gives": "EAG",
+      "note": "those three letters in a muddle"
+     }
+    ],
+    "surface": "A retired leader who ran the country while hiding how old he was.",
+    "walkthrough": "'Managed to hide' is one everyday phrase — he only just hid it — which is why its two words come apart so reluctantly.",
+    "definitionFit": "Former president → REAGAN: the fortieth US president, in office through the 1980s, so a definition by example of the office."
+   }
   },
   {
    "id": "20-across",
@@ -413,7 +1174,56 @@ window.CRYPTIC_PUZZLES["quiptic-1368"] = /*JSON-START*/ {
     ]
    },
    "solution": "ONCEINABLUEMOON",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "ONCE IN A BLUE MOON",
+    "definition": "On rare occasions",
+    "linkWords": [
+     "to"
+    ],
+    "indicators": [
+     "worked"
+    ],
+    "indicatorNotes": {
+     "worked": "Dough that is worked is pushed about until it takes a new shape, and the letters beside it are handled the same way."
+    },
+    "pieces": [
+     "ONCE",
+     "INABLUE",
+     "MOON"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "I UNABLE",
+      "gives": "INABLUE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "previously",
+      "gives": "ONCE",
+      "note": "previously means at some earlier time"
+     },
+     {
+      "clueFragment": "writer",
+      "gives": "I",
+      "note": "the setter writing the clue refers to himself as I"
+     },
+     {
+      "clueFragment": "unable",
+      "gives": "UNABLE",
+      "note": "the other six letters of the fodder, taken as they stand"
+     },
+     {
+      "clueFragment": "be idle",
+      "gives": "MOON",
+      "note": "somebody idling about is said to be mooning around"
+     }
+    ],
+    "surface": "A writer who used to put in some work and now cannot sit still.",
+    "walkthrough": "'Writer' as I is a standing crossword trick, the setter slipping himself into his own clue, and here he arrives as the person who worked.",
+    "definitionFit": "On rare occasions → ONCE IN A BLUE MOON: the idiom for something that hardly ever happens, a blue moon being a rare second full moon in a month."
+   }
   },
   {
    "id": "21-down",
@@ -430,7 +1240,45 @@ window.CRYPTIC_PUZZLES["quiptic-1368"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CRAZE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "CRAZE",
+    "definition": "Rage",
+    "indicators": [
+     "about",
+     "organised"
+    ],
+    "indicatorNotes": {
+     "about": "Something written about a thing goes round the outside of it, so these letters close around the single letter named.",
+     "organised": "To organise is to put things into a chosen arrangement, so those letters take up a new one."
+    },
+    "pieces": [
+     "CRA",
+     "Z",
+     "E"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "CARE",
+      "gives": "CRAE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "care",
+      "gives": "CRAE",
+      "note": "the four letters of CARE rearranged"
+     },
+     {
+      "clueFragment": "variable",
+      "gives": "Z",
+      "note": "x, y and z are the algebra teacher's variables"
+     }
+    ],
+    "surface": "Anger at the way a variable standard of care was organised.",
+    "walkthrough": "'Rage' is the trap: it wants to be the anger the rest of the sentence describes, and the answer takes the older sense, a fashion everybody catches at once.",
+    "definitionFit": "Rage → CRAZE: the all-the-rage sense of the word — a fashion the whole country takes up briefly — rather than anger."
+   }
   },
   {
    "id": "22-down",
@@ -447,7 +1295,29 @@ window.CRYPTIC_PUZZLES["quiptic-1368"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "APRON",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "APRON",
+    "definition": "that protects clothing",
+    "indicators": [
+     "Put up",
+     "partial"
+    ],
+    "indicatorNotes": {
+     "Put up": "In a down clue putting something up runs it back towards the top of the grid, so those letters read the other way.",
+     "partial": "Only part of what follows is wanted: a run of letters inside the words, not the words themselves."
+    },
+    "blocks": [
+     {
+      "clueFragment": "screen or partition",
+      "gives": "APRON",
+      "note": "five letters in a row straddle the join between the first two words, and they are climbing"
+     }
+    ],
+    "surface": "Putting up a bit of screening to divide one room into two.",
+    "walkthrough": "'Screen or partition' reads as the setter offering two words for the same object, which is the disguise: neither of them is defining anything.",
+    "definitionFit": "that protects clothing → APRON: the garment tied over your clothes to keep the cooking off them, defined here by the job it does."
+   }
   },
   {
    "id": "23-across",
@@ -464,7 +1334,30 @@ window.CRYPTIC_PUZZLES["quiptic-1368"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SHAKIER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "SHAKIER",
+    "definition": "Increasingly tentative",
+    "indicators": [
+     "out"
+    ],
+    "indicatorNotes": {
+     "out": "Something out of place is not where it was put, so those letters are set down somewhere other than where they started."
+    },
+    "anagram": {
+     "fodder": "I ASK HER"
+    },
+    "blocks": [
+     {
+      "clueFragment": "I ask her",
+      "gives": "IASKHER",
+      "note": "anagram fodder, seven letters"
+     }
+    ],
+    "surface": "Somebody losing their nerve while working up to asking a woman out.",
+    "walkthrough": "'Ask her out' is one phrase in the surface, a man plucking up courage, and its last word is the instruction the letters need.",
+    "definitionFit": "Increasingly tentative → SHAKIER: less steady than before, the comparative covering unsteady hands and an argument losing its footing alike."
+   }
   },
   {
    "id": "24-across",
@@ -481,7 +1374,37 @@ window.CRYPTIC_PUZZLES["quiptic-1368"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LOGJAMS",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "LOGJAMS",
+    "definition": "gridlocks",
+    "indicators": [
+     "admitting"
+    ],
+    "indicatorNotes": {
+     "admitting": "To admit somebody is to let them in, so the word in front opens up and takes the other one inside."
+    },
+    "pieces": [
+     "LOG",
+     "JAM",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "records",
+      "gives": "LOGS",
+      "note": "a ship's log is the record kept of a voyage"
+     },
+     {
+      "clueFragment": "Preserve",
+      "gives": "JAM",
+      "note": "jam is fruit preserved in sugar"
+     }
+    ],
+    "surface": "Keeping the files that own up to how badly the traffic seized up.",
+    "walkthrough": "'Preserve' opens as the verb the sentence seems to need and is the thing in the jar, the noun a crossword reaches for whenever preserves are mentioned.",
+    "definitionFit": "gridlocks → LOGJAMS: blockages nothing can move through, from timber jammed in a river, used of traffic and stalled talks alike."
+   }
   },
   {
    "id": "25-across",
@@ -502,7 +1425,45 @@ window.CRYPTIC_PUZZLES["quiptic-1368"] = /*JSON-START*/ {
     ]
    },
    "solution": "REININ",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "REIN IN",
+    "definition": "Check",
+    "indicators": [
+     "held by",
+     "assembly"
+    ],
+    "indicatorNotes": {
+     "held by": "Held by something means kept inside it, so this letter sits within the group rather than beside it.",
+     "assembly": "To assemble is to put parts together in a new arrangement, so the letters of the word before it are built up afresh."
+    },
+    "pieces": [
+     "REIN",
+     "I",
+     "N"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "INNER",
+      "gives": "REINN"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "inner",
+      "gives": "REINN",
+      "note": "the five letters of INNER built up in a new order"
+     },
+     {
+      "clueFragment": "information",
+      "gives": "I",
+      "note": "i is the letter on every tourist information sign"
+     }
+    ],
+    "surface": "Checking a fact that one of the inner circle brought to the meeting.",
+    "walkthrough": "'Inner assembly' reads as a select committee, the small group inside a bigger one, and neither word means anything of the sort here.",
+    "definitionFit": "Check → REIN IN: to hold something back the way a rider pulls on the reins, check in the sense of curbing rather than examining."
+   }
   },
   {
    "id": "26-across",
@@ -519,7 +1480,41 @@ window.CRYPTIC_PUZZLES["quiptic-1368"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DENOTE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "DENOTE",
+    "definition": "Typify",
+    "indicators": [
+     "reactionary"
+    ],
+    "indicatorNotes": {
+     "reactionary": "A reactionary wants everything to go back the way it came, so these letters are entered in the opposite direction."
+    },
+    "pieces": [
+     "DENOTE"
+    ],
+    "subReversals": [
+     {
+      "from": "ETONED",
+      "to": "DENOTE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "public school",
+      "gives": "ETON",
+      "note": "Eton is the best known of the fee-paying boarding schools the British confusingly call public schools"
+     },
+     {
+      "clueFragment": "education",
+      "gives": "ED",
+      "note": "ed is the standard abbreviation, as in the Department for Education"
+     }
+    ],
+    "surface": "A backward-looking view of how the private schools educate.",
+    "walkthrough": "'Public school' means the opposite in Britain to what it means everywhere else — a fee-paying private school — and Eton is the one setters reach for.",
+    "definitionFit": "Typify → DENOTE: to stand for something as its sign, the sense in which a symbol denotes the thing it represents."
+   }
   }
  ]
 } /*JSON-END*/;
