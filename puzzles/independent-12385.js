@@ -34,7 +34,30 @@ window.CRYPTIC_PUZZLES["independent-12385"] = /*JSON-START*/ {
     ]
    },
    "solution": "CROSSWORDPUZZLE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + &lit",
+    "answer": "CROSSWORD PUZZLE",
+    "definition": "Would rozzers (PCs) suspect this?",
+    "indicators": [
+     "suspect"
+    ],
+    "indicatorNotes": {
+     "suspect": "Something suspect is not what it presents itself as, so the letters in front of the word cannot be trusted to stay in the order printed."
+    },
+    "anagram": {
+     "fodder": "WOULD ROZZERS PCS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Would rozzers (PCs)",
+      "gives": "WOULDROZZERSPCS",
+      "note": "fifteen letters taken exactly as printed; 'rozzers' is British slang for the police and a PC is a police constable"
+     }
+    ],
+    "surface": "Detectives eyeing up an innocent newspaper pastime as though it were evidence of something.",
+    "walkthrough": "Every word does both jobs at once: read straight it is a question about police suspicion, and those same fifteen letters spell the thing being asked about. The question mark is the setter owning up.",
+    "definitionFit": "Read straight the clue asks whether police would suspect one, and in 1944 MI5 really did investigate a Telegraph setter whose grids kept throwing up D-Day codewords."
+   }
   },
   {
    "id": "1-down",
@@ -51,7 +74,45 @@ window.CRYPTIC_PUZZLES["independent-12385"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CADMIUM",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "CADMIUM",
+    "definition": "element",
+    "indicators": [
+     "about",
+     "going after"
+    ],
+    "indicatorNotes": {
+     "about": "'about' is used in its positional sense of round the outside, so the silent word closes over the single letter instead of merely referring to it.",
+     "going after": "'going after' sends the wrapped-up chunk behind the scoundrel, fixing which of the two pieces starts the word."
+    },
+    "pieces": [
+     "CAD",
+     "M",
+     "I",
+     "UM"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rogue",
+      "gives": "CAD",
+      "note": "a cad is a rogue, the old word for a man who behaves badly"
+     },
+     {
+      "clueFragment": "Silent",
+      "gives": "MUM",
+      "note": "to keep mum is to say nothing"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "surface": "A tight-lipped type is thought to be trailing round after a scoundrel.",
+    "walkthrough": "'Rogue element' reads as a single phrase and is two separate jobs: 'rogue' hands over the opening chunk while 'element' is the definition, stranded at the end of the clue.",
+    "definitionFit": "'Element' names cadmium by class rather than by synonym: it is one of the chemical elements, a soft bluish metal used in batteries and pigments."
+   }
   },
   {
    "id": "2-down",
@@ -68,7 +129,34 @@ window.CRYPTIC_PUZZLES["independent-12385"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ONSET",
-   "annotation": null
+   "annotation": {
+    "type": "last letters",
+    "answer": "ONSET",
+    "definition": "Start",
+    "indicators": [
+     "conclusions"
+    ],
+    "indicatorNotes": {
+     "conclusions": "'conclusions' asks for the point at which each word concludes, which is its final letter, and it applies to every word in the run."
+    },
+    "pieces": [
+     "O",
+     "N",
+     "S",
+     "E",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to regain consciousness, despite anaesthesiologist",
+      "gives": "ONSET",
+      "note": "the last letter of each of those five words, taken in the order they stand"
+     }
+    ],
+    "surface": "A patient coming round on the table even though the anaesthetist expected otherwise.",
+    "walkthrough": "The definition is the single word at the front, and 'to' belongs to the wordplay rather than to it — a five-word run is longer than most letter-picking clues risk.",
+    "definitionFit": "The onset of a thing is the moment it begins, so as a noun it swaps straight in for 'start' — a shade more formal, used of illness and winter."
+   }
   },
   {
    "id": "3-down",
@@ -89,7 +177,42 @@ window.CRYPTIC_PUZZLES["independent-12385"] = /*JSON-START*/ {
     ]
    },
    "solution": "SHOULDERPAD",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "SHOULDER PAD",
+    "definition": "Jacket accessory",
+    "indicators": [
+     "differently"
+    ],
+    "indicatorNotes": {
+     "differently": "'differently' asks for the same letters set out another way, which is what turns the word beside it into raw material instead of a synonym."
+    },
+    "pieces": [
+     "SHOULD",
+     "ERPAD"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "DRAPE",
+      "gives": "ERPAD"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ought to",
+      "gives": "SHOULD",
+      "note": "'ought to' and 'should' are interchangeable ways of stating an obligation"
+     },
+     {
+      "clueFragment": "drape",
+      "gives": "ERPAD",
+      "note": "the five letters of DRAPE in a new order"
+     }
+    ],
+    "surface": "Advice that a coat really ought to hang some other way.",
+    "walkthrough": "'ought to drape differently' reads as one instruction about how a coat should hang, and that smoothness hides the join: the first two words are a synonym and only the third is fodder.",
+    "definitionFit": "A jacket's squared-off line comes from a stiffened insert sewn in under the lining at the shoulder, so the definition names the thing by the garment it belongs to."
+   }
   },
   {
    "id": "4-down",
@@ -106,7 +229,33 @@ window.CRYPTIC_PUZZLES["independent-12385"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OVERSHOOT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "OVERSHOOT",
+    "definition": "go too far",
+    "linkWords": [
+     "by"
+    ],
+    "pieces": [
+     "OVERS",
+     "HOOT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Deliveries",
+      "gives": "OVERS",
+      "note": "in cricket an over is the set of six deliveries bowled from one end, so deliveries come in overs"
+     },
+     {
+      "clueFragment": "comedian",
+      "gives": "HOOT",
+      "note": "someone who keeps you laughing is a hoot"
+     }
+    ],
+    "surface": "Balls bowled by a stand-up comic sail miles past the target.",
+    "walkthrough": "Cricket is the trap: 'deliveries' looks like parcels being handed over and is the bowler's word. A person who is a hoot is funny, so the second piece is a comedian rather than a noise.",
+    "definitionFit": "To overshoot is to carry on past the mark you were aiming at — a pilot on a runway, a car at a junction — which is going too far."
+   }
   },
   {
    "id": "5-down",
@@ -123,7 +272,35 @@ window.CRYPTIC_PUZZLES["independent-12385"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DISCO",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "DISCO",
+    "definition": "nightclub",
+    "indicators": [
+     "Group of",
+     "going over"
+    ],
+    "indicatorNotes": {
+     "Group of": "'Group of' points at a run of letters standing together in the words that follow, while the surface offers it as a band or a squad.",
+     "going over": "'going over' tips that run end over end, so it has to be read the opposite way before it is written into the grid."
+    },
+    "subReversals": [
+     {
+      "from": "OCSID",
+      "to": "DISCO"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chicago CSI detectives",
+      "gives": "OCSID",
+      "note": "five letters standing consecutively across the three words, from the tail of the city to the head of the last word"
+     }
+    ],
+    "surface": "Investigators from an American crime lab turning up at a club.",
+    "walkthrough": "'Group' wants to be a band and 'detectives' a job, and both are only strings to lift letters out of. Even then the run spells nothing until it is turned round.",
+    "definitionFit": "A disco is a club where recorded music is played for dancing, which has been the everyday word for a nightclub since the 1970s."
+   }
   },
   {
    "id": "6-down",
@@ -140,7 +317,38 @@ window.CRYPTIC_PUZZLES["independent-12385"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UNO",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "UNO",
+    "definition": "Card game",
+    "linkWords": [
+     "using"
+    ],
+    "indicators": [
+     "but not"
+    ],
+    "indicatorNotes": {
+     "but not": "'but not' names something and then withholds it, so the letter it introduces is the one taken out of what came before."
+    },
+    "pieces": [
+     "UNO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "queen",
+      "gives": "JUNO",
+      "note": "Juno was queen of the Roman gods and wife of Jupiter"
+     },
+     {
+      "clueFragment": "jack",
+      "gives": "J",
+      "note": "J is the letter printed on the jack in a pack of cards"
+     }
+    ],
+    "surface": "A hand played out with the queen in it and the jack missing.",
+    "walkthrough": "Two court cards in the surface and only one of them is a card in the wordplay: the queen is a Roman goddess, while the jack really does hand over the letter from the pack.",
+    "definitionFit": "'Card game' names it by class — a proprietary game played not with a standard pack but with its own deck of coloured number cards."
+   }
   },
   {
    "id": "7-down",
@@ -157,7 +365,45 @@ window.CRYPTIC_PUZZLES["independent-12385"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ZOROASTER",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "ZOROASTER",
+    "definition": "Prophet",
+    "linkWords": [
+     "from"
+    ],
+    "indicators": [
+     "upset"
+    ],
+    "indicatorNotes": {
+     "upset": "'upset' means tipped over, and a piece tipped over in a down entry is read back up the column instead of down it."
+    },
+    "pieces": [
+     "ZO",
+     "ROASTER"
+    ],
+    "subReversals": [
+     {
+      "from": "OZ",
+      "to": "ZO"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Australia",
+      "gives": "OZ",
+      "note": "Oz is the standard nickname for Australia"
+     },
+     {
+      "clueFragment": "critic",
+      "gives": "ROASTER",
+      "note": "to roast someone is to criticise them savagely, so a roaster is a critic"
+     }
+    ],
+    "surface": "A seer has arrived from Australia having thoroughly annoyed a reviewer.",
+    "walkthrough": "'upset critic' reads as one cross reviewer, and the two words are doing different jobs — one turns a country's nickname round, the other is a synonym standing on its own. The question mark marks how loose that synonym is.",
+    "definitionFit": "Zoroaster, also called Zarathustra, is the ancient Persian prophet whose teachings became Zoroastrianism, so 'Prophet' names him by his role."
+   }
   },
   {
    "id": "8-down",
@@ -178,7 +424,36 @@ window.CRYPTIC_PUZZLES["independent-12385"] = /*JSON-START*/ {
     ]
    },
    "solution": "EREADER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "E-READER",
+    "definition": "Words displayed here",
+    "pieces": [
+     "ERE",
+     "A",
+     "DER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "preceding",
+      "gives": "ERE",
+      "note": "'ere' is the poetic word for before, so it means preceding; the letters are a whole word, not an abbreviation"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the word is taken straight into the answer as itself"
+     },
+     {
+      "clueFragment": "German article",
+      "gives": "DER",
+      "note": "'der' is the masculine form of the German definite article"
+     }
+    ],
+    "surface": "Some text on show just ahead of a German word for 'the'.",
+    "walkthrough": "'Words displayed here' points at the object rather than the writing, and 'preceding' is not joinery holding two halves together — it is a synonym doing letter work.",
+    "definitionFit": "An e-reader is the handheld screen whose only job is showing the words of a book, so 'here' points at the device the words appear on."
+   }
   },
   {
    "id": "9-across",
@@ -195,7 +470,33 @@ window.CRYPTIC_PUZZLES["independent-12385"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DISROBE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "DISROBE",
+    "definition": "take off clothes",
+    "linkWords": [
+     "to"
+    ],
+    "indicators": [
+     "excited"
+    ],
+    "indicatorNotes": {
+     "excited": "An excited person will not keep still, and letters described as excited will not keep to the order they were handed over in."
+    },
+    "anagram": {
+     "fodder": "BRIDE SO"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Bride so",
+      "gives": "BRIDESO",
+      "note": "anagram fodder, seven letters"
+     }
+    ],
+    "surface": "An eager bride who cannot wait to get out of the dress.",
+    "walkthrough": "The fodder is the first two words and nothing more: 'so excited' reads as one phrase, which is exactly what hides the seam between the letters and the instruction on them.",
+    "definitionFit": "To disrobe is to undress — the formal verb used of judges and ceremonies rather than of getting ready for bed."
+   }
   },
   {
    "id": "10-across",
@@ -212,7 +513,39 @@ window.CRYPTIC_PUZZLES["independent-12385"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCOURGE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters",
+    "answer": "SCOURGE",
+    "definition": "cause of affliction",
+    "linkWords": [
+     "for"
+    ],
+    "indicators": [
+     "outside of"
+    ],
+    "indicatorNotes": {
+     "outside of": "'outside of' asks for the letters on the outer edges of the word named, its first and its last, leaving everything between them behind."
+    },
+    "pieces": [
+     "SCOUR",
+     "GE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Search",
+      "gives": "SCOUR",
+      "note": "to scour a place is to search it thoroughly"
+     },
+     {
+      "clueFragment": "Google",
+      "gives": "GE",
+      "note": "the two letters on the outside of the word, G and E"
+     }
+    ],
+    "surface": "Googling to work out what has been making you ill.",
+    "walkthrough": "'Search outside of Google' reads as one sensible instruction — look somewhere other than the search engine — and it is two pieces of wordplay with nothing to do with each other.",
+    "definitionFit": "A scourge was literally a whip, and the word now names anything that inflicts widespread suffering: the cause of the affliction rather than the affliction itself."
+   }
   },
   {
    "id": "11-across",
@@ -229,7 +562,34 @@ window.CRYPTIC_PUZZLES["independent-12385"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INTEL",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "INTEL",
+    "definition": "Acquired secrets",
+    "definitionNote": "'secrets' is plural where the answer is an uncountable mass noun: it names secret information gathered as one quantity, so it has no plural form of its own.",
+    "linkWords": [
+     "via"
+    ],
+    "pieces": [
+     "IN",
+     "TEL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "home",
+      "gives": "IN",
+      "note": "somebody at home is in"
+     },
+     {
+      "clueFragment": "telephone",
+      "gives": "TEL",
+      "note": "tel is the standard short form of telephone, as printed on a business card"
+     }
+    ],
+    "surface": "Confidential material picked up over a landline at home.",
+    "walkthrough": "'home telephone' is one object in the surface and two separate pieces in the wordplay. The definition is reaching for spy-fiction shorthand, not for the chip company the capital letter suggests.",
+    "definitionFit": "'Acquired secrets' is service slang for gathered intelligence — the material an agency has collected, not the department that collects it."
+   }
   },
   {
    "id": "12-across",
@@ -246,7 +606,41 @@ window.CRYPTIC_PUZZLES["independent-12385"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SNOWBOARD",
-   "annotation": null
+   "annotation": {
+    "type": "spoonerism",
+    "answer": "SNOWBOARD",
+    "definition": "Ride going downhill",
+    "linkWords": [
+     "as"
+    ],
+    "indicators": [
+     "Spooner's"
+    ],
+    "indicatorNotes": {
+     "Spooner's": "The Reverend Spooner was an Oxford don famous for swapping the opening sounds of two words, so his name is the standing signal to trade the two front noises."
+    },
+    "pieces": [
+     "SNOW",
+     "BOARD"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lover",
+      "soundsLike": "BEAU",
+      "gives": "SNOW",
+      "note": "a lover is a beau; hand it the /sn/ from the other word and what is left is the white stuff on the slope"
+     },
+     {
+      "clueFragment": "was loud in bed",
+      "soundsLike": "SNORED",
+      "gives": "BOARD",
+      "note": "someone loud in bed snored; it gives its /sn/ away and takes the /b/ in exchange"
+     }
+    ],
+    "surface": "A partner who used to make a terrible racket in bed, remembered on the piste.",
+    "walkthrough": "Say 'beau snored' aloud and swap the noises at the front — the /b/ and the /sn/ change places, and the vowels drift a little as they land. Spoonerisms are heard, never spelled.",
+    "definitionFit": "'Ride going downhill' names the plank you stand sideways on to come down a snowy slope, defining the object by what you do with it."
+   }
   },
   {
    "id": "13-down",
@@ -267,7 +661,53 @@ window.CRYPTIC_PUZZLES["independent-12385"] = /*JSON-START*/ {
     ]
    },
    "solution": "BRINGAROUND",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "BRING AROUND",
+    "definition": "Convince",
+    "linkWords": [
+     "with"
+    ],
+    "indicators": [
+     "revolutionary",
+     "perhaps"
+    ],
+    "indicatorNotes": {
+     "revolutionary": "A revolutionary turns things round, and what gets turned here is the two-letter symbol beside it rather than any institution.",
+     "perhaps": "'perhaps' warns that the word after it is one instance of a wider category, so the piece wanted is the general term it belongs to."
+    },
+    "pieces": [
+     "BRIN",
+     "GA",
+     "ROUND"
+    ],
+    "subReversals": [
+     {
+      "from": "AG",
+      "to": "GA"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Google cofounder",
+      "gives": "BRIN",
+      "note": "Sergey Brin founded Google with Larry Page"
+     },
+     {
+      "clueFragment": "silver",
+      "gives": "AG",
+      "note": "Ag is the chemical symbol for silver, from the Latin argentum"
+     },
+     {
+      "clueFragment": "bullet",
+      "gives": "ROUND",
+      "note": "a bullet is one round of ammunition"
+     }
+    ],
+    "surface": "Talking a tech billionaire into it with a radical and supposedly foolproof fix.",
+    "walkthrough": "'Silver bullet' is the idiom for a single magic solution, which is why it sits inside quotation marks — and neither of its two words means anything like that in the wordplay.",
+    "definitionFit": "The phrasal verb means talking somebody out of their position and into yours, which is precisely what convincing them does."
+   }
   },
   {
    "id": "14-across",
@@ -284,7 +724,42 @@ window.CRYPTIC_PUZZLES["independent-12385"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MOVIE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MOVIE",
+    "definition": "Picture",
+    "indicators": [
+     "appended to"
+    ],
+    "indicatorNotes": {
+     "appended to": "'appended to' hangs the piece named before it onto the end of the pieces named after it, so the chunk mentioned first lands last."
+    },
+    "pieces": [
+     "MO",
+     "V",
+     "IE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "second",
+      "gives": "MO",
+      "note": "a mo is a moment — 'hang on half a mo' — which is a second"
+     },
+     {
+      "clueFragment": "volume",
+      "gives": "V",
+      "note": "v is the standard abbreviation for volume"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is short for the Latin id est, meaning that is"
+     }
+    ],
+    "surface": "A photograph stuck into the second volume of a set.",
+    "walkthrough": "'second volume' is one thing off a bookshelf in the surface and two unrelated abbreviations in the wordplay, and the piece the clue names first is the one that ends up last.",
+    "definitionFit": "'Picture' is the everyday British word for a film — as in going to the pictures — and the answer is the American word for the same thing."
+   }
   },
   {
    "id": "15-down",
@@ -301,7 +776,44 @@ window.CRYPTIC_PUZZLES["independent-12385"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "VALENTINO",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "VALENTINO",
+    "definition": "Matinée idol",
+    "linkWords": [
+     "from"
+    ],
+    "indicators": [
+     "broadcast"
+    ],
+    "indicatorNotes": {
+     "broadcast": "To broadcast is first of all to scatter seed widely, and letters scattered that way land in no particular order."
+    },
+    "anagram": {
+     "fodder": "VALE NOT IN"
+    },
+    "subAnagrams": [
+     {
+      "fodder": "NOTIN",
+      "gives": "NTINO"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Depression",
+      "gives": "VALE",
+      "note": "a vale is a valley, a depression in the land; the capital letter is surface dressing"
+     },
+     {
+      "clueFragment": "not in",
+      "gives": "NTINO",
+      "note": "the five letters of NOT IN in a new order"
+     }
+    ],
+    "surface": "A screen heart-throb of the slump years who was kept off the airwaves.",
+    "walkthrough": "'Depression' wears a capital letter and has nothing to do with the 1930s: it is a dip in the ground. 'not in broadcast' then reads as an absence from the airwaves while quietly being fodder plus its instruction.",
+    "definitionFit": "'Matinée idol' names Rudolph Valentino by trade: the Italian-born star of silent romances whose 1926 funeral brought hysterical crowds onto the New York streets."
+   }
   },
   {
    "id": "16-across",
@@ -322,7 +834,40 @@ window.CRYPTIC_PUZZLES["independent-12385"] = /*JSON-START*/ {
     ]
    },
    "solution": "OFFKILTER",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "OFF-KILTER",
+    "definition": "not quite right",
+    "linkWords": [
+     "that's"
+    ],
+    "indicators": [
+     "adopting"
+    ],
+    "indicatorNotes": {
+     "adopting": "'adopting' is the container instruction: one word takes the other in and keeps it inside, the way a family takes in a child."
+    },
+    "pieces": [
+     "OFF",
+     "KILT",
+     "ER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Volunteer",
+      "gives": "OFFER",
+      "note": "to volunteer something is to offer it"
+     },
+     {
+      "clueFragment": "traditional dress",
+      "gives": "KILT",
+      "note": "the kilt is the pleated knee-length skirt of Scottish national dress"
+     }
+    ],
+    "surface": "Somebody offering to help has taken to wearing national costume.",
+    "walkthrough": "'Volunteer' looks like the willing person the surface paints and is a verb, which is where the outer letters come from. The hyphen in the answer is not signalled anywhere in the clue.",
+    "definitionFit": "Something out of kilter is tilted away from where it ought to sit — not broken, just not quite right."
+   }
   },
   {
    "id": "17-down",
@@ -339,7 +884,39 @@ window.CRYPTIC_PUZZLES["independent-12385"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FREESTYLE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + substitution",
+    "answer": "FREESTYLE",
+    "definition": "Swimming event",
+    "linkWords": [
+     "after"
+    ],
+    "indicators": [
+     "left/right mix-up"
+    ],
+    "indicatorNotes": {
+     "left/right mix-up": "Left is L and right is R, and mixing them up makes the two pieces swap those letters, each taking the one the other gave away."
+    },
+    "pieces": [
+     "FREES",
+     "TYLE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "runs from",
+      "gives": "FREES",
+      "note": "to run from something is to flee it, and FLEES hands its L over in exchange for an R"
+     },
+     {
+      "clueFragment": "Lebanese port",
+      "gives": "TYLE",
+      "note": "Tyre is the ancient port on the Lebanese coast, and it takes in the L that its R has just paid for"
+     }
+    ],
+    "surface": "A swimming race setting off from a Lebanese harbour after left and right get confused.",
+    "walkthrough": "Both halves are altered rather than one: a single L and a single R change places across the two words. Tyre is one of the world's oldest ports, on the coast south of Beirut.",
+    "definitionFit": "'Swimming event' points at a discipline rather than offering a synonym: freestyle is the race in which any stroke is allowed and everybody chooses front crawl."
+   }
   },
   {
    "id": "18-across",
@@ -356,7 +933,33 @@ window.CRYPTIC_PUZZLES["independent-12385"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SALTPETRE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "SALTPETRE",
+    "definition": "potassium compound",
+    "linkWords": [
+     "signifying"
+    ],
+    "indicators": [
+     "incorrectly"
+    ],
+    "indicatorNotes": {
+     "incorrectly": "'incorrectly' says the letters have been set down in the wrong order, which is an invitation to find the right one."
+    },
+    "anagram": {
+     "fodder": "A LETTER P S"
+    },
+    "blocks": [
+     {
+      "clueFragment": "A letter P's",
+      "gives": "ALETTERPS",
+      "note": "anagram fodder, nine letters taken exactly as printed"
+     }
+    ],
+    "surface": "A P typed by mistake turns out to stand for something to do with potassium.",
+    "walkthrough": "The fodder hides in plain sight because 'A letter P's' reads as a description of a typo rather than as a string of letters waiting to be shuffled.",
+    "definitionFit": "'Potassium compound' is the chemistry: saltpetre is potassium nitrate, the oxidiser that makes gunpowder burn, so the definition is technical rather than everyday."
+   }
   },
   {
    "id": "18-down",
@@ -373,7 +976,46 @@ window.CRYPTIC_PUZZLES["independent-12385"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SUCCESS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "SUCCESS",
+    "definition": "Win",
+    "linkWords": [
+     "after"
+    ],
+    "indicators": [
+     "losing",
+     "twice"
+    ],
+    "indicatorNotes": {
+     "losing": "'losing' is the deletion instruction: whatever it names drops out of the piece it was sitting in.",
+     "twice": "'twice' says the same letter comes out on two separate occasions, so both pieces give one up rather than one piece giving up two."
+    },
+    "pieces": [
+     "SUC",
+     "CESS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H is hard, the grade stamped on a pencil, and it is the letter that leaves"
+     },
+     {
+      "clueFragment": "this kind of",
+      "gives": "SUC",
+      "note": "SUCH means this kind of, and it goes without its H"
+     },
+     {
+      "clueFragment": "board game",
+      "gives": "CESS",
+      "note": "CHESS is the board game, and it goes without its H as well"
+     }
+    ],
+    "surface": "Beating somebody at this sort of board game after two hard defeats.",
+    "walkthrough": "The same letter comes out of both words, which is the job 'twice' is doing at the end. 'Win' is a noun here, not the verb the surface keeps offering.",
+    "definitionFit": "'Win' works as a noun — the outcome achieved rather than the act of achieving it — and the answer is its more formal equivalent."
+   }
   },
   {
    "id": "19-across",
@@ -390,7 +1032,45 @@ window.CRYPTIC_PUZZLES["independent-12385"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GIRTH",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + charade",
+    "answer": "GIRTH",
+    "definition": "circumference",
+    "linkWords": [
+     "and"
+    ],
+    "indicators": [
+     "going over"
+    ],
+    "indicatorNotes": {
+     "going over": "'going over' turns the piece before it end for end, so those four letters are read back along the row before the last one is added."
+    },
+    "pieces": [
+     "GIRT",
+     "H"
+    ],
+    "subReversals": [
+     {
+      "from": "TRIG",
+      "to": "GIRT"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bit of maths",
+      "gives": "TRIG",
+      "note": "trig is short for trigonometry, one branch of school maths"
+     },
+     {
+      "clueFragment": "height",
+      "gives": "H",
+      "note": "h is the standard symbol for height in a formula"
+     }
+    ],
+    "surface": "A topic in maths that covers height as well as the distance round.",
+    "walkthrough": "'Bit of maths' looks like an instruction to take a few letters out of a longer word, and it is a synonym instead: a whole school subject in four letters.",
+    "definitionFit": "Circumference is the distance round a solid thing — a tree trunk, a waist, a horse's belly — which is what girth measures."
+   }
   },
   {
    "id": "20-down",
@@ -407,7 +1087,43 @@ window.CRYPTIC_PUZZLES["independent-12385"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HEIRESS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "HEIRESS",
+    "definition": "she has it coming",
+    "definitionNote": "The definition is a clause rather than a noun phrase: it describes the woman by what is due to her, with 'it' standing for the inheritance, instead of naming her.",
+    "indicators": [
+     "leader of"
+    ],
+    "indicatorNotes": {
+     "leader of": "'leader of' takes only the letter that leads the word after it, the one standing at its head."
+    },
+    "pieces": [
+     "HE",
+     "IRES",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "That man",
+      "gives": "HE",
+      "note": "'that man' is he"
+     },
+     {
+      "clueFragment": "angers",
+      "gives": "IRES",
+      "note": "to ire somebody is to anger them, and the verb keeps its third-person s"
+     },
+     {
+      "clueFragment": "suffragists",
+      "gives": "S",
+      "note": "the opening letter of the word"
+     }
+    ],
+    "surface": "A man's behaviour infuriates the head of the suffragists, who thoroughly deserves what is coming.",
+    "walkthrough": "'she has it coming' sounds like a threat and means money is due. The suffragists campaigned peacefully for votes for women, as opposed to the suffragettes and their direct action.",
+    "definitionFit": "The 'it' on its way to her is money left in a will: an heiress is a woman who inherits, or stands to inherit, a fortune."
+   }
   },
   {
    "id": "21-across",
@@ -424,7 +1140,43 @@ window.CRYPTIC_PUZZLES["independent-12385"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CANADIANS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CANADIANS",
+    "definition": "Maybe Toronto team",
+    "definitionNote": "'team' is singular where the answer is plural: the definition names the players collectively, and 'Maybe' flags that a Toronto side is only one instance of the nationality.",
+    "pieces": [
+     "CAN",
+     "AD",
+     "I",
+     "ANS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "are able to",
+      "gives": "CAN",
+      "note": "'are able to' is can"
+     },
+     {
+      "clueFragment": "spot",
+      "gives": "AD",
+      "note": "a spot is an advertising slot on television or radio"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "answer",
+      "gives": "ANS",
+      "note": "ans is the standard short form of answer, as at the back of a textbook"
+     }
+    ],
+    "surface": "A Toronto side manages to pick out a single reply.",
+    "walkthrough": "'spot' is not seeing something here but an advertising slot, and 'answer' sits in the definition's usual place at the end of the clue while belonging to the wordplay.",
+    "definitionFit": "The definition works by example: a side from Toronto would be made up of people of that nationality, though hardly all of them play there."
+   }
   },
   {
    "id": "22-down",
@@ -445,7 +1197,45 @@ window.CRYPTIC_PUZZLES["independent-12385"] = /*JSON-START*/ {
     ]
    },
    "solution": "ADDON",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "ADD-ON",
+    "definition": "supplement",
+    "linkWords": [
+     "and"
+    ],
+    "indicators": [
+     "Returned"
+    ],
+    "indicatorNotes": {
+     "Returned": "'Returned' sends the finished assembly back the way it came, so both pieces are read from their last letter to their first."
+    },
+    "pieces": [
+     "AD",
+     "DON"
+    ],
+    "subReversals": [
+     {
+      "from": "NODDA",
+      "to": "ADDON"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to sign agreement",
+      "gives": "NOD",
+      "note": "you nod to signal that you agree"
+     },
+     {
+      "clueFragment": "District Attorney",
+      "gives": "DA",
+      "note": "DA is the district attorney, the prosecutor in an American court"
+     }
+    ],
+    "surface": "Somebody came back to sign a deal along with the district attorney.",
+    "walkthrough": "'sign agreement' is not a document but a gesture, the one you make with your head. The two pieces are built in clue order and only then is the whole thing turned round.",
+    "definitionFit": "A supplement here is an extra part bolted onto something already complete — a feature added to software, an accessory sold separately."
+   }
   },
   {
    "id": "23-across",
@@ -462,7 +1252,42 @@ window.CRYPTIC_PUZZLES["independent-12385"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ROSTI",
-   "annotation": null
+   "annotation": {
+    "type": "container + first letter",
+    "answer": "ROSTI",
+    "definition": "Swiss-style fried potato",
+    "linkWords": [
+     "and"
+    ],
+    "indicators": [
+     "Starter of",
+     "wraps"
+    ],
+    "indicatorNotes": {
+     "Starter of": "'Starter of' asks for the letter a word starts with, while the food sense of a starter keeps the instruction out of sight.",
+     "wraps": "'wraps' is the container instruction: the flatbread closes round the single letter the way a wrap closes round its filling."
+    },
+    "pieces": [
+     "RO",
+     "S",
+     "TI"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flatbread",
+      "gives": "ROTI",
+      "note": "a roti is the unleavened Indian flatbread"
+     },
+     {
+      "clueFragment": "savoury",
+      "gives": "S",
+      "note": "the opening letter of the word"
+     }
+    ],
+    "surface": "The first mouthful of a savoury flatbread parcel.",
+    "walkthrough": "Three foods in one sentence and only one of them is the definition. 'wraps' does the container's work while reading as part of the menu, which is why the clue seems to be about a sandwich throughout.",
+    "definitionFit": "The Swiss dish is grated potato pressed into a flat cake and fried until crisp, so the definition is a plain description of the thing."
+   }
   },
   {
    "id": "24-down",
@@ -479,7 +1304,38 @@ window.CRYPTIC_PUZZLES["independent-12385"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SPURN",
-   "annotation": null
+   "annotation": {
+    "type": "charade + middle letter",
+    "answer": "SPURN",
+    "definition": "Reject",
+    "indicators": [
+     "essentially",
+     "following"
+    ],
+    "indicatorNotes": {
+     "essentially": "'essentially' asks for the essence of the word, the letter sitting at its exact centre rather than any letter inside it.",
+     "following": "'following' puts the letter it has just produced behind the piece named next, so the incentive comes first."
+    },
+    "pieces": [
+     "SPUR",
+     "N"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "incentive",
+      "gives": "SPUR",
+      "note": "a spur is an incentive, the thing that drives someone on"
+     },
+     {
+      "clueFragment": "fiancée",
+      "gives": "N",
+      "note": "the middle letter of the seven in the word, with three either side"
+     }
+    ],
+    "surface": "Dropping a partner because a reward is on offer elsewhere.",
+    "walkthrough": "'Reject fiancée' reads as one action and splits: the first word is the definition and the second is a word to take a letter out of, so the engagement belongs entirely to the surface.",
+    "definitionFit": "To spurn something is to reject it with contempt — the disdainful end of the verb, used of offers, lovers and advice."
+   }
   },
   {
    "id": "25-across",
@@ -496,7 +1352,39 @@ window.CRYPTIC_PUZZLES["independent-12385"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EXISTED",
-   "annotation": null
+   "annotation": {
+    "type": "container + middle letter",
+    "answer": "EXISTED",
+    "definition": "Were",
+    "indicators": [
+     "screens",
+     "central part of"
+    ],
+    "indicatorNotes": {
+     "screens": "To screen something is to hide it behind something else, so one word closes over the letter the other supplies.",
+     "central part of": "'central part of' asks for the letter at the exact middle of the word, not for any letter that happens to be inside it."
+    },
+    "pieces": [
+     "EXI",
+     "S",
+     "TED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "split",
+      "gives": "EXITED",
+      "note": "to split is to leave, and the past tense of that slang verb is exited"
+     },
+     {
+      "clueFragment": "episode",
+      "gives": "S",
+      "note": "the middle letter of the seven in the word, with three either side"
+     }
+    ],
+    "surface": "A question about whether split screens were the heart of a television episode.",
+    "walkthrough": "'split screens' is a single piece of television jargon in the surface and two separate instructions underneath, one supplying letters and one telling you what to do with them.",
+    "definitionFit": "'Were' is past-tense 'be', and things that existed are simply things that were — the two verbs swap straight over in 'the dodo was' and 'the dodo existed'."
+   }
   },
   {
    "id": "26-down",
@@ -513,7 +1401,39 @@ window.CRYPTIC_PUZZLES["independent-12385"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TUG",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "TUG",
+    "definition": "Yank",
+    "linkWords": [
+     "for"
+    ],
+    "indicators": [
+     "on reflection"
+    ],
+    "indicatorNotes": {
+     "on reflection": "'on reflection' is a mirror as much as it is second thoughts, so the three letters come back the other way round."
+    },
+    "pieces": [
+     "TUG"
+    ],
+    "subReversals": [
+     {
+      "from": "GUT",
+      "to": "TUG"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hamburger's good",
+      "gives": "GUT",
+      "note": "a Hamburger is a native of Hamburg, and gut is German for good"
+     }
+    ],
+    "surface": "A man from Hamburg gives something his approval after a moment's thought.",
+    "walkthrough": "Two nationalities in three letters and neither one counts: a Hamburger is a citizen of Hamburg rather than a burger, and 'Yank' is a pull rather than an American.",
+    "definitionFit": "'Yank' is the noun meaning a short sharp pull, so it matches the same sudden action a tug describes."
+   }
   },
   {
    "id": "27-across",
@@ -530,7 +1450,38 @@ window.CRYPTIC_PUZZLES["independent-12385"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "YOUTUBE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "YOUTUBE",
+    "definition": "tech company",
+    "linkWords": [
+     "After"
+    ],
+    "indicators": [
+     "collapse"
+    ],
+    "indicatorNotes": {
+     "collapse": "A collapse leaves the parts of a thing lying in a heap in no particular order, which is what happens to the letters standing next to it."
+    },
+    "anagram": {
+     "fodder": "BUY OUT E"
+    },
+    "blocks": [
+     {
+      "clueFragment": "buy out",
+      "gives": "BUYOUT",
+      "note": "anagram fodder, six letters"
+     },
+     {
+      "clueFragment": "electronic",
+      "gives": "E",
+      "note": "e is the standard abbreviation for electronic, as in e-mail"
+     }
+    ],
+    "surface": "A firm bought up cheaply once the market has crashed.",
+    "walkthrough": "'buy out electronic' reads as business news and is seven letters waiting to be shuffled, while 'tech company' sits quietly at the end of the clue being the definition.",
+    "definitionFit": "'Tech company' names it by class: the video-sharing site has been one of the big technology firms since Google bought it in 2006."
+   }
   },
   {
    "id": "28-across",
@@ -551,7 +1502,24 @@ window.CRYPTIC_PUZZLES["independent-12385"] = /*JSON-START*/ {
     ]
    },
    "solution": "SHOTGUNWEDDINGS",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "SHOTGUN WEDDINGS",
+    "definition": "Unions that are forced to raise issue legitimately?",
+    "blocks": [
+     {
+      "clueFragment": "Unions that are forced to raise",
+      "note": "the surface reading: trade unions under pressure to bring a matter up for debate"
+     },
+     {
+      "clueFragment": "issue legitimately",
+      "note": "the setter's reading: 'issue' is the old legal word for offspring, and children count as legitimate when their parents are married"
+     }
+    ],
+    "surface": "Trade unions being leaned on to table a motion by the proper procedure.",
+    "walkthrough": "'Unions' are marriages and 'issue' is children, both in their older legal senses, and the pressure in the surface turns into the shotgun of the phrase.",
+    "definitionFit": "A marriage hurried through because the bride is pregnant is forced in exactly that sense, and it is what makes the child born inside a marriage."
+   }
   }
  ]
 } /*JSON-END*/;
