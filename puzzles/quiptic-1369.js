@@ -30,7 +30,36 @@ window.CRYPTIC_PUZZLES["quiptic-1369"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ANTELOPE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ANTELOPE",
+    "definition": "Animal",
+    "indicators": [
+     "on"
+    ],
+    "indicatorNotes": {
+     "on": "In an across clue a piece laid 'on' another is tacked against its end, so the word after it supplies the opening letters."
+    },
+    "pieces": [
+     "ANTE",
+     "LOPE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stake",
+      "gives": "ANTE",
+      "note": "the ante is the bet every player must put up before the cards are dealt"
+     },
+     {
+      "clueFragment": "bound",
+      "gives": "LOPE",
+      "note": "to lope is to run in long easy bounds, the stride a wolf crosses open ground with"
+     }
+    ],
+    "surface": "An animal tethered to a post.",
+    "walkthrough": "'Bound' reads as tied fast, which is what the tethering picture needs, and the wordplay wants the other sense entirely: a long springing stride.",
+    "definitionFit": "Animal → ANTELOPE: the definition names the class and the answer is one member of it, a hoofed grazer of the African plains."
+   }
   },
   {
    "id": "1-down",
@@ -47,7 +76,44 @@ window.CRYPTIC_PUZZLES["quiptic-1369"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AIDA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "AIDA",
+    "definition": "Opera",
+    "linkWords": [
+     "is"
+    ],
+    "indicators": [
+     "lacking"
+    ],
+    "indicatorNotes": {
+     "lacking": "Something that lacks a thing is simply missing it, so the letter named next is absent from the word before."
+    },
+    "pieces": [
+     "A",
+     "IDA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the sentence's own indefinite article, taken at face value as a single letter"
+     },
+     {
+      "clueFragment": "concept",
+      "gives": "IDEA",
+      "note": "a concept is an idea — four letters, one of which is about to go"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the physics symbol for energy, and E is the letter that leaves the word beside it"
+     }
+    ],
+    "surface": "An opera dismissed as a listless notion with no drive behind it.",
+    "walkthrough": "The lone A hides in plain sight as the article of 'a concept', which is what makes the split so hard to see; E for energy is the standard physics symbol.",
+    "definitionFit": "Opera → AIDA: definition by example — Verdi's Egyptian tragedy is one opera among hundreds, and the wordplay picks which."
+   }
   },
   {
    "id": "2-down",
@@ -64,7 +130,39 @@ window.CRYPTIC_PUZZLES["quiptic-1369"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TOME",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "TOME",
+    "definition": "Book",
+    "linkWords": [
+     "is"
+    ],
+    "indicators": [
+     "closed up"
+    ],
+    "indicatorNotes": {
+     "closed up": "Closing a gap up means the two short words are written with no space left between them."
+    },
+    "pieces": [
+     "TO",
+     "ME"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "as far as",
+      "gives": "TO",
+      "note": "'as far as' marks how far something extends, and 'to' is the preposition English uses for that limit"
+     },
+     {
+      "clueFragment": "I’m concerned",
+      "gives": "ME",
+      "note": "the speaker in the form used after a preposition — a matter that concerns me"
+     }
+    ],
+    "surface": "Someone declaring a matter closed, the book shut so far as they care.",
+    "walkthrough": "'Book is closed' invites you to read the first three words as one phrase, and that is where the split hides: the definition stops at the first word.",
+    "definitionFit": "Book → TOME: a tome is a book, specifically a heavy scholarly one, so the everyday word defines the weightier one."
+   }
   },
   {
    "id": "3-down",
@@ -81,7 +179,28 @@ window.CRYPTIC_PUZZLES["quiptic-1369"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LOCALE",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "LOCALE",
+    "definition": "Position",
+    "indicators": [
+     "that sounds"
+    ],
+    "indicatorNotes": {
+     "that sounds": "'Sounds' hands you the noise instead of the spelling: say the healthier phrase aloud and write down what your ear gets."
+    },
+    "blocks": [
+     {
+      "clueFragment": "more healthy",
+      "soundsLike": "LOW-CAL",
+      "gives": "LOCALE",
+      "note": "food sold as low-cal has had the calories cut, the healthier option on the shelf"
+     }
+    ],
+    "surface": "A spot being recommended as the healthier choice.",
+    "walkthrough": "Low-cal is supermarket shorthand for low-calorie, and said quickly it comes out as two syllables with the stress on the second — which is where the spelling parts company with the sound.",
+    "definitionFit": "Position → LOCALE: a locale is the place where something is set or happens, matching 'position' in its plain noun sense of where a thing sits."
+   }
   },
   {
    "id": "4-down",
@@ -104,7 +223,34 @@ window.CRYPTIC_PUZZLES["quiptic-1369"] = /*JSON-START*/ {
     ]
    },
    "solution": "PLAYHARDTOGET",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PLAY HARD TO GET",
+    "definition": "approach to attracting lover",
+    "definitionNote": "The answer is a verb phrase — you play hard to get — while 'approach' is a noun; the setter names the tactic rather than the doing of it.",
+    "linkWords": [
+     "showing"
+    ],
+    "pieces": [
+     "PLAY",
+     "HARDTOGET"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drama",
+      "gives": "PLAY",
+      "note": "a drama staged in a theatre is a play"
+     },
+     {
+      "clueFragment": "Rare",
+      "gives": "HARDTOGET",
+      "note": "what is rare is hard to get hold of — the phrase is a definition of scarcity"
+     }
+    ],
+    "surface": "An unusual drama about how to win a lover round.",
+    "walkthrough": "'Rare drama' reads as one phrase, an unusual piece of theatre, and it is two separate definitions clued in the opposite order to the one the answer runs in.",
+    "definitionFit": "approach to attracting lover → PLAY HARD TO GET: the courtship tactic of feigning indifference so the other person does the pursuing."
+   }
   },
   {
    "id": "5-across",
@@ -121,7 +267,36 @@ window.CRYPTIC_PUZZLES["quiptic-1369"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ALASKA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters",
+    "answer": "ALASKA",
+    "definition": "very cold terrain",
+    "indicators": [
+     "borders"
+    ],
+    "indicatorNotes": {
+     "borders": "A country's borders are its outer edges, so what you take is the letter standing at each end of the name."
+    },
+    "pieces": [
+     "ALAS",
+     "KA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Unfortunately",
+      "gives": "ALAS",
+      "note": "alas is the old-fashioned sigh you let out when something is unfortunate"
+     },
+     {
+      "clueFragment": "Kenya",
+      "gives": "KA",
+      "note": "the first and last letters of the country's name, read in that order"
+     }
+    ],
+    "surface": "A lament that Kenya has freezing country next door.",
+    "walkthrough": "Kenya sits on the equator, so the geography is nonsense the moment you check it — the setter's way of saying the country is here for its spelling.",
+    "definitionFit": "very cold terrain → ALASKA: definition by example — the American far north is a byword for tundra, ice and permafrost."
+   }
   },
   {
    "id": "6-down",
@@ -138,7 +313,33 @@ window.CRYPTIC_PUZZLES["quiptic-1369"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LUNCHBOX",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "LUNCHBOX",
+    "definition": "one’s masculine quality perhaps",
+    "linkWords": [
+     "shows"
+    ],
+    "pieces": [
+     "LUNCH",
+     "BOX"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Food",
+      "gives": "LUNCH",
+      "note": "the midday meal, food by name"
+     },
+     {
+      "clueFragment": "fight",
+      "gives": "BOX",
+      "note": "to box is to fight with gloves on inside a ring"
+     }
+    ],
+    "surface": "A food fight that reveals something manly about one of the throwers.",
+    "walkthrough": "British tabloids adopted LUNCHBOX for a man's bulge after Linford Christie's sprinting Lycra made the front pages in 1993, which is why 'perhaps' is there: it flags slang rather than a dictionary sense.",
+    "definitionFit": "one’s masculine quality perhaps → LUNCHBOX: British tabloid slang for the visible bulge of a man's genitals."
+   }
   },
   {
    "id": "7-down",
@@ -159,7 +360,35 @@ window.CRYPTIC_PUZZLES["quiptic-1369"] = /*JSON-START*/ {
     ]
    },
    "solution": "SETTLEDOWN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SETTLE DOWN",
+    "definition": "Try to be calm",
+    "pieces": [
+     "SETTLE",
+     "DOWN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pay",
+      "gives": "SETTLE",
+      "note": "you settle a bill when you pay off what you owe"
+     },
+     {
+      "clueFragment": "low",
+      "gives": "DOWN",
+      "note": "down is the direction of low, and someone feeling low is feeling down"
+     },
+     {
+      "clueFragment": "about it",
+      "gives": "",
+      "note": "surface only, no letters: it makes the sentence sound like advice to someone stewing over a grievance"
+     }
+    ],
+    "surface": "One person urging another to stay calm about a poor wage.",
+    "walkthrough": "The question mark after 'Pay low?' admits those two words define nothing between them: each is a synonym in its own right, laid end to end.",
+    "definitionFit": "Try to be calm → SETTLE DOWN: what you say to someone worked up — to settle down is to stop agitating and go quiet."
+   }
   },
   {
    "id": "8-down",
@@ -181,7 +410,42 @@ window.CRYPTIC_PUZZLES["quiptic-1369"] = /*JSON-START*/ {
     ]
    },
    "solution": "ALLTHERAGE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "ALL THE RAGE",
+    "definition": "quite fashionable",
+    "definitionNote": "The answer is a noun phrase living after 'is' — it's all the rage — where 'quite fashionable' is adjectival; both only ever turn up in that same slot.",
+    "linkWords": [
+     "to",
+     "it’s"
+    ],
+    "indicators": [
+     "acquire"
+    ],
+    "indicatorNotes": {
+     "acquire": "To acquire something is to take it in and keep it, so the phrase in front closes around the metal."
+    },
+    "pieces": [
+     "ALLTHER",
+     "AG",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sensible",
+      "gives": "ALLTHERE",
+      "note": "someone all there is in full possession of their wits — the phrase survives mostly in the negative, 'not all there'"
+     },
+     {
+      "clueFragment": "silver",
+      "gives": "AG",
+      "note": "Ag is the chemical symbol for silver, from the Latin argentum"
+     }
+    ],
+    "surface": "A tip on the metals market: buying silver is the smart move just now.",
+    "walkthrough": "The clue reads as investment advice, with the last three words as the reason to buy. 'Rage' is the old sense of a passing craze, not anger.",
+    "definitionFit": "quite fashionable → ALL THE RAGE: what everybody wants at the moment, 'rage' carrying its older sense of a craze."
+   }
   },
   {
    "id": "9-across",
@@ -198,7 +462,30 @@ window.CRYPTIC_PUZZLES["quiptic-1369"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DEMOCRATS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "DEMOCRATS",
+    "definition": "Politicians",
+    "indicators": [
+     "after reshuffle"
+    ],
+    "indicatorNotes": {
+     "after reshuffle": "A reshuffle moves ministers into different jobs, and the letters change places in exactly the same way."
+    },
+    "anagram": {
+     "fodder": "CARED MOST"
+    },
+    "blocks": [
+     {
+      "clueFragment": "cared most",
+      "gives": "CAREDMOST",
+      "note": "anagram fodder, nine letters, and the enumeration matches it exactly"
+     }
+    ],
+    "surface": "MPs who did the most caring get their reward in a cabinet reshuffle.",
+    "walkthrough": "'Politicians' and 'reshuffle' pull towards Westminster, and the party the letters spell is American — the misdirection is geographical rather than lexical.",
+    "definitionFit": "Politicians → DEMOCRATS: members of one of the two US parties, the plural noun naming them as a class of politician."
+   }
   },
   {
    "id": "10-down",
@@ -219,7 +506,33 @@ window.CRYPTIC_PUZZLES["quiptic-1369"] = /*JSON-START*/ {
     ]
    },
    "solution": "SILVERTONGUED",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SILVER-TONGUED",
+    "definition": "charming",
+    "linkWords": [
+     "That’s"
+    ],
+    "pieces": [
+     "SILVER",
+     "TONGUED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Posh cutlery",
+      "gives": "SILVER",
+      "note": "the good cutlery kept for guests, named after the metal it is made of"
+     },
+     {
+      "clueFragment": "licked",
+      "gives": "TONGUED",
+      "note": "to tongue something is to put your tongue to it, which is what licking is"
+     }
+    ],
+    "surface": "Someone has licked the best cutlery, which is hardly delightful.",
+    "walkthrough": "'That's charming!' is what a British speaker says about something disgusting, so the sarcastic reading and the straight one sit on top of each other; the clue means the straight one.",
+    "definitionFit": "charming → SILVER-TONGUED: a silver-tongued talker persuades by smooth, flattering speech, which is 'charming' in the sense of winning people round."
+   }
   },
   {
    "id": "11-across",
@@ -236,7 +549,42 @@ window.CRYPTIC_PUZZLES["quiptic-1369"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NATAL",
-   "annotation": null
+   "annotation": {
+    "type": "middle letters",
+    "answer": "NATAL",
+    "definition": "dealing with birth",
+    "indicators": [
+     "at centre"
+    ],
+    "indicatorNotes": {
+     "at centre": "It points at the letters standing in the middle of each word, and not at what those words mean."
+    },
+    "pieces": [
+     "NA",
+     "TA",
+     "L"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Manage",
+      "gives": "NA",
+      "note": "maNAge — the middle two of its six letters"
+     },
+     {
+      "clueFragment": "intake",
+      "gives": "TA",
+      "note": "inTAke — the middle two of its six letters"
+     },
+     {
+      "clueFragment": "files",
+      "gives": "L",
+      "note": "fiLes — the middle one of its five letters"
+     }
+    ],
+    "surface": "Handling the admissions paperwork at a maternity unit.",
+    "walkthrough": "'Centre' reads as a place — a records centre, a birth centre — and it means a position inside each word. The three donor words are pure office vocabulary, so nothing medical shows until the definition.",
+    "definitionFit": "dealing with birth → NATAL: the adjective from Latin natalis, used of anything to do with being born, as in prenatal and neonatal."
+   }
   },
   {
    "id": "12-across",
@@ -258,7 +606,44 @@ window.CRYPTIC_PUZZLES["quiptic-1369"] = /*JSON-START*/ {
     ]
    },
    "solution": "BLAHBLAHBLAH",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letters",
+    "answer": "BLAH BLAH BLAH",
+    "definition": "claptrap",
+    "indicators": [
+     "leaders",
+     "keep repeating"
+    ],
+    "indicatorNotes": {
+     "leaders": "The leaders of a run of words are the letters at their heads, taken in the order the words come.",
+     "keep repeating": "It asks for the same short unit over and over, which the three equal words of the enumeration confirm."
+    },
+    "pieces": [
+     "BLAH",
+     "BLAH",
+     "BLAH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boring language about heritage",
+      "gives": "BLAH",
+      "note": "the heads of these four words, read in order"
+     },
+     {
+      "clueFragment": "Boring language about heritage",
+      "gives": "BLAH",
+      "note": "the instruction hands the same four letters back a second time"
+     },
+     {
+      "clueFragment": "Boring language about heritage",
+      "gives": "BLAH",
+      "note": "and a third time, which fills the last of the three four-letter words"
+     }
+    ],
+    "surface": "Dull talk from heritage bosses who keep saying the same thing.",
+    "walkthrough": "'About' is not doing its usual container job here — it is one of the four words being decapitated, and it is easy to miss because it reads as pure grammar.",
+    "definitionFit": "claptrap → BLAH BLAH BLAH: empty noise nobody needs to hear, the sound you make in place of words not worth saying."
+   }
   },
   {
    "id": "13-down",
@@ -275,7 +660,30 @@ window.CRYPTIC_PUZZLES["quiptic-1369"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DENUNCIATE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "DENUNCIATE",
+    "definition": "Condemn",
+    "indicators": [
+     "disseminated"
+    ],
+    "indicatorNotes": {
+     "disseminated": "To disseminate is to scatter seed broadly, and letters scattered that way come down in new places."
+    },
+    "anagram": {
+     "fodder": "DECEIT A NUN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "deceit a nun",
+      "gives": "DECEITANUN",
+      "note": "anagram fodder, ten letters, the full length of the entry"
+     }
+    ],
+    "surface": "A nun caught spreading a lie, and somebody condemning her for it.",
+    "walkthrough": "'A nun' looks like part of the story rather than part of the fodder, which is what keeps ten letters sitting in plain sight. The answer is the rarer sibling of 'denounce'.",
+    "definitionFit": "Condemn → DENUNCIATE: a rare verb meaning to denounce publicly, so to denunciate a thing is to condemn it out loud."
+   }
   },
   {
    "id": "14-down",
@@ -297,7 +705,45 @@ window.CRYPTIC_PUZZLES["quiptic-1369"] = /*JSON-START*/ {
     ]
    },
    "solution": "HANDINHAND",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "HAND IN HAND",
+    "definition": "co-operative",
+    "linkWords": [
+     "being"
+    ],
+    "indicators": [
+     "around"
+    ],
+    "indicatorNotes": {
+     "around": "It sets the pair on either side of what follows, so the short word ends up enclosed between them."
+    },
+    "pieces": [
+     "HAND",
+     "IN",
+     "HAND"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Two workers",
+      "gives": "HAND",
+      "note": "a hand is a worker — a farm hand, all hands on deck; this is the first of the two"
+     },
+     {
+      "clueFragment": "home",
+      "gives": "IN",
+      "note": "someone at home is in, as in 'is she in?'"
+     },
+     {
+      "clueFragment": "Two workers",
+      "gives": "HAND",
+      "note": "the second of the pair the clue asked for"
+     }
+    ],
+    "surface": "Two labourers getting on with a job around the house.",
+    "walkthrough": "'Worker' is one of the crossword's stock words — usually ANT, sometimes HAND — and here it is wanted twice, which the enumeration's matching outer fours confirm.",
+    "definitionFit": "co-operative → HAND IN HAND: two people going hand in hand are working in close partnership, the sense of co-operative that means acting together."
+   }
   },
   {
    "id": "15-across",
@@ -314,7 +760,39 @@ window.CRYPTIC_PUZZLES["quiptic-1369"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EDAM",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "EDAM",
+    "definition": "Cheese",
+    "linkWords": [
+     "made from"
+    ],
+    "indicators": [
+     "50% of"
+    ],
+    "indicatorNotes": {
+     "50% of": "Half the letters of each word are wanted, and it is the back half that survives in both of them."
+    },
+    "pieces": [
+     "ED",
+     "AM"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "used",
+      "gives": "ED",
+      "note": "the back half of its four letters"
+     },
+     {
+      "clueFragment": "spam",
+      "gives": "AM",
+      "note": "the back half of its four letters"
+     }
+    ],
+    "surface": "A cheese apparently produced out of leftover tinned meat.",
+    "walkthrough": "Spam is the tinned pork of wartime rationing, and 'used spam' is deliberately revolting — the definition is the one clean word in the sentence.",
+    "definitionFit": "Cheese → EDAM: definition by example — the round Dutch cheese in its red wax coat is one cheese among many."
+   }
   },
   {
    "id": "16-across",
@@ -331,7 +809,33 @@ window.CRYPTIC_PUZZLES["quiptic-1369"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FREELOADER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "FREELOADER",
+    "definition": "One taking advantage",
+    "linkWords": [
+     "of"
+    ],
+    "pieces": [
+     "FREE",
+     "LOADER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "available",
+      "gives": "FREE",
+      "note": "a free seat is an available one"
+     },
+     {
+      "clueFragment": "heavy machinery",
+      "gives": "LOADER",
+      "note": "a loader is the site vehicle that scoops earth or rubble into a truck"
+     }
+    ],
+    "surface": "Somebody exploiting the fact that a big digger is going spare.",
+    "walkthrough": "'Free' in the wordplay means available, while the same four letters in the answer mean not paying — the setter uses the sense you do not need.",
+    "definitionFit": "One taking advantage → FREELOADER: someone who lives off other people's generosity and never pays their share."
+   }
   },
   {
    "id": "17-down",
@@ -348,7 +852,25 @@ window.CRYPTIC_PUZZLES["quiptic-1369"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TRAILERS",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "TRAILERS",
+    "definition": "Do they get dragged into showing what’s in store?",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Do they get dragged",
+      "note": "the surface asks about being hauled along behind a vehicle, which one sense of these things is exactly"
+     },
+     {
+      "clueFragment": "showing what’s in store",
+      "note": "'in store' is what is coming rather than what is on the shelves: these are shown before the main feature to advertise the next one"
+     }
+    ],
+    "surface": "Objects being hauled about to advertise what a shop has in stock.",
+    "walkthrough": "Both senses are towed along together: the box on a tow bar and the two minutes of clips before the film. 'In store' is the pivot, reading as shop stock and meaning what is coming up.",
+    "definitionFit": "Both senses land on TRAILERS: a cinema trailer shows the films in store, and a road trailer is a thing dragged along behind."
+   }
   },
   {
    "id": "18-across",
@@ -365,7 +887,33 @@ window.CRYPTIC_PUZZLES["quiptic-1369"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UNDERSTATE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "UNDERSTATE",
+    "definition": "Don’t go overboard",
+    "linkWords": [
+     "when"
+    ],
+    "pieces": [
+     "UNDER",
+     "STATE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "reporting to",
+      "gives": "UNDER",
+      "note": "in a company, whoever reports to a manager sits under them on the chart"
+     },
+     {
+      "clueFragment": "nation",
+      "gives": "STATE",
+      "note": "a sovereign state is a nation"
+     }
+    ],
+    "surface": "Advice against exaggerating when you brief the country.",
+    "walkthrough": "'Reporting to nation' reads as a broadcast to the public, and it is two separate pieces: the org-chart sense of reporting to somebody, then a plain synonym.",
+    "definitionFit": "Don’t go overboard → UNDERSTATE: to understate is to put a thing more mildly than the facts warrant, which is exactly not overdoing it."
+   }
   },
   {
    "id": "19-across",
@@ -382,7 +930,27 @@ window.CRYPTIC_PUZZLES["quiptic-1369"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TWIG",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "TWIG",
+    "definition": "Get",
+    "definition2": "a bit of stick",
+    "blocks": [
+     {
+      "clueFragment": "Get",
+      "gives": "",
+      "note": "in the sense of catching on — 'now I get it' is a claim to have finally understood"
+     },
+     {
+      "clueFragment": "a bit of stick",
+      "gives": "",
+      "note": "read literally: a small piece broken off a branch, not an instruction to take one letter"
+     }
+    ],
+    "surface": "Someone on the receiving end of a bit of flak.",
+    "walkthrough": "'A bit of' looks like the instruction to take a single letter out of 'stick', and it is meant literally: a small piece of one. Getting stick is British for being criticised.",
+    "definitionFit": "'Get' → TWIG in the British slang sense of catching on — did you twig? — and a twig is literally a small piece of a stick."
+   }
   },
   {
    "id": "20-down",
@@ -403,7 +971,33 @@ window.CRYPTIC_PUZZLES["quiptic-1369"] = /*JSON-START*/ {
     ]
    },
    "solution": "OLDHAT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "OLD HAT",
+    "definition": "somewhat passé",
+    "linkWords": [
+     "it’s"
+    ],
+    "indicators": [
+     "running amok"
+    ],
+    "indicatorNotes": {
+     "running amok": "Someone running amok charges about with no order at all, and the letters end up wherever that leaves them."
+    },
+    "anagram": {
+     "fodder": "HOT LAD"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Hot lad",
+      "gives": "HOTLAD",
+      "note": "anagram fodder, six letters for a six-letter entry"
+     }
+    ],
+    "surface": "A good-looking young man rampaging, which is nothing new.",
+    "walkthrough": "The dash does the work of a full stop: everything before it is letters, everything after it is meaning.",
+    "definitionFit": "somewhat passé → OLD HAT: something old hat has been around so long it has gone stale, which is what passé says of a fashion."
+   }
   },
   {
    "id": "21-across",
@@ -420,7 +1014,36 @@ window.CRYPTIC_PUZZLES["quiptic-1369"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CONTINGENTLY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters",
+    "answer": "CONTINGENTLY",
+    "definition": "depending on conditions",
+    "indicators": [
+     "extremely"
+    ],
+    "indicatorNotes": {
+     "extremely": "At the extremes of the word beside it: the outermost letter at each end, with everything between them dropped."
+    },
+    "pieces": [
+     "CONTINGENT",
+     "LY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Military group",
+      "gives": "CONTINGENT",
+      "note": "a contingent is a body of troops detached for one particular duty"
+     },
+     {
+      "clueFragment": "lively",
+      "gives": "LY",
+      "note": "the outermost letter at each end of the word, in that order"
+     }
+    ],
+    "surface": "A detachment of soldiers in unusually high spirits.",
+    "walkthrough": "Two letters at the end of a twelve-letter answer are easy to overlook, and 'extremely' is the only word in the clue doing any instructing.",
+    "definitionFit": "depending on conditions → CONTINGENTLY: the adverb from 'contingent', describing something that holds only if some other thing does."
+   }
   },
   {
    "id": "22-down",
@@ -437,7 +1060,37 @@ window.CRYPTIC_PUZZLES["quiptic-1369"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LOCO",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "LOCO",
+    "definition": "Strange",
+    "indicators": [
+     "storing"
+    ],
+    "indicatorNotes": {
+     "storing": "To store something is to put it away inside something else, so the letter goes within the word in front."
+    },
+    "pieces": [
+     "LO",
+     "C",
+     "O"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "facilities",
+      "gives": "LOO",
+      "note": "'the facilities' is the polite British way of asking where the lavatory is — the loo"
+     },
+     {
+      "clueFragment": "carbon",
+      "gives": "C",
+      "note": "C is the chemical symbol for carbon"
+     }
+    ],
+    "surface": "Peculiar washrooms being used to keep carbon in.",
+    "walkthrough": "'Facilities' is hotel-brochure politeness for the toilet, and the plural is there for the surface alone: the word it stands for is singular.",
+    "definitionFit": "Strange → LOCO: Spanish for mad, borrowed into English slang, so 'strange' in the sense of behaving unhinged."
+   }
   },
   {
    "id": "23-down",
@@ -454,7 +1107,38 @@ window.CRYPTIC_PUZZLES["quiptic-1369"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ADIT",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "ADIT",
+    "definition": "Passage",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "dismissed"
+    ],
+    "indicatorNotes": {
+     "dismissed": "A worker who is dismissed is sent away, so the letter it points at leaves the word it was in."
+    },
+    "pieces": [
+     "ADIT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "financial review",
+      "gives": "AUDIT",
+      "note": "an audit is the formal inspection of a company's accounts"
+     },
+     {
+      "clueFragment": "union",
+      "gives": "U",
+      "note": "U is the standing abbreviation for union, as in trade union, and it is the letter sent away"
+     }
+    ],
+    "surface": "A corridor mentioned in an audit once the union had been shown the door.",
+    "walkthrough": "'Passage in financial review' looks like the opening of a hidden word, which is the wrong path: the review is a synonym, and the union is one letter coming out of it.",
+    "definitionFit": "Passage → ADIT: the horizontal tunnel driven into a hillside to reach a mine, a passage in the most literal sense."
+   }
   },
   {
    "id": "24-across",
@@ -475,7 +1159,34 @@ window.CRYPTIC_PUZZLES["quiptic-1369"] = /*JSON-START*/ {
     ]
    },
    "solution": "AGAME",
-   "annotation": null
+   "annotation": {
+    "type": "alternate letters",
+    "answer": "A-GAME",
+    "definition": "best performance",
+    "linkWords": [
+     "in",
+     "to exhibit"
+    ],
+    "indicators": [
+     "Regular characters"
+    ],
+    "indicatorNotes": {
+     "Regular characters": "Characters here are letters on the page, and taking them regularly means every second one, at a fixed step."
+    },
+    "pieces": [
+     "AGAME"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gang war meet",
+      "gives": "AGAME",
+      "note": "start on the second letter and take every other one straight through all three words"
+     }
+    ],
+    "surface": "Rival gangs turning up for a fight they had arranged.",
+    "walkthrough": "'Regular characters' reads as the usual crowd, the faces who always show up, and 'characters' is really the printer's sense: marks on a page.",
+    "definitionFit": "best performance → A-GAME: from sport, where bringing your A-game means playing at the very top of your ability."
+   }
   },
   {
    "id": "25-across",
@@ -496,7 +1207,33 @@ window.CRYPTIC_PUZZLES["quiptic-1369"] = /*JSON-START*/ {
     ]
    },
    "solution": "TOUCHWOOD",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "TOUCH WOOD",
+    "definition": "hope for good fortune",
+    "linkWords": [
+     "and"
+    ],
+    "pieces": [
+     "TOUCH",
+     "WOOD"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Seek money from",
+      "gives": "TOUCH",
+      "note": "to touch someone for a tenner is to cadge it off them"
+     },
+     {
+      "clueFragment": "club",
+      "gives": "WOOD",
+      "note": "a wood is a golf club with a bulky head, made of persimmon before metal took over"
+     }
+    ],
+    "surface": "Cadging cash off a club and trusting to luck.",
+    "walkthrough": "British speakers say 'touch wood' where Americans say 'knock on wood', both of them a charm against having tempted fate.",
+    "definitionFit": "hope for good fortune → TOUCH WOOD: the words said, hand on something wooden, to stop you jinxing what you have just claimed."
+   }
   },
   {
    "id": "26-across",
@@ -513,7 +1250,27 @@ window.CRYPTIC_PUZZLES["quiptic-1369"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ELDEST",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "ELDEST",
+    "definition": "that’s been around the longest",
+    "indicators": [
+     "Part of"
+    ],
+    "indicatorNotes": {
+     "Part of": "Only a part of what follows is wanted: a run of letters sitting inside it, rather than the sense of the words."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Sheffield estate",
+      "gives": "ELDEST",
+      "note": "the letters run consecutively across the join between the two words, in the order given"
+     }
+    ],
+    "surface": "A district of a Sheffield estate that has stood longer than the rest.",
+    "walkthrough": "Sheffield estates are real places, so the surface reads as local history and never suggests that only six of those letters are wanted.",
+    "definitionFit": "that’s been around the longest → ELDEST: the superlative of old used of people, naming the one born before all the others."
+   }
   },
   {
    "id": "27-across",
@@ -534,7 +1291,30 @@ window.CRYPTIC_PUZZLES["quiptic-1369"] = /*JSON-START*/ {
     ]
    },
    "solution": "EDITSOUT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "EDITS OUT",
+    "definition": "Removes text",
+    "indicators": [
+     "getting misspelt"
+    ],
+    "indicatorNotes": {
+     "getting misspelt": "A word that comes out misspelt has its letters in the wrong places, which is the licence to move them."
+    },
+    "anagram": {
+     "fodder": "SUITED TO"
+    },
+    "blocks": [
+     {
+      "clueFragment": "suited to",
+      "gives": "SUITEDTO",
+      "note": "anagram fodder, eight letters for an eight-letter entry"
+     }
+    ],
+    "surface": "Cutting the words that always end up spelled wrong.",
+    "walkthrough": "'Suited to' looks like a link phrase joining a definition to its wordplay, and it is the raw material itself — the eight letters you need.",
+    "definitionFit": "Removes text → EDITS OUT: to edit something out is to cut it from a piece of writing or film so it never reaches the audience."
+   }
   }
  ]
 } /*JSON-END*/;
