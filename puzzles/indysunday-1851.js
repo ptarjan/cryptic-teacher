@@ -30,7 +30,24 @@ window.CRYPTIC_PUZZLES["indysunday-1851"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GHOSTBUSTERS",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "GHOSTBUSTERS",
+    "definition": "Dispiriting picture?",
+    "definitionFit": "Ghostbusters is a 1984 picture whose heroes remove spirits from buildings for money, which is dispiriting read as two words.",
+    "blocks": [
+     {
+      "clueFragment": "Dispiriting",
+      "note": "read as one word it means demoralising; broken in two it is an instruction to take the spirits out of a place"
+     },
+     {
+      "clueFragment": "picture?",
+      "note": "a picture is a film, and the question mark warns that what follows is a particular title rather than a synonym"
+     }
+    ],
+    "surface": "A photograph or film so gloomy that looking at it takes the heart out of you.",
+    "walkthrough": "'Dispiriting' hides a hyphen: dis-spiriting, the taking away of spirits, which is a job description rather than a mood. The picture is the 1984 comedy about the men who do that job."
+   }
   },
   {
    "id": "2-down",
@@ -51,7 +68,46 @@ window.CRYPTIC_PUZZLES["indysunday-1851"] = /*JSON-START*/ {
     ]
    },
    "solution": "HARDTIMES",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "HARD TIMES",
+    "definition": "Book",
+    "definitionFit": "Hard Times is Dickens's 1854 novel of Coketown, so 'Book' defines the answer by example rather than by synonym.",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "One thing described as in another sits inside it, so the single letter drops between the letters of the word beside it."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "HA",
+     "R",
+     "D",
+     "TIMES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "kept",
+      "gives": "HAD",
+      "note": "somebody who kept a thing had it"
+     },
+     {
+      "clueFragment": "Romeo",
+      "gives": "R",
+      "note": "R is Romeo in the radio alphabet"
+     },
+     {
+      "clueFragment": "by",
+      "gives": "TIMES",
+      "note": "three by four is three times four, so 'by' is the multiplication word"
+     }
+    ],
+    "surface": "Somebody hanging on to a battered copy of a book with Romeo in it.",
+    "walkthrough": "'By' is doing arithmetic, not authorship: it looks like the start of a byline and it means multiplied by. Dickens titles are worth knowing, since setters use them as ordinary phrases."
+   }
   },
   {
    "id": "3-down",
@@ -68,7 +124,31 @@ window.CRYPTIC_PUZZLES["indysunday-1851"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SATAY",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SATAY",
+    "definition": "Nutty dish",
+    "definitionFit": "Satay is grilled meat on skewers served with a peanut sauce, so 'nutty' picks out the sauce the dish is known by.",
+    "indicators": [],
+    "pieces": [
+     "SAT",
+     "AY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dropped onto chair",
+      "gives": "SAT",
+      "note": "somebody who dropped onto a chair sat"
+     },
+     {
+      "clueFragment": "alas",
+      "gives": "AY",
+      "note": "ay is the old cry of grief, as in 'ay me'"
+     }
+    ],
+    "surface": "A plate of food landing on a chair, to everybody's dismay.",
+    "walkthrough": "AY for 'alas' is old-fashioned crossword vocabulary worth storing: it is the sigh in 'ay me', not the yes of a vote. The surface hides it as an ordinary groan about spilt food."
+   }
   },
   {
    "id": "4-down",
@@ -89,7 +169,46 @@ window.CRYPTIC_PUZZLES["indysunday-1851"] = /*JSON-START*/ {
     ]
    },
    "solution": "BIDFAIR",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "BID FAIR",
+    "definition": "Promise",
+    "definitionFit": "To bid fair to do something is to look very likely to do it, so the phrase means promise in the sense of showing every sign.",
+    "indicators": [
+     "cramped"
+    ],
+    "indicatorNotes": {
+     "cramped": "Cramped means squeezed into too little room, so the chunks named are forced in between the letters of the shorthand beside it."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "B",
+     "ID",
+     "F",
+     "AIR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boyfriend",
+      "gives": "BF",
+      "note": "bf is the everyday written shorthand for boyfriend, in texts and small ads"
+     },
+     {
+      "clueFragment": "identity",
+      "gives": "ID",
+      "note": "your id is your identity, as on an id card"
+     },
+     {
+      "clueFragment": "breathing space",
+      "gives": "AIR",
+      "note": "air is what breathing needs, and space full of it"
+     }
+    ],
+    "surface": "A boyfriend whose sense of himself feels hemmed in, asking for room to breathe.",
+    "walkthrough": "Bid fair is an old phrase still alive in 'bids fair to succeed', meaning shows every sign of. Two separate chunks are pushed into a two-letter shorthand, which is why the answer looks nothing like its parts."
+   }
   },
   {
    "id": "5-down",
@@ -110,7 +229,45 @@ window.CRYPTIC_PUZZLES["indysunday-1851"] = /*JSON-START*/ {
     ]
    },
    "solution": "STAGEDOOR",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "STAGE DOOR",
+    "definition": "actor's exit",
+    "definitionFit": "The stage door is the plain door at the back of a theatre that the cast come and go through, so it is literally the way an actor leaves.",
+    "indicators": [
+     "Wrinkly",
+     "brought about"
+    ],
+    "indicatorNotes": {
+     "Wrinkly": "Wrinkled cloth has been pushed out of its smooth order, so the letters beside it are not to be read in the order printed.",
+     "brought about": "Bringing something about is bringing it round, so the letters just made are wrapped round the word that follows."
+    },
+    "pieces": [
+     "ST",
+     "AGED",
+     "OOR"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "TORSO",
+      "gives": "STOOR"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "torso",
+      "gives": "TORSO",
+      "note": "five letters to be re-laid, and they end up split into two and three"
+     },
+     {
+      "clueFragment": "elderly",
+      "gives": "AGED",
+      "note": "aged means elderly, and these four letters go in the gap"
+     }
+    ],
+    "surface": "A creased old body turned round, and an elderly performer's last departure.",
+    "walkthrough": "The surface reads as one continuous description of an ageing actor, and the ageing is fodder rather than description. A theatre's stage door is round the back, where the fans wait."
+   }
   },
   {
    "id": "6-down",
@@ -127,7 +284,36 @@ window.CRYPTIC_PUZZLES["indysunday-1851"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EQUID",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "EQUID",
+    "definition": "Horsey type",
+    "definitionFit": "An equid is any member of the horse family — horses, asses and zebras — so 'horsey type' names the group by kind.",
+    "indicators": [
+     "last to"
+    ],
+    "indicatorNotes": {
+     "last to": "Last to marks the letter a word ends on, so only that final letter is taken from the word beside it."
+    },
+    "pieces": [
+     "E",
+     "QUID"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "last to imitate",
+      "gives": "E",
+      "note": "the final letter of imitatE"
+     },
+     {
+      "clueFragment": "nicker",
+      "gives": "QUID",
+      "note": "a nicker is British slang for one pound, and so is a quid"
+     }
+    ],
+    "surface": "A horsey person being the last one to copy a neigh.",
+    "walkthrough": "A nicker is a horse's soft whinny in the surface and a pound in the wordplay, and only one of those two senses buys anything. Both slang words for a pound sit on the same line here."
+   }
   },
   {
    "id": "7-down",
@@ -148,7 +334,40 @@ window.CRYPTIC_PUZZLES["indysunday-1851"] = /*JSON-START*/ {
     ]
    },
    "solution": "SPECTATORSPORT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "SPECTATOR SPORT",
+    "definition": "fun to watch?",
+    "definitionFit": "A spectator sport is one people go to look at rather than play, so 'fun to watch' is the whole point of the category.",
+    "indicators": [
+     "tangling with"
+    ],
+    "indicatorNotes": {
+     "tangling with": "Tangled things are knotted out of their proper arrangement, so the words beside it are letters to be unpicked and re-laid."
+    },
+    "anagram": {
+     "fodder": "PRESCOTT PRAT SO"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Prescott",
+      "gives": "PRESCOTT",
+      "note": "anagram fodder, eight letters"
+     },
+     {
+      "clueFragment": "prat, so",
+      "gives": "PRATSO",
+      "note": "six more letters of fodder; a prat is an idiot"
+     },
+     {
+      "clueFragment": "tangling with",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "A politician getting into a scuffle with a heckler, in front of a delighted crowd.",
+    "walkthrough": "John Prescott was Britain's deputy prime minister, remembered for punching a heckler on camera — which is why the definition points straight back at the surface. Fourteen letters of fodder for a fourteen-letter answer settles the parse."
+   }
   },
   {
    "id": "8-down",
@@ -170,7 +389,50 @@ window.CRYPTIC_PUZZLES["indysunday-1851"] = /*JSON-START*/ {
     ]
    },
    "solution": "CYCLEPERSECOND",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "CYCLE PER SECOND",
+    "definition": "Hertz",
+    "definitionFit": "One hertz is one complete oscillation in each second, so the unit's own definition is the answer written out in words.",
+    "indicators": [
+     "on the left",
+     "behind"
+    ],
+    "indicatorNotes": {
+     "on the left": "The left of a written word is where it starts, so only its opening letter is taken.",
+     "behind": "Behind names a position, so everything described before it is written after the word it points at."
+    },
+    "pieces": [
+     "CYCLE",
+     "PERSE",
+     "CON",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bike",
+      "gives": "CYCLE",
+      "note": "a bike is a cycle, and it leads because the rest goes behind it"
+     },
+     {
+      "clueFragment": "essentially",
+      "gives": "PERSE",
+      "note": "per se is the Latin for 'in itself', which is what essentially means"
+     },
+     {
+      "clueFragment": "opposed to",
+      "gives": "CON",
+      "note": "con is the against side of pro and con"
+     },
+     {
+      "clueFragment": "driving",
+      "gives": "D",
+      "note": "the opening letter of Driving, taken because it stands at that word's left"
+     }
+    ],
+    "surface": "The car-hire firm, deep down against left-hand driving, stuck behind a bicycle.",
+    "walkthrough": "Hertz reads as the rental company and is the unit of frequency named after Heinrich Hertz. Per se and con are both standard crossword vocabulary and are worth keeping."
+   }
   },
   {
    "id": "9-across",
@@ -187,7 +449,37 @@ window.CRYPTIC_PUZZLES["indysunday-1851"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HYDRATED",
-   "annotation": null
+   "annotation": {
+    "type": "charade + homophone",
+    "answer": "HYDRATED",
+    "definition": "Moisturised",
+    "definitionFit": "Something hydrated has had water put into it, which is exactly what moisturising skin does.",
+    "indicators": [
+     "you hear"
+    ],
+    "indicatorNotes": {
+     "you hear": "You hear moves the word from the page into the ear, so what counts is the noise it makes rather than how it is spelt."
+    },
+    "pieces": [
+     "HYD",
+     "RATED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "skin",
+      "soundsLike": "HIDE",
+      "gives": "HYD",
+      "note": "an animal's skin is its hide, and that is the word being said aloud"
+     },
+     {
+      "clueFragment": "admired",
+      "gives": "RATED",
+      "note": "to rate somebody is to think well of them — 'I rate her'"
+     }
+    ],
+    "surface": "Somebody's well-moisturised skin drawing audible admiration.",
+    "walkthrough": "'You hear' does a full homophone instruction in two short words. RATED for admired is ordinary British usage, and the sounded word loses its silent E on the way onto the page."
+   }
   },
   {
    "id": "10-across",
@@ -204,7 +496,43 @@ window.CRYPTIC_PUZZLES["indysunday-1851"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ACUMEN",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade + first letter",
+    "answer": "ACUMEN",
+    "definition": "Ability to discern",
+    "definitionFit": "Acumen is sharp practical judgement, the knack of seeing quickly and clearly what a situation really is.",
+    "indicators": [
+     "among"
+    ],
+    "indicatorNotes": {
+     "among": "Something among other things sits in the middle of them, so the letter named goes between the two beside it."
+    },
+    "pieces": [
+     "A",
+     "C",
+     "U",
+     "MEN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gold",
+      "gives": "AU",
+      "note": "au is the chemical symbol for gold, and it is split apart here"
+     },
+     {
+      "clueFragment": "Caesar's head",
+      "gives": "C",
+      "note": "the head of the word Caesar, its first letter"
+     },
+     {
+      "clueFragment": "pieces",
+      "gives": "MEN",
+      "note": "chess and draughts call their playing pieces men"
+     }
+    ],
+    "surface": "Caesar's portrait spotted on a coin among a heap of gold pieces.",
+    "walkthrough": "'Caesar's head' looks like the emperor stamped on a coin and means the first letter of his name. The board-game sense of pieces is the other half of the disguise."
+   }
   },
   {
    "id": "11-across",
@@ -221,7 +549,42 @@ window.CRYPTIC_PUZZLES["indysunday-1851"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FLATLY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "FLATLY",
+    "definition": "outright",
+    "definitionFit": "To refuse flatly is to refuse outright: both say the thing was done plainly, leaving no room for argument.",
+    "indicators": [
+     "barring"
+    ],
+    "indicatorNotes": {
+     "barring": "To bar something is to shut it out, so the letter named is kept out of the word it would otherwise sit in."
+    },
+    "pieces": [
+     "F",
+     "LAT",
+     "LY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "France",
+      "gives": "F",
+      "note": "F is the international vehicle code for France, off the sticker on the car"
+     },
+     {
+      "clueFragment": "in recent times",
+      "gives": "LATELY",
+      "note": "lately means in recent times, six letters to work from"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the standard abbreviation for English, and that letter is the one shut out"
+     }
+    ],
+    "surface": "France has recently shut English out altogether.",
+    "walkthrough": "The whole clue reads as a row about language policy, which is why 'barring English' passes as politics rather than an instruction. F for France comes off the oval sticker on the back of a car."
+   }
   },
   {
    "id": "12-across",
@@ -238,7 +601,35 @@ window.CRYPTIC_PUZZLES["indysunday-1851"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ANECDOTE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ANECDOTE",
+    "definition": "Narrative",
+    "definitionFit": "An anecdote is a short narrative of something that happened, usually told to make a point or raise a laugh.",
+    "indicators": [
+     "out"
+    ],
+    "indicatorNotes": {
+     "out": "Acting something out means performing it in another form, so the letters beside it are re-staged in a new order."
+    },
+    "blocks": [
+     {
+      "clueFragment": "one acted",
+      "gives": "ONEACTED",
+      "note": "anagram fodder, eight letters"
+     },
+     {
+      "clueFragment": "out",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "anagram": {
+     "fodder": "ONE ACTED"
+    },
+    "surface": "A story about somebody being performed rather than told.",
+    "walkthrough": "'Out' carries the whole instruction from the end of the clue, where it reads as part of the ordinary phrase 'acted out'. Eight letters of fodder for an eight-letter answer is the check that settles it."
+   }
   },
   {
    "id": "13-across",
@@ -255,7 +646,37 @@ window.CRYPTIC_PUZZLES["indysunday-1851"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SPAM",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "SPAM",
+    "definition": "unopened emails?",
+    "definitionNote": "The definition is plural while the answer is a mass noun naming the whole category of such messages; the question mark flags the stretch.",
+    "definitionFit": "Spam is unsolicited bulk email, the stuff that lands in the junk folder and is deleted without ever being read.",
+    "indicators": [
+     "to review"
+    ],
+    "indicatorNotes": {
+     "to review": "To review is to look back over something, so the word it points at is read from its far end back."
+    },
+    "pieces": [
+     "SPAM"
+    ],
+    "subReversals": [
+     {
+      "from": "MAPS",
+      "to": "SPAM"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Plans",
+      "gives": "MAPS",
+      "note": "maps are plans in the draughtsman's sense, the drawings of a layout"
+     }
+    ],
+    "surface": "Somebody intending to go back through the mail they never got round to opening.",
+    "walkthrough": "Spam took its name from the tinned meat by way of a Monty Python sketch in which a cafe served nothing else. In the surface 'to review' is a plan for the afternoon."
+   }
   },
   {
    "id": "14-across",
@@ -276,7 +697,53 @@ window.CRYPTIC_PUZZLES["indysunday-1851"] = /*JSON-START*/ {
     ]
    },
    "solution": "CARGOPANTS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "CARGO PANTS",
+    "definition": "trousers",
+    "definitionFit": "Cargo pants are the loose trousers with big patch pockets down the thighs, so the definition names the garment they are a kind of.",
+    "indicators": [
+     "turning out"
+    ],
+    "indicatorNotes": {
+     "turning out": "Turning somebody out is putting them out of the building, so the letter named is ejected from the word before it."
+    },
+    "pieces": [
+     "CAR",
+     "GO",
+     "PANT",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wheels",
+      "gives": "CAR",
+      "note": "wheels is slang for a car — 'nice wheels'"
+     },
+     {
+      "clueFragment": "turn",
+      "gives": "GO",
+      "note": "your turn at a game is your go"
+     },
+     {
+      "clueFragment": "factory",
+      "gives": "PLANT",
+      "note": "a plant is a factory or industrial works"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the clothing size large, and that letter is the one thrown out"
+     },
+     {
+      "clueFragment": "and small",
+      "gives": "S",
+      "note": "S is the clothing size small, added on at the end"
+     }
+    ],
+    "surface": "A production line rolling while the factory stops making the large and small sizes.",
+    "walkthrough": "Wheels for a car and go for a turn are both everyday slang doing crossword duty. The factory's 'turning out' reads as production and means eviction, which is what hides the deletion."
+   }
   },
   {
    "id": "14-down",
@@ -293,7 +760,43 @@ window.CRYPTIC_PUZZLES["indysunday-1851"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CICATRICE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "CICATRICE",
+    "definition": "Scar",
+    "definitionFit": "A cicatrice is the puckered mark left on skin once a wound has healed over, which is precisely a scar.",
+    "indicators": [
+     "treacherous"
+    ],
+    "indicatorNotes": {
+     "treacherous": "Treacherous ice cannot be trusted to stay where it is, so the letters beside it will not stay in the order given."
+    },
+    "linkWords": [
+     "from"
+    ],
+    "anagram": {
+     "fodder": "ARCTIC ICE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Arctic",
+      "gives": "ARCTIC",
+      "note": "anagram fodder, six letters"
+     },
+     {
+      "clueFragment": "floes",
+      "gives": "ICE",
+      "note": "floes are sheets of floating ice, and those three letters join the fodder"
+     },
+     {
+      "clueFragment": "treacherous",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "A wound picked up crossing dangerous floating ice in the far north.",
+    "walkthrough": "Cicatrice is the medical word for a healed-over mark, from the Latin, and it turns up in crosswords far more than in conversation. The question mark admits the surface accident is invented."
+   }
   },
   {
    "id": "15-down",
@@ -310,7 +813,42 @@ window.CRYPTIC_PUZZLES["indysunday-1851"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ASPARTAME",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ASPARTAME",
+    "definition": "additive",
+    "definitionFit": "Aspartame is the artificial sweetener put into diet drinks and sugar-free gum, so it is a food additive with its own E number.",
+    "indicators": [
+     "sub-"
+    ],
+    "indicatorNotes": {
+     "sub-": "Sub means under, and in a down entry whatever is under something is written after it."
+    },
+    "pieces": [
+     "AS",
+     "PAR",
+     "TAME"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Equally",
+      "gives": "AS",
+      "note": "as tall, as mild — 'as' is the word equally uses to compare"
+     },
+     {
+      "clueFragment": "standard",
+      "gives": "PAR",
+      "note": "par is the standard score a golf hole is meant to take"
+     },
+     {
+      "clueFragment": "mild",
+      "gives": "TAME",
+      "note": "a tame remark is a mild one, and it goes underneath"
+     }
+    ],
+    "surface": "A tasting note calling something just as mild as the last and not up to standard.",
+    "walkthrough": "'Sub-standard' looks like one hyphenated word of criticism and is two instructions with a join between them. Par for standard comes from golf, where par is the score a hole is meant to take."
+   }
   },
   {
    "id": "16-across",
@@ -327,7 +865,40 @@ window.CRYPTIC_PUZZLES["indysunday-1851"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PROSECUTOR",
-   "annotation": null
+   "annotation": {
+    "type": "charade + homophone",
+    "answer": "PROSECUTOR",
+    "definition": "Lawyer",
+    "definitionFit": "'Lawyer' defines by example: a prosecutor is the particular lawyer who puts the case against the accused in a criminal court.",
+    "indicators": [
+     "when spoken"
+    ],
+    "indicatorNotes": {
+     "when spoken": "When spoken shifts the word from the page into the ear, so the sound is what gets written down instead of the spelling."
+    },
+    "linkWords": [
+     "'s"
+    ],
+    "pieces": [
+     "PROSE",
+     "CUTOR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "basic writing",
+      "gives": "PROSE",
+      "note": "prose is plain writing, the basic kind that is not verse"
+     },
+     {
+      "clueFragment": "cleverer",
+      "soundsLike": "CUTER",
+      "gives": "CUTOR",
+      "note": "cute means shrewd as well as pretty — a cute operator is a sharp one — so cleverer is cuter, and that is the word said aloud"
+     }
+    ],
+    "surface": "A solicitor's plain writing sounding much smarter once it is read out.",
+    "walkthrough": "The shrewd sense of cute is the one to keep: it survives in 'don't get cute with me'. Said aloud, that comparative lands on an ending English spells another way."
+   }
   },
   {
    "id": "17-down",
@@ -344,7 +915,27 @@ window.CRYPTIC_PUZZLES["indysunday-1851"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TSARIST",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + hidden word",
+    "answer": "TSARIST",
+    "definition": "One supports aristocratic bears?",
+    "definitionFit": "Read straight, the whole clue describes somebody who backs the rule of the tsars — the aristocratic Russia the bear stands for.",
+    "indicators": [
+     "bears"
+    ],
+    "indicatorNotes": {
+     "bears": "To bear something is to carry it, so the words beside it are carrying the letters wanted, in order, inside themselves."
+    },
+    "blocks": [
+     {
+      "clueFragment": "supports aristocratic",
+      "gives": "TSARIST",
+      "note": "seven consecutive letters, starting near the end of the first word and running on across the gap"
+     }
+    ],
+    "surface": "Somebody cheering on the grand, well-bred bears of the Russian forest.",
+    "walkthrough": "'Bears' is the containing instruction and the Russian joke at once, since the bear is the country's animal. Every word does double duty here: the sentence describes the person and spells them."
+   }
   },
   {
    "id": "18-across",
@@ -361,7 +952,36 @@ window.CRYPTIC_PUZZLES["indysunday-1851"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PURE",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "PURE",
+    "definition": "without guilt",
+    "definitionFit": "Somebody pure is unstained by wrongdoing, so 'without guilt' describes the state itself rather than a court's verdict.",
+    "indicators": [
+     "pinched from"
+    ],
+    "indicatorNotes": {
+     "pinched from": "To pinch is to steal, so the letter named is lifted out of the word that follows and does not come back."
+    },
+    "pieces": [
+     "PUR",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mom's handbag",
+      "gives": "PURSE",
+      "note": "in American English a purse is the handbag itself, five letters to work from"
+     },
+     {
+      "clueFragment": "Son",
+      "gives": "S",
+      "note": "s is the standard abbreviation for son in family trees, and that letter is the one taken"
+     }
+    ],
+    "surface": "A son helping himself from his mother's handbag and feeling not the slightest guilt.",
+    "walkthrough": "'Mom' rather than mum is the flag: in American English a purse is the handbag, not the little thing kept inside it. Reading it as British loses the whole five letters."
+   }
   },
   {
    "id": "19-across",
@@ -378,7 +998,45 @@ window.CRYPTIC_PUZZLES["indysunday-1851"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "VENDETTA",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "VENDETTA",
+    "definition": "prolonged antagonism",
+    "definitionFit": "A vendetta is a blood feud handed down between families, so the antagonism is prolonged by definition rather than by accident.",
+    "indicators": [
+     "gatecrashing",
+     "ground"
+    ],
+    "indicatorNotes": {
+     "gatecrashing": "A gatecrasher gets inside an event nobody invited them to, so the letter named forces its way into the middle of the rest.",
+     "ground": "Ground means milled to powder, so what it points at comes apart and is rebuilt from its letters."
+    },
+    "pieces": [
+     "VEN",
+     "D",
+     "ETTA"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "AT EVENT",
+      "gives": "VENETTA"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "at event",
+      "gives": "ATEVENT",
+      "note": "anagram fodder, seven letters, re-laid to leave a gap in the middle"
+     },
+     {
+      "clueFragment": "500",
+      "gives": "D",
+      "note": "D is 500 in Roman numerals"
+     }
+    ],
+    "surface": "Five hundred uninvited guests turning up at an event on the ground.",
+    "walkthrough": "'Ground' reads as the field the event is held on and works as the milling instruction, and the two readings sit in the same three words. Roman numerals are the setter's usual way of writing a round number."
+   }
   },
   {
    "id": "20-down",
@@ -395,7 +1053,27 @@ window.CRYPTIC_PUZZLES["indysunday-1851"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DOZER",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "DOZER",
+    "definition": "Pushing tractor",
+    "definition2": "one rests briefly",
+    "definitionFit": "A dozer is short for bulldozer, the blade-fronted tractor that shoves earth about; a dozer is also somebody dropping off for a short light sleep.",
+    "blocks": [
+     {
+      "clueFragment": "Pushing tractor",
+      "gives": "",
+      "note": "the machine with a blade on the front that shoves earth ahead of it"
+     },
+     {
+      "clueFragment": "one rests briefly",
+      "gives": "",
+      "note": "somebody having a short light sleep in a chair"
+     }
+    ],
+    "surface": "Somebody shoving a broken-down tractor while a companion snatches a quick nap.",
+    "walkthrough": "The two senses come from unrelated words that happen to end up spelt alike, one a shortened bulldozer and one an ordinary agent noun from doze. 'Briefly' belongs to the nap, not to any abbreviation."
+   }
   },
   {
    "id": "21-across",
@@ -412,7 +1090,49 @@ window.CRYPTIC_PUZZLES["indysunday-1851"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SERAPH",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + charade + first letter",
+    "answer": "SERAPH",
+    "definition": "Angel",
+    "definitionFit": "A seraph is an angel of the highest of the nine orders, the six-winged kind that stands nearest the throne of God.",
+    "indicators": [
+     "around",
+     "front of"
+    ],
+    "indicatorNotes": {
+     "around": "Turning something around reverses the direction it is read in, so those letters come out tail first.",
+     "front of": "The front of a word is the letter it begins with, and that single letter is all that is wanted."
+    },
+    "pieces": [
+     "SERAP",
+     "H"
+    ],
+    "subReversals": [
+     {
+      "from": "PARES",
+      "to": "SERAP"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shaves",
+      "gives": "SERAP",
+      "note": "to shave a surface down is to pare it, and those five letters are then turned round"
+     },
+     {
+      "clueFragment": "her",
+      "gives": "H",
+      "note": "the letter her begins with"
+     },
+     {
+      "clueFragment": "...",
+      "gives": "",
+      "note": "surface only — the ellipsis runs the sentence on and carries no letters"
+     }
+    ],
+    "surface": "A barber trimming round the front of a woman's hair.",
+    "walkthrough": "Seraphim are the top rank of angel, and this is the singular. 'Shaves' wants the carpenter's sense of paring something down rather than anything to do with a razor."
+   }
   },
   {
    "id": "21-down",
@@ -429,7 +1149,41 @@ window.CRYPTIC_PUZZLES["indysunday-1851"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SKODA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "SKODA",
+    "definition": "badge on boots",
+    "definitionFit": "Skoda is a Czech car maker, and a maker's name is the badge screwed to the boot lid at the back of the car.",
+    "indicators": [
+     "inverted"
+    ],
+    "indicatorNotes": {
+     "inverted": "Inverted means turned upside down, so in a down entry the letters assembled are read back from the bottom."
+    },
+    "pieces": [
+     "SKODA"
+    ],
+    "subReversals": [
+     {
+      "from": "ADOKS",
+      "to": "SKODA"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bill",
+      "gives": "AD",
+      "note": "a bill is a poster, which is an ad — a billboard is where bills are posted"
+     },
+     {
+      "clueFragment": "allows",
+      "gives": "OKS",
+      "note": "to ok something is to allow it, and the clue wants the third-person form"
+     }
+    ],
+    "surface": "A man called Bill letting somebody stitch an upside-down badge onto his boots.",
+    "walkthrough": "'Boots' are footwear in the surface and the back end of a car in the definition, which is where a maker puts its name. Bill for a poster is standard crossword vocabulary."
+   }
   },
   {
    "id": "22-across",
@@ -446,7 +1200,39 @@ window.CRYPTIC_PUZZLES["indysunday-1851"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BORZOI",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "BORZOI",
+    "definition": "Dog",
+    "definitionFit": "The borzoi is the Russian wolfhound, a tall narrow-headed sighthound, so 'Dog' defines the answer by example.",
+    "indicators": [
+     "unfinished",
+     "goes in"
+    ],
+    "indicatorNotes": {
+     "unfinished": "An unfinished word stops before its last letter, so only what comes before that letter is used.",
+     "goes in": "What goes in something ends up inside it, so the letters named are planted in the middle of the word before them."
+    },
+    "pieces": [
+     "B",
+     "ORZO",
+     "I"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bin unfinished",
+      "gives": "BI",
+      "note": "BIN stopped short of its last letter, leaving two"
+     },
+     {
+      "clueFragment": "pasta",
+      "gives": "ORZO",
+      "note": "orzo is the small rice-shaped pasta used in soups"
+     }
+    ],
+    "surface": "A dog going through the kitchen bin where the leftover pasta went.",
+    "walkthrough": "Orzo is worth knowing for the letters it hands over, and 'bin' is doing two jobs at once: rubbish in the picture, three letters minus one in the wordplay."
+   }
   },
   {
    "id": "23-across",
@@ -463,7 +1249,48 @@ window.CRYPTIC_PUZZLES["indysunday-1851"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IDOLATRY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "IDOLATRY",
+    "definition": "Worship",
+    "definitionFit": "Idolatry is worship of the wrong object — an image or an idol — and by extension any reverence given to something as if it were a god.",
+    "indicators": [
+     "initially"
+    ],
+    "indicatorNotes": {
+     "initially": "Initially wants a word at its start only, so the word beside it gives up its first letter and nothing else."
+    },
+    "pieces": [
+     "IDO",
+     "L",
+     "A",
+     "TRY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "as bride and groom agree",
+      "gives": "IDO",
+      "note": "what each of them says at the altar, written as two words"
+     },
+     {
+      "clueFragment": "like",
+      "gives": "L",
+      "note": "the first letter of Like, taken on its own"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the single letter stands for itself"
+     },
+     {
+      "clueFragment": "shot",
+      "gives": "TRY",
+      "note": "a shot at something is a try, as in give it a go"
+     }
+    ],
+    "surface": "A wedding where the couple say their vows without a moment's hesitation.",
+    "walkthrough": "'Initially' governs only the word next to it, and the A that follows stands for itself — the trap is taking the initials of all three words. 'Like a shot' means instantly in the surface."
+   }
   },
   {
    "id": "24-across",
@@ -480,7 +1307,35 @@ window.CRYPTIC_PUZZLES["indysunday-1851"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DERWENTWATER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "DERWENTWATER",
+    "definition": "part of the Lake District",
+    "definitionFit": "Derwentwater is one of the larger lakes in Cumbria, so the definition places the answer as an example of what the region is made of.",
+    "indicators": [
+     "around"
+    ],
+    "indicatorNotes": {
+     "around": "A wander around follows no fixed route, so the letters beside it end up anywhere but where they started."
+    },
+    "anagram": {
+     "fodder": "WETTER WANDER"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Wetter wander",
+      "gives": "WETTERWANDER",
+      "note": "anagram fodder, twelve letters"
+     },
+     {
+      "clueFragment": "around",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "A damper walk than the last one, taken through a corner of the Lake District.",
+    "walkthrough": "Derwentwater sits just south of Keswick, in the wettest county in England, which is what makes the surface and the answer describe the same afternoon."
+   }
   }
  ]
 } /*JSON-END*/;
