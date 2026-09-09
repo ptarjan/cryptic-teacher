@@ -30,7 +30,47 @@ window.CRYPTIC_PUZZLES["everyman-4120"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EAST",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion + reversal",
+    "answer": "EAST",
+    "definition": "direction",
+    "indicators": [
+     "flipping",
+     "finally lost"
+    ],
+    "indicatorNotes": {
+     "flipping": "To flip a thing over is to turn it so the far end comes first, which is how the letters beside it are read.",
+     "finally lost": "'Finally' picks out the last letter and 'lost' says it goes, so the emperor arrives one letter short."
+    },
+    "linkWords": [
+     "and"
+    ],
+    "pieces": [
+     "E",
+     "AST"
+    ],
+    "subReversals": [
+     {
+      "from": "TSA",
+      "to": "AST"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Earl",
+      "gives": "E",
+      "note": "E is the peerage abbreviation for earl, the rank between marquess and viscount."
+     },
+     {
+      "clueFragment": "emperor",
+      "gives": "TSA",
+      "note": "The emperor of Russia was a TSAR, and the clue takes his closing letter away before turning what is left."
+     }
+    ],
+    "surface": "An earl and a deposed emperor who no longer know which way they are going.",
+    "walkthrough": "'lost direction' reads as one phrase about a wanderer going astray, and only 'lost' belongs to the wordplay. Emperors in crosswords are Russian nine times out of ten.",
+    "definitionFit": "East is one of the four compass points, so 'direction' names it the way it would name north or west."
+   }
   },
   {
    "id": "1-down",
@@ -47,7 +87,30 @@ window.CRYPTIC_PUZZLES["everyman-4120"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EMENDATION",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "EMENDATION",
+    "definition": "improvement",
+    "indicators": [
+     "reforms"
+    ],
+    "indicatorNotes": {
+     "reforms": "To re-form something is to form it a second time in a different shape, and nothing obliges the pieces to go back where they were."
+    },
+    "anagram": {
+     "fodder": "DENOMINATE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Denominate",
+      "gives": "EMENDATION",
+      "note": "The ten letters of DENOMINATE rearranged."
+     }
+    ],
+    "surface": "Renaming things, as though a new label were itself the way to make them better.",
+    "walkthrough": "Read as a noun phrase, 'Denominate reforms' sounds like a piece of policy; the second word is a verb and the first is the material it works on.",
+    "definitionFit": "An emendation is a correction made to a text, so 'improvement' is the editorial sense of the word rather than a general betterment."
+   }
   },
   {
    "id": "2-down",
@@ -64,7 +127,31 @@ window.CRYPTIC_PUZZLES["everyman-4120"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SQUASHIEST",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "SQUASHIEST",
+    "definition": "Most like a pumpkin",
+    "definition2": "as soft as can be",
+    "indicators": [],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Most like a pumpkin",
+      "gives": "SQUASHIEST",
+      "note": "A pumpkin belongs to the squash family, so of all vegetables it is the one that most resembles one."
+     },
+     {
+      "clueFragment": "as soft as can be",
+      "gives": "SQUASHIEST",
+      "note": "Anything you can press a thumb straight into is soft in this way, and 'as ... as can be' asks for the superlative."
+     }
+    ],
+    "surface": "A pumpkin gone so far over that it gives under the lightest touch.",
+    "walkthrough": "Both halves are superlatives, which is what makes the join invisible: one is about resembling a vegetable, the other about how yielding a thing feels.",
+    "definitionFit": "Most like a pumpkin works because a pumpkin is a squash; as soft as can be is the everyday sense of something that yields when pressed."
+   }
   },
   {
    "id": "3-across",
@@ -81,7 +168,47 @@ window.CRYPTIC_PUZZLES["everyman-4120"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HANDSPRING",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "HANDSPRING",
+    "definition": "cartwheel",
+    "indicators": [],
+    "linkWords": [
+     "with",
+     "as"
+    ],
+    "pieces": [
+     "HAND",
+     "S",
+     "P",
+     "RING"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Round of applause",
+      "gives": "HAND",
+      "note": "Giving someone a hand is applauding them, and a big hand is a round of it."
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the family-tree abbreviation for son."
+     },
+     {
+      "clueFragment": "parking",
+      "gives": "P",
+      "note": "P is the letter on every parking sign, and the standard wordplay shorthand."
+     },
+     {
+      "clueFragment": "hoop",
+      "gives": "RING",
+      "note": "A hoop is a ring, whether a gymnast's or a circus performer's."
+     }
+    ],
+    "surface": "A circus turn drawing applause: a boy parks a hoop and rolls it along like a wheel.",
+    "walkthrough": "'Cartwheel' is the gymnastic move, not the wooden thing on a cart, and the surface spends its whole length pushing you towards the cart.",
+    "definitionFit": "A handspring is an acrobatic flip powered off the hands, and cartwheel is the everyday word for that family of hands-down revolutions."
+   }
   },
   {
    "id": "4-down",
@@ -98,7 +225,31 @@ window.CRYPTIC_PUZZLES["everyman-4120"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ABANDON",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "ABANDON",
+    "definition": "Spontaneity",
+    "definition2": "desert",
+    "indicators": [],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spontaneity",
+      "gives": "ABANDON",
+      "note": "Dancing with this quality means dancing without restraint or self-consciousness."
+     },
+     {
+      "clueFragment": "desert",
+      "gives": "ABANDON",
+      "note": "To desert a post is to walk away from it and leave it to its fate."
+     }
+    ],
+    "surface": "A burst of impulsiveness turning up somewhere out in the sand.",
+    "walkthrough": "'in' looks like a container instruction and is only holding the sentence up. One sense is a noun for reckless freedom, the other a verb for walking out.",
+    "definitionFit": "Spontaneity is the noun sense, throwing yourself into something unrestrained; desert is the verb, leaving something or someone behind."
+   }
   },
   {
    "id": "5-down",
@@ -115,7 +266,41 @@ window.CRYPTIC_PUZZLES["everyman-4120"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DIDDUMS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "DIDDUMS",
+    "definition": "'Oh dear!'",
+    "indicators": [
+     "expressed"
+    ],
+    "indicatorNotes": {
+     "expressed": "To express a liquid is to squeeze it out, so the small word named beside it is pressed out of the name it sits in."
+    },
+    "pieces": [
+     "DID",
+     "DUMS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Executed",
+      "gives": "DID",
+      "note": "To execute a task is simply to do it, and the clue's past tense sets the form."
+     },
+     {
+      "clueFragment": "swashbuckling author",
+      "gives": "DUMAS",
+      "note": "Alexandre Dumas wrote The Three Musketeers, the swashbuckling novel above all others."
+     },
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "A is the indefinite article, and it is the letter being squeezed out of the novelist."
+     }
+    ],
+    "surface": "A newspaper piece reacting with mock pity to the execution of an adventure novelist.",
+    "walkthrough": "'expressed' wants to be a marker for something said out loud; it is the older sense, squeezed out like juice from a lemon. DIDDUMS is what you coo at a grazed knee.",
+    "definitionFit": "'Oh dear!' fits DIDDUMS, the British baby-talk noise of exaggerated sympathy, offered to a crying child or sarcastically to a sulking adult."
+   }
   },
   {
    "id": "6-down",
@@ -136,7 +321,30 @@ window.CRYPTIC_PUZZLES["everyman-4120"] = /*JSON-START*/ {
     ]
    },
    "solution": "PEANUTBUTTER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + &lit",
+    "answer": "PEANUT BUTTER",
+    "definition": "Regrettably, punter ate tub - of this?",
+    "indicators": [
+     "Regrettably"
+    ],
+    "indicatorNotes": {
+     "Regrettably": "Something done regrettably has gone wrong, and letters that have gone wrong are letters no longer standing in their proper order."
+    },
+    "anagram": {
+     "fodder": "PUNTER ATE TUB"
+    },
+    "blocks": [
+     {
+      "clueFragment": "punter ate tub",
+      "gives": "PEANUTBUTTER",
+      "note": "The twelve letters of PUNTER ATE TUB rearranged."
+     }
+    ],
+    "surface": "A gambler regretting the tub he got through in one sitting.",
+    "walkthrough": "The clue is its own definition: read straight it describes a man eating a tub of the stuff, and the very same words hold the letters. That double duty is what &lit means.",
+    "definitionFit": "The whole sentence reads straight: peanut butter is sold in tubs, and getting through one at a sitting is exactly the sort of thing you would regret."
+   }
   },
   {
    "id": "7-down",
@@ -153,7 +361,34 @@ window.CRYPTIC_PUZZLES["everyman-4120"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IAGO",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "IAGO",
+    "definition": "Tragic figure",
+    "indicators": [],
+    "linkWords": [
+     "has"
+    ],
+    "pieces": [
+     "I",
+     "AGO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Everyman",
+      "gives": "I",
+      "note": "Everyman is the name this setter signs, so when he refers to himself the letter is I."
+     },
+     {
+      "clueFragment": "a go",
+      "gives": "AGO",
+      "note": "The last two words are lifted from the clue exactly as they stand."
+     }
+    ],
+    "surface": "The setter having an attempt at something, alongside a doomed character.",
+    "walkthrough": "'Tragic figure' sends you hunting for the hero, and the man here is the villain — the tragedy belongs to Othello. A setter naming himself in his own clue means I.",
+    "definitionFit": "Iago is the schemer of Shakespeare's Othello, so he is a figure from a tragedy rather than a man who is himself tragic."
+   }
   },
   {
    "id": "8-down",
@@ -170,7 +405,42 @@ window.CRYPTIC_PUZZLES["everyman-4120"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GIDE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "GIDE",
+    "definition": "French author",
+    "indicators": [
+     "intro to"
+    ],
+    "indicatorNotes": {
+     "intro to": "An intro is the opening of a piece, so the clue wants the letter that opens the word standing after it."
+    },
+    "pieces": [
+     "GI",
+     "D",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Soldier",
+      "gives": "GI",
+      "note": "GI is the standard crossword soldier, from the US Army's 'government issue'."
+     },
+     {
+      "clueFragment": "had",
+      "gives": "D",
+      "note": "'Had' contracts to 'd in speech — he had, he'd — so the word lends a single letter."
+     },
+     {
+      "clueFragment": "erotic",
+      "gives": "E",
+      "note": "The opening letter of the word, taken as the intro asks."
+     }
+    ],
+    "surface": "A soldier being introduced to some racy French writing.",
+    "walkthrough": "André Gide won the Nobel Prize in 1947 and wrote openly about desire, which is why 'erotic' sits so comfortably next to his nationality in the surface.",
+    "definitionFit": "'French author' defines by example: André Gide, the novelist of The Immoralist, is one such author rather than the only one."
+   }
   },
   {
    "id": "9-across",
@@ -187,7 +457,30 @@ window.CRYPTIC_PUZZLES["everyman-4120"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EMUS",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "EMUS",
+    "definition": "They're grounded",
+    "indicators": [
+     "somewhat"
+    ],
+    "indicatorNotes": {
+     "somewhat": "Somewhat means only partly, so only part of the word beside it is wanted, and the part wanted is a run of letters as they stand."
+    },
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bemused",
+      "gives": "EMUS",
+      "note": "Four consecutive letters sit inside this word, and picking them out is the whole move."
+     }
+    ],
+    "surface": "Somebody confined to the house and mildly baffled about it.",
+    "walkthrough": "'Grounded' does double duty in the surface: a teenager kept in for the weekend, and a bird that cannot get off the floor. Only the second reading defines anything.",
+    "definitionFit": "Emus are flightless birds, permanently on the ground, so 'They're grounded' defines them by the one thing they cannot do."
+   }
   },
   {
    "id": "10-across",
@@ -204,7 +497,38 @@ window.CRYPTIC_PUZZLES["everyman-4120"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SANDBAGGED",
-   "annotation": null
+   "annotation": {
+    "type": "spoonerism",
+    "answer": "SANDBAGGED",
+    "definition": "under attack",
+    "indicators": [
+     "According to Spooner"
+    ],
+    "indicatorNotes": {
+     "According to Spooner": "The Reverend Spooner was famous for swapping the opening sounds of two words, so the two things named here trade their fronts."
+    },
+    "pieces": [
+     "SAND",
+     "BAGGED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "group",
+      "soundsLike": "BAND",
+      "gives": "SAND",
+      "note": "A group of musicians is a band; it gives its B away and takes an S in exchange."
+     },
+     {
+      "clueFragment": "fell",
+      "soundsLike": "SAGGED",
+      "gives": "BAGGED",
+      "note": "Something that fell in the middle sagged; it hands over its S, takes the B, and the noise that comes back is spelt this way."
+     }
+    ],
+    "surface": "A group of musicians collapsing, as the Reverend might have reported it.",
+    "walkthrough": "Say 'band sagged' and move the noises at the front across. To sandbag someone is to ambush them with a cosh — a sock filled with sand — which is where the definition comes from.",
+    "definitionFit": "Somebody sandbagged has been ambushed, originally with a sand-filled sock, so they are very much under attack and taken by surprise."
+   }
   },
   {
    "id": "11-down",
@@ -225,7 +549,24 @@ window.CRYPTIC_PUZZLES["everyman-4120"] = /*JSON-START*/ {
     ]
    },
    "solution": "COOKIECUTTER",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "COOKIE CUTTER",
+    "definition": "I'll take the biscuit - regularly!",
+    "blocks": [
+     {
+      "clueFragment": "I'll take the biscuit",
+      "note": "The surface reading is a boast: to take the biscuit is to be the most outrageous thing going."
+     },
+     {
+      "clueFragment": "regularly!",
+      "note": "The setter's reading is literal and repeated — the same shape pressed out of the dough over and over, which is where the phrase for anything formulaic comes from."
+     }
+    ],
+    "surface": "Someone boasting that they will outdo everyone else, and keep on doing it.",
+    "walkthrough": "A cookie cutter takes the biscuit in the plainest possible sense — it cuts one out of the dough — and it does so identically every time, which is why the phrase came to mean formulaic.",
+    "definitionFit": "The whole clue describes the tool: it takes biscuits out of dough, does it the same way each time, and lends its name to anything mass-produced."
+   }
   },
   {
    "id": "12-across",
@@ -246,7 +587,33 @@ window.CRYPTIC_PUZZLES["everyman-4120"] = /*JSON-START*/ {
     ]
    },
    "solution": "DESMONDTUTU",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "DESMOND TUTU",
+    "definition": "Archbishop",
+    "indicators": [
+     "rabid"
+    ],
+    "indicatorNotes": {
+     "rabid": "A rabid animal is out of its own control, and letters out of control will not stay in the order they were handed over in."
+    },
+    "linkWords": [
+     "'s"
+    ],
+    "anagram": {
+     "fodder": "MUTT SOUNDED"
+    },
+    "blocks": [
+     {
+      "clueFragment": "mutt sounded",
+      "gives": "DESMONDTUTU",
+      "note": "The eleven letters of MUTT SOUNDED rearranged."
+     }
+    ],
+    "surface": "An archbishop's stray dog howling as though it had rabies.",
+    "walkthrough": "'sounded' looks like a marker for a word said out loud, and it is fodder — its letters go into the mix. Desmond Tutu was Archbishop of Cape Town and chaired South Africa's Truth and Reconciliation Commission.",
+    "definitionFit": "'Archbishop' defines by example: Desmond Tutu held the office in Cape Town, so the title names him as one holder of it."
+   }
   },
   {
    "id": "13-down",
@@ -267,7 +634,40 @@ window.CRYPTIC_PUZZLES["everyman-4120"] = /*JSON-START*/ {
     ]
    },
    "solution": "FRUITSALAD",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "FRUIT SALAD",
+    "definition": "Sweet",
+    "indicators": [],
+    "linkWords": [
+     "given to"
+    ],
+    "pieces": [
+     "FRUITS",
+     "A",
+     "LAD"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tomatoes maybe",
+      "gives": "FRUITS",
+      "note": "A tomato is botanically a fruit, and 'maybe' flags that it is one example of the wider class."
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "The article is taken straight off the page as a single letter."
+     },
+     {
+      "clueFragment": "bloke",
+      "gives": "LAD",
+      "note": "Bloke and lad are both British informal words for a male, so one stands in for the other."
+     }
+    ],
+    "surface": "Sweet tomatoes being handed over to some chap.",
+    "walkthrough": "In British usage 'sweet' is the dessert course rather than a sugary morsel, and that is the sense the definition needs. Tomatoes count as fruit botanically, however they are eaten.",
+    "definitionFit": "'Sweet' is the British name for the pudding course, and a fruit salad is a standard one — the noun sense of sweet, not the adjective."
+   }
   },
   {
    "id": "14-down",
@@ -284,7 +684,33 @@ window.CRYPTIC_PUZZLES["everyman-4120"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ASCENDANCY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ASCENDANCY",
+    "definition": "Predominance",
+    "indicators": [
+     "crooked"
+    ],
+    "indicatorNotes": {
+     "crooked": "Crooked means bent out of true, and letters bent out of true are letters no longer in the order they came in."
+    },
+    "linkWords": [
+     "of"
+    ],
+    "anagram": {
+     "fodder": "CANDY CANES"
+    },
+    "blocks": [
+     {
+      "clueFragment": "candy canes",
+      "gives": "ASCENDANCY",
+      "note": "The ten letters of CANDY CANES rearranged."
+     }
+    ],
+    "surface": "Christmas sweets with a bend in them.",
+    "walkthrough": "'Crooked' describes the shape of a candy cane, the hook at the top that everyone pictures, which is exactly why it reads as scenery rather than as an instruction.",
+    "definitionFit": "Ascendancy is the state of being on top of others, so 'predominance' is a plain synonym — dominance held rather than dominance exercised."
+   }
   },
   {
    "id": "15-across",
@@ -301,7 +727,39 @@ window.CRYPTIC_PUZZLES["everyman-4120"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "THICKEN",
-   "annotation": null
+   "annotation": {
+    "type": "substitution",
+    "answer": "THICKEN",
+    "definition": "Plot may do this",
+    "indicators": [
+     "character with lisp"
+    ],
+    "indicatorNotes": {
+     "character with lisp": "A lisp is the speech habit that turns an S sound into TH, so the character named here changes one sound of the word for another."
+    },
+    "linkWords": [
+     "from"
+    ],
+    "pieces": [
+     "TH",
+     "ICKEN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "catch something",
+      "gives": "SICKEN",
+      "note": "To catch something is to sicken — the phrase people use for coming down with an illness."
+     },
+     {
+      "clueFragment": "character with lisp",
+      "gives": "TH",
+      "note": "A lisp turns the S sound into TH, so the opening letter is the one that steps aside."
+     }
+    ],
+    "surface": "Catching a bug off someone who cannot say their esses.",
+    "walkthrough": "'The plot thickens' is the stock phrase the definition leans on, and a lisp is the setter's licence to trade an S sound for a TH.",
+    "definitionFit": "A plot thickens when it grows more tangled, so 'Plot may do this' points straight at the verb that phrase made famous."
+   }
   },
   {
    "id": "16-across",
@@ -322,7 +780,43 @@ window.CRYPTIC_PUZZLES["everyman-4120"] = /*JSON-START*/ {
     ]
    },
    "solution": "STBARTS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ST BARTS",
+    "definition": "somewhere in Caribbean",
+    "indicators": [],
+    "pieces": [
+     "S",
+     "T",
+     "BART",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "gives": "S",
+      "note": "S is the size on the clothing label."
+     },
+     {
+      "clueFragment": "tense",
+      "gives": "T",
+      "note": "T is the grammarian's abbreviation for tense, as in past T or future T."
+     },
+     {
+      "clueFragment": "composer of musical",
+      "gives": "BART",
+      "note": "Lionel Bart wrote Oliver!, the London stage musical made from Oliver Twist."
+     },
+     {
+      "clueFragment": "is",
+      "gives": "S",
+      "note": "'Is' contracts to 's, as in 'it's', so the word lends one letter."
+     }
+    ],
+    "surface": "A small, nervous songwriter somewhere in the Caribbean.",
+    "walkthrough": "Lionel Bart is the composer setters reach for at four letters. The island is Saint Barthélemy, a French territory in the Leeward Islands, and the short name is what everyone actually says.",
+    "definitionFit": "St Barts is the everyday English name for Saint Barthélemy, a small French island in the Caribbean, so the definition places it rather than describes it."
+   }
   },
   {
    "id": "17-across",
@@ -339,7 +833,45 @@ window.CRYPTIC_PUZZLES["everyman-4120"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OBSCENE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "OBSCENE",
+    "definition": "Appalling",
+    "indicators": [
+     "buried in",
+     "broken"
+    ],
+    "indicatorNotes": {
+     "buried in": "To bury a thing in something is to put it inside and close the rest over it, so one piece ends up within the other.",
+     "broken": "Something broken has come apart and gone back together differently, which is what happens to the letters it points at."
+    },
+    "pieces": [
+     "OBS",
+     "CE",
+     "NE"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "BONES",
+      "gives": "OBSNE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "broken bones",
+      "gives": "OBSNE",
+      "note": "Bones supplies five letters and 'broken' says they need not stay in the order given."
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England, the church setters mean nine times out of ten."
+     }
+    ],
+    "surface": "A church sunk under a heap of shattered bones.",
+    "walkthrough": "'buried in' reads as a grave in the surface and as an insertion in the wordplay, and the two readings sit on top of each other for the whole length of the clue.",
+    "definitionFit": "Appalling and OBSCENE both mean shocking enough to offend, obscene carrying the extra charge of indecency the surface is playing with."
+   }
   },
   {
    "id": "18-down",
@@ -362,7 +894,31 @@ window.CRYPTIC_PUZZLES["everyman-4120"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ESTONIA",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "ESTONIA",
+    "definition": "here",
+    "definitionNote": "The definition is the single word 'here': rather than describing the country, the setter points at it as a destination, and the exclamation mark flags that as a joke rather than a slip.",
+    "indicators": [
+     "Not entirely"
+    ],
+    "indicatorNotes": {
+     "Not entirely": "'Not entirely' says you want part of what came before rather than all of it, and the part wanted is a run of letters standing side by side."
+    },
+    "linkWords": [
+     "getting you"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Planes to Niagara",
+      "gives": "ESTONIA",
+      "note": "Seven consecutive letters run out of the end of the first word, across the second and into the third."
+     }
+    ],
+    "surface": "A grumble that flights to the falls do not take you all the way.",
+    "walkthrough": "'Planes to Niagara' looks like scenery for a travel joke and is the hiding place, and the italics on 'entirely' are the setter nudging you to read 'Not entirely' as an instruction.",
+    "definitionFit": "'Here' points at the answer as a place you might fly to, and Estonia is a Baltic country four thousand miles from the falls the surface offers."
+   }
   },
   {
    "id": "19-across",
@@ -379,7 +935,39 @@ window.CRYPTIC_PUZZLES["everyman-4120"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LATRINE",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "LATRINE",
+    "definition": "where you go",
+    "indicators": [
+     "enthralling",
+     "largely"
+    ],
+    "indicatorNotes": {
+     "enthralling": "To enthral is to hold someone in thrall, and a thing holding another keeps it inside itself.",
+     "largely": "Largely means for the most part and not all of it, so the piece it points at arrives one letter short."
+    },
+    "pieces": [
+     "LAT",
+     "RIN",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dead",
+      "gives": "LATE",
+      "note": "The late Mr Smith is the dead one, and that is the sense wanted here."
+     },
+     {
+      "clueFragment": "skating venue",
+      "gives": "RIN",
+      "note": "A skating venue is a rink, and 'largely' keeps all of it but the final letter."
+     }
+    ],
+    "surface": "A skating rink that is absolutely gripping.",
+    "walkthrough": "'Dead enthralling' is British for utterly gripping, and the two words are separate instructions rather than one phrase. A latrine is the trench toilet of a camp or barracks.",
+    "definitionFit": "'Where you go' is the polite euphemism for a lavatory, and a latrine is the rough communal version of one."
+   }
   },
   {
    "id": "19-down",
@@ -396,7 +984,39 @@ window.CRYPTIC_PUZZLES["everyman-4120"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LEARNED",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "LEARNED",
+    "definition": "erudite",
+    "indicators": [
+     "among friends"
+    ],
+    "indicatorNotes": {
+     "among friends": "Among friends a man goes by his familiar name rather than his formal one, so the clue wants the nickname and not the christening."
+    },
+    "linkWords": [
+     "is"
+    ],
+    "pieces": [
+     "LEAR",
+     "NED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "King",
+      "gives": "LEAR",
+      "note": "Shakespeare's King Lear is the king setters reach for when four letters are wanted."
+     },
+     {
+      "clueFragment": "Edward",
+      "gives": "NED",
+      "note": "Ned is the old familiar shortening of Edward, sitting alongside Ted and Ed."
+     }
+    ],
+    "surface": "King Edward showing off his reading when he is among friends.",
+    "walkthrough": "'King Edward' looks like one man — a monarch, or the potato named after him — and it is two separate names. Barristers address each other as 'my learned friend', which is where the surface gets its polish.",
+    "definitionFit": "Learned, said as two syllables, means deeply read and scholarly, which is precisely what erudite means."
+   }
   },
   {
    "id": "20-across",
@@ -413,7 +1033,30 @@ window.CRYPTIC_PUZZLES["everyman-4120"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UNTRAVERSED",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "UNTRAVERSED",
+    "definition": "that hasn't been crossed",
+    "indicators": [
+     "ground"
+    ],
+    "indicatorNotes": {
+     "ground": "Ground is the past tense of grind, and anything put through a mill comes out in pieces that no longer sit where they did."
+    },
+    "anagram": {
+     "fodder": "ADVENTURERS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Adventurer's",
+      "gives": "UNTRAVERSED",
+      "note": "The word with its 's holds eleven letters, and they are rearranged."
+     }
+    ],
+    "surface": "An explorer's patch of country that nobody has walked over.",
+    "walkthrough": "'Adventurer's ground' reads as a noun phrase — the explorer's own territory — and 'ground' is the past tense of grind, hiding an instruction inside a piece of landscape.",
+    "definitionFit": "To traverse is to cross, so the un- prefix gives land nobody has crossed: the clue defines by unpacking the word's own parts."
+   }
   },
   {
    "id": "21-down",
@@ -430,7 +1073,35 @@ window.CRYPTIC_PUZZLES["everyman-4120"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ANNA",
-   "annotation": null
+   "annotation": {
+    "type": "palindrome",
+    "answer": "ANNA",
+    "definition": "Ms Karenina",
+    "indicators": [
+     "going back and forth"
+    ],
+    "indicatorNotes": {
+     "going back and forth": "A word that goes back and forth reads the same whichever end you start from, so there is nothing to turn round — only a symmetry to notice."
+    },
+    "pieces": [
+     "ANNA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ms Karenina",
+      "gives": "",
+      "note": "The definition end of the clue: Tolstoy's heroine, given by title and surname only."
+     },
+     {
+      "clueFragment": "going back and forth",
+      "gives": "",
+      "note": "The wordplay end: four letters that read identically in either direction, which is all the help the clue offers."
+     }
+    ],
+    "surface": "Tolstoy's heroine pacing to and fro, unable to settle.",
+    "walkthrough": "ANNA reads the same from either end, and that symmetry is the whole of the wordplay — 'going back and forth' catches her restlessness as well as the shape of her name.",
+    "definitionFit": "Ms Karenina is Tolstoy's Anna: the clue hands over the title and the surname and leaves the first name as the thing to find."
+   }
   },
   {
    "id": "22-down",
@@ -447,7 +1118,36 @@ window.CRYPTIC_PUZZLES["everyman-4120"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SNIP",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "SNIP",
+    "definition": "Trim",
+    "indicators": [
+     "raised"
+    ],
+    "indicatorNotes": {
+     "raised": "This is a down entry, so something raised is read from the bottom of the grid upwards and its letters arrive in the other order."
+    },
+    "subReversals": [
+     {
+      "from": "PINS",
+      "to": "SNIP"
+     }
+    ],
+    "pieces": [
+     "SNIP"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "legs",
+      "gives": "PINS",
+      "note": "Pins is British slang for legs, as in being steady on your pins."
+     }
+    ],
+    "surface": "A shapely pair of legs lifted into the air.",
+    "walkthrough": "'Trim' reads as an adjective in the surface, describing neat legs, and it is the verb that defines the entry — to take a little off with the scissors.",
+    "definitionFit": "To snip is to cut with one quick closing of the scissors, which is what trimming a fringe or a hedge amounts to."
+   }
   },
   {
    "id": "23-across",
@@ -468,7 +1168,36 @@ window.CRYPTIC_PUZZLES["everyman-4120"] = /*JSON-START*/ {
     ]
    },
    "solution": "NINETYNINE",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "NINETY-NINE",
+    "definition": "Ice cream",
+    "definition2": "IC",
+    "indicators": [
+     "non-standardly"
+    ],
+    "indicatorNotes": {
+     "non-standardly": "Roman numerals do not normally take a unit off a hundred, so the flag warns that the two letters are an irregular way of writing the number."
+    },
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ice cream",
+      "gives": "NINETYNINE",
+      "note": "The British seaside cone, soft whipped ice cream with a chocolate Flake pushed into it, is known by a number."
+     },
+     {
+      "clueFragment": "IC",
+      "gives": "NINETYNINE",
+      "note": "Read as Roman numerals, I before C means one taken off a hundred."
+     }
+    ],
+    "surface": "A menu shortening 'ice cream' to two letters, which nobody actually does.",
+    "walkthrough": "The surface offers IC as sloppy shorthand for the words in front of it; the wordplay wants Roman numerals, one before a hundred. XCIX is the form the purists accept.",
+    "definitionFit": "A 99 is the British cone with a Flake stuck in it, and IC is the irregular Roman numeral for the same number."
+   }
   },
   {
    "id": "24-across",
@@ -485,7 +1214,40 @@ window.CRYPTIC_PUZZLES["everyman-4120"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FLAN",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "FLAN",
+    "definition": "Perhaps quiche",
+    "indicators": [
+     "around"
+    ],
+    "indicatorNotes": {
+     "around": "To go around something is to close on it from both sides, so the longer piece ends up wrapped about the single letter."
+    },
+    "linkWords": [
+     "getting"
+    ],
+    "pieces": [
+     "F",
+     "L",
+     "AN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cool",
+      "gives": "FAN",
+      "note": "A fan is the thing you switch on to cool a room."
+     },
+     {
+      "clueFragment": "lake",
+      "gives": "L",
+      "note": "L is the map abbreviation for lake."
+     }
+    ],
+    "surface": "A quiche left to cool at the side of a lake.",
+    "walkthrough": "'Perhaps' is the setter admitting the definition is an example rather than a synonym: a quiche is one kind of flan and not the only one.",
+    "definitionFit": "A flan is an open pastry case with a filling, and a quiche is one of those — the egg-and-cream version — so 'perhaps' marks a definition by example."
+   }
   },
   {
    "id": "25-across",
@@ -502,7 +1264,24 @@ window.CRYPTIC_PUZZLES["everyman-4120"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AMPERSANDS",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "AMPERSANDS",
+    "definition": "Characters seen outside branches of H&M",
+    "blocks": [
+     {
+      "clueFragment": "Characters seen outside branches",
+      "note": "The surface reading is people loitering on the pavement in front of the shops."
+     },
+     {
+      "clueFragment": "of H&M",
+      "note": "The setter's reading is typographic: the retailer's name carries a symbol between its two letters, and it is up on the sign over every door."
+     }
+    ],
+    "surface": "People hanging about on the pavement outside the clothes shops.",
+    "walkthrough": "'Characters' means printed symbols rather than people, and 'outside' is literal: the sign carrying the symbol is on the front of the building, not in the aisles.",
+    "definitionFit": "Characters are typographic symbols, and the ampersand is one — the & standing between the H and the M on every shopfront."
+   }
   },
   {
    "id": "26-across",
@@ -519,7 +1298,30 @@ window.CRYPTIC_PUZZLES["everyman-4120"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EDDY",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "EDDY",
+    "definition": "that may have you in a spin",
+    "indicators": [
+     "Topless"
+    ],
+    "indicatorNotes": {
+     "Topless": "The top of a word is its first letter and topless takes it off — a loose licence, since this entry runs across rather than down, but one setters use freely."
+    },
+    "pieces": [
+     "EDDY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "undergarment",
+      "gives": "TEDDY",
+      "note": "A teddy is a one-piece item of women's underwear, and its first letter is the one that goes."
+     }
+    ],
+    "surface": "A stripped-down piece of underwear that might leave your head whirling.",
+    "walkthrough": "The clue's own suggestiveness is the misdirection — 'topless' reads as a description of the garment before it reads as an instruction about letters. An eddy is a small whirl of water or air.",
+    "definitionFit": "An eddy is a circling current in water or air, so anything caught in one is literally sent spinning round."
+   }
   }
  ]
 } /*JSON-END*/;
