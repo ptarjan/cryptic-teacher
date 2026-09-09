@@ -101,7 +101,6 @@ header {
 h1 { font-size: 1.6rem; margin: 0; letter-spacing: .5px; }
 .tagline { margin: 0; color: var(--muted); font-style: italic; }
 .header-controls { display: flex; gap: 8px; }
-.lbl-short { display: none; }
 
 /* The lesson is a page, so its control is a link and not a button — and it
    still has to sit in the header row looking like the two beside it. */
@@ -123,16 +122,12 @@ button:disabled:hover { border-color: var(--line); }
    row too, so the controls get their own line — but that line still has to
    stay one line. Controls never wrap their own label across two lines: a
    button that shrinks below its text is a broken layout, not a compact one.
-   So each control is nowrap and sized down instead, and the one label that
-   reads as prose rather than a command drops to a single word, keeping its
-   full name for anyone not reading the shortened text. */
+   So each control is nowrap and sized down instead. */
 @media (max-width: 480px) {
   .header-controls { gap: 4px; flex-wrap: nowrap; }
   .header-controls button, .header-controls a.ghost {
     font-size: .85rem; padding: 11px 6px; white-space: nowrap;
   }
-  .lbl-full { display: none; }
-  .lbl-short { display: inline; }
 }
 
 .hidden { display: none !important; }

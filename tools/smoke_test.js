@@ -1668,7 +1668,7 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
 {
   const home = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
   assert(/<a class="ghost" href="learn\/" aria-label="How cryptic clues work">/.test(home),
-    "the header links to the lesson at /learn/, and keeps its name once the phone-width row shortens the visible label");
+    "the header links to the lesson at /learn/, and the aria-label carries its full name behind the one-word button");
   assert(!home.includes('id="tutorial"') && !home.includes("tutorial.js"),
     "index.html carries no in-page copy of the lesson");
 }
