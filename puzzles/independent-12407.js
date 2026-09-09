@@ -190,7 +190,7 @@ window.CRYPTIC_PUZZLES["independent-12407"] = /*JSON-START*/ {
       "note": "N is the standard abbreviation for noon, as printed on a timetable"
      }
     ],
-    "walkthrough": "'Developed' is the shuffle. Anagram THERE AT together with the N of noon and the eight letters fall into THREATEN. The Independent printed 5-down's clue here, with a different ending glued on, and the paper's own data feed carried the real wordplay (an anagram of THERE AT plus N) that never appeared on the page. The clue above is the one Atrica confirmed in the Fifteensquared comments; the printed text is not recoverable as a solvable clue and is not kept.",
+    "walkthrough": "'Developed' is the shuffle. Anagram THERE AT together with the N of noon and the eight letters fall into THREATEN.",
     "definitionFit": "to foreshadow → THREATEN: when the sky threatens rain it is giving warning of rain to come, so to threaten a thing is to foreshadow it."
    }
   },
