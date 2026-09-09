@@ -34,7 +34,42 @@ window.CRYPTIC_PUZZLES["cryptic-29969"] = /*JSON-START*/ {
     ]
    },
    "solution": "CHOOCHOO",
-   "annotation": null
+   "annotation": {
+    "type": "homophone + charade",
+    "answer": "CHOO-CHOO",
+    "definition": "puffer",
+    "indicators": [
+     "doubly",
+     "loudly"
+    ],
+    "indicatorNotes": {
+     "doubly": "'doubly' asks for the same piece over again, so whatever the first half hands you gets written out twice.",
+     "loudly": "'loudly' is about saying a word rather than spelling it, so what goes in the grid is what the ear hears."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "CHOO",
+     "CHOO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Soften tobacco, say",
+      "soundsLike": "CHEW",
+      "gives": "CHOO",
+      "note": "a plug of tobacco is softened between the teeth, and the word for doing that, said out loud, is written this way in the nursery"
+     },
+     {
+      "clueFragment": "doubly",
+      "gives": "CHOO",
+      "note": "the same noise is called for a second time"
+     }
+    ],
+    "surface": "Tobacco worked soft and a shout repeated twice over.",
+    "walkthrough": "'Puffer' looks like a fish or an inhaler and is the nursery word for a steam engine. A chew is the wad of tobacco you soften in your cheek.",
+    "definitionFit": "A puffer is a steam locomotive, and the nursery name for one imitates the noise it makes going along."
+   }
   },
   {
    "id": "2-down",
@@ -56,7 +91,31 @@ window.CRYPTIC_PUZZLES["cryptic-29969"] = /*JSON-START*/ {
     ]
    },
    "solution": "BOWL",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "charade",
+    "answer": "BOWL OVER",
+    "definition": "Astound",
+    "pieces": [
+     "BOW",
+     "LOVER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cockney",
+      "gives": "BOW",
+      "note": "a true Cockney is born within the sound of Bow Bells, the church bells of Bow in London's East End"
+     },
+     {
+      "clueFragment": "Casanova",
+      "gives": "LOVER",
+      "note": "the eighteenth-century Venetian's name is the byword for a great seducer"
+     }
+    ],
+    "surface": "An East End ladies' man, held up as something to take your breath away.",
+    "walkthrough": "The break in the wordplay is not the break in the answer: the two pieces divide one letter earlier than the two words that go in the grid.",
+    "definitionFit": "To bowl someone over is to knock them flat, and the figurative sense — leave them astonished — is the one in everyday use."
+   }
   },
   {
    "id": "3-down",
@@ -73,7 +132,39 @@ window.CRYPTIC_PUZZLES["cryptic-29969"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "YORICK",
-   "annotation": null
+   "annotation": {
+    "type": "container + middle letters",
+    "answer": "YORICK",
+    "definition": "10",
+    "indicators": [
+     "barely",
+     "housebound"
+    ],
+    "indicatorNotes": {
+     "barely": "'barely' is stripped bare, and a word stripped bare gives up the letters standing on its outside.",
+     "housebound": "the '-bound' half is the instruction: anyone bound to a house cannot get out of it, so the house closes round what follows."
+    },
+    "pieces": [
+     "YOR",
+     "IC",
+     "K"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "housebound",
+      "gives": "YORK",
+      "note": "the House of York, the royal house of the white rose in the Wars of the Roses"
+     },
+     {
+      "clueFragment": "sick",
+      "gives": "IC",
+      "note": "the outer S and K are stripped off, leaving the two letters in the middle"
+     }
+    ],
+    "surface": "A sickly figure who can barely get out of the house.",
+    "walkthrough": "'House' is the royal House of York rather than a home, so the invalid stuck indoors is a picture the surface paints and the wordplay never uses.",
+    "definitionFit": "10 is FOOL: Yorick was the king's jester in Hamlet, remembered as the skull Hamlet holds in the graveyard."
+   }
   },
   {
    "id": "4-down",
@@ -90,7 +181,40 @@ window.CRYPTIC_PUZZLES["cryptic-29969"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STATUTE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "STATUTE",
+    "definition": "Rule",
+    "indicators": [
+     "in",
+     "new"
+    ],
+    "indicatorNotes": {
+     "in": "'in' places one piece within another instead of alongside it, so the king lands in the middle rather than at the end.",
+     "new": "'new' means made afresh, and letters made afresh come out in an order the clue has not printed."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "anagram": {
+     "fodder": "SEAT TUT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "seat",
+      "gives": "SEAT",
+      "note": "four letters of fodder"
+     },
+     {
+      "clueFragment": "old king",
+      "gives": "TUT",
+      "note": "Tutankhamun, the boy pharaoh, is the old king crosswords keep on the shelf"
+     }
+    ],
+    "surface": "A coronation: an old monarch installed on a newly made throne.",
+    "walkthrough": "Every word of the coronation picture is doing letter work, and Tut is the standard crossword king — three letters, permanently available, no other pharaoh so short.",
+    "definitionFit": "A statute is a law as written down by a legislature, which is the formal sense of a rule imposed rather than a rule of thumb."
+   }
   },
   {
    "id": "5-down",
@@ -107,7 +231,40 @@ window.CRYPTIC_PUZZLES["cryptic-29969"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HABANERA",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "HABANERA",
+    "definition": "aria",
+    "indicators": [
+     "embraced by"
+    ],
+    "indicatorNotes": {
+     "embraced by": "'embraced by' is a hug: whatever does the embracing opens its arms and takes the other piece inside."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "H",
+     "ABAN",
+     "ERA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "goddess",
+      "gives": "HERA",
+      "note": "Hera, queen of the Greek gods and wife of Zeus"
+     },
+     {
+      "clueFragment": "A taboo",
+      "gives": "ABAN",
+      "note": "a taboo is a ban, and the clue's own A comes along with it"
+     }
+    ],
+    "surface": "A goddess folding something forbidden into her arms.",
+    "walkthrough": "The clue's opening 'A' belongs to the wordplay rather than to the grammar, which is the hardest thing to see here. Hera is the four-letter goddess setters reach for first.",
+    "definitionFit": "A habanera is a Cuban dance song, and the famous one is Carmen's, so 'aria' names it by its best-known example."
+   }
   },
   {
    "id": "6-down",
@@ -124,7 +281,36 @@ window.CRYPTIC_PUZZLES["cryptic-29969"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BRANDISHED",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "BRANDISHED",
+    "definition": "flourished",
+    "pieces": [
+     "BRAND",
+     "I",
+     "SHED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Design",
+      "gives": "BRAND",
+      "note": "a brand is the design a company stamps on what it sells"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "the clue's own letter, taken as it stands"
+     },
+     {
+      "clueFragment": "dropped",
+      "gives": "SHED",
+      "note": "to shed something is to drop it, the way a tree sheds leaves"
+     }
+    ],
+    "surface": "A design its creator abandoned went on to thrive.",
+    "walkthrough": "'Flourished' is the waving sense, not the thriving one the surface offers, and 'dropped' is a synonym at work rather than the fate of the design.",
+    "definitionFit": "Brandished and flourished are the same act in the past tense: a sword or a document waved about for show."
+   }
   },
   {
    "id": "7-down",
@@ -141,7 +327,31 @@ window.CRYPTIC_PUZZLES["cryptic-29969"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PLANKS",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "PLANKS",
+    "definition": "10s",
+    "definition2": "wood",
+    "definitionNote": "'Wood' is a mass noun where the answer is plural: the second definition names the answer by the stuff it is cut from, sawn lengths of it.",
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "10s",
+      "gives": "",
+      "note": "the British insult for the very dim, as in 'thick as two short ones'"
+     },
+     {
+      "clueFragment": "wood",
+      "gives": "",
+      "note": "sawn timber, the boards a mill turns a trunk into"
+     }
+    ],
+    "surface": "Idiots blundering about in a wood.",
+    "walkthrough": "British slang makes a plank a dolt — 'thick as two short planks' is the phrase behind it — so both halves of the clue are talking about the same timber.",
+    "definitionFit": "10 is FOOL: in British usage a plank is a blockhead, and planks are also the sawn boards cut out of a tree."
+   }
   },
   {
    "id": "8-across",
@@ -158,7 +368,33 @@ window.CRYPTIC_PUZZLES["cryptic-29969"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SHOOTOUT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SHOOTOUT",
+    "definition": "final battle",
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "SHOO",
+     "TOUT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Leave",
+      "gives": "SHOO",
+      "note": "'shoo' is what you say to drive a cat or a pigeon away"
+     },
+     {
+      "clueFragment": "pitch",
+      "gives": "TOUT",
+      "note": "a tout pitches tickets to passers-by outside the ground"
+     }
+    ],
+    "surface": "A player walking off the pitch just as the decider begins.",
+    "walkthrough": "'Leave pitch' looks like one football instruction and is two words clued separately — an order to be off, and the patter of a man selling tickets.",
+    "definitionFit": "A shootout is the climactic gunfight of a western, and a penalty shootout is the battle that finally settles a drawn tie."
+   }
   },
   {
    "id": "9-across",
@@ -180,7 +416,31 @@ window.CRYPTIC_PUZZLES["cryptic-29969"] = /*JSON-START*/ {
     ]
    },
    "solution": "APRIL",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "anagram",
+    "answer": "APRIL THE FIRST",
+    "definition": "When",
+    "indicators": [
+     "set"
+    ],
+    "indicatorNotes": {
+     "set": "'set' is the printer's word for type arranged on a page, and type arranged again comes out in a different order."
+    },
+    "anagram": {
+     "fodder": "FILTHIER TRAPS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "filthier traps",
+      "gives": "FILTHIERTRAPS",
+      "note": "thirteen letters of fodder"
+     }
+    ],
+    "surface": "Somebody asking when the nastiest snares get laid.",
+    "walkthrough": "Every 10 in this grid is a fool, and this is the day they own — the puzzle was published on it. 'Filthier traps' reads as the snares of the surface and is thirteen letters waiting to be moved.",
+    "definitionFit": "'When?' is answered by a date, and this is the date on which the tricks the surface describes are traditionally sprung."
+   }
   },
   {
    "id": "10-across",
@@ -197,7 +457,27 @@ window.CRYPTIC_PUZZLES["cryptic-29969"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FOOL",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "FOOL",
+    "definition": "Bottom, for example",
+    "definition2": "sweet",
+    "blocks": [
+     {
+      "clueFragment": "Bottom, for example",
+      "gives": "",
+      "note": "the weaver in A Midsummer Night's Dream who is given an ass's head, offered as one instance rather than a synonym"
+     },
+     {
+      "clueFragment": "sweet",
+      "gives": "",
+      "note": "'sweet' is the British name for the dessert course, and this one is fruit crushed into whipped cream"
+     }
+    ],
+    "surface": "A bottom described, oddly enough, as something sweet.",
+    "walkthrough": "Seven other clues in this grid point back at this one, because the answer is the puzzle's theme. A gooseberry fool is the pudding; Bottom is only one of Shakespeare's many candidates.",
+    "definitionFit": "Bottom, the ass-headed weaver, is one instance of the word; the other sense is the pudding of fruit whipped into cream."
+   }
   },
   {
    "id": "11-across",
@@ -218,7 +498,45 @@ window.CRYPTIC_PUZZLES["cryptic-29969"] = /*JSON-START*/ {
     ]
    },
    "solution": "INTRAINING",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container + last letter",
+    "answer": "IN TRAINING",
+    "definition": "acquiring skills",
+    "indicators": [
+     "ultimately",
+     "cutting"
+    ],
+    "indicatorNotes": {
+     "ultimately": "'ultimately' means at the very end, and the end of the word beside it is where the single letter comes from.",
+     "cutting": "someone cutting in pushes into the middle of something already under way, so the letter lands inside rather than after."
+    },
+    "pieces": [
+     "I",
+     "N",
+     "T",
+     "RAINING"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "the clue's own word, taken as it stands, and about to be split open"
+     },
+     {
+      "clueFragment": "Moderation ultimately",
+      "gives": "N",
+      "note": "the closing letter of moderation"
+     },
+     {
+      "clueFragment": "wet",
+      "gives": "RAINING",
+      "note": "when it is wet outside, it is raining"
+     }
+    ],
+    "surface": "Restraint at last proving good enough, while a soggy sort picks up new skills.",
+    "walkthrough": "'Cutting it' reads as the idiom for being good enough, and the two words are not even in the same piece of the wordplay: one is an instruction, the other is material.",
+    "definitionFit": "Someone in training is acquiring skills — the phrase covers athletes and apprentices alike, both still mid-process rather than finished."
+   }
   },
   {
    "id": "12-across",
@@ -235,7 +553,40 @@ window.CRYPTIC_PUZZLES["cryptic-29969"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SHTICK",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "SHTICK",
+    "definition": "routine",
+    "indicators": [
+     "has whipped"
+    ],
+    "indicatorNotes": {
+     "has whipped": "to whip something, in British slang, is to pinch it, and what the cane pinches it keeps inside itself."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "S",
+     "H",
+     "TICK"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cane",
+      "gives": "STICK",
+      "note": "a cane is a stick"
+     },
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H = hard, the grade stamped on a pencil"
+     }
+    ],
+    "surface": "A cane coming down hard, apparently as part of somebody's regular practice.",
+    "walkthrough": "Shtick is Yiddish for a piece or slice, and a comic's shtick is the bit of business they do every time out. 'Whipped' is the pickpocket's sense here, not the beating the surface shows.",
+    "definitionFit": "A performer's shtick is the routine they are known for — the same gag or turn wheeled out at every appearance."
+   }
   },
   {
    "id": "13-down",
@@ -257,7 +608,35 @@ window.CRYPTIC_PUZZLES["cryptic-29969"] = /*JSON-START*/ {
     ]
    },
    "solution": "INTHATCASE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "IN THAT CASE",
+    "definition": "then",
+    "indicators": [
+     "works"
+    ],
+    "indicatorNotes": {
+     "works": "'works' claims the phrase functions as raw material: put to work, its letters take up new positions."
+    },
+    "anagram": {
+     "fodder": "THE SATANIC"
+    },
+    "blocks": [
+     {
+      "clueFragment": "The satanic",
+      "gives": "THESATANIC",
+      "note": "ten letters of fodder"
+     },
+     {
+      "clueFragment": "atheist can too",
+      "gives": "",
+      "note": "these three words hold the very same ten letters over again, which is the setter's joke rather than extra material"
+     }
+    ],
+    "surface": "A claim that satanic writings work, and that an atheist could manage as much.",
+    "walkthrough": "Both phrases carry the same ten letters: 'the satanic' and 'atheist can' each rearrange into IN THAT CASE, and the exclamation mark is the setter enjoying the coincidence.",
+    "definitionFit": "'Then' in the sense of 'if so': 'then I'll walk' and 'in that case I'll walk' are the same sentence."
+   }
   },
   {
    "id": "14-across",
@@ -279,7 +658,9 @@ window.CRYPTIC_PUZZLES["cryptic-29969"] = /*JSON-START*/ {
     ]
    },
    "solution": "THEFIRST",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "9-across"
+   }
   },
   {
    "id": "15-across",
@@ -296,7 +677,37 @@ window.CRYPTIC_PUZZLES["cryptic-29969"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "COSTARD",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "COSTARD",
+    "definition": "10",
+    "indicators": [
+     "has taken in"
+    ],
+    "indicatorNotes": {
+     "has taken in": "'has taken in' is what a household does with a lodger: the next piece is given a room inside."
+    },
+    "pieces": [
+     "CO",
+     "STAR",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hoax",
+      "gives": "COD",
+      "note": "a cod is a hoax, and cod as an adjective means fake"
+     },
+     {
+      "clueFragment": "famous",
+      "gives": "STAR",
+      "note": "a famous name is a star"
+     }
+    ],
+    "surface": "A hoax that has swallowed a celebrity whole.",
+    "walkthrough": "'Cod' for a hoax survives in codswallop and cod Latin. A costard is also a big old English apple, which is where the character got his name.",
+    "definitionFit": "10 is FOOL: Costard is the rustic clown of Love's Labour's Lost, the comic simpleton the play sends about with letters."
+   }
   },
   {
    "id": "16-down",
@@ -313,7 +724,39 @@ window.CRYPTIC_PUZZLES["cryptic-29969"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REGISTER",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + container",
+    "answer": "REGISTER",
+    "definition": "Record",
+    "indicators": [
+     "in",
+     "lifted"
+    ],
+    "indicatorNotes": {
+     "in": "'in' is a placement word: what comes before it is dropped inside what comes after.",
+     "lifted": "'lifted' is the shoplifter's sense — the bar is pinched from the word and carried off."
+    },
+    "pieces": [
+     "R",
+     "EG",
+     "ISTER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brief, bar lifted",
+      "gives": "RISTER",
+      "note": "in British slang your brief is your barrister, the lawyer arguing your case, and BAR is lifted off the front of him"
+     },
+     {
+      "clueFragment": "for example",
+      "gives": "EG",
+      "note": "the everyday two-letter shorthand for 'for example'"
+     }
+    ],
+    "surface": "Something noted down in a lawyer's summary once the bar has been raised.",
+    "walkthrough": "In British slang a brief is a barrister, so the bar comes off the man and not off the document. Reading 'lifted' as a raising, which a down clue would license, is the false trail: it means stolen.",
+    "definitionFit": "A register is a record kept in a book — the roll a school calls or a church writes marriages into."
+   }
   },
   {
    "id": "17-across",
@@ -330,7 +773,45 @@ window.CRYPTIC_PUZZLES["cryptic-29969"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CATHODE",
-   "annotation": null
+   "annotation": {
+    "type": "container + last letter",
+    "answer": "CATHODE",
+    "definition": "where current flows",
+    "indicators": [
+     "traps",
+     "ending in"
+    ],
+    "indicatorNotes": {
+     "traps": "a trap holds on to whatever walks into it, so the word before it shuts around the next piece.",
+     "ending in": "'ending in' points at the final letter of the word that follows it."
+    },
+    "pieces": [
+     "CA",
+     "THO",
+     "D",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rat",
+      "gives": "CAD",
+      "note": "a rat is a cad, an untrustworthy sort"
+     },
+     {
+      "clueFragment": "however",
+      "gives": "THO",
+      "note": "tho' is the poetic short form of though"
+     },
+     {
+      "clueFragment": "pipe",
+      "gives": "E",
+      "note": "the last letter of pipe"
+     }
+    ],
+    "surface": "Rat traps laid at the end of a pipe with water running through it.",
+    "walkthrough": "The surface is plumbing and vermin and the answer is electrical. Tho' is the sort of poetic contraction setters keep on hand whenever three awkward letters are wanted.",
+    "definitionFit": "A cathode is an electrode: the terminal in a valve, tube or cell that the current passes through."
+   }
   },
   {
    "id": "18-down",
@@ -347,7 +828,33 @@ window.CRYPTIC_PUZZLES["cryptic-29969"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DOGBERRY",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "DOGBERRY",
+    "definition": "10",
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "DOG",
+     "BERRY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stalk",
+      "gives": "DOG",
+      "note": "to dog someone is to follow them doggedly about"
+     },
+     {
+      "clueFragment": "fruit",
+      "gives": "BERRY",
+      "note": "a berry is the small soft fruit on a bush"
+     }
+    ],
+    "surface": "A plant stalk with its fruit still attached.",
+    "walkthrough": "'Stalk' is the verb here while the surface keeps it botanical alongside the fruit. Dogberry's mangled words — 'Comparisons are odorous' — are what Shakespeare built the character out of.",
+    "definitionFit": "10 is FOOL: Dogberry is the blundering constable of Much Ado About Nothing, the play's self-important idiot."
+   }
   },
   {
    "id": "19-down",
@@ -364,7 +871,29 @@ window.CRYPTIC_PUZZLES["cryptic-29969"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SNOOKER",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "SNOOKER",
+    "definition": "10",
+    "definition2": "game",
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "10",
+      "gives": "",
+      "note": "the verb sense: to leave somebody thwarted and out of options, which is what a trickster does to a mark"
+     },
+     {
+      "clueFragment": "game",
+      "gives": "",
+      "note": "the one played on green baize with fifteen reds, six colours and a rest"
+     }
+    ],
+    "walkthrough": "The apostrophe reads as a possessive and is standing in for 'is', with a definition either side of it. The verb comes from the table game: leave your opponent no shot and you have snookered them.",
+    "definitionFit": "10 is FOOL: to snooker someone is to outwit them into a hopeless position, and snooker is also the baize game itself."
+   }
   },
   {
    "id": "20-across",
@@ -385,7 +914,45 @@ window.CRYPTIC_PUZZLES["cryptic-29969"] = /*JSON-START*/ {
     ]
    },
    "solution": "SPRAYGUN",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + outer letters",
+    "answer": "SPRAY-GUN",
+    "definition": "Aerosol device",
+    "indicators": [
+     "empty",
+     "out"
+    ],
+    "indicatorNotes": {
+     "empty": "'empty' hollows a word out: the middle goes and only the letters standing at each end are left.",
+     "out": "'out' here is out of order, so the letters gathered up do not stay in the sequence the clue lists them in."
+    },
+    "linkWords": [
+     "having"
+    ],
+    "anagram": {
+     "fodder": "PY GAS RUN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "possibly empty",
+      "gives": "PY",
+      "note": "'possibly' with its insides gone leaves the first and last letters"
+     },
+     {
+      "clueFragment": "gas",
+      "gives": "GAS",
+      "note": "three letters of fodder, taken as they stand"
+     },
+     {
+      "clueFragment": "run",
+      "gives": "RUN",
+      "note": "three more letters of fodder, again straight off the page"
+     }
+    ],
+    "surface": "An aerosol can that may be finished, its propellant all used up.",
+    "walkthrough": "'Having run out' reads as one phrase about an empty canister and is doing two jobs: the first word is material and the second is the instruction.",
+    "definitionFit": "A spray gun is the hand tool that atomises paint or pesticide into an aerosol, so the definition names it by what it produces."
+   }
   },
   {
    "id": "21-down",
@@ -402,7 +969,33 @@ window.CRYPTIC_PUZZLES["cryptic-29969"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PROOFS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PROOFS",
+    "definition": "those to check?",
+    "linkWords": [
+     "and"
+    ],
+    "pieces": [
+     "P",
+     "ROOFS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Page",
+      "gives": "P",
+      "note": "p. is the standard short form of page"
+     },
+     {
+      "clueFragment": "covers",
+      "gives": "ROOFS",
+      "note": "a roof covers a building, and the verb is doing the work here"
+     }
+    ],
+    "surface": "A page and its covers, waiting for somebody to look them over.",
+    "walkthrough": "'Covers' looks like the boards of a book, keeping company with the page in the surface. Proofs are the trial pages a printer sends out so that errors get caught before the run.",
+    "definitionFit": "Proofs are the trial copies read for mistakes before printing, so 'those to check' names them by the only job they exist for."
+   }
   },
   {
    "id": "22-across",
@@ -419,7 +1012,39 @@ window.CRYPTIC_PUZZLES["cryptic-29969"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INDIGO",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "INDIGO",
+    "definition": "One of seven bands",
+    "linkWords": [
+     "that’s"
+    ],
+    "pieces": [
+     "IN",
+     "DIG",
+     "O"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "popular",
+      "gives": "IN",
+      "note": "in = popular, as in what is in this season"
+     },
+     {
+      "clueFragment": "enjoy",
+      "gives": "DIG",
+      "note": "to dig something is to like it, in the slang of the sixties"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "in tennis love is a score of nothing, written as a zero"
+     }
+    ],
+    "surface": "A well-liked band, one of seven, basking in adoration.",
+    "walkthrough": "The bands are the rainbow's rather than music's: Newton named seven colours so that the spectrum would match the notes of a scale, which is how a narrow blue-violet got a place of its own.",
+    "definitionFit": "Indigo is one of the seven colour bands Newton listed in the rainbow, sitting between blue and violet."
+   }
   },
   {
    "id": "22-down",
@@ -436,7 +1061,40 @@ window.CRYPTIC_PUZZLES["cryptic-29969"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IRENIC",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "IRENIC",
+    "definition": "pacifist",
+    "definitionNote": "'Pacifist' is a noun and the answer an adjective; the setter is using it the way we say 'pacifist sympathies', with the noun doing an adjective's work.",
+    "indicators": [
+     "Not quite"
+    ],
+    "indicatorNotes": {
+     "Not quite": "'Not quite' stops the word just short of its full length, so the final letter never gets written down."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "IRE",
+     "NIC"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wrath",
+      "gives": "IRE",
+      "note": "ire is wrath"
+     },
+     {
+      "clueFragment": "appealing",
+      "gives": "NIC",
+      "note": "NICE means appealing, and it is cut short of its last letter"
+     }
+    ],
+    "surface": "Wondering whether anger has its attractions, and deciding not quite.",
+    "walkthrough": "Irenic comes from Eirene, the Greek goddess of peace, and describes anything meant to make peace. The question mark after 'appealing' warns that the synonym is about to be docked.",
+    "definitionFit": "Irenic means aiming at peace, which is the outlook a pacifist holds — the adjective to their noun."
+   }
   },
   {
    "id": "23-across",
@@ -453,7 +1111,30 @@ window.CRYPTIC_PUZZLES["cryptic-29969"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TOUCHSTONE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "TOUCHSTONE",
+    "definition": "10",
+    "pieces": [
+     "TOUCH",
+     "STONE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bit",
+      "gives": "TOUCH",
+      "note": "a touch of something is a small bit of it"
+     },
+     {
+      "clueFragment": "something hard",
+      "gives": "STONE",
+      "note": "a stone is the hard thing you stub a toe on"
+     }
+    ],
+    "surface": "Somebody biting down on something hard.",
+    "walkthrough": "A touchstone proper is the dark stone jewellers rub gold against to judge its quality, which is where the everyday sense of a standard to measure things by comes from.",
+    "definitionFit": "10 is FOOL: Touchstone is the jester who follows Rosalind and Celia into the Forest of Arden in As You Like It."
+   }
   },
   {
    "id": "24-across",
@@ -473,7 +1154,9 @@ window.CRYPTIC_PUZZLES["cryptic-29969"] = /*JSON-START*/ {
     ",": []
    },
    "solution": "OVER",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "2-down"
+   }
   },
   {
    "id": "24-down",
@@ -490,7 +1173,30 @@ window.CRYPTIC_PUZZLES["cryptic-29969"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OAST",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "OAST",
+    "definition": "drier",
+    "indicators": [
+     "Top off"
+    ],
+    "indicatorNotes": {
+     "Top off": "in a down entry the top is the first letter, and 'off' is what takes it away."
+    },
+    "pieces": [
+     "OAST"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beach",
+      "gives": "OAST",
+      "note": "the five-letter word for the shoreline, with its opening C taken off"
+     }
+    ],
+    "surface": "Somebody stripped to the waist on the beach, drying off.",
+    "walkthrough": "An oast is the kiln with the white cowl on its roof that dries hops for brewing, a familiar shape in the Kent countryside.",
+    "definitionFit": "An oast is a hop-drying kiln, so 'drier' names it by the single job the building was put up to do."
+   }
   },
   {
    "id": "25-across",
@@ -507,7 +1213,33 @@ window.CRYPTIC_PUZZLES["cryptic-29969"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FESTE",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "FESTE",
+    "definition": "10",
+    "indicators": [
+     "Interminable"
+    ],
+    "indicatorNotes": {
+     "Interminable": "'Interminable' means without end, so the word it describes gives up the letter it ends on."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "FESTE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rot",
+      "gives": "FESTE",
+      "note": "the six-letter verb for what rot does to fruit, docked of the letter it ends on"
+     }
+    ],
+    "surface": "Endless nonsense, served up to an idiot.",
+    "walkthrough": "'Rot' is the British word for nonsense in the surface and a verb in the wordplay. Feste is the jester who sings Twelfth Night out with the wind and the rain.",
+    "definitionFit": "10 is FOOL: Feste is the licensed jester of Twelfth Night, employed at Olivia's house to be witty for a living."
+   }
   },
   {
    "id": "26-across",
@@ -524,7 +1256,42 @@ window.CRYPTIC_PUZZLES["cryptic-29969"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EMISSARY",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + container",
+    "answer": "EMISSARY",
+    "definition": "Agent",
+    "indicators": [
+     "killed leader",
+     "rescued"
+    ],
+    "indicatorNotes": {
+     "killed leader": "the leader of a word is its first letter, and killing it takes that letter off the front.",
+     "rescued": "anyone rescued is taken in and sheltered, so the girl ends up housed inside the other word."
+    },
+    "linkWords": [
+     "and"
+    ],
+    "pieces": [
+     "E",
+     "MISS",
+     "ARY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "exhausted having killed leader",
+      "gives": "EARY",
+      "note": "WEARY is exhausted, and its leading W is killed off"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "MISS",
+      "note": "a miss is a girl — the form of address for an unmarried woman"
+     }
+    ],
+    "surface": "An exhausted spy who has killed the boss and saved a girl.",
+    "walkthrough": "The thriller in the surface does its killing to a letter: 'leader' is the first character of a word. An emissary carries a message rather than a gun.",
+    "definitionFit": "An emissary is somebody sent on a mission on another's behalf — an agent in the diplomatic sense rather than the spying one."
+   }
   }
  ]
 } /*JSON-END*/;
