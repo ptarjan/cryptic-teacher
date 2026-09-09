@@ -30,7 +30,30 @@ window.CRYPTIC_PUZZLES["everyman-4137"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BOSS",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "BOSS",
+    "definition": "The person in charge",
+    "definition2": "a knob",
+    "definitionFit": "The boss is whoever gives the orders, and a boss is also the raised stud at the centre of a shield or a vaulted ceiling.",
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The person in charge",
+      "gives": "",
+      "note": "the everyday sense: the one telling everybody else what to do"
+     },
+     {
+      "clueFragment": "a knob",
+      "gives": "",
+      "note": "the craftsman's sense: a round projecting stud on a shield, a door or a church ceiling"
+     }
+    ],
+    "surface": "Someone writing off the person who runs the place as an idiot.",
+    "walkthrough": "'Knob' is an insult on the surface and a piece of ironmongery in the second definition — the round projection at the centre of a shield or a vault."
+   }
   },
   {
    "id": "2-down",
@@ -47,7 +70,46 @@ window.CRYPTIC_PUZZLES["everyman-4137"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OVEREXERT",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "OVEREXERT",
+    "definition": "Cause excessive strain",
+    "definitionFit": "To overexert yourself is to push yourself too hard: the 'over-' carries 'excessive' and the 'exert' carries 'strain'.",
+    "indicators": [
+     "all round"
+    ],
+    "indicatorNotes": {
+     "all round": "Something that goes all round a thing encloses it on every side, so the word beside it splits open and the other pieces sit in the gap."
+    },
+    "linkWords": [
+     "to"
+    ],
+    "pieces": [
+     "OVER",
+     "EX",
+     "ER",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that's clear",
+      "gives": "OVERT",
+      "note": "overt means out in the open rather than concealed — 'clear' in the sense of plain to see"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "EX",
+      "note": "an ex is an old partner, and ex- fronts any former job title"
+     },
+     {
+      "clueFragment": "old monarch",
+      "gives": "ER",
+      "note": "ER is Elizabeth Regina, the late Queen, and the crossword's standard monarch"
+     }
+    ],
+    "surface": "Telling an ancient ruler not to wear himself out, in front of everybody.",
+    "walkthrough": "'Old, old' is two separate instructions rather than repetition for emphasis: the first is the ex- of an ex-husband, the second belongs to the monarch."
+   }
   },
   {
    "id": "3-down",
@@ -64,7 +126,45 @@ window.CRYPTIC_PUZZLES["everyman-4137"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCORPIO",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SCORPIO",
+    "definition": "a sign",
+    "definitionFit": "Scorpio is one of the twelve signs of the zodiac, so 'a sign' names it by the class it belongs to.",
+    "indicators": [
+     "held up by"
+    ],
+    "indicatorNotes": {
+     "held up by": "Whatever holds something up is underneath it, so the piece named next goes below the ones already assembled — which in a down entry means last."
+    },
+    "linkWords": [
+     "It's"
+    ],
+    "pieces": [
+     "S",
+     "CORP",
+     "IO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "gives": "S",
+      "note": "s = small, the label on the smallest shirt in the shop"
+     },
+     {
+      "clueFragment": "business",
+      "gives": "CORP",
+      "note": "corp is short for corporation, a business"
+     },
+     {
+      "clueFragment": "No 10",
+      "gives": "IO",
+      "note": "the figures 1 and 0 read as letters: the Roman one, then the round nought"
+     }
+    ],
+    "surface": "The government propping up a struggling small firm.",
+    "walkthrough": "No 10 is the prime minister's house in Downing Street, which is why the sentence reads as politics; the wordplay wants nothing but the two characters the number is written with."
+   }
   },
   {
    "id": "4-across",
@@ -81,7 +181,30 @@ window.CRYPTIC_PUZZLES["everyman-4137"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AWAY",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "AWAY",
+    "definition": "Not at home",
+    "definitionFit": "Away means not in — the word on the answerphone, and the word on a fixture list for a match played at the other team's ground.",
+    "pieces": [
+     "A",
+     "WAY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "the first word is taken at face value, one letter as written"
+     },
+     {
+      "clueFragment": "system",
+      "gives": "WAY",
+      "note": "the manner in which something is done is its system or method"
+     }
+    ],
+    "surface": "Asking whether there is any method here, and finding nobody in.",
+    "walkthrough": "The question mark does the hiding: it makes 'A system?' read as a doubtful aside rather than as two pieces laid end to end."
+   }
   },
   {
    "id": "4-down",
@@ -98,7 +221,45 @@ window.CRYPTIC_PUZZLES["everyman-4137"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ATTEMPT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "ATTEMPT",
+    "definition": "try",
+    "definitionFit": "An attempt at something is a try at it — the two nouns swap freely, as in 'give it a try'.",
+    "indicators": [
+     "a little"
+    ],
+    "indicatorNotes": {
+     "a little": "A little of a word is only its start, so a single opening letter is wanted rather than the word itself."
+    },
+    "linkWords": [
+     "or"
+    ],
+    "pieces": [
+     "A",
+     "T",
+     "TEMPT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Australian",
+      "gives": "A",
+      "note": "a = Australian, the standard abbreviation"
+     },
+     {
+      "clueFragment": "tease",
+      "gives": "T",
+      "note": "the first letter of the word is all that is taken"
+     },
+     {
+      "clueFragment": "to prove alluring",
+      "gives": "TEMPT",
+      "note": "to tempt somebody is to prove alluring to them"
+     }
+    ],
+    "surface": "An Australian flirt turning on the charm.",
+    "walkthrough": "'Australian' looks like the opening of a character sketch and is a single letter; 'a little tease' looks like more of the sketch and is another one."
+   }
   },
   {
    "id": "5-down",
@@ -119,7 +280,36 @@ window.CRYPTIC_PUZZLES["everyman-4137"] = /*JSON-START*/ {
     ]
    },
    "solution": "ATEIN",
-   "annotation": null
+   "annotation": {
+    "type": "charade + homophone",
+    "answer": "ATE IN",
+    "definition": "Dined at home",
+    "definitionFit": "To eat in is to have your meal at home instead of going out for it, and the past tense matches 'dined' exactly.",
+    "indicators": [
+     "reportedly"
+    ],
+    "indicatorNotes": {
+     "reportedly": "Something reported is heard rather than read, so the words are wanted as a noise — and the spelling that noise gets written with is a different one."
+    },
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "single",
+      "gives": "A",
+      "note": "a single one of anything is simply 'a'"
+     },
+     {
+      "clueFragment": "can",
+      "soundsLike": "A TIN",
+      "gives": "ATE IN",
+      "note": "a can is a tin, and it is those two pieces run together — 'a tin' — that get said out loud"
+     }
+    ],
+    "surface": "Somebody insisting they had supper at home out of one solitary tin.",
+    "walkthrough": "Say 'a tin' at speed and the join between the two words shifts, which is the whole of the mechanism; 'single' is doing nothing more than handing over a bare article."
+   }
   },
   {
    "id": "6-down",
@@ -136,7 +326,39 @@ window.CRYPTIC_PUZZLES["everyman-4137"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SPYCAM",
-   "annotation": null
+   "annotation": {
+    "type": "container + outer letters",
+    "answer": "SPYCAM",
+    "definition": "surveillance kit",
+    "definitionFit": "A spycam is a camera small enough to be hidden in a room, which is the gear covert surveillance actually runs on.",
+    "indicators": [
+     "vacant",
+     "taken in by"
+    ],
+    "indicatorNotes": {
+     "vacant": "A vacant building has nothing inside it, so the word in front keeps only its outermost letters and loses everything between them.",
+     "taken in by": "To be taken in is to be admitted inside, so the letters just found go within the word named next."
+    },
+    "pieces": [
+     "S",
+     "PY",
+     "CAM"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hoax",
+      "gives": "SCAM",
+      "note": "a scam is a con or a hoax"
+     },
+     {
+      "clueFragment": "Pretty",
+      "gives": "PY",
+      "note": "the first and last letters survive; the three in the middle are emptied out"
+     }
+    ],
+    "surface": "A good-looking airhead falling for a con.",
+    "walkthrough": "'Pretty Vacant' is a Sex Pistols single, which is why the two words read as one phrase rather than as an instruction, and 'taken in' means duped on the surface while it encloses in the wordplay."
+   }
   },
   {
    "id": "7-down",
@@ -153,7 +375,30 @@ window.CRYPTIC_PUZZLES["everyman-4137"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ISTHMI",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + first letters",
+    "answer": "ISTHMI",
+    "definition": "Islands separated? These hairlines might interlink",
+    "definitionFit": "An isthmus is a narrow neck of land joining two larger ones, so islands otherwise separated but tied by hairline strips is the plural read literally.",
+    "indicators": [
+     "primarily"
+    ],
+    "indicatorNotes": {
+     "primarily": "Primarily means first of all, so it asks for the letter each of the words before it starts with."
+    },
+    "pieces": [
+     "ISTHMI"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Islands separated? These hairlines might interlink",
+      "gives": "ISTHMI",
+      "note": "six words, six opening letters, taken in the order they stand"
+     }
+    ],
+    "surface": "Islands that have drifted apart, with the thinnest of threads still tying them together.",
+    "walkthrough": "The exclamation mark flags an all-in-one: the same six words define and also hand over the letters. A hairline is a line as thin as a hair, which is what a narrow land bridge looks like on a map."
+   }
   },
   {
    "id": "8-across",
@@ -176,7 +421,38 @@ window.CRYPTIC_PUZZLES["everyman-4137"] = /*JSON-START*/ {
     ]
    },
    "solution": "PLANETOFTHEAPES",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "PLANET OF THE APES",
+    "definition": "film",
+    "definitionFit": "Planet of the Apes is the 1968 science-fiction picture, so 'film' points at it by example — the general word standing in for one title.",
+    "indicators": [
+     "edited"
+    ],
+    "indicatorNotes": {
+     "edited": "An editor cuts the reel up and splices the pieces back in a new order, which is what happens to these letters."
+    },
+    "linkWords": [
+     "In"
+    ],
+    "anagram": {
+     "fodder": "ATHENS FAT PEOPLE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Athens, fat people",
+      "gives": "ATHENSFATPEOPLE",
+      "note": "anagram fodder, fifteen letters"
+     },
+     {
+      "clueFragment": "edited",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "Overweight Athenians cutting a movie together.",
+    "walkthrough": "Fifteen letters with no obvious break makes the fodder hard to spot, and 'edited' sits exactly where a verb about film-making belongs, so it reads as part of the picture."
+   }
   },
   {
    "id": "9-down",
@@ -198,7 +474,37 @@ window.CRYPTIC_PUZZLES["everyman-4137"] = /*JSON-START*/ {
     ]
    },
    "solution": "ADOGSDINNER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "A DOG'S DINNER",
+    "definition": "Terrible mess",
+    "definitionFit": "A dog's dinner is British slang for something botched — you make a dog's dinner of a job — so the phrase means a terrible mess.",
+    "indicators": [
+     "perhaps"
+    ],
+    "indicatorNotes": {
+     "perhaps": "Perhaps marks the breed named next as only one instance, so the wordplay wants the general animal rather than that particular kind."
+    },
+    "pieces": [
+     "A",
+     "DOGS",
+     "DINNER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "setter's",
+      "gives": "ADOGS",
+      "note": "a setter is a breed kept for pointing at game birds, and the possessive brings its article along with it"
+     },
+     {
+      "clueFragment": "table",
+      "gives": "DINNER",
+      "note": "a house with a good table is one with good food — the meal served at it"
+     }
+    ],
+    "surface": "The crossword compiler's kitchen table, buried under a shocking mess.",
+    "walkthrough": "'Setter' is the compiler on the surface — Everyman talking about their own desk — and a breed of dog in the wordplay, which is the joke this setter gets to make every week."
+   }
   },
   {
    "id": "10-down",
@@ -215,7 +521,42 @@ window.CRYPTIC_PUZZLES["everyman-4137"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PARTNERSHIP",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + outer letters",
+    "answer": "PARTNERSHIP",
+    "definition": "Business",
+    "definitionFit": "A partnership is a firm two or more people own and trade through, one of the standard legal shapes a business comes in.",
+    "indicators": [
+     "bending",
+     "vacuous"
+    ],
+    "indicatorNotes": {
+     "bending": "Something bent has been forced out of its proper shape, and letters forced out of shape come back in a different order.",
+     "vacuous": "A vacuous thing is empty inside, so the long word beside it keeps only the letters standing at its two ends."
+    },
+    "anagram": {
+     "fodder": "PAPERTHIN RS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "paper-thin",
+      "gives": "PAPERTHIN",
+      "note": "anagram fodder, nine letters"
+     },
+     {
+      "clueFragment": "regulations",
+      "gives": "RS",
+      "note": "the outer pair only; the nine letters between them are emptied out"
+     },
+     {
+      "clueFragment": "bending",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "A company quietly bending rules that were flimsy to start with.",
+    "walkthrough": "'Business' looks like the subject of a sentence about corner-cutting; it is the definition standing alone at the front, and every word after it is either fodder or instruction."
+   }
   },
   {
    "id": "11-across",
@@ -236,7 +577,28 @@ window.CRYPTIC_PUZZLES["everyman-4137"] = /*JSON-START*/ {
     ]
    },
    "solution": "CLOSEUP",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "CLOSE-UP",
+    "definition": "Detailed photo",
+    "definition2": "Stop talking!",
+    "definitionNote": "The first sense is a noun and the second an order barked at somebody, which is also why the answer takes a hyphen in one reading and not in the other.",
+    "definitionFit": "A close-up is the shot taken tight on a face, all detail; and 'close up!' is what you say to somebody you want to shut up.",
+    "blocks": [
+     {
+      "clueFragment": "Detailed photo",
+      "gives": "",
+      "note": "the film-making sense: the camera brought right in on its subject"
+     },
+     {
+      "clueFragment": "Stop talking!",
+      "gives": "",
+      "note": "the barked sense: an order to keep quiet"
+     }
+    ],
+    "surface": "An impatient photographer telling a subject to be quiet.",
+    "walkthrough": "'Detailed' invites you to take the tail off some word, and that is the false path: it is doing nothing here but describing the photograph."
+   }
   },
   {
    "id": "12-across",
@@ -253,7 +615,27 @@ window.CRYPTIC_PUZZLES["everyman-4137"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MONARCH",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "MONARCH",
+    "definition": "Pharaoh perhaps",
+    "definitionFit": "A pharaoh was the sole ruler of ancient Egypt, so the word defines a monarch by example rather than by synonym.",
+    "indicators": [
+     "included in"
+    ],
+    "indicatorNotes": {
+     "included in": "Whatever is included in something sits inside it, so the letters are already there in the words that follow, in the order they are written."
+    },
+    "blocks": [
+     {
+      "clueFragment": "symposium on archaeology",
+      "gives": "MONARCH",
+      "note": "seven letters in a row, starting on the last letter of the first word and finishing inside the last"
+     }
+    ],
+    "surface": "A paper about Egypt given at an archaeology conference.",
+    "walkthrough": "The join is the trick: the run starts at the very end of a long word, and 'on' — the sort of word the eye skips over — sits right in the middle of it."
+   }
   },
   {
    "id": "13-across",
@@ -270,7 +652,35 @@ window.CRYPTIC_PUZZLES["everyman-4137"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MISREPORT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "MISREPORT",
+    "definition": "Inaccurately describe",
+    "definitionFit": "To misreport something is to describe it wrongly: 'mis-' does the work of 'inaccurately' and 'report' the work of 'describe'.",
+    "indicators": [
+     "bananas"
+    ],
+    "indicatorNotes": {
+     "bananas": "Going bananas is going out of your mind, and letters out of their minds do not stay in the order they were handed over in."
+    },
+    "anagram": {
+     "fodder": "IMPORTERS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "importers'",
+      "gives": "IMPORTERS",
+      "note": "anagram fodder, nine letters; the apostrophe counts for nothing"
+     },
+     {
+      "clueFragment": "bananas",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "A consignment of fruit belonging to some importers.",
+    "walkthrough": "The apostrophe is load-bearing: 'importers' bananas' reads as a possessive, which hides the fact that the second word is an instruction about the first."
+   }
   },
   {
    "id": "14-across",
@@ -287,7 +697,54 @@ window.CRYPTIC_PUZZLES["everyman-4137"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ENNUI",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion + reversal",
+    "answer": "ENNUI",
+    "definition": "weariness",
+    "definitionFit": "Ennui is the listless boredom of having nothing worth doing — a weariness of the spirit rather than of the legs.",
+    "indicators": [
+     "Regressive",
+     "'topless'",
+     "not entirely"
+    ],
+    "indicatorNotes": {
+     "Regressive": "To regress is to go back the way you came, so the letters gathered so far get written out in the opposite direction.",
+     "'topless'": "The top of a word is the letter it starts with, and a topless one has lost it; the quotation marks are the setter owning up to the pun.",
+     "not entirely": "Not entirely means all of it bar the end, so the final letter of the word is left off."
+    },
+    "linkWords": [
+     "prompting"
+    ],
+    "pieces": [
+     "ENNU",
+     "I"
+    ],
+    "subReversals": [
+     {
+      "from": "UNNE",
+      "to": "ENNU"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wordplay",
+      "gives": "UN",
+      "note": "wordplay is a pun, and the pun is beheaded here to leave two letters"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "NE",
+      "note": "the word gives up its final letter"
+     },
+     {
+      "clueFragment": "Everyman",
+      "gives": "I",
+      "note": "the compiler's own name in the clue stands for the compiler, who is 'I'"
+     }
+    ],
+    "surface": "Everyman apologising for a stale, backward-looking pun.",
+    "walkthrough": "The reversal covers only the two trimmed words; the last piece is added after it, which is why the whole thing does not simply read backwards."
+   }
   },
   {
    "id": "14-down",
@@ -304,7 +761,28 @@ window.CRYPTIC_PUZZLES["everyman-4137"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EYELASHES",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "EYELASHES",
+    "definition": "a few small hairs",
+    "definitionFit": "Eyelashes are the short hairs fringing the eyelid, so 'a few small hairs' describes them plainly, if from a long way round.",
+    "indicators": [
+     "you say"
+    ],
+    "indicatorNotes": {
+     "you say": "Saying a thing rather than writing it leaves only its sound, and this sound turns out to be spelt a completely different way."
+    },
+    "blocks": [
+     {
+      "clueFragment": "What remains of razed supermarket",
+      "soundsLike": "AISLE ASHES",
+      "gives": "EYELASHES",
+      "note": "burn a supermarket down and what is left of its long shelved gangways is aisle ashes — and that phrase is the one being said aloud"
+     }
+    ],
+    "surface": "A burnt-out supermarket, and whatever the fire left behind.",
+    "walkthrough": "The place where the two words divide moves when you say them: the l of 'aisle' slides across the gap into the second word. 'Razed' is the only word telling you a fire has happened at all."
+   }
   },
   {
    "id": "15-across",
@@ -327,7 +805,30 @@ window.CRYPTIC_PUZZLES["everyman-4137"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SWIFT",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "SWIFT",
+    "definition": "C17-18 satirist",
+    "definition2": "penned Shake It Off",
+    "definitionFit": "Jonathan Swift wrote Gulliver's Travels and A Modest Proposal in the 1600s and 1700s; Taylor Swift wrote 'Shake It Off' in 2014.",
+    "linkWords": [
+     "who"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "C17-18 satirist",
+      "gives": "",
+      "note": "the Dublin author of Gulliver's Travels and A Modest Proposal"
+     },
+     {
+      "clueFragment": "penned Shake It Off",
+      "gives": "",
+      "note": "the American singer whose 2014 single that was"
+     }
+    ],
+    "surface": "A satirist dead for three centuries credited with a modern pop hit.",
+    "walkthrough": "Two people three hundred years apart share the surname, and the clue runs them into one sentence as though a single writer had done both jobs."
+   }
   },
   {
    "id": "15-down",
@@ -344,7 +845,36 @@ window.CRYPTIC_PUZZLES["everyman-4137"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SOWETO",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SOWETO",
+    "definition": "somewhere in S Africa",
+    "definitionFit": "Soweto is the vast township on the south-western edge of Johannesburg — its name is short for South Western Townships.",
+    "pieces": [
+     "SO",
+     "WET",
+     "O"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Very",
+      "gives": "SO",
+      "note": "so tired means very tired"
+     },
+     {
+      "clueFragment": "rainy",
+      "gives": "WET",
+      "note": "wet weather is rainy weather"
+     },
+     {
+      "clueFragment": "I'm surprised",
+      "gives": "O",
+      "note": "the cry of surprise written as a single letter, as in 'O, the shame of it'"
+     }
+    ],
+    "surface": "A grumble about the downpour, broken off by an exclamation.",
+    "walkthrough": "The dashes make the middle phrase read as an aside, and that is what hides it: the interruption is not commentary but the third piece of the charade."
+   }
   },
   {
    "id": "16-across",
@@ -365,7 +895,36 @@ window.CRYPTIC_PUZZLES["everyman-4137"] = /*JSON-START*/ {
     ]
    },
    "solution": "SNAREDRUM",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "SNARE DRUM",
+    "definition": "beat this!",
+    "definitionNote": "The definition names the answer by what is done to it rather than by a phrase you could swap for it in a sentence, which is why it arrives as an order.",
+    "definitionFit": "A snare drum is the sharp, rattling drum in a kit, played with sticks — 'beat this' points at it by the action it exists for.",
+    "indicators": [
+     "faltering"
+    ],
+    "indicatorNotes": {
+     "faltering": "A faltering step is one that loses its footing, and letters that lose their footing come down in a different order."
+    },
+    "anagram": {
+     "fodder": "UNDERARMS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Underarm's",
+      "gives": "UNDERARMS",
+      "note": "anagram fodder, nine letters; the apostrophe counts for nothing"
+     },
+     {
+      "clueFragment": "faltering",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "Somebody's deodorant giving up on them, with a challenge thrown down.",
+    "walkthrough": "'Beat this!' reads as a boast on the surface and as a pointer in the parse — the thing beaten is the answer — while the apostrophe quietly supplies the S the fodder needs."
+   }
   },
   {
    "id": "16-down",
@@ -382,7 +941,44 @@ window.CRYPTIC_PUZZLES["everyman-4137"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SARKOZY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + first letter + container",
+    "answer": "SARKOZY",
+    "definition": "Ex-president",
+    "definitionFit": "Nicolas Sarkozy was President of France from 2007 to 2012, so 'ex-president' names him by the office he no longer holds.",
+    "indicators": [
+     "leader of",
+     "reforms",
+     "adopting"
+    ],
+    "indicatorNotes": {
+     "leader of": "The leader of a word is the letter at its head, so only the country's initial is taken.",
+     "reforms": "To reform something is to form it again in another shape, which is what these letters do.",
+     "adopting": "Adopting somebody is taking them into the household, so the letters already gathered open up and the last piece goes inside."
+    },
+    "anagram": {
+     "fodder": "Z OKAYS R"
+    },
+    "blocks": [
+     {
+      "clueFragment": "leader of Zimbabwe",
+      "gives": "Z",
+      "note": "the letter the country's name begins with"
+     },
+     {
+      "clueFragment": "okays",
+      "gives": "OKAYS",
+      "note": "anagram fodder, five letters"
+     },
+     {
+      "clueFragment": "rand",
+      "gives": "R",
+      "note": "R is the rand, South Africa's currency"
+     }
+    ],
+    "surface": "An African leader signing off reforms paid for in rand.",
+    "walkthrough": "Everything on the surface is southern African — a leader, reforms, the rand — and the answer is French, which is the distance the clue is trading on."
+   }
   },
   {
    "id": "17-down",
@@ -399,7 +995,36 @@ window.CRYPTIC_PUZZLES["everyman-4137"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AMADEUS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "AMADEUS",
+    "definition": "biopic",
+    "definitionFit": "Amadeus is the 1984 film of Mozart's life as told by his jealous rival Salieri, so 'biopic' defines it by genre.",
+    "pieces": [
+     "A",
+     "MADE",
+     "US"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "a = American, the standard one-letter abbreviation"
+     },
+     {
+      "clueFragment": "made",
+      "gives": "MADE",
+      "note": "taken at face value, four letters as written"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "the US is the same word abbreviated the other standard way"
+     }
+    ],
+    "surface": "An American-produced film about an American subject.",
+    "walkthrough": "One word appears twice and shortens two different ways, one letter the first time and two the second. The film itself is about a Viennese composer and has no American in it."
+   }
   },
   {
    "id": "18-down",
@@ -416,7 +1041,36 @@ window.CRYPTIC_PUZZLES["everyman-4137"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MEDUSA",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MEDUSA",
+    "definition": "one wanting decapitation",
+    "definitionFit": "Medusa is the snake-haired Gorgon of Greek myth whose head Perseus cut off — killing her meant decapitating her.",
+    "indicators": [
+     "backing"
+    ],
+    "indicatorNotes": {
+     "backing": "Backing something means standing behind it to hold it up, so the American piece goes behind the school rather than in front of it."
+    },
+    "pieces": [
+     "MED",
+     "USA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "school for doctors",
+      "gives": "MED",
+      "note": "med school is where doctors are trained"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "USA",
+      "note": "the initials the country is known by"
+     }
+    ],
+    "surface": "An American funding a medical school, and someone facing the axe.",
+    "walkthrough": "'Backing' looks like an instruction to turn a piece round and means support instead: it goes behind, not backwards. The last phrase is the definition, naming a figure of Greek myth by the way her story ends."
+   }
   },
   {
    "id": "19-across",
@@ -433,7 +1087,27 @@ window.CRYPTIC_PUZZLES["everyman-4137"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WINDSOR",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "WINDSOR",
+    "definition": "a kind of knot",
+    "definitionFit": "The Windsor is the broad triangular knot for a tie, named after the Duke of Windsor, who liked the wide look it gave.",
+    "indicators": [
+     "Party to"
+    ],
+    "indicatorNotes": {
+     "Party to": "To be party to something is to be within it as one of its parts — a loose instruction, but the sense wanted is being inside the words that follow."
+    },
+    "blocks": [
+     {
+      "clueFragment": "unwind, so Rolfing",
+      "gives": "WINDSOR",
+      "note": "seven letters in a row, running from inside the first word through the second and into the third"
+     }
+    ],
+    "surface": "A relaxed gathering with some deep-tissue massage on offer.",
+    "walkthrough": "Rolfing is a deep-tissue massage that works knots out of muscles, so 'knot' reads as part of the scene rather than as the definition it is."
+   }
   },
   {
    "id": "20-down",
@@ -450,7 +1124,26 @@ window.CRYPTIC_PUZZLES["everyman-4137"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SEWER",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "SEWER",
+    "definition": "Channel",
+    "definition2": "one doing some embroidery",
+    "definitionFit": "A sewer is the underground channel that carries waste water away, and a sewer — this one rhyming with 'lower' — is somebody working a needle.",
+    "blocks": [
+     {
+      "clueFragment": "Channel",
+      "gives": "",
+      "note": "the drainage sense: the pipe running under the street"
+     },
+     {
+      "clueFragment": "one doing some embroidery",
+      "gives": "",
+      "note": "the needlework sense: a person who sews"
+     }
+    ],
+    "walkthrough": "The two words are spelt identically and said differently — the drain rhymes with 'newer', the needleworker with 'lower' — and nothing in the clue admits that the pronunciation changes."
+   }
   },
   {
    "id": "21-across",
@@ -467,7 +1160,42 @@ window.CRYPTIC_PUZZLES["everyman-4137"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ABASHED",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ABASHED",
+    "definition": "shamefaced",
+    "definitionFit": "To be abashed is to be embarrassed and lost for words, which is exactly how a shamefaced person looks.",
+    "indicators": [
+     "After"
+    ],
+    "indicatorNotes": {
+     "After": "After says where the piece goes: the journalist follows the party instead of arriving before it."
+    },
+    "pieces": [
+     "A",
+     "BASH",
+     "ED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article is taken as written, one letter"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "BASH",
+      "note": "a bash is a party, especially a loud one"
+     },
+     {
+      "clueFragment": "journalist",
+      "gives": "ED",
+      "note": "ed is the editor, the crossword's usual newspaperman"
+     }
+    ],
+    "surface": "A reporter turning up sheepish the morning after a big night.",
+    "walkthrough": "'After' is both the instruction and the word that makes the sentence read as a hangover story, and ED is the crossword's standing journalist — the editor, always those two letters."
+   }
   },
   {
    "id": "22-across",
@@ -489,7 +1217,39 @@ window.CRYPTIC_PUZZLES["everyman-4137"] = /*JSON-START*/ {
     ]
    },
    "solution": "THROWSOMESHAPES",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "THROW SOME SHAPES",
+    "definition": "Dance",
+    "definitionFit": "To throw some shapes is British slang for dancing, especially the showy moves people pull on a dance floor.",
+    "linkWords": [
+     "and"
+    ],
+    "pieces": [
+     "THROW",
+     "SOME",
+     "SHAPES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unsettle",
+      "gives": "THROW",
+      "note": "a question that throws you is one that unsettles you"
+     },
+     {
+      "clueFragment": "sundry",
+      "gives": "SOME",
+      "note": "sundry items are some items, an unspecified few"
+     },
+     {
+      "clueFragment": "squares?",
+      "gives": "SHAPES",
+      "note": "a square is one kind, and the question mark marks the example standing in for the class"
+     }
+    ],
+    "surface": "Getting the dance floor going and rattling a few unhip onlookers.",
+    "walkthrough": "'Squares' are unhip people on the surface and geometry in the parse, and the question mark is the setter admitting that one example is standing in for all of them."
+   }
   },
   {
    "id": "23-across",
@@ -506,7 +1266,36 @@ window.CRYPTIC_PUZZLES["everyman-4137"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DRAY",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "DRAY",
+    "definition": "Goods cart",
+    "definitionFit": "A dray is the low, sideless cart breweries used to deliver barrels behind a heavy horse — a goods cart of one particular kind.",
+    "indicators": [
+     "rejected"
+    ],
+    "indicatorNotes": {
+     "rejected": "To reject a thing is to throw it back, so the measure is written back to front."
+    },
+    "pieces": [
+     "DRAY"
+    ],
+    "subReversals": [
+     {
+      "from": "YARD",
+      "to": "DRAY"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "just under 1m in length",
+      "gives": "YARD",
+      "note": "a yard is 0.914 of a metre, so a little short of one"
+     }
+    ],
+    "surface": "A short delivery cart being turned away at the gate.",
+    "walkthrough": "The measure is the trap: '1m' reads as a length in metres, and what is wanted is the imperial unit that falls a few centimetres short of one."
+   }
   },
   {
    "id": "24-across",
@@ -523,7 +1312,43 @@ window.CRYPTIC_PUZZLES["everyman-4137"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SASH",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "SASH",
+    "definition": "Ornamental band",
+    "definitionFit": "A sash is the broad ribbon worn over one shoulder or round the waist, which is an ornamental band and nothing more.",
+    "indicators": [
+     "DEPARTED"
+    ],
+    "indicatorNotes": {
+     "DEPARTED": "Departed means gone, so the letter just identified leaves the word it was sitting in."
+    },
+    "linkWords": [
+     "showing"
+    ],
+    "pieces": [
+     "SASH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "RIP",
+      "gives": "SLASH",
+      "note": "to rip a canvas is to slash it"
+     },
+     {
+      "clueFragment": "LEFT",
+      "gives": "L",
+      "note": "l = left, the standard abbreviation"
+     },
+     {
+      "clueFragment": "DEPARTED",
+      "gives": "",
+      "note": "the letter just named is taken out of the longer word"
+     }
+    ],
+    "surface": "A headstone inscription, set out in capitals.",
+    "walkthrough": "The capitals and the dashes make the three words read as an epitaph — rest in peace, left us, departed — while each of them is doing a separate job in the wordplay."
+   }
   }
  ]
 } /*JSON-END*/;
