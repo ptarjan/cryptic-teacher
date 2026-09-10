@@ -3,7 +3,7 @@
 
 fifteensquared.net blogs every puzzle in our five series, and its bloggers and
 commenters name their favourite clues. That is the only per-clue quality signal
-available to us, and it is what `tools/craft_score.py` needs to be tested
+available to us, and it is what `tools/craft_report.py` needs to be tested
 against — see that file for why testing is not the same as fitting.
 
 Their robots.txt sets `Crawl-delay: 20` for everyone, so this is the expensive

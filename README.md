@@ -273,11 +273,13 @@ tools/ga_wire_check.py                       watches the wire to confirm GA hits
                                              the browser
 tools/difficulty.py                          rates a puzzle from what its own file contains,
                                              banded against the corpus
-tools/craft_score.py                         rates how well a puzzle is set, which is the
-                                             question solvers argue about and is independent of
-                                             how hard it is
+tools/craft_report.py                        reports the four things about how a puzzle is set
+                                             that the fifteensquared threads argue about and
+                                             our fields can actually measure — separately,
+                                             because the composite it replaced turned out to be
+                                             thread size
 tools/favourites_survey.py                   joins the favourite clues commenters name back to
-                                             our own clues, so craft_score.py has something
+                                             our own clues, so craft_report.py has something
                                              outside this project to be tested against
 tools/suggest_demand.py                      asks Google autocomplete which puzzle numbers
                                              people search for, for the puzzles no page of ours
