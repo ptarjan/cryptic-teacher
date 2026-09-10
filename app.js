@@ -576,6 +576,141 @@
     }
   }
 
+  /* ---------- taking a code by camera ----------
+     The square is a link, so the phone's own camera app can read it — and on iOS
+     it opens that link in Safari, which is a different storage jar from the copy
+     of this site sitting on the home screen. The code lands in an app the solver
+     was not using and the one they were still shows nothing. So the scan has to
+     happen in here.
+
+     BarcodeDetector does it in Chrome and costs nothing. Safari has none, so
+     vendor/jsQR-1.4.0.js is fetched on the first press of the button and never
+     otherwise — see vendor/README.md for why that is a quarter of a megabyte. */
+  const JSQR_SRC = "vendor/jsQR-1.4.0.js";
+  let scanStop = null;
+
+  // Resolves to decode(canvas) -> Promise of the text in the square, or null.
+  function loadDecoder() {
+    if (window.BarcodeDetector) {
+      const det = new window.BarcodeDetector({ formats: ["qr_code"] });
+      return Promise.resolve((canvas) => det.detect(canvas).then(
+        (hits) => (hits && hits[0] && hits[0].rawValue) || null, () => null));
+    }
+    const reader = () => (canvas) => {
+      const px = canvas.getContext("2d").getImageData(0, 0, canvas.width, canvas.height);
+      // dontInvert: the thing being read is a screen, always dark on light, and
+      // trying the negative as well doubles the work of every frame.
+      const hit = window.jsQR(px.data, px.width, px.height, { inversionAttempts: "dontInvert" });
+      return Promise.resolve((hit && hit.data) || null);
+    };
+    if (window.jsQR) return Promise.resolve(reader());
+    return new Promise((ok, fail) => {
+      const s = document.createElement("script");
+      s.src = JSQR_SRC;
+      s.onload = () => (window.jsQR ? ok(reader()) : fail(new Error("no decoder")));
+      s.onerror = () => fail(new Error("no decoder"));
+      document.head.appendChild(s);
+    });
+  }
+
+  /* A camera is a light on someone's phone: it goes off the moment this stops
+     being the thing they are doing — a hit, the button, the panel closing. */
+  function stopScan(note) {
+    if (scanStop) scanStop();
+    scanStop = null;
+    $("sync-scan-box").classList.add("hidden");
+    if (note) syncNote(note);
+  }
+
+  function startScan() {
+    const media = navigator.mediaDevices;
+    if (!media || !media.getUserMedia) {
+      syncNote("This browser will not hand over its camera — type the code instead.");
+      return;
+    }
+    const video = $("sync-scan-video");
+    const canvas = document.createElement("canvas");
+    let live = true;
+    $("sync-scan-box").classList.remove("hidden");
+    syncNote("Starting the camera…");
+    Promise.all([loadDecoder(), media.getUserMedia({ video: { facingMode: "environment" } })])
+      .then((both) => {
+        const decode = both[0], stream = both[1];
+        // Permission can be granted after the panel was closed again, and a
+        // stream that arrives then has to be put straight back.
+        if (!live) { stream.getTracks().forEach((tr) => tr.stop()); return; }
+        scanStop = () => {
+          live = false;
+          stream.getTracks().forEach((tr) => tr.stop());
+          video.srcObject = null;
+        };
+        video.srcObject = stream;
+        if (video.play) video.play();
+        syncNote("Point this at the square on the other device.");
+        // A frame every eighth of a second, not every frame: decoding is the
+        // expensive part and a code held up to a camera is held there.
+        const tick = () => {
+          if (!live) return;
+          const again = () => setTimeout(tick, 125);
+          if (!video.videoWidth) { again(); return; }
+          canvas.width = video.videoWidth;
+          canvas.height = video.videoHeight;
+          canvas.getContext("2d").drawImage(video, 0, 0, canvas.width, canvas.height);
+          decode(canvas).then((text) => {
+            const code = codeFromScan(text);
+            if (!code) { again(); return; }
+            stopScan();
+            $("sync-join-code").value = code;
+            joinCode(code);
+          }, again);
+        };
+        tick();
+      })
+      .catch((err) => stopScan(err && err.name === "NotAllowedError"
+        ? "The camera was refused — type the code in instead."
+        : "That camera would not start — type the code in instead."));
+  }
+
+  /* What the square holds is a join URL, but a code photographed off a screen or
+     printed on its own is worth taking too. Anything that does not come out as
+     eight code characters is somebody's wifi QR and is ignored rather than
+     joined: a scanner that pastes rubbish into the box is worse than one that
+     goes on looking. */
+  function codeFromScan(text) {
+    if (!text) return null;
+    const up = String(text).toUpperCase();
+    const m = up.match(/[?&]SYNC=([A-Z0-9]+)/);
+    const raw = (m ? m[1] : up).replace(/[^A-Z0-9]/g, "");
+    if (raw.length !== 8) return null;
+    return raw.split("").every((ch) => CODE_ALPHABET.indexOf(ch) >= 0) ? raw : null;
+  }
+
+  function joinCode(text) {
+    const raw = String(text || "").toUpperCase().replace(/[^A-Z0-9]/g, "");
+    if (raw.length !== 8) { syncNote("A code is 8 characters."); return; }
+    // CODE_ALPHABET has no 0, O, 1, I, L or U, so a code containing one was
+    // misread rather than mistyped, and the character names itself.
+    const stray = raw.split("").filter((ch) => CODE_ALPHABET.indexOf(ch) < 0);
+    if (stray.length) {
+      syncNote("No code contains " + stray.join(", ") + " — look again at the other device.");
+      return;
+    }
+    const had = store.get("ct:sync", null);
+    store.set("ct:sync", raw);
+    renderSyncPanel();
+    syncNote("Fetching…");
+    // Pull, not push: the machine you are joining *from* is the one that knows
+    // things, and the merge means joining can only ever add to what is here.
+    syncPull(() => {
+      // Nothing under that code. Put back whatever this device was doing before,
+      // so a typo costs a sentence rather than the code it was on.
+      if (had) store.set("ct:sync", had); else store.del("ct:sync");
+      renderSyncPanel();
+      syncNote("No grids are stored under " + raw + ". Nothing here has changed — check it "
+               + "on the other device, or start a code here.");
+    });
+  }
+
   function renderSyncPanel() {
     const code = store.get("ct:sync", null);
     $("sync-code").textContent = code || "—";
@@ -4419,9 +4554,9 @@
       const el = $("sync-panel");
       const want = el.classList.contains("hidden");
       el.classList.toggle("hidden", !want);
-      if (want) { renderSyncPanel(); if (syncOn()) syncPull(); }
+      if (want) { renderSyncPanel(); if (syncOn()) syncPull(); } else stopScan();
     };
-    $("btn-sync-close").onclick = () => $("sync-panel").classList.add("hidden");
+    $("btn-sync-close").onclick = () => { stopScan(); $("sync-panel").classList.add("hidden"); };
 
     /* Arriving from a scan. The code is filled in and the panel opened, but
        joining is still a press: a link is a thing anyone can send you, and a
@@ -4483,31 +4618,12 @@
       syncPush();
     };
     $("sync-copy").onclick = copySyncCode;
-    $("sync-join").onclick = () => {
-      const raw = ($("sync-join-code").value || "").toUpperCase().replace(/[^A-Z0-9]/g, "");
-      if (raw.length !== 8) { syncNote("A code is 8 characters."); return; }
-      // CODE_ALPHABET has no 0, O, 1, I, L or U, so a code containing one was
-      // misread rather than mistyped, and the character names itself.
-      const stray = raw.split("").filter((ch) => CODE_ALPHABET.indexOf(ch) < 0);
-      if (stray.length) {
-        syncNote("No code contains " + stray.join(", ") + " — look again at the other device.");
-        return;
-      }
-      const had = store.get("ct:sync", null);
-      store.set("ct:sync", raw);
-      renderSyncPanel();
-      syncNote("Fetching…");
-      // Pull, not push: the machine you are joining *from* is the one that knows
-      // things, and the merge means joining can only ever add to what is here.
-      syncPull(() => {
-        // Nothing under that code. Put back whatever this device was doing
-        // before, so a typo costs a sentence rather than the code it was on.
-        if (had) store.set("ct:sync", had); else store.del("ct:sync");
-        renderSyncPanel();
-        syncNote("No grids are stored under " + raw + ". Nothing here has changed — check it "
-                 + "on the other device, or start a code here.");
-      });
-    };
+    $("sync-join").onclick = () => joinCode($("sync-join-code").value);
+    // A browser with no camera to offer is not shown a button that asks for one.
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia)
+      $("sync-scan").classList.add("hidden");
+    $("sync-scan").onclick = startScan;
+    $("sync-scan-stop").onclick = () => stopScan("");
     $("sync-stop").onclick = () => {
       // Local progress is deliberately left alone. Stopping sync means "don't
       // send my crosswords anywhere any more", not "throw away my crosswords".

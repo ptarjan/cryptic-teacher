@@ -35,7 +35,7 @@
  "author":{"@type":"Person","name":"Paul Tarjan","url":"https://paultarjan.com/"}}
 </script>
 
-<link rel="stylesheet" href="style.css?v=753a401e">
+<link rel="stylesheet" href="style.css?v=89c540c6">
 <!-- Not deferred: app.js reports its milestones through gtag, and a deferred
      script runs after the parser-blocking one at the end of the body, so the
      first events of a session would find no gtag to call. -->
@@ -96,7 +96,14 @@
     <p><input id="sync-join-code" type="text" autocomplete="off" spellcheck="false"
               autocapitalize="characters" maxlength="9" placeholder="ABCD2345"
               aria-label="Sync code from your other device">
-       <button id="sync-join" class="tool">Use this code</button></p>
+       <button id="sync-join" class="tool">Use this code</button>
+       <button id="sync-scan" class="tool">Scan it</button></p>
+    <!-- The camera opens inside the panel, not over the page: it is one step of
+         taking a code, and putting it away must not put the panel away too. -->
+    <div id="sync-scan-box" class="hidden">
+      <video id="sync-scan-video" class="sync-scan-video" playsinline muted></video>
+      <p><button id="sync-scan-stop" class="ghost small">Stop the camera</button></p>
+    </div>
   </div>
   <p class="muted small-note" id="sync-status" role="status" aria-live="polite"></p>
 </div>
@@ -245,7 +252,7 @@
 <!-- Only the sync panel draws one, and only once it is opened, so this sits with
      app.js at the end rather than blocking the first paint. -->
 <script src="qr.js?v=b795920c"></script>
-<script src="app.js?v=6f47b2c4"></script>
+<script src="app.js?v=11189b4b"></script>
 <script>
 // Reload once when the page in the cache is older than the page on the server.
 //
