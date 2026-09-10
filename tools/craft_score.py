@@ -29,8 +29,24 @@ Two things were measured on 2026-09-09 and both belong next to any use of this:
   consistent — tops the series table while the Guardian daily sits below the
   mean. That is the shape you would expect if evenness scores well and a setter
   with a strong voice scores badly. Brendan, whose puzzles are themed on
-  purpose, lands twice in the worst ten on filler share alone. Do not present
-  this to readers as a verdict until the favourites join says otherwise.
+  purpose, lands twice in the worst ten on filler share alone.
+
+  THE FAVOURITES JOIN HAS NOW RUN, AND IT DOES NOT BACK ANY OF THIS.  The
+  resolver exists (tools/favourites_survey.py) and reaches 186 puzzles that are
+  both scored here and voted on at fifteensquared, 5,398 annotated clues and
+  1,104 clues somebody named their favourite. Over those puzzles the craft index
+  is unrelated to the share of a puzzle's clues that get named: rho = -0.116
+  raw, and -0.007 once thread size is held, which is what the raw number was.
+  Thread size — how many people showed up to comment — carries rho = +0.827
+  against that share and swamps everything in the file. Worse for FILLER SHARE
+  specifically, the bare cryptic and double definitions it counts AGAINST a
+  puzzle are named MORE often than other clues, +4.1 points, p = 0.035 with the
+  favourite flags shuffled inside each puzzle. Anagrams (16.5%) and hidden words
+  (12.6%) are what commenters pass over; containers and cryptic definitions
+  (both ~24%) are what they admire. Re-run it with --vs-favourites; until it
+  says something else, this index is a description of a puzzle's evenness and
+  NOT a verdict on how good it is, and nothing built on it may be shown to
+  readers as one.
 
 So this measures four things that are genuinely in the annotations, reports each
 one separately so a reader can disagree with the weighting, and ranks a puzzle
@@ -56,6 +72,10 @@ a claim the data supports; "Craft 7/10" is not.
                       are cheap; a grid leaning on them is padding. This one
                       counts AGAINST the puzzle.
 
+  python3 tools/fetch_fifteensquared.py             # the cache, once
+  python3 tools/favourites_survey.py --json votes.json
+  python3 tools/craft_score.py --vs-favourites votes.json
+
 The weights are equal and that is a choice, not a fit. Nothing here is tuned to
 make any puzzle come out well, because the moment a weight is fitted to an
 outcome the score stops being evidence about the outcome. If the components
@@ -70,6 +90,7 @@ published puzzles it is mostly noise. Read it per clue; do not average it here.
 import argparse
 import json
 import math
+import random
 import sys
 from collections import Counter
 from pathlib import Path
@@ -250,6 +271,103 @@ def vs_difficulty():
     return 0 if abs(rho) < 0.30 else 1
 
 
+def _rho(a, b):
+    """Spearman, on the two lists as given."""
+    x, y = _ranks(a), _ranks(b)
+    n = len(x)
+    mx, my = sum(x) / n, sum(y) / n
+    den = math.sqrt(sum((p - mx) ** 2 for p in x) * sum((q - my) ** 2 for q in y))
+    return sum((p - mx) * (q - my) for p, q in zip(x, y)) / den if den else 0.0
+
+
+def _resid(a, b):
+    """`a`'s ranks with `b`'s ranks regressed out, for a partial correlation."""
+    ra, rb = _ranks(a), _ranks(b)
+    n = len(ra)
+    ma, mb = sum(ra) / n, sum(rb) / n
+    var = sum((q - mb) ** 2 for q in rb)
+    beta = sum((p - ma) * (q - mb) for p, q in zip(ra, rb)) / var if var else 0.0
+    return [p - ma - beta * (q - mb) for p, q in zip(ra, rb)]
+
+
+def vs_favourites(votes_path, trials=3000):
+    """The held-out test: does any of this agree with the clues humans admired?
+
+    Feed it what tools/favourites_survey.py --json writes. Two questions, and
+    they are separate because only one of the four components has a per-clue
+    meaning:
+
+      per clue    Are the bare cryptic and double definitions FILLER SHARE
+                  counts against a puzzle the ones commenters skip? The flags
+                  are shuffled within each puzzle, never across, because a
+                  puzzle with a busy thread has more of everything named.
+
+      per puzzle  Does a better-set puzzle get more of its clues named? Thread
+                  size has to be held: how many people showed up to comment
+                  moves the share far harder than anything in the file does.
+    """
+    votes = json.loads(Path(votes_path).read_text())
+    voted, threads = {}, Counter()
+    for v in votes:
+        voted.setdefault(v["puzzle"], set()).add(v["entry"])
+    for pid, _ in {(v["puzzle"], v["comment"]) for v in votes}:
+        threads[pid] += 1
+
+    scores, _ = all_scores()
+    rows = []
+    for path in puzzle_files():
+        puz = load(path)
+        pid = puz.get("id")
+        ents = annotated(puz)
+        if pid not in voted or pid not in scores or not ents:
+            continue
+        filler = [int(set(devices(e["annotation"])) <= {"cryptic definition",
+                                                        "double definition"})
+                  for e in ents]
+        fav = [int(e["id"] in voted[pid]) for e in ents]
+        rows.append((pid, filler, fav))
+    if len(rows) < 20:
+        print(f"only {len(rows)} puzzles are both scored and voted on",
+              file=sys.stderr)
+        return 1
+
+    def gap(rs):
+        fa = fn = oa = on = 0
+        for _, filler, fav in rs:
+            for is_filler, is_fav in zip(filler, fav):
+                if is_filler:
+                    fa, fn = fa + is_fav, fn + 1
+                else:
+                    oa, on = oa + is_fav, on + 1
+        return (fa / fn if fn else 0) - (oa / on if on else 0)
+
+    clues = sum(len(r[1]) for r in rows)
+    named = sum(sum(r[2]) for r in rows)
+    print(f"{len(rows)} puzzles both scored and voted on, {clues} annotated "
+          f"clues, {named} named a favourite ({named / clues:.1%})")
+
+    obs = gap(rows)
+    rng = random.Random(20260909)
+    hits = sum(1 for _ in range(trials)
+               if abs(gap([(p, f, rng.sample(v, len(v))) for p, f, v in rows]))
+               >= abs(obs))
+    print(f"\nper clue   bare cryptic/double definitions are named "
+          f"{obs:+.1%} more often than the rest, p = {(hits + 1) / (trials + 1):.4f}")
+    print("           FILLER SHARE counts them against a puzzle, so a positive "
+          "number here is the component contradicted, not confirmed")
+
+    idx = [scores[p]["index"] for p, _, _ in rows]
+    share = [sum(v) / len(v) for _, _, v in rows]
+    size = [threads[p] for p, _, _ in rows]
+    print(f"\nper puzzle craft index vs the share of a puzzle's clues named: "
+          f"rho = {_rho(idx, share):+.3f}")
+    print(f"           how many people favourited anything vs that share: "
+          f"rho = {_rho(size, share):+.3f}  <- the confound")
+    print(f"           craft index vs share, thread size held: "
+          f"rho = {_rho(_resid(idx, size), _resid(share, size)):+.3f}")
+    return 0
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--json", action="store_true", help="emit the full table as JSON")
@@ -259,10 +377,15 @@ def main():
                     help="mean index per series instead of per puzzle")
     ap.add_argument("--vs-difficulty", action="store_true",
                     help="rank correlation against difficulty.py — near zero is the point")
+    ap.add_argument("--vs-favourites", metavar="VOTES.json",
+                    help="test against the clues humans named: the JSON "
+                         "tools/favourites_survey.py --json writes")
     args = ap.parse_args()
 
     if args.vs_difficulty:
         return vs_difficulty()
+    if args.vs_favourites:
+        return vs_favourites(args.vs_favourites)
 
     scores, stats = all_scores()
     if not scores:
