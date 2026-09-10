@@ -4248,6 +4248,12 @@
     // not something to celebrate.
     wasComplete = null;
     tallyDrawn = false;
+    // Forget the last puzzle's clue too, so syncClueUrl always writes the new
+    // one. It compares refs, not puzzles, and "1A" left over from the puzzle
+    // just closed reads as no change if the new one also opens on "1A" —
+    // silently dropping &c= from a URL that had never named this puzzle's
+    // clues at all.
+    urlClue = null;
     $("celebrate").classList.add("hidden");
     restoreState();
     sealArrivedProgress();
