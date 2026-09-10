@@ -489,11 +489,16 @@
         if (syncAgain) { syncAgain = false; syncPushSoon(); }
       });
   }
-  function syncPull() {
+  /* `missing` is what to do when the code has nothing stored under it, and only
+     the join below passes one: there, a 404 means the code was typed wrong, and
+     seeding it would upload these grids to a code nobody holds and say "Synced".
+     Every other caller already owns its code, where a 404 is simply the first
+     machine on it and pushing is right. */
+  function syncPull(missing) {
     if (!syncOn()) return Promise.resolve();
     return syncFetch("GET", null)
       .then((remote) => {
-        if (!remote) return syncPush(); // first machine on this code
+        if (!remote) return missing ? missing() : syncPush(); // first machine on this code
         const merged = CTMerge.mergeSaves(localEnvelope(), remote);
         if (applyEnvelope(merged)) { restoreState(); refreshAll(); }
         syncNote("Synced");
@@ -577,11 +582,17 @@
     drawSyncQr(code);
     $("sync-on").classList.toggle("hidden", !code);
     $("sync-off").classList.toggle("hidden", !!code);
+    /* A device with no code shows exactly one button, and someone arriving with
+       a code in their hand presses it — "Turn on sync" reads as the way to turn
+       on sync, and mints a second code instead. So the code box leads while sync
+       is off, and goes back under the QR once this device has a code of its own,
+       where it is the afterthought again. */
+    $("sync-panel").insertBefore($("sync-join-row"), code ? $("sync-status") : $("sync-off"));
     // Taking a code is offered in both states, so the wording has to say what
     // pressing it does to a device that already has one.
     $("sync-join-label").textContent = code
       ? "Scanned another device? Its code replaces this one here, and these grids merge into it."
-      : "Already have a code from another device?";
+      : "Already syncing on another device? Type its code in here.";
     syncNote(code ? "" : "Not syncing — this machine only.");
   }
 
@@ -4475,12 +4486,27 @@
     $("sync-join").onclick = () => {
       const raw = ($("sync-join-code").value || "").toUpperCase().replace(/[^A-Z0-9]/g, "");
       if (raw.length !== 8) { syncNote("A code is 8 characters."); return; }
+      // CODE_ALPHABET has no 0, O, 1, I, L or U, so a code containing one was
+      // misread rather than mistyped, and the character names itself.
+      const stray = raw.split("").filter((ch) => CODE_ALPHABET.indexOf(ch) < 0);
+      if (stray.length) {
+        syncNote("No code contains " + stray.join(", ") + " — look again at the other device.");
+        return;
+      }
+      const had = store.get("ct:sync", null);
       store.set("ct:sync", raw);
       renderSyncPanel();
       syncNote("Fetching…");
       // Pull, not push: the machine you are joining *from* is the one that knows
       // things, and the merge means joining can only ever add to what is here.
-      syncPull();
+      syncPull(() => {
+        // Nothing under that code. Put back whatever this device was doing
+        // before, so a typo costs a sentence rather than the code it was on.
+        if (had) store.set("ct:sync", had); else store.del("ct:sync");
+        renderSyncPanel();
+        syncNote("No grids are stored under " + raw + ". Nothing here has changed — check it "
+                 + "on the other device, or start a code here.");
+      });
     };
     $("sync-stop").onclick = () => {
       // Local progress is deliberately left alone. Stopping sync means "don't
