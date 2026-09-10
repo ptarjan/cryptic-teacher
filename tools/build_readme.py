@@ -164,6 +164,9 @@ LAYOUT = [
     ("finding out whether any of it is working", "tools/make_hint_packets.js", "blind solve-packets, to grade a hint by whether it gets a solver unstuck"),
     ("finding out whether any of it is working", "tools/grade_clues.py", "blind A/B/C/D packets of our clues against real setters’ for the same answers"),
     ("finding out whether any of it is working", "tools/score_grading.py", "joins the blind scores back to provenance: the ours-vs-human head-to-head"),
+    ("finding out whether any of it is working", "tools/favourite_grading.py", "blind matched pairs of a clue commenters named as a favourite against one from the same puzzle they did not, scored on the five rubric axes; the run finished null, so nothing downstream reads the scores"),
+    ("finding out whether any of it is working", "tools/favourite_grading.sh", "grades those packets one claude -p per batch, skipping any batch whose score file already parses"),
+    ("finding out whether any of it is working", "tools/favourite_grading_prompt.md", "what the judge is told each axis means"),
     ("finding out whether any of it is working", "tools/compare_mc.py", "word-count and shape comparison of our hints against Minute Cryptic’s"),
 
     ("tables everything else reads", "tools/series.py", "the one table of facts about each series: publisher, naming, URL shape"),
@@ -176,6 +179,9 @@ LAYOUT = [
     ("tables everything else reads", "tools/data/sample_fill_11.json", "the worked 11x11 fill tools/AUTHORING.md walks through"),
     ("tables everything else reads", "tools/data/authored_A001_clues.json", "the hand-written clues for that fill"),
     ("tables everything else reads", "tools/data/annotate_attempts.json", "which puzzles have already had an annotation run spent on them and lost"),
+    ("tables everything else reads", "tools/data/favourite_grading/key.json", "which packet label is which pair, and which side of it was voted for: the only thing that un-blinds a packet"),
+    ("tables everything else reads", "tools/data/favourite_grading/packets/", "one blind batch of clues per file, labels only"),
+    ("tables everything else reads", "tools/data/favourite_grading/scores/", "the judge’s five scores per label, same batch numbering as the packets"),
     ("tables everything else reads", "tools/suggest_demand.json", "the last autocomplete reading, advisory only: nothing downstream sorts on it"),
 ]
 
@@ -186,6 +192,7 @@ LAYOUT_EXEMPT = re.compile(r"""
       ^tools/_                      # scratch scripts, named with a leading underscore
     | ^tools/__pycache__/
     | ^puzzles/                     # covered by the <series>-<n>.js line
+    | ^tools/data/favourite_grading/(packets|scores)/  # covered by the two directory lines
     | ^og/                          # covered by the og/ line
     | ^learn/ | ^abbreviations/
     | ^favicon | ^icon- | ^apple-touch-icon   # covered by the icon-set line
