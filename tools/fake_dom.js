@@ -96,6 +96,16 @@ function boot(opts) {
       }
       return el;
     }
+    // Moving a node, not copying one: a real insertBefore detaches it from
+    // wherever it was first, so a page that re-orders the same element on every
+    // render ends up with one of it rather than a growing pile.
+    insertBefore(el, ref) {
+      const was = this.children.indexOf(el);
+      if (was >= 0) this.children.splice(was, 1);
+      const at = ref ? this.children.indexOf(ref) : -1;
+      if (at >= 0) this.children.splice(at, 0, el); else this.children.push(el);
+      return el;
+    }
     addEventListener(type, fn) { (this.listeners[type] = this.listeners[type] || []).push(fn); }
     querySelector(sel) {
       const cls = sel.replace(/^\./, "");
