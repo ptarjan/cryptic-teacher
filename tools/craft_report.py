@@ -134,6 +134,17 @@ by being true, not by predicting admiration. Re-run --vs-favourites as the
 corpus grows; a number that goes large is the first real evidence this project
 has ever had, and it would deserve a paragraph of its own rather than a weight.
 
+The device table --vs-favourites now prints is that evidence, and it is the only
+thing in the fields that has ever moved: a bare cryptic definition is named
+twice as often as its share of the grid (39 against 19.3 expected, z = +5.34),
+and a reversal about a quarter less (83 against 109.1, z = -3.19). Both clear a
+Bonferroni line over 15 devices. It is deliberately NOT an observation and never
+becomes one, because "use more cryptic definitions" is advice about what to set
+rather than about how well it was set, and 101 clues in 5,398 could not move a
+puzzle-level number anyway. It says solvers reward the clue types that are pure
+reading and punish the ones that are pure mechanism, which is the same sentence
+the last paragraph ends on.
+
 Nothing in this file may be shown to a reader as a verdict on how good a puzzle
 is. It describes shape and mechanics. The thing solvers fall in love with is the
 sentence the clue pretends to be, and that lives in the prose, not the fields.
@@ -145,12 +156,16 @@ import math
 import random
 import re
 import sys
-from collections import Counter
+from collections import Counter, defaultdict
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from difficulty import _rank_list, load, moments  # noqa: E402
+
+# Below this a device's count is dominated by which puzzles happen to be
+# blogged, not by whether solvers like it.
+MIN_DEVICE_CLUES = 60
 
 ROOT = Path(__file__).resolve().parent.parent
 PUZZLE_DIR = ROOT / "puzzles"
@@ -382,6 +397,65 @@ def vs_difficulty():
     return 1 if bad else 0
 
 
+def device_vs_favourites(voted):
+    """Which atomic devices get named more often than their share of the grid?
+
+    Not one of the four observations: this is a property of a clue, not of how a
+    puzzle is set, and there is no honest way to reward a setter for using more
+    cryptic definitions. It is here because it is the only thing in the fields
+    that has ever moved against the votes, and it must stay re-derivable.
+
+    A clue's type is a sum ("charade + reversal"), so each atomic part is counted
+    separately and the shares do not add to 1. The test is within-puzzle by
+    construction: for a puzzle with n annotated clues of which k were named, a
+    device appearing in m of them has a hypergeometric count under the null that
+    the setter's choice of device tells you nothing. Summing mean and variance
+    across puzzles holds thread size fixed the same way the shuffle does, without
+    a shuffle.
+    """
+    tot, obs, exp, var = Counter(), Counter(), defaultdict(float), defaultdict(float)
+    puzzles = clues = names = 0
+    for path in puzzle_files():
+        puz = load(path)
+        ents = annotated(puz)
+        pid = puz.get("id")
+        if pid not in voted or not ents:
+            continue
+        n = len(ents)
+        k = sum(1 for e in ents if e["id"] in voted[pid])
+        if n < 2 or k == 0 or k == n:
+            continue
+        puzzles, clues, names = puzzles + 1, clues + n, names + k
+        seen = defaultdict(list)
+        for e in ents:
+            kind = (e["annotation"].get("type") or "").lower()
+            for atom in {a.strip() for a in kind.replace("&", "and ").split("+") if a.strip()}:
+                seen[atom].append(e["id"] in voted[pid])
+        for atom, flags in seen.items():
+            m = len(flags)
+            tot[atom] += m
+            obs[atom] += sum(flags)
+            exp[atom] += m * k / n
+            var[atom] += m * (k / n) * ((n - k) / n) * ((n - m) / (n - 1))
+
+    rows = []
+    for atom, m in tot.items():
+        if m < MIN_DEVICE_CLUES or var[atom] <= 0:
+            continue
+        z = (obs[atom] - exp[atom]) / math.sqrt(var[atom])
+        rows.append((z, atom, m, obs[atom], exp[atom], math.erfc(abs(z) / math.sqrt(2))))
+    rows.sort()
+
+    print(f"\nper clue, by device — {puzzles} puzzles, {clues} annotated clues, "
+          f"{names} named")
+    print(f"  devices in fewer than {MIN_DEVICE_CLUES} clues are not shown; "
+          f"{len(rows)} tests, so read p against {0.05 / max(len(rows), 1):.4f}")
+    for z, atom, m, x, e, pv in rows:
+        print(f"  {atom:22s} n={m:5d}  named {x:4d} vs {e:7.1f} expected"
+              f"   z={z:+5.2f}  p={pv:.4f}")
+    return rows
+
+
 def vs_favourites(votes_path, trials=3000):
     """The held-out test: does any observation agree with the clues humans admired?
 
@@ -402,6 +476,8 @@ def vs_favourites(votes_path, trials=3000):
         voted.setdefault(v["puzzle"], set()).add(v["entry"])
     for pid, _ in {(v["puzzle"], v["comment"]) for v in votes}:
         threads[pid] += 1
+
+    device_vs_favourites(voted)
 
     obs, _ = all_observations()
     rows = []
