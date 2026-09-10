@@ -92,6 +92,95 @@ def build_pairs(votes, rng):
     return pairs, skipped
 
 
+def build_extra_pairs(votes, rng, used, want):
+    """More pairs from the same puzzles, reusing no clue already in the key.
+
+    Round-robin: one further pair from every puzzle that can still supply one
+    before any puzzle supplies a second. Stacking pairs on the few puzzles with
+    the most votes would buy sample size by narrowing the sample to the loudest
+    threads, which is the turnout confound the matched design exists to avoid.
+    """
+    voted = {}
+    for v in votes:
+        voted.setdefault(v["puzzle"], set()).add(v["entry"])
+
+    pools = {}
+    for pid in sorted(voted):
+        path = PUZZLE_DIR / (pid + ".js")
+        if not path.exists():
+            continue
+        entries = annotated_entries(load(path))
+        yes = [e for e in entries if e["id"] in voted[pid] and (pid, e["id"]) not in used]
+        no = [e for e in entries if e["id"] not in voted[pid] and (pid, e["id"]) not in used]
+        if yes and no:
+            pools[pid] = (yes, no)
+
+    order = sorted(pools)
+    rng.shuffle(order)
+    pairs = []
+    while len(pairs) < want:
+        took = False
+        for pid in order:
+            if len(pairs) >= want:
+                break
+            yes, no = pools[pid]
+            if not yes or not no:
+                continue
+            pick = rng.choice(yes)
+            gap = min(abs(len(e["solution"]) - len(pick["solution"])) for e in no)
+            cands = [e for e in no if abs(len(e["solution"]) - len(pick["solution"])) == gap]
+            mate = rng.choice(cands)
+            yes.remove(pick)
+            no.remove(mate)
+            pairs.append({"puzzle": pid, "voted": pick, "unvoted": mate, "length_gap": gap})
+            took = True
+        if not took:
+            break
+    return pairs
+
+
+def extend(args):
+    """Add pairs to an existing sample without disturbing what is already graded.
+
+    Existing labels, pair numbers and batch files are left exactly as they are:
+    a clue that has been graded must keep the label its score file refers to.
+    """
+    rng = random.Random(SEED + 1)
+    out = pathlib.Path(args.out)
+    key = json.loads((out / "key.json").read_text(encoding="utf-8"))
+    used = {(k["puzzle"], k["entry"]) for k in key.values()}
+    next_label = max(int(l[1:]) for l in key) + 1
+    next_pair = max(k["pair"] for k in key.values()) + 1
+    next_batch = max(int(f.stem[5:]) for f in (out / "packets").glob("batch*.json")) + 1
+
+    votes = json.loads(pathlib.Path(args.votes).read_text(encoding="utf-8"))
+    pairs = build_extra_pairs(votes, rng, used, args.extend)
+
+    rows = []
+    for i, pr in enumerate(pairs):
+        for side in ("voted", "unvoted"):
+            label = "c%04d" % (next_label + 2 * i + (side == "unvoted"))
+            rows.append(clue_row(pr["puzzle"], pr[side], label))
+            key[label] = {"puzzle": pr["puzzle"], "entry": pr[side]["id"],
+                          "pair": next_pair + i, "voted": side == "voted"}
+    rng.shuffle(rows)
+
+    for n in range(0, len(rows), BATCH):
+        batch = [{k: v for k, v in r.items() if not k.startswith("_")}
+                 for r in rows[n:n + BATCH]]
+        (out / "packets" / ("batch%02d.json" % (next_batch + n // BATCH))).write_text(
+            json.dumps({"clues": batch}, indent=1) + "\n", encoding="utf-8")
+    (out / "key.json").write_text(json.dumps(key, indent=1) + "\n", encoding="utf-8")
+
+    puzzles = len({p["puzzle"] for p in pairs})
+    exact = sum(1 for p in pairs if p["length_gap"] == 0)
+    print("added %d pairs from %d puzzles, %d clues, batches %02d-%02d"
+          % (len(pairs), puzzles, len(rows), next_batch,
+             next_batch + (len(rows) - 1) // BATCH))
+    print("solution length matched exactly in %d of %d new pairs" % (exact, len(pairs)))
+    print("sample is now %d pairs" % (next_pair + len(pairs)))
+
+
 def clue_row(pid, entry, label):
     return {"label": label, "clue": entry["clue"],
             "solution": entry["solution"], "_puzzle": pid, "_entry": entry["id"]}
@@ -220,10 +309,14 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--sample", action="store_true")
     ap.add_argument("--score", action="store_true")
+    ap.add_argument("--extend", type=int, metavar="N",
+                    help="add N more pairs to an existing sample")
     ap.add_argument("--votes", default="/tmp/favourite_votes.json")
     ap.add_argument("--out", default=str(ROOT / "tools" / "data" / "favourite_grading"))
     args = ap.parse_args()
-    if args.sample:
+    if args.extend:
+        extend(args)
+    elif args.sample:
         sample(args)
     elif args.score:
         score(args)
