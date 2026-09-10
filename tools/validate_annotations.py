@@ -1056,6 +1056,54 @@ def is_gerund(ans):
             or (len(stem) > 2 and stem[-1] == stem[-2] and is_word(stem[:-1])))
 
 
+JOKE_KINDS = ("pun", "absurd")
+
+
+def check_features(tag, ann, clue, errors, warnings):
+    """The `features` block is data, not teaching, and is checked like data.
+
+    Absent is silent: it was added on 2026-09-10 and every annotation written
+    before that lacks it. Present means every key is present and typed, because
+    the whole value of the block is that a missing row and a false row mean
+    different things when these get counted against the favourite votes.
+
+    `misdirectedWord` must be a single word that actually occurs in the clue.
+    Naming a word the setter never wrote is the one failure mode that would
+    quietly poison the count rather than shrink it, so it is an error.
+    """
+    feats = ann.get("features")
+    if feats is None:
+        return
+    if not isinstance(feats, dict):
+        errors.append(f"{tag}: features must be an object, got {type(feats).__name__}")
+        return
+
+    for key in ("answerInScene", "aptDefinition"):
+        if key not in feats:
+            errors.append(f"{tag}: features.{key} is missing — write false rather "
+                          f"than leaving it out, they are counted separately")
+        elif not isinstance(feats[key], bool):
+            errors.append(f"{tag}: features.{key} must be true or false, "
+                          f"got {feats[key]!r}")
+
+    joke = feats.get("joke")
+    if joke is not None and joke not in JOKE_KINDS:
+        errors.append(f"{tag}: features.joke must be null or one of "
+                      f"{', '.join(JOKE_KINDS)}, got {joke!r}")
+
+    word = feats.get("misdirectedWord")
+    if word is not None:
+        if not isinstance(word, str) or not word.strip():
+            errors.append(f"{tag}: features.misdirectedWord must be null or a "
+                          f"word from the clue, got {word!r}")
+        elif len(word.split()) > 1:
+            errors.append(f"{tag}: features.misdirectedWord {word!r} is more than "
+                          f"one word — name the single word that misleads")
+        elif word.strip().lower() not in [w.lower() for w in re.findall(r"[\w'-]+", clue or "")]:
+            errors.append(f"{tag}: features.misdirectedWord {word!r} does not occur "
+                          f"in the clue {clue!r}")
+
+
 def check_part_of_speech(tag, ann, warnings):
     """The definition must be substitutable for the answer, which means their
     inflections agree: a plural answer needs a plural definition, an -ing answer
@@ -1742,6 +1790,7 @@ def validate_puzzle(puzzle):
 
         check_coverage(tag, ann, clue, warnings)
         check_part_of_speech(tag, ann, warnings)
+        check_features(tag, ann, clue, errors, warnings)
         # Not under `authored`. is_authored means WE wrote the clue; the
         # walkthrough is ours either way, and every hit these two have ever had
         # was on a published grid. Gated, they would never fire.

@@ -59,6 +59,12 @@ Annotation schema (see `puzzles/cryptic-30066.js` for 28 worked examples):
   "surface": "one sentence, 25 words max: what the clue PRETENDS to be about. Omit only when there is no surface apart from the mechanism.",
   "walkthrough": "1-2 sentences, 45 words max: what the blocks CANNOT show. Friendly teaching tone.",
   "definitionFit": "REQUIRED. One sentence, 30 words max: why the ANSWER means the DEFINITION.",
+  "features": {
+    "misdirectedWord": "REQUIRED. The one word of the clue whose surface sense is furthest from the job it really does, exactly as the setter spelt it — or null if nothing misleads.",
+    "joke": "REQUIRED. \"pun\" if the humour is in a word's second sense or its sound, \"absurd\" if the surface is silly on purpose, null if there is no joke.",
+    "answerInScene": "REQUIRED true/false. Does the SOLUTION belong in the picture the surface paints?",
+    "aptDefinition": "REQUIRED true/false. Is the definition a fresh or witty way to say the answer, rather than a dictionary synonym?"
+  },
 
   "pieces": ["CHUNKS", "THAT", "CONCATENATE", "TO", "THE", "ANSWER"],
   "anagram": {"fodder": "LETTERS WHOSE MULTISET EQUALS THE ANSWER"},
@@ -68,6 +74,13 @@ Annotation schema (see `puzzles/cryptic-30066.js` for 28 worked examples):
 ```
 
 Rules:
+- `features` is data, not teaching: none of it is ever shown to a solver. It exists to
+  be counted against the clues solvers name as favourites on fifteensquared, where the
+  reasons they give are, in order, the surface, the joke, the misdirection and a witty
+  definition. Record what IS there. Four honest nulls and falses are a usable row; one
+  guessed `joke` is a poisoned one, and a `misdirectedWord` the setter never wrote is
+  rejected. Report, never judge: `joke` asks whether a joke is present, not whether it
+  is funny, and `answerInScene` asks where the solution sits, not whether that is clever.
 - FIRST read `STYLE.md` at the repo root and follow every rule in it. It is the
   accumulated product feedback; it overrides habit. In particular, `type` must
   honestly name EVERY mechanism used, joined with " + " (e.g.
