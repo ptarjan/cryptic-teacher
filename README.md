@@ -293,6 +293,14 @@ tools/grade_clues.py                         blind A/B/C/D packets of our clues 
                                              setters’ for the same answers
 tools/score_grading.py                       joins the blind scores back to provenance: the
                                              ours-vs-human head-to-head
+tools/favourite_grading.py                   blind matched pairs of a clue commenters named as
+                                             a favourite against one from the same puzzle they
+                                             did not, scored on the five rubric axes; the run
+                                             finished null, so nothing downstream reads the
+                                             scores
+tools/favourite_grading.sh                   grades those packets one claude -p per batch,
+                                             skipping any batch whose score file already parses
+tools/favourite_grading_prompt.md            what the judge is told each axis means
 tools/compare_mc.py                          word-count and shape comparison of our hints
                                              against Minute Cryptic’s
 
@@ -315,6 +323,12 @@ tools/data/sample_fill_11.json               the worked 11x11 fill tools/AUTHORI
 tools/data/authored_A001_clues.json          the hand-written clues for that fill
 tools/data/annotate_attempts.json            which puzzles have already had an annotation run
                                              spent on them and lost
+tools/data/favourite_grading/key.json        which packet label is which pair, and which side
+                                             of it was voted for: the only thing that un-blinds
+                                             a packet
+tools/data/favourite_grading/packets/        one blind batch of clues per file, labels only
+tools/data/favourite_grading/scores/         the judge’s five scores per label, same batch
+                                             numbering as the packets
 tools/suggest_demand.json                    the last autocomplete reading, advisory only:
                                              nothing downstream sorts on it
 ```
