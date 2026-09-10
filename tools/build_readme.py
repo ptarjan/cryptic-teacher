@@ -47,6 +47,7 @@ LAYOUT = [
     ("", "abbreviations.js", "generated letter→clue-word map, read by app.js"),
     ("", "analytics.js", "the one shared GA snippet every page loads, so there is exactly one id"),
     ("", "qr.js", "the QR encoder, drawn in the page: the sync code is the account, so it is never handed to an image service"),
+    ("", "vendor/", "the one dependency shipped to the browser: jsQR, pinned by filename and sha256, fetched only when someone scans a code"),
     ("", "learn/", "the “How cryptic clues work” lesson, built from tools/tutorial.html"),
     ("", "abbreviations/", "the glossary of standard abbreviations the blocks rung links into"),
     ("", "og/", "one 1200x630 social card per puzzle, drawn from one of its clues"),
