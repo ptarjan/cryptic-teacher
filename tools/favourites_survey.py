@@ -2,7 +2,7 @@
 """Measure the favourite-clue signal in the fifteensquared comment cache.
 
 Commenters name the clue they liked best. That is the only per-clue quality
-judgement we have from outside this project, so it is what tools/craft_score.py
+judgement we have from outside this project, so it is what tools/craft_report.py
 has to be tested against. A named favourite is almost always the ANSWER in
 capitals ("MAYONNAISE was my favourite"), sometimes a grid reference ("18d"),
 so resolving one needs the puzzle it belongs to. This reports how many
