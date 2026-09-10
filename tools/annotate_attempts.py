@@ -147,7 +147,12 @@ def cmd_record(args):
     # told about therefore erases the one before it: resuming a conversation
     # two nights older than the work would replay a transcript that no longer
     # describes the file on disk.
-    if args.session:
+    # ...and only while resuming it is still worth doing. A transcript that has
+    # now failed twice is not a head start, it is the reason: the run that blew
+    # the output ceiling left 128k of dead tokens in the conversation, and every
+    # resume of it re-sends them. Two goes at one session, then the next attempt
+    # starts from an empty context.
+    if args.session and args.session != rec.get("session"):
         rec["session"] = args.session
     else:
         rec.pop("session", None)
