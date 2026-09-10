@@ -473,6 +473,8 @@ of the source. 75 of 128 annotation sessions were grepping
 - `check_sound_is_not_a_letter_swap` — A spoonerism trades SOUNDS. A soundsLike made
   by trading letters is a fake.
 - `check_coverage` — Every content word of the clue must be claimed by the parse.
+- `check_features` — The `features` block is data, not teaching, and is checked like
+  data.
 - `check_part_of_speech` — The definition must be substitutable for the answer, which
   means their inflections agree: a plural answer needs a plural definition, an -ing
   answer an -ing definition (feedback 2026-07-29 — "the part of speech needs to be
