@@ -34,6 +34,56 @@ const reported = (mark) => beacons.slice(mark).map((b) => b.body.parts);
 const numberOf = (id) => (((global.CRYPTIC_INDEX || {}).puzzles || [])
   .find((p) => p.id === id) || { number: id }).number;
 
+// --- the vendored decoder is the build vendor/README.md pins ---
+// A dependency nobody can diff is one nobody reads. The hash is written down in
+// prose next to the licence, and this is what stops the prose and the file
+// drifting: a swapped decoder is the one place in this repo where "it still
+// works" and "it is what we vendored" are different questions.
+{
+  const crypto = require("crypto");
+  const doc = fs.readFileSync(path.join(ROOT, "vendor/README.md"), "utf8");
+  const pinned = doc.match(/sha256\s+([0-9a-f]{64})/);
+  const named = doc.match(/`(jsQR-[\d.]+\.js)`/);
+  if (assert(pinned && named, "vendor/README.md still pins a filename and a sha256")) {
+    const file = path.join(ROOT, "vendor", named[1]);
+    assert(fs.existsSync(file), `${named[1]} is the file vendor/README.md names`);
+    if (fs.existsSync(file)) {
+      const got = crypto.createHash("sha256").update(fs.readFileSync(file)).digest("hex");
+      assert(got === pinned[1],
+        `vendor/${named[1]} hashes to the sha256 in vendor/README.md (got ${got})`);
+    }
+    assert(fs.readFileSync(path.join(ROOT, "app.js"), "utf8").includes(`"vendor/${named[1]}"`),
+      "app.js fetches the decoder by the pinned filename, so a bump cannot leave a 404 behind");
+  }
+}
+
+// --- the decoder actually reads the squares this page draws ---
+// The encoder is ours and the decoder is not, so "it is a valid QR code" and
+// "that library can read it" are two claims. This is the second one, at the
+// module count and quiet zone drawSyncQr uses, which is the only case the sync
+// panel ever produces.
+{
+  const CTQR = require("../qr.js");
+  const jsQR = require("../vendor/jsQR-1.4.0.js");
+  const url = "https://cryptic.paultarjan.com/?sync=AEQ5FEY5";
+  const rows = CTQR.encode(url);
+  const S = 6, QUIET = 4, n = rows.length, w = (n + QUIET * 2) * S;
+  const px = new Uint8ClampedArray(w * w * 4).fill(255);
+  for (let r = 0; r < n; r++) {
+    for (let c = 0; c < n; c++) {
+      if (!rows[r][c]) continue;
+      for (let y = 0; y < S; y++) {
+        for (let x = 0; x < S; x++) {
+          const i = (((r + QUIET) * S + y) * w + (c + QUIET) * S + x) * 4;
+          px[i] = px[i + 1] = px[i + 2] = 0;
+        }
+      }
+    }
+  }
+  const hit = jsQR(px, w, w, { inversionAttempts: "dontInvert" });
+  assert(hit && hit.data === url, "the vendored decoder reads a square qr.js drew");
+}
+
 // --- cache busting: index.html must reference current asset hashes ---
 // (mobile browsers hold GitHub Pages' 4h max-age copies otherwise — APP.md)
 {

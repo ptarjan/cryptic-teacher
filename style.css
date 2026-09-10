@@ -1167,6 +1167,10 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
 .sync-qr { display: block; margin: 10px auto; background: #fff; border: 8px solid #fff;
            border-radius: 6px; }
 .sync-qr[hidden] { display: none; }
+/* Same width as the QR it is pointed at, so the panel does not jump when the
+   camera opens. */
+.sync-scan-video { display: block; width: 100%; max-width: 260px; margin: 10px auto;
+                   border-radius: 8px; background: #000; }
 .sync-code-row { display: flex; align-items: baseline; gap: 10px; }
 .sync-code {
   font: 700 1.6rem/1.2 ui-monospace, SFMono-Regular, Menlo, monospace;
