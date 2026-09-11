@@ -41,6 +41,23 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
+      # The cards are 24MB of PNGs that change one file a night, so they are
+      # neither committed nor redrawn from scratch: the cache carries them and
+      # their manifest between runs, and make_og.sh draws only the ones whose
+      # inputs have moved. A cold cache costs a full redraw and is correct, just
+      # slow. The key is per-commit so every run saves what it drew; restore-keys
+      # is what actually hits, taking the newest cache from any earlier commit.
+      - name: Restore the social cards
+        uses: actions/cache@v4
+        with:
+          path: og
+          key: og-cards-${{ github.sha }}
+          restore-keys: og-cards-
+      # Before the pages, which point a puzzle at its own card only if the file
+      # is already on disk — built the other way round, a new puzzle would
+      # advertise the site card instead of its own.
+      - name: Draw the social cards
+        run: bash tools/make_og.sh --all
       - name: Generate the crawlable pages
         run: python3 tools/build_seo_pages.py
       - name: Stamp the assets

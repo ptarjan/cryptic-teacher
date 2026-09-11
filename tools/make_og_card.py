@@ -38,8 +38,10 @@ Usage:
   python3 tools/make_og_card.py 30066              # best clue in one puzzle
   python3 tools/make_og_card.py 30066 4-down       # a clue you picked yourself
   python3 tools/make_og_card.py --out /tmp/c.html 30066
-  python3 tools/make_og_card.py --list             # puzzles that can carry a card
+  python3 tools/make_og_card.py --stale            # puzzles whose card needs drawing
+  python3 tools/make_og_card.py --record 30066     # note that card as drawn
 """
+import hashlib
 import html
 import json
 import re
@@ -518,6 +520,64 @@ def alt_text(number, entry_id=None):
             f'marked, {shown}, and the answer itself left blank.')
 
 
+MANIFEST = REPO / "og" / ".manifest.json"
+CARD_REGION = re.compile(r"<!--CARD-START.*?<!--CARD-END-->", re.S)
+
+
+def _salt():
+    """A hash of everything outside a puzzle file that decides what a card looks
+    like: this script, app.js's tables it renders from, and og_card.html with the
+    card region cut out. That region is whatever card was drawn last, so hashing
+    it whole would call all 361 cards stale every time the site card moved.
+    """
+    h = hashlib.sha256()
+    h.update(Path(__file__).resolve().read_bytes())
+    h.update(APP.read_bytes())
+    h.update(CARD_REGION.sub("", CARD.read_text(encoding="utf-8")).encode("utf-8"))
+    return h
+
+
+def card_key(pid, salt):
+    h = salt.copy()
+    h.update((REPO / f"puzzles/{pid}.js").read_bytes())
+    return h.hexdigest()
+
+
+def _manifest():
+    try:
+        return json.loads(MANIFEST.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return {}
+
+
+def stale():
+    """Puzzles whose card is missing or drawn from something that has changed.
+
+    Content, not timestamps: a fresh git checkout stamps every file with the
+    same mtime, so the `-nt` test this replaced saw nothing stale and CI would
+    have published whatever cards its cache happened to hold, forever.
+    """
+    salt, have = _salt(), _manifest()
+    for f in puzzle_files():
+        pid = f.stem
+        if not pick(pid)[0]:
+            continue
+        if not (REPO / f"og/{pid}.png").exists() or have.get(pid) != card_key(pid, salt):
+            yield pid
+
+
+def record(pid):
+    """Note that pid's card is now drawn from what puzzles/<pid>.js says today.
+
+    Called per card rather than once at the end, so a run that dies halfway
+    leaves the cards it did draw marked done and the rest still stale.
+    """
+    have = _manifest()
+    have[pid] = card_key(pid, _salt())
+    MANIFEST.parent.mkdir(exist_ok=True)
+    MANIFEST.write_text(json.dumps(have, indent=1, sort_keys=True), encoding="utf-8")
+
+
 def render(number, entry_id, out_path):
     text = CARD.read_text(encoding="utf-8")
     new, n = re.subn(r"<!--CARD-START.*?<!--CARD-END-->",
@@ -529,13 +589,15 @@ def render(number, entry_id, out_path):
 
 def main():
     args = sys.argv[1:]
-    if "--list" in args:
-        # Which puzzles can carry a card, for make_og.sh to loop over. Printed
-        # rather than globbed by the shell so that "has a usable annotation" is
-        # decided in exactly one place.
-        for f in puzzle_files():
-            if pick(f.stem)[0]:
-                print(f.stem)
+    if "--stale" in args:
+        # Which puzzles need a card drawn, for make_og.sh to loop over. Printed
+        # rather than worked out by the shell so that "has a usable annotation"
+        # and "is out of date" are each decided in exactly one place.
+        for pid in stale():
+            print(pid)
+        return 0
+    if "--record" in args:
+        record(args[args.index("--record") + 1])
         return 0
     out = CARD
     if "--out" in args:

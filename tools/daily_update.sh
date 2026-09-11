@@ -809,15 +809,10 @@ if ! python3 tools/validate_annotations.py >/tmp/ct-corpus-validate.txt 2>&1; th
   alert "$(grep -c ERROR /tmp/ct-corpus-validate.txt) validation error(s) in already-published puzzles — tonight's puzzle published anyway: $(grep ERROR /tmp/ct-corpus-validate.txt | head -3 | tr '\n' ' ')"
 fi
 
-# Draw the social cards for any puzzle whose annotation landed tonight. Before
-# build_seo_pages.py, which points each page at its own card only if the file is
-# already on disk — a page built first would advertise the site card for a day
-# and then quietly change its mind. Only redraws what changed, so this is one
-# Chrome launch on most nights and none at all on a night with no annotation.
-# Checked, because this is the one build step whose failure leaves a page that
-# still renders: the card is just stale, so nothing downstream notices.
-bash tools/make_og.sh --all ||
-  alert "the social cards could not be redrawn, so the newest puzzles are sharing with a stale or missing card. Everything else on the site is fine."
+# The social cards are NOT drawn here. They are drawn by
+# .github/workflows/pages.yml, on the same clean checkout that builds the pages
+# that link them, because only the built tree is published — see tools/make_og.sh.
+# That also takes headless Chrome off the list of things this machine has to have.
 
 # Rebuild the crawlable pages: one per puzzle, the archive hub, the tutorial and
 # the sitemap. After validation, deliberately — these pages publish the
