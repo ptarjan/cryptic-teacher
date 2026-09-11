@@ -15,6 +15,7 @@ Checks, for every annotated entry:
   - hidden answers actually occur in the clue's letters
   - subAnagrams are letter-for-letter anagrams; subReversals reverse correctly
   - linkedTo targets exist and cover their group
+  - a linked clue's `group` is the same list on every leg, and contains itself
 
 And checks that apply only to puzzles we WROTE (see is_authored):
   - no block may have an empty `gives`: every word of an authored clue is
@@ -1644,6 +1645,35 @@ def check_conventions_are_in_the_glossary(entries, warnings):
 MARKUP_RE = re.compile(r"</?[a-zA-Z][^>]*>|&(?:[a-zA-Z]+|#\d+);")
 
 
+
+def check_groups_agree(puzzle, errors):
+    """A `group` is the entry ids whose solutions concatenate into one answer, and
+    every member must carry the same list, in the same order, including itself.
+
+    The field comes verbatim off the Guardian's own puzzle data and is written
+    on every entry, singleton or not, so nothing about its shape is self-evident
+    from one entry: a hand edit or a new fetcher can give two legs of the same
+    linked clue different lists and the only symptom is an answer-letters error
+    on one leg and not the other. Checked here so the shape is guaranteed rather
+    than assumed by the group-aware letter check below.
+    """
+    by_id = {e["id"]: e for e in puzzle["entries"]}
+    for e in puzzle["entries"]:
+        group = e.get("group")
+        if group is None:
+            continue                      # authored puzzles predate the field
+        if e["id"] not in group:
+            errors.append(f"{e['id']}: group {group} does not contain the entry itself")
+            continue
+        for gid in group:
+            other = by_id.get(gid)
+            if other is None:
+                errors.append(f"{e['id']}: group names {gid}, which is not in this puzzle")
+            elif other.get("group") != group:
+                errors.append(f"{e['id']}: group {group} disagrees with {gid}'s "
+                              f"{other.get('group')} — the two legs of a linked clue "
+                              f"must name the same entries in the same order")
+
 def check_no_markup(puzzle, errors):
     """No HTML anywhere in a puzzle file. Every string here is displayed
     escaped, so a tag reaches the solver as a tag — which is exactly what the
@@ -1689,6 +1719,7 @@ def check_no_markup(puzzle, errors):
 def validate_puzzle(puzzle):
     errors, warnings = [], []
     check_no_markup(puzzle, errors)
+    check_groups_agree(puzzle, errors)
     by_id = {e["id"]: e for e in puzzle["entries"]}
     annotated = 0
     authored = is_authored(puzzle)
