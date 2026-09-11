@@ -188,7 +188,7 @@ def ladder_steps(ann, clue_text):
     return steps
 
 
-OUR_RUNG_ORDER = ["type", "definition", "indicators", "blocks", "walkthrough"]
+OUR_RUNG_ORDER = ["indicators", "definition", "type", "blocks", "walkthrough"]
 
 
 # ---------- loading ----------
