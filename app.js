@@ -1360,7 +1360,7 @@
   // can, because it does not have to know why the band moved. One placement on
   // the best information available, one correction once everything has stopped,
   // and then the page belongs to the reader again.
-  const HINT_WATCH_MS = 2600;
+  const HINT_WATCH_MS = 5000;
   // How long the one correction stays available after the tap. A keyboard that
   // has not started coming up yet looks exactly like a viewport that is never
   // going to move — both are silence — so the placement goes ahead against the
@@ -1387,12 +1387,11 @@
   // A tap that guessed right costs one move; the phone that raises keys pays for
   // the correction, which is the way round it should be.
   let settleTimer = null, settleBy = 0, confirmTimer = null, placedKeys = null,
-      watchUntil = 0, confirmsLeft = 0;
+      watchUntil = 0;
   function scrollToHintPanel() {
     const now = Date.now();
     settleBy = now + HINT_DEADLINE_MS;
     watchUntil = now + HINT_WATCH_MS;
-    confirmsLeft = 1;
     if (confirmTimer) { clearTimeout(confirmTimer); confirmTimer = null; }
     armHintPlacement();
   }
@@ -1410,7 +1409,6 @@
   // Re-arming only ever postpones the one confirm this tap is allowed; it never
   // buys another.
   function armConfirm(delay) {
-    if (!confirmsLeft) return;
     if (confirmTimer) clearTimeout(confirmTimer);
     confirmTimer = setTimeout(confirmHintPlacement, delay);
   }
@@ -1427,18 +1425,20 @@
   // keyboard is not in the state it was in when we placed. A tap that measured
   // the truth costs exactly one move; the correction is left for the tap that
   // guessed.
-  // The allowance is spent on a MOVE, not on a look. Burning it here whatever we
-  // found meant the first thing to fire after the placement took it — our own
-  // smooth scroll sliding a phone's URL bar away is a resize, and it arrives
-  // well before a cold keyboard does — and then the keys came up over the clue
-  // with nothing left to correct them ("when the keyboard comes up it covers the
-  // clue and it should scroll", Paul, 2026-09-10). Looking and finding nothing
-  // changed costs nothing; the watch window is what bounds it.
+  // What bounds the correction is the KEYBOARD, not a budget. It re-places only
+  // when the keys are not in the state they were in when we placed, so our own
+  // smooth scroll, a URL bar sliding away and a pan all cost nothing and cannot
+  // feed the wiggle — none of them changes whether a keyboard is up. A counted
+  // allowance could not tell those apart: whichever event fired first spent it,
+  // and the keys then came up over the clue with nothing left to move it ("the
+  // keyboard still covers sometimes", Paul, 2026-09-10, after one allowance was
+  // not enough). Every transition inside the watch window is corrected for —
+  // keys up and keys away, however many times either happens — and once the
+  // window is past the page belongs to the reader again.
   function confirmHintPlacement() {
     confirmTimer = null;
-    if (placedKeys === null || !confirmsLeft) return;
+    if (placedKeys === null || Date.now() > watchUntil) return;
     if (keyboardUp() === placedKeys) return;
-    confirmsLeft = 0;
     placeHintPanel();
   }
   // Only ever called off that timer, so layout has long since flushed and there
