@@ -33,10 +33,15 @@ tools/__pycache__/
 __pycache__/
 
 # Grid-filler word data: ~26MB of MIT-licensed lexicon fetched by
-# tools/fetch_lexicon.sh, plus the two files derived from it. Reproducible in
+# tools/fetch_lexicon.sh, plus one file derived from it. Reproducible in
 # under a minute, so it is fetched rather than committed — see tools/data/README.md.
+#
+# tools/data/lexicon.tsv is NOT ignored, though it is derived from these too. It
+# decides a third of every difficulty rating (difficulty.obscurity), and those
+# ratings are committed in puzzles/index.json: while it was fetched, the score a
+# puzzle got depended on whether the machine running --reindex happened to have
+# it. 4.9MB, MIT, notice in tools/data/README.md.
 tools/data/*.js
-tools/data/lexicon.tsv
 tools/data/clueability.tsv
 
 # Blind-grading packets built by tools/grade_clues.py. They quote 60 published
