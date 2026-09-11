@@ -66,6 +66,7 @@ import shutil
 import subprocess
 import sys
 import tempfile
+import time
 import urllib.error
 import urllib.request
 
@@ -236,6 +237,35 @@ def access_token():
     raise RuntimeError("no usable OAuth token — " + "; ".join(problems))
 
 
+# A quota read that is merely throttled has not learned anything about the
+# quota, and the gate fails closed on an unreadable one — so a single 429 costs
+# a night of annotation. Retried instead, honouring Retry-After; the sleeps are
+# short and bounded because a handful of these run between puzzles.
+RETRY_STATUSES = (429, 500, 502, 503, 504)
+RETRY_BACKOFF_SECONDS = (5, 20)
+RETRY_AFTER_CAP_SECONDS = 45
+
+
+def _retry_after(exc, default):
+    """How long the server asked us to wait, clamped to something a nightly job
+    can afford. Absent or unparseable means the default backoff."""
+    try:
+        wait = float(exc.headers.get("Retry-After", ""))
+    except (AttributeError, TypeError, ValueError):
+        return default
+    return max(0.0, min(wait, RETRY_AFTER_CAP_SECONDS))
+
+
+def _fetch(req, attempt):
+    try:
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            return json.load(resp), None
+    except urllib.error.HTTPError as exc:
+        if exc.code not in RETRY_STATUSES or attempt >= len(RETRY_BACKOFF_SECONDS):
+            raise
+        return None, _retry_after(exc, RETRY_BACKOFF_SECONDS[attempt])
+
+
 def _payload():
     token, expires, fallback = access_token()
     req = urllib.request.Request(USAGE_URL, headers={
@@ -244,8 +274,13 @@ def _payload():
         "Content-Type": "application/json",
     })
     try:
-        with urllib.request.urlopen(req, timeout=30) as resp:
-            return json.load(resp), fallback
+        for attempt in range(len(RETRY_BACKOFF_SECONDS) + 1):
+            data, wait = _fetch(req, attempt)
+            if wait is None:
+                return data, fallback
+            print(f"note: quota read throttled, retrying in {wait:.0f}s",
+                  file=sys.stderr)
+            time.sleep(wait)
     except urllib.error.HTTPError as exc:
         if fallback:
             # A setup token has no expiresAt to blame a 401 on, and there is
@@ -667,6 +702,67 @@ def credentials_file_self_test():
     return 1 if failures else 0
 
 
+def retry_self_test():
+    """Prove a throttled quota read is retried rather than treated as a verdict.
+
+    A 429 says nothing about the quota, but the gate fails closed on a read it
+    cannot make, so one throttled request used to cost a whole night of
+    annotation. Both directions are pinned: a 429 that clears is invisible to
+    the caller, and a 401 is still fatal on the first try — retrying an
+    authentication failure would only spend the same wrong token again.
+    """
+    global access_token
+    real_token, err = access_token, sys.stderr
+    access_token = lambda: ("t", None, False)
+    slept, calls = [], []
+
+    def _http(code):
+        return urllib.error.HTTPError(USAGE_URL, code, "no", {}, None)
+
+    def run(codes):
+        """Answer each request with the next code, or the payload when spent."""
+        del calls[:], slept[:]
+
+        def _urlopen(_req, timeout=None):
+            calls.append(1)
+            if len(calls) <= len(codes):
+                raise _http(codes[len(calls) - 1])
+            return io.BytesIO(b'{"limits": [{"group": "weekly", '
+                              b'"percent": 3}]}')
+        real_open, real_sleep = urllib.request.urlopen, time.sleep
+        urllib.request.urlopen = _urlopen
+        time.sleep = slept.append
+        try:
+            return _payload()[0], None
+        except urllib.error.HTTPError as exc:
+            return None, exc
+        finally:
+            urllib.request.urlopen, time.sleep = real_open, real_sleep
+
+    failures = []
+    try:
+        sys.stderr = io.StringIO()
+        data, exc = run([429])
+        if exc or not data or len(calls) != 2 or not slept:
+            failures.append("a 429 that clears should be retried and the "
+                            f"answer returned, got {exc or data} in "
+                            f"{len(calls)} call(s)")
+        data, exc = run([429] * 9)
+        if not exc or exc.code != 429:
+            failures.append(f"a 429 that never clears should surface, got {data}")
+        if len(calls) != len(RETRY_BACKOFF_SECONDS) + 1:
+            failures.append(f"retries should be bounded, made {len(calls)} calls")
+        data, exc = run([401])
+        if not exc or exc.code != 401 or len(calls) != 1:
+            failures.append("a 401 is a verdict, not a throttle; it should be "
+                            f"raised on the first call, made {len(calls)}")
+    finally:
+        access_token, sys.stderr = real_token, err
+    for f in failures:
+        print(f"SELF-TEST FAILED — {f}", file=sys.stderr)
+    return 1 if failures else 0
+
+
 def main():
     group = "weekly"
     if "--group" in sys.argv:
@@ -677,8 +773,9 @@ def main():
             return 2
     if "--self-test" in sys.argv:
         ok = (self_test() or reset_self_test() or fallback_self_test()
-              or credentials_file_self_test())
-        print("gate self-test: 9 cases pass" if ok == 0 else "gate self-test FAILED")
+              or credentials_file_self_test() or retry_self_test())
+        print("gate self-test: all cases pass" if ok == 0
+              else "gate self-test FAILED")
         return ok
     if "--gate" in sys.argv:
         # A verdict, not a number, and never an empty string: a caller that has
