@@ -725,10 +725,11 @@ const btnNames = () => registry["hint-next"].children.map((b) => b.textContent).
   assert(stepCount === 1, `choosing rung "${wanted}" revealed ${stepCount} rungs, not just the one`);
   // out of order without renumbering: the rung keeps its ladder number
   assert(shown.includes(wanted.split(" · ")[0] + " · "), "rung keeps its ladder number: " + shown.slice(0, 120));
-  // the definition highlight is the giveaway that a rung leaked. Position 1 IS
-  // the definition rung on every clue, so it should light up exactly then.
+  // the definition highlight is the giveaway that a rung leaked: it lights up on
+  // the definition rung and nowhere else. Keyed off the rung's LABEL, not its
+  // number — where that rung lands depends on which rungs the clue has.
   const lit = registry["hint-clue"].innerHTML.includes('mark class="def"');
-  assert(lit === wanted.startsWith("1 · "),
+  assert(lit === wanted.includes("Where is the definition?"),
     `definition highlight should appear only for the definition rung (took "${wanted}", lit=${lit})`);
 }
 registry["reset-puzzle"].onclick();   // back to a clean slate for the in-order walk
@@ -757,11 +758,18 @@ while (leadRung() && clicks < 12) {
   if (!isRung) continue;
   rungs++;
   if (rungs === 1) {
-    // Rung 1 is the indicators, because it is the rung that gives away least:
-    // it names the mechanism and leaves the definition — most of the skill —
-    // to find. The definition led until 2026-09-10 and the family before that.
+    // Rung 1 is the cheapest rung the clue HAS. Indicators when it has any,
+    // because that rung names the mechanism and leaves the definition — most of
+    // the skill — to find; the definition when it has none, since app.js builds
+    // no rung that says "there are no indicators". A pure charade just stacks
+    // its pieces and has nothing to point at, so what leads is read off the
+    // clue rather than fixed here: whichever puzzle the nightly adds tonight is
+    // the one this walk lands on.
+    const ann = (currentEntry() || {}).annotation || {};
+    const want = (ann.indicators || []).length
+      ? "Spot the indicator words" : "Where is the definition?";
     const first = registry["hint-body"].innerHTML;
-    assert(/Spot the indicator words/.test(first), "rung 1 spots the indicator words: " + first);
+    assert(first.includes(want), `rung 1 leads with "${want}": ` + first);
   }
   // Wherever the family rung lands, it gives the FAMILY only — never the
   // precise (often compound) type, which is the blocks rung's to give.
