@@ -99,3 +99,12 @@ tools/_*
 /learn/index.html
 /abbreviations/index.html
 /sitemap.xml
+
+# The per-puzzle social cards, screenshotted by tools/make_og.sh. 24MB of PNGs
+# that no page reads from the repo: .github/workflows/pages.yml draws them on the
+# clean checkout it publishes, keeping them in an actions/cache between runs and
+# redrawing only the ones make_og_card.py's manifest says have changed.
+#
+# og.png at the root is deliberately NOT here. It is the site card, it is
+# deterministic, and its content hash is stamped into the committed index.html.
+/og/

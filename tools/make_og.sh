@@ -4,16 +4,17 @@
 #
 #   tools/make_og.sh            og.png — the site card, from tools/og_card.html
 #   tools/make_og.sh --all      og.png plus og/<number>.png for every puzzle
-#                               whose annotation can carry a card
+#                               whose card is missing or out of date
 #   tools/make_og.sh 30066      just that puzzle's card
 #
 # Every puzzle page unfurls as a clue from THAT puzzle (2026-08-08). One shared
 # card meant a hundred different pages all previewing the same crossword; which
 # clue each puzzle shows is decided by make_og_card.py's score(), not here.
 #
-# --all only redraws a card older than its puzzle file, so the nightly job costs
-# one Chrome launch rather than a hundred. Touch the puzzle, or delete the png,
-# to force one.
+# --all only redraws cards whose inputs have changed, which make_og_card.py
+# decides by hashing them into og/.manifest.json — content, not mtimes, because
+# this runs in CI now and a fresh checkout stamps every file with the same time.
+# Delete the png, or the manifest entry, to force one.
 set -euo pipefail
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 # Any headless Chrome will do, and which one is installed is a property of the
@@ -69,6 +70,9 @@ one() {  # one <puzzle number>
   local n="$1" out="$REPO/og/$1.png"
   python3 "$REPO/tools/make_og_card.py" --out "$TMP/$n.html" "$n" >/dev/null
   shot "$TMP/$n.html" "$out"
+  # After the shot, so a run that dies partway leaves the cards it did not get
+  # to still marked stale rather than done.
+  python3 "$REPO/tools/make_og_card.py" --record "$n"
   echo "wrote og/$n.png"
 }
 
@@ -78,13 +82,9 @@ case "${1:-}" in
     mkdir -p "$REPO/og"
     # Listed into a variable of its own, because `for n in $(...)` throws the
     # command's exit status away: a lister that dies partway through is then
-    # indistinguishable from a shorter corpus, and every puzzle after the one it
-    # died on silently keeps a stale card while the run reports success.
-    list="$(python3 "$REPO/tools/make_og_card.py" --list)"
-    for n in $list; do
-      if [ ! -f "$REPO/og/$n.png" ] || [ "$REPO/puzzles/$n.js" -nt "$REPO/og/$n.png" ]; then
-        one "$n"
-      fi
-    done ;;
+    # indistinguishable from nothing being stale, and every puzzle after the one
+    # it died on silently keeps a stale card while the run reports success.
+    list="$(python3 "$REPO/tools/make_og_card.py" --stale)"
+    for n in $list; do one "$n"; done ;;
   *) mkdir -p "$REPO/og"; one "$1" ;;
 esac
