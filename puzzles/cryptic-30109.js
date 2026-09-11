@@ -41,7 +41,47 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
    "clue": "Large quantity of Spooner’s urban people (8)",
    "separatorLocations": {},
    "solution": "MOUNTAIN",
-   "annotation": null
+   "annotation": {
+    "type": "spoonerism",
+    "answer": "MOUNTAIN",
+    "definition": "Large quantity",
+    "linkWords": [
+     "of"
+    ],
+    "indicators": [
+     "Spooner’s"
+    ],
+    "indicatorNotes": {
+     "Spooner’s": "the Oxford don whose tongue swapped the opening noises of neighbouring words, so his version of a phrase trades those sounds"
+    },
+    "pieces": [
+     "MOUN",
+     "TAIN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "urban",
+      "soundsLike": "TOWN",
+      "gives": "MOUN",
+      "note": "urban means belonging to the town; handed the M from the word beside it, that noise is spelt this way"
+     },
+     {
+      "clueFragment": "people",
+      "soundsLike": "MEN",
+      "gives": "TAIN",
+      "note": "the people here are men; taking the T that town gave up, and letting the vowel slacken, the noise is spelt this way"
+     }
+    ],
+    "surface": "Spooner producing his own mangled name for the people who live in towns.",
+    "walkthrough": "Spooner clues only open when you say them aloud: town men with its two opening noises traded lands on MOUNTAIN, the second vowel flattening from men to an unstressed ending on the way.",
+    "definitionFit": "A mountain of washing or paperwork is any daunting heap, so the word covers a large quantity of things that never went near a hill.",
+    "features": {
+     "misdirectedWord": "urban",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "3-down",
@@ -55,7 +95,44 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
    "clue": "State I left for job (4)",
    "separatorLocations": {},
    "solution": "POST",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "POST",
+    "definition": "job",
+    "linkWords": [
+     "for"
+    ],
+    "indicators": [
+     "left"
+    ],
+    "indicatorNotes": {
+     "left": "departure rather than direction: the letter named beside it walks out of the word"
+    },
+    "pieces": [
+     "POST"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "State",
+      "gives": "POSIT",
+      "note": "to posit something is to state it, and this is the word before the cut"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "",
+      "note": "the pronoun is also the letter, and it is the one that goes"
+     }
+    ],
+    "surface": "Someone who walked out of a state and took work elsewhere.",
+    "walkthrough": "State is the verb, not the noun, so nothing here is about Iowa or Ohio. The I that leaves is a pronoun standing for its own letter, a trick worth filing away.",
+    "definitionFit": "A post is a job in the appointments-page sense: the position a person holds rather than the work they do in it.",
+    "features": {
+     "misdirectedWord": "State",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "4-down",
@@ -73,7 +150,32 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
     ]
    },
    "solution": "SPARERIB",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "SPARE RIB",
+    "definition": "cut",
+    "indicators": [],
+    "indicatorNotes": {},
+    "blocks": [
+     {
+      "clueFragment": "Adam didn’t have one",
+      "note": "read it as Genesis rather than as a barber's shop: a rib of his was taken to build Eve, so he had none going spare"
+     },
+     {
+      "clueFragment": "cut",
+      "note": "the butcher's noun, a named joint off the carcass"
+     }
+    ],
+    "surface": "Adam is the one man in the shop who declined a haircut.",
+    "walkthrough": "Genesis takes a rib out of Adam to make Eve, so of all men he is the one with none to spare, and the butcher sells exactly that under the same name.",
+    "definitionFit": "Spare ribs are a pork cut off the ribcage, so cut is the butcher's noun and the joke is Adam being one rib short.",
+    "features": {
+     "misdirectedWord": "cut",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "5-down",
@@ -87,7 +189,33 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
    "clue": "Mystery hole (6)",
    "separatorLocations": {},
    "solution": "RIDDLE",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "RIDDLE",
+    "definition": "Mystery",
+    "definition2": "hole",
+    "indicators": [],
+    "indicatorNotes": {},
+    "blocks": [
+     {
+      "clueFragment": "Mystery",
+      "note": "the noun: something set as a puzzle to be worked out"
+     },
+     {
+      "clueFragment": "hole",
+      "note": "read as a verb, to pepper a thing with holes, which is what gunfire does to a door"
+     }
+    ],
+    "surface": "An unexplained hole in something.",
+    "walkthrough": "The second word is a verb, not a noun: to riddle a door is to shoot it full of holes, which is nothing like the single mysterious hole the surface shows you.",
+    "definitionFit": "A riddle is a mystery posed as a question, and to riddle something is to hole it through and through.",
+    "features": {
+     "misdirectedWord": "hole",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "6-down",
@@ -101,7 +229,43 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
    "clue": "Had spasms: ill-treated, doc high, cure not right (10)",
    "separatorLocations": {},
    "solution": "HICCOUGHED",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "HICCOUGHED",
+    "definition": "Had spasms",
+    "indicators": [
+     "ill-treated",
+     "not right"
+    ],
+    "indicatorNotes": {
+     "ill-treated": "something ill-treated has been knocked about, and letters knocked about will not stay in the order they were handed over in",
+     "not right": "right is the crossword letter R, and not is the instruction to leave it behind"
+    },
+    "anagram": {
+     "fodder": "DOCHIGH CUE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "doc high",
+      "gives": "DOCHIGH",
+      "note": "seven letters of fodder, taken exactly as written"
+     },
+     {
+      "clueFragment": "cure",
+      "gives": "CUE",
+      "note": "three more, once the R that right stands for has gone"
+     }
+    ],
+    "surface": "A patient in a bad way: badly handled, the doctor stoned, the medicine wrong.",
+    "walkthrough": "The medical grumble on the surface is doing all the work. Doc high, cure not right reads as a complaint about treatment when it is ten shuffled letters with an eleventh struck out.",
+    "definitionFit": "Hiccoughs are involuntary spasms of the diaphragm, so a person who has had a bout of them has hiccoughed, past tense to past tense.",
+    "features": {
+     "misdirectedWord": "cure",
+     "joke": "absurd",
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "7-down",
@@ -115,7 +279,48 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
    "clue": "Fashioned motor van’s first edition (6)",
    "separatorLocations": {},
    "solution": "CARVED",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "CARVED",
+    "definition": "Fashioned",
+    "indicators": [
+     "first"
+    ],
+    "indicatorNotes": {
+     "first": "it asks for the letter that starts the word beside it, not for an early print run"
+    },
+    "pieces": [
+     "CAR",
+     "V",
+     "ED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "motor",
+      "gives": "CAR",
+      "note": "a motor is a car in everyday British speech"
+     },
+     {
+      "clueFragment": "van",
+      "gives": "V",
+      "note": "the opening letter of the word, and nothing more of it"
+     },
+     {
+      "clueFragment": "edition",
+      "gives": "ED",
+      "note": "ED is the standard short form on a title page"
+     }
+    ],
+    "surface": "The first edition of a magazine about motor vans.",
+    "walkthrough": "Fashioned is shaping by hand, not a remark about style, and van's first is one letter rather than an early print run. Two ordinary words, both pulling you the wrong way.",
+    "definitionFit": "Something carved has been fashioned, shaped deliberately out of wood or stone, and both words are past tense.",
+    "features": {
+     "misdirectedWord": "edition",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "8-down",
@@ -129,7 +334,44 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
    "clue": "Shock horror, at first express is behind (4)",
    "separatorLocations": {},
    "solution": "HAIR",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "HAIR",
+    "definition": "Shock",
+    "indicators": [
+     "at first",
+     "is behind"
+    ],
+    "indicatorNotes": {
+     "at first": "it takes only the opening letter of the word in front of it",
+     "is behind": "it puts the second piece after the first, so the clue order is the answer order"
+    },
+    "pieces": [
+     "H",
+     "AIR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "horror",
+      "gives": "H",
+      "note": "the opening letter of the word, which at first asks for"
+     },
+     {
+      "clueFragment": "express",
+      "gives": "AIR",
+      "note": "to air a grievance is to express it"
+     }
+    ],
+    "surface": "A tabloid front page: shock, horror, and the express running late.",
+    "walkthrough": "Shock horror is a stock tabloid cry, and splitting it is the whole difficulty of a four-letter clue: only the first word defines, and the second belongs to the wordplay.",
+    "definitionFit": "A shock is a thick tousled mass of it, as in a shock of red hair, so the noun substitutes exactly.",
+    "features": {
+     "misdirectedWord": "Shock",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "9-across",
@@ -143,7 +385,54 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
    "clue": "Moulding over very old fronts of library offices (5)",
    "separatorLocations": {},
    "solution": "OVOLO",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letters",
+    "answer": "OVOLO",
+    "definition": "Moulding",
+    "indicators": [
+     "fronts of"
+    ],
+    "indicatorNotes": {
+     "fronts of": "it asks for the letter each of the words after it begins with"
+    },
+    "pieces": [
+     "O",
+     "V",
+     "O",
+     "LO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "O is the cricket scorer's mark for an over"
+     },
+     {
+      "clueFragment": "very",
+      "gives": "V",
+      "note": "V for very, as in v. good"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O for old, the standard short form"
+     },
+     {
+      "clueFragment": "library offices",
+      "gives": "LO",
+      "note": "the letters those two words start with"
+     }
+    ],
+    "surface": "Something moulded lying over the very old frontages of the library offices.",
+    "walkthrough": "An ovolo is the fat quarter-round moulding that runs under a cornice, a term from classical architecture rather than the joiner's shop, which is why the bare one-word definition gives so little away.",
+    "definitionFit": "An ovolo is a convex quarter-round moulding in classical architecture, so Moulding is the plain noun for the thing itself.",
+    "features": {
+     "misdirectedWord": "fronts",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "10-across",
@@ -157,7 +446,47 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
    "clue": "New mother, demure, has one jumper (9)",
    "separatorLocations": {},
    "solution": "PRIMIPARA",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PRIMIPARA",
+    "definition": "New mother",
+    "linkWords": [
+     "has"
+    ],
+    "indicators": [],
+    "indicatorNotes": {},
+    "pieces": [
+     "PRIM",
+     "I",
+     "PARA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "demure",
+      "gives": "PRIM",
+      "note": "prim is demure taken as far as starchiness"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "jumper",
+      "gives": "PARA",
+      "note": "a para is a paratrooper, who jumps for a living"
+     }
+    ],
+    "surface": "A shy new mother in a borrowed sweater.",
+    "walkthrough": "Jumper is the trap. The clue is stitched out of clothing words, demure and jumper together, and the one that matters means a soldier who leaves aeroplanes.",
+    "definitionFit": "A primipara is the obstetrician's word for a woman bearing her first child, which is New mother in medical dress.",
+    "features": {
+     "misdirectedWord": "jumper",
+     "joke": "pun",
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "11-across",
@@ -171,7 +500,60 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
    "clue": "Study in location near to you reportedly burning and rendered unusable (9)",
    "separatorLocations": {},
    "solution": "DENATURED",
-   "annotation": null
+   "annotation": {
+    "type": "charade + homophone",
+    "answer": "DENATURED",
+    "definition": "rendered unusable",
+    "linkWords": [
+     "and"
+    ],
+    "indicators": [
+     "near to",
+     "reportedly"
+    ],
+    "indicatorNotes": {
+     "near to": "it sets the next piece hard up against the one before, which is all a charade ever asks",
+     "reportedly": "a sound instruction: write down what the word beside it sounds like, not how it is spelt"
+    },
+    "pieces": [
+     "DEN",
+     "AT",
+     "U",
+     "RED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Study",
+      "gives": "DEN",
+      "note": "a den is the small room at home where the work gets done"
+     },
+     {
+      "clueFragment": "in location",
+      "gives": "AT",
+      "note": "at is the preposition English uses for being in a location"
+     },
+     {
+      "clueFragment": "you",
+      "soundsLike": "YOU",
+      "gives": "U",
+      "note": "said aloud, the pronoun is a single letter"
+     },
+     {
+      "clueFragment": "burning",
+      "gives": "RED",
+      "note": "burning here is a colour, the shade of something red-hot"
+     }
+    ],
+    "surface": "A study somewhere close by, reportedly on fire.",
+    "walkthrough": "You reportedly is the sound convention worth keeping: said aloud, the pronoun is the letter U. And burning is a colour here, not a fire, which is what the alarming surface is banking on.",
+    "definitionFit": "Denatured alcohol has been doctored so it cannot be drunk, so it is rendered unusable for the obvious purpose while remaining alcohol.",
+    "features": {
+     "misdirectedWord": "burning",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "12-across",
@@ -191,7 +573,9 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
     ",": []
    },
    "solution": "COVER",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "28-down"
+   }
   },
   {
    "id": "13-across",
@@ -205,7 +589,47 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
    "clue": "Getting French wine, no money left for room (7)",
    "separatorLocations": {},
    "solution": "CHAMBER",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "CHAMBER",
+    "definition": "room",
+    "linkWords": [
+     "Getting",
+     "for"
+    ],
+    "indicators": [
+     "no",
+     "left"
+    ],
+    "indicatorNotes": {
+     "no": "the cancelling word: whatever follows it is struck out of the wordplay instead of added to it",
+     "left": "left is what remains, so the word reports the residue after the cut rather than a direction"
+    },
+    "pieces": [
+     "CHAMBER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "French wine",
+      "gives": "CHAMBERTIN",
+      "note": "Chambertin is a grand cru red burgundy from the Cote de Nuits"
+     },
+     {
+      "clueFragment": "money",
+      "gives": "TIN",
+      "note": "tin is old British slang for cash, and it is the chunk that goes"
+     }
+    ],
+    "surface": "Buying French wine has left nothing over for the rent.",
+    "walkthrough": "Left is the pivot: it means what remains, so the wine gives up three letters rather than turning in any direction. TIN for money is Victorian slang the crossword has never let go of.",
+    "definitionFit": "A chamber is a room in the grander register, the one used for a council chamber or a chamber of commerce.",
+    "features": {
+     "misdirectedWord": "left",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "13-down",
@@ -219,7 +643,36 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
    "clue": "Irish poet and Unesco luminary discovered (5)",
    "separatorLocations": {},
    "solution": "COLUM",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "COLUM",
+    "definition": "Irish poet",
+    "linkWords": [
+     "and"
+    ],
+    "indicators": [
+     "discovered"
+    ],
+    "indicatorNotes": {
+     "discovered": "to discover a thing is to uncover what was already sitting there, which is what this run of letters needs"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Unesco luminary",
+      "gives": "COLUM",
+      "note": "the letters run on straight across the gap between the two words"
+     }
+    ],
+    "surface": "A distinguished figure at Unesco turns out to write verse.",
+    "walkthrough": "Padraic Colum was a poet of the Irish Literary Revival and a contemporary of Yeats, and his name straddles the join between two words that have nothing to do with him.",
+    "definitionFit": "Padraic Colum, 1881 to 1972, was an Irish poet of the Literary Revival, so the definition names him by nationality and trade.",
+    "features": {
+     "misdirectedWord": "luminary",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "14-down",
@@ -233,7 +686,47 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
    "clue": "Stripy birds, say, or marsupials (10)",
    "separatorLocations": {},
    "solution": "BANDICOOTS",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "BANDICOOTS",
+    "definition": "marsupials",
+    "linkWords": [
+     "or"
+    ],
+    "indicators": [
+     "say"
+    ],
+    "indicatorNotes": {
+     "say": "not the usual for example here but an instruction to pronounce the phrase, with the letters following the sound"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Stripy",
+      "gives": "BANDED",
+      "note": "a banded pattern is a stripy one"
+     },
+     {
+      "clueFragment": "birds",
+      "gives": "COOTS",
+      "note": "coots are the black waterbirds with the white shield on the forehead"
+     },
+     {
+      "clueFragment": "Stripy birds, say",
+      "soundsLike": "BANDED COOTS",
+      "gives": "BANDICOOTS",
+      "note": "run the two words together at speed and the D between them disappears"
+     }
+    ],
+    "surface": "A guessing game about what the striped creatures over there might be.",
+    "walkthrough": "Say the answer aloud and banded coots comes back, the D between the words swallowed at speed. Bandicoots really are striped, so the picture the clue paints stays honest about the animal.",
+    "definitionFit": "Bandicoots are the rabbit-sized Australian marsupials, so the clue defines them by family: no single English word means one.",
+    "features": {
+     "misdirectedWord": "say",
+     "joke": "pun",
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "15-across",
@@ -247,7 +740,57 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
    "clue": "Revolutionary travelled around Cuba, a country in the Americas (7)",
    "separatorLocations": {},
    "solution": "ECUADOR",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + container",
+    "answer": "ECUADOR",
+    "definition": "country in the Americas",
+    "indicators": [
+     "Revolutionary",
+     "around"
+    ],
+    "indicatorNotes": {
+     "Revolutionary": "a revolution turns a thing full circle, so the word beside it is written the other way about",
+     "around": "it wraps what came before round what follows, so the later pieces land inside"
+    },
+    "pieces": [
+     "E",
+     "CU",
+     "A",
+     "DOR"
+    ],
+    "subReversals": [
+     {
+      "from": "RODE",
+      "to": "EDOR"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "travelled",
+      "gives": "EDOR",
+      "note": "travelled is RODE, turned about by the word in front of it"
+     },
+     {
+      "clueFragment": "Cuba",
+      "gives": "CU",
+      "note": "CU is Cuba's two-letter country code"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the indefinite article, taken as it stands"
+     }
+    ],
+    "surface": "A revolutionary on the road, going by way of Cuba.",
+    "walkthrough": "Revolutionary and Cuba both point at Castro and neither is about him: one is an instruction to write a word backwards, the other is a two-letter country code.",
+    "definitionFit": "Ecuador is a South American republic, so the definition works by example, naming a category the answer is one of many members of.",
+    "features": {
+     "misdirectedWord": "Revolutionary",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "16-down",
@@ -267,7 +810,9 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
     ",": []
    },
    "solution": "ROOMS",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "26-down"
+   }
   },
   {
    "id": "17-across",
@@ -281,7 +826,41 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
    "clue": "Skirt has Northern material (5)",
    "separatorLocations": {},
    "solution": "LINEN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "LINEN",
+    "definition": "material",
+    "linkWords": [
+     "has"
+    ],
+    "indicators": [],
+    "indicatorNotes": {},
+    "pieces": [
+     "LINE",
+     "N"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Skirt",
+      "gives": "LINE",
+      "note": "to skirt a field is to run along its edge, and to line a route is to do the same"
+     },
+     {
+      "clueFragment": "Northern",
+      "gives": "N",
+      "note": "N is the compass abbreviation"
+     }
+    ],
+    "surface": "A skirt run up in cloth from the north.",
+    "walkthrough": "Skirt is the verb, not the garment: a hedge skirts a field the way a crowd lines a street. The clothing sense is there to keep you looking in the wardrobe.",
+    "definitionFit": "Linen is cloth woven from flax, so material is the plain noun for the stuff rather than for anything made of it.",
+    "features": {
+     "misdirectedWord": "Skirt",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "18-across",
@@ -295,7 +874,44 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
    "clue": "Old monk, lacking energy, got the sack (3)",
    "separatorLocations": {},
    "solution": "BED",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "BED",
+    "definition": "the sack",
+    "linkWords": [
+     "got"
+    ],
+    "indicators": [
+     "lacking"
+    ],
+    "indicatorNotes": {
+     "lacking": "what comes after it is missing from the word, so the letter it names is the one struck out"
+    },
+    "pieces": [
+     "BED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old monk",
+      "gives": "BEDE",
+      "note": "the Venerable Bede was a Northumbrian monk and chronicler of the eighth century"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the physics symbol, and here it is the letter removed"
+     }
+    ],
+    "surface": "An elderly monk, out of puff, is dismissed from his post.",
+    "walkthrough": "Got the sack reads as dismissal and means turning in for the night: hitting the sack. Bede, the Venerable, wrote the first history of the English church, which is why a crossword calls him an old monk.",
+    "definitionFit": "The sack is old slang for bed, as in hitting the sack, so the definition is an idiom rather than a synonym.",
+    "features": {
+     "misdirectedWord": "sack",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "19-down",
@@ -309,7 +925,48 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
    "clue": "Rodri in Paris perhaps knocking back a few (8)",
    "separatorLocations": {},
    "solution": "DRINKING",
-   "annotation": null
+   "annotation": {
+    "type": "charade + substitution",
+    "answer": "DRINKING",
+    "definition": "knocking back a few",
+    "indicators": [
+     "perhaps"
+    ],
+    "indicatorNotes": {
+     "perhaps": "it marks Paris as standing in for French generally, so the word beside it is to be translated rather than used as it is"
+    },
+    "pieces": [
+     "DR",
+     "IN",
+     "KING"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rodri",
+      "gives": "DR",
+      "note": "the insides of the footballer's name, once the R, O and I wrapped round them are taken off"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "where those two letters sit inside that name, and the answer spells the little word out"
+     },
+     {
+      "clueFragment": "Paris",
+      "gives": "KING",
+      "note": "the R, O and I round the outside spell ROI, and this is what a Parisian means by it"
+     }
+    ],
+    "surface": "Rodri out in Paris, celebrating with a drink or two.",
+    "walkthrough": "RODRI is DR sitting inside ROI, and ROI is the Paris word for a king. Say the same arrangement in English, DR in king, and the letters are the answer.",
+    "definitionFit": "Knocking back a few is the pub idiom for drinking, so the definition is a whole phrase standing in for the gerund rather than a single synonym.",
+    "features": {
+     "misdirectedWord": "Rodri",
+     "joke": "pun",
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "20-across",
@@ -323,7 +980,48 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
    "clue": "That man will love getting to say this when meeting (5)",
    "separatorLocations": {},
    "solution": "HELLO",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "HELLO",
+    "definition": "say this when meeting",
+    "definitionNote": "The answer is a greeting, not a verb phrase, so the definition points at it rather than substituting for it: this is the word you say.",
+    "linkWords": [
+     "getting to"
+    ],
+    "indicators": [],
+    "indicatorNotes": {},
+    "pieces": [
+     "HE",
+     "LL",
+     "O"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "That man",
+      "gives": "HE",
+      "note": "the pronoun standing in for a man already named"
+     },
+     {
+      "clueFragment": "will",
+      "gives": "LL",
+      "note": "he will contracts to he'll, and the contraction hands over its two letters"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is nothing on a tennis scoreboard, and nothing is written as a nought"
+     }
+    ],
+    "surface": "A man looking forward to greeting someone.",
+    "walkthrough": "Reading that man will as he'll is the move here: apostrophes vanish in cryptic wordplay, so a contraction gives up its letters exactly as if it were a word in its own right.",
+    "definitionFit": "Hello is the standard English greeting, so the clue defines it by the job it does rather than by any synonym for it.",
+    "features": {
+     "misdirectedWord": "love",
+     "joke": "pun",
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "21-down",
@@ -337,7 +1035,48 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
    "clue": "Means of escape, quietly opening toilet shack (8)",
    "separatorLocations": {},
    "solution": "LOOPHOLE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "LOOPHOLE",
+    "definition": "Means of escape",
+    "indicators": [
+     "opening"
+    ],
+    "indicatorNotes": {
+     "opening": "to open a thing is to cut a gap in it, and the letter named beside it is let into that gap"
+    },
+    "pieces": [
+     "LOO",
+     "P",
+     "HOLE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "toilet",
+      "gives": "LOO",
+      "note": "loo is the everyday British word for a lavatory"
+     },
+     {
+      "clueFragment": "quietly",
+      "gives": "P",
+      "note": "P is piano on a score, the musician's mark for playing softly"
+     },
+     {
+      "clueFragment": "shack",
+      "gives": "HOLE",
+      "note": "a hole is the contemptuous word for a miserable little dwelling"
+     }
+    ],
+    "surface": "Someone slipping quietly out through the door of an outdoor privy.",
+    "walkthrough": "A loophole was once a literal narrow opening in a wall, which is why the escape sense and the word hole sit so comfortably in the same eight letters. The privy is the setter enjoying himself.",
+    "definitionFit": "A loophole is a gap in a rule that lets somebody out of it, so Means of escape is the figurative sense, not a fire exit.",
+    "features": {
+     "misdirectedWord": "opening",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "22-across",
@@ -351,7 +1090,38 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
    "clue": "Mother’s pet breed (7)",
    "separatorLocations": {},
    "solution": "MASTIFF",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MASTIFF",
+    "definition": "breed",
+    "indicators": [],
+    "indicatorNotes": {},
+    "pieces": [
+     "MAS",
+     "TIFF"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mother’s",
+      "gives": "MAS",
+      "note": "ma is mother, and the possessive S comes along with her"
+     },
+     {
+      "clueFragment": "pet",
+      "gives": "TIFF",
+      "note": "a pet is a fit of sulks, as in being in a pet, and a tiff is the same thing"
+     }
+    ],
+    "surface": "The dog that belongs to somebody's mother.",
+    "walkthrough": "Pet is the trap, sitting next to Mother's in a clue that turns out to be about a dog. It is not an animal here but a sulk, the sense that survives in being in a pet.",
+    "definitionFit": "Breed defines a mastiff the way bird defines a robin, by naming the category and leaving the enumeration and the crossings to narrow it.",
+    "features": {
+     "misdirectedWord": "pet",
+     "joke": "pun",
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "23-down",
@@ -365,7 +1135,48 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
    "clue": "Kite’s one, replacing earlier English model (6)",
    "separatorLocations": {},
    "solution": "SITTER",
-   "annotation": null
+   "annotation": {
+    "type": "substitution",
+    "answer": "SITTER",
+    "definition": "model",
+    "indicators": [
+     "replacing",
+     "earlier"
+    ],
+    "indicatorNotes": {
+     "replacing": "it swaps one letter for another in a word already built, rather than adding anything to it",
+     "earlier": "the word has two of the letter being displaced, and this picks the first of them"
+    },
+    "pieces": [
+     "SITTER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Kite’s",
+      "gives": "SETTER",
+      "note": "Kite is the name at the top of this puzzle, and what Kite is, is one of those"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the standard short form, and here it is the letter displaced"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral, and the letter that moves into the vacated slot"
+     }
+    ],
+    "surface": "Trading in an older English model kite for a newer one.",
+    "walkthrough": "Setters sign their puzzles, so Kite's one is the byline pointing back at itself. That self-reference is a Guardian habit worth watching for, and the E that goes is the first of the word's two.",
+    "definitionFit": "A sitter is the person a portrait painter works from, so model is the studio sense of the word rather than the catwalk or the kit one.",
+    "features": {
+     "misdirectedWord": "model",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "24-down",
@@ -379,7 +1190,51 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
    "clue": "Guy, the Spanish Casanova, pulled up trousers (6)",
    "separatorLocations": {},
    "solution": "FELLOW",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + container",
+    "answer": "FELLOW",
+    "definition": "Guy",
+    "indicators": [
+     "pulled up",
+     "trousers"
+    ],
+    "indicatorNotes": {
+     "pulled up": "in a down entry a word pulled up is read from the bottom, so it arrives the other way round",
+     "trousers": "to trouser something is to pocket it, so this word swallows the piece named before it"
+    },
+    "pieces": [
+     "F",
+     "EL",
+     "LOW"
+    ],
+    "subReversals": [
+     {
+      "from": "WOLF",
+      "to": "FLOW"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Casanova",
+      "gives": "FLOW",
+      "note": "a Casanova is a wolf, and the down entry stands that word on its head"
+     },
+     {
+      "clueFragment": "the Spanish",
+      "gives": "EL",
+      "note": "EL is the in Spanish, as in El Greco"
+     }
+    ],
+    "surface": "A Spanish ladies' man hitching up his trousers.",
+    "walkthrough": "Trousers is a verb here: to trouser a thing is to pocket it. And a wolf is a Casanova, the sense the surface keeps out of sight behind its Spaniard.",
+    "definitionFit": "A fellow is a guy, a man informally spoken of, as in a decent fellow, not the college or scholarship sense.",
+    "features": {
+     "misdirectedWord": "trousers",
+     "joke": "pun",
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "25-across",
@@ -393,7 +1248,36 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
    "clue": "Not out of Tamarindo or soda bottles? (7)",
    "separatorLocations": {},
    "solution": "INDOORS",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "INDOORS",
+    "definition": "Not out",
+    "linkWords": [
+     "of"
+    ],
+    "indicators": [
+     "bottles"
+    ],
+    "indicatorNotes": {
+     "bottles": "to bottle a thing is to keep it shut in, which is what these words are doing with a run of letters"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Tamarindo or soda",
+      "gives": "INDOORS",
+      "note": "the run carries on across two word gaps without a break, so the work is spotting where it starts"
+     }
+    ],
+    "surface": "Someone taking stock behind the bar: no tamarindo left, no soda either.",
+    "walkthrough": "Not out wants to be the cricket phrase and is only its literal self, the opposite of outside. The capital on Tamarindo makes it look like a place that matters, when it is there for its letters.",
+    "definitionFit": "Indoors simply is not out, inside the building, and the clue trades on you reading not out as the batsman's phrase first.",
+    "features": {
+     "misdirectedWord": "bottles",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "26-across",
@@ -407,7 +1291,45 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
    "clue": "Picasso’s uncle follows artist in relationship (5)",
    "separatorLocations": {},
    "solution": "RATIO",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "RATIO",
+    "definition": "relationship",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "follows"
+    ],
+    "indicatorNotes": {
+     "follows": "it puts the piece named before it after the one named next, so the reading order flips"
+    },
+    "pieces": [
+     "RA",
+     "TIO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "artist",
+      "gives": "RA",
+      "note": "RA is a Royal Academician, the crossword's standard artist"
+     },
+     {
+      "clueFragment": "Picasso’s uncle",
+      "gives": "TIO",
+      "note": "tio is Spanish for uncle, and Picasso is there to tell you which language to reach for"
+     }
+    ],
+    "surface": "Picasso's uncle trailing along behind a painter.",
+    "walkthrough": "Picasso is not the artist in the wordplay at all. He is the flag that says the next word will be Spanish, while RA quietly does the painting.",
+    "definitionFit": "A ratio is the relationship between two quantities, three to one and so on, so relationship is the mathematical sense of a common word.",
+    "features": {
+     "misdirectedWord": "Picasso",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "26-down",
@@ -429,7 +1351,52 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
     ]
    },
    "solution": "REST",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "container + reversal",
+    "answer": "REST ROOMS",
+    "definition": "places to go in New York",
+    "indicators": [
+     "around",
+     "reviewing"
+    ],
+    "indicatorNotes": {
+     "around": "it wraps the first word round the second, so the second one lands inside it",
+     "reviewing": "to review is to look at a thing again, and here that means looking at the word the other way round"
+    },
+    "pieces": [
+     "REST",
+     "ROOM",
+     "S"
+    ],
+    "subReversals": [
+     {
+      "from": "MOOR",
+      "to": "ROOM"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stays",
+      "gives": "RESTS",
+      "note": "to stay somewhere is to rest, and the third-person S comes with it"
+     },
+     {
+      "clueFragment": "dock",
+      "gives": "ROOM",
+      "note": "to dock a boat is to moor it, and that word gets turned about"
+     }
+    ],
+    "surface": "Loitering by the dock, taking another look at where to go next in New York.",
+    "walkthrough": "American English calls a public lavatory a restroom, which is exactly why the clue says New York, and places to go is the euphemism doing double duty on both sides of the clue.",
+    "definitionFit": "Restrooms are what Americans call public lavatories, so places to go is the polite idiom and in New York flags the usage as American rather than British.",
+    "features": {
+     "misdirectedWord": "reviewing",
+     "joke": "pun",
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "27-across",
@@ -447,7 +1414,51 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
     ]
    },
    "solution": "LAKETAHOE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "LAKE TAHOE",
+    "definition": "Californian water",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "not initially",
+     "swimming"
+    ],
+    "indicatorNotes": {
+     "not initially": "it strips the first letter off the word in front of it and leaves the rest to be used",
+     "swimming": "something swimming is adrift in the water, and adrift letters will not stay in the order given"
+    },
+    "anagram": {
+     "fodder": "AKE LOATHE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Hake",
+      "gives": "AKE",
+      "note": "the fish without the H it starts with"
+     },
+     {
+      "clueFragment": "loathe",
+      "gives": "LOATHE",
+      "note": "six more letters of fodder, taken as they stand"
+     },
+     {
+      "clueFragment": "hunted",
+      "gives": "",
+      "note": "surface only: it keeps the fishing picture going and earns no letters at all"
+     }
+    ],
+    "surface": "A hunted hake swimming through water it cannot stand.",
+    "walkthrough": "Lake Tahoe sits high in the Sierra Nevada on the California side of the Nevada line. Hunted is worth noticing for what it does not do: real setters pad a surface where a strict clue would not.",
+    "definitionFit": "Lake Tahoe is a large freshwater lake on California's eastern border, so the definition works by example and dresses itself as geography.",
+    "features": {
+     "misdirectedWord": "swimming",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "28-down",
@@ -469,7 +1480,53 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
     ]
    },
    "solution": "TIME",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "reversal + charade",
+    "answer": "TIME COVER",
+    "definition": "Trump’s ‘super bad’ photo here",
+    "definitionNote": "The definition points at the answer rather than substituting for it: here means the answer is the place such a photograph turns up.",
+    "linkWords": [
+     "for"
+    ],
+    "indicators": [
+     "Having returned"
+    ],
+    "indicatorNotes": {
+     "Having returned": "it sends the phrase after it the other way about: a word that has come back is written backwards"
+    },
+    "pieces": [
+     "TIME",
+     "COVER"
+    ],
+    "subReversals": [
+     {
+      "from": "EMIT",
+      "to": "TIME"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "throw out",
+      "gives": "TIME",
+      "note": "to throw out heat or light is to emit it, and that word comes back front to back"
+     },
+     {
+      "clueFragment": "wrapper",
+      "gives": "COVER",
+      "note": "a wrapper is what goes round the outside of a thing"
+     }
+    ],
+    "surface": "Trump grading a photograph of himself on the front of a magazine.",
+    "walkthrough": "The quotation marks round super bad carry no instruction whatever: they are there to put a voice into the surface. Naming a magazine by what it is famous for putting on its front is the definition's whole game.",
+    "definitionFit": "Time runs a single portrait on its front each week, so photo here points at the cover of that magazine as the place such a picture appears.",
+    "features": {
+     "misdirectedWord": "wrapper",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "29-down",
@@ -483,7 +1540,42 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
    "clue": "Blackboard turning up (4)",
    "separatorLocations": {},
    "solution": "EVIL",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "EVIL",
+    "definition": "Black",
+    "indicators": [
+     "turning up"
+    ],
+    "indicatorNotes": {
+     "turning up": "in a down entry a word turned up is read from the bottom, so it arrives reversed"
+    },
+    "pieces": [
+     "EVIL"
+    ],
+    "subReversals": [
+     {
+      "from": "LIVE",
+      "to": "EVIL"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Blackboard",
+      "gives": "EVIL",
+      "note": "only the back half of the single word is wordplay: to board somewhere is to lodge there, to live there, and that word climbs back up the entry"
+     }
+    ],
+    "surface": "A blackboard arriving at the school.",
+    "walkthrough": "One word is doing two jobs. Blackboard is split down the middle, Black defining and board supplying the letters, and running two elements into a single word is a favourite way of hiding the seam.",
+    "definitionFit": "Black in the moral sense, a black deed or a black heart, is wickedness, which is what the answer names as a noun or an adjective.",
+    "features": {
+     "misdirectedWord": "Blackboard",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "30-across",
@@ -497,7 +1589,58 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
    "clue": "Vegetable growth after small tank’s opening, introducing discharged fluid (9)",
    "separatorLocations": {},
    "solution": "SWEETCORN",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container + first letter",
+    "answer": "SWEETCORN",
+    "definition": "Vegetable",
+    "indicators": [
+     "after",
+     "opening",
+     "introducing"
+    ],
+    "indicatorNotes": {
+     "after": "it tells you the growth goes at the end, even though the clue names it first",
+     "opening": "it wants the letter the word starts with, the way a door's opening is its front",
+     "introducing": "to introduce a thing is to bring it in, so the piece named next goes inside"
+    },
+    "pieces": [
+     "S",
+     "WEE",
+     "T",
+     "CORN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the clothing-label short form for small"
+     },
+     {
+      "clueFragment": "discharged fluid",
+      "gives": "WEE",
+      "note": "the nursery word for urine, dropped between the letters on either side of it"
+     },
+     {
+      "clueFragment": "tank’s",
+      "gives": "T",
+      "note": "the opening letter of that word, and nothing more of it"
+     },
+     {
+      "clueFragment": "growth",
+      "gives": "CORN",
+      "note": "a corn is the hard growth that forms on a toe"
+     }
+    ],
+    "surface": "Something planted once a small tank has been opened and drained.",
+    "walkthrough": "Growth is a corn on the foot, not a shoot in a bed, and discharged fluid is the nursery word for urine. Both jokes are buried under a perfectly respectable gardening sentence.",
+    "definitionFit": "Sweetcorn is maize eaten off the cob, so Vegetable defines it by what it is served as rather than by what it is botanically, which is a grain.",
+    "features": {
+     "misdirectedWord": "growth",
+     "joke": "pun",
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "31-across",
@@ -511,7 +1654,48 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
    "clue": "Duchess’s place bad, even though set back (5)",
    "separatorLocations": {},
    "solution": "MALFI",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "MALFI",
+    "definition": "Duchess’s place",
+    "indicators": [
+     "set back"
+    ],
+    "indicatorNotes": {
+     "set back": "an across entry runs left to right, so a word set back in one is written the other way"
+    },
+    "pieces": [
+     "MAL",
+     "FI"
+    ],
+    "subReversals": [
+     {
+      "from": "IF",
+      "to": "FI"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bad",
+      "gives": "MAL",
+      "note": "mal is the prefix English borrowed for bad, as in malpractice"
+     },
+     {
+      "clueFragment": "even though",
+      "gives": "FI",
+      "note": "even though is IF, turned about by the instruction after it"
+     }
+    ],
+    "surface": "The duchess's house is in poor shape, though it does stand well back.",
+    "walkthrough": "The Duchess of Malfi is Webster's tragedy, so the place belongs to her by title. Malfi is Amalfi on the Italian coast, and the play is the only reason the name is known at all in English.",
+    "definitionFit": "Malfi is the dukedom of the heroine of Webster's tragedy, so a duchess's place names it the way Windsor names a castle.",
+    "features": {
+     "misdirectedWord": "back",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   }
  ]
 } /*JSON-END*/;

@@ -27,7 +27,47 @@ window.CRYPTIC_PUZZLES["independent-12458"] = /*JSON-START*/ {
    "clue": "Carbon or nitrogen as the result of pressure? (4)",
    "separatorLocations": {},
    "solution": "CORN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CORN",
+    "definition": "the result of pressure",
+    "indicators": [],
+    "indicatorNotes": {},
+    "linkWords": [
+     "as"
+    ],
+    "pieces": [
+     "C",
+     "OR",
+     "N"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Carbon",
+      "gives": "C",
+      "note": "c is the chemical symbol for carbon"
+     },
+     {
+      "clueFragment": "or",
+      "gives": "OR",
+      "note": "the little joining word is taken at face value and hands over its own two letters"
+     },
+     {
+      "clueFragment": "nitrogen",
+      "gives": "N",
+      "note": "n is the chemical symbol for nitrogen"
+     }
+    ],
+    "surface": "A chemistry-lesson question about which element you get by squeezing something hard enough.",
+    "walkthrough": "Squeeze carbon hard and you get a diamond, which is the answer the surface is offering; the real pressure here is a tight shoe on a toe.",
+    "definitionFit": "A corn is the hard patch a tight shoe raises by pressing on one spot, so it is literally what pressure produces.",
+    "features": {
+     "misdirectedWord": "Carbon",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "2-down",
@@ -45,7 +85,48 @@ window.CRYPTIC_PUZZLES["independent-12458"] = /*JSON-START*/ {
     ]
    },
    "solution": "INFRADIG",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "INFRA DIG",
+    "definition": "Unbecoming",
+    "indicators": [
+     "most of"
+    ],
+    "indicatorNotes": {
+     "most of": "taking most of a word means taking all of it bar the final letter"
+    },
+    "pieces": [
+     "IN",
+     "FRA",
+     "DIG"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "the preposition is used for its own letters"
+     },
+     {
+      "clueFragment": "battle",
+      "gives": "FRA",
+      "note": "a battle is a fray, shortened by the instruction before it"
+     },
+     {
+      "clueFragment": "a sharp punch",
+      "gives": "DIG",
+      "note": "a dig is a sharp poke or punch in the ribs"
+     }
+    ],
+    "surface": "A scrap in which somebody throws an unsporting jab while most of the battle is still going on.",
+    "walkthrough": "INFRA DIG is short for the Latin infra dignitatem, beneath one's dignity, which is why a phrase about rank ends up meaning bad behaviour.",
+    "definitionFit": "Infra dig means beneath one's dignity, which is what 'unbecoming' says of conduct that does not suit the person.",
+    "features": {
+     "misdirectedWord": "in",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "3-down",
@@ -59,7 +140,42 @@ window.CRYPTIC_PUZZLES["independent-12458"] = /*JSON-START*/ {
    "clue": "Nutritious fruit mostly very good? Excellent (4)",
    "separatorLocations": {},
    "solution": "ACAI",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "ACAI",
+    "definition": "Nutritious fruit",
+    "indicators": [
+     "mostly"
+    ],
+    "indicatorNotes": {
+     "mostly": "mostly a word is the word with its final letter left off"
+    },
+    "pieces": [
+     "AC",
+     "AI"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "very good",
+      "gives": "AC",
+      "note": "very good is ACE, and the instruction before it drops the last letter"
+     },
+     {
+      "clueFragment": "Excellent",
+      "gives": "AI",
+      "note": "excellent is A1, and the numeral one is written as the letter I"
+     }
+    ],
+    "surface": "Someone grading a health-food berry and pronouncing a verdict on it.",
+    "walkthrough": "A1 written out as AI is a standing crossword trick, since the figure 1 and a capital I look the same. The berry is the Brazilian palm fruit sold everywhere as a superfood.",
+    "definitionFit": "ACAI is the Brazilian palm berry marketed as a superfood, so 'nutritious fruit' names it by the selling point.",
+    "features": {
+     "misdirectedWord": "Excellent",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "4-down",
@@ -73,7 +189,48 @@ window.CRYPTIC_PUZZLES["independent-12458"] = /*JSON-START*/ {
    "clue": "New head of company is human so far (8)",
    "separatorLocations": {},
    "solution": "INASMUCH",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + first letter",
+    "answer": "INASMUCH",
+    "definition": "so far",
+    "indicators": [
+     "New",
+     "head of"
+    ],
+    "indicatorNotes": {
+     "New": "something made new is made over again, and letters made over again do not keep the order they arrived in",
+     "head of": "the head of a word is the letter standing at the front of it"
+    },
+    "anagram": {
+     "fodder": "C IS HUMAN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "head of company",
+      "gives": "C",
+      "note": "the head, meaning first letter, of 'company'"
+     },
+     {
+      "clueFragment": "is human",
+      "gives": "ISHUMAN",
+      "note": "anagram fodder, seven letters"
+     },
+     {
+      "clueFragment": "New",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "A freshly appointed company boss turning out to be human after all.",
+    "walkthrough": "'New' sits exactly where an adjective describing the boss belongs, which is what hides the shuffle. The answer survives in English almost only in the phrase 'inasmuch as'.",
+    "definitionFit": "INASMUCH carries the sense 'in so far', the degree-limiting phrase that 'so far' names.",
+    "features": {
+     "misdirectedWord": "New",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "5-down",
@@ -87,7 +244,42 @@ window.CRYPTIC_PUZZLES["independent-12458"] = /*JSON-START*/ {
    "clue": "Children’s writer reduced home a small amount (6)",
    "separatorLocations": {},
    "solution": "NESBIT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "NESBIT",
+    "definition": "Children’s writer",
+    "indicators": [
+     "reduced"
+    ],
+    "indicatorNotes": {
+     "reduced": "a reduced word has been made smaller by losing the letter on its end"
+    },
+    "pieces": [
+     "NES",
+     "BIT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "home",
+      "gives": "NES",
+      "note": "a bird's home is its nest, cut short by the instruction before it"
+     },
+     {
+      "clueFragment": "a small amount",
+      "gives": "BIT",
+      "note": "a bit is a small amount of anything"
+     }
+    ],
+    "surface": "An author moving somewhere slightly smaller to save a little money.",
+    "walkthrough": "E Nesbit wrote The Railway Children and Five Children and It, and her surname is one every solver eventually meets. 'Home' wants to be a house and is a nest.",
+    "definitionFit": "E Nesbit is the author of The Railway Children, so 'children's writer' points at her by trade.",
+    "features": {
+     "misdirectedWord": "home",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "6-down",
@@ -101,7 +293,55 @@ window.CRYPTIC_PUZZLES["independent-12458"] = /*JSON-START*/ {
    "clue": "Tedium of the French lines on Spanish city, ignoring a mention of Spain (10)",
    "separatorLocations": {},
    "solution": "DULLSVILLE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "DULLSVILLE",
+    "definition": "Tedium",
+    "indicators": [
+     "on",
+     "ignoring"
+    ],
+    "indicatorNotes": {
+     "on": "in a down entry one thing sits on another by being written above it, so this piece goes first",
+     "ignoring": "to ignore a letter is to leave it out of the word it came from"
+    },
+    "pieces": [
+     "DU",
+     "LL",
+     "SVILLE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "of the French",
+      "gives": "DU",
+      "note": "du is how a French speaker says 'of the'"
+     },
+     {
+      "clueFragment": "lines",
+      "gives": "LL",
+      "note": "l stands for line, and the plural doubles it"
+     },
+     {
+      "clueFragment": "Spanish city",
+      "gives": "SVILLE",
+      "note": "Seville, the city in Andalusia, once the letter named next has gone"
+     },
+     {
+      "clueFragment": "a mention of Spain",
+      "gives": "E",
+      "note": "E is Spain's international vehicle code, the letter on Spanish number plates, and it is the one dropped"
+     }
+    ],
+    "surface": "French lines drawn up outside a Spanish city, with Spain itself politely left unmentioned.",
+    "walkthrough": "The -VILLE ending is American slang's way of turning a mood into a place name, as in Dullsville or Nowheresville: a town where nothing whatever happens.",
+    "definitionFit": "DULLSVILLE is slang for a state or place where nothing happens, which is tedium given the shape of a town name.",
+    "features": {
+     "misdirectedWord": "lines",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "7-down",
@@ -115,7 +355,42 @@ window.CRYPTIC_PUZZLES["independent-12458"] = /*JSON-START*/ {
    "clue": "Takes careful steps in board game, losing last piece (6)",
    "separatorLocations": {},
    "solution": "INCHES",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "INCHES",
+    "definition": "Takes careful steps",
+    "indicators": [
+     "losing last piece"
+    ],
+    "indicatorNotes": {
+     "losing last piece": "a game whose last piece is gone is a word whose final letter is gone, with 'piece' doing duty as both"
+    },
+    "pieces": [
+     "IN",
+     "CHES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "the preposition is used for its own two letters"
+     },
+     {
+      "clueFragment": "board game",
+      "gives": "CHES",
+      "note": "the board game is chess, minus the letter the instruction takes"
+     }
+    ],
+    "surface": "A cautious player edging round the board after losing their last piece.",
+    "walkthrough": "To inch is to move by tiny degrees, a verb made out of the measurement. The pun is on 'piece', which the surface offers as a chessman and the wordplay wants as a letter.",
+    "definitionFit": "To inch is to move a little at a time, so 'takes careful steps' is that verb in its third-person form.",
+    "features": {
+     "misdirectedWord": "piece",
+     "joke": "pun",
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "8-down",
@@ -129,7 +404,42 @@ window.CRYPTIC_PUZZLES["independent-12458"] = /*JSON-START*/ {
    "clue": "Trivial hackneyed stuff after spicy stuff (10)",
    "separatorLocations": {},
    "solution": "PEPPERCORN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PEPPERCORN",
+    "definition": "Trivial",
+    "indicators": [
+     "after"
+    ],
+    "indicatorNotes": {
+     "after": "coming after something in a down entry means being written below it, so this piece is second"
+    },
+    "pieces": [
+     "PEPPER",
+     "CORN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spicy stuff",
+      "gives": "PEPPER",
+      "note": "pepper is the spicy stuff, and it is named last but entered first"
+     },
+     {
+      "clueFragment": "hackneyed stuff",
+      "gives": "CORN",
+      "note": "corn is hackneyed material, which is where corny comes from"
+     }
+    ],
+    "surface": "A comedian's stale material following the racy part of the act.",
+    "walkthrough": "The adjective comes from British leases: a peppercorn rent is a token payment of one peppercorn a year, so peppercorn means nominal, not worth counting.",
+    "definitionFit": "A peppercorn rent is a nominal one, and that legal use gives PEPPERCORN the adjective sense 'trivial'.",
+    "features": {
+     "misdirectedWord": "Trivial",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "9-across",
@@ -148,7 +458,56 @@ window.CRYPTIC_PUZZLES["independent-12458"] = /*JSON-START*/ {
     ]
    },
    "solution": "OFNOCONSEQUENCE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "OF NO CONSEQUENCE",
+    "definition": "Irrelevant",
+    "indicators": [],
+    "indicatorNotes": {},
+    "pieces": [
+     "O",
+     "F",
+     "NO",
+     "CON",
+     "SEQUENCE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "o = old, the standard abbreviation"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "f = female, as on a form"
+     },
+     {
+      "clueFragment": "never",
+      "gives": "NO",
+      "note": "never is the flat refusal, no"
+     },
+     {
+      "clueFragment": "against",
+      "gives": "CON",
+      "note": "con is against, as in the pros and cons"
+     },
+     {
+      "clueFragment": "series",
+      "gives": "SEQUENCE",
+      "note": "a sequence is a series of things in order"
+     }
+    ],
+    "surface": "An elderly woman who was never opposed to the series.",
+    "walkthrough": "Five separate pieces stack up here, and the first two are single letters, which is what makes a fifteen-letter answer buildable at all. CON for against comes from the pros and cons.",
+    "definitionFit": "Something of no consequence has no bearing on the matter in hand, which is exactly what calling it irrelevant says.",
+    "features": {
+     "misdirectedWord": "never",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "10-across",
@@ -162,7 +521,51 @@ window.CRYPTIC_PUZZLES["independent-12458"] = /*JSON-START*/ {
    "clue": "Marine worms, source of each one collected by 26s (7)",
    "separatorLocations": {},
    "solution": "NEREIDS",
-   "annotation": null
+   "annotation": {
+    "type": "container + first letter",
+    "answer": "NEREIDS",
+    "definition": "Marine worms",
+    "indicators": [
+     "source of",
+     "collected by"
+    ],
+    "indicatorNotes": {
+     "source of": "the source of a word is where it starts, meaning its opening letter",
+     "collected by": "something collected by a group ends up held inside it"
+    },
+    "pieces": [
+     "NER",
+     "E",
+     "I",
+     "DS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "26s",
+      "gives": "NERDS",
+      "note": "26 down gives NERD, and the s here makes it plural"
+     },
+     {
+      "clueFragment": "each",
+      "gives": "E",
+      "note": "the source, that is the first letter, of 'each'"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "i is the Roman numeral for one"
+     }
+    ],
+    "surface": "Obsessive types out on the shore with jars, collecting a worm apiece.",
+    "walkthrough": "NEREIDS are the bristly ragworms of the seashore, named after the sea nymphs of Greek myth. The clue borrows its container from the answer at 26 down, so that one is worth solving first.",
+    "definitionFit": "Nereids are the ragworms that burrow in tidal mud, so 'marine worms' is their plain zoological label.",
+    "features": {
+     "misdirectedWord": "collected",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "11-across",
@@ -176,7 +579,53 @@ window.CRYPTIC_PUZZLES["independent-12458"] = /*JSON-START*/ {
    "clue": "Hotel worker with a lot of guts taking on hotel work (7)",
    "separatorLocations": {},
    "solution": "BELLHOP",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "BELLHOP",
+    "definition": "Hotel worker",
+    "indicators": [
+     "a lot of",
+     "taking on"
+    ],
+    "indicatorNotes": {
+     "a lot of": "a lot of a word is most of it, so the final letter is left behind",
+     "taking on": "to take something on is to add it to what you already have, here on the end"
+    },
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "BELL",
+     "H",
+     "OP"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "guts",
+      "gives": "BELL",
+      "note": "guts here is the belly, and the instruction keeps all but its last letter"
+     },
+     {
+      "clueFragment": "hotel",
+      "gives": "H",
+      "note": "h = hotel in the NATO alphabet, where every letter has a code word"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "OP",
+      "note": "op = work, as in a composer's opus"
+     }
+    ],
+    "surface": "A brave hotel employee taking on somebody else's shift as well as their own.",
+    "walkthrough": "'Guts' is offered as courage and wanted as anatomy, and the clue says hotel twice: once for the job and once for the letter H.",
+    "definitionFit": "A bellhop is the uniformed porter who carries luggage up to the rooms, so 'hotel worker' is his job description.",
+    "features": {
+     "misdirectedWord": "guts",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "12-across",
@@ -194,7 +643,44 @@ window.CRYPTIC_PUZZLES["independent-12458"] = /*JSON-START*/ {
     ]
    },
    "solution": "ENDRESULT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "END RESULT",
+    "definition": "the final analysis",
+    "indicators": [
+     "Rioting"
+    ],
+    "indicatorNotes": {
+     "Rioting": "a riot is disorder in the street, and letters in disorder will not stay in the order they were handed to you"
+    },
+    "linkWords": [
+     "in"
+    ],
+    "anagram": {
+     "fodder": "LED UNREST"
+    },
+    "blocks": [
+     {
+      "clueFragment": "led unrest",
+      "gives": "LEDUNREST",
+      "note": "anagram fodder, nine letters"
+     },
+     {
+      "clueFragment": "Rioting",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "Looking back, it was the rioting that stirred up all the unrest.",
+    "walkthrough": "'Rioting' reads as the subject of a sentence about civil disorder, which is the whole disguise: it is the instruction, and 'led unrest' is the nine letters to shuffle.",
+    "definitionFit": "The final analysis and the END RESULT both name what a process comes down to once everything has been weighed up.",
+    "features": {
+     "misdirectedWord": "Rioting",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "12-down",
@@ -208,7 +694,56 @@ window.CRYPTIC_PUZZLES["independent-12458"] = /*JSON-START*/ {
    "clue": "Nonsense that is involved in change, sapping power and enthusiasm (10)",
    "separatorLocations": {},
    "solution": "EBULLIENCE",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "EBULLIENCE",
+    "definition": "enthusiasm",
+    "indicators": [
+     "involved in",
+     "sapping"
+    ],
+    "indicatorNotes": {
+     "involved in": "being involved in something is being caught up inside it",
+     "sapping": "to sap is to drain away, and what is drained away here is a letter"
+    },
+    "pieces": [
+     "E",
+     "BULL",
+     "IE",
+     "NCE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "change",
+      "gives": "PENCE",
+      "note": "the change in your pocket is pence"
+     },
+     {
+      "clueFragment": "power",
+      "gives": "P",
+      "note": "p = power in physics, and this is the letter drained away"
+     },
+     {
+      "clueFragment": "Nonsense",
+      "gives": "BULL",
+      "note": "bull is nonsense, as in a load of old bull"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "ie is short for the Latin id est, that is"
+     }
+    ],
+    "surface": "A pointless reform that drains an organisation of both its power and its appetite for work.",
+    "walkthrough": "'Change' wants to be an anagram indicator and is money instead: the coins in your pocket, with the P of power taken out of them.",
+    "definitionFit": "Ebullience is bubbling, overflowing high spirits, which is enthusiasm at its most visible.",
+    "features": {
+     "misdirectedWord": "change",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "13-down",
@@ -222,7 +757,57 @@ window.CRYPTIC_PUZZLES["independent-12458"] = /*JSON-START*/ {
    "clue": "Last blokes to accept attention and bit of touching affectionate banter (10)",
    "separatorLocations": {},
    "solution": "ENDEARMENT",
-   "annotation": null
+   "annotation": {
+    "type": "container + first letter",
+    "answer": "ENDEARMENT",
+    "definition": "affectionate banter",
+    "definitionNote": "Banter is a mass noun and the answer is a countable one: an endearment is a single specimen of the fond talk the definition describes.",
+    "indicators": [
+     "to accept",
+     "bit of"
+    ],
+    "indicatorNotes": {
+     "to accept": "what a group accepts is taken inside it, so these letters open up to hold another piece",
+     "bit of": "a bit of a word is a fragment of it, here the letter it opens with"
+    },
+    "pieces": [
+     "END",
+     "EAR",
+     "MEN",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Last",
+      "gives": "END",
+      "note": "the last of something is its end"
+     },
+     {
+      "clueFragment": "attention",
+      "gives": "EAR",
+      "note": "to give someone your ear is to give them your attention"
+     },
+     {
+      "clueFragment": "blokes",
+      "gives": "MEN",
+      "note": "blokes are men"
+     },
+     {
+      "clueFragment": "touching",
+      "gives": "T",
+      "note": "the first letter of 'touching'"
+     }
+    ],
+    "surface": "The last few lads willing to take a bit of attention, a touch and some friendly teasing.",
+    "walkthrough": "EAR for attention is worth keeping: you have someone's ear when they are listening to you. 'Last blokes' looks like one phrase about a group of men and is two separate pieces that come apart to let the attention in.",
+    "definitionFit": "An endearment is a word spoken out of fondness — darling, love, pet — which is the affectionate end of banter.",
+    "features": {
+     "misdirectedWord": "touching",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "14-across",
@@ -236,7 +821,51 @@ window.CRYPTIC_PUZZLES["independent-12458"] = /*JSON-START*/ {
    "clue": "Vanadium is used before gold for part of armour (5)",
    "separatorLocations": {},
    "solution": "VISOR",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "VISOR",
+    "definition": "part of armour",
+    "indicators": [
+     "used before"
+    ],
+    "indicatorNotes": {
+     "used before": "being used before something puts this piece in front of the one that follows"
+    },
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "V",
+     "IS",
+     "OR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vanadium",
+      "gives": "V",
+      "note": "v is the chemical symbol for vanadium"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "the verb is taken at face value for its own letters"
+     },
+     {
+      "clueFragment": "gold",
+      "gives": "OR",
+      "note": "or is gold in heraldry, from the French"
+     }
+    ],
+    "surface": "A metallurgist's recipe in which one metal goes on before the gold.",
+    "walkthrough": "Two conventions in five letters: V for vanadium off the periodic table, and OR for gold, which is the heraldic tincture and the French word.",
+    "definitionFit": "A visor is the hinged face-guard of a helmet, so 'part of armour' names it by the suit it belongs to.",
+    "features": {
+     "misdirectedWord": "gold",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "15-across",
@@ -250,7 +879,41 @@ window.CRYPTIC_PUZZLES["independent-12458"] = /*JSON-START*/ {
    "clue": "Encouraged, clarified removing President (5)",
    "separatorLocations": {},
    "solution": "URGED",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "URGED",
+    "definition": "Encouraged",
+    "indicators": [
+     "removing"
+    ],
+    "indicatorNotes": {
+     "removing": "removing a letter takes it out of the word and closes the gap behind it"
+    },
+    "pieces": [
+     "URGED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clarified",
+      "gives": "PURGED",
+      "note": "purged means cleansed of what muddied it, which is one sense of clarified"
+     },
+     {
+      "clueFragment": "President",
+      "gives": "P",
+      "note": "p = President, and it is the letter taken out"
+     }
+    ],
+    "surface": "A speech tidied up by cutting the President out of it altogether.",
+    "walkthrough": "'President' sends most solvers hunting for IKE, ABE or a whole surname, and it is the single letter P. Clarified is the kitchen sense, as of butter or stock.",
+    "definitionFit": "To urge somebody on is to encourage them, and both words are sitting in the past tense.",
+    "features": {
+     "misdirectedWord": "President",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "16-across",
@@ -264,7 +927,44 @@ window.CRYPTIC_PUZZLES["independent-12458"] = /*JSON-START*/ {
    "clue": "About to be dismissed by group of women, being a poor performer (3)",
    "separatorLocations": {},
    "solution": "HAM",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "HAM",
+    "definition": "a poor performer",
+    "indicators": [
+     "to be dismissed by"
+    ],
+    "indicatorNotes": {
+     "to be dismissed by": "letters dismissed by a word are sent out of it, leaving what remains"
+    },
+    "linkWords": [
+     "being"
+    ],
+    "pieces": [
+     "HAM"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "group of women",
+      "gives": "HAREM",
+      "note": "a harem is a household's group of women"
+     },
+     {
+      "clueFragment": "About",
+      "gives": "RE",
+      "note": "re = about, as at the head of a memo, and these are the letters dismissed"
+     }
+    ],
+    "surface": "Somebody about to be sacked by a panel of women for a bad performance.",
+    "walkthrough": "A ham is an actor who overplays every line, from the old ham-fatter of the music hall. 'About' looks like the point he is on the edge of and is two letters of the harem.",
+    "definitionFit": "A ham is an actor who overacts, so 'a poor performer' is the theatrical sense of the word.",
+    "features": {
+     "misdirectedWord": "About",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "17-down",
@@ -278,7 +978,59 @@ window.CRYPTIC_PUZZLES["independent-12458"] = /*JSON-START*/ {
    "clue": "Idiot turned up? Refuse to receive one contribution to thinking, perhaps (8)",
    "separatorLocations": {},
    "solution": "MIDBRAIN",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + container",
+    "answer": "MIDBRAIN",
+    "definition": "contribution to thinking",
+    "indicators": [
+     "turned up",
+     "to receive",
+     "perhaps"
+    ],
+    "indicatorNotes": {
+     "turned up": "in a down entry a thing turned up is read from the bottom of the grid towards the top",
+     "to receive": "a word that receives something opens up and holds it inside",
+     "perhaps": "perhaps flags a definition by example: the answer is one part of the apparatus described, not the whole of it"
+    },
+    "pieces": [
+     "MID",
+     "BRA",
+     "I",
+     "N"
+    ],
+    "subReversals": [
+     {
+      "from": "DIM",
+      "to": "MID"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Idiot",
+      "gives": "MID",
+      "note": "an idiot is dim, and those three letters climb the grid the other way"
+     },
+     {
+      "clueFragment": "Refuse",
+      "gives": "BRAN",
+      "note": "bran is the husk refused when grain is milled"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "i is the Roman numeral for one, and it goes inside"
+     }
+    ],
+    "surface": "Turning away the fool who has shown up, because nothing he thinks is wanted.",
+    "walkthrough": "'Refuse' is the noun, rubbish, not the verb the surface is pushing: stress the first syllable and it is the milling waste. The whole is one region of the brain rather than the brain itself.",
+    "definitionFit": "The midbrain is one section of the brain, so 'contribution to thinking' points at it as an example rather than naming it.",
+    "features": {
+     "misdirectedWord": "Refuse",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "18-across",
@@ -296,7 +1048,43 @@ window.CRYPTIC_PUZZLES["independent-12458"] = /*JSON-START*/ {
     ]
    },
    "solution": "LETGO",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "LET GO",
+    "definition": "Release",
+    "indicators": [
+     "about"
+    ],
+    "indicatorNotes": {
+     "about": "something placed about another thing is wrapped around it"
+    },
+    "pieces": [
+     "LE",
+     "T",
+     "GO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bricks",
+      "gives": "LEGO",
+      "note": "Lego is the plastic brick every child has trodden on"
+     },
+     {
+      "clueFragment": "ton",
+      "gives": "T",
+      "note": "t = ton, the standard abbreviation, and it goes inside"
+     }
+    ],
+    "surface": "Dropping a load of bricks that weigh about a ton.",
+    "walkthrough": "'About ton' reads as roughly a ton, which is the trap; it is an instruction to wrap the bricks round a T. The bracket makes it look like an aside rather than the wordplay.",
+    "definitionFit": "To let go of something is to stop gripping it, which is the phrasal verb answering the plain one.",
+    "features": {
+     "misdirectedWord": "about",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "19-down",
@@ -310,7 +1098,43 @@ window.CRYPTIC_PUZZLES["independent-12458"] = /*JSON-START*/ {
    "clue": "Election concerns? Recommends including ballot box (8)",
    "separatorLocations": {},
    "solution": "TURNOUTS",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "TURNOUTS",
+    "definition": "Election concerns",
+    "indicators": [
+     "including"
+    ],
+    "indicatorNotes": {
+     "including": "whatever a word includes is written inside it"
+    },
+    "pieces": [
+     "T",
+     "URN",
+     "OUTS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Recommends",
+      "gives": "TOUTS",
+      "note": "to tout something is to recommend it loudly"
+     },
+     {
+      "clueFragment": "ballot box",
+      "gives": "URN",
+      "note": "an urn is the vessel votes are dropped into, and it goes inside"
+     }
+    ],
+    "surface": "Advice on running a polling station that says to include a ballot box.",
+    "walkthrough": "A turnout is the share of voters who actually show up, the figure every party frets over on polling night; the question mark admits the definition is a loose way of saying so.",
+    "definitionFit": "Turnouts are how many voters actually come out, which is what campaigns worry about most on election day.",
+    "features": {
+     "misdirectedWord": "Recommends",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "20-across",
@@ -324,7 +1148,43 @@ window.CRYPTIC_PUZZLES["independent-12458"] = /*JSON-START*/ {
    "clue": "Asian city keeps invading American city (5)",
    "separatorLocations": {},
    "solution": "LHASA",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "LHASA",
+    "definition": "Asian city",
+    "indicators": [
+     "invading"
+    ],
+    "indicatorNotes": {
+     "invading": "an invader goes inside the place it invades"
+    },
+    "pieces": [
+     "L",
+     "HAS",
+     "A"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "LA",
+      "note": "LA is Los Angeles, split open to take something in"
+     },
+     {
+      "clueFragment": "keeps",
+      "gives": "HAS",
+      "note": "to keep something is to have it"
+     }
+    ],
+    "surface": "One city permanently encroaching on another one across the world.",
+    "walkthrough": "'Keeps invading' reads as one phrase about repeated attacks, and the two words are doing different jobs: 'keeps' is the piece and 'invading' is the instruction. The city is the Tibetan capital.",
+    "definitionFit": "Lhasa is the capital of Tibet, so 'Asian city' defines it as one instance of the class.",
+    "features": {
+     "misdirectedWord": "keeps",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "21-down",
@@ -338,7 +1198,43 @@ window.CRYPTIC_PUZZLES["independent-12458"] = /*JSON-START*/ {
    "clue": "Japanese plant university introduced to a Caribbean island (6)",
    "separatorLocations": {},
    "solution": "AUCUBA",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "AUCUBA",
+    "definition": "Japanese plant",
+    "indicators": [
+     "introduced to"
+    ],
+    "indicatorNotes": {
+     "introduced to": "introducing one thing to another slides it in among the letters already there"
+    },
+    "pieces": [
+     "A",
+     "U",
+     "CUBA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a Caribbean island",
+      "gives": "ACUBA",
+      "note": "the clue's own a, then Cuba, the largest of the Caribbean islands"
+     },
+     {
+      "clueFragment": "university",
+      "gives": "U",
+      "note": "u = university, as in a place at one"
+     }
+    ],
+    "surface": "A university opening a campus on a Caribbean island.",
+    "walkthrough": "The aucuba, or spotted laurel, is the glossy yellow-flecked shrub in half the front gardens in Britain, and it came originally from Japan.",
+    "definitionFit": "The aucuba is a shrub native to Japan, so 'Japanese plant' defines it by where it comes from.",
+    "features": {
+     "misdirectedWord": "introduced",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "22-across",
@@ -356,7 +1252,51 @@ window.CRYPTIC_PUZZLES["independent-12458"] = /*JSON-START*/ {
     ]
    },
    "solution": "SEDGEWREN",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + first letter",
+    "answer": "SEDGE WREN",
+    "definition": "marsh bird",
+    "indicators": [
+     "Fluid",
+     "start to"
+    ],
+    "indicatorNotes": {
+     "Fluid": "a fluid has no fixed shape, and letters with no fixed shape will not hold the order they are given in",
+     "start to": "the start of the word that follows is the letter it begins with"
+    },
+    "linkWords": [
+     "in"
+    ],
+    "anagram": {
+     "fodder": "GENDER WE S"
+    },
+    "blocks": [
+     {
+      "clueFragment": "gender, we",
+      "gives": "GENDERWE",
+      "note": "anagram fodder, eight letters"
+     },
+     {
+      "clueFragment": "suspect",
+      "gives": "S",
+      "note": "the first letter of 'suspect' joins the fodder"
+     },
+     {
+      "clueFragment": "Fluid",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "People beginning to suspect that gender is a fluid thing rather than a fixed one.",
+    "walkthrough": "The bird nests low in wet sedge meadows, which is where its name comes from. A topical-sounding opening word is the shuffle instruction, and the comma after 'we' hides where the fodder stops.",
+    "definitionFit": "The sedge wren is a small bird that lives and breeds in wet sedge meadows, so 'marsh bird' places it by habitat.",
+    "features": {
+     "misdirectedWord": "Fluid",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "22-down",
@@ -370,7 +1310,46 @@ window.CRYPTIC_PUZZLES["independent-12458"] = /*JSON-START*/ {
    "clue": "Inadequate to examine terms in theology (6)",
    "separatorLocations": {},
    "solution": "SCANTY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters",
+    "answer": "SCANTY",
+    "definition": "Inadequate",
+    "indicators": [
+     "terms"
+    ],
+    "indicatorNotes": {
+     "terms": "a term is a boundary or limit, from the Latin terminus, so the letters wanted are the two at the ends"
+    },
+    "linkWords": [
+     "to",
+     "in"
+    ],
+    "pieces": [
+     "SCAN",
+     "TY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "examine",
+      "gives": "SCAN",
+      "note": "to scan something is to examine it"
+     },
+     {
+      "clueFragment": "theology",
+      "gives": "TY",
+      "note": "the outer letters of the word, one from each end"
+     }
+    ],
+    "surface": "An examiner finding a divinity student's grasp of the vocabulary not good enough.",
+    "walkthrough": "'Terms' is the trap: it reads as the technical vocabulary of a subject, and it is asking for the two ends of the word after it.",
+    "definitionFit": "Scanty means barely enough to do the job, which is what calling a supply inadequate says of it.",
+    "features": {
+     "misdirectedWord": "terms",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "23-across",
@@ -384,7 +1363,57 @@ window.CRYPTIC_PUZZLES["independent-12458"] = /*JSON-START*/ {
    "clue": "On return, intend individual to receive college commendations (7)",
    "separatorLocations": {},
    "solution": "ENCOMIA",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + container",
+    "answer": "ENCOMIA",
+    "definition": "commendations",
+    "indicators": [
+     "On return",
+     "to receive"
+    ],
+    "indicatorNotes": {
+     "On return": "something on its return is travelling back the way it came, so these letters are read the other way round",
+     "to receive": "a word that receives something opens up to hold it"
+    },
+    "pieces": [
+     "EN",
+     "C",
+     "O",
+     "MIA"
+    ],
+    "subReversals": [
+     {
+      "from": "AIMOCNE",
+      "to": "ENCOMIA"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "intend",
+      "gives": "AIM",
+      "note": "to aim at something is to intend it"
+     },
+     {
+      "clueFragment": "individual",
+      "gives": "ONE",
+      "note": "an individual is a single one"
+     },
+     {
+      "clueFragment": "college",
+      "gives": "C",
+      "note": "c = college, as in the letters after a school's name"
+     }
+    ],
+    "surface": "A plan for one student to collect the college's praise when they get back.",
+    "walkthrough": "Assemble the three pieces in the order the clue gives them, then read the whole lot backwards. Encomia is the plural of encomium, a formal speech in praise of somebody.",
+    "definitionFit": "Encomia are formal speeches or writings in praise of a person, which is commendations at their most ceremonial.",
+    "features": {
+     "misdirectedWord": "college",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "24-across",
@@ -398,7 +1427,41 @@ window.CRYPTIC_PUZZLES["independent-12458"] = /*JSON-START*/ {
    "clue": "Manage certain farm output in Cheshire town (7)",
    "separatorLocations": {},
    "solution": "RUNCORN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "RUNCORN",
+    "definition": "Cheshire town",
+    "indicators": [],
+    "indicatorNotes": {},
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "RUN",
+     "CORN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Manage",
+      "gives": "RUN",
+      "note": "to run a business is to manage it"
+     },
+     {
+      "clueFragment": "certain farm output",
+      "gives": "CORN",
+      "note": "corn is one particular thing a farm produces, left unnamed by the clue"
+     }
+    ],
+    "surface": "Somebody managing a particular crop on land in Cheshire.",
+    "walkthrough": "Runcorn is an industrial town on the Mersey in the north-west of England, and nothing in the surface admits that the answer is a place at all.",
+    "definitionFit": "Runcorn is a town in Cheshire, so the definition names it by the county it stands in.",
+    "features": {
+     "misdirectedWord": "Manage",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "25-down",
@@ -412,7 +1475,44 @@ window.CRYPTIC_PUZZLES["independent-12458"] = /*JSON-START*/ {
    "clue": "Fix group of ships heading in opposite direction (4)",
    "separatorLocations": {},
    "solution": "NAIL",
-   "annotation": null
+   "annotation": {
+    "type": "substitution",
+    "answer": "NAIL",
+    "definition": "Fix",
+    "indicators": [
+     "heading",
+     "in opposite direction"
+    ],
+    "indicatorNotes": {
+     "heading": "a heading is both the letter at the front of a word and the compass course a vessel is steering",
+     "in opposite direction": "the course is turned through half the compass, so the letter standing for it is swapped for the one facing the other way"
+    },
+    "pieces": [
+     "N",
+     "AIL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "group of ships",
+      "gives": "SAIL",
+      "note": "ships are counted in sail, as in a fleet of twenty sail"
+     },
+     {
+      "clueFragment": "heading in opposite direction",
+      "gives": "N",
+      "note": "the heading of those four letters is S for south, and the opposite point of the compass is N"
+     }
+    ],
+    "surface": "A fleet putting about and steaming back the way it came.",
+    "walkthrough": "Everything turns on 'heading' meaning two things at once, and on S and N being compass points as well as letters. SAIL for a body of ships is the old naval count.",
+    "definitionFit": "To nail something is to fasten it down, which is the fixing sense of 'fix' rather than the mending one.",
+    "features": {
+     "misdirectedWord": "heading",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "26-down",
@@ -426,7 +1526,33 @@ window.CRYPTIC_PUZZLES["independent-12458"] = /*JSON-START*/ {
    "clue": "Awkward character during dinner-date? (4)",
    "separatorLocations": {},
    "solution": "NERD",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "NERD",
+    "definition": "Awkward character",
+    "indicators": [
+     "during"
+    ],
+    "indicatorNotes": {
+     "during": "during means inside the span of something, which is where these letters are sitting"
+    },
+    "blocks": [
+     {
+      "clueFragment": "dinner-date",
+      "gives": "NERD",
+      "note": "four consecutive letters of the hyphenated phrase, running straight across the hyphen"
+     }
+    ],
+    "surface": "A socially hopeless guest turning up in the middle of somebody's dinner date.",
+    "walkthrough": "Solvers read straight over punctuation, so a hidden answer straddling a hyphen is the hardest sort to see. 'Character' is a person here, not a letter.",
+    "definitionFit": "A nerd is the socially clumsy, over-absorbed type, which is what 'awkward character' describes.",
+    "features": {
+     "misdirectedWord": "during",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "27-across",
@@ -444,7 +1570,44 @@ window.CRYPTIC_PUZZLES["independent-12458"] = /*JSON-START*/ {
     ]
    },
    "solution": "CABINETMINISTER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "CABINET MINISTER",
+    "definition": "senior politician",
+    "indicators": [
+     "possibly"
+    ],
+    "indicatorNotes": {
+     "possibly": "possibly says these letters could come out as something other than what they spell, so they are not in their settled order"
+    },
+    "linkWords": [
+     "of"
+    ],
+    "anagram": {
+     "fodder": "A BIT REMINISCENT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "A bit reminiscent",
+      "gives": "ABITREMINISCENT",
+      "note": "anagram fodder, fifteen letters"
+     },
+     {
+      "clueFragment": "possibly",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "Something that stirs a faint memory of somebody you have met before.",
+    "walkthrough": "The fodder is the whole first half of the clue, which is what makes a fifteen-letter anagram hard to spot: count the letters against the enumeration before hunting for pieces. A Cabinet minister sits in the top tier of the British government.",
+    "definitionFit": "A Cabinet minister runs a government department and sits in Cabinet, so 'senior politician' places them by rank.",
+    "features": {
+     "misdirectedWord": "reminiscent",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 } /*JSON-END*/;
