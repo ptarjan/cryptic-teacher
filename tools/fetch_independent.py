@@ -220,7 +220,7 @@ def parse(xml_bytes, ymd):
                     # italic range; a continuation carries none of either.
                     "clue": f"{text} ({fmt})" if i == 0 else f"See {nums[0]}",
                     **({"clueItalics": italics} if italics and i == 0 else {}),
-                    "group": group,
+                    **({"group": group} if len(group) > 1 else {}),
                     "separatorLocations": seps[i],
                     "solution": "".join(letters.get(c, "") for c in cells).upper(),
                     "annotation": None,
