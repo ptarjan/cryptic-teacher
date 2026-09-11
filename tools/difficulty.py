@@ -85,9 +85,9 @@ The three components, each 0-1, hardest = 1:
 
   obscurity  How far down a frequency-ordered British cryptic word list the
              answers sit, worst word in each entry (a phrase is as hard as its
-             rarest half). Needs tools/data/lexicon.tsv, which is gitignored
-             and fetched — see the missing-lexicon note in score() for what
-             happens when it isn't there.
+             rarest half). Needs tools/data/lexicon.tsv, which is committed —
+             see the missing-lexicon note in score() for what happens in a
+             checkout that somehow lacks it.
 
   device     Which wordplay machinery the clues use, for annotated puzzles
              only, on two axes. RECOGNITION: hidden words give themselves up; a
