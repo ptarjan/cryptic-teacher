@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29998"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Dad, a fellow from the east country (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "PANAMA",
    "annotation": {
@@ -123,9 +120,6 @@ window.CRYPTIC_PUZZLES["cryptic-29998"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "We in Paris, full of hesitation and very edgy (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "NERVOUS",
    "annotation": {
@@ -198,9 +192,6 @@ window.CRYPTIC_PUZZLES["cryptic-29998"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Trader’s personal claim to be old-fashioned baggage-carrier (8)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "IMPORTER",
    "annotation": {
@@ -242,9 +233,6 @@ window.CRYPTIC_PUZZLES["cryptic-29998"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Chum accommodating one relation, not gross, in apartment (11)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "MAISONNETTE",
    "annotation": {
@@ -304,9 +292,6 @@ window.CRYPTIC_PUZZLES["cryptic-29998"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Some food revoltingly served up – ham? (6)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "OVERDO",
    "annotation": {
@@ -349,9 +334,6 @@ window.CRYPTIC_PUZZLES["cryptic-29998"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Unconventional centre hosting European dramatist (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "TERENCE",
    "annotation": {
@@ -396,9 +378,6 @@ window.CRYPTIC_PUZZLES["cryptic-29998"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Agent revealed – around lunchtime? – possible reason for lack of appetite (9)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "REPLETION",
    "annotation": {
@@ -449,9 +428,6 @@ window.CRYPTIC_PUZZLES["cryptic-29998"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "English bishop with a set of holy books misbehaving (6)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "ERRANT",
    "annotation": {
@@ -505,9 +481,6 @@ window.CRYPTIC_PUZZLES["cryptic-29998"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Rafter collapsing around one – start to panic in dangerous building (8)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "FIRETRAP",
    "annotation": {
@@ -562,9 +535,6 @@ window.CRYPTIC_PUZZLES["cryptic-29998"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Conceder, person out to establish agreement (14)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "CORRESPONDENCE",
    "annotation": {
@@ -605,9 +575,6 @@ window.CRYPTIC_PUZZLES["cryptic-29998"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Wonderful piece of writing showing power? (11)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {},
    "solution": "SUPERSCRIPT",
    "annotation": {
@@ -647,9 +614,6 @@ window.CRYPTIC_PUZZLES["cryptic-29998"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Mum’s getting fish served with one type of cheese (10)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "MASCARPONE",
    "annotation": {
@@ -698,9 +662,6 @@ window.CRYPTIC_PUZZLES["cryptic-29998"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Maiden not well, holy person with one unwanted burden (9)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "MILLSTONE",
    "annotation": {
@@ -754,9 +715,6 @@ window.CRYPTIC_PUZZLES["cryptic-29998"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Money concealed by finance director (4)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "CEDI",
    "annotation": {
@@ -791,9 +749,6 @@ window.CRYPTIC_PUZZLES["cryptic-29998"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Material bad – hence lousy for covering (8)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "CHENILLE",
    "annotation": {
@@ -838,9 +793,6 @@ window.CRYPTIC_PUZZLES["cryptic-29998"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Part of race said to be European (4)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "LAPP",
    "annotation": {
@@ -879,9 +831,6 @@ window.CRYPTIC_PUZZLES["cryptic-29998"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Sign left includes X (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "PORTENT",
    "annotation": {
@@ -926,9 +875,6 @@ window.CRYPTIC_PUZZLES["cryptic-29998"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Oh no, a Trump, terrible – being not quite one of us! (10)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "PROTOHUMAN",
    "annotation": {
@@ -966,9 +912,6 @@ window.CRYPTIC_PUZZLES["cryptic-29998"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Lizard in open country impeded by idiot (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "MONITOR",
    "annotation": {
@@ -1016,9 +959,6 @@ window.CRYPTIC_PUZZLES["cryptic-29998"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Male occupying home, troublemaker who should not be let loose? (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "INMATE",
    "annotation": {
@@ -1069,9 +1009,6 @@ window.CRYPTIC_PUZZLES["cryptic-29998"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Jump about, having inclination for housework? (6-8)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {
     "-": [
      6
@@ -1124,9 +1061,6 @@ window.CRYPTIC_PUZZLES["cryptic-29998"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Invader, giant somewhat heartless (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "GOTH",
    "annotation": {
@@ -1170,9 +1104,6 @@ window.CRYPTIC_PUZZLES["cryptic-29998"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Like stage performance with old piano – unpredictable, not right (8)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "OPERATIC",
    "annotation": {
@@ -1230,9 +1161,6 @@ window.CRYPTIC_PUZZLES["cryptic-29998"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Birmingham’s first game, getting hammered (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "BLOTTO",
    "annotation": {
@@ -1279,9 +1207,6 @@ window.CRYPTIC_PUZZLES["cryptic-29998"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Request put away in foyer? (8)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "ENTREATY",
    "annotation": {
@@ -1326,9 +1251,6 @@ window.CRYPTIC_PUZZLES["cryptic-29998"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Home is hotel with land at the back (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "HEARTH",
    "annotation": {

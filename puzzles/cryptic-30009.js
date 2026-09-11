@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30009"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Angel acts serene moving around following behind bachelor (12)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "BENEFACTRESS",
    "annotation": {
@@ -84,9 +81,6 @@ window.CRYPTIC_PUZZLES["cryptic-30009"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Group keeping kit for highwayman (7)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "BRIGAND",
    "annotation": {
@@ -134,9 +128,6 @@ window.CRYPTIC_PUZZLES["cryptic-30009"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Disgustingly vain yet showing artlessness (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "NAIVETY",
    "annotation": {
@@ -177,9 +168,6 @@ window.CRYPTIC_PUZZLES["cryptic-30009"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Create document university passed (9)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "FORMULATE",
    "annotation": {
@@ -224,9 +212,6 @@ window.CRYPTIC_PUZZLES["cryptic-30009"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Men from church spring up (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "CHAPS",
    "annotation": {
@@ -279,9 +264,6 @@ window.CRYPTIC_PUZZLES["cryptic-30009"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Right to turn down taking head rest (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "RECLINE",
    "annotation": {
@@ -328,9 +310,6 @@ window.CRYPTIC_PUZZLES["cryptic-30009"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "South American vehicle in front of North American ecosystem (7)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "SAVANNA",
    "annotation": {
@@ -380,9 +359,6 @@ window.CRYPTIC_PUZZLES["cryptic-30009"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Novel poem contains correction (12)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "COMPENSATION",
    "annotation": {
@@ -420,9 +396,6 @@ window.CRYPTIC_PUZZLES["cryptic-30009"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Old organ trapping one actor (7)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {},
    "solution": "OLIVIER",
    "annotation": {
@@ -473,9 +446,6 @@ window.CRYPTIC_PUZZLES["cryptic-30009"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Adult adores snorting cocaine in corners (7)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "ALCOVES",
    "annotation": {
@@ -529,9 +499,6 @@ window.CRYPTIC_PUZZLES["cryptic-30009"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Watch Parisian on screen with weapon (12)",
-   "group": [
-    "10-down"
-   ],
    "separatorLocations": {},
    "solution": "SURVEILLANCE",
    "annotation": {
@@ -579,9 +546,6 @@ window.CRYPTIC_PUZZLES["cryptic-30009"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Regularly speak up about delayed plane (7)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "PLATEAU",
    "annotation": {
@@ -628,9 +592,6 @@ window.CRYPTIC_PUZZLES["cryptic-30009"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Top priest embraced by transgressor? (7)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "SPINNER",
    "annotation": {
@@ -675,9 +636,6 @@ window.CRYPTIC_PUZZLES["cryptic-30009"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "In New York find rum bird (5)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "NODDY",
    "annotation": {
@@ -725,9 +683,6 @@ window.CRYPTIC_PUZZLES["cryptic-30009"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Assemble silver work unit around entrance (9)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "AGGREGATE",
    "annotation": {
@@ -783,9 +738,6 @@ window.CRYPTIC_PUZZLES["cryptic-30009"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Understanding assembly (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "GATHERING",
    "annotation": {
@@ -820,9 +772,6 @@ window.CRYPTIC_PUZZLES["cryptic-30009"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "European people starting to tire following a club in decline (9)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "ABATEMENT",
    "annotation": {
@@ -889,9 +838,6 @@ window.CRYPTIC_PUZZLES["cryptic-30009"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Drug treated sprain around middle of thigh (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "ASPIRIN",
    "annotation": {
@@ -938,9 +884,6 @@ window.CRYPTIC_PUZZLES["cryptic-30009"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Old sign across front of door to bar (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "EXCLUDE",
    "annotation": {
@@ -996,9 +939,6 @@ window.CRYPTIC_PUZZLES["cryptic-30009"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Oracle dropping ecstasy gyrating to song (5)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "CAROL",
    "annotation": {
@@ -1046,9 +986,6 @@ window.CRYPTIC_PUZZLES["cryptic-30009"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Fuss over dead and rotting flesh we hear (5,2)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -1088,9 +1025,6 @@ window.CRYPTIC_PUZZLES["cryptic-30009"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Determination to relax (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "RESOLVE",
    "annotation": {
@@ -1128,9 +1062,6 @@ window.CRYPTIC_PUZZLES["cryptic-30009"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Effects of decrees by one politician (7)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "IMPACTS",
    "annotation": {
@@ -1183,9 +1114,6 @@ window.CRYPTIC_PUZZLES["cryptic-30009"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Quietly entering market in interval (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "SPELL",
    "annotation": {
@@ -1233,9 +1161,6 @@ window.CRYPTIC_PUZZLES["cryptic-30009"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Froideur as I attempt to cover very large land mass (7)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "EURASIA",
    "annotation": {
@@ -1270,9 +1195,6 @@ window.CRYPTIC_PUZZLES["cryptic-30009"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Bring up work about time by river (7)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "NURTURE",
    "annotation": {
@@ -1330,9 +1252,6 @@ window.CRYPTIC_PUZZLES["cryptic-30009"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Perfect Lily crushed and caught by papers (7)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "IDYLLIC",
    "annotation": {
@@ -1393,9 +1312,6 @@ window.CRYPTIC_PUZZLES["cryptic-30009"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Telling niece about tip-off (12)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "INTELLIGENCE",
    "annotation": {

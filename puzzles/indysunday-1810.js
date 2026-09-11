@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1810"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Unionised workforce's failure inevitable, according to Spooner (4,5)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -52,9 +49,6 @@ window.CRYPTIC_PUZZLES["indysunday-1810"] = /*JSON-START*/ {
      5
     ]
    ],
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     "-": [
      2
@@ -73,9 +67,6 @@ window.CRYPTIC_PUZZLES["indysunday-1810"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Scream after at least a dozen balls go too far (9)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "OVERSHOOT",
    "annotation": null
@@ -90,9 +81,6 @@ window.CRYPTIC_PUZZLES["indysunday-1810"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "I sleep with nothing on, like Snow White (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "FAIREST",
    "annotation": null
@@ -107,9 +95,6 @@ window.CRYPTIC_PUZZLES["indysunday-1810"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Seed half of cricket pitch, with time before the summer (9)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "OFFSPRING",
    "annotation": null
@@ -124,9 +109,6 @@ window.CRYPTIC_PUZZLES["indysunday-1810"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Abundant clothes left in sack (5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "RIFLE",
    "annotation": null
@@ -141,9 +123,6 @@ window.CRYPTIC_PUZZLES["indysunday-1810"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "A little parcel at Christmas fitting through the door (5)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "LATCH",
    "annotation": null
@@ -158,9 +137,6 @@ window.CRYPTIC_PUZZLES["indysunday-1810"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Fuzz trimmed on top by pop star makes greyhound cross (7)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "LURCHER",
    "annotation": null
@@ -175,9 +151,6 @@ window.CRYPTIC_PUZZLES["indysunday-1810"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Bites from bug, alas, on vacation (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "TAPAS",
    "annotation": null
@@ -192,9 +165,6 @@ window.CRYPTIC_PUZZLES["indysunday-1810"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Novel iron ship crosses without capsizing (7,3)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -213,9 +183,6 @@ window.CRYPTIC_PUZZLES["indysunday-1810"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Judge female guitarist's figure? (7)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "SHERIFF",
    "annotation": null
@@ -230,9 +197,6 @@ window.CRYPTIC_PUZZLES["indysunday-1810"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Supporting weight, primate flipped foot in front (7)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "FOREPAW",
    "annotation": null
@@ -247,9 +211,6 @@ window.CRYPTIC_PUZZLES["indysunday-1810"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Jumper affected teacher's sleep (13)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "STEEPLECHASER",
    "annotation": null
@@ -264,9 +225,6 @@ window.CRYPTIC_PUZZLES["indysunday-1810"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Misleading surface of clue a game, shortly to be unravelled (10)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {},
    "solution": "CAMOUFLAGE",
    "annotation": null
@@ -281,9 +239,6 @@ window.CRYPTIC_PUZZLES["indysunday-1810"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Nearly everyone frequently flying (5)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "ALOFT",
    "annotation": null
@@ -298,9 +253,6 @@ window.CRYPTIC_PUZZLES["indysunday-1810"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Visiting sea-eagles east of very small Highland town (9)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "INVERNESS",
    "annotation": null
@@ -315,9 +267,6 @@ window.CRYPTIC_PUZZLES["indysunday-1810"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "American term over with changes made around November (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "VERMONTER",
    "annotation": null
@@ -332,9 +281,6 @@ window.CRYPTIC_PUZZLES["indysunday-1810"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Inform closers for delicate negotiation, take pounds off? (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "ENLIGHTEN",
    "annotation": null
@@ -349,9 +295,6 @@ window.CRYPTIC_PUZZLES["indysunday-1810"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Oxford University set off, rowing boat (9)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "OUTRIGGER",
    "annotation": null
@@ -366,9 +309,6 @@ window.CRYPTIC_PUZZLES["indysunday-1810"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Endless sex bores couples, apparently (2,5)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -387,9 +327,6 @@ window.CRYPTIC_PUZZLES["indysunday-1810"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Cutting business, also changing name (5)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "SALON",
    "annotation": null
@@ -404,9 +341,6 @@ window.CRYPTIC_PUZZLES["indysunday-1810"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Beastly little sister carrying bag back from beach (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "SWINISH",
    "annotation": null
@@ -421,9 +355,6 @@ window.CRYPTIC_PUZZLES["indysunday-1810"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Promising crisp commercial due to collect Oscar (13)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "FORESHADOWING",
    "annotation": null
@@ -438,9 +369,6 @@ window.CRYPTIC_PUZZLES["indysunday-1810"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Celebrity demands free housing for ever (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "RIDER",
    "annotation": null
@@ -455,9 +383,6 @@ window.CRYPTIC_PUZZLES["indysunday-1810"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "A contrary stance for moralist (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "AESOP",
    "annotation": null
@@ -472,9 +397,6 @@ window.CRYPTIC_PUZZLES["indysunday-1810"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Bishop smuggled cases of grain (4)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "BRAN",
    "annotation": null
@@ -489,9 +411,6 @@ window.CRYPTIC_PUZZLES["indysunday-1810"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Speak to tot on ship (7)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "ADDRESS",
    "annotation": null
@@ -506,9 +425,6 @@ window.CRYPTIC_PUZZLES["indysunday-1810"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Gastroenterologist finally writes about American's terrible wind (7)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "TWISTER",
    "annotation": null
@@ -523,9 +439,6 @@ window.CRYPTIC_PUZZLES["indysunday-1810"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Really regret returning boulangerie's bread? (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "EUROS",
    "annotation": null
@@ -540,9 +453,6 @@ window.CRYPTIC_PUZZLES["indysunday-1810"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Greek building standard so concerning (9)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "PARTHENON",
    "annotation": null

@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4118"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Mixed gins for Mark (4)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "SIGN",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["everyman-4118"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Dubiously selected if lying without anyone else knowing? (4-6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -63,9 +57,6 @@ window.CRYPTIC_PUZZLES["everyman-4118"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Marg'd tie ends of rope loosely - tie a notional knot (3,7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -84,9 +75,6 @@ window.CRYPTIC_PUZZLES["everyman-4118"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "About time: intervening and saying 'om'? (10)",
-   "group": [
-    "3-across"
-   ],
    "separatorLocations": {},
    "solution": "MEDITATING",
    "annotation": null
@@ -101,9 +89,6 @@ window.CRYPTIC_PUZZLES["everyman-4118"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Primarily, external appendages rounding lugholes averting pesky squalls? (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "EARLAPS",
    "annotation": null
@@ -118,9 +103,6 @@ window.CRYPTIC_PUZZLES["everyman-4118"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Everyman's slog; Everyman's beginning to succumb to pressure (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "IMPLODE",
    "annotation": null
@@ -135,9 +117,6 @@ window.CRYPTIC_PUZZLES["everyman-4118"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Sad doggo also trained, obedient (2,4,2,4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -158,9 +137,6 @@ window.CRYPTIC_PUZZLES["everyman-4118"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "They're charged in television serials (4)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "IONS",
    "annotation": null
@@ -175,9 +151,6 @@ window.CRYPTIC_PUZZLES["everyman-4118"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Brag about bag (4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "GRAB",
    "annotation": null
@@ -192,9 +165,6 @@ window.CRYPTIC_PUZZLES["everyman-4118"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Woodwind instrument, not loud, that resembles a mandolin (4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "LUTE",
    "annotation": null
@@ -209,9 +179,6 @@ window.CRYPTIC_PUZZLES["everyman-4118"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Decent look, you say? Don't believe it (10)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "PROPAGANDA",
    "annotation": null
@@ -226,9 +193,6 @@ window.CRYPTIC_PUZZLES["everyman-4118"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Snag: patient headed north, elderly, starts to sniffle (7,1,4)",
-   "group": [
-    "11-down"
-   ],
    "separatorLocations": {
     ",": [
      7,
@@ -248,9 +212,6 @@ window.CRYPTIC_PUZZLES["everyman-4118"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "No more like one that'd never fly (4,2,1,4)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -271,9 +232,6 @@ window.CRYPTIC_PUZZLES["everyman-4118"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Glance taking in designated driver given work, being soused (5,5)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -292,9 +250,6 @@ window.CRYPTIC_PUZZLES["everyman-4118"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Artist to draw outline of the old dynasty (unfinished) (6,4)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -313,9 +268,6 @@ window.CRYPTIC_PUZZLES["everyman-4118"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "In Madagascar, a cashless city (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "CARACAS",
    "annotation": null
@@ -330,9 +282,6 @@ window.CRYPTIC_PUZZLES["everyman-4118"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Flipping relative, scourge: ignore this person's 'advice'! (7)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "ENABLER",
    "annotation": null
@@ -347,9 +296,6 @@ window.CRYPTIC_PUZZLES["everyman-4118"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Cold one presenting tip that went past the PM? (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "ICEBERG",
    "annotation": null
@@ -364,9 +310,6 @@ window.CRYPTIC_PUZZLES["everyman-4118"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Heretic in Jesus' home snubbed - I'm surprised (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "GALILEO",
    "annotation": null
@@ -381,9 +324,6 @@ window.CRYPTIC_PUZZLES["everyman-4118"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Wholesome food type unsettled in cargo (7)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "ORGANIC",
    "annotation": null
@@ -398,9 +338,6 @@ window.CRYPTIC_PUZZLES["everyman-4118"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Switch positions; queen available (2,5)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -419,9 +356,6 @@ window.CRYPTIC_PUZZLES["everyman-4118"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Tricky period in which you might eat rhubarb, gooseberry and many more? (3,5,3)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -441,9 +375,6 @@ window.CRYPTIC_PUZZLES["everyman-4118"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Flying mammals rising to deliver wound (4)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "STAB",
    "annotation": null
@@ -458,9 +389,6 @@ window.CRYPTIC_PUZZLES["everyman-4118"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Quality of breeding that's pronounced in Miss Brodie (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "GENE",
    "annotation": null
@@ -475,9 +403,6 @@ window.CRYPTIC_PUZZLES["everyman-4118"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Where preference for Apple triggered fatal error? (4,2,4)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -497,9 +422,6 @@ window.CRYPTIC_PUZZLES["everyman-4118"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "In Nicaragua, military territory belonging to US (4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "GUAM",
    "annotation": null
@@ -514,9 +436,6 @@ window.CRYPTIC_PUZZLES["everyman-4118"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Money put before corporate committee that's often wooden when offering support (10)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "BREADBOARD",
    "annotation": null
@@ -531,9 +450,6 @@ window.CRYPTIC_PUZZLES["everyman-4118"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Hide, son - family! (4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "SKIN",
    "annotation": null

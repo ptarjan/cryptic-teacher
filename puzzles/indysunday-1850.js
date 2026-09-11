@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1850"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Mix tape with excellent content (2,5)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -77,9 +74,6 @@ window.CRYPTIC_PUZZLES["indysunday-1850"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Claim member's drowning in alcohol (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "ALLEGE",
    "annotation": {
@@ -124,9 +118,6 @@ window.CRYPTIC_PUZZLES["indysunday-1850"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Kitty, squirrels, a couple of rooks and ape (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "PARROT",
    "annotation": {
@@ -180,9 +171,6 @@ window.CRYPTIC_PUZZLES["indysunday-1850"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Car heading to border goes around university concert hall (10)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "AUDITORIUM",
    "annotation": {
@@ -239,9 +227,6 @@ window.CRYPTIC_PUZZLES["indysunday-1850"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Keen listener comprehending long lecture finally (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "EAGER",
    "annotation": {
@@ -288,9 +273,6 @@ window.CRYPTIC_PUZZLES["indysunday-1850"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Mark had tub manufactured for treatment in spa (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "MUDBATH",
    "annotation": {
@@ -336,9 +318,6 @@ window.CRYPTIC_PUZZLES["indysunday-1850"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Creeper I originally planted in ground close to fence (9)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "MILLIPEDE",
    "annotation": {
@@ -393,9 +372,6 @@ window.CRYPTIC_PUZZLES["indysunday-1850"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Red amphibian keeping a bit wet (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "DAMP",
    "annotation": {
@@ -430,9 +406,6 @@ window.CRYPTIC_PUZZLES["indysunday-1850"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Detective Inspector caught in a club ultimately had to resign (8)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "ABDICATE",
    "annotation": {
@@ -499,9 +472,6 @@ window.CRYPTIC_PUZZLES["indysunday-1850"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "High school patrols start to walk through quiet corridors (8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "HALLWAYS",
    "annotation": {
@@ -557,9 +527,6 @@ window.CRYPTIC_PUZZLES["indysunday-1850"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Bright coloured hat you're in (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "LURID",
    "annotation": {
@@ -604,9 +571,6 @@ window.CRYPTIC_PUZZLES["indysunday-1850"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Fashion model glad to get award (4,5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -651,9 +615,6 @@ window.CRYPTIC_PUZZLES["indysunday-1850"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Ride straight on to work (5,5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -695,9 +656,6 @@ window.CRYPTIC_PUZZLES["indysunday-1850"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Cry of bird missing mother (3)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "CAW",
    "annotation": {
@@ -743,9 +701,6 @@ window.CRYPTIC_PUZZLES["indysunday-1850"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Frightening figure I head to battle in valley (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "FORMIDABLE",
    "annotation": {
@@ -804,9 +759,6 @@ window.CRYPTIC_PUZZLES["indysunday-1850"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "The priory was oddly commendable (12)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "PRAISEWORTHY",
    "annotation": {
@@ -844,9 +796,6 @@ window.CRYPTIC_PUZZLES["indysunday-1850"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Sign new abridged dictionary (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "INDICATOR",
    "annotation": {
@@ -886,9 +835,6 @@ window.CRYPTIC_PUZZLES["indysunday-1850"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Bad behaviour coming from school next to motorway that is loud (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "MISCHIEF",
    "annotation": {
@@ -947,9 +893,6 @@ window.CRYPTIC_PUZZLES["indysunday-1850"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Extremely giddy sailor spinning around (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "GYRATING",
    "annotation": {
@@ -993,9 +936,6 @@ window.CRYPTIC_PUZZLES["indysunday-1850"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Unlikely place to find REM shows? (2,4,6)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -1036,9 +976,6 @@ window.CRYPTIC_PUZZLES["indysunday-1850"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Ship carrying 100 antique carpets (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "SCOLDS",
    "annotation": {
@@ -1089,9 +1026,6 @@ window.CRYPTIC_PUZZLES["indysunday-1850"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Highlight small lock of hair (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "STRESS",
    "annotation": {
@@ -1130,9 +1064,6 @@ window.CRYPTIC_PUZZLES["indysunday-1850"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Fellow quietly leaves for a drink (3)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "CHA",
    "annotation": {
@@ -1178,9 +1109,6 @@ window.CRYPTIC_PUZZLES["indysunday-1850"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Leave to besiege small island trapping bloody coward (7-3)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     "-": [
      7
@@ -1238,9 +1166,6 @@ window.CRYPTIC_PUZZLES["indysunday-1850"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Went by boat and by bike, reportedly (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "ROWED",
    "annotation": {
@@ -1279,9 +1204,6 @@ window.CRYPTIC_PUZZLES["indysunday-1850"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Cat traps tail of thrush - a small bird (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "CHAT",
    "annotation": {
@@ -1328,9 +1250,6 @@ window.CRYPTIC_PUZZLES["indysunday-1850"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Iris cut across street to get something to eat (5,4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -1388,9 +1307,6 @@ window.CRYPTIC_PUZZLES["indysunday-1850"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Bug bites lady's face near middle of cheek causing swelling (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "BULGE",
    "annotation": {
@@ -1450,9 +1366,6 @@ window.CRYPTIC_PUZZLES["indysunday-1850"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Soldier about to depart from ship (7)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "FIGHTER",
    "annotation": {
@@ -1495,9 +1408,6 @@ window.CRYPTIC_PUZZLES["indysunday-1850"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Prepares speeches with no notice (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "DRESSES",
    "annotation": {

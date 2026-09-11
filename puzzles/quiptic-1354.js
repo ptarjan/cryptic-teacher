@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1354"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Confusion with power in aid for late-night reading? (7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "BEDLAMP",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["quiptic-1354"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Show indignation getting cross amid Alice warring with Mike (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "EXCLAIM",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["quiptic-1354"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Restrict a lot of fruit with appeal (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "LIMIT",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["quiptic-1354"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Mother hiding a blemish has form of make-up (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "MASCARA",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["quiptic-1354"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Sack put in French station for rubbish (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "GARBAGE",
    "annotation": null
@@ -110,9 +95,6 @@ window.CRYPTIC_PUZZLES["quiptic-1354"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Pilot has a struggle to keep a time (6)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "AVIATE",
    "annotation": null
@@ -127,9 +109,6 @@ window.CRYPTIC_PUZZLES["quiptic-1354"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Sole cabin after renovation has projecting platforms (9)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "BALCONIES",
    "annotation": null
@@ -144,9 +123,6 @@ window.CRYPTIC_PUZZLES["quiptic-1354"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Leave society facing cut and become very angry (2,5)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -165,9 +141,6 @@ window.CRYPTIC_PUZZLES["quiptic-1354"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Engineer searched outer residence in a row (8,5)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -186,9 +159,6 @@ window.CRYPTIC_PUZZLES["quiptic-1354"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Dishonest scheme among shameless campers (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "SCAM",
    "annotation": null
@@ -203,9 +173,6 @@ window.CRYPTIC_PUZZLES["quiptic-1354"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "I tip scales wrongly for expert (10)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "SPECIALIST",
    "annotation": null
@@ -220,9 +187,6 @@ window.CRYPTIC_PUZZLES["quiptic-1354"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Fellow with skill recalled slogan (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "MANTRA",
    "annotation": null
@@ -237,9 +201,6 @@ window.CRYPTIC_PUZZLES["quiptic-1354"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Reasonable allowance to introduce a learner (8)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "RATIONAL",
    "annotation": null
@@ -254,9 +215,6 @@ window.CRYPTIC_PUZZLES["quiptic-1354"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Name a club that’s arranged transport for patients (9)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "AMBULANCE",
    "annotation": null
@@ -271,9 +229,6 @@ window.CRYPTIC_PUZZLES["quiptic-1354"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Large chap in autumn shortly prepared final demand (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "ULTIMATUM",
    "annotation": null
@@ -288,9 +243,6 @@ window.CRYPTIC_PUZZLES["quiptic-1354"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Celebrity chef with no love for some offal (5)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "LIVER",
    "annotation": null
@@ -305,9 +257,6 @@ window.CRYPTIC_PUZZLES["quiptic-1354"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Idiots beginning to taunt comics (5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "TWITS",
    "annotation": null
@@ -322,9 +271,6 @@ window.CRYPTIC_PUZZLES["quiptic-1354"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Our lot, initially late to arrive, admitted willingly (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "WELCOME",
    "annotation": null
@@ -339,9 +285,6 @@ window.CRYPTIC_PUZZLES["quiptic-1354"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "A daughter calling to get entry (9)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "ADMISSION",
    "annotation": null
@@ -356,9 +299,6 @@ window.CRYPTIC_PUZZLES["quiptic-1354"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "This person’s urge to dazzle (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "IMPRESS",
    "annotation": null
@@ -373,9 +313,6 @@ window.CRYPTIC_PUZZLES["quiptic-1354"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Former individual given money in game (3-4)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -394,9 +331,6 @@ window.CRYPTIC_PUZZLES["quiptic-1354"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Second little tyke quietly leaving is one with a deadly aim? (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "SNIPER",
    "annotation": null
@@ -411,9 +345,6 @@ window.CRYPTIC_PUZZLES["quiptic-1354"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Fine language to describe a male wading bird (8)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "FLAMINGO",
    "annotation": null
@@ -428,9 +359,6 @@ window.CRYPTIC_PUZZLES["quiptic-1354"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Steps to circle lake in locations (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "PLACES",
    "annotation": null
@@ -445,9 +373,6 @@ window.CRYPTIC_PUZZLES["quiptic-1354"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Stop in a university to make farewell (5)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "ADIEU",
    "annotation": null
@@ -462,9 +387,6 @@ window.CRYPTIC_PUZZLES["quiptic-1354"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Cleaner of some ivories? (10)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "TOOTHPASTE",
    "annotation": null
@@ -479,9 +401,6 @@ window.CRYPTIC_PUZZLES["quiptic-1354"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Flower put in hair, I suppose (4)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "IRIS",
    "annotation": null
@@ -496,9 +415,6 @@ window.CRYPTIC_PUZZLES["quiptic-1354"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Study symbol in European country (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "DENMARK",
    "annotation": null
@@ -513,9 +429,6 @@ window.CRYPTIC_PUZZLES["quiptic-1354"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Confident American for all to see in fancy dress (7)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "ASSURED",
    "annotation": null

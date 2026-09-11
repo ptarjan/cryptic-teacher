@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1384"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Various crimes associated with soldier, a criminal (9)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "MISCREANT",
    "annotation": {
@@ -73,9 +70,6 @@ window.CRYPTIC_PUZZLES["quiptic-1384"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "I’m twice upset about impersonator (5)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "MIMIC",
    "annotation": {
@@ -127,9 +121,6 @@ window.CRYPTIC_PUZZLES["quiptic-1384"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Trustworthy from the period of religious education (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "SINCERE",
    "annotation": {
@@ -171,9 +162,6 @@ window.CRYPTIC_PUZZLES["quiptic-1384"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Travel widely – Italy’s capital, we hear (4)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "ROAM",
    "annotation": {
@@ -209,9 +197,6 @@ window.CRYPTIC_PUZZLES["quiptic-1384"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Desert-like? Help to bring in river (4)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "ARID",
    "annotation": {
@@ -256,9 +241,6 @@ window.CRYPTIC_PUZZLES["quiptic-1384"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Excellent access to concert? O, boy, excited (7-3)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     "-": [
      7
@@ -312,9 +294,6 @@ window.CRYPTIC_PUZZLES["quiptic-1384"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Recalled very old Southern French artist (5)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "DEGAS",
    "annotation": {
@@ -364,9 +343,6 @@ window.CRYPTIC_PUZZLES["quiptic-1384"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Floral arrangement is presented within 24 hours – church gets one in (5,5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -436,9 +412,6 @@ window.CRYPTIC_PUZZLES["quiptic-1384"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Source of mischief? Grand rock band getting nothing back (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "GREMLIN",
    "annotation": {
@@ -497,9 +470,6 @@ window.CRYPTIC_PUZZLES["quiptic-1384"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Quickly call major player and face receiving bit of pushback (5-4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -559,9 +529,6 @@ window.CRYPTIC_PUZZLES["quiptic-1384"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Small orange feature, see, represented in an Asian language (8,7)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -624,9 +591,6 @@ window.CRYPTIC_PUZZLES["quiptic-1384"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Team boasted (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "CREW",
    "annotation": {
@@ -661,9 +625,6 @@ window.CRYPTIC_PUZZLES["quiptic-1384"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Type of transport in Post Office colour given a second chance? (8)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "RECYCLED",
    "annotation": {
@@ -708,9 +669,6 @@ window.CRYPTIC_PUZZLES["quiptic-1384"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Thrilling tale from assistant to pianist (4-6)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -752,9 +710,6 @@ window.CRYPTIC_PUZZLES["quiptic-1384"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Breakdown of insect, if I start to consider like an entomologist? (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "SCIENTIFIC",
    "annotation": {
@@ -799,9 +754,6 @@ window.CRYPTIC_PUZZLES["quiptic-1384"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "People in power greeting revival of archery (9)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "HIERARCHY",
    "annotation": {
@@ -852,9 +804,6 @@ window.CRYPTIC_PUZZLES["quiptic-1384"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "A measure of time for us tucking into hot drink container (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "HOURGLASS",
    "annotation": {
@@ -904,9 +853,6 @@ window.CRYPTIC_PUZZLES["quiptic-1384"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Starts to herald a new operation in Vietnamese city (5)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "HANOI",
    "annotation": {
@@ -968,9 +914,6 @@ window.CRYPTIC_PUZZLES["quiptic-1384"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "A long time in pursuit of American custom (5)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "USAGE",
    "annotation": {
@@ -1014,9 +957,6 @@ window.CRYPTIC_PUZZLES["quiptic-1384"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Researcher etching a line in any stone (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "ANALYST",
    "annotation": {
@@ -1076,9 +1016,6 @@ window.CRYPTIC_PUZZLES["quiptic-1384"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Energy proposal for conference almost entirely affected by feelings (9)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "EMOTIONAL",
    "annotation": {
@@ -1128,9 +1065,6 @@ window.CRYPTIC_PUZZLES["quiptic-1384"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "No source of coal linked to European candidate (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "NOMINEE",
    "annotation": {
@@ -1178,9 +1112,6 @@ window.CRYPTIC_PUZZLES["quiptic-1384"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "BA or MA? DA, GA, true, would be wrong (8)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "GRADUATE",
    "annotation": {
@@ -1219,9 +1150,6 @@ window.CRYPTIC_PUZZLES["quiptic-1384"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "In the morning the writer returned a classic novel (4)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "EMMA",
    "annotation": {
@@ -1271,9 +1199,6 @@ window.CRYPTIC_PUZZLES["quiptic-1384"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Something useful when fixed (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "ASSET",
    "annotation": {
@@ -1312,9 +1237,6 @@ window.CRYPTIC_PUZZLES["quiptic-1384"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Crag’s lowest edge is dark and gloomy (4)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "GRIM",
    "annotation": {
@@ -1361,9 +1283,6 @@ window.CRYPTIC_PUZZLES["quiptic-1384"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "A cuppa with the first of my co-workers? (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "TEAM",
    "annotation": {
@@ -1411,9 +1330,6 @@ window.CRYPTIC_PUZZLES["quiptic-1384"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Theatrical encouragement to play in afternoon? Yes, possibly involving any number (6,3,6)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      6,
@@ -1463,9 +1379,6 @@ window.CRYPTIC_PUZZLES["quiptic-1384"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Top performer adopting one Indian instrument (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "SITAR",
    "annotation": {
@@ -1510,9 +1423,6 @@ window.CRYPTIC_PUZZLES["quiptic-1384"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Pet going round leg, perhaps, to get cheese (9)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "CAMEMBERT",
    "annotation": {

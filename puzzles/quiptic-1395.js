@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1395"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Left to follow Oxford detective a bit (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "MORSEL",
    "annotation": {
@@ -70,9 +67,6 @@ window.CRYPTIC_PUZZLES["quiptic-1395"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Part of no Slovenian city (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "OSLO",
    "annotation": {
@@ -106,9 +100,6 @@ window.CRYPTIC_PUZZLES["quiptic-1395"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Head of league engaged in revision of sport law and quick survey (5,4)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -161,9 +152,6 @@ window.CRYPTIC_PUZZLES["quiptic-1395"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Liberal working with cathedral, having no support? (6)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "LONELY",
    "annotation": {
@@ -209,9 +197,6 @@ window.CRYPTIC_PUZZLES["quiptic-1395"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Old man getting six: hero in part of cricket ground (8)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "PAVILION",
    "annotation": {
@@ -258,9 +243,6 @@ window.CRYPTIC_PUZZLES["quiptic-1395"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Stop – let’s get a cynical view (3,3,7,2)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -301,9 +283,6 @@ window.CRYPTIC_PUZZLES["quiptic-1395"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Part of equation? Feasible to include answer, excluding content (8)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "VARIABLE",
    "annotation": {
@@ -349,9 +328,6 @@ window.CRYPTIC_PUZZLES["quiptic-1395"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Some quiet talk over coffee (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "LATTE",
    "annotation": {
@@ -393,9 +369,6 @@ window.CRYPTIC_PUZZLES["quiptic-1395"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Pot Louisa stirred, filled with unknown broth (6,4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -443,9 +416,6 @@ window.CRYPTIC_PUZZLES["quiptic-1395"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Instrument’s note in peculiar recital (8)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "CLARINET",
    "annotation": {
@@ -491,9 +461,6 @@ window.CRYPTIC_PUZZLES["quiptic-1395"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Corruption at Eton’s beginning to produce revolution (6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "ROTATE",
    "annotation": {
@@ -545,9 +512,6 @@ window.CRYPTIC_PUZZLES["quiptic-1395"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Snack dished up in white barrels? (5,7)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -591,9 +555,6 @@ window.CRYPTIC_PUZZLES["quiptic-1395"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Fail to be deceived by description of audacious dress? (3-7)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -632,9 +593,6 @@ window.CRYPTIC_PUZZLES["quiptic-1395"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Note, second presented by the writer (4)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "MEMO",
    "annotation": {
@@ -677,9 +635,6 @@ window.CRYPTIC_PUZZLES["quiptic-1395"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Tunesmith revamping old times (8)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "MELODIST",
    "annotation": {
@@ -716,9 +671,6 @@ window.CRYPTIC_PUZZLES["quiptic-1395"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Last members of daring little band, beset by monster, kept going (7,2)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -768,9 +720,6 @@ window.CRYPTIC_PUZZLES["quiptic-1395"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Tubby, seen around ordinary party, was prominent (5,3)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -823,9 +772,6 @@ window.CRYPTIC_PUZZLES["quiptic-1395"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Soccer team starts to have lower expectations in topmost level (8)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "ATHLETIC",
    "annotation": {
@@ -871,9 +817,6 @@ window.CRYPTIC_PUZZLES["quiptic-1395"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Join, except when led by American (4)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "ABUT",
    "annotation": {
@@ -919,9 +862,6 @@ window.CRYPTIC_PUZZLES["quiptic-1395"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Industrial activity repeatedly popular in classic British car firm (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "MINING",
    "annotation": {
@@ -967,9 +907,6 @@ window.CRYPTIC_PUZZLES["quiptic-1395"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Launch opportunity having put $1000 up front (5,7)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -1019,9 +956,6 @@ window.CRYPTIC_PUZZLES["quiptic-1395"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Pleasanter to turn up in Empire Cinema? (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "NICER",
    "annotation": {
@@ -1063,9 +997,6 @@ window.CRYPTIC_PUZZLES["quiptic-1395"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Direct line cutting border (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "HELM",
    "annotation": {
@@ -1109,9 +1040,6 @@ window.CRYPTIC_PUZZLES["quiptic-1395"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Convent member leading company welcoming one papal ambassador (6)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "NUNCIO",
    "annotation": {
@@ -1163,9 +1091,6 @@ window.CRYPTIC_PUZZLES["quiptic-1395"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Superficial type gripped by bishopric’s power (4-4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -1219,9 +1144,6 @@ window.CRYPTIC_PUZZLES["quiptic-1395"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "League initially brought in graph about footballing legend (8)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "CHARLTON",
    "annotation": {
@@ -1273,9 +1195,6 @@ window.CRYPTIC_PUZZLES["quiptic-1395"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Set of chromosomes – information some at first ignored (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "GENOME",
    "annotation": {

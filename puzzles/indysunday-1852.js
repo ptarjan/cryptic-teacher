@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1852"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Weapon provided in retirement to raise money (7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "FIREARM",
    "annotation": {
@@ -86,9 +83,6 @@ window.CRYPTIC_PUZZLES["indysunday-1852"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "One died in fight just before the weekend (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "FRIDAY",
    "annotation": {
@@ -138,9 +132,6 @@ window.CRYPTIC_PUZZLES["indysunday-1852"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Just claims R and R? (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "RIGHTS",
    "annotation": {
@@ -172,9 +163,6 @@ window.CRYPTIC_PUZZLES["indysunday-1852"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "In Manchester BBC releases broadcast essential for motorists in winter? (10)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "ANTIFREEZE",
    "annotation": {
@@ -218,9 +206,6 @@ window.CRYPTIC_PUZZLES["indysunday-1852"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Total revolutionary in command of country perhaps? (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "MUSIC",
    "annotation": {
@@ -270,9 +255,6 @@ window.CRYPTIC_PUZZLES["indysunday-1852"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Accommodate prisoner with criminal record (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "CONFORM",
    "annotation": {
@@ -313,9 +295,6 @@ window.CRYPTIC_PUZZLES["indysunday-1852"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Fall in freezing fell (9)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "COLLAPSED",
    "annotation": {
@@ -360,9 +339,6 @@ window.CRYPTIC_PUZZLES["indysunday-1852"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Note stylish man dropping dead in Emperor's new clothes (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "NUDE",
    "annotation": {
@@ -406,9 +382,6 @@ window.CRYPTIC_PUZZLES["indysunday-1852"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Musical story with Hornblower possibly heading off to capture gold (8)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "ORATORIO",
    "annotation": {
@@ -458,9 +431,6 @@ window.CRYPTIC_PUZZLES["indysunday-1852"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Gathered facial hair as I have to leave quickly? (4,4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -503,9 +473,6 @@ window.CRYPTIC_PUZZLES["indysunday-1852"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Metal bar securing otter traps (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "INGOT",
    "annotation": {
@@ -540,9 +507,6 @@ window.CRYPTIC_PUZZLES["indysunday-1852"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Easy-peasy, add a lasagne, bring back entertaining - good times! (5,4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -589,9 +553,6 @@ window.CRYPTIC_PUZZLES["indysunday-1852"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "With Earth unprotected I authorised releases of plastic (10)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "ARTIFICIAL",
    "annotation": {
@@ -646,9 +607,6 @@ window.CRYPTIC_PUZZLES["indysunday-1852"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Striking bachelor of long standing (4)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "BOLD",
    "annotation": {
@@ -686,9 +644,6 @@ window.CRYPTIC_PUZZLES["indysunday-1852"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Instruction for cryptic solvers to form master race (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "MILLSTREAM",
    "annotation": {
@@ -741,9 +696,6 @@ window.CRYPTIC_PUZZLES["indysunday-1852"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Elvis trip is blighted with gremlins? (4,7)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -793,9 +745,6 @@ window.CRYPTIC_PUZZLES["indysunday-1852"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Instant time off is restricting newspapers and magazines? (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "IMMEDIATE",
    "annotation": {
@@ -851,9 +800,6 @@ window.CRYPTIC_PUZZLES["indysunday-1852"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Reportedly seize backing singers from Sweden for offices of religious leadership (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "ABBACIES",
    "annotation": {
@@ -901,9 +847,6 @@ window.CRYPTIC_PUZZLES["indysunday-1852"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Toy with plain awful hairstyle (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "PONYTAIL",
    "annotation": {
@@ -946,9 +889,6 @@ window.CRYPTIC_PUZZLES["indysunday-1852"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Face of net zero blamed wrongly for third-rate award (6,5)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -1005,9 +945,6 @@ window.CRYPTIC_PUZZLES["indysunday-1852"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Decline in official employment (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "REFUSE",
    "annotation": {
@@ -1048,9 +985,6 @@ window.CRYPTIC_PUZZLES["indysunday-1852"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Feature of distorted space-time (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "ASPECT",
    "annotation": {
@@ -1101,9 +1035,6 @@ window.CRYPTIC_PUZZLES["indysunday-1852"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Radical setter's imprisoned in Alabama (4)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "AMYL",
    "annotation": {
@@ -1148,9 +1079,6 @@ window.CRYPTIC_PUZZLES["indysunday-1852"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Confounded assertion about daughter's dexterity (10)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "ADROITNESS",
    "annotation": {
@@ -1203,9 +1131,6 @@ window.CRYPTIC_PUZZLES["indysunday-1852"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Conclusion is nothing great (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "OMEGA",
    "annotation": {
@@ -1246,9 +1171,6 @@ window.CRYPTIC_PUZZLES["indysunday-1852"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Coloured the ancient religious academic houses (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "DYED",
    "annotation": {
@@ -1293,9 +1215,6 @@ window.CRYPTIC_PUZZLES["indysunday-1852"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Upper or lower? Whatever! (2,3,4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -1335,9 +1254,6 @@ window.CRYPTIC_PUZZLES["indysunday-1852"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "From 6 November missing former partner's heading for discharge (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "EXUDE",
    "annotation": {
@@ -1386,9 +1302,6 @@ window.CRYPTIC_PUZZLES["indysunday-1852"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Say, party records on the counter make a big splash (7)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "SPLODGE",
    "annotation": {
@@ -1447,9 +1360,6 @@ window.CRYPTIC_PUZZLES["indysunday-1852"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Starmer struggling for support? (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "ARMREST",
    "annotation": {

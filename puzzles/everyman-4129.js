@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4129"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Biff's one that's odd when alone (4)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "SOCK",
    "annotation": {
@@ -62,9 +59,6 @@ window.CRYPTIC_PUZZLES["everyman-4129"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Deletes with a sweep of the pen - or leaves (7,3)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -106,9 +100,6 @@ window.CRYPTIC_PUZZLES["everyman-4129"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Summit where you find a pear (10)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "CONFERENCE",
    "annotation": {
@@ -146,9 +137,6 @@ window.CRYPTIC_PUZZLES["everyman-4129"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Dig in pit - bone part fragments - run away (3,7)",
-   "group": [
-    "3-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -202,9 +190,6 @@ window.CRYPTIC_PUZZLES["everyman-4129"] = /*JSON-START*/ {
      8
     ]
    ],
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "OPTIMUM",
    "annotation": {
@@ -248,9 +233,6 @@ window.CRYPTIC_PUZZLES["everyman-4129"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "French city's answer: their refusal, German setter Victor rebuffed (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "AVIGNON",
    "annotation": {
@@ -317,9 +299,6 @@ window.CRYPTIC_PUZZLES["everyman-4129"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Stopgap team's assembled: it's stuck in the corner (7,5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -360,9 +339,6 @@ window.CRYPTIC_PUZZLES["everyman-4129"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Dog story related (4)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "TAIL",
    "annotation": {
@@ -397,9 +373,6 @@ window.CRYPTIC_PUZZLES["everyman-4129"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Lacking shred of compassion, twice cut up ballerina's clothing (4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "TUTU",
    "annotation": {
@@ -449,9 +422,6 @@ window.CRYPTIC_PUZZLES["everyman-4129"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Research - but seemingly no development - in S African money? (4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "RAND",
    "annotation": {
@@ -493,9 +463,6 @@ window.CRYPTIC_PUZZLES["everyman-4129"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Date skin: it's cooked for restrictive regimen (6,4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -539,9 +506,6 @@ window.CRYPTIC_PUZZLES["everyman-4129"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Classic song - hit - source of illumination (8,4)",
-   "group": [
-    "11-down"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -583,9 +547,6 @@ window.CRYPTIC_PUZZLES["everyman-4129"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Taking forever? (11)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "KLEPTOMANIA",
    "annotation": {
@@ -617,9 +578,6 @@ window.CRYPTIC_PUZZLES["everyman-4129"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Sir, you'll go off in magnificent style (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "GLORIOUSLY",
    "annotation": {
@@ -656,9 +614,6 @@ window.CRYPTIC_PUZZLES["everyman-4129"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "With no hint of nervousness, taunt leader that's corrupt, corrupt (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "ADULTERATE",
    "annotation": {
@@ -702,9 +657,6 @@ window.CRYPTIC_PUZZLES["everyman-4129"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Total including seabird's bone (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "STERNUM",
    "annotation": {
@@ -751,9 +703,6 @@ window.CRYPTIC_PUZZLES["everyman-4129"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "About 50 wanted to be annoyed (7)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "NEEDLED",
    "annotation": {
@@ -800,9 +749,6 @@ window.CRYPTIC_PUZZLES["everyman-4129"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Relative mostly visible with snake - let go! (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "UNCLASP",
    "annotation": {
@@ -848,9 +794,6 @@ window.CRYPTIC_PUZZLES["everyman-4129"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Unwisely, I had most of pâté stir-fry (3,4)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -904,9 +847,6 @@ window.CRYPTIC_PUZZLES["everyman-4129"] = /*JSON-START*/ {
      6
     ]
    ],
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "LATERAL",
    "annotation": {
@@ -941,9 +881,6 @@ window.CRYPTIC_PUZZLES["everyman-4129"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Act dishonestly, getting stuffing for duvet - then do this? (3,4)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -989,9 +926,6 @@ window.CRYPTIC_PUZZLES["everyman-4129"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Comic actor Rod: you led me astray (6,5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -1032,9 +966,6 @@ window.CRYPTIC_PUZZLES["everyman-4129"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Primarily cinnamony, hot Asian infusion? (4)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "CHAI",
    "annotation": {
@@ -1074,9 +1005,6 @@ window.CRYPTIC_PUZZLES["everyman-4129"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Huge eerie deathcap fungi: panic, ultimately (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "EPIC",
    "annotation": {
@@ -1116,9 +1044,6 @@ window.CRYPTIC_PUZZLES["everyman-4129"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "No help - that's scuppered contest (10)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "HEPTATHLON",
    "annotation": {
@@ -1158,9 +1083,6 @@ window.CRYPTIC_PUZZLES["everyman-4129"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Fantasias describing most of humanity (4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "ASIA",
    "annotation": {
@@ -1194,9 +1116,6 @@ window.CRYPTIC_PUZZLES["everyman-4129"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Starts off nine optics (10)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "INCEPTIONS",
    "annotation": {
@@ -1233,9 +1152,6 @@ window.CRYPTIC_PUZZLES["everyman-4129"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Slice of memory: snack picked up (4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "BYTE",
    "annotation": {

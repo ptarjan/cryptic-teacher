@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4160"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Allegorist blasted senator? (10)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "LEGISLATOR",
    "annotation": {
@@ -64,9 +61,6 @@ window.CRYPTIC_PUZZLES["everyman-4160"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Tip one of 13, perhaps (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "LIST",
    "annotation": {
@@ -101,9 +95,6 @@ window.CRYPTIC_PUZZLES["everyman-4160"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Disheartened, merchandise is Mars etc (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "GODS",
    "annotation": {
@@ -143,9 +134,6 @@ window.CRYPTIC_PUZZLES["everyman-4160"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Columbus grappling with eel that's very small (11)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "SUBMOLECULE",
    "annotation": {
@@ -182,9 +170,6 @@ window.CRYPTIC_PUZZLES["everyman-4160"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Pardon? First couple of letters complete a crossword? (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "ABSOLVE",
    "annotation": {
@@ -227,9 +212,6 @@ window.CRYPTIC_PUZZLES["everyman-4160"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Trim hospital employee (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "ORDERLY",
    "annotation": {
@@ -264,9 +246,6 @@ window.CRYPTIC_PUZZLES["everyman-4160"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Give out prison sentence - in recess? (4)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "EMIT",
    "annotation": {
@@ -309,9 +288,6 @@ window.CRYPTIC_PUZZLES["everyman-4160"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Pieces of rock opera with ceremonies in which hero regularly crushed (10)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "METEORITES",
    "annotation": {
@@ -362,9 +338,6 @@ window.CRYPTIC_PUZZLES["everyman-4160"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Spooner's beloved sailing vessel? That was ages ago (3,4,3)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -418,9 +391,6 @@ window.CRYPTIC_PUZZLES["everyman-4160"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Yes, biddies sauntering two abreast (4,2,4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -462,9 +432,6 @@ window.CRYPTIC_PUZZLES["everyman-4160"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Source of irritation: pious type with Biblical term for you (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "STYE",
    "annotation": {
@@ -502,9 +469,6 @@ window.CRYPTIC_PUZZLES["everyman-4160"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Arrested pacifist; one might say 'coo!' (8,4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -546,9 +510,6 @@ window.CRYPTIC_PUZZLES["everyman-4160"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Less enthused as date vomited all over the place (11)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {},
    "solution": "DEMOTIVATED",
    "annotation": {
@@ -588,9 +549,6 @@ window.CRYPTIC_PUZZLES["everyman-4160"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Speech sets out iterated criteria (4,6)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -631,9 +589,6 @@ window.CRYPTIC_PUZZLES["everyman-4160"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Once again, making fun (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "RECREATION",
    "annotation": {
@@ -677,9 +632,6 @@ window.CRYPTIC_PUZZLES["everyman-4160"] = /*JSON-START*/ {
      6
     ]
    ],
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "PRECEDE",
    "annotation": {
@@ -720,9 +672,6 @@ window.CRYPTIC_PUZZLES["everyman-4160"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "After year, uncapped premium adjusted: more attractive (7)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "YUMMIER",
    "annotation": {
@@ -772,9 +721,6 @@ window.CRYPTIC_PUZZLES["everyman-4160"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Blimey: point at end of game is rotten (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "CORRUPT",
    "annotation": {
@@ -826,9 +772,6 @@ window.CRYPTIC_PUZZLES["everyman-4160"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Primarily: tile; equally, small stone enhancing Roman art? (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "TESSERA",
    "annotation": {
@@ -871,9 +814,6 @@ window.CRYPTIC_PUZZLES["everyman-4160"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Busy month; egomaniac not seen throughout (2,3,2)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -912,9 +852,6 @@ window.CRYPTIC_PUZZLES["everyman-4160"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "A little alligator bit a lamprey that's going around (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "ORBITAL",
    "annotation": {
@@ -951,9 +888,6 @@ window.CRYPTIC_PUZZLES["everyman-4160"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Gosh, cast earlier mentioned to include Poles (7,5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -1006,9 +940,6 @@ window.CRYPTIC_PUZZLES["everyman-4160"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Loudly trumpeted: that's indecent (4)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "BLUE",
    "annotation": {
@@ -1046,9 +977,6 @@ window.CRYPTIC_PUZZLES["everyman-4160"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Maybe Murdoch is memoirist? Not entirely (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "IRIS",
    "annotation": {
@@ -1085,9 +1013,6 @@ window.CRYPTIC_PUZZLES["everyman-4160"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Everyman's beginning to get very off-colour, mostly wrong (4)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "EVIL",
    "annotation": {
@@ -1132,9 +1057,6 @@ window.CRYPTIC_PUZZLES["everyman-4160"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "American lacking spirit - and never stout? (10)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "TEETOTALER",
    "annotation": {
@@ -1170,9 +1092,6 @@ window.CRYPTIC_PUZZLES["everyman-4160"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Scuttle, a bathroom fixture? (4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "SINK",
    "annotation": {
@@ -1207,9 +1126,6 @@ window.CRYPTIC_PUZZLES["everyman-4160"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Dance event, while getting maybe some bucks invested, finding singers (10)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "BALLADEERS",
    "annotation": {

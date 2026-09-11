@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30021"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "How Monet changed Paris, for him (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "HOMETOWN",
    "annotation": {
@@ -65,9 +62,6 @@ window.CRYPTIC_PUZZLES["cryptic-30021"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Stupid mistake from that woman protecting member of parliament (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "HOWLER",
    "annotation": {
@@ -115,9 +109,6 @@ window.CRYPTIC_PUZZLES["cryptic-30021"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Places where rubbers are readily available? (7,8)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -153,9 +144,6 @@ window.CRYPTIC_PUZZLES["cryptic-30021"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Time to study grooved rubber on a tyre (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "TREAD",
    "annotation": {
@@ -196,9 +184,6 @@ window.CRYPTIC_PUZZLES["cryptic-30021"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Dog, cat, cat? (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "WHIPPET",
    "annotation": {
@@ -236,9 +221,6 @@ window.CRYPTIC_PUZZLES["cryptic-30021"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Creates small chess pieces (6)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "SPAWNS",
    "annotation": {
@@ -276,9 +258,6 @@ window.CRYPTIC_PUZZLES["cryptic-30021"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Father with six big cats in exhibition buildings (9)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "PAVILIONS",
    "annotation": {
@@ -326,9 +305,6 @@ window.CRYPTIC_PUZZLES["cryptic-30021"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Alleged tweaking shocked US union official (7,8)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -370,9 +346,6 @@ window.CRYPTIC_PUZZLES["cryptic-30021"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Watch Virginia, perhaps, nursing muscle (8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "SPECTATE",
    "annotation": {
@@ -417,9 +390,6 @@ window.CRYPTIC_PUZZLES["cryptic-30021"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Flowering plant with bacterial infection’s left out (8)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "WISTERIA",
    "annotation": {
@@ -463,9 +433,6 @@ window.CRYPTIC_PUZZLES["cryptic-30021"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Unusual steel boxes very slender (6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "SVELTE",
    "annotation": {
@@ -516,9 +483,6 @@ window.CRYPTIC_PUZZLES["cryptic-30021"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Biting insect? Bite back (4)",
-   "group": [
-    "11-down"
-   ],
    "separatorLocations": {},
    "solution": "GNAT",
    "annotation": {
@@ -562,9 +526,6 @@ window.CRYPTIC_PUZZLES["cryptic-30021"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Antelope from European country (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "ELAND",
    "annotation": {
@@ -605,9 +566,6 @@ window.CRYPTIC_PUZZLES["cryptic-30021"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Criticise member of orchestra ignoring Conservative guest on game show? (9)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "PANELLIST",
    "annotation": {
@@ -651,9 +609,6 @@ window.CRYPTIC_PUZZLES["cryptic-30021"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Send explicit message to gent regularly seen in musical group (6)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "SEXTET",
    "annotation": {
@@ -700,9 +655,6 @@ window.CRYPTIC_PUZZLES["cryptic-30021"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Model T Ford safe for compromises (5-4)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -747,9 +699,6 @@ window.CRYPTIC_PUZZLES["cryptic-30021"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Nevertheless, start to test idea (7)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "THOUGHT",
    "annotation": {
@@ -793,9 +742,6 @@ window.CRYPTIC_PUZZLES["cryptic-30021"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Cunning tabloid, perhaps, that can catch pests (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "FLYPAPER",
    "annotation": {
@@ -834,9 +780,6 @@ window.CRYPTIC_PUZZLES["cryptic-30021"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Bleak agenda covering emission (7)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "LEAKAGE",
    "annotation": {
@@ -871,9 +814,6 @@ window.CRYPTIC_PUZZLES["cryptic-30021"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Cycling saddle corrodes (4)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "EATS",
    "annotation": {
@@ -911,9 +851,6 @@ window.CRYPTIC_PUZZLES["cryptic-30021"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "American cavalry commander organised truces (6)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "CUSTER",
    "annotation": {
@@ -951,9 +888,6 @@ window.CRYPTIC_PUZZLES["cryptic-30021"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Train my team’s leader, for example, back in office (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "CORTEGE",
    "annotation": {
@@ -1011,9 +945,6 @@ window.CRYPTIC_PUZZLES["cryptic-30021"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Commercial opening in liturgical season (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "ADVENT",
    "annotation": {
@@ -1054,9 +985,6 @@ window.CRYPTIC_PUZZLES["cryptic-30021"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Parrot part of the bible loudly, some non-traditional material (9)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "POLYESTER",
    "annotation": {
@@ -1102,9 +1030,6 @@ window.CRYPTIC_PUZZLES["cryptic-30021"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Greatly affect stupendous hosts (5)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "UPEND",
    "annotation": {
@@ -1139,9 +1064,6 @@ window.CRYPTIC_PUZZLES["cryptic-30021"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Inappropriate single person blocked by female (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "UNFIT",
    "annotation": {
@@ -1186,9 +1108,6 @@ window.CRYPTIC_PUZZLES["cryptic-30021"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Seat in parliament offered up for favours enacted, primarily (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "POUFFE",
    "annotation": {
@@ -1234,9 +1153,6 @@ window.CRYPTIC_PUZZLES["cryptic-30021"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Intense dislike of one training the fleas (4-4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -1278,9 +1194,6 @@ window.CRYPTIC_PUZZLES["cryptic-30021"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Fight is interrupting break (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "RESIST",
    "annotation": {
@@ -1325,9 +1238,6 @@ window.CRYPTIC_PUZZLES["cryptic-30021"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Evidently live broadcast that is not heartless (8)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "SENTIENT",
    "annotation": {

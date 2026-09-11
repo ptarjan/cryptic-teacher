@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1871"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Crooked pole musketeer shortened in novel (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "BOATHOOK",
    "annotation": {
@@ -73,9 +70,6 @@ window.CRYPTIC_PUZZLES["indysunday-1871"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Lowly lord keeps Tesla in farmyard (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "BARTON",
    "annotation": {
@@ -119,9 +113,6 @@ window.CRYPTIC_PUZZLES["indysunday-1871"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Just about time to support charity that's collected nothing (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "ALMOST",
    "annotation": {
@@ -173,9 +164,6 @@ window.CRYPTIC_PUZZLES["indysunday-1871"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Crew eat as if it's a picnic (5-4)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -216,9 +204,6 @@ window.CRYPTIC_PUZZLES["indysunday-1871"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Human pope struggling with sin, trying to be better (3-9)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -269,9 +254,6 @@ window.CRYPTIC_PUZZLES["indysunday-1871"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Antelope's smell masked by even nastier one (6)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "REEBOK",
    "annotation": {
@@ -318,9 +300,6 @@ window.CRYPTIC_PUZZLES["indysunday-1871"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Make happy story up with treasure at the end (5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "ELATE",
    "annotation": {
@@ -371,9 +350,6 @@ window.CRYPTIC_PUZZLES["indysunday-1871"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Cork area, cheap house that's typical in Ireland (8)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "BUNGALOW",
    "annotation": {
@@ -416,9 +392,6 @@ window.CRYPTIC_PUZZLES["indysunday-1871"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Broken ankle curtailed girl's play (4,4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -474,9 +447,6 @@ window.CRYPTIC_PUZZLES["indysunday-1871"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Jog about with bodyguard (8)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "REMINDER",
    "annotation": {
@@ -516,9 +486,6 @@ window.CRYPTIC_PUZZLES["indysunday-1871"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Gun shot that ricochets to hit second target (6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "CANNON",
    "annotation": {
@@ -552,9 +519,6 @@ window.CRYPTIC_PUZZLES["indysunday-1871"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Bananas grown at Sodom are happily taken up ... (2,4,1,5)",
-   "group": [
-    "11-down"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -605,9 +569,6 @@ window.CRYPTIC_PUZZLES["indysunday-1871"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Watering holes in prime spots along road, she sees (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "OASES",
    "annotation": {
@@ -648,9 +609,6 @@ window.CRYPTIC_PUZZLES["indysunday-1871"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Ring Spooner's dropping down from pine tree? (5,4)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -699,9 +657,6 @@ window.CRYPTIC_PUZZLES["indysunday-1871"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Three peaks followed by a war film (4,4,4)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -757,9 +712,6 @@ window.CRYPTIC_PUZZLES["indysunday-1871"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Very noticeable Mark's inside with his feet up (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "ARRESTING",
    "annotation": {
@@ -802,9 +754,6 @@ window.CRYPTIC_PUZZLES["indysunday-1871"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Associate of French commandos hides below (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "SAUNDERS",
    "annotation": {
@@ -848,9 +797,6 @@ window.CRYPTIC_PUZZLES["indysunday-1871"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Punch weed, catching left nostril that suddenly spurts (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "BLOWHOLE",
    "annotation": {
@@ -900,9 +846,6 @@ window.CRYPTIC_PUZZLES["indysunday-1871"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Everyone's bags in laundry switched at the start (3,3,6)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -962,9 +905,6 @@ window.CRYPTIC_PUZZLES["indysunday-1871"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Fix electronic stuff that's discarded, swapping parts (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "SCRAPE",
    "annotation": {
@@ -1013,9 +953,6 @@ window.CRYPTIC_PUZZLES["indysunday-1871"] = /*JSON-START*/ {
      10
     ]
    ],
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "PIXELS",
    "annotation": {
@@ -1055,9 +992,6 @@ window.CRYPTIC_PUZZLES["indysunday-1871"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Today trucks not starting? That's OK (2,7)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -1104,9 +1038,6 @@ window.CRYPTIC_PUZZLES["indysunday-1871"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "King and I upset, queen understood (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "ROGER",
    "annotation": {
@@ -1161,9 +1092,6 @@ window.CRYPTIC_PUZZLES["indysunday-1871"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Winter Olympics venue incredibly cold with hail (5)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "SOCHI",
    "annotation": {
@@ -1209,9 +1137,6 @@ window.CRYPTIC_PUZZLES["indysunday-1871"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Canteen ought to accommodate as many as required (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "ENOUGH",
    "annotation": {
@@ -1245,9 +1170,6 @@ window.CRYPTIC_PUZZLES["indysunday-1871"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Party at home hosted by friend's boss (8)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "DOMINATE",
    "annotation": {
@@ -1300,9 +1222,6 @@ window.CRYPTIC_PUZZLES["indysunday-1871"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Chain I blunder into when reversing (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "SIERRA",
    "annotation": {
@@ -1360,9 +1279,6 @@ window.CRYPTIC_PUZZLES["indysunday-1871"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Dragon losing a head, showing complacency? (8)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "SMUGNESS",
    "annotation": {

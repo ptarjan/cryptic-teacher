@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1843"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Exhaust Caucasian talking like Spooner? (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "TAILPIPE",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["indysunday-1843"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Deer hunter set up equipment (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "TACKLE",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["indysunday-1843"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Irruption from broken drain, nothing to stop it (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "INROAD",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["indysunday-1843"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Decorated parts of large garden, fencing apart (9)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "PAINTWORK",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["indysunday-1843"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Max intensity from little dog you can hear (4)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "PEAK",
    "annotation": null
@@ -110,9 +95,6 @@ window.CRYPTIC_PUZZLES["indysunday-1843"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Large bear coming over, American's fair game (4-2)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -131,9 +113,6 @@ window.CRYPTIC_PUZZLES["indysunday-1843"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Tiny amount of elasticity saving billions (5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "OUNCE",
    "annotation": null
@@ -148,9 +127,6 @@ window.CRYPTIC_PUZZLES["indysunday-1843"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "In favour of friend consuming no alcohol (8)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "PROPANOL",
    "annotation": null
@@ -165,9 +141,6 @@ window.CRYPTIC_PUZZLES["indysunday-1843"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Emperor's son expected to embrace king after bow (8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "ARCHDUKE",
    "annotation": null
@@ -182,9 +155,6 @@ window.CRYPTIC_PUZZLES["indysunday-1843"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Maybe envy what the Sistine Chapel has during conclave? (8,3)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -203,9 +173,6 @@ window.CRYPTIC_PUZZLES["indysunday-1843"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Careless make-up daughter has smeared (8)",
-   "group": [
-    "10-down"
-   ],
    "separatorLocations": {},
    "solution": "SLAPDASH",
    "annotation": null
@@ -220,9 +187,6 @@ window.CRYPTIC_PUZZLES["indysunday-1843"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Horrible being stuck in Mallorca (3)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "ORC",
    "annotation": null
@@ -237,9 +201,6 @@ window.CRYPTIC_PUZZLES["indysunday-1843"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Construction needing support, thin brace you'd say (4-2)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -258,9 +219,6 @@ window.CRYPTIC_PUZZLES["indysunday-1843"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "In case of feud, one coach for club with two mugs? (4,4)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -279,9 +237,6 @@ window.CRYPTIC_PUZZLES["indysunday-1843"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Want good spring after poor (4,4)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -300,9 +255,6 @@ window.CRYPTIC_PUZZLES["indysunday-1843"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Celebration permitted after boys made new national record (8,4)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -321,9 +273,6 @@ window.CRYPTIC_PUZZLES["indysunday-1843"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Animals that are one sort sing early (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "YEARLINGS",
    "annotation": null
@@ -338,9 +287,6 @@ window.CRYPTIC_PUZZLES["indysunday-1843"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "While gas sold regularly, using it? (2,4,2)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -360,9 +306,6 @@ window.CRYPTIC_PUZZLES["indysunday-1843"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Detective Murphy listened to chief (8)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "DICTATOR",
    "annotation": null
@@ -377,9 +320,6 @@ window.CRYPTIC_PUZZLES["indysunday-1843"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Very neat, smooth bridge broken by sharp hammer (5,3,4)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {
     ",": [
      5,
@@ -399,9 +339,6 @@ window.CRYPTIC_PUZZLES["indysunday-1843"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Disgraceful mark idiots picked up on degree course (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "STIGMA",
    "annotation": null
@@ -416,9 +353,6 @@ window.CRYPTIC_PUZZLES["indysunday-1843"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "5 years in prison and losing heart (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "PENTAD",
    "annotation": null
@@ -433,9 +367,6 @@ window.CRYPTIC_PUZZLES["indysunday-1843"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Motorcyclist worried route keeps clear? (8)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "OUTRIDER",
    "annotation": null
@@ -450,9 +381,6 @@ window.CRYPTIC_PUZZLES["indysunday-1843"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Problem remains with unfinished canal (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "ISSUE",
    "annotation": null
@@ -467,9 +395,6 @@ window.CRYPTIC_PUZZLES["indysunday-1843"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Carefree British drunk male (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "BLITHE",
    "annotation": null
@@ -484,9 +409,6 @@ window.CRYPTIC_PUZZLES["indysunday-1843"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Opponent learning code bored by books (4)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "ANTI",
    "annotation": null
@@ -501,9 +423,6 @@ window.CRYPTIC_PUZZLES["indysunday-1843"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Irritate chap, forgetting his name? (3)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "GET",
    "annotation": null
@@ -518,9 +437,6 @@ window.CRYPTIC_PUZZLES["indysunday-1843"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Tinsel arrayed, almost time for this song? (6,5)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -539,9 +455,6 @@ window.CRYPTIC_PUZZLES["indysunday-1843"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Course ship's taken across lake (6)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "SERIES",
    "annotation": null
@@ -556,9 +469,6 @@ window.CRYPTIC_PUZZLES["indysunday-1843"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Tree given dignified treatment after being cut? (5,3)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {
     ",": [
      5

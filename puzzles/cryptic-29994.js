@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29994"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Take off clothing quietly – like sex naked and calm (7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "APPEASE",
    "annotation": {
@@ -89,9 +86,6 @@ window.CRYPTIC_PUZZLES["cryptic-29994"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Can holding on then playing, win? (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "PREVAIL",
    "annotation": {
@@ -145,9 +139,6 @@ window.CRYPTIC_PUZZLES["cryptic-29994"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Prepare ecstasy and crack (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "EQUIP",
    "annotation": {
@@ -189,9 +180,6 @@ window.CRYPTIC_PUZZLES["cryptic-29994"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "One questioning pussy stopped by opening of catflap (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "SCEPTIC",
    "annotation": {
@@ -238,9 +226,6 @@ window.CRYPTIC_PUZZLES["cryptic-29994"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "England through winning match (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "BLIGHTY",
    "annotation": {
@@ -285,9 +270,6 @@ window.CRYPTIC_PUZZLES["cryptic-29994"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Contact newspaper: passage having line moved to top (6)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "LIAISE",
    "annotation": {
@@ -340,9 +322,6 @@ window.CRYPTIC_PUZZLES["cryptic-29994"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Enraged drunk covering up wearing syrup (9)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "GRENADINE",
    "annotation": {
@@ -387,9 +366,6 @@ window.CRYPTIC_PUZZLES["cryptic-29994"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Protecting a turtle at sea (7)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "TUTELAR",
    "annotation": {
@@ -483,9 +459,6 @@ window.CRYPTIC_PUZZLES["cryptic-29994"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Land every uppercut in left side (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "PERU",
    "annotation": {
@@ -532,9 +505,6 @@ window.CRYPTIC_PUZZLES["cryptic-29994"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "I get erect when excited hugging adult that might be hot in drag? (1-9)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     "-": [
      1
@@ -605,9 +575,6 @@ window.CRYPTIC_PUZZLES["cryptic-29994"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Home-improvement work with little drilling, sadly (8)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "DISMALLY",
    "annotation": {
@@ -655,9 +622,6 @@ window.CRYPTIC_PUZZLES["cryptic-29994"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Lay down part of hand – one folded at table? (5,4)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -700,9 +664,6 @@ window.CRYPTIC_PUZZLES["cryptic-29994"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Attention-seeker online to get on with bachelor needing sex (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "CLICKBAIT",
    "annotation": {
@@ -751,9 +712,6 @@ window.CRYPTIC_PUZZLES["cryptic-29994"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Supporter following most of top stars (5)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "LIBRA",
    "annotation": {
@@ -800,9 +758,6 @@ window.CRYPTIC_PUZZLES["cryptic-29994"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Holiday resort surrounded by country (5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "SPAIN",
    "annotation": {
@@ -841,9 +796,6 @@ window.CRYPTIC_PUZZLES["cryptic-29994"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Item of crockery placed on gold table (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "PLATEAU",
    "annotation": {
@@ -887,9 +839,6 @@ window.CRYPTIC_PUZZLES["cryptic-29994"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Older children learn about English name (3,6)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -955,9 +904,6 @@ window.CRYPTIC_PUZZLES["cryptic-29994"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Horse and cocaine runs through old addict (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "COURSER",
    "annotation": {
@@ -1017,9 +963,6 @@ window.CRYPTIC_PUZZLES["cryptic-29994"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Relaxed and went out after a lot of sex (7)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "SEDATED",
    "annotation": {
@@ -1068,9 +1011,6 @@ window.CRYPTIC_PUZZLES["cryptic-29994"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Folds money (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "POUNDS",
    "annotation": {
@@ -1106,9 +1046,6 @@ window.CRYPTIC_PUZZLES["cryptic-29994"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Bowls over grass to get prizes (8)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "JACKPOTS",
    "annotation": {
@@ -1156,9 +1093,6 @@ window.CRYPTIC_PUZZLES["cryptic-29994"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Winning team getting advantage (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "UPSIDE",
    "annotation": {
@@ -1200,9 +1134,6 @@ window.CRYPTIC_PUZZLES["cryptic-29994"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Rogue to con prince (5)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "SCAMP",
    "annotation": {
@@ -1244,9 +1175,6 @@ window.CRYPTIC_PUZZLES["cryptic-29994"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Unsold books and souvenirs outside front of airport (10)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "REMAINDERS",
    "annotation": {
@@ -1296,9 +1224,6 @@ window.CRYPTIC_PUZZLES["cryptic-29994"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Book performers (4)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "ACTS",
    "annotation": {
@@ -1334,9 +1259,6 @@ window.CRYPTIC_PUZZLES["cryptic-29994"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Extremely short experiment on rat (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "CURTEST",
    "annotation": {
@@ -1380,9 +1302,6 @@ window.CRYPTIC_PUZZLES["cryptic-29994"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "School gripped by teacher retiring after last of one-night stands (7)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "TRIPODS",
    "annotation": {

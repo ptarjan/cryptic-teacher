@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29917"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "I superfluously join two banks in which the same cards are issued (9,6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      9
@@ -46,9 +43,6 @@ window.CRYPTIC_PUZZLES["cryptic-29917"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Block a piece of drama making sudden transformation (9)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "DAMASCENE",
    "annotation": null
@@ -63,9 +57,6 @@ window.CRYPTIC_PUZZLES["cryptic-29917"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "On rising exude vigour, 4 across examples here (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "PASTIME",
    "annotation": null
@@ -80,9 +71,6 @@ window.CRYPTIC_PUZZLES["cryptic-29917"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Brood as Guantanamo is extremely tense (8)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "INCUBATE",
    "annotation": null
@@ -97,9 +85,6 @@ window.CRYPTIC_PUZZLES["cryptic-29917"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Radical supporter on left (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "ALLYL",
    "annotation": null
@@ -114,9 +99,6 @@ window.CRYPTIC_PUZZLES["cryptic-29917"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "From lectern, offer for sale one or two birds of prey (5-4)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -135,9 +117,6 @@ window.CRYPTIC_PUZZLES["cryptic-29917"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Old widow taking lid off article for repair (6)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "RELICT",
    "annotation": null
@@ -152,9 +131,6 @@ window.CRYPTIC_PUZZLES["cryptic-29917"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Marksman’s expressionless gaze (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "DEADEYE",
    "annotation": null
@@ -169,9 +145,6 @@ window.CRYPTIC_PUZZLES["cryptic-29917"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Distinctive character of those cycling (5)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "ETHOS",
    "annotation": null
@@ -186,9 +159,6 @@ window.CRYPTIC_PUZZLES["cryptic-29917"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Cats for example not normally considered this? (7)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "MUSICAL",
    "annotation": null
@@ -203,9 +173,6 @@ window.CRYPTIC_PUZZLES["cryptic-29917"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Turning, pig conceals curly bit, a monster (7)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "GOLIATH",
    "annotation": null
@@ -220,9 +187,6 @@ window.CRYPTIC_PUZZLES["cryptic-29917"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Indian address the US taxman rejected (3)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "SRI",
    "annotation": null
@@ -237,9 +201,6 @@ window.CRYPTIC_PUZZLES["cryptic-29917"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Revolutionary’s taking ammunition round: very brief opportunity to finish off king here (6,5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -258,9 +219,6 @@ window.CRYPTIC_PUZZLES["cryptic-29917"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Foolishly let eclair start to curdle in such a storm (10)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "ELECTRICAL",
    "annotation": null
@@ -275,9 +233,6 @@ window.CRYPTIC_PUZZLES["cryptic-29917"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Soon desert old sweetheart (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "INAMORATO",
    "annotation": null
@@ -292,9 +247,6 @@ window.CRYPTIC_PUZZLES["cryptic-29917"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Understood sourdough not provided with starter (4)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "READ",
    "annotation": null
@@ -309,9 +261,6 @@ window.CRYPTIC_PUZZLES["cryptic-29917"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Teacher, put my way some work I don’t know (4,3,2)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -331,9 +280,6 @@ window.CRYPTIC_PUZZLES["cryptic-29917"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "From people in leading university high-level options here (4,4)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -352,9 +298,6 @@ window.CRYPTIC_PUZZLES["cryptic-29917"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Observer takes in Queen Jane, a heroine (4)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "EYRE",
    "annotation": null
@@ -369,9 +312,6 @@ window.CRYPTIC_PUZZLES["cryptic-29917"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Cook, first to offer to stir dish (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "RISOTTO",
    "annotation": null
@@ -386,9 +326,6 @@ window.CRYPTIC_PUZZLES["cryptic-29917"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Favour cured meat, a somewhat dicey business (10)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "BACKGAMMON",
    "annotation": null
@@ -403,9 +340,6 @@ window.CRYPTIC_PUZZLES["cryptic-29917"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Nobel laureate’s emblem unknown (7)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "MARQUEZ",
    "annotation": null
@@ -420,9 +354,6 @@ window.CRYPTIC_PUZZLES["cryptic-29917"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Leg straps for James and Norman (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "JESSES",
    "annotation": null
@@ -437,9 +368,6 @@ window.CRYPTIC_PUZZLES["cryptic-29917"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "One small request, excessive space on motorway badly designed (11)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "MISBEGOTTEN",
    "annotation": null
@@ -454,9 +382,6 @@ window.CRYPTIC_PUZZLES["cryptic-29917"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Computer receiving new input initially furiously busy (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "MANIC",
    "annotation": null
@@ -471,9 +396,6 @@ window.CRYPTIC_PUZZLES["cryptic-29917"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Ready to drop some older items over (5)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "TIRED",
    "annotation": null
@@ -488,9 +410,6 @@ window.CRYPTIC_PUZZLES["cryptic-29917"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Laundry regularly returned, lots of it in the cells (1,1,1)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      1,
@@ -510,9 +429,6 @@ window.CRYPTIC_PUZZLES["cryptic-29917"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Possibly a Russian national tree (and American) (7)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "NATASHA",
    "annotation": null
@@ -527,9 +443,6 @@ window.CRYPTIC_PUZZLES["cryptic-29917"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Creature said to take to the water with young on back clinging to side of neck (7)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "ROEBUCK",
    "annotation": null
@@ -544,9 +457,6 @@ window.CRYPTIC_PUZZLES["cryptic-29917"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "This bad-tempered oath a mystery (9,6)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {
     ",": [
      9

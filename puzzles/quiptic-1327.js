@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1327"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Outward appearance of a cad eccentric? Not entirely (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "FACADE",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["quiptic-1327"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "More distant male relation, right to be included (7)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "FARTHER",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["quiptic-1327"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Priest’s collection of holy books (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "CANON",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["quiptic-1327"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Some foreign currency in fall? (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "DESCENT",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["quiptic-1327"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Did Caesar, being a calculating type, count on one? (6)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "ABACUS",
    "annotation": null
@@ -110,9 +95,6 @@ window.CRYPTIC_PUZZLES["quiptic-1327"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Be ill in bed – get released on condition (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "BAILED",
    "annotation": null
@@ -127,9 +109,6 @@ window.CRYPTIC_PUZZLES["quiptic-1327"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Plant cleaned, repositioned outside home (9)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "CELANDINE",
    "annotation": null
@@ -144,9 +123,6 @@ window.CRYPTIC_PUZZLES["quiptic-1327"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Temporarily stop American writer entering borders of Scotland (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "SUSPEND",
    "annotation": null
@@ -161,9 +137,6 @@ window.CRYPTIC_PUZZLES["quiptic-1327"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Led by devil, I start out on protest march maybe (13)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "DEMONSTRATION",
    "annotation": null
@@ -178,9 +151,6 @@ window.CRYPTIC_PUZZLES["quiptic-1327"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Member of family showing rancour to some extent (4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "GRAN",
    "annotation": null
@@ -195,9 +165,6 @@ window.CRYPTIC_PUZZLES["quiptic-1327"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Iciest Alps to be dealt with? Expert needed (10)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "SPECIALIST",
    "annotation": null
@@ -212,9 +179,6 @@ window.CRYPTIC_PUZZLES["quiptic-1327"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Alter money handed back to customer? (6)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "CHANGE",
    "annotation": null
@@ -229,9 +193,6 @@ window.CRYPTIC_PUZZLES["quiptic-1327"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Shrub, one confused with alder (8)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "OLEANDER",
    "annotation": null
@@ -246,9 +207,6 @@ window.CRYPTIC_PUZZLES["quiptic-1327"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Most intelligent, supreme? That’s about right (9)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "BRIGHTEST",
    "annotation": null
@@ -263,9 +221,6 @@ window.CRYPTIC_PUZZLES["quiptic-1327"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Digger Ann working, doing this? (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "GARDENING",
    "annotation": null
@@ -280,9 +235,6 @@ window.CRYPTIC_PUZZLES["quiptic-1327"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Good-natured type (4)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "KIND",
    "annotation": null
@@ -297,9 +249,6 @@ window.CRYPTIC_PUZZLES["quiptic-1327"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Island’s second rescue vessel (4)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "SARK",
    "annotation": null
@@ -314,9 +263,6 @@ window.CRYPTIC_PUZZLES["quiptic-1327"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Bear’s belly (7)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "STOMACH",
    "annotation": null
@@ -331,9 +277,6 @@ window.CRYPTIC_PUZZLES["quiptic-1327"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Time to meet odd disciple, a musician (9)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "TRUMPETER",
    "annotation": null
@@ -348,9 +291,6 @@ window.CRYPTIC_PUZZLES["quiptic-1327"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Generator a gent repaired in next to no time (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "MAGNETO",
    "annotation": null
@@ -365,9 +305,6 @@ window.CRYPTIC_PUZZLES["quiptic-1327"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "A gentle drunk being refined (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "ELEGANT",
    "annotation": null
@@ -382,9 +319,6 @@ window.CRYPTIC_PUZZLES["quiptic-1327"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Item of clothing that is hidden under spade? (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "CARDIE",
    "annotation": null
@@ -399,9 +333,6 @@ window.CRYPTIC_PUZZLES["quiptic-1327"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Witches and social worker establishing agreement (8)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "COVENANT",
    "annotation": null
@@ -416,9 +347,6 @@ window.CRYPTIC_PUZZLES["quiptic-1327"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Georgia dying initially to obtain useful device (6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "GADGET",
    "annotation": null
@@ -433,9 +361,6 @@ window.CRYPTIC_PUZZLES["quiptic-1327"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Gloomy music awful – little good in it (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "DIRGE",
    "annotation": null
@@ -450,9 +375,6 @@ window.CRYPTIC_PUZZLES["quiptic-1327"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Unchanged after setback, madam is one such (10)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "PALINDROME",
    "annotation": null
@@ -467,9 +389,6 @@ window.CRYPTIC_PUZZLES["quiptic-1327"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Perch across a highway (4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "ROAD",
    "annotation": null
@@ -484,9 +403,6 @@ window.CRYPTIC_PUZZLES["quiptic-1327"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Superior charter, we hear (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "HIGHER",
    "annotation": null
@@ -501,9 +417,6 @@ window.CRYPTIC_PUZZLES["quiptic-1327"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Decent little house, comfy home (6)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "HONEST",
    "annotation": null

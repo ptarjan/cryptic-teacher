@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29996"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Who will volunteer in a big city matter? (7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "ANYBODY",
    "annotation": {
@@ -77,9 +74,6 @@ window.CRYPTIC_PUZZLES["cryptic-29996"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Falls over climbing crag out of bounds (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "NIAGARA",
    "annotation": {
@@ -132,9 +126,6 @@ window.CRYPTIC_PUZZLES["cryptic-29996"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Cash that folds inside turban knot essentially (9)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "BANKNOTES",
    "annotation": {
@@ -169,9 +160,6 @@ window.CRYPTIC_PUZZLES["cryptic-29996"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Commit seconds to advising Gen X? (6)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "DEVOTE",
    "annotation": {
@@ -218,9 +206,6 @@ window.CRYPTIC_PUZZLES["cryptic-29996"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "In retrospect working both sides of casino is impossible (2,3,2)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -281,9 +266,6 @@ window.CRYPTIC_PUZZLES["cryptic-29996"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Refined lead ore contains note – it’s poisonous if ingested (8)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "OLEANDER",
    "annotation": {
@@ -329,9 +311,6 @@ window.CRYPTIC_PUZZLES["cryptic-29996"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Record American left behind (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "ALBUM",
    "annotation": {
@@ -377,9 +356,6 @@ window.CRYPTIC_PUZZLES["cryptic-29996"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Stays in ground instead (7)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "DETAINS",
    "annotation": {
@@ -445,9 +421,6 @@ window.CRYPTIC_PUZZLES["cryptic-29996"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "This might help vehicle that’s regularly going the wrong way (3-3)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -503,9 +476,6 @@ window.CRYPTIC_PUZZLES["cryptic-29996"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Rather get away without minor inconvenience (4-4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -624,9 +594,6 @@ window.CRYPTIC_PUZZLES["cryptic-29996"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Bob maybe in N. London borough (6)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "BARNET",
    "annotation": {
@@ -664,9 +631,6 @@ window.CRYPTIC_PUZZLES["cryptic-29996"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Attendant doctor possessing perfect penmanship at the outset (8)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "HANDMAID",
    "annotation": {
@@ -719,9 +683,6 @@ window.CRYPTIC_PUZZLES["cryptic-29996"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Unknown joining Disney to make music (5)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "WALTZ",
    "annotation": {
@@ -768,9 +729,6 @@ window.CRYPTIC_PUZZLES["cryptic-29996"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Crush West when revolutionary invades – being easily shocked (9)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "SQUEAMISH",
    "annotation": {
@@ -827,9 +785,6 @@ window.CRYPTIC_PUZZLES["cryptic-29996"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Scandalmonger’s best mate covers chest up (4-5)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -889,9 +844,6 @@ window.CRYPTIC_PUZZLES["cryptic-29996"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Vegetating, comic Eric Morecambe is finally visiting Naxos on vacation (8)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "IDLENESS",
    "annotation": {
@@ -946,9 +898,6 @@ window.CRYPTIC_PUZZLES["cryptic-29996"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Financial assistance from founders securing a little investment (9)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "SUBSIDIES",
    "annotation": {
@@ -999,9 +948,6 @@ window.CRYPTIC_PUZZLES["cryptic-29996"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Everyone can see this news about independent business run as symbol of Scotland (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "UNICORN",
    "annotation": {
@@ -1067,9 +1013,6 @@ window.CRYPTIC_PUZZLES["cryptic-29996"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Small PC close to price range (5)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "SCOPE",
    "annotation": {
@@ -1119,9 +1062,6 @@ window.CRYPTIC_PUZZLES["cryptic-29996"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Compile 12 to make argument (7)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "POLEMIC",
    "annotation": {
@@ -1184,9 +1124,6 @@ window.CRYPTIC_PUZZLES["cryptic-29996"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Particularly noxious six books on order (8)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "VIRULENT",
    "annotation": {
@@ -1236,9 +1173,6 @@ window.CRYPTIC_PUZZLES["cryptic-29996"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Two European articles below (5)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "UNDER",
    "annotation": {
@@ -1277,9 +1211,6 @@ window.CRYPTIC_PUZZLES["cryptic-29996"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Uhura discovered characters bringing up the rear in red will die in difficulty (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "HURDLE",
    "annotation": {
@@ -1383,9 +1314,6 @@ window.CRYPTIC_PUZZLES["cryptic-29996"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Also manage to hold sign saying farewell (6-2)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {
     "-": [
      6
@@ -1440,9 +1368,6 @@ window.CRYPTIC_PUZZLES["cryptic-29996"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Originally, everyone sees knitting is my love language (6)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "ESKIMO",
    "annotation": {
@@ -1486,9 +1411,6 @@ window.CRYPTIC_PUZZLES["cryptic-29996"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Occasionally teenagers obsess and completely engage (7)",
-   "group": [
-    "30-across"
-   ],
    "separatorLocations": {},
    "solution": "ENGROSS",
    "annotation": {
@@ -1529,9 +1451,6 @@ window.CRYPTIC_PUZZLES["cryptic-29996"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Huge egg supplier in Germany – east of Berlin – I must get right involved (7)",
-   "group": [
-    "31-across"
-   ],
    "separatorLocations": {},
    "solution": "OSTRICH",
    "annotation": {

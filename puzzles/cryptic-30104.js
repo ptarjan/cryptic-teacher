@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30104"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Hit fine pull shot over Crawley’s head (poor delivery) (4,5)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -84,9 +81,6 @@ window.CRYPTIC_PUZZLES["cryptic-30104"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Unable to outrun wolves, must one turn to this beauty treatment? (4,4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -131,9 +125,6 @@ window.CRYPTIC_PUZZLES["cryptic-30104"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Antagonist of Bond film topped by M’s predecessor (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "LARGO",
    "annotation": {
@@ -177,9 +168,6 @@ window.CRYPTIC_PUZZLES["cryptic-30104"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Man’s lover arranged NHS hospital trip to discharge son (14)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "PHILANTHROPIST",
    "annotation": {
@@ -224,9 +212,6 @@ window.CRYPTIC_PUZZLES["cryptic-30104"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Jewel merchant and his glassmaker son, did they quarrel at all? (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "TIFFANY",
    "annotation": {
@@ -264,9 +249,6 @@ window.CRYPTIC_PUZZLES["cryptic-30104"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Hamlet’s intimate means to compare Santa Clauses? (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "HORATIO",
    "annotation": {
@@ -304,9 +286,6 @@ window.CRYPTIC_PUZZLES["cryptic-30104"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "What follows wine, women … turned on … ? (4)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "SNOG",
    "annotation": {
@@ -357,9 +336,6 @@ window.CRYPTIC_PUZZLES["cryptic-30104"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Like some leaves I needn’t’ve braised (3-6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -401,9 +377,6 @@ window.CRYPTIC_PUZZLES["cryptic-30104"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "One in a special class (6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "GENIUS",
    "annotation": {
@@ -448,9 +421,6 @@ window.CRYPTIC_PUZZLES["cryptic-30104"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Faith right to stop Cross and Cook climbing peak of Mount Sinai (14)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {},
    "solution": "ZOROASTRIANISM",
    "annotation": {
@@ -516,9 +486,6 @@ window.CRYPTIC_PUZZLES["cryptic-30104"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Old queen’s favourite brother, Joe (5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "CORGI",
    "annotation": {
@@ -556,9 +523,6 @@ window.CRYPTIC_PUZZLES["cryptic-30104"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Neglected wetland in which ordinary river has become dry (9)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "FORGOTTEN",
    "annotation": {
@@ -620,9 +584,6 @@ window.CRYPTIC_PUZZLES["cryptic-30104"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Commensurately paid singer left for auditorium (3,4)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -671,9 +632,6 @@ window.CRYPTIC_PUZZLES["cryptic-30104"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Formally, you are, curiously, probing social critic (7)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "THOREAU",
    "annotation": {
@@ -711,9 +669,6 @@ window.CRYPTIC_PUZZLES["cryptic-30104"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "To acquire Amtrak, possibly involve US clodhopper (7,6)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -772,9 +727,6 @@ window.CRYPTIC_PUZZLES["cryptic-30104"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Who’s reprimanding United attacker for preserving lead? (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "UPBRAIDER",
    "annotation": {
@@ -827,9 +779,6 @@ window.CRYPTIC_PUZZLES["cryptic-30104"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Mr Pearce unwisely let a lot of folk use his dominant partner (4,4)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -868,9 +817,6 @@ window.CRYPTIC_PUZZLES["cryptic-30104"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Barrels were returned empty? I’m not sure I can forgo tack (8,5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -927,9 +873,6 @@ window.CRYPTIC_PUZZLES["cryptic-30104"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Performers in show withdrawing favourite number (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "BILLION",
    "annotation": {
@@ -979,9 +922,6 @@ window.CRYPTIC_PUZZLES["cryptic-30104"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Turner makes function appear larger on screen? (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "CAPSTAN",
    "annotation": {
@@ -1022,9 +962,6 @@ window.CRYPTIC_PUZZLES["cryptic-30104"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Wanting a taste of 25, cook basmati dish (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "TSAMBA",
    "annotation": {
@@ -1071,9 +1008,6 @@ window.CRYPTIC_PUZZLES["cryptic-30104"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Essential for operator training to cut speaker’s initial connection (7)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "SCALPEL",
    "annotation": {
@@ -1124,9 +1058,6 @@ window.CRYPTIC_PUZZLES["cryptic-30104"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Libertine tactic used to find car park space for Spooner? (7)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "PLAYBOY",
    "annotation": {
@@ -1175,9 +1106,6 @@ window.CRYPTIC_PUZZLES["cryptic-30104"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Bathroom ‘fixture’? It’d be ‘fitting’ (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "BIDET",
    "annotation": {
@@ -1215,9 +1143,6 @@ window.CRYPTIC_PUZZLES["cryptic-30104"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "On counter, neatly sews single storage unit in garment (4-5)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -1280,9 +1205,6 @@ window.CRYPTIC_PUZZLES["cryptic-30104"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "International relief supplies finally flown around land (5)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "INDIA",
    "annotation": {
@@ -1340,9 +1262,6 @@ window.CRYPTIC_PUZZLES["cryptic-30104"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Which current runs through area by centre of Leeds? (4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "AIRE",
    "annotation": {
@@ -1387,9 +1306,6 @@ window.CRYPTIC_PUZZLES["cryptic-30104"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Small unit moving near to Bury not including this person (9)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "NANOMETRE",
    "annotation": {

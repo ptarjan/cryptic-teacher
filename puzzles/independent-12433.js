@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12433"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Quiet at the back, Roger! (5)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "SHAFT",
    "annotation": {
@@ -65,9 +62,6 @@ window.CRYPTIC_PUZZLES["independent-12433"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Film part of Black Narcissus? (5)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "SHOOT",
    "annotation": {
@@ -108,9 +102,6 @@ window.CRYPTIC_PUZZLES["independent-12433"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "An experienced martial artist can flay you slowly (9)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "ANDANTINO",
    "annotation": {
@@ -162,9 +153,6 @@ window.CRYPTIC_PUZZLES["independent-12433"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "One's filled with food yet goes around snaffling bread (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "TROLLEY",
    "annotation": {
@@ -212,9 +200,6 @@ window.CRYPTIC_PUZZLES["independent-12433"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Queen with palace close to Ebbsfleet or Barking (9)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "CLEOPATRA",
    "annotation": {
@@ -267,9 +252,6 @@ window.CRYPTIC_PUZZLES["independent-12433"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "People love getting shot by him (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "CUPID",
    "annotation": {
@@ -301,9 +283,6 @@ window.CRYPTIC_PUZZLES["independent-12433"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Vote for Hull ensemble's lead conductor (9)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "ELECTRODE",
    "annotation": {
@@ -349,9 +328,6 @@ window.CRYPTIC_PUZZLES["independent-12433"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Film old northerner with uniform on (7)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "PICTURE",
    "annotation": {
@@ -398,9 +374,6 @@ window.CRYPTIC_PUZZLES["independent-12433"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Sort out one's trunks (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "TORSI",
    "annotation": {
@@ -442,9 +415,6 @@ window.CRYPTIC_PUZZLES["independent-12433"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Lack of balance in upcoming TV awards defended by a judge (9)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "ASYMMETRY",
    "annotation": {
@@ -500,9 +470,6 @@ window.CRYPTIC_PUZZLES["independent-12433"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Unlikely double act formed when poodle dances with short duck (3,6)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -554,9 +521,6 @@ window.CRYPTIC_PUZZLES["independent-12433"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Bear in horror film released from trap (5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "CARRY",
    "annotation": {
@@ -591,9 +555,6 @@ window.CRYPTIC_PUZZLES["independent-12433"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Confused old German director's on set at last (7)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "TANGLED",
    "annotation": {
@@ -640,9 +601,6 @@ window.CRYPTIC_PUZZLES["independent-12433"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Travel to ancient city with one manuscript from the East (7)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "TOURISM",
    "annotation": {
@@ -703,9 +661,6 @@ window.CRYPTIC_PUZZLES["independent-12433"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "A film screened by Bluebird's generating goodwill (5)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "AMITY",
    "annotation": {
@@ -755,9 +710,6 @@ window.CRYPTIC_PUZZLES["independent-12433"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Wild boar turned quieter in garden (9)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "ARBORETUM",
    "annotation": {
@@ -813,9 +765,6 @@ window.CRYPTIC_PUZZLES["independent-12433"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "One month camping following a repayment (9)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "ATONEMENT",
    "annotation": {
@@ -868,9 +817,6 @@ window.CRYPTIC_PUZZLES["independent-12433"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Divorced blokes finally get Penthouse? (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "APARTMENT",
    "annotation": {
@@ -922,9 +868,6 @@ window.CRYPTIC_PUZZLES["independent-12433"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Dotty, Brody and Nye discovered going after Eve, Tom, Dick and Harry (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "EVERYBODY",
    "annotation": {
@@ -977,9 +920,6 @@ window.CRYPTIC_PUZZLES["independent-12433"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Surprising announcement by King worried about revolutionary record label (9)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "BOOKPLATE",
    "annotation": {
@@ -1041,9 +981,6 @@ window.CRYPTIC_PUZZLES["independent-12433"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Just over half of paratroopers punished proportionately (3,4)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -1087,9 +1024,6 @@ window.CRYPTIC_PUZZLES["independent-12433"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "E key fixed by guy primarily interested in computers? (5)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "GEEKY",
    "annotation": {
@@ -1137,9 +1071,6 @@ window.CRYPTIC_PUZZLES["independent-12433"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Universal Soldier (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "GENERAL",
    "annotation": {
@@ -1180,9 +1111,6 @@ window.CRYPTIC_PUZZLES["independent-12433"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Hastily release Lulu single after group experiences regular losses (4,3)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -1227,9 +1155,6 @@ window.CRYPTIC_PUZZLES["independent-12433"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Determined boy conceals alien (3,2)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -1274,9 +1199,6 @@ window.CRYPTIC_PUZZLES["independent-12433"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Anyone getting aggravated and dead angry (7)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "ANNOYED",
    "annotation": {
@@ -1323,9 +1245,6 @@ window.CRYPTIC_PUZZLES["independent-12433"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Poet with a bare head is depressed (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "AUDEN",
    "annotation": {
@@ -1368,9 +1287,6 @@ window.CRYPTIC_PUZZLES["independent-12433"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "One who eats at home, embarrassed to go about outside (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "DINER",
    "annotation": {
@@ -1418,9 +1334,6 @@ window.CRYPTIC_PUZZLES["independent-12433"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Lawrence emptied trawler - one fish! (5)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "TETRA",
    "annotation": {
@@ -1466,9 +1379,6 @@ window.CRYPTIC_PUZZLES["independent-12433"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "On the radio, setter had a clue type getting blanket coverage (9)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "EIDERDOWN",
    "annotation": {
@@ -1512,9 +1422,6 @@ window.CRYPTIC_PUZZLES["independent-12433"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Isle of Man Tourist Trophy area overrun by Chinese people (9)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "MANHATTAN",
    "annotation": {
@@ -1570,9 +1477,6 @@ window.CRYPTIC_PUZZLES["independent-12433"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Film actor quietly leaving (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "LAYER",
    "annotation": {

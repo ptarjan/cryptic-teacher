@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12404"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Old woman going round key or island (5)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "MALTA",
    "annotation": {
@@ -74,9 +71,6 @@ window.CRYPTIC_PUZZLES["independent-12404"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Prominent Communist holding position in African capital (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "MAPUTO",
    "annotation": {
@@ -123,9 +117,6 @@ window.CRYPTIC_PUZZLES["independent-12404"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Need a platform - supported by one Conservative associate ineffectually (15)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "LACKADAISICALLY",
    "annotation": {
@@ -192,9 +183,6 @@ window.CRYPTIC_PUZZLES["independent-12404"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Biblical city with one American subject in region (9)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "ARIMATHEA",
    "annotation": {
@@ -247,9 +235,6 @@ window.CRYPTIC_PUZZLES["independent-12404"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Schoolfellow had meal after ship brought in shellfish (9)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "CLASSMATE",
    "annotation": {
@@ -301,9 +286,6 @@ window.CRYPTIC_PUZZLES["independent-12404"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Demanding to drop target? Hold on (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "CLING",
    "annotation": {
@@ -346,9 +328,6 @@ window.CRYPTIC_PUZZLES["independent-12404"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "A sign outside ranch, home to old car marque (4,5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -411,9 +390,6 @@ window.CRYPTIC_PUZZLES["independent-12404"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Son sadly getting half twisted in dance (5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "SALSA",
    "annotation": {
@@ -467,9 +443,6 @@ window.CRYPTIC_PUZZLES["independent-12404"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Crap to animate us immoderately? It’s nothing important (1,5,2,1,6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      1,
@@ -521,9 +494,6 @@ window.CRYPTIC_PUZZLES["independent-12404"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Former partner went to involve court, as anticipated (8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "EXPECTED",
    "annotation": {
@@ -576,9 +546,6 @@ window.CRYPTIC_PUZZLES["independent-12404"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Composer recalled trophy given to contralto in Italy (7)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "PUCCINI",
    "annotation": {
@@ -642,9 +609,6 @@ window.CRYPTIC_PUZZLES["independent-12404"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Writer was keenly aware of suggestion (4,3)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -686,9 +650,6 @@ window.CRYPTIC_PUZZLES["independent-12404"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Sailor embracing one with a crown (5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "TIARA",
    "annotation": {
@@ -741,9 +702,6 @@ window.CRYPTIC_PUZZLES["independent-12404"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Rather ancient anger returning in Georgia with scheme falling short (9)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "GERIATRIC",
    "annotation": {
@@ -806,9 +764,6 @@ window.CRYPTIC_PUZZLES["independent-12404"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Victorian device indicative of changing times? (7,7)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -843,9 +798,6 @@ window.CRYPTIC_PUZZLES["independent-12404"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Reminiscences? No way seaweed will grip one (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "NOSTALGIA",
    "annotation": {
@@ -902,9 +854,6 @@ window.CRYPTIC_PUZZLES["independent-12404"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Bill getting misplaced in sequence? It’s due to the cold (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "CHILBLAIN",
    "annotation": {
@@ -957,9 +906,6 @@ window.CRYPTIC_PUZZLES["independent-12404"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "A pig securing very old record? It’s better than average (5,3)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -1022,9 +968,6 @@ window.CRYPTIC_PUZZLES["independent-12404"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Vacation inspiring Sayers novel (7,7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -1059,9 +1002,6 @@ window.CRYPTIC_PUZZLES["independent-12404"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Central heating smelly, not initially fresh (6)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "CHEEKY",
    "annotation": {
@@ -1104,9 +1044,6 @@ window.CRYPTIC_PUZZLES["independent-12404"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Be unsteady, being sick during leave (9)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "VACILLATE",
    "annotation": {
@@ -1153,9 +1090,6 @@ window.CRYPTIC_PUZZLES["independent-12404"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Record company bringing up some imperishable ballad (5)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "LABEL",
    "annotation": {
@@ -1196,9 +1130,6 @@ window.CRYPTIC_PUZZLES["independent-12404"] = /*JSON-START*/ {
      31,
      5
     ]
-   ],
-   "group": [
-    "21-down"
    ],
    "separatorLocations": {},
    "solution": "EXTRA",
@@ -1254,9 +1185,6 @@ window.CRYPTIC_PUZZLES["independent-12404"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Person who’s busy with letters on taps, wooden (5)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "BEECH",
    "annotation": {
@@ -1295,9 +1223,6 @@ window.CRYPTIC_PUZZLES["independent-12404"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Activist willing to talk, but losing heart when backing common use of plastic (4,3)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -1346,9 +1271,6 @@ window.CRYPTIC_PUZZLES["independent-12404"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Dazed state after consuming hot slice (7)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "TRANCHE",
    "annotation": {
@@ -1395,9 +1317,6 @@ window.CRYPTIC_PUZZLES["independent-12404"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Bit of apple glory, cultivated in the style of NZ variety (5,4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -1460,9 +1379,6 @@ window.CRYPTIC_PUZZLES["independent-12404"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Feeling cold? Note fast-food shop, not church (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "NIPPY",
    "annotation": {

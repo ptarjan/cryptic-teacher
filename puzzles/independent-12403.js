@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12403"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Rogue charged seen in a dock endlessly (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "ABERRANT",
    "annotation": {
@@ -73,9 +70,6 @@ window.CRYPTIC_PUZZLES["independent-12403"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Whatever it takes from New York hobo and Cork boy (2,4,2,2,5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -128,9 +122,6 @@ window.CRYPTIC_PUZZLES["independent-12403"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Recipe the last word in noodles (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "RAMEN",
    "annotation": {
@@ -171,9 +162,6 @@ window.CRYPTIC_PUZZLES["independent-12403"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Old canine somehow beginning to talk (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "ANCIENT",
    "annotation": {
@@ -217,9 +205,6 @@ window.CRYPTIC_PUZZLES["independent-12403"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Temperature lowered initially in America's city (5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "TULSA",
    "annotation": {
@@ -271,9 +256,6 @@ window.CRYPTIC_PUZZLES["independent-12403"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Weary Willies pee in streetcars (6)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "TRAMPS",
    "annotation": {
@@ -317,9 +299,6 @@ window.CRYPTIC_PUZZLES["independent-12403"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Drake's outside drawn into coach deal (5-2)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -369,9 +348,6 @@ window.CRYPTIC_PUZZLES["independent-12403"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Declaration FIFA put out: Stateside lawyer against it (9)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "AFFIDAVIT",
    "annotation": {
@@ -438,9 +414,6 @@ window.CRYPTIC_PUZZLES["independent-12403"] = /*JSON-START*/ {
      9
     ]
    ],
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      8,
@@ -484,9 +457,6 @@ window.CRYPTIC_PUZZLES["independent-12403"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Toxic campaign in Africa where calm disrupted (8,7)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -530,9 +500,6 @@ window.CRYPTIC_PUZZLES["independent-12403"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Urban resident to admit severing link (6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "TOWNIE",
    "annotation": {
@@ -579,9 +546,6 @@ window.CRYPTIC_PUZZLES["independent-12403"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "English road taken through a bleak Welsh town (8)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "ABERDARE",
    "annotation": {
@@ -631,9 +595,6 @@ window.CRYPTIC_PUZZLES["independent-12403"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Amateur player from insanely rich nation (10)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "CORINTHIAN",
    "annotation": {
@@ -673,9 +634,6 @@ window.CRYPTIC_PUZZLES["independent-12403"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Facial make-up used by the police? (9)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "IDENTIKIT",
    "annotation": {
@@ -706,9 +664,6 @@ window.CRYPTIC_PUZZLES["independent-12403"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Bad practice where doctor dismissed (3)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "ILL",
    "annotation": {
@@ -753,9 +708,6 @@ window.CRYPTIC_PUZZLES["independent-12403"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Ego in goods vehicle always looking in mirror (4)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "VAIN",
    "annotation": {
@@ -799,9 +751,6 @@ window.CRYPTIC_PUZZLES["independent-12403"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Clever message concealing its opening (4)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "ABLE",
    "annotation": {
@@ -843,9 +792,6 @@ window.CRYPTIC_PUZZLES["independent-12403"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Readiness to eat shown by one in safety (10)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "SALIVATION",
    "annotation": {
@@ -892,9 +838,6 @@ window.CRYPTIC_PUZZLES["independent-12403"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Employee in post about to be recalled (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "STAFFER",
    "annotation": {
@@ -946,9 +889,6 @@ window.CRYPTIC_PUZZLES["independent-12403"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Animal doctor worked near warhorse (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "VETERAN",
    "annotation": {
@@ -997,9 +937,6 @@ window.CRYPTIC_PUZZLES["independent-12403"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Bed left in smooth state once (8)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "SCOTLAND",
    "annotation": {
@@ -1049,9 +986,6 @@ window.CRYPTIC_PUZZLES["independent-12403"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Reasonable belief in beatitude is misplaced (5)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "DEISM",
    "annotation": {
@@ -1085,9 +1019,6 @@ window.CRYPTIC_PUZZLES["independent-12403"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Support from AA where drinker heads without whiskey (3,3)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -1135,9 +1066,6 @@ window.CRYPTIC_PUZZLES["independent-12403"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Social realist in healthy society (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "WELLS",
    "annotation": {
@@ -1177,9 +1105,6 @@ window.CRYPTIC_PUZZLES["independent-12403"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Surprise move for big wedding venue in European location (4,2,9)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -1242,9 +1167,6 @@ window.CRYPTIC_PUZZLES["independent-12403"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Fish by river: one to glide across frozen surface (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "SKATER",
    "annotation": {
@@ -1284,9 +1206,6 @@ window.CRYPTIC_PUZZLES["independent-12403"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Object to view around yard in contemplation (5,3)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      5

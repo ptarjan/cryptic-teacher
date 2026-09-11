@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1864"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Name muscle-bound actor as Fairy Godmother (12)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "BENEFACTRESS",
    "annotation": {
@@ -80,9 +77,6 @@ window.CRYPTIC_PUZZLES["indysunday-1864"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Peel tuber for cooking programme (4,5)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -123,9 +117,6 @@ window.CRYPTIC_PUZZLES["indysunday-1864"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Official witness to any Republican dodges (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "NOTARY",
    "annotation": {
@@ -167,9 +158,6 @@ window.CRYPTIC_PUZZLES["indysunday-1864"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Cross journalist covering conflict sent on to another (9)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "FORWARDED",
    "annotation": {
@@ -218,9 +206,6 @@ window.CRYPTIC_PUZZLES["indysunday-1864"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Long line of cars? (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "CABLE",
    "annotation": {
@@ -251,9 +236,6 @@ window.CRYPTIC_PUZZLES["indysunday-1864"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Dark hens fancy one with colourful legs (8)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "REDSHANK",
    "annotation": {
@@ -290,9 +272,6 @@ window.CRYPTIC_PUZZLES["indysunday-1864"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Fleece as thin as tights, you'd say (5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "SHEAR",
    "annotation": {
@@ -327,9 +306,6 @@ window.CRYPTIC_PUZZLES["indysunday-1864"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Charming party held by great guy you hardly know (12)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "ACQUAINTANCE",
    "annotation": {
@@ -379,9 +355,6 @@ window.CRYPTIC_PUZZLES["indysunday-1864"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Collect Charlie Sheen on Wall Street? (7)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {},
    "solution": "CLUSTER",
    "annotation": {
@@ -424,9 +397,6 @@ window.CRYPTIC_PUZZLES["indysunday-1864"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "University replacing last of cheap parking to make room (5,2)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -484,9 +454,6 @@ window.CRYPTIC_PUZZLES["indysunday-1864"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Gift wrapping season, November's advance warning (12)",
-   "group": [
-    "10-down"
-   ],
    "separatorLocations": {},
    "solution": "PRESENTIMENT",
    "annotation": {
@@ -536,9 +503,6 @@ window.CRYPTIC_PUZZLES["indysunday-1864"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Capital, winning an event (5-4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -585,9 +549,6 @@ window.CRYPTIC_PUZZLES["indysunday-1864"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Migrants coming through Sandwich or Deal (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "HORDE",
    "annotation": {
@@ -622,9 +583,6 @@ window.CRYPTIC_PUZZLES["indysunday-1864"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Hot on piebald horse, wiping head (4)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "INTO",
    "annotation": {
@@ -661,9 +619,6 @@ window.CRYPTIC_PUZZLES["indysunday-1864"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Very tough mother opposed to ibuprofen finally admitted to A&E (10)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "ADAMANTINE",
    "annotation": {
@@ -721,9 +676,6 @@ window.CRYPTIC_PUZZLES["indysunday-1864"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Pieces' pieces? (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "MOVEMENTS",
    "annotation": {
@@ -754,9 +706,6 @@ window.CRYPTIC_PUZZLES["indysunday-1864"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Start filling Aussie's truck, carrying melons to the north (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "INSTITUTE",
    "annotation": {
@@ -813,9 +762,6 @@ window.CRYPTIC_PUZZLES["indysunday-1864"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Thump insensitive bigmouth (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "BLOWHARD",
    "annotation": {
@@ -852,9 +798,6 @@ window.CRYPTIC_PUZZLES["indysunday-1864"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "True love juggling with two donations - just the first of those? (10)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "TURTLEDOVE",
    "annotation": {
@@ -898,9 +841,6 @@ window.CRYPTIC_PUZZLES["indysunday-1864"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Secret alert, with ship in port unloading gold (4)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "PSST",
    "annotation": {
@@ -951,9 +891,6 @@ window.CRYPTIC_PUZZLES["indysunday-1864"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Break - nearly all want one in Rome (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "LACUNA",
    "annotation": {
@@ -996,9 +933,6 @@ window.CRYPTIC_PUZZLES["indysunday-1864"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Recognise Thatcherite Chancellor on the radio? Not at all (5)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "NOHOW",
    "annotation": {
@@ -1043,9 +977,6 @@ window.CRYPTIC_PUZZLES["indysunday-1864"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Where shoes may have to be removed, socks protecting you? (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "HOUSE",
    "annotation": {
@@ -1089,9 +1020,6 @@ window.CRYPTIC_PUZZLES["indysunday-1864"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Space to work out my amusing anagrams (9)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "GYMNASIUM",
    "annotation": {
@@ -1128,9 +1056,6 @@ window.CRYPTIC_PUZZLES["indysunday-1864"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Pick up good tip (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "GLEAN",
    "annotation": {
@@ -1167,9 +1092,6 @@ window.CRYPTIC_PUZZLES["indysunday-1864"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Fast runner passed rival (7)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "EMULATE",
    "annotation": {
@@ -1206,9 +1128,6 @@ window.CRYPTIC_PUZZLES["indysunday-1864"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Pacific Islander going east or west? (7)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "NAURUAN",
    "annotation": {
@@ -1248,9 +1167,6 @@ window.CRYPTIC_PUZZLES["indysunday-1864"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Charge fellow spreading faeces for pig (4,4,4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {
     ",": [
      4,

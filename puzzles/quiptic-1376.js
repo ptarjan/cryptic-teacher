@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "One in fifties, ultimately unhappy, wanting company (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "LONELY",
    "annotation": {
@@ -80,9 +77,6 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Crazy tenor Cyril is songwriter (8)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "LYRICIST",
    "annotation": {
@@ -125,9 +119,6 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "No grandmother accepts bad smell – it’s alien?! (3-5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -185,9 +176,6 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Raid implement turned up (4)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "LOOT",
    "annotation": {
@@ -231,9 +219,6 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Deliberately damage bog at sea, recklessly (8)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "SABOTAGE",
    "annotation": {
@@ -271,9 +256,6 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Short forms of Abba’s no 1 rivet Brahms and Liszt (13)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "ABBREVIATIONS",
    "annotation": {
@@ -314,9 +296,6 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Falls over our Doberman’s tail, crashing down at floor level? (2,3,5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -376,9 +355,6 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Fly from America, passing through borders of Timor-Leste (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "AVIATE",
    "annotation": {
@@ -431,9 +407,6 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Time for a snack, perhaps bite of Kissabel Eve nicked (6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "ELEVEN",
    "annotation": {
@@ -468,9 +441,6 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Drummer’s jingle bell ball (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "RINGO",
    "annotation": {
@@ -512,9 +482,6 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Transport provider in deep water! (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "SUBMARINE",
    "annotation": {
@@ -549,9 +516,6 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Are snake-shape bananas something to do with the Bard? (13)",
-   "group": [
-    "10-down"
-   ],
    "separatorLocations": {},
    "solution": "SHAKESPEAREAN",
    "annotation": {
@@ -589,9 +553,6 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Hint endlessly and start to badger association (4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "CLUB",
    "annotation": {
@@ -640,9 +601,6 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Note setter’s renown (4)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "FAME",
    "annotation": {
@@ -684,9 +642,6 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Not finishing most recent coffee (5)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "LATTE",
    "annotation": {
@@ -724,9 +679,6 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Ice cream, almost a ton! (6-4)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     "-": [
      6
@@ -766,9 +718,6 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "We heard spy let out a long breath at the beach (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "SEASIDE",
    "annotation": {
@@ -813,9 +762,6 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "God’s lazy, by the sounds of it (4)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "IDOL",
    "annotation": {
@@ -854,9 +800,6 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Spar all-electric ferries running alongside (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "PARALLEL",
    "annotation": {
@@ -892,9 +835,6 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Spooner’s displayed fish eggs for mobile exhibition? (8)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "ROADSHOW",
    "annotation": {
@@ -940,9 +880,6 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Give me a hand – the record’s skipping intro (4)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "HELP",
    "annotation": {
@@ -989,9 +926,6 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Violent storm split academy party (7)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "TORNADO",
    "annotation": {
@@ -1036,9 +970,6 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Hot ear, left at last, small signs of love? (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "HEARTS",
    "annotation": {
@@ -1094,9 +1025,6 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Energy for every season (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "PEPPER",
    "annotation": {
@@ -1135,9 +1063,6 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Opponent at first escaped, nevertheless eventually must yield (5)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "ENEMY",
    "annotation": {
@@ -1179,9 +1104,6 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Name at the end, A N Other, concisely? (4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "ANON",
    "annotation": {
@@ -1227,9 +1149,6 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Group broadcasting prohibited (4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "BAND",
    "annotation": {
@@ -1265,9 +1184,6 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Instrument to plumb loo pipe ends (4)",
-   "group": [
-    "26-down"
-   ],
    "separatorLocations": {},
    "solution": "OBOE",
    "annotation": {
@@ -1308,9 +1224,6 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Fixers, they get couples back together again? (9)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "REPAIRERS",
    "annotation": {
@@ -1349,9 +1262,6 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Rebel chorister conceals burp (5)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "BELCH",
    "annotation": {
@@ -1386,9 +1296,6 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Doctor gets near police officer (8)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "SERGEANT",
    "annotation": {
@@ -1426,9 +1333,6 @@ window.CRYPTIC_PUZZLES["quiptic-1376"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Cowardly, shout ‘that hurts!’ (6)",
-   "group": [
-    "30-across"
-   ],
    "separatorLocations": {},
    "solution": "YELLOW",
    "annotation": {

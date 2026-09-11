@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30103"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Wine-drinking insect, creepy-crawly (7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "BEASTIE",
    "annotation": {
@@ -71,9 +68,6 @@ window.CRYPTIC_PUZZLES["cryptic-30103"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Charm in a second cracking magical character up (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "ENAMOUR",
    "annotation": {
@@ -128,9 +122,6 @@ window.CRYPTIC_PUZZLES["cryptic-30103"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Express then: green light (3-2)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -171,9 +162,6 @@ window.CRYPTIC_PUZZLES["cryptic-30103"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Princess seemingly enjoying orange bubble bath? (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "INFANTA",
    "annotation": {
@@ -213,9 +201,6 @@ window.CRYPTIC_PUZZLES["cryptic-30103"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Pot is as hot, thrice stirred (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "HASHISH",
    "annotation": {
@@ -257,9 +242,6 @@ window.CRYPTIC_PUZZLES["cryptic-30103"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Canopy breaking, roof shearing off (6)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "AWNING",
    "annotation": {
@@ -301,9 +283,6 @@ window.CRYPTIC_PUZZLES["cryptic-30103"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Short poem on a rank 14 (3,6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -375,9 +354,6 @@ window.CRYPTIC_PUZZLES["cryptic-30103"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Test teams heading for Pakistan, cricket, say, talks about that (13)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {},
    "solution": "INSPECTORATES",
    "annotation": {
@@ -429,9 +405,6 @@ window.CRYPTIC_PUZZLES["cryptic-30103"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Not Old Spice! (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "BABY",
    "annotation": {
@@ -463,9 +436,6 @@ window.CRYPTIC_PUZZLES["cryptic-30103"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Nuts cracked by trendy bankers (10)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "FINANCIERS",
    "annotation": {
@@ -509,9 +479,6 @@ window.CRYPTIC_PUZZLES["cryptic-30103"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Wrap up, wearing 14? (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "COCOON",
    "annotation": {
@@ -548,9 +515,6 @@ window.CRYPTIC_PUZZLES["cryptic-30103"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Underwear, inside which butt – and dangly things (8)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "PENDANTS",
    "annotation": {
@@ -594,9 +558,6 @@ window.CRYPTIC_PUZZLES["cryptic-30103"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Opium, say, kid smuggled into country (9)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "FRAGRANCE",
    "annotation": {
@@ -640,9 +601,6 @@ window.CRYPTIC_PUZZLES["cryptic-30103"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Dark art of server, visibly in pain (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "GRIMACING",
    "annotation": {
@@ -679,9 +637,6 @@ window.CRYPTIC_PUZZLES["cryptic-30103"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Flower remains bathed in hours of sunlight (5)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "DAISY",
    "annotation": {
@@ -725,9 +680,6 @@ window.CRYPTIC_PUZZLES["cryptic-30103"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Stuck in Belfast, Irishman busy (5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "ASTIR",
    "annotation": {
@@ -761,9 +713,6 @@ window.CRYPTIC_PUZZLES["cryptic-30103"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Pipe down, soon crossing new river (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "SHANNON",
    "annotation": {
@@ -813,9 +762,6 @@ window.CRYPTIC_PUZZLES["cryptic-30103"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Going west, has set out – a different way? (5-4)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -856,9 +802,6 @@ window.CRYPTIC_PUZZLES["cryptic-30103"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Old still, preserve order (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "TINTYPE",
    "annotation": {
@@ -895,9 +838,6 @@ window.CRYPTIC_PUZZLES["cryptic-30103"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Kitchen implement: it has inspired me to gather up last bit of fondant! (7)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "SPATULA",
    "annotation": {
@@ -952,9 +892,6 @@ window.CRYPTIC_PUZZLES["cryptic-30103"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Piece noted through observations on a tangent (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "SONATA",
    "annotation": {
@@ -988,9 +925,6 @@ window.CRYPTIC_PUZZLES["cryptic-30103"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Stellenbosch country certainly not embraced by wine lover (8)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "CASANOVA",
    "annotation": {
@@ -1040,9 +974,6 @@ window.CRYPTIC_PUZZLES["cryptic-30103"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Sweet wrappers from Ouagadougou and Giza filling empty net (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "NOUGAT",
    "annotation": {
@@ -1095,9 +1026,6 @@ window.CRYPTIC_PUZZLES["cryptic-30103"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Of Asian citizens, fifth of which live in European country (5)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "UZBEK",
    "annotation": {
@@ -1246,9 +1174,6 @@ window.CRYPTIC_PUZZLES["cryptic-30103"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "As ‘Curious’, Britney Spears, is for presbyterians? (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "ANAGRAM",
    "annotation": {

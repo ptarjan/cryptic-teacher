@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30098"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Last mad daring involved in horrendous battle (10)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "STALINGRAD",
    "annotation": {
@@ -74,9 +71,6 @@ window.CRYPTIC_PUZZLES["cryptic-30098"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Exploit you reserve for films (8)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "FEATURES",
    "annotation": {
@@ -122,9 +116,6 @@ window.CRYPTIC_PUZZLES["cryptic-30098"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "A second attempt to fix a wrong (6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "ASTRAY",
    "annotation": {
@@ -180,9 +171,6 @@ window.CRYPTIC_PUZZLES["cryptic-30098"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Plant conifer, not houses (4)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "FERN",
    "annotation": {
@@ -216,9 +204,6 @@ window.CRYPTIC_PUZZLES["cryptic-30098"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Time to wear first shoe? Capable of operating independently (10)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "STANDALONE",
    "annotation": {
@@ -268,9 +253,6 @@ window.CRYPTIC_PUZZLES["cryptic-30098"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Troy protected by unscrupulous Olympian (8)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "IMMORTAL",
    "annotation": {
@@ -314,9 +296,6 @@ window.CRYPTIC_PUZZLES["cryptic-30098"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Good advice in most of cricket book, offering much for openers (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "WISDOM",
    "annotation": {
@@ -364,9 +343,6 @@ window.CRYPTIC_PUZZLES["cryptic-30098"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Turning up, agreed to accept kiss: so exciting (4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "SEXY",
    "annotation": {
@@ -421,9 +397,6 @@ window.CRYPTIC_PUZZLES["cryptic-30098"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "One of perhaps 16 having short nap – couldn’t be shorter (9)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "TEENSIEST",
    "annotation": {
@@ -471,9 +444,6 @@ window.CRYPTIC_PUZZLES["cryptic-30098"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Here’s Augusta: important, second in Georgia (5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "MAINE",
    "annotation": {
@@ -517,9 +487,6 @@ window.CRYPTIC_PUZZLES["cryptic-30098"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Behind sailors touring a palace (7)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "LATERAN",
    "annotation": {
@@ -570,9 +537,6 @@ window.CRYPTIC_PUZZLES["cryptic-30098"] = /*JSON-START*/ {
    "length": 7,
    "clue": "  (7)",
    "clueMissing": true,
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "NOONDAY",
    "annotation": null,
@@ -588,9 +552,6 @@ window.CRYPTIC_PUZZLES["cryptic-30098"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Anxious, not at first very worried (5)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "NERVY",
    "annotation": {
@@ -641,9 +602,6 @@ window.CRYPTIC_PUZZLES["cryptic-30098"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Imogen has key to get back home for these regular occasions (9)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "MEALTIMES",
    "annotation": {
@@ -702,9 +660,6 @@ window.CRYPTIC_PUZZLES["cryptic-30098"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Old art of singing in church, energy dropping, intermittently lusty (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "MINSTRELSY",
    "annotation": {
@@ -758,9 +713,6 @@ window.CRYPTIC_PUZZLES["cryptic-30098"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Talk about date followed by letter, quick way to seek a mate (5,5)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -816,9 +768,6 @@ window.CRYPTIC_PUZZLES["cryptic-30098"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Bad service aboard Trans-Siberian railway, say, a perilous enterprise (7,8)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -868,9 +817,6 @@ window.CRYPTIC_PUZZLES["cryptic-30098"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Working together, fit to join lineout (2,6)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -919,9 +865,6 @@ window.CRYPTIC_PUZZLES["cryptic-30098"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Barrel carried by dog finally dropped? Shocking (8)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "TERRIBLE",
    "annotation": {
@@ -967,9 +910,6 @@ window.CRYPTIC_PUZZLES["cryptic-30098"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Large quantity of drink: declare it bubbly (9)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "DECALITRE",
    "annotation": {
@@ -1006,9 +946,6 @@ window.CRYPTIC_PUZZLES["cryptic-30098"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Rich, so getting replacement for several groups of singers (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "CHOIRS",
    "annotation": {
@@ -1048,9 +985,6 @@ window.CRYPTIC_PUZZLES["cryptic-30098"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Murderous monarch, one idolised by daughter (5)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "HEROD",
    "annotation": {
@@ -1090,9 +1024,6 @@ window.CRYPTIC_PUZZLES["cryptic-30098"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Greeting wife, giving reverence (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "HALLOW",
    "annotation": {
@@ -1132,9 +1063,6 @@ window.CRYPTIC_PUZZLES["cryptic-30098"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Sort of light worried baby (7)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "NEONATE",
    "annotation": {
@@ -1171,9 +1099,6 @@ window.CRYPTIC_PUZZLES["cryptic-30098"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Kiss cheek (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "NECK",
    "annotation": {
@@ -1205,9 +1130,6 @@ window.CRYPTIC_PUZZLES["cryptic-30098"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Want to catch falcon regularly returning ravenous (7)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "WOLFISH",
    "annotation": {
@@ -1261,9 +1183,6 @@ window.CRYPTIC_PUZZLES["cryptic-30098"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Showed sorrow as all of us part (4)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "WEPT",
    "annotation": {
@@ -1303,9 +1222,6 @@ window.CRYPTIC_PUZZLES["cryptic-30098"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Island shivering in 4C? (5)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "CORFU",
    "annotation": {
@@ -1345,9 +1261,6 @@ window.CRYPTIC_PUZZLES["cryptic-30098"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Dramatist’s concession, filling gaps with a bit of comedy (9)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "SOPHOCLES",
    "annotation": {

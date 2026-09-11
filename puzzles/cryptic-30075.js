@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Disguised male questioned (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "MASKED",
    "annotation": {
@@ -64,9 +61,6 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Fail to attend precious flipping trip (7)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "MISSTEP",
    "annotation": {
@@ -115,9 +109,6 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Request for help involving Calvin Klein footwear (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "SOCKS",
    "annotation": {
@@ -162,9 +153,6 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Former ride-share company worker is vivacious (9)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "EXUBERANT",
    "annotation": {
@@ -210,9 +198,6 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Dish of unusual grain (7)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "RAREBIT",
    "annotation": {
@@ -252,9 +237,6 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Withdraw from English area after start of revolution (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "RETRACT",
    "annotation": {
@@ -308,9 +290,6 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Traitor I love in proportion (5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "RATIO",
    "annotation": {
@@ -356,9 +335,6 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Pub ban before Scotsman gets savage (9)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "BARBARIAN",
    "annotation": {
@@ -410,9 +386,6 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Former X contributor without sway (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "TEETER",
    "annotation": {
@@ -454,9 +427,6 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Protect upstanding US agent on border (6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "DEFEND",
    "annotation": {
@@ -505,9 +475,6 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Uncle cuts up plant (9)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "SUCCULENT",
    "annotation": {
@@ -544,9 +511,6 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Short tenor getting refreshed on and off (5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "TERSE",
    "annotation": {
@@ -592,9 +556,6 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Sample bit of pasta stealthily (5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "TASTE",
    "annotation": {
@@ -628,9 +589,6 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Make speech after European scientist’s workplace gets involved (9)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "ELABORATE",
    "annotation": {
@@ -682,9 +640,6 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Bill quietly left a club? (7)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "PLACARD",
    "annotation": {
@@ -733,9 +688,6 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "PM behind expression of hesitation regarding accepting refusal (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "AFTERNOON",
    "annotation": {
@@ -790,9 +742,6 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Root of change I proposed initially (6)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "TURNIP",
    "annotation": {
@@ -844,9 +793,6 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Try rising during sincere broadcast for Grant (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "RECOGNISE",
    "annotation": {
@@ -901,9 +847,6 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Effigy of union’s leader embraced by nation (6)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "STATUE",
    "annotation": {
@@ -952,9 +895,6 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Competitor in event ran tirelessly (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "ENTRANT",
    "annotation": {
@@ -988,9 +928,6 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Brief note concerning one Conservative snorting cocaine (7)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "LACONIC",
    "annotation": {
@@ -1051,9 +988,6 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Is a lie tricky to communicate? (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "LIAISE",
    "annotation": {
@@ -1093,9 +1027,6 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Be unfaithful to Charlie with passion and touching (5,2)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -1146,9 +1077,6 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Small person parking next to quiet verge (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "SHRIMP",
    "annotation": {
@@ -1197,9 +1125,6 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "That woman sorted out table with a hot drink (6,3)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -1245,9 +1170,6 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Disorganised leaders of army training session elicit apathy (2,3)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -1292,9 +1214,6 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Pleased with mouse finally finding space in forest (5)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "GLADE",
    "annotation": {
@@ -1340,9 +1259,6 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Anticipate a pressure for auditor (5)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "AWAIT",
    "annotation": {
@@ -1386,9 +1302,6 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Smooths out chains (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "IRONS",
    "annotation": {
@@ -1422,9 +1335,6 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Mugger is idiot upset by six footer (9)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "ASSAILANT",
    "annotation": {
@@ -1470,9 +1380,6 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Quibbler holds new medallion (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "PENDANT",
    "annotation": {
@@ -1516,9 +1423,6 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Hammered bachelor put away (6)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "BEATEN",
    "annotation": {

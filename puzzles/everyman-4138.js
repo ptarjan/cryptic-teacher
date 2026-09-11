@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4138"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Nightspot strike (4)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "CLUB",
    "annotation": {
@@ -61,9 +58,6 @@ window.CRYPTIC_PUZZLES["everyman-4138"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Vice-consul unwisely decisive (10)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "CONCLUSIVE",
    "annotation": {
@@ -100,9 +94,6 @@ window.CRYPTIC_PUZZLES["everyman-4138"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Merrily reunited, embracing queen that's snubbed (10)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "UNREQUITED",
    "annotation": {
@@ -157,9 +148,6 @@ window.CRYPTIC_PUZZLES["everyman-4138"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Affected to welcome company that's smart, irritatingly so (10)",
-   "group": [
-    "3-across"
-   ],
    "separatorLocations": {},
    "solution": "PRECOCIOUS",
    "annotation": {
@@ -206,9 +194,6 @@ window.CRYPTIC_PUZZLES["everyman-4138"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Disturbed, with hair on end, ran away (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "RUFFLED",
    "annotation": {
@@ -260,9 +245,6 @@ window.CRYPTIC_PUZZLES["everyman-4138"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Having entered church, tends to purify (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "CLEANSE",
    "annotation": {
@@ -309,9 +291,6 @@ window.CRYPTIC_PUZZLES["everyman-4138"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "King, seeing that, to pass waterway in fold (5,3,4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      5,
@@ -368,9 +347,6 @@ window.CRYPTIC_PUZZLES["everyman-4138"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Cockney tramp that's found among the reeds (4)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "OBOE",
    "annotation": {
@@ -413,9 +389,6 @@ window.CRYPTIC_PUZZLES["everyman-4138"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Posed first of stiff challenges for schoolchildren (4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "SATS",
    "annotation": {
@@ -458,9 +431,6 @@ window.CRYPTIC_PUZZLES["everyman-4138"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "How to describe 'nudism' in the extreme? It's accepted behaviour (4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "NORM",
    "annotation": {
@@ -512,9 +482,6 @@ window.CRYPTIC_PUZZLES["everyman-4138"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Like some laundry ready to put away? Ish (5,1,4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      5,
@@ -553,9 +520,6 @@ window.CRYPTIC_PUZZLES["everyman-4138"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Vandal all but leering unpleasantly: let's move on (4,3,5)",
-   "group": [
-    "11-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -604,9 +568,6 @@ window.CRYPTIC_PUZZLES["everyman-4138"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "£51: midday meal that includes booze (6,5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -653,9 +614,6 @@ window.CRYPTIC_PUZZLES["everyman-4138"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Bisque's prepared with coconut, regularly aiming to please (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "OBSEQUIOUS",
    "annotation": {
@@ -702,9 +660,6 @@ window.CRYPTIC_PUZZLES["everyman-4138"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "A setter had to dance: it's not a good look (5,5)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -748,9 +703,6 @@ window.CRYPTIC_PUZZLES["everyman-4138"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "A little bookie's tip endangered a little bit of money (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "STIPEND",
    "annotation": {
@@ -784,9 +736,6 @@ window.CRYPTIC_PUZZLES["everyman-4138"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Dignify the Spanish worthy across the Pyrénées heading west (7)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "ENNOBLE",
    "annotation": {
@@ -837,9 +786,6 @@ window.CRYPTIC_PUZZLES["everyman-4138"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Drive around volcano somewhere in Indochina (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "VIETNAM",
    "annotation": {
@@ -883,9 +829,6 @@ window.CRYPTIC_PUZZLES["everyman-4138"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Emotionally affect topless hooligan in retreat (4,3)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -940,9 +883,6 @@ window.CRYPTIC_PUZZLES["everyman-4138"] = /*JSON-START*/ {
      34,
      8
     ]
-   ],
-   "group": [
-    "19-across"
    ],
    "separatorLocations": {},
    "solution": "AMBIENT",
@@ -1000,9 +940,6 @@ window.CRYPTIC_PUZZLES["everyman-4138"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Lack awareness of stomach muscles, did you say? (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "ABSENCE",
    "annotation": {
@@ -1046,9 +983,6 @@ window.CRYPTIC_PUZZLES["everyman-4138"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "England cricket captain no more after charge announced, he wrote (4-7)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -1099,9 +1033,6 @@ window.CRYPTIC_PUZZLES["everyman-4138"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Leaving France, get to make lasting impression (4)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "ETCH",
    "annotation": {
@@ -1146,9 +1077,6 @@ window.CRYPTIC_PUZZLES["everyman-4138"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Primarily punctilious, reserved in manner? (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "PRIM",
    "annotation": {
@@ -1182,9 +1110,6 @@ window.CRYPTIC_PUZZLES["everyman-4138"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Unexpected event: performer getting drinks for everyone (10)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "TURNAROUND",
    "annotation": {
@@ -1225,9 +1150,6 @@ window.CRYPTIC_PUZZLES["everyman-4138"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "On reflection, Bard's river is one full of light (4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "NOVA",
    "annotation": {
@@ -1273,9 +1195,6 @@ window.CRYPTIC_PUZZLES["everyman-4138"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Geography / history unit: shame I failed? (10)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "HUMANITIES",
    "annotation": {
@@ -1312,9 +1231,6 @@ window.CRYPTIC_PUZZLES["everyman-4138"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Everyman - scenes - regularly falling out - that's understood (1,3)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {
     ",": [
      1

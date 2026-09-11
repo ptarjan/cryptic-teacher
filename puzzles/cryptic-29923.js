@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29923"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Bowler, say, after wicket in present appeal (4,4)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -46,9 +43,6 @@ window.CRYPTIC_PUZZLES["cryptic-29923"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Light-skinned monster (3)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "ORC",
    "annotation": null
@@ -63,9 +57,6 @@ window.CRYPTIC_PUZZLES["cryptic-29923"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Steel, silver, silicon or scandium, say? (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "SWORD",
    "annotation": null
@@ -80,9 +71,6 @@ window.CRYPTIC_PUZZLES["cryptic-29923"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Six eggs I eye, loosely speaking, would be twice that? (4,1,5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -102,9 +90,6 @@ window.CRYPTIC_PUZZLES["cryptic-29923"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Trains including first from Hillingdon that runs through London (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "THAMES",
    "annotation": null
@@ -119,9 +104,6 @@ window.CRYPTIC_PUZZLES["cryptic-29923"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Time has passed say detaining new recruit (6)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "ENGAGE",
    "annotation": null
@@ -136,9 +118,6 @@ window.CRYPTIC_PUZZLES["cryptic-29923"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Fair seductress disrobed (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "EXPO",
    "annotation": null
@@ -153,9 +132,6 @@ window.CRYPTIC_PUZZLES["cryptic-29923"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Huge trapper or trappee detailed? (9)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "GINORMOUS",
    "annotation": null
@@ -170,9 +146,6 @@ window.CRYPTIC_PUZZLES["cryptic-29923"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Gloomy street crossing near particular football club (7,4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -191,9 +164,6 @@ window.CRYPTIC_PUZZLES["cryptic-29923"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Train left, second half of train first (6)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "SCHOOL",
    "annotation": null
@@ -228,9 +198,6 @@ window.CRYPTIC_PUZZLES["cryptic-29923"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Wash, as will washing machine, for example (4,5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -249,9 +216,6 @@ window.CRYPTIC_PUZZLES["cryptic-29923"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Sovereign to be paid (11)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {},
    "solution": "OUTSTANDING",
    "annotation": null
@@ -286,9 +250,6 @@ window.CRYPTIC_PUZZLES["cryptic-29923"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Five torpedoes where room built for blade-on-blade machine (5,5)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -307,9 +268,6 @@ window.CRYPTIC_PUZZLES["cryptic-29923"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Exaggerated echoing in flow of universe – superficial design (6)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "TATTOO",
    "annotation": null
@@ -324,9 +282,6 @@ window.CRYPTIC_PUZZLES["cryptic-29923"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Every man on board has to try with all at sea (6-3)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {
     "-": [
      6
@@ -345,9 +300,6 @@ window.CRYPTIC_PUZZLES["cryptic-29923"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Settlement describing two dots? (6)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "COLONY",
    "annotation": null
@@ -384,9 +336,6 @@ window.CRYPTIC_PUZZLES["cryptic-29923"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Extremes of thoughtlessness in builder? Come on! (4,2)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -405,9 +354,6 @@ window.CRYPTIC_PUZZLES["cryptic-29923"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Trial where runner climbs towards peak in Peru (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "PRELIM",
    "annotation": null
@@ -422,9 +368,6 @@ window.CRYPTIC_PUZZLES["cryptic-29923"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Ally with entourage stripped back (5)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "UNITE",
    "annotation": null
@@ -503,9 +446,6 @@ window.CRYPTIC_PUZZLES["cryptic-29923"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Tortilla cooked beside the water (8)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "LITTORAL",
    "annotation": null
@@ -545,9 +485,6 @@ window.CRYPTIC_PUZZLES["cryptic-29923"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "In audition, make pot (3)",
-   "group": [
-    "27-down"
-   ],
    "separatorLocations": {},
    "solution": "URN",
    "annotation": null
@@ -562,9 +499,6 @@ window.CRYPTIC_PUZZLES["cryptic-29923"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Blank page released from grip, one that’s tight (6)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "IGNORE",
    "annotation": null

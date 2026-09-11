@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1377"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "After vehicle test I have reason to act (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "MOTIVE",
    "annotation": {
@@ -71,9 +68,6 @@ window.CRYPTIC_PUZZLES["quiptic-1377"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Mum has a ride around island (7)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "MADEIRA",
    "annotation": {
@@ -119,9 +113,6 @@ window.CRYPTIC_PUZZLES["quiptic-1377"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Bit of English in that awful Greek letter (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "THETA",
    "annotation": {
@@ -167,9 +158,6 @@ window.CRYPTIC_PUZZLES["quiptic-1377"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Five Eastern saints holding a service of prayer (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "VESPERS",
    "annotation": {
@@ -227,9 +215,6 @@ window.CRYPTIC_PUZZLES["quiptic-1377"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Plant grown for fibre – tricky affair (6)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "RAFFIA",
    "annotation": {
@@ -267,9 +252,6 @@ window.CRYPTIC_PUZZLES["quiptic-1377"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "A new Mass includes the piece for choir to sing (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "ANTHEM",
    "annotation": {
@@ -325,9 +307,6 @@ window.CRYPTIC_PUZZLES["quiptic-1377"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Visible sign of conflagration? Escape, hiding anger (9)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "FIRELIGHT",
    "annotation": {
@@ -372,9 +351,6 @@ window.CRYPTIC_PUZZLES["quiptic-1377"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Gathered in the morning to meet idiot, paper boss (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "AMASSED",
    "annotation": {
@@ -421,9 +397,6 @@ window.CRYPTIC_PUZZLES["quiptic-1377"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Loo sprayed with antiseptic in public building (6,7)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -474,9 +447,6 @@ window.CRYPTIC_PUZZLES["quiptic-1377"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Cutting tool carried by mad zealot (4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "ADZE",
    "annotation": {
@@ -511,9 +481,6 @@ window.CRYPTIC_PUZZLES["quiptic-1377"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Sad brother munched biscuit (10)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "SHORTBREAD",
    "annotation": {
@@ -551,9 +518,6 @@ window.CRYPTIC_PUZZLES["quiptic-1377"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Lively Virginia sunk in wickedness (6)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "VIVACE",
    "annotation": {
@@ -598,9 +562,6 @@ window.CRYPTIC_PUZZLES["quiptic-1377"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "One trade arrangement is mooted initially with unrealistic outlook? (8)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "IDEALISM",
    "annotation": {
@@ -659,9 +620,6 @@ window.CRYPTIC_PUZZLES["quiptic-1377"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Hindrance restricting holy person and lawyer (9)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "BARRISTER",
    "annotation": {
@@ -709,9 +667,6 @@ window.CRYPTIC_PUZZLES["quiptic-1377"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Tried once to reform? Not straightforward (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "RECONDITE",
    "annotation": {
@@ -749,9 +704,6 @@ window.CRYPTIC_PUZZLES["quiptic-1377"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Expression of surprise, say, when given notice (4)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "EGAD",
    "annotation": {
@@ -792,9 +744,6 @@ window.CRYPTIC_PUZZLES["quiptic-1377"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Grimace shown by female star (4)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "FACE",
    "annotation": {
@@ -841,9 +790,6 @@ window.CRYPTIC_PUZZLES["quiptic-1377"] = /*JSON-START*/ {
      1
     ]
    ],
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "FORBEAR",
    "annotation": {
@@ -887,9 +833,6 @@ window.CRYPTIC_PUZZLES["quiptic-1377"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Chalet – it’s adapted for sport (9)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "ATHLETICS",
    "annotation": {
@@ -931,9 +874,6 @@ window.CRYPTIC_PUZZLES["quiptic-1377"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Most meagre bird’s home to south of meadow (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "LEANEST",
    "annotation": {
@@ -977,9 +917,6 @@ window.CRYPTIC_PUZZLES["quiptic-1377"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Old king embracing member in academic institution (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "COLLEGE",
    "annotation": {
@@ -1027,9 +964,6 @@ window.CRYPTIC_PUZZLES["quiptic-1377"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Thus love article that makes you calm down (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "SOOTHE",
    "annotation": {
@@ -1076,9 +1010,6 @@ window.CRYPTIC_PUZZLES["quiptic-1377"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Produce sort of sound to interrupt fight (5,3)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -1127,9 +1058,6 @@ window.CRYPTIC_PUZZLES["quiptic-1377"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Country with an extraordinary goal (6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "ANGOLA",
    "annotation": {
@@ -1175,9 +1103,6 @@ window.CRYPTIC_PUZZLES["quiptic-1377"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Nana eating one bit of cereal? (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "GRAIN",
    "annotation": {
@@ -1222,9 +1147,6 @@ window.CRYPTIC_PUZZLES["quiptic-1377"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Poet needs hard cord put around plant (10)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "HELIOTROPE",
    "annotation": {
@@ -1277,9 +1199,6 @@ window.CRYPTIC_PUZZLES["quiptic-1377"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Soldiers appearing after a last word of prayer (4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "AMEN",
    "annotation": {
@@ -1323,9 +1242,6 @@ window.CRYPTIC_PUZZLES["quiptic-1377"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Midshipman’s joint (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "REEFER",
    "annotation": {
@@ -1363,9 +1279,6 @@ window.CRYPTIC_PUZZLES["quiptic-1377"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "One cat to be doctored immediately (2,4)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     ",": [
      2

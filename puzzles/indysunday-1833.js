@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1833"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "A breeze, even at sea (5,7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -46,9 +43,6 @@ window.CRYPTIC_PUZZLES["indysunday-1833"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Piano heavenly maiden keeps up for English lord (4,2,3,5)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -69,9 +63,6 @@ window.CRYPTIC_PUZZLES["indysunday-1833"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Distributor of loaves and fishes has job dividing drink (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "APOSTLE",
    "annotation": null
@@ -86,9 +77,6 @@ window.CRYPTIC_PUZZLES["indysunday-1833"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Feeling less clear about seat of power (6,3)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -107,9 +95,6 @@ window.CRYPTIC_PUZZLES["indysunday-1833"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "African running along behind American on the outside (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "ANGOLAN",
    "annotation": null
@@ -124,9 +109,6 @@ window.CRYPTIC_PUZZLES["indysunday-1833"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Lineker's predecessor left a lot of people upset (5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "LYNAM",
    "annotation": null
@@ -141,9 +123,6 @@ window.CRYPTIC_PUZZLES["indysunday-1833"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "GI's head treated by Spooner in surgery (4,3)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -162,9 +141,6 @@ window.CRYPTIC_PUZZLES["indysunday-1833"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "White lioness wandering across street? One changes sides in case (7,7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -183,9 +159,6 @@ window.CRYPTIC_PUZZLES["indysunday-1833"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Certainly, marines get out of shape (6)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {},
    "solution": "DEFORM",
    "annotation": null
@@ -200,9 +173,6 @@ window.CRYPTIC_PUZZLES["indysunday-1833"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Scouts' cabaret jokes involving new method (4,4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -221,9 +191,6 @@ window.CRYPTIC_PUZZLES["indysunday-1833"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Place where you need English and French both strange et normal (8)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "MONTREAL",
    "annotation": null
@@ -238,9 +205,6 @@ window.CRYPTIC_PUZZLES["indysunday-1833"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Cocktail has oomph with vermouth added in (6)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "MOJITO",
    "annotation": null
@@ -255,9 +219,6 @@ window.CRYPTIC_PUZZLES["indysunday-1833"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Spot last year's swallows (4)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "STYE",
    "annotation": null
@@ -272,9 +233,6 @@ window.CRYPTIC_PUZZLES["indysunday-1833"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Fairy made from stone by the roadside to fill order (6,4)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -293,9 +251,6 @@ window.CRYPTIC_PUZZLES["indysunday-1833"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "City in the Champions League playing in Devon, eh? (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "EINDHOVEN",
    "annotation": null
@@ -310,9 +265,6 @@ window.CRYPTIC_PUZZLES["indysunday-1833"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Sickly youth drinking etc, a boozy mess (3,7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -331,9 +283,6 @@ window.CRYPTIC_PUZZLES["indysunday-1833"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Dry sausage caught by software that's unreliable, mostly (7)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "CHORIZO",
    "annotation": null
@@ -348,9 +297,6 @@ window.CRYPTIC_PUZZLES["indysunday-1833"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Ban consequently restricts doctor back in Chattanooga (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "EMBARGO",
    "annotation": null
@@ -365,9 +311,6 @@ window.CRYPTIC_PUZZLES["indysunday-1833"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Small beard cut with teeth (4)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "SAWN",
    "annotation": null
@@ -382,9 +325,6 @@ window.CRYPTIC_PUZZLES["indysunday-1833"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Uranium in anti-aircraft missile curtailed sortie for old fighter (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "SAMURAI",
    "annotation": null
@@ -399,9 +339,6 @@ window.CRYPTIC_PUZZLES["indysunday-1833"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Bang on target for ship in a storm? (6)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "REPORT",
    "annotation": null
@@ -416,9 +353,6 @@ window.CRYPTIC_PUZZLES["indysunday-1833"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Championship belt Italian holds aloft (5)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "TITLE",
    "annotation": null
@@ -433,9 +367,6 @@ window.CRYPTIC_PUZZLES["indysunday-1833"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Great being hot, covered with insects (8)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "BEHEMOTH",
    "annotation": null
@@ -450,9 +381,6 @@ window.CRYPTIC_PUZZLES["indysunday-1833"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Flog relics to monastery (8)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "CLOISTER",
    "annotation": null
@@ -467,9 +395,6 @@ window.CRYPTIC_PUZZLES["indysunday-1833"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Monkey really having tail clipped by horse-doctor? (6)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "VERVET",
    "annotation": null
@@ -484,9 +409,6 @@ window.CRYPTIC_PUZZLES["indysunday-1833"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Wrecked Syrian city contains green and free area in SE (4,8)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     ",": [
      4

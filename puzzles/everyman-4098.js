@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4098"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "S American footballers damage animals' home - again! (6,4)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -46,9 +43,6 @@ window.CRYPTIC_PUZZLES["everyman-4098"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Pipsqueak, second with attitude (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "SLIP",
    "annotation": null
@@ -63,9 +57,6 @@ window.CRYPTIC_PUZZLES["everyman-4098"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Oscar wearing fleece, a square (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "FOUR",
    "annotation": null
@@ -80,9 +71,6 @@ window.CRYPTIC_PUZZLES["everyman-4098"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Predecessor redeployed, prepared for new task (11)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "REPROCESSED",
    "annotation": null
@@ -97,9 +85,6 @@ window.CRYPTIC_PUZZLES["everyman-4098"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Spanish bread, once risen: gorge before 30 days (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "PESETAS",
    "annotation": null
@@ -114,9 +99,6 @@ window.CRYPTIC_PUZZLES["everyman-4098"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Overcome bottle (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "RESOLVE",
    "annotation": null
@@ -131,9 +113,6 @@ window.CRYPTIC_PUZZLES["everyman-4098"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Ask many questions where real ale delivered (4)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "PUMP",
    "annotation": null
@@ -148,9 +127,6 @@ window.CRYPTIC_PUZZLES["everyman-4098"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Hollywood superstar I don't know hurt a bad guy (3,7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -169,9 +145,6 @@ window.CRYPTIC_PUZZLES["everyman-4098"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Invention: what's uncovered when we see headgear? (4-3,3)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -193,9 +166,6 @@ window.CRYPTIC_PUZZLES["everyman-4098"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Leads on models, love? Sounds plausible (1,7,2)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      1,
@@ -215,9 +185,6 @@ window.CRYPTIC_PUZZLES["everyman-4098"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Declare provision of food 'passably good' ... (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "FAIR",
    "annotation": null
@@ -232,9 +199,6 @@ window.CRYPTIC_PUZZLES["everyman-4098"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "... top it all off with rich snack item (8,4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -253,9 +217,6 @@ window.CRYPTIC_PUZZLES["everyman-4098"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Fans, hating a touring country (11)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {},
    "solution": "AFGHANISTAN",
    "annotation": null
@@ -270,9 +231,6 @@ window.CRYPTIC_PUZZLES["everyman-4098"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Separate beds for Rosemary and Basil? (4,6)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -291,9 +249,6 @@ window.CRYPTIC_PUZZLES["everyman-4098"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "After Mexican beer, one put into empty taco new way of serving chicken (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "CORONATION",
    "annotation": null
@@ -308,9 +263,6 @@ window.CRYPTIC_PUZZLES["everyman-4098"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "They have run off before the match (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "ELOPERS",
    "annotation": null
@@ -325,9 +277,6 @@ window.CRYPTIC_PUZZLES["everyman-4098"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Everyman's beginning to cycle round garden: watch out (2,5)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -346,9 +295,6 @@ window.CRYPTIC_PUZZLES["everyman-4098"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Become lovelier - or succeed, showing one's magnificence, primarily? (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "BLOSSOM",
    "annotation": null
@@ -363,9 +309,6 @@ window.CRYPTIC_PUZZLES["everyman-4098"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Fellow, revolutionary was in charge, leader in Africa (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "MANDELA",
    "annotation": null
@@ -390,9 +333,6 @@ window.CRYPTIC_PUZZLES["everyman-4098"] = /*JSON-START*/ {
      5
     ]
    ],
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {
     "-": [
      3,
@@ -412,9 +352,6 @@ window.CRYPTIC_PUZZLES["everyman-4098"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "By replacing pinch of nutmeg with a little turmeric, what was increasingly unpleasant becomes more savoury (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "TASTIER",
    "annotation": null
@@ -429,9 +366,6 @@ window.CRYPTIC_PUZZLES["everyman-4098"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "A group on stage's vacuously trendy? Leaves in a hurry (8,4)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -450,9 +384,6 @@ window.CRYPTIC_PUZZLES["everyman-4098"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Stand a drop of hollandaise (4)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "DAIS",
    "annotation": null
@@ -467,9 +398,6 @@ window.CRYPTIC_PUZZLES["everyman-4098"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Hunk overstudious? Not entirely (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "STUD",
    "annotation": null
@@ -484,9 +412,6 @@ window.CRYPTIC_PUZZLES["everyman-4098"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Drop turkey perhaps on the counter (4)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "DRIB",
    "annotation": null
@@ -501,9 +426,6 @@ window.CRYPTIC_PUZZLES["everyman-4098"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Main point hidden in concerning tirade: he's on a roll! (10)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "REGISTRANT",
    "annotation": null
@@ -518,9 +440,6 @@ window.CRYPTIC_PUZZLES["everyman-4098"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Less than one sister escaping from trap (4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "NONE",
    "annotation": null
@@ -535,9 +454,6 @@ window.CRYPTIC_PUZZLES["everyman-4098"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Frequented - with scorn? (10)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "PATRONISED",
    "annotation": null

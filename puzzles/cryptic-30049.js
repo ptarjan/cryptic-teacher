@@ -24,9 +24,6 @@ window.CRYPTIC_PUZZLES["cryptic-30049"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Writer playing along with EU (7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "ANGELOU",
    "annotation": {
@@ -71,9 +68,6 @@ window.CRYPTIC_PUZZLES["cryptic-30049"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "In which X often appears with a broken leg support (7)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "ALGEBRA",
    "annotation": {
@@ -134,9 +128,6 @@ window.CRYPTIC_PUZZLES["cryptic-30049"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Happy soul dancing round Ireland’s top flower (9)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "GLADIOLUS",
    "annotation": {
@@ -185,9 +176,6 @@ window.CRYPTIC_PUZZLES["cryptic-30049"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Was wolf-like lecturer against journalist’s opinion piece? (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "LOPED",
    "annotation": {
@@ -230,9 +218,6 @@ window.CRYPTIC_PUZZLES["cryptic-30049"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Like a single draughts piece – 100 now under review (9)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "UNCROWNED",
    "annotation": {
@@ -274,9 +259,6 @@ window.CRYPTIC_PUZZLES["cryptic-30049"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "As corsets are spiked all over (5,2)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -318,9 +300,6 @@ window.CRYPTIC_PUZZLES["cryptic-30049"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Scored, though showing signs of age! (5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "LINED",
    "annotation": {
@@ -358,9 +337,6 @@ window.CRYPTIC_PUZZLES["cryptic-30049"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Test player, international, opens another player’s electrical store (9)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "CAPACITOR",
    "annotation": {
@@ -410,9 +386,6 @@ window.CRYPTIC_PUZZLES["cryptic-30049"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Poet’s slowish to drop a name (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "DANTE",
    "annotation": {
@@ -462,9 +435,6 @@ window.CRYPTIC_PUZZLES["cryptic-30049"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Country’s introducing a Latin examination (7)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "PERUSAL",
    "annotation": {
@@ -513,9 +483,6 @@ window.CRYPTIC_PUZZLES["cryptic-30049"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Master goldsmith’s lead file (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "GRASP",
    "annotation": {
@@ -558,9 +525,6 @@ window.CRYPTIC_PUZZLES["cryptic-30049"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Is cricketer able to provide a handy means of access for consumers? (3-6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -683,9 +647,6 @@ window.CRYPTIC_PUZZLES["cryptic-30049"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Ruddy good to get in a depressed state! (5)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "AGLOW",
    "annotation": {
@@ -734,9 +695,6 @@ window.CRYPTIC_PUZZLES["cryptic-30049"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "China might be after this line-up – open secret (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "WORCESTER",
    "annotation": {
@@ -796,9 +754,6 @@ window.CRYPTIC_PUZZLES["cryptic-30049"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Evening: almost time to collapse (9)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "NIGHTFALL",
    "annotation": {
@@ -845,9 +800,6 @@ window.CRYPTIC_PUZZLES["cryptic-30049"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Billionaire accepts new car ‘hard to break in’ (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "GATECRASH",
    "annotation": {
@@ -908,9 +860,6 @@ window.CRYPTIC_PUZZLES["cryptic-30049"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Maybe Titian or Turner’s main form of grinding (9)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "ATTRITION",
    "annotation": {
@@ -954,9 +903,6 @@ window.CRYPTIC_PUZZLES["cryptic-30049"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Department head is getting recognition? Rubbish! (9)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "DISCREDIT",
    "annotation": {
@@ -1008,9 +954,6 @@ window.CRYPTIC_PUZZLES["cryptic-30049"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Pledge from would-be MP – dregs! (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "DEPOSIT",
    "annotation": {
@@ -1046,9 +989,6 @@ window.CRYPTIC_PUZZLES["cryptic-30049"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Right wants a familiar ex-PM judged (5)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "RATED",
    "annotation": {
@@ -1095,9 +1035,6 @@ window.CRYPTIC_PUZZLES["cryptic-30049"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "One’s place in Doris’s show? (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "DISPLAY",
    "annotation": {
@@ -1199,9 +1136,6 @@ window.CRYPTIC_PUZZLES["cryptic-30049"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Seize one with leader ousted in a new vote (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "ANNEX",
    "annotation": {
@@ -1280,9 +1214,6 @@ window.CRYPTIC_PUZZLES["cryptic-30049"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Wrong end of the dish (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "TORTE",
    "annotation": {
@@ -1325,9 +1256,6 @@ window.CRYPTIC_PUZZLES["cryptic-30049"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Tender and even more sickly? (5)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "OFFER",
    "annotation": {
@@ -1365,9 +1293,6 @@ window.CRYPTIC_PUZZLES["cryptic-30049"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Top grade rations ordered by advanced health centres (9)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "SANATORIA",
    "annotation": {
@@ -1417,9 +1342,6 @@ window.CRYPTIC_PUZZLES["cryptic-30049"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Gathering close to Gulf Stream (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "FRILL",
    "annotation": {
@@ -1462,9 +1384,6 @@ window.CRYPTIC_PUZZLES["cryptic-30049"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "A cross between tense and loose, as, say, kid’s clothing is (3-4)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -1517,9 +1436,6 @@ window.CRYPTIC_PUZZLES["cryptic-30049"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Old king protecting (or regressing) fledgling colony (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "HERONRY",
    "annotation": {

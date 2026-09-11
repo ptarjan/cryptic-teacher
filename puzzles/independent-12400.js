@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12400"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Faithless son mostly purified after conversion (10)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "PERFIDIOUS",
    "annotation": {
@@ -71,9 +68,6 @@ window.CRYPTIC_PUZZLES["independent-12400"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Butt which smoker will use repeatedly? (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "PIPE",
    "annotation": {
@@ -107,9 +101,6 @@ window.CRYPTIC_PUZZLES["independent-12400"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Essential queries being processed with IT (9)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "REQUISITE",
    "annotation": {
@@ -151,9 +142,6 @@ window.CRYPTIC_PUZZLES["independent-12400"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "That is finally lost after Roman dates? (2,3)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -202,9 +190,6 @@ window.CRYPTIC_PUZZLES["independent-12400"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Pub swinger? (3,4)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -239,9 +224,6 @@ window.CRYPTIC_PUZZLES["independent-12400"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "At Le Moulin Rouge, a monsieur requests reveals (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "UNMASKS",
    "annotation": {
@@ -290,9 +272,6 @@ window.CRYPTIC_PUZZLES["independent-12400"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Psychiatrist's new, cooler chambers (4)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "JUNG",
    "annotation": {
@@ -339,9 +318,6 @@ window.CRYPTIC_PUZZLES["independent-12400"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Extreme resistance, Middle Eastern ruler barely suppresses (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "ULTRA",
    "annotation": {
@@ -387,9 +363,6 @@ window.CRYPTIC_PUZZLES["independent-12400"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Fruit company discomfiting lovers? (10)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "GOOSEBERRY",
    "annotation": {
@@ -423,9 +396,6 @@ window.CRYPTIC_PUZZLES["independent-12400"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Hydrogen emitted originally by a pulse star? (8)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {},
    "solution": "HEXAGRAM",
    "annotation": {
@@ -486,9 +456,6 @@ window.CRYPTIC_PUZZLES["independent-12400"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Nelson on track to lose Trafalgar, initially upset (5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "PIQUE",
    "annotation": {
@@ -532,9 +499,6 @@ window.CRYPTIC_PUZZLES["independent-12400"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Second name, Brown, ridiculously pronounced (6,3)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -588,9 +552,6 @@ window.CRYPTIC_PUZZLES["independent-12400"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Plaits braided either side of one girl's head? (8)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "PIGTAILS",
    "annotation": {
@@ -641,9 +602,6 @@ window.CRYPTIC_PUZZLES["independent-12400"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Floor area I swept clear of corn (5)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "AMAZE",
    "annotation": {
@@ -691,9 +649,6 @@ window.CRYPTIC_PUZZLES["independent-12400"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "LA road snarled with vans from Central America (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "SALVADORAN",
    "annotation": {
@@ -738,9 +693,6 @@ window.CRYPTIC_PUZZLES["independent-12400"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Article about wine circle touring grand Provençal location (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "AVIGNON",
    "annotation": {
@@ -798,9 +750,6 @@ window.CRYPTIC_PUZZLES["independent-12400"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Blast on site is most deafening (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "NOISIEST",
    "annotation": {
@@ -837,9 +786,6 @@ window.CRYPTIC_PUZZLES["independent-12400"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Screw up when cutting motorway reservation (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "SCRUPLE",
    "annotation": {
@@ -884,9 +830,6 @@ window.CRYPTIC_PUZZLES["independent-12400"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Scientists bearing crucible spill mixture (9)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "POTPOURRI",
    "annotation": {
@@ -935,9 +878,6 @@ window.CRYPTIC_PUZZLES["independent-12400"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Rival neighbours secure good survey (7)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "VIEWING",
    "annotation": {
@@ -987,9 +927,6 @@ window.CRYPTIC_PUZZLES["independent-12400"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Drive Heather around following a round or two? (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "GOLFING",
    "annotation": {
@@ -1040,9 +977,6 @@ window.CRYPTIC_PUZZLES["independent-12400"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Divine cleared by device that measures divinity (7)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "DEMETER",
    "annotation": {
@@ -1088,9 +1022,6 @@ window.CRYPTIC_PUZZLES["independent-12400"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Chap in tights torn asunder (7)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "DANSEUR",
    "annotation": {
@@ -1127,9 +1058,6 @@ window.CRYPTIC_PUZZLES["independent-12400"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "City trader having charcuterie delivered (5)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "DELHI",
    "annotation": {
@@ -1164,9 +1092,6 @@ window.CRYPTIC_PUZZLES["independent-12400"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Clubs putting on attraction that's said to be filthy (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "LUCRE",
    "annotation": {
@@ -1210,9 +1135,6 @@ window.CRYPTIC_PUZZLES["independent-12400"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Turkey put aside for 50 in staff meal (8)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "LUNCHEON",
    "annotation": {
@@ -1260,9 +1182,6 @@ window.CRYPTIC_PUZZLES["independent-12400"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Pawns beginning to fall in surprise (5)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "HOCKS",
    "annotation": {
@@ -1303,9 +1222,6 @@ window.CRYPTIC_PUZZLES["independent-12400"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Maybe decrease in tension, originally brought about (4)",
-   "group": [
-    "26-down"
-   ],
    "separatorLocations": {},
    "solution": "IRON",
    "annotation": {
@@ -1347,9 +1263,6 @@ window.CRYPTIC_PUZZLES["independent-12400"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Niche setter's inclined to retire? (9)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "RECESSIVE",
    "annotation": {
@@ -1386,9 +1299,6 @@ window.CRYPTIC_PUZZLES["independent-12400"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Having dropped some ecstasy, calling nurse? (5)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "CARER",
    "annotation": {
@@ -1430,9 +1340,6 @@ window.CRYPTIC_PUZZLES["independent-12400"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Miss, once dead, oddly forgotten (4)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "NEED",
    "annotation": {
@@ -1469,9 +1376,6 @@ window.CRYPTIC_PUZZLES["independent-12400"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Punk gigs are about embracing singular hostility (10)",
-   "group": [
-    "30-across"
-   ],
    "separatorLocations": {},
    "solution": "AGGRESSION",
    "annotation": {

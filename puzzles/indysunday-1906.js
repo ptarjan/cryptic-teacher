@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1906"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Judge kept to station canteen's clubby area (2,6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -82,9 +79,6 @@ window.CRYPTIC_PUZZLES["indysunday-1906"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Reserve ultimate in opulent beach houses (3,5)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -135,9 +129,6 @@ window.CRYPTIC_PUZZLES["indysunday-1906"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Gravy with fresh bit of turkey and Paxo stuffing that European put together (9)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "JUXTAPOSE",
    "annotation": {
@@ -207,9 +198,6 @@ window.CRYPTIC_PUZZLES["indysunday-1906"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Error from teacher upset special pupil (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "MISSTEP",
    "annotation": {
@@ -262,9 +250,6 @@ window.CRYPTIC_PUZZLES["indysunday-1906"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Really fancy fleece secured by tenner bills on the counter? (3,4,5,2)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -328,9 +313,6 @@ window.CRYPTIC_PUZZLES["indysunday-1906"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "From behind, all bottoms presumably perfect (4,2)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -378,9 +360,6 @@ window.CRYPTIC_PUZZLES["indysunday-1906"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Hard-up network initially claims computer inflated fare (7)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "POPCORN",
    "annotation": {
@@ -433,9 +412,6 @@ window.CRYPTIC_PUZZLES["indysunday-1906"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "In France you impersonate king from 16C (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "TUDOR",
    "annotation": {
@@ -481,9 +457,6 @@ window.CRYPTIC_PUZZLES["indysunday-1906"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Relative quiet with fellow entertained by novel (6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "NEPHEW",
    "annotation": {
@@ -537,9 +510,6 @@ window.CRYPTIC_PUZZLES["indysunday-1906"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Examiner rearranged equation's terms (8,6)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -586,9 +556,6 @@ window.CRYPTIC_PUZZLES["indysunday-1906"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "You shouldn't have relations over, they're a burden every year (5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "TAXES",
    "annotation": {
@@ -639,9 +606,6 @@ window.CRYPTIC_PUZZLES["indysunday-1906"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Invented politician accepted by genuine political party (7-2)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     "-": [
      7
@@ -696,9 +660,6 @@ window.CRYPTIC_PUZZLES["indysunday-1906"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Very plain and tough supermarket belt (7)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "SPARTAN",
    "annotation": {
@@ -738,9 +699,6 @@ window.CRYPTIC_PUZZLES["indysunday-1906"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Whip's firm push on Reeves's back (7)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "SCOURGE",
    "annotation": {
@@ -795,9 +753,6 @@ window.CRYPTIC_PUZZLES["indysunday-1906"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Two performing circus's flying act wanting doctor (3)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "DUO",
    "annotation": {
@@ -840,9 +795,6 @@ window.CRYPTIC_PUZZLES["indysunday-1906"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Small leaf peeled off school clown's work passed round (4-2,4)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -906,9 +858,6 @@ window.CRYPTIC_PUZZLES["indysunday-1906"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Highest quality fine grass turned pale (3-6)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -968,9 +917,6 @@ window.CRYPTIC_PUZZLES["indysunday-1906"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "We stay outside for awful quakes destroy everything (3,5)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -1027,9 +973,6 @@ window.CRYPTIC_PUZZLES["indysunday-1906"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Wimbledon champion on comeback nets key point in game (4,6)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -1095,9 +1038,6 @@ window.CRYPTIC_PUZZLES["indysunday-1906"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Butcher's search for cycles behind outhouse (4-3)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -1147,9 +1087,6 @@ window.CRYPTIC_PUZZLES["indysunday-1906"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Itinerant Aussie in business meeting held by trumpeter? (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "SWAGMAN",
    "annotation": {
@@ -1197,9 +1134,6 @@ window.CRYPTIC_PUZZLES["indysunday-1906"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Some ripe avocado that could be eaten mushy (3)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "PEA",
    "annotation": {
@@ -1235,9 +1169,6 @@ window.CRYPTIC_PUZZLES["indysunday-1906"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Scrap cricketing tautology such as leg-pull? (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "OFFCUT",
    "annotation": {
@@ -1277,9 +1208,6 @@ window.CRYPTIC_PUZZLES["indysunday-1906"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Relish learner driver taking good turn on the outside (7)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "FLAVOUR",
    "annotation": {
@@ -1326,9 +1254,6 @@ window.CRYPTIC_PUZZLES["indysunday-1906"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "A former PM's caught hit for six (5)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "AMAZE",
    "annotation": {
@@ -1364,9 +1289,6 @@ window.CRYPTIC_PUZZLES["indysunday-1906"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Bill on last in Augusta down in one (2,1,4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -1423,9 +1345,6 @@ window.CRYPTIC_PUZZLES["indysunday-1906"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Posh actor played game of dice in US (9)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "CRAPSHOOT",
    "annotation": {
@@ -1468,9 +1387,6 @@ window.CRYPTIC_PUZZLES["indysunday-1906"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "King at Christmas starts to get upset during service, missing son (5)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "MAGUS",
    "annotation": {
@@ -1524,9 +1440,6 @@ window.CRYPTIC_PUZZLES["indysunday-1906"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Someone who posted on X dismissing Welsh rock (6)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "TEETER",
    "annotation": {
@@ -1569,9 +1482,6 @@ window.CRYPTIC_PUZZLES["indysunday-1906"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Dark web protected by monster (8)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "BRUNETTE",
    "annotation": {

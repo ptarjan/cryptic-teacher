@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Monotonous place to live (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "FLAT",
    "annotation": {
@@ -62,9 +59,6 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "A bin originally delivered Eddie – gutted he’s not here (8)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "ABSENTEE",
    "annotation": {
@@ -121,9 +115,6 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "President blowing his top in Stormy diatribe (4)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "RANT",
    "annotation": {
@@ -168,9 +159,6 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Alien stops to watch the angry canines (3,5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -232,9 +220,6 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Architect on top of church reveals tool (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "WRENCH",
    "annotation": {
@@ -280,9 +265,6 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Mongrel pees over a training shoe (10)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "ESPADRILLE",
    "annotation": {
@@ -340,9 +322,6 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Keep doggo in mattress did you say? (3,3)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -384,9 +363,6 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Guide dog’s accessory (4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "LEAD",
    "annotation": {
@@ -421,9 +397,6 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Left underwear lying around one’s house (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "LIBRA",
    "annotation": {
@@ -472,9 +445,6 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Pig bowl is her potty (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "YORKSHIRE",
    "annotation": {
@@ -523,9 +493,6 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "2x + x = y? (6,3)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -570,9 +537,6 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Cockney showered and was unwell (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "AILED",
    "annotation": {
@@ -617,9 +581,6 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Maybe 25 go touring Thailand and Vietnam (3,4)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -673,9 +634,6 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Revolutionary surgery on model is put forward (5)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "POSIT",
    "annotation": {
@@ -729,9 +687,6 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Hermit rejecting society’s help to collar canine that’s in a pickle (6,4)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -792,9 +747,6 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Whiskey drunk by upstanding member requiring great effort (4-3)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -842,9 +794,6 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Climbing ladder on slide without stopping to get treat (5)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "NURSE",
    "annotation": {
@@ -902,9 +851,6 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Old boy leaves disgusting picture (5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "SCENE",
    "annotation": {
@@ -946,9 +892,6 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "That bloke’s song on the radio (3)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "HIM",
    "annotation": {
@@ -986,9 +929,6 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Clever girl swapping places is difficult to spot (8)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "MISSABLE",
    "annotation": {
@@ -1034,9 +974,6 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Take down bloomers having removed outer wear (5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "LOWER",
    "annotation": {
@@ -1078,9 +1015,6 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Single defeat is terminal (8)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "WATERLOO",
    "annotation": {
@@ -1120,9 +1054,6 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Nameless casserole recipe for dog (7)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "TERRIER",
    "annotation": {
@@ -1173,9 +1104,6 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Old school Head of Dance performed steps again (6)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "RETROD",
    "annotation": {
@@ -1218,9 +1146,6 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Brit stripped car in Italian city (6)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "RIMINI",
    "annotation": {
@@ -1266,9 +1191,6 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "What’s behind James Bond cuddling little baby? (7)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "SWEETIE",
    "annotation": {
@@ -1319,9 +1241,6 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Arsenal boss abruptly flipping fish (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "TETRA",
    "annotation": {
@@ -1371,9 +1290,6 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Shirt is OTT for Robert Plant (4)",
-   "group": [
-    "26-down"
-   ],
    "separatorLocations": {},
    "solution": "TREE",
    "annotation": {
@@ -1421,9 +1337,6 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Fix bit of Elastoplast to cover a bloody wound (9)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "MEANDERED",
    "annotation": {
@@ -1481,9 +1394,6 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Boring poet making comeback (4)",
-   "group": [
-    "28-down"
-   ],
    "separatorLocations": {},
    "solution": "DRAB",
    "annotation": {
@@ -1526,9 +1436,6 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Henry Tudor raised housing tax (4)",
-   "group": [
-    "29-down"
-   ],
    "separatorLocations": {},
    "solution": "DUTY",
    "annotation": {
@@ -1564,9 +1471,6 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Intense Germany escaping relegation before the end of Europa League (9)",
-   "group": [
-    "30-across"
-   ],
    "separatorLocations": {},
    "solution": "EMOTIONAL",
    "annotation": {
@@ -1624,9 +1528,6 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Take in song and dance part (5)",
-   "group": [
-    "31-across"
-   ],
    "separatorLocations": {},
    "solution": "ADOPT",
    "annotation": {

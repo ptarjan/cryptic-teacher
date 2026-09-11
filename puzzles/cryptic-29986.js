@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29986"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "A smooth king I joined for relaxing stretch after runs (5-3)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -90,9 +87,6 @@ window.CRYPTIC_PUZZLES["cryptic-29986"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Storm increased? Ensure operation of watch (4,2)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -135,9 +129,6 @@ window.CRYPTIC_PUZZLES["cryptic-29986"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Guidance on tempo, contemporary inspiration for poets (8)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "MODERATO",
    "annotation": {
@@ -176,9 +167,6 @@ window.CRYPTIC_PUZZLES["cryptic-29986"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Spell as part of school learning (6)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "PERIOD",
    "annotation": {
@@ -217,9 +205,6 @@ window.CRYPTIC_PUZZLES["cryptic-29986"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Old man’s at home, thus visits for little while (4,2)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -265,9 +250,6 @@ window.CRYPTIC_PUZZLES["cryptic-29986"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Minister in bygone days supported by some troops (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "PASTOR",
    "annotation": {
@@ -314,9 +296,6 @@ window.CRYPTIC_PUZZLES["cryptic-29986"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Recovery vehicles? Some have clocks (6)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "TOWERS",
    "annotation": {
@@ -353,9 +332,6 @@ window.CRYPTIC_PUZZLES["cryptic-29986"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Piece of crossword that’s out of date (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "SQUARE",
    "annotation": {
@@ -394,9 +370,6 @@ window.CRYPTIC_PUZZLES["cryptic-29986"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Left supporter for very brief moment (5,6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -442,9 +415,6 @@ window.CRYPTIC_PUZZLES["cryptic-29986"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Climb in a second, somehow dropping nothing (6)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "ASCEND",
    "annotation": {
@@ -492,9 +462,6 @@ window.CRYPTIC_PUZZLES["cryptic-29986"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Affected as minutes may be (8)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "PRECIOUS",
    "annotation": {
@@ -530,9 +497,6 @@ window.CRYPTIC_PUZZLES["cryptic-29986"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Lots of the past one’s misrepresented (4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "EONS",
    "annotation": {
@@ -570,9 +534,6 @@ window.CRYPTIC_PUZZLES["cryptic-29986"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Two-times quiet husband one defames first off (10)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "PHILANDERS",
    "annotation": {
@@ -628,9 +589,6 @@ window.CRYPTIC_PUZZLES["cryptic-29986"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Saying there’s no difference between porridge and bread (4,2,5)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -680,9 +638,6 @@ window.CRYPTIC_PUZZLES["cryptic-29986"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Send up kind of person to begin with that can help one cook breakfast (3,5)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -738,9 +693,6 @@ window.CRYPTIC_PUZZLES["cryptic-29986"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Is dividing lyric poems – they’re presented on separate occasions (8)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "EPISODES",
    "annotation": {
@@ -785,9 +737,6 @@ window.CRYPTIC_PUZZLES["cryptic-29986"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Extremely small fraction of hour (6)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "MINUTE",
    "annotation": {
@@ -822,9 +771,6 @@ window.CRYPTIC_PUZZLES["cryptic-29986"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Reported with minimal impact in periodical (6)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "WEEKLY",
    "annotation": {
@@ -863,9 +809,6 @@ window.CRYPTIC_PUZZLES["cryptic-29986"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Starts off by installing one sensible kind of clock (10)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "BIOLOGICAL",
    "annotation": {
@@ -912,9 +855,6 @@ window.CRYPTIC_PUZZLES["cryptic-29986"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Recluse concealing a source of something for days or more (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "LOANER",
    "annotation": {
@@ -959,9 +899,6 @@ window.CRYPTIC_PUZZLES["cryptic-29986"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Part of clock I never restrict the movement of (4,2)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -1000,9 +937,6 @@ window.CRYPTIC_PUZZLES["cryptic-29986"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Broadcast time for piece of news (4)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "ITEM",
    "annotation": {
@@ -1043,9 +977,6 @@ window.CRYPTIC_PUZZLES["cryptic-29986"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Apply pressure about ten to three, say? As long as it takes (8)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "DURATION",
    "annotation": {
@@ -1091,9 +1022,6 @@ window.CRYPTIC_PUZZLES["cryptic-29986"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Records hits (6)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "CLOCKS",
    "annotation": {
@@ -1129,9 +1057,6 @@ window.CRYPTIC_PUZZLES["cryptic-29986"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Team’s schedule for tea-break (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "ELEVEN",
    "annotation": {
@@ -1171,9 +1096,6 @@ window.CRYPTIC_PUZZLES["cryptic-29986"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Tiny fellow, see, is punctual (6)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "TIMELY",
    "annotation": {

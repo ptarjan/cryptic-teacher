@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4156"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Edward's of Islamic faith, Spooner tells us, and is visibly moved (5,1,4)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      5,
@@ -85,9 +82,6 @@ window.CRYPTIC_PUZZLES["everyman-4156"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Lays the ground for irritating types (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "SODS",
    "annotation": {
@@ -130,9 +124,6 @@ window.CRYPTIC_PUZZLES["everyman-4156"] = /*JSON-START*/ {
      10,
      6
     ]
-   ],
-   "group": [
-    "2-down"
    ],
    "separatorLocations": {},
    "solution": "EMMA",
@@ -182,9 +173,6 @@ window.CRYPTIC_PUZZLES["everyman-4156"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Prediction: more food will lead to fight not starting (6,5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -233,9 +221,6 @@ window.CRYPTIC_PUZZLES["everyman-4156"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Traffic; perhaps old vehicle (5-2)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -274,9 +259,6 @@ window.CRYPTIC_PUZZLES["everyman-4156"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Mixed gin in English ceremonial county - or somewhere in Provence (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "AVIGNON",
    "annotation": {
@@ -326,9 +308,6 @@ window.CRYPTIC_PUZZLES["everyman-4156"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Mark and Cliff (4)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "SCAR",
    "annotation": {
@@ -366,9 +345,6 @@ window.CRYPTIC_PUZZLES["everyman-4156"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Prosaic echinus every so often removed: that's somewhat whimsical (10)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "CAPRICIOUS",
    "annotation": {
@@ -415,9 +391,6 @@ window.CRYPTIC_PUZZLES["everyman-4156"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Wrongfully arrest and hear certain elements (4,6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -463,9 +436,6 @@ window.CRYPTIC_PUZZLES["everyman-4156"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Comic rated 'poor' as the public chooses (10)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "DEMOCRATIC",
    "annotation": {
@@ -502,9 +472,6 @@ window.CRYPTIC_PUZZLES["everyman-4156"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Pole and box (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "SPAR",
    "annotation": {
@@ -542,9 +509,6 @@ window.CRYPTIC_PUZZLES["everyman-4156"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Love disposing of Chilean wine now and again (4,2,1,5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -592,9 +556,6 @@ window.CRYPTIC_PUZZLES["everyman-4156"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Where to go in castle tower undergoing restoration (5,6)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -635,9 +596,6 @@ window.CRYPTIC_PUZZLES["everyman-4156"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "M.O.s involving secure drop (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "PROCEDURES",
    "annotation": {
@@ -674,9 +632,6 @@ window.CRYPTIC_PUZZLES["everyman-4156"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Current events - or, figuratively, the public's responses (5,5)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -718,9 +673,6 @@ window.CRYPTIC_PUZZLES["everyman-4156"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Checks score in Singapore when some are ignored (5,2)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -758,9 +710,6 @@ window.CRYPTIC_PUZZLES["everyman-4156"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Increasingly deranged old teachers having row (7)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "NUTTIER",
    "annotation": {
@@ -798,9 +747,6 @@ window.CRYPTIC_PUZZLES["everyman-4156"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Chirpy haphazard assistant that'll give plausibleish text, primarily? (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "CHATGPT",
    "annotation": {
@@ -843,9 +789,6 @@ window.CRYPTIC_PUZZLES["everyman-4156"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Rubbish comprising uneaten peach parts? (3,4)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -887,9 +830,6 @@ window.CRYPTIC_PUZZLES["everyman-4156"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Cast can be heard from beginning to end (7)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "THROUGH",
    "annotation": {
@@ -924,9 +864,6 @@ window.CRYPTIC_PUZZLES["everyman-4156"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Journey arriving at oil rig regularly somewhere in Libya (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "TRIPOLI",
    "annotation": {
@@ -971,9 +908,6 @@ window.CRYPTIC_PUZZLES["everyman-4156"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "As trolleys and some trains proceed? (4,3,5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -1010,9 +944,6 @@ window.CRYPTIC_PUZZLES["everyman-4156"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "College official having stripped off on retirement denied knighthood (4)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "DEAN",
    "annotation": {
@@ -1062,9 +993,6 @@ window.CRYPTIC_PUZZLES["everyman-4156"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Spot of land grabbed from Murmansk yesterday (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "SKYE",
    "annotation": {
@@ -1098,9 +1026,6 @@ window.CRYPTIC_PUZZLES["everyman-4156"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "After drop of Riesling (round #5), Everyman's beginning to ramble (4)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "ROVE",
    "annotation": {
@@ -1162,9 +1087,6 @@ window.CRYPTIC_PUZZLES["everyman-4156"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Women's group talk including stock index and what may resemble recession (6,4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -1220,9 +1142,6 @@ window.CRYPTIC_PUZZLES["everyman-4156"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Frame small tree (4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "SASH",
    "annotation": {
@@ -1260,9 +1179,6 @@ window.CRYPTIC_PUZZLES["everyman-4156"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Nitwit with one point of view: some help! (10)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "ASSISTANCE",
    "annotation": {

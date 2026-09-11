@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12383"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Jumpy character from Disney (New York) about to pull film on Hendrix? (6,7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -46,9 +43,6 @@ window.CRYPTIC_PUZZLES["independent-12383"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Large bowl and jug once repaired using mucilage first of all (5)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "JORUM",
    "annotation": null
@@ -63,9 +57,6 @@ window.CRYPTIC_PUZZLES["independent-12383"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Old rocker's rival holding drill for bike (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "MOPED",
    "annotation": null
@@ -80,9 +71,6 @@ window.CRYPTIC_PUZZLES["independent-12383"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Set-up that's not working on Souness? Yes, it seems, periodically (9)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "NONSYSTEM",
    "annotation": null
@@ -97,9 +85,6 @@ window.CRYPTIC_PUZZLES["independent-12383"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Soup, something to eat with wine coming up (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "CHOWDER",
    "annotation": null
@@ -114,9 +99,6 @@ window.CRYPTIC_PUZZLES["independent-12383"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Elected Conservative is capping yellow tooth (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "INCISOR",
    "annotation": null
@@ -131,9 +113,6 @@ window.CRYPTIC_PUZZLES["independent-12383"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Dutch boat's paperwork officer grabs (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "KOFF",
    "annotation": null
@@ -148,9 +127,6 @@ window.CRYPTIC_PUZZLES["independent-12383"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Fancy solitude, beginning to yawn as if boring (9)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "TEDIOUSLY",
    "annotation": null
@@ -165,9 +141,6 @@ window.CRYPTIC_PUZZLES["independent-12383"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Flat racing here, short guy and small horse failing to finish (5)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {},
    "solution": "RIPON",
    "annotation": null
@@ -182,9 +155,6 @@ window.CRYPTIC_PUZZLES["independent-12383"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Imagined monster lurking inside covered entrance (3)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "ORC",
    "annotation": null
@@ -199,9 +169,6 @@ window.CRYPTIC_PUZZLES["independent-12383"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Loudly unwrapped cheap sweet (5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "FUDGE",
    "annotation": null
@@ -216,9 +183,6 @@ window.CRYPTIC_PUZZLES["independent-12383"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Earl left church recess with special passes (7)",
-   "group": [
-    "11-down"
-   ],
    "separatorLocations": {},
    "solution": "ELAPSES",
    "annotation": null
@@ -233,9 +197,6 @@ window.CRYPTIC_PUZZLES["independent-12383"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Obscure 1970s glam rock band with Wizzard and Roxy, both at the end (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "MUDDY",
    "annotation": null
@@ -250,9 +211,6 @@ window.CRYPTIC_PUZZLES["independent-12383"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Unhappy about hotel's Scotch (4)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "DASH",
    "annotation": null
@@ -267,9 +225,6 @@ window.CRYPTIC_PUZZLES["independent-12383"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Batty individual in sitcom that's British and not American (4)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "NORA",
    "annotation": null
@@ -284,9 +239,6 @@ window.CRYPTIC_PUZZLES["independent-12383"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Ref nuts to wave card? (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "FUNSTER",
    "annotation": null
@@ -301,9 +253,6 @@ window.CRYPTIC_PUZZLES["independent-12383"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Mad and brilliant (7)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "FLAMING",
    "annotation": null
@@ -318,9 +267,6 @@ window.CRYPTIC_PUZZLES["independent-12383"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Sustenance provided by fresh trout in inn, tail removed (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "NUTRITION",
    "annotation": null
@@ -335,9 +281,6 @@ window.CRYPTIC_PUZZLES["independent-12383"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Changes player on pitch to face Sweden (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "RECASTS",
    "annotation": null
@@ -352,9 +295,6 @@ window.CRYPTIC_PUZZLES["independent-12383"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "One shooting curvaceous feature on a model perhaps (6,3)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -373,9 +313,6 @@ window.CRYPTIC_PUZZLES["independent-12383"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Have a go at tango, mostly unoccupied (7)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "ATTEMPT",
    "annotation": null
@@ -390,9 +327,6 @@ window.CRYPTIC_PUZZLES["independent-12383"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Large wave ruined suit upset man's wearing (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "TSUNAMI",
    "annotation": null
@@ -407,9 +341,6 @@ window.CRYPTIC_PUZZLES["independent-12383"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Dad possibly sent back lots of fruit? (7)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "PAPAYAS",
    "annotation": null
@@ -424,9 +355,6 @@ window.CRYPTIC_PUZZLES["independent-12383"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Academic researcher's job, as before, essentially sucks (7)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "POSTDOC",
    "annotation": null
@@ -441,9 +369,6 @@ window.CRYPTIC_PUZZLES["independent-12383"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Flag Iraqis ignoring a question (4)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "IRIS",
    "annotation": null
@@ -458,9 +383,6 @@ window.CRYPTIC_PUZZLES["independent-12383"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Copper, extremely suspicious and stubborn sort (4)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "CUSS",
    "annotation": null
@@ -475,9 +397,6 @@ window.CRYPTIC_PUZZLES["independent-12383"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Given drugs, idiot sped regularly by day (5)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "DOSED",
    "annotation": null
@@ -492,9 +411,6 @@ window.CRYPTIC_PUZZLES["independent-12383"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Make fun of our company overturning honey (5)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "SUGAR",
    "annotation": null
@@ -509,9 +425,6 @@ window.CRYPTIC_PUZZLES["independent-12383"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Condemns Wall's on the radio (5)",
-   "group": [
-    "26-down"
-   ],
    "separatorLocations": {},
    "solution": "DAMNS",
    "annotation": null
@@ -531,9 +444,6 @@ window.CRYPTIC_PUZZLES["independent-12383"] = /*JSON-START*/ {
      40,
      6
     ]
-   ],
-   "group": [
-    "27-down"
    ],
    "separatorLocations": {},
    "solution": "SEAT",
@@ -555,9 +465,6 @@ window.CRYPTIC_PUZZLES["independent-12383"] = /*JSON-START*/ {
      5
     ]
    ],
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "GRIPE",
    "annotation": null
@@ -572,9 +479,6 @@ window.CRYPTIC_PUZZLES["independent-12383"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Help professional to cover piano (3)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "AID",
    "annotation": null
@@ -589,9 +493,6 @@ window.CRYPTIC_PUZZLES["independent-12383"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Expression of surprise and cheers heard when introducing Seal (2,3)",
-   "group": [
-    "30-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -610,9 +511,6 @@ window.CRYPTIC_PUZZLES["independent-12383"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Get to the point: new town's crime down after outlaw finally leaves (3,5,5)",
-   "group": [
-    "31-across"
-   ],
    "separatorLocations": {
     ",": [
      3,

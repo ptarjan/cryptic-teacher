@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Spirit embodied by secular Magna Carta (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "ARMAGNAC",
    "annotation": {
@@ -61,9 +58,6 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Roguish Austen hero undressed Elizabeth finally (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "ARCH",
    "annotation": {
@@ -108,9 +102,6 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Trashing contents of Petit Trianon, mean European princess (5,10)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -163,9 +154,6 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "When spread, marge's so light (8)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "GOSSAMER",
    "annotation": {
@@ -202,9 +190,6 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Car crash south of Aleppo cleared arterial route (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "AORTA",
    "annotation": {
@@ -249,9 +234,6 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Uncover Blue River island figure revered along the Nile (6)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "ANUBIS",
    "annotation": {
@@ -294,9 +276,6 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Hunter set up sleeping accommodation at home (6)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "NIMROD",
    "annotation": {
@@ -345,9 +324,6 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Robin Day worked with braille books here (8,7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -394,9 +370,6 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Seated, eating cold Japanese noodles over US city (10)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "SACRAMENTO",
    "annotation": {
@@ -452,9 +425,6 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Well wrapped up, son walked with clumsy gait (8)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {},
    "solution": "SWADDLED",
    "annotation": {
@@ -492,9 +462,6 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Irish city's ship's company that gets stuck into the vino (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "CORKSCREW",
    "annotation": {
@@ -533,9 +500,6 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Peninsula: sea freezing cold (5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "MEDOC",
    "annotation": {
@@ -579,9 +543,6 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Source of protein, iron? Thanks! (4)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "FETA",
    "annotation": {
@@ -619,9 +580,6 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Group of stars departs capital in open landau (9)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "ANDROMEDA",
    "annotation": {
@@ -673,9 +631,6 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Where to see Stanley, Bill and Charlie call Tony endlessly? (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "ACCRINGTON",
    "annotation": {
@@ -730,9 +685,6 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Sweeper coached away from the ball? (10)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "CINDERELLA",
    "annotation": {
@@ -764,9 +716,6 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Each second flood covers small part of Manhattan (4,4)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -826,9 +775,6 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Best-loved shanty town bulldozing large area (4)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "FAVE",
    "annotation": {
@@ -870,9 +816,6 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "We're told Samuel's girlfriend abridged dissident literature (8)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "SAMIZDAT",
    "annotation": {
@@ -918,9 +861,6 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Cross and abusive on the phone (4)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "ROOD",
    "annotation": {
@@ -958,9 +898,6 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Where one might find old Reg Ford? (4-3,3)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -999,9 +936,6 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Novelist comfortable after spine drained (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "SEWELL",
    "annotation": {
@@ -1046,9 +980,6 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Breaking news: poor Spooner being ostracised (3-6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -1096,9 +1027,6 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Note buzz surrounding Alqosh's top prophet (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "NAHUM",
    "annotation": {
@@ -1149,9 +1077,6 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Foreign language starts to influence opinion around part of UK (4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "IGBO",
    "annotation": {
@@ -1197,9 +1122,6 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "County clerk gossiped (4)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "KENT",
    "annotation": {
@@ -1234,9 +1156,6 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "What idiot rejected cash meant for the church? (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "TITHE",
    "annotation": {
@@ -1285,9 +1204,6 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Heading back east late, he would dry out (9)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "DEHYDRATE",
    "annotation": {
@@ -1342,9 +1258,6 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Make cross stitch using this? (6)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "NEEDLE",
    "annotation": {
@@ -1379,9 +1292,6 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Hot, steamy, lacking oxygen, turning violet (8)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "AMETHYST",
    "annotation": {

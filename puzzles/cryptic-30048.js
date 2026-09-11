@@ -24,9 +24,6 @@ window.CRYPTIC_PUZZLES["cryptic-30048"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Old payment of course skimmed off? (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "SCOT",
    "annotation": {
@@ -63,9 +60,6 @@ window.CRYPTIC_PUZZLES["cryptic-30048"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Gauls reportedly in French city? (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "ANGERS",
    "annotation": {
@@ -104,9 +98,6 @@ window.CRYPTIC_PUZZLES["cryptic-30048"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Booming ace in tennis, or tennis’s first shot (10)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "STENTORIAN",
    "annotation": {
@@ -177,9 +168,6 @@ window.CRYPTIC_PUZZLES["cryptic-30048"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Bomber, a girl I sent up ending in atrocity (5,3)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -244,9 +232,6 @@ window.CRYPTIC_PUZZLES["cryptic-30048"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "No-win situation The Guardian’s responsibility to turn around? (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "DRAW",
    "annotation": {
@@ -289,9 +274,6 @@ window.CRYPTIC_PUZZLES["cryptic-30048"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "One crossing the line in entering shipping forecast area (8)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "FINISHER",
    "annotation": {
@@ -387,9 +369,6 @@ window.CRYPTIC_PUZZLES["cryptic-30048"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Study air pressure (9)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "CONSTRAIN",
    "annotation": {
@@ -426,9 +405,6 @@ window.CRYPTIC_PUZZLES["cryptic-30048"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Educated character fed a refreshing side dish (5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "RAITA",
    "annotation": {
@@ -472,9 +448,6 @@ window.CRYPTIC_PUZZLES["cryptic-30048"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Link that is apparently like spam? (3-2)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -522,9 +495,6 @@ window.CRYPTIC_PUZZLES["cryptic-30048"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Pure flower with foul fragrance, ultimately (4-5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -584,9 +554,6 @@ window.CRYPTIC_PUZZLES["cryptic-30048"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Capital in Paris is at the end of the day in France – go there? (7)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "PISSOIR",
    "annotation": {
@@ -636,9 +603,6 @@ window.CRYPTIC_PUZZLES["cryptic-30048"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Average outside cold, with coat off – freezing! (5)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "POLAR",
    "annotation": {
@@ -684,9 +648,6 @@ window.CRYPTIC_PUZZLES["cryptic-30048"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Tooth that’s new in cutter? (7)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "GNASHER",
    "annotation": {
@@ -730,9 +691,6 @@ window.CRYPTIC_PUZZLES["cryptic-30048"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Lethal whipped cream – take care! (3,3,4)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -786,9 +744,6 @@ window.CRYPTIC_PUZZLES["cryptic-30048"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Mode of ode, say? (5)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "RHYME",
    "annotation": {
@@ -841,9 +796,6 @@ window.CRYPTIC_PUZZLES["cryptic-30048"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Big man, as dancing, doing just that? (8)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "SAMBAING",
    "annotation": {
@@ -880,9 +832,6 @@ window.CRYPTIC_PUZZLES["cryptic-30048"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Bird with 14 mentioning celebrated baker? (3)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "JAY",
    "annotation": {
@@ -922,9 +871,6 @@ window.CRYPTIC_PUZZLES["cryptic-30048"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Marine’s carried through in cheerful manner (8)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "JOVIALLY",
    "annotation": {
@@ -968,9 +914,6 @@ window.CRYPTIC_PUZZLES["cryptic-30048"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Author Lee articulated – something like that? (5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "LORRY",
    "annotation": {
@@ -1005,9 +948,6 @@ window.CRYPTIC_PUZZLES["cryptic-30048"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "House where fellow in groovy clothing undressed (7)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "ROMANOV",
    "annotation": {
@@ -1056,9 +996,6 @@ window.CRYPTIC_PUZZLES["cryptic-30048"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Pop is attending church: he had relapsed earlier (7)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "DEHISCE",
    "annotation": {
@@ -1117,9 +1054,6 @@ window.CRYPTIC_PUZZLES["cryptic-30048"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Reject is blocking sink (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "DISOWN",
    "annotation": {
@@ -1163,9 +1097,6 @@ window.CRYPTIC_PUZZLES["cryptic-30048"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "One is doddery, right? (6)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "SENIOR",
    "annotation": {
@@ -1207,9 +1138,6 @@ window.CRYPTIC_PUZZLES["cryptic-30048"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Amusing language in which the following might sound like laughter? (9)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "FRANGLAIS",
    "annotation": {
@@ -1243,9 +1171,6 @@ window.CRYPTIC_PUZZLES["cryptic-30048"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Musical combination of two notes (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "FAME",
    "annotation": {
@@ -1355,9 +1280,6 @@ window.CRYPTIC_PUZZLES["cryptic-30048"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Curse of Portillo, a Thatcherite (4)",
-   "group": [
-    "27-down"
-   ],
    "separatorLocations": {},
    "solution": "OATH",
    "annotation": {
@@ -1433,9 +1355,6 @@ window.CRYPTIC_PUZZLES["cryptic-30048"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Central European fliers circling on the occidental side of English port (9)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "LOWESTOFT",
    "annotation": {

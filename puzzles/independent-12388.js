@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12388"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Idiot's late checking French and German articles on hotel (10)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "DUNDERHEAD",
    "annotation": {
@@ -88,9 +85,6 @@ window.CRYPTIC_PUZZLES["independent-12388"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Cut off end of beard plus other facial hair when cycling (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "DETACH",
    "annotation": {
@@ -139,9 +133,6 @@ window.CRYPTIC_PUZZLES["independent-12388"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Character periodically going through in last quarter (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "NATURE",
    "annotation": {
@@ -181,9 +172,6 @@ window.CRYPTIC_PUZZLES["independent-12388"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Regulate critic playing instrument (8,6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -225,9 +213,6 @@ window.CRYPTIC_PUZZLES["independent-12388"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Champion Mark crowning America's old historian (9)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "HERODOTUS",
    "annotation": {
@@ -277,9 +262,6 @@ window.CRYPTIC_PUZZLES["independent-12388"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Place where you can get better type of neckwear (5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "ASCOT",
    "annotation": {
@@ -314,9 +296,6 @@ window.CRYPTIC_PUZZLES["independent-12388"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Cliff Wilde's leaving capital (4)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "SCAR",
    "annotation": {
@@ -359,9 +338,6 @@ window.CRYPTIC_PUZZLES["independent-12388"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Initially Narnia author's welcoming less bulky dailies (8)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "CLEANERS",
    "annotation": {
@@ -408,9 +384,6 @@ window.CRYPTIC_PUZZLES["independent-12388"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Reaction of press with one running riot (8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "RESPONSE",
    "annotation": {
@@ -457,9 +430,6 @@ window.CRYPTIC_PUZZLES["independent-12388"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Gave wrong account of my boss supporting girl reportedly dealing with gift (14)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {},
    "solution": "MISREPRESENTED",
    "annotation": {
@@ -518,9 +488,6 @@ window.CRYPTIC_PUZZLES["independent-12388"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Name hospital hiding large sum paid to church (5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "TITHE",
    "annotation": {
@@ -570,9 +537,6 @@ window.CRYPTIC_PUZZLES["independent-12388"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Wind-up merchants in playground serve nuts around one (9)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "RECEIVERS",
    "annotation": {
@@ -632,9 +596,6 @@ window.CRYPTIC_PUZZLES["independent-12388"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Dishonest bloke stealing bread in vessel (7)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "CAROTID",
    "annotation": {
@@ -682,9 +643,6 @@ window.CRYPTIC_PUZZLES["independent-12388"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Dog from Kansas biting director Howard in Canadian location (7)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "TORONTO",
    "annotation": {
@@ -732,9 +690,6 @@ window.CRYPTIC_PUZZLES["independent-12388"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Women footballers (Italian) exercise with special competitions on cold surfaces (6,6)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -792,9 +747,6 @@ window.CRYPTIC_PUZZLES["independent-12388"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Once again put in bookstand sailors left behind (conserved by Oliver in film) (2-7)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {
     "-": [
      2
@@ -850,9 +802,6 @@ window.CRYPTIC_PUZZLES["independent-12388"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Maybe crossroads where Jack gets oil (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "JUNCTION",
    "annotation": {
@@ -901,9 +850,6 @@ window.CRYPTIC_PUZZLES["independent-12388"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Organiser spilling more port (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "PROMOTER",
    "annotation": {
@@ -941,9 +887,6 @@ window.CRYPTIC_PUZZLES["independent-12388"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Not yet signed in, urge resident to get moving (12)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "UNREGISTERED",
    "annotation": {
@@ -986,9 +929,6 @@ window.CRYPTIC_PUZZLES["independent-12388"] = /*JSON-START*/ {
      34,
      16
     ]
-   ],
-   "group": [
-    "19-down"
    ],
    "separatorLocations": {},
    "solution": "BALLET",
@@ -1037,9 +977,6 @@ window.CRYPTIC_PUZZLES["independent-12388"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Puts up with two saints (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "STANDS",
    "annotation": {
@@ -1084,9 +1021,6 @@ window.CRYPTIC_PUZZLES["independent-12388"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Promises to take away support from governing bodies (7)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "COMMITS",
    "annotation": {
@@ -1132,9 +1066,6 @@ window.CRYPTIC_PUZZLES["independent-12388"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Young Obama's first belt? (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "SASHA",
    "annotation": {
@@ -1176,9 +1107,6 @@ window.CRYPTIC_PUZZLES["independent-12388"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Graceful English member introducing a collection of books (7)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "ELEGANT",
    "annotation": {
@@ -1234,9 +1162,6 @@ window.CRYPTIC_PUZZLES["independent-12388"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "International trains crashing en route (2,7)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -1283,9 +1208,6 @@ window.CRYPTIC_PUZZLES["independent-12388"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Abbreviated lecture covering predatory avian's weapon (5)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "TALON",
    "annotation": {
@@ -1329,9 +1251,6 @@ window.CRYPTIC_PUZZLES["independent-12388"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Standard minor majorette carries (4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "NORM",
    "annotation": {
@@ -1366,9 +1285,6 @@ window.CRYPTIC_PUZZLES["independent-12388"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "May and Penny, I see, meeting society contenders (10)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "CANDIDATES",
    "annotation": {

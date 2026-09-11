@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1387"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Company receiving genuine anonymous warning (4,5)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -78,9 +75,6 @@ window.CRYPTIC_PUZZLES["quiptic-1387"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Score twice, like A Castle? (5)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "FORTY",
    "annotation": {
@@ -115,9 +109,6 @@ window.CRYPTIC_PUZZLES["quiptic-1387"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "French poet traumatised Vietnam veteran on film, reportedly (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "RIMBAUD",
    "annotation": {
@@ -149,9 +140,6 @@ window.CRYPTIC_PUZZLES["quiptic-1387"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "American chap is spy (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "AGENT",
    "annotation": {
@@ -192,9 +180,6 @@ window.CRYPTIC_PUZZLES["quiptic-1387"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Content of dustcart taken up to entice (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "ATTRACT",
    "annotation": {
@@ -229,9 +214,6 @@ window.CRYPTIC_PUZZLES["quiptic-1387"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Sacking main guard after reshuffle (9)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "MARAUDING",
    "annotation": {
@@ -265,9 +247,6 @@ window.CRYPTIC_PUZZLES["quiptic-1387"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Possesses heroin and cannabis (4)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "HASH",
    "annotation": {
@@ -308,9 +287,6 @@ window.CRYPTIC_PUZZLES["quiptic-1387"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Hard to consume chicken for non-believer (7)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "HEATHEN",
    "annotation": {
@@ -358,9 +334,6 @@ window.CRYPTIC_PUZZLES["quiptic-1387"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Claims hob broken, which is chaotic (9)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "SHAMBOLIC",
    "annotation": {
@@ -397,9 +370,6 @@ window.CRYPTIC_PUZZLES["quiptic-1387"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Mad brute altering rhythm? (8)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {},
    "solution": "DRUMBEAT",
    "annotation": {
@@ -433,9 +403,6 @@ window.CRYPTIC_PUZZLES["quiptic-1387"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Anger a volatile US President (6)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "REAGAN",
    "annotation": {
@@ -469,9 +436,6 @@ window.CRYPTIC_PUZZLES["quiptic-1387"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Despot hurried into tryst regularly (6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "TYRANT",
    "annotation": {
@@ -513,9 +477,6 @@ window.CRYPTIC_PUZZLES["quiptic-1387"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "A friend with addiction, briefly, in emirate (3,5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -569,9 +530,6 @@ window.CRYPTIC_PUZZLES["quiptic-1387"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Large snake that gets one climbing? (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "LADDER",
    "annotation": {
@@ -609,9 +567,6 @@ window.CRYPTIC_PUZZLES["quiptic-1387"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Virtue of watching Björn Again show, perhaps (9)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "ATTRIBUTE",
    "annotation": {
@@ -654,9 +609,6 @@ window.CRYPTIC_PUZZLES["quiptic-1387"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Organise a contest with son in small cars (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "RUNABOUTS",
    "annotation": {
@@ -710,9 +662,6 @@ window.CRYPTIC_PUZZLES["quiptic-1387"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Integral changes in shape (8)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "TRIANGLE",
    "annotation": {
@@ -749,9 +698,6 @@ window.CRYPTIC_PUZZLES["quiptic-1387"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Wasted set point in hurry (4,2,2)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -793,9 +739,6 @@ window.CRYPTIC_PUZZLES["quiptic-1387"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Walk around official introduction (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "PREFACE",
    "annotation": {
@@ -836,9 +779,6 @@ window.CRYPTIC_PUZZLES["quiptic-1387"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "NATO lie about providing protective cover (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "TOENAIL",
    "annotation": {
@@ -875,9 +815,6 @@ window.CRYPTIC_PUZZLES["quiptic-1387"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Announcement of oil in country (6)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "GREECE",
    "annotation": {
@@ -912,9 +849,6 @@ window.CRYPTIC_PUZZLES["quiptic-1387"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Loan the drunk something bad for them? (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "ETHANOL",
    "annotation": {
@@ -948,9 +882,6 @@ window.CRYPTIC_PUZZLES["quiptic-1387"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Tell story about Blake Lively being nice (8)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "LIKEABLE",
    "annotation": {
@@ -1001,9 +932,6 @@ window.CRYPTIC_PUZZLES["quiptic-1387"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Try again: what is stuck in bottom? (6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "REHEAR",
    "annotation": {
@@ -1047,9 +975,6 @@ window.CRYPTIC_PUZZLES["quiptic-1387"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Legendary brother beginning to raise flightless birds (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "REMUS",
    "annotation": {
@@ -1089,9 +1014,6 @@ window.CRYPTIC_PUZZLES["quiptic-1387"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "A model upset Greek storyteller (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "AESOP",
    "annotation": {
@@ -1137,9 +1059,6 @@ window.CRYPTIC_PUZZLES["quiptic-1387"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Where you might need to go, some might say, in Pacific islands (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "TUVALU",
    "annotation": {
@@ -1174,9 +1093,6 @@ window.CRYPTIC_PUZZLES["quiptic-1387"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Rebuke beautiful Greek husband pinching millions (8)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "ADMONISH",
    "annotation": {
@@ -1222,9 +1138,6 @@ window.CRYPTIC_PUZZLES["quiptic-1387"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Lake shimmered, somewhat (4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "MERE",
    "annotation": {
@@ -1255,9 +1168,6 @@ window.CRYPTIC_PUZZLES["quiptic-1387"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Receipt of disappointing news for rep? (5,4)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     ",": [
      5

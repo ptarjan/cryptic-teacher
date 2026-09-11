@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1815"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Someone very good before Haaland? (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "STERLING",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["indysunday-1815"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Hot emission in her MOT failing (8)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "THERMION",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["indysunday-1815"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Concrete last of farm's land (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "REALM",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["indysunday-1815"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "24-hour tailor's opening after senior royal drops braces outside (9)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "INCESSANT",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["indysunday-1815"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Relative at Christmas skimmed a bit of gravy, perhaps (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "GRANULE",
    "annotation": null
@@ -110,9 +95,6 @@ window.CRYPTIC_PUZZLES["indysunday-1815"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Deny responsibility for noise masking broadcast (6)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "DISOWN",
    "annotation": null
@@ -127,9 +109,6 @@ window.CRYPTIC_PUZZLES["indysunday-1815"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "'Sport' finally timetabled with music, drama, etc (5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "DARTS",
    "annotation": null
@@ -144,9 +123,6 @@ window.CRYPTIC_PUZZLES["indysunday-1815"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "French director's Tesla stops as intended, in fact (9)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "STATISTIC",
    "annotation": null
@@ -161,9 +137,6 @@ window.CRYPTIC_PUZZLES["indysunday-1815"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Eccentric who keeps everything in sacks (6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "WHACKO",
    "annotation": null
@@ -178,9 +151,6 @@ window.CRYPTIC_PUZZLES["indysunday-1815"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Danish care about litter (5,5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -199,9 +169,6 @@ window.CRYPTIC_PUZZLES["indysunday-1815"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Notice American's ancestor in the church (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "ADAM",
    "annotation": null
@@ -216,9 +183,6 @@ window.CRYPTIC_PUZZLES["indysunday-1815"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Parent given further information after signing off child's illness (5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "MUMPS",
    "annotation": null
@@ -233,9 +197,6 @@ window.CRYPTIC_PUZZLES["indysunday-1815"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Move along stand, seats at the end (2,6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -254,9 +215,6 @@ window.CRYPTIC_PUZZLES["indysunday-1815"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Managing loan debt, sell valuable sporting trophy (8,4)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -275,9 +233,6 @@ window.CRYPTIC_PUZZLES["indysunday-1815"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Resolute nurses Keir ordered to be dismissed (6,3)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -296,9 +251,6 @@ window.CRYPTIC_PUZZLES["indysunday-1815"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Please register thanks, having been elected (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "ENTERTAIN",
    "annotation": null
@@ -313,9 +265,6 @@ window.CRYPTIC_PUZZLES["indysunday-1815"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Blue-green blankets to lift up on the wagon (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "TEETOTAL",
    "annotation": null
@@ -330,9 +279,6 @@ window.CRYPTIC_PUZZLES["indysunday-1815"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Back pass? (6,6)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -351,9 +297,6 @@ window.CRYPTIC_PUZZLES["indysunday-1815"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Queen's favourite new hair gel (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "RALEIGH",
    "annotation": null
@@ -368,9 +311,6 @@ window.CRYPTIC_PUZZLES["indysunday-1815"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Egg on lecturer's visible (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "INCITE",
    "annotation": null
@@ -385,9 +325,6 @@ window.CRYPTIC_PUZZLES["indysunday-1815"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Nearly bald? Covering it with mud is ineffective cure (5-3)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -406,9 +343,6 @@ window.CRYPTIC_PUZZLES["indysunday-1815"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Newspaper even on the outside carries nothing much (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "OFTEN",
    "annotation": null
@@ -423,9 +357,6 @@ window.CRYPTIC_PUZZLES["indysunday-1815"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Transplant set heavy drinker back (5)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "REPOT",
    "annotation": null
@@ -440,9 +371,6 @@ window.CRYPTIC_PUZZLES["indysunday-1815"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Line of walkers crossing cold ground that's familiar (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "PATCH",
    "annotation": null
@@ -457,9 +385,6 @@ window.CRYPTIC_PUZZLES["indysunday-1815"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Lose everything, apparently drunk (4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "WINO",
    "annotation": null
@@ -474,9 +399,6 @@ window.CRYPTIC_PUZZLES["indysunday-1815"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Maybe copyright pictures, dividing stock in three (10)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "TRIPARTITE",
    "annotation": null
@@ -491,9 +413,6 @@ window.CRYPTIC_PUZZLES["indysunday-1815"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Church attendant attacked holding cross (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "SEXTON",
    "annotation": null
@@ -508,9 +427,6 @@ window.CRYPTIC_PUZZLES["indysunday-1815"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Grip both sides of high antique (8)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "HANDHOLD",
    "annotation": null

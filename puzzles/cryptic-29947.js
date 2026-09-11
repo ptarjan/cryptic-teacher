@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29947"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Unconventional romance for old premier (7)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "CAMERON",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["cryptic-29947"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Inspector, one from Baltic area formerly, opposed to triflers (10)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "DILETTANTI",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["cryptic-29947"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Grim leap on and off for lizard (4)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "GILA",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["cryptic-29947"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Latitude following English actor given award (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "FREEDOM",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["cryptic-29947"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Base for shuttles? (6,4)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -114,9 +99,6 @@ window.CRYPTIC_PUZZLES["cryptic-29947"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Lack of wind in local mountains (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "CALM",
    "annotation": null
@@ -131,9 +113,6 @@ window.CRYPTIC_PUZZLES["cryptic-29947"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Mum has to set aside small vegetable (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "SHALLOT",
    "annotation": null
@@ -148,9 +127,6 @@ window.CRYPTIC_PUZZLES["cryptic-29947"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Casual household (8)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {},
    "solution": "FAMILIAR",
    "annotation": null
@@ -165,9 +141,6 @@ window.CRYPTIC_PUZZLES["cryptic-29947"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Dislike trio of characters leaving for lack of enthusiasm (6)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "APATHY",
    "annotation": null
@@ -182,9 +155,6 @@ window.CRYPTIC_PUZZLES["cryptic-29947"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Produce green bananas at back of store (8)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "GENERATE",
    "annotation": null
@@ -199,9 +169,6 @@ window.CRYPTIC_PUZZLES["cryptic-29947"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Fancy meal in US city to be specific (6)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "NAMELY",
    "annotation": null
@@ -216,9 +183,6 @@ window.CRYPTIC_PUZZLES["cryptic-29947"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Detest photo created behind cricketer still showing fear? (6,2,3,4)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     ",": [
      6,
@@ -239,9 +203,6 @@ window.CRYPTIC_PUZZLES["cryptic-29947"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "First person’s held up in this deal arranged for chef (5,5)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -260,9 +221,6 @@ window.CRYPTIC_PUZZLES["cryptic-29947"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "State about to feature in a UK shoot for broadcast (5,5)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -281,9 +239,6 @@ window.CRYPTIC_PUZZLES["cryptic-29947"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "View complication with no end of disgust (5)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "ANGLE",
    "annotation": null
@@ -298,9 +253,6 @@ window.CRYPTIC_PUZZLES["cryptic-29947"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Sign jazz musician is wanting grand (5)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "MINUS",
    "annotation": null
@@ -315,9 +267,6 @@ window.CRYPTIC_PUZZLES["cryptic-29947"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Asian bread in a fine country snubbed by India (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "AFGHANI",
    "annotation": null
@@ -332,9 +281,6 @@ window.CRYPTIC_PUZZLES["cryptic-29947"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Hate dish endlessly covered by exotic seeds (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "DESPISE",
    "annotation": null
@@ -349,9 +295,6 @@ window.CRYPTIC_PUZZLES["cryptic-29947"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Popular advertising with pointer in the East End describing a good book? (2,5)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -370,9 +313,6 @@ window.CRYPTIC_PUZZLES["cryptic-29947"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Plane then flying east of continent is type of jumbo (7,8)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -391,9 +331,6 @@ window.CRYPTIC_PUZZLES["cryptic-29947"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Evidence of cold hospital put in place by English and US company (6)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "PHLEGM",
    "annotation": null
@@ -408,9 +345,6 @@ window.CRYPTIC_PUZZLES["cryptic-29947"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Detectives entering Surrey estate (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "EYES",
    "annotation": null
@@ -425,9 +359,6 @@ window.CRYPTIC_PUZZLES["cryptic-29947"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Rex probes risky rooms for guests (8)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "PARLOURS",
    "annotation": null
@@ -442,9 +373,6 @@ window.CRYPTIC_PUZZLES["cryptic-29947"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Reportedly, study part for a clarinet (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "REED",
    "annotation": null
@@ -459,9 +387,6 @@ window.CRYPTIC_PUZZLES["cryptic-29947"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Find uncovered opening for coin (6)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "INVENT",
    "annotation": null
@@ -476,9 +401,6 @@ window.CRYPTIC_PUZZLES["cryptic-29947"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Four points to keep plant in unlicensed establishments (8)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "SHEBEENS",
    "annotation": null

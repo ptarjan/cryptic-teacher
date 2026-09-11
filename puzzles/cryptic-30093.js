@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30093"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Plain starter of meal daddy’s eating (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "PAMPAS",
    "annotation": {
@@ -73,9 +70,6 @@ window.CRYPTIC_PUZZLES["cryptic-30093"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "No place for pandemic, just fever (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "AGUE",
    "annotation": {
@@ -120,9 +114,6 @@ window.CRYPTIC_PUZZLES["cryptic-30093"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Whippersnapper very quietly suppressing single sound from mouse (9)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "PIPSQUEAK",
    "annotation": {
@@ -172,9 +163,6 @@ window.CRYPTIC_PUZZLES["cryptic-30093"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Appeared to do this from Nice beach? (6)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "SEEMED",
    "annotation": {
@@ -214,9 +202,6 @@ window.CRYPTIC_PUZZLES["cryptic-30093"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "At court, a new sovereign (8)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "AUTOCRAT",
    "annotation": {
@@ -253,9 +238,6 @@ window.CRYPTIC_PUZZLES["cryptic-30093"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Contrary to inclination, objecting to Scotch? (7,3,5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      7,
@@ -297,9 +279,6 @@ window.CRYPTIC_PUZZLES["cryptic-30093"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Birds in most of the riverside plants (8)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "THRUSHES",
    "annotation": {
@@ -345,9 +324,6 @@ window.CRYPTIC_PUZZLES["cryptic-30093"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Manage to get round small group of trees (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "COPSE",
    "annotation": {
@@ -391,9 +367,6 @@ window.CRYPTIC_PUZZLES["cryptic-30093"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Move cat aside, keeping very connected (10)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "ASSOCIATED",
    "annotation": {
@@ -437,9 +410,6 @@ window.CRYPTIC_PUZZLES["cryptic-30093"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Having cooked bean soup, one requires attendance (8)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "SUBPOENA",
    "annotation": {
@@ -480,9 +450,6 @@ window.CRYPTIC_PUZZLES["cryptic-30093"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Take another attitude to rest (6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "REPOSE",
    "annotation": {
@@ -519,9 +486,6 @@ window.CRYPTIC_PUZZLES["cryptic-30093"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Once Standard English no longer heard at opening of Parliament (6,6)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -556,9 +520,6 @@ window.CRYPTIC_PUZZLES["cryptic-30093"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Killer’s destiny in being caught by subterfuge (10)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {},
    "solution": "GUILLOTINE",
    "annotation": {
@@ -611,9 +572,6 @@ window.CRYPTIC_PUZZLES["cryptic-30093"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Slippery equine? (4)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "MULE",
    "annotation": {
@@ -648,9 +606,6 @@ window.CRYPTIC_PUZZLES["cryptic-30093"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "18 on a course that is dry (8)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "TEETOTAL",
    "annotation": {
@@ -690,9 +645,6 @@ window.CRYPTIC_PUZZLES["cryptic-30093"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Alumni’s pub evening is a thing! (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "OBSESSION",
    "annotation": {
@@ -732,9 +684,6 @@ window.CRYPTIC_PUZZLES["cryptic-30093"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Initial contribution to thread that gives clear directions (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "SIGNPOST",
    "annotation": {
@@ -775,9 +724,6 @@ window.CRYPTIC_PUZZLES["cryptic-30093"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Typically male slob struggling with hike (8)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "BLOKEISH",
    "annotation": {
@@ -819,9 +765,6 @@ window.CRYPTIC_PUZZLES["cryptic-30093"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Drop tools here (4)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "SHED",
    "annotation": {
@@ -855,9 +798,6 @@ window.CRYPTIC_PUZZLES["cryptic-30093"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Relax on firm topper on mattress for programme (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "SITCOM",
    "annotation": {
@@ -909,9 +849,6 @@ window.CRYPTIC_PUZZLES["cryptic-30093"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Tense morning working for Europeans (12)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "MONTENEGRINS",
    "annotation": {
@@ -951,9 +888,6 @@ window.CRYPTIC_PUZZLES["cryptic-30093"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Securing hearing without resistance (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "TYING",
    "annotation": {
@@ -995,9 +929,6 @@ window.CRYPTIC_PUZZLES["cryptic-30093"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Enthusiasm in the heart of Commonwealth country (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "ZEAL",
    "annotation": {
@@ -1037,9 +968,6 @@ window.CRYPTIC_PUZZLES["cryptic-30093"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Try to stop celebrity endlessly showing sexual urge (6)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "LIBIDO",
    "annotation": {
@@ -1088,9 +1016,6 @@ window.CRYPTIC_PUZZLES["cryptic-30093"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Old records from accomplished country singer (8)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "ARCHIVES",
    "annotation": {
@@ -1130,9 +1055,6 @@ window.CRYPTIC_PUZZLES["cryptic-30093"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Raise the hinge that’s wonky (8)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "HEIGHTEN",
    "annotation": {
@@ -1172,9 +1094,6 @@ window.CRYPTIC_PUZZLES["cryptic-30093"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Make a mess of motorway gradient (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "MANGLE",
    "annotation": {

@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29979"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Manage to obtain expert remedy (7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "PROCURE",
    "annotation": {
@@ -65,9 +62,6 @@ window.CRYPTIC_PUZZLES["cryptic-29979"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Child hero involved in treachery (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "REACHER",
    "annotation": {
@@ -102,9 +96,6 @@ window.CRYPTIC_PUZZLES["cryptic-29979"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "More usual answer for these days (6,3)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -150,9 +141,6 @@ window.CRYPTIC_PUZZLES["cryptic-29979"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Park-keeper’s great annoyance following run (6)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "RANGER",
    "annotation": {
@@ -199,9 +187,6 @@ window.CRYPTIC_PUZZLES["cryptic-29979"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Fight to secure wizard (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "WARLOCK",
    "annotation": {
@@ -242,9 +227,6 @@ window.CRYPTIC_PUZZLES["cryptic-29979"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Coming in last in spite of everything? (5,3)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -283,9 +265,6 @@ window.CRYPTIC_PUZZLES["cryptic-29979"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Primate leads off responses in services from the front (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "LORIS",
    "annotation": {
@@ -327,9 +306,6 @@ window.CRYPTIC_PUZZLES["cryptic-29979"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "How Tom sees road safety feature (4,3)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -374,9 +350,6 @@ window.CRYPTIC_PUZZLES["cryptic-29979"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Lenin for one turning in his grave? (13)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {},
    "solution": "REVOLUTIONARY",
    "annotation": {
@@ -411,9 +384,6 @@ window.CRYPTIC_PUZZLES["cryptic-29979"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "The opera for petrolheads? (6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "CARMEN",
    "annotation": {
@@ -454,9 +424,6 @@ window.CRYPTIC_PUZZLES["cryptic-29979"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Eternity may be represented as wholeness (8)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "ENTIRETY",
    "annotation": {
@@ -497,9 +464,6 @@ window.CRYPTIC_PUZZLES["cryptic-29979"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Gaffer seen in good sort of light (3)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "GUV",
    "annotation": {
@@ -540,9 +504,6 @@ window.CRYPTIC_PUZZLES["cryptic-29979"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Disconcerted in hearing having elevated seat (6)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "THRONE",
    "annotation": {
@@ -581,9 +542,6 @@ window.CRYPTIC_PUZZLES["cryptic-29979"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Charges and unhorses criminal (8)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "ONRUSHES",
    "annotation": {
@@ -624,9 +582,6 @@ window.CRYPTIC_PUZZLES["cryptic-29979"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "A lawyer, but not for long? (5)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "BRIEF",
    "annotation": {
@@ -664,9 +619,6 @@ window.CRYPTIC_PUZZLES["cryptic-29979"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Given a certificate with some reservations (9)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "QUALIFIED",
    "annotation": {
@@ -701,9 +653,6 @@ window.CRYPTIC_PUZZLES["cryptic-29979"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Bird fled a fire, flying off (9)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "FIELDFARE",
    "annotation": {
@@ -741,9 +690,6 @@ window.CRYPTIC_PUZZLES["cryptic-29979"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Feeble-sounding stories in magazines (8)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "WEEKLIES",
    "annotation": {
@@ -791,9 +737,6 @@ window.CRYPTIC_PUZZLES["cryptic-29979"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Two words of compliance in song, or three such at sea (3,3,3)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -847,9 +790,6 @@ window.CRYPTIC_PUZZLES["cryptic-29979"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Solvers on underground platform (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "YOUTUBE",
    "annotation": {
@@ -893,9 +833,6 @@ window.CRYPTIC_PUZZLES["cryptic-29979"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Major Shakespeare role, new, to memorise (5)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "LEARN",
    "annotation": {
@@ -933,9 +870,6 @@ window.CRYPTIC_PUZZLES["cryptic-29979"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Receipts are concerning meeting place (7)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "REVENUE",
    "annotation": {
@@ -977,9 +911,6 @@ window.CRYPTIC_PUZZLES["cryptic-29979"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Moderate rage (6)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "TEMPER",
    "annotation": {
@@ -1014,9 +945,6 @@ window.CRYPTIC_PUZZLES["cryptic-29979"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Small child to eat with family (8)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "MUNCHKIN",
    "annotation": {
@@ -1057,9 +985,6 @@ window.CRYPTIC_PUZZLES["cryptic-29979"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Luckily avoid both cold and high temperature (5)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "CHEAT",
    "annotation": {
@@ -1101,9 +1026,6 @@ window.CRYPTIC_PUZZLES["cryptic-29979"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Salad plant: I have the last bit first (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "ENDIVE",
    "annotation": {
@@ -1147,9 +1069,6 @@ window.CRYPTIC_PUZZLES["cryptic-29979"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "I am moving round train (3)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "AIM",
    "annotation": {
@@ -1187,9 +1106,6 @@ window.CRYPTIC_PUZZLES["cryptic-29979"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "No ordinary lake? (8)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "SUPERIOR",
    "annotation": {
@@ -1224,9 +1140,6 @@ window.CRYPTIC_PUZZLES["cryptic-29979"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Obvious time for old lament (6)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "PLAINT",
    "annotation": {
@@ -1267,9 +1180,6 @@ window.CRYPTIC_PUZZLES["cryptic-29979"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "She leads a hand-to-mouth existence (7)",
-   "group": [
-    "30-across"
-   ],
    "separatorLocations": {},
    "solution": "DENTIST",
    "annotation": {
@@ -1301,9 +1211,6 @@ window.CRYPTIC_PUZZLES["cryptic-29979"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Ivy for one in a soft shoe (7)",
-   "group": [
-    "31-across"
-   ],
    "separatorLocations": {},
    "solution": "CREEPER",
    "annotation": {

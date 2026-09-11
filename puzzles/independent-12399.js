@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12399"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Play in twisted tree sporting something on your head (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "HAMLET",
    "annotation": {
@@ -79,9 +76,6 @@ window.CRYPTIC_PUZZLES["independent-12399"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Virtuous, with passion, but no heart (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "HOLY",
    "annotation": {
@@ -124,9 +118,6 @@ window.CRYPTIC_PUZZLES["independent-12399"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Something clicked with inspirational person, inspiring love (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "MOUSE",
    "annotation": {
@@ -170,9 +161,6 @@ window.CRYPTIC_PUZZLES["independent-12399"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Taxi covered in melted cheese and spicy marinade (9)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "ESCABECHE",
    "annotation": {
@@ -224,9 +212,6 @@ window.CRYPTIC_PUZZLES["independent-12399"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Warm, new filling cooked with the last bits of special pastry (8)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "FRIENDLY",
    "annotation": {
@@ -281,9 +266,6 @@ window.CRYPTIC_PUZZLES["independent-12399"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Mix the tips of asparagus, radish, radicchio and dried pulses (5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "RADAR",
    "annotation": {
@@ -323,9 +305,6 @@ window.CRYPTIC_PUZZLES["independent-12399"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Each sufferer originally put on drugs gets better (5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "EASES",
    "annotation": {
@@ -376,9 +355,6 @@ window.CRYPTIC_PUZZLES["independent-12399"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Dozer's head with fantastic realm inside? That's it! (9)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "DREAMLAND",
    "annotation": {
@@ -435,9 +411,6 @@ window.CRYPTIC_PUZZLES["independent-12399"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Key is faulty I'm afraid (5)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "YIKES",
    "annotation": {
@@ -479,9 +452,6 @@ window.CRYPTIC_PUZZLES["independent-12399"] = /*JSON-START*/ {
      0,
      9
     ]
-   ],
-   "group": [
-    "9-across"
    ],
    "separatorLocations": {
     ",": [
@@ -533,9 +503,6 @@ window.CRYPTIC_PUZZLES["independent-12399"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Mature boy holding up a boring PC game (6)",
-   "group": [
-    "10-down"
-   ],
    "separatorLocations": {},
    "solution": "PACMAN",
    "annotation": {
@@ -587,9 +554,6 @@ window.CRYPTIC_PUZZLES["independent-12399"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Grass snake's tail moved (5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "SNEAK",
    "annotation": {
@@ -626,9 +590,6 @@ window.CRYPTIC_PUZZLES["independent-12399"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Self-driving car that is made to leave, leaves (4)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "HERB",
    "annotation": {
@@ -671,9 +632,6 @@ window.CRYPTIC_PUZZLES["independent-12399"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Stupidly rich, devoted man joins mother and sons for feast-day (9)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "CHRISTMAS",
    "annotation": {
@@ -744,9 +702,6 @@ window.CRYPTIC_PUZZLES["independent-12399"] = /*JSON-START*/ {
      11
     ]
    ],
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "USED",
    "annotation": {
@@ -787,9 +742,6 @@ window.CRYPTIC_PUZZLES["independent-12399"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Application shown by a police constable in tin hat (8)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "SNAPCHAT",
    "annotation": {
@@ -847,9 +799,6 @@ window.CRYPTIC_PUZZLES["independent-12399"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Having dropped diamonds, Danny Ocean's in a state of confusion and anger (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "ANNOYANCE",
    "annotation": {
@@ -896,9 +845,6 @@ window.CRYPTIC_PUZZLES["independent-12399"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Schedule the closure of paint factory (5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "PLANT",
    "annotation": {
@@ -941,9 +887,6 @@ window.CRYPTIC_PUZZLES["independent-12399"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Dutch cake decorator carrying baked product is a draw for kids (4,5)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -999,9 +942,6 @@ window.CRYPTIC_PUZZLES["independent-12399"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Cowdenbeath perhaps to emerge victorious after losing one (4)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "TOWN",
    "annotation": {
@@ -1053,9 +993,6 @@ window.CRYPTIC_PUZZLES["independent-12399"] = /*JSON-START*/ {
      43,
      11
     ]
-   ],
-   "group": [
-    "19-down"
    ],
    "separatorLocations": {},
    "solution": "HORROR",
@@ -1113,9 +1050,6 @@ window.CRYPTIC_PUZZLES["independent-12399"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Jig, shake and carouse without stopping (5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "DANCE",
    "annotation": {
@@ -1166,9 +1100,6 @@ window.CRYPTIC_PUZZLES["independent-12399"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Melon that's hard held up by weedy criminal (8)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "HONEYDEW",
    "annotation": {
@@ -1228,9 +1159,6 @@ window.CRYPTIC_PUZZLES["independent-12399"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "My parse's wrong, assuming 2's first letter is M? (9)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "SPYMASTER",
    "annotation": {
@@ -1287,9 +1215,6 @@ window.CRYPTIC_PUZZLES["independent-12399"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Jesus repeatedly exposed political figure's lie (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "STORY",
    "annotation": {
@@ -1332,9 +1257,6 @@ window.CRYPTIC_PUZZLES["independent-12399"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "I see star chopping out line in front (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "AHEAD",
    "annotation": {
@@ -1382,9 +1304,6 @@ window.CRYPTIC_PUZZLES["independent-12399"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Creative works put up in sequence (5)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "TRAIN",
    "annotation": {
@@ -1433,9 +1352,6 @@ window.CRYPTIC_PUZZLES["independent-12399"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Last course of Italian meal is left unfinished (4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "PAST",
    "annotation": {
@@ -1475,9 +1391,6 @@ window.CRYPTIC_PUZZLES["independent-12399"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "The woman regularly went to get bed linen (5)",
-   "group": [
-    "26-down"
-   ],
    "separatorLocations": {},
    "solution": "SHEET",
    "annotation": {
@@ -1523,9 +1436,6 @@ window.CRYPTIC_PUZZLES["independent-12399"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Move location of screw (4)",
-   "group": [
-    "27-down"
-   ],
    "separatorLocations": {},
    "solution": "STIR",
    "annotation": {
@@ -1560,9 +1470,6 @@ window.CRYPTIC_PUZZLES["independent-12399"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Snow leopard's attack quietly carried out (5)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "OUNCE",
    "annotation": {
@@ -1607,9 +1514,6 @@ window.CRYPTIC_PUZZLES["independent-12399"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "A British rugby union player's opening try is most unexpected (9)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "ABRUPTEST",
    "annotation": {
@@ -1673,9 +1577,6 @@ window.CRYPTIC_PUZZLES["independent-12399"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Admitting defeat, yankee fellow's excused from playing cricket? (8)",
-   "group": [
-    "30-across"
-   ],
    "separatorLocations": {},
    "solution": "YIELDING",
    "annotation": {
@@ -1723,9 +1624,6 @@ window.CRYPTIC_PUZZLES["independent-12399"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Columnist, say, who sets things straight on the radio (6)",
-   "group": [
-    "31-across"
-   ],
    "separatorLocations": {},
    "solution": "WRITER",
    "annotation": {

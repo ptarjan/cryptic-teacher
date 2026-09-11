@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30003"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Wearing this, somersault a failure (4-4)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -70,9 +67,6 @@ window.CRYPTIC_PUZZLES["cryptic-30003"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Part of body disappearing as one stands (3)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "LAP",
    "annotation": {
@@ -105,9 +99,6 @@ window.CRYPTIC_PUZZLES["cryptic-30003"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Bread is mine, thank you (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "PITTA",
    "annotation": {
@@ -149,9 +140,6 @@ window.CRYPTIC_PUZZLES["cryptic-30003"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Wild West law enforcer, one separating two hands with fury (4,6)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -214,9 +202,6 @@ window.CRYPTIC_PUZZLES["cryptic-30003"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Abrasive, turned up with computer peripherals (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "PUMICE",
    "annotation": {
@@ -269,9 +254,6 @@ window.CRYPTIC_PUZZLES["cryptic-30003"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Simpleton with broken leg he can’t magically fix (6)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "MUGGLE",
    "annotation": {
@@ -325,9 +307,6 @@ window.CRYPTIC_PUZZLES["cryptic-30003"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Horse that appears on the moon (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "MARE",
    "annotation": {
@@ -363,9 +342,6 @@ window.CRYPTIC_PUZZLES["cryptic-30003"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Shivering, got nearer source of energy (9)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "GENERATOR",
    "annotation": {
@@ -403,9 +379,6 @@ window.CRYPTIC_PUZZLES["cryptic-30003"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Band of light aircraft (3,8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -451,9 +424,6 @@ window.CRYPTIC_PUZZLES["cryptic-30003"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Something to eat with tea say coming in? Exactly (4,2)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -505,9 +475,6 @@ window.CRYPTIC_PUZZLES["cryptic-30003"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Pelting rain made a liquid mixture over some food (8)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "MARINADE",
    "annotation": {
@@ -545,9 +512,6 @@ window.CRYPTIC_PUZZLES["cryptic-30003"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "One may start this contest, but one won’t finish (5,4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -583,9 +547,6 @@ window.CRYPTIC_PUZZLES["cryptic-30003"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Somehow retrain teen for job in showbiz (11)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {},
    "solution": "ENTERTAINER",
    "annotation": {
@@ -627,9 +588,6 @@ window.CRYPTIC_PUZZLES["cryptic-30003"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Fine supplier of venison returns, out of jail (5)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "FREED",
    "annotation": {
@@ -679,9 +637,6 @@ window.CRYPTIC_PUZZLES["cryptic-30003"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Salad lover moved to the country (2,8)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -726,9 +681,6 @@ window.CRYPTIC_PUZZLES["cryptic-30003"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Story books, a special gift (6)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "TALENT",
    "annotation": {
@@ -767,9 +719,6 @@ window.CRYPTIC_PUZZLES["cryptic-30003"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Naturally, they may fall off a cliff (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "LANDSLIPS",
    "annotation": {
@@ -801,9 +750,6 @@ window.CRYPTIC_PUZZLES["cryptic-30003"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "End of insect: illegally dispose of it (3-3)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -849,9 +795,6 @@ window.CRYPTIC_PUZZLES["cryptic-30003"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Hand over a first thin coat (6)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "RENDER",
    "annotation": {
@@ -884,9 +827,6 @@ window.CRYPTIC_PUZZLES["cryptic-30003"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Large quantity of beer over which one is powerless (6)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "BARREL",
    "annotation": {
@@ -919,9 +859,6 @@ window.CRYPTIC_PUZZLES["cryptic-30003"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Centre installs unwarranted bath (3,3)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -970,9 +907,6 @@ window.CRYPTIC_PUZZLES["cryptic-30003"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "On planet, hot waterlogged area (5)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "MARSH",
    "annotation": {
@@ -1014,9 +948,6 @@ window.CRYPTIC_PUZZLES["cryptic-30003"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Drunken wine lover is a glutton (9)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "WOLVERINE",
    "annotation": {
@@ -1057,9 +988,6 @@ window.CRYPTIC_PUZZLES["cryptic-30003"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "A Cuban export, strong drink, going by airline (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "RUMBA",
    "annotation": {
@@ -1103,9 +1031,6 @@ window.CRYPTIC_PUZZLES["cryptic-30003"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Ponder aloud in old stables (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "MEWS",
    "annotation": {
@@ -1144,9 +1069,6 @@ window.CRYPTIC_PUZZLES["cryptic-30003"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "As part of detective force, sent first off to disturbance (8)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "INCIDENT",
    "annotation": {
@@ -1199,9 +1121,6 @@ window.CRYPTIC_PUZZLES["cryptic-30003"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Barrier to become weaker perhaps, a likely result of crash (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "DAMAGE",
    "annotation": {
@@ -1248,9 +1167,6 @@ window.CRYPTIC_PUZZLES["cryptic-30003"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Sticky stuff not entirely satisfactory (3)",
-   "group": [
-    "27-down"
-   ],
    "separatorLocations": {},
    "solution": "GOO",
    "annotation": {
@@ -1288,9 +1204,6 @@ window.CRYPTIC_PUZZLES["cryptic-30003"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Crucial moments for which Charlie gets up (6)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "CRISES",
    "annotation": {
@@ -1332,9 +1245,6 @@ window.CRYPTIC_PUZZLES["cryptic-30003"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Essential oil for a car test on mass of ice (8)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "BERGAMOT",
    "annotation": {

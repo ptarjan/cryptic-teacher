@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4117"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Day in a western state: or 54 southern ones (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "AFRICA",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["everyman-4117"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Couple on extreme diet getting increasingly nippy (6,3,6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      6,
@@ -64,9 +58,6 @@ window.CRYPTIC_PUZZLES["everyman-4117"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Where letters are sorted (to put it briefly) (2,1,4)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -86,9 +77,6 @@ window.CRYPTIC_PUZZLES["everyman-4117"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "In regrettable manner, May lashed out (9)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "ASHAMEDLY",
    "annotation": null
@@ -103,9 +91,6 @@ window.CRYPTIC_PUZZLES["everyman-4117"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Tax idiots, son (6)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "ASSESS",
    "annotation": null
@@ -120,9 +105,6 @@ window.CRYPTIC_PUZZLES["everyman-4117"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Pretended to have served well with time invested (5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "ACTED",
    "annotation": null
@@ -137,9 +119,6 @@ window.CRYPTIC_PUZZLES["everyman-4117"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Nightcap perhaps when retiring - retired with some Bass? (7)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "SNIFTER",
    "annotation": null
@@ -154,9 +133,6 @@ window.CRYPTIC_PUZZLES["everyman-4117"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Cover wounds with this lipstick - strange, strange (8,7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -175,9 +151,6 @@ window.CRYPTIC_PUZZLES["everyman-4117"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Heap sitting coiled? (11)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {},
    "solution": "SPAGHETTINI",
    "annotation": null
@@ -192,9 +165,6 @@ window.CRYPTIC_PUZZLES["everyman-4117"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Primarily, cannelloni; alternatively, rye bread? (4)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {},
    "solution": "CARB",
    "annotation": null
@@ -209,9 +179,6 @@ window.CRYPTIC_PUZZLES["everyman-4117"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Went on horseback where you may travel loudly (4)",
-   "group": [
-    "10-down"
-   ],
    "separatorLocations": {},
    "solution": "RODE",
    "annotation": null
@@ -226,9 +193,6 @@ window.CRYPTIC_PUZZLES["everyman-4117"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Was that infuriating? Don't be ridiculous (3,3,3)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -248,9 +212,6 @@ window.CRYPTIC_PUZZLES["everyman-4117"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "In the direction of Kentucky, reaching old capital (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "TOKYO",
    "annotation": null
@@ -265,9 +226,6 @@ window.CRYPTIC_PUZZLES["everyman-4117"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "In bed, Sally's twisted (7)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "BRAIDED",
    "annotation": null
@@ -282,9 +240,6 @@ window.CRYPTIC_PUZZLES["everyman-4117"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Ernest rang Ethel - a little odd (7)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "STRANGE",
    "annotation": null
@@ -299,9 +254,6 @@ window.CRYPTIC_PUZZLES["everyman-4117"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Collective musical activity getting ganglions tingling (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "SINGALONG",
    "annotation": null
@@ -322,9 +274,6 @@ window.CRYPTIC_PUZZLES["everyman-4117"] = /*JSON-START*/ {
      6
     ]
    ],
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "MODESTY",
    "annotation": null
@@ -339,9 +288,6 @@ window.CRYPTIC_PUZZLES["everyman-4117"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Bare Everyman: concerning! (4)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "MERE",
    "annotation": null
@@ -356,9 +302,6 @@ window.CRYPTIC_PUZZLES["everyman-4117"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "They carry swords in aquariums - no question that's dodgy (7)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "SAMURAI",
    "annotation": null
@@ -373,9 +316,6 @@ window.CRYPTIC_PUZZLES["everyman-4117"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "'Hardly commercial', describing episode in paper (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "NOTEPAD",
    "annotation": null
@@ -390,9 +330,6 @@ window.CRYPTIC_PUZZLES["everyman-4117"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Remove parody (4-3)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -411,9 +348,6 @@ window.CRYPTIC_PUZZLES["everyman-4117"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Crossword setter ran flipping fancy food emporium (4)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "DELI",
    "annotation": null
@@ -428,9 +362,6 @@ window.CRYPTIC_PUZZLES["everyman-4117"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Once more, fortify bottom before getting married (5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "REARM",
    "annotation": null
@@ -445,9 +376,6 @@ window.CRYPTIC_PUZZLES["everyman-4117"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Ban #8 (5,4)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -466,9 +394,6 @@ window.CRYPTIC_PUZZLES["everyman-4117"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Display of delight about river fish (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "BREAM",
    "annotation": null
@@ -483,9 +408,6 @@ window.CRYPTIC_PUZZLES["everyman-4117"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Twitching poet to board warship (7,4)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -504,9 +426,6 @@ window.CRYPTIC_PUZZLES["everyman-4117"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Trump, snubbed, is to be arrested: that's stating the obvious (6)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "TRUISM",
    "annotation": null
@@ -521,9 +440,6 @@ window.CRYPTIC_PUZZLES["everyman-4117"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Wanting some, dreaming of erstwhile errand-boys? (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "GOFERS",
    "annotation": null

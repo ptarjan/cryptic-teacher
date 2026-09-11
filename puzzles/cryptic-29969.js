@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29969"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Soften tobacco, say, doubly loudly – for puffer? (4-4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -127,9 +124,6 @@ window.CRYPTIC_PUZZLES["cryptic-29969"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "10, barely sick, housebound? (6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "YORICK",
    "annotation": {
@@ -176,9 +170,6 @@ window.CRYPTIC_PUZZLES["cryptic-29969"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Rule with old king in new seat (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "STATUTE",
    "annotation": {
@@ -226,9 +217,6 @@ window.CRYPTIC_PUZZLES["cryptic-29969"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "A taboo embraced by goddess in aria (8)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "HABANERA",
    "annotation": {
@@ -276,9 +264,6 @@ window.CRYPTIC_PUZZLES["cryptic-29969"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Design I dropped flourished (10)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "BRANDISHED",
    "annotation": {
@@ -322,9 +307,6 @@ window.CRYPTIC_PUZZLES["cryptic-29969"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "10s in wood? (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "PLANKS",
    "annotation": {
@@ -363,9 +345,6 @@ window.CRYPTIC_PUZZLES["cryptic-29969"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Leave pitch for final battle (8)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {},
    "solution": "SHOOTOUT",
    "annotation": {
@@ -452,9 +431,6 @@ window.CRYPTIC_PUZZLES["cryptic-29969"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Bottom, for example, sweet (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "FOOL",
    "annotation": {
@@ -489,9 +465,6 @@ window.CRYPTIC_PUZZLES["cryptic-29969"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Moderation ultimately cutting it, wet acquiring skills (2,8)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -548,9 +521,6 @@ window.CRYPTIC_PUZZLES["cryptic-29969"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Cane has whipped hard in routine (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "SHTICK",
    "annotation": {
@@ -598,9 +568,6 @@ window.CRYPTIC_PUZZLES["cryptic-29969"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "The satanic works, atheist can too then! (2,4,4)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -672,9 +639,6 @@ window.CRYPTIC_PUZZLES["cryptic-29969"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Hoax has taken in famous 10 (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "COSTARD",
    "annotation": {
@@ -719,9 +683,6 @@ window.CRYPTIC_PUZZLES["cryptic-29969"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Record for example in brief, bar lifted? (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "REGISTER",
    "annotation": {
@@ -768,9 +729,6 @@ window.CRYPTIC_PUZZLES["cryptic-29969"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Rat traps however ending in pipe where current flows (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "CATHODE",
    "annotation": {
@@ -823,9 +781,6 @@ window.CRYPTIC_PUZZLES["cryptic-29969"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Stalk with fruit 10 (8)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "DOGBERRY",
    "annotation": {
@@ -866,9 +821,6 @@ window.CRYPTIC_PUZZLES["cryptic-29969"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "10’s game (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "SNOOKER",
    "annotation": {
@@ -905,9 +857,6 @@ window.CRYPTIC_PUZZLES["cryptic-29969"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Aerosol device possibly empty, gas having run out (5-3)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -964,9 +913,6 @@ window.CRYPTIC_PUZZLES["cryptic-29969"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Page and covers – those to check? (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "PROOFS",
    "annotation": {
@@ -1007,9 +953,6 @@ window.CRYPTIC_PUZZLES["cryptic-29969"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "One of seven bands that’s popular enjoy love (6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "INDIGO",
    "annotation": {
@@ -1056,9 +999,6 @@ window.CRYPTIC_PUZZLES["cryptic-29969"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Wrath appealing? Not quite for pacifist (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "IRENIC",
    "annotation": {
@@ -1106,9 +1046,6 @@ window.CRYPTIC_PUZZLES["cryptic-29969"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "10 bit something hard (10)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "TOUCHSTONE",
    "annotation": {
@@ -1168,9 +1105,6 @@ window.CRYPTIC_PUZZLES["cryptic-29969"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Top off, beach drier (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "OAST",
    "annotation": {
@@ -1208,9 +1142,6 @@ window.CRYPTIC_PUZZLES["cryptic-29969"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Interminable rot for 10 (5)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "FESTE",
    "annotation": {
@@ -1251,9 +1182,6 @@ window.CRYPTIC_PUZZLES["cryptic-29969"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Agent exhausted having killed leader and rescued girl (8)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "EMISSARY",
    "annotation": {

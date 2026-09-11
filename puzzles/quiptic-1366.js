@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1366"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "One revealing a secret story of archery and apple? (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "TELLTALE",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["quiptic-1366"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Not working to block part of golf-course? That’s sweet (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "TOFFEE",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["quiptic-1366"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Bet list of options getting reduced for ordinary fellows (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "LAYMEN",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["quiptic-1366"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Italian restaurant dessert overturned and a riot breaks out (9)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "TRATTORIA",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["quiptic-1366"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Sinister ambition as seen in US auto industry products? (4-4,5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -117,9 +102,6 @@ window.CRYPTIC_PUZZLES["quiptic-1366"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "College grounds affected our group (6)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "CAMPUS",
    "annotation": null
@@ -134,9 +116,6 @@ window.CRYPTIC_PUZZLES["quiptic-1366"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "High level to be attained in Greek? (5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "ATTIC",
    "annotation": null
@@ -151,9 +130,6 @@ window.CRYPTIC_PUZZLES["quiptic-1366"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Left capital of Uruguay with girl, coming to European country (8)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "PORTUGAL",
    "annotation": null
@@ -168,9 +144,6 @@ window.CRYPTIC_PUZZLES["quiptic-1366"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Watch indecent tapes etc. (8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "SPECTATE",
    "annotation": null
@@ -185,9 +158,6 @@ window.CRYPTIC_PUZZLES["quiptic-1366"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Rugby player with three legs? (3,4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -206,9 +176,6 @@ window.CRYPTIC_PUZZLES["quiptic-1366"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "OAP, perhaps, regarding one in tree (7)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "RETIREE",
    "annotation": null
@@ -223,9 +190,6 @@ window.CRYPTIC_PUZZLES["quiptic-1366"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Senior cleric correct to turn back almost before conclusion (5,8)",
-   "group": [
-    "10-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -244,9 +208,6 @@ window.CRYPTIC_PUZZLES["quiptic-1366"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Still time for an occasion (5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "EVENT",
    "annotation": null
@@ -261,9 +222,6 @@ window.CRYPTIC_PUZZLES["quiptic-1366"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Royal Household drugged? That’s where judges will be needed (4,5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -282,9 +240,6 @@ window.CRYPTIC_PUZZLES["quiptic-1366"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Stop – when the pepper runs out? (5,2,1,4)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {
     ",": [
      5,
@@ -305,9 +260,6 @@ window.CRYPTIC_PUZZLES["quiptic-1366"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Vegetable lorry that guy brought round OK (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "ARTICHOKE",
    "annotation": null
@@ -322,9 +274,6 @@ window.CRYPTIC_PUZZLES["quiptic-1366"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Initially locked in lavatory – situation displayed in online comment (8)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "BLOGPOST",
    "annotation": null
@@ -339,9 +288,6 @@ window.CRYPTIC_PUZZLES["quiptic-1366"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Wealthy area heading off industrial waste (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "AFFLUENT",
    "annotation": null
@@ -356,9 +302,6 @@ window.CRYPTIC_PUZZLES["quiptic-1366"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Long sentence with full stop? It’s critical (4-3-5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {
     "-": [
      4,
@@ -378,9 +321,6 @@ window.CRYPTIC_PUZZLES["quiptic-1366"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Felt sad for coalmine that is dead (6)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "PITIED",
    "annotation": null
@@ -395,9 +335,6 @@ window.CRYPTIC_PUZZLES["quiptic-1366"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Magazine number showing quantity of champagne (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "MAGNUM",
    "annotation": null
@@ -412,9 +349,6 @@ window.CRYPTIC_PUZZLES["quiptic-1366"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Explosive set to catch fire (9)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "GELIGNITE",
    "annotation": null
@@ -429,9 +363,6 @@ window.CRYPTIC_PUZZLES["quiptic-1366"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Assess Georgia – not initially vast (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "GAUGE",
    "annotation": null
@@ -446,9 +377,6 @@ window.CRYPTIC_PUZZLES["quiptic-1366"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Church in America or another country (5)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "CHINA",
    "annotation": null
@@ -463,9 +391,6 @@ window.CRYPTIC_PUZZLES["quiptic-1366"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Excessively quote old poetry about Unionist (7)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "OVERUSE",
    "annotation": null
@@ -480,9 +405,6 @@ window.CRYPTIC_PUZZLES["quiptic-1366"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Recalled uproar about limits to our coastal decline? (7)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "EROSION",
    "annotation": null
@@ -497,9 +419,6 @@ window.CRYPTIC_PUZZLES["quiptic-1366"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "What helps to regulate the Rottweiler? (6)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "TETHER",
    "annotation": null
@@ -514,9 +433,6 @@ window.CRYPTIC_PUZZLES["quiptic-1366"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Man and dude confused about Democrat’s extra comment (8)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "ADDENDUM",
    "annotation": null

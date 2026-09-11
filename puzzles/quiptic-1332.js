@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1332"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Posh locality unexpectedly losing hotel appears unbothered (5,2,4)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      5,
@@ -47,9 +44,6 @@ window.CRYPTIC_PUZZLES["quiptic-1332"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Prepares tea set and evenly soaks the nettles for brewing (4,3,6,2)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -70,9 +64,6 @@ window.CRYPTIC_PUZZLES["quiptic-1332"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Vessel in painting capturing old voyager’s heart (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "AORTA",
    "annotation": null
@@ -87,9 +78,6 @@ window.CRYPTIC_PUZZLES["quiptic-1332"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Lister analysed disease, finally finding antiseptic (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "STERILE",
    "annotation": null
@@ -104,9 +92,6 @@ window.CRYPTIC_PUZZLES["quiptic-1332"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Set about suppressing arm spasms (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "TWINGES",
    "annotation": null
@@ -121,9 +106,6 @@ window.CRYPTIC_PUZZLES["quiptic-1332"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Some cricket players being dull (8)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "OVERCAST",
    "annotation": null
@@ -138,9 +120,6 @@ window.CRYPTIC_PUZZLES["quiptic-1332"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Undo locks and drop barriers for fun? (3,4,4,4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -161,9 +140,6 @@ window.CRYPTIC_PUZZLES["quiptic-1332"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Powerless when embargo’s lifted, breaking endless rules (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "UNABLE",
    "annotation": null
@@ -178,9 +154,6 @@ window.CRYPTIC_PUZZLES["quiptic-1332"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "CERN incorporates a very large underground chamber (6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "CAVERN",
    "annotation": null
@@ -195,9 +168,6 @@ window.CRYPTIC_PUZZLES["quiptic-1332"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Trump’s no politician, taken in by message that’s false (3,4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -216,9 +186,6 @@ window.CRYPTIC_PUZZLES["quiptic-1332"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Drink delicate cocktail left disregarded (4,3)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -237,9 +204,6 @@ window.CRYPTIC_PUZZLES["quiptic-1332"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Risk’s always in syndicate selling out (9)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "BETRAYING",
    "annotation": null
@@ -254,9 +218,6 @@ window.CRYPTIC_PUZZLES["quiptic-1332"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Stick around in boat? (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "CANOE",
    "annotation": null
@@ -271,9 +232,6 @@ window.CRYPTIC_PUZZLES["quiptic-1332"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Sample from microbrewery in jug (4)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "EWER",
    "annotation": null
@@ -288,9 +246,6 @@ window.CRYPTIC_PUZZLES["quiptic-1332"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Perseveres, training sisters to break code (8,2)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -309,9 +264,6 @@ window.CRYPTIC_PUZZLES["quiptic-1332"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Unusually quiet, son has problem (8)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "QUESTION",
    "annotation": null
@@ -326,9 +278,6 @@ window.CRYPTIC_PUZZLES["quiptic-1332"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Discriminatory before judge, you ultimately played a risky game (10)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "PREJUDICED",
    "annotation": null
@@ -343,9 +292,6 @@ window.CRYPTIC_PUZZLES["quiptic-1332"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Start off spiral design encircling long column (6)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "PILLAR",
    "annotation": null
@@ -360,9 +306,6 @@ window.CRYPTIC_PUZZLES["quiptic-1332"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Cancel tax set up by court that’s not correct (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "INEXACT",
    "annotation": null
@@ -377,9 +320,6 @@ window.CRYPTIC_PUZZLES["quiptic-1332"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Shifting rodent found in damaged rice (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "ERRATIC",
    "annotation": null
@@ -394,9 +334,6 @@ window.CRYPTIC_PUZZLES["quiptic-1332"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Read aloud places to chill out (4)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "LAZE",
    "annotation": null
@@ -411,9 +348,6 @@ window.CRYPTIC_PUZZLES["quiptic-1332"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Still flat, soprano’s gutted (4,2)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -432,9 +366,6 @@ window.CRYPTIC_PUZZLES["quiptic-1332"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Insect mostly eating Thailand’s sacred flower (5)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "LOTUS",
    "annotation": null
@@ -449,9 +380,6 @@ window.CRYPTIC_PUZZLES["quiptic-1332"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "All right after slip negotiating reef (5-4)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -470,9 +398,6 @@ window.CRYPTIC_PUZZLES["quiptic-1332"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Run with mounting speed and go over again (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "RECAP",
    "annotation": null
@@ -487,9 +412,6 @@ window.CRYPTIC_PUZZLES["quiptic-1332"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Setter invested in first-class air travel, including Cuba and the US (7)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "AMERICA",
    "annotation": null
@@ -504,9 +426,6 @@ window.CRYPTIC_PUZZLES["quiptic-1332"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Autocrats switch rhetoric to business, working with rich men (7)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "TYCOONS",
    "annotation": null
@@ -521,9 +440,6 @@ window.CRYPTIC_PUZZLES["quiptic-1332"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "New in stock, rudely find fault with cooking vessel (3-5,3)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {
     ",": [
      8

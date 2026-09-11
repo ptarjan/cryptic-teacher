@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1842"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Salt absorbed by exposed sticker on hull? (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "BARNACLE",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["indysunday-1842"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Quickly take off clothes rolling about (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "APACE",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["indysunday-1842"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Hearing of stolen rowing boat, wink (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "NICTATE",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["indysunday-1842"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Elderly people in care got involved in cryonics, perhaps (4,7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -97,9 +85,6 @@ window.CRYPTIC_PUZZLES["indysunday-1842"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Register concerning gut (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "ENTERON",
    "annotation": null
@@ -114,9 +99,6 @@ window.CRYPTIC_PUZZLES["indysunday-1842"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Religious statue friend had wobbled (6)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "BUDDHA",
    "annotation": null
@@ -131,9 +113,6 @@ window.CRYPTIC_PUZZLES["indysunday-1842"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Extra run later (3)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "BYE",
    "annotation": null
@@ -148,9 +127,6 @@ window.CRYPTIC_PUZZLES["indysunday-1842"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Middle of tour through Leeds strangely free from nippers (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "DELOUSE",
    "annotation": null
@@ -165,9 +141,6 @@ window.CRYPTIC_PUZZLES["indysunday-1842"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Utility, one of no fixed address next to banks? (9)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "HOUSEBOAT",
    "annotation": null
@@ -182,9 +155,6 @@ window.CRYPTIC_PUZZLES["indysunday-1842"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Third guy like the Gallagher brothers? (4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "MANC",
    "annotation": null
@@ -199,9 +169,6 @@ window.CRYPTIC_PUZZLES["indysunday-1842"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Young darts player taking 50 to finish eliminated untidy thrower (6,4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -220,9 +187,6 @@ window.CRYPTIC_PUZZLES["indysunday-1842"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Years with Labour deliver peanuts, unfortunately (5,9)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -241,9 +205,6 @@ window.CRYPTIC_PUZZLES["indysunday-1842"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Trinity Lane turns the way one travels (11)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {},
    "solution": "ITINERANTLY",
    "annotation": null
@@ -258,9 +219,6 @@ window.CRYPTIC_PUZZLES["indysunday-1842"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Incredibly rainy round part of Johannesburg (6)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "SOWETO",
    "annotation": null
@@ -275,9 +233,6 @@ window.CRYPTIC_PUZZLES["indysunday-1842"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Where bandage goes, too tight? (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "OVERWOUND",
    "annotation": null
@@ -292,9 +247,6 @@ window.CRYPTIC_PUZZLES["indysunday-1842"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "World's longest river crossing a mafia boss guaranteed (6-2)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {
     "-": [
      6
@@ -313,9 +265,6 @@ window.CRYPTIC_PUZZLES["indysunday-1842"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Mould encountered around dish (8)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "TEMPLATE",
    "annotation": null
@@ -330,9 +279,6 @@ window.CRYPTIC_PUZZLES["indysunday-1842"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Fit as a golfer wants to be? There's a moral in that (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "PARABLE",
    "annotation": null
@@ -347,9 +293,6 @@ window.CRYPTIC_PUZZLES["indysunday-1842"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "American, say, bungling start of hit single (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "ENGLISH",
    "annotation": null
@@ -364,9 +307,6 @@ window.CRYPTIC_PUZZLES["indysunday-1842"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Wake partner before call (6)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "EXCITE",
    "annotation": null
@@ -381,9 +321,6 @@ window.CRYPTIC_PUZZLES["indysunday-1842"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Mark removed from 18 façade? (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "CEDILLA",
    "annotation": null
@@ -398,9 +335,6 @@ window.CRYPTIC_PUZZLES["indysunday-1842"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Henry hides uranium in network of tunnels protecting US president (6,1,7)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {
     ",": [
      6,
@@ -420,9 +354,6 @@ window.CRYPTIC_PUZZLES["indysunday-1842"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Macaroni cheese sandwiches not appealing to many (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "NICHE",
    "annotation": null
@@ -437,9 +368,6 @@ window.CRYPTIC_PUZZLES["indysunday-1842"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Hooker's top right behind wig next to his pants (5,5)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -458,9 +386,6 @@ window.CRYPTIC_PUZZLES["indysunday-1842"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Watch showing seconds in useless jewelled semicircle (3)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "SEE",
    "annotation": null
@@ -475,9 +400,6 @@ window.CRYPTIC_PUZZLES["indysunday-1842"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Lap speed (4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "LICK",
    "annotation": null
@@ -492,9 +414,6 @@ window.CRYPTIC_PUZZLES["indysunday-1842"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Stick together fellow admitted by doctor in A&E (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "ADHERE",
    "annotation": null
@@ -509,9 +428,6 @@ window.CRYPTIC_PUZZLES["indysunday-1842"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Silly malarkey making large hot punch (8)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "HAYMAKER",
    "annotation": null

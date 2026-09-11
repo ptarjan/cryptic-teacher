@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1394"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Check appearance for president (5)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "CHAIR",
    "annotation": {
@@ -68,9 +65,6 @@ window.CRYPTIC_PUZZLES["quiptic-1394"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Spooner lecturing arrogant airline – it can reduce accidents (5,7)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -116,9 +110,6 @@ window.CRYPTIC_PUZZLES["quiptic-1394"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Admitted a lone wild drunk (7,2)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -156,9 +147,6 @@ window.CRYPTIC_PUZZLES["quiptic-1394"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Southern part of base provides resting area (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "ROOST",
    "annotation": {
@@ -202,9 +190,6 @@ window.CRYPTIC_PUZZLES["quiptic-1394"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Avoid part of process on border (8)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "SIDESTEP",
    "annotation": {
@@ -244,9 +229,6 @@ window.CRYPTIC_PUZZLES["quiptic-1394"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Notice cutting type of irresolute behaviour (3-6)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -288,9 +270,6 @@ window.CRYPTIC_PUZZLES["quiptic-1394"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Half of dons hate city (4)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "DOHA",
    "annotation": {
@@ -330,9 +309,6 @@ window.CRYPTIC_PUZZLES["quiptic-1394"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Easy to read report of cheat on board (9)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "SCRUTABLE",
    "annotation": {
@@ -374,9 +350,6 @@ window.CRYPTIC_PUZZLES["quiptic-1394"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Weirdo’s diet regularly includes crumble (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "ERODE",
    "annotation": {
@@ -417,9 +390,6 @@ window.CRYPTIC_PUZZLES["quiptic-1394"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Every one gathered with present get invitation to join in (3,8,3)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -471,9 +441,6 @@ window.CRYPTIC_PUZZLES["quiptic-1394"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Finish quarrel by counting to ten? (4,3,5)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -516,9 +483,6 @@ window.CRYPTIC_PUZZLES["quiptic-1394"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Is it ok to ask for a repeat? (4,4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -560,9 +524,6 @@ window.CRYPTIC_PUZZLES["quiptic-1394"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Relaxed as Republican enters a challenge (2,4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -611,9 +572,6 @@ window.CRYPTIC_PUZZLES["quiptic-1394"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Carrying off a second rate set of pipes (9)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "ABDUCTING",
    "annotation": {
@@ -657,9 +615,6 @@ window.CRYPTIC_PUZZLES["quiptic-1394"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Writer blocking waterways? They’ll have him for breakfast (9)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "CANNIBALS",
    "annotation": {
@@ -701,9 +656,6 @@ window.CRYPTIC_PUZZLES["quiptic-1394"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "I see gulls circling? That’s natural (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "GUILELESS",
    "annotation": {
@@ -740,9 +692,6 @@ window.CRYPTIC_PUZZLES["quiptic-1394"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Exaggerate large raise (3,2)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -784,9 +733,6 @@ window.CRYPTIC_PUZZLES["quiptic-1394"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Add some sparkle to gem sailor messed with (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "GLAMORISE",
    "annotation": {
@@ -820,9 +766,6 @@ window.CRYPTIC_PUZZLES["quiptic-1394"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Dispute arrest (3-2)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -861,9 +804,6 @@ window.CRYPTIC_PUZZLES["quiptic-1394"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Piglet had disrupted aircraft’s landing approach (5,4)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -901,9 +841,6 @@ window.CRYPTIC_PUZZLES["quiptic-1394"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Almost cry out during festival – it obscures your vision (6)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "EYELID",
    "annotation": {
@@ -945,9 +882,6 @@ window.CRYPTIC_PUZZLES["quiptic-1394"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Wise man spots current in Irish river (5)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "ERNIE",
    "annotation": {
@@ -989,9 +923,6 @@ window.CRYPTIC_PUZZLES["quiptic-1394"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Holiday cancelled? You must be joking (5,3)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -1033,9 +964,6 @@ window.CRYPTIC_PUZZLES["quiptic-1394"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Partially apologise to Vatican over ballots (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "VOTES",
    "annotation": {
@@ -1073,9 +1001,6 @@ window.CRYPTIC_PUZZLES["quiptic-1394"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Starts to manufacture exceptionally reliable cable car (4)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "MERC",
    "annotation": {
@@ -1112,9 +1037,6 @@ window.CRYPTIC_PUZZLES["quiptic-1394"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Call after date – it’s a sign of serious commitment (10,4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     ",": [
      10
@@ -1161,9 +1083,6 @@ window.CRYPTIC_PUZZLES["quiptic-1394"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Deck boss turned out in nightwear (8)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "BEDSOCKS",
    "annotation": {
@@ -1201,9 +1120,6 @@ window.CRYPTIC_PUZZLES["quiptic-1394"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Tart ironically described like this on menu (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "SWEET",
    "annotation": {

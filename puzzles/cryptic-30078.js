@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30078"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Bacterium in rum real, is it? (8)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "LISTERIA",
    "annotation": {
@@ -64,9 +61,6 @@ window.CRYPTIC_PUZZLES["cryptic-30078"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Setter in a dress that’s short (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "AGAR",
    "annotation": {
@@ -109,9 +103,6 @@ window.CRYPTIC_PUZZLES["cryptic-30078"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Belly squeezed by fifth columnist in squat (6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "STUMPY",
    "annotation": {
@@ -155,9 +146,6 @@ window.CRYPTIC_PUZZLES["cryptic-30078"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Nobody drunk now nobody drinks! (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "UNKNOWN",
    "annotation": {
@@ -188,9 +176,6 @@ window.CRYPTIC_PUZZLES["cryptic-30078"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Activation of lever in bed to get warmer at night? (8)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "COVERLET",
    "annotation": {
@@ -241,9 +226,6 @@ window.CRYPTIC_PUZZLES["cryptic-30078"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Inferior boss, decent after training (6-4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     "-": [
      6
@@ -281,9 +263,6 @@ window.CRYPTIC_PUZZLES["cryptic-30078"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Knight guzzling absinthe, originally on the wagon (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "GAWAIN",
    "annotation": {
@@ -324,9 +303,6 @@ window.CRYPTIC_PUZZLES["cryptic-30078"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "More than one man mountain somewhere in 15 (8)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {},
    "solution": "KINGSTON",
    "annotation": {
@@ -443,9 +419,6 @@ window.CRYPTIC_PUZZLES["cryptic-30078"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Python catches boa wandering by say, somewhere in 15 (7,3)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -504,9 +477,6 @@ window.CRYPTIC_PUZZLES["cryptic-30078"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Hard left turns approaching end of rally – something for the winner? (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "TROPHY",
    "annotation": {
@@ -558,9 +528,6 @@ window.CRYPTIC_PUZZLES["cryptic-30078"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Thing concluding film featuring final lightweight item (7,3)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -612,9 +579,6 @@ window.CRYPTIC_PUZZLES["cryptic-30078"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Hats off, supply a wrap (4,4)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -655,9 +619,6 @@ window.CRYPTIC_PUZZLES["cryptic-30078"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Was she not given a choice to speak for country? (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "JAMAICA",
    "annotation": {
@@ -692,9 +653,6 @@ window.CRYPTIC_PUZZLES["cryptic-30078"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Rodent taking wodge around lunchtime? (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "CHIPMUNK",
    "annotation": {
@@ -736,9 +694,6 @@ window.CRYPTIC_PUZZLES["cryptic-30078"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Oath’s not a pretence, would Aussie say? (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "STREWTH",
    "annotation": {
@@ -770,9 +725,6 @@ window.CRYPTIC_PUZZLES["cryptic-30078"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Frivolous throw, cast and pitch? (8)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "TRIFLING",
    "annotation": {
@@ -809,9 +761,6 @@ window.CRYPTIC_PUZZLES["cryptic-30078"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Periods on horseback where British king into himself? (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "CHUKKAS",
    "annotation": {
@@ -883,9 +832,6 @@ window.CRYPTIC_PUZZLES["cryptic-30078"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Counter when a god denied church (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "ABACUS",
    "annotation": {
@@ -928,9 +874,6 @@ window.CRYPTIC_PUZZLES["cryptic-30078"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Old man’s taken to island, 15 by the sound of it? (6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "PATOIS",
    "annotation": {
@@ -976,9 +919,6 @@ window.CRYPTIC_PUZZLES["cryptic-30078"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Ralph snatches ‘er wig (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "PERUKE",
    "annotation": {
@@ -1019,9 +959,6 @@ window.CRYPTIC_PUZZLES["cryptic-30078"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "One struck by god, Cupid (10)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "MATCHMAKER",
    "annotation": {
@@ -1083,9 +1020,6 @@ window.CRYPTIC_PUZZLES["cryptic-30078"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Bellyache – something in 15’s patty? (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "BEEF",
    "annotation": {

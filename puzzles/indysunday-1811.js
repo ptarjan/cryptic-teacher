@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1811"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Live cheaply, putting millions into unfinished screenplay (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "SCRIMP",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["indysunday-1811"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Charlie lists recent record that's perfect (5,5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -63,9 +57,6 @@ window.CRYPTIC_PUZZLES["indysunday-1811"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Written with feet upside down (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "INVERSE",
    "annotation": null
@@ -80,9 +71,6 @@ window.CRYPTIC_PUZZLES["indysunday-1811"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Play African country in pongy ground (9)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "PYGMALION",
    "annotation": null
@@ -97,9 +85,6 @@ window.CRYPTIC_PUZZLES["indysunday-1811"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Scratch and doodle? (8)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "WITHDRAW",
    "annotation": null
@@ -114,9 +99,6 @@ window.CRYPTIC_PUZZLES["indysunday-1811"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Critical wife, seeing wee in your cups? (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "WASPISH",
    "annotation": null
@@ -131,9 +113,6 @@ window.CRYPTIC_PUZZLES["indysunday-1811"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Couple in Glasgow starts to notice ghastly local intonation (5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "TWANG",
    "annotation": null
@@ -148,9 +127,6 @@ window.CRYPTIC_PUZZLES["indysunday-1811"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Make sense of cold, recently-emptied department stores (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "DECRYPT",
    "annotation": null
@@ -165,9 +141,6 @@ window.CRYPTIC_PUZZLES["indysunday-1811"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Top copy that's wrong (4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "APEX",
    "annotation": null
@@ -182,9 +155,6 @@ window.CRYPTIC_PUZZLES["indysunday-1811"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Avengers shot invisible weapon (5,3)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -203,9 +173,6 @@ window.CRYPTIC_PUZZLES["indysunday-1811"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "German city first in alphabet, with long name (6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "AACHEN",
    "annotation": null
@@ -220,9 +187,6 @@ window.CRYPTIC_PUZZLES["indysunday-1811"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "More and more at home managed care alone (12)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "INCREASINGLY",
    "annotation": null
@@ -237,9 +201,6 @@ window.CRYPTIC_PUZZLES["indysunday-1811"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Spontaneous date started with pre-nup Tom prepared (10)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {},
    "solution": "UNPROMPTED",
    "annotation": null
@@ -254,9 +215,6 @@ window.CRYPTIC_PUZZLES["indysunday-1811"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Chimney went overhead, you'd say (4)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "FLUE",
    "annotation": null
@@ -271,9 +229,6 @@ window.CRYPTIC_PUZZLES["indysunday-1811"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Before long, insect bites hotel resident (10)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "INHABITANT",
    "annotation": null
@@ -288,9 +243,6 @@ window.CRYPTIC_PUZZLES["indysunday-1811"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "See one retail outlet in short block (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "BISHOPRIC",
    "annotation": null
@@ -305,9 +257,6 @@ window.CRYPTIC_PUZZLES["indysunday-1811"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Amazing biro, say, pocketed by academic without one (10)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "STUPENDOUS",
    "annotation": null
@@ -322,9 +271,6 @@ window.CRYPTIC_PUZZLES["indysunday-1811"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "E.g. John Paul I and II taking mass in Italian city (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "POMPEII",
    "annotation": null
@@ -339,9 +285,6 @@ window.CRYPTIC_PUZZLES["indysunday-1811"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Keeping watch, running aground (2,5)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -360,9 +303,6 @@ window.CRYPTIC_PUZZLES["indysunday-1811"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Restrain dog beginning to bark (4)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "CURB",
    "annotation": null
@@ -377,9 +317,6 @@ window.CRYPTIC_PUZZLES["indysunday-1811"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "3D image of queen, say, on throne (3,4)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -398,9 +335,6 @@ window.CRYPTIC_PUZZLES["indysunday-1811"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Repair faulty item quickly near destination (4,4,4)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -420,9 +354,6 @@ window.CRYPTIC_PUZZLES["indysunday-1811"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "A boat you can capsize? (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "KAYAK",
    "annotation": null
@@ -437,9 +368,6 @@ window.CRYPTIC_PUZZLES["indysunday-1811"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Water area covered by turf (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "SODA",
    "annotation": null
@@ -454,9 +382,6 @@ window.CRYPTIC_PUZZLES["indysunday-1811"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Find humour when swapping sides in bed (4,2)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -475,9 +400,6 @@ window.CRYPTIC_PUZZLES["indysunday-1811"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Crossing island, stop car unexpectedly for fruit (8)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "APRICOTS",
    "annotation": null
@@ -492,9 +414,6 @@ window.CRYPTIC_PUZZLES["indysunday-1811"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Old man under arrest became hysterical (8)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "PANICKED",
    "annotation": null
@@ -509,9 +428,6 @@ window.CRYPTIC_PUZZLES["indysunday-1811"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Cold northern state has nothing on California (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "CANADA",
    "annotation": null

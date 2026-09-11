@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1824"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Get cold feet crossing lake in total darkness (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "BLACKOUT",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["indysunday-1824"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Don't disturb new yeast, say (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "LEAVEN",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["indysunday-1824"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Group of weirdos one's holding at court (9)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "CULTIVATE",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["indysunday-1824"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Egg supplier to diversify, starting with duck (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "OVARY",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["indysunday-1824"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Opera the Parisian makes smaller but with similar parts (2,5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -114,9 +99,6 @@ window.CRYPTIC_PUZZLES["indysunday-1824"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Likelihood Charlie Chan switched back from Chinese? (6)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "CHANCE",
    "annotation": null
@@ -131,9 +113,6 @@ window.CRYPTIC_PUZZLES["indysunday-1824"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Evita, say, Argentinian revolutionary guards escort (9)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "CHAPERONE",
    "annotation": null
@@ -148,9 +127,6 @@ window.CRYPTIC_PUZZLES["indysunday-1824"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Bail screwed on stump, possibly as form of defence (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "ALIBI",
    "annotation": null
@@ -165,9 +141,6 @@ window.CRYPTIC_PUZZLES["indysunday-1824"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Keep prisoner in during day (8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "CONTINUE",
    "annotation": null
@@ -182,9 +155,6 @@ window.CRYPTIC_PUZZLES["indysunday-1824"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Stop barking to wiry Alsatian (7,7)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -203,9 +173,6 @@ window.CRYPTIC_PUZZLES["indysunday-1824"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Hilarity seeing Strauss's name on his pants today, inside out (6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "LEVITY",
    "annotation": null
@@ -220,9 +187,6 @@ window.CRYPTIC_PUZZLES["indysunday-1824"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "A sort of tripe provided stimulation for diner (8)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "APERITIF",
    "annotation": null
@@ -237,9 +201,6 @@ window.CRYPTIC_PUZZLES["indysunday-1824"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "One and a half chaps & I make cheese (8)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "MANCHEGO",
    "annotation": null
@@ -254,9 +215,6 @@ window.CRYPTIC_PUZZLES["indysunday-1824"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Writer never acts in play (9)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "CERVANTES",
    "annotation": null
@@ -271,9 +229,6 @@ window.CRYPTIC_PUZZLES["indysunday-1824"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Swallow something slimy on lettuce? (4)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "SLUG",
    "annotation": null
@@ -288,9 +243,6 @@ window.CRYPTIC_PUZZLES["indysunday-1824"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Empty supermarket as well as till, for challenge (5,2,2)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      5,
@@ -310,9 +262,6 @@ window.CRYPTIC_PUZZLES["indysunday-1824"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Ill-treated donkey in race died (8)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "HARASSED",
    "annotation": null
@@ -327,9 +276,6 @@ window.CRYPTIC_PUZZLES["indysunday-1824"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "You hear greeting very well (4)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "HALE",
    "annotation": null
@@ -344,9 +290,6 @@ window.CRYPTIC_PUZZLES["indysunday-1824"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Tree, said lecturer after Spooner (3,5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -365,9 +308,6 @@ window.CRYPTIC_PUZZLES["indysunday-1824"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Make jewels set with diamonds for amusement (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "DODGEMS",
    "annotation": null
@@ -382,9 +322,6 @@ window.CRYPTIC_PUZZLES["indysunday-1824"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Artist back in cells after spitting curry (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "MADRAS",
    "annotation": null
@@ -399,9 +336,6 @@ window.CRYPTIC_PUZZLES["indysunday-1824"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Crazy world left Alan Alda short changed (2-2,4)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     "-": [
      2
@@ -423,9 +357,6 @@ window.CRYPTIC_PUZZLES["indysunday-1824"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "A right horror (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "ALIEN",
    "annotation": null
@@ -440,9 +371,6 @@ window.CRYPTIC_PUZZLES["indysunday-1824"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Trial or settlement? (6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "ORDEAL",
    "annotation": null
@@ -457,9 +385,6 @@ window.CRYPTIC_PUZZLES["indysunday-1824"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Time doctor reversed conclusion (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "OMEGA",
    "annotation": null
@@ -474,9 +399,6 @@ window.CRYPTIC_PUZZLES["indysunday-1824"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Channel Islanders' capital isn't safe, jest banks (5,5,4)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {
     ",": [
      5,
@@ -496,9 +418,6 @@ window.CRYPTIC_PUZZLES["indysunday-1824"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Who's 13's hero? Someone really good-looking (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "ADONIS",
    "annotation": null
@@ -513,9 +432,6 @@ window.CRYPTIC_PUZZLES["indysunday-1824"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Fish are sighted almost jumping ashore (8)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "SEAHORSE",
    "annotation": null

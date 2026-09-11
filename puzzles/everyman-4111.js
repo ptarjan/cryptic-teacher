@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4111"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Frenzied demoniac - scream! (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "COMEDIAN",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["everyman-4111"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Recording equipment, love, in which you won't be seen (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "CAMO",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["everyman-4111"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "June maybe taking heart in winged creature (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "MOTH",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["everyman-4111"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Upset? Shave? (8)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "DISTRESS",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["everyman-4111"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Once more, a win (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "AGAIN",
    "annotation": null
@@ -110,9 +95,6 @@ window.CRYPTIC_PUZZLES["everyman-4111"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Part of Pacific Rim, Eastern Peninsula (6)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "CRIMEA",
    "annotation": null
@@ -127,9 +109,6 @@ window.CRYPTIC_PUZZLES["everyman-4111"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Regretting being in Peru, in general (5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "RUING",
    "annotation": null
@@ -144,9 +123,6 @@ window.CRYPTIC_PUZZLES["everyman-4111"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Roman currency of old given to worker only (not 'pounds') (4,6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -165,9 +141,6 @@ window.CRYPTIC_PUZZLES["everyman-4111"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "A familiar query, regularly seen: Everyman, quiet and unprofessional? (10)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "AMATEURISH",
    "annotation": null
@@ -182,9 +155,6 @@ window.CRYPTIC_PUZZLES["everyman-4111"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Mum with pen, perhaps one that glides across water (4,4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -203,9 +173,6 @@ window.CRYPTIC_PUZZLES["everyman-4111"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "In report, recognise clotheshorse and range (6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "SIERRA",
    "annotation": null
@@ -226,9 +193,6 @@ window.CRYPTIC_PUZZLES["everyman-4111"] = /*JSON-START*/ {
      3
     ]
    ],
-   "group": [
-    "11-down"
-   ],
    "separatorLocations": {},
    "solution": "NICEST",
    "annotation": null
@@ -243,9 +207,6 @@ window.CRYPTIC_PUZZLES["everyman-4111"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Contest in which losers are roaring? (8,4)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -264,9 +225,6 @@ window.CRYPTIC_PUZZLES["everyman-4111"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Antagonist wrecked, seeing low times (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "STAGNATION",
    "annotation": null
@@ -281,9 +239,6 @@ window.CRYPTIC_PUZZLES["everyman-4111"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Possessive character? (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "APOSTROPHE",
    "annotation": null
@@ -298,9 +253,6 @@ window.CRYPTIC_PUZZLES["everyman-4111"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Records what judge does: hangings (10)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "TAPESTRIES",
    "annotation": null
@@ -315,9 +267,6 @@ window.CRYPTIC_PUZZLES["everyman-4111"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Cringes, losing head, wobbling - give up! (6)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "RESIGN",
    "annotation": null
@@ -332,9 +281,6 @@ window.CRYPTIC_PUZZLES["everyman-4111"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Household name, the PM? For the most part (4)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "STAR",
    "annotation": null
@@ -349,9 +295,6 @@ window.CRYPTIC_PUZZLES["everyman-4111"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Moves unsteadily - after second, falls (8)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "STUMBLES",
    "annotation": null
@@ -366,9 +309,6 @@ window.CRYPTIC_PUZZLES["everyman-4111"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Is tucking into gin and tonic, in summary (4)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "GIST",
    "annotation": null
@@ -383,9 +323,6 @@ window.CRYPTIC_PUZZLES["everyman-4111"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Currently, Satanists carousing having imbibed drop of Dubonnet (2,2,6)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -405,9 +342,6 @@ window.CRYPTIC_PUZZLES["everyman-4111"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Many cigars he misplaced: pity (1,6,5)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {
     ",": [
      1,
@@ -427,9 +361,6 @@ window.CRYPTIC_PUZZLES["everyman-4111"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Part of the German arthouse? (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "INDIE",
    "annotation": null
@@ -444,9 +375,6 @@ window.CRYPTIC_PUZZLES["everyman-4111"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Mythological beast resembling Irish instrument? (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "HARPY",
    "annotation": null
@@ -461,9 +389,6 @@ window.CRYPTIC_PUZZLES["everyman-4111"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Close-fitting when arms raised (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "SNUG",
    "annotation": null
@@ -478,9 +403,6 @@ window.CRYPTIC_PUZZLES["everyman-4111"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Shy collection of actors (4)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "CAST",
    "annotation": null
@@ -495,9 +417,6 @@ window.CRYPTIC_PUZZLES["everyman-4111"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Get in the way of somewhat dim pedestrian (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "IMPEDE",
    "annotation": null
@@ -512,9 +431,6 @@ window.CRYPTIC_PUZZLES["everyman-4111"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "'Socialist Republic' India lies alongside, now known as, primarily ... this (3,5)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -533,9 +449,6 @@ window.CRYPTIC_PUZZLES["everyman-4111"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Crazy scene accommodating first of Italian relatives (6)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "NIECES",
    "annotation": null
@@ -550,9 +463,6 @@ window.CRYPTIC_PUZZLES["everyman-4111"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Crossword setter, we're told, ridiculous thing to behold? That makes sense (8)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "EYESIGHT",
    "annotation": null

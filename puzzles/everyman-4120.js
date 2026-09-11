@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4120"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Earl and flipping emperor finally lost direction (4)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "EAST",
    "annotation": {
@@ -82,9 +79,6 @@ window.CRYPTIC_PUZZLES["everyman-4120"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Denominate reforms for improvement (10)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "EMENDATION",
    "annotation": {
@@ -122,9 +116,6 @@ window.CRYPTIC_PUZZLES["everyman-4120"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Most like a pumpkin that's as soft as can be? (10)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "SQUASHIEST",
    "annotation": {
@@ -163,9 +154,6 @@ window.CRYPTIC_PUZZLES["everyman-4120"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Round of applause: son parking with hoop as cartwheel (10)",
-   "group": [
-    "3-across"
-   ],
    "separatorLocations": {},
    "solution": "HANDSPRING",
    "annotation": {
@@ -220,9 +208,6 @@ window.CRYPTIC_PUZZLES["everyman-4120"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Spontaneity in desert (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "ABANDON",
    "annotation": {
@@ -261,9 +246,6 @@ window.CRYPTIC_PUZZLES["everyman-4120"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Executed swashbuckling author, article expressed: 'Oh dear!' (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "DIDDUMS",
    "annotation": {
@@ -312,9 +294,6 @@ window.CRYPTIC_PUZZLES["everyman-4120"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Regrettably, punter ate tub - of this? (6,6)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -356,9 +335,6 @@ window.CRYPTIC_PUZZLES["everyman-4120"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Tragic figure, Everyman has a go (4)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "IAGO",
    "annotation": {
@@ -400,9 +376,6 @@ window.CRYPTIC_PUZZLES["everyman-4120"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Soldier had intro to erotic French author (4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "GIDE",
    "annotation": {
@@ -452,9 +425,6 @@ window.CRYPTIC_PUZZLES["everyman-4120"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "They're grounded and somewhat bemused (4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "EMUS",
    "annotation": {
@@ -492,9 +462,6 @@ window.CRYPTIC_PUZZLES["everyman-4120"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "According to Spooner, group fell under attack (10)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "SANDBAGGED",
    "annotation": {
@@ -540,9 +507,6 @@ window.CRYPTIC_PUZZLES["everyman-4120"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "I'll take the biscuit - regularly! (6,6)",
-   "group": [
-    "11-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -578,9 +542,6 @@ window.CRYPTIC_PUZZLES["everyman-4120"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Archbishop's mutt sounded rabid (7,4)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -625,9 +586,6 @@ window.CRYPTIC_PUZZLES["everyman-4120"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Sweet tomatoes maybe given to a bloke (5,5)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -679,9 +637,6 @@ window.CRYPTIC_PUZZLES["everyman-4120"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Predominance of crooked candy canes (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "ASCENDANCY",
    "annotation": {
@@ -722,9 +677,6 @@ window.CRYPTIC_PUZZLES["everyman-4120"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Plot may do this:catch something from character with lisp (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "THICKEN",
    "annotation": {
@@ -771,9 +723,6 @@ window.CRYPTIC_PUZZLES["everyman-4120"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Small, tense composer of musical is somewhere in Caribbean (2,5)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -828,9 +777,6 @@ window.CRYPTIC_PUZZLES["everyman-4120"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Appalling church buried in broken bones (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "OBSCENE",
    "annotation": {
@@ -889,9 +835,6 @@ window.CRYPTIC_PUZZLES["everyman-4120"] = /*JSON-START*/ {
      8
     ]
    ],
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "ESTONIA",
    "annotation": {
@@ -930,9 +873,6 @@ window.CRYPTIC_PUZZLES["everyman-4120"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Dead enthralling, largely, skating venue where you go (7)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "LATRINE",
    "annotation": {
@@ -979,9 +919,6 @@ window.CRYPTIC_PUZZLES["everyman-4120"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "King Edward among friends is erudite (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "LEARNED",
    "annotation": {
@@ -1028,9 +965,6 @@ window.CRYPTIC_PUZZLES["everyman-4120"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Adventurer's ground that hasn't been crossed (11)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "UNTRAVERSED",
    "annotation": {
@@ -1068,9 +1002,6 @@ window.CRYPTIC_PUZZLES["everyman-4120"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Ms Karenina going back and forth (4)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "ANNA",
    "annotation": {
@@ -1113,9 +1044,6 @@ window.CRYPTIC_PUZZLES["everyman-4120"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Trim legs raised (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "SNIP",
    "annotation": {
@@ -1159,9 +1087,6 @@ window.CRYPTIC_PUZZLES["everyman-4120"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Ice cream, or, non-standardly, IC (6-4)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {
     "-": [
      6
@@ -1209,9 +1134,6 @@ window.CRYPTIC_PUZZLES["everyman-4120"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Perhaps quiche getting cool around lake (4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "FLAN",
    "annotation": {
@@ -1259,9 +1181,6 @@ window.CRYPTIC_PUZZLES["everyman-4120"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Characters seen outside branches of H&M (10)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "AMPERSANDS",
    "annotation": {
@@ -1293,9 +1212,6 @@ window.CRYPTIC_PUZZLES["everyman-4120"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Topless undergarment that may have you in a spin (4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "EDDY",
    "annotation": {

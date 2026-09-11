@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4091"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Bring up opportunity to see Hitchcock movie (4,6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -73,9 +70,6 @@ window.CRYPTIC_PUZZLES["everyman-4091"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Does and bucks rampant in grass (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "REED",
    "annotation": {
@@ -122,9 +116,6 @@ window.CRYPTIC_PUZZLES["everyman-4091"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "One (or 17) before Romeo (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "ALFA",
    "annotation": {
@@ -156,9 +147,6 @@ window.CRYPTIC_PUZZLES["everyman-4091"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Walnut? Not half! And a little Discovery or Fuji’s cored, as prepared in diners, primarily (7,5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -236,9 +224,6 @@ window.CRYPTIC_PUZZLES["everyman-4091"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Greek character danced topless with subtlety (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "NUANCED",
    "annotation": {
@@ -282,9 +267,6 @@ window.CRYPTIC_PUZZLES["everyman-4091"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "A little yobbo near there, where you live (2,5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -323,9 +305,6 @@ window.CRYPTIC_PUZZLES["everyman-4091"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Revolutionary, loud apron-wearer (4)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "CHEF",
    "annotation": {
@@ -364,9 +343,6 @@ window.CRYPTIC_PUZZLES["everyman-4091"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Around end of dinner, hail her cab, mostly arranged in ranks (10)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "HIERARCHAL",
    "annotation": {
@@ -420,9 +396,6 @@ window.CRYPTIC_PUZZLES["everyman-4091"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Undergarment that goes on before blusher (10)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "FOUNDATION",
    "annotation": {
@@ -457,9 +430,6 @@ window.CRYPTIC_PUZZLES["everyman-4091"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Fixes ale to order and gets out of one’s skin (10)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "EXFOLIATES",
    "annotation": {
@@ -500,9 +470,6 @@ window.CRYPTIC_PUZZLES["everyman-4091"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Fancy fellow’s drop of bottled French water (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "BEAU",
    "annotation": {
@@ -549,9 +516,6 @@ window.CRYPTIC_PUZZLES["everyman-4091"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "In turn, they’ll get you going (8,4)",
-   "group": [
-    "11-down"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -587,9 +551,6 @@ window.CRYPTIC_PUZZLES["everyman-4091"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Making racket – foregone conclusion – excellent: a huge piano! (7,5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -643,9 +604,6 @@ window.CRYPTIC_PUZZLES["everyman-4091"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Seconds, cheap in the extreme and most delicious (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "SCRUMMIEST",
    "annotation": {
@@ -687,9 +645,6 @@ window.CRYPTIC_PUZZLES["everyman-4091"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Department’s leader reporting to top teacher, an idiot (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "DUNDERHEAD",
    "annotation": {
@@ -739,9 +694,6 @@ window.CRYPTIC_PUZZLES["everyman-4091"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Acted like a steam train travelling over the moon (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "CHUFFED",
    "annotation": {
@@ -776,9 +728,6 @@ window.CRYPTIC_PUZZLES["everyman-4091"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Hot air ignored? Do! (7)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "HAIRCUT",
    "annotation": {
@@ -823,9 +772,6 @@ window.CRYPTIC_PUZZLES["everyman-4091"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Not fine, flaunted, displaying cards in deck like so (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "UNDEALT",
    "annotation": {
@@ -869,9 +815,6 @@ window.CRYPTIC_PUZZLES["everyman-4091"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Some wrote her a note somewhere in Iran (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "TEHERAN",
    "annotation": {
@@ -906,9 +849,6 @@ window.CRYPTIC_PUZZLES["everyman-4091"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Musical fashionable in the past (7)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "CHICAGO",
    "annotation": {
@@ -947,9 +887,6 @@ window.CRYPTIC_PUZZLES["everyman-4091"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Announced boxy workspace (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "CUBICLE",
    "annotation": {
@@ -985,9 +922,6 @@ window.CRYPTIC_PUZZLES["everyman-4091"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Musicians from China barmaid enlivened (8,4)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -1033,9 +967,6 @@ window.CRYPTIC_PUZZLES["everyman-4091"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Foremost of peaks enveloping River Ucayali – here! (4)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "PERU",
    "annotation": {
@@ -1092,9 +1023,6 @@ window.CRYPTIC_PUZZLES["everyman-4091"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Remain conscious throughout Australia Day, finally (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "STAY",
    "annotation": {
@@ -1150,9 +1078,6 @@ window.CRYPTIC_PUZZLES["everyman-4091"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Your crossword compiler is only half there – always (4)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "EVER",
    "annotation": {
@@ -1193,9 +1118,6 @@ window.CRYPTIC_PUZZLES["everyman-4091"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Sporting fixture – racket bust – let rip (5,5)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -1246,9 +1168,6 @@ window.CRYPTIC_PUZZLES["everyman-4091"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Sea’s movement even, you say? (4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "TIDE",
    "annotation": {
@@ -1284,9 +1203,6 @@ window.CRYPTIC_PUZZLES["everyman-4091"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Stand-in actor to read European articles first (10)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "UNDERSTUDY",
    "annotation": {

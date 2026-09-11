@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12411"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Go to meet German girl somewhere for a little drink? (4,5)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -78,9 +75,6 @@ window.CRYPTIC_PUZZLES["independent-12411"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Measured from top of seam down (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "SLOW",
    "annotation": {
@@ -126,9 +120,6 @@ window.CRYPTIC_PUZZLES["independent-12411"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Chip installed in present PC? (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "OFFICER",
    "annotation": {
@@ -172,9 +163,6 @@ window.CRYPTIC_PUZZLES["independent-12411"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Ogre beginning to eat diver (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "GREBE",
    "annotation": {
@@ -208,9 +196,6 @@ window.CRYPTIC_PUZZLES["independent-12411"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Losing runs is irritating with stone in footwear (5,4)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -262,9 +247,6 @@ window.CRYPTIC_PUZZLES["independent-12411"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Ride on board Ford Model T, splitting southeast (5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "SKATE",
    "annotation": {
@@ -314,9 +296,6 @@ window.CRYPTIC_PUZZLES["independent-12411"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "On retirement, provided with very limited amount of money (5)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "FIVER",
    "annotation": {
@@ -370,9 +349,6 @@ window.CRYPTIC_PUZZLES["independent-12411"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Semi-finals leading to German upset – a nail-biting finish? (9)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "FINGERTIP",
    "annotation": {
@@ -419,9 +395,6 @@ window.CRYPTIC_PUZZLES["independent-12411"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Head guard smuggles note back for outsider (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "VISITOR",
    "annotation": {
@@ -476,9 +449,6 @@ window.CRYPTIC_PUZZLES["independent-12411"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Gibberish I rephrased for audience (10)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "READERSHIP",
    "annotation": {
@@ -518,9 +488,6 @@ window.CRYPTIC_PUZZLES["independent-12411"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Very loudly exercise in wood when it’s supposed to be quiet (3-4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -574,9 +541,6 @@ window.CRYPTIC_PUZZLES["independent-12411"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Recall failure of clumsy seaman to gather sails in the middle (7)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "AMNESIA",
    "annotation": {
@@ -624,9 +588,6 @@ window.CRYPTIC_PUZZLES["independent-12411"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Eccentric cheered men and met for drink (5,2,6)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      5,
@@ -671,9 +632,6 @@ window.CRYPTIC_PUZZLES["independent-12411"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Diluted espressos since aroma is horrible (10)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {},
    "solution": "AMERICANOS",
    "annotation": {
@@ -710,9 +668,6 @@ window.CRYPTIC_PUZZLES["independent-12411"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Northern Ireland border rejected Japanese wine (5)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "MIRIN",
    "annotation": {
@@ -761,9 +716,6 @@ window.CRYPTIC_PUZZLES["independent-12411"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Badge identifying North American politician in Europe (deceased) (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "NAMEPLATE",
    "annotation": {
@@ -810,9 +762,6 @@ window.CRYPTIC_PUZZLES["independent-12411"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Propositions concerning trade union resolution (9)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "OVERTURES",
    "annotation": {
@@ -856,9 +805,6 @@ window.CRYPTIC_PUZZLES["independent-12411"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Yard party joined by other ranks after earl makes special entrance (5,4)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -921,9 +867,6 @@ window.CRYPTIC_PUZZLES["independent-12411"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Gardener employing Pole holding current degree – one earning a lot for the business (9)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "RAINMAKER",
    "annotation": {
@@ -973,9 +916,6 @@ window.CRYPTIC_PUZZLES["independent-12411"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Home at apartment, put on lady’s clothing, in a way not fitting (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "INAPTLY",
    "annotation": {
@@ -1028,9 +968,6 @@ window.CRYPTIC_PUZZLES["independent-12411"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Caffeinated drink livens setter (5)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "PEPSI",
    "annotation": {
@@ -1068,9 +1005,6 @@ window.CRYPTIC_PUZZLES["independent-12411"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Ground water covering street beside lake beginning to drain (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "PESTLED",
    "annotation": {
@@ -1131,9 +1065,6 @@ window.CRYPTIC_PUZZLES["independent-12411"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Church in the morning: on top of that cathedral city views showing famous avenue (6,7)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -1196,9 +1127,6 @@ window.CRYPTIC_PUZZLES["independent-12411"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Paying equally, tucked into elevenses (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "EVENS",
    "annotation": {
@@ -1233,9 +1161,6 @@ window.CRYPTIC_PUZZLES["independent-12411"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Release A and press middle of stick in complicated cheat code (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "ETHIC",
    "annotation": {
@@ -1283,9 +1208,6 @@ window.CRYPTIC_PUZZLES["independent-12411"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Form of tinned spaghetti that is rings covered in sauce (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "HOOP",
    "annotation": {
@@ -1332,9 +1254,6 @@ window.CRYPTIC_PUZZLES["independent-12411"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "It fertilises egg at speed (7)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "NITRATE",
    "annotation": {
@@ -1376,9 +1295,6 @@ window.CRYPTIC_PUZZLES["independent-12411"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Leaving hotel, warm welcome for jealous husband (7)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "OTHELLO",
    "annotation": {
@@ -1429,9 +1345,6 @@ window.CRYPTIC_PUZZLES["independent-12411"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Kind steps taken in hearing (5)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "STYLE",
    "annotation": {
@@ -1466,9 +1379,6 @@ window.CRYPTIC_PUZZLES["independent-12411"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Sick pups cured and made better (7,2)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {
     ",": [
      7

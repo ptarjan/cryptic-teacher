@@ -24,9 +24,6 @@ window.CRYPTIC_PUZZLES["cryptic-30061"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Threat to informer? (4,4,3,4)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -63,9 +60,6 @@ window.CRYPTIC_PUZZLES["cryptic-30061"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Youth is speaking about another: ‘Dickhead!’ (5,4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -119,9 +113,6 @@ window.CRYPTIC_PUZZLES["cryptic-30061"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "B-list occasionally spoken about is going round (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "ORBITAL",
    "annotation": {
@@ -170,9 +161,6 @@ window.CRYPTIC_PUZZLES["cryptic-30061"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Singer Tom with suite trashed (8)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "TITMOUSE",
    "annotation": {
@@ -222,9 +210,6 @@ window.CRYPTIC_PUZZLES["cryptic-30061"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "I get emotional about returning to London’s original theatre (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "LYRIC",
    "annotation": {
@@ -283,9 +268,6 @@ window.CRYPTIC_PUZZLES["cryptic-30061"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Long for a drink? (4,2,3)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -333,9 +315,6 @@ window.CRYPTIC_PUZZLES["cryptic-30061"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Turn left, perhaps, after park entrance – positive? (6)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "UPSIDE",
    "annotation": {
@@ -384,9 +363,6 @@ window.CRYPTIC_PUZZLES["cryptic-30061"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Complaining in bar (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "RAILING",
    "annotation": {
@@ -423,9 +399,6 @@ window.CRYPTIC_PUZZLES["cryptic-30061"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Forces serviceman, might you say? (5)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "PADRE",
    "annotation": {
@@ -456,9 +429,6 @@ window.CRYPTIC_PUZZLES["cryptic-30061"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Throw back nameless catch at sea (7)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "LOBSTER",
    "annotation": {
@@ -506,9 +476,6 @@ window.CRYPTIC_PUZZLES["cryptic-30061"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Withdraw having committed a further offence as reported (7)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "RESCIND",
    "annotation": {
@@ -543,9 +510,6 @@ window.CRYPTIC_PUZZLES["cryptic-30061"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Newton going, ‘You shouldn’t point!’ (3)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "DOT",
    "annotation": {
@@ -588,9 +552,6 @@ window.CRYPTIC_PUZZLES["cryptic-30061"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Previously keeping flashy eroticist very happy (2,5,4)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -645,9 +606,6 @@ window.CRYPTIC_PUZZLES["cryptic-30061"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Mainly competent rating (4,6)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -688,9 +646,6 @@ window.CRYPTIC_PUZZLES["cryptic-30061"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Hit wicket – AUS 1 down (spinner finally bowled over) (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "AWESTRUCK",
    "annotation": {
@@ -751,9 +706,6 @@ window.CRYPTIC_PUZZLES["cryptic-30061"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Knocked back the drink (over a gallon) for some considerable time (4)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "AGES",
    "annotation": {
@@ -809,9 +761,6 @@ window.CRYPTIC_PUZZLES["cryptic-30061"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Synonyms to begin with: fly, go off, make a run for it (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "SKEDADDLE",
    "annotation": {
@@ -860,9 +809,6 @@ window.CRYPTIC_PUZZLES["cryptic-30061"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Call service engineers initially for correction (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "REMEDIAL",
    "annotation": {
@@ -905,9 +851,6 @@ window.CRYPTIC_PUZZLES["cryptic-30061"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Coming back discontented, negotiates very low price, a bargain (4)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "SNIP",
    "annotation": {
@@ -958,9 +901,6 @@ window.CRYPTIC_PUZZLES["cryptic-30061"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Less sensible son gets involved making little difference (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "INSANER",
    "annotation": {
@@ -1004,9 +944,6 @@ window.CRYPTIC_PUZZLES["cryptic-30061"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "US comedian put away for drugs in decline (10)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "DEGENERATE",
    "annotation": {
@@ -1057,9 +994,6 @@ window.CRYPTIC_PUZZLES["cryptic-30061"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Current Republican leading on the surface is a moron (7)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "AIRHEAD",
    "annotation": {
@@ -1112,9 +1046,6 @@ window.CRYPTIC_PUZZLES["cryptic-30061"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "A green revolution of sorts (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "GENERA",
    "annotation": {
@@ -1159,9 +1090,6 @@ window.CRYPTIC_PUZZLES["cryptic-30061"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Loudly complain after sailors originally aboard leave port? (7,4)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -1220,9 +1148,6 @@ window.CRYPTIC_PUZZLES["cryptic-30061"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Make editor ultimately responsible for such columns (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "DORIC",
    "annotation": {
@@ -1272,9 +1197,6 @@ window.CRYPTIC_PUZZLES["cryptic-30061"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Vlad’s past being ideal (5)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "IMAGO",
    "annotation": {
@@ -1314,9 +1236,6 @@ window.CRYPTIC_PUZZLES["cryptic-30061"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Take main road around valley (3)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "RIA",
    "annotation": {
@@ -1365,9 +1284,6 @@ window.CRYPTIC_PUZZLES["cryptic-30061"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Neither partner recalled mentioning bread lines (7)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "RONDEAU",
    "annotation": {
@@ -1419,9 +1335,6 @@ window.CRYPTIC_PUZZLES["cryptic-30061"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Flavouring from America is in demand (7)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "ANISEED",
    "annotation": {
@@ -1474,9 +1387,6 @@ window.CRYPTIC_PUZZLES["cryptic-30061"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "What Telford had a lot of to attract Romeo – sex (6,9)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {
     ",": [
      6

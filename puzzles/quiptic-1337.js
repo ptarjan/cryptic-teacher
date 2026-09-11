@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1337"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Supports British artist beginning to shine (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "BRAS",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["quiptic-1337"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Nasty bloke, foremost of boasters – less serious with it (8)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "BLIGHTER",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["quiptic-1337"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Dane disturbed woman (4)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "EDNA",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["quiptic-1337"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Odd, heartless ally is changing – to become this? (8)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "DISLOYAL",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["quiptic-1337"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Black suit (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "SPADES",
    "annotation": null
@@ -110,9 +95,6 @@ window.CRYPTIC_PUZZLES["quiptic-1337"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Favouring someone starting something less superficial (10)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "PROFOUNDER",
    "annotation": null
@@ -127,9 +109,6 @@ window.CRYPTIC_PUZZLES["quiptic-1337"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Drink, one given to a Shakespearean character (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "PORTIA",
    "annotation": null
@@ -144,9 +123,6 @@ window.CRYPTIC_PUZZLES["quiptic-1337"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Exploited? That’s not new (4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "USED",
    "annotation": null
@@ -161,9 +137,6 @@ window.CRYPTIC_PUZZLES["quiptic-1337"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Was in charge with lines put down (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "RULED",
    "annotation": null
@@ -178,9 +151,6 @@ window.CRYPTIC_PUZZLES["quiptic-1337"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Dominating supremo I twice upset (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "IMPERIOUS",
    "annotation": null
@@ -195,9 +165,6 @@ window.CRYPTIC_PUZZLES["quiptic-1337"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "New design with everything included as indicated (9)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "SIGNALLED",
    "annotation": null
@@ -212,9 +179,6 @@ window.CRYPTIC_PUZZLES["quiptic-1337"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Corpulent editor doomed (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "FATED",
    "annotation": null
@@ -229,9 +193,6 @@ window.CRYPTIC_PUZZLES["quiptic-1337"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "What may provide power for a group of guns (7)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "BATTERY",
    "annotation": null
@@ -246,9 +207,6 @@ window.CRYPTIC_PUZZLES["quiptic-1337"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Group at church led by bishop (5)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "BATCH",
    "annotation": null
@@ -263,9 +221,6 @@ window.CRYPTIC_PUZZLES["quiptic-1337"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Africans and I eat in shop newly built (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "ETHIOPIANS",
    "annotation": null
@@ -280,9 +235,6 @@ window.CRYPTIC_PUZZLES["quiptic-1337"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Food item with herb seen around America (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "SAUSAGE",
    "annotation": null
@@ -297,9 +249,6 @@ window.CRYPTIC_PUZZLES["quiptic-1337"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Bird’s home eerily unstable, left to fall apart (5)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "EYRIE",
    "annotation": null
@@ -314,9 +263,6 @@ window.CRYPTIC_PUZZLES["quiptic-1337"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Source of light in vault or chamber (5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "TORCH",
    "annotation": null
@@ -331,9 +277,6 @@ window.CRYPTIC_PUZZLES["quiptic-1337"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Drink chum knocked over (3)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "LAP",
    "annotation": null
@@ -348,9 +291,6 @@ window.CRYPTIC_PUZZLES["quiptic-1337"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Dad with chaps gathered round area for ceremonial events (8)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "PAGEANTS",
    "annotation": null
@@ -365,9 +305,6 @@ window.CRYPTIC_PUZZLES["quiptic-1337"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Christmas month with gold ornamentation (5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "DECOR",
    "annotation": null
@@ -382,9 +319,6 @@ window.CRYPTIC_PUZZLES["quiptic-1337"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Like clique in pub, turning up with discord all around (8)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "CLANNISH",
    "annotation": null
@@ -399,9 +333,6 @@ window.CRYPTIC_PUZZLES["quiptic-1337"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Complete lack of faith reported? Keep going! (4,3)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -420,9 +351,6 @@ window.CRYPTIC_PUZZLES["quiptic-1337"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Find old feline in drained-out lake (6)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "LOCATE",
    "annotation": null
@@ -437,9 +365,6 @@ window.CRYPTIC_PUZZLES["quiptic-1337"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "The rat, horrible menace (6)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "THREAT",
    "annotation": null
@@ -454,9 +379,6 @@ window.CRYPTIC_PUZZLES["quiptic-1337"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Car repair shop filled with black rubbish (7)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "GARBAGE",
    "annotation": null
@@ -471,9 +393,6 @@ window.CRYPTIC_PUZZLES["quiptic-1337"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Some idiotic act impedes plants (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "CACTI",
    "annotation": null
@@ -488,9 +407,6 @@ window.CRYPTIC_PUZZLES["quiptic-1337"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Talk about bowler maybe (4)",
-   "group": [
-    "26-down"
-   ],
    "separatorLocations": {},
    "solution": "CHAT",
    "annotation": null
@@ -505,9 +421,6 @@ window.CRYPTIC_PUZZLES["quiptic-1337"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Shuffle bottom, then roam (9)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "REARRANGE",
    "annotation": null
@@ -522,9 +435,6 @@ window.CRYPTIC_PUZZLES["quiptic-1337"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "King accompanied by one companion wanting for nothing? (4)",
-   "group": [
-    "28-down"
-   ],
    "separatorLocations": {},
    "solution": "RICH",
    "annotation": null
@@ -539,9 +449,6 @@ window.CRYPTIC_PUZZLES["quiptic-1337"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "In house we require vessel for water (4)",
-   "group": [
-    "29-down"
-   ],
    "separatorLocations": {},
    "solution": "EWER",
    "annotation": null
@@ -556,9 +463,6 @@ window.CRYPTIC_PUZZLES["quiptic-1337"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "A non-drinker with aim, worker to become escort (9)",
-   "group": [
-    "30-across"
-   ],
    "separatorLocations": {},
    "solution": "ATTENDANT",
    "annotation": null
@@ -573,9 +477,6 @@ window.CRYPTIC_PUZZLES["quiptic-1337"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Shy English class (5)",
-   "group": [
-    "31-across"
-   ],
    "separatorLocations": {},
    "solution": "CASTE",
    "annotation": null

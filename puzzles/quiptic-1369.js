@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1369"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Animal bound on stake (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "ANTELOPE",
    "annotation": {
@@ -71,9 +68,6 @@ window.CRYPTIC_PUZZLES["quiptic-1369"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Opera is a concept lacking energy (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "AIDA",
    "annotation": {
@@ -125,9 +119,6 @@ window.CRYPTIC_PUZZLES["quiptic-1369"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Book is closed up as far as I’m concerned (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "TOME",
    "annotation": {
@@ -174,9 +165,6 @@ window.CRYPTIC_PUZZLES["quiptic-1369"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Position that sounds more healthy? (6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "LOCALE",
    "annotation": {
@@ -212,9 +200,6 @@ window.CRYPTIC_PUZZLES["quiptic-1369"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Rare drama showing approach to attracting lover (4,4,2,3)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -262,9 +247,6 @@ window.CRYPTIC_PUZZLES["quiptic-1369"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Unfortunately, Kenya borders very cold terrain (6)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "ALASKA",
    "annotation": {
@@ -308,9 +290,6 @@ window.CRYPTIC_PUZZLES["quiptic-1369"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Food fight shows one’s masculine quality perhaps (8)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "LUNCHBOX",
    "annotation": {
@@ -351,9 +330,6 @@ window.CRYPTIC_PUZZLES["quiptic-1369"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Pay low? Try to be calm about it (6,4)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -400,9 +376,6 @@ window.CRYPTIC_PUZZLES["quiptic-1369"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Sensible to acquire silver – it’s quite fashionable (3,3,4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -457,9 +430,6 @@ window.CRYPTIC_PUZZLES["quiptic-1369"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Politicians cared most after reshuffle (9)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "DEMOCRATS",
    "annotation": {
@@ -497,9 +467,6 @@ window.CRYPTIC_PUZZLES["quiptic-1369"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Posh cutlery licked? That’s charming! (6-7)",
-   "group": [
-    "10-down"
-   ],
    "separatorLocations": {
     "-": [
      6
@@ -544,9 +511,6 @@ window.CRYPTIC_PUZZLES["quiptic-1369"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Manage intake files at centre dealing with birth (5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "NATAL",
    "annotation": {
@@ -596,9 +560,6 @@ window.CRYPTIC_PUZZLES["quiptic-1369"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Boring language about heritage leaders keep repeating claptrap (4,4,4)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -655,9 +616,6 @@ window.CRYPTIC_PUZZLES["quiptic-1369"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Condemn deceit a nun disseminated (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "DENUNCIATE",
    "annotation": {
@@ -695,9 +653,6 @@ window.CRYPTIC_PUZZLES["quiptic-1369"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Two workers around home being co-operative (4,2,4)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -755,9 +710,6 @@ window.CRYPTIC_PUZZLES["quiptic-1369"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Cheese made from 50% of used spam (4)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "EDAM",
    "annotation": {
@@ -804,9 +756,6 @@ window.CRYPTIC_PUZZLES["quiptic-1369"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "One taking advantage of available heavy machinery (10)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "FREELOADER",
    "annotation": {
@@ -847,9 +796,6 @@ window.CRYPTIC_PUZZLES["quiptic-1369"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Do they get dragged into showing what’s in store? (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "TRAILERS",
    "annotation": {
@@ -882,9 +828,6 @@ window.CRYPTIC_PUZZLES["quiptic-1369"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Don’t go overboard when reporting to nation (10)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "UNDERSTATE",
    "annotation": {
@@ -925,9 +868,6 @@ window.CRYPTIC_PUZZLES["quiptic-1369"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Get a bit of stick (4)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "TWIG",
    "annotation": {
@@ -962,9 +902,6 @@ window.CRYPTIC_PUZZLES["quiptic-1369"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Hot lad running amok – it’s somewhat passé (3,3)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -1009,9 +946,6 @@ window.CRYPTIC_PUZZLES["quiptic-1369"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Military group extremely lively – depending on conditions (12)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "CONTINGENTLY",
    "annotation": {
@@ -1055,9 +989,6 @@ window.CRYPTIC_PUZZLES["quiptic-1369"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Strange facilities storing carbon (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "LOCO",
    "annotation": {
@@ -1102,9 +1033,6 @@ window.CRYPTIC_PUZZLES["quiptic-1369"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Passage in financial review union dismissed (4)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "ADIT",
    "annotation": {
@@ -1150,9 +1078,6 @@ window.CRYPTIC_PUZZLES["quiptic-1369"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Regular characters in gang war meet to exhibit best performance (1-4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     "-": [
      1
@@ -1198,9 +1123,6 @@ window.CRYPTIC_PUZZLES["quiptic-1369"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Seek money from club – and hope for good fortune (5,4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -1245,9 +1167,6 @@ window.CRYPTIC_PUZZLES["quiptic-1369"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Part of Sheffield estate that’s been around the longest (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "ELDEST",
    "annotation": {
@@ -1282,9 +1201,6 @@ window.CRYPTIC_PUZZLES["quiptic-1369"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Removes text suited to getting misspelt (5,3)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     ",": [
      5

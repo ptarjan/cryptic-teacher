@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29935"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Queen of Hearts in unreal PGA final (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "REGINA",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["cryptic-29935"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Ten hours lost below the equator (8)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "SOUTHERN",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["cryptic-29935"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Kind of star to reject amateur lines (6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "BINARY",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["cryptic-29935"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Comply with Klingon on the telephone (5,2)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -97,9 +85,6 @@ window.CRYPTIC_PUZZLES["cryptic-29935"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Offensive posters from Tesla introducing luxury car (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "TROLLS",
    "annotation": null
@@ -114,9 +99,6 @@ window.CRYPTIC_PUZZLES["cryptic-29935"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "8 stone (8)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "BAGUETTE",
    "annotation": null
@@ -131,9 +113,6 @@ window.CRYPTIC_PUZZLES["cryptic-29935"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Plane’s carrying company of 8 biblical authors (9)",
-   "group": [
-    "7-across"
-   ],
    "separatorLocations": {},
    "solution": "JEHOVISTS",
    "annotation": null
@@ -154,9 +133,6 @@ window.CRYPTIC_PUZZLES["cryptic-29935"] = /*JSON-START*/ {
      12
     ]
    ],
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {},
    "solution": "BREAD",
    "annotation": null
@@ -171,9 +147,6 @@ window.CRYPTIC_PUZZLES["cryptic-29935"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Terrible miscue at the end from Allan Lamb’s partner? (4,5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -192,9 +165,6 @@ window.CRYPTIC_PUZZLES["cryptic-29935"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Student tucked into square meal (5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "FLOUR",
    "annotation": null
@@ -209,9 +179,6 @@ window.CRYPTIC_PUZZLES["cryptic-29935"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Food served up in Emirati Palace (4)",
-   "group": [
-    "11-down"
-   ],
    "separatorLocations": {},
    "solution": "PITA",
    "annotation": null
@@ -226,9 +193,6 @@ window.CRYPTIC_PUZZLES["cryptic-29935"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Shop window broken by king and queen (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "BAKERY",
    "annotation": null
@@ -249,9 +213,6 @@ window.CRYPTIC_PUZZLES["cryptic-29935"] = /*JSON-START*/ {
      15
     ]
    ],
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "TWINSETS",
    "annotation": null
@@ -266,9 +227,6 @@ window.CRYPTIC_PUZZLES["cryptic-29935"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Old lady wasting money in Virgin store (7)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "GRANARY",
    "annotation": null
@@ -283,9 +241,6 @@ window.CRYPTIC_PUZZLES["cryptic-29935"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "City great arranged police protection (4,4)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -304,9 +259,6 @@ window.CRYPTIC_PUZZLES["cryptic-29935"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Filling of hot Caribbean sandwich (4)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "ROTI",
    "annotation": null
@@ -321,9 +273,6 @@ window.CRYPTIC_PUZZLES["cryptic-29935"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Every year, Wimbledon champion makes a fuss (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "PALAVER",
    "annotation": null
@@ -338,9 +287,6 @@ window.CRYPTIC_PUZZLES["cryptic-29935"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Austin Powers finally in pieces (8)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "ALLEGROS",
    "annotation": null
@@ -361,9 +307,6 @@ window.CRYPTIC_PUZZLES["cryptic-29935"] = /*JSON-START*/ {
      12
     ]
    ],
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -382,9 +325,6 @@ window.CRYPTIC_PUZZLES["cryptic-29935"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Wind octet entertaining men with new instrument (8)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "CORNETTO",
    "annotation": null
@@ -399,9 +339,6 @@ window.CRYPTIC_PUZZLES["cryptic-29935"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Writer is almost drained by conclusion of Jonathan Swift (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "NIMBLE",
    "annotation": null
@@ -416,9 +353,6 @@ window.CRYPTIC_PUZZLES["cryptic-29935"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "American 8 lying about in Balmoral Lodge (6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "DOLLAR",
    "annotation": null
@@ -433,9 +367,6 @@ window.CRYPTIC_PUZZLES["cryptic-29935"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Country scrapping nuclear limit (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "DEMARK",
    "annotation": null
@@ -450,9 +381,6 @@ window.CRYPTIC_PUZZLES["cryptic-29935"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "No longer hooked on holidays we hear (6)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "AWEIGH",
    "annotation": null
@@ -467,9 +395,6 @@ window.CRYPTIC_PUZZLES["cryptic-29935"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "A Trump supporter going round The Lizard (5)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "AGAMA",
    "annotation": null
@@ -484,9 +409,6 @@ window.CRYPTIC_PUZZLES["cryptic-29935"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Rolling Stone possibly cutting hair to become object of attraction (3,6)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -505,9 +427,6 @@ window.CRYPTIC_PUZZLES["cryptic-29935"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Spooner’s mistress delivers paper (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "DAILY",
    "annotation": null
@@ -522,9 +441,6 @@ window.CRYPTIC_PUZZLES["cryptic-29935"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Son with money belonging to us is 8 (9)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "SOURDOUGH",
    "annotation": null

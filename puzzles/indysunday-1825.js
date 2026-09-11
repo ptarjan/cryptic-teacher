@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1825"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Pilot has relocated, getting better place (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "HOSPITAL",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["indysunday-1825"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Joker 50% down in hustings, pollsters admitted (8)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "HUMORIST",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["indysunday-1825"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Not one large citrus fruit turned white (8)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "SEMILLON",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["indysunday-1825"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Antique coins Len traded worth nothing (15)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "INCONSEQUENTIAL",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["indysunday-1825"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Friend's gone across motorway (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "AMIGO",
    "annotation": null
@@ -110,9 +95,6 @@ window.CRYPTIC_PUZZLES["indysunday-1825"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Son turning Dutchman out of yard - he's untidy (6)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "SCRUFF",
    "annotation": null
@@ -127,9 +109,6 @@ window.CRYPTIC_PUZZLES["indysunday-1825"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Statistician's compared angry Irish band member with happy (5-10)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -148,9 +127,6 @@ window.CRYPTIC_PUZZLES["indysunday-1825"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Maintenance on battlements? (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "UPKEEP",
    "annotation": null
@@ -165,9 +141,6 @@ window.CRYPTIC_PUZZLES["indysunday-1825"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Fellow in a horizontal position doing a Superman impression? (6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "FLYING",
    "annotation": null
@@ -182,9 +155,6 @@ window.CRYPTIC_PUZZLES["indysunday-1825"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Awful tower had grim cells (5,3)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -203,9 +173,6 @@ window.CRYPTIC_PUZZLES["indysunday-1825"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Act like a woman whose little hand is frozen with cold (5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "MIMIC",
    "annotation": null
@@ -220,9 +187,6 @@ window.CRYPTIC_PUZZLES["indysunday-1825"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Wrong choice crucial in rough game with sticks and blades (3,6)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -241,9 +205,6 @@ window.CRYPTIC_PUZZLES["indysunday-1825"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Forbidding university jargon fills tedious course (6,3)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -262,9 +223,6 @@ window.CRYPTIC_PUZZLES["indysunday-1825"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Maybe Schmidt drained his one? (5)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "STEIN",
    "annotation": null
@@ -279,9 +237,6 @@ window.CRYPTIC_PUZZLES["indysunday-1825"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "E.g. press secretary rung by no press after work (12)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "SPOKESPERSON",
    "annotation": null
@@ -296,9 +251,6 @@ window.CRYPTIC_PUZZLES["indysunday-1825"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Man in photo with muscles cycles with passengers (8)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "PEDICABS",
    "annotation": null
@@ -313,9 +265,6 @@ window.CRYPTIC_PUZZLES["indysunday-1825"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Brothers brought up unruly, none learning place (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "SORBONNE",
    "annotation": null
@@ -330,9 +279,6 @@ window.CRYPTIC_PUZZLES["indysunday-1825"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "American eagle all over American's ID (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "USERNAME",
    "annotation": null
@@ -347,9 +293,6 @@ window.CRYPTIC_PUZZLES["indysunday-1825"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Slight twitching of torso settled (3,4,5)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -369,9 +312,6 @@ window.CRYPTIC_PUZZLES["indysunday-1825"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Have lovely chat (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "CONFAB",
    "annotation": null
@@ -386,9 +326,6 @@ window.CRYPTIC_PUZZLES["indysunday-1825"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Sadist periodically traps brown bears (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "STANDS",
    "annotation": null
@@ -403,9 +340,6 @@ window.CRYPTIC_PUZZLES["indysunday-1825"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Work can be sociable (3,2)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -424,9 +358,6 @@ window.CRYPTIC_PUZZLES["indysunday-1825"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "BLT, Caesar salad? Mayo's capital (9)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "CASTLEBAR",
    "annotation": null
@@ -441,9 +372,6 @@ window.CRYPTIC_PUZZLES["indysunday-1825"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "European tied knot in middle of abseil (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "SWEDE",
    "annotation": null
@@ -458,9 +386,6 @@ window.CRYPTIC_PUZZLES["indysunday-1825"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Attractive spies wearing buff and navy perhaps wanting uniform (9)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "FANCIABLE",
    "annotation": null
@@ -475,9 +400,6 @@ window.CRYPTIC_PUZZLES["indysunday-1825"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "A little short on gasoline, land in the sea (5)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "TONGA",
    "annotation": null
@@ -492,9 +414,6 @@ window.CRYPTIC_PUZZLES["indysunday-1825"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Volcanic rock at the bottom beginning to topple (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "BASALT",
    "annotation": null
@@ -509,9 +428,6 @@ window.CRYPTIC_PUZZLES["indysunday-1825"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Big Data Institute's announced acronym for what Big Brother keeps on you (5,3)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     ",": [
      5

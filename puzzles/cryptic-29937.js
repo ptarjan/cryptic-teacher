@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29937"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Who might describe figures as ‘bad streak’ (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "SKATER",
    "annotation": null
@@ -66,9 +63,6 @@ window.CRYPTIC_PUZZLES["cryptic-29937"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Time up: helper needs to change emperor’s habit (3,6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -87,9 +81,6 @@ window.CRYPTIC_PUZZLES["cryptic-29937"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Rye: mad to introduce the drink cure! (6)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "REMEDY",
    "annotation": null
@@ -104,9 +95,6 @@ window.CRYPTIC_PUZZLES["cryptic-29937"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Finish off beer with beet and fish (8)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "PILCHARD",
    "annotation": null
@@ -121,9 +109,6 @@ window.CRYPTIC_PUZZLES["cryptic-29937"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Amateurish PC met with destruction – it has no application, practically (4,11)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -142,9 +127,6 @@ window.CRYPTIC_PUZZLES["cryptic-29937"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Being a student, inclined to cover only one essential school subject? (8)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "LEARNING",
    "annotation": null
@@ -159,9 +141,6 @@ window.CRYPTIC_PUZZLES["cryptic-29937"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Singers lacking top C – God! (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "HORUS",
    "annotation": null
@@ -176,9 +155,6 @@ window.CRYPTIC_PUZZLES["cryptic-29937"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Civil trade refutes plc (10)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "RESPECTFUL",
    "annotation": null
@@ -193,9 +169,6 @@ window.CRYPTIC_PUZZLES["cryptic-29937"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "One who delivers wine and drugs by continental sea (8)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "REDEEMER",
    "annotation": null
@@ -210,9 +183,6 @@ window.CRYPTIC_PUZZLES["cryptic-29937"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "How you should enter this top grade bridge (6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "ACROSS",
    "annotation": null
@@ -227,9 +197,6 @@ window.CRYPTIC_PUZZLES["cryptic-29937"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Day in Oxford, say, by car – and Slough – showing no sign of wear (12)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "UNDIMINISHED",
    "annotation": null
@@ -244,9 +211,6 @@ window.CRYPTIC_PUZZLES["cryptic-29937"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Where travellers have a choice of old British soap? (10)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {},
    "solution": "CROSSROADS",
    "annotation": null
@@ -285,9 +249,6 @@ window.CRYPTIC_PUZZLES["cryptic-29937"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Firmness shown by figure, one connected to Kyiv, say (8)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "TENACITY",
    "annotation": null
@@ -302,9 +263,6 @@ window.CRYPTIC_PUZZLES["cryptic-29937"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "CERN icy – go mad: “It’s concerning what extreme cold can do!”’ (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "CRYOGENIC",
    "annotation": null
@@ -319,9 +277,6 @@ window.CRYPTIC_PUZZLES["cryptic-29937"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Purloin a work of art (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "ABSTRACT",
    "annotation": null
@@ -336,9 +291,6 @@ window.CRYPTIC_PUZZLES["cryptic-29937"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Marshal, atishoo’s just under way – bless me, silly! (8)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "ASSEMBLE",
    "annotation": null
@@ -377,9 +329,6 @@ window.CRYPTIC_PUZZLES["cryptic-29937"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Arthur dramatically married (no better afterwards) (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "MILLER",
    "annotation": null
@@ -394,9 +343,6 @@ window.CRYPTIC_PUZZLES["cryptic-29937"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Trust a sailor to provide a basis for making advances to you! (6,6)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -415,9 +361,6 @@ window.CRYPTIC_PUZZLES["cryptic-29937"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Entry of ‘female’ in dictionary rejected by eastern writer (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "DEFOE",
    "annotation": null
@@ -454,9 +397,6 @@ window.CRYPTIC_PUZZLES["cryptic-29937"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Fibre fair loosened a fellow inside (6)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "RAFFIA",
    "annotation": null
@@ -471,9 +411,6 @@ window.CRYPTIC_PUZZLES["cryptic-29937"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "‘Twelfth Night character heading off North with article’ – making of an opera? (8)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "IOLANTHE",
    "annotation": null
@@ -488,9 +425,6 @@ window.CRYPTIC_PUZZLES["cryptic-29937"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "It can stand the heat like old footballer of Spurs initially (8)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "ASBESTOS",
    "annotation": null
@@ -505,9 +439,6 @@ window.CRYPTIC_PUZZLES["cryptic-29937"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Say aloud ‘move somewhere else’ to the audience (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "RECITE",
    "annotation": null

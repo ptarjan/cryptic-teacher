@@ -77,9 +77,6 @@ window.CRYPTIC_PUZZLES["cryptic-30066"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Foreign land line scary: phone mobile connected with female (6,9)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -127,9 +124,6 @@ window.CRYPTIC_PUZZLES["cryptic-30066"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Once more broadcast concerning series (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "RERUN",
    "annotation": {
@@ -166,9 +160,6 @@ window.CRYPTIC_PUZZLES["cryptic-30066"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Host, part of TV duo, is a crawler (4,3)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -209,9 +200,6 @@ window.CRYPTIC_PUZZLES["cryptic-30066"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Club foot out of sock that is tiny without padding (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "SOCIETY",
    "annotation": {
@@ -257,9 +245,6 @@ window.CRYPTIC_PUZZLES["cryptic-30066"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Order at local store, ultimately to get deal (8)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "ALLOCATE",
    "annotation": {
@@ -303,9 +288,6 @@ window.CRYPTIC_PUZZLES["cryptic-30066"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Act in theatre work: PG film essentially getting released (9,6)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      9
@@ -353,9 +335,6 @@ window.CRYPTIC_PUZZLES["cryptic-30066"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Squash flies all over the place with end of swat (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "STIFLE",
    "annotation": {
@@ -399,9 +378,6 @@ window.CRYPTIC_PUZZLES["cryptic-30066"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Small place cleared to screen one sad film (6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "WEEPIE",
    "annotation": {
@@ -470,9 +446,6 @@ window.CRYPTIC_PUZZLES["cryptic-30066"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Pass person inhaling good scent (7)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "COLOGNE",
    "annotation": {
@@ -518,9 +491,6 @@ window.CRYPTIC_PUZZLES["cryptic-30066"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Withdraw sheath for contraceptive during enjoyable time to get pregnant (9)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "FECUNDATE",
    "annotation": {
@@ -572,9 +542,6 @@ window.CRYPTIC_PUZZLES["cryptic-30066"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Focus for rescuing sheep in distress (3,2)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -617,9 +584,6 @@ window.CRYPTIC_PUZZLES["cryptic-30066"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Sexpot stripped for show (4)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "EXPO",
    "annotation": {
@@ -652,9 +616,6 @@ window.CRYPTIC_PUZZLES["cryptic-30066"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Intimate squeezing partner’s core, relaxed in armchair? (4-2-4)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     "-": [
      4,
@@ -705,9 +666,6 @@ window.CRYPTIC_PUZZLES["cryptic-30066"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "I squeeze into casual suit that could be taken in when not satisfied? (8)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "TIRAMISU",
    "annotation": {
@@ -760,9 +718,6 @@ window.CRYPTIC_PUZZLES["cryptic-30066"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Destroying climate, sun reaches highest point (10)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "CULMINATES",
    "annotation": {
@@ -800,9 +755,6 @@ window.CRYPTIC_PUZZLES["cryptic-30066"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Apple device set up date feature on smartphone (6)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "CAMERA",
    "annotation": {
@@ -847,9 +799,6 @@ window.CRYPTIC_PUZZLES["cryptic-30066"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Rescue from island – lifeboat team wanting number in back of boat (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "AIRLIFT",
    "annotation": {
@@ -896,9 +845,6 @@ window.CRYPTIC_PUZZLES["cryptic-30066"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Give authority? Those people might (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "EMPOWER",
    "annotation": {
@@ -935,9 +881,6 @@ window.CRYPTIC_PUZZLES["cryptic-30066"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Risk money accepting a flutter (4)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "BEAT",
    "annotation": {
@@ -977,9 +920,6 @@ window.CRYPTIC_PUZZLES["cryptic-30066"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Stylish attempt to cover butt (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "TRENDY",
    "annotation": {
@@ -1019,9 +959,6 @@ window.CRYPTIC_PUZZLES["cryptic-30066"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Form of comic, Mark, with one short joke (5)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "MANGA",
    "annotation": {
@@ -1066,9 +1003,6 @@ window.CRYPTIC_PUZZLES["cryptic-30066"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Rake with money returned to pick up sex worker (9)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "REPROBATE",
    "annotation": {
@@ -1108,9 +1042,6 @@ window.CRYPTIC_PUZZLES["cryptic-30066"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Visible hole on green (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "OVERT",
    "annotation": {
@@ -1149,9 +1080,6 @@ window.CRYPTIC_PUZZLES["cryptic-30066"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "He scored from ball into box, missing header during international (7)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "ROSSINI",
    "annotation": {
@@ -1201,9 +1129,6 @@ window.CRYPTIC_PUZZLES["cryptic-30066"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Drunk with wine drinking fizzy stuff out of round (7)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "WRECKED",
    "annotation": {
@@ -1250,9 +1175,6 @@ window.CRYPTIC_PUZZLES["cryptic-30066"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Polluter to run after dirty river checked by Environment Agency (11)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "ADULTERATOR",
    "annotation": {

@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29966"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Arranged numbers in very quick time to visit house in South of France (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "MATRICES",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["cryptic-29966"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Dread anonymous compilers (3)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "AWE",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["cryptic-29966"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "The Indian side inform on Australian touring India (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "RAITA",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["cryptic-29966"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Their chosen meal flies (10)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "CHAMELEONS",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["cryptic-29966"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Temper shown by son many times (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "SOFTEN",
    "annotation": null
@@ -110,9 +95,6 @@ window.CRYPTIC_PUZZLES["cryptic-29966"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Lugubrious brother invites a few round (6)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "SOMBRE",
    "annotation": null
@@ -127,9 +109,6 @@ window.CRYPTIC_PUZZLES["cryptic-29966"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Louis XIV briefly ruined? (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "SUNK",
    "annotation": null
@@ -144,9 +123,6 @@ window.CRYPTIC_PUZZLES["cryptic-29966"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Bumped into Rat in London suburbs (9)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "METROLAND",
    "annotation": null
@@ -161,9 +137,6 @@ window.CRYPTIC_PUZZLES["cryptic-29966"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Frenchman persuaded one brewing tea to come back to the table (11)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "RENEGOTIATE",
    "annotation": null
@@ -178,9 +151,6 @@ window.CRYPTIC_PUZZLES["cryptic-29966"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Keep adjusting a focusing device (6)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "RETINA",
    "annotation": null
@@ -195,9 +165,6 @@ window.CRYPTIC_PUZZLES["cryptic-29966"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Make small improvement to well-crafted melody (4-4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -216,9 +183,6 @@ window.CRYPTIC_PUZZLES["cryptic-29966"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "On board, one depressed to flee island … (6,3)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -237,9 +201,6 @@ window.CRYPTIC_PUZZLES["cryptic-29966"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Saint revealing a freshly-composed prayer (5,6)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -258,9 +219,6 @@ window.CRYPTIC_PUZZLES["cryptic-29966"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "… hard to get right out of depression (5)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "TOUGH",
    "annotation": null
@@ -275,9 +233,6 @@ window.CRYPTIC_PUZZLES["cryptic-29966"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Ordinary visitor comes in to criticise part of Evil Empire (5,5)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -296,9 +251,6 @@ window.CRYPTIC_PUZZLES["cryptic-29966"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Hang around Ohio, opening an American volume (6)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "LOITER",
    "annotation": null
@@ -313,9 +265,6 @@ window.CRYPTIC_PUZZLES["cryptic-29966"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Breaking up during April I find exhilarating (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "INSPIRING",
    "annotation": null
@@ -330,9 +279,6 @@ window.CRYPTIC_PUZZLES["cryptic-29966"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "For Lithuanian, Latvian is sort of blue (6)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "COBALT",
    "annotation": null
@@ -347,9 +293,6 @@ window.CRYPTIC_PUZZLES["cryptic-29966"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Stopping heading off and tailing off (6)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "EASING",
    "annotation": null
@@ -364,9 +307,6 @@ window.CRYPTIC_PUZZLES["cryptic-29966"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Cold plain fish medic tucks into (6)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "TUNDRA",
    "annotation": null
@@ -381,9 +321,6 @@ window.CRYPTIC_PUZZLES["cryptic-29966"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "University gown brought round, one’s forced under it (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "DURESS",
    "annotation": null
@@ -398,9 +335,6 @@ window.CRYPTIC_PUZZLES["cryptic-29966"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Vlad rejecting Indian meal? What are the odds then? (5)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "LENIN",
    "annotation": null
@@ -415,9 +349,6 @@ window.CRYPTIC_PUZZLES["cryptic-29966"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Be frightened, knight: crusader’s rampaging about (3,6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -436,9 +367,6 @@ window.CRYPTIC_PUZZLES["cryptic-29966"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Neighbour with empty stomach is close (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "ABOUT",
    "annotation": null
@@ -453,9 +381,6 @@ window.CRYPTIC_PUZZLES["cryptic-29966"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Worry, losing the last bit of spare time (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "FRET",
    "annotation": null
@@ -470,9 +395,6 @@ window.CRYPTIC_PUZZLES["cryptic-29966"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Lie prostrated with grief: this is so delicate (8)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "FILIGREE",
    "annotation": null
@@ -487,9 +409,6 @@ window.CRYPTIC_PUZZLES["cryptic-29966"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Animal in a painful condition essentially fit (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "AGOUTI",
    "annotation": null
@@ -504,9 +423,6 @@ window.CRYPTIC_PUZZLES["cryptic-29966"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Pitch that a rainstorm covers (3)",
-   "group": [
-    "27-down"
-   ],
    "separatorLocations": {},
    "solution": "TAR",
    "annotation": null
@@ -521,9 +437,6 @@ window.CRYPTIC_PUZZLES["cryptic-29966"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Pet suppressing cry of disgust when grabbed (6)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "CAUGHT",
    "annotation": null
@@ -538,9 +451,6 @@ window.CRYPTIC_PUZZLES["cryptic-29966"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Be dazed by what you may do on a clear night out (3,5)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {
     ",": [
      3

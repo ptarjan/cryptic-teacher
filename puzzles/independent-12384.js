@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12384"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Son married English nationalist in European country (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "SWEDEN",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["independent-12384"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "It's said you and I have to mingle (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "WEAVE",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["independent-12384"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Declines operation in doctor's (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "DROPS",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["independent-12384"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "West African beginning to bid for victory over East African capital (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "NAIROBI",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["independent-12384"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Beyond sick, ultimately crave medicated sweet (8)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "PASTILLE",
    "annotation": null
@@ -110,9 +95,6 @@ window.CRYPTIC_PUZZLES["independent-12384"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Pressure to relax before playing City (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "PRESTON",
    "annotation": null
@@ -127,9 +109,6 @@ window.CRYPTIC_PUZZLES["independent-12384"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Bit of sentimentality from left-winger for fungal disease (4,3)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -148,9 +127,6 @@ window.CRYPTIC_PUZZLES["independent-12384"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Stubborn, loses information on the way (2,7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -169,9 +145,6 @@ window.CRYPTIC_PUZZLES["independent-12384"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Made fun of escape from Alcatraz number two by Scottish hooligan (9)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "LAMPOONED",
    "annotation": null
@@ -186,9 +159,6 @@ window.CRYPTIC_PUZZLES["independent-12384"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Sloe gin, a volatile, flammable liquid (8)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "GASOLINE",
    "annotation": null
@@ -203,9 +173,6 @@ window.CRYPTIC_PUZZLES["independent-12384"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "In the morning, sex with a female knocked over Catholic shrine (6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "FATIMA",
    "annotation": null
@@ -220,9 +187,6 @@ window.CRYPTIC_PUZZLES["independent-12384"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Toy weapon upset OAP, so there! (10)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "PEASHOOTER",
    "annotation": null
@@ -237,9 +201,6 @@ window.CRYPTIC_PUZZLES["independent-12384"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "A practice exam delivered in a frenzy (4)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "AMOK",
    "annotation": null
@@ -254,9 +215,6 @@ window.CRYPTIC_PUZZLES["independent-12384"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Leather shoe with hole in losing mass, in time (8)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "OCCASION",
    "annotation": null
@@ -271,9 +229,6 @@ window.CRYPTIC_PUZZLES["independent-12384"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Piece of pork joint in cola originally tasted amazing (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "CHIPOLATA",
    "annotation": null
@@ -288,9 +243,6 @@ window.CRYPTIC_PUZZLES["independent-12384"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Article on number visiting a lake during pregnancy (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "ANTENATAL",
    "annotation": null
@@ -305,9 +257,6 @@ window.CRYPTIC_PUZZLES["independent-12384"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Some artisan elderflower tea (6)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "TISANE",
    "annotation": null
@@ -322,9 +271,6 @@ window.CRYPTIC_PUZZLES["independent-12384"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Being stroppy, regularly avoided clowns here (3,3)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -343,9 +289,6 @@ window.CRYPTIC_PUZZLES["independent-12384"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Choose the French World Cup hero? (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "PICKLES",
    "annotation": null
@@ -360,9 +303,6 @@ window.CRYPTIC_PUZZLES["independent-12384"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Very drunk and impolite, lacking bit of refinement, in isolation (8)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "SOLITUDE",
    "annotation": null
@@ -377,9 +317,6 @@ window.CRYPTIC_PUZZLES["independent-12384"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Drunk bride's welcoming a shag? (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "SEABIRD",
    "annotation": null
@@ -394,9 +331,6 @@ window.CRYPTIC_PUZZLES["independent-12384"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "I'm a match for Satan? (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "LUCIFER",
    "annotation": null
@@ -411,9 +345,6 @@ window.CRYPTIC_PUZZLES["independent-12384"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "I put on clothes to murder (2,2)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -432,9 +363,6 @@ window.CRYPTIC_PUZZLES["independent-12384"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "With luck, revolution repelled minister (10)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "CHANCELLOR",
    "annotation": null
@@ -449,9 +377,6 @@ window.CRYPTIC_PUZZLES["independent-12384"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Large gold robbery cleared out truck (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "LORRY",
    "annotation": null
@@ -466,9 +391,6 @@ window.CRYPTIC_PUZZLES["independent-12384"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Old men are going hungry, initially, in Irish town (5)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "OMAGH",
    "annotation": null
@@ -483,9 +405,6 @@ window.CRYPTIC_PUZZLES["independent-12384"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Coach agreed to back political alliance (6)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "CARTEL",
    "annotation": null
@@ -500,9 +419,6 @@ window.CRYPTIC_PUZZLES["independent-12384"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Deduce northern Alabama is hellish (8)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "INFERNAL",
    "annotation": null
@@ -517,9 +433,6 @@ window.CRYPTIC_PUZZLES["independent-12384"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Ring American editor experiencing tough patch (8)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "CALLUSED",
    "annotation": null
@@ -534,9 +447,6 @@ window.CRYPTIC_PUZZLES["independent-12384"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Original characters in Robin Hood myth reformed in time (6)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "RHYTHM",
    "annotation": null

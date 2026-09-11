@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29962"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Efforts made to have tin glaze initially added to artworks (9)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "PAINTINGS",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["cryptic-29962"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Leading role Spooner might have toasted? (3,4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -63,9 +57,6 @@ window.CRYPTIC_PUZZLES["cryptic-29962"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Japanese art has elements of childlike banality (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "IKEBANA",
    "annotation": null
@@ -80,9 +71,6 @@ window.CRYPTIC_PUZZLES["cryptic-29962"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "He had agents swarming around pub? (3,4,4)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -102,9 +90,6 @@ window.CRYPTIC_PUZZLES["cryptic-29962"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Scotch producer reports there’s no bouquet developing? (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "NASCENT",
    "annotation": null
@@ -119,9 +104,6 @@ window.CRYPTIC_PUZZLES["cryptic-29962"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Arranged to have piano inside played (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "SPORTED",
    "annotation": null
@@ -136,9 +118,6 @@ window.CRYPTIC_PUZZLES["cryptic-29962"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Love to get two degrees? Yes we can, he said (5)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "OBAMA",
    "annotation": null
@@ -153,9 +132,6 @@ window.CRYPTIC_PUZZLES["cryptic-29962"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Travelling while ill (3)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "OFF",
    "annotation": null
@@ -170,9 +146,6 @@ window.CRYPTIC_PUZZLES["cryptic-29962"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Jump in as there’s plenty that does this (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "ABOUNDS",
    "annotation": null
@@ -193,9 +166,6 @@ window.CRYPTIC_PUZZLES["cryptic-29962"] = /*JSON-START*/ {
      8
     ]
    ],
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "ACTRESS",
    "annotation": null
@@ -210,9 +180,6 @@ window.CRYPTIC_PUZZLES["cryptic-29962"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Bother first lady after exercise (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "PEEVE",
    "annotation": null
@@ -227,9 +194,6 @@ window.CRYPTIC_PUZZLES["cryptic-29962"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Betray apparent leader seen on the street (4,5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -248,9 +212,6 @@ window.CRYPTIC_PUZZLES["cryptic-29962"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Pangram will regularly display this range (3)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "AGA",
    "annotation": null
@@ -265,9 +226,6 @@ window.CRYPTIC_PUZZLES["cryptic-29962"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "A man like Trump that devastates the environment (5,6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -286,9 +244,6 @@ window.CRYPTIC_PUZZLES["cryptic-29962"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Tease prince worried when rip expanded (4,2,5)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -308,9 +263,6 @@ window.CRYPTIC_PUZZLES["cryptic-29962"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Managed to rest after tension in crossing (7)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "TRANSIT",
    "annotation": null
@@ -325,9 +277,6 @@ window.CRYPTIC_PUZZLES["cryptic-29962"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Stops son joining uncaring god worshippers (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "DESISTS",
    "annotation": null
@@ -342,9 +291,6 @@ window.CRYPTIC_PUZZLES["cryptic-29962"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Small change as regularly spotted on the beat (7)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "COPPERS",
    "annotation": null
@@ -359,9 +305,6 @@ window.CRYPTIC_PUZZLES["cryptic-29962"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Direct passage is sound (7)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "CHANNEL",
    "annotation": null
@@ -376,9 +319,6 @@ window.CRYPTIC_PUZZLES["cryptic-29962"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Gradually develop page design (4,3)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -397,9 +337,6 @@ window.CRYPTIC_PUZZLES["cryptic-29962"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Knock out part of flood defence (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "SANDBAG",
    "annotation": null
@@ -414,9 +351,6 @@ window.CRYPTIC_PUZZLES["cryptic-29962"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Servant retains half of treats for one overseeing service (6,1)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -435,9 +369,6 @@ window.CRYPTIC_PUZZLES["cryptic-29962"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Here in Rome, complain about hairstyle (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "MOHICAN",
    "annotation": null
@@ -452,9 +383,6 @@ window.CRYPTIC_PUZZLES["cryptic-29962"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Harsh sounding political line carried by newspaper (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "RASPING",
    "annotation": null
@@ -469,9 +397,6 @@ window.CRYPTIC_PUZZLES["cryptic-29962"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Kill little dog upset when redecorating (5,2)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -490,9 +415,6 @@ window.CRYPTIC_PUZZLES["cryptic-29962"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Titanic orchestra perhaps, and what they didn’t do (7,4)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -511,9 +433,6 @@ window.CRYPTIC_PUZZLES["cryptic-29962"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Runner should keep improving from the start (3)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "SKI",
    "annotation": null
@@ -528,9 +447,6 @@ window.CRYPTIC_PUZZLES["cryptic-29962"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "No hope revolutionary writer is preferring old stuff? (9)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "NEOPHOBIC",
    "annotation": null
@@ -545,9 +461,6 @@ window.CRYPTIC_PUZZLES["cryptic-29962"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Spring finishes off with Tokyo trip (3)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "HOP",
    "annotation": null
@@ -562,9 +475,6 @@ window.CRYPTIC_PUZZLES["cryptic-29962"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Threatening to exclude men passing challenge with ease (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "ACING",
    "annotation": null
@@ -579,9 +489,6 @@ window.CRYPTIC_PUZZLES["cryptic-29962"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Moderation of rent increase (3-2)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -600,9 +507,6 @@ window.CRYPTIC_PUZZLES["cryptic-29962"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Liberal agreed GNP reveals societal disparity (6,3)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {
     ",": [
      6

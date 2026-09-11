@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Mexican snack stack – hot, without any wrappers (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "TACO",
    "annotation": {
@@ -70,9 +67,6 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Forgetfulness leads to open bolts – then four being eaten by wild cat (8)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "OBLIVION",
    "annotation": {
@@ -124,9 +118,6 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Still one imagined terrifying creature from the Himalayas (4)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "YETI",
    "annotation": {
@@ -163,9 +154,6 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Sister Edna eloped, heading north, carrying flowering plant (8)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "OLEANDER",
    "annotation": {
@@ -207,9 +195,6 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "In France a supermarket sacking head to become international organisation (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "UNESCO",
    "annotation": {
@@ -257,9 +242,6 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Absolute chaos, upset jewellery – piecing it all together? (10)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "ASSEMBLING",
    "annotation": {
@@ -307,9 +289,6 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Floppy elephant with no stuffing for clingy type (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "LIMPET",
    "annotation": {
@@ -355,9 +334,6 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Tax bill came at last – virtually cleared out (4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "LEVY",
    "annotation": {
@@ -402,9 +378,6 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Not the first to risk travel at a leisurely pace (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "AMBLE",
    "annotation": {
@@ -441,9 +414,6 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Rocks falling and getting into dell is ruinous (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "LANDSLIDE",
    "annotation": {
@@ -493,9 +463,6 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Old nip of rum I drink too, without finishing first shots (9)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "ORIGINALS",
    "annotation": {
@@ -558,9 +525,6 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Space put by, but oddly nothing inside (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "EMPTY",
    "annotation": {
@@ -603,9 +567,6 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Turned and ran away, clutching Zippo but dropping case (7)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "FLIPPED",
    "annotation": {
@@ -651,9 +612,6 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Scourge of old? (5)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "FLOOD",
    "annotation": {
@@ -690,9 +648,6 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Our copter’s flying around island territory (6,4)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -738,9 +693,6 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Part in test regarding the way planets travel (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "ORBITAL",
    "annotation": {
@@ -784,9 +736,6 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Inadvertently Rickrolled – but only part of the words! (5)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "LYRIC",
    "annotation": {
@@ -821,9 +770,6 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Snow leopard jumps without limits (5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "OUNCE",
    "annotation": {
@@ -860,9 +806,6 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Harsh fightback (3)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "RAW",
    "annotation": {
@@ -905,9 +848,6 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "An odd owl disturbed some trees (8)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "WOODLAND",
    "annotation": {
@@ -944,9 +884,6 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Central pub evacuated earlier (5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "INNER",
    "annotation": {
@@ -989,9 +926,6 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Safe ‘n’ sound? Two extinct every second! (3-5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -1032,9 +966,6 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Be taken the wrong way during rendezvous, creating arguments (7)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "DEBATES",
    "annotation": {
@@ -1089,9 +1020,6 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Welsh city’s non-governmental organisation gathered by bar (6)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "BANGOR",
    "annotation": {
@@ -1138,9 +1066,6 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Flow of vapour engulfing opening of railway (6)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "STREAM",
    "annotation": {
@@ -1186,9 +1111,6 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Naturally produced grain ruined through company backtracking (7)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "ORGANIC",
    "annotation": {
@@ -1248,9 +1170,6 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Pitman’s system finally starts to introduce new, easy recording (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "MINER",
    "annotation": {
@@ -1298,9 +1217,6 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Greek character with very loud furry garment (4)",
-   "group": [
-    "26-down"
-   ],
    "separatorLocations": {},
    "solution": "MUFF",
    "annotation": {
@@ -1340,9 +1256,6 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Devout priest, German, in South American city with us (9)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "RELIGIOUS",
    "annotation": {
@@ -1401,9 +1314,6 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Desert old boy, captured by US soldier (4)",
-   "group": [
-    "28-down"
-   ],
    "separatorLocations": {},
    "solution": "GOBI",
    "annotation": {
@@ -1447,9 +1357,6 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Place, place and, finally, place (4)",
-   "group": [
-    "29-down"
-   ],
    "separatorLocations": {},
    "solution": "SITE",
    "annotation": {
@@ -1492,9 +1399,6 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Commanding Officer had info about who’s hunting whom? (4,5)",
-   "group": [
-    "30-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -1540,9 +1444,6 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Constructed crowns of bronze using intricate latticework techniques (5)",
-   "group": [
-    "31-across"
-   ],
    "separatorLocations": {},
    "solution": "BUILT",
    "annotation": {

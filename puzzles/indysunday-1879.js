@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1879"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Sergeant major really in favour of cough sweet gets mint (5,7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -79,9 +76,6 @@ window.CRYPTIC_PUZZLES["indysunday-1879"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Without good weather one's upset (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "MINUS",
    "annotation": {
@@ -129,9 +123,6 @@ window.CRYPTIC_PUZZLES["indysunday-1879"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Untidy business spotted in toilet, diapers emptied out? (5,4)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -186,9 +177,6 @@ window.CRYPTIC_PUZZLES["indysunday-1879"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Thin metal ship has cracked, being rock-bound (6)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "FOSSIL",
    "annotation": {
@@ -232,9 +220,6 @@ window.CRYPTIC_PUZZLES["indysunday-1879"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Change advocate dealing with ex (8)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "REFORMER",
    "annotation": {
@@ -271,9 +256,6 @@ window.CRYPTIC_PUZZLES["indysunday-1879"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Perfect golf club short of parking (5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "UTTER",
    "annotation": {
@@ -315,9 +297,6 @@ window.CRYPTIC_PUZZLES["indysunday-1879"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "April ice melting around start of month, going by experience (9)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "EMPIRICAL",
    "annotation": {
@@ -363,9 +342,6 @@ window.CRYPTIC_PUZZLES["indysunday-1879"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Short of cash, after a single drink for each son (2,4,6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -425,9 +401,6 @@ window.CRYPTIC_PUZZLES["indysunday-1879"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Dog performing with duck coming last? (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "DINGO",
    "annotation": {
@@ -470,9 +443,6 @@ window.CRYPTIC_PUZZLES["indysunday-1879"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Two pegs Ronald fashioned in identical spirit (12)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {},
    "solution": "DOPPELGANGER",
    "annotation": {
@@ -517,9 +487,6 @@ window.CRYPTIC_PUZZLES["indysunday-1879"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Fixing device you can't see the point of? (6,3)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -554,9 +521,6 @@ window.CRYPTIC_PUZZLES["indysunday-1879"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Is trooper on manoeuvres bringing up the rear? (9)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "POSTERIOR",
    "annotation": {
@@ -593,9 +557,6 @@ window.CRYPTIC_PUZZLES["indysunday-1879"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Programme you might have seen about sport, endless one (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "RERUN",
    "annotation": {
@@ -644,9 +605,6 @@ window.CRYPTIC_PUZZLES["indysunday-1879"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Missouri town at the cinema, going out (6)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "EBBING",
    "annotation": {
@@ -678,9 +636,6 @@ window.CRYPTIC_PUZZLES["indysunday-1879"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Distribute beer to old Glaswegian drunk (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "BLOOTERED",
    "annotation": {
@@ -717,9 +672,6 @@ window.CRYPTIC_PUZZLES["indysunday-1879"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Greens sanctioned peace agreements, putting Republican out (8)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "LETTUCES",
    "annotation": {
@@ -767,9 +719,6 @@ window.CRYPTIC_PUZZLES["indysunday-1879"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "PM thanks Tories regularly, every single one (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "TAOISEACH",
    "annotation": {
@@ -818,9 +767,6 @@ window.CRYPTIC_PUZZLES["indysunday-1879"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Tree by the beach still sheltering old policeman (4,4)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -874,9 +820,6 @@ window.CRYPTIC_PUZZLES["indysunday-1879"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Congratulations are expected at event, according to Spooner (4,4)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -925,9 +868,6 @@ window.CRYPTIC_PUZZLES["indysunday-1879"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Come and see this smoke (4-2)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -966,9 +906,6 @@ window.CRYPTIC_PUZZLES["indysunday-1879"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Travelling salesman set up rural department stores (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "PEDLAR",
    "annotation": {
@@ -1004,9 +941,6 @@ window.CRYPTIC_PUZZLES["indysunday-1879"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Roger rather than Edward (5)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "NOTED",
    "annotation": {
@@ -1043,9 +977,6 @@ window.CRYPTIC_PUZZLES["indysunday-1879"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Homeric quote you cut short in ring with heavyweights (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "DOHYO",
    "annotation": {
@@ -1091,9 +1022,6 @@ window.CRYPTIC_PUZZLES["indysunday-1879"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Exaggerate love with poem full of rubbish (9)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "OVERSTATE",
    "annotation": {
@@ -1146,9 +1074,6 @@ window.CRYPTIC_PUZZLES["indysunday-1879"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Strange story that article covers (5)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "ALIEN",
    "annotation": {
@@ -1195,9 +1120,6 @@ window.CRYPTIC_PUZZLES["indysunday-1879"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Father lost everything in landslide (9)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "EARTHFALL",
    "annotation": {
@@ -1242,9 +1164,6 @@ window.CRYPTIC_PUZZLES["indysunday-1879"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Fake ID unfortunately getting one imprisoned (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "ALIAS",
    "annotation": {
@@ -1291,9 +1210,6 @@ window.CRYPTIC_PUZZLES["indysunday-1879"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Date weird chat room men? I say it'll end badly (4-8)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     "-": [
      4

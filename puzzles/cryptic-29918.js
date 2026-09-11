@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29918"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Doctor told lab nothing will come from it (3,4)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -46,9 +43,6 @@ window.CRYPTIC_PUZZLES["cryptic-29918"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Want to accommodate Charlie round town, OK? (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "DECENT",
    "annotation": null
@@ -63,9 +57,6 @@ window.CRYPTIC_PUZZLES["cryptic-29918"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "What often awaits you at A&E? Visit with no parking taking a very long time (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "TRIAGE",
    "annotation": null
@@ -80,9 +71,6 @@ window.CRYPTIC_PUZZLES["cryptic-29918"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Reverses, so doing showing hesitation (5-5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -101,9 +89,6 @@ window.CRYPTIC_PUZZLES["cryptic-29918"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "‘Stick with it!’ Fail occasionally getting upset (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "LATHI",
    "annotation": null
@@ -118,9 +103,6 @@ window.CRYPTIC_PUZZLES["cryptic-29918"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Corporate body running risk over start of enquiry – revealing these? (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "PORKIES",
    "annotation": null
@@ -135,9 +117,6 @@ window.CRYPTIC_PUZZLES["cryptic-29918"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Following bad feeling second intervenes quickly (4-5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -156,9 +135,6 @@ window.CRYPTIC_PUZZLES["cryptic-29918"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Train flier (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "RAIL",
    "annotation": null
@@ -173,9 +149,6 @@ window.CRYPTIC_PUZZLES["cryptic-29918"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Why I went to Pizza Express for a starter? (8)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "INITIATE",
    "annotation": null
@@ -190,9 +163,6 @@ window.CRYPTIC_PUZZLES["cryptic-29918"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Grating a lot of cheese, cry after mishap (8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "SCREECHY",
    "annotation": null
@@ -207,9 +177,6 @@ window.CRYPTIC_PUZZLES["cryptic-29918"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Punch’s old material (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "CHINO",
    "annotation": null
@@ -224,9 +191,6 @@ window.CRYPTIC_PUZZLES["cryptic-29918"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Dummy trial for Trump rejected witness (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "TESTIFIER",
    "annotation": null
@@ -241,9 +205,6 @@ window.CRYPTIC_PUZZLES["cryptic-29918"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Easy to pick up, Sir said previously (one’s not very bright) (5-5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -284,9 +245,6 @@ window.CRYPTIC_PUZZLES["cryptic-29918"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Promises to provide funding for archaeologist’s work upfront – that’s great (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "PRODIGIOUS",
    "annotation": null
@@ -301,9 +259,6 @@ window.CRYPTIC_PUZZLES["cryptic-29918"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Preceding score no more than satisfactory (2,2,7)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -323,9 +278,6 @@ window.CRYPTIC_PUZZLES["cryptic-29918"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "‘So, about young woman on the internet?’ (Think she may be getting suspicious) (3,6)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -344,9 +296,6 @@ window.CRYPTIC_PUZZLES["cryptic-29918"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Caught in Scotland, maybe the biggest city in the country (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "AUCKLAND",
    "annotation": null
@@ -361,9 +310,6 @@ window.CRYPTIC_PUZZLES["cryptic-29918"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Prevents originally one motelier having sex (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "OBVIATES",
    "annotation": null
@@ -378,9 +324,6 @@ window.CRYPTIC_PUZZLES["cryptic-29918"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Timeless Punjabi superstar being fanciful? It won’t be true (5,6)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -399,9 +342,6 @@ window.CRYPTIC_PUZZLES["cryptic-29918"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Threatened horny individual, one bothering a girl (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "ARGALI",
    "annotation": null
@@ -416,9 +356,6 @@ window.CRYPTIC_PUZZLES["cryptic-29918"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Pop up in bookies’ enclosure? (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "SPRING",
    "annotation": null
@@ -433,9 +370,6 @@ window.CRYPTIC_PUZZLES["cryptic-29918"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Come together shouting ‘Booby!’ (4)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "KNIT",
    "annotation": null
@@ -450,9 +384,6 @@ window.CRYPTIC_PUZZLES["cryptic-29918"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Pricing rod for ‘guidance’ – it may be used for beating (6,4)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -471,9 +402,6 @@ window.CRYPTIC_PUZZLES["cryptic-29918"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Not the done thing to sleep through it (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "INAPT",
    "annotation": null
@@ -488,9 +416,6 @@ window.CRYPTIC_PUZZLES["cryptic-29918"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Content to clear Zulu fighters (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "IMPI",
    "annotation": null
@@ -505,9 +430,6 @@ window.CRYPTIC_PUZZLES["cryptic-29918"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Herb Alpert releasing record – aim is to get hit (9)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "ARTEMISIA",
    "annotation": null
@@ -522,9 +444,6 @@ window.CRYPTIC_PUZZLES["cryptic-29918"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Arab returning very soon (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "OMANI",
    "annotation": null
@@ -539,9 +458,6 @@ window.CRYPTIC_PUZZLES["cryptic-29918"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Badmouth teacher getting sack (7)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "DISMISS",
    "annotation": null

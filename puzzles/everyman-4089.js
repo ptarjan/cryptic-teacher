@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4089"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Meal from Germany, skipping starter of herring perhaps (4)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "DISH",
    "annotation": {
@@ -73,9 +70,6 @@ window.CRYPTIC_PUZZLES["everyman-4089"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "$500 girl loans foolishly (6,4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -125,9 +119,6 @@ window.CRYPTIC_PUZZLES["everyman-4089"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Workshy mended rugs – gladly? (10)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "SLUGGARDLY",
    "annotation": {
@@ -164,9 +155,6 @@ window.CRYPTIC_PUZZLES["everyman-4089"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Sweep your hand across mallard: Spooner’s lost for words (10)",
-   "group": [
-    "3-across"
-   ],
    "separatorLocations": {},
    "solution": "DUMBSTRUCK",
    "annotation": {
@@ -211,9 +199,6 @@ window.CRYPTIC_PUZZLES["everyman-4089"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Somewhat froufrou top I antiqued, expecting impossibly good outcome? (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "UTOPIAN",
    "annotation": {
@@ -247,9 +232,6 @@ window.CRYPTIC_PUZZLES["everyman-4089"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Busy type churning feta for hearty beverage (4,3)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -305,9 +287,6 @@ window.CRYPTIC_PUZZLES["everyman-4089"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Opportunity to hide ore, not refined (3,2,3,4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -350,9 +329,6 @@ window.CRYPTIC_PUZZLES["everyman-4089"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "15 suppressing this impulse (4)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "URGE",
    "annotation": {
@@ -394,9 +370,6 @@ window.CRYPTIC_PUZZLES["everyman-4089"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Assemblages in humorous burlesque, cycling (4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "KITS",
    "annotation": {
@@ -434,9 +407,6 @@ window.CRYPTIC_PUZZLES["everyman-4089"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Yobbo in defeat changing sides (4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "LOUT",
    "annotation": {
@@ -479,9 +449,6 @@ window.CRYPTIC_PUZZLES["everyman-4089"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "See darn rowers successfully diet (4,6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -528,9 +495,6 @@ window.CRYPTIC_PUZZLES["everyman-4089"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Book large hotel suite? Give us an address (4,3,5)",
-   "group": [
-    "11-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -572,9 +536,6 @@ window.CRYPTIC_PUZZLES["everyman-4089"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Ha! Giants fan lost in the country (11)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "AFGHANISTAN",
    "annotation": {
@@ -614,9 +575,6 @@ window.CRYPTIC_PUZZLES["everyman-4089"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Hollywood funnyman seeing Scottish mountain, increasingly serene (3,7)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -660,9 +618,6 @@ window.CRYPTIC_PUZZLES["everyman-4089"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Finally ants all got slaughtered (2,4,4)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -704,9 +659,6 @@ window.CRYPTIC_PUZZLES["everyman-4089"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "One in theatre’s rushin’ to be heard (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "SURGEON",
    "annotation": {
@@ -741,9 +693,6 @@ window.CRYPTIC_PUZZLES["everyman-4089"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Son becoming cold, most pale and most painful (7)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "ACHIEST",
    "annotation": {
@@ -792,9 +741,6 @@ window.CRYPTIC_PUZZLES["everyman-4089"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Swanky do took in virtuous knight (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "GALAHAD",
    "annotation": {
@@ -831,9 +777,6 @@ window.CRYPTIC_PUZZLES["everyman-4089"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Dear Director, Rugby player Will will miss opening (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "DARLING",
    "annotation": {
@@ -876,9 +819,6 @@ window.CRYPTIC_PUZZLES["everyman-4089"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "As lunch, desultorily eaten, still keeping officebound, principally? (2,5)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -925,9 +865,6 @@ window.CRYPTIC_PUZZLES["everyman-4089"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Warning from German: sadly can’t hug (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "ACHTUNG",
    "annotation": {
@@ -964,9 +901,6 @@ window.CRYPTIC_PUZZLES["everyman-4089"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Communicative, as expected (11)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "FORTHCOMING",
    "annotation": {
@@ -1001,9 +935,6 @@ window.CRYPTIC_PUZZLES["everyman-4089"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Pole performs hiphop about box (4)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "SPAR",
    "annotation": {
@@ -1044,9 +975,6 @@ window.CRYPTIC_PUZZLES["everyman-4089"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Group working together rejected Everyman, tense, hiding hint of anger (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "TEAM",
    "annotation": {
@@ -1106,9 +1034,6 @@ window.CRYPTIC_PUZZLES["everyman-4089"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Of value to protect company, that’s obvious early on (10)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "PRECOCIOUS",
    "annotation": {
@@ -1155,9 +1080,6 @@ window.CRYPTIC_PUZZLES["everyman-4089"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Abruptly: Run for it! A biting beastie! (4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "FLEA",
    "annotation": {
@@ -1200,9 +1122,6 @@ window.CRYPTIC_PUZZLES["everyman-4089"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Got a merger in trouble? Borrow more (10)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "REMORTGAGE",
    "annotation": {
@@ -1239,9 +1158,6 @@ window.CRYPTIC_PUZZLES["everyman-4089"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Pine feature of guitar (4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "FRET",
    "annotation": {

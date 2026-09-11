@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1836"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Deputy leader of National Rally drops article in dock (9,3)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      9
@@ -46,9 +43,6 @@ window.CRYPTIC_PUZZLES["indysunday-1836"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Bulb changed high up by you for wedding (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "UNION",
    "annotation": null
@@ -63,9 +57,6 @@ window.CRYPTIC_PUZZLES["indysunday-1836"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Victorian philosopher cracked codes in very little time (11)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "MILLISECOND",
    "annotation": null
@@ -80,9 +71,6 @@ window.CRYPTIC_PUZZLES["indysunday-1836"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Novel or Auden poem (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "RONDEAU",
    "annotation": null
@@ -115,9 +103,6 @@ window.CRYPTIC_PUZZLES["indysunday-1836"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Ship whales ram from below to communicate (3,6)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -136,9 +121,6 @@ window.CRYPTIC_PUZZLES["indysunday-1836"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Cold drink partly drained (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "NIPPY",
    "annotation": null
@@ -153,9 +135,6 @@ window.CRYPTIC_PUZZLES["indysunday-1836"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Argument against violent use of head to break concrete (8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "REBUTTAL",
    "annotation": null
@@ -170,9 +149,6 @@ window.CRYPTIC_PUZZLES["indysunday-1836"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Kindly take time out from dealing with reproduction (6)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "GENIAL",
    "annotation": null
@@ -187,9 +163,6 @@ window.CRYPTIC_PUZZLES["indysunday-1836"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Article encountered inside back of neck? (8)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "NAMETAPE",
    "annotation": null
@@ -204,9 +177,6 @@ window.CRYPTIC_PUZZLES["indysunday-1836"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "The way Americans pay for Go Fish (8)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "TURNPIKE",
    "annotation": null
@@ -221,9 +191,6 @@ window.CRYPTIC_PUZZLES["indysunday-1836"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Bone the last of half a dozen chickens, you're told (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "COCCYX",
    "annotation": null
@@ -238,9 +205,6 @@ window.CRYPTIC_PUZZLES["indysunday-1836"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "More or less happy with reason to scratch ropy design (5-6)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -259,9 +223,6 @@ window.CRYPTIC_PUZZLES["indysunday-1836"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Silence bird with musket shot (6,4)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -280,9 +241,6 @@ window.CRYPTIC_PUZZLES["indysunday-1836"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Arrive after Bill cycled back from late show in bad light (3,6)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -301,9 +259,6 @@ window.CRYPTIC_PUZZLES["indysunday-1836"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Worm's inside bull's balls (4)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "ORBS",
    "annotation": null
@@ -318,9 +273,6 @@ window.CRYPTIC_PUZZLES["indysunday-1836"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "My bingo stake ultimately turning into this? (3,5)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -339,9 +291,6 @@ window.CRYPTIC_PUZZLES["indysunday-1836"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Large beer put back in carrier (2,2)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -360,9 +309,6 @@ window.CRYPTIC_PUZZLES["indysunday-1836"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Leaving tip to date, not the usual policy (3-7)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -381,9 +327,6 @@ window.CRYPTIC_PUZZLES["indysunday-1836"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Level 50? Prepare for slaughter tackling that (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "FLATTEN",
    "annotation": null
@@ -398,9 +341,6 @@ window.CRYPTIC_PUZZLES["indysunday-1836"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Minister's assistant keeps touching food laid out (6)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "SPREAD",
    "annotation": null
@@ -415,9 +355,6 @@ window.CRYPTIC_PUZZLES["indysunday-1836"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Allege lessee emptied cushion covers (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "PLEAD",
    "annotation": null
@@ -432,9 +369,6 @@ window.CRYPTIC_PUZZLES["indysunday-1836"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "New café with area upfront where waiters are? (8)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "ANTEROOM",
    "annotation": null
@@ -449,9 +383,6 @@ window.CRYPTIC_PUZZLES["indysunday-1836"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Visitor in the garden cut short tedium going around home (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "ROBIN",
    "annotation": null
@@ -471,9 +402,6 @@ window.CRYPTIC_PUZZLES["indysunday-1836"] = /*JSON-START*/ {
      28,
      6
     ]
-   ],
-   "group": [
-    "24-across"
    ],
    "separatorLocations": {},
    "solution": "DEMOCRAT",
@@ -507,9 +435,6 @@ window.CRYPTIC_PUZZLES["indysunday-1836"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Retiring cricketer allowed a small cake (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "TABLET",
    "annotation": null
@@ -524,9 +449,6 @@ window.CRYPTIC_PUZZLES["indysunday-1836"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Theatrical dame ordered sardine sandwiches, expensive dishes (7,5)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     ",": [
      7

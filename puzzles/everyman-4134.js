@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4134"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Car's upholstery and part of its wheel as described in Yorkshire (4)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "TRIM",
    "annotation": {
@@ -67,9 +64,6 @@ window.CRYPTIC_PUZZLES["everyman-4134"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Went rapidly downhill? (10)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "TOBOGGANED",
    "annotation": {
@@ -100,9 +94,6 @@ window.CRYPTIC_PUZZLES["everyman-4134"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Launches risible reductions (10)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "INTRODUCES",
    "annotation": {
@@ -139,9 +130,6 @@ window.CRYPTIC_PUZZLES["everyman-4134"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Musical number that may be promoted on the boards? (5,5)",
-   "group": [
-    "3-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -186,9 +174,6 @@ window.CRYPTIC_PUZZLES["everyman-4134"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Just: that man, Rev Spooner says, in the Vatican (4,3)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -244,9 +229,6 @@ window.CRYPTIC_PUZZLES["everyman-4134"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Stylised screen at back of play? (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "SCENERY",
    "annotation": {
@@ -290,9 +272,6 @@ window.CRYPTIC_PUZZLES["everyman-4134"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Truant perhaps having issue following bit of Maths (7,5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -342,9 +321,6 @@ window.CRYPTIC_PUZZLES["everyman-4134"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Scoff at tablets swallowed (4)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "EATS",
    "annotation": {
@@ -395,9 +371,6 @@ window.CRYPTIC_PUZZLES["everyman-4134"] = /*JSON-START*/ {
      8
     ]
    ],
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "EPEE",
    "annotation": {
@@ -443,9 +416,6 @@ window.CRYPTIC_PUZZLES["everyman-4134"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Objections: proof of payment returned (4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "BUTS",
    "annotation": {
@@ -488,9 +458,6 @@ window.CRYPTIC_PUZZLES["everyman-4134"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Fly down with Spirit (10)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "BLUEBOTTLE",
    "annotation": {
@@ -530,9 +497,6 @@ window.CRYPTIC_PUZZLES["everyman-4134"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Iffy clue - 'Cord (9)' - not resolved (12)",
-   "group": [
-    "11-down"
-   ],
    "separatorLocations": {},
    "solution": "UNRECONCILED",
    "annotation": {
@@ -574,9 +538,6 @@ window.CRYPTIC_PUZZLES["everyman-4134"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Shift in public opinion having sound basis at first (11)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "GROUNDSWELL",
    "annotation": {
@@ -622,9 +583,6 @@ window.CRYPTIC_PUZZLES["everyman-4134"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Rude, curt male nunnery reformed (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "UNMANNERLY",
    "annotation": {
@@ -668,9 +626,6 @@ window.CRYPTIC_PUZZLES["everyman-4134"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Alas! Escort lost in flights (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "ESCALATORS",
    "annotation": {
@@ -710,9 +665,6 @@ window.CRYPTIC_PUZZLES["everyman-4134"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "An inspiration? Yours truly? I could do with a laugh (5,2)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -759,9 +711,6 @@ window.CRYPTIC_PUZZLES["everyman-4134"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "The old group of chaps is group of Arabians (7)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "YEMENIS",
    "annotation": {
@@ -804,9 +753,6 @@ window.CRYPTIC_PUZZLES["everyman-4134"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Everyman regarded, in report, as one unpleasant to behold (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "EYESORE",
    "annotation": {
@@ -850,9 +796,6 @@ window.CRYPTIC_PUZZLES["everyman-4134"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Bind some of Gwen's lavender (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "ENSLAVE",
    "annotation": {
@@ -886,9 +829,6 @@ window.CRYPTIC_PUZZLES["everyman-4134"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Primarily ostentatious outcry heaping liberal and lavish admiration? (3,2,2)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -936,9 +876,6 @@ window.CRYPTIC_PUZZLES["everyman-4134"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Where butter is put is repeatedly lucky (2,1,4)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -990,9 +927,6 @@ window.CRYPTIC_PUZZLES["everyman-4134"] = /*JSON-START*/ {
      9
     ]
    ],
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -1042,9 +976,6 @@ window.CRYPTIC_PUZZLES["everyman-4134"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Rod's European (4)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "POLE",
    "annotation": {
@@ -1081,9 +1012,6 @@ window.CRYPTIC_PUZZLES["everyman-4134"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Athletic events set back with lack of energy - and evidence of injury (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "SCAR",
    "annotation": {
@@ -1136,9 +1064,6 @@ window.CRYPTIC_PUZZLES["everyman-4134"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Clip from radio's Cilla, to remember one that's Swinging (10)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "OSCILLATOR",
    "annotation": {
@@ -1177,9 +1102,6 @@ window.CRYPTIC_PUZZLES["everyman-4134"] = /*JSON-START*/ {
      38,
      4
     ]
-   ],
-   "group": [
-    "24-across"
    ],
    "separatorLocations": {},
    "solution": "BRIO",
@@ -1226,9 +1148,6 @@ window.CRYPTIC_PUZZLES["everyman-4134"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Erased 'sea lions' at first - rewritten as: ___ (5,5)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -1279,9 +1198,6 @@ window.CRYPTIC_PUZZLES["everyman-4134"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Grasses grow, you hear? (4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "RYES",
    "annotation": {

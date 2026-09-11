@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1330"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Difficulty opposing what’s upfront? (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "DOWNSIDE",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["quiptic-1330"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Earth cover lifted revealing some stimulating objects (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "DILDOS",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["quiptic-1330"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Son immersed in drink is good for nothing (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "WASTER",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["quiptic-1330"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Trace crime farmer reported (9)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "SCINTILLA",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["quiptic-1330"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Unloved, obese revolutionary is a lethal agent (6-1,5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -117,9 +102,6 @@ window.CRYPTIC_PUZZLES["quiptic-1330"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Shuts down shabby stores Scotsman has in centre (6)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "ABORTS",
    "annotation": null
@@ -134,9 +116,6 @@ window.CRYPTIC_PUZZLES["quiptic-1330"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Graduate, as presented, is pretty ordinary (5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "BASIC",
    "annotation": null
@@ -151,9 +130,6 @@ window.CRYPTIC_PUZZLES["quiptic-1330"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Comes back with note on limits (8)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "REBOUNDS",
    "annotation": null
@@ -168,9 +144,6 @@ window.CRYPTIC_PUZZLES["quiptic-1330"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Embarrassing display by United in passage of play (5,3)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -189,9 +162,6 @@ window.CRYPTIC_PUZZLES["quiptic-1330"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Heavy drinkers they say are quite rich (8)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "LUSCIOUS",
    "annotation": null
@@ -206,9 +176,6 @@ window.CRYPTIC_PUZZLES["quiptic-1330"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Being a bit pious, a blessing can work (6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "USABLE",
    "annotation": null
@@ -223,9 +190,6 @@ window.CRYPTIC_PUZZLES["quiptic-1330"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Keep out of sight and dodge bill (6,6)",
-   "group": [
-    "11-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -244,9 +208,6 @@ window.CRYPTIC_PUZZLES["quiptic-1330"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Starting out, vandal expects real trouble, that’s clear (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "OVERT",
    "annotation": null
@@ -261,9 +222,6 @@ window.CRYPTIC_PUZZLES["quiptic-1330"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Price regulations Spooner said have no hope (4,5)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -282,9 +240,6 @@ window.CRYPTIC_PUZZLES["quiptic-1330"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Unsaddle foal bucking around without warning (3,2,1,6)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -305,9 +260,6 @@ window.CRYPTIC_PUZZLES["quiptic-1330"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "The solution has four such letters – that’s not verified (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "UNCHECKED",
    "annotation": null
@@ -322,9 +274,6 @@ window.CRYPTIC_PUZZLES["quiptic-1330"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Broadcast is copied in sequence (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "EPISODIC",
    "annotation": null
@@ -339,9 +288,6 @@ window.CRYPTIC_PUZZLES["quiptic-1330"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Flat casually put together in a bright way (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "LIMPIDLY",
    "annotation": null
@@ -356,9 +302,6 @@ window.CRYPTIC_PUZZLES["quiptic-1330"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Unofficial book for everyone showing where the public can’t swim (7,5)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -377,9 +320,6 @@ window.CRYPTIC_PUZZLES["quiptic-1330"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Have a go at trendy old Italian snack (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "PANINO",
    "annotation": null
@@ -394,9 +334,6 @@ window.CRYPTIC_PUZZLES["quiptic-1330"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Extremely smart acting enlivens where it’s performed (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "STAGES",
    "annotation": null
@@ -411,9 +348,6 @@ window.CRYPTIC_PUZZLES["quiptic-1330"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Wolverine perhaps making our sheep restless around river (9)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "SUPERHERO",
    "annotation": null
@@ -428,9 +362,6 @@ window.CRYPTIC_PUZZLES["quiptic-1330"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Force abandoning weapons causes annoyance (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "RILES",
    "annotation": null
@@ -445,9 +376,6 @@ window.CRYPTIC_PUZZLES["quiptic-1330"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Meticulous old deed (5)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "EXACT",
    "annotation": null
@@ -462,9 +390,6 @@ window.CRYPTIC_PUZZLES["quiptic-1330"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Expanding state benefit by two days is an easy task (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "DODDLE",
    "annotation": null
@@ -479,9 +404,6 @@ window.CRYPTIC_PUZZLES["quiptic-1330"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Select fish for preserving (8)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "PICKLING",
    "annotation": null
@@ -496,9 +418,6 @@ window.CRYPTIC_PUZZLES["quiptic-1330"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Most reluctant to give positive response in bed (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "COYEST",
    "annotation": null
@@ -513,9 +432,6 @@ window.CRYPTIC_PUZZLES["quiptic-1330"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Useless criminal sheds load, dumping heroin (8)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "DEADLOSS",
    "annotation": null

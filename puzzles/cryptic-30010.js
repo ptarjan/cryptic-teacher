@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30010"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Sure indications, two of which are apparent in this puzzle (8,5)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -63,9 +60,6 @@ window.CRYPTIC_PUZZLES["cryptic-30010"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Work on academic cancelling of tyrant (9)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "OPPRESSOR",
    "annotation": {
@@ -112,9 +106,6 @@ window.CRYPTIC_PUZZLES["cryptic-30010"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "By way of review, minus changes (2,3)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -161,9 +152,6 @@ window.CRYPTIC_PUZZLES["cryptic-30010"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "River trade subtracting tax at the end (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "INDUS",
    "annotation": {
@@ -208,9 +196,6 @@ window.CRYPTIC_PUZZLES["cryptic-30010"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "In kinky sex and vice you are audibly digressing (9)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "EXCURSIVE",
    "annotation": {
@@ -264,9 +249,6 @@ window.CRYPTIC_PUZZLES["cryptic-30010"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Mostly rude, mostly unfriendly, totally foolish (9)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "IMPOLITIC",
    "annotation": {
@@ -317,9 +299,6 @@ window.CRYPTIC_PUZZLES["cryptic-30010"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Parts of speech using negative pieces from Sun (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "NOUNS",
    "annotation": {
@@ -365,9 +344,6 @@ window.CRYPTIC_PUZZLES["cryptic-30010"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "More or less inaccurate guess upset this team in red (5,8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -419,9 +395,6 @@ window.CRYPTIC_PUZZLES["cryptic-30010"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Remarks that may require revisions, up or down (13)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {},
    "solution": "REASSESSMENTS",
    "annotation": {
@@ -459,9 +432,6 @@ window.CRYPTIC_PUZZLES["cryptic-30010"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Against being briefly affirmative in written opinion (7)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "OPPOSED",
    "annotation": {
@@ -515,9 +485,6 @@ window.CRYPTIC_PUZZLES["cryptic-30010"] = /*JSON-START*/ {
      14
     ]
    ],
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "CAPSULE",
    "annotation": {
@@ -568,9 +535,6 @@ window.CRYPTIC_PUZZLES["cryptic-30010"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Shine with half-century in fluctuating game (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "GLEAM",
    "annotation": {
@@ -622,9 +586,6 @@ window.CRYPTIC_PUZZLES["cryptic-30010"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Positive about asset’s small excesses (9)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "SURPLUSES",
    "annotation": {
@@ -675,9 +636,6 @@ window.CRYPTIC_PUZZLES["cryptic-30010"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Soften line, something that artist can work on (5)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "EASEL",
    "annotation": {
@@ -717,9 +675,6 @@ window.CRYPTIC_PUZZLES["cryptic-30010"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Some overnight for this and others turning up quickly go (4,5)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -776,9 +731,6 @@ window.CRYPTIC_PUZZLES["cryptic-30010"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Setter’s beginning – isn’t fancy, or as good as Paul (or Brendan)? (9)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "SAINTLIKE",
    "annotation": {
@@ -828,9 +780,6 @@ window.CRYPTIC_PUZZLES["cryptic-30010"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Adding fix minus bugs (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "SUBSUMING",
    "annotation": {
@@ -873,9 +822,6 @@ window.CRYPTIC_PUZZLES["cryptic-30010"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "One sequence of notes being performed in which person’s unaccompanied (9)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "ISOLATION",
    "annotation": {
@@ -922,9 +868,6 @@ window.CRYPTIC_PUZZLES["cryptic-30010"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Revolutionary device for playing truant out of order – nearly ran (9)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "TURNTABLE",
    "annotation": {
@@ -977,9 +920,6 @@ window.CRYPTIC_PUZZLES["cryptic-30010"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Go over something obvious left (5)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "CROSS",
    "annotation": {
@@ -1014,9 +954,6 @@ window.CRYPTIC_PUZZLES["cryptic-30010"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Indication to remove awful clue, not easy to see (9)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "MINUSCULE",
    "annotation": {
@@ -1064,9 +1001,6 @@ window.CRYPTIC_PUZZLES["cryptic-30010"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Somewhat unorthodox position of negative pole (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "NORTH",
    "annotation": {
@@ -1101,9 +1035,6 @@ window.CRYPTIC_PUZZLES["cryptic-30010"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Positive contribution, taken out of context randomly (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "EXTRA",
    "annotation": {
@@ -1138,9 +1069,6 @@ window.CRYPTIC_PUZZLES["cryptic-30010"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Calm tips from positive pro (5)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "PEACE",
    "annotation": {
@@ -1184,9 +1112,6 @@ window.CRYPTIC_PUZZLES["cryptic-30010"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Luxurious and hot (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "PLUSH",
    "annotation": {
@@ -1226,9 +1151,6 @@ window.CRYPTIC_PUZZLES["cryptic-30010"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Final points, one of which is negative in its conclusion (7)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "TERMINI",
    "annotation": {
@@ -1264,9 +1186,6 @@ window.CRYPTIC_PUZZLES["cryptic-30010"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Visitor is interrupting perturbed tutor (7)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "TOURIST",
    "annotation": {
@@ -1316,9 +1235,6 @@ window.CRYPTIC_PUZZLES["cryptic-30010"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Shooting with negative, then positive, results (13)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "PHOTOGRAPHING",
    "annotation": {

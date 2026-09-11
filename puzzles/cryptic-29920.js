@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29920"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Information store starts to defrag and thus degrade (8)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "DATABASE",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["cryptic-29920"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Simple Minds ultimately stops cycling old agreement (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "EASY",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["cryptic-29920"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Second adult to abandon Latin dance character overseas (6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "LAMBDA",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["cryptic-29920"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Tense aquatic bird crushed by snake somewhere in South Africa (8)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "BOTSWANA",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["cryptic-29920"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Breaking in, proposes tyranny (10)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "OPPRESSION",
    "annotation": null
@@ -110,9 +95,6 @@ window.CRYPTIC_PUZZLES["cryptic-29920"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Gangster that is holding up police HQ? (6)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "YARDIE",
    "annotation": null
@@ -133,9 +115,6 @@ window.CRYPTIC_PUZZLES["cryptic-29920"] = /*JSON-START*/ {
      10
     ]
    ],
-   "group": [
-    "7-across"
-   ],
    "separatorLocations": {},
    "solution": "CALAMARI",
    "annotation": null
@@ -150,9 +129,6 @@ window.CRYPTIC_PUZZLES["cryptic-29920"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Relations slain violently around west (2-4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     "-": [
      2
@@ -171,9 +147,6 @@ window.CRYPTIC_PUZZLES["cryptic-29920"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Harpo dealt with new undesirable counterpart of widow? (6)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "ORPHAN",
    "annotation": null
@@ -188,9 +161,6 @@ window.CRYPTIC_PUZZLES["cryptic-29920"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Firm’s fine when internally upset (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "OAKY",
    "annotation": null
@@ -205,9 +175,6 @@ window.CRYPTIC_PUZZLES["cryptic-29920"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Coping with much support, adults bear struggles (10)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "BALUSTRADE",
    "annotation": null
@@ -222,9 +189,6 @@ window.CRYPTIC_PUZZLES["cryptic-29920"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Trouble held back plant (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "DAHLIA",
    "annotation": null
@@ -239,9 +203,6 @@ window.CRYPTIC_PUZZLES["cryptic-29920"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Time taken for nearest neighbour to come round again? (5,5)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -260,9 +221,6 @@ window.CRYPTIC_PUZZLES["cryptic-29920"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Update me – he wants different wife? (5,3)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -281,9 +239,6 @@ window.CRYPTIC_PUZZLES["cryptic-29920"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Ineffectual sort of check on unopened list of options around university (6)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "EUNUCH",
    "annotation": null
@@ -298,9 +253,6 @@ window.CRYPTIC_PUZZLES["cryptic-29920"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Pet food not wrapped in something waxy (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "CANOODLE",
    "annotation": null
@@ -315,9 +267,6 @@ window.CRYPTIC_PUZZLES["cryptic-29920"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Disappear à la goods vehicle? (6)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "VANISH",
    "annotation": null
@@ -332,9 +281,6 @@ window.CRYPTIC_PUZZLES["cryptic-29920"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Shelter with presumably one or more layers under roof (8)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "HENHOUSE",
    "annotation": null
@@ -349,9 +295,6 @@ window.CRYPTIC_PUZZLES["cryptic-29920"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Former farewell involves lifting drink (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "BYGONE",
    "annotation": null
@@ -366,9 +309,6 @@ window.CRYPTIC_PUZZLES["cryptic-29920"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Bombastic outburst breaks cautious guarantee (8)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "WARRANTY",
    "annotation": null
@@ -383,9 +323,6 @@ window.CRYPTIC_PUZZLES["cryptic-29920"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Charm a beast, given time (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "AMULET",
    "annotation": null
@@ -400,9 +337,6 @@ window.CRYPTIC_PUZZLES["cryptic-29920"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Fruit bar, 50% pineapple (6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "BANANA",
    "annotation": null
@@ -417,9 +351,6 @@ window.CRYPTIC_PUZZLES["cryptic-29920"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Hamper opinion about demand (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "BASKET",
    "annotation": null
@@ -434,9 +365,6 @@ window.CRYPTIC_PUZZLES["cryptic-29920"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Self-governing modus operandi in car intelligence (10)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "AUTONOMOUS",
    "annotation": null
@@ -451,9 +379,6 @@ window.CRYPTIC_PUZZLES["cryptic-29920"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Small piece of timber hit with heavy blows (4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "SLOG",
    "annotation": null
@@ -468,9 +393,6 @@ window.CRYPTIC_PUZZLES["cryptic-29920"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Setter and solvers upset church so much (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "SUCH",
    "annotation": null
@@ -485,9 +407,6 @@ window.CRYPTIC_PUZZLES["cryptic-29920"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Payment contributing to current allowance (6)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "RENTAL",
    "annotation": null
@@ -502,9 +421,6 @@ window.CRYPTIC_PUZZLES["cryptic-29920"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Work out tax spanning years, off and on (8)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "EXERCISE",
    "annotation": null

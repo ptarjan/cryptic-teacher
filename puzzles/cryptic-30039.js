@@ -24,9 +24,6 @@ window.CRYPTIC_PUZZLES["cryptic-30039"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Special ceremony for fairy (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "SPRITE",
    "annotation": {
@@ -64,9 +61,6 @@ window.CRYPTIC_PUZZLES["cryptic-30039"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Recover from shock of upsetting the board? (4,2,3,6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -107,9 +101,6 @@ window.CRYPTIC_PUZZLES["cryptic-30039"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "During school time, accepting one is temporary (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "INTERIM",
    "annotation": {
@@ -150,9 +141,6 @@ window.CRYPTIC_PUZZLES["cryptic-30039"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "US lawman perfects hearing aid (9)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "EARPHONES",
    "annotation": {
@@ -191,9 +179,6 @@ window.CRYPTIC_PUZZLES["cryptic-30039"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Hairy arrangement faced by harvester? (8)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "CORNROWS",
    "annotation": {
@@ -229,9 +214,6 @@ window.CRYPTIC_PUZZLES["cryptic-30039"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Like some potatoes? Made huge fuss, denied starter (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "CREAMED",
    "annotation": {
@@ -270,9 +252,6 @@ window.CRYPTIC_PUZZLES["cryptic-30039"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Delight as joystick is pulled up (5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "REVEL",
    "annotation": {
@@ -312,9 +291,6 @@ window.CRYPTIC_PUZZLES["cryptic-30039"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Hurried with big bag for plunder (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "RANSACK",
    "annotation": {
@@ -352,9 +328,6 @@ window.CRYPTIC_PUZZLES["cryptic-30039"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Excitedly invite whore, then fail through inanition (6,2,3,4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      6,
@@ -404,9 +377,6 @@ window.CRYPTIC_PUZZLES["cryptic-30039"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Halfway through play perhaps catheter fails (3,5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -449,9 +419,6 @@ window.CRYPTIC_PUZZLES["cryptic-30039"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Such a case of conceitedness? (6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "VANITY",
    "annotation": {
@@ -485,9 +452,6 @@ window.CRYPTIC_PUZZLES["cryptic-30039"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Express pleasure, turning up with classy car (4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "PURR",
    "annotation": {
@@ -533,9 +497,6 @@ window.CRYPTIC_PUZZLES["cryptic-30039"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Mortified, having to sing wordlessly to one particular backing (10)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "HUMILIATED",
    "annotation": {
@@ -587,9 +548,6 @@ window.CRYPTIC_PUZZLES["cryptic-30039"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "In tin, weak fertiliser (6)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "STAMEN",
    "annotation": {
@@ -630,9 +588,6 @@ window.CRYPTIC_PUZZLES["cryptic-30039"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Pass reply to pollster (4,4)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -671,9 +626,6 @@ window.CRYPTIC_PUZZLES["cryptic-30039"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Ten years at the start of century? It’s enough mess (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "NOUGHTIES",
    "annotation": {
@@ -712,9 +664,6 @@ window.CRYPTIC_PUZZLES["cryptic-30039"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Wounded hero accustomed to being moved elsewhere (8)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "REHOUSED",
    "annotation": {
@@ -760,9 +709,6 @@ window.CRYPTIC_PUZZLES["cryptic-30039"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Me and my little helper? (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "ONESELF",
    "annotation": {
@@ -797,9 +743,6 @@ window.CRYPTIC_PUZZLES["cryptic-30039"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Special symbol indicating ingredients of pudding batter (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "DINGBAT",
    "annotation": {
@@ -833,9 +776,6 @@ window.CRYPTIC_PUZZLES["cryptic-30039"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Arrogant but promoted – shame (6)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "UPPITY",
    "annotation": {
@@ -873,9 +813,6 @@ window.CRYPTIC_PUZZLES["cryptic-30039"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Paid across the counter as promised (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "PLEDGED",
    "annotation": {
@@ -916,9 +853,6 @@ window.CRYPTIC_PUZZLES["cryptic-30039"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Drinking hole where one may buy round after round (10)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "NINETEENTH",
    "annotation": {
@@ -952,9 +886,6 @@ window.CRYPTIC_PUZZLES["cryptic-30039"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Monarch formerly eating fish and duck (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "EIDER",
    "annotation": {
@@ -995,9 +926,6 @@ window.CRYPTIC_PUZZLES["cryptic-30039"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Farm animals’ exploit recounted (4)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "EWES",
    "annotation": {
@@ -1029,9 +957,6 @@ window.CRYPTIC_PUZZLES["cryptic-30039"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Tedious speech, a statement of belief by saint (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "SCREED",
    "annotation": {
@@ -1071,9 +996,6 @@ window.CRYPTIC_PUZZLES["cryptic-30039"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Yields items of jewellery to be thrown away? (6,2)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -1116,9 +1038,6 @@ window.CRYPTIC_PUZZLES["cryptic-30039"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "To seek computer assistance is to invite trouble (3,3,2)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -1158,9 +1077,6 @@ window.CRYPTIC_PUZZLES["cryptic-30039"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Two types of earth, very wet (6)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "SODDEN",
    "annotation": {

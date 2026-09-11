@@ -15,7 +15,8 @@ Checks, for every annotated entry:
   - hidden answers actually occur in the clue's letters
   - subAnagrams are letter-for-letter anagrams; subReversals reverse correctly
   - linkedTo targets exist and cover their group
-  - a linked clue's `group` is the same list on every leg, and contains itself
+  - `group` appears only on genuinely linked clues, and is the same list on
+    every leg of one, containing itself
 
 And checks that apply only to puzzles we WROTE (see is_authored):
   - no block may have an empty `gives`: every word of an authored clue is
@@ -1647,21 +1648,26 @@ MARKUP_RE = re.compile(r"</?[a-zA-Z][^>]*>|&(?:[a-zA-Z]+|#\d+);")
 
 
 def check_groups_agree(puzzle, errors):
-    """A `group` is the entry ids whose solutions concatenate into one answer, and
-    every member must carry the same list, in the same order, including itself.
+    """A `group` is the entry ids whose solutions concatenate into one answer. It
+    is written only on clues that really are linked, and then on every leg, with
+    the same ids in the same order, including the leg itself. No group at all is
+    the ordinary case: the entry is its own answer.
 
-    The field comes verbatim off the Guardian's own puzzle data and is written
-    on every entry, singleton or not, so nothing about its shape is self-evident
-    from one entry: a hand edit or a new fetcher can give two legs of the same
-    linked clue different lists and the only symptom is an answer-letters error
-    on one leg and not the other. Checked here so the shape is guaranteed rather
-    than assumed by the group-aware letter check below.
+    Both halves are checked, because both are silent when wrong. A singleton
+    group is the shape the Guardian's data ships and we strip on the way in, and
+    left in place it would say "linked" about a clue that is not. Two legs with
+    different lists show up only as an answer-letters error on one leg and not
+    the other, with nothing pointing at the group.
     """
     by_id = {e["id"]: e for e in puzzle["entries"]}
     for e in puzzle["entries"]:
         group = e.get("group")
         if group is None:
-            continue                      # authored puzzles predate the field
+            continue                      # the ordinary clue: its own answer
+        if len(group) < 2:
+            errors.append(f"{e['id']}: group {group} names only this entry. A clue "
+                          f"that is its own answer carries no group at all.")
+            continue
         if e["id"] not in group:
             errors.append(f"{e['id']}: group {group} does not contain the entry itself")
             continue
@@ -1673,6 +1679,7 @@ def check_groups_agree(puzzle, errors):
                 errors.append(f"{e['id']}: group {group} disagrees with {gid}'s "
                               f"{other.get('group')} — the two legs of a linked clue "
                               f"must name the same entries in the same order")
+
 
 def check_no_markup(puzzle, errors):
     """No HTML anywhere in a puzzle file. Every string here is displayed
@@ -1752,7 +1759,8 @@ def validate_puzzle(puzzle):
 
         # What letters must the wordplay produce?
         if ann.get("coversGroup"):
-            target_letters = "".join(letters(by_id[gid]["solution"]) for gid in e["group"])
+            target_letters = "".join(letters(by_id[gid]["solution"])
+                                     for gid in e.get("group") or [e["id"]])
         else:
             target_letters = letters(e.get("solution"))
         ans_letters = letters(ann.get("answer"))

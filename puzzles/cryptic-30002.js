@@ -49,9 +49,6 @@ window.CRYPTIC_PUZZLES["cryptic-30002"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Bored due to frequent exposure, ignoring large bottom (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "BASE",
    "annotation": {
@@ -94,9 +91,6 @@ window.CRYPTIC_PUZZLES["cryptic-30002"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Mount Everest’s peak undergoes damage (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "MARE",
    "annotation": {
@@ -142,9 +136,6 @@ window.CRYPTIC_PUZZLES["cryptic-30002"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Victory when animal locked up runs off (8)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "VAMOOSES",
    "annotation": {
@@ -195,9 +186,6 @@ window.CRYPTIC_PUZZLES["cryptic-30002"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Spanish guy departs (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "DIEGO",
    "annotation": {
@@ -258,9 +246,6 @@ window.CRYPTIC_PUZZLES["cryptic-30002"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Lovely place Surinam, occasionally Trump admitted (6)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "UTOPIA",
    "annotation": {
@@ -307,9 +292,6 @@ window.CRYPTIC_PUZZLES["cryptic-30002"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "One paying flying visit from Oregon best getting busy (5,5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -354,9 +336,6 @@ window.CRYPTIC_PUZZLES["cryptic-30002"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "He’s not particularly concerned about upsetting celebs with intelligence (10)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "GENERALIST",
    "annotation": {
@@ -415,9 +394,6 @@ window.CRYPTIC_PUZZLES["cryptic-30002"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Having conned rook inside, made oneself scarce (8)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "SCRAMMED",
    "annotation": {
@@ -462,9 +438,6 @@ window.CRYPTIC_PUZZLES["cryptic-30002"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Why ‘noble’ misrepresented royal (6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "BOLEYN",
    "annotation": {
@@ -507,9 +480,6 @@ window.CRYPTIC_PUZZLES["cryptic-30002"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Attempts to prove wrong tense used in puzzle (6)",
-   "group": [
-    "11-down"
-   ],
    "separatorLocations": {},
    "solution": "REBUTS",
    "annotation": {
@@ -612,9 +582,6 @@ window.CRYPTIC_PUZZLES["cryptic-30002"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Angry tweet about empty fire extinguisher? (3,7)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -726,9 +693,6 @@ window.CRYPTIC_PUZZLES["cryptic-30002"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Method of selection for school team an asset (6-4)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {
     "-": [
      6
@@ -771,9 +735,6 @@ window.CRYPTIC_PUZZLES["cryptic-30002"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Time for a party, I reflected (6)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "PERIOD",
    "annotation": {
@@ -829,9 +790,6 @@ window.CRYPTIC_PUZZLES["cryptic-30002"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "See about including a little incentive – it should help things go smoothly (3)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "OIL",
    "annotation": {
@@ -886,9 +844,6 @@ window.CRYPTIC_PUZZLES["cryptic-30002"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Commend school over accepting small number good at drawing (8)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "MAGNETIC",
    "annotation": {
@@ -1012,9 +967,6 @@ window.CRYPTIC_PUZZLES["cryptic-30002"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Right about sixth sense? Fools – they’re wrong! (10)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "TRESPASSES",
    "annotation": {
@@ -1070,9 +1022,6 @@ window.CRYPTIC_PUZZLES["cryptic-30002"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Stick around, mate – Vlad’s close to finish (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "IMPALE",
    "annotation": {
@@ -1124,9 +1073,6 @@ window.CRYPTIC_PUZZLES["cryptic-30002"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Vital mail-order left inside by dock worker (3-9)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -1196,9 +1142,6 @@ window.CRYPTIC_PUZZLES["cryptic-30002"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Coach drops team leader for a start (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "TRAIN",
    "annotation": {
@@ -1244,9 +1187,6 @@ window.CRYPTIC_PUZZLES["cryptic-30002"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Leaving, I wanted knighthood possibly? (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "GONG",
    "annotation": {
@@ -1289,9 +1229,6 @@ window.CRYPTIC_PUZZLES["cryptic-30002"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Pub finally sacked crazy host (4)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "ARMY",
    "annotation": {
@@ -1336,9 +1273,6 @@ window.CRYPTIC_PUZZLES["cryptic-30002"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "African’s principal relative a bit mixed up (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "KENYAN",
    "annotation": {
@@ -1384,9 +1318,6 @@ window.CRYPTIC_PUZZLES["cryptic-30002"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "He designs rubbish as well, I think (8)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "TATTOOER",
    "annotation": {
@@ -1431,9 +1362,6 @@ window.CRYPTIC_PUZZLES["cryptic-30002"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Offensive female’s on moor (6)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "TETHER",
    "annotation": {

@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30085"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Senses uncivil rioting – the participation of everybody? (13)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "INCLUSIVENESS",
    "annotation": {
@@ -66,9 +63,6 @@ window.CRYPTIC_PUZZLES["cryptic-30085"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "North American cheers most of experiment involving old swimming pools (9)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "NATATORIA",
    "annotation": {
@@ -122,9 +116,6 @@ window.CRYPTIC_PUZZLES["cryptic-30085"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Composer’s inclination for radio broadcast? (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "LISZT",
    "annotation": {
@@ -159,9 +150,6 @@ window.CRYPTIC_PUZZLES["cryptic-30085"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Hidden material – timber under stone (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "STASH",
    "annotation": {
@@ -201,9 +189,6 @@ window.CRYPTIC_PUZZLES["cryptic-30085"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Malevolent, grabbing a lot of power at second hand (9)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "VICARIOUS",
    "annotation": {
@@ -245,9 +230,6 @@ window.CRYPTIC_PUZZLES["cryptic-30085"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Mention Australian mechanics – something audacious about that (9)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "NAMECHECK",
    "annotation": {
@@ -294,9 +276,6 @@ window.CRYPTIC_PUZZLES["cryptic-30085"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Travelled in winter, perhaps raised aloft (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "SKIED",
    "annotation": {
@@ -330,9 +309,6 @@ window.CRYPTIC_PUZZLES["cryptic-30085"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Adventurous types in middle of Hawkins – broadcast of Stranger Things two-thirds complete (7,6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -377,9 +353,6 @@ window.CRYPTIC_PUZZLES["cryptic-30085"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "The writer’s supporting Minister (mostly) about relationship and scandalous behaviours (13)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {},
    "solution": "IMPROPRIETIES",
    "annotation": {
@@ -436,9 +409,6 @@ window.CRYPTIC_PUZZLES["cryptic-30085"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Exclamation of success after recalling devil woman? (7)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "NATASHA",
    "annotation": {
@@ -485,9 +455,6 @@ window.CRYPTIC_PUZZLES["cryptic-30085"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Tramp beside Cambridge river taking in one feature of arboreal growth (7)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "CAMBIUM",
    "annotation": {
@@ -535,9 +502,6 @@ window.CRYPTIC_PUZZLES["cryptic-30085"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Mean for one to return rubbish (3,2)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -587,9 +551,6 @@ window.CRYPTIC_PUZZLES["cryptic-30085"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Woman’s concealing a way with detectives and juice (4,5)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -649,9 +610,6 @@ window.CRYPTIC_PUZZLES["cryptic-30085"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Light bit of rest in hospital bed rejected (5)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "TORCH",
    "annotation": {
@@ -705,9 +663,6 @@ window.CRYPTIC_PUZZLES["cryptic-30085"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Source of heavy band equipment on charter in southern county (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "HAMPSHIRE",
    "annotation": {
@@ -757,9 +712,6 @@ window.CRYPTIC_PUZZLES["cryptic-30085"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Fascist movement? Sees to changes among Republicans (5,4)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -811,9 +763,6 @@ window.CRYPTIC_PUZZLES["cryptic-30085"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Something that makes classes rushed? Not entirely (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "GENERATOR",
    "annotation": {
@@ -853,9 +802,6 @@ window.CRYPTIC_PUZZLES["cryptic-30085"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Coaches? Coaches left after I disembarked (9)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "TRANSPORT",
    "annotation": {
@@ -902,9 +848,6 @@ window.CRYPTIC_PUZZLES["cryptic-30085"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Mean types ruined online transactions (1-8)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     "-": [
      1
@@ -947,9 +890,6 @@ window.CRYPTIC_PUZZLES["cryptic-30085"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Book launch finally having a lot of similar military material (5)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "KHAKI",
    "annotation": {
@@ -993,9 +933,6 @@ window.CRYPTIC_PUZZLES["cryptic-30085"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Relieved apprehension in various readers about The Guardians volte-face (9)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "REASSURED",
    "annotation": {
@@ -1056,9 +993,6 @@ window.CRYPTIC_PUZZLES["cryptic-30085"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Excuse a sexual impulse, but not act (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "ALIBI",
    "annotation": {
@@ -1103,9 +1037,6 @@ window.CRYPTIC_PUZZLES["cryptic-30085"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Italian writer not ultimately hosted by another European (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "DANTE",
    "annotation": {
@@ -1147,9 +1078,6 @@ window.CRYPTIC_PUZZLES["cryptic-30085"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Where many maps show Alaska and Hawaii? This month around Spain (5)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "INSET",
    "annotation": {
@@ -1190,9 +1118,6 @@ window.CRYPTIC_PUZZLES["cryptic-30085"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "One heartless sod is stupid (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "IDIOT",
    "annotation": {
@@ -1241,9 +1166,6 @@ window.CRYPTIC_PUZZLES["cryptic-30085"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Note excellent view, largely ingenuous (7)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "NAIVIST",
    "annotation": {
@@ -1289,9 +1211,6 @@ window.CRYPTIC_PUZZLES["cryptic-30085"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Offensive is torpedoing rotating satellite close to home (7)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "NOISOME",
    "annotation": {
@@ -1336,9 +1255,6 @@ window.CRYPTIC_PUZZLES["cryptic-30085"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Maine – Eastern and petite, possibly (4,4,5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {
     ",": [
      4,

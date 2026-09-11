@@ -24,9 +24,6 @@ window.CRYPTIC_PUZZLES["cryptic-30064"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Tough comedian without name (8)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "GANGSTER",
    "annotation": {
@@ -70,9 +67,6 @@ window.CRYPTIC_PUZZLES["cryptic-30064"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Just a second to remove top? Doubtful (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "IFFY",
    "annotation": {
@@ -114,9 +108,6 @@ window.CRYPTIC_PUZZLES["cryptic-30064"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "A core island sun god (6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "ANUBIS",
    "annotation": {
@@ -164,9 +155,6 @@ window.CRYPTIC_PUZZLES["cryptic-30064"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Depend on getting in support for a music genre (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "BHANGRA",
    "annotation": {
@@ -213,9 +201,6 @@ window.CRYPTIC_PUZZLES["cryptic-30064"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Wizard at foot of elder tree (4)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "ACER",
    "annotation": {
@@ -258,9 +243,6 @@ window.CRYPTIC_PUZZLES["cryptic-30064"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Fig, pear almost turn out to be the possible basis of fad diet (10)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "GRAPEFRUIT",
    "annotation": {
@@ -307,9 +289,6 @@ window.CRYPTIC_PUZZLES["cryptic-30064"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Chestnut one replaced with ring for crop protection (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "CLOCHE",
    "annotation": {
@@ -361,9 +340,6 @@ window.CRYPTIC_PUZZLES["cryptic-30064"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Nick and Henry Bird (4-4)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -404,9 +380,6 @@ window.CRYPTIC_PUZZLES["cryptic-30064"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Pink cattle pen? Not right! (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "CORAL",
    "annotation": {
@@ -448,9 +421,6 @@ window.CRYPTIC_PUZZLES["cryptic-30064"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Articulated fruit is not fair (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "UGLY",
    "annotation": {
@@ -488,9 +458,6 @@ window.CRYPTIC_PUZZLES["cryptic-30064"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Left and right wings of party turn back, collapsing into ruin (10)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "BANKRUPTCY",
    "annotation": {
@@ -537,9 +504,6 @@ window.CRYPTIC_PUZZLES["cryptic-30064"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Hair loss ultimately comes before anxiety (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "STRESS",
    "annotation": {
@@ -584,9 +548,6 @@ window.CRYPTIC_PUZZLES["cryptic-30064"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Drugs defence involving college that’s associated with Houdini (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "ESCAPOLOGY",
    "annotation": {
@@ -635,9 +596,6 @@ window.CRYPTIC_PUZZLES["cryptic-30064"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Are fired (sacked), being thin (8)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "RAREFIED",
    "annotation": {
@@ -722,9 +680,6 @@ window.CRYPTIC_PUZZLES["cryptic-30064"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Herald’s power decline (7)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "PRECEDE",
    "annotation": {
@@ -786,9 +741,6 @@ window.CRYPTIC_PUZZLES["cryptic-30064"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Hearing of pub expedition, neighbours start off (7)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "INQUEST",
    "annotation": {
@@ -838,9 +790,6 @@ window.CRYPTIC_PUZZLES["cryptic-30064"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Game of kiss and tell, perhaps, with time for Latin (8)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "SKITTLES",
    "annotation": {
@@ -892,9 +841,6 @@ window.CRYPTIC_PUZZLES["cryptic-30064"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Poet’s wife and enforcer (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "WHITMAN",
    "annotation": {
@@ -934,9 +880,6 @@ window.CRYPTIC_PUZZLES["cryptic-30064"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Panels damaged – try pitch (8)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "TRIPTYCH",
    "annotation": {
@@ -974,9 +917,6 @@ window.CRYPTIC_PUZZLES["cryptic-30064"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Twin drying aid, lidless (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "RINGER",
    "annotation": {
@@ -1018,9 +958,6 @@ window.CRYPTIC_PUZZLES["cryptic-30064"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Dialect reveals smooth love lives (6)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "PATOIS",
    "annotation": {
@@ -1066,9 +1003,6 @@ window.CRYPTIC_PUZZLES["cryptic-30064"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Devout, bawdy and buccaneering (6)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "PIRACY",
    "annotation": {
@@ -1105,9 +1039,6 @@ window.CRYPTIC_PUZZLES["cryptic-30064"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Kid’s rental bike fixed (5-5)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -1151,9 +1082,6 @@ window.CRYPTIC_PUZZLES["cryptic-30064"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Ram’s a laughing-stock (4)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "BUTT",
    "annotation": {
@@ -1190,9 +1118,6 @@ window.CRYPTIC_PUZZLES["cryptic-30064"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Bottle essential parts (4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "GUTS",
    "annotation": {
@@ -1227,9 +1152,6 @@ window.CRYPTIC_PUZZLES["cryptic-30064"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Easy: massive return with little initially invested (4)",
-   "group": [
-    "26-down"
-   ],
    "separatorLocations": {},
    "solution": "GLIB",
    "annotation": {
@@ -1283,9 +1205,6 @@ window.CRYPTIC_PUZZLES["cryptic-30064"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Crew strive to get leader replaced (5)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "EIGHT",
    "annotation": {
@@ -1336,9 +1255,6 @@ window.CRYPTIC_PUZZLES["cryptic-30064"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Shrewd US composer making records (8)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "ARCHIVES",
    "annotation": {

@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4141"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Approaches taking years - used to be (4)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "WAYS",
    "annotation": {
@@ -71,9 +68,6 @@ window.CRYPTIC_PUZZLES["everyman-4141"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Now, at last, nasty waspish carpenters use these (8)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "WHIPSAWS",
    "annotation": {
@@ -117,9 +111,6 @@ window.CRYPTIC_PUZZLES["everyman-4141"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Primarily yell, oscillating down Eiger lyrically? (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "YODEL",
    "annotation": {
@@ -160,9 +151,6 @@ window.CRYPTIC_PUZZLES["everyman-4141"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Italian author sensible, prone to recycle (10)",
-   "group": [
-    "3-across"
-   ],
    "separatorLocations": {},
    "solution": "ECOLOGICAL",
    "annotation": {
@@ -200,9 +188,6 @@ window.CRYPTIC_PUZZLES["everyman-4141"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Ice tea and farl cut and served up - here (9)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "CAFETERIA",
    "annotation": {
@@ -247,9 +232,6 @@ window.CRYPTIC_PUZZLES["everyman-4141"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "I'm asking you - not quietly - for tenure (5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "LEASE",
    "annotation": {
@@ -294,9 +276,6 @@ window.CRYPTIC_PUZZLES["everyman-4141"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Betray Marley and go west? (4,2,3,5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -343,9 +322,6 @@ window.CRYPTIC_PUZZLES["everyman-4141"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Leggy type baked decent pie (9)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "CENTIPEDE",
    "annotation": {
@@ -382,9 +358,6 @@ window.CRYPTIC_PUZZLES["everyman-4141"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Tells untruths about - to give an example - Lords (6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "LIEGES",
    "annotation": {
@@ -428,9 +401,6 @@ window.CRYPTIC_PUZZLES["everyman-4141"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "What the best man did, nervously: rose; 'To Dot's Papa!' (8,1,5)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {
     ",": [
      8,
@@ -477,9 +447,6 @@ window.CRYPTIC_PUZZLES["everyman-4141"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Ultimately, Kublai Khan granted country power because of plebiscite (7)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "INDYREF",
    "annotation": {
@@ -522,9 +489,6 @@ window.CRYPTIC_PUZZLES["everyman-4141"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Down payment? Proceed (7)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "ADVANCE",
    "annotation": {
@@ -559,9 +523,6 @@ window.CRYPTIC_PUZZLES["everyman-4141"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Steel trap improved ... it's explosive (9)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "SALTPETRE",
    "annotation": {
@@ -601,9 +562,6 @@ window.CRYPTIC_PUZZLES["everyman-4141"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Finally: bijou ceramic item of use (5)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "UTILE",
    "annotation": {
@@ -646,9 +604,6 @@ window.CRYPTIC_PUZZLES["everyman-4141"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Wild ancestors dancing in royal residence (7,6)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -692,9 +647,6 @@ window.CRYPTIC_PUZZLES["everyman-4141"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "At this moment, top blown off transportation vehicles: not a problem (2,7)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -741,9 +693,6 @@ window.CRYPTIC_PUZZLES["everyman-4141"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Collect concrete material (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "AGGREGATE",
    "annotation": {
@@ -778,9 +727,6 @@ window.CRYPTIC_PUZZLES["everyman-4141"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "In my view, like, A-Ha has appeal (2,1,3,2)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -833,9 +779,6 @@ window.CRYPTIC_PUZZLES["everyman-4141"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "It helps see big picture as well, needing tweaking (4-5,4)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -879,9 +822,6 @@ window.CRYPTIC_PUZZLES["everyman-4141"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Maybe arm your representative (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "MEMBER",
    "annotation": {
@@ -921,9 +861,6 @@ window.CRYPTIC_PUZZLES["everyman-4141"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Somewhat regrettably, I'm a wading bird (5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "EGRET",
    "annotation": {
@@ -960,9 +897,6 @@ window.CRYPTIC_PUZZLES["everyman-4141"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Spooner's to try dancing in alehouses (4,5)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -1014,9 +948,6 @@ window.CRYPTIC_PUZZLES["everyman-4141"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "In the auditorium, waitin' for former Pres. (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "BIDEN",
    "annotation": {
@@ -1051,9 +982,6 @@ window.CRYPTIC_PUZZLES["everyman-4141"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Idyllic spot? Very. Everyman's beginning to follow. Go away! (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "LEAVE",
    "annotation": {
@@ -1104,9 +1032,6 @@ window.CRYPTIC_PUZZLES["everyman-4141"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Gang welcoming fit bandit (7)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "BRIGAND",
    "annotation": {
@@ -1150,9 +1075,6 @@ window.CRYPTIC_PUZZLES["everyman-4141"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "In danger, like Joan of Arc (2,5)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -1197,9 +1119,6 @@ window.CRYPTIC_PUZZLES["everyman-4141"] = /*JSON-START*/ {
      7
     ]
    ],
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -1237,9 +1156,6 @@ window.CRYPTIC_PUZZLES["everyman-4141"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "In Yorkshire, the vicar's flipping green (4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "VERT",
    "annotation": {

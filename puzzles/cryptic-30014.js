@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30014"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Jewel thief raised feeling of dread, did you say? (7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "JACKDAW",
    "annotation": {
@@ -73,9 +70,6 @@ window.CRYPTIC_PUZZLES["cryptic-30014"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Marked by convulsions, that must be cured (5)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "JERKY",
    "annotation": {
@@ -111,9 +105,6 @@ window.CRYPTIC_PUZZLES["cryptic-30014"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "True self critical of drink (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "CHIANTI",
    "annotation": {
@@ -151,9 +142,6 @@ window.CRYPTIC_PUZZLES["cryptic-30014"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Shatter bolt (4)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "DASH",
    "annotation": {
@@ -188,9 +176,6 @@ window.CRYPTIC_PUZZLES["cryptic-30014"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "How would you like to go – for a drink? (5,4,6)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      5,
@@ -227,9 +212,6 @@ window.CRYPTIC_PUZZLES["cryptic-30014"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Taken to the cleaners, as are duvets and mattresses (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "STUFFED",
    "annotation": {
@@ -265,9 +247,6 @@ window.CRYPTIC_PUZZLES["cryptic-30014"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "If it’s the last thing you do, visit the home of pizza: need pasta in Leeds? No time for it, unfortunately (3,6,3,3)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -323,9 +302,6 @@ window.CRYPTIC_PUZZLES["cryptic-30014"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Errant spud festering in lunchbox, say? (10)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "UNDERPARTS",
    "annotation": {
@@ -372,9 +348,6 @@ window.CRYPTIC_PUZZLES["cryptic-30014"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Small jumper back on top of littl’un, purchase jackets (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "FROGLET",
    "annotation": {
@@ -427,9 +400,6 @@ window.CRYPTIC_PUZZLES["cryptic-30014"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Resentment in chap on bottling up grievances, initially (7)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "DUDGEON",
    "annotation": {
@@ -484,9 +454,6 @@ window.CRYPTIC_PUZZLES["cryptic-30014"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Take back control, say (9)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "REINSTATE",
    "annotation": {
@@ -524,9 +491,6 @@ window.CRYPTIC_PUZZLES["cryptic-30014"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Robot managed corners by contrast in reverse (5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "DROID",
    "annotation": {
@@ -579,9 +543,6 @@ window.CRYPTIC_PUZZLES["cryptic-30014"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Force of a male sovereign a youth repelled to some extent (4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "YANG",
    "annotation": {
@@ -629,9 +590,6 @@ window.CRYPTIC_PUZZLES["cryptic-30014"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Primate in Renault kicking out first of churchgoers, one of those going on foot (10)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "ESPADRILLE",
    "annotation": {
@@ -685,9 +643,6 @@ window.CRYPTIC_PUZZLES["cryptic-30014"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Said craft at sea, lost ultimately – like that? (4,6)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -741,9 +696,6 @@ window.CRYPTIC_PUZZLES["cryptic-30014"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Maiden visited by a dragon (6)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "VIRAGO",
    "annotation": {
@@ -788,9 +740,6 @@ window.CRYPTIC_PUZZLES["cryptic-30014"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Modest weight needed for support (5,2)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -836,9 +785,6 @@ window.CRYPTIC_PUZZLES["cryptic-30014"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Clue for dog (7)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "POINTER",
    "annotation": {
@@ -876,9 +822,6 @@ window.CRYPTIC_PUZZLES["cryptic-30014"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Print error not quite covered up by press (7)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "PUBLISH",
    "annotation": {
@@ -925,9 +868,6 @@ window.CRYPTIC_PUZZLES["cryptic-30014"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Female film? (4,3)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -969,9 +909,6 @@ window.CRYPTIC_PUZZLES["cryptic-30014"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Writer of clue for dog (6)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "SETTER",
    "annotation": {
@@ -1009,9 +946,6 @@ window.CRYPTIC_PUZZLES["cryptic-30014"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Cast a spell on an item of ‘ardware, we ‘ear? (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "ENAMOUR",
    "annotation": {
@@ -1057,9 +991,6 @@ window.CRYPTIC_PUZZLES["cryptic-30014"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Solver of clue for dog (10)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "BLOODHOUND",
    "annotation": {
@@ -1097,9 +1028,6 @@ window.CRYPTIC_PUZZLES["cryptic-30014"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Poodle, smut by one’s ears? (4)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "PAWN",
    "annotation": {
@@ -1135,9 +1063,6 @@ window.CRYPTIC_PUZZLES["cryptic-30014"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Vile family missing daddy on vacation at first (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "NASTY",
    "annotation": {
@@ -1184,9 +1109,6 @@ window.CRYPTIC_PUZZLES["cryptic-30014"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Beefcake learning to wipe bottom (4)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "STUD",
    "annotation": {
@@ -1231,9 +1153,6 @@ window.CRYPTIC_PUZZLES["cryptic-30014"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "What giant might say, though shorter – a few feet? (5)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "IAMBI",
    "annotation": {
@@ -1276,9 +1195,6 @@ window.CRYPTIC_PUZZLES["cryptic-30014"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Rabble-rousing idiots use bombs (9)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "SEDITIOUS",
    "annotation": {
@@ -1321,9 +1237,6 @@ window.CRYPTIC_PUZZLES["cryptic-30014"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "On passing through, come across Devon town (7)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "HONITON",
    "annotation": {
@@ -1368,9 +1281,6 @@ window.CRYPTIC_PUZZLES["cryptic-30014"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Wrinkled – in the manner of a tree? (7)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "ELDERLY",
    "annotation": {

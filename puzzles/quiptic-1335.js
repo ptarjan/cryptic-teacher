@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1335"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Intellect touring a hot Arab state (7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "BAHRAIN",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["quiptic-1335"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Redcoat improvised style emphasising sleekness? (3,4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -63,9 +57,6 @@ window.CRYPTIC_PUZZLES["quiptic-1335"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Mature writer following religious instruction (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "RIPEN",
    "annotation": null
@@ -80,9 +71,6 @@ window.CRYPTIC_PUZZLES["quiptic-1335"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Annoying smirk one fashioned after leaving note (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "IRKSOME",
    "annotation": null
@@ -97,9 +85,6 @@ window.CRYPTIC_PUZZLES["quiptic-1335"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Describing route of football fans, say, in co-ordinated fashion? (2,5)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -118,9 +103,6 @@ window.CRYPTIC_PUZZLES["quiptic-1335"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Prompt operating link interrupted by Mike (2,4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -139,9 +121,6 @@ window.CRYPTIC_PUZZLES["quiptic-1335"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Aspiring range having financial debts (9)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "AMBITIOUS",
    "annotation": null
@@ -156,9 +135,6 @@ window.CRYPTIC_PUZZLES["quiptic-1335"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Boast before end possibly typical of a new monarch? (7)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "CROWNED",
    "annotation": null
@@ -173,9 +149,6 @@ window.CRYPTIC_PUZZLES["quiptic-1335"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "First person slows Helena at work providing social service (5,2,6)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {
     ",": [
      5,
@@ -195,9 +168,6 @@ window.CRYPTIC_PUZZLES["quiptic-1335"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Part of a process shown in past episodes (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "STEP",
    "annotation": null
@@ -212,9 +182,6 @@ window.CRYPTIC_PUZZLES["quiptic-1335"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Monitor open basket in need of repair (4,4,2)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -234,9 +201,6 @@ window.CRYPTIC_PUZZLES["quiptic-1335"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "French article with time among a number in shed by building (4-2)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -255,9 +219,6 @@ window.CRYPTIC_PUZZLES["quiptic-1335"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Restrictive jargon almost covering this person’s relations (8)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "LIMITING",
    "annotation": null
@@ -272,9 +233,6 @@ window.CRYPTIC_PUZZLES["quiptic-1335"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Firm with toffee supply around soft drink container (6,3)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -293,9 +251,6 @@ window.CRYPTIC_PUZZLES["quiptic-1335"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Female expert has the best cosmetic (4,5)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -314,9 +269,6 @@ window.CRYPTIC_PUZZLES["quiptic-1335"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Instant old Danny when gutted gets temperamental (5)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "MOODY",
    "annotation": null
@@ -331,9 +283,6 @@ window.CRYPTIC_PUZZLES["quiptic-1335"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Criticism has to remain (5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "STICK",
    "annotation": null
@@ -348,9 +297,6 @@ window.CRYPTIC_PUZZLES["quiptic-1335"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Dim person on board is housed in northern hotel (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "TARNISH",
    "annotation": null
@@ -365,9 +311,6 @@ window.CRYPTIC_PUZZLES["quiptic-1335"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Possession when pro is playing (9)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "OWNERSHIP",
    "annotation": null
@@ -382,9 +325,6 @@ window.CRYPTIC_PUZZLES["quiptic-1335"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Fancy beams, say, lacking in a diplomatic residence (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "EMBASSY",
    "annotation": null
@@ -399,9 +339,6 @@ window.CRYPTIC_PUZZLES["quiptic-1335"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Calm street no longer evident, producing complaint (7)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "ILLNESS",
    "annotation": null
@@ -416,9 +353,6 @@ window.CRYPTIC_PUZZLES["quiptic-1335"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Pointless dossier about posh agent, ultimately (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "FUTILE",
    "annotation": null
@@ -433,9 +367,6 @@ window.CRYPTIC_PUZZLES["quiptic-1335"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Brother with Henry enthralled by remedy in pamphlet (8)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "BROCHURE",
    "annotation": null
@@ -450,9 +381,6 @@ window.CRYPTIC_PUZZLES["quiptic-1335"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Take offence regarding description of a suite, it’s said (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "BRIDLE",
    "annotation": null
@@ -467,9 +395,6 @@ window.CRYPTIC_PUZZLES["quiptic-1335"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Uniform kept by funny Finn as a joke? (2,3)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -488,9 +413,6 @@ window.CRYPTIC_PUZZLES["quiptic-1335"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Miles fined for disturbing sites with unseen hazards (10)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "MINEFIELDS",
    "annotation": null
@@ -505,9 +427,6 @@ window.CRYPTIC_PUZZLES["quiptic-1335"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Small jumper obtained in raffle, amazingly (4)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "FLEA",
    "annotation": null
@@ -522,9 +441,6 @@ window.CRYPTIC_PUZZLES["quiptic-1335"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Companion with a winner of award, right, in large room (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "CHAMBER",
    "annotation": null
@@ -539,9 +455,6 @@ window.CRYPTIC_PUZZLES["quiptic-1335"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "James, reportedly, upset Stan, one familiar with bars? (7)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "GYMNAST",
    "annotation": null

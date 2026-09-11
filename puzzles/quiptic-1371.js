@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1371"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Rental property close to ground now in a mess? That’s disappointment (3-4)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -92,9 +89,6 @@ window.CRYPTIC_PUZZLES["quiptic-1371"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Titled figure, one with old queen previously (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "EARLIER",
    "annotation": {
@@ -141,9 +135,6 @@ window.CRYPTIC_PUZZLES["quiptic-1371"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Prepare article of clothing (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "DRESS",
    "annotation": {
@@ -178,9 +169,6 @@ window.CRYPTIC_PUZZLES["quiptic-1371"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Lose intensity with sport cancelled (4,3)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -225,9 +213,6 @@ window.CRYPTIC_PUZZLES["quiptic-1371"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Plant if such to be cultivated by area (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "FUCHSIA",
    "annotation": {
@@ -283,9 +268,6 @@ window.CRYPTIC_PUZZLES["quiptic-1371"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Commotion from posh pair over thing for rowing (6)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "UPROAR",
    "annotation": {
@@ -338,9 +320,6 @@ window.CRYPTIC_PUZZLES["quiptic-1371"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Eighth lad repaired feature of a car (9)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "HEADLIGHT",
    "annotation": {
@@ -378,9 +357,6 @@ window.CRYPTIC_PUZZLES["quiptic-1371"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Source of sweet smell in faculty, reportedly (7)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "INCENSE",
    "annotation": {
@@ -421,9 +397,6 @@ window.CRYPTIC_PUZZLES["quiptic-1371"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "A court could issue this direction over criminal (8,5)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -465,9 +438,6 @@ window.CRYPTIC_PUZZLES["quiptic-1371"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Impulse in abrupt removal of people after loss of power (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "URGE",
    "annotation": {
@@ -513,9 +483,6 @@ window.CRYPTIC_PUZZLES["quiptic-1371"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Vacate Iran suffering turmoil in conflict (2,8)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -557,9 +524,6 @@ window.CRYPTIC_PUZZLES["quiptic-1371"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Debacle taking place in Sofia’s condemned (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "FIASCO",
    "annotation": {
@@ -594,9 +558,6 @@ window.CRYPTIC_PUZZLES["quiptic-1371"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Repeated word, not new, linked to policy for conversational service (8)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "CHATLINE",
    "annotation": {
@@ -649,9 +610,6 @@ window.CRYPTIC_PUZZLES["quiptic-1371"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Commercial exhibition somehow rated reasonable (5,4)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -708,9 +666,6 @@ window.CRYPTIC_PUZZLES["quiptic-1371"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Scandal is repressed by Dutch queen, perhaps (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "DISHONOUR",
    "annotation": {
@@ -760,9 +715,6 @@ window.CRYPTIC_PUZZLES["quiptic-1371"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Correspond with a person keen on recycling, shortly (5)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "AGREE",
    "annotation": {
@@ -809,9 +761,6 @@ window.CRYPTIC_PUZZLES["quiptic-1371"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Perform dental hygiene following feeling of deprivation (5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "FLOSS",
    "annotation": {
@@ -849,9 +798,6 @@ window.CRYPTIC_PUZZLES["quiptic-1371"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Gents, maybe, with king appear largely for brief inspection (4-3)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -909,9 +855,6 @@ window.CRYPTIC_PUZZLES["quiptic-1371"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Consider register by old military reserve at home (9)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "ENTERTAIN",
    "annotation": {
@@ -958,9 +901,6 @@ window.CRYPTIC_PUZZLES["quiptic-1371"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Times shown by a court in Fenland place in a precise way (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "EXACTLY",
    "annotation": {
@@ -1020,9 +960,6 @@ window.CRYPTIC_PUZZLES["quiptic-1371"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Small measure seen surprisingly to be huge (7)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "IMMENSE",
    "annotation": {
@@ -1075,9 +1012,6 @@ window.CRYPTIC_PUZZLES["quiptic-1371"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Like a checked report with appeal kept by two journalists (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "EDITED",
    "annotation": {
@@ -1125,9 +1059,6 @@ window.CRYPTIC_PUZZLES["quiptic-1371"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Absence of singer Stevie? Hardly a surprise! (2,6)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -1169,9 +1100,6 @@ window.CRYPTIC_PUZZLES["quiptic-1371"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Take on a case for some about particular amount of money (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "ASSUME",
    "annotation": {
@@ -1224,9 +1152,6 @@ window.CRYPTIC_PUZZLES["quiptic-1371"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Soprano has desire to be impressively smart (5)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "SWISH",
    "annotation": {
@@ -1268,9 +1193,6 @@ window.CRYPTIC_PUZZLES["quiptic-1371"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Variety of things scattered on mattress (10)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "ASSORTMENT",
    "annotation": {
@@ -1308,9 +1230,6 @@ window.CRYPTIC_PUZZLES["quiptic-1371"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Hostelries favoured by two Poles (4)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "INNS",
    "annotation": {
@@ -1351,9 +1270,6 @@ window.CRYPTIC_PUZZLES["quiptic-1371"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Cheapen degree, dear when reviewed (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "DEGRADE",
    "annotation": {
@@ -1403,9 +1319,6 @@ window.CRYPTIC_PUZZLES["quiptic-1371"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Some bubbly, cheese and tropical fruits (7)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "LYCHEES",
    "annotation": {

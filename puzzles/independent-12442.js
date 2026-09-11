@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12442"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Steel, for example, and half of that gold-plated? (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "AUTHOR",
    "annotation": {
@@ -79,9 +76,6 @@ window.CRYPTIC_PUZZLES["independent-12442"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Skill in pursuit of express plane (8)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "AIRCRAFT",
    "annotation": {
@@ -124,9 +118,6 @@ window.CRYPTIC_PUZZLES["independent-12442"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Half-heartedly confirm offering support for Tesla's valued helper (8)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "TREASURE",
    "annotation": {
@@ -171,9 +162,6 @@ window.CRYPTIC_PUZZLES["independent-12442"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Expert putting head down and getting stuck into dealing with Neptune's orbit (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "OCEAN",
    "annotation": {
@@ -219,9 +207,6 @@ window.CRYPTIC_PUZZLES["independent-12442"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "People who dole out corporal punishment and kisses (8)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "SMACKERS",
    "annotation": {
@@ -256,9 +241,6 @@ window.CRYPTIC_PUZZLES["independent-12442"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "When youth has gone, warehouse's initially replacing learner who helps with deliveries (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "MIDWIFE",
    "annotation": {
@@ -309,9 +291,6 @@ window.CRYPTIC_PUZZLES["independent-12442"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Crashing car halted building of church (9)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "CATHEDRAL",
    "annotation": {
@@ -348,9 +327,6 @@ window.CRYPTIC_PUZZLES["independent-12442"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "In fairness, gave up drug first before completion of therapy (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "EQUITY",
    "annotation": {
@@ -401,9 +377,6 @@ window.CRYPTIC_PUZZLES["independent-12442"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Carrier picked up by exhausted services for homeless creatures (6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "STRAYS",
    "annotation": {
@@ -452,9 +425,6 @@ window.CRYPTIC_PUZZLES["independent-12442"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Fliers postmaster general's carrying around (6)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {},
    "solution": "EGRETS",
    "annotation": {
@@ -490,9 +460,6 @@ window.CRYPTIC_PUZZLES["independent-12442"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Notoriously thirsty thespian drinking gallons in lake showed up again (2-7)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     "-": [
      2
@@ -547,9 +514,6 @@ window.CRYPTIC_PUZZLES["independent-12442"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Straighter French street runs through outskirts of Tréguier (5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "TRUER",
    "annotation": {
@@ -595,9 +559,6 @@ window.CRYPTIC_PUZZLES["independent-12442"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Hardened sap to offend another time? (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "RESIN",
    "annotation": {
@@ -637,9 +598,6 @@ window.CRYPTIC_PUZZLES["independent-12442"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Bump into nasty Yankee apparently (9)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "EVIDENTLY",
    "annotation": {
@@ -688,9 +646,6 @@ window.CRYPTIC_PUZZLES["independent-12442"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Out of uniform, alien visitors taking breather inside woods (7)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "FORESTS",
    "annotation": {
@@ -741,9 +696,6 @@ window.CRYPTIC_PUZZLES["independent-12442"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Occasionally call for assistance covering personal break (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "SOMETIMES",
    "annotation": {
@@ -787,9 +739,6 @@ window.CRYPTIC_PUZZLES["independent-12442"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Be paid to study but not back in school (4)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "EARN",
    "annotation": {
@@ -836,9 +785,6 @@ window.CRYPTIC_PUZZLES["independent-12442"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Originally, offers by upwardly mobile online marketplace confined to hospital food (4,4)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -902,9 +848,6 @@ window.CRYPTIC_PUZZLES["independent-12442"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Base spread evenly over broken slate (8)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "PEDESTAL",
    "annotation": {
@@ -957,9 +900,6 @@ window.CRYPTIC_PUZZLES["independent-12442"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Cheeky devils - one's hugging representative (4)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "IMPS",
    "annotation": {
@@ -1003,9 +943,6 @@ window.CRYPTIC_PUZZLES["independent-12442"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Back amendment of Spooner’s, losing vote in the end (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "SPONSOR",
    "annotation": {
@@ -1051,9 +988,6 @@ window.CRYPTIC_PUZZLES["independent-12442"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "We'll shortly attend reception (7)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "WELCOME",
    "annotation": {
@@ -1096,9 +1030,6 @@ window.CRYPTIC_PUZZLES["independent-12442"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Aussie native's bill cut up (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "WOMBAT",
    "annotation": {
@@ -1147,9 +1078,6 @@ window.CRYPTIC_PUZZLES["independent-12442"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "I reach out and it's more painful (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "ACHIER",
    "annotation": {
@@ -1189,9 +1117,6 @@ window.CRYPTIC_PUZZLES["independent-12442"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Excursion got uni in trouble (6)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "OUTING",
    "annotation": {
@@ -1228,9 +1153,6 @@ window.CRYPTIC_PUZZLES["independent-12442"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Royal gathering fell back where bench is (9)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "COURTROOM",
    "annotation": {
@@ -1279,9 +1201,6 @@ window.CRYPTIC_PUZZLES["independent-12442"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Old Scottish lord occupying Elizabethan estate (5)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "THANE",
    "annotation": {
@@ -1315,9 +1234,6 @@ window.CRYPTIC_PUZZLES["independent-12442"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Article has limited space for subject (5)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "THEME",
    "annotation": {
@@ -1364,9 +1280,6 @@ window.CRYPTIC_PUZZLES["independent-12442"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Man introduced by retiring police officer displaying unique turn of phrase (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "IDIOM",
    "annotation": {
@@ -1420,9 +1333,6 @@ window.CRYPTIC_PUZZLES["independent-12442"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Custer essentially had soldiers close to fort position at bank (9)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "STATEMENT",
    "annotation": {
@@ -1479,9 +1389,6 @@ window.CRYPTIC_PUZZLES["independent-12442"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Judge once more screening foreign fighter's record collection (8)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "REGISTRY",
    "annotation": {
@@ -1525,9 +1432,6 @@ window.CRYPTIC_PUZZLES["independent-12442"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Core group of mariners trapped by bottom of boat (6)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "KERNEL",
    "annotation": {

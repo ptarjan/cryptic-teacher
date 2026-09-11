@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4110"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Zero choice, quietly moving to find romantic elixir (4,6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -46,9 +43,6 @@ window.CRYPTIC_PUZZLES["everyman-4110"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Primarily, location inviting dipping outdoors? (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "LIDO",
    "annotation": null
@@ -63,9 +57,6 @@ window.CRYPTIC_PUZZLES["everyman-4110"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Meteorological device useless in broadcast (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "VANE",
    "annotation": null
@@ -80,9 +71,6 @@ window.CRYPTIC_PUZZLES["everyman-4110"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Before jobs advertised, terms often stated? (12)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "PREPOSITIONS",
    "annotation": null
@@ -97,9 +85,6 @@ window.CRYPTIC_PUZZLES["everyman-4110"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Sweet time raising tiny creature with expensive coat (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "TRUFFLE",
    "annotation": null
@@ -114,9 +99,6 @@ window.CRYPTIC_PUZZLES["everyman-4110"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "In Oxford English Dictionary, slang for 'hand' omitted (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "OMITTED",
    "annotation": null
@@ -137,9 +119,6 @@ window.CRYPTIC_PUZZLES["everyman-4110"] = /*JSON-START*/ {
      9
     ]
    ],
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "SANS",
    "annotation": null
@@ -154,9 +133,6 @@ window.CRYPTIC_PUZZLES["everyman-4110"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Fond of food, topless, enormous (10)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "ASTRONOMIC",
    "annotation": null
@@ -171,9 +147,6 @@ window.CRYPTIC_PUZZLES["everyman-4110"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Customer for whom every purchase is a steal? (10)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "SHOPLIFTER",
    "annotation": null
@@ -188,9 +161,6 @@ window.CRYPTIC_PUZZLES["everyman-4110"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "DJ's tunes displaying acumen: disco, mostly (5,5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -209,9 +179,6 @@ window.CRYPTIC_PUZZLES["everyman-4110"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Shakespearean ass stripped off, revealing German lad (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "OTTO",
    "annotation": null
@@ -231,9 +198,6 @@ window.CRYPTIC_PUZZLES["everyman-4110"] = /*JSON-START*/ {
      0,
      7
     ]
-   ],
-   "group": [
-    "11-down"
    ],
    "separatorLocations": {
     ",": [
@@ -259,9 +223,6 @@ window.CRYPTIC_PUZZLES["everyman-4110"] = /*JSON-START*/ {
      6
     ]
    ],
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -282,9 +243,6 @@ window.CRYPTIC_PUZZLES["everyman-4110"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Uselessly intervened - vis-à-vis wheel? (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "REINVENTED",
    "annotation": null
@@ -299,9 +257,6 @@ window.CRYPTIC_PUZZLES["everyman-4110"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Inertia - flipping extremes in inertia - then assumes proud position (6,4)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -320,9 +275,6 @@ window.CRYPTIC_PUZZLES["everyman-4110"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Topless bloke - given plonk - to start weaving? (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "ENTWINE",
    "annotation": null
@@ -337,9 +289,6 @@ window.CRYPTIC_PUZZLES["everyman-4110"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Unload - and snooze (4,3)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -358,9 +307,6 @@ window.CRYPTIC_PUZZLES["everyman-4110"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Might one of these have an issue with kids ...? (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "NANNIES",
    "annotation": null
@@ -375,9 +321,6 @@ window.CRYPTIC_PUZZLES["everyman-4110"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Game licence's not beginning to show discipline (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "SCIENCE",
    "annotation": null
@@ -392,9 +335,6 @@ window.CRYPTIC_PUZZLES["everyman-4110"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "... Labour leader? (7)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "MIDWIFE",
    "annotation": null
@@ -409,9 +349,6 @@ window.CRYPTIC_PUZZLES["everyman-4110"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Taking some paracetamol, do VapoRub somewhere in E Europe (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "MOLDOVA",
    "annotation": null
@@ -426,9 +363,6 @@ window.CRYPTIC_PUZZLES["everyman-4110"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Aromatherapist's regular purchase, must-have painting (9,3)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      9
@@ -447,9 +381,6 @@ window.CRYPTIC_PUZZLES["everyman-4110"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "'Terrible bore' largely describing Everyman as a writer (4)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "BIRO",
    "annotation": null
@@ -464,9 +395,6 @@ window.CRYPTIC_PUZZLES["everyman-4110"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "No more than a lake (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "MERE",
    "annotation": null
@@ -481,9 +409,6 @@ window.CRYPTIC_PUZZLES["everyman-4110"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Ruse; persona backfired (4)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "TRAP",
    "annotation": null
@@ -498,9 +423,6 @@ window.CRYPTIC_PUZZLES["everyman-4110"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Gnome, idiot, ridiculously early (2,4,4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -520,9 +442,6 @@ window.CRYPTIC_PUZZLES["everyman-4110"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Artist, Dutch heavyweight (4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "DALI",
    "annotation": null
@@ -537,9 +456,6 @@ window.CRYPTIC_PUZZLES["everyman-4110"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Becoming tongue-twisted, lay eyes on a foe, tentacled beast (3,7)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {
     ",": [
      3

@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29950"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Train – train endlessly, train endlessly (4-4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -46,9 +43,6 @@ window.CRYPTIC_PUZZLES["cryptic-29950"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Secures in carriage, sandwiched between twin sons (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "STRAPS",
    "annotation": null
@@ -63,9 +57,6 @@ window.CRYPTIC_PUZZLES["cryptic-29950"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Once more show up a rep being doubly wrong (8)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "REAPPEAR",
    "annotation": null
@@ -80,9 +71,6 @@ window.CRYPTIC_PUZZLES["cryptic-29950"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Lost opportunity in double withdrawal (4,2)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -101,9 +89,6 @@ window.CRYPTIC_PUZZLES["cryptic-29950"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "That island repeatedly disturbed this island (6)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "TAHITI",
    "annotation": null
@@ -118,9 +103,6 @@ window.CRYPTIC_PUZZLES["cryptic-29950"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Moreover, encored excessively (3-3)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -139,9 +121,6 @@ window.CRYPTIC_PUZZLES["cryptic-29950"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Person distributing shares is fraudster if doubly so (6)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "DEALER",
    "annotation": null
@@ -156,9 +135,6 @@ window.CRYPTIC_PUZZLES["cryptic-29950"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Indication of ‘again’ verbally supported by a boy, and why (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "REASON",
    "annotation": null
@@ -173,9 +149,6 @@ window.CRYPTIC_PUZZLES["cryptic-29950"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Reaffirmed commitment, thus made pillow much softer (7,4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -194,9 +167,6 @@ window.CRYPTIC_PUZZLES["cryptic-29950"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Shade in US area, with same again for state (8)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "COLORADO",
    "annotation": null
@@ -211,9 +181,6 @@ window.CRYPTIC_PUZZLES["cryptic-29950"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "More than once, clumsily handle fruit (6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "PAWPAW",
    "annotation": null
@@ -228,9 +195,6 @@ window.CRYPTIC_PUZZLES["cryptic-29950"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Bear what is ridicule if repeated (4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "POOH",
    "annotation": null
@@ -245,9 +209,6 @@ window.CRYPTIC_PUZZLES["cryptic-29950"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Replacement notices changed as one result of twice dividing (10)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "SUBSECTION",
    "annotation": null
@@ -262,9 +223,6 @@ window.CRYPTIC_PUZZLES["cryptic-29950"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Cheat producing score in old notation (6-5)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {
     "-": [
      6
@@ -283,9 +241,6 @@ window.CRYPTIC_PUZZLES["cryptic-29950"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Nobel Laureate who lyrically discouraged doublethink (3,5)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -304,9 +259,6 @@ window.CRYPTIC_PUZZLES["cryptic-29950"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "New members of team reorganised Sing Sing (8)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "SIGNINGS",
    "annotation": null
@@ -327,9 +279,6 @@ window.CRYPTIC_PUZZLES["cryptic-29950"] = /*JSON-START*/ {
      8
     ]
    ],
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "PAPERS",
    "annotation": null
@@ -344,9 +293,6 @@ window.CRYPTIC_PUZZLES["cryptic-29950"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Second person on computer is chasing kitty (6)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "MOUSER",
    "annotation": null
@@ -361,9 +307,6 @@ window.CRYPTIC_PUZZLES["cryptic-29950"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Initially beat a retreat, then once more in German town (5-5)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -382,9 +325,6 @@ window.CRYPTIC_PUZZLES["cryptic-29950"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Reprimand making one sad or scared, losing head – it’s even worse in stereo? (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "EARFUL",
    "annotation": null
@@ -399,9 +339,6 @@ window.CRYPTIC_PUZZLES["cryptic-29950"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Silly ass – it follows direction repeatedly (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "NITWIT",
    "annotation": null
@@ -416,9 +353,6 @@ window.CRYPTIC_PUZZLES["cryptic-29950"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Good argument for double, for example (4)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "GROW",
    "annotation": null
@@ -433,9 +367,6 @@ window.CRYPTIC_PUZZLES["cryptic-29950"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Reveal 13 (6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "BETRAY",
    "annotation": null
@@ -450,9 +381,6 @@ window.CRYPTIC_PUZZLES["cryptic-29950"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "With it in audition, one most like to make others double up (8)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "WITTIEST",
    "annotation": null
@@ -467,9 +395,6 @@ window.CRYPTIC_PUZZLES["cryptic-29950"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Continent reflected about multinational group in hot spots (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "SAUNAS",
    "annotation": null
@@ -489,9 +414,6 @@ window.CRYPTIC_PUZZLES["cryptic-29950"] = /*JSON-START*/ {
      0,
      12
     ]
-   ],
-   "group": [
-    "25-across"
    ],
    "separatorLocations": {},
    "solution": "RINGER",

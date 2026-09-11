@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29925"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "2/6 in old money? (6,2,5)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      6,
@@ -47,9 +44,6 @@ window.CRYPTIC_PUZZLES["cryptic-29925"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Tablet cover shows internet identification (2,7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -68,9 +62,6 @@ window.CRYPTIC_PUZZLES["cryptic-29925"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Check in with a friend (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "CHINA",
    "annotation": null
@@ -85,9 +76,6 @@ window.CRYPTIC_PUZZLES["cryptic-29925"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Indication family member is unemployed (5,2)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -106,9 +94,6 @@ window.CRYPTIC_PUZZLES["cryptic-29925"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Settle for period film (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "FOOTAGE",
    "annotation": null
@@ -123,9 +108,6 @@ window.CRYPTIC_PUZZLES["cryptic-29925"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "At home, try partaking in drink that’s close by (2,3,4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -145,9 +127,6 @@ window.CRYPTIC_PUZZLES["cryptic-29925"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "One wallowing in directorship position (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "HIPPO",
    "annotation": null
@@ -162,9 +141,6 @@ window.CRYPTIC_PUZZLES["cryptic-29925"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Eventually exhausted having fun (3,2,4,4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -185,9 +161,6 @@ window.CRYPTIC_PUZZLES["cryptic-29925"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Individual bedroom fitting you may be embarrassed about (3,5,5)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -207,9 +180,6 @@ window.CRYPTIC_PUZZLES["cryptic-29925"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "It celebrates departure of an evil god destroyed (7,2)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -228,9 +198,6 @@ window.CRYPTIC_PUZZLES["cryptic-29925"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "On occasions, tramp didn’t get an easy score (3-2)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -249,9 +216,6 @@ window.CRYPTIC_PUZZLES["cryptic-29925"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Country information I included in confidentiality contract (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "INDIA",
    "annotation": null
@@ -266,9 +230,6 @@ window.CRYPTIC_PUZZLES["cryptic-29925"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Attempt at extortion that will ruffle feathers? (9)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "SHAKEDOWN",
    "annotation": null
@@ -283,9 +244,6 @@ window.CRYPTIC_PUZZLES["cryptic-29925"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Such characters provide the beginnings of Picasso’s nuanced mural? (7)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "GRECIAN",
    "annotation": null
@@ -300,9 +258,6 @@ window.CRYPTIC_PUZZLES["cryptic-29925"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Popular English stage worker is a bit ungainly (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "INELEGANT",
    "annotation": null
@@ -317,9 +272,6 @@ window.CRYPTIC_PUZZLES["cryptic-29925"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Change page URL – it helps filter out rackets (7)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "EARPLUG",
    "annotation": null
@@ -334,9 +286,6 @@ window.CRYPTIC_PUZZLES["cryptic-29925"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Ringlet he adjusted making it more extended (9)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "LENGTHIER",
    "annotation": null
@@ -351,9 +300,6 @@ window.CRYPTIC_PUZZLES["cryptic-29925"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Fuss by former pupil is disgusting (7)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "OBSCENE",
    "annotation": null
@@ -368,9 +314,6 @@ window.CRYPTIC_PUZZLES["cryptic-29925"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Desire setter has is damaging (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "EROSIVE",
    "annotation": null
@@ -385,9 +328,6 @@ window.CRYPTIC_PUZZLES["cryptic-29925"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Display stand for similar types of things (7)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "WHATNOT",
    "annotation": null
@@ -402,9 +342,6 @@ window.CRYPTIC_PUZZLES["cryptic-29925"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "In attendance, contributing to WTO that’s questioning direction of travel (5,2)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -423,9 +360,6 @@ window.CRYPTIC_PUZZLES["cryptic-29925"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Ferment noble rot and add energy for something sweet (9)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "TOBLERONE",
    "annotation": null
@@ -440,9 +374,6 @@ window.CRYPTIC_PUZZLES["cryptic-29925"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Stink over honour – it may come as a surprise? (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "BOMBE",
    "annotation": null
@@ -457,9 +388,6 @@ window.CRYPTIC_PUZZLES["cryptic-29925"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Composition of famous auteur writing from the heart (5)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "MOTET",
    "annotation": null
@@ -474,9 +402,6 @@ window.CRYPTIC_PUZZLES["cryptic-29925"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Queen’s speech perhaps initially made its appearance on wireless (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "MIAOW",
    "annotation": null
@@ -491,9 +416,6 @@ window.CRYPTIC_PUZZLES["cryptic-29925"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Degrees to which this creature is venomous? (5)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "MAMBA",
    "annotation": null
@@ -508,9 +430,6 @@ window.CRYPTIC_PUZZLES["cryptic-29925"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Short article helping to create another version (9)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "ITERATION",
    "annotation": null
@@ -525,9 +444,6 @@ window.CRYPTIC_PUZZLES["cryptic-29925"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Footballer to send on after midpoint (6,7)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {
     ",": [
      6

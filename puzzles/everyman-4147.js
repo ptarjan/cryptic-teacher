@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4147"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Unguarded hives? (4)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "RASH",
    "annotation": {
@@ -62,9 +59,6 @@ window.CRYPTIC_PUZZLES["everyman-4147"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Agreement: Everyman never to pick up musical instrument (9)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "ACCORDION",
    "annotation": {
@@ -119,9 +113,6 @@ window.CRYPTIC_PUZZLES["everyman-4147"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Had sent off for phone component (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "HANDSET",
    "annotation": {
@@ -161,9 +152,6 @@ window.CRYPTIC_PUZZLES["everyman-4147"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Announced legal collateral package (4)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "BALE",
    "annotation": {
@@ -198,9 +186,6 @@ window.CRYPTIC_PUZZLES["everyman-4147"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Muscle collective commit crime - picked up here? (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "BORSTAL",
    "annotation": {
@@ -250,9 +235,6 @@ window.CRYPTIC_PUZZLES["everyman-4147"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "No-hoper, charlie abandoning one sealing deal (5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "LOSER",
    "annotation": {
@@ -294,9 +276,6 @@ window.CRYPTIC_PUZZLES["everyman-4147"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "A sneaky trick's backfiring somewhere in ancient Greece (6)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "SPARTA",
    "annotation": {
@@ -345,9 +324,6 @@ window.CRYPTIC_PUZZLES["everyman-4147"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Ancient earl sporting a medal (3-3)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -395,9 +371,6 @@ window.CRYPTIC_PUZZLES["everyman-4147"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Safe arrangement in which breeding comes with large bill? (7,8)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -443,9 +416,6 @@ window.CRYPTIC_PUZZLES["everyman-4147"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "A microlight deployed in concerning operation (11)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {},
    "solution": "LOGARITHMIC",
    "annotation": {
@@ -485,9 +455,6 @@ window.CRYPTIC_PUZZLES["everyman-4147"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "They float topics to start conversation (11)",
-   "group": [
-    "10-down"
-   ],
    "separatorLocations": {},
    "solution": "ICEBREAKERS",
    "annotation": {
@@ -522,9 +489,6 @@ window.CRYPTIC_PUZZLES["everyman-4147"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Compliments looks (7)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "REGARDS",
    "annotation": {
@@ -559,9 +523,6 @@ window.CRYPTIC_PUZZLES["everyman-4147"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Put an end to fuss about Republican games (7)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "TORPEDO",
    "annotation": {
@@ -611,9 +572,6 @@ window.CRYPTIC_PUZZLES["everyman-4147"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "I will dance with pilots, mostly arm in arm (3,6)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -666,9 +624,6 @@ window.CRYPTIC_PUZZLES["everyman-4147"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Stuck flush (2,3)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -707,9 +662,6 @@ window.CRYPTIC_PUZZLES["everyman-4147"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Support benighted rogue (3,6)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -750,9 +702,6 @@ window.CRYPTIC_PUZZLES["everyman-4147"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Allow to board - and squeal (3,2)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -791,9 +740,6 @@ window.CRYPTIC_PUZZLES["everyman-4147"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Greek character represented by naïve type, US lawyer (6)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "LAMBDA",
    "annotation": {
@@ -834,9 +780,6 @@ window.CRYPTIC_PUZZLES["everyman-4147"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Maybe Hans Christian Andersen, the dog! (5,4)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -875,9 +818,6 @@ window.CRYPTIC_PUZZLES["everyman-4147"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "City's wing exhausted; goal's unlikely (7)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "GLASGOW",
    "annotation": {
@@ -921,9 +861,6 @@ window.CRYPTIC_PUZZLES["everyman-4147"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Hearing sign they're talking about you? (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "EARSHOT",
    "annotation": {
@@ -961,9 +898,6 @@ window.CRYPTIC_PUZZLES["everyman-4147"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Achieved, somewhat learnedly (6)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "EARNED",
    "annotation": {
@@ -997,9 +931,6 @@ window.CRYPTIC_PUZZLES["everyman-4147"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "A mambo's choreographed somewhere in Kenya (7)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "MOMBASA",
    "annotation": {
@@ -1036,9 +967,6 @@ window.CRYPTIC_PUZZLES["everyman-4147"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Aromatic slice of flan I served (5)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "ANISE",
    "annotation": {
@@ -1072,9 +1000,6 @@ window.CRYPTIC_PUZZLES["everyman-4147"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Uncapped pederero wounded woodland creatures (3,4)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -1117,9 +1042,6 @@ window.CRYPTIC_PUZZLES["everyman-4147"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Stuck inside - huge blunder - avoiding reality (7,3,5)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     ",": [
      7,
@@ -1161,9 +1083,6 @@ window.CRYPTIC_PUZZLES["everyman-4147"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Primarily, mog's exclamation (or wail!) (4)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "MEOW",
    "annotation": {
@@ -1218,9 +1137,6 @@ window.CRYPTIC_PUZZLES["everyman-4147"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Season limited, did you say? (4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "TIDE",
    "annotation": {

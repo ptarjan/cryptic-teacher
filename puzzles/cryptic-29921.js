@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29921"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Moved hods wearing sensible footwear (8)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "SANDSHOE",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["cryptic-29921"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Hot German Christmas cake one left out (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "STOLEN",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["cryptic-29921"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Line penned by Victorian author? I don’t think so! (6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "HARDLY",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["cryptic-29921"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Academic’s third paper up for discussion (2,5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -97,9 +85,6 @@ window.CRYPTIC_PUZZLES["cryptic-29921"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Boat rather packed with deckchairs in the middle (8)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "SCHOONER",
    "annotation": null
@@ -114,9 +99,6 @@ window.CRYPTIC_PUZZLES["cryptic-29921"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Misleading promise of payment included in project details (8)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "SPECIOUS",
    "annotation": null
@@ -131,9 +113,6 @@ window.CRYPTIC_PUZZLES["cryptic-29921"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Soap maybe picked up; it’s usually sold in boxes (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "CEREAL",
    "annotation": null
@@ -148,9 +127,6 @@ window.CRYPTIC_PUZZLES["cryptic-29921"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Dodgy plastic pipes around museum pieces cracked and leaked, perhaps (4,11)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -169,9 +145,6 @@ window.CRYPTIC_PUZZLES["cryptic-29921"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "After a couple of days, was the person in charge confused? (6)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "ADDLED",
    "annotation": null
@@ -186,9 +159,6 @@ window.CRYPTIC_PUZZLES["cryptic-29921"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Frustrated senior journo pursuing hard liquor (8)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "SCOTCHED",
    "annotation": null
@@ -203,9 +173,6 @@ window.CRYPTIC_PUZZLES["cryptic-29921"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "You shouldn’t have stood up periodically hiding something up your sleeve? (5,3)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -224,9 +191,6 @@ window.CRYPTIC_PUZZLES["cryptic-29921"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Bit of ramen ultimately eaten a lot, but not quite finished (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "NOODLE",
    "annotation": null
@@ -241,9 +205,6 @@ window.CRYPTIC_PUZZLES["cryptic-29921"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Carry on being cheeky about female relative (7)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "PERSIST",
    "annotation": null
@@ -258,9 +219,6 @@ window.CRYPTIC_PUZZLES["cryptic-29921"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Posts secured at the front with one stud, possibly (5,3)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -279,9 +237,6 @@ window.CRYPTIC_PUZZLES["cryptic-29921"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "I need help taking on case for philosopher (8)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "SOCRATES",
    "annotation": null
@@ -302,9 +257,6 @@ window.CRYPTIC_PUZZLES["cryptic-29921"] = /*JSON-START*/ {
      14
     ]
    ],
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "EROSION",
    "annotation": null
@@ -319,9 +271,6 @@ window.CRYPTIC_PUZZLES["cryptic-29921"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Upset created by obvious item you can dispense with? (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "OVERTURN",
    "annotation": null
@@ -336,9 +285,6 @@ window.CRYPTIC_PUZZLES["cryptic-29921"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Admirer cheers to support popular Spanish princess (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "INFANTA",
    "annotation": null
@@ -353,9 +299,6 @@ window.CRYPTIC_PUZZLES["cryptic-29921"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Widely recognised architectural style outside capital of Crete (6)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "ICONIC",
    "annotation": null
@@ -370,9 +313,6 @@ window.CRYPTIC_PUZZLES["cryptic-29921"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Dish taken from church illicitly (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "CHILLI",
    "annotation": null
@@ -387,9 +327,6 @@ window.CRYPTIC_PUZZLES["cryptic-29921"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Elegant features of associations in a French resort? (8)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "NICETIES",
    "annotation": null
@@ -404,9 +341,6 @@ window.CRYPTIC_PUZZLES["cryptic-29921"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Extremely cocky tennis champ is somewhat mechanical individual (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "CYBORG",
    "annotation": null
@@ -421,9 +355,6 @@ window.CRYPTIC_PUZZLES["cryptic-29921"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Cut, in a way, assistance for driver, mostly at that time (6)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "TEETHE",
    "annotation": null
@@ -438,9 +369,6 @@ window.CRYPTIC_PUZZLES["cryptic-29921"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Family experiences in South America and somewhere in Africa (8)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "KINSHASA",
    "annotation": null
@@ -455,9 +383,6 @@ window.CRYPTIC_PUZZLES["cryptic-29921"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Animal noises filling stable at sunset (6)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "BLEATS",
    "annotation": null
@@ -472,9 +397,6 @@ window.CRYPTIC_PUZZLES["cryptic-29921"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Part of the UK rioters trashed with such glee (15)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "GLOUCESTERSHIRE",
    "annotation": null

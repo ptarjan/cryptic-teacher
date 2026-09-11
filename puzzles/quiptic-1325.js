@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1325"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Authority given to winning party and team possibly (7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "MANDATE",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["quiptic-1325"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Bring before a court a rule in hearing (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "ARRAIGN",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["quiptic-1325"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Onset of duly damp weather requires channel for water (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "DRAIN",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["quiptic-1325"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Nominal trade union featuring in corrupt trial (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "TITULAR",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["quiptic-1325"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Admire some more spectacles (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "RESPECT",
    "annotation": null
@@ -110,9 +95,6 @@ window.CRYPTIC_PUZZLES["quiptic-1325"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Pass middle of week covering circuits (6)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "ELAPSE",
    "annotation": null
@@ -127,9 +109,6 @@ window.CRYPTIC_PUZZLES["quiptic-1325"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Line up TV sitcom, maybe (9)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "PROGRAMME",
    "annotation": null
@@ -144,9 +123,6 @@ window.CRYPTIC_PUZZLES["quiptic-1325"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Start to care about opening for group of sisters (7)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "CONVENT",
    "annotation": null
@@ -161,9 +137,6 @@ window.CRYPTIC_PUZZLES["quiptic-1325"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Tag reinstated wrongly in commercial area (7,6)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -182,9 +155,6 @@ window.CRYPTIC_PUZZLES["quiptic-1325"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "A limited study in district (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "AREA",
    "annotation": null
@@ -199,9 +169,6 @@ window.CRYPTIC_PUZZLES["quiptic-1325"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Spell with a session of golf and time needed to meet deadline (10)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "TURNAROUND",
    "annotation": null
@@ -216,9 +183,6 @@ window.CRYPTIC_PUZZLES["quiptic-1325"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Striking train drivers should pay attention to it (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "SIGNAL",
    "annotation": null
@@ -233,9 +197,6 @@ window.CRYPTIC_PUZZLES["quiptic-1325"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Retired journalist was waiting for fitting? (8)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "DESERVED",
    "annotation": null
@@ -250,9 +211,6 @@ window.CRYPTIC_PUZZLES["quiptic-1325"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Sweet honeysuckle’s latest thing cultivated in garden (9)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "ENDEARING",
    "annotation": null
@@ -267,9 +225,6 @@ window.CRYPTIC_PUZZLES["quiptic-1325"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Divert different trainee to be around conservationists (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "ENTERTAIN",
    "annotation": null
@@ -284,9 +239,6 @@ window.CRYPTIC_PUZZLES["quiptic-1325"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Metal worker quiet about first signs of metal in truck (5)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "SMITH",
    "annotation": null
@@ -301,9 +253,6 @@ window.CRYPTIC_PUZZLES["quiptic-1325"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Origin, reportedly, in room on ship (5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "BERTH",
    "annotation": null
@@ -318,9 +267,6 @@ window.CRYPTIC_PUZZLES["quiptic-1325"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "European obtained parting message in selfish venture (3-4)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -339,9 +285,6 @@ window.CRYPTIC_PUZZLES["quiptic-1325"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Female in neat base prepared celebratory meal (9)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "BEANFEAST",
    "annotation": null
@@ -356,9 +299,6 @@ window.CRYPTIC_PUZZLES["quiptic-1325"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Note person who has an inherent talent (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "NATURAL",
    "annotation": null
@@ -373,9 +313,6 @@ window.CRYPTIC_PUZZLES["quiptic-1325"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Use the internet and start to enjoy it in abundance (7)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "SURFEIT",
    "annotation": null
@@ -390,9 +327,6 @@ window.CRYPTIC_PUZZLES["quiptic-1325"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "I want to wander around a Pacific Ocean island (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "TAIWAN",
    "annotation": null
@@ -407,9 +341,6 @@ window.CRYPTIC_PUZZLES["quiptic-1325"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Rota devised in job to get slowly cooked meat dish (3,5)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -428,9 +359,6 @@ window.CRYPTIC_PUZZLES["quiptic-1325"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "That fellow is captivated by Conservative system of ideas (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "THEORY",
    "annotation": null
@@ -445,9 +373,6 @@ window.CRYPTIC_PUZZLES["quiptic-1325"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Go into US headquarters avoiding cold (5)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "ENTER",
    "annotation": null
@@ -462,9 +387,6 @@ window.CRYPTIC_PUZZLES["quiptic-1325"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Poorly rated runners need it and fail to make progress (5,5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -483,9 +405,6 @@ window.CRYPTIC_PUZZLES["quiptic-1325"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Recall walker tiring in part in long journey on foot (4)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "TREK",
    "annotation": null
@@ -500,9 +419,6 @@ window.CRYPTIC_PUZZLES["quiptic-1325"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Old writer in front of gallery for launch (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "OPENING",
    "annotation": null
@@ -517,9 +433,6 @@ window.CRYPTIC_PUZZLES["quiptic-1325"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Revised trail in Cyprus showing intelligible character (7)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "CLARITY",
    "annotation": null

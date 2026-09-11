@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1328"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Tourist concern about reenactment (14)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "RECONSTRUCTION",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["quiptic-1328"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Criminal aunty nicks room somewhere in North America (5,9)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -63,9 +57,6 @@ window.CRYPTIC_PUZZLES["quiptic-1328"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Firm in time gets currency (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "COINAGE",
    "annotation": null
@@ -80,9 +71,6 @@ window.CRYPTIC_PUZZLES["quiptic-1328"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Things upset Kitty in discothèque? (9)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "NIGHTSPOT",
    "annotation": null
@@ -97,9 +85,6 @@ window.CRYPTIC_PUZZLES["quiptic-1328"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Follows Peg into dive (8)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "TAILSPIN",
    "annotation": null
@@ -114,9 +99,6 @@ window.CRYPTIC_PUZZLES["quiptic-1328"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Alarms peacekeepers with article in manuscript (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "UNMANS",
    "annotation": null
@@ -131,9 +113,6 @@ window.CRYPTIC_PUZZLES["quiptic-1328"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Propose panel (5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "TABLE",
    "annotation": null
@@ -148,9 +127,6 @@ window.CRYPTIC_PUZZLES["quiptic-1328"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Revealed rents for shops (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "OUTLETS",
    "annotation": null
@@ -165,9 +141,6 @@ window.CRYPTIC_PUZZLES["quiptic-1328"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Distribute merchant’s mushy plants (14)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "CHRYSANTHEMUMS",
    "annotation": null
@@ -182,9 +155,6 @@ window.CRYPTIC_PUZZLES["quiptic-1328"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Food wrapping around fish with thin skin (5,4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -203,9 +173,6 @@ window.CRYPTIC_PUZZLES["quiptic-1328"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Tough yet outwardly childish (5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "BUTCH",
    "annotation": null
@@ -220,9 +187,6 @@ window.CRYPTIC_PUZZLES["quiptic-1328"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Unknown direction for fungi (5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "YEAST",
    "annotation": null
@@ -237,9 +201,6 @@ window.CRYPTIC_PUZZLES["quiptic-1328"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "From that time count honestly (9)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "SINCERELY",
    "annotation": null
@@ -254,9 +215,6 @@ window.CRYPTIC_PUZZLES["quiptic-1328"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Six deliveries by Penny and Grant more than amply rewarded (8)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "OVERPAID",
    "annotation": null
@@ -271,9 +229,6 @@ window.CRYPTIC_PUZZLES["quiptic-1328"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Heads of financial institute enjoy stimulating team-building adventure holiday (6)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "FIESTA",
    "annotation": null
@@ -288,9 +243,6 @@ window.CRYPTIC_PUZZLES["quiptic-1328"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Haughty setter’s promises about exercise regime’s start (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "IMPERIOUS",
    "annotation": null
@@ -305,9 +257,6 @@ window.CRYPTIC_PUZZLES["quiptic-1328"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Left creep quietly at home as essential part of plan (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "LINCHPIN",
    "annotation": null
@@ -322,9 +271,6 @@ window.CRYPTIC_PUZZLES["quiptic-1328"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Deny entrance following new rule finally (6)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "NEGATE",
    "annotation": null
@@ -339,9 +285,6 @@ window.CRYPTIC_PUZZLES["quiptic-1328"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "School measurement getting knock back (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "GRAMMAR",
    "annotation": null
@@ -356,9 +299,6 @@ window.CRYPTIC_PUZZLES["quiptic-1328"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Small, magical creature in case is most crude (8)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "SIMPLEST",
    "annotation": null
@@ -373,9 +313,6 @@ window.CRYPTIC_PUZZLES["quiptic-1328"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "One getting away from European headland in South East (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "ESCAPEE",
    "annotation": null
@@ -390,9 +327,6 @@ window.CRYPTIC_PUZZLES["quiptic-1328"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Signorina triumphs exhibiting hall (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "ATRIUM",
    "annotation": null
@@ -407,9 +341,6 @@ window.CRYPTIC_PUZZLES["quiptic-1328"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Indifferent alien in charge following a direction (9)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "APATHETIC",
    "annotation": null
@@ -424,9 +355,6 @@ window.CRYPTIC_PUZZLES["quiptic-1328"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Dull house with unpleasant smell (2-3)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {
     "-": [
      2
@@ -445,9 +373,6 @@ window.CRYPTIC_PUZZLES["quiptic-1328"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Explore recreation ground by church (5)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "RECCE",
    "annotation": null
@@ -462,9 +387,6 @@ window.CRYPTIC_PUZZLES["quiptic-1328"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Echo New York politician heard initially? (5)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "NYMPH",
    "annotation": null
@@ -479,9 +401,6 @@ window.CRYPTIC_PUZZLES["quiptic-1328"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "I am on time, posh and spontaneous (9)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "IMPROMPTU",
    "annotation": null
@@ -496,9 +415,6 @@ window.CRYPTIC_PUZZLES["quiptic-1328"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Leaders of failing strip-mines welcoming revolutionary Islamic leader (5,9)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     ",": [
      5

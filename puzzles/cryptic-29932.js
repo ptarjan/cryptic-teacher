@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29932"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Drewsteignton oddly with Whitehall address (7,6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -46,9 +43,6 @@ window.CRYPTIC_PUZZLES["cryptic-29932"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Like a stop sign a lot can go out of shape (9)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "OCTAGONAL",
    "annotation": null
@@ -63,9 +57,6 @@ window.CRYPTIC_PUZZLES["cryptic-29932"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Group not heartless, embracing individual (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "NONET",
    "annotation": null
@@ -80,9 +71,6 @@ window.CRYPTIC_PUZZLES["cryptic-29932"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Pries into one’s new suit first (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "NOSES",
    "annotation": null
@@ -97,9 +85,6 @@ window.CRYPTIC_PUZZLES["cryptic-29932"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Group supplying material to newspapers announces two girls (9)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "SYNDICATE",
    "annotation": null
@@ -114,9 +99,6 @@ window.CRYPTIC_PUZZLES["cryptic-29932"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Criticise complaint at Sunday lunch (5,4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -135,9 +117,6 @@ window.CRYPTIC_PUZZLES["cryptic-29932"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Communication of some parliamentary upset (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "EMAIL",
    "annotation": null
@@ -152,9 +131,6 @@ window.CRYPTIC_PUZZLES["cryptic-29932"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "How hands move 24/7? (5,3,5)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      5,
@@ -174,9 +150,6 @@ window.CRYPTIC_PUZZLES["cryptic-29932"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "South African boy making smoother mayonnaise (5,8)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -195,9 +168,6 @@ window.CRYPTIC_PUZZLES["cryptic-29932"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "I go nuts arranging day trips (7)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "OUTINGS",
    "annotation": null
@@ -212,9 +182,6 @@ window.CRYPTIC_PUZZLES["cryptic-29932"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Falls again, turning back with artist (7)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "NIAGARA",
    "annotation": null
@@ -229,9 +196,6 @@ window.CRYPTIC_PUZZLES["cryptic-29932"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "The dark man on board, it’s said (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "NIGHT",
    "annotation": null
@@ -246,9 +210,6 @@ window.CRYPTIC_PUZZLES["cryptic-29932"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Very minor piece composed, it’s all in C (9)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "SCINTILLA",
    "annotation": null
@@ -263,9 +224,6 @@ window.CRYPTIC_PUZZLES["cryptic-29932"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Heavyweight in charge of drink (5)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "TONIC",
    "annotation": null
@@ -280,9 +238,6 @@ window.CRYPTIC_PUZZLES["cryptic-29932"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Revoked, when intoxicated in prison room? Quite the opposite (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "CANCELLED",
    "annotation": null
@@ -297,9 +252,6 @@ window.CRYPTIC_PUZZLES["cryptic-29932"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Newly canonised, very quickly (2,1,6)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -319,9 +271,6 @@ window.CRYPTIC_PUZZLES["cryptic-29932"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "I can go on about English drifter (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "ITINERANT",
    "annotation": null
@@ -336,9 +285,6 @@ window.CRYPTIC_PUZZLES["cryptic-29932"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Vieux? (3,6)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -357,9 +303,6 @@ window.CRYPTIC_PUZZLES["cryptic-29932"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "For instance, worker in business producing plant (9)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "EGLANTINE",
    "annotation": null
@@ -374,9 +317,6 @@ window.CRYPTIC_PUZZLES["cryptic-29932"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Ineffectual compromise that a confectioner provides (5)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "FUDGE",
    "annotation": null
@@ -391,9 +331,6 @@ window.CRYPTIC_PUZZLES["cryptic-29932"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Old BBC magazine’s ears? (9)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "LISTENERS",
    "annotation": null
@@ -408,9 +345,6 @@ window.CRYPTIC_PUZZLES["cryptic-29932"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Meal for Passover some organised erroneously (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "SEDER",
    "annotation": null
@@ -425,9 +359,6 @@ window.CRYPTIC_PUZZLES["cryptic-29932"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Delicacy from his US cooking (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "SUSHI",
    "annotation": null
@@ -442,9 +373,6 @@ window.CRYPTIC_PUZZLES["cryptic-29932"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Sweetheart in saloons worries (5)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "CARES",
    "annotation": null
@@ -459,9 +387,6 @@ window.CRYPTIC_PUZZLES["cryptic-29932"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Goldfinches in a group delight (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "CHARM",
    "annotation": null
@@ -482,9 +407,6 @@ window.CRYPTIC_PUZZLES["cryptic-29932"] = /*JSON-START*/ {
      6
     ]
    ],
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "CEDILLA",
    "annotation": null
@@ -499,9 +421,6 @@ window.CRYPTIC_PUZZLES["cryptic-29932"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Quiet before long consumes northern river and sea area (7)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "SHANNON",
    "annotation": null
@@ -516,9 +435,6 @@ window.CRYPTIC_PUZZLES["cryptic-29932"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "French landmark damaged car he imported (3,2,8)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {
     ",": [
      3,

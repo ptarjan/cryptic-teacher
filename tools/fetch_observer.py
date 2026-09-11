@@ -42,7 +42,8 @@ is data.json: a flat rows x cols `grid` (block/number/word-id per cell) plus
 own `format` enumeration like Guardian/Independent's "5,2,3,5"). No number was
 ever seen shared by two clues — every clue maps to exactly one word — so,
 unlike the Guardian and the Independent, there is no "group" of more than one
-entry to build here; every entry's group is itself.
+entry to build here, and so no `group` is written at all: an absent group
+means the entry is its own answer.
 
 SOLUTIONS LAG ABOUT A WEEK, behind the competition window (see `competition`
 in data.json — a "closes" date near a week after publish, for the reader-
@@ -251,7 +252,6 @@ def convert(num, manifest, data):
                 "length": length,
                 "clue": f"{text} ({fmt})",
                 **({"clueItalics": italics} if italics else {}),
-                "group": [eid],
                 "separatorLocations": clue_separators(fmt, length),
                 "solution": None,
                 "annotation": None,

@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30101"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Combat manoeuvres – keeping watch regularly in caves? (8)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "CATACOMB",
    "annotation": {
@@ -77,9 +74,6 @@ window.CRYPTIC_PUZZLES["cryptic-30101"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Tight biceps after lifting (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "SNUG",
    "annotation": {
@@ -240,9 +234,6 @@ window.CRYPTIC_PUZZLES["cryptic-30101"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Imagine taking group of drivers north on M1 to see Coral’s relative? (3,7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -307,9 +298,6 @@ window.CRYPTIC_PUZZLES["cryptic-30101"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Keep everything in pathetic pocketbook (6)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "WALLET",
    "annotation": {
@@ -355,9 +343,6 @@ window.CRYPTIC_PUZZLES["cryptic-30101"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "A better plan – finally – to stop game hunters (4,4)",
-   "group": [
-    "7-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -457,9 +442,6 @@ window.CRYPTIC_PUZZLES["cryptic-30101"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Bears controlling hunger – they eat carrion (6)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "HYENAS",
    "annotation": {
@@ -503,9 +485,6 @@ window.CRYPTIC_PUZZLES["cryptic-30101"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Crew fitting angle brackets (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "GANG",
    "annotation": {
@@ -539,9 +518,6 @@ window.CRYPTIC_PUZZLES["cryptic-30101"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Just dread spending days working in dark (10)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "REASONABLE",
    "annotation": {
@@ -593,9 +569,6 @@ window.CRYPTIC_PUZZLES["cryptic-30101"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Rogue bully by boxing ring (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "COWBOY",
    "annotation": {
@@ -645,9 +618,6 @@ window.CRYPTIC_PUZZLES["cryptic-30101"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Mother might express this clumsily – be smart and kind (6,4)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -703,9 +673,6 @@ window.CRYPTIC_PUZZLES["cryptic-30101"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Two nurses ignoring half of my request (8)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "ENTREATY",
    "annotation": {
@@ -859,9 +826,6 @@ window.CRYPTIC_PUZZLES["cryptic-30101"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Refinement represented Cecil Day … (8)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "DELICACY",
    "annotation": {
@@ -920,9 +884,6 @@ window.CRYPTIC_PUZZLES["cryptic-30101"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Watches musical’s opening night – that’s when these things shine! (4-4)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -969,9 +930,6 @@ window.CRYPTIC_PUZZLES["cryptic-30101"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "… Lewis’s character – conclusively yet obliquely (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "ASLANT",
    "annotation": {
@@ -1014,9 +972,6 @@ window.CRYPTIC_PUZZLES["cryptic-30101"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Live in Le Mans – and the VW? (6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "BEETLE",
    "annotation": {
@@ -1089,9 +1044,6 @@ window.CRYPTIC_PUZZLES["cryptic-30101"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Cartoon dog bites old woman clutching cat food in tins? (4,6)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -1149,9 +1101,6 @@ window.CRYPTIC_PUZZLES["cryptic-30101"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Large hole in one tie (4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "LACE",
    "annotation": {
@@ -1188,9 +1137,6 @@ window.CRYPTIC_PUZZLES["cryptic-30101"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Decide to swap hands and draw (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "LURE",
    "annotation": {
@@ -1233,9 +1179,6 @@ window.CRYPTIC_PUZZLES["cryptic-30101"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Part of stag party in strip club getting wrecked in just seconds (6)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "ANTLER",
    "annotation": {
@@ -1290,9 +1233,6 @@ window.CRYPTIC_PUZZLES["cryptic-30101"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Drive a good line in test of acceleration (4,4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {
     ",": [
      4

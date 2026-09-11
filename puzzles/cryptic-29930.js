@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29930"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Hamlet’s first speech interrupted another character (7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "HORATIO",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["cryptic-29930"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Naturally growing old interfered with racing (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "ORGANIC",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["cryptic-29930"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Warning from distant relative rebuffed (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "ALERT",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["cryptic-29930"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Painting I think about no more (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "IMPASTO",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["cryptic-29930"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Opening B&B after Union admitted one wouldn’t be welcome locally (3,4)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -114,9 +99,6 @@ window.CRYPTIC_PUZZLES["cryptic-29930"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Release one French rugby player (6)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "UNLOCK",
    "annotation": null
@@ -131,9 +113,6 @@ window.CRYPTIC_PUZZLES["cryptic-29930"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Shooter turned up after strapping fellow wearing underwear (3,6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -152,9 +131,6 @@ window.CRYPTIC_PUZZLES["cryptic-29930"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "A little narrow-minded in judging crosswords (7)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "RANTING",
    "annotation": null
@@ -169,9 +145,6 @@ window.CRYPTIC_PUZZLES["cryptic-29930"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Clanger! Typist accidentally reveals where lovers are meeting (8,5)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -190,9 +163,6 @@ window.CRYPTIC_PUZZLES["cryptic-29930"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Search for information out of turn – not a good look? (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "OGLE",
    "annotation": null
@@ -207,9 +177,6 @@ window.CRYPTIC_PUZZLES["cryptic-29930"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "First Mrs Vlad occupying a place in government – bewildering! (10)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "PERPLEXING",
    "annotation": null
@@ -224,9 +191,6 @@ window.CRYPTIC_PUZZLES["cryptic-29930"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Cross-country guest forced to leave golf links (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "UNITES",
    "annotation": null
@@ -241,9 +205,6 @@ window.CRYPTIC_PUZZLES["cryptic-29930"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Used actors’ piece occasionally as a way of teaching (8)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "SOCRATIC",
    "annotation": null
@@ -258,9 +219,6 @@ window.CRYPTIC_PUZZLES["cryptic-29930"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Grain perhaps and where to store it round highly secure location (9)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "ACROPOLIS",
    "annotation": null
@@ -275,9 +233,6 @@ window.CRYPTIC_PUZZLES["cryptic-29930"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Birds over the road getting bread (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "OSTRICHES",
    "annotation": null
@@ -292,9 +247,6 @@ window.CRYPTIC_PUZZLES["cryptic-29930"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Reported denial that comes straight from the horse’s mouth (5)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "NEIGH",
    "annotation": null
@@ -309,9 +261,6 @@ window.CRYPTIC_PUZZLES["cryptic-29930"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "What unsubtle actors do with direction – test the limit of patience (5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "EMOTE",
    "annotation": null
@@ -326,9 +275,6 @@ window.CRYPTIC_PUZZLES["cryptic-29930"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Old dramatist in Hackney perhaps depressed (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "MARLOWE",
    "annotation": null
@@ -343,9 +289,6 @@ window.CRYPTIC_PUZZLES["cryptic-29930"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Roaming round country as its leader, some might say (9)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "IGNORAMUS",
    "annotation": null
@@ -360,9 +303,6 @@ window.CRYPTIC_PUZZLES["cryptic-29930"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "One not in favour of bringing up Vennells’ former business model (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "OPPOSER",
    "annotation": null
@@ -377,9 +317,6 @@ window.CRYPTIC_PUZZLES["cryptic-29930"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Where to stand conveniently keeping in range (7)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "URINALS",
    "annotation": null
@@ -394,9 +331,6 @@ window.CRYPTIC_PUZZLES["cryptic-29930"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Writer gets a lot of credit for being imaginative (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "POETIC",
    "annotation": null
@@ -417,9 +351,6 @@ window.CRYPTIC_PUZZLES["cryptic-29930"] = /*JSON-START*/ {
      6
     ]
    ],
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -438,9 +369,6 @@ window.CRYPTIC_PUZZLES["cryptic-29930"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Expert parking? One’s over edge of driveway (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "PUNDIT",
    "annotation": null
@@ -455,9 +383,6 @@ window.CRYPTIC_PUZZLES["cryptic-29930"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Human failing in book (5)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "NAHUM",
    "annotation": null
@@ -472,9 +397,6 @@ window.CRYPTIC_PUZZLES["cryptic-29930"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Backing band stays for game of bridge (10)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "POOHSTICKS",
    "annotation": null
@@ -489,9 +411,6 @@ window.CRYPTIC_PUZZLES["cryptic-29930"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Get better describing Meghan’s number 2 – Prince Harry (4)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "HEAL",
    "annotation": null
@@ -506,9 +425,6 @@ window.CRYPTIC_PUZZLES["cryptic-29930"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "On the drink but not feeling great (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "SEASICK",
    "annotation": null
@@ -523,9 +439,6 @@ window.CRYPTIC_PUZZLES["cryptic-29930"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "In short Starmer’s point accepted – we assume it’s true (7)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "PREMISE",
    "annotation": null

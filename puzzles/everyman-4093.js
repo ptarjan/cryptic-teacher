@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4093"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "It’s eternal, they say, in vitro meat (4)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "ROME",
    "annotation": {
@@ -68,9 +65,6 @@ window.CRYPTIC_PUZZLES["everyman-4093"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Presence of mind initially disturbed – making amends (10)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "RECOMPENSE",
    "annotation": {
@@ -115,9 +109,6 @@ window.CRYPTIC_PUZZLES["everyman-4093"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Stimulator provoked vandals (10)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "MUTILATORS",
    "annotation": {
@@ -155,9 +146,6 @@ window.CRYPTIC_PUZZLES["everyman-4093"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "It shows axes, part of plotters’ designs? (5,5)",
-   "group": [
-    "3-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -197,9 +185,6 @@ window.CRYPTIC_PUZZLES["everyman-4093"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Shrinks showing barmy decrees (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "RECEDES",
    "annotation": {
@@ -240,9 +225,6 @@ window.CRYPTIC_PUZZLES["everyman-4093"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Spooner’s to espy deck in fog (3,4)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -295,9 +277,6 @@ window.CRYPTIC_PUZZLES["everyman-4093"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Goaty god? Devil? I … I’m not sure … it’s chaos (11)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "PANDEMONIUM",
    "annotation": {
@@ -351,9 +330,6 @@ window.CRYPTIC_PUZZLES["everyman-4093"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Like a piper or a clown? (4)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "PIED",
    "annotation": {
@@ -392,9 +368,6 @@ window.CRYPTIC_PUZZLES["everyman-4093"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "She’s dreadfully hurt (4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "RUTH",
    "annotation": {
@@ -435,9 +408,6 @@ window.CRYPTIC_PUZZLES["everyman-4093"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Refer to model in Channel Islands on ecstasy (4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "CITE",
    "annotation": {
@@ -490,9 +460,6 @@ window.CRYPTIC_PUZZLES["everyman-4093"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Ultimately furious, into craw sticks one that’s extremely inferior (10)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "SCRAWNIEST",
    "annotation": {
@@ -554,9 +521,6 @@ window.CRYPTIC_PUZZLES["everyman-4093"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Trembling mankind, holy, welcoming Earth’s biblical promise (4,3,5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -609,9 +573,6 @@ window.CRYPTIC_PUZZLES["everyman-4093"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "‘Due’? Both late! For renewal PDQ! (2,3,6)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -657,9 +618,6 @@ window.CRYPTIC_PUZZLES["everyman-4093"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Cleric at formal event embracing Pole: that’s smashing (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "CANNONBALL",
    "annotation": {
@@ -713,9 +671,6 @@ window.CRYPTIC_PUZZLES["everyman-4093"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "It may resemble an elder, includes many (6,4)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -755,9 +710,6 @@ window.CRYPTIC_PUZZLES["everyman-4093"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "What posh homes have (AKA station wagons) (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "ESTATES",
    "annotation": {
@@ -796,9 +748,6 @@ window.CRYPTIC_PUZZLES["everyman-4093"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Primarily pecuniarily relayed or reimbursed according to amplitude? (3,4)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -846,9 +795,6 @@ window.CRYPTIC_PUZZLES["everyman-4093"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Stuff what you can do to the WWW, you say? (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "SURFEIT",
    "annotation": {
@@ -884,9 +830,6 @@ window.CRYPTIC_PUZZLES["everyman-4093"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Everyman on diet, after time eating seconds, becoming most large (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "TIDIEST",
    "annotation": {
@@ -950,9 +893,6 @@ window.CRYPTIC_PUZZLES["everyman-4093"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Not half pretentious: opposed to Italian wine (7)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "CHIANTI",
    "annotation": {
@@ -996,9 +936,6 @@ window.CRYPTIC_PUZZLES["everyman-4093"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "As maestro will do to ensure behaviour … (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "CONDUCT",
    "annotation": {
@@ -1037,9 +974,6 @@ window.CRYPTIC_PUZZLES["everyman-4093"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Origamist’s income? (7,5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -1082,9 +1016,6 @@ window.CRYPTIC_PUZZLES["everyman-4093"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "… making comeback, damn celebrity (4)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "STAR",
    "annotation": {
@@ -1128,9 +1059,6 @@ window.CRYPTIC_PUZZLES["everyman-4093"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Dopy grin that’s seen in proposal (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "RING",
    "annotation": {
@@ -1171,9 +1099,6 @@ window.CRYPTIC_PUZZLES["everyman-4093"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Small drink, adjacent to a finger? (10)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "THIMBLEFUL",
    "annotation": {
@@ -1208,9 +1133,6 @@ window.CRYPTIC_PUZZLES["everyman-4093"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Quiet tune, mate (4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "PAIR",
    "annotation": {
@@ -1249,9 +1171,6 @@ window.CRYPTIC_PUZZLES["everyman-4093"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Bad neighbour accounting cryptically for taste? (5,5)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -1305,9 +1224,6 @@ window.CRYPTIC_PUZZLES["everyman-4093"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Say, this culture regularly disappears (4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "CLUE",
    "annotation": {

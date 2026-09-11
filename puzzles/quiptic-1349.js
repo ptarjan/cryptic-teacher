@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1349"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Secretary caught providing information about peacemaking (7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "PACIFIC",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["quiptic-1349"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Knock biting lice off bird (7)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "PELICAN",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["quiptic-1349"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Churches hosting geriatric centre with a tea dance … (3-3-3)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     "-": [
      3,
@@ -81,9 +72,6 @@ window.CRYPTIC_PUZZLES["quiptic-1349"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "… in hall some Surrey officials set up (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "FOYER",
    "annotation": null
@@ -98,9 +86,6 @@ window.CRYPTIC_PUZZLES["quiptic-1349"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Historical record or cliche circulated about north? (9)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "CHRONICLE",
    "annotation": null
@@ -115,9 +100,6 @@ window.CRYPTIC_PUZZLES["quiptic-1349"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "More fragile West Indies arachnid died out (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "WISPIER",
    "annotation": null
@@ -132,9 +114,6 @@ window.CRYPTIC_PUZZLES["quiptic-1349"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Weathers storms when woman put out rubbish (5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "WASTE",
    "annotation": null
@@ -149,9 +128,6 @@ window.CRYPTIC_PUZZLES["quiptic-1349"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Hunkering down occupying building (9)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "SQUATTING",
    "annotation": null
@@ -166,9 +142,6 @@ window.CRYPTIC_PUZZLES["quiptic-1349"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Repository for television at home (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "INBOX",
    "annotation": null
@@ -183,9 +156,6 @@ window.CRYPTIC_PUZZLES["quiptic-1349"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Discounted wine clubs as part of university education (7)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "REDUCED",
    "annotation": null
@@ -200,9 +170,6 @@ window.CRYPTIC_PUZZLES["quiptic-1349"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "On choppy lake, back of dinghy losing water (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "LEAKY",
    "annotation": null
@@ -217,9 +184,6 @@ window.CRYPTIC_PUZZLES["quiptic-1349"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Attempt to save doubtful bride succeeded with signal received (6,3)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -238,9 +202,6 @@ window.CRYPTIC_PUZZLES["quiptic-1349"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "At this point dividing care of new church makes sense (9)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "COHERENCE",
    "annotation": null
@@ -255,9 +216,6 @@ window.CRYPTIC_PUZZLES["quiptic-1349"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Endless exotica could be harmful (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "TOXIC",
    "annotation": null
@@ -272,9 +230,6 @@ window.CRYPTIC_PUZZLES["quiptic-1349"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Speciality of hotel in French resort (5)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "NICHE",
    "annotation": null
@@ -289,9 +244,6 @@ window.CRYPTIC_PUZZLES["quiptic-1349"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "First lady’s online, endlessly long annually (5,4)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -310,9 +262,6 @@ window.CRYPTIC_PUZZLES["quiptic-1349"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "So excited to be out and about at the same time (9)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "COEXISTED",
    "annotation": null
@@ -327,9 +276,6 @@ window.CRYPTIC_PUZZLES["quiptic-1349"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Join Tina Turner to put on a show? (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "ENTERTAIN",
    "annotation": null
@@ -344,9 +290,6 @@ window.CRYPTIC_PUZZLES["quiptic-1349"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Three assembled by river to make den (4,5)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -365,9 +308,6 @@ window.CRYPTIC_PUZZLES["quiptic-1349"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Final word describing complex model causes perplexity (9)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "AMAZEMENT",
    "annotation": null
@@ -382,9 +322,6 @@ window.CRYPTIC_PUZZLES["quiptic-1349"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Good-natured sailor supporting fellows hampered by beer (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "AFFABLE",
    "annotation": null
@@ -399,9 +336,6 @@ window.CRYPTIC_PUZZLES["quiptic-1349"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Ogre edgily suppresses craving for food (5)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "GREED",
    "annotation": null
@@ -416,9 +350,6 @@ window.CRYPTIC_PUZZLES["quiptic-1349"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Down payment for silicon in warehouse (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "DEPOSIT",
    "annotation": null
@@ -433,9 +364,6 @@ window.CRYPTIC_PUZZLES["quiptic-1349"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Boat’s gear regularly surrounded by small fish (5)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "FERRY",
    "annotation": null
@@ -450,9 +378,6 @@ window.CRYPTIC_PUZZLES["quiptic-1349"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Provokes teacher to retire over student with low grade (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "RILES",
    "annotation": null
@@ -467,9 +392,6 @@ window.CRYPTIC_PUZZLES["quiptic-1349"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Crumple cups scattered around empty coach after race (7,2)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -488,9 +410,6 @@ window.CRYPTIC_PUZZLES["quiptic-1349"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Watched very good journalist following lead for story (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "SPIED",
    "annotation": null
@@ -505,9 +424,6 @@ window.CRYPTIC_PUZZLES["quiptic-1349"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Inside Shogun in Japan there’s a warrior (5)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "NINJA",
    "annotation": null
@@ -522,9 +438,6 @@ window.CRYPTIC_PUZZLES["quiptic-1349"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Everyone tucked into Ribena supply for dancer (9)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "BALLERINA",
    "annotation": null
@@ -539,9 +452,6 @@ window.CRYPTIC_PUZZLES["quiptic-1349"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Naming words for numbers including one in French (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "NOUNS",
    "annotation": null
@@ -556,9 +466,6 @@ window.CRYPTIC_PUZZLES["quiptic-1349"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Made certain rocky undersea area’s ignored (7)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "ENSURED",
    "annotation": null
@@ -573,9 +480,6 @@ window.CRYPTIC_PUZZLES["quiptic-1349"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Most stingy relatives? (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "NEAREST",
    "annotation": null

@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1817"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Knot in net unravelled by fish (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "ENTANGLE",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["indysunday-1817"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Henry leaves rotten peaches in bunk (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "ESCAPE",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["indysunday-1817"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "\"What's one plus one?\" read out in addition (3)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "TOO",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["indysunday-1817"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Authenticate, as opposed to issue (8)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "NOTARISE",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["indysunday-1817"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Drink locked up by Cinderella's sisters (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "LASSI",
    "annotation": null
@@ -110,9 +95,6 @@ window.CRYPTIC_PUZZLES["indysunday-1817"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Prudish editor ready for 12 to work on? (6)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "PRIMED",
    "annotation": null
@@ -127,9 +109,6 @@ window.CRYPTIC_PUZZLES["indysunday-1817"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Keep shower curtains outside for event (6)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "RETAIN",
    "annotation": null
@@ -144,9 +123,6 @@ window.CRYPTIC_PUZZLES["indysunday-1817"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "En route heading for Nepal, am I excited? (11)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "MOUNTAINEER",
    "annotation": null
@@ -161,9 +137,6 @@ window.CRYPTIC_PUZZLES["indysunday-1817"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Separate daughters can be found on island (8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "DISCRETE",
    "annotation": null
@@ -178,9 +151,6 @@ window.CRYPTIC_PUZZLES["indysunday-1817"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Jump on insects, getting tons inside shorts (3,5)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -199,9 +169,6 @@ window.CRYPTIC_PUZZLES["indysunday-1817"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Deal a heavy blow to Conservative boor (5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "CLOUT",
    "annotation": null
@@ -216,9 +183,6 @@ window.CRYPTIC_PUZZLES["indysunday-1817"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Spooner's bench closes rat runs (5,4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -237,9 +201,6 @@ window.CRYPTIC_PUZZLES["indysunday-1817"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Supplier of commemorative mugs? (8,7)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -258,9 +219,6 @@ window.CRYPTIC_PUZZLES["indysunday-1817"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Trainer with acne rocks back with a new body (11)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "REINCARNATE",
    "annotation": null
@@ -275,9 +233,6 @@ window.CRYPTIC_PUZZLES["indysunday-1817"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Fresh, popular part of the English Channel (8)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "INSOLENT",
    "annotation": null
@@ -292,9 +247,6 @@ window.CRYPTIC_PUZZLES["indysunday-1817"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Start of flood eventually surrounding old hollow willow (3,5)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -313,9 +265,6 @@ window.CRYPTIC_PUZZLES["indysunday-1817"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Meaning there's no difference between gin and tonic? (4)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "GIST",
    "annotation": null
@@ -330,9 +279,6 @@ window.CRYPTIC_PUZZLES["indysunday-1817"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "The price of litigation about bum crackers goes up (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "COMBUSTS",
    "annotation": null
@@ -347,9 +293,6 @@ window.CRYPTIC_PUZZLES["indysunday-1817"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Two murders, the highest price paid (3,5)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -368,9 +311,6 @@ window.CRYPTIC_PUZZLES["indysunday-1817"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Before church, after running (4)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "ONCE",
    "annotation": null
@@ -385,9 +325,6 @@ window.CRYPTIC_PUZZLES["indysunday-1817"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Wife aboard scooter turning forty (3-5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -406,9 +343,6 @@ window.CRYPTIC_PUZZLES["indysunday-1817"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Gift of story books (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "TALENT",
    "annotation": null
@@ -423,9 +357,6 @@ window.CRYPTIC_PUZZLES["indysunday-1817"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Cast wanting seat for Lear in the audience? (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "THROWN",
    "annotation": null
@@ -440,9 +371,6 @@ window.CRYPTIC_PUZZLES["indysunday-1817"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Paired blocks I see, record price for a British sculptor (7,8)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -461,9 +389,6 @@ window.CRYPTIC_PUZZLES["indysunday-1817"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "More sculpture, perhaps by European from the south (5)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "EXTRA",
    "annotation": null
@@ -478,9 +403,6 @@ window.CRYPTIC_PUZZLES["indysunday-1817"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Coach went right to the house (5,4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -499,9 +421,6 @@ window.CRYPTIC_PUZZLES["indysunday-1817"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Jamaican choked eating Mexican chilli (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "ANCHO",
    "annotation": null
@@ -516,9 +435,6 @@ window.CRYPTIC_PUZZLES["indysunday-1817"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Nick's pretty short of energy (3)",
-   "group": [
-    "27-down"
-   ],
    "separatorLocations": {},
    "solution": "CUT",
    "annotation": null
@@ -533,9 +449,6 @@ window.CRYPTIC_PUZZLES["indysunday-1817"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Be a dick, hustle vagrant (6)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "SLEUTH",
    "annotation": null
@@ -550,9 +463,6 @@ window.CRYPTIC_PUZZLES["indysunday-1817"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Stop the heaviest rugby players? I can (4,2,2)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {
     ",": [
      4,

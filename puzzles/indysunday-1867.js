@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1867"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Teacher made knots in his hair (12)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "HEADMISTRESS",
    "annotation": {
@@ -79,9 +76,6 @@ window.CRYPTIC_PUZZLES["indysunday-1867"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Meaningful picture from reading out Mog's letters (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "EMOJI",
    "annotation": {
@@ -119,9 +113,6 @@ window.CRYPTIC_PUZZLES["indysunday-1867"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Tear up unfashionable husband's old cotton belt? (4,5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -180,9 +171,6 @@ window.CRYPTIC_PUZZLES["indysunday-1867"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Faces court released to the public (6)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "ISSUED",
    "annotation": {
@@ -219,9 +207,6 @@ window.CRYPTIC_PUZZLES["indysunday-1867"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Grip case with empty travelator ahead (8)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "TRACTION",
    "annotation": {
@@ -269,9 +254,6 @@ window.CRYPTIC_PUZZLES["indysunday-1867"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Message from girl I am excited about (5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "EMAIL",
    "annotation": {
@@ -307,9 +289,6 @@ window.CRYPTIC_PUZZLES["indysunday-1867"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Severe wife burning trousers (9)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "SWINGEING",
    "annotation": {
@@ -353,9 +332,6 @@ window.CRYPTIC_PUZZLES["indysunday-1867"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Play guitar supporting Prince, an old 21 (5,1,6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      5,
@@ -409,9 +385,6 @@ window.CRYPTIC_PUZZLES["indysunday-1867"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Practising lawyers troubling to Morse (7)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "MOOTERS",
    "annotation": {
@@ -453,9 +426,6 @@ window.CRYPTIC_PUZZLES["indysunday-1867"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "8's scheme for regenerating height with everyone in chocolate factory shrunk? (8,4)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -516,9 +486,6 @@ window.CRYPTIC_PUZZLES["indysunday-1867"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Bad mushroom trip's beginning in a frenzy (7)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "AMANITA",
    "annotation": {
@@ -564,9 +531,6 @@ window.CRYPTIC_PUZZLES["indysunday-1867"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Vet again checks animal that's caught cold (9)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "REINSPECT",
    "annotation": {
@@ -616,9 +580,6 @@ window.CRYPTIC_PUZZLES["indysunday-1867"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Cheap fizz from Majestic brought round (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "LAGER",
    "annotation": {
@@ -664,9 +625,6 @@ window.CRYPTIC_PUZZLES["indysunday-1867"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Hampshire's opener exploited fault as much as bowler could bear? (6)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "HATFUL",
    "annotation": {
@@ -717,9 +675,6 @@ window.CRYPTIC_PUZZLES["indysunday-1867"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "B&B owner might stand round here (5,4)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -754,9 +709,6 @@ window.CRYPTIC_PUZZLES["indysunday-1867"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Offer suit to sell back, keeping current winter clothing (8)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "WOOLLIES",
    "annotation": {
@@ -817,9 +769,6 @@ window.CRYPTIC_PUZZLES["indysunday-1867"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Title holder's fallen during road race at the start (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "LANDOWNER",
    "annotation": {
@@ -870,9 +819,6 @@ window.CRYPTIC_PUZZLES["indysunday-1867"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Platonic relationship troubled Macron, in bed mostly (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "BROMANCE",
    "annotation": {
@@ -926,9 +872,6 @@ window.CRYPTIC_PUZZLES["indysunday-1867"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Biking kit verges on lingerie where she lives (8)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "LEATHERS",
    "annotation": {
@@ -973,9 +916,6 @@ window.CRYPTIC_PUZZLES["indysunday-1867"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Ass kept hidden in apprehension, age-related (6)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "ONAGER",
    "annotation": {
@@ -1009,9 +949,6 @@ window.CRYPTIC_PUZZLES["indysunday-1867"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Spice in fruitcake Margaret reduced (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "NUTMEG",
    "annotation": {
@@ -1057,9 +994,6 @@ window.CRYPTIC_PUZZLES["indysunday-1867"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Premier turned up to speak, missing point? (5)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "POTUS",
    "annotation": {
@@ -1103,9 +1037,6 @@ window.CRYPTIC_PUZZLES["indysunday-1867"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Date with Mr Bean from the telly outside saloon in US (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "SEDAN",
    "annotation": {
@@ -1149,9 +1080,6 @@ window.CRYPTIC_PUZZLES["indysunday-1867"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Keep quiet pinching gold, alone in the Taj Mahal? (9)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "MAUSOLEUM",
    "annotation": {
@@ -1204,9 +1132,6 @@ window.CRYPTIC_PUZZLES["indysunday-1867"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Call up the day before collecting permit (5)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "EVOKE",
    "annotation": {
@@ -1250,9 +1175,6 @@ window.CRYPTIC_PUZZLES["indysunday-1867"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Freedom from restraint which Glastonbury stage might have? (7)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "ABANDON",
    "annotation": {
@@ -1293,9 +1215,6 @@ window.CRYPTIC_PUZZLES["indysunday-1867"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Sun now implying this rain? (7)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "MONSOON",
    "annotation": {
@@ -1335,9 +1254,6 @@ window.CRYPTIC_PUZZLES["indysunday-1867"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "School nerd retaking sports (12)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "KINDERGARTEN",
    "annotation": {

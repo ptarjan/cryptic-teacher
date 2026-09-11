@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1373"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Pallid Offa defiantly holds revolutionary national emblem (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "DAFFODIL",
    "annotation": {
@@ -69,9 +66,6 @@ window.CRYPTIC_PUZZLES["quiptic-1373"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Broadcast top recipe (3)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "AIR",
    "annotation": {
@@ -110,9 +104,6 @@ window.CRYPTIC_PUZZLES["quiptic-1373"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Cheeky underling returns to hotel (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "FRESH",
    "annotation": {
@@ -165,9 +156,6 @@ window.CRYPTIC_PUZZLES["quiptic-1373"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Part of DJ’s accompaniment? (5,5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -206,9 +194,6 @@ window.CRYPTIC_PUZZLES["quiptic-1373"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Connect electric current in renovated aisle (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "LIAISE",
    "annotation": {
@@ -259,9 +244,6 @@ window.CRYPTIC_PUZZLES["quiptic-1373"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Kind chap starts to lend encouragement (6)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "GENTLE",
    "annotation": {
@@ -305,9 +287,6 @@ window.CRYPTIC_PUZZLES["quiptic-1373"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "It’s part of playing American football, say (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "GAME",
    "annotation": {
@@ -345,9 +324,6 @@ window.CRYPTIC_PUZZLES["quiptic-1373"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Signs from states encircling capitals of Oklahoma and Texas (9)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "NOTATIONS",
    "annotation": {
@@ -397,9 +373,6 @@ window.CRYPTIC_PUZZLES["quiptic-1373"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Finesse stage opening in England with finale of Tour tomorrow in France (11)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "LEGERDEMAIN",
    "annotation": {
@@ -460,9 +433,6 @@ window.CRYPTIC_PUZZLES["quiptic-1373"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Piece of cake and some cheeses, we’re told (6)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "BREEZE",
    "annotation": {
@@ -501,9 +471,6 @@ window.CRYPTIC_PUZZLES["quiptic-1373"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Lively Margate embraces independent poet (8)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "ARMITAGE",
    "annotation": {
@@ -553,9 +520,6 @@ window.CRYPTIC_PUZZLES["quiptic-1373"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Stress when preparing pie and mash before suppertime on vacation (9)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "EMPHASISE",
    "annotation": {
@@ -607,9 +571,6 @@ window.CRYPTIC_PUZZLES["quiptic-1373"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "She distrusts everyone working in metaphors! (11)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {},
    "solution": "MISANTHROPE",
    "annotation": {
@@ -653,9 +614,6 @@ window.CRYPTIC_PUZZLES["quiptic-1373"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Charge in transistor mechanism (5)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "STORM",
    "annotation": {
@@ -690,9 +648,6 @@ window.CRYPTIC_PUZZLES["quiptic-1373"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Those intent on advancement air secrets ill-advisedly (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "CAREERISTS",
    "annotation": {
@@ -735,9 +690,6 @@ window.CRYPTIC_PUZZLES["quiptic-1373"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Ignore trickery in speech (6)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "SLIGHT",
    "annotation": {
@@ -773,9 +725,6 @@ window.CRYPTIC_PUZZLES["quiptic-1373"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Tense, describing what was happening? (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "IMPERFECT",
    "annotation": {
@@ -811,9 +760,6 @@ window.CRYPTIC_PUZZLES["quiptic-1373"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Release standard expression of approval on the continent (6)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "PAROLE",
    "annotation": {
@@ -857,9 +803,6 @@ window.CRYPTIC_PUZZLES["quiptic-1373"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Linen not available for every year (6)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "NAPERY",
    "annotation": {
@@ -904,9 +847,6 @@ window.CRYPTIC_PUZZLES["quiptic-1373"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "A reed’s cultivated in area near Egypt (3,3)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -956,9 +896,6 @@ window.CRYPTIC_PUZZLES["quiptic-1373"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Employ in quiet place of study (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "MUSEUM",
    "annotation": {
@@ -1003,9 +940,6 @@ window.CRYPTIC_PUZZLES["quiptic-1373"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Fastidious cleaner back from factory (5)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "CHARY",
    "annotation": {
@@ -1049,9 +983,6 @@ window.CRYPTIC_PUZZLES["quiptic-1373"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Reportedly fly staff in old aeroplane (9)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "HURRICANE",
    "annotation": {
@@ -1095,9 +1026,6 @@ window.CRYPTIC_PUZZLES["quiptic-1373"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Regularly scour port city for unusual object (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "CURIO",
    "annotation": {
@@ -1144,9 +1072,6 @@ window.CRYPTIC_PUZZLES["quiptic-1373"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Serenity derived from mathematical musings (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "CALM",
    "annotation": {
@@ -1181,9 +1106,6 @@ window.CRYPTIC_PUZZLES["quiptic-1373"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Uncontroversial fashion degree (8)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "MODERATE",
    "annotation": {
@@ -1222,9 +1144,6 @@ window.CRYPTIC_PUZZLES["quiptic-1373"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Powerful ballad absorbs translator (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "STRONG",
    "annotation": {
@@ -1269,9 +1188,6 @@ window.CRYPTIC_PUZZLES["quiptic-1373"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "On reflection, this sister doesn’t change (3)",
-   "group": [
-    "27-down"
-   ],
    "separatorLocations": {},
    "solution": "NUN",
    "annotation": {
@@ -1316,9 +1232,6 @@ window.CRYPTIC_PUZZLES["quiptic-1373"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Partition badly set up before beginning of meeting (6)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "SEPTUM",
    "annotation": {
@@ -1370,9 +1283,6 @@ window.CRYPTIC_PUZZLES["quiptic-1373"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Error when married nobleman loses head (8)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "MISCOUNT",
    "annotation": {

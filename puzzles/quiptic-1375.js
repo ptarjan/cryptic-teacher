@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1375"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Spooner’s magnificent research area: what Trump has planned for Canada? (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "LANDGRAB",
    "annotation": {
@@ -73,9 +70,6 @@ window.CRYPTIC_PUZZLES["quiptic-1375"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Titania, perhaps, losing wings’ feeling (3)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "AIR",
    "annotation": {
@@ -120,9 +114,6 @@ window.CRYPTIC_PUZZLES["quiptic-1375"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Party with Poles in rolling uplands (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "DOWNS",
    "annotation": {
@@ -170,9 +161,6 @@ window.CRYPTIC_PUZZLES["quiptic-1375"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "American rightwinger concerning landlord (10)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "REPUBLICAN",
    "annotation": {
@@ -211,9 +199,6 @@ window.CRYPTIC_PUZZLES["quiptic-1375"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Fundamental principles in stall F announced? (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "BASICS",
    "annotation": {
@@ -262,9 +247,6 @@ window.CRYPTIC_PUZZLES["quiptic-1375"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Single men on vacation in August (6)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "SOLEMN",
    "annotation": {
@@ -311,9 +293,6 @@ window.CRYPTIC_PUZZLES["quiptic-1375"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Join main man’s introduction (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "SEAM",
    "annotation": {
@@ -360,9 +339,6 @@ window.CRYPTIC_PUZZLES["quiptic-1375"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Sign Iran worried individual working quietly with books? (9)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "LIBRARIAN",
    "annotation": {
@@ -415,9 +391,6 @@ window.CRYPTIC_PUZZLES["quiptic-1375"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Singer exercising Mormon ideas? (5,6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -459,9 +432,6 @@ window.CRYPTIC_PUZZLES["quiptic-1375"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Mature women infiltrating party (4,2)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -510,9 +480,6 @@ window.CRYPTIC_PUZZLES["quiptic-1375"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Revolutionary dull way to transfer money for sheath (8)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "SCABBARD",
    "annotation": {
@@ -569,9 +536,6 @@ window.CRYPTIC_PUZZLES["quiptic-1375"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Speedy male hare perhaps makes easy money (1,4,4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      1,
@@ -614,9 +578,6 @@ window.CRYPTIC_PUZZLES["quiptic-1375"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Burst into tears if in emergency response centre (4,7)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -661,9 +622,6 @@ window.CRYPTIC_PUZZLES["quiptic-1375"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "America determinedly protecting army trainee (5)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "CADET",
    "annotation": {
@@ -698,9 +656,6 @@ window.CRYPTIC_PUZZLES["quiptic-1375"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Behind park officer is someone doing reorganisation (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "REARRANGER",
    "annotation": {
@@ -742,9 +697,6 @@ window.CRYPTIC_PUZZLES["quiptic-1375"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Make good broadcast on salesperson (6)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "REPAIR",
    "annotation": {
@@ -788,9 +740,6 @@ window.CRYPTIC_PUZZLES["quiptic-1375"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "A male child needs extra love, primarily, in office at work (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "PERSONNEL",
    "annotation": {
@@ -843,9 +792,6 @@ window.CRYPTIC_PUZZLES["quiptic-1375"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Rejects study that is small (6)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "DENIES",
    "annotation": {
@@ -890,9 +836,6 @@ window.CRYPTIC_PUZZLES["quiptic-1375"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Second best shriek (6)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "SCREAM",
    "annotation": {
@@ -931,9 +874,6 @@ window.CRYPTIC_PUZZLES["quiptic-1375"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Immediately starts to put rapeseed oil next to olives (6)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "PRONTO",
    "annotation": {
@@ -971,9 +911,6 @@ window.CRYPTIC_PUZZLES["quiptic-1375"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Understand what 6 ft is (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "FATHOM",
    "annotation": {
@@ -1007,9 +944,6 @@ window.CRYPTIC_PUZZLES["quiptic-1375"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Regulars in small town’s shop (5)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "SALON",
    "annotation": {
@@ -1050,9 +984,6 @@ window.CRYPTIC_PUZZLES["quiptic-1375"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Fizzy wine left around outskirts of Dundee for procession (9)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "CAVALCADE",
    "annotation": {
@@ -1111,9 +1042,6 @@ window.CRYPTIC_PUZZLES["quiptic-1375"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Prisoner to leave course in Africa (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "CONGO",
    "annotation": {
@@ -1152,9 +1080,6 @@ window.CRYPTIC_PUZZLES["quiptic-1375"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Penalty is OK (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "FINE",
    "annotation": {
@@ -1191,9 +1116,6 @@ window.CRYPTIC_PUZZLES["quiptic-1375"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Finished up like a devil (8)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "FIENDISH",
    "annotation": {
@@ -1231,9 +1153,6 @@ window.CRYPTIC_PUZZLES["quiptic-1375"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Bands of criminals pinching English holy water? (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "GANGES",
    "annotation": {
@@ -1278,9 +1197,6 @@ window.CRYPTIC_PUZZLES["quiptic-1375"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Back to life, back to reality, back to life, with this you can see (3)",
-   "group": [
-    "27-down"
-   ],
    "separatorLocations": {},
    "solution": "EYE",
    "annotation": {
@@ -1330,9 +1246,6 @@ window.CRYPTIC_PUZZLES["quiptic-1375"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Director’s point of view close to unconscionable (3,3)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -1383,9 +1296,6 @@ window.CRYPTIC_PUZZLES["quiptic-1375"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Spoil moment with appointed primate (8)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "MARMOSET",
    "annotation": {

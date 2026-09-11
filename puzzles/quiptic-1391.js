@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1391"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Appearance of Bond’s boss in Germany shows quick thinking (8,2,4)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      8,
@@ -90,9 +87,6 @@ window.CRYPTIC_PUZZLES["quiptic-1391"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "One probing clumpiest ores dug up gold, silver, etc. (8,6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -136,9 +130,6 @@ window.CRYPTIC_PUZZLES["quiptic-1391"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Extracts what’s allowed between bridge opponents? (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "ELICITS",
    "annotation": {
@@ -179,9 +170,6 @@ window.CRYPTIC_PUZZLES["quiptic-1391"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Excellent meals with bite, possibly (9)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "ESTIMABLE",
    "annotation": {
@@ -215,9 +203,6 @@ window.CRYPTIC_PUZZLES["quiptic-1391"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Surrounded by low light, loves to snog (8)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "CANOODLE",
    "annotation": {
@@ -258,9 +243,6 @@ window.CRYPTIC_PUZZLES["quiptic-1391"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "I bat first – training at school brought in single run (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "OPENER",
    "annotation": {
@@ -307,9 +289,6 @@ window.CRYPTIC_PUZZLES["quiptic-1391"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Striker in soccer game? (5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "MATCH",
    "annotation": {
@@ -346,9 +325,6 @@ window.CRYPTIC_PUZZLES["quiptic-1391"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Hurried up, supported by judge, to tell story (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "NARRATE",
    "annotation": {
@@ -395,9 +371,6 @@ window.CRYPTIC_PUZZLES["quiptic-1391"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Rely on army demo to spoil computer data (4-4,6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -438,9 +411,6 @@ window.CRYPTIC_PUZZLES["quiptic-1391"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Life perturbed sixteen attending church (9)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "EXISTENCE",
    "annotation": {
@@ -487,9 +457,6 @@ window.CRYPTIC_PUZZLES["quiptic-1391"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "In the Bible, you will accept King or triumvirate (5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "THREE",
    "annotation": {
@@ -533,9 +500,6 @@ window.CRYPTIC_PUZZLES["quiptic-1391"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Way of speaking I’d associated with Man? (5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "IDIOM",
    "annotation": {
@@ -575,9 +539,6 @@ window.CRYPTIC_PUZZLES["quiptic-1391"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Picked up source of reek entering near the ceiling? (9)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "OVERHEARD",
    "annotation": {
@@ -619,9 +580,6 @@ window.CRYPTIC_PUZZLES["quiptic-1391"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Blunt? Use ‘blunt’ to anagram this answer (8)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "UNSUBTLE",
    "annotation": {
@@ -655,9 +613,6 @@ window.CRYPTIC_PUZZLES["quiptic-1391"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Glum, single fellow losing heart (6)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "SOLEMN",
    "annotation": {
@@ -697,9 +652,6 @@ window.CRYPTIC_PUZZLES["quiptic-1391"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Clear anger shown by daughter – exhausted? (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "OVERTIRED",
    "annotation": {
@@ -745,9 +697,6 @@ window.CRYPTIC_PUZZLES["quiptic-1391"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Puts out? Duke puts Sir out (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "DISRUPTS",
    "annotation": {
@@ -793,9 +742,6 @@ window.CRYPTIC_PUZZLES["quiptic-1391"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "By the sound of it, inclined to interfere in the mix (6)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "MEDLEY",
    "annotation": {
@@ -830,9 +776,6 @@ window.CRYPTIC_PUZZLES["quiptic-1391"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Work as postman? Hated getting up (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "DELIVER",
    "annotation": {
@@ -872,9 +815,6 @@ window.CRYPTIC_PUZZLES["quiptic-1391"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "On fire and sexy, absorbing English writing skill? (8)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "LITERACY",
    "annotation": {
@@ -925,9 +865,6 @@ window.CRYPTIC_PUZZLES["quiptic-1391"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "A Member bringing in friend for quango, for example (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "ACRONYM",
    "annotation": {
@@ -976,9 +913,6 @@ window.CRYPTIC_PUZZLES["quiptic-1391"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Be emotional after promotional item in Church season (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "ADVENT",
    "annotation": {
@@ -1021,9 +955,6 @@ window.CRYPTIC_PUZZLES["quiptic-1391"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Monks requiring long robes, a difficult request (4,5)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -1061,9 +992,6 @@ window.CRYPTIC_PUZZLES["quiptic-1391"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Looks longingly at bit of ginger in battered sole (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "OGLES",
    "annotation": {
@@ -1112,9 +1040,6 @@ window.CRYPTIC_PUZZLES["quiptic-1391"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Short extract from Easter service (5)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "TERSE",
    "annotation": {
@@ -1145,9 +1070,6 @@ window.CRYPTIC_PUZZLES["quiptic-1391"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Flat party needing change of direction at the outset (5)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "LEVEL",
    "annotation": {
@@ -1191,9 +1113,6 @@ window.CRYPTIC_PUZZLES["quiptic-1391"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "No repeats after translating language (9)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "ESPERANTO",
    "annotation": {
@@ -1227,9 +1146,6 @@ window.CRYPTIC_PUZZLES["quiptic-1391"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Vehicle experimenter’s tool wrecked the cars way before misleading move (5-4,5)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     ",": [
      9

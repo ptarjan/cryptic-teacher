@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4127"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Otherwise lying about the French exam (4)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "ORAL",
    "annotation": {
@@ -76,9 +73,6 @@ window.CRYPTIC_PUZZLES["everyman-4127"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Train-users' conveniences: bars containing source of merriment (9)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "RAILCARDS",
    "annotation": {
@@ -122,9 +116,6 @@ window.CRYPTIC_PUZZLES["everyman-4127"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Exhibits floors (4,3)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -163,9 +154,6 @@ window.CRYPTIC_PUZZLES["everyman-4127"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Round houses? (4)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "PUBS",
    "annotation": {
@@ -199,9 +187,6 @@ window.CRYPTIC_PUZZLES["everyman-4127"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Boat 21 (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "PONTOON",
    "annotation": {
@@ -236,9 +221,6 @@ window.CRYPTIC_PUZZLES["everyman-4127"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Acronymic bargain offering, gratis, other fare? (5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "BOGOF",
    "annotation": {
@@ -279,9 +261,6 @@ window.CRYPTIC_PUZZLES["everyman-4127"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Australian engages in deep thought; causes hilarity (6)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "AMUSES",
    "annotation": {
@@ -319,9 +298,6 @@ window.CRYPTIC_PUZZLES["everyman-4127"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Besides a balloon (2,4)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -363,9 +339,6 @@ window.CRYPTIC_PUZZLES["everyman-4127"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Detective's helper having gang sign; family's worried (10,5)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {
     ",": [
      10
@@ -409,9 +382,6 @@ window.CRYPTIC_PUZZLES["everyman-4127"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Spicy mix: Frenchmen embraced by Australians: sadly, tabloid up for describing them? (5,6)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -485,9 +455,6 @@ window.CRYPTIC_PUZZLES["everyman-4127"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Dancer crashed a van twice; Opel (not electric) (4,7)",
-   "group": [
-    "10-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -537,9 +504,6 @@ window.CRYPTIC_PUZZLES["everyman-4127"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Gentleman, wanting company, reflected: It brings warmth (7)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "SIROCCO",
    "annotation": {
@@ -592,9 +556,6 @@ window.CRYPTIC_PUZZLES["everyman-4127"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Crime of stolen goods' receiver (7)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "OFFENCE",
    "annotation": {
@@ -632,9 +593,6 @@ window.CRYPTIC_PUZZLES["everyman-4127"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Airman sat about: he was once good, they say (9)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "SAMARITAN",
    "annotation": {
@@ -672,9 +630,6 @@ window.CRYPTIC_PUZZLES["everyman-4127"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "High state and somewhat saturnine pallor (5)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "NEPAL",
    "annotation": {
@@ -711,9 +666,6 @@ window.CRYPTIC_PUZZLES["everyman-4127"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Daft analogist's rose-tinted view (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "NOSTALGIA",
    "annotation": {
@@ -753,9 +705,6 @@ window.CRYPTIC_PUZZLES["everyman-4127"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Collect collection of glam assistants (5)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "AMASS",
    "annotation": {
@@ -789,9 +738,6 @@ window.CRYPTIC_PUZZLES["everyman-4127"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Back up donkey in pole position? (6)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "ASSIST",
    "annotation": {
@@ -834,9 +780,6 @@ window.CRYPTIC_PUZZLES["everyman-4127"] = /*JSON-START*/ {
      14,
      6
     ]
-   ],
-   "group": [
-    "16-across"
    ],
    "separatorLocations": {
     ",": [
@@ -892,9 +835,6 @@ window.CRYPTIC_PUZZLES["everyman-4127"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Adult joke, curt oath, good to recall (5-2)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -955,9 +895,6 @@ window.CRYPTIC_PUZZLES["everyman-4127"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "For fun, circle that guy that's eaten pasty up (2,1,4)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -1019,9 +956,6 @@ window.CRYPTIC_PUZZLES["everyman-4127"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Confront second attempt at exam about Sweden (6)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "RESIST",
    "annotation": {
@@ -1065,9 +999,6 @@ window.CRYPTIC_PUZZLES["everyman-4127"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Scratching backsides of stain, low-quality bathroom product (7)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "SHAMPOO",
    "annotation": {
@@ -1116,9 +1047,6 @@ window.CRYPTIC_PUZZLES["everyman-4127"] = /*JSON-START*/ {
      12
     ]
    ],
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "PIECE",
    "annotation": {
@@ -1153,9 +1081,6 @@ window.CRYPTIC_PUZZLES["everyman-4127"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Confronted with a puzzle - for no monetary gain (2,1,4)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -1195,9 +1120,6 @@ window.CRYPTIC_PUZZLES["everyman-4127"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Small, almost bald, with dignity regularly stripped, that man: tell-tale treacherer (5,2,3,5)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     ",": [
      5,
@@ -1266,9 +1188,6 @@ window.CRYPTIC_PUZZLES["everyman-4127"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Small - minimal amount of money - sob! (4)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "WEEP",
    "annotation": {
@@ -1306,9 +1225,6 @@ window.CRYPTIC_PUZZLES["everyman-4127"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Stingy Everyman starts to audit nibbles (4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "MEAN",
    "annotation": {

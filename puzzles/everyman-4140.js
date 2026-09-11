@@ -31,9 +31,6 @@ window.CRYPTIC_PUZZLES["everyman-4140"] = /*JSON-START*/ {
      20
     ]
    ],
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      5,
@@ -75,9 +72,6 @@ window.CRYPTIC_PUZZLES["everyman-4140"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Pulls studious type up (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "TOWS",
    "annotation": {
@@ -120,9 +114,6 @@ window.CRYPTIC_PUZZLES["everyman-4140"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Family with daughter that's a strain (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "KIND",
    "annotation": {
@@ -163,9 +154,6 @@ window.CRYPTIC_PUZZLES["everyman-4140"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "In the event that old monarch given black and silver luggage item ... (11)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "SHOULDERBAG",
    "annotation": {
@@ -217,9 +205,6 @@ window.CRYPTIC_PUZZLES["everyman-4140"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Tales ordinarily long, scribe telling of yore, primarily? (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "TOLSTOY",
    "annotation": {
@@ -267,9 +252,6 @@ window.CRYPTIC_PUZZLES["everyman-4140"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Leaves sun in spaceships (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "ROCKETS",
    "annotation": {
@@ -309,9 +291,6 @@ window.CRYPTIC_PUZZLES["everyman-4140"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Group using sample of Pablo Casals (4)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "BLOC",
    "annotation": {
@@ -348,9 +327,6 @@ window.CRYPTIC_PUZZLES["everyman-4140"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Seen her old fancy man's attire (10)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "LEDERHOSEN",
    "annotation": {
@@ -387,9 +363,6 @@ window.CRYPTIC_PUZZLES["everyman-4140"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Dupe taking wings off used car that's seen better days: bless! (10)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "CONSECRATE",
    "annotation": {
@@ -438,9 +411,6 @@ window.CRYPTIC_PUZZLES["everyman-4140"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Drinks time: company kicked back during lock-in we arranged (4,1'5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -507,9 +477,6 @@ window.CRYPTIC_PUZZLES["everyman-4140"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Mythical figure: sculptor's forgotten head (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "ODIN",
    "annotation": {
@@ -551,9 +518,6 @@ window.CRYPTIC_PUZZLES["everyman-4140"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Fashionable type puts on blanket, nosebag etc? (7,5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -594,9 +558,6 @@ window.CRYPTIC_PUZZLES["everyman-4140"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Spooner's spoken of thickset yokel's sporting equipment (6,5)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -651,9 +612,6 @@ window.CRYPTIC_PUZZLES["everyman-4140"] = /*JSON-START*/ {
      6
     ]
    ],
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "BREADCRUMB",
    "annotation": {
@@ -690,9 +648,6 @@ window.CRYPTIC_PUZZLES["everyman-4140"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "E European crypts in which people get high (4,6)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -734,9 +689,6 @@ window.CRYPTIC_PUZZLES["everyman-4140"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Pooh's friend Kanga (to begin with) and Eeyore regularly muddled in bird's home (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "ROOKERY",
    "annotation": {
@@ -795,9 +747,6 @@ window.CRYPTIC_PUZZLES["everyman-4140"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Comfort from a mug, reportedly (7)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "SUCCOUR",
    "annotation": {
@@ -835,9 +784,6 @@ window.CRYPTIC_PUZZLES["everyman-4140"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Grimacer bickering, somewhat bitter (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "ACERBIC",
    "annotation": {
@@ -871,9 +817,6 @@ window.CRYPTIC_PUZZLES["everyman-4140"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "You can get butter from one person that's mad on hot drink, did you say? (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "COCONUT",
    "annotation": {
@@ -917,9 +860,6 @@ window.CRYPTIC_PUZZLES["everyman-4140"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Quietly take exception to gift (7)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "PRESENT",
    "annotation": {
@@ -956,9 +896,6 @@ window.CRYPTIC_PUZZLES["everyman-4140"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Date, such as 31st is to 30th (4-3)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -996,9 +933,6 @@ window.CRYPTIC_PUZZLES["everyman-4140"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Not much dough: part of meal to take different direction (6,6)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -1042,9 +976,6 @@ window.CRYPTIC_PUZZLES["everyman-4140"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "A short-lived pleasure, Everyman's beginning to decline (4)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "FADE",
    "annotation": {
@@ -1090,9 +1021,6 @@ window.CRYPTIC_PUZZLES["everyman-4140"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Run into rain that's upside-down (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "MEET",
    "annotation": {
@@ -1138,9 +1066,6 @@ window.CRYPTIC_PUZZLES["everyman-4140"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Unattractive on the outside, underling and lackey (4)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "UGLY",
    "annotation": {
@@ -1183,9 +1108,6 @@ window.CRYPTIC_PUZZLES["everyman-4140"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Supply excitation? (10)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "INTOXICATE",
    "annotation": {
@@ -1222,9 +1144,6 @@ window.CRYPTIC_PUZZLES["everyman-4140"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Shatter sculpture (4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "BUST",
    "annotation": {
@@ -1258,9 +1177,6 @@ window.CRYPTIC_PUZZLES["everyman-4140"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "See skirt at resort that's most in need of a clean (10)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "STREAKIEST",
    "annotation": {

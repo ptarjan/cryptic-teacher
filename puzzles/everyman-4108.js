@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4108"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "At home, looked after child, one practised in being greedy (10)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "INSATIABLE",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["everyman-4108"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Idlers play vacuous game (1-3)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     "-": [
      1
@@ -63,9 +57,6 @@ window.CRYPTIC_PUZZLES["everyman-4108"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Hauls up teacher's pet (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "SWOT",
    "annotation": null
@@ -80,9 +71,6 @@ window.CRYPTIC_PUZZLES["everyman-4108"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Royal High let out sought-after silverware (3,4,5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -102,9 +90,6 @@ window.CRYPTIC_PUZZLES["everyman-4108"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Naked, vast rider atop horse like so (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "ASTRIDE",
    "annotation": null
@@ -119,9 +104,6 @@ window.CRYPTIC_PUZZLES["everyman-4108"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Sign with frustrated announcement posted up that suits acrobat (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "LEOTARD",
    "annotation": null
@@ -136,9 +118,6 @@ window.CRYPTIC_PUZZLES["everyman-4108"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Regularly outspends - what's new? - the reverse (4)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "USED",
    "annotation": null
@@ -153,9 +132,6 @@ window.CRYPTIC_PUZZLES["everyman-4108"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Unfashionable origin of itself, for one? (6,4)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -174,9 +150,6 @@ window.CRYPTIC_PUZZLES["everyman-4108"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "DIYer uses these ... these studs for reparation (4,6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -195,9 +168,6 @@ window.CRYPTIC_PUZZLES["everyman-4108"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Seeing yourself in others, as happens in cinema (10)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "PROJECTION",
    "annotation": null
@@ -212,9 +182,6 @@ window.CRYPTIC_PUZZLES["everyman-4108"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Taps' defects (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "BUGS",
    "annotation": null
@@ -229,9 +196,6 @@ window.CRYPTIC_PUZZLES["everyman-4108"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Delivery notification from armourer in Meg Ryan film (5,3,4)",
-   "group": [
-    "11-down"
-   ],
    "separatorLocations": {
     ",": [
      5,
@@ -251,9 +215,6 @@ window.CRYPTIC_PUZZLES["everyman-4108"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Where rappers may make for happy mediums? (5,6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -272,9 +233,6 @@ window.CRYPTIC_PUZZLES["everyman-4108"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Gaga, soused, pickled: your 'best friend', perhaps! (7,3)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -293,9 +251,6 @@ window.CRYPTIC_PUZZLES["everyman-4108"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Cry about blokeish humour while cycling to university city (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "CANTERBURY",
    "annotation": null
@@ -310,9 +265,6 @@ window.CRYPTIC_PUZZLES["everyman-4108"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "'Don't trust Ms Karenina' said study (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "ANALYSE",
    "annotation": null
@@ -327,9 +279,6 @@ window.CRYPTIC_PUZZLES["everyman-4108"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Sundry seabirds skinned eel (7)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "DIVERSE",
    "annotation": null
@@ -344,9 +293,6 @@ window.CRYPTIC_PUZZLES["everyman-4108"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Touring, endlessly airsick: T Swift described as such (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "SATIRIC",
    "annotation": null
@@ -361,9 +307,6 @@ window.CRYPTIC_PUZZLES["everyman-4108"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Creature; equine netherwards, then Adamite upper region, primarily? (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "CENTAUR",
    "annotation": null
@@ -378,9 +321,6 @@ window.CRYPTIC_PUZZLES["everyman-4108"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Spouting madly, forgets name and and scoffs freely (4,3)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -399,9 +339,6 @@ window.CRYPTIC_PUZZLES["everyman-4108"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Some HP ink - gingerly, might you drink it? (4,3)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -420,9 +357,6 @@ window.CRYPTIC_PUZZLES["everyman-4108"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Tornado king condemned as 'unsolvable problem' (7,4)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -441,9 +375,6 @@ window.CRYPTIC_PUZZLES["everyman-4108"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Everyman given tips in amateur theatre, being a ham? (4)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "MEAT",
    "annotation": null
@@ -458,9 +389,6 @@ window.CRYPTIC_PUZZLES["everyman-4108"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Burn most of leafy green vegetable (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "CHAR",
    "annotation": null
@@ -475,9 +403,6 @@ window.CRYPTIC_PUZZLES["everyman-4108"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Instrument found at end of canal? (4)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "DRUM",
    "annotation": null
@@ -492,9 +417,6 @@ window.CRYPTIC_PUZZLES["everyman-4108"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Commercial plugging bracelet and pipe down in S Asian state (10)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "BANGLADESH",
    "annotation": null
@@ -509,9 +431,6 @@ window.CRYPTIC_PUZZLES["everyman-4108"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Pretence detectable by auditor, chaps (4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "GUYS",
    "annotation": null
@@ -526,9 +445,6 @@ window.CRYPTIC_PUZZLES["everyman-4108"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "One whose work might be a ... travail? (10)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "TRANSLATOR",
    "annotation": null

@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12379"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Film with endless sex due for distribution having received approval (4,4,4)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -47,9 +44,6 @@ window.CRYPTIC_PUZZLES["independent-12379"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "French article supports being less variable in style (7)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "ENTITLE",
    "annotation": null
@@ -64,9 +58,6 @@ window.CRYPTIC_PUZZLES["independent-12379"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Serious composer imprisoned in Estonia (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "EARNEST",
    "annotation": null
@@ -81,9 +72,6 @@ window.CRYPTIC_PUZZLES["independent-12379"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "A silly place to grow plants? (6,3)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -102,9 +90,6 @@ window.CRYPTIC_PUZZLES["independent-12379"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Bash a drug supplier (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "DOPER",
    "annotation": null
@@ -119,9 +104,6 @@ window.CRYPTIC_PUZZLES["independent-12379"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Italian composer unsettled by Israeli (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "SALIERI",
    "annotation": null
@@ -136,9 +118,6 @@ window.CRYPTIC_PUZZLES["independent-12379"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "What's described by Uyghur ode? Large amphibians (7)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "URODELA",
    "annotation": null
@@ -153,9 +132,6 @@ window.CRYPTIC_PUZZLES["independent-12379"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "A cook involved in cooking halal food gets very agitated (3,2,1,6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -176,9 +152,6 @@ window.CRYPTIC_PUZZLES["independent-12379"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Not now an official papal residence? It was once (7)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {},
    "solution": "LATERAN",
    "annotation": null
@@ -193,9 +166,6 @@ window.CRYPTIC_PUZZLES["independent-12379"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Stop by the side of the road to pick up old females (4,3)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -214,9 +184,6 @@ window.CRYPTIC_PUZZLES["independent-12379"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Fretful ones touch food items finally (12)",
-   "group": [
-    "10-down"
-   ],
    "separatorLocations": {},
    "solution": "FINGERBOARDS",
    "annotation": null
@@ -231,9 +198,6 @@ window.CRYPTIC_PUZZLES["independent-12379"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Busy pair going round North, say (2,3,2)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -253,9 +217,6 @@ window.CRYPTIC_PUZZLES["independent-12379"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Heartless theatrical princess keeps dictionary in school (7)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "ROEDEAN",
    "annotation": null
@@ -270,9 +231,6 @@ window.CRYPTIC_PUZZLES["independent-12379"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "I spy a toff (5)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "AGENT",
    "annotation": null
@@ -287,9 +245,6 @@ window.CRYPTIC_PUZZLES["independent-12379"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Maybe Ruth will take your family to see Captain Traoré? (9)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "BURKINABE",
    "annotation": null
@@ -304,9 +259,6 @@ window.CRYPTIC_PUZZLES["independent-12379"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "God! An idiot's triggered a nuclear hazard (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "RADIATION",
    "annotation": null
@@ -321,9 +273,6 @@ window.CRYPTIC_PUZZLES["independent-12379"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Love poetry for adults only – news boss in need of a lot of it (9)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "OVERSEXED",
    "annotation": null
@@ -338,9 +287,6 @@ window.CRYPTIC_PUZZLES["independent-12379"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Enthusiastic tributes come in a wave (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "ENCOMIA",
    "annotation": null
@@ -355,9 +301,6 @@ window.CRYPTIC_PUZZLES["independent-12379"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Tot's feet caught in flipping straps (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "SNIFTER",
    "annotation": null
@@ -372,9 +315,6 @@ window.CRYPTIC_PUZZLES["independent-12379"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "In essence, Le Bon is a star (5)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "CELEB",
    "annotation": null
@@ -389,9 +329,6 @@ window.CRYPTIC_PUZZLES["independent-12379"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Companion book from France about French parsley (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "CHERVIL",
    "annotation": null
@@ -406,9 +343,6 @@ window.CRYPTIC_PUZZLES["independent-12379"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Without help, left deeply incapacitated by illness (4,3)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -427,9 +361,6 @@ window.CRYPTIC_PUZZLES["independent-12379"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Drop in business after Christmas period (7)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "DECLINE",
    "annotation": null
@@ -444,9 +375,6 @@ window.CRYPTIC_PUZZLES["independent-12379"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Memory of online concert (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "EPROM",
    "annotation": null
@@ -461,9 +389,6 @@ window.CRYPTIC_PUZZLES["independent-12379"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Country girl in pursuit of a male (7)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "AMERICA",
    "annotation": null
@@ -478,9 +403,6 @@ window.CRYPTIC_PUZZLES["independent-12379"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Modern woman nursing broken heart? Quite the reverse, pet (7)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "HAMSTER",
    "annotation": null
@@ -495,9 +417,6 @@ window.CRYPTIC_PUZZLES["independent-12379"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Disabled and unsound (7)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "INVALID",
    "annotation": null
@@ -512,9 +431,6 @@ window.CRYPTIC_PUZZLES["independent-12379"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Bloke in library performing with pained expression – not the critics' choice? (5,7)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {
     ",": [
      5

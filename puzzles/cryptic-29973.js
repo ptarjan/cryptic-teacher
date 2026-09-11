@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29973"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "It’s uttered very briefly on weird social media, initially (8)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "VOCALISM",
    "annotation": {
@@ -90,9 +87,6 @@ window.CRYPTIC_PUZZLES["cryptic-29973"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Eye problem from middle of last year (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "STYE",
    "annotation": {
@@ -133,9 +127,6 @@ window.CRYPTIC_PUZZLES["cryptic-29973"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Seaweed gourmet ultimately put on fish (6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "TANGLE",
    "annotation": {
@@ -181,9 +172,6 @@ window.CRYPTIC_PUZZLES["cryptic-29973"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Problem pupil stimulated in a communal meeting (8)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "ABSENTEE",
    "annotation": {
@@ -228,9 +216,6 @@ window.CRYPTIC_PUZZLES["cryptic-29973"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Radicals assuming rising changes image (10)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "FIREBRANDS",
    "annotation": {
@@ -280,9 +265,6 @@ window.CRYPTIC_PUZZLES["cryptic-29973"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Wide open spaces since found, after a journey over river (6)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "AGORAS",
    "annotation": {
@@ -340,9 +322,6 @@ window.CRYPTIC_PUZZLES["cryptic-29973"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Make short counterargument with pamphlet (8)",
-   "group": [
-    "7-across"
-   ],
    "separatorLocations": {},
    "solution": "CONTRACT",
    "annotation": {
@@ -384,9 +363,6 @@ window.CRYPTIC_PUZZLES["cryptic-29973"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Subject embracing monarch in global circle (6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "TROPIC",
    "annotation": {
@@ -434,9 +410,6 @@ window.CRYPTIC_PUZZLES["cryptic-29973"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Part of ship that crosses river, often (6)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "BRIDGE",
    "annotation": {
@@ -472,9 +445,6 @@ window.CRYPTIC_PUZZLES["cryptic-29973"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Cold primate in sleeveless cloak (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "CAPE",
    "annotation": {
@@ -516,9 +486,6 @@ window.CRYPTIC_PUZZLES["cryptic-29973"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Kind of fool whose company isn’t wanted? (10)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "GOOSEBERRY",
    "annotation": {
@@ -554,9 +521,6 @@ window.CRYPTIC_PUZZLES["cryptic-29973"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "In some clues, I’m pleasantly straightforward (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "SIMPLE",
    "annotation": {
@@ -591,9 +555,6 @@ window.CRYPTIC_PUZZLES["cryptic-29973"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "What helps reproduce stock, say? Pet bull one redeployed (6,4)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -635,9 +596,6 @@ window.CRYPTIC_PUZZLES["cryptic-29973"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Present setter’s anagram to intrigue (8)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "INTEREST",
    "annotation": {
@@ -683,9 +641,6 @@ window.CRYPTIC_PUZZLES["cryptic-29973"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Poet’s one line in masculine style (6)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "MILTON",
    "annotation": {
@@ -744,9 +699,6 @@ window.CRYPTIC_PUZZLES["cryptic-29973"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Supplier of drug mostly impounded, destroyed (5,3)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -790,9 +742,6 @@ window.CRYPTIC_PUZZLES["cryptic-29973"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Economist making crucial point inconclusively (6)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "KEYNES",
    "annotation": {
@@ -839,9 +788,6 @@ window.CRYPTIC_PUZZLES["cryptic-29973"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Relinquish or keep subscribing? (4,4)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -884,9 +830,6 @@ window.CRYPTIC_PUZZLES["cryptic-29973"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Free traitor imprisoned by US troops (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "GRATIS",
    "annotation": {
@@ -931,9 +874,6 @@ window.CRYPTIC_PUZZLES["cryptic-29973"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Private put in grave situation backed foreign ruler (8)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "INTERIOR",
    "annotation": {
@@ -983,9 +923,6 @@ window.CRYPTIC_PUZZLES["cryptic-29973"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "New missile limited in scope (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "NARROW",
    "annotation": {
@@ -1024,9 +961,6 @@ window.CRYPTIC_PUZZLES["cryptic-29973"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Reluctantly agree about son’s intention (6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "DESIGN",
    "annotation": {
@@ -1074,9 +1008,6 @@ window.CRYPTIC_PUZZLES["cryptic-29973"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Richard’s pronouncement on corporation, statement of principle (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "DICTUM",
    "annotation": {
@@ -1124,9 +1055,6 @@ window.CRYPTIC_PUZZLES["cryptic-29973"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Thing reversed in chart I revised as piece of mathematics (10)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "ARITHMETIC",
    "annotation": {
@@ -1190,9 +1118,6 @@ window.CRYPTIC_PUZZLES["cryptic-29973"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Humble soldiers protecting area (4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "MEAN",
    "annotation": {
@@ -1237,9 +1162,6 @@ window.CRYPTIC_PUZZLES["cryptic-29973"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "These days, rarely fit for sports event (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "MEET",
    "annotation": {
@@ -1278,9 +1200,6 @@ window.CRYPTIC_PUZZLES["cryptic-29973"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Stand-in to make score of ten, say (6)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "DOUBLE",
    "annotation": {
@@ -1319,9 +1238,6 @@ window.CRYPTIC_PUZZLES["cryptic-29973"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Something used by cooks in USA – pecan nuts (8)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "SAUCEPAN",
    "annotation": {

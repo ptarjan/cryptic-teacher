@@ -24,9 +24,6 @@ window.CRYPTIC_PUZZLES["cryptic-30072"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Accompanied by star, left behind with knowledge of Glasgow sports venue (10,4)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      10
@@ -81,9 +78,6 @@ window.CRYPTIC_PUZZLES["cryptic-30072"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Charles and his mum in dust-up about constant sleazy activity (4,8)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -141,9 +135,6 @@ window.CRYPTIC_PUZZLES["cryptic-30072"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Water nymph transformed by Diana (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "NAIAD",
    "annotation": {
@@ -176,9 +167,6 @@ window.CRYPTIC_PUZZLES["cryptic-30072"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Mostly where soldiers are trained to place their trust (2,7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -216,9 +204,6 @@ window.CRYPTIC_PUZZLES["cryptic-30072"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Harsh and unscrupulous activity, seizing racy tapes (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "GESTAPO",
    "annotation": {
@@ -266,9 +251,6 @@ window.CRYPTIC_PUZZLES["cryptic-30072"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Awfully sick after leaving new soup kitchen, getting better (2,3,2)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -313,9 +295,6 @@ window.CRYPTIC_PUZZLES["cryptic-30072"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Start rolling the cameras here (5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "ONSET",
    "annotation": {
@@ -349,9 +328,6 @@ window.CRYPTIC_PUZZLES["cryptic-30072"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Notices surrounding hip-hop doctor’s name on envelope (9)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "ADDRESSEE",
    "annotation": {
@@ -396,9 +372,6 @@ window.CRYPTIC_PUZZLES["cryptic-30072"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Regretful of £1000 deposited after bankruptcy (5)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {},
    "solution": "RUING",
    "annotation": {
@@ -438,9 +411,6 @@ window.CRYPTIC_PUZZLES["cryptic-30072"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Discarded top class team (3-5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -481,9 +451,6 @@ window.CRYPTIC_PUZZLES["cryptic-30072"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Sorcerer welcomes assistance getting diplomat initial crossing? (6,6)",
-   "group": [
-    "10-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -536,9 +503,6 @@ window.CRYPTIC_PUZZLES["cryptic-30072"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Solo turn by crossword guru touring centre of 1ac? (7)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "CADENZA",
    "annotation": {
@@ -594,9 +558,6 @@ window.CRYPTIC_PUZZLES["cryptic-30072"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Maximum and minimum values taken out of context, remarkably (7)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "EXTREMA",
    "annotation": {
@@ -626,9 +587,6 @@ window.CRYPTIC_PUZZLES["cryptic-30072"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Change location of union meeting in telephone call? (5)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "ALTER",
    "annotation": {
@@ -659,9 +617,6 @@ window.CRYPTIC_PUZZLES["cryptic-30072"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Actor suggesting a spot of 1dn? (3,6)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -705,9 +660,6 @@ window.CRYPTIC_PUZZLES["cryptic-30072"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Under a great burden, Ms Viner perhaps, with work (9)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "OPPRESSED",
    "annotation": {
@@ -744,9 +696,6 @@ window.CRYPTIC_PUZZLES["cryptic-30072"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Sort of alpine act a daring climb? (2,7)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -783,9 +732,6 @@ window.CRYPTIC_PUZZLES["cryptic-30072"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "An essential for burner of midnight oil hit spot (9)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "LAMPLIGHT",
    "annotation": {
@@ -822,9 +768,6 @@ window.CRYPTIC_PUZZLES["cryptic-30072"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "It’s a bit gluey getting up on a cycle (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "GELATIN",
    "annotation": {
@@ -857,9 +800,6 @@ window.CRYPTIC_PUZZLES["cryptic-30072"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Old drunkard beats wino up (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "TOSSPOT",
    "annotation": {
@@ -908,9 +848,6 @@ window.CRYPTIC_PUZZLES["cryptic-30072"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Guiltless about Jack Sprat’s diet, it’s implied (5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "CLEAN",
    "annotation": {
@@ -947,9 +884,6 @@ window.CRYPTIC_PUZZLES["cryptic-30072"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Arctic resident worked in retirement with supercomputer (7)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "NARWHAL",
    "annotation": {
@@ -1000,9 +934,6 @@ window.CRYPTIC_PUZZLES["cryptic-30072"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Spurs are improving, reportedly (still in need of work) (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "HEELS",
    "annotation": {
@@ -1038,9 +969,6 @@ window.CRYPTIC_PUZZLES["cryptic-30072"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Cheese production initially stops its run (7)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "SAPSAGO",
    "annotation": {
@@ -1087,9 +1015,6 @@ window.CRYPTIC_PUZZLES["cryptic-30072"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Friend is one shot (5)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "AMIGO",
    "annotation": {
@@ -1132,9 +1057,6 @@ window.CRYPTIC_PUZZLES["cryptic-30072"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Dodge section that is recording (8)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "SIDESTEP",
    "annotation": {
@@ -1177,9 +1099,6 @@ window.CRYPTIC_PUZZLES["cryptic-30072"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Forest dweller there – fearfully symmetrical, according to recital (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "TAIGA",
    "annotation": {
@@ -1210,9 +1129,6 @@ window.CRYPTIC_PUZZLES["cryptic-30072"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Planet’s reporter takes chorus on leave, on the way to the Proms? (10,4)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     ",": [
      10

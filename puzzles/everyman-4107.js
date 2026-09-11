@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4107"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Desert's imperfection (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "DEFECT",
    "annotation": {
@@ -65,9 +62,6 @@ window.CRYPTIC_PUZZLES["everyman-4107"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Feature cryptic depiction of toast? (6,4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -109,9 +103,6 @@ window.CRYPTIC_PUZZLES["everyman-4107"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Succeeds - where Chair-O-Planes are seen - to be heard (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "FARES",
    "annotation": {
@@ -147,9 +138,6 @@ window.CRYPTIC_PUZZLES["everyman-4107"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Embody spirit of BBC2? (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "CHANNEL",
    "annotation": {
@@ -184,9 +172,6 @@ window.CRYPTIC_PUZZLES["everyman-4107"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Young woman clasped by topless emotional agent (8)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "EMISSARY",
    "annotation": {
@@ -233,9 +218,6 @@ window.CRYPTIC_PUZZLES["everyman-4107"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Is his the finest of Renaissance art? It's up there (12)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "MICHELANGELO",
    "annotation": {
@@ -267,9 +249,6 @@ window.CRYPTIC_PUZZLES["everyman-4107"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "That woman will account for varnish (7)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "SHELLAC",
    "annotation": {
@@ -316,9 +295,6 @@ window.CRYPTIC_PUZZLES["everyman-4107"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "All holy books giving people time, room to grow (9)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "ALLOTMENT",
    "annotation": {
@@ -371,9 +347,6 @@ window.CRYPTIC_PUZZLES["everyman-4107"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Pull one across the pond (4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "YANK",
    "annotation": {
@@ -408,9 +381,6 @@ window.CRYPTIC_PUZZLES["everyman-4107"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "In audition, roll out fairytale (6)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "UNREAL",
    "annotation": {
@@ -447,9 +417,6 @@ window.CRYPTIC_PUZZLES["everyman-4107"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Master of Ceremonies: 'Kneel, trembling, left enthralled' ... and this actor is knighted (8)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "MCKELLEN",
    "annotation": {
@@ -511,9 +478,6 @@ window.CRYPTIC_PUZZLES["everyman-4107"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Stifle Kenyan with review that's cutting (7,5)",
-   "group": [
-    "11-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -559,9 +523,6 @@ window.CRYPTIC_PUZZLES["everyman-4107"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Going crazy, like the 7d user growing only weeds? (6,3,4)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     ",": [
      6,
@@ -601,9 +562,6 @@ window.CRYPTIC_PUZZLES["everyman-4107"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Consumes, in the north, the headless fish where it was caught? (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "DOWNSTREAM",
    "annotation": {
@@ -653,9 +611,6 @@ window.CRYPTIC_PUZZLES["everyman-4107"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Liberal to oust technocrat finally in stunned state, part of Iberia (9)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "CATALONIA",
    "annotation": {
@@ -710,9 +665,6 @@ window.CRYPTIC_PUZZLES["everyman-4107"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Carried by Qantas, man's eastbound - here? (6,3)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -751,9 +703,6 @@ window.CRYPTIC_PUZZLES["everyman-4107"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "About right: song of praise withdrawing beliefs (5)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "CREDO",
    "annotation": {
@@ -810,9 +759,6 @@ window.CRYPTIC_PUZZLES["everyman-4107"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Playwright's uncomfortable condition, 'vacuous' Elton (5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "IBSEN",
    "annotation": {
@@ -859,9 +805,6 @@ window.CRYPTIC_PUZZLES["everyman-4107"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Fully in flames; declare void (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "NULLIFY",
    "annotation": {
@@ -899,9 +842,6 @@ window.CRYPTIC_PUZZLES["everyman-4107"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Absent dog recovered where many balls thrown (9)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "EDGBASTON",
    "annotation": {
@@ -939,9 +879,6 @@ window.CRYPTIC_PUZZLES["everyman-4107"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Integral of triangle, say? (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "ANAGRAM",
    "annotation": {
@@ -973,9 +910,6 @@ window.CRYPTIC_PUZZLES["everyman-4107"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Following Restoration, loyalist - sneak, probably (2,6,2,3)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -1019,9 +953,6 @@ window.CRYPTIC_PUZZLES["everyman-4107"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "In the Pyrenees, the swan rises finding mountainous land (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "NEPAL",
    "annotation": {
@@ -1074,9 +1005,6 @@ window.CRYPTIC_PUZZLES["everyman-4107"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Someone in Kachera - holy, primarily? (4)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "SIKH",
    "annotation": {
@@ -1132,9 +1060,6 @@ window.CRYPTIC_PUZZLES["everyman-4107"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Encourage - not entirely - with tech that's not actually there (2,6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -1185,9 +1110,6 @@ window.CRYPTIC_PUZZLES["everyman-4107"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Cold drink? Fine. 'Ice T', perhaps? Not quite (6)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "FRAPPE",
    "annotation": {
@@ -1231,9 +1153,6 @@ window.CRYPTIC_PUZZLES["everyman-4107"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Stocky Yves suffering in high temperature (5-3)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -1290,9 +1209,6 @@ window.CRYPTIC_PUZZLES["everyman-4107"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Sign Everyman's backsliding twice, defending bull regularly (6)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "EMBLEM",
    "annotation": {

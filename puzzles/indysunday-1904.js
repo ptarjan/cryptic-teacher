@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1904"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Band tour on back of success on-line? (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "STRIPE",
    "annotation": {
@@ -76,9 +73,6 @@ window.CRYPTIC_PUZZLES["indysunday-1904"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Break crockery up (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "STOP",
    "annotation": {
@@ -121,9 +115,6 @@ window.CRYPTIC_PUZZLES["indysunday-1904"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Those stopping football and cricket desist (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "REFRAIN",
    "annotation": {
@@ -161,9 +152,6 @@ window.CRYPTIC_PUZZLES["indysunday-1904"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Maybe Labour overturned Liberal legislation's divisive feature (5,4)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -224,9 +212,6 @@ window.CRYPTIC_PUZZLES["indysunday-1904"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Propose splitting amount that's coughed up (6)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "SPUTUM",
    "annotation": {
@@ -270,9 +255,6 @@ window.CRYPTIC_PUZZLES["indysunday-1904"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Advice from below about where to fix rope (5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "PITON",
    "annotation": {
@@ -321,9 +303,6 @@ window.CRYPTIC_PUZZLES["indysunday-1904"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Stretched nurses down for shifts this evening (7)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "TONIGHT",
    "annotation": {
@@ -367,9 +346,6 @@ window.CRYPTIC_PUZZLES["indysunday-1904"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Chief planner furious about M1, forbidding bridges (10)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "MASTERMIND",
    "annotation": {
@@ -422,9 +398,6 @@ window.CRYPTIC_PUZZLES["indysunday-1904"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Drone maybe brought into harbour after power failure (5-4-4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     "-": [
      5,
@@ -479,9 +452,6 @@ window.CRYPTIC_PUZZLES["indysunday-1904"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Sheep anti/pro low cloud (10)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "CONFORMIST",
    "annotation": {
@@ -525,9 +495,6 @@ window.CRYPTIC_PUZZLES["indysunday-1904"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Backing lost for nosy US agency (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "NASA",
    "annotation": {
@@ -572,9 +539,6 @@ window.CRYPTIC_PUZZLES["indysunday-1904"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Gay in Ghent so upset there are no bars (8,4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -615,9 +579,6 @@ window.CRYPTIC_PUZZLES["indysunday-1904"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Shapelessness misrepresented by outlines (10)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {},
    "solution": "NEBULOSITY",
    "annotation": {
@@ -654,9 +615,6 @@ window.CRYPTIC_PUZZLES["indysunday-1904"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Protruding part goddess squeezes back in (6)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "HERNIA",
    "annotation": {
@@ -708,9 +666,6 @@ window.CRYPTIC_PUZZLES["indysunday-1904"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Explosive combat involved great sacrifice (8)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "HECATOMB",
    "annotation": {
@@ -759,9 +714,6 @@ window.CRYPTIC_PUZZLES["indysunday-1904"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Fake tea the French turn brown (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "CHARLATAN",
    "annotation": {
@@ -805,9 +757,6 @@ window.CRYPTIC_PUZZLES["indysunday-1904"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Five plus Burgess, say, turned communist once (8)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "YUGOSLAV",
    "annotation": {
@@ -862,9 +811,6 @@ window.CRYPTIC_PUZZLES["indysunday-1904"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Fuel supply cook uncapped successfully (3,4)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -911,9 +857,6 @@ window.CRYPTIC_PUZZLES["indysunday-1904"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Somewhat peculiar man in expensive clothes (6)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "ARMANI",
    "annotation": {
@@ -947,9 +890,6 @@ window.CRYPTIC_PUZZLES["indysunday-1904"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Building work that near bores old PM (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "MASONRY",
    "annotation": {
@@ -999,9 +939,6 @@ window.CRYPTIC_PUZZLES["indysunday-1904"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Walter fixes shoes for Spooner's runs (12)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "COLLYWOBBLES",
    "annotation": {
@@ -1046,9 +983,6 @@ window.CRYPTIC_PUZZLES["indysunday-1904"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "OK without sealing airlock regularly (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "WILCO",
    "annotation": {
@@ -1094,9 +1028,6 @@ window.CRYPTIC_PUZZLES["indysunday-1904"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Somebody catching cold at any time (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "ONCE",
    "annotation": {
@@ -1140,9 +1071,6 @@ window.CRYPTIC_PUZZLES["indysunday-1904"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Tool store (4)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "FILE",
    "annotation": {
@@ -1177,9 +1105,6 @@ window.CRYPTIC_PUZZLES["indysunday-1904"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "US cop that is blocking tunnel at ground (10)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "LIEUTENANT",
    "annotation": {
@@ -1231,9 +1156,6 @@ window.CRYPTIC_PUZZLES["indysunday-1904"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Cry quietly having dispatched one large lemon? (6)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "YELLOW",
    "annotation": {
@@ -1281,9 +1203,6 @@ window.CRYPTIC_PUZZLES["indysunday-1904"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Stimulating stuff from lead characters in naughty novel, I'm told (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "ENZYME",
    "annotation": {

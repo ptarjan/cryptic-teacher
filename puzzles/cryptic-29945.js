@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29945"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Tip: borstal may be what he needs (6,4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -46,9 +43,6 @@ window.CRYPTIC_PUZZLES["cryptic-29945"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Representation of the USA by pawnbrokers before midday (5,3)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -67,9 +61,6 @@ window.CRYPTIC_PUZZLES["cryptic-29945"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Several folk snorkelling (6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "DIVERS",
    "annotation": null
@@ -84,9 +75,6 @@ window.CRYPTIC_PUZZLES["cryptic-29945"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Australian group is overabundant, we’re told (4)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "INXS",
    "annotation": null
@@ -101,9 +89,6 @@ window.CRYPTIC_PUZZLES["cryptic-29945"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Danger is spoken of in style of radiological machine (3,7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -122,9 +107,6 @@ window.CRYPTIC_PUZZLES["cryptic-29945"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Wholesale trader with Ivory’s film partner (8)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "MERCHANT",
    "annotation": null
@@ -139,9 +121,6 @@ window.CRYPTIC_PUZZLES["cryptic-29945"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Santa likely, initially, to move cautiously on it? (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "SLEDGE",
    "annotation": null
@@ -156,9 +135,6 @@ window.CRYPTIC_PUZZLES["cryptic-29945"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "It’s ours to bear! (4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "ONUS",
    "annotation": null
@@ -173,9 +149,6 @@ window.CRYPTIC_PUZZLES["cryptic-29945"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Old fellow at French guest-house outside of Exeter (9)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "PENSIONER",
    "annotation": null
@@ -190,9 +163,6 @@ window.CRYPTIC_PUZZLES["cryptic-29945"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Somewhat well-endowed woman (5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "ELLEN",
    "annotation": null
@@ -207,9 +177,6 @@ window.CRYPTIC_PUZZLES["cryptic-29945"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Complaint from one head about pupils (7)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "ILLNESS",
    "annotation": null
@@ -224,9 +191,6 @@ window.CRYPTIC_PUZZLES["cryptic-29945"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Short time before new seed withdraws (7)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "SECEDES",
    "annotation": null
@@ -241,9 +205,6 @@ window.CRYPTIC_PUZZLES["cryptic-29945"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Trout-fishing river’s matches (5)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "TESTS",
    "annotation": null
@@ -258,9 +219,6 @@ window.CRYPTIC_PUZZLES["cryptic-29945"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Limeys from a distant place amongst spectators (9)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "SEAFARERS",
    "annotation": null
@@ -275,9 +233,6 @@ window.CRYPTIC_PUZZLES["cryptic-29945"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Flower and photo by fierce type (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "SNAPDRAGON",
    "annotation": null
@@ -292,9 +247,6 @@ window.CRYPTIC_PUZZLES["cryptic-29945"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Dumbfounded there is no address? (10)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "SPEECHLESS",
    "annotation": null
@@ -309,9 +261,6 @@ window.CRYPTIC_PUZZLES["cryptic-29945"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "1964 horror fantasy film of Lazio playing the A.S. team? (4,7,4)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -331,9 +280,6 @@ window.CRYPTIC_PUZZLES["cryptic-29945"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "One no longer believing in a job caused worry (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "APOSTATE",
    "annotation": null
@@ -354,9 +300,6 @@ window.CRYPTIC_PUZZLES["cryptic-29945"] = /*JSON-START*/ {
      14
     ]
    ],
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "OBSERVER",
    "annotation": null
@@ -371,9 +314,6 @@ window.CRYPTIC_PUZZLES["cryptic-29945"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Giant Carmelites, perhaps, too much to expect (4,5)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -392,9 +332,6 @@ window.CRYPTIC_PUZZLES["cryptic-29945"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "General method to establish latitude (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "LEEWAY",
    "annotation": null
@@ -409,9 +346,6 @@ window.CRYPTIC_PUZZLES["cryptic-29945"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Sounds essential but cut short, I see (5)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "MUSIC",
    "annotation": null
@@ -426,9 +360,6 @@ window.CRYPTIC_PUZZLES["cryptic-29945"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Craftsmen for two generations (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "MASONS",
    "annotation": null
@@ -443,9 +374,6 @@ window.CRYPTIC_PUZZLES["cryptic-29945"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "In real trouble, shock treatment for sort of complex (7)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "ELECTRA",
    "annotation": null
@@ -460,9 +388,6 @@ window.CRYPTIC_PUZZLES["cryptic-29945"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Nobleman nearly at the centre (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "EARL",
    "annotation": null
@@ -477,9 +402,6 @@ window.CRYPTIC_PUZZLES["cryptic-29945"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Straw breaking camel’s back, doubly profligate (7)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "WASTREL",
    "annotation": null
@@ -494,9 +416,6 @@ window.CRYPTIC_PUZZLES["cryptic-29945"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Heartless worries! (4)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "WOES",
    "annotation": null
@@ -511,9 +430,6 @@ window.CRYPTIC_PUZZLES["cryptic-29945"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Severely criticize cook (5)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "ROAST",
    "annotation": null
@@ -528,9 +444,6 @@ window.CRYPTIC_PUZZLES["cryptic-29945"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Flowering shrubs from R. E. Dale & Son (9)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "OLEANDERS",
    "annotation": null

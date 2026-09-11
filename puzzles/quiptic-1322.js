@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1322"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Arranged brief sale for stand out art piece (3,6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -46,9 +43,6 @@ window.CRYPTIC_PUZZLES["quiptic-1322"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Forbid alcohol store reportedly providing dessert (7)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "BANOFFI",
    "annotation": null
@@ -63,9 +57,6 @@ window.CRYPTIC_PUZZLES["quiptic-1322"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Extremely shy neurotic he’d got working in harmony (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "SYNCHED",
    "annotation": null
@@ -80,9 +71,6 @@ window.CRYPTIC_PUZZLES["quiptic-1322"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Happy to acquire a short cane that’s expandable (11)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "ELASTICATED",
    "annotation": null
@@ -97,9 +85,6 @@ window.CRYPTIC_PUZZLES["quiptic-1322"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Reverse cuts in listings (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "INDICES",
    "annotation": null
@@ -114,9 +99,6 @@ window.CRYPTIC_PUZZLES["quiptic-1322"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Type of of hose used on trawlers? (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "FISHNET",
    "annotation": null
@@ -131,9 +113,6 @@ window.CRYPTIC_PUZZLES["quiptic-1322"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Admit everyone has pained expression (5)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "ALLOW",
    "annotation": null
@@ -148,9 +127,6 @@ window.CRYPTIC_PUZZLES["quiptic-1322"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Atmosphere occasionally seen in aviary (3)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "AIR",
    "annotation": null
@@ -165,9 +141,6 @@ window.CRYPTIC_PUZZLES["quiptic-1322"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Be open about place being spartan (3,4)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -186,9 +159,6 @@ window.CRYPTIC_PUZZLES["quiptic-1322"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Expanded group dictates how observers may be separated (4,3)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -207,9 +177,6 @@ window.CRYPTIC_PUZZLES["quiptic-1322"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Fighter captured by cameraman in Jaipur (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "NINJA",
    "annotation": null
@@ -224,9 +191,6 @@ window.CRYPTIC_PUZZLES["quiptic-1322"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Document about small ancient city in ruins … (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "DESTROYED",
    "annotation": null
@@ -241,9 +205,6 @@ window.CRYPTIC_PUZZLES["quiptic-1322"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "… note it is lacking in credence (3)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "FAH",
    "annotation": null
@@ -258,9 +219,6 @@ window.CRYPTIC_PUZZLES["quiptic-1322"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "He contracts redevelopment experts (11)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "TECHNOCRATS",
    "annotation": null
@@ -275,9 +233,6 @@ window.CRYPTIC_PUZZLES["quiptic-1322"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Local market where might Americans shop for trunks? (3,4,4)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -297,9 +252,6 @@ window.CRYPTIC_PUZZLES["quiptic-1322"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Initiates popular channels (7)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "INDUCTS",
    "annotation": null
@@ -314,9 +266,6 @@ window.CRYPTIC_PUZZLES["quiptic-1322"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Wrong clothing for soldiers? It’s a real pain (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "TORMENT",
    "annotation": null
@@ -331,9 +280,6 @@ window.CRYPTIC_PUZZLES["quiptic-1322"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "London perhaps almost put a limit on everything (7)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "CAPITAL",
    "annotation": null
@@ -348,9 +294,6 @@ window.CRYPTIC_PUZZLES["quiptic-1322"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "In Westminster a backbencher rises partly for show (7)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "CABARET",
    "annotation": null
@@ -365,9 +308,6 @@ window.CRYPTIC_PUZZLES["quiptic-1322"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Settled up front to get help with homework (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "PREPAID",
    "annotation": null
@@ -382,9 +322,6 @@ window.CRYPTIC_PUZZLES["quiptic-1322"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Field quietly blooming – it will be obvious immediately (4,3)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -403,9 +340,6 @@ window.CRYPTIC_PUZZLES["quiptic-1322"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Selection of sweet treats with calories reduced by a third (7)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "CHOICES",
    "annotation": null
@@ -420,9 +354,6 @@ window.CRYPTIC_PUZZLES["quiptic-1322"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Thickly covered in rum and coke (5,2)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -441,9 +372,6 @@ window.CRYPTIC_PUZZLES["quiptic-1322"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Company distributed legal art compilation (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "COLLAGE",
    "annotation": null
@@ -458,9 +386,6 @@ window.CRYPTIC_PUZZLES["quiptic-1322"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Navy and Airforce assets accept conservative discipline (7)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "SUBJECT",
    "annotation": null
@@ -475,9 +400,6 @@ window.CRYPTIC_PUZZLES["quiptic-1322"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Money collection to establish a major source of food (11)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "BREADBASKET",
    "annotation": null
@@ -492,9 +414,6 @@ window.CRYPTIC_PUZZLES["quiptic-1322"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Launch campaign – by dropping out! (3)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "LOB",
    "annotation": null
@@ -509,9 +428,6 @@ window.CRYPTIC_PUZZLES["quiptic-1322"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Call out revision of a dour deal (4,5)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -530,9 +446,6 @@ window.CRYPTIC_PUZZLES["quiptic-1322"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Lots wanting leader – it doesn’t matter which (3)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "ANY",
    "annotation": null
@@ -547,9 +460,6 @@ window.CRYPTIC_PUZZLES["quiptic-1322"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Saw madam digest stuff from the centre (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "ADAGE",
    "annotation": null
@@ -564,9 +474,6 @@ window.CRYPTIC_PUZZLES["quiptic-1322"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Currently, father is appearing in play (5)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "TODAY",
    "annotation": null
@@ -581,9 +488,6 @@ window.CRYPTIC_PUZZLES["quiptic-1322"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Most kind to one winding up in trial (9)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "TENDEREST",
    "annotation": null

@@ -24,9 +24,6 @@ window.CRYPTIC_PUZZLES["cryptic-30068"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Early man planting tomato, cherry or chestnut (7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "PREDAWN",
    "annotation": {
@@ -70,9 +67,6 @@ window.CRYPTIC_PUZZLES["cryptic-30068"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Boring, boring affair out in Europe (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "ROUTINE",
    "annotation": {
@@ -106,9 +100,6 @@ window.CRYPTIC_PUZZLES["cryptic-30068"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Lush dip crossing river (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "DRUNK",
    "annotation": {
@@ -152,9 +143,6 @@ window.CRYPTIC_PUZZLES["cryptic-30068"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Romantic broken by love for driver (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "WAGONER",
    "annotation": {
@@ -201,9 +189,6 @@ window.CRYPTIC_PUZZLES["cryptic-30068"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Pass small runner, a thug (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "GORILLA",
    "annotation": {
@@ -247,9 +232,6 @@ window.CRYPTIC_PUZZLES["cryptic-30068"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Eight, third of those with two crosses? (6)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "OXFORD",
    "annotation": {
@@ -294,9 +276,6 @@ window.CRYPTIC_PUZZLES["cryptic-30068"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Bile in funny jokes? (3-6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -341,9 +320,6 @@ window.CRYPTIC_PUZZLES["cryptic-30068"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Jumper turned up in lounge, sheets in lavatory (3,4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -400,9 +376,6 @@ window.CRYPTIC_PUZZLES["cryptic-30068"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Fully commit, having found form before opening corner (2,3,5,3)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -463,9 +436,6 @@ window.CRYPTIC_PUZZLES["cryptic-30068"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Old archbishop in tie, reportedly? (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "TUTU",
    "annotation": {
@@ -503,9 +473,6 @@ window.CRYPTIC_PUZZLES["cryptic-30068"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Puck, wicked soul (10)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "GOODFELLOW",
    "annotation": {
@@ -567,9 +534,6 @@ window.CRYPTIC_PUZZLES["cryptic-30068"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Hydrogen pure, one gathered, as of now (8)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "HEREUPON",
    "annotation": {
@@ -616,9 +580,6 @@ window.CRYPTIC_PUZZLES["cryptic-30068"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Wrote to couple in cafe needing a brew – their request? (3,3,3)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -672,9 +633,6 @@ window.CRYPTIC_PUZZLES["cryptic-30068"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Upset I forecast, list those contributing to result (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "FACTORISE",
    "annotation": {
@@ -716,9 +674,6 @@ window.CRYPTIC_PUZZLES["cryptic-30068"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Really cheerful (5)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "JOLLY",
    "annotation": {
@@ -753,9 +708,6 @@ window.CRYPTIC_PUZZLES["cryptic-30068"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Void, step beyond limit of consciousness (5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "SPACE",
    "annotation": {
@@ -800,9 +752,6 @@ window.CRYPTIC_PUZZLES["cryptic-30068"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Bacon, say, a plant-based protein, initially (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "PAINTER",
    "annotation": {
@@ -853,9 +802,6 @@ window.CRYPTIC_PUZZLES["cryptic-30068"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Guardian readers’ piercing cry, food dropped on jacket? (4,5)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -903,9 +849,6 @@ window.CRYPTIC_PUZZLES["cryptic-30068"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Cover for ever, unfortunately having buried high priest (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "RELIEVE",
    "annotation": {
@@ -957,9 +900,6 @@ window.CRYPTIC_PUZZLES["cryptic-30068"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Setter in a state over ‘mouth’ in Cockney, a North and South, perhaps? (7)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "AMERICA",
    "annotation": {
@@ -1025,9 +965,6 @@ window.CRYPTIC_PUZZLES["cryptic-30068"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Clever scheme taking more than one minute, we hear? (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "WHEEZE",
    "annotation": {
@@ -1070,9 +1007,6 @@ window.CRYPTIC_PUZZLES["cryptic-30068"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Help! Coin lost in card game (8)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "PINOCHLE",
    "annotation": {
@@ -1117,9 +1051,6 @@ window.CRYPTIC_PUZZLES["cryptic-30068"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Cool place for a cocktail if after 23, reportedly? (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "LARDER",
    "annotation": {
@@ -1162,9 +1093,6 @@ window.CRYPTIC_PUZZLES["cryptic-30068"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Blue in the pink (5)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "RIGHT",
    "annotation": {
@@ -1199,9 +1127,6 @@ window.CRYPTIC_PUZZLES["cryptic-30068"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Area for swingers in action, number observed after opening of zip (6,4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -1259,9 +1184,6 @@ window.CRYPTIC_PUZZLES["cryptic-30068"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Steel crushed stones (4)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "GRIT",
    "annotation": {
@@ -1296,9 +1218,6 @@ window.CRYPTIC_PUZZLES["cryptic-30068"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Cool place for a song if before 16 11, reportedly? (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "FREEZER",
    "annotation": {

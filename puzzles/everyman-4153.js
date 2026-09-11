@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4153"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Dance music in tavern (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "TAPHOUSE",
    "annotation": {
@@ -68,9 +65,6 @@ window.CRYPTIC_PUZZLES["everyman-4153"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "At heart, Photoshop's rubbish (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "TOSH",
    "annotation": {
@@ -107,9 +101,6 @@ window.CRYPTIC_PUZZLES["everyman-4153"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "In favour of flat having no trace of laughing gas (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "PROPANE",
    "annotation": {
@@ -159,9 +150,6 @@ window.CRYPTIC_PUZZLES["everyman-4153"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Fort with fence constructed, not in the middle (3-6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -210,9 +198,6 @@ window.CRYPTIC_PUZZLES["everyman-4153"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Here skeletons may descend from on high; situation likely to worsen (8,5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -251,9 +236,6 @@ window.CRYPTIC_PUZZLES["everyman-4153"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Supports couples (6)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "BRACES",
    "annotation": {
@@ -288,9 +270,6 @@ window.CRYPTIC_PUZZLES["everyman-4153"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Person in charge appearing in the end, after you yell blue murder (5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "RULER",
    "annotation": {
@@ -357,9 +336,6 @@ window.CRYPTIC_PUZZLES["everyman-4153"] = /*JSON-START*/ {
      9
     ]
    ],
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "CENTIME",
    "annotation": {
@@ -415,9 +391,6 @@ window.CRYPTIC_PUZZLES["everyman-4153"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Sportingly compete and see Kaepernick finally pasted, sadly (5,5)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -473,9 +446,6 @@ window.CRYPTIC_PUZZLES["everyman-4153"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Gobble up mockery (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "SCOFF",
    "annotation": {
@@ -510,9 +480,6 @@ window.CRYPTIC_PUZZLES["everyman-4153"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Son succeeding daughter in laziness and rudeness (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "INSOLENCE",
    "annotation": {
@@ -565,9 +532,6 @@ window.CRYPTIC_PUZZLES["everyman-4153"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Bear has weapon: it's wedged in your body (8,5)",
-   "group": [
-    "11-down"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -613,9 +577,6 @@ window.CRYPTIC_PUZZLES["everyman-4153"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Decide to put cosmetics on solver: skin contains mark (4,2,4,4)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -680,9 +641,6 @@ window.CRYPTIC_PUZZLES["everyman-4153"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Once more find echoey effect mostly overwhelming dance music (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "REDISCOVER",
    "annotation": {
@@ -728,9 +686,6 @@ window.CRYPTIC_PUZZLES["everyman-4153"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Concerning political process, the Spanish muscle wanting bit of protection (9)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "ELECTORAL",
    "annotation": {
@@ -780,9 +735,6 @@ window.CRYPTIC_PUZZLES["everyman-4153"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Primarily baleful, like Eeyore and knelling? (5)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "BLEAK",
    "annotation": {
@@ -843,9 +795,6 @@ window.CRYPTIC_PUZZLES["everyman-4153"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Curt biddy shuts out believers (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "BUDDHISTS",
    "annotation": {
@@ -889,9 +838,6 @@ window.CRYPTIC_PUZZLES["everyman-4153"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Cockney's language is not mainstream (5)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "INDIE",
    "annotation": {
@@ -929,9 +875,6 @@ window.CRYPTIC_PUZZLES["everyman-4153"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "What may be played in pub as one of the Three Tenors is no good? (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "DOMINOS",
    "annotation": {
@@ -983,9 +926,6 @@ window.CRYPTIC_PUZZLES["everyman-4153"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "'Extremely stable' Stateside freak (9)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "STEADIEST",
    "annotation": {
@@ -1022,9 +962,6 @@ window.CRYPTIC_PUZZLES["everyman-4153"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Elevate, somehow, ankle bone - but not back - every now and then (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "ENNOBLE",
    "annotation": {
@@ -1070,9 +1007,6 @@ window.CRYPTIC_PUZZLES["everyman-4153"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Oh! Find Morecambe - without a struggle - unexpectedly win (4,4,6)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -1131,9 +1065,6 @@ window.CRYPTIC_PUZZLES["everyman-4153"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Startled as first and last characters taken in by policeman (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "FAZED",
    "annotation": {
@@ -1180,9 +1111,6 @@ window.CRYPTIC_PUZZLES["everyman-4153"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Act the lech and stagger up (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "LEER",
    "annotation": {
@@ -1228,9 +1156,6 @@ window.CRYPTIC_PUZZLES["everyman-4153"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Singing gondolier heard somewhere in S America (9)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "VENEZUELA",
    "annotation": {
@@ -1265,9 +1190,6 @@ window.CRYPTIC_PUZZLES["everyman-4153"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Weapon hidden in flipping wastepaper basket (5)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "SABRE",
    "annotation": {
@@ -1303,9 +1225,6 @@ window.CRYPTIC_PUZZLES["everyman-4153"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Abide the dregs not having uniform (6)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "RESIDE",
    "annotation": {
@@ -1347,9 +1266,6 @@ window.CRYPTIC_PUZZLES["everyman-4153"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Everyman to promise to put away, for a start, nasty ties etc (8)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "MENSWEAR",
    "annotation": {

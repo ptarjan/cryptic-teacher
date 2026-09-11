@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12432"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Rock group going downhill? (7,6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -63,9 +60,6 @@ window.CRYPTIC_PUZZLES["independent-12432"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Returning more ashen, starts to suffer extreme setback (7)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "RELAPSE",
    "annotation": {
@@ -112,9 +106,6 @@ window.CRYPTIC_PUZZLES["independent-12432"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Stage naked ramble? It's allowed (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "LEGAL",
    "annotation": {
@@ -157,9 +148,6 @@ window.CRYPTIC_PUZZLES["independent-12432"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Popular English actor is heading directly into the wind (2,5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -204,9 +192,6 @@ window.CRYPTIC_PUZZLES["independent-12432"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Sewers sometimes require this decongestant, ultimately, long after parties (9,6)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      9
@@ -257,9 +242,6 @@ window.CRYPTIC_PUZZLES["independent-12432"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Result in wife abandoning second shot? (4,2)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -302,9 +284,6 @@ window.CRYPTIC_PUZZLES["independent-12432"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Ox mince we fancy in part of America (3,6)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -350,9 +329,6 @@ window.CRYPTIC_PUZZLES["independent-12432"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Frank is following on (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "SINCERE",
    "annotation": {
@@ -393,9 +369,6 @@ window.CRYPTIC_PUZZLES["independent-12432"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Scrounge from bishop prior to arrest (4)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {},
    "solution": "BLAG",
    "annotation": {
@@ -438,9 +411,6 @@ window.CRYPTIC_PUZZLES["independent-12432"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Blend still Champagne, say, around back of restaurant (10)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "INTERTWINE",
    "annotation": {
@@ -488,9 +458,6 @@ window.CRYPTIC_PUZZLES["independent-12432"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "God is a chicken in Spain (6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "APOLLO",
    "annotation": {
@@ -531,9 +498,6 @@ window.CRYPTIC_PUZZLES["independent-12432"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Renowned revolutionary has an encounter in river (8)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "ESTEEMED",
    "annotation": {
@@ -581,9 +545,6 @@ window.CRYPTIC_PUZZLES["independent-12432"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Lively American relative's dangerous illness (9)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "PERTUSSIS",
    "annotation": {
@@ -630,9 +591,6 @@ window.CRYPTIC_PUZZLES["independent-12432"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Mistakenly enter deli with limes on either side? (4-5)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -675,9 +633,6 @@ window.CRYPTIC_PUZZLES["independent-12432"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Beginning to document setter's fall (4)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "DIVE",
    "annotation": {
@@ -717,9 +672,6 @@ window.CRYPTIC_PUZZLES["independent-12432"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Failed to take down broadcast (4)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "BLEW",
    "annotation": {
@@ -751,9 +703,6 @@ window.CRYPTIC_PUZZLES["independent-12432"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Source of energy from Isle of Man fish stocks (7)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "BIOMASS",
    "annotation": {
@@ -797,9 +746,6 @@ window.CRYPTIC_PUZZLES["independent-12432"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "A drink date that leads to conflict (9)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "AGINCOURT",
    "annotation": {
@@ -846,9 +792,6 @@ window.CRYPTIC_PUZZLES["independent-12432"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Book anaesthetists (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "NUMBERS",
    "annotation": {
@@ -884,9 +827,6 @@ window.CRYPTIC_PUZZLES["independent-12432"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Drug Republican from Rome, possibly, ignoring American (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "RITALIN",
    "annotation": {
@@ -931,9 +871,6 @@ window.CRYPTIC_PUZZLES["independent-12432"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Blimey! Arsenal regularly making bloomer (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "CORREA",
    "annotation": {
@@ -976,9 +913,6 @@ window.CRYPTIC_PUZZLES["independent-12432"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Supporter on football pitch to attempt a record most initially ignored (8)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "GOALPOST",
    "annotation": {
@@ -1033,9 +967,6 @@ window.CRYPTIC_PUZZLES["independent-12432"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Tiny amphibian belonging to me picked up (6)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "MINUTE",
    "annotation": {
@@ -1067,9 +998,6 @@ window.CRYPTIC_PUZZLES["independent-12432"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Hearts blocking French football club's corner (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "NICHE",
    "annotation": {
@@ -1113,9 +1041,6 @@ window.CRYPTIC_PUZZLES["independent-12432"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Dicky learnt duet in cleaner's (10)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "LAUNDRETTE",
    "annotation": {
@@ -1157,9 +1082,6 @@ window.CRYPTIC_PUZZLES["independent-12432"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Local man keeps cool (4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "CALM",
    "annotation": {
@@ -1190,9 +1112,6 @@ window.CRYPTIC_PUZZLES["independent-12432"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Old tyrant uses handmaid's pants (6,7)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      6

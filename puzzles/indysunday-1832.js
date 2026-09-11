@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1832"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Hospital department quick to bandage injury (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "PHARMACY",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["indysunday-1832"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Malty hop puzzled expert crossing fields (8)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "POLYMATH",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["indysunday-1832"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Creativity without which our world would be what? (3)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "ART",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["indysunday-1832"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Spooner's rude manner, a somewhat dotty way to communicate (5,4)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -97,9 +85,6 @@ window.CRYPTIC_PUZZLES["indysunday-1832"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "City club maybe opening in Islington with volume right up (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "CARDIFF",
    "annotation": null
@@ -114,9 +99,6 @@ window.CRYPTIC_PUZZLES["indysunday-1832"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Tricky opening golf range (6)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "GAMBIT",
    "annotation": null
@@ -131,9 +113,6 @@ window.CRYPTIC_PUZZLES["indysunday-1832"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Chain with eyelets at both ends (5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "ANDES",
    "annotation": null
@@ -148,9 +127,6 @@ window.CRYPTIC_PUZZLES["indysunday-1832"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Boys initially distribute exam, one marked before new term? (6,5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -169,9 +145,6 @@ window.CRYPTIC_PUZZLES["indysunday-1832"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Tiresome noise from unhappy baby changing sides in cot (6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "TRYING",
    "annotation": null
@@ -186,9 +159,6 @@ window.CRYPTIC_PUZZLES["indysunday-1832"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Force has ceremonial kit covering uniform (6)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {},
    "solution": "DURESS",
    "annotation": null
@@ -203,9 +173,6 @@ window.CRYPTIC_PUZZLES["indysunday-1832"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Tesla cracks concrete after flipping further down the road (5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "LATER",
    "annotation": null
@@ -220,9 +187,6 @@ window.CRYPTIC_PUZZLES["indysunday-1832"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Trot across circle then pause in circular dance (9)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "ROUNDELAY",
    "annotation": null
@@ -237,9 +201,6 @@ window.CRYPTIC_PUZZLES["indysunday-1832"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Attract wrinkly men? It's age (9)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "MAGNETISE",
    "annotation": null
@@ -254,9 +215,6 @@ window.CRYPTIC_PUZZLES["indysunday-1832"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Powerful car adjusted, muting roars (4,7)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -275,9 +233,6 @@ window.CRYPTIC_PUZZLES["indysunday-1832"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Tin-filling method demonstrated (5)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "SHOWN",
    "annotation": null
@@ -292,9 +247,6 @@ window.CRYPTIC_PUZZLES["indysunday-1832"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Criticise dyke builder's mistake after rupture (4,3,1,5)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -315,9 +267,6 @@ window.CRYPTIC_PUZZLES["indysunday-1832"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "As usual, king enjoying Cambs town's amenities? (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "ROUTINELY",
    "annotation": null
@@ -332,9 +281,6 @@ window.CRYPTIC_PUZZLES["indysunday-1832"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Religious campaigner's vintage blue clothes for Easter (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "CRUSADER",
    "annotation": null
@@ -349,9 +295,6 @@ window.CRYPTIC_PUZZLES["indysunday-1832"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Superficially thuggish crook steals superior Renaissance painting (3,4,6)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -371,9 +314,6 @@ window.CRYPTIC_PUZZLES["indysunday-1832"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Like bog Bill is on (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "ADMIRE",
    "annotation": null
@@ -388,9 +328,6 @@ window.CRYPTIC_PUZZLES["indysunday-1832"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Harass soldiers repeatedly, time after time (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "TORMENT",
    "annotation": null
@@ -405,9 +342,6 @@ window.CRYPTIC_PUZZLES["indysunday-1832"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Total that is under 100 - someone helping with your golf? (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "CADDIE",
    "annotation": null
@@ -422,9 +356,6 @@ window.CRYPTIC_PUZZLES["indysunday-1832"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Chambers occupied with circulating what lungs take in (5)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "ATRIA",
    "annotation": null
@@ -439,9 +370,6 @@ window.CRYPTIC_PUZZLES["indysunday-1832"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "E in solo transposed up a third throughout (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "ALONG",
    "annotation": null
@@ -456,9 +384,6 @@ window.CRYPTIC_PUZZLES["indysunday-1832"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Appreciate artist cutting chocolate bar for eating festival (5,4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -477,9 +402,6 @@ window.CRYPTIC_PUZZLES["indysunday-1832"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Detective scrubs face for evening speech (9)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "DISCOURSE",
    "annotation": null
@@ -494,9 +416,6 @@ window.CRYPTIC_PUZZLES["indysunday-1832"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Two people checking story admit government stole (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "EDGED",
    "annotation": null
@@ -511,9 +430,6 @@ window.CRYPTIC_PUZZLES["indysunday-1832"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Quit with rude gesture for boss (3)",
-   "group": [
-    "27-down"
-   ],
    "separatorLocations": {},
    "solution": "GOV",
    "annotation": null
@@ -528,9 +444,6 @@ window.CRYPTIC_PUZZLES["indysunday-1832"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Zip shortened on back of costume as much as required (6)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "ENOUGH",
    "annotation": null
@@ -545,9 +458,6 @@ window.CRYPTIC_PUZZLES["indysunday-1832"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Toes vary wildly, accept hosts at bedtime (4,4)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {
     ",": [
      4

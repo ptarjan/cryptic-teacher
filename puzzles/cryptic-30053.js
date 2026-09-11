@@ -24,9 +24,6 @@ window.CRYPTIC_PUZZLES["cryptic-30053"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "‘Fish’, ‘good’, ‘bash’ – one of those four-letter words (9)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "TETRAGRAM",
    "annotation": {
@@ -70,9 +67,6 @@ window.CRYPTIC_PUZZLES["cryptic-30053"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Runner in European capital concerned with section going uphill (5)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "TIBER",
    "annotation": {
@@ -121,9 +115,6 @@ window.CRYPTIC_PUZZLES["cryptic-30053"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Bad speller in theory, extremely anxious (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "TWITCHY",
    "annotation": {
@@ -169,9 +160,6 @@ window.CRYPTIC_PUZZLES["cryptic-30053"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Long speech finally wrapped up by wizard (4)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "ACHE",
    "annotation": {
@@ -217,9 +205,6 @@ window.CRYPTIC_PUZZLES["cryptic-30053"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Red colour a revolutionary adopts (4)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "RARE",
    "annotation": {
@@ -253,9 +238,6 @@ window.CRYPTIC_PUZZLES["cryptic-30053"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Noted progression without cabbage being mentioned? (5,5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -304,9 +286,6 @@ window.CRYPTIC_PUZZLES["cryptic-30053"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Man, say, placing one page between the sheets? (5)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "BIPED",
    "annotation": {
@@ -358,9 +337,6 @@ window.CRYPTIC_PUZZLES["cryptic-30053"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Very anxious when building house? (8,2)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -401,9 +377,6 @@ window.CRYPTIC_PUZZLES["cryptic-30053"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Keen I observe, nothing to lose in school (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "POINTED",
    "annotation": {
@@ -455,9 +428,6 @@ window.CRYPTIC_PUZZLES["cryptic-30053"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Pattern has Dorothy frolicking in spring, did you say? (3,6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -508,9 +478,6 @@ window.CRYPTIC_PUZZLES["cryptic-30053"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Muppet Amin confined to more cheerful block? (10,5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      10
@@ -564,9 +531,6 @@ window.CRYPTIC_PUZZLES["cryptic-30053"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Brilliant music? (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "ROCK",
    "annotation": {
@@ -600,9 +564,6 @@ window.CRYPTIC_PUZZLES["cryptic-30053"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Old banger taking the biscuit with breakdown truck, would you say? (8)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "KRAKATOA",
    "annotation": {
@@ -650,9 +611,6 @@ window.CRYPTIC_PUZZLES["cryptic-30053"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Plain character gets surly, I gathered (4,6)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -693,9 +651,6 @@ window.CRYPTIC_PUZZLES["cryptic-30053"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Photo briefly capturing mother, teacher and a princess (5,5)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -760,9 +715,6 @@ window.CRYPTIC_PUZZLES["cryptic-30053"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Dash a cigar off that’s poisonous (3,6)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -812,9 +764,6 @@ window.CRYPTIC_PUZZLES["cryptic-30053"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Miss payment claiming one pocketed by singers (4,2,3)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -870,9 +819,6 @@ window.CRYPTIC_PUZZLES["cryptic-30053"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Some villain, a director, the lowest of the low (5)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "NADIR",
    "annotation": {
@@ -906,9 +852,6 @@ window.CRYPTIC_PUZZLES["cryptic-30053"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Irritable and hot in Windy City (5)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "ITCHY",
    "annotation": {
@@ -955,9 +898,6 @@ window.CRYPTIC_PUZZLES["cryptic-30053"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Actress and singer also going up in smoke (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "CHEROOT",
    "annotation": {
@@ -1009,9 +949,6 @@ window.CRYPTIC_PUZZLES["cryptic-30053"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Consider framing suggestion with old pictures (9)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "MULTIPLEX",
    "annotation": {
@@ -1065,9 +1002,6 @@ window.CRYPTIC_PUZZLES["cryptic-30053"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "One defined by ‘scummy fellow’? (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "LOWLIFE",
    "annotation": {
@@ -1109,9 +1043,6 @@ window.CRYPTIC_PUZZLES["cryptic-30053"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Intervals including notes a perfect fifth apart horrifying singers? (3,5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -1160,9 +1091,6 @@ window.CRYPTIC_PUZZLES["cryptic-30053"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Kiss and Wham on tour? (4)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "MWAH",
    "annotation": {
@@ -1202,9 +1130,6 @@ window.CRYPTIC_PUZZLES["cryptic-30053"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Growly dog (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "HUSKY",
    "annotation": {
@@ -1238,9 +1163,6 @@ window.CRYPTIC_PUZZLES["cryptic-30053"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Stumpy tail – ‘s pruned (4)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "SCUT",
    "annotation": {
@@ -1278,9 +1200,6 @@ window.CRYPTIC_PUZZLES["cryptic-30053"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Test of popular opinion to the north (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "ORAL",
    "annotation": {
@@ -1322,9 +1241,6 @@ window.CRYPTIC_PUZZLES["cryptic-30053"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "One’s disempowered when had by those, Spooner’s Margaret, Temple and MacLaine? (5,3,7)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      5,
@@ -1380,9 +1296,6 @@ window.CRYPTIC_PUZZLES["cryptic-30053"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Hog radiator, say, when first cut off (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "EATER",
    "annotation": {
@@ -1422,9 +1335,6 @@ window.CRYPTIC_PUZZLES["cryptic-30053"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Arsenal’s feeble passing through channel (9)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "ARTILLERY",
    "annotation": {

@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Block essentially tackled by drain cleaner (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "SOAP",
    "annotation": {
@@ -74,9 +71,6 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Packed lunch from dodgy old Spar (5,3)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -128,9 +122,6 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Honey bee swallowed by horse (4)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "BABY",
    "annotation": {
@@ -175,9 +166,6 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Aussie groundsmen stuck up schedule to feed dogs (8)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "CURATORS",
    "annotation": {
@@ -236,9 +224,6 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
      11
     ]
    ],
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "STREET",
    "annotation": {
@@ -285,9 +270,6 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "1 tip to stop festival succeeded (10)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "EASTENDERS",
    "annotation": {
@@ -338,9 +320,6 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Snow leopard finally cutting teeth (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "POWDER",
    "annotation": {
@@ -393,9 +372,6 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
      18
     ]
    ],
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "STAY",
    "annotation": {
@@ -439,9 +415,6 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Car men possibly needing welding ring AA (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "OPERA",
    "annotation": {
@@ -491,9 +464,6 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Hardcore fans frequently very forgiving? (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "ULTRASOFT",
    "annotation": {
@@ -532,9 +502,6 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Misuse of tacky tape in Yankees’ game (5-4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -584,9 +551,6 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Stuffed thing in underwear (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "TEDDY",
    "annotation": {
@@ -625,9 +589,6 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Explorer brought back oddly cool plant (7)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "TOBACCO",
    "annotation": {
@@ -679,9 +640,6 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Giveaway on the back of Monopoly set (5)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "TELLY",
    "annotation": {
@@ -725,9 +683,6 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Businessmen making a return on people’s investment (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "CORONATION",
    "annotation": {
@@ -786,9 +741,6 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Dynasty’s leading male produces puzzle (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "TANGRAM",
    "annotation": {
@@ -835,9 +787,6 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Confused footballer on the radio (5)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "MESSY",
    "annotation": {
@@ -873,9 +822,6 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "1-0 by the end for Manchester City (5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "LUXOR",
    "annotation": {
@@ -931,9 +877,6 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
      8
     ]
    ],
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "SUD",
    "annotation": {
@@ -979,9 +922,6 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Negative director upset Sid Owen (8)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "DOWNSIDE",
    "annotation": {
@@ -1029,9 +969,6 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Sinner’s broken by Norrie at the start and quits (5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "EVENS",
    "annotation": {
@@ -1078,9 +1015,6 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Jackie Corkhill finishes fish in fabulous place (8)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "ELDORADO",
    "annotation": {
@@ -1127,9 +1061,6 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Father working in old juvenile training pants (1-6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     "-": [
      1
@@ -1184,9 +1115,6 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Hamburg’s endless winding steps (6)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "RHUMBA",
    "annotation": {
@@ -1232,9 +1160,6 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Seat deals flying with Delta (6)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "SADDLE",
    "annotation": {
@@ -1285,9 +1210,6 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Spooner’s cash balance when things may be on the line? (7)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "WASHDAY",
    "annotation": {
@@ -1333,9 +1255,6 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Nothing stops fair contest (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "JOUST",
    "annotation": {
@@ -1380,9 +1299,6 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Young Australian’s delight catching English opener (4)",
-   "group": [
-    "26-down"
-   ],
    "separatorLocations": {},
    "solution": "JOEY",
    "annotation": {
@@ -1429,9 +1345,6 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Expelled inspectors embarrassed outside pub (9)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "DISBARRED",
    "annotation": {
@@ -1481,9 +1394,6 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Defaced information book (4)",
-   "group": [
-    "28-down"
-   ],
    "separatorLocations": {},
    "solution": "ACTS",
    "annotation": {
@@ -1522,9 +1432,6 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Prepared food for heart-throb (4)",
-   "group": [
-    "29-down"
-   ],
    "separatorLocations": {},
    "solution": "DISH",
    "annotation": {
@@ -1563,9 +1470,6 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Dorothy’s aunt and British drunk get involved (9)",
-   "group": [
-    "30-across"
-   ],
    "separatorLocations": {},
    "solution": "EMBROILED",
    "annotation": {
@@ -1613,9 +1517,6 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Main movements of Mendelssohn’s 4th introduced by strings (5)",
-   "group": [
-    "31-across"
-   ],
    "separatorLocations": {},
    "solution": "TIDES",
    "annotation": {

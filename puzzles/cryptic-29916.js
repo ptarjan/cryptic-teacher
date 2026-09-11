@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29916"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Don’t be cruel to old comedian, simple at heart (2,4,2)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -47,9 +44,6 @@ window.CRYPTIC_PUZZLES["cryptic-29916"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Effusive person’s good conduct (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "GUSHER",
    "annotation": null
@@ -70,9 +64,6 @@ window.CRYPTIC_PUZZLES["cryptic-29916"] = /*JSON-START*/ {
      16
     ]
    ],
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "EXODUS",
    "annotation": null
@@ -87,9 +78,6 @@ window.CRYPTIC_PUZZLES["cryptic-29916"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Inducement to include small number in series (9)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "SWEETENER",
    "annotation": null
@@ -104,9 +92,6 @@ window.CRYPTIC_PUZZLES["cryptic-29916"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Apparently warming up, beginning to harry senior minister (6,6)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -125,9 +110,6 @@ window.CRYPTIC_PUZZLES["cryptic-29916"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Duck as light motorcycle loses one wheel? (6)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "SCOTER",
    "annotation": null
@@ -142,9 +124,6 @@ window.CRYPTIC_PUZZLES["cryptic-29916"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Weight of stone accepted in shopping basket (5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "CARAT",
    "annotation": null
@@ -159,9 +138,6 @@ window.CRYPTIC_PUZZLES["cryptic-29916"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Honest admitting name, sort of burglar in dock (8)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "TRUNCATE",
    "annotation": null
@@ -176,9 +152,6 @@ window.CRYPTIC_PUZZLES["cryptic-29916"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "It’s good this getting shot of a pest (8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "RIDDANCE",
    "annotation": null
@@ -193,9 +166,6 @@ window.CRYPTIC_PUZZLES["cryptic-29916"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Leave secretly, ramp unavailable (5,3)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -214,9 +184,6 @@ window.CRYPTIC_PUZZLES["cryptic-29916"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Contended resistance stops suffering from malaria (6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "ARGUED",
    "annotation": null
@@ -231,9 +198,6 @@ window.CRYPTIC_PUZZLES["cryptic-29916"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Doubt the gospel? (8,4)",
-   "group": [
-    "11-down"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -252,9 +216,6 @@ window.CRYPTIC_PUZZLES["cryptic-29916"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Go up: temperature perfect for returning (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "ERUPT",
    "annotation": null
@@ -269,9 +230,6 @@ window.CRYPTIC_PUZZLES["cryptic-29916"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Great area on Earth’s exterior in which woodlice are found (9)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "CRUSTACEA",
    "annotation": null
@@ -286,9 +244,6 @@ window.CRYPTIC_PUZZLES["cryptic-29916"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Intuit a chess blunder, making up for it (12)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "ENTHUSIASTIC",
    "annotation": null
@@ -303,9 +258,6 @@ window.CRYPTIC_PUZZLES["cryptic-29916"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "What noon means to some people: time correction (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "AMENDMENT",
    "annotation": null
@@ -320,9 +272,6 @@ window.CRYPTIC_PUZZLES["cryptic-29916"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Coming in last, contrary to expectations (5,3)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -341,9 +290,6 @@ window.CRYPTIC_PUZZLES["cryptic-29916"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Batters liable to be caught in the bar (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "SNICKERS",
    "annotation": null
@@ -358,9 +304,6 @@ window.CRYPTIC_PUZZLES["cryptic-29916"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Resentful air spoiled farewell observances (7,5)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -379,9 +322,6 @@ window.CRYPTIC_PUZZLES["cryptic-29916"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Drawer twice the size of another (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "PENCIL",
    "annotation": null
@@ -396,9 +336,6 @@ window.CRYPTIC_PUZZLES["cryptic-29916"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Highest standards of ladies’ dancing (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "IDEALS",
    "annotation": null
@@ -413,9 +350,6 @@ window.CRYPTIC_PUZZLES["cryptic-29916"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Such mathematics left audience floundering (9)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "EUCLIDEAN",
    "annotation": null
@@ -430,9 +364,6 @@ window.CRYPTIC_PUZZLES["cryptic-29916"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Suffer, beyond medical help, disabled (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "INCUR",
    "annotation": null
@@ -447,9 +378,6 @@ window.CRYPTIC_PUZZLES["cryptic-29916"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Be terrified of judge’s pronouncement (5)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "DREAD",
    "annotation": null
@@ -464,9 +392,6 @@ window.CRYPTIC_PUZZLES["cryptic-29916"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Homeland Security for one get on closing clubs in E Coast city (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "AGENCY",
    "annotation": null
@@ -481,9 +406,6 @@ window.CRYPTIC_PUZZLES["cryptic-29916"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "In depresssed area knight spies city (8)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "VALENCIA",
    "annotation": null
@@ -498,9 +420,6 @@ window.CRYPTIC_PUZZLES["cryptic-29916"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "They are beaten less, or flogged (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "LOSERS",
    "annotation": null
@@ -515,9 +434,6 @@ window.CRYPTIC_PUZZLES["cryptic-29916"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Game that looks easy for beginners in brief sketches (8)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "SKITTLES",
    "annotation": null

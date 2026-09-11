@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29955"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Looking like a Teletubby with a sour expression? (2-5)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     "-": [
      2
@@ -46,9 +43,6 @@ window.CRYPTIC_PUZZLES["cryptic-29955"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Without permission snaps A-lister’s breasts (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "PAPS",
    "annotation": null
@@ -63,9 +57,6 @@ window.CRYPTIC_PUZZLES["cryptic-29955"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Tyson’s rage (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "FURY",
    "annotation": null
@@ -80,9 +71,6 @@ window.CRYPTIC_PUZZLES["cryptic-29955"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Meet to study a strip of grass (8)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "CONVERGE",
    "annotation": null
@@ -97,9 +85,6 @@ window.CRYPTIC_PUZZLES["cryptic-29955"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "What’s definitely decided is cut with this (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "DRIED",
    "annotation": null
@@ -114,9 +99,6 @@ window.CRYPTIC_PUZZLES["cryptic-29955"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Material is wonderful and no end costly (6)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "FABRIC",
    "annotation": null
@@ -131,9 +113,6 @@ window.CRYPTIC_PUZZLES["cryptic-29955"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "The river that moves vast quantities of goods (6)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "AMAZON",
    "annotation": null
@@ -148,9 +127,6 @@ window.CRYPTIC_PUZZLES["cryptic-29955"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Later I failed to leave car in out-of-town centre (6,4)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -169,9 +145,6 @@ window.CRYPTIC_PUZZLES["cryptic-29955"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Remember: ring for the babysitter? (4,2,4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -191,9 +164,6 @@ window.CRYPTIC_PUZZLES["cryptic-29955"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Airborne soldier without his dog tag is unnecessarily fearful (8)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "PARANOID",
    "annotation": null
@@ -208,9 +178,6 @@ window.CRYPTIC_PUZZLES["cryptic-29955"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Meat spread left in light shade (6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "PASTEL",
    "annotation": null
@@ -225,9 +192,6 @@ window.CRYPTIC_PUZZLES["cryptic-29955"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "The pack, or a whole team (6)",
-   "group": [
-    "11-down"
-   ],
    "separatorLocations": {},
    "solution": "WOLVES",
    "annotation": null
@@ -242,9 +206,6 @@ window.CRYPTIC_PUZZLES["cryptic-29955"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Send girl to do work for tree specialist (12)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "DENDROLOGIST",
    "annotation": null
@@ -259,9 +220,6 @@ window.CRYPTIC_PUZZLES["cryptic-29955"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Warmly received, returning to pavilion, exhausted (7,3)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -280,9 +238,6 @@ window.CRYPTIC_PUZZLES["cryptic-29955"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Vaguely outlined throwing mud at beard (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "ADUMBRATED",
    "annotation": null
@@ -297,9 +252,6 @@ window.CRYPTIC_PUZZLES["cryptic-29955"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "She dropped everything to tour Midlands town (4,6)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -318,9 +270,6 @@ window.CRYPTIC_PUZZLES["cryptic-29955"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Put out needing two days to cross river (6)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "DOUSED",
    "annotation": null
@@ -357,9 +306,6 @@ window.CRYPTIC_PUZZLES["cryptic-29955"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Clubs embracing in-your-face charity collection (8)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "CHUGGING",
    "annotation": null
@@ -394,9 +340,6 @@ window.CRYPTIC_PUZZLES["cryptic-29955"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Like the part of Africa that is below the sand? (3-7)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -415,9 +358,6 @@ window.CRYPTIC_PUZZLES["cryptic-29955"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Material for path of serious length (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "GRAVEL",
    "annotation": null
@@ -432,9 +372,6 @@ window.CRYPTIC_PUZZLES["cryptic-29955"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Faulty information on the computer (5,7)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -453,9 +390,6 @@ window.CRYPTIC_PUZZLES["cryptic-29955"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Strength of wines intoxicated (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "SINEW",
    "annotation": null
@@ -470,9 +404,6 @@ window.CRYPTIC_PUZZLES["cryptic-29955"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Scrap part of an alphabet (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "IOTA",
    "annotation": null
@@ -487,9 +418,6 @@ window.CRYPTIC_PUZZLES["cryptic-29955"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Phone to America from prison (4)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "CELL",
    "annotation": null
@@ -504,9 +432,6 @@ window.CRYPTIC_PUZZLES["cryptic-29955"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "An interval before VAT comes back reduced (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "OCTAVE",
    "annotation": null
@@ -521,9 +446,6 @@ window.CRYPTIC_PUZZLES["cryptic-29955"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Religious leader who’s gone off the record (8)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "ANTIPOPE",
    "annotation": null
@@ -538,9 +460,6 @@ window.CRYPTIC_PUZZLES["cryptic-29955"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Very small, or a little high (6)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "TIDDLY",
    "annotation": null
@@ -555,9 +474,6 @@ window.CRYPTIC_PUZZLES["cryptic-29955"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "What dogs do, pleased to see bird (7)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "WAGTAIL",
    "annotation": null

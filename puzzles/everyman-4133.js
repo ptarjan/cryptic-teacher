@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4133"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Type of surgery, German, with jabs: they aid mobility (7,6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -78,9 +75,6 @@ window.CRYPTIC_PUZZLES["everyman-4133"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Diffused a looser spray (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "AEROSOL",
    "annotation": {
@@ -117,9 +111,6 @@ window.CRYPTIC_PUZZLES["everyman-4133"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Understood: some work now non-essential (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "KNOWN",
    "annotation": {
@@ -153,9 +144,6 @@ window.CRYPTIC_PUZZLES["everyman-4133"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Barely-there short nightgown covering one - bold bit of licentiousness (10)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "NEGLIGIBLE",
    "annotation": {
@@ -215,9 +203,6 @@ window.CRYPTIC_PUZZLES["everyman-4133"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Drains visible in rest areas in retreat (4)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "SAPS",
    "annotation": {
@@ -260,9 +245,6 @@ window.CRYPTIC_PUZZLES["everyman-4133"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Floods among the reeds (8)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "INRUSHES",
    "annotation": {
@@ -300,9 +282,6 @@ window.CRYPTIC_PUZZLES["everyman-4133"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "German child with the French books in here (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "KINDLES",
    "annotation": {
@@ -349,9 +328,6 @@ window.CRYPTIC_PUZZLES["everyman-4133"] = /*JSON-START*/ {
      9,
      7
     ]
-   ],
-   "group": [
-    "8-across"
    ],
    "separatorLocations": {},
    "solution": "FURLONG",
@@ -409,9 +385,6 @@ window.CRYPTIC_PUZZLES["everyman-4133"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Dashing, having knocked back some runners? (4,2,5)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -451,9 +424,6 @@ window.CRYPTIC_PUZZLES["everyman-4133"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Score and trim root vegetable (7)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "PARSNIP",
    "annotation": {
@@ -494,9 +464,6 @@ window.CRYPTIC_PUZZLES["everyman-4133"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Itinerant rashly precipitate (11)",
-   "group": [
-    "10-down"
-   ],
    "separatorLocations": {},
    "solution": "PERIPATETIC",
    "annotation": {
@@ -533,9 +500,6 @@ window.CRYPTIC_PUZZLES["everyman-4133"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Snapping: 'Down with that thing!' (6,2)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -580,9 +544,6 @@ window.CRYPTIC_PUZZLES["everyman-4133"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Eco option - wanting money, morals abandoned (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "SOLAR",
    "annotation": {
@@ -627,9 +588,6 @@ window.CRYPTIC_PUZZLES["everyman-4133"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Gosh! Now I will jump around, very loudly - doing this? (7,3)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -679,9 +637,6 @@ window.CRYPTIC_PUZZLES["everyman-4133"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Art gets lubricated (4)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "OILS",
    "annotation": {
@@ -717,9 +672,6 @@ window.CRYPTIC_PUZZLES["everyman-4133"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Huge splint, after combustion, cools down? (8,2)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -760,9 +712,6 @@ window.CRYPTIC_PUZZLES["everyman-4133"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Merrily deadheaded herbgrace in town of French literature? (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "BERGERAC",
    "annotation": {
@@ -807,9 +756,6 @@ window.CRYPTIC_PUZZLES["everyman-4133"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "FBI agent yells, as Spooner tells associates (10)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "BEDFELLOWS",
    "annotation": {
@@ -854,9 +800,6 @@ window.CRYPTIC_PUZZLES["everyman-4133"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Almost in pieces, overcome by noise in cinema (5-2)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -909,9 +852,6 @@ window.CRYPTIC_PUZZLES["everyman-4133"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Treaty very popular in the auditorium (4)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "PACT",
    "annotation": {
@@ -946,9 +886,6 @@ window.CRYPTIC_PUZZLES["everyman-4133"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Plays seen here in part of Philadelphia (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "ADELPHI",
    "annotation": {
@@ -985,9 +922,6 @@ window.CRYPTIC_PUZZLES["everyman-4133"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Getting on with a drink: good (5)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "AGING",
    "annotation": {
@@ -1034,9 +968,6 @@ window.CRYPTIC_PUZZLES["everyman-4133"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "15C - shivering, actually (2,6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -1077,9 +1008,6 @@ window.CRYPTIC_PUZZLES["everyman-4133"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Jacques's one with energy rising increasingly, Frank (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "FREER",
    "annotation": {
@@ -1126,9 +1054,6 @@ window.CRYPTIC_PUZZLES["everyman-4133"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "On vacation - holiday - starts to detest Everyman's hideous alter ego (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "HYDE",
    "annotation": {
@@ -1178,9 +1103,6 @@ window.CRYPTIC_PUZZLES["everyman-4133"] = /*JSON-START*/ {
      22,
      5
     ]
-   ],
-   "group": [
-    "25-across"
    ],
    "separatorLocations": {
     ",": [
@@ -1235,9 +1157,6 @@ window.CRYPTIC_PUZZLES["everyman-4133"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Omnipresent, zeitgeisty, expensive medicine putatively inhibiting cuddliness, primarily? (7)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "OZEMPIC",
    "annotation": {
@@ -1280,9 +1199,6 @@ window.CRYPTIC_PUZZLES["everyman-4133"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Crazy kids reckon fox blown away (7,3,3)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     ",": [
      7,

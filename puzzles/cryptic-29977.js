@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29977"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Suggestion from middleman oddly ignored (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "IDEA",
    "annotation": {
@@ -68,9 +65,6 @@ window.CRYPTIC_PUZZLES["cryptic-29977"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Destroy spirit (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "SCOTCH",
    "annotation": {
@@ -105,9 +99,6 @@ window.CRYPTIC_PUZZLES["cryptic-29977"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Showman, one playing Paris and Rome (10)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "IMPRESARIO",
    "annotation": {
@@ -150,9 +141,6 @@ window.CRYPTIC_PUZZLES["cryptic-29977"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Supply of suet for juvenile wannabe? (6)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "FOETUS",
    "annotation": {
@@ -193,9 +181,6 @@ window.CRYPTIC_PUZZLES["cryptic-29977"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Infiltrate a couple’s enthralling exchange at last (8)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "PERMEATE",
    "annotation": {
@@ -251,9 +236,6 @@ window.CRYPTIC_PUZZLES["cryptic-29977"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Revolutionary cut more unusual root vegetable (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "EDDO",
    "annotation": {
@@ -304,9 +286,6 @@ window.CRYPTIC_PUZZLES["cryptic-29977"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Average doctor taking nothing on (8)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "MEDIOCRE",
    "annotation": {
@@ -357,9 +336,6 @@ window.CRYPTIC_PUZZLES["cryptic-29977"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Claim written language doesn’t include the letter R (4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "POSE",
    "annotation": {
@@ -402,9 +378,6 @@ window.CRYPTIC_PUZZLES["cryptic-29977"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Go off Geordie TV presenter, old male model (9)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "DECOMPOSE",
    "annotation": {
@@ -454,9 +427,6 @@ window.CRYPTIC_PUZZLES["cryptic-29977"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Because of two performers, start to obfuscate (3,2)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -504,9 +474,6 @@ window.CRYPTIC_PUZZLES["cryptic-29977"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Following fart, Earth tremors (5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "AFTER",
    "annotation": {
@@ -549,9 +516,6 @@ window.CRYPTIC_PUZZLES["cryptic-29977"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Rate increase for stall (9)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "TEMPORISE",
    "annotation": {
@@ -592,9 +556,6 @@ window.CRYPTIC_PUZZLES["cryptic-29977"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Man stopping agitated suspect leaving court in ancient city (7)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "EPHESUS",
    "annotation": {
@@ -644,9 +605,6 @@ window.CRYPTIC_PUZZLES["cryptic-29977"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Where to find classic content to keep, somehow (5)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "EPSOM",
    "annotation": {
@@ -681,9 +639,6 @@ window.CRYPTIC_PUZZLES["cryptic-29977"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Some welcoming chief’s utter lawlessness (7)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "ANARCHY",
    "annotation": {
@@ -731,9 +686,6 @@ window.CRYPTIC_PUZZLES["cryptic-29977"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Quickly leaving a relationship to keep some credibility, primarily (10)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "ABSCONDING",
    "annotation": {
@@ -786,9 +738,6 @@ window.CRYPTIC_PUZZLES["cryptic-29977"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Crimean War conference site boosted at city close to Turkey (5)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "YALTA",
    "annotation": {
@@ -846,9 +795,6 @@ window.CRYPTIC_PUZZLES["cryptic-29977"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Small untruth by rector is more cunning (5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "SLIER",
    "annotation": {
@@ -901,9 +847,6 @@ window.CRYPTIC_PUZZLES["cryptic-29977"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Musical show Oscar’s promoted in one advance article (8)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "IOLANTHE",
    "annotation": {
@@ -963,9 +906,6 @@ window.CRYPTIC_PUZZLES["cryptic-29977"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Individual taking ecstasy (3)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "ONE",
    "annotation": {
@@ -1003,9 +943,6 @@ window.CRYPTIC_PUZZLES["cryptic-29977"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "I reprove criminal on the way out (8)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "OVERRIPE",
    "annotation": {
@@ -1043,9 +980,6 @@ window.CRYPTIC_PUZZLES["cryptic-29977"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Husband visiting market in Hull (5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "SHELL",
    "annotation": {
@@ -1093,9 +1027,6 @@ window.CRYPTIC_PUZZLES["cryptic-29977"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Most ale breaks down sugar (7)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "MALTOSE",
    "annotation": {
@@ -1133,9 +1064,6 @@ window.CRYPTIC_PUZZLES["cryptic-29977"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Sickness resulting from excrement, mostly, around hovel (7)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "CHOLERA",
    "annotation": {
@@ -1185,9 +1113,6 @@ window.CRYPTIC_PUZZLES["cryptic-29977"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Emperor announced what guards should do to escaping woman? (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "CAESAR",
    "annotation": {
@@ -1223,9 +1148,6 @@ window.CRYPTIC_PUZZLES["cryptic-29977"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Draw Forth Bridge’s terminus, OK? (6)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "ELICIT",
    "annotation": {
@@ -1269,9 +1191,6 @@ window.CRYPTIC_PUZZLES["cryptic-29977"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Perhaps rib cracked by a silly prat in royal family (9)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "BONAPARTE",
    "annotation": {
@@ -1327,9 +1246,6 @@ window.CRYPTIC_PUZZLES["cryptic-29977"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Jeer King James, perhaps (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "BOOK",
    "annotation": {
@@ -1367,9 +1283,6 @@ window.CRYPTIC_PUZZLES["cryptic-29977"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Pressure on animal sanctuary to provide recreation area (4)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "PARK",
    "annotation": {
@@ -1416,9 +1329,6 @@ window.CRYPTIC_PUZZLES["cryptic-29977"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Working at home is boring Harry (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "DOING",
    "annotation": {
@@ -1466,9 +1376,6 @@ window.CRYPTIC_PUZZLES["cryptic-29977"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Present introduction from Guardian and two shelfmates (4)",
-   "group": [
-    "27-down"
-   ],
    "separatorLocations": {},
    "solution": "GIFT",
    "annotation": {
@@ -1521,9 +1428,6 @@ window.CRYPTIC_PUZZLES["cryptic-29977"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Different native losing millions (5)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "OTHER",
    "annotation": {
@@ -1566,9 +1470,6 @@ window.CRYPTIC_PUZZLES["cryptic-29977"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Claimant’s straightforward argument (9)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "PLAINTIFF",
    "annotation": {

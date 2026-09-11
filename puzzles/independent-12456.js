@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12456"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Superdrug’s counter accepted turnover (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "SAMOSA",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["independent-12456"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Celebration in Acrosses carries today’s (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "NINA",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["independent-12456"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Long suffering, it’s implied, on the Strand? (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "BEACHED",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["independent-12456"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Number of women? Try to elaborate (5-3)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -97,9 +85,6 @@ window.CRYPTIC_PUZZLES["independent-12456"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Met with dismissal, went into retirement? (3,3,4)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -119,9 +104,6 @@ window.CRYPTIC_PUZZLES["independent-12456"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Earl governing in a state, having received no news about King (6,2)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -140,9 +122,6 @@ window.CRYPTIC_PUZZLES["independent-12456"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Just transfixed by grand worker of wonders (5)",
-   "group": [
-    "7-across"
-   ],
    "separatorLocations": {},
    "solution": "FAKIR",
    "annotation": null
@@ -157,9 +136,6 @@ window.CRYPTIC_PUZZLES["independent-12456"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "In retirement try to accept modification of iron’s compounds (9)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {},
    "solution": "KEROSINES",
    "annotation": null
@@ -174,9 +150,6 @@ window.CRYPTIC_PUZZLES["independent-12456"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Great game (4)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {},
    "solution": "MAIN",
    "annotation": null
@@ -191,9 +164,6 @@ window.CRYPTIC_PUZZLES["independent-12456"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Regrettably, Function follows Melchester’s Race Meeting (5,5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -212,9 +182,6 @@ window.CRYPTIC_PUZZLES["independent-12456"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Novice storyteller is holding back (4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "TYRO",
    "annotation": null
@@ -229,9 +196,6 @@ window.CRYPTIC_PUZZLES["independent-12456"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Turn #2, almost #6 on the table (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "CARBON",
    "annotation": null
@@ -252,9 +216,6 @@ window.CRYPTIC_PUZZLES["independent-12456"] = /*JSON-START*/ {
      9
     ]
    ],
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "BROADSHEET",
    "annotation": null
@@ -269,9 +230,6 @@ window.CRYPTIC_PUZZLES["independent-12456"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Well-respected Wade meets Evert over drinks (8)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "ESTEEMED",
    "annotation": null
@@ -286,9 +244,6 @@ window.CRYPTIC_PUZZLES["independent-12456"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Sign Murray’s impatient, wanting to tuck into cheese roll (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "BRIOCHE",
    "annotation": null
@@ -303,9 +258,6 @@ window.CRYPTIC_PUZZLES["independent-12456"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Getting to arena to welcome a person (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "REACHING",
    "annotation": null
@@ -320,9 +272,6 @@ window.CRYPTIC_PUZZLES["independent-12456"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Good day doing exercises, breaks in the routine? (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "HIATUSES",
    "annotation": null
@@ -337,9 +286,6 @@ window.CRYPTIC_PUZZLES["independent-12456"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Quick break after kick-off involves Croatia’s top international – him? (7)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "KOVACIC",
    "annotation": null
@@ -354,9 +300,6 @@ window.CRYPTIC_PUZZLES["independent-12456"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Pre-test indicators record unpopular shifts? (1-6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {
     "-": [
      1
@@ -375,9 +318,6 @@ window.CRYPTIC_PUZZLES["independent-12456"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Solitary digger was caught between a couple of spademen (4,4)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -396,9 +336,6 @@ window.CRYPTIC_PUZZLES["independent-12456"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Razor user lopped recycled pork cut (6)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "OCKHAM",
    "annotation": null
@@ -413,9 +350,6 @@ window.CRYPTIC_PUZZLES["independent-12456"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Right to miss start of mock exam (4)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "ORAL",
    "annotation": null
@@ -430,9 +364,6 @@ window.CRYPTIC_PUZZLES["independent-12456"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Birdcage Walk, say, being overlaid with a track (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "AVIARY",
    "annotation": null
@@ -447,9 +378,6 @@ window.CRYPTIC_PUZZLES["independent-12456"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "No two husbands will get involved with us (2-2)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {
     "-": [
      2
@@ -468,9 +396,6 @@ window.CRYPTIC_PUZZLES["independent-12456"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Ritual dancing about after piercing tongues (4-6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -489,9 +414,6 @@ window.CRYPTIC_PUZZLES["independent-12456"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Up to work? (4)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "TILL",
    "annotation": null
@@ -506,9 +428,6 @@ window.CRYPTIC_PUZZLES["independent-12456"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Is prior to religious establishment panicking East End ministers? (9)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "ANTECEDES",
    "annotation": null
@@ -523,9 +442,6 @@ window.CRYPTIC_PUZZLES["independent-12456"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Sacred mass put all our art out in the open? (5)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "ULURU",
    "annotation": null

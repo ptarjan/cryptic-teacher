@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30082"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Splitting payslip results in bad service? (4,5)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -74,9 +71,6 @@ window.CRYPTIC_PUZZLES["cryptic-30082"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "One telling stories featuring fantastic, very minor celebrities (8)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "FABULIST",
    "annotation": {
@@ -117,9 +111,6 @@ window.CRYPTIC_PUZZLES["cryptic-30082"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Beneficial to add oxygen to blend (2,3)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -164,9 +155,6 @@ window.CRYPTIC_PUZZLES["cryptic-30082"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Internal enemy in appropriate position here? (5,9)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -202,9 +190,6 @@ window.CRYPTIC_PUZZLES["cryptic-30082"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Element of July’s session is something hard to understand? (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "ULYSSES",
    "annotation": {
@@ -238,9 +223,6 @@ window.CRYPTIC_PUZZLES["cryptic-30082"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Travel around Wigan central to find Portuguese wine (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "TOURIGA",
    "annotation": {
@@ -283,9 +265,6 @@ window.CRYPTIC_PUZZLES["cryptic-30082"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Occasional brewers who will deliver honey? (4)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "BEES",
    "annotation": {
@@ -320,9 +299,6 @@ window.CRYPTIC_PUZZLES["cryptic-30082"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Mrs Sprat’s dietary requirement processed at lane one (3,2,4)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -361,9 +337,6 @@ window.CRYPTIC_PUZZLES["cryptic-30082"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Gutted scientific programme providing containers for seed producers (6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "SCROTA",
    "annotation": {
@@ -406,9 +379,6 @@ window.CRYPTIC_PUZZLES["cryptic-30082"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "She made crime novels airtight as each evolved (6,8)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -446,9 +416,6 @@ window.CRYPTIC_PUZZLES["cryptic-30082"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Deceive friendly bank (5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "BLUFF",
    "annotation": {
@@ -488,9 +455,6 @@ window.CRYPTIC_PUZZLES["cryptic-30082"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Gutsy Nero wrestled child (9)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "YOUNGSTER",
    "annotation": {
@@ -524,9 +488,6 @@ window.CRYPTIC_PUZZLES["cryptic-30082"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Suckers taking shelter before short game (7)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "LEECHES",
    "annotation": {
@@ -567,9 +528,6 @@ window.CRYPTIC_PUZZLES["cryptic-30082"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Sacred music at heart of saintly shroud rite (7)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "INTROIT",
    "annotation": {
@@ -615,9 +573,6 @@ window.CRYPTIC_PUZZLES["cryptic-30082"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Acute harm horrible images aroused (7,6)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -655,9 +610,6 @@ window.CRYPTIC_PUZZLES["cryptic-30082"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Endorsement after president would indicate top choice (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "REFERENCE",
    "annotation": {
@@ -699,9 +651,6 @@ window.CRYPTIC_PUZZLES["cryptic-30082"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Conservative faction working to gather information for delivery option (1-7)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {
     "-": [
      1
@@ -760,9 +709,6 @@ window.CRYPTIC_PUZZLES["cryptic-30082"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "For example, Apple devices providing gambling opportunities (5,8)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -807,9 +753,6 @@ window.CRYPTIC_PUZZLES["cryptic-30082"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Labour adopts works creating best medium for growth (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "TOPSOIL",
    "annotation": {
@@ -853,9 +796,6 @@ window.CRYPTIC_PUZZLES["cryptic-30082"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "In Scotland all large trees produce small flowers (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "ALPINES",
    "annotation": {
@@ -902,9 +842,6 @@ window.CRYPTIC_PUZZLES["cryptic-30082"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Trophies stolen, clubs eliminated – it’s a result! (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "UPSHOT",
    "annotation": {
@@ -952,9 +889,6 @@ window.CRYPTIC_PUZZLES["cryptic-30082"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Assigns blame when returning vegetarian food (7)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "PARSNIP",
    "annotation": {
@@ -999,9 +933,6 @@ window.CRYPTIC_PUZZLES["cryptic-30082"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Chap so excited as couple make comeback in film (7)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "PRIAPIC",
    "annotation": {
@@ -1053,9 +984,6 @@ window.CRYPTIC_PUZZLES["cryptic-30082"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Heads or livers chopped up? Depends how you say it (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "PATES",
    "annotation": {
@@ -1092,9 +1020,6 @@ window.CRYPTIC_PUZZLES["cryptic-30082"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Passes on instruction to tellers when bank heist’s over (5,4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -1136,9 +1061,6 @@ window.CRYPTIC_PUZZLES["cryptic-30082"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "All together now – express disappointment at what comes before do (5)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "TUTTI",
    "annotation": {
@@ -1179,9 +1101,6 @@ window.CRYPTIC_PUZZLES["cryptic-30082"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Sentimental short message made even shorter (4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "TWEE",
    "annotation": {
@@ -1215,9 +1134,6 @@ window.CRYPTIC_PUZZLES["cryptic-30082"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Catalogue standard no good bugs (7,2)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     ",": [
      7

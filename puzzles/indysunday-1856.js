@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1856"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Future queen perhaps declined uncle's security (6,4)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -69,9 +66,6 @@ window.CRYPTIC_PUZZLES["indysunday-1856"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Offensive American in pub (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "PUSH",
    "annotation": {
@@ -116,9 +110,6 @@ window.CRYPTIC_PUZZLES["indysunday-1856"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Mind Charles feeding pig? It'll help the farmer (9)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "SCARECROW",
    "annotation": {
@@ -170,9 +161,6 @@ window.CRYPTIC_PUZZLES["indysunday-1856"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Partner no longer straight subject to analysis (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "EXPLAIN",
    "annotation": {
@@ -210,9 +198,6 @@ window.CRYPTIC_PUZZLES["indysunday-1856"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "New app starts to unravel early, developing bugs (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "PUPAE",
    "annotation": {
@@ -257,9 +242,6 @@ window.CRYPTIC_PUZZLES["indysunday-1856"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Girls went off occasionally muddy sport (9)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "WRESTLING",
    "annotation": {
@@ -297,9 +279,6 @@ window.CRYPTIC_PUZZLES["indysunday-1856"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Return favour for rookie (4)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "NOOB",
    "annotation": {
@@ -351,9 +330,6 @@ window.CRYPTIC_PUZZLES["indysunday-1856"] = /*JSON-START*/ {
      32,
      9
     ]
-   ],
-   "group": [
-    "7-down"
    ],
    "separatorLocations": {},
    "solution": "OPERA",
@@ -409,9 +385,6 @@ window.CRYPTIC_PUZZLES["indysunday-1856"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Fat keeper bowled by absolute beauty (6,4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -462,9 +435,6 @@ window.CRYPTIC_PUZZLES["indysunday-1856"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Cloud lifted in less than 60 seconds? (6)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {},
    "solution": "NIMBUS",
    "annotation": {
@@ -517,9 +487,6 @@ window.CRYPTIC_PUZZLES["indysunday-1856"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Small instrument with strings out of tune (5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "SHARP",
    "annotation": {
@@ -557,9 +524,6 @@ window.CRYPTIC_PUZZLES["indysunday-1856"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Chief executive parking at home (9)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "PRESIDENT",
    "annotation": {
@@ -597,9 +561,6 @@ window.CRYPTIC_PUZZLES["indysunday-1856"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "English sailor bet priest a stone knocked over large spined creature (14)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "MEGAVERTEBRATE",
    "annotation": {
@@ -673,9 +634,6 @@ window.CRYPTIC_PUZZLES["indysunday-1856"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Jam sandwiches mother and son taking flight cut - WI produce? (7,3)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -732,9 +690,6 @@ window.CRYPTIC_PUZZLES["indysunday-1856"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Bill keeps lying down in a pinny (7)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "APRONED",
    "annotation": {
@@ -779,9 +734,6 @@ window.CRYPTIC_PUZZLES["indysunday-1856"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Setter off upcoming schedule (denied - Ed) (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "DETONATOR",
    "annotation": {
@@ -837,9 +789,6 @@ window.CRYPTIC_PUZZLES["indysunday-1856"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Filling little drink I had without much taste (7)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "INSIPID",
    "annotation": {
@@ -883,9 +832,6 @@ window.CRYPTIC_PUZZLES["indysunday-1856"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "First thing true love offered - some Crest (9)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "PARTRIDGE",
    "annotation": {
@@ -923,9 +869,6 @@ window.CRYPTIC_PUZZLES["indysunday-1856"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Couple bitten by mad rats given dreadful prognosis (2,5)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -986,9 +929,6 @@ window.CRYPTIC_PUZZLES["indysunday-1856"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Coarse orange coat nice on the inside (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "RUSTIC",
    "annotation": {
@@ -1032,9 +972,6 @@ window.CRYPTIC_PUZZLES["indysunday-1856"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Castro hectored on grand soapboxes (2-5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     "-": [
      2
@@ -1090,9 +1027,6 @@ window.CRYPTIC_PUZZLES["indysunday-1856"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Football team break the rules briefly getting golfer involved (7)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "CHELSEA",
    "annotation": {
@@ -1142,9 +1076,6 @@ window.CRYPTIC_PUZZLES["indysunday-1856"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Actress on horse ordered \"Show you really mean it\" (5,4,5)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     ",": [
      5,
@@ -1187,9 +1118,6 @@ window.CRYPTIC_PUZZLES["indysunday-1856"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Role given Oscar before moving pictures, apparently (2,3)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -1246,9 +1174,6 @@ window.CRYPTIC_PUZZLES["indysunday-1856"] = /*JSON-START*/ {
      7
     ]
    ],
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "SOCKS",
    "annotation": {
@@ -1291,9 +1216,6 @@ window.CRYPTIC_PUZZLES["indysunday-1856"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Christian's quiet in bed (4)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "COPT",
    "annotation": {
@@ -1341,9 +1263,6 @@ window.CRYPTIC_PUZZLES["indysunday-1856"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Sensible English celebrity divides half of wealth (9)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "REALISTIC",
    "annotation": {
@@ -1396,9 +1315,6 @@ window.CRYPTIC_PUZZLES["indysunday-1856"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "One's not groovy, not even when twisting (5)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "SADDO",
    "annotation": {
@@ -1448,9 +1364,6 @@ window.CRYPTIC_PUZZLES["indysunday-1856"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Couple cycled a little bit (4)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "MITE",
    "annotation": {
@@ -1488,9 +1401,6 @@ window.CRYPTIC_PUZZLES["indysunday-1856"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "PR man, second wise guy for 11's team (5,5)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {
     ",": [
      5

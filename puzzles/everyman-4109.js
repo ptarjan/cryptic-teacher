@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4109"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Mess up drink request for the most part (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "RUMPLE",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["everyman-4109"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "So involved a decision for intellectuals, says Cockney (2,2,3,8)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -65,9 +59,6 @@ window.CRYPTIC_PUZZLES["everyman-4109"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Horned god, wicked one that'll cure all (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "PANACEA",
    "annotation": null
@@ -82,9 +73,6 @@ window.CRYPTIC_PUZZLES["everyman-4109"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Mysterious giant mice exploding (9)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "ENIGMATIC",
    "annotation": null
@@ -99,9 +87,6 @@ window.CRYPTIC_PUZZLES["everyman-4109"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Step? Not half! Travel ... travel with long steps (6)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "STRIDE",
    "annotation": null
@@ -116,9 +101,6 @@ window.CRYPTIC_PUZZLES["everyman-4109"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Barber is, we're told, very nearly vertical? (5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "SHEAR",
    "annotation": null
@@ -133,9 +115,6 @@ window.CRYPTIC_PUZZLES["everyman-4109"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Gives another polish to snubs (7)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "REBUFFS",
    "annotation": null
@@ -150,9 +129,6 @@ window.CRYPTIC_PUZZLES["everyman-4109"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Prostrate, eyes closed: what'll keep nobleman warm in bed? (4,3,3,5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -173,9 +149,6 @@ window.CRYPTIC_PUZZLES["everyman-4109"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Recovered from intense blow, sporting affliction (6,5)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -194,9 +167,6 @@ window.CRYPTIC_PUZZLES["everyman-4109"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Further allusion regularly unnecessary (4)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {},
    "solution": "ALSO",
    "annotation": null
@@ -211,9 +181,6 @@ window.CRYPTIC_PUZZLES["everyman-4109"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Cut string taken from dachshund (4)",
-   "group": [
-    "10-down"
-   ],
    "separatorLocations": {},
    "solution": "SHUN",
    "annotation": null
@@ -228,9 +195,6 @@ window.CRYPTIC_PUZZLES["everyman-4109"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Meet up with Carol - she's not on time (9)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "LATECOMER",
    "annotation": null
@@ -245,9 +209,6 @@ window.CRYPTIC_PUZZLES["everyman-4109"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Proportion's half, if that's taking 50% (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "FIFTH",
    "annotation": null
@@ -262,9 +223,6 @@ window.CRYPTIC_PUZZLES["everyman-4109"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Deliveries, one hundred tons: as ham this'll do? (7)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "OVERACT",
    "annotation": null
@@ -279,9 +237,6 @@ window.CRYPTIC_PUZZLES["everyman-4109"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Alas, sadly as an alternative, admitted Everyman ultimately no-hoper (4-3)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -300,9 +255,6 @@ window.CRYPTIC_PUZZLES["everyman-4109"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Source of music that's long - and high! (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "ALPENHORN",
    "annotation": null
@@ -317,9 +269,6 @@ window.CRYPTIC_PUZZLES["everyman-4109"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Primarily cumbersomely rambling; you piece together its components - like this? (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "CRYPTIC",
    "annotation": null
@@ -334,9 +283,6 @@ window.CRYPTIC_PUZZLES["everyman-4109"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Perhaps Jack's a funny fellow (4)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "CARD",
    "annotation": null
@@ -351,9 +297,6 @@ window.CRYPTIC_PUZZLES["everyman-4109"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Spooner's ridden at speed for quantity of ale (7)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "TANKARD",
    "annotation": null
@@ -368,9 +311,6 @@ window.CRYPTIC_PUZZLES["everyman-4109"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Bags of salt in small amounts (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "PINCHES",
    "annotation": null
@@ -385,9 +325,6 @@ window.CRYPTIC_PUZZLES["everyman-4109"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Succeed in, with Rev's support, getting help posting notices (4,3)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -406,9 +343,6 @@ window.CRYPTIC_PUZZLES["everyman-4109"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Small fuss: flipped over drink (non-alcoholic) (4)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "SODA",
    "annotation": null
@@ -423,9 +357,6 @@ window.CRYPTIC_PUZZLES["everyman-4109"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Commit burglary with mafiosi uptown, in the end I'll sing (5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "ROBIN",
    "annotation": null
@@ -440,9 +371,6 @@ window.CRYPTIC_PUZZLES["everyman-4109"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Against church boxing plonk Dutch sold (9)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "CONVINCED",
    "annotation": null
@@ -457,9 +385,6 @@ window.CRYPTIC_PUZZLES["everyman-4109"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Changing sides in boorish form (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "CLASS",
    "annotation": null
@@ -474,9 +399,6 @@ window.CRYPTIC_PUZZLES["everyman-4109"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Oxford University often admitting a German, Bill - and later another? That's capital! (11)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "OUAGADOUGOU",
    "annotation": null
@@ -491,9 +413,6 @@ window.CRYPTIC_PUZZLES["everyman-4109"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Departures that are listed in charts (1-5)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {
     "-": [
      1
@@ -512,9 +431,6 @@ window.CRYPTIC_PUZZLES["everyman-4109"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Groups of performers without safety equipment? (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "NONETS",
    "annotation": null

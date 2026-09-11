@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29975"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Also, the ship outside left without power (9)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "TOOTHLESS",
    "annotation": {
@@ -78,9 +75,6 @@ window.CRYPTIC_PUZZLES["cryptic-29975"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Essentially stretches to exercise (5)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "TRAIN",
    "annotation": {
@@ -118,9 +112,6 @@ window.CRYPTIC_PUZZLES["cryptic-29975"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Old Tudor building inspires love in the open air (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "OUTDOOR",
    "annotation": {
@@ -179,9 +170,6 @@ window.CRYPTIC_PUZZLES["cryptic-29975"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Joint fishing expedition or something else inside? (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "HINGE",
    "annotation": {
@@ -221,9 +209,6 @@ window.CRYPTIC_PUZZLES["cryptic-29975"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "What? Bottle upended spilling a bit of fluid? That’s painful (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "EARACHE",
    "annotation": {
@@ -284,9 +269,6 @@ window.CRYPTIC_PUZZLES["cryptic-29975"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Teams who struggle with scoring initially become secondary attractions (9)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "SIDESHOWS",
    "annotation": {
@@ -348,9 +330,6 @@ window.CRYPTIC_PUZZLES["cryptic-29975"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Boxer, turn into cook (4)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "FURY",
    "annotation": {
@@ -395,9 +374,6 @@ window.CRYPTIC_PUZZLES["cryptic-29975"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Fellow heading to Eastbourne – a funny, true story (7)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "FEATURE",
    "annotation": {
@@ -461,9 +437,6 @@ window.CRYPTIC_PUZZLES["cryptic-29975"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Henry travelled around with Welsh woman and old African (9)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "RHODESIAN",
    "annotation": {
@@ -518,9 +491,6 @@ window.CRYPTIC_PUZZLES["cryptic-29975"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Frenchman retires following quick tie (8)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {},
    "solution": "FASTENER",
    "annotation": {
@@ -572,9 +542,6 @@ window.CRYPTIC_PUZZLES["cryptic-29975"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Like TV’s fabulous creature? (6)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "DRAGON",
    "annotation": {
@@ -613,9 +580,6 @@ window.CRYPTIC_PUZZLES["cryptic-29975"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Pay company to be involved in Minecraft? (6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "INCOME",
    "annotation": {
@@ -668,9 +632,6 @@ window.CRYPTIC_PUZZLES["cryptic-29975"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "In December on retreat, large corporation is in fancy dress (8)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "COSTUMED",
    "annotation": {
@@ -732,9 +693,6 @@ window.CRYPTIC_PUZZLES["cryptic-29975"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Dairy products not good in tents (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "YOURTS",
    "annotation": {
@@ -780,9 +738,6 @@ window.CRYPTIC_PUZZLES["cryptic-29975"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Novel she wrote about one being different (9)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "OTHERWISE",
    "annotation": {
@@ -838,9 +793,6 @@ window.CRYPTIC_PUZZLES["cryptic-29975"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Best to be standing when overwhelmed by little attention (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "SPOTLIGHT",
    "annotation": {
@@ -893,9 +845,6 @@ window.CRYPTIC_PUZZLES["cryptic-29975"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Private Harry cries over broken toe (8)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "ESOTERIC",
    "annotation": {
@@ -954,9 +903,6 @@ window.CRYPTIC_PUZZLES["cryptic-29975"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Diagrams describe Number 10’s vehicles (8)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "CHARIOTS",
    "annotation": {
@@ -1001,9 +947,6 @@ window.CRYPTIC_PUZZLES["cryptic-29975"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Reconsider skating here round the resort (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "RETHINK",
    "annotation": {
@@ -1056,9 +999,6 @@ window.CRYPTIC_PUZZLES["cryptic-29975"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Broadcaster unhappy with colour of Manchester club (3-4)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -1104,9 +1044,6 @@ window.CRYPTIC_PUZZLES["cryptic-29975"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "PR wins hearts with “Vote for Monster” (6)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "SPHINX",
    "annotation": {
@@ -1161,9 +1098,6 @@ window.CRYPTIC_PUZZLES["cryptic-29975"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Minor setbacks; involuntary complaint (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "HICCUPS",
    "annotation": {
@@ -1199,9 +1133,6 @@ window.CRYPTIC_PUZZLES["cryptic-29975"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "British heavyweight losing no time with friend in a cruel manner (8)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "BRUTALLY",
    "annotation": {
@@ -1259,9 +1190,6 @@ window.CRYPTIC_PUZZLES["cryptic-29975"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Nuts in games headphones (6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "PECANS",
    "annotation": {
@@ -1303,9 +1231,6 @@ window.CRYPTIC_PUZZLES["cryptic-29975"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Criminal reducing volume of capital money? (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "PENCE",
    "annotation": {
@@ -1357,9 +1282,6 @@ window.CRYPTIC_PUZZLES["cryptic-29975"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Drink served up by host on vacation after dark (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "NIGHT",
    "annotation": {
@@ -1414,9 +1336,6 @@ window.CRYPTIC_PUZZLES["cryptic-29975"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Scandinavian against topless rambling (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "VIKING",
    "annotation": {
@@ -1460,9 +1379,6 @@ window.CRYPTIC_PUZZLES["cryptic-29975"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Communication network to estimate when metal gets twisted (8)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "LANGUAGE",
    "annotation": {
@@ -1517,9 +1433,6 @@ window.CRYPTIC_PUZZLES["cryptic-29975"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Idiot stealing contents of bicycle rack (4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "BERK",
    "annotation": {
@@ -1563,9 +1476,6 @@ window.CRYPTIC_PUZZLES["cryptic-29975"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Wealthy travellers’ bad teeth, black and small within (3,3,3)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     ",": [
      3,

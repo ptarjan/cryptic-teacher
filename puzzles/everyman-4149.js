@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4149"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Masculine one's club (4)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "MACE",
    "annotation": {
@@ -68,9 +65,6 @@ window.CRYPTIC_PUZZLES["everyman-4149"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "See fight as source of illumination (8)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "MATCHBOX",
    "annotation": {
@@ -111,9 +105,6 @@ window.CRYPTIC_PUZZLES["everyman-4149"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Bit of starch in old cotton (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "CHINO",
    "annotation": {
@@ -147,9 +138,6 @@ window.CRYPTIC_PUZZLES["everyman-4149"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Posh people's stilted, curt supper (5,5)",
-   "group": [
-    "3-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -193,9 +181,6 @@ window.CRYPTIC_PUZZLES["everyman-4149"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Tattered canopying giving aura of sadness (9)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "POIGNANCY",
    "annotation": {
@@ -235,9 +220,6 @@ window.CRYPTIC_PUZZLES["everyman-4149"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Glimpse of Everyman, 55, is one gyrating hips no more (5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "ELVIS",
    "annotation": {
@@ -292,9 +274,6 @@ window.CRYPTIC_PUZZLES["everyman-4149"] = /*JSON-START*/ {
      3
     ]
    ],
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -343,9 +322,6 @@ window.CRYPTIC_PUZZLES["everyman-4149"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "A S American, you are heard, you said, touring Guyana (9)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "URUGUAYAN",
    "annotation": {
@@ -406,9 +382,6 @@ window.CRYPTIC_PUZZLES["everyman-4149"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Support article that's cut, in a way (6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "TEETHE",
    "annotation": {
@@ -449,9 +422,6 @@ window.CRYPTIC_PUZZLES["everyman-4149"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Trouble: spirit that's taken to bed (3-5,6)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -500,9 +470,6 @@ window.CRYPTIC_PUZZLES["everyman-4149"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Caught thrice as much in port on the Med (7)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "TRIPOLI",
    "annotation": {
@@ -540,9 +507,6 @@ window.CRYPTIC_PUZZLES["everyman-4149"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "My food is usually late (7)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "VULTURE",
    "annotation": {
@@ -574,9 +538,6 @@ window.CRYPTIC_PUZZLES["everyman-4149"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Tricks gangster; makes cheeky gesture (9)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "HOODWINKS",
    "annotation": {
@@ -614,9 +575,6 @@ window.CRYPTIC_PUZZLES["everyman-4149"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Roar in slaughterhouse? (5)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "LAUGH",
    "annotation": {
@@ -650,9 +608,6 @@ window.CRYPTIC_PUZZLES["everyman-4149"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Unsettled, Lucy's vacuous to extraordinary degree (13)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "OUTSTANDINGLY",
    "annotation": {
@@ -695,9 +650,6 @@ window.CRYPTIC_PUZZLES["everyman-4149"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Fuss over tips in lists of chores (2-2,5)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {
     "-": [
      2
@@ -745,9 +697,6 @@ window.CRYPTIC_PUZZLES["everyman-4149"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Fabulous Armani suit's third piece granny vacuously altered (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "IMAGINARY",
    "annotation": {
@@ -798,9 +747,6 @@ window.CRYPTIC_PUZZLES["everyman-4149"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Weariest: 'done in', so to speak (2,2,4)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -842,9 +788,6 @@ window.CRYPTIC_PUZZLES["everyman-4149"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Blue bird is getting drinks (5,8)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -895,9 +838,6 @@ window.CRYPTIC_PUZZLES["everyman-4149"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Sheep behind tree: retreat! (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "ASHRAM",
    "annotation": {
@@ -940,9 +880,6 @@ window.CRYPTIC_PUZZLES["everyman-4149"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Some colossal voles attack (5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "SALVO",
    "annotation": {
@@ -976,9 +913,6 @@ window.CRYPTIC_PUZZLES["everyman-4149"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Miser's ciggie paper and lighter (9)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "SKINFLINT",
    "annotation": {
@@ -1020,9 +954,6 @@ window.CRYPTIC_PUZZLES["everyman-4149"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Principally, supposedly, the one relaying kids? (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "STORK",
    "annotation": {
@@ -1063,9 +994,6 @@ window.CRYPTIC_PUZZLES["everyman-4149"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "More risky - heading off - more remote (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "ICIER",
    "annotation": {
@@ -1107,9 +1035,6 @@ window.CRYPTIC_PUZZLES["everyman-4149"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Mashed roots: it is a carby dish (7)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "RISOTTO",
    "annotation": {
@@ -1154,9 +1079,6 @@ window.CRYPTIC_PUZZLES["everyman-4149"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "A rector gripped by one sin - and another (7)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "AVARICE",
    "annotation": {
@@ -1203,9 +1125,6 @@ window.CRYPTIC_PUZZLES["everyman-4149"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Pass grade-eight piano? Such should open many doors (6,4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -1247,9 +1166,6 @@ window.CRYPTIC_PUZZLES["everyman-4149"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Receding land seen in Great Lake (4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "ERIE",
    "annotation": {

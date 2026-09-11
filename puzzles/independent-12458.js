@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12458"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Carbon or nitrogen as the result of pressure? (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "CORN",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["independent-12458"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Unbecoming in most of battle: a sharp punch (5,3)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -63,9 +57,6 @@ window.CRYPTIC_PUZZLES["independent-12458"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Nutritious fruit mostly very good? Excellent (4)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "ACAI",
    "annotation": null
@@ -80,9 +71,6 @@ window.CRYPTIC_PUZZLES["independent-12458"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "New head of company is human so far (8)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "INASMUCH",
    "annotation": null
@@ -97,9 +85,6 @@ window.CRYPTIC_PUZZLES["independent-12458"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Children’s writer reduced home a small amount (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "NESBIT",
    "annotation": null
@@ -114,9 +99,6 @@ window.CRYPTIC_PUZZLES["independent-12458"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Tedium of the French lines on Spanish city, ignoring a mention of Spain (10)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "DULLSVILLE",
    "annotation": null
@@ -131,9 +113,6 @@ window.CRYPTIC_PUZZLES["independent-12458"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Takes careful steps in board game, losing last piece (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "INCHES",
    "annotation": null
@@ -148,9 +127,6 @@ window.CRYPTIC_PUZZLES["independent-12458"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Trivial hackneyed stuff after spicy stuff (10)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "PEPPERCORN",
    "annotation": null
@@ -165,9 +141,6 @@ window.CRYPTIC_PUZZLES["independent-12458"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Irrelevant old female never against series (2,2,11)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -187,9 +160,6 @@ window.CRYPTIC_PUZZLES["independent-12458"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Marine worms, source of each one collected by 26s (7)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "NEREIDS",
    "annotation": null
@@ -204,9 +174,6 @@ window.CRYPTIC_PUZZLES["independent-12458"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Hotel worker with a lot of guts taking on hotel work (7)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "BELLHOP",
    "annotation": null
@@ -221,9 +188,6 @@ window.CRYPTIC_PUZZLES["independent-12458"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Rioting led unrest in the final analysis (3,6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -242,9 +206,6 @@ window.CRYPTIC_PUZZLES["independent-12458"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Nonsense that is involved in change, sapping power and enthusiasm (10)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {},
    "solution": "EBULLIENCE",
    "annotation": null
@@ -259,9 +220,6 @@ window.CRYPTIC_PUZZLES["independent-12458"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Last blokes to accept attention and bit of touching affectionate banter (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "ENDEARMENT",
    "annotation": null
@@ -276,9 +234,6 @@ window.CRYPTIC_PUZZLES["independent-12458"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Vanadium is used before gold for part of armour (5)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "VISOR",
    "annotation": null
@@ -293,9 +248,6 @@ window.CRYPTIC_PUZZLES["independent-12458"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Encouraged, clarified removing President (5)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "URGED",
    "annotation": null
@@ -310,9 +262,6 @@ window.CRYPTIC_PUZZLES["independent-12458"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "About to be dismissed by group of women, being a poor performer (3)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "HAM",
    "annotation": null
@@ -327,9 +276,6 @@ window.CRYPTIC_PUZZLES["independent-12458"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Idiot turned up? Refuse to receive one contribution to thinking, perhaps (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "MIDBRAIN",
    "annotation": null
@@ -344,9 +290,6 @@ window.CRYPTIC_PUZZLES["independent-12458"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Release bricks (about ton) (3,2)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -365,9 +308,6 @@ window.CRYPTIC_PUZZLES["independent-12458"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Election concerns? Recommends including ballot box (8)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "TURNOUTS",
    "annotation": null
@@ -382,9 +322,6 @@ window.CRYPTIC_PUZZLES["independent-12458"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Asian city keeps invading American city (5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "LHASA",
    "annotation": null
@@ -399,9 +336,6 @@ window.CRYPTIC_PUZZLES["independent-12458"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Japanese plant university introduced to a Caribbean island (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "AUCUBA",
    "annotation": null
@@ -416,9 +350,6 @@ window.CRYPTIC_PUZZLES["independent-12458"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Fluid gender, we start to suspect, in marsh bird (5,4)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -437,9 +368,6 @@ window.CRYPTIC_PUZZLES["independent-12458"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Inadequate to examine terms in theology (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "SCANTY",
    "annotation": null
@@ -454,9 +382,6 @@ window.CRYPTIC_PUZZLES["independent-12458"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "On return, intend individual to receive college commendations (7)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "ENCOMIA",
    "annotation": null
@@ -471,9 +396,6 @@ window.CRYPTIC_PUZZLES["independent-12458"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Manage certain farm output in Cheshire town (7)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "RUNCORN",
    "annotation": null
@@ -488,9 +410,6 @@ window.CRYPTIC_PUZZLES["independent-12458"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Fix group of ships heading in opposite direction (4)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "NAIL",
    "annotation": null
@@ -505,9 +424,6 @@ window.CRYPTIC_PUZZLES["independent-12458"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Awkward character during dinner-date? (4)",
-   "group": [
-    "26-down"
-   ],
    "separatorLocations": {},
    "solution": "NERD",
    "annotation": null
@@ -522,9 +438,6 @@ window.CRYPTIC_PUZZLES["independent-12458"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "A bit reminiscent, possibly, of senior politician (7,8)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     ",": [
      7

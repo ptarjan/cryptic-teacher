@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29941"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Soldiers infiltrating abbey get life (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "BREATH",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["cryptic-29941"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Side of ribeye smothered in gravy – starter for lunch in City? (7)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "BRISTOL",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["cryptic-29941"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Senior wife divorced by one forming bond (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "ELDER",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["cryptic-29941"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Hiding in ancient city – not a task for revolutionary (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "TROTSKY",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["cryptic-29941"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Noise on the radio still (6)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "STATIC",
    "annotation": null
@@ -110,9 +95,6 @@ window.CRYPTIC_PUZZLES["cryptic-29941"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "The Royal Marines: the ultimate in peerless British units (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "THERMS",
    "annotation": null
@@ -127,9 +109,6 @@ window.CRYPTIC_PUZZLES["cryptic-29941"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Chasing rabbit’s tail, biting foot of hare, I growl savagely and loudly (5,4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -148,9 +127,6 @@ window.CRYPTIC_PUZZLES["cryptic-29941"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Conservative politician wearing glasses has scheme on vacation to make notes (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "COMPOSE",
    "annotation": null
@@ -165,9 +141,6 @@ window.CRYPTIC_PUZZLES["cryptic-29941"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "They remove caps from batsmen to sustain courage (6-7)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     "-": [
      6
@@ -186,9 +159,6 @@ window.CRYPTIC_PUZZLES["cryptic-29941"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Perhaps North’s to achieve success with diamonds (4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "WIND",
    "annotation": null
@@ -203,9 +173,6 @@ window.CRYPTIC_PUZZLES["cryptic-29941"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Man goes wild securing ace when playing well (2,4,4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -225,9 +192,6 @@ window.CRYPTIC_PUZZLES["cryptic-29941"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Begins with small puddings (6)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "STARTS",
    "annotation": null
@@ -242,9 +206,6 @@ window.CRYPTIC_PUZZLES["cryptic-29941"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Also, stealing money not a pointer to the future (8)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "TOMORROW",
    "annotation": null
@@ -259,9 +220,6 @@ window.CRYPTIC_PUZZLES["cryptic-29941"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "They provide regular services for the masses (9)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "CLERGYMEN",
    "annotation": null
@@ -276,9 +234,6 @@ window.CRYPTIC_PUZZLES["cryptic-29941"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Left Italy in German translation (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "REMAINING",
    "annotation": null
@@ -293,9 +248,6 @@ window.CRYPTIC_PUZZLES["cryptic-29941"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Part of quiche Lorraine slice sent back (4)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "ROLE",
    "annotation": null
@@ -310,9 +262,6 @@ window.CRYPTIC_PUZZLES["cryptic-29941"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Party accepts 1,000,000 deposit (4)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "DUMP",
    "annotation": null
@@ -327,9 +276,6 @@ window.CRYPTIC_PUZZLES["cryptic-29941"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Argued about backing Democrat plot to imprison separatists once (7)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "DEBATED",
    "annotation": null
@@ -344,9 +290,6 @@ window.CRYPTIC_PUZZLES["cryptic-29941"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "US swimmer oversleeps if he’s shattered (9)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "SPIKEFISH",
    "annotation": null
@@ -361,9 +304,6 @@ window.CRYPTIC_PUZZLES["cryptic-29941"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Making his mark in disputed region (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "KASHMIR",
    "annotation": null
@@ -378,9 +318,6 @@ window.CRYPTIC_PUZZLES["cryptic-29941"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Documents civil service retiring with expensive cars (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "SCROLLS",
    "annotation": null
@@ -395,9 +332,6 @@ window.CRYPTIC_PUZZLES["cryptic-29941"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Building is more cracked (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "RIMOSE",
    "annotation": null
@@ -412,9 +346,6 @@ window.CRYPTIC_PUZZLES["cryptic-29941"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Black cat chases ball catching 6 in limbo (8)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "OBLIVION",
    "annotation": null
@@ -429,9 +360,6 @@ window.CRYPTIC_PUZZLES["cryptic-29941"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Weapons and fruit onboard (6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "SPEARS",
    "annotation": null
@@ -446,9 +374,6 @@ window.CRYPTIC_PUZZLES["cryptic-29941"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Delicate flower picked up by female? On the contrary (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "ELFIN",
    "annotation": null
@@ -463,9 +388,6 @@ window.CRYPTIC_PUZZLES["cryptic-29941"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Messenger’s very good memory about outing (10)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "STRIPOGRAM",
    "annotation": null
@@ -480,9 +402,6 @@ window.CRYPTIC_PUZZLES["cryptic-29941"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "In New York, season top of fajitas with everything (4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "FALL",
    "annotation": null
@@ -497,9 +416,6 @@ window.CRYPTIC_PUZZLES["cryptic-29941"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Blade of green grass, damp after early rain, initially flourished (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "DAGGER",
    "annotation": null
@@ -514,9 +430,6 @@ window.CRYPTIC_PUZZLES["cryptic-29941"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Article describes hesitation in retreat, like in scenes of conflict (6)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "ARENAS",
    "annotation": null

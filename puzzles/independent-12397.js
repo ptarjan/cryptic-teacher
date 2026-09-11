@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Macho director hosted by Hollywood Bowl? (7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "LADDISH",
    "annotation": {
@@ -87,9 +84,6 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
      15
     ]
    ],
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "LIVE",
    "annotation": {
@@ -133,9 +127,6 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Awful politician takes cocaine in a bunch of addresses (9)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "DIRECTORY",
    "annotation": {
@@ -185,9 +176,6 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Phrase Methuselah had (flipping pompous way of referring to himself) (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "IDIOM",
    "annotation": {
@@ -243,9 +231,6 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
      10
     ]
    ],
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "HAIRCUT",
    "annotation": {
@@ -291,9 +276,6 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Our people getting into sea like jellyfish (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "MEDUSAS",
    "annotation": {
@@ -343,9 +325,6 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Where to stop vessel twisting space and time (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "MOORAGE",
    "annotation": {
@@ -395,9 +374,6 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Aldi's reps freshened up spread (9)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "DISPERSAL",
    "annotation": {
@@ -435,9 +411,6 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Didn't take kindly to being hugged by solver, oddly (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "STOLE",
    "annotation": {
@@ -484,9 +457,6 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Supported Davey rather than Miliband? (8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "SECONDED",
    "annotation": {
@@ -524,9 +494,6 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Overusing it could make you dizzy (11)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "VERTIGINOUS",
    "annotation": {
@@ -569,9 +536,6 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
      33,
      18
     ]
-   ],
-   "group": [
-    "10-across"
    ],
    "separatorLocations": {},
    "solution": "ORC",
@@ -627,9 +591,6 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Character opening seedy clubs let me see dirty film (4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "SCUM",
    "annotation": {
@@ -679,9 +640,6 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Blender juiced each lemon (9)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "CHAMELEON",
    "annotation": {
@@ -719,9 +677,6 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Flat deposit previously held in stock (6)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "COWPAT",
    "annotation": {
@@ -753,9 +708,6 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Lover of capers quietly orders starters for the entire restaurant (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "PRANKSTER",
    "annotation": {
@@ -805,9 +757,6 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "European on vacation mentioned charming private facilities (2,5)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -859,9 +808,6 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Good story moving leader more than words can say (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "INEFFABLE",
    "annotation": {
@@ -905,9 +851,6 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Big gathering spread bad smell about base (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "JAMBOREE",
    "annotation": {
@@ -957,9 +900,6 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Crudely yawn and say \"where was I?\" (7)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "ANYWAYS",
    "annotation": {
@@ -998,9 +938,6 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Still seeing that heartless lie being swallowed (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "SILENCE",
    "annotation": {
@@ -1047,9 +984,6 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "A little utensil Verdi used as top conductor (6)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "SILVER",
    "annotation": {
@@ -1087,9 +1021,6 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "New team member communicating digitally (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "SIGNING",
    "annotation": {
@@ -1124,9 +1055,6 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Cast member after being told this? (5,1,3)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {
     ",": [
      5,
@@ -1163,9 +1091,6 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Parliament embraces revolutionary way to contact MP? (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "EMAIL",
    "annotation": {
@@ -1208,9 +1133,6 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Vegan food fight's ending with saucer being thrown back (4)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "TOFU",
    "annotation": {
@@ -1265,9 +1187,6 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Brief PM with wrong letter from EU? That's a bit of a shock (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "TRESS",
    "annotation": {
@@ -1316,9 +1235,6 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Those turning heads with hot walks now and then (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "OWLS",
    "annotation": {
@@ -1359,9 +1275,6 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "One described by \"river area\" (3)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "RIA",
    "annotation": {
@@ -1410,9 +1323,6 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Joint liability established by court appearances? (6,5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -1457,9 +1367,6 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Increase in volume startled Al Green (7)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "ENLARGE",
    "annotation": {
@@ -1497,9 +1404,6 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "John and the other three ultimately planning to dress up like colourful soldiers (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "GOSPELS",
    "annotation": {

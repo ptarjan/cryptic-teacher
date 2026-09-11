@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30084"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Before 5050, space explorers ultimately pay through the nose (7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "NASALLY",
    "annotation": {
@@ -74,9 +71,6 @@ window.CRYPTIC_PUZZLES["cryptic-30084"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Foolish like 1 + 9? (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "ASININE",
    "annotation": {
@@ -120,9 +114,6 @@ window.CRYPTIC_PUZZLES["cryptic-30084"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "I earn change importing without charge or latitude (1,4,4)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      1,
@@ -178,9 +169,6 @@ window.CRYPTIC_PUZZLES["cryptic-30084"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Extra line to say farewell (3,3)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -222,9 +210,6 @@ window.CRYPTIC_PUZZLES["cryptic-30084"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Substitute case of stout with case of brandy (5-2)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -274,9 +259,6 @@ window.CRYPTIC_PUZZLES["cryptic-30084"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Heart admits nothing against being idle (4,4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -330,9 +312,6 @@ window.CRYPTIC_PUZZLES["cryptic-30084"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Point revealed by 14 or 13? (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "NORTH",
    "annotation": {
@@ -378,9 +357,6 @@ window.CRYPTIC_PUZZLES["cryptic-30084"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Worries relatives when first king abdicates (7)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "BOTHERS",
    "annotation": {
@@ -422,9 +398,6 @@ window.CRYPTIC_PUZZLES["cryptic-30084"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Dan perhaps mixing art material – it’s missing base (7,6)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -473,9 +446,6 @@ window.CRYPTIC_PUZZLES["cryptic-30084"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Locale for Derrick’s young lady? ‘I love travelling west’ (3,3)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -529,9 +499,6 @@ window.CRYPTIC_PUZZLES["cryptic-30084"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "A Catholic member of the clergy is faithful (8)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "ACCURATE",
    "annotation": {
@@ -578,9 +545,6 @@ window.CRYPTIC_PUZZLES["cryptic-30084"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Prevent Shakespeare forgetting Bottom (3)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "BAR",
    "annotation": {
@@ -619,9 +583,6 @@ window.CRYPTIC_PUZZLES["cryptic-30084"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Woe is me! Reckless and extremely risky (6)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "MISERY",
    "annotation": {
@@ -668,9 +629,6 @@ window.CRYPTIC_PUZZLES["cryptic-30084"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Degenerates wanting Academy Awards (8)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "TROPHIES",
    "annotation": {
@@ -709,9 +667,6 @@ window.CRYPTIC_PUZZLES["cryptic-30084"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Measure English trout initially found in French sea (5)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "METER",
    "annotation": {
@@ -759,9 +714,6 @@ window.CRYPTIC_PUZZLES["cryptic-30084"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Man seeks new drug to hold water (4,5)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -812,9 +764,6 @@ window.CRYPTIC_PUZZLES["cryptic-30084"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Add more detail to complex (9)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "ELABORATE",
    "annotation": {
@@ -852,9 +801,6 @@ window.CRYPTIC_PUZZLES["cryptic-30084"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Celts ski, going downhill with the most smooth manner (8)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "SLICKEST",
    "annotation": {
@@ -901,9 +847,6 @@ window.CRYPTIC_PUZZLES["cryptic-30084"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Personal number key during father’s rejected US medical procedure (6,3)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -961,9 +904,6 @@ window.CRYPTIC_PUZZLES["cryptic-30084"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "7 star submarine (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "POLARIS",
    "annotation": {
@@ -998,9 +938,6 @@ window.CRYPTIC_PUZZLES["cryptic-30084"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Prince arrived in Hungary on vacation (5)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "HARRY",
    "annotation": {
@@ -1042,9 +979,6 @@ window.CRYPTIC_PUZZLES["cryptic-30084"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "They steal over 2 billion euros, not even starting with rupees (7)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "ROBBERS",
    "annotation": {
@@ -1097,9 +1031,6 @@ window.CRYPTIC_PUZZLES["cryptic-30084"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Second-tier attractions, those with trains? (6)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "BRIDES",
    "annotation": {
@@ -1137,9 +1068,6 @@ window.CRYPTIC_PUZZLES["cryptic-30084"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Stray lately wandering around California (5,3)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -1191,9 +1119,6 @@ window.CRYPTIC_PUZZLES["cryptic-30084"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Wise one in Munich on retreat drinking last of beer? (5)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "ERNIE",
    "annotation": {
@@ -1241,9 +1166,6 @@ window.CRYPTIC_PUZZLES["cryptic-30084"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Greek character married bachelor, one with diamonds? (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "RHOMBI",
    "annotation": {
@@ -1296,9 +1218,6 @@ window.CRYPTIC_PUZZLES["cryptic-30084"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "British company once part of public infrastructure (3)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "ICI",
    "annotation": {
@@ -1329,9 +1248,6 @@ window.CRYPTIC_PUZZLES["cryptic-30084"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Royal papers describing metal crown missing (8)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "PRINCESS",
    "annotation": {
@@ -1377,9 +1293,6 @@ window.CRYPTIC_PUZZLES["cryptic-30084"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Trader: ‘Expensive coats, Levi’s – 60% off!’ (6)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "DEALER",
    "annotation": {
@@ -1426,9 +1339,6 @@ window.CRYPTIC_PUZZLES["cryptic-30084"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "American to highlight revolting states (7)",
-   "group": [
-    "30-across"
-   ],
    "separatorLocations": {},
    "solution": "ASSERTS",
    "annotation": {
@@ -1477,9 +1387,6 @@ window.CRYPTIC_PUZZLES["cryptic-30084"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "‘Snake’ – language of slander (7)",
-   "group": [
-    "31-across"
-   ],
    "separatorLocations": {},
    "solution": "ASPERSE",
    "annotation": {

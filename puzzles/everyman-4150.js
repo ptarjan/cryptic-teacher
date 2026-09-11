@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4150"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Club's language discussed in flyer (4,6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -84,9 +81,6 @@ window.CRYPTIC_PUZZLES["everyman-4150"] = /*JSON-START*/ {
      14
     ]
    ],
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "WAGE",
    "annotation": {
@@ -131,9 +125,6 @@ window.CRYPTIC_PUZZLES["everyman-4150"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Outstanding poem recited (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "OWED",
    "annotation": {
@@ -168,9 +159,6 @@ window.CRYPTIC_PUZZLES["everyman-4150"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "In favour of proposal initially addressing lewd, concerning advertising (11)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "PROMOTIONAL",
    "annotation": {
@@ -219,9 +207,6 @@ window.CRYPTIC_PUZZLES["everyman-4150"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Spin round, ultimately knackered: run's so long (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "GOODBYE",
    "annotation": {
@@ -279,9 +264,6 @@ window.CRYPTIC_PUZZLES["everyman-4150"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Ready and available beer, right? (2,5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -332,9 +314,6 @@ window.CRYPTIC_PUZZLES["everyman-4150"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "A lot of land in limits of atlases' Iberia (4)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "ASIA",
    "annotation": {
@@ -380,9 +359,6 @@ window.CRYPTIC_PUZZLES["everyman-4150"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Misadventures, as glue guns are wont to lead to? (6,4)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -421,9 +397,6 @@ window.CRYPTIC_PUZZLES["everyman-4150"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Apiarist's worried about dead evergreen (10)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "ASPIDISTRA",
    "annotation": {
@@ -467,9 +440,6 @@ window.CRYPTIC_PUZZLES["everyman-4150"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Moan, flailing with grocer, wrestling thus? (5-5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -518,9 +488,6 @@ window.CRYPTIC_PUZZLES["everyman-4150"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "In retreat, Starmer largely ailing and weak (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "LIMP",
    "annotation": {
@@ -574,9 +541,6 @@ window.CRYPTIC_PUZZLES["everyman-4150"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Incapable of satisfying demands - like the Bible, largely? (6-6)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     "-": [
      6
@@ -615,9 +579,6 @@ window.CRYPTIC_PUZZLES["everyman-4150"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Conspicuous chuckle: trouble getting on (4-3-4)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {
     "-": [
      4,
@@ -666,9 +627,6 @@ window.CRYPTIC_PUZZLES["everyman-4150"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Sticking around, old policeman chatting online (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "PODCASTING",
    "annotation": {
@@ -718,9 +676,6 @@ window.CRYPTIC_PUZZLES["everyman-4150"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Inflammation in it doesn't hurt (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "TENDONITIS",
    "annotation": {
@@ -757,9 +712,6 @@ window.CRYPTIC_PUZZLES["everyman-4150"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Formerly a magazine (3-4)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -802,9 +754,6 @@ window.CRYPTIC_PUZZLES["everyman-4150"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Adolescent's getting hot - and later, loud - somewhere in E England (3,4)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -861,9 +810,6 @@ window.CRYPTIC_PUZZLES["everyman-4150"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Exotic dance with last and first characters showing musical flourish (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "CADENZA",
    "annotation": {
@@ -908,9 +854,6 @@ window.CRYPTIC_PUZZLES["everyman-4150"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "One having, primarily, a terrifically healthy lifestyle; example: track eventer! (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "ATHLETE",
    "annotation": {
@@ -953,9 +896,6 @@ window.CRYPTIC_PUZZLES["everyman-4150"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Some beam at adorable fellow in jacket and tights (7)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "MATADOR",
    "annotation": {
@@ -989,9 +929,6 @@ window.CRYPTIC_PUZZLES["everyman-4150"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Old President calling for some Imodium and Elastoplasts (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "MANDELA",
    "annotation": {
@@ -1028,9 +965,6 @@ window.CRYPTIC_PUZZLES["everyman-4150"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Unaccompanied, like a swimming-pool clock (6-6)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     "-": [
      6
@@ -1069,9 +1003,6 @@ window.CRYPTIC_PUZZLES["everyman-4150"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Going up to Reading, say, entertaining one that'll amuse you (4)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "RIOT",
    "annotation": {
@@ -1128,9 +1059,6 @@ window.CRYPTIC_PUZZLES["everyman-4150"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Verbally opposed requirement to play poker (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "ANTE",
    "annotation": {
@@ -1165,9 +1093,6 @@ window.CRYPTIC_PUZZLES["everyman-4150"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Everyman: old? Bless you! A little bit (4)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "IOTA",
    "annotation": {
@@ -1211,9 +1136,6 @@ window.CRYPTIC_PUZZLES["everyman-4150"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Challenged Soviet line that's set (10)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "TELEVISION",
    "annotation": {
@@ -1258,9 +1180,6 @@ window.CRYPTIC_PUZZLES["everyman-4150"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "I ask you to leave quietly (4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "GOSH",
    "annotation": {
@@ -1298,9 +1217,6 @@ window.CRYPTIC_PUZZLES["everyman-4150"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "At year's end, an unstimulating brew - mostly that? (5,5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {
     ",": [
      5

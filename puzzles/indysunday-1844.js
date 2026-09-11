@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1844"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Company doctor meant to tickle you (7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "COMEDIC",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["indysunday-1844"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Bawdy cover of epic novel in enigmatic language (8)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "CODPIECE",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["indysunday-1844"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Earth welcomes alien back with less fanfare, perhaps (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "MUTED",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["indysunday-1844"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Water-resistant barrier strip at the bottom? For sure! (4-5,6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -100,9 +88,6 @@ window.CRYPTIC_PUZZLES["indysunday-1844"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Balls Welshman put where cow's tail should go (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "COJONES",
    "annotation": null
@@ -117,9 +102,6 @@ window.CRYPTIC_PUZZLES["indysunday-1844"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "King Charles sounded decent hitting balls with a mallet (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "CROQUET",
    "annotation": null
@@ -134,9 +116,6 @@ window.CRYPTIC_PUZZLES["indysunday-1844"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Rustic riven slate cladding that's remarkable to Mrs Broon (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "CRIVENS",
    "annotation": null
@@ -151,9 +130,6 @@ window.CRYPTIC_PUZZLES["indysunday-1844"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Rail or boat, my two substitutes for route around city (7,8)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -178,9 +154,6 @@ window.CRYPTIC_PUZZLES["indysunday-1844"] = /*JSON-START*/ {
      8
     ]
    ],
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "UNETHICAL",
    "annotation": null
@@ -195,9 +168,6 @@ window.CRYPTIC_PUZZLES["indysunday-1844"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "I appreciate that knowledge is taught (5)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "TAKEN",
    "annotation": null
@@ -212,9 +182,6 @@ window.CRYPTIC_PUZZLES["indysunday-1844"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Statistician's figure beginning to develop a paunch (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "DATUM",
    "annotation": null
@@ -229,9 +196,6 @@ window.CRYPTIC_PUZZLES["indysunday-1844"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Running out of porridge? (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "JAILBREAK",
    "annotation": null
@@ -246,9 +210,6 @@ window.CRYPTIC_PUZZLES["indysunday-1844"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Dine out and write down impression without bias (11)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "INDEPENDENT",
    "annotation": null
@@ -263,9 +224,6 @@ window.CRYPTIC_PUZZLES["indysunday-1844"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Darling usually left tap running (3)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "HON",
    "annotation": null
@@ -280,9 +238,6 @@ window.CRYPTIC_PUZZLES["indysunday-1844"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Unmoved listening to great soprano (7)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "CALLOUS",
    "annotation": null
@@ -297,9 +252,6 @@ window.CRYPTIC_PUZZLES["indysunday-1844"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Metal frame in the door improved security for Spooner (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "LETTERBOX",
    "annotation": null
@@ -314,9 +266,6 @@ window.CRYPTIC_PUZZLES["indysunday-1844"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Sympathise with expert behind following that learner driver (6)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "SOLACE",
    "annotation": null
@@ -331,9 +280,6 @@ window.CRYPTIC_PUZZLES["indysunday-1844"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Awful gag inside the 11 had (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "WRETCHED",
    "annotation": null
@@ -348,9 +294,6 @@ window.CRYPTIC_PUZZLES["indysunday-1844"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Cons row on board ship (6)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "STIFFS",
    "annotation": null
@@ -365,9 +308,6 @@ window.CRYPTIC_PUZZLES["indysunday-1844"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Train not on schedule, perhaps ice blocking circuits up? (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "SPECIAL",
    "annotation": null
@@ -382,9 +322,6 @@ window.CRYPTIC_PUZZLES["indysunday-1844"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Busy type bags excess drugs left in untidy drawer (7)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "DOODLER",
    "annotation": null
@@ -399,9 +336,6 @@ window.CRYPTIC_PUZZLES["indysunday-1844"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Widow earned money in bar to the north (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "DOWAGER",
    "annotation": null
@@ -416,9 +350,6 @@ window.CRYPTIC_PUZZLES["indysunday-1844"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Nobleman denied king's reward (3)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "DUE",
    "annotation": null
@@ -433,9 +364,6 @@ window.CRYPTIC_PUZZLES["indysunday-1844"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "A bit of delusion concerning in the morning? (5)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "DREAM",
    "annotation": null
@@ -450,9 +378,6 @@ window.CRYPTIC_PUZZLES["indysunday-1844"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Highly stressed wife rude in public (11)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "OVERWROUGHT",
    "annotation": null
@@ -467,9 +392,6 @@ window.CRYPTIC_PUZZLES["indysunday-1844"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Eccentric gay eats Dorothy's country dumplings (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "GYOZA",
    "annotation": null
@@ -484,9 +406,6 @@ window.CRYPTIC_PUZZLES["indysunday-1844"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Loading bananas, half of them in the van (9)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "EMBARKING",
    "annotation": null
@@ -501,9 +420,6 @@ window.CRYPTIC_PUZZLES["indysunday-1844"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Furious when gold reverts in value (5)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "WROTH",
    "annotation": null
@@ -518,9 +434,6 @@ window.CRYPTIC_PUZZLES["indysunday-1844"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Most healthy physicist (7)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "MAXWELL",
    "annotation": null
@@ -535,9 +448,6 @@ window.CRYPTIC_PUZZLES["indysunday-1844"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Fox nearly squished leaving large road (7)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "REYNARD",
    "annotation": null

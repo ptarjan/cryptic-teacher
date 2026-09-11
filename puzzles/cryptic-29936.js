@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29936"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Satisfied, virtually cancel mass chemical processes (10)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "METABOLISM",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["cryptic-29936"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "One way to control rioting staff (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "MACE",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["cryptic-29936"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "So briefly, there’s nothing in that for you (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "THOU",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["cryptic-29936"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Not hard for stroke on river, the way the oar moves (4,3,5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -98,9 +86,6 @@ window.CRYPTIC_PUZZLES["cryptic-29936"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Grub is hot stuff, with a pinch of rosemary in (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "LARVA",
    "annotation": null
@@ -115,9 +100,6 @@ window.CRYPTIC_PUZZLES["cryptic-29936"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Sorry to engage a pupil to deliver cold meal here (5,4)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -136,9 +118,6 @@ window.CRYPTIC_PUZZLES["cryptic-29936"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Poet Robert missing half the summit (4)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "BROW",
    "annotation": null
@@ -153,9 +132,6 @@ window.CRYPTIC_PUZZLES["cryptic-29936"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Violent partners rule over trembling daughter (5,5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -174,9 +150,6 @@ window.CRYPTIC_PUZZLES["cryptic-29936"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "All those that somehow managed to upset priest (10)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "WHOMSOEVER",
    "annotation": null
@@ -191,9 +164,6 @@ window.CRYPTIC_PUZZLES["cryptic-29936"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Cut round field pattern (4,6)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -212,9 +182,6 @@ window.CRYPTIC_PUZZLES["cryptic-29936"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Are you aware of speaking badly of goddess? (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "JUNO",
    "annotation": null
@@ -229,9 +196,6 @@ window.CRYPTIC_PUZZLES["cryptic-29936"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Playing without knowing the score? (5-7)",
-   "group": [
-    "11-down"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -250,9 +214,6 @@ window.CRYPTIC_PUZZLES["cryptic-29936"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Take a chance on answers here: two blinking indicators (6,6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -271,9 +232,6 @@ window.CRYPTIC_PUZZLES["cryptic-29936"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "As chemist I must twice intervene in equine therapy (5,5)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -292,9 +250,6 @@ window.CRYPTIC_PUZZLES["cryptic-29936"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Some friend you are, I would say, sort of sloppy (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "AMATEURISH",
    "annotation": null
@@ -309,9 +264,6 @@ window.CRYPTIC_PUZZLES["cryptic-29936"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "On branch, notice sick old animal (9)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "ARMADILLO",
    "annotation": null
@@ -326,9 +278,6 @@ window.CRYPTIC_PUZZLES["cryptic-29936"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Rewarding to be touring capitals, rapidly attracting trade from the beginning (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "LUCRATIVE",
    "annotation": null
@@ -343,9 +292,6 @@ window.CRYPTIC_PUZZLES["cryptic-29936"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Heard husky in bay perhaps (5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "HORSE",
    "annotation": null
@@ -360,9 +306,6 @@ window.CRYPTIC_PUZZLES["cryptic-29936"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Opening passage, repaint Roman walls (5)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "INTRO",
    "annotation": null
@@ -377,9 +320,6 @@ window.CRYPTIC_PUZZLES["cryptic-29936"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "El Greco I’d mistaken for a poet (9)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "COLERIDGE",
    "annotation": null
@@ -394,9 +334,6 @@ window.CRYPTIC_PUZZLES["cryptic-29936"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Proceeding in field to woo maiden, not complete? No pressure! (5,7)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -415,9 +352,6 @@ window.CRYPTIC_PUZZLES["cryptic-29936"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Regularly burn out defective power source in car (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "TURBO",
    "annotation": null
@@ -432,9 +366,6 @@ window.CRYPTIC_PUZZLES["cryptic-29936"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Riddle to floor a number (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "KOAN",
    "annotation": null
@@ -449,9 +380,6 @@ window.CRYPTIC_PUZZLES["cryptic-29936"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Doctrines compressed into one text (4)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "ISMS",
    "annotation": null
@@ -466,9 +394,6 @@ window.CRYPTIC_PUZZLES["cryptic-29936"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Bucket needing great physical effort? No way (4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "RAIN",
    "annotation": null
@@ -483,9 +408,6 @@ window.CRYPTIC_PUZZLES["cryptic-29936"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Creature of the harvest endlessly eating one crop, such a headache (10)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "MIGRAINOUS",
    "annotation": null
@@ -500,9 +422,6 @@ window.CRYPTIC_PUZZLES["cryptic-29936"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Another chance to hear letter on the radio (4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "ECHO",
    "annotation": null
@@ -517,9 +436,6 @@ window.CRYPTIC_PUZZLES["cryptic-29936"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Show keenness to break into people’s stuff (10)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "BELONGINGS",
    "annotation": null

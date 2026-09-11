@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4115"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Camus lost in sad - on reflection - Arabian metropolis (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "DAMASCUS",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["everyman-4115"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "What clipper may do in marina (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "DOCK",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["everyman-4115"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "You'd like to perform this? Say no more (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "MIME",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["everyman-4115"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Dried fruit and mixed nuts, alas (8)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "SULTANAS",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["everyman-4115"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Connect some scattergun items (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "UNITE",
    "annotation": null
@@ -110,9 +95,6 @@ window.CRYPTIC_PUZZLES["everyman-4115"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Where students learn waters of Oxbridge matter (6)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "CAMPUS",
    "annotation": null
@@ -127,9 +109,6 @@ window.CRYPTIC_PUZZLES["everyman-4115"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Humiliate American MAGA enthusiasts? (5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "ABASE",
    "annotation": null
@@ -144,9 +123,6 @@ window.CRYPTIC_PUZZLES["everyman-4115"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Ignored brown bread (6,4)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -165,9 +141,6 @@ window.CRYPTIC_PUZZLES["everyman-4115"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "They're there, each being this (10)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "SOUNDALIKE",
    "annotation": null
@@ -182,9 +155,6 @@ window.CRYPTIC_PUZZLES["everyman-4115"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Committee intend to sustain Everyman's gripe (8)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "COMPLAIN",
    "annotation": null
@@ -199,9 +169,6 @@ window.CRYPTIC_PUZZLES["everyman-4115"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Saunas in resort in Bahamian port (6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "NASSAU",
    "annotation": null
@@ -216,9 +183,6 @@ window.CRYPTIC_PUZZLES["everyman-4115"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Tarry, lad, clutching Scottish flower (4,2)",
-   "group": [
-    "11-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -237,9 +201,6 @@ window.CRYPTIC_PUZZLES["everyman-4115"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Goes ahead, acts like church-roof thief (5,3,4)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     ",": [
      5,
@@ -259,9 +220,6 @@ window.CRYPTIC_PUZZLES["everyman-4115"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Like a suit(e)? (5-5)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -280,9 +238,6 @@ window.CRYPTIC_PUZZLES["everyman-4115"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Seemingly deranged, rambling elegy regularly rebuffed good egg (6-4)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     "-": [
      6
@@ -301,9 +256,6 @@ window.CRYPTIC_PUZZLES["everyman-4115"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "As means of connection, how we hear Pan refer to self, nemesis (4,3,3)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -323,9 +275,6 @@ window.CRYPTIC_PUZZLES["everyman-4115"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Cut down to size - and kick out of bed? (6)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "DEBUNK",
    "annotation": null
@@ -340,9 +289,6 @@ window.CRYPTIC_PUZZLES["everyman-4115"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Circle back finding somewhere to swim (4)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "POOL",
    "annotation": null
@@ -357,9 +303,6 @@ window.CRYPTIC_PUZZLES["everyman-4115"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Member of B*Witched? (8)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "ASTERISK",
    "annotation": null
@@ -374,9 +317,6 @@ window.CRYPTIC_PUZZLES["everyman-4115"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "So, um: scram! (4)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "ERGO",
    "annotation": null
@@ -391,9 +331,6 @@ window.CRYPTIC_PUZZLES["everyman-4115"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Unexpectedly not - not finishing - skate and beef, hearty meal (1-4,5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     "-": [
      1
@@ -415,9 +352,6 @@ window.CRYPTIC_PUZZLES["everyman-4115"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Urgent prerequisite characteristic of crumpled trousers (8,4)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -436,9 +370,6 @@ window.CRYPTIC_PUZZLES["everyman-4115"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Produce number but don't listen to her song (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "SIREN",
    "annotation": null
@@ -453,9 +384,6 @@ window.CRYPTIC_PUZZLES["everyman-4115"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "S Connery's female relative declared 'obscure' (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "NICHE",
    "annotation": null
@@ -470,9 +398,6 @@ window.CRYPTIC_PUZZLES["everyman-4115"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Lout throws up, repelling wife (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "SLOB",
    "annotation": null
@@ -487,9 +412,6 @@ window.CRYPTIC_PUZZLES["everyman-4115"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Oil company saving skin in masterclass? (4)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "ESSO",
    "annotation": null
@@ -504,9 +426,6 @@ window.CRYPTIC_PUZZLES["everyman-4115"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Primarily existentialist equine youngsters often read excitedly? (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "EEYORE",
    "annotation": null
@@ -521,9 +440,6 @@ window.CRYPTIC_PUZZLES["everyman-4115"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "I have one flaw: portions of spinach I'll eschew (8)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "ACHILLES",
    "annotation": null
@@ -538,9 +454,6 @@ window.CRYPTIC_PUZZLES["everyman-4115"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Conclusion: effing and blinding always ____ (6)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "ENDING",
    "annotation": null
@@ -555,9 +468,6 @@ window.CRYPTIC_PUZZLES["everyman-4115"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "I see you go with curtailed sound of explosion (4-1-3)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {
     "-": [
      4,

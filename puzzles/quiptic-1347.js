@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1347"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Team players, catcalled, getting led off ground (7,6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -46,9 +43,6 @@ window.CRYPTIC_PUZZLES["quiptic-1347"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Mars communist plot–extremist gutted (3,6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -67,9 +61,6 @@ window.CRYPTIC_PUZZLES["quiptic-1347"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Frivolous cunning stopped by girl off and on (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "SILLY",
    "annotation": null
@@ -84,9 +75,6 @@ window.CRYPTIC_PUZZLES["quiptic-1347"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Publicity staff in trouble for one month (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "APRIL",
    "annotation": null
@@ -101,9 +89,6 @@ window.CRYPTIC_PUZZLES["quiptic-1347"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "What, when bad, could offer poor signs? (9)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "PROGNOSIS",
    "annotation": null
@@ -118,9 +103,6 @@ window.CRYPTIC_PUZZLES["quiptic-1347"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Upset friend skips erotic performances (3,6)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -139,9 +121,6 @@ window.CRYPTIC_PUZZLES["quiptic-1347"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Box upper section of body (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "CHEST",
    "annotation": null
@@ -156,9 +135,6 @@ window.CRYPTIC_PUZZLES["quiptic-1347"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Bright and vigorous cook going around Asia dashes about (5,2,1,5)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      5,
@@ -179,9 +155,6 @@ window.CRYPTIC_PUZZLES["quiptic-1347"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Disrespect pro, shattering team spirit (6,2,5)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {
     ",": [
      6,
@@ -201,9 +174,6 @@ window.CRYPTIC_PUZZLES["quiptic-1347"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Comic villain, one poking holes? (7)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "RIDDLER",
    "annotation": null
@@ -218,9 +188,6 @@ window.CRYPTIC_PUZZLES["quiptic-1347"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Shore up tipsy old poet and musician (7)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "ORPHEUS",
    "annotation": null
@@ -235,9 +202,6 @@ window.CRYPTIC_PUZZLES["quiptic-1347"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Small trifle spread out (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "SPLAY",
    "annotation": null
@@ -252,9 +216,6 @@ window.CRYPTIC_PUZZLES["quiptic-1347"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Earl animatedly welcomes northern actors in royal house (9)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "LANCASTER",
    "annotation": null
@@ -269,9 +230,6 @@ window.CRYPTIC_PUZZLES["quiptic-1347"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Scrap book, with second article removed (5)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "ANNUL",
    "annotation": null
@@ -286,9 +244,6 @@ window.CRYPTIC_PUZZLES["quiptic-1347"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Painting captures headland (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "LANDSCAPE",
    "annotation": null
@@ -303,9 +258,6 @@ window.CRYPTIC_PUZZLES["quiptic-1347"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Master of Arts thus runs away from Saviour, one who embraces suffering (9)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "MASOCHIST",
    "annotation": null
@@ -320,9 +272,6 @@ window.CRYPTIC_PUZZLES["quiptic-1347"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Young person is able to head off southern islanders (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "MINORCANS",
    "annotation": null
@@ -337,9 +286,6 @@ window.CRYPTIC_PUZZLES["quiptic-1347"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Chuck following one to north London borough (9)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "ISLINGTON",
    "annotation": null
@@ -360,9 +306,6 @@ window.CRYPTIC_PUZZLES["quiptic-1347"] = /*JSON-START*/ {
      16
     ]
    ],
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "ANTONINUS",
    "annotation": null
@@ -377,9 +320,6 @@ window.CRYPTIC_PUZZLES["quiptic-1347"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Victor interrupts only what you’re now trying to do? (5)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "SOLVE",
    "annotation": null
@@ -394,9 +334,6 @@ window.CRYPTIC_PUZZLES["quiptic-1347"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Dicky ran castle of forebears (9)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "ANCESTRAL",
    "annotation": null
@@ -411,9 +348,6 @@ window.CRYPTIC_PUZZLES["quiptic-1347"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Company adopts radical belief (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "CREDO",
    "annotation": null
@@ -428,9 +362,6 @@ window.CRYPTIC_PUZZLES["quiptic-1347"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Fine cotton left on edges of inlays and lace (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "LISLE",
    "annotation": null
@@ -445,9 +376,6 @@ window.CRYPTIC_PUZZLES["quiptic-1347"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Fruit that stuffs German goose (5)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "MANGO",
    "annotation": null
@@ -462,9 +390,6 @@ window.CRYPTIC_PUZZLES["quiptic-1347"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Leaders among men of letters analyse rates that may be capped (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "MOLAR",
    "annotation": null
@@ -479,9 +404,6 @@ window.CRYPTIC_PUZZLES["quiptic-1347"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Composer worked at Mensa (7)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "SMETANA",
    "annotation": null
@@ -496,9 +418,6 @@ window.CRYPTIC_PUZZLES["quiptic-1347"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Separate tips of spark plugs illuminated (5,2)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -517,9 +436,6 @@ window.CRYPTIC_PUZZLES["quiptic-1347"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Accessory that facilitates change of direction in estate? (5,8)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {
     ",": [
      5

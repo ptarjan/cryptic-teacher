@@ -24,9 +24,6 @@ window.CRYPTIC_PUZZLES["cryptic-30051"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Sweet treat dunked in senega tea, unusually (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "GATEAU",
    "annotation": {
@@ -60,9 +57,6 @@ window.CRYPTIC_PUZZLES["cryptic-30051"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Following write-up, I am able to take on one person skilled at thought (8)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "LOGICIAN",
    "annotation": {
@@ -120,9 +114,6 @@ window.CRYPTIC_PUZZLES["cryptic-30051"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Those in charge crushing a surreal rebellion (6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "RULERS",
    "annotation": {
@@ -171,9 +162,6 @@ window.CRYPTIC_PUZZLES["cryptic-30051"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Leader of group to sign and approve, please (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "GRATIFY",
    "annotation": {
@@ -216,9 +204,6 @@ window.CRYPTIC_PUZZLES["cryptic-30051"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Leaves off career to retrain, and succeeds in the end (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "FRONDS",
    "annotation": {
@@ -285,9 +270,6 @@ window.CRYPTIC_PUZZLES["cryptic-30051"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Sunk in snow-drifts – is getting out what might cause difficulty? (8)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "UNKNOWNS",
    "annotation": {
@@ -337,9 +319,6 @@ window.CRYPTIC_PUZZLES["cryptic-30051"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Island getting upset over EU operation (9)",
-   "group": [
-    "7-across"
-   ],
    "separatorLocations": {},
    "solution": "MANOEUVRE",
    "annotation": {
@@ -385,9 +364,6 @@ window.CRYPTIC_PUZZLES["cryptic-30051"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Bird in bamboo across river (5)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {},
    "solution": "CRANE",
    "annotation": {
@@ -434,9 +410,6 @@ window.CRYPTIC_PUZZLES["cryptic-30051"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "I’m welcomed by chaps following soldiers in big groups (9)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "REGIMENTS",
    "annotation": {
@@ -491,9 +464,6 @@ window.CRYPTIC_PUZZLES["cryptic-30051"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Senseless, not sharp in the head, unbalanced (5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "INANE",
    "annotation": {
@@ -537,9 +507,6 @@ window.CRYPTIC_PUZZLES["cryptic-30051"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Really big game to play (4)",
-   "group": [
-    "11-down"
-   ],
    "separatorLocations": {},
    "solution": "MEGA",
    "annotation": {
@@ -581,9 +548,6 @@ window.CRYPTIC_PUZZLES["cryptic-30051"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Suited to perform services (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "DUTIES",
    "annotation": {
@@ -625,9 +589,6 @@ window.CRYPTIC_PUZZLES["cryptic-30051"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Worries, as wife’s picked up tools (8)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "FRETSAWS",
    "annotation": {
@@ -677,9 +638,6 @@ window.CRYPTIC_PUZZLES["cryptic-30051"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Give up wearing a ring? (7)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "ABANDON",
    "annotation": {
@@ -722,9 +680,6 @@ window.CRYPTIC_PUZZLES["cryptic-30051"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Facilitated purchase of very poor chianti? (8)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "BROKERED",
    "annotation": {
@@ -761,9 +716,6 @@ window.CRYPTIC_PUZZLES["cryptic-30051"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "State how you might answer phone within two rings (4)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "OHIO",
    "annotation": {
@@ -807,9 +759,6 @@ window.CRYPTIC_PUZZLES["cryptic-30051"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Most stupid to try bucking trend first (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "DAFTEST",
    "annotation": {
@@ -860,9 +809,6 @@ window.CRYPTIC_PUZZLES["cryptic-30051"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Having a depiction that’s only skin-deep? (8)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "TATTOOED",
    "annotation": {
@@ -905,9 +851,6 @@ window.CRYPTIC_PUZZLES["cryptic-30051"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Angrily berated one making an argument (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "DEBATER",
    "annotation": {
@@ -949,9 +892,6 @@ window.CRYPTIC_PUZZLES["cryptic-30051"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Teaching medic to withhold oxygen in first sign of emergency (8)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "DOCTRINE",
    "annotation": {
@@ -1007,9 +947,6 @@ window.CRYPTIC_PUZZLES["cryptic-30051"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "School leaver? (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "TRUANT",
    "annotation": {
@@ -1040,9 +977,6 @@ window.CRYPTIC_PUZZLES["cryptic-30051"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Someone like me puts tester to use (6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "SETTER",
    "annotation": {
@@ -1087,9 +1021,6 @@ window.CRYPTIC_PUZZLES["cryptic-30051"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Ms Hathaway is on the way up, Ms Miller (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "SIENNA",
    "annotation": {
@@ -1137,9 +1068,6 @@ window.CRYPTIC_PUZZLES["cryptic-30051"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Slips on slips? (6)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "ERRATA",
    "annotation": {
@@ -1174,9 +1102,6 @@ window.CRYPTIC_PUZZLES["cryptic-30051"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "‘Kentish Spirit’ is thin, watery liquid (5)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "SERUM",
    "annotation": {
@@ -1216,9 +1141,6 @@ window.CRYPTIC_PUZZLES["cryptic-30051"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Of course, they are spectators! (9)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "RACEGOERS",
    "annotation": {
@@ -1249,9 +1171,6 @@ window.CRYPTIC_PUZZLES["cryptic-30051"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Some soave in small vessels (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "VEINS",
    "annotation": {
@@ -1285,9 +1204,6 @@ window.CRYPTIC_PUZZLES["cryptic-30051"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Puts a new spin on horse-based air conditioning? (9)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "REINVENTS",
    "annotation": {

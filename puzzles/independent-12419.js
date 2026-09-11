@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12419"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Resort in the USA, or make Persian go elsewhere? (5-5)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -68,9 +65,6 @@ window.CRYPTIC_PUZZLES["independent-12419"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Slick cat almost rampant? (3)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "OIL",
    "annotation": {
@@ -115,9 +109,6 @@ window.CRYPTIC_PUZZLES["independent-12419"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Bones in line while erect (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "SACRA",
    "annotation": {
@@ -169,9 +160,6 @@ window.CRYPTIC_PUZZLES["independent-12419"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "As good as knight, ultimately, soldier on a horse (10)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "TANTAMOUNT",
    "annotation": {
@@ -228,9 +216,6 @@ window.CRYPTIC_PUZZLES["independent-12419"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Sharp pilot with habitual mannerism (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "ACETIC",
    "annotation": {
@@ -270,9 +255,6 @@ window.CRYPTIC_PUZZLES["independent-12419"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Resort in France worth a visit? (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "NICE",
    "annotation": {
@@ -306,9 +288,6 @@ window.CRYPTIC_PUZZLES["independent-12419"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Traveller in Indian state picked up? (4)",
-   "group": [
-    "7-across"
-   ],
    "separatorLocations": {},
    "solution": "GOER",
    "annotation": {
@@ -346,9 +325,6 @@ window.CRYPTIC_PUZZLES["independent-12419"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Killer sandwiches in syrup (9)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "GRENADINE",
    "annotation": {
@@ -392,9 +368,6 @@ window.CRYPTIC_PUZZLES["independent-12419"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Adapted like frogs, say, in cold temperature: different in shivering mice (11)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "ECTOTHERMIC",
    "annotation": {
@@ -459,9 +432,6 @@ window.CRYPTIC_PUZZLES["independent-12419"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "City in Spain with the greatest specialised language: English (8)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "ALICANTE",
    "annotation": {
@@ -507,9 +477,6 @@ window.CRYPTIC_PUZZLES["independent-12419"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Island featuring a forge (6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "CREATE",
    "annotation": {
@@ -553,9 +520,6 @@ window.CRYPTIC_PUZZLES["independent-12419"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Italian song I adore you, having renounced love for drink (3,5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -605,9 +569,6 @@ window.CRYPTIC_PUZZLES["independent-12419"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Resort in India? Drat! West Indian! (11)",
-   "group": [
-    "11-down"
-   ],
    "separatorLocations": {},
    "solution": "TRINIDADIAN",
    "annotation": {
@@ -644,9 +605,6 @@ window.CRYPTIC_PUZZLES["independent-12419"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Indian style island welcomes first of tourists (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "BALTI",
    "annotation": {
@@ -692,9 +650,6 @@ window.CRYPTIC_PUZZLES["independent-12419"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "So boy south of Capri perhaps is brother (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "CARTHUSIAN",
    "annotation": {
@@ -746,9 +701,6 @@ window.CRYPTIC_PUZZLES["independent-12419"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Weaselly words in house (7)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "WINDSOR",
    "annotation": {
@@ -837,9 +789,6 @@ window.CRYPTIC_PUZZLES["independent-12419"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Resort in France visited by one part of the set? (7)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "CANINES",
    "annotation": {
@@ -884,9 +833,6 @@ window.CRYPTIC_PUZZLES["independent-12419"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Maybe brilliant daughter without domestic staff, running about (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "DIAMOND",
    "annotation": {
@@ -938,9 +884,6 @@ window.CRYPTIC_PUZZLES["independent-12419"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Flowers, many on street (7)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "STREAMS",
    "annotation": {
@@ -983,9 +926,6 @@ window.CRYPTIC_PUZZLES["independent-12419"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Nurse touching tissue (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "TENDON",
    "annotation": {
@@ -1022,9 +962,6 @@ window.CRYPTIC_PUZZLES["independent-12419"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "State when I should cut hair (5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "MAINE",
    "annotation": {
@@ -1091,9 +1028,6 @@ window.CRYPTIC_PUZZLES["independent-12419"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Observed in Marbella, this club (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "LATHI",
    "annotation": {
@@ -1127,9 +1061,6 @@ window.CRYPTIC_PUZZLES["independent-12419"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Conclusion yet to be reached in a riddle - yeh, right! (2,2)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -1179,9 +1110,6 @@ window.CRYPTIC_PUZZLES["independent-12419"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Fishes Charlie gutted eaten by Jimmy? (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "PISCES",
    "annotation": {
@@ -1227,9 +1155,6 @@ window.CRYPTIC_PUZZLES["independent-12419"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Resort in Italy paired with Germany in elegant manner (8)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "DAINTILY",
    "annotation": {
@@ -1273,9 +1198,6 @@ window.CRYPTIC_PUZZLES["independent-12419"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Deity briefly slowing up (3)",
-   "group": [
-    "26-down"
-   ],
    "separatorLocations": {},
    "solution": "LAR",
    "annotation": {
@@ -1320,9 +1242,6 @@ window.CRYPTIC_PUZZLES["independent-12419"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Seed spiller with a very tiny part to withdraw? (4)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "ONAN",
    "annotation": {
@@ -1368,9 +1287,6 @@ window.CRYPTIC_PUZZLES["independent-12419"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Resort in France is for Zurich gnomes? (10)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "FINANCIERS",
    "annotation": {

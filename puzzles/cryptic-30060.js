@@ -24,9 +24,6 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Shifting a lot into base that’s feeling full (7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "BLOATED",
    "annotation": {
@@ -81,9 +78,6 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Become encouraged as dollar gaining value (4,2)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -127,9 +121,6 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Performing one piece that’s old? (2,1,3)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -175,9 +166,6 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "A worm tries wriggling but it always goes forward (5,5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -218,9 +206,6 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Name top class capital (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "DUBAI",
    "annotation": {
@@ -257,9 +242,6 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Causes damage to and gets emotional (5,2)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -301,9 +283,6 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "See mother cavorting in erotic adventure (9)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "THREESOME",
    "annotation": {
@@ -343,9 +322,6 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Like coming around without clothing (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "AKIN",
    "annotation": {
@@ -387,9 +363,6 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Dodgy treatment leads to almost bare ground outside (5,3)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -442,9 +415,6 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Bushes, for example, I’d left as gifts (8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "PRESENTS",
    "annotation": {
@@ -489,9 +459,6 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Partially staunch a smoking fissure (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "CHASM",
    "annotation": {
@@ -525,9 +492,6 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Block local commercial involvement in staple food (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "BARRICADE",
    "annotation": {
@@ -577,9 +541,6 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Like church’s addition to wedding without ring? It’s so dull (10)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "UNINSPIRED",
    "annotation": {
@@ -630,9 +591,6 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Atmosphere that’s spoken of before in poetry (3)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "ERE",
    "annotation": {
@@ -667,9 +625,6 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Fancy suit will send sweet messages of endearment (4,6)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -713,9 +668,6 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "You must write to get her to analyse you (12)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "GRAPHOLOGIST",
    "annotation": {
@@ -746,9 +698,6 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Bore winding up for repeat (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "PERFORATE",
    "annotation": {
@@ -785,9 +734,6 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Moving location where gunman occasionally hides (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "POIGNANT",
    "annotation": {
@@ -836,9 +782,6 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Pay to have seat lifted (6,2)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -882,9 +825,6 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Maximum break adds up to 12 (3,4,5)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -920,9 +860,6 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Snack, core part of unsafe carnal diet (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "SARNIE",
    "annotation": {
@@ -971,9 +908,6 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Extremely rare dish, opulent and very popular (3,3)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -1029,9 +963,6 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Wind has no singular source from which it comes (3)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "GUT",
    "annotation": {
@@ -1073,9 +1004,6 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Repeat take out – it needs to feed two couples (6,4)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -1116,9 +1044,6 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Live abroad? Get lost (2,3)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -1159,9 +1084,6 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Initially it’s used to determine the order of firing (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "LIFO",
    "annotation": {
@@ -1204,9 +1126,6 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "On camera, I spilt coffee (9)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "AMERICANO",
    "annotation": {
@@ -1243,9 +1162,6 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Farm starts to rear another new cattle herd (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "RANCH",
    "annotation": {
@@ -1286,9 +1202,6 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Spot on jumper? That’s just great (3,4)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -1338,9 +1251,6 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Most secure force when cold war sides abandoned leaders (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "FASTEST",
    "annotation": {

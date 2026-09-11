@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12396"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "American Intelligence stings (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "SMARTS",
    "annotation": {
@@ -62,9 +59,6 @@ window.CRYPTIC_PUZZLES["independent-12396"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Setter's repeatedly turned over ace in US city (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "MIAMI",
    "annotation": {
@@ -118,9 +112,6 @@ window.CRYPTIC_PUZZLES["independent-12396"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Military police officers scraped around (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "REDCAPS",
    "annotation": {
@@ -157,9 +148,6 @@ window.CRYPTIC_PUZZLES["independent-12396"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Threw Eccles in outhouse (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "SHIED",
    "annotation": {
@@ -203,9 +191,6 @@ window.CRYPTIC_PUZZLES["independent-12396"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Intrude and hence, lacking boundaries, run over a child (8)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "ENCROACH",
    "annotation": {
@@ -269,9 +254,6 @@ window.CRYPTIC_PUZZLES["independent-12396"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Suggestively, Brussels drug-dealer quietly replacing Conservative in charge with friend (15)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "EUPHEMISTICALLY",
    "annotation": {
@@ -326,9 +308,6 @@ window.CRYPTIC_PUZZLES["independent-12396"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Surprisingly, Stella with ice is heavenly (9)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "CELESTIAL",
    "annotation": {
@@ -368,9 +347,6 @@ window.CRYPTIC_PUZZLES["independent-12396"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Method for passing through universe is not constant (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "OSMOSIS",
    "annotation": {
@@ -418,9 +394,6 @@ window.CRYPTIC_PUZZLES["independent-12396"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "City supporting John Sharp (5)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "CANNY",
    "annotation": {
@@ -463,9 +436,6 @@ window.CRYPTIC_PUZZLES["independent-12396"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Boy covering new ground (4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "LAND",
    "annotation": {
@@ -509,9 +479,6 @@ window.CRYPTIC_PUZZLES["independent-12396"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Device to protect a piercing (10)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "IMPALEMENT",
    "annotation": {
@@ -555,9 +522,6 @@ window.CRYPTIC_PUZZLES["independent-12396"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Welcome tools to conserve bit of harmony for a married couple? (3,3,4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -615,9 +579,6 @@ window.CRYPTIC_PUZZLES["independent-12396"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Picked up pieces of wood in river with ferry (4)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "STYX",
    "annotation": {
@@ -655,9 +616,6 @@ window.CRYPTIC_PUZZLES["independent-12396"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Man left to invest independent capital (8)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "HELSINKI",
    "annotation": {
@@ -709,9 +667,6 @@ window.CRYPTIC_PUZZLES["independent-12396"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Old Queen Anne's first important date (3)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "ERA",
    "annotation": {
@@ -754,9 +709,6 @@ window.CRYPTIC_PUZZLES["independent-12396"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Sufficient late-starting matches for a decade (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "NOUGHTIES",
    "annotation": {
@@ -802,9 +754,6 @@ window.CRYPTIC_PUZZLES["independent-12396"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Set up home next to salt supply (6)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "INSTAL",
    "annotation": {
@@ -858,9 +807,6 @@ window.CRYPTIC_PUZZLES["independent-12396"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Idiot in Kansas oddly ignored (3)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "ASS",
    "annotation": {
@@ -900,9 +846,6 @@ window.CRYPTIC_PUZZLES["independent-12396"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Win gold carriage (6)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "LANDAU",
    "annotation": {
@@ -939,9 +882,6 @@ window.CRYPTIC_PUZZLES["independent-12396"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "I sloped off to strip (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "DESPOIL",
    "annotation": {
@@ -981,9 +921,6 @@ window.CRYPTIC_PUZZLES["independent-12396"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Programme broadcast from the empty abandoned castle (8)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "TELECAST",
    "annotation": {
@@ -1040,9 +977,6 @@ window.CRYPTIC_PUZZLES["independent-12396"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Company push source of gelatine (7)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "COWHEEL",
    "annotation": {
@@ -1079,9 +1013,6 @@ window.CRYPTIC_PUZZLES["independent-12396"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Knocks box over (4)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "RAPS",
    "annotation": {
@@ -1124,9 +1055,6 @@ window.CRYPTIC_PUZZLES["independent-12396"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Very pale, like bride-to-be? (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "ASHEN",
    "annotation": {
@@ -1163,9 +1091,6 @@ window.CRYPTIC_PUZZLES["independent-12396"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Journalist spotted popular German cutting things up (10)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "HACKSAWING",
    "annotation": {
@@ -1214,9 +1139,6 @@ window.CRYPTIC_PUZZLES["independent-12396"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Extremely silly to soak network manager (5)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "SYSOP",
    "annotation": {
@@ -1259,9 +1181,6 @@ window.CRYPTIC_PUZZLES["independent-12396"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Treat back sores, running somewhat (5)",
-   "group": [
-    "26-down"
-   ],
    "separatorLocations": {},
    "solution": "NURSE",
    "annotation": {
@@ -1303,9 +1222,6 @@ window.CRYPTIC_PUZZLES["independent-12396"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Accounts from inveterate liar especially suspicious, initially (10)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "CHRONICLES",
    "annotation": {
@@ -1351,9 +1267,6 @@ window.CRYPTIC_PUZZLES["independent-12396"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Oscar, with regret, rebuffed French bread (4)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "EURO",
    "annotation": {
@@ -1401,9 +1314,6 @@ window.CRYPTIC_PUZZLES["independent-12396"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Island linked by bridge to mainland transformed Senegal close to Saly (8)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "ANGLESEY",
    "annotation": {
@@ -1447,9 +1357,6 @@ window.CRYPTIC_PUZZLES["independent-12396"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Shot Swiss folk hero returning after exercise (6)",
-   "group": [
-    "30-across"
-   ],
    "separatorLocations": {},
    "solution": "PELLET",
    "annotation": {

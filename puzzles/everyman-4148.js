@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4148"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Starters of rancid octopus given to Everyman in city on the Tiber (4)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "ROME",
    "annotation": {
@@ -76,9 +73,6 @@ window.CRYPTIC_PUZZLES["everyman-4148"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Finding new place for abandoned letterings (10)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "RESETTLING",
    "annotation": {
@@ -116,9 +110,6 @@ window.CRYPTIC_PUZZLES["everyman-4148"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "John okayed this lively armagnac, thank you (5,5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -165,9 +156,6 @@ window.CRYPTIC_PUZZLES["everyman-4148"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "'19' is among these unusual songs (3,7)",
-   "group": [
-    "3-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -207,9 +195,6 @@ window.CRYPTIC_PUZZLES["everyman-4148"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Type of ale that's not ready for public, you say? (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "DRAUGHT",
    "annotation": {
@@ -254,9 +239,6 @@ window.CRYPTIC_PUZZLES["everyman-4148"] = /*JSON-START*/ {
      3
     ]
    ],
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "NEARISH",
    "annotation": {
@@ -294,9 +276,6 @@ window.CRYPTIC_PUZZLES["everyman-4148"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Live within budget as you may do when tying the knot (4,4,4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -337,9 +316,6 @@ window.CRYPTIC_PUZZLES["everyman-4148"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Red nose displayed - not Dancer, oddly - Cupid's counterpart (4)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "EROS",
    "annotation": {
@@ -386,9 +362,6 @@ window.CRYPTIC_PUZZLES["everyman-4148"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Spot penny in drain (4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "SEEP",
    "annotation": {
@@ -430,9 +403,6 @@ window.CRYPTIC_PUZZLES["everyman-4148"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Primarily: Solomon / astute / green / edible? (4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "SAGE",
    "annotation": {
@@ -488,9 +458,6 @@ window.CRYPTIC_PUZZLES["everyman-4148"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Touring Odessa, Mark makes bloomer (6,4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -535,9 +502,6 @@ window.CRYPTIC_PUZZLES["everyman-4148"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Fled, exhausted by Australian yoga venue? (4,1,7)",
-   "group": [
-    "11-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -590,9 +554,6 @@ window.CRYPTIC_PUZZLES["everyman-4148"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Spooner's talk of judge's mallet and what he did in book (6,5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -645,9 +606,6 @@ window.CRYPTIC_PUZZLES["everyman-4148"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Neutral one landing in trouble (3-7)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -689,9 +647,6 @@ window.CRYPTIC_PUZZLES["everyman-4148"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Gets rid of source of scooters - vehicles banned! (7,3)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -745,9 +700,6 @@ window.CRYPTIC_PUZZLES["everyman-4148"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Eagerly accepted some suitable - apt - attributions (5,2)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -786,9 +738,6 @@ window.CRYPTIC_PUZZLES["everyman-4148"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Den's extreme uncertainty declared (7)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "HIDEOUT",
    "annotation": {
@@ -824,9 +773,6 @@ window.CRYPTIC_PUZZLES["everyman-4148"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Organic frank (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "NATURAL",
    "annotation": {
@@ -862,9 +808,6 @@ window.CRYPTIC_PUZZLES["everyman-4148"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Look - Lake Erie - staggering figure on rocks (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "LORELEI",
    "annotation": {
@@ -914,9 +857,6 @@ window.CRYPTIC_PUZZLES["everyman-4148"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "I criticise Scotsman that's sent back drink (7)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "CAMPARI",
    "annotation": {
@@ -979,9 +919,6 @@ window.CRYPTIC_PUZZLES["everyman-4148"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Do miss sword (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "CUTLASS",
    "annotation": {
@@ -1020,9 +957,6 @@ window.CRYPTIC_PUZZLES["everyman-4148"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "How crossword setter can clue last across answer (4,3,4)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -1059,9 +993,6 @@ window.CRYPTIC_PUZZLES["everyman-4148"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Small price for drinks - that's a guess (4)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "STAB",
    "annotation": {
@@ -1103,9 +1034,6 @@ window.CRYPTIC_PUZZLES["everyman-4148"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Committee member recalled enthralling viral content (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "MEME",
    "annotation": {
@@ -1142,9 +1070,6 @@ window.CRYPTIC_PUZZLES["everyman-4148"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Sporting beret, lead character in Jerry Hall novel (3,4,3)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -1199,9 +1124,6 @@ window.CRYPTIC_PUZZLES["everyman-4148"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Cancel larks before fuss - never starting (4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "UNDO",
    "annotation": {
@@ -1247,9 +1169,6 @@ window.CRYPTIC_PUZZLES["everyman-4148"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "One taking a temperature in check on driver sounding most panicked (10)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "BREATHIEST",
    "annotation": {
@@ -1302,9 +1221,6 @@ window.CRYPTIC_PUZZLES["everyman-4148"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Alter order - Conservative storms off (4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "EDIT",
    "annotation": {

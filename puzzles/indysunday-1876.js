@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1876"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Jargon I allow, having talked turkey first (12)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "GOBBLEDEGOOK",
    "annotation": {
@@ -76,9 +73,6 @@ window.CRYPTIC_PUZZLES["indysunday-1876"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Shock from back of generator during power cut (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "OUTRAGE",
    "annotation": {
@@ -127,9 +121,6 @@ window.CRYPTIC_PUZZLES["indysunday-1876"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "American in Soho, tube heaving, gets home for eight (9)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "BOATHOUSE",
    "annotation": {
@@ -174,9 +165,6 @@ window.CRYPTIC_PUZZLES["indysunday-1876"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Vortex that inspired Dyson hoovers? (4)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "EDDY",
    "annotation": {
@@ -213,9 +201,6 @@ window.CRYPTIC_PUZZLES["indysunday-1876"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Venice exposed with rising sea coming in across the region (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "ENDEMIC",
    "annotation": {
@@ -272,9 +257,6 @@ window.CRYPTIC_PUZZLES["indysunday-1876"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Arab's cash I brought through Paris airport as usual (10)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "ORDINARILY",
    "annotation": {
@@ -324,9 +306,6 @@ window.CRYPTIC_PUZZLES["indysunday-1876"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Russian scourge treating UK to a bit of Novichok (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "KNOUT",
    "annotation": {
@@ -370,9 +349,6 @@ window.CRYPTIC_PUZZLES["indysunday-1876"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "World leaders that shout and argue have become sour (6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "SATURN",
    "annotation": {
@@ -419,9 +395,6 @@ window.CRYPTIC_PUZZLES["indysunday-1876"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Cut off in long twisted pieces (8)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "STRANDED",
    "annotation": {
@@ -453,9 +426,6 @@ window.CRYPTIC_PUZZLES["indysunday-1876"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Thingamy's party none enjoyed, on reflection (6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "DOODAH",
    "annotation": {
@@ -513,9 +483,6 @@ window.CRYPTIC_PUZZLES["indysunday-1876"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "What about rolls for hunger? (4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "ACHE",
    "annotation": {
@@ -567,9 +534,6 @@ window.CRYPTIC_PUZZLES["indysunday-1876"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Child eating seconds of steak made our bull cross (8)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "MINOTAUR",
    "annotation": {
@@ -615,9 +579,6 @@ window.CRYPTIC_PUZZLES["indysunday-1876"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Noisy family? Try ours for a change (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "CLANGOROUS",
    "annotation": {
@@ -669,9 +630,6 @@ window.CRYPTIC_PUZZLES["indysunday-1876"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Peril Cuba largely represented as one of USSR's vassals (8)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "REPUBLIC",
    "annotation": {
@@ -718,9 +676,6 @@ window.CRYPTIC_PUZZLES["indysunday-1876"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Perfect decider at Wembley netted close to time (6)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "REFINE",
    "annotation": {
@@ -769,9 +724,6 @@ window.CRYPTIC_PUZZLES["indysunday-1876"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Better advice about golf which might fetch you a bogey (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "FINGERTIP",
    "annotation": {
@@ -824,9 +776,6 @@ window.CRYPTIC_PUZZLES["indysunday-1876"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Deep void right inside Vance spread (6)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "CAVERN",
    "annotation": {
@@ -870,9 +819,6 @@ window.CRYPTIC_PUZZLES["indysunday-1876"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Extremely hard for ten playing cricket (3-3)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -908,9 +854,6 @@ window.CRYPTIC_PUZZLES["indysunday-1876"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Rest in Leeds, travelling south (8)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "IDLENESS",
    "annotation": {
@@ -952,9 +895,6 @@ window.CRYPTIC_PUZZLES["indysunday-1876"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Sharp intelligence of copper (2,5)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -1001,9 +941,6 @@ window.CRYPTIC_PUZZLES["indysunday-1876"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Leaf on the end of twig oozing (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "SEEPAGE",
    "annotation": {
@@ -1046,9 +983,6 @@ window.CRYPTIC_PUZZLES["indysunday-1876"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Successfully jump over high bunk (5,3)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -1089,9 +1023,6 @@ window.CRYPTIC_PUZZLES["indysunday-1876"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Lorry starts to alarm rider with uncontrolled movement (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "ARTIC",
    "annotation": {
@@ -1137,9 +1068,6 @@ window.CRYPTIC_PUZZLES["indysunday-1876"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Event with games and refreshments cost hosts time (4)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "FETE",
    "annotation": {
@@ -1183,9 +1111,6 @@ window.CRYPTIC_PUZZLES["indysunday-1876"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Pretty remote island is splitting (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "FAIR",
    "annotation": {
@@ -1232,9 +1157,6 @@ window.CRYPTIC_PUZZLES["indysunday-1876"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Quite violent equestrian events in which Oscar comes last (4,2)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -1275,9 +1197,6 @@ window.CRYPTIC_PUZZLES["indysunday-1876"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Likely Republican gets overwhelming ovation for silly speech (8)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "CLAPTRAP",
    "annotation": {
@@ -1330,9 +1249,6 @@ window.CRYPTIC_PUZZLES["indysunday-1876"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Poor saint behind tree shat trousers (4-8)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     "-": [
      4

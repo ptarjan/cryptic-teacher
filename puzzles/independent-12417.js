@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12417"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Attractive German without pants (5-8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -68,9 +65,6 @@ window.CRYPTIC_PUZZLES["independent-12417"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Army man reformed country (7)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "MYANMAR",
    "annotation": {
@@ -107,9 +101,6 @@ window.CRYPTIC_PUZZLES["independent-12417"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Using leverage to infiltrate American rebellions (9)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "UPRISINGS",
    "annotation": {
@@ -153,9 +144,6 @@ window.CRYPTIC_PUZZLES["independent-12417"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Personal issue with dog breed? No, on reflection (4-2)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -211,9 +199,6 @@ window.CRYPTIC_PUZZLES["independent-12417"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Article on parishioner taxes is in opposition (10)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "ANTITHESIS",
    "annotation": {
@@ -265,9 +250,6 @@ window.CRYPTIC_PUZZLES["independent-12417"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Fish caught and inspected (4)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "EYED",
    "annotation": {
@@ -302,9 +284,6 @@ window.CRYPTIC_PUZZLES["independent-12417"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "I snooze in church if circumstances require it (2,1,5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -358,9 +337,6 @@ window.CRYPTIC_PUZZLES["independent-12417"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Pleased at cheque finally clearing (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "GLADE",
    "annotation": {
@@ -406,9 +382,6 @@ window.CRYPTIC_PUZZLES["independent-12417"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Agreement about supporting educational establishments (6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "UNISON",
    "annotation": {
@@ -451,9 +424,6 @@ window.CRYPTIC_PUZZLES["independent-12417"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Rapper regularly performing somewhere on stage (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "APRON",
    "annotation": {
@@ -496,9 +466,6 @@ window.CRYPTIC_PUZZLES["independent-12417"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "On the other hand, the horse is not tailless (4,5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -551,9 +518,6 @@ window.CRYPTIC_PUZZLES["independent-12417"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Disease vector medical officers leave out at first (8)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "MOSQUITO",
    "annotation": {
@@ -602,9 +566,6 @@ window.CRYPTIC_PUZZLES["independent-12417"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Guns from American's murder case in Paris found near Belgium (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "BICEPS",
    "annotation": {
@@ -658,9 +619,6 @@ window.CRYPTIC_PUZZLES["independent-12417"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Dreadful tour spoiled by this group's singer (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "TROUBADOUR",
    "annotation": {
@@ -713,9 +671,6 @@ window.CRYPTIC_PUZZLES["independent-12417"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Musical in two parts? (4)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "RENT",
    "annotation": {
@@ -749,9 +704,6 @@ window.CRYPTIC_PUZZLES["independent-12417"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Staggering, Herculean power fills legendary Irish figure (10)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "LEPRECHAUN",
    "annotation": {
@@ -795,9 +747,6 @@ window.CRYPTIC_PUZZLES["independent-12417"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Parcels in transit to Long Ashton getting redirected (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "AGNOLOTTI",
    "annotation": {
@@ -839,9 +788,6 @@ window.CRYPTIC_PUZZLES["independent-12417"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Underground hub's very graphic stripping (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "VICTORIA",
    "annotation": {
@@ -887,9 +833,6 @@ window.CRYPTIC_PUZZLES["independent-12417"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Shady assassins essentially promising to eliminate leader (10)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "SUSPICIOUS",
    "annotation": {
@@ -934,9 +877,6 @@ window.CRYPTIC_PUZZLES["independent-12417"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Illegible handwriting beginning from squiggly stroke (6)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "SCRAWL",
    "annotation": {
@@ -979,9 +919,6 @@ window.CRYPTIC_PUZZLES["independent-12417"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "I've got the same kitchenware on the counter (4)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "SNAP",
    "annotation": {
@@ -1024,9 +961,6 @@ window.CRYPTIC_PUZZLES["independent-12417"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Plain couple that is broken up by Romeo (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "PRAIRIE",
    "annotation": {
@@ -1075,9 +1009,6 @@ window.CRYPTIC_PUZZLES["independent-12417"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Has Met dealt with one dividing capital between banks? (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "THAMES",
    "annotation": {
@@ -1114,9 +1045,6 @@ window.CRYPTIC_PUZZLES["independent-12417"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Spin doctor who lost California court case, ultimately (6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "ROTATE",
    "annotation": {
@@ -1158,9 +1086,6 @@ window.CRYPTIC_PUZZLES["independent-12417"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Bears? Definitely! (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "TOTES",
    "annotation": {
@@ -1194,9 +1119,6 @@ window.CRYPTIC_PUZZLES["independent-12417"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "God can set about creating a heaven (8)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "VALHALLA",
    "annotation": {
@@ -1248,9 +1170,6 @@ window.CRYPTIC_PUZZLES["independent-12417"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Head to lounge (4)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "LOAF",
    "annotation": {
@@ -1287,9 +1206,6 @@ window.CRYPTIC_PUZZLES["independent-12417"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "French defeat almost stopped by wingers in pro team sport (5,4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -1341,9 +1257,6 @@ window.CRYPTIC_PUZZLES["independent-12417"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Roadworthiness test for defaced car (5)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "MOTOR",
    "annotation": {
@@ -1386,9 +1299,6 @@ window.CRYPTIC_PUZZLES["independent-12417"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "County newscast affords hi-res screens (13)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "STAFFORDSHIRE",
    "annotation": {

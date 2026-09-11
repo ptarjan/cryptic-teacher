@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1370"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Grazing land beyond river in Yorkshire (7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "PASTURE",
    "annotation": {
@@ -65,9 +62,6 @@ window.CRYPTIC_PUZZLES["quiptic-1370"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Song about blokes in former Soviet state (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "ARMENIA",
    "annotation": {
@@ -115,9 +109,6 @@ window.CRYPTIC_PUZZLES["quiptic-1370"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Perhaps Mr T wearing hat (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "TITLE",
    "annotation": {
@@ -162,9 +153,6 @@ window.CRYPTIC_PUZZLES["quiptic-1370"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "A cottager wanting company turned up for sporting event (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "REGATTA",
    "annotation": {
@@ -218,9 +206,6 @@ window.CRYPTIC_PUZZLES["quiptic-1370"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Set off bouncy character taking Ritalin, primarily (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "TRIGGER",
    "annotation": {
@@ -267,9 +252,6 @@ window.CRYPTIC_PUZZLES["quiptic-1370"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Change location of temporary relief, heartlessly (6)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "RESITE",
    "annotation": {
@@ -310,9 +292,6 @@ window.CRYPTIC_PUZZLES["quiptic-1370"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Content to snog a ribald Italian revolutionary (9)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "GARIBALDI",
    "annotation": {
@@ -350,9 +329,6 @@ window.CRYPTIC_PUZZLES["quiptic-1370"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "People who dodge adverse exercises (7)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "EVADERS",
    "annotation": {
@@ -390,9 +366,6 @@ window.CRYPTIC_PUZZLES["quiptic-1370"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Twit canoodles with action film director (5,8)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -434,9 +407,6 @@ window.CRYPTIC_PUZZLES["quiptic-1370"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Give out porridge on return (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "EMIT",
    "annotation": {
@@ -480,9 +450,6 @@ window.CRYPTIC_PUZZLES["quiptic-1370"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Fulmar gets confused in current across the pond (4,6)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -527,9 +494,6 @@ window.CRYPTIC_PUZZLES["quiptic-1370"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Earnest camping like this? (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "INTENT",
    "annotation": {
@@ -573,9 +537,6 @@ window.CRYPTIC_PUZZLES["quiptic-1370"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Celebrities can’t play snooker for this reason (8)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "NOTABLES",
    "annotation": {
@@ -616,9 +577,6 @@ window.CRYPTIC_PUZZLES["quiptic-1370"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Map a creek for training frontrunner (9)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "PACEMAKER",
    "annotation": {
@@ -656,9 +614,6 @@ window.CRYPTIC_PUZZLES["quiptic-1370"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Superficially less cross, for ever (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "ETERNALLY",
    "annotation": {
@@ -701,9 +656,6 @@ window.CRYPTIC_PUZZLES["quiptic-1370"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "German defeat provides sheen (5)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "GLOSS",
    "annotation": {
@@ -744,9 +696,6 @@ window.CRYPTIC_PUZZLES["quiptic-1370"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Some males sexualised in part of eastern England (5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "ESSEX",
    "annotation": {
@@ -784,9 +733,6 @@ window.CRYPTIC_PUZZLES["quiptic-1370"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "High pitched squawk rocks church (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "SCREECH",
    "annotation": {
@@ -824,9 +770,6 @@ window.CRYPTIC_PUZZLES["quiptic-1370"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "When I am wearing gold in part of Turkey (4,5)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -880,9 +823,6 @@ window.CRYPTIC_PUZZLES["quiptic-1370"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "So be it: sex with unknown for convenience (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "AMENITY",
    "annotation": {
@@ -930,9 +870,6 @@ window.CRYPTIC_PUZZLES["quiptic-1370"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Go on too long in swamp (7)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "OVERRUN",
    "annotation": {
@@ -970,9 +907,6 @@ window.CRYPTIC_PUZZLES["quiptic-1370"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Seizes power in shop (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "GRASPS",
    "annotation": {
@@ -1017,9 +951,6 @@ window.CRYPTIC_PUZZLES["quiptic-1370"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Some rugby players argue with impudence, at first (5,3)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -1070,9 +1001,6 @@ window.CRYPTIC_PUZZLES["quiptic-1370"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Student has left out source of money (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "EARNER",
    "annotation": {
@@ -1118,9 +1046,6 @@ window.CRYPTIC_PUZZLES["quiptic-1370"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Dance in strange bar, mostly (5)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "RUMBA",
    "annotation": {
@@ -1167,9 +1092,6 @@ window.CRYPTIC_PUZZLES["quiptic-1370"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Rub close-in when partying – this PM liked to (10)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "BERLUSCONI",
    "annotation": {
@@ -1212,9 +1134,6 @@ window.CRYPTIC_PUZZLES["quiptic-1370"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Unpleasant situation of male anger (4)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "MIRE",
    "annotation": {
@@ -1255,9 +1174,6 @@ window.CRYPTIC_PUZZLES["quiptic-1370"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Why is husband claiming base is like dairy product? (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "WHEYISH",
    "annotation": {
@@ -1317,9 +1233,6 @@ window.CRYPTIC_PUZZLES["quiptic-1370"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Absolute power of extremely tetchy grandma not good (7)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "TYRANNY",
    "annotation": {

@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1363"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "With regard to getting answers, new year, new you? (11)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "RESOLUTIONS",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["quiptic-1363"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Maybe having a facelift? Surprising! (7,8)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -63,9 +57,6 @@ window.CRYPTIC_PUZZLES["quiptic-1363"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Film genre capturing hearts of muscly Brits – uplifting anime (3-2)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -84,9 +75,6 @@ window.CRYPTIC_PUZZLES["quiptic-1363"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Confusing Australian/American slang for Italian dish (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "LASAGNA",
    "annotation": null
@@ -101,9 +89,6 @@ window.CRYPTIC_PUZZLES["quiptic-1363"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Stomp over sheep pelt, mangled on the outside (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "TRAMPLE",
    "annotation": null
@@ -118,9 +103,6 @@ window.CRYPTIC_PUZZLES["quiptic-1363"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Best available public transport capsized (8)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "OUTSMART",
    "annotation": null
@@ -135,9 +117,6 @@ window.CRYPTIC_PUZZLES["quiptic-1363"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Tendency to keep away from stall with salmon, perhaps, on Scottish headland (15)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "STANDOFFISHNESS",
    "annotation": null
@@ -152,9 +131,6 @@ window.CRYPTIC_PUZZLES["quiptic-1363"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Book of the Bible supporting origins of one decidedly deadly Bond villain (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "ODDJOB",
    "annotation": null
@@ -169,9 +145,6 @@ window.CRYPTIC_PUZZLES["quiptic-1363"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Second time around part of forest road (6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "STREET",
    "annotation": null
@@ -186,9 +159,6 @@ window.CRYPTIC_PUZZLES["quiptic-1363"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Raised platform that is shaped at the front for flowers (7)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "DAISIES",
    "annotation": null
@@ -203,9 +173,6 @@ window.CRYPTIC_PUZZLES["quiptic-1363"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Draw, roughly, cat and rat with trucker’s cap (7)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "ATTRACT",
    "annotation": null
@@ -220,9 +187,6 @@ window.CRYPTIC_PUZZLES["quiptic-1363"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Couple with Pingu, randomly, getting a membership (7,2)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -241,9 +205,6 @@ window.CRYPTIC_PUZZLES["quiptic-1363"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Fly film I’d generally disregarded somewhat (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "MIDGE",
    "annotation": null
@@ -258,9 +219,6 @@ window.CRYPTIC_PUZZLES["quiptic-1363"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "BA guards emptied out luggage (4)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "BAGS",
    "annotation": null
@@ -275,9 +233,6 @@ window.CRYPTIC_PUZZLES["quiptic-1363"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Fake port I’m crazy to sell on for more (4,6)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -296,9 +251,6 @@ window.CRYPTIC_PUZZLES["quiptic-1363"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "A year besieged by compliments leads to increase in wages in USA (3,5)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -317,9 +269,6 @@ window.CRYPTIC_PUZZLES["quiptic-1363"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Good weather in the new year? Time for some mocktails! (3,7)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -338,9 +287,6 @@ window.CRYPTIC_PUZZLES["quiptic-1363"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Stop – hiding in Lourdes is trespassing (6)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "DESIST",
    "annotation": null
@@ -355,9 +301,6 @@ window.CRYPTIC_PUZZLES["quiptic-1363"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Honourable puritan invested in long life (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "UPRIGHT",
    "annotation": null
@@ -372,9 +315,6 @@ window.CRYPTIC_PUZZLES["quiptic-1363"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Volatile AI rated broadcast (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "RADIATE",
    "annotation": null
@@ -389,9 +329,6 @@ window.CRYPTIC_PUZZLES["quiptic-1363"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Setter becoming single – time to lose weight? (4)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "DIET",
    "annotation": null
@@ -406,9 +343,6 @@ window.CRYPTIC_PUZZLES["quiptic-1363"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Catching every other St Ives shoot – we watch it on the box (2,4)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -427,9 +361,6 @@ window.CRYPTIC_PUZZLES["quiptic-1363"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Senior picking up award for not drinking (5)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "SOBER",
    "annotation": null
@@ -444,9 +375,6 @@ window.CRYPTIC_PUZZLES["quiptic-1363"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "They might indicate sex workers guided Conservative groups, according to Spooner (3,6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -465,9 +393,6 @@ window.CRYPTIC_PUZZLES["quiptic-1363"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Bury playwright, Harold, without his head? (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "INTER",
    "annotation": null
@@ -482,9 +407,6 @@ window.CRYPTIC_PUZZLES["quiptic-1363"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Special little moment with man having a puff (7)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "SMOKING",
    "annotation": null
@@ -499,9 +421,6 @@ window.CRYPTIC_PUZZLES["quiptic-1363"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Rate Doc’s unusual 20s style (3,4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -520,9 +439,6 @@ window.CRYPTIC_PUZZLES["quiptic-1363"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Go in street, catch bottoms of exuberant reckless lovers (11)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "SWEETHEARTS",
    "annotation": null

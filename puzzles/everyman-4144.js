@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4144"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Cockney listens - and bows (4)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "ARCS",
    "annotation": {
@@ -67,9 +64,6 @@ window.CRYPTIC_PUZZLES["everyman-4144"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Silly Carol, happy to be uncertain (10)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "APOCRYPHAL",
    "annotation": {
@@ -109,9 +103,6 @@ window.CRYPTIC_PUZZLES["everyman-4144"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Tricky situation: farm with no cows to flounder (3,2,5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -153,9 +144,6 @@ window.CRYPTIC_PUZZLES["everyman-4144"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Reproduces dodgy systems (10)",
-   "group": [
-    "3-across"
-   ],
    "separatorLocations": {},
    "solution": "PROCEDURES",
    "annotation": {
@@ -192,9 +180,6 @@ window.CRYPTIC_PUZZLES["everyman-4144"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Decrees - when you've repeatedly drawn a line? (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "RULINGS",
    "annotation": {
@@ -229,9 +214,6 @@ window.CRYPTIC_PUZZLES["everyman-4144"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Some welcome Dickensian characters being amusing (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "COMEDIC",
    "annotation": {
@@ -267,9 +249,6 @@ window.CRYPTIC_PUZZLES["everyman-4144"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Twin to put lid on some whisky (6,6)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -313,9 +292,6 @@ window.CRYPTIC_PUZZLES["everyman-4144"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Most of logbook picked up in police swoop (4)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "RAID",
    "annotation": {
@@ -365,9 +341,6 @@ window.CRYPTIC_PUZZLES["everyman-4144"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Notice function making noise (4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "SIGN",
    "annotation": {
@@ -402,9 +375,6 @@ window.CRYPTIC_PUZZLES["everyman-4144"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Sound from pen - why pen no use? (4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "OINK",
    "annotation": {
@@ -446,9 +416,6 @@ window.CRYPTIC_PUZZLES["everyman-4144"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Clutch, clutching loved one, making racket (10)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "CLAMOURING",
    "annotation": {
@@ -492,9 +459,6 @@ window.CRYPTIC_PUZZLES["everyman-4144"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "What guard's doing: not selling retirement gift? (7,5)",
-   "group": [
-    "11-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -535,9 +499,6 @@ window.CRYPTIC_PUZZLES["everyman-4144"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Playing Lendl: a four-time French tennis ace (6,5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -588,9 +549,6 @@ window.CRYPTIC_PUZZLES["everyman-4144"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Assignments making reformed crooks howl (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "SCHOOLWORK",
    "annotation": {
@@ -631,9 +589,6 @@ window.CRYPTIC_PUZZLES["everyman-4144"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Chimney-cleaners draw in drawing of lots (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "SWEEPSTAKE",
    "annotation": {
@@ -670,9 +625,6 @@ window.CRYPTIC_PUZZLES["everyman-4144"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Spurs very quietly storm off ... (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "PROMPTS",
    "annotation": {
@@ -714,9 +666,6 @@ window.CRYPTIC_PUZZLES["everyman-4144"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "... decrepit coach, exhausted, wants steady source of income (4,3)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -764,9 +713,6 @@ window.CRYPTIC_PUZZLES["everyman-4144"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Beggar me! Niagara's surrounding country (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "ARMENIA",
    "annotation": {
@@ -800,9 +746,6 @@ window.CRYPTIC_PUZZLES["everyman-4144"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Bling: grotesque slanket (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "ANKLETS",
    "annotation": {
@@ -840,9 +783,6 @@ window.CRYPTIC_PUZZLES["everyman-4144"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "In favour of 'very average'!? Everyman's beginning to annoy (7)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "PROVOKE",
    "annotation": {
@@ -897,9 +837,6 @@ window.CRYPTIC_PUZZLES["everyman-4144"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Initially powerful realm; ultimately subservient state ignobly abolished! (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "PRUSSIA",
    "annotation": {
@@ -947,9 +884,6 @@ window.CRYPTIC_PUZZLES["everyman-4144"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Warnings as Spooner relays outcome of birthday-party food fight (4-2,5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -1001,9 +935,6 @@ window.CRYPTIC_PUZZLES["everyman-4144"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Mucky film showing Special Constable with hesitant expression (4)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "SCUM",
    "annotation": {
@@ -1043,9 +974,6 @@ window.CRYPTIC_PUZZLES["everyman-4144"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Decent trade show (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "FAIR",
    "annotation": {
@@ -1080,9 +1008,6 @@ window.CRYPTIC_PUZZLES["everyman-4144"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Once again, apply following diagram depicting something intoxicating (10)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "CHARTREUSE",
    "annotation": {
@@ -1128,9 +1053,6 @@ window.CRYPTIC_PUZZLES["everyman-4144"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "End-piece: a physician taken aback (4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "CODA",
    "annotation": {
@@ -1173,9 +1095,6 @@ window.CRYPTIC_PUZZLES["everyman-4144"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "It says you'll go wrong adding potato to cabbage salad (7,3)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -1219,9 +1138,6 @@ window.CRYPTIC_PUZZLES["everyman-4144"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Island on vacation - Sark - yippee! (4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "SKYE",
    "annotation": {

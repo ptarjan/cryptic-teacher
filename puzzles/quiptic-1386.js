@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1386"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Start to survey papers inside facility in holiday area (7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "SEASIDE",
    "annotation": {
@@ -78,9 +75,6 @@ window.CRYPTIC_PUZZLES["quiptic-1386"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Russian neighbour shuffling in seat holding nothing (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "ESTONIA",
    "annotation": {
@@ -115,9 +109,6 @@ window.CRYPTIC_PUZZLES["quiptic-1386"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Conclude in this way, reportedly, ahead (3,2)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -162,9 +153,6 @@ window.CRYPTIC_PUZZLES["quiptic-1386"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Put down disbandment of top side (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "DEPOSIT",
    "annotation": {
@@ -198,9 +186,6 @@ window.CRYPTIC_PUZZLES["quiptic-1386"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Dejection sadly about island in Middle East (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "MALAISE",
    "annotation": {
@@ -249,9 +234,6 @@ window.CRYPTIC_PUZZLES["quiptic-1386"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Advantages when with groups (6)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "ASSETS",
    "annotation": {
@@ -292,9 +274,6 @@ window.CRYPTIC_PUZZLES["quiptic-1386"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Parts teen misused currently (2,7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -332,9 +311,6 @@ window.CRYPTIC_PUZZLES["quiptic-1386"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Separate soldiers captivated by dark-coloured beer (4,3)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -379,9 +355,6 @@ window.CRYPTIC_PUZZLES["quiptic-1386"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Sister, say, in a bolder violet when dressed (5,8)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -422,9 +395,6 @@ window.CRYPTIC_PUZZLES["quiptic-1386"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Some paste with dish cooked in liquid (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "STEW",
    "annotation": {
@@ -455,9 +425,6 @@ window.CRYPTIC_PUZZLES["quiptic-1386"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Eastern Europeans given a role with nothing in common? (5,5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -502,9 +469,6 @@ window.CRYPTIC_PUZZLES["quiptic-1386"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "In retreat, secures edges of estuaries for wading birds (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "SNIPES",
    "annotation": {
@@ -554,9 +518,6 @@ window.CRYPTIC_PUZZLES["quiptic-1386"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Unprepared husband? Hope not somehow when touring (2,3,3)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -609,9 +570,6 @@ window.CRYPTIC_PUZZLES["quiptic-1386"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Required money with a rightwinger (9)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "MANDATORY",
    "annotation": {
@@ -661,9 +619,6 @@ window.CRYPTIC_PUZZLES["quiptic-1386"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Rebel is with team among Dutch conservationists (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "DISSIDENT",
    "annotation": {
@@ -715,9 +670,6 @@ window.CRYPTIC_PUZZLES["quiptic-1386"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Attractive with no end of colour – and lacking in weight? (5)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "PETTY",
    "annotation": {
@@ -757,9 +709,6 @@ window.CRYPTIC_PUZZLES["quiptic-1386"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Break odd parts of some tree (5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "SMASH",
    "annotation": {
@@ -799,9 +748,6 @@ window.CRYPTIC_PUZZLES["quiptic-1386"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Stonework making mother and child really discontented (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "MASONRY",
    "annotation": {
@@ -850,9 +796,6 @@ window.CRYPTIC_PUZZLES["quiptic-1386"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Tell niece to move customers (9)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "CLIENTELE",
    "annotation": {
@@ -887,9 +830,6 @@ window.CRYPTIC_PUZZLES["quiptic-1386"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Overlooks poor grounds? (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "EXCUSES",
    "annotation": {
@@ -924,9 +864,6 @@ window.CRYPTIC_PUZZLES["quiptic-1386"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Employee lately is taken in by enticement for free time (7)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "LEISURE",
    "annotation": {
@@ -977,9 +914,6 @@ window.CRYPTIC_PUZZLES["quiptic-1386"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Hold up thing put on table to catch small chicken (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "BANTAM",
    "annotation": {
@@ -1025,9 +959,6 @@ window.CRYPTIC_PUZZLES["quiptic-1386"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "One with ambition managed to enter a second underground area (8)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "ASPIRANT",
    "annotation": {
@@ -1080,9 +1011,6 @@ window.CRYPTIC_PUZZLES["quiptic-1386"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Plain-spoken person standing for election ignoring latest trio of characters (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "CANDID",
    "annotation": {
@@ -1121,9 +1049,6 @@ window.CRYPTIC_PUZZLES["quiptic-1386"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Female has partly written a diary (5)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "NADIA",
    "annotation": {
@@ -1154,9 +1079,6 @@ window.CRYPTIC_PUZZLES["quiptic-1386"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Invest in reforms to cover case for change as things to spur people (10)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "INCENTIVES",
    "annotation": {
@@ -1208,9 +1130,6 @@ window.CRYPTIC_PUZZLES["quiptic-1386"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Daughter is given peculiar percussion instrument (4)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "DRUM",
    "annotation": {
@@ -1251,9 +1170,6 @@ window.CRYPTIC_PUZZLES["quiptic-1386"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Sally after vacation checks organised schemes (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "SYSTEMS",
    "annotation": {
@@ -1293,9 +1209,6 @@ window.CRYPTIC_PUZZLES["quiptic-1386"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Prisoner on the loose in cloak in eastern Kent area (7)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "ESCAPEE",
    "annotation": {

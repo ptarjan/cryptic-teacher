@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29942"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Hack down willow without determination, mate (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "FELLOW",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["cryptic-29942"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Use gun then use fists in really hot spot (7)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "FIREBOX",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["cryptic-29942"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Cut cedar, initially in way (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "LANCE",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["cryptic-29942"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "American word for elder in Arnold’s terminology (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "OLDSTER",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["cryptic-29942"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Player holding old wood from elsewhere beside tee (6)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "OBOIST",
    "annotation": null
@@ -110,9 +95,6 @@ window.CRYPTIC_PUZZLES["cryptic-29942"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Black part of forest, comparatively leafless (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "BALDER",
    "annotation": null
@@ -127,9 +109,6 @@ window.CRYPTIC_PUZZLES["cryptic-29942"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Italian tree’s interior destroyed, not in isolation (5,4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -148,9 +127,6 @@ window.CRYPTIC_PUZZLES["cryptic-29942"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Isn’t comfortable around gum trees right away concealing article (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "TEETHES",
    "annotation": null
@@ -165,9 +141,6 @@ window.CRYPTIC_PUZZLES["cryptic-29942"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Eucalyptus, say, he put out with plant put stop to everything (3,2,3,5)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -188,9 +161,6 @@ window.CRYPTIC_PUZZLES["cryptic-29942"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Great architect, builder of treehouse (4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "WREN",
    "annotation": null
@@ -205,9 +175,6 @@ window.CRYPTIC_PUZZLES["cryptic-29942"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Part of horsedrawn vehicle left when European departs 1d or 19 (10)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "DOUBLETREE",
    "annotation": null
@@ -222,9 +189,6 @@ window.CRYPTIC_PUZZLES["cryptic-29942"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Miserable sailor caught in plane (6)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "ABJECT",
    "annotation": null
@@ -239,9 +203,6 @@ window.CRYPTIC_PUZZLES["cryptic-29942"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Discovers last of beech nuts are spoilt (8)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "UNEARTHS",
    "annotation": null
@@ -256,9 +217,6 @@ window.CRYPTIC_PUZZLES["cryptic-29942"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Clear misuse of axe on tree (9)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "EXONERATE",
    "annotation": null
@@ -273,9 +231,6 @@ window.CRYPTIC_PUZZLES["cryptic-29942"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Fox in Kent disturbed those closest in tree? (4,2,3)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -295,9 +250,6 @@ window.CRYPTIC_PUZZLES["cryptic-29942"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Key limes oddly deficient as trees (4)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "ELMS",
    "annotation": null
@@ -312,9 +264,6 @@ window.CRYPTIC_PUZZLES["cryptic-29942"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Small feller’s tool, kind of blue (4)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "SAXE",
    "annotation": null
@@ -329,9 +278,6 @@ window.CRYPTIC_PUZZLES["cryptic-29942"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Place such as 25 where bark may be secured (7)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "SEAPORT",
    "annotation": null
@@ -346,9 +292,6 @@ window.CRYPTIC_PUZZLES["cryptic-29942"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Mars rose or cherry tree put in ahead of time (3,6)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -367,9 +310,6 @@ window.CRYPTIC_PUZZLES["cryptic-29942"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Artificial trees one turned over, caught by cop (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "PLASTIC",
    "annotation": null
@@ -384,9 +324,6 @@ window.CRYPTIC_PUZZLES["cryptic-29942"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "It helps one clearly see nonsense (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "EYEWASH",
    "annotation": null
@@ -401,9 +338,6 @@ window.CRYPTIC_PUZZLES["cryptic-29942"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Face what’s hard in 10? Wise man (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "VISAGE",
    "annotation": null
@@ -418,9 +352,6 @@ window.CRYPTIC_PUZZLES["cryptic-29942"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Ring in tree I reportedly know, something like chestnut or bay (8)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "PALOMINO",
    "annotation": null
@@ -435,9 +366,6 @@ window.CRYPTIC_PUZZLES["cryptic-29942"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "A pollinator’s seen around large poplars (6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "ABELES",
    "annotation": null
@@ -452,9 +380,6 @@ window.CRYPTIC_PUZZLES["cryptic-29942"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Source of berries delivered some time before (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "ELDER",
    "annotation": null
@@ -469,9 +394,6 @@ window.CRYPTIC_PUZZLES["cryptic-29942"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Leaves are bound to be given its protection (4,6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -490,9 +412,6 @@ window.CRYPTIC_PUZZLES["cryptic-29942"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Pine, perhaps, for building agreement (4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "DEAL",
    "annotation": null
@@ -507,9 +426,6 @@ window.CRYPTIC_PUZZLES["cryptic-29942"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Twigs, say, can turn a bright colour (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "TINDER",
    "annotation": null
@@ -524,9 +440,6 @@ window.CRYPTIC_PUZZLES["cryptic-29942"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Quickly move from second section of rustic orchard (6)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "SCORCH",
    "annotation": null

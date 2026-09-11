@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30001"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Andrew, once at Number 10, managed comeback after box office passed bill (5,3)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -89,9 +86,6 @@ window.CRYPTIC_PUZZLES["cryptic-30001"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Happy to gallivant, swallowing drop of LSD (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "GLAD",
    "annotation": {
@@ -144,9 +138,6 @@ window.CRYPTIC_PUZZLES["cryptic-30001"] = /*JSON-START*/ {
      27
     ]
    ],
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "TRIFLE",
    "annotation": {
@@ -184,9 +175,6 @@ window.CRYPTIC_PUZZLES["cryptic-30001"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Firing last of women in hiding … (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "CANNING",
    "annotation": {
@@ -233,9 +221,6 @@ window.CRYPTIC_PUZZLES["cryptic-30001"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "… which leads to her arrest and transportation (4)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "THAT",
    "annotation": {
@@ -276,9 +261,6 @@ window.CRYPTIC_PUZZLES["cryptic-30001"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Chosen ones regrettably sour at five (10)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "FAVOURITES",
    "annotation": {
@@ -316,9 +298,6 @@ window.CRYPTIC_PUZZLES["cryptic-30001"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "That which raises pitch overwhelms ambassador in budget (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "CHEAPO",
    "annotation": {
@@ -366,9 +345,6 @@ window.CRYPTIC_PUZZLES["cryptic-30001"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Indian resort put on a real spread for poacher’s hunting ground? (4,4)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -426,9 +402,6 @@ window.CRYPTIC_PUZZLES["cryptic-30001"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Scrub part of moustache at hairdresser (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "HEATH",
    "annotation": {
@@ -463,9 +436,6 @@ window.CRYPTIC_PUZZLES["cryptic-30001"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Left in spa, smooth as a baby’s bottom (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "BALD",
    "annotation": {
@@ -510,9 +480,6 @@ window.CRYPTIC_PUZZLES["cryptic-30001"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Following rubdown with oil – everything not quite working (10)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "FUNCTIONAL",
    "annotation": {
@@ -562,9 +529,6 @@ window.CRYPTIC_PUZZLES["cryptic-30001"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Quit following Cameron’s first split (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "CLEAVE",
    "annotation": {
@@ -610,9 +574,6 @@ window.CRYPTIC_PUZZLES["cryptic-30001"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Refusal to choose teetotaller’s way out (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "ABSTENTION",
    "annotation": {
@@ -647,9 +608,6 @@ window.CRYPTIC_PUZZLES["cryptic-30001"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Owners developed mantra for those who produce history’s first draft (8)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "NEWSROOM",
    "annotation": {
@@ -696,9 +654,6 @@ window.CRYPTIC_PUZZLES["cryptic-30001"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Competition’s finale to follow Test team’s victory (3)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "WIN",
    "annotation": {
@@ -744,9 +699,6 @@ window.CRYPTIC_PUZZLES["cryptic-30001"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "How lovely! Cute! At last, it follows that setter’s wonderful (7)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "AWESOME",
    "annotation": {
@@ -802,9 +754,6 @@ window.CRYPTIC_PUZZLES["cryptic-30001"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Bellow’s return in part of Bloomsbury (3)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "MOO",
    "annotation": {
@@ -850,9 +799,6 @@ window.CRYPTIC_PUZZLES["cryptic-30001"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Promotes risk of unprotected sex in one library in Edinburgh (7)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "INSTILS",
    "annotation": {
@@ -902,9 +848,6 @@ window.CRYPTIC_PUZZLES["cryptic-30001"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Would-be Iron Lady rusts badly after Soviet limo reverses (3,5)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -967,9 +910,6 @@ window.CRYPTIC_PUZZLES["cryptic-30001"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Put 9’s head (or tail) in bank vault (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "CHAMBER",
    "annotation": {
@@ -1018,9 +958,6 @@ window.CRYPTIC_PUZZLES["cryptic-30001"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "It’s monstrous if that man is preceding one drawn to light (8)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "BEHEMOTH",
    "annotation": {
@@ -1065,9 +1002,6 @@ window.CRYPTIC_PUZZLES["cryptic-30001"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "One as vain as 19? Last to arrive, first to depart (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "EGOIST",
    "annotation": {
@@ -1120,9 +1054,6 @@ window.CRYPTIC_PUZZLES["cryptic-30001"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Make bigger or smaller resolution? Checks out on the radio (6)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "RESIZE",
    "annotation": {
@@ -1167,9 +1098,6 @@ window.CRYPTIC_PUZZLES["cryptic-30001"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Martyr – a sorry reflection – choked prayers (6)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "ROSARY",
    "annotation": {
@@ -1213,9 +1141,6 @@ window.CRYPTIC_PUZZLES["cryptic-30001"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "The first hot combos bent picks (10)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "TOOTHCOMBS",
    "annotation": {
@@ -1266,9 +1191,6 @@ window.CRYPTIC_PUZZLES["cryptic-30001"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Dear revolutionary – and its leader (4)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "CHER",
    "annotation": {
@@ -1315,9 +1237,6 @@ window.CRYPTIC_PUZZLES["cryptic-30001"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Harp on after lady loses heart (4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "LYRE",
    "annotation": {
@@ -1363,9 +1282,6 @@ window.CRYPTIC_PUZZLES["cryptic-30001"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Set down in language without first thought (4)",
-   "group": [
-    "26-down"
-   ],
    "separatorLocations": {},
    "solution": "LAIN",
    "annotation": {
@@ -1414,9 +1330,6 @@ window.CRYPTIC_PUZZLES["cryptic-30001"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Symbol of intention to marry sent back by the-love-that-dare-not-speak-its-name (5)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "STONE",
    "annotation": {
@@ -1457,9 +1370,6 @@ window.CRYPTIC_PUZZLES["cryptic-30001"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "First-rate novel includes things that are untrue (8)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "EARLIEST",
    "annotation": {

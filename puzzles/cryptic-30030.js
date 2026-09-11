@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30030"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Female rushed around – is old female endless help, one lover of nature? (7,2,6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      7,
@@ -112,9 +109,6 @@ window.CRYPTIC_PUZZLES["cryptic-30030"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Stupid dad, not completely stupid dad with drug injected (9)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "FATHEADED",
    "annotation": {
@@ -162,9 +156,6 @@ window.CRYPTIC_PUZZLES["cryptic-30030"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Stop hugging woman’s middle for support (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "ARMREST",
    "annotation": {
@@ -214,9 +205,6 @@ window.CRYPTIC_PUZZLES["cryptic-30030"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Plant produced by a scientific institution needing external funds (8)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "CALABASH",
    "annotation": {
@@ -265,9 +253,6 @@ window.CRYPTIC_PUZZLES["cryptic-30030"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Religious literature mother smuggled out of mountainous island (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "SUTRA",
    "annotation": {
@@ -310,9 +295,6 @@ window.CRYPTIC_PUZZLES["cryptic-30030"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Food city provided with words before departure (9)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "FAREWELLS",
    "annotation": {
@@ -354,9 +336,6 @@ window.CRYPTIC_PUZZLES["cryptic-30030"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Fantastic feast ending with sherry? That should come first! (6)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "SAFETY",
    "annotation": {
@@ -401,9 +380,6 @@ window.CRYPTIC_PUZZLES["cryptic-30030"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Survey with page penned by worker? (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "INSPECT",
    "annotation": {
@@ -451,9 +427,6 @@ window.CRYPTIC_PUZZLES["cryptic-30030"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Flower displayed by half of businesses (5)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "INDUS",
    "annotation": {
@@ -499,9 +472,6 @@ window.CRYPTIC_PUZZLES["cryptic-30030"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Guide taking temperature at back of place of worship (7)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "TEMPLET",
    "annotation": {
@@ -548,9 +518,6 @@ window.CRYPTIC_PUZZLES["cryptic-30030"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Bound once more to be rejected? (7)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "REFUSED",
    "annotation": {
@@ -592,9 +559,6 @@ window.CRYPTIC_PUZZLES["cryptic-30030"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Animal maybe in field in fine weather (3)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "EWE",
    "annotation": {
@@ -624,9 +588,6 @@ window.CRYPTIC_PUZZLES["cryptic-30030"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Give evidence, offering best answer, I fancy (4,7)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -676,9 +637,6 @@ window.CRYPTIC_PUZZLES["cryptic-30030"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "What could make ladettes be loathsome (10)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "DETESTABLE",
    "annotation": {
@@ -716,9 +674,6 @@ window.CRYPTIC_PUZZLES["cryptic-30030"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Back facing a bit of work, with subdued feeling of warmth (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "AFTERGLOW",
    "annotation": {
@@ -771,9 +726,6 @@ window.CRYPTIC_PUZZLES["cryptic-30030"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Check part of plant (4)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "STEM",
    "annotation": {
@@ -808,9 +760,6 @@ window.CRYPTIC_PUZZLES["cryptic-30030"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Airman has transported important Indian women (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "MAHARANIS",
    "annotation": {
@@ -848,9 +797,6 @@ window.CRYPTIC_PUZZLES["cryptic-30030"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Form of discrimination getting scorn – my inside’s beginning to stir (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "CRONYISM",
    "annotation": {
@@ -898,9 +844,6 @@ window.CRYPTIC_PUZZLES["cryptic-30030"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Honey in kitchen container (4)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "DISH",
    "annotation": {
@@ -935,9 +878,6 @@ window.CRYPTIC_PUZZLES["cryptic-30030"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Tough gangster, ‘bony’ in a particular way (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "STERNAL",
    "annotation": {
@@ -976,9 +916,6 @@ window.CRYPTIC_PUZZLES["cryptic-30030"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "A period in prison, volunteers once joining in with difficulty (2,1,7)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -1033,9 +970,6 @@ window.CRYPTIC_PUZZLES["cryptic-30030"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Work with son – work outside – something needing attention in allotment? (7)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "TOPSOIL",
    "annotation": {
@@ -1080,9 +1014,6 @@ window.CRYPTIC_PUZZLES["cryptic-30030"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Greek character given time inside – mark of disgrace (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "STIGMA",
    "annotation": {
@@ -1130,9 +1061,6 @@ window.CRYPTIC_PUZZLES["cryptic-30030"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Joke about race riot disturbed islander (6,5)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -1183,9 +1111,6 @@ window.CRYPTIC_PUZZLES["cryptic-30030"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Submit and rest after work’s over (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "POSIT",
    "annotation": {
@@ -1235,9 +1160,6 @@ window.CRYPTIC_PUZZLES["cryptic-30030"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Mate waving maiden goodbye on Navy vessel (5)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "CHURN",
    "annotation": {
@@ -1286,9 +1208,6 @@ window.CRYPTIC_PUZZLES["cryptic-30030"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Energy coming from fruit – that’s normal (3)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "PAR",
    "annotation": {
@@ -1331,9 +1250,6 @@ window.CRYPTIC_PUZZLES["cryptic-30030"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Stamp of approval when knight, say, invades country (7)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "SENEGAL",
    "annotation": {
@@ -1387,9 +1303,6 @@ window.CRYPTIC_PUZZLES["cryptic-30030"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Fabulous beast in old jokes at Cambridge. say (7)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "UNICORN",
    "annotation": {
@@ -1436,9 +1349,6 @@ window.CRYPTIC_PUZZLES["cryptic-30030"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Silly nitwit still mad, getting left inside to fight meaningless battle (4,2,9)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {
     ",": [
      4,

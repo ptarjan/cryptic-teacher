@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12402"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Love to escape staggering day care cost for big baby (7-3)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     "-": [
      7
@@ -78,9 +75,6 @@ window.CRYPTIC_PUZZLES["independent-12402"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Degenerate psychiatrist Human Resources shunted out (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "SINK",
    "annotation": {
@@ -122,9 +116,6 @@ window.CRYPTIC_PUZZLES["independent-12402"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Those illicitly using Tinder? (9)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "ARSONISTS",
    "annotation": {
@@ -155,9 +146,6 @@ window.CRYPTIC_PUZZLES["independent-12402"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Provide experience rookies primarily wanted (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "ENDUE",
    "annotation": {
@@ -201,9 +189,6 @@ window.CRYPTIC_PUZZLES["independent-12402"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Craved last bit of roly-poly taken home (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "YEARNED",
    "annotation": {
@@ -246,9 +231,6 @@ window.CRYPTIC_PUZZLES["independent-12402"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Unappealing church left without members (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "ARMLESS",
    "annotation": {
@@ -290,9 +272,6 @@ window.CRYPTIC_PUZZLES["independent-12402"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Root of foreign affairs' west facing perspective (4)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "FANG",
    "annotation": {
@@ -328,9 +307,6 @@ window.CRYPTIC_PUZZLES["independent-12402"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Play, not bothering to use golf range (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "AMBIT",
    "annotation": {
@@ -372,9 +348,6 @@ window.CRYPTIC_PUZZLES["independent-12402"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Get confused with nuclear family member (5-5)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -423,9 +396,6 @@ window.CRYPTIC_PUZZLES["independent-12402"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "First dole payment served up here - a pound! (8)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {},
    "solution": "ORIGINAL",
    "annotation": {
@@ -486,9 +456,6 @@ window.CRYPTIC_PUZZLES["independent-12402"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Pried and snooped around when out of work (5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "NOSED",
    "annotation": {
@@ -536,9 +503,6 @@ window.CRYPTIC_PUZZLES["independent-12402"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Belting delivered by officer guarding British base (9)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "ADMIRABLE",
    "annotation": {
@@ -591,9 +555,6 @@ window.CRYPTIC_PUZZLES["independent-12402"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Things to detect before Queen's brought back through (8)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "ANTENNAE",
    "annotation": {
@@ -645,9 +606,6 @@ window.CRYPTIC_PUZZLES["independent-12402"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Leave rubbish uncovered (3,2)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -689,9 +647,6 @@ window.CRYPTIC_PUZZLES["independent-12402"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Shares buildings with squirrels (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "STOCKPILES",
    "annotation": {
@@ -732,9 +687,6 @@ window.CRYPTIC_PUZZLES["independent-12402"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Spooner's top unruly youth once put on trial here? (4,3)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -783,9 +735,6 @@ window.CRYPTIC_PUZZLES["independent-12402"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Covers boxing learner's knockout performances (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "BLINDERS",
    "annotation": {
@@ -829,9 +778,6 @@ window.CRYPTIC_PUZZLES["independent-12402"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Overheating complaint returning new students chafe about - on the contrary! (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "SUNBURN",
    "annotation": {
@@ -888,9 +834,6 @@ window.CRYPTIC_PUZZLES["independent-12402"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Renegotiated a sum Union and all agreed (9)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "UNANIMOUS",
    "annotation": {
@@ -927,9 +870,6 @@ window.CRYPTIC_PUZZLES["independent-12402"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Discharge when ready, oddly forgotten sidearm (7)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "CASHIER",
    "annotation": {
@@ -975,9 +915,6 @@ window.CRYPTIC_PUZZLES["independent-12402"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Serene bride so perfectly portrayed in the mirror (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "REPOSED",
    "annotation": {
@@ -1013,9 +950,6 @@ window.CRYPTIC_PUZZLES["independent-12402"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Perhaps family seat's hiding ancient baggage (7)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "HOLDALL",
    "annotation": {
@@ -1062,9 +996,6 @@ window.CRYPTIC_PUZZLES["independent-12402"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Discovered more bread mainly bolsters husband's testosterone? (7)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "HORMONE",
    "annotation": {
@@ -1117,9 +1048,6 @@ window.CRYPTIC_PUZZLES["independent-12402"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Called to attend case of genie inhabiting bedsit? (5)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "PAGED",
    "annotation": {
@@ -1165,9 +1093,6 @@ window.CRYPTIC_PUZZLES["independent-12402"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Match cut short, setter's injured (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "GAMMY",
    "annotation": {
@@ -1210,9 +1135,6 @@ window.CRYPTIC_PUZZLES["independent-12402"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "This obsession's the norm - put out a broadcast! (8)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "PARANOIA",
    "annotation": {
@@ -1259,9 +1181,6 @@ window.CRYPTIC_PUZZLES["independent-12402"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Before dawn, time first sign of haunting spirit turned up … (5)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "NIGHT",
    "annotation": {
@@ -1318,9 +1237,6 @@ window.CRYPTIC_PUZZLES["independent-12402"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "… one ensuring shades stay put - sounding portentous (4)",
-   "group": [
-    "26-down"
-   ],
    "separatorLocations": {},
    "solution": "DYER",
    "annotation": {
@@ -1355,9 +1271,6 @@ window.CRYPTIC_PUZZLES["independent-12402"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Meat course briefly cooked in red wine (9)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "LAMBRUSCO",
    "annotation": {
@@ -1411,9 +1324,6 @@ window.CRYPTIC_PUZZLES["independent-12402"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Game of rugby's finale's being featured in comic strip (5)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "GOOFY",
    "annotation": {
@@ -1462,9 +1372,6 @@ window.CRYPTIC_PUZZLES["independent-12402"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Place that's fouled by waters in the nether regions? (4)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "STYX",
    "annotation": {
@@ -1502,9 +1409,6 @@ window.CRYPTIC_PUZZLES["independent-12402"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "English right invested in consultant influencer (10)",
-   "group": [
-    "30-across"
-   ],
    "separatorLocations": {},
    "solution": "ADVERTISER",
    "annotation": {

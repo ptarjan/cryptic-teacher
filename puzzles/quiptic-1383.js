@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1383"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Supply one paid to get a lot of footage (7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "PROVIDE",
    "annotation": {
@@ -74,9 +71,6 @@ window.CRYPTIC_PUZZLES["quiptic-1383"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Medium-sized person often at local? (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "REGULAR",
    "annotation": {
@@ -109,9 +103,6 @@ window.CRYPTIC_PUZZLES["quiptic-1383"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Virginia given estimate after leaving ship that’s unclear (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "VAGUE",
    "annotation": {
@@ -164,9 +155,6 @@ window.CRYPTIC_PUZZLES["quiptic-1383"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Drop thing needed by a UK election candidate (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "DEPOSIT",
    "annotation": {
@@ -199,9 +187,6 @@ window.CRYPTIC_PUZZLES["quiptic-1383"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Start to bring a good husband and father in Middle East capital (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "BAGHDAD",
    "annotation": {
@@ -267,9 +252,6 @@ window.CRYPTIC_PUZZLES["quiptic-1383"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Getting on a horse captivates a German (6)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "AGEING",
    "annotation": {
@@ -320,9 +302,6 @@ window.CRYPTIC_PUZZLES["quiptic-1383"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Towering over court-based sport making triumphal gestures (4,5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -373,9 +352,6 @@ window.CRYPTIC_PUZZLES["quiptic-1383"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Article Cyril tailored with cold, artificial material (7)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "ACRYLIC",
    "annotation": {
@@ -434,9 +410,6 @@ window.CRYPTIC_PUZZLES["quiptic-1383"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Type in support of manipulating rates alas, when all else has failed (2,1,4,6)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -494,9 +467,6 @@ window.CRYPTIC_PUZZLES["quiptic-1383"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Very eager group among Chicago gangsters (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "AGOG",
    "annotation": {
@@ -531,9 +501,6 @@ window.CRYPTIC_PUZZLES["quiptic-1383"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Those on board given four directions in bleeping devices (10)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "PASSENGERS",
    "annotation": {
@@ -581,9 +548,6 @@ window.CRYPTIC_PUZZLES["quiptic-1383"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Modifies flat-topped places in church, we hear (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "ALTERS",
    "annotation": {
@@ -619,9 +583,6 @@ window.CRYPTIC_PUZZLES["quiptic-1383"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Possibly find all behind lake making disposal of waste material (8)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "LANDFILL",
    "annotation": {
@@ -676,9 +637,6 @@ window.CRYPTIC_PUZZLES["quiptic-1383"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "A dim start sadly for one creating scenes? (9)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "DRAMATIST",
    "annotation": {
@@ -719,9 +677,6 @@ window.CRYPTIC_PUZZLES["quiptic-1383"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Contemplated model appearing in TV etc. with on-screen priest (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "MEDITATED",
    "annotation": {
@@ -775,9 +730,6 @@ window.CRYPTIC_PUZZLES["quiptic-1383"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Expel six occupying English court (5)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "EVICT",
    "annotation": {
@@ -827,9 +779,6 @@ window.CRYPTIC_PUZZLES["quiptic-1383"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Assistant concealing second private comment (5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "ASIDE",
    "annotation": {
@@ -874,9 +823,6 @@ window.CRYPTIC_PUZZLES["quiptic-1383"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Concession about name for shellfish (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "SCALLOP",
    "annotation": {
@@ -924,9 +870,6 @@ window.CRYPTIC_PUZZLES["quiptic-1383"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Copiers in work showing accuracy (9)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "PRECISION",
    "annotation": {
@@ -967,9 +910,6 @@ window.CRYPTIC_PUZZLES["quiptic-1383"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Praise among US agents for woman (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "CLAUDIA",
    "annotation": {
@@ -1017,9 +957,6 @@ window.CRYPTIC_PUZZLES["quiptic-1383"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Former individual with money put in competitive fixture (3-4)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -1077,9 +1014,6 @@ window.CRYPTIC_PUZZLES["quiptic-1383"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Petty Officer rues agitating pretentious figure (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "POSEUR",
    "annotation": {
@@ -1129,9 +1063,6 @@ window.CRYPTIC_PUZZLES["quiptic-1383"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "A university in Connecticut facing financial debts making one wary (8)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "CAUTIOUS",
    "annotation": {
@@ -1193,9 +1124,6 @@ window.CRYPTIC_PUZZLES["quiptic-1383"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Doctor warns, describing beginning of emergency response (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "ANSWER",
    "annotation": {
@@ -1250,9 +1178,6 @@ window.CRYPTIC_PUZZLES["quiptic-1383"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Barely sufficient stuff kept in Tuscan trattoria (5)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "SCANT",
    "annotation": {
@@ -1287,9 +1212,6 @@ window.CRYPTIC_PUZZLES["quiptic-1383"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "A DC here upset about group that’s inattentive (5-5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -1349,9 +1271,6 @@ window.CRYPTIC_PUZZLES["quiptic-1383"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Help required around river getting dry (4)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "ARID",
    "annotation": {
@@ -1399,9 +1318,6 @@ window.CRYPTIC_PUZZLES["quiptic-1383"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Look about unusually dire characteristic of some writing? (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "SPIDERY",
    "annotation": {
@@ -1454,9 +1370,6 @@ window.CRYPTIC_PUZZLES["quiptic-1383"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Drinks holder taken by adolescent in place to eat at work (7)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "CANTEEN",
    "annotation": {

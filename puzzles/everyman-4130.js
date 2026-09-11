@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4130"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "American great Andre - super server incarnate, primarily (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "AGASSI",
    "annotation": {
@@ -74,9 +71,6 @@ window.CRYPTIC_PUZZLES["everyman-4130"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Harry nurtured a fringe that's brought out in summer (6,9)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -117,9 +111,6 @@ window.CRYPTIC_PUZZLES["everyman-4130"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Some characters from Lewisham blearily totter (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "SHAMBLE",
    "annotation": {
@@ -153,9 +144,6 @@ window.CRYPTIC_PUZZLES["everyman-4130"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Everyman's description of restaurant trip - given starter of daikons - kicked off (9)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "INITIATED",
    "annotation": {
@@ -201,9 +189,6 @@ window.CRYPTIC_PUZZLES["everyman-4130"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Outspoken usher (6)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "DIRECT",
    "annotation": {
@@ -238,9 +223,6 @@ window.CRYPTIC_PUZZLES["everyman-4130"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "What to do to a whole (reportedly) number!? (5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "DIGIT",
    "annotation": {
@@ -280,9 +262,6 @@ window.CRYPTIC_PUZZLES["everyman-4130"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Rowdy: summary of journey starting in S America, ending in N America? (7)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "RIOTOUS",
    "annotation": {
@@ -326,9 +305,6 @@ window.CRYPTIC_PUZZLES["everyman-4130"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "It's generally understood what's possessed by Wombles (6,9)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -367,9 +343,6 @@ window.CRYPTIC_PUZZLES["everyman-4130"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Location of Gaol on rolling heath, as can be seen in library (7,4)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -425,9 +398,6 @@ window.CRYPTIC_PUZZLES["everyman-4130"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Game in which you need a horse or a car (4)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {},
    "solution": "POLO",
    "annotation": {
@@ -465,9 +435,6 @@ window.CRYPTIC_PUZZLES["everyman-4130"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "I ask you for victim, did you say? (4)",
-   "group": [
-    "10-down"
-   ],
    "separatorLocations": {},
    "solution": "PRAY",
    "annotation": {
@@ -505,9 +472,6 @@ window.CRYPTIC_PUZZLES["everyman-4130"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Louvre: bit ugly, with too much development (9)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "OVERBUILT",
    "annotation": {
@@ -544,9 +508,6 @@ window.CRYPTIC_PUZZLES["everyman-4130"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Band with grim smell (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "ODOUR",
    "annotation": {
@@ -587,9 +548,6 @@ window.CRYPTIC_PUZZLES["everyman-4130"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Eccentric very loudly getting into flipping Korean exercise (7)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "OFFBEAT",
    "annotation": {
@@ -647,9 +605,6 @@ window.CRYPTIC_PUZZLES["everyman-4130"] = /*JSON-START*/ {
      14
     ]
    ],
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "PASSKEY",
    "annotation": {
@@ -696,9 +651,6 @@ window.CRYPTIC_PUZZLES["everyman-4130"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Belligerent, the writer's sent up European state cops (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "POLEMICAL",
    "annotation": {
@@ -755,9 +707,6 @@ window.CRYPTIC_PUZZLES["everyman-4130"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Sour, nasty, heartless, dead cruel (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "CURDLED",
    "annotation": {
@@ -801,9 +750,6 @@ window.CRYPTIC_PUZZLES["everyman-4130"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Burn arch in ruins (4)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "CHAR",
    "annotation": {
@@ -840,9 +786,6 @@ window.CRYPTIC_PUZZLES["everyman-4130"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Splash of colour desired in holy site (7)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "LOURDES",
    "annotation": {
@@ -879,9 +822,6 @@ window.CRYPTIC_PUZZLES["everyman-4130"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Satirise nitwit hiding electrical unit (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "LAMPOON",
    "annotation": {
@@ -925,9 +865,6 @@ window.CRYPTIC_PUZZLES["everyman-4130"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Nick covered in rodents: this might make you sick (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "MICROBE",
    "annotation": {
@@ -971,9 +908,6 @@ window.CRYPTIC_PUZZLES["everyman-4130"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Square getting verbal refusal in Rheinland (4)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "NINE",
    "annotation": {
@@ -1011,9 +945,6 @@ window.CRYPTIC_PUZZLES["everyman-4130"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Take care of gold-plated cube (5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "ADIEU",
    "annotation": {
@@ -1060,9 +991,6 @@ window.CRYPTIC_PUZZLES["everyman-4130"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Lion comes to represent Mark (9)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "SEMICOLON",
    "annotation": {
@@ -1102,9 +1030,6 @@ window.CRYPTIC_PUZZLES["everyman-4130"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Holy man with beam? Get lost (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "STRAY",
    "annotation": {
@@ -1145,9 +1070,6 @@ window.CRYPTIC_PUZZLES["everyman-4130"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Our dad and uncle misbehaving in the doghouse (5,1,5)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     ",": [
      5,
@@ -1189,9 +1111,6 @@ window.CRYPTIC_PUZZLES["everyman-4130"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Duck leaving Rome? Yes, swimming in river (6)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "MERSEY",
    "annotation": {
@@ -1238,9 +1157,6 @@ window.CRYPTIC_PUZZLES["everyman-4130"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Looked unpleasantly flushed following return of slippery character (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "LEERED",
    "annotation": {

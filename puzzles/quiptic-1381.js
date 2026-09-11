@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1381"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Drug supplier quick to hide damage (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "PHARMACY",
    "annotation": {
@@ -72,9 +69,6 @@ window.CRYPTIC_PUZZLES["quiptic-1381"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Papa goes over child’s little difficulty (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "PICKLE",
    "annotation": {
@@ -118,9 +112,6 @@ window.CRYPTIC_PUZZLES["quiptic-1381"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Some language is magnificent, showing discrimination (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "AGEISM",
    "annotation": {
@@ -158,9 +149,6 @@ window.CRYPTIC_PUZZLES["quiptic-1381"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Force to move- it’s only temporary (9)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "MAKESHIFT",
    "annotation": {
@@ -201,9 +189,6 @@ window.CRYPTIC_PUZZLES["quiptic-1381"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Relaxed government unit will keep things fresh (5,7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -246,9 +231,6 @@ window.CRYPTIC_PUZZLES["quiptic-1381"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Boozers: quite attractive, some say (6)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "LUSHES",
    "annotation": {
@@ -284,9 +266,6 @@ window.CRYPTIC_PUZZLES["quiptic-1381"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Superior but essentially stupid experts (5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "UPPER",
    "annotation": {
@@ -333,9 +312,6 @@ window.CRYPTIC_PUZZLES["quiptic-1381"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Criminal had a nice big property in Mexico (8)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "HACIENDA",
    "annotation": {
@@ -373,9 +349,6 @@ window.CRYPTIC_PUZZLES["quiptic-1381"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Son, in better shape, that’s useful around the garden (8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "STRIMMER",
    "annotation": {
@@ -414,9 +387,6 @@ window.CRYPTIC_PUZZLES["quiptic-1381"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Registers offence after attack on king? (6,2)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -464,9 +434,6 @@ window.CRYPTIC_PUZZLES["quiptic-1381"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Fight about church – it will create division (6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "SPACER",
    "annotation": {
@@ -512,9 +479,6 @@ window.CRYPTIC_PUZZLES["quiptic-1381"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "One struggling to become free professionally? (6,6)",
-   "group": [
-    "11-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -550,9 +514,6 @@ window.CRYPTIC_PUZZLES["quiptic-1381"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Finishes down a hundred and suffers defeat (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "LOSES",
    "annotation": {
@@ -598,9 +559,6 @@ window.CRYPTIC_PUZZLES["quiptic-1381"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Something that might cut amber seal apart (5,4)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -642,9 +600,6 @@ window.CRYPTIC_PUZZLES["quiptic-1381"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Excited if data field’s in excellent condition (3,2,1,6)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -688,9 +643,6 @@ window.CRYPTIC_PUZZLES["quiptic-1381"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Home defeat means we’re going backwards (2,7)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -735,9 +687,6 @@ window.CRYPTIC_PUZZLES["quiptic-1381"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Tremendous destruction (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "SMASHING",
    "annotation": {
@@ -771,9 +720,6 @@ window.CRYPTIC_PUZZLES["quiptic-1381"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Swamp with lots of paper about company meeting (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "QUAGMIRE",
    "annotation": {
@@ -821,9 +767,6 @@ window.CRYPTIC_PUZZLES["quiptic-1381"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "They hope to conquer extremely attritional places for example (12)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "MOUNTAINEERS",
    "annotation": {
@@ -865,9 +808,6 @@ window.CRYPTIC_PUZZLES["quiptic-1381"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Stick, broken, reunited without it (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "ENDURE",
    "annotation": {
@@ -912,9 +852,6 @@ window.CRYPTIC_PUZZLES["quiptic-1381"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Motor includes compiler and a recording device (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "CAMERA",
    "annotation": {
@@ -968,9 +905,6 @@ window.CRYPTIC_PUZZLES["quiptic-1381"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Tourist puts forecaster on spot (9)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "SIGHTSEER",
    "annotation": {
@@ -1017,9 +951,6 @@ window.CRYPTIC_PUZZLES["quiptic-1381"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Disgrace adding AI to explosive material (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "TAINT",
    "annotation": {
@@ -1067,9 +998,6 @@ window.CRYPTIC_PUZZLES["quiptic-1381"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Institution displaying objects from both ends of Venezuela (1,3,1)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {
     ",": [
      1,
@@ -1128,9 +1056,6 @@ window.CRYPTIC_PUZZLES["quiptic-1381"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Confess to creating two sets of papers with information technology (1,3,2)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     ",": [
      1,
@@ -1179,9 +1104,6 @@ window.CRYPTIC_PUZZLES["quiptic-1381"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Cook our veg in French wine (3,5)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -1223,9 +1145,6 @@ window.CRYPTIC_PUZZLES["quiptic-1381"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Speculate about time invitees turn up (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "GUESTS",
    "annotation": {
@@ -1275,9 +1194,6 @@ window.CRYPTIC_PUZZLES["quiptic-1381"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Early telegraph cables initially offering short version of this (2,6)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     ",": [
      2

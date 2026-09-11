@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12395"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Non-ministerial support new church receives to remain unchanged (9)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "BACKBENCH",
    "annotation": {
@@ -82,9 +79,6 @@ window.CRYPTIC_PUZZLES["independent-12395"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Provide receptacle for wine bottles to match the background (5,2)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -132,9 +126,6 @@ window.CRYPTIC_PUZZLES["independent-12395"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Boxer embraced by Coot in unconventional union (9)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "COALITION",
    "annotation": {
@@ -186,9 +177,6 @@ window.CRYPTIC_PUZZLES["independent-12395"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Digital records system - secure measure supporting bursar principally (10)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "BLOCKCHAIN",
    "annotation": {
@@ -239,9 +227,6 @@ window.CRYPTIC_PUZZLES["independent-12395"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Hornet flying with force from Inverness? (8)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "NORTHERN",
    "annotation": {
@@ -293,9 +278,6 @@ window.CRYPTIC_PUZZLES["independent-12395"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Crowd disorder in which Henry's knocked out Mike (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "HUDDLE",
    "annotation": {
@@ -346,9 +328,6 @@ window.CRYPTIC_PUZZLES["independent-12395"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Opener for Tottenham with skilful counter (5)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "TABLE",
    "annotation": {
@@ -394,9 +373,6 @@ window.CRYPTIC_PUZZLES["independent-12395"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Tense auditor's shown how (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "TAUT",
    "annotation": {
@@ -431,9 +407,6 @@ window.CRYPTIC_PUZZLES["independent-12395"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Playing Quidditch one needs such courage (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "BALLS",
    "annotation": {
@@ -470,9 +443,6 @@ window.CRYPTIC_PUZZLES["independent-12395"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Old queen's engaged trained nurse, one providing guarantees (7)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "ENSURER",
    "annotation": {
@@ -524,9 +494,6 @@ window.CRYPTIC_PUZZLES["independent-12395"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "On reflection, regret being transfixed by old guy's charm (7)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "ENAMOUR",
    "annotation": {
@@ -586,9 +553,6 @@ window.CRYPTIC_PUZZLES["independent-12395"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Man has this grim, unfinished vessel docked (7)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "DOUGLAS",
    "annotation": {
@@ -633,9 +597,6 @@ window.CRYPTIC_PUZZLES["independent-12395"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Something to refresh primarily damp and chilly venue (5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "DRINK",
    "annotation": {
@@ -681,9 +642,6 @@ window.CRYPTIC_PUZZLES["independent-12395"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Had to pay to vacate holy room (4)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "HALL",
    "annotation": {
@@ -725,9 +683,6 @@ window.CRYPTIC_PUZZLES["independent-12395"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "27 small parts for top Russian ... (4)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "TSAR",
    "annotation": {
@@ -774,9 +729,6 @@ window.CRYPTIC_PUZZLES["independent-12395"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Travelling crowd celebrate on top of train? Quite the opposite (5,5)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -825,9 +777,6 @@ window.CRYPTIC_PUZZLES["independent-12395"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "... not one in three broadcast (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "NEITHER",
    "annotation": {
@@ -869,9 +818,6 @@ window.CRYPTIC_PUZZLES["independent-12395"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Popular pastime taking regular nips of Scotch - cheers! (6)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "SOCCER",
    "annotation": {
@@ -914,9 +860,6 @@ window.CRYPTIC_PUZZLES["independent-12395"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Allow little margin for error if using wordplay? (3,2,4)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -952,9 +895,6 @@ window.CRYPTIC_PUZZLES["independent-12395"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "X is regressing, that's clear (3)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "NET",
    "annotation": {
@@ -1000,9 +940,6 @@ window.CRYPTIC_PUZZLES["independent-12395"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Rudest PA sacked, invests in better (6,2)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -1048,9 +985,6 @@ window.CRYPTIC_PUZZLES["independent-12395"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Comic character flipping two eggs (6)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "TINTIN",
    "annotation": {
@@ -1094,9 +1028,6 @@ window.CRYPTIC_PUZZLES["independent-12395"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Marketing via mobiles possibly exhausted the Guides (4-3)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -1144,9 +1075,6 @@ window.CRYPTIC_PUZZLES["independent-12395"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Cereal snubbed - too much American dairy product (7)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "RICOTTA",
    "annotation": {
@@ -1195,9 +1123,6 @@ window.CRYPTIC_PUZZLES["independent-12395"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Area over unfinished main road suffering most (7)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "ACHIEST",
    "annotation": {
@@ -1248,9 +1173,6 @@ window.CRYPTIC_PUZZLES["independent-12395"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Person who delivers headgear (6)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "BOWLER",
    "annotation": {
@@ -1284,9 +1206,6 @@ window.CRYPTIC_PUZZLES["independent-12395"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Ring John and Paul to begin with (4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "LOOP",
    "annotation": {
@@ -1332,9 +1251,6 @@ window.CRYPTIC_PUZZLES["independent-12395"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Did surgery Edward wanted work in theatre? (5)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "OPERA",
    "annotation": {
@@ -1376,9 +1292,6 @@ window.CRYPTIC_PUZZLES["independent-12395"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Crossing Doubtful Sound, maybe, Juliet's blown away (4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "FORD",
    "annotation": {
@@ -1420,9 +1333,6 @@ window.CRYPTIC_PUZZLES["independent-12395"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Delap's last long throw (5)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "PITCH",
    "annotation": {
@@ -1465,9 +1375,6 @@ window.CRYPTIC_PUZZLES["independent-12395"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Promote the sale of local American jams (4)",
-   "group": [
-    "28-down"
-   ],
    "separatorLocations": {},
    "solution": "PUSH",
    "annotation": {
@@ -1511,9 +1418,6 @@ window.CRYPTIC_PUZZLES["independent-12395"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Not interested in IT? (7)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "ASEXUAL",
    "annotation": {
@@ -1544,9 +1448,6 @@ window.CRYPTIC_PUZZLES["independent-12395"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Give assistance to gentleman reportedly failing (7)",
-   "group": [
-    "30-across"
-   ],
    "separatorLocations": {},
    "solution": "SERVICE",
    "annotation": {
@@ -1590,9 +1491,6 @@ window.CRYPTIC_PUZZLES["independent-12395"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Mum's mum admits defeat (5)",
-   "group": [
-    "31-across"
-   ],
    "separatorLocations": {},
    "solution": "SMASH",
    "annotation": {
@@ -1636,9 +1534,6 @@ window.CRYPTIC_PUZZLES["independent-12395"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Means for getting even near empty works (9)",
-   "group": [
-    "32-across"
-   ],
    "separatorLocations": {},
    "solution": "REPAYMENT",
    "annotation": {

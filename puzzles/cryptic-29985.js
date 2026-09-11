@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29985"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Boutique hotel in Provence? (5)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "NICHE",
    "annotation": {
@@ -72,9 +69,6 @@ window.CRYPTIC_PUZZLES["cryptic-29985"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Undersign leaders of climate legislation in environment terminology (12)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "NOMENCLATURE",
    "annotation": {
@@ -129,9 +123,6 @@ window.CRYPTIC_PUZZLES["cryptic-29985"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Disease can be horrific if ignored by family member (9)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "CIRRHOSIS",
    "annotation": {
@@ -191,9 +182,6 @@ window.CRYPTIC_PUZZLES["cryptic-29985"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Wax lyrical about the previous bunch getting a comeback (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "EXTOL",
    "annotation": {
@@ -246,9 +234,6 @@ window.CRYPTIC_PUZZLES["cryptic-29985"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Our secret repository tapes got interfered with (8)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "GATEPOST",
    "annotation": {
@@ -286,9 +271,6 @@ window.CRYPTIC_PUZZLES["cryptic-29985"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Conk out drunk, get up and use loo? Not us! (2,2,5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -346,9 +328,6 @@ window.CRYPTIC_PUZZLES["cryptic-29985"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "X÷e = 13-19 (4)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "TEEN",
    "annotation": {
@@ -394,9 +373,6 @@ window.CRYPTIC_PUZZLES["cryptic-29985"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "You or me on vacation, creative and articulate (9)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "PRONOUNCE",
    "annotation": {
@@ -443,9 +419,6 @@ window.CRYPTIC_PUZZLES["cryptic-29985"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Some fires, in general, burn (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "SINGE",
    "annotation": {
@@ -480,9 +453,6 @@ window.CRYPTIC_PUZZLES["cryptic-29985"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "At first, Harry Potter got embroiled with emotion of greater relevance (4,2,3,5)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -538,9 +508,6 @@ window.CRYPTIC_PUZZLES["cryptic-29985"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Those with charts choose to hide book? Stirs trouble (12)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {},
    "solution": "OPTOMETRISTS",
    "annotation": {
@@ -599,9 +566,6 @@ window.CRYPTIC_PUZZLES["cryptic-29985"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Sceptic rogue exposed Philistine (8)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "NIHILIST",
    "annotation": {
@@ -646,9 +610,6 @@ window.CRYPTIC_PUZZLES["cryptic-29985"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Smell and look of a shepherd (2,4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -696,9 +657,6 @@ window.CRYPTIC_PUZZLES["cryptic-29985"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Strays see plot unravel, keeping quiet (4,5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -747,9 +705,6 @@ window.CRYPTIC_PUZZLES["cryptic-29985"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Of course their guns misfired (4,5)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -791,9 +746,6 @@ window.CRYPTIC_PUZZLES["cryptic-29985"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Desperately, I phone agency in old Lebanon (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "PHOENICIA",
    "annotation": {
@@ -839,9 +791,6 @@ window.CRYPTIC_PUZZLES["cryptic-29985"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Snack shop unwrapped snack (5)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "NACHO",
    "annotation": {
@@ -885,9 +834,6 @@ window.CRYPTIC_PUZZLES["cryptic-29985"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Nations, My Lord, rise in revolution (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "COUNTRIES",
    "annotation": {
@@ -937,9 +883,6 @@ window.CRYPTIC_PUZZLES["cryptic-29985"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Team swears regularly? That’s a shocker! (5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "TASER",
    "annotation": {
@@ -984,9 +927,6 @@ window.CRYPTIC_PUZZLES["cryptic-29985"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Sue’s verse lacking charm, then? (9)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "PROSECUTE",
    "annotation": {
@@ -1029,9 +969,6 @@ window.CRYPTIC_PUZZLES["cryptic-29985"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Distant memory about author’s return (6)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "REMOTE",
    "annotation": {
@@ -1087,9 +1024,6 @@ window.CRYPTIC_PUZZLES["cryptic-29985"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Cruel treatment essentially deliberate (5)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "MEANT",
    "annotation": {
@@ -1133,9 +1067,6 @@ window.CRYPTIC_PUZZLES["cryptic-29985"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Perhaps grandma to some extent dances to relax (8)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "ANCESTOR",
    "annotation": {
@@ -1170,9 +1101,6 @@ window.CRYPTIC_PUZZLES["cryptic-29985"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Precise demand (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "EXACT",
    "annotation": {
@@ -1208,9 +1136,6 @@ window.CRYPTIC_PUZZLES["cryptic-29985"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "This erupts frequently in Vietnam (4)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "ETNA",
    "annotation": {
@@ -1245,9 +1170,6 @@ window.CRYPTIC_PUZZLES["cryptic-29985"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Poor governments giving Socrates a kick, I fancy (14)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "KAKISTOCRACIES",
    "annotation": {
@@ -1298,9 +1220,6 @@ window.CRYPTIC_PUZZLES["cryptic-29985"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Marks floral parts (8)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "STIGMATA",
    "annotation": {
@@ -1336,9 +1255,6 @@ window.CRYPTIC_PUZZLES["cryptic-29985"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Finally grant requests for jobs (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "TASKS",
    "annotation": {

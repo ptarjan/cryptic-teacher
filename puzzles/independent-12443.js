@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Merchant's parent company quietly invested in chocolate (5,4)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -87,9 +84,6 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Greek character vocalises thoughts (7)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "MUSINGS",
    "annotation": {
@@ -127,9 +121,6 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Command doctor to check king's file before operation's conclusion (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "REIGN",
    "annotation": {
@@ -181,9 +172,6 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Palaeontologist dismissing Newton must pay (3)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "OWE",
    "annotation": {
@@ -225,9 +213,6 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Pretended back in Tokyo Biles managed to claim perfect scores (10)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "OSTENSIBLE",
    "annotation": {
@@ -287,9 +272,6 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Pass with third in Geography at Cambridge University (4)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "OMIT",
    "annotation": {
@@ -332,9 +314,6 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Chipmunk back to irk exterminator? (5)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "DALEK",
    "annotation": {
@@ -377,9 +356,6 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Death that is going without international uproar (11)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "DESTRUCTION",
    "annotation": {
@@ -427,9 +403,6 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Removing church influence from new Sicilian government (9)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "LAICISING",
    "annotation": {
@@ -474,9 +447,6 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Descriptor of island population left abandoned (7)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "KEYWORD",
    "annotation": {
@@ -527,9 +497,6 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Gooey substance produced by small tree (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "SLIME",
    "annotation": {
@@ -570,9 +537,6 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "New hairstylist cutting as intensely (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "THIRSTILY",
    "annotation": {
@@ -616,9 +580,6 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Buff relative given piercing (7)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "NANKEEN",
    "annotation": {
@@ -659,9 +620,6 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Anticipate talk to get something off your chest? (11)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {},
    "solution": "EXPECTORATE",
    "annotation": {
@@ -702,9 +660,6 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Play duke wrong wearing gold ring (6)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "ORSINO",
    "annotation": {
@@ -753,9 +708,6 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Saw her cavorting with 5 in addition (4,2,4)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -802,9 +754,6 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Make love to wife on vacation - it helps to exercise (5,4)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -852,9 +801,6 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "English theatre production's ending with Herod falsely made king (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "ENTHRONED",
    "annotation": {
@@ -916,9 +862,6 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Youngster disheartened having lost clothing in luggage (5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "CHILD",
    "annotation": {
@@ -963,9 +906,6 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Detective follows street maps of Mexican empire (5)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "AZTEC",
    "annotation": {
@@ -1008,9 +948,6 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Bears witness to cycling examination taken (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "ATTESTS",
    "annotation": {
@@ -1054,9 +991,6 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Revealing Latvian spirit stocked by pub (7,2)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -1110,9 +1044,6 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "No vehicle leaving with flowers (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "NOSEGAY",
    "annotation": {
@@ -1161,9 +1092,6 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Fear agent's latest blunder (6)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "TERROR",
    "annotation": {
@@ -1206,9 +1134,6 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Some detecting edits on the radio (7)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "SENSORS",
    "annotation": {
@@ -1243,9 +1168,6 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Irish town house outside school erected (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "OMAGH",
    "annotation": {
@@ -1297,9 +1219,6 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Place similar to Britain without any Kings? (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "LIEU",
    "annotation": {
@@ -1347,9 +1266,6 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Country concerned with Iran kidnapping leader of military while undergoing revolution (3,6)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -1417,9 +1333,6 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Crash parking Duster around November (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "PRANG",
    "annotation": {
@@ -1469,9 +1382,6 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Expected shots where young footballers might play kilometres away (3)",
-   "group": [
-    "26-down"
-   ],
    "separatorLocations": {},
    "solution": "PAR",
    "annotation": {
@@ -1514,9 +1424,6 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Perennial hosed gently drinks (5)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "SEDGE",
    "annotation": {
@@ -1550,9 +1457,6 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Alien hunter lay camouflaged (9)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "UNEARTHLY",
    "annotation": {

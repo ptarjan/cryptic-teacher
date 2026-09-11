@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Get nurses behind surgery high on gas (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "BUBBLY",
    "annotation": {
@@ -72,9 +69,6 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Trump holds course with extreme latitude (8)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "BROADEST",
    "annotation": {
@@ -123,9 +117,6 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "\"Get in goal!\" shouted manager of busy team? (9)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "BEEKEEPER",
    "annotation": {
@@ -161,9 +152,6 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Spreader of fake news raises Republican money (4)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "LIRA",
    "annotation": {
@@ -213,9 +201,6 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Tricky maths that could be a pain to pass (8)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "CALCULUS",
    "annotation": {
@@ -254,9 +239,6 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "I'm not sure interrupting idiots is prejudicial (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "ASSUMES",
    "annotation": {
@@ -305,9 +287,6 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "One used to pay charge for reassuring driving instructor (4,6)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -347,9 +326,6 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "'Unenthusiastic' is large word (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "LOATH",
    "annotation": {
@@ -391,9 +367,6 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Taste first drops of Stella Artois, making Peroni look elegant (6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "SAMPLE",
    "annotation": {
@@ -431,9 +404,6 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "No-nonsense detective abandoning precinct (6)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {},
    "solution": "STRICT",
    "annotation": {
@@ -476,9 +446,6 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Reform voters are for values without moderation (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "OVERRATES",
    "annotation": {
@@ -519,9 +486,6 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Ignoring the odds, Arsenal limp to dominion (5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "REALM",
    "annotation": {
@@ -562,9 +526,6 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "A few bucks is expensive for auditors (4)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "DEER",
    "annotation": {
@@ -603,9 +564,6 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Officer uncovered Kamala Harris in disguise (3,7)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -654,9 +612,6 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Sauce, still primarily considered the greatest, served up poorly (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "PICCALILLI",
    "annotation": {
@@ -720,9 +675,6 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "It's posh abroad, one argues (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "SOPHIST",
    "annotation": {
@@ -761,9 +713,6 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Fraud detective tails out of a restaurant (6)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "SCAMPI",
    "annotation": {
@@ -802,9 +751,6 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Staff leading Treasury try to pass the bar? (4,5)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -852,9 +798,6 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Lazy person's pop hit plugged by Adele finally (8)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "DEADBEAT",
    "annotation": {
@@ -910,9 +853,6 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Rubbish bags tear in sets of two (6)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "BRACES",
    "annotation": {
@@ -966,9 +906,6 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
      11
     ]
    ],
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -1011,9 +948,6 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Rings from Circle Line stopping District Line ultimately (7)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "AREOLAE",
    "annotation": {
@@ -1074,9 +1008,6 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Believe part of play about church power (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "ACCEPT",
    "annotation": {
@@ -1126,9 +1057,6 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "A quiet look by male bachelor shows confidence (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "APLOMB",
    "annotation": {
@@ -1193,9 +1121,6 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "They can't easily move sports event, making politician tense (10)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "PARALYTICS",
    "annotation": {
@@ -1246,9 +1171,6 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Sorry for decision to expel student (5)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "RUING",
    "annotation": {
@@ -1292,9 +1214,6 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Eager leader carved out of hunk of marble? (4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "AVID",
    "annotation": {
@@ -1339,9 +1258,6 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Not a lot covered up by Kate Moss (4)",
-   "group": [
-    "26-down"
-   ],
    "separatorLocations": {},
    "solution": "SOME",
    "annotation": {
@@ -1387,9 +1303,6 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Conservatives exposed Liberal - you can see through it (5)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "ORIEL",
    "annotation": {
@@ -1434,9 +1347,6 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "South American neighbours, one heartless and one short, sent back copy (9)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "REPRODUCE",
    "annotation": {
@@ -1490,9 +1400,6 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Sack irrational salesperson lying about tattoo artist (8)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "BAGPIPER",
    "annotation": {
@@ -1548,9 +1455,6 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Three couples send rude messages on film (6)",
-   "group": [
-    "30-across"
-   ],
    "separatorLocations": {},
    "solution": "SEXTET",
    "annotation": {

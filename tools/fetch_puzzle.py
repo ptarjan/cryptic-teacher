@@ -338,7 +338,10 @@ def convert(data):
             # answer travels in the file instead of a second rule in app.js
             # that could drift from this one.
             **({} if has_words(clue) else {"clueMissing": True}),
-            "group": e["group"],
+            # Only when it links clues. The paper writes a group on every entry,
+            # singleton or not; an absent group here means "this clue is its own
+            # answer", which is the overwhelming majority of them.
+            **({"group": e["group"]} if len(e["group"]) > 1 else {}),
             "separatorLocations": e.get("separatorLocations") or {},
             "solution": e.get("solution"),
             "annotation": None,

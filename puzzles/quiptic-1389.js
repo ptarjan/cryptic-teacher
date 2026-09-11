@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1389"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "E.g. Red Cross wanting information for marketing firm (2,6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -74,9 +71,6 @@ window.CRYPTIC_PUZZLES["quiptic-1389"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "How Nato spells out start of attack regularly falls flat (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "ALFA",
    "annotation": {
@@ -113,9 +107,6 @@ window.CRYPTIC_PUZZLES["quiptic-1389"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Unfortunately it’s essential to medical assessment (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "ALAS",
    "annotation": {
@@ -149,9 +140,6 @@ window.CRYPTIC_PUZZLES["quiptic-1389"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Student lacks head for income-generating activity (6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "EARNER",
    "annotation": {
@@ -188,9 +176,6 @@ window.CRYPTIC_PUZZLES["quiptic-1389"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Excitedly tout candidate showing focus on achievement (3-2,8)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -239,9 +224,6 @@ window.CRYPTIC_PUZZLES["quiptic-1389"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Has a go at finding these birds (6)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "SNIPES",
    "annotation": {
@@ -278,9 +260,6 @@ window.CRYPTIC_PUZZLES["quiptic-1389"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Capital hotel invested in fresh food store (3,5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -331,9 +310,6 @@ window.CRYPTIC_PUZZLES["quiptic-1389"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Kind of crossing that’s slow and boring (10)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "PEDESTRIAN",
    "annotation": {
@@ -370,9 +346,6 @@ window.CRYPTIC_PUZZLES["quiptic-1389"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Healthy and fit? It may be one’s best feature (6,4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -421,9 +394,6 @@ window.CRYPTIC_PUZZLES["quiptic-1389"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Silly farce about elderly relative getting bouquet (9)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "FRAGRANCE",
    "annotation": {
@@ -474,9 +444,6 @@ window.CRYPTIC_PUZZLES["quiptic-1389"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Misplaced utterances end long difficult trial (9,4)",
-   "group": [
-    "10-down"
-   ],
    "separatorLocations": {
     ",": [
      9
@@ -519,9 +486,6 @@ window.CRYPTIC_PUZZLES["quiptic-1389"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "More extensive work involved designing employment rules initially (5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "WIDER",
    "annotation": {
@@ -559,9 +523,6 @@ window.CRYPTIC_PUZZLES["quiptic-1389"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Summer is what new TV shows look forward to! (6,6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -602,9 +563,6 @@ window.CRYPTIC_PUZZLES["quiptic-1389"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Men-only race showing lack of progress (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "STAGNATION",
    "annotation": {
@@ -644,9 +602,6 @@ window.CRYPTIC_PUZZLES["quiptic-1389"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Stable worker, one unlikely to get flustered (6,4)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -687,9 +642,6 @@ window.CRYPTIC_PUZZLES["quiptic-1389"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Complains about empty threats by workers group (4)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "TUTS",
    "annotation": {
@@ -733,9 +685,6 @@ window.CRYPTIC_PUZZLES["quiptic-1389"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Establishes repository for daily sources of astronomical data (4,6)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -780,9 +729,6 @@ window.CRYPTIC_PUZZLES["quiptic-1389"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "A doctor’s concealing soft spot for lovers (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "ADMIRERS",
    "annotation": {
@@ -832,9 +778,6 @@ window.CRYPTIC_PUZZLES["quiptic-1389"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Instrument on parading ground (5,5)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -880,9 +823,6 @@ window.CRYPTIC_PUZZLES["quiptic-1389"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Test current means of transport (4)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "TAXI",
    "annotation": {
@@ -919,9 +859,6 @@ window.CRYPTIC_PUZZLES["quiptic-1389"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Pay for father to take on big city university (4,2)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -975,9 +912,6 @@ window.CRYPTIC_PUZZLES["quiptic-1389"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "New mutiny on a reshuffle is imminent (3,6,3)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -1025,9 +959,6 @@ window.CRYPTIC_PUZZLES["quiptic-1389"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Predator consumes only half of live ones (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "LION",
    "annotation": {
@@ -1070,9 +1001,6 @@ window.CRYPTIC_PUZZLES["quiptic-1389"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Ran into hospital to get drug (4)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "METH",
    "annotation": {
@@ -1112,9 +1040,6 @@ window.CRYPTIC_PUZZLES["quiptic-1389"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Icon that is featured on outside of journal (5)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "IMAGE",
    "annotation": {
@@ -1155,9 +1080,6 @@ window.CRYPTIC_PUZZLES["quiptic-1389"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Reverse part of extremity revealed consistently (5,4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -1193,9 +1115,6 @@ window.CRYPTIC_PUZZLES["quiptic-1389"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Philosophy advocating a stripped-down life? (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "NUDISM",
    "annotation": {
@@ -1229,9 +1148,6 @@ window.CRYPTIC_PUZZLES["quiptic-1389"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "If necessary move slowly after a knock (2,1,5)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     ",": [
      2,

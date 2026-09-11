@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1379"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Complain when government’s head departs – it means trouble (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "RUMBLE",
    "annotation": {
@@ -74,9 +71,6 @@ window.CRYPTIC_PUZZLES["quiptic-1379"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Strange sightings occur regularly in Gulf Coast (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "UFOS",
    "annotation": {
@@ -117,9 +111,6 @@ window.CRYPTIC_PUZZLES["quiptic-1379"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Family fool is a potential killer (5,4)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -165,9 +156,6 @@ window.CRYPTIC_PUZZLES["quiptic-1379"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Go wrong taking on colony worker wandering around (6)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "ERRANT",
    "annotation": {
@@ -211,9 +199,6 @@ window.CRYPTIC_PUZZLES["quiptic-1379"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Extremists get a republican involved in terror (3,5)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -271,9 +256,6 @@ window.CRYPTIC_PUZZLES["quiptic-1379"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Starting the half playing at impossible speed (6,4,5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      6,
@@ -321,9 +303,6 @@ window.CRYPTIC_PUZZLES["quiptic-1379"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Study what’s right and make further changes (8)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "READJUST",
    "annotation": {
@@ -365,9 +344,6 @@ window.CRYPTIC_PUZZLES["quiptic-1379"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Sort of bond used in classical architecture (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "IONIC",
    "annotation": {
@@ -402,9 +378,6 @@ window.CRYPTIC_PUZZLES["quiptic-1379"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "An event she worked on is miraculous (6-4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     "-": [
      6
@@ -454,9 +427,6 @@ window.CRYPTIC_PUZZLES["quiptic-1379"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Day in France is part of boy’s brief trips (8)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "SOJOURNS",
    "annotation": {
@@ -504,9 +474,6 @@ window.CRYPTIC_PUZZLES["quiptic-1379"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Toughen up old queen by adding additional edges (6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "ANNEAL",
    "annotation": {
@@ -553,9 +520,6 @@ window.CRYPTIC_PUZZLES["quiptic-1379"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Clothing for one providing party music initially (6,6)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -592,9 +556,6 @@ window.CRYPTIC_PUZZLES["quiptic-1379"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Rogue finished up sort of bankrupt (10)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {},
    "solution": "IMPOVERISH",
    "annotation": {
@@ -639,9 +600,6 @@ window.CRYPTIC_PUZZLES["quiptic-1379"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Half of them fail to see this fellow (4)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "EMIL",
    "annotation": {
@@ -688,9 +646,6 @@ window.CRYPTIC_PUZZLES["quiptic-1379"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Wine in sample is most delicious (8)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "TASTIEST",
    "annotation": {
@@ -738,9 +693,6 @@ window.CRYPTIC_PUZZLES["quiptic-1379"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Fat auntie dancing to inspire passion (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "INFATUATE",
    "annotation": {
@@ -786,9 +738,6 @@ window.CRYPTIC_PUZZLES["quiptic-1379"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Board not turning up for seafood (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "PLANKTON",
    "annotation": {
@@ -841,9 +790,6 @@ window.CRYPTIC_PUZZLES["quiptic-1379"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Wrong when unwell to have a flatbread (8)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "TORTILLA",
    "annotation": {
@@ -892,9 +838,6 @@ window.CRYPTIC_PUZZLES["quiptic-1379"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Subtle film is not exalted initially (4)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "FINE",
    "annotation": {
@@ -932,9 +875,6 @@ window.CRYPTIC_PUZZLES["quiptic-1379"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Soft material added to underground for old group (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "VELVET",
    "annotation": {
@@ -980,9 +920,6 @@ window.CRYPTIC_PUZZLES["quiptic-1379"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Plaster bones when fractured – you’ve never done it better (8,4)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -1033,9 +970,6 @@ window.CRYPTIC_PUZZLES["quiptic-1379"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Lay out odds before finale (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "SPEND",
    "annotation": {
@@ -1079,9 +1013,6 @@ window.CRYPTIC_PUZZLES["quiptic-1379"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Drying material crystal clear to some extent (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "TALC",
    "annotation": {
@@ -1116,9 +1047,6 @@ window.CRYPTIC_PUZZLES["quiptic-1379"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Take in the essence of fading legend Castro (6)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "DIGEST",
    "annotation": {
@@ -1168,9 +1096,6 @@ window.CRYPTIC_PUZZLES["quiptic-1379"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Eventually agree to accept a freebie (8)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "GIVEAWAY",
    "annotation": {
@@ -1215,9 +1140,6 @@ window.CRYPTIC_PUZZLES["quiptic-1379"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Intelligence about destroyed hound identifying culprit? (8)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "WHODUNIT",
    "annotation": {
@@ -1271,9 +1193,6 @@ window.CRYPTIC_PUZZLES["quiptic-1379"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Turn off with this dense absorption of energy (3,3)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {
     ",": [
      3

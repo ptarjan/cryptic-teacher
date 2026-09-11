@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30105"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Love endless free entertainment? Indeed (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "TREASURE",
    "annotation": {
@@ -71,9 +68,6 @@ window.CRYPTIC_PUZZLES["cryptic-30105"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Given time, smash great goal (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "TARGET",
    "annotation": {
@@ -123,9 +117,6 @@ window.CRYPTIC_PUZZLES["cryptic-30105"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Young bird caught by beagle terrified (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "EAGLET",
    "annotation": {
@@ -160,9 +151,6 @@ window.CRYPTIC_PUZZLES["cryptic-30105"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Working on skills, turning up in more than one bed (6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "STRATA",
    "annotation": {
@@ -219,9 +207,6 @@ window.CRYPTIC_PUZZLES["cryptic-30105"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Senior Soviet officer, one previously safely cocooned (3,7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -268,9 +253,6 @@ window.CRYPTIC_PUZZLES["cryptic-30105"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Is not sea, but is in it (6)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "ISLAND",
    "annotation": {
@@ -307,9 +289,6 @@ window.CRYPTIC_PUZZLES["cryptic-30105"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "No ordinary king’s breakfast? (7,1)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -354,9 +333,6 @@ window.CRYPTIC_PUZZLES["cryptic-30105"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Is the crossword setter to appear on television as friendly? (8)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "AMICABLE",
    "annotation": {
@@ -403,9 +379,6 @@ window.CRYPTIC_PUZZLES["cryptic-30105"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Maid accustomed to home (8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "DOMESTIC",
    "annotation": {
@@ -440,9 +413,6 @@ window.CRYPTIC_PUZZLES["cryptic-30105"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "It’s the fashion to purchase from this business (3,5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -487,9 +457,6 @@ window.CRYPTIC_PUZZLES["cryptic-30105"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Person entranced that is often called happy (6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "MEDIUM",
    "annotation": {
@@ -524,9 +491,6 @@ window.CRYPTIC_PUZZLES["cryptic-30105"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Flow that’s regular late in the day (8)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "EVENTIDE",
    "annotation": {
@@ -567,9 +531,6 @@ window.CRYPTIC_PUZZLES["cryptic-30105"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Late stages of World Cup seen in Netherlands, Belarus and Wales (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "FINALS",
    "annotation": {
@@ -607,9 +568,6 @@ window.CRYPTIC_PUZZLES["cryptic-30105"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "A cold salad plant not quite consumed: hurry up! (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "ACCELERATE",
    "annotation": {
@@ -665,9 +623,6 @@ window.CRYPTIC_PUZZLES["cryptic-30105"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Relish saying ‘Choose a flower’ (10)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "PICCALILLI",
    "annotation": {
@@ -703,9 +658,6 @@ window.CRYPTIC_PUZZLES["cryptic-30105"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Cost to hold part of play rehearsal (8)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "PRACTICE",
    "annotation": {
@@ -750,9 +702,6 @@ window.CRYPTIC_PUZZLES["cryptic-30105"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Showing a natural ability to draw? (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "MAGNETIC",
    "annotation": {
@@ -784,9 +733,6 @@ window.CRYPTIC_PUZZLES["cryptic-30105"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Avoid son, despite staggering (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "SIDESTEP",
    "annotation": {
@@ -829,9 +775,6 @@ window.CRYPTIC_PUZZLES["cryptic-30105"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "With new energy, admire neat dancing (10)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "REANIMATED",
    "annotation": {
@@ -869,9 +812,6 @@ window.CRYPTIC_PUZZLES["cryptic-30105"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Pageant shows tasteless stuff as well (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "TATTOO",
    "annotation": {
@@ -912,9 +852,6 @@ window.CRYPTIC_PUZZLES["cryptic-30105"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Walk a little, holding lime or soda perhaps (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "ALKALI",
    "annotation": {
@@ -949,9 +886,6 @@ window.CRYPTIC_PUZZLES["cryptic-30105"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Will’s play full of errors? Dante’s was divine (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "COMEDY",
    "annotation": {
@@ -986,9 +920,6 @@ window.CRYPTIC_PUZZLES["cryptic-30105"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Reportedly overcome hard nut (6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "CONKER",
    "annotation": {
@@ -1024,9 +955,6 @@ window.CRYPTIC_PUZZLES["cryptic-30105"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Gaoler is to reorganise women’s quarters (8)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "SERAGLIO",
    "annotation": {
@@ -1064,9 +992,6 @@ window.CRYPTIC_PUZZLES["cryptic-30105"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Completely at home with Dorothy’s pet (2,4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -1111,9 +1036,6 @@ window.CRYPTIC_PUZZLES["cryptic-30105"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Ancient city prison: pictures initially hung in it? (8)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "CARTHAGE",
    "annotation": {
@@ -1166,9 +1088,6 @@ window.CRYPTIC_PUZZLES["cryptic-30105"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Key exercise, to trap a fly (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "ESCAPE",
    "annotation": {
@@ -1218,9 +1137,6 @@ window.CRYPTIC_PUZZLES["cryptic-30105"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Love to break down large town fastness? (8)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "VELOCITY",
    "annotation": {

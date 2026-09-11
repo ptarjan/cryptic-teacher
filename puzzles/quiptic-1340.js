@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1340"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Cancelled tax as not working (3-4)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -46,9 +43,6 @@ window.CRYPTIC_PUZZLES["quiptic-1340"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Fancy gold design finish on tea set (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "ORNATE",
    "annotation": null
@@ -63,9 +57,6 @@ window.CRYPTIC_PUZZLES["quiptic-1340"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Father’s opponents crossing imaginary land in Disney film (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "FROZEN",
    "annotation": null
@@ -80,9 +71,6 @@ window.CRYPTIC_PUZZLES["quiptic-1340"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Not planned to be nude, except accidentally (10)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "UNEXPECTED",
    "annotation": null
@@ -97,9 +85,6 @@ window.CRYPTIC_PUZZLES["quiptic-1340"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Year working with Kardashians on vacation: a long time (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "YONKS",
    "annotation": null
@@ -114,9 +99,6 @@ window.CRYPTIC_PUZZLES["quiptic-1340"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Often superheroes’ resolution is much appreciated thing (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "GODSEND",
    "annotation": null
@@ -131,9 +113,6 @@ window.CRYPTIC_PUZZLES["quiptic-1340"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Channel for wine-makers’ gossip? (9)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "GRAPEVINE",
    "annotation": null
@@ -148,9 +127,6 @@ window.CRYPTIC_PUZZLES["quiptic-1340"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Money owing, busted suspect leaves America (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "DEBT",
    "annotation": null
@@ -165,9 +141,6 @@ window.CRYPTIC_PUZZLES["quiptic-1340"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Characters among select rich charged (8)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "ELECTRIC",
    "annotation": null
@@ -182,9 +155,6 @@ window.CRYPTIC_PUZZLES["quiptic-1340"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Offended, opening document with poor wording (3,5)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -203,9 +173,6 @@ window.CRYPTIC_PUZZLES["quiptic-1340"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Bouquet includes love knot (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "NOOSE",
    "annotation": null
@@ -220,9 +187,6 @@ window.CRYPTIC_PUZZLES["quiptic-1340"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Red banana served as Indian side (4,5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -241,9 +205,6 @@ window.CRYPTIC_PUZZLES["quiptic-1340"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "In Paris, very old-fashioned Republican’s unwelcome visitor (10)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "TRESPASSER",
    "annotation": null
@@ -258,9 +219,6 @@ window.CRYPTIC_PUZZLES["quiptic-1340"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Disturbance in prison (4)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "STIR",
    "annotation": null
@@ -275,9 +233,6 @@ window.CRYPTIC_PUZZLES["quiptic-1340"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Sit down in shock inspiring prayer and article by church (4,1,5)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -297,9 +252,6 @@ window.CRYPTIC_PUZZLES["quiptic-1340"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Search people after one finds way to open safe (11)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "COMBINATION",
    "annotation": null
@@ -314,9 +266,6 @@ window.CRYPTIC_PUZZLES["quiptic-1340"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Charm of writer with messier style (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "MESMERISE",
    "annotation": null
@@ -331,9 +280,6 @@ window.CRYPTIC_PUZZLES["quiptic-1340"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Top gang engaged in heartless fight (5,3)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -352,9 +298,6 @@ window.CRYPTIC_PUZZLES["quiptic-1340"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Bisque soup containing blue lobster initially gets complaints (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "QUIBBLES",
    "annotation": null
@@ -369,9 +312,6 @@ window.CRYPTIC_PUZZLES["quiptic-1340"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Carry on in case you finally unravel seance (5,1,5)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     ",": [
      5,
@@ -391,9 +331,6 @@ window.CRYPTIC_PUZZLES["quiptic-1340"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "They’re sometimes better than ‘prime numbers’, as well said? (1-5)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {
     "-": [
      1
@@ -412,9 +349,6 @@ window.CRYPTIC_PUZZLES["quiptic-1340"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "One small seabird at back of ship (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "ASTERN",
    "annotation": null
@@ -429,9 +363,6 @@ window.CRYPTIC_PUZZLES["quiptic-1340"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Declines books on tablet and terminal apps (4)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "EBBS",
    "annotation": null
@@ -446,9 +377,6 @@ window.CRYPTIC_PUZZLES["quiptic-1340"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Judge lawsuits about sheep logo originally in trinket boxes (5,5)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -467,9 +395,6 @@ window.CRYPTIC_PUZZLES["quiptic-1340"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Rowing squad trimmed body mass (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "EIGHT",
    "annotation": null
@@ -484,9 +409,6 @@ window.CRYPTIC_PUZZLES["quiptic-1340"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Turn up high-class carpet expert (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "GURU",
    "annotation": null
@@ -501,9 +423,6 @@ window.CRYPTIC_PUZZLES["quiptic-1340"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Could free student involved in government scheming (9)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "COLLUDING",
    "annotation": null
@@ -518,9 +437,6 @@ window.CRYPTIC_PUZZLES["quiptic-1340"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Mix up days, overwhelmed by beer (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "ADDLE",
    "annotation": null
@@ -535,9 +451,6 @@ window.CRYPTIC_PUZZLES["quiptic-1340"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Bearing mail, regularly hurries (7)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "POSTURE",
    "annotation": null
@@ -552,9 +465,6 @@ window.CRYPTIC_PUZZLES["quiptic-1340"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Goes to bed at home following fainting fits? (5,2)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {
     ",": [
      5

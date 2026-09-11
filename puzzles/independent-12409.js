@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12409"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Specialist can stun lot with new presentation (10)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "CONSULTANT",
    "annotation": {
@@ -64,9 +61,6 @@ window.CRYPTIC_PUZZLES["independent-12409"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Without leader, more silly people lead the way (5,3)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -113,9 +107,6 @@ window.CRYPTIC_PUZZLES["independent-12409"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Faculty with tip for inexperienced Japanese teacher (6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "SENSEI",
    "annotation": {
@@ -161,9 +152,6 @@ window.CRYPTIC_PUZZLES["independent-12409"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Two dudes work on radio in foreign capital (8)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "KATMANDU",
    "annotation": {
@@ -211,9 +199,6 @@ window.CRYPTIC_PUZZLES["independent-12409"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Tracked vehicles carrying head of Hull's TA (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "THANKS",
    "annotation": {
@@ -263,9 +248,6 @@ window.CRYPTIC_PUZZLES["independent-12409"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Joint nurse rolled that Keef regularly inhales (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "KNEE",
    "annotation": {
@@ -319,9 +301,6 @@ window.CRYPTIC_PUZZLES["independent-12409"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Aristocrat's sweet, giving drugs away (4)",
-   "group": [
-    "7-across"
-   ],
    "separatorLocations": {},
    "solution": "TOFF",
    "annotation": {
@@ -367,9 +346,6 @@ window.CRYPTIC_PUZZLES["independent-12409"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "He bargains about carpeting (10)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {},
    "solution": "EARBASHING",
    "annotation": {
@@ -406,9 +382,6 @@ window.CRYPTIC_PUZZLES["independent-12409"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "One having frightful ups and downs? (6-7)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {
     "-": [
      6
@@ -443,9 +416,6 @@ window.CRYPTIC_PUZZLES["independent-12409"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Tax dope and hash if lacking millions (6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "ASSESS",
    "annotation": {
@@ -493,9 +463,6 @@ window.CRYPTIC_PUZZLES["independent-12409"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "City folk retired detective deplored (8)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "LAMENTED",
    "annotation": {
@@ -550,9 +517,6 @@ window.CRYPTIC_PUZZLES["independent-12409"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Quiet period in which set gets a break (8)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "PLAYTIME",
    "annotation": {
@@ -604,9 +568,6 @@ window.CRYPTIC_PUZZLES["independent-12409"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Home by latest eleven, primarily to snuggle up (6)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "NESTLE",
    "annotation": {
@@ -652,9 +613,6 @@ window.CRYPTIC_PUZZLES["independent-12409"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "We give a hoot if swell lot messes about with it (6,4)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -705,9 +663,6 @@ window.CRYPTIC_PUZZLES["independent-12409"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Needleworker cut up curtains for alteration (13)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "ACUPUNCTURIST",
    "annotation": {
@@ -744,9 +699,6 @@ window.CRYPTIC_PUZZLES["independent-12409"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Inappropriate as one going skinny-dipping? (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "UNSUITED",
    "annotation": {
@@ -780,9 +732,6 @@ window.CRYPTIC_PUZZLES["independent-12409"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Idleness at work (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "INACTION",
    "annotation": {
@@ -817,9 +766,6 @@ window.CRYPTIC_PUZZLES["independent-12409"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Beastly types love to interfere with data (6)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "STOATS",
    "annotation": {
@@ -863,9 +809,6 @@ window.CRYPTIC_PUZZLES["independent-12409"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Turn on a banker that's embezzled Rand (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "AROUSE",
    "annotation": {
@@ -914,9 +857,6 @@ window.CRYPTIC_PUZZLES["independent-12409"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Truly pretend to be posh to get partner (8)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "ACTUALLY",
    "annotation": {
@@ -964,9 +904,6 @@ window.CRYPTIC_PUZZLES["independent-12409"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Quality wood needing to be delivered (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "TIMBRE",
    "annotation": {
@@ -1004,9 +941,6 @@ window.CRYPTIC_PUZZLES["independent-12409"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Job in bank filled by academic playboy? (8)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "HEDONIST",
    "annotation": {
@@ -1050,9 +984,6 @@ window.CRYPTIC_PUZZLES["independent-12409"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Men in extremes of strife flipping love God (4)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "EROS",
    "annotation": {
@@ -1106,9 +1037,6 @@ window.CRYPTIC_PUZZLES["independent-12409"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Medium-size, unopened concoction for evacuation (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "MOTION",
    "annotation": {
@@ -1154,9 +1082,6 @@ window.CRYPTIC_PUZZLES["independent-12409"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "One who perjures or frees war criminal (10)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "FORSWEARER",
    "annotation": {
@@ -1193,9 +1118,6 @@ window.CRYPTIC_PUZZLES["independent-12409"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Go slowly ... jams in capital city abroad (4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "OSLO",
    "annotation": {

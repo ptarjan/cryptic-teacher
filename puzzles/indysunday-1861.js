@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1861"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Inexperienced sailor shown moving back to front, possibly pulled (8)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "DRAWABLE",
    "annotation": {
@@ -77,9 +74,6 @@ window.CRYPTIC_PUZZLES["indysunday-1861"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Win point with superior attention (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "EARN",
    "annotation": {
@@ -125,9 +119,6 @@ window.CRYPTIC_PUZZLES["indysunday-1861"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Half-way through Spielberg film keeping you up, cause of 25? (6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "TEDIUM",
    "annotation": {
@@ -183,9 +174,6 @@ window.CRYPTIC_PUZZLES["indysunday-1861"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Orbit I complete when told (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "EYEHOLE",
    "annotation": {
@@ -230,9 +218,6 @@ window.CRYPTIC_PUZZLES["indysunday-1861"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "American tracks rising lawyer, or 'user of puzzle's perimeter' (8)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "RAILROAD",
    "annotation": {
@@ -288,9 +273,6 @@ window.CRYPTIC_PUZZLES["indysunday-1861"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Mother fifty, so Scot proposing birth control (10)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "MALTHUSIAN",
    "annotation": {
@@ -340,9 +322,6 @@ window.CRYPTIC_PUZZLES["indysunday-1861"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Money due to HMRC, money Post Office's IT has pinched (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "IMPOST",
    "annotation": {
@@ -393,9 +372,6 @@ window.CRYPTIC_PUZZLES["indysunday-1861"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Bar in old city, one with a cathedral, charmingly (8)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {},
    "solution": "URBANELY",
    "annotation": {
@@ -444,9 +420,6 @@ window.CRYPTIC_PUZZLES["indysunday-1861"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Fear any injury except for left hand (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "ALARM",
    "annotation": {
@@ -494,9 +467,6 @@ window.CRYPTIC_PUZZLES["indysunday-1861"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Land on time just the same (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "TWIN",
    "annotation": {
@@ -539,9 +509,6 @@ window.CRYPTIC_PUZZLES["indysunday-1861"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Island people taking mostly healthy breath (10)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "INHALATION",
    "annotation": {
@@ -593,9 +560,6 @@ window.CRYPTIC_PUZZLES["indysunday-1861"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "One's bored by wait in the same place (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "IBIDEM",
    "annotation": {
@@ -639,9 +603,6 @@ window.CRYPTIC_PUZZLES["indysunday-1861"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Detectives turned up bug to sharpen recording device (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "DICTAPHONE",
    "annotation": {
@@ -696,9 +657,6 @@ window.CRYPTIC_PUZZLES["indysunday-1861"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Admire search for explanation of atom's nucleus (4,2,2)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -747,9 +705,6 @@ window.CRYPTIC_PUZZLES["indysunday-1861"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Sets of triplets caught in street playing (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "TERCETS",
    "annotation": {
@@ -804,9 +759,6 @@ window.CRYPTIC_PUZZLES["indysunday-1861"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Dogs bite back in confusion (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "TAILSPIN",
    "annotation": {
@@ -858,9 +810,6 @@ window.CRYPTIC_PUZZLES["indysunday-1861"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Sailor bringing Russian crate across border from the east (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "ADMIRAL",
    "annotation": {
@@ -915,9 +864,6 @@ window.CRYPTIC_PUZZLES["indysunday-1861"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Extract from prewar Magna Carta is something Gascon still produces (8)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "ARMAGNAC",
    "annotation": {
@@ -954,9 +900,6 @@ window.CRYPTIC_PUZZLES["indysunday-1861"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Flipping board game always limited by wrist pain? (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "REVERSI",
    "annotation": {
@@ -1000,9 +943,6 @@ window.CRYPTIC_PUZZLES["indysunday-1861"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Healing evolved via truce (8)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "CURATIVE",
    "annotation": {
@@ -1039,9 +979,6 @@ window.CRYPTIC_PUZZLES["indysunday-1861"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Academic outfits no longer meant to suit everyone (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "UNISEX",
    "annotation": {
@@ -1079,9 +1016,6 @@ window.CRYPTIC_PUZZLES["indysunday-1861"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Too many dogs around keeping one constantly busy (6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "DYNAMO",
    "annotation": {
@@ -1117,9 +1051,6 @@ window.CRYPTIC_PUZZLES["indysunday-1861"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Sergeant major cuts key in dark (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "DISMAL",
    "annotation": {
@@ -1163,9 +1094,6 @@ window.CRYPTIC_PUZZLES["indysunday-1861"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Old-fashioned steward from Rio hates jumping ship (3,7)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -1214,9 +1142,6 @@ window.CRYPTIC_PUZZLES["indysunday-1861"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "US safe-cracker, Yankee with something to crack? (4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "YEGG",
    "annotation": {
@@ -1257,9 +1182,6 @@ window.CRYPTIC_PUZZLES["indysunday-1861"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Spanish painter cycles to the top for exercise (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "YOGA",
    "annotation": {
@@ -1307,9 +1229,6 @@ window.CRYPTIC_PUZZLES["indysunday-1861"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Bad feeling having skinned bunnies for cooking (5)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "ENNUI",
    "annotation": {
@@ -1348,9 +1267,6 @@ window.CRYPTIC_PUZZLES["indysunday-1861"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "City's quiet hotel filling again unexpectedly (8)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "SHANGHAI",
    "annotation": {

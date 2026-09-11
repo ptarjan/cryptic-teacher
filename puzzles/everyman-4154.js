@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4154"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Did boar, having lost tail, moan sadly - being this? (2,1,3,4)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -83,9 +80,6 @@ window.CRYPTIC_PUZZLES["everyman-4154"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "In that case, reject outsiders for life with offspring, briefly (2,2)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -138,9 +132,6 @@ window.CRYPTIC_PUZZLES["everyman-4154"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Oh dear, a maiden scratching bottom (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "ALAS",
    "annotation": {
@@ -183,9 +174,6 @@ window.CRYPTIC_PUZZLES["everyman-4154"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Right to steal (11)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "APPROPRIATE",
    "annotation": {
@@ -223,9 +211,6 @@ window.CRYPTIC_PUZZLES["everyman-4154"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "1,002 buns going off in little roadster (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "MINIBUS",
    "annotation": {
@@ -270,9 +255,6 @@ window.CRYPTIC_PUZZLES["everyman-4154"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Primarily outrageous - beyond saucy - causing extremely nauseous emotions? (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "OBSCENE",
    "annotation": {
@@ -320,9 +302,6 @@ window.CRYPTIC_PUZZLES["everyman-4154"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Copied sample from tape deck (4)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "APED",
    "annotation": {
@@ -356,9 +335,6 @@ window.CRYPTIC_PUZZLES["everyman-4154"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Tormented, so purified faithless (10)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "PERFIDIOUS",
    "annotation": {
@@ -395,9 +371,6 @@ window.CRYPTIC_PUZZLES["everyman-4154"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Senators regularly mugged off firebrands (10)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "DEMAGOGUES",
    "annotation": {
@@ -441,9 +414,6 @@ window.CRYPTIC_PUZZLES["everyman-4154"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Quality in which you're quick - to anger? (10)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "SNAPPINESS",
    "annotation": {
@@ -475,9 +445,6 @@ window.CRYPTIC_PUZZLES["everyman-4154"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Flipping Frenchman to get stuffed (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "CRAM",
    "annotation": {
@@ -529,9 +496,6 @@ window.CRYPTIC_PUZZLES["everyman-4154"] = /*JSON-START*/ {
      3
     ]
    ],
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     "-": [
      6
@@ -570,9 +534,6 @@ window.CRYPTIC_PUZZLES["everyman-4154"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Hands up - then they may give you the lot (11)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {},
    "solution": "AUCTIONEERS",
    "annotation": {
@@ -604,9 +565,6 @@ window.CRYPTIC_PUZZLES["everyman-4154"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Lack of liveliness - but stable, Spooner says (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "STAGNATION",
    "annotation": {
@@ -653,9 +611,6 @@ window.CRYPTIC_PUZZLES["everyman-4154"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Corporate staple: member of global minority on committee (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "WHITEBOARD",
    "annotation": {
@@ -698,9 +653,6 @@ window.CRYPTIC_PUZZLES["everyman-4154"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Clobber boisterous marsh tits, not keeping mum (1-6)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {
     "-": [
      1
@@ -748,9 +700,6 @@ window.CRYPTIC_PUZZLES["everyman-4154"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Runs off, about to throw up artwork (7)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "ETCHING",
    "annotation": {
@@ -793,9 +742,6 @@ window.CRYPTIC_PUZZLES["everyman-4154"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Arrive home and recover (3,4)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -837,9 +783,6 @@ window.CRYPTIC_PUZZLES["everyman-4154"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Chess pieces: more than one black, you say? (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "KNIGHTS",
    "annotation": {
@@ -874,9 +817,6 @@ window.CRYPTIC_PUZZLES["everyman-4154"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "The French certain - this writer's assumed - to be working? Not so (7)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "LEISURE",
    "annotation": {
@@ -932,9 +872,6 @@ window.CRYPTIC_PUZZLES["everyman-4154"] = /*JSON-START*/ {
      5
     ]
    ],
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "LETTUCE",
    "annotation": {
@@ -969,9 +906,6 @@ window.CRYPTIC_PUZZLES["everyman-4154"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Striking bargain - six slices of butter - alternately shortening (12)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "ABBREVIATING",
    "annotation": {
@@ -1020,9 +954,6 @@ window.CRYPTIC_PUZZLES["everyman-4154"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Arm or leg displaying scale (not the first) (4)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "LIMB",
    "annotation": {
@@ -1062,9 +993,6 @@ window.CRYPTIC_PUZZLES["everyman-4154"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "King once called: Attack! (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "KNEE",
    "annotation": {
@@ -1102,9 +1030,6 @@ window.CRYPTIC_PUZZLES["everyman-4154"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Och! Hebridean island's loch has vanished! (1,3)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {
     ",": [
      1
@@ -1150,9 +1075,6 @@ window.CRYPTIC_PUZZLES["everyman-4154"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Geoffrey's repaired cane chair, you said? (10)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "CHAUCERIAN",
    "annotation": {
@@ -1198,9 +1120,6 @@ window.CRYPTIC_PUZZLES["everyman-4154"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Gesture of agreement: Everyman's beginning to be a knob (4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "NODE",
    "annotation": {
@@ -1246,9 +1165,6 @@ window.CRYPTIC_PUZZLES["everyman-4154"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "See in blots - splotchy - what's apparent (10)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "OSTENSIBLE",
    "annotation": {

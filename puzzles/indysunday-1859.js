@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1859"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Little tyke Beverly Hills cops shot from behind (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "LAPDOG",
    "annotation": {
@@ -76,9 +73,6 @@ window.CRYPTIC_PUZZLES["indysunday-1859"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "African bug left, because harmless? Not quite so (5,5)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -137,9 +131,6 @@ window.CRYPTIC_PUZZLES["indysunday-1859"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Press engagement quiet band keeps to (5,2)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -193,9 +184,6 @@ window.CRYPTIC_PUZZLES["indysunday-1859"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Public touching not the done thing (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "OUTRE",
    "annotation": {
@@ -233,9 +221,6 @@ window.CRYPTIC_PUZZLES["indysunday-1859"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Scotch back in barrels which the drink escapes from? (8)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "SCUPPERS",
    "annotation": {
@@ -279,9 +264,6 @@ window.CRYPTIC_PUZZLES["indysunday-1859"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Infer fraud's honest (8)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "CONSTRUE",
    "annotation": {
@@ -319,9 +301,6 @@ window.CRYPTIC_PUZZLES["indysunday-1859"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Artiste first noted after agent given raise (9)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "PERFORMER",
    "annotation": {
@@ -372,9 +351,6 @@ window.CRYPTIC_PUZZLES["indysunday-1859"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "At any time, cryptic set difficult challenge (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "EVEREST",
    "annotation": {
@@ -426,9 +402,6 @@ window.CRYPTIC_PUZZLES["indysunday-1859"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Comb for long-haired adherent caught (4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "SEEK",
    "annotation": {
@@ -463,9 +436,6 @@ window.CRYPTIC_PUZZLES["indysunday-1859"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Republican in Troon, his new golf club (5,4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -514,9 +484,6 @@ window.CRYPTIC_PUZZLES["indysunday-1859"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Drive off without parking to keep looping around (4)",
-   "group": [
-    "10-down"
-   ],
    "separatorLocations": {},
    "solution": "REEL",
    "annotation": {
@@ -561,9 +528,6 @@ window.CRYPTIC_PUZZLES["indysunday-1859"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Female ruff's beak (5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "REEVE",
    "annotation": {
@@ -601,9 +565,6 @@ window.CRYPTIC_PUZZLES["indysunday-1859"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Area supervisors note ID with alterations written above (14)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "AFOREMENTIONED",
    "annotation": {
@@ -661,9 +622,6 @@ window.CRYPTIC_PUZZLES["indysunday-1859"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "See incomplete clone, taking copy exactly (4,4,2)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -720,9 +678,6 @@ window.CRYPTIC_PUZZLES["indysunday-1859"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Cautionary rating on English wine to send to France? (6)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "EXPORT",
    "annotation": {
@@ -774,9 +729,6 @@ window.CRYPTIC_PUZZLES["indysunday-1859"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Harry looked at text from Spooner, Charles's old foe (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "ROUNDHEAD",
    "annotation": {
@@ -825,9 +777,6 @@ window.CRYPTIC_PUZZLES["indysunday-1859"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Unsatisfied girl has bagged bronze for shooting (8)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "GUNMETAL",
    "annotation": {
@@ -871,9 +820,6 @@ window.CRYPTIC_PUZZLES["indysunday-1859"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "One staying out later, probably after 12? (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "TEENAGER",
    "annotation": {
@@ -907,9 +853,6 @@ window.CRYPTIC_PUZZLES["indysunday-1859"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Did champion model speedos around university? (8)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "ESPOUSED",
    "annotation": {
@@ -953,9 +896,6 @@ window.CRYPTIC_PUZZLES["indysunday-1859"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Poor worker nice giving away pound (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "PEASANT",
    "annotation": {
@@ -997,9 +937,6 @@ window.CRYPTIC_PUZZLES["indysunday-1859"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Contract groom listened to in court (6)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "PRENUP",
    "annotation": {
@@ -1043,9 +980,6 @@ window.CRYPTIC_PUZZLES["indysunday-1859"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Removing eggs, e.g. nits spread after November (7)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "NESTING",
    "annotation": {
@@ -1099,9 +1033,6 @@ window.CRYPTIC_PUZZLES["indysunday-1859"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Knock black and blue (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "BLOW",
    "annotation": {
@@ -1142,9 +1073,6 @@ window.CRYPTIC_PUZZLES["indysunday-1859"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Lord Chancellor is wary called on mobile (8,6)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -1185,9 +1113,6 @@ window.CRYPTIC_PUZZLES["indysunday-1859"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Cargo ship's steam generator failing to start (5)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "OILER",
    "annotation": {
@@ -1227,9 +1152,6 @@ window.CRYPTIC_PUZZLES["indysunday-1859"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "House with a lot of land, miles and miles (4)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "FARM",
    "annotation": {
@@ -1270,9 +1192,6 @@ window.CRYPTIC_PUZZLES["indysunday-1859"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Saw time on notice (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "ADAGE",
    "annotation": {
@@ -1315,9 +1234,6 @@ window.CRYPTIC_PUZZLES["indysunday-1859"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "With old Golf pulled over, people needing the AA vanish (2,7)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -1364,9 +1280,6 @@ window.CRYPTIC_PUZZLES["indysunday-1859"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Bullfighter with no cojones a bit yellow, mother admits (8)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "MATADORA",
    "annotation": {
@@ -1417,9 +1330,6 @@ window.CRYPTIC_PUZZLES["indysunday-1859"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Doctor home after round where he started (6)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "ORIGIN",
    "annotation": {

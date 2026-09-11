@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29949"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "‘Doctor of Retraction’ gets cross (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "FORD",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["cryptic-29949"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Given a fancy coat, delivers bananas (8)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "SILVERED",
    "annotation": null
@@ -79,9 +73,6 @@ window.CRYPTIC_PUZZLES["cryptic-29949"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Drink time – oh, so riotous! (8)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "SMOOTHIE",
    "annotation": null
@@ -96,9 +87,6 @@ window.CRYPTIC_PUZZLES["cryptic-29949"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "One subsequently meets earth goddess (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "ATHENE",
    "annotation": null
@@ -113,9 +101,6 @@ window.CRYPTIC_PUZZLES["cryptic-29949"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Try to sell briars as tuning aids? (5,5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -134,9 +119,6 @@ window.CRYPTIC_PUZZLES["cryptic-29949"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Wine, gallons, at parties (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "GRAVES",
    "annotation": null
@@ -151,9 +133,6 @@ window.CRYPTIC_PUZZLES["cryptic-29949"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Attempt to extract everything from onion (4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "SHOT",
    "annotation": null
@@ -168,9 +147,6 @@ window.CRYPTIC_PUZZLES["cryptic-29949"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Spread moist leaves out (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "OMITS",
    "annotation": null
@@ -185,9 +161,6 @@ window.CRYPTIC_PUZZLES["cryptic-29949"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Top female Republican with manic air enters contest (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "MATRIARCH",
    "annotation": null
@@ -202,9 +175,6 @@ window.CRYPTIC_PUZZLES["cryptic-29949"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Department head in charge of exclusive sea food (5,4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -223,9 +193,6 @@ window.CRYPTIC_PUZZLES["cryptic-29949"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Old Man Time’s desire (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "COVET",
    "annotation": null
@@ -240,9 +207,6 @@ window.CRYPTIC_PUZZLES["cryptic-29949"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Administrative division or dividing branch (7)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "BOROUGH",
    "annotation": null
@@ -257,9 +221,6 @@ window.CRYPTIC_PUZZLES["cryptic-29949"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Champion outside left, pretty grim (5)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "BLACK",
    "annotation": null
@@ -274,9 +235,6 @@ window.CRYPTIC_PUZZLES["cryptic-29949"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Realistic reproduction of Roman tunic (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "UNROMANTIC",
    "annotation": null
@@ -291,9 +249,6 @@ window.CRYPTIC_PUZZLES["cryptic-29949"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Divorcee with attitude: dad’s first to be denounced! (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "EXPOSED",
    "annotation": null
@@ -308,9 +263,6 @@ window.CRYPTIC_PUZZLES["cryptic-29949"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Consider bylaws essentially old hat (5)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "DERBY",
    "annotation": null
@@ -325,9 +277,6 @@ window.CRYPTIC_PUZZLES["cryptic-29949"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Tree having less on top is topped (5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "ALDER",
    "annotation": null
@@ -364,9 +313,6 @@ window.CRYPTIC_PUZZLES["cryptic-29949"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Have a hippie liking for drugs Edward’s taken in (8)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "DIGESTED",
    "annotation": null
@@ -381,9 +327,6 @@ window.CRYPTIC_PUZZLES["cryptic-29949"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Pan’s treasure about to be returned? (5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "PETER",
    "annotation": null
@@ -398,9 +341,6 @@ window.CRYPTIC_PUZZLES["cryptic-29949"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Paltry thieves start plundering (8)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "TRIFLING",
    "annotation": null
@@ -415,9 +355,6 @@ window.CRYPTIC_PUZZLES["cryptic-29949"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Disputed area’s reported money, pure and simple (7)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "KASHMIR",
    "annotation": null
@@ -432,9 +369,6 @@ window.CRYPTIC_PUZZLES["cryptic-29949"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Cabin aired by working seaman? (6)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "SHANTY",
    "annotation": null
@@ -449,9 +383,6 @@ window.CRYPTIC_PUZZLES["cryptic-29949"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Good to break poor tutor’s rough spirit (6)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "ROTGUT",
    "annotation": null
@@ -466,9 +397,6 @@ window.CRYPTIC_PUZZLES["cryptic-29949"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Inclined to prattle? Try second drink (friendly tip) (7)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "GOSSIPY",
    "annotation": null
@@ -483,9 +411,6 @@ window.CRYPTIC_PUZZLES["cryptic-29949"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Mastermind introduction of baby shower (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "BRAIN",
    "annotation": null
@@ -500,9 +425,6 @@ window.CRYPTIC_PUZZLES["cryptic-29949"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Tack produced by supporter at United’s final (4)",
-   "group": [
-    "26-down"
-   ],
    "separatorLocations": {},
    "solution": "BRAD",
    "annotation": null
@@ -517,9 +439,6 @@ window.CRYPTIC_PUZZLES["cryptic-29949"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Crafty assessor of tax, one covered by scheme (4,5)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -538,9 +457,6 @@ window.CRYPTIC_PUZZLES["cryptic-29949"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Kitty gets wind up (4)",
-   "group": [
-    "28-down"
-   ],
    "separatorLocations": {},
    "solution": "POOL",
    "annotation": null
@@ -555,9 +471,6 @@ window.CRYPTIC_PUZZLES["cryptic-29949"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Plane possibly needs way to ditch wings (4)",
-   "group": [
-    "29-down"
-   ],
    "separatorLocations": {},
    "solution": "TREE",
    "annotation": null
@@ -572,9 +485,6 @@ window.CRYPTIC_PUZZLES["cryptic-29949"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Virtue of one-time payment made by conquered country? (9)",
-   "group": [
-    "30-across"
-   ],
    "separatorLocations": {},
    "solution": "ATTRIBUTE",
    "annotation": null
@@ -589,9 +499,6 @@ window.CRYPTIC_PUZZLES["cryptic-29949"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Cat’s powerless to make sudden leap (5)",
-   "group": [
-    "31-across"
-   ],
    "separatorLocations": {},
    "solution": "OUNCE",
    "annotation": null

@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29919"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Poet’s eyes opening on really beautiful scene (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "ORBS",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["cryptic-29919"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Men on foot, youngster on railway (8)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "INFANTRY",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["cryptic-29919"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Mammal is permanently close (4)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "SEAL",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["cryptic-29919"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "G&S work gets a treetop rocking (8)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "OPERETTA",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["cryptic-29919"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Forcibly grabs whiskey and relaxes (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "WRESTS",
    "annotation": null
@@ -110,9 +95,6 @@ window.CRYPTIC_PUZZLES["cryptic-29919"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Sailor, stabbed, doubled over (10)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "JACKKNIFED",
    "annotation": null
@@ -127,9 +109,6 @@ window.CRYPTIC_PUZZLES["cryptic-29919"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Failed plot: is one to be shot? (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "PISTOL",
    "annotation": null
@@ -144,9 +123,6 @@ window.CRYPTIC_PUZZLES["cryptic-29919"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Old labourer, losing heart, is blue (4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "NAVY",
    "annotation": null
@@ -161,9 +137,6 @@ window.CRYPTIC_PUZZLES["cryptic-29919"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Mountains an anxiety for some drivers (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "RANGE",
    "annotation": null
@@ -178,9 +151,6 @@ window.CRYPTIC_PUZZLES["cryptic-29919"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "A head pirate staggering, eating his hat? (3,6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -199,9 +169,6 @@ window.CRYPTIC_PUZZLES["cryptic-29919"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Acts ingratiatingly, securing everyone personal weapons (5,4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -220,9 +187,6 @@ window.CRYPTIC_PUZZLES["cryptic-29919"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Little pet in the pool (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "KITTY",
    "annotation": null
@@ -237,9 +201,6 @@ window.CRYPTIC_PUZZLES["cryptic-29919"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Warmer, immersed in feeble court case (3,4)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -258,9 +219,6 @@ window.CRYPTIC_PUZZLES["cryptic-29919"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "To catch girl at last, promise the earth (5)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "WORLD",
    "annotation": null
@@ -275,9 +233,6 @@ window.CRYPTIC_PUZZLES["cryptic-29919"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Badly made tunnel not missed (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "UNLAMENTED",
    "annotation": null
@@ -292,9 +247,6 @@ window.CRYPTIC_PUZZLES["cryptic-29919"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "The only sort of shirt and vest (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "SINGLET",
    "annotation": null
@@ -309,9 +261,6 @@ window.CRYPTIC_PUZZLES["cryptic-29919"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Say, fine tune, initially tender and soft (5)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "TWEAK",
    "annotation": null
@@ -326,9 +275,6 @@ window.CRYPTIC_PUZZLES["cryptic-29919"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Unprofessional men backing top family member (5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "ROYAL",
    "annotation": null
@@ -343,9 +289,6 @@ window.CRYPTIC_PUZZLES["cryptic-29919"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Once before broadcast, ready to go on this? (3)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "AIR",
    "annotation": null
@@ -360,9 +303,6 @@ window.CRYPTIC_PUZZLES["cryptic-29919"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "A corps ceased to operate? Fixed! (8)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "REMEDIED",
    "annotation": null
@@ -377,9 +317,6 @@ window.CRYPTIC_PUZZLES["cryptic-29919"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Police car’s first in front (5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "FORCE",
    "annotation": null
@@ -394,9 +331,6 @@ window.CRYPTIC_PUZZLES["cryptic-29919"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Certain to go wild receiving nothing in response (8)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "REACTION",
    "annotation": null
@@ -411,9 +345,6 @@ window.CRYPTIC_PUZZLES["cryptic-29919"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Band member departs to collect large glass (7)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "DRUMMER",
    "annotation": null
@@ -428,9 +359,6 @@ window.CRYPTIC_PUZZLES["cryptic-29919"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Not to be put off, I say you are a good bloke (6)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "URGENT",
    "annotation": null
@@ -445,9 +373,6 @@ window.CRYPTIC_PUZZLES["cryptic-29919"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Take off and go wandering, holding me up (6)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "REMOVE",
    "annotation": null
@@ -462,9 +387,6 @@ window.CRYPTIC_PUZZLES["cryptic-29919"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "For scavenger, damaging allegations just a bit of fun (7)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "MUDLARK",
    "annotation": null
@@ -479,9 +401,6 @@ window.CRYPTIC_PUZZLES["cryptic-29919"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "An element of specialised legalese judge avoided? (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "ARGON",
    "annotation": null
@@ -496,9 +415,6 @@ window.CRYPTIC_PUZZLES["cryptic-29919"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Host always closes empty room (4)",
-   "group": [
-    "26-down"
-   ],
    "separatorLocations": {},
    "solution": "ARMY",
    "annotation": null
@@ -513,9 +429,6 @@ window.CRYPTIC_PUZZLES["cryptic-29919"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Chat supervisor rated room out of order (9)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "MODERATOR",
    "annotation": null
@@ -530,9 +443,6 @@ window.CRYPTIC_PUZZLES["cryptic-29919"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "European clutching some pearls (4)",
-   "group": [
-    "28-down"
-   ],
    "separatorLocations": {},
    "solution": "ROPE",
    "annotation": null
@@ -547,9 +457,6 @@ window.CRYPTIC_PUZZLES["cryptic-29919"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Public disturbance that is extremely funny (4)",
-   "group": [
-    "29-down"
-   ],
    "separatorLocations": {},
    "solution": "RIOT",
    "annotation": null
@@ -564,9 +471,6 @@ window.CRYPTIC_PUZZLES["cryptic-29919"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Making move rue an erroneous tactic (9)",
-   "group": [
-    "30-across"
-   ],
    "separatorLocations": {},
    "solution": "MANOEUVRE",
    "annotation": null
@@ -581,9 +485,6 @@ window.CRYPTIC_PUZZLES["cryptic-29919"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Advertising video for medic (5)",
-   "group": [
-    "31-across"
-   ],
    "separatorLocations": {},
    "solution": "PROMO",
    "annotation": null

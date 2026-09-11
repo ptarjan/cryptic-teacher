@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1835"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Old man put something intoxicating in magnificent joint (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "PALACE",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["indysunday-1835"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Feeling under pressure to get ducks in a row (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "PAIR",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["indysunday-1835"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "A bit of Latin, Greek and English in grid (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "LATTICE",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["indysunday-1835"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Being round climbers with fruit, dog on sierra gets to eat (9)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "CURVINESS",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["indysunday-1835"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Elaborate on principle of vegetarianism? (5,3)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -114,9 +99,6 @@ window.CRYPTIC_PUZZLES["indysunday-1835"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Comfort on the way out, girl boxes stock (4,5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -135,9 +117,6 @@ window.CRYPTIC_PUZZLES["indysunday-1835"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Alexander, band leader in alley? (5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "SASHA",
    "annotation": null
@@ -152,9 +131,6 @@ window.CRYPTIC_PUZZLES["indysunday-1835"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Opportunity to write home during journey back (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "OPENING",
    "annotation": null
@@ -169,9 +145,6 @@ window.CRYPTIC_PUZZLES["indysunday-1835"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Cast heard Othello upset audience there for Lear? (6,4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -190,9 +163,6 @@ window.CRYPTIC_PUZZLES["indysunday-1835"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Very thin person beginning to ask whether to put weight on (4)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {},
    "solution": "WAIF",
    "annotation": null
@@ -207,9 +177,6 @@ window.CRYPTIC_PUZZLES["indysunday-1835"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Spaces between latrines changed to accommodate volume (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "INTERVALS",
    "annotation": null
@@ -224,9 +191,6 @@ window.CRYPTIC_PUZZLES["indysunday-1835"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Take fleece off husband wearing brand (5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "SHEAR",
    "annotation": null
@@ -241,9 +205,6 @@ window.CRYPTIC_PUZZLES["indysunday-1835"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Intentionally false leads detective inspectors lined up? (14)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "DISINFORMATION",
    "annotation": null
@@ -258,9 +219,6 @@ window.CRYPTIC_PUZZLES["indysunday-1835"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Really worry about case of neighing chanteuse (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "SONGSTRESS",
    "annotation": null
@@ -275,9 +233,6 @@ window.CRYPTIC_PUZZLES["indysunday-1835"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Too nice to dismiss minister, on reflection, during October (9)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "OVEREXACT",
    "annotation": null
@@ -292,9 +247,6 @@ window.CRYPTIC_PUZZLES["indysunday-1835"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Unreadable novel? (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "AUDIOBOOK",
    "annotation": null
@@ -309,9 +261,6 @@ window.CRYPTIC_PUZZLES["indysunday-1835"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "On break, flipping thing calling you back to work (5)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "PAGER",
    "annotation": null
@@ -326,9 +275,6 @@ window.CRYPTIC_PUZZLES["indysunday-1835"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Macron's ready with team name in his office (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "PRESIDENT",
    "annotation": null
@@ -343,9 +289,6 @@ window.CRYPTIC_PUZZLES["indysunday-1835"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Biologist's type of knee (5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "GENUS",
    "annotation": null
@@ -360,9 +303,6 @@ window.CRYPTIC_PUZZLES["indysunday-1835"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Broad area of new floor sunken in the middle (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "NORFOLK",
    "annotation": null
@@ -377,9 +317,6 @@ window.CRYPTIC_PUZZLES["indysunday-1835"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Outlaw maybe does bother to carry unloaded pistols around (9)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "DESPERADO",
    "annotation": null
@@ -394,9 +331,6 @@ window.CRYPTIC_PUZZLES["indysunday-1835"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Painter and writer introduced to people who try not to drink coffee (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "ARABICA",
    "annotation": null
@@ -411,9 +345,6 @@ window.CRYPTIC_PUZZLES["indysunday-1835"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Jargony long article IMO needs editing (14)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "TERMINOLOGICAL",
    "annotation": null
@@ -428,9 +359,6 @@ window.CRYPTIC_PUZZLES["indysunday-1835"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Which organ is filled with Zeus's blood? (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "ICHOR",
    "annotation": null
@@ -445,9 +373,6 @@ window.CRYPTIC_PUZZLES["indysunday-1835"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Get rid of square unfashionable clothes (4)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "OUST",
    "annotation": null
@@ -462,9 +387,6 @@ window.CRYPTIC_PUZZLES["indysunday-1835"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "You might say faded, not really blonde? (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "DYED",
    "annotation": null
@@ -479,9 +401,6 @@ window.CRYPTIC_PUZZLES["indysunday-1835"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Big date, record ejaculation from Scot (5)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "EPOCH",
    "annotation": null
@@ -496,9 +415,6 @@ window.CRYPTIC_PUZZLES["indysunday-1835"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Dirt spread by insect on doughnut (9)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "OBSCENITY",
    "annotation": null
@@ -513,9 +429,6 @@ window.CRYPTIC_PUZZLES["indysunday-1835"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Helicopter Republican agreed is turning blue (8)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "SIKORSKY",
    "annotation": null
@@ -530,9 +443,6 @@ window.CRYPTIC_PUZZLES["indysunday-1835"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Coming soon from Jonathan Demme ... (2,4)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {
     ",": [
      2

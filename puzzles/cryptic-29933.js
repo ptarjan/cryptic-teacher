@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29933"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Brilliant contribution from Graeme Garden (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "MEGA",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["cryptic-29933"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "If you’re not sure, keep it! (4,4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -63,9 +57,6 @@ window.CRYPTIC_PUZZLES["cryptic-29933"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Twice turn round and, losing heart, deny being pious (5-5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -84,9 +75,6 @@ window.CRYPTIC_PUZZLES["cryptic-29933"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "One of Barry, Robin or Maurice performing – what an animal! (6)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "GIBBON",
    "annotation": null
@@ -101,9 +89,6 @@ window.CRYPTIC_PUZZLES["cryptic-29933"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "When at first you are getting frisky, position doesn’t matter (8)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "ANYWHERE",
    "annotation": null
@@ -118,9 +103,6 @@ window.CRYPTIC_PUZZLES["cryptic-29933"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Pale, stop messing around (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "POST",
    "annotation": null
@@ -135,9 +117,6 @@ window.CRYPTIC_PUZZLES["cryptic-29933"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Position away from the freezer? (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "OFFICE",
    "annotation": null
@@ -152,9 +131,6 @@ window.CRYPTIC_PUZZLES["cryptic-29933"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Tire jack (4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "FLAG",
    "annotation": null
@@ -175,9 +151,6 @@ window.CRYPTIC_PUZZLES["cryptic-29933"] = /*JSON-START*/ {
      15
     ]
    ],
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "EXPLOSION",
    "annotation": null
@@ -192,9 +165,6 @@ window.CRYPTIC_PUZZLES["cryptic-29933"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Refuse very noisily, with a look back around (5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "OFFAL",
    "annotation": null
@@ -209,9 +179,6 @@ window.CRYPTIC_PUZZLES["cryptic-29933"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Dance about, get spotted (5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "ACNED",
    "annotation": null
@@ -226,9 +193,6 @@ window.CRYPTIC_PUZZLES["cryptic-29933"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Wrong bits used to make part of a weapon (9)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "BOWSTRING",
    "annotation": null
@@ -243,9 +207,6 @@ window.CRYPTIC_PUZZLES["cryptic-29933"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Induce drummer to entertain battalion? Quite the reverse! (5,2)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -264,9 +225,6 @@ window.CRYPTIC_PUZZLES["cryptic-29933"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Floods burrows (5)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "BORES",
    "annotation": null
@@ -281,9 +239,6 @@ window.CRYPTIC_PUZZLES["cryptic-29933"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "29s from first principles, as on the 17 (7)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "EXCEEDS",
    "annotation": null
@@ -298,9 +253,6 @@ window.CRYPTIC_PUZZLES["cryptic-29933"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Slippery customer felt up in quite sweet surroundings (10)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "CUTTLEFISH",
    "annotation": null
@@ -315,9 +267,6 @@ window.CRYPTIC_PUZZLES["cryptic-29933"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Spray a bit of scent on 3 (5)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "SPRIG",
    "annotation": null
@@ -332,9 +281,6 @@ window.CRYPTIC_PUZZLES["cryptic-29933"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Every so often, try and win on entertainment programmes here (5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "RADIO",
    "annotation": null
@@ -349,9 +295,6 @@ window.CRYPTIC_PUZZLES["cryptic-29933"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Award given to Taco Bell (3)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "OBE",
    "annotation": null
@@ -366,9 +309,6 @@ window.CRYPTIC_PUZZLES["cryptic-29933"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Those restoring sight with chicken’s heart and rabbit’s foot could be witches (8)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "OCULISTS",
    "annotation": null
@@ -383,9 +323,6 @@ window.CRYPTIC_PUZZLES["cryptic-29933"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Big build-up to the pair of us beginning to reconcile (5)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "TOWER",
    "annotation": null
@@ -400,9 +337,6 @@ window.CRYPTIC_PUZZLES["cryptic-29933"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "White offspring of stallions and donkeys sounds like a horse (8)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "WHINNIES",
    "annotation": null
@@ -417,9 +351,6 @@ window.CRYPTIC_PUZZLES["cryptic-29933"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Delivers uniform? By one report, but not according to me! (4,3)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -438,9 +369,6 @@ window.CRYPTIC_PUZZLES["cryptic-29933"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Esteban’s really, really upset Japanese schoolgirl (3-3)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -465,9 +393,6 @@ window.CRYPTIC_PUZZLES["cryptic-29933"] = /*JSON-START*/ {
      7
     ]
    ],
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "BILLING",
    "annotation": null
@@ -482,9 +407,6 @@ window.CRYPTIC_PUZZLES["cryptic-29933"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "One that writes about grams, a tonne, or an ounce? (3,3)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -503,9 +425,6 @@ window.CRYPTIC_PUZZLES["cryptic-29933"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Deploring mis-alignment? (9)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "LAMENTING",
    "annotation": null
@@ -562,9 +481,6 @@ window.CRYPTIC_PUZZLES["cryptic-29933"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Strong-smelling lubricant behind pleasurable activity (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "FUNKY",
    "annotation": null
@@ -579,9 +495,6 @@ window.CRYPTIC_PUZZLES["cryptic-29933"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "‘Green sage stems in yogurt’ and other delicious appetisers (4)",
-   "group": [
-    "27-down"
-   ],
    "separatorLocations": {},
    "solution": "YODA",
    "annotation": null
@@ -596,9 +509,6 @@ window.CRYPTIC_PUZZLES["cryptic-29933"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Hints and tips for Colin ‘let’s upset everybody’ Sell (5)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "CLUES",
    "annotation": null
@@ -613,9 +523,6 @@ window.CRYPTIC_PUZZLES["cryptic-29933"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Go over Tim’s head and screen performance lacking energy (9)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "TRANSCEND",
    "annotation": null

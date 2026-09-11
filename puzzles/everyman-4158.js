@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4158"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Woman to spoil end of party (4)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "MARY",
    "annotation": {
@@ -70,9 +67,6 @@ window.CRYPTIC_PUZZLES["everyman-4158"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "With a prune, mint sauce or nuts will give you substantial fare (4,6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -128,9 +122,6 @@ window.CRYPTIC_PUZZLES["everyman-4158"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Entire term ghastly - not going to work any more (10)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "RETIREMENT",
    "annotation": {
@@ -173,9 +164,6 @@ window.CRYPTIC_PUZZLES["everyman-4158"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "In favour of British getting into narcotic juice: disgrace! (10)",
-   "group": [
-    "3-across"
-   ],
    "separatorLocations": {},
    "solution": "OPPROBRIUM",
    "annotation": {
@@ -225,9 +213,6 @@ window.CRYPTIC_PUZZLES["everyman-4158"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Assembled accommodation in anticipation of the Beatles (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "PREFABS",
    "annotation": {
@@ -266,9 +251,6 @@ window.CRYPTIC_PUZZLES["everyman-4158"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Musician, somewhat gross, in isolation (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "ROSSINI",
    "annotation": {
@@ -302,9 +284,6 @@ window.CRYPTIC_PUZZLES["everyman-4158"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Public transport lines not beginning to reach flash commercial area (8,4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -360,9 +339,6 @@ window.CRYPTIC_PUZZLES["everyman-4158"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "About time: Everyman twice sent up as 'particular' (4)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "ITEM",
    "annotation": {
@@ -417,9 +393,6 @@ window.CRYPTIC_PUZZLES["everyman-4158"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Primarily: marry / amigo / tisane / ending! (4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "MATE",
    "annotation": {
@@ -459,9 +432,6 @@ window.CRYPTIC_PUZZLES["everyman-4158"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Letter from Athens returned to you in Paris (4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "IOTA",
    "annotation": {
@@ -504,9 +474,6 @@ window.CRYPTIC_PUZZLES["everyman-4158"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "According to sibling, canvas is fixed (10)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "PERSISTENT",
    "annotation": {
@@ -553,9 +520,6 @@ window.CRYPTIC_PUZZLES["everyman-4158"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Doubt value of pre-euro currency? (8,4)",
-   "group": [
-    "11-down"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -600,9 +564,6 @@ window.CRYPTIC_PUZZLES["everyman-4158"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Number of readers an issue for first-aider (11)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "CIRCULATION",
    "annotation": {
@@ -637,9 +598,6 @@ window.CRYPTIC_PUZZLES["everyman-4158"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Empty bath containing ooze onto river: that's novel (5,5)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -699,9 +657,6 @@ window.CRYPTIC_PUZZLES["everyman-4158"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Cricketers arranged friendlies (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "INFIELDERS",
    "annotation": {
@@ -743,9 +698,6 @@ window.CRYPTIC_PUZZLES["everyman-4158"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Kim disheartened; Susan sadly shows up (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "UNMASKS",
    "annotation": {
@@ -794,9 +746,6 @@ window.CRYPTIC_PUZZLES["everyman-4158"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Regulator cutting short abuse: cool (7)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "INSULIN",
    "annotation": {
@@ -839,9 +788,6 @@ window.CRYPTIC_PUZZLES["everyman-4158"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Take time here on cloudless day (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "SUNDIAL",
    "annotation": {
@@ -873,9 +819,6 @@ window.CRYPTIC_PUZZLES["everyman-4158"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Eagerly approached meadow with dung covering rabbit's tail (5,2)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -932,9 +875,6 @@ window.CRYPTIC_PUZZLES["everyman-4158"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Singers giving appeasing gift to Indian princess (7)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "SOPRANI",
    "annotation": {
@@ -976,9 +916,6 @@ window.CRYPTIC_PUZZLES["everyman-4158"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Furtively approach drink, hiding empty (5,2)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -1026,9 +963,6 @@ window.CRYPTIC_PUZZLES["everyman-4158"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Palaeolithic man tilled earthen land (11)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "NEANDERTHAL",
    "annotation": {
@@ -1070,9 +1004,6 @@ window.CRYPTIC_PUZZLES["everyman-4158"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "So it's hours being regularly wasted (4)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "THUS",
    "annotation": {
@@ -1115,9 +1046,6 @@ window.CRYPTIC_PUZZLES["everyman-4158"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Antagonistic to some characters from Pleasant Island (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "ANTI",
    "annotation": {
@@ -1154,9 +1082,6 @@ window.CRYPTIC_PUZZLES["everyman-4158"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Spooner's to corral lusty types for women's gatherings (3,7)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -1212,9 +1137,6 @@ window.CRYPTIC_PUZZLES["everyman-4158"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Cut into pieces: eight or 27, perhaps (4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "CUBE",
    "annotation": {
@@ -1249,9 +1171,6 @@ window.CRYPTIC_PUZZLES["everyman-4158"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Aggro given by ultimately snarky, flippant imitator: this'll help you hold things together (6,4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -1308,9 +1227,6 @@ window.CRYPTIC_PUZZLES["everyman-4158"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Overheard one inspiring announcements from Persians (4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "MEWS",
    "annotation": {

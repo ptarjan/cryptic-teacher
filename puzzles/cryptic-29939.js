@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29939"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Stone found in bad pastry – not part of standard run (3-5)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -46,9 +43,6 @@ window.CRYPTIC_PUZZLES["cryptic-29939"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Cool down number two distributor in trouble (3)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "FAN",
    "annotation": null
@@ -63,9 +57,6 @@ window.CRYPTIC_PUZZLES["cryptic-29939"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Father starts preaching about Tibet’s esoteric religions (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "PATER",
    "annotation": null
@@ -80,9 +71,6 @@ window.CRYPTIC_PUZZLES["cryptic-29939"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Makes purchases when inebriated? They’ll be so dirty (4-6)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -101,9 +89,6 @@ window.CRYPTIC_PUZZLES["cryptic-29939"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Native elements in Nazareth nicely hidden (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "ETHNIC",
    "annotation": null
@@ -118,9 +103,6 @@ window.CRYPTIC_PUZZLES["cryptic-29939"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "I request silence during plot slip-up (6)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "MISHAP",
    "annotation": null
@@ -135,9 +117,6 @@ window.CRYPTIC_PUZZLES["cryptic-29939"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Section of Bremen University that deals with consumer choice (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "MENU",
    "annotation": null
@@ -152,9 +131,6 @@ window.CRYPTIC_PUZZLES["cryptic-29939"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Figure first possessed by a kind of spark (9)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "STATISTIC",
    "annotation": null
@@ -169,9 +145,6 @@ window.CRYPTIC_PUZZLES["cryptic-29939"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "It changes text to cure actor rambling (11)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "AUTOCORRECT",
    "annotation": null
@@ -186,9 +159,6 @@ window.CRYPTIC_PUZZLES["cryptic-29939"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Combination hits in boxing results in very short count (3,3)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -207,9 +177,6 @@ window.CRYPTIC_PUZZLES["cryptic-29939"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Women’s group eager to host northern prince (3,5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -228,9 +195,6 @@ window.CRYPTIC_PUZZLES["cryptic-29939"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Arrogant British cut short broadcast (9)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "HUBRISTIC",
    "annotation": null
@@ -245,9 +209,6 @@ window.CRYPTIC_PUZZLES["cryptic-29939"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Leading composer slipped up, losing right to be covered (11)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {},
    "solution": "UPHOLSTERED",
    "annotation": null
@@ -262,9 +223,6 @@ window.CRYPTIC_PUZZLES["cryptic-29939"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Put forward idea for sports ground (5)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "PITCH",
    "annotation": null
@@ -279,9 +237,6 @@ window.CRYPTIC_PUZZLES["cryptic-29939"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Spied broken wire – that’s disgraceful (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "DESPICABLE",
    "annotation": null
@@ -296,9 +251,6 @@ window.CRYPTIC_PUZZLES["cryptic-29939"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Occasionally forgot duo’s name for this little character (6)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "HOBBIT",
    "annotation": null
@@ -313,9 +265,6 @@ window.CRYPTIC_PUZZLES["cryptic-29939"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Benefit cuts for remote regions in the US (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "BOONDOCKS",
    "annotation": null
@@ -330,9 +279,6 @@ window.CRYPTIC_PUZZLES["cryptic-29939"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "In drink, lieutenant is very loud singer (6)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "BELTER",
    "annotation": null
@@ -347,9 +293,6 @@ window.CRYPTIC_PUZZLES["cryptic-29939"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Assistant abandoned waste outlet cleaner in Dublin, he’s a fool (6)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "LOOPER",
    "annotation": null
@@ -364,9 +307,6 @@ window.CRYPTIC_PUZZLES["cryptic-29939"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "First nation warrior is a bit erratic sounding (6)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "APACHE",
    "annotation": null
@@ -381,9 +321,6 @@ window.CRYPTIC_PUZZLES["cryptic-29939"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Become keen on second opinion although it lacks weight (4,2)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -402,9 +339,6 @@ window.CRYPTIC_PUZZLES["cryptic-29939"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Musical composition incorporates core elements of Goethe and Auden (5)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "ETUDE",
    "annotation": null
@@ -419,9 +353,6 @@ window.CRYPTIC_PUZZLES["cryptic-29939"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Doctor sat in cafe entrance (9)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "FASCINATE",
    "annotation": null
@@ -436,9 +367,6 @@ window.CRYPTIC_PUZZLES["cryptic-29939"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Musicians include individual piece in sacred text (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "NONET",
    "annotation": null
@@ -453,9 +381,6 @@ window.CRYPTIC_PUZZLES["cryptic-29939"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Mass chubby priest cut (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "LUMP",
    "annotation": null
@@ -470,9 +395,6 @@ window.CRYPTIC_PUZZLES["cryptic-29939"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Male friend in US picked up firm promotional material (8)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "BROCHURE",
    "annotation": null
@@ -487,9 +409,6 @@ window.CRYPTIC_PUZZLES["cryptic-29939"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Pop group, by covering single, gets millions (5,1)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -508,9 +427,6 @@ window.CRYPTIC_PUZZLES["cryptic-29939"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Finally try tofu cream – it’s delicious (3)",
-   "group": [
-    "27-down"
-   ],
    "separatorLocations": {},
    "solution": "YUM",
    "annotation": null
@@ -525,9 +441,6 @@ window.CRYPTIC_PUZZLES["cryptic-29939"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "It makes sense to link supplement to drink … (4,2)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -546,9 +459,6 @@ window.CRYPTIC_PUZZLES["cryptic-29939"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "… eventually it will provide extra income? (8)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "OVERTIME",
    "annotation": null

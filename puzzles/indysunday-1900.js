@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1900"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Greens in US enjoying great popularity now lead (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "BUCKSHOT",
    "annotation": {
@@ -65,9 +62,6 @@ window.CRYPTIC_PUZZLES["indysunday-1900"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "No chicken sandwiches in Washington? What an idea! (9)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "BRAINWAVE",
    "annotation": {
@@ -112,9 +106,6 @@ window.CRYPTIC_PUZZLES["indysunday-1900"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Dismiss employee always putting their hand in the till (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "CASHIER",
    "annotation": {
@@ -149,9 +140,6 @@ window.CRYPTIC_PUZZLES["indysunday-1900"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Old luvvie girl judges on all but the last of his plays (3,4,7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -200,9 +188,6 @@ window.CRYPTIC_PUZZLES["indysunday-1900"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Did boss make too deep cuts? (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "OVERSAW",
    "annotation": {
@@ -243,9 +228,6 @@ window.CRYPTIC_PUZZLES["indysunday-1900"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Piece made by sculptor completely out of dough (4)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "BUST",
    "annotation": {
@@ -280,9 +262,6 @@ window.CRYPTIC_PUZZLES["indysunday-1900"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Cut chance of losing in wager (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "BRISKET",
    "annotation": {
@@ -326,9 +305,6 @@ window.CRYPTIC_PUZZLES["indysunday-1900"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Steps taken by proletariat succeeded in revolution (5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "STAIR",
    "annotation": {
@@ -371,9 +347,6 @@ window.CRYPTIC_PUZZLES["indysunday-1900"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Representative upset being limited by sex, so neutral? (14)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "CONGRESSPERSON",
    "annotation": {
@@ -423,9 +396,6 @@ window.CRYPTIC_PUZZLES["indysunday-1900"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Spoils of war? (4)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {},
    "solution": "MARS",
    "annotation": {
@@ -461,9 +431,6 @@ window.CRYPTIC_PUZZLES["indysunday-1900"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Using persuasive language that might make you a lot richer (10)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "RHETORICAL",
    "annotation": {
@@ -500,9 +467,6 @@ window.CRYPTIC_PUZZLES["indysunday-1900"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Half grudgingly admired golf club's location (8)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "ENVIRONS",
    "annotation": {
@@ -552,9 +516,6 @@ window.CRYPTIC_PUZZLES["indysunday-1900"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Racer finally demonstrating good skill (2-4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     "-": [
      2
@@ -607,9 +568,6 @@ window.CRYPTIC_PUZZLES["indysunday-1900"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Producing no crops, to do with farm storage limits (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "BARREN",
    "annotation": {
@@ -653,9 +611,6 @@ window.CRYPTIC_PUZZLES["indysunday-1900"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Small layer you hear, little songbird (8)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "WHEATEAR",
    "annotation": {
@@ -690,9 +645,6 @@ window.CRYPTIC_PUZZLES["indysunday-1900"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Military leader's old mate aboard American Eagle? (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "ALEXANDER",
    "annotation": {
@@ -739,9 +691,6 @@ window.CRYPTIC_PUZZLES["indysunday-1900"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Let out water through conical structure (8)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "PERSPIRE",
    "annotation": {
@@ -779,9 +728,6 @@ window.CRYPTIC_PUZZLES["indysunday-1900"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Deer charges around in charming animation (7)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "SPARKLE",
    "annotation": {
@@ -830,9 +776,6 @@ window.CRYPTIC_PUZZLES["indysunday-1900"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Suffer humiliation, turning red at it (3,4)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -873,9 +816,6 @@ window.CRYPTIC_PUZZLES["indysunday-1900"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "\"Retreat,\" soldiers heading to the front communicated silently (6)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "SIGNED",
    "annotation": {
@@ -924,9 +864,6 @@ window.CRYPTIC_PUZZLES["indysunday-1900"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Fair beauty burdened by sentiment (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "GOODISH",
    "annotation": {
@@ -969,9 +906,6 @@ window.CRYPTIC_PUZZLES["indysunday-1900"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Toff completely foul at Lord's (2-4)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     "-": [
      2
@@ -1013,9 +947,6 @@ window.CRYPTIC_PUZZLES["indysunday-1900"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Saving pence, Capone doctored the drink (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "OCEAN",
    "annotation": {
@@ -1059,9 +990,6 @@ window.CRYPTIC_PUZZLES["indysunday-1900"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Always taking the soft option? (8)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "TEETOTAL",
    "annotation": {
@@ -1093,9 +1021,6 @@ window.CRYPTIC_PUZZLES["indysunday-1900"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Throwing loops of rope on board, pack square boxes first for once (4,6)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -1151,9 +1076,6 @@ window.CRYPTIC_PUZZLES["indysunday-1900"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Motor races affected by gales not starting (4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "INDY",
    "annotation": {
@@ -1191,9 +1113,6 @@ window.CRYPTIC_PUZZLES["indysunday-1900"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "German teacher keeps money in pot, initially (4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "ANTE",
    "annotation": {
@@ -1227,9 +1146,6 @@ window.CRYPTIC_PUZZLES["indysunday-1900"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Report of a Russian ghost ship stopped in the Channel? (2,6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {
     ",": [
      2

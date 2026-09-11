@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30099"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Cultivate witticism about being adult (5-2)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -83,9 +80,6 @@ window.CRYPTIC_PUZZLES["cryptic-30099"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Constantly talk equipment with Spooner in period before university (3,4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -137,9 +131,6 @@ window.CRYPTIC_PUZZLES["cryptic-30099"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "CIA stores criminal blacklist (9)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "OSTRACISE",
    "annotation": {
@@ -181,9 +172,6 @@ window.CRYPTIC_PUZZLES["cryptic-30099"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Records found when breaking up sofa? (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "NOTES",
    "annotation": {
@@ -217,9 +205,6 @@ window.CRYPTIC_PUZZLES["cryptic-30099"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Criticise book about father being camp mother at Christmas (5,4)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -276,9 +261,6 @@ window.CRYPTIC_PUZZLES["cryptic-30099"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Currency is part I contributed to swindle (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "BITCOIN",
    "annotation": {
@@ -331,9 +313,6 @@ window.CRYPTIC_PUZZLES["cryptic-30099"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Plain type of sandwich has a French filling (5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "BLUNT",
    "annotation": {
@@ -380,9 +359,6 @@ window.CRYPTIC_PUZZLES["cryptic-30099"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Sea birds circling coastal feature to find plants (4-5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -433,9 +409,6 @@ window.CRYPTIC_PUZZLES["cryptic-30099"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Regular cognition women get being dragged around (2,3)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -485,9 +458,6 @@ window.CRYPTIC_PUZZLES["cryptic-30099"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Central parts of genome system purify cells forming air passage (7)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "NOSTRIL",
    "annotation": {
@@ -545,9 +515,6 @@ window.CRYPTIC_PUZZLES["cryptic-30099"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Small piece of advice about way to reassure your dog? (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "PETIT",
    "annotation": {
@@ -581,9 +548,6 @@ window.CRYPTIC_PUZZLES["cryptic-30099"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "USA Senate carve-up turns one’s stomach (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "NAUSEATES",
    "annotation": {
@@ -625,9 +589,6 @@ window.CRYPTIC_PUZZLES["cryptic-30099"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Earl, unable to answer question, left to get some identification (1-8)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     "-": [
      1
@@ -677,9 +638,6 @@ window.CRYPTIC_PUZZLES["cryptic-30099"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Less often confused with it when counting (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "FEWER",
    "annotation": {
@@ -710,9 +668,6 @@ window.CRYPTIC_PUZZLES["cryptic-30099"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Heads of redbrick universities institute new standards for dilapidated buildings (5)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "RUINS",
    "annotation": {
@@ -756,9 +711,6 @@ window.CRYPTIC_PUZZLES["cryptic-30099"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "In one sense, mufflers funny things to look at (5,4)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -799,9 +751,6 @@ window.CRYPTIC_PUZZLES["cryptic-30099"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Chief competitor, if losing run, would be matter of record (4,5)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -849,9 +798,6 @@ window.CRYPTIC_PUZZLES["cryptic-30099"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Business has ten workers who share accommodation (2-7)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {
     "-": [
      2
@@ -902,9 +848,6 @@ window.CRYPTIC_PUZZLES["cryptic-30099"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Talking too much, manager almost overwhelmed by truth (9)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "VERBOSITY",
    "annotation": {
@@ -950,9 +893,6 @@ window.CRYPTIC_PUZZLES["cryptic-30099"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Left eager to get transformed and be happy (4,5)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -1002,9 +942,6 @@ window.CRYPTIC_PUZZLES["cryptic-30099"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Trick old horse to get into line (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "FINAGLE",
    "annotation": {
@@ -1054,9 +991,6 @@ window.CRYPTIC_PUZZLES["cryptic-30099"] = /*JSON-START*/ {
      18
     ]
    ],
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "SPROG",
    "annotation": {
@@ -1090,9 +1024,6 @@ window.CRYPTIC_PUZZLES["cryptic-30099"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Without AI, diagnosed ruptures – it’s an unexpected benefit (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "GODSEND",
    "annotation": {
@@ -1134,9 +1065,6 @@ window.CRYPTIC_PUZZLES["cryptic-30099"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Close temperature when sun goes down (5)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "NIGHT",
    "annotation": {
@@ -1173,9 +1101,6 @@ window.CRYPTIC_PUZZLES["cryptic-30099"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Some plot suggestions raised, showing enthusiasm (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "GUSTO",
    "annotation": {
@@ -1220,9 +1145,6 @@ window.CRYPTIC_PUZZLES["cryptic-30099"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "RAF’s doing badly, showing coolness under pressure (4,5)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -1271,9 +1193,6 @@ window.CRYPTIC_PUZZLES["cryptic-30099"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Dirty place in ship where dumped material stored (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "SKIPS",
    "annotation": {
@@ -1318,9 +1237,6 @@ window.CRYPTIC_PUZZLES["cryptic-30099"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Critical secondary characters in office come across major flaws (5)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "FOCAL",
    "annotation": {
@@ -1381,9 +1297,6 @@ window.CRYPTIC_PUZZLES["cryptic-30099"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Post on half of wage when things are developing (9)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "GESTATION",
    "annotation": {
@@ -1429,9 +1342,6 @@ window.CRYPTIC_PUZZLES["cryptic-30099"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Giving lip in church is a sin (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "CRIME",
    "annotation": {
@@ -1479,9 +1389,6 @@ window.CRYPTIC_PUZZLES["cryptic-30099"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Selfish people say Oscar is extremely tedious (7)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "EGOISTS",
    "annotation": {
@@ -1536,9 +1443,6 @@ window.CRYPTIC_PUZZLES["cryptic-30099"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Moved quickly to protect place when stretched (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "SPLAYED",
    "annotation": {

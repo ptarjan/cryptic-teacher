@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30108"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Coffee back in canteen, provided cups laid out (9)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "FLATTENED",
    "annotation": {
@@ -86,9 +83,6 @@ window.CRYPTIC_PUZZLES["cryptic-30108"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Flounce and kick down Whitechapel Road? (5)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "FRILL",
    "annotation": {
@@ -221,9 +215,6 @@ window.CRYPTIC_PUZZLES["cryptic-30108"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Hardly what conductor may seemingly have done with it (3,1,3)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -277,9 +268,6 @@ window.CRYPTIC_PUZZLES["cryptic-30108"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Triggered by old boarding school? On the contrary (9)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "DETONATED",
    "annotation": {
@@ -355,9 +343,6 @@ window.CRYPTIC_PUZZLES["cryptic-30108"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Upbringing happy, good day to hide – nowhere to disappear? (4,3)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -420,9 +405,6 @@ window.CRYPTIC_PUZZLES["cryptic-30108"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Clear I am at home when opening lift (9)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "ELIMINATE",
    "annotation": {
@@ -481,9 +463,6 @@ window.CRYPTIC_PUZZLES["cryptic-30108"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "One’s filled with various pictures (3,5)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -534,9 +513,6 @@ window.CRYPTIC_PUZZLES["cryptic-30108"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Rat, I suspect, has gobbled six trifles (6)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "TRIVIA",
    "annotation": {
@@ -593,9 +569,6 @@ window.CRYPTIC_PUZZLES["cryptic-30108"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Shed in Berkshire town (6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "SLOUGH",
    "annotation": {
@@ -708,9 +681,6 @@ window.CRYPTIC_PUZZLES["cryptic-30108"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Rubbish charges thus frozen (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "STATIC",
    "annotation": {
@@ -761,9 +731,6 @@ window.CRYPTIC_PUZZLES["cryptic-30108"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Subject of pop artist put on, if so surrealistic? (3,2,4)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -812,9 +779,6 @@ window.CRYPTIC_PUZZLES["cryptic-30108"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Vessel requiring a load gets it on (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "CANOODLES",
    "annotation": {
@@ -861,9 +825,6 @@ window.CRYPTIC_PUZZLES["cryptic-30108"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Class nuisance, out unfortunately for detention (8)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "TUTORIAL",
    "annotation": {
@@ -917,9 +878,6 @@ window.CRYPTIC_PUZZLES["cryptic-30108"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Red upset with union awaiting the press? (8)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "UNIRONED",
    "annotation": {
@@ -971,9 +929,6 @@ window.CRYPTIC_PUZZLES["cryptic-30108"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Breather touching on venom (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "RESPITE",
    "annotation": {
@@ -1017,9 +972,6 @@ window.CRYPTIC_PUZZLES["cryptic-30108"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "A shipmate’s last race having capsized on the ocean (4-3)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -1087,9 +1039,6 @@ window.CRYPTIC_PUZZLES["cryptic-30108"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Twitter feed, it heralding gulps? (6)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "DITHER",
    "annotation": {
@@ -1231,9 +1180,6 @@ window.CRYPTIC_PUZZLES["cryptic-30108"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Ticked off – as top? (6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "SHIRTY",
    "annotation": {
@@ -1297,9 +1243,6 @@ window.CRYPTIC_PUZZLES["cryptic-30108"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Principle, if flipping the same? (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "TENET",
    "annotation": {
@@ -1367,9 +1310,6 @@ window.CRYPTIC_PUZZLES["cryptic-30108"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Odious pipe, with joint to inhale (8)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "SHOCKING",
    "annotation": {
@@ -1423,9 +1363,6 @@ window.CRYPTIC_PUZZLES["cryptic-30108"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Recess, politicians on vacation in Adelaide spewing guts (4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "APSE",
    "annotation": {
@@ -1480,9 +1417,6 @@ window.CRYPTIC_PUZZLES["cryptic-30108"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Short continental break where plonk guzzled – and most bubbly? (9)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "SPARKIEST",
    "annotation": {

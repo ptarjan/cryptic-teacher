@@ -24,9 +24,6 @@ window.CRYPTIC_PUZZLES["cryptic-30063"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Teacher of no practical use (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "ACADEMIC",
    "annotation": {
@@ -61,9 +58,6 @@ window.CRYPTIC_PUZZLES["cryptic-30063"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Opening above large part of church (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "CHANCEL",
    "annotation": {
@@ -106,9 +100,6 @@ window.CRYPTIC_PUZZLES["cryptic-30063"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Unpleasant fluid dilutes fast (11)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "DISTASTEFUL",
    "annotation": {
@@ -145,9 +136,6 @@ window.CRYPTIC_PUZZLES["cryptic-30063"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Bulk energy shot (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "MASSE",
    "annotation": {
@@ -185,9 +173,6 @@ window.CRYPTIC_PUZZLES["cryptic-30063"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Fancy that guy being put into care, possibly (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "CHIMERA",
    "annotation": {
@@ -239,9 +224,6 @@ window.CRYPTIC_PUZZLES["cryptic-30063"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Obscure, extremely bumptious words on book jackets (6)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "BLURBS",
    "annotation": {
@@ -284,9 +266,6 @@ window.CRYPTIC_PUZZLES["cryptic-30063"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Person providing protection for state is working very hard (9)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "BEAVERING",
    "annotation": {
@@ -333,9 +312,6 @@ window.CRYPTIC_PUZZLES["cryptic-30063"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Learning institution’s subdivision reduced in size by 25% (3)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "UNI",
    "annotation": {
@@ -380,9 +356,6 @@ window.CRYPTIC_PUZZLES["cryptic-30063"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Gathered together and had late-morning meal right away (7)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "BUNCHED",
    "annotation": {
@@ -428,9 +401,6 @@ window.CRYPTIC_PUZZLES["cryptic-30063"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Two idiots initiating one state shooting, perhaps (13)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "ASSASSINATION",
    "annotation": {
@@ -480,9 +450,6 @@ window.CRYPTIC_PUZZLES["cryptic-30063"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Dispose of the last bit of homemade pickle (6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "SCRAPE",
    "annotation": {
@@ -525,9 +492,6 @@ window.CRYPTIC_PUZZLES["cryptic-30063"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Perception absolutely possessed by rowing crew (8)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "EYESIGHT",
    "annotation": {
@@ -571,9 +535,6 @@ window.CRYPTIC_PUZZLES["cryptic-30063"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Popular pink avatar (11)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {},
    "solution": "INCARNATION",
    "annotation": {
@@ -611,9 +572,6 @@ window.CRYPTIC_PUZZLES["cryptic-30063"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "International clothing label about to bring on board rubbish celebrities (10)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "GLITTERATI",
    "annotation": {
@@ -670,9 +628,6 @@ window.CRYPTIC_PUZZLES["cryptic-30063"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "She acts single, following couple of males in certain direction (4,5)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -729,9 +684,6 @@ window.CRYPTIC_PUZZLES["cryptic-30063"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "System of rules requiring constant, dedicated work? (4)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "CODE",
    "annotation": {
@@ -772,9 +724,6 @@ window.CRYPTIC_PUZZLES["cryptic-30063"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Trashy, somewhat lumpen affair (4)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "NAFF",
    "annotation": {
@@ -808,9 +757,6 @@ window.CRYPTIC_PUZZLES["cryptic-30063"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Determined 80s pop star (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "ADAMANT",
    "annotation": {
@@ -846,9 +792,6 @@ window.CRYPTIC_PUZZLES["cryptic-30063"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Wild animal rage coming from the top dogs? (10)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "MANAGERIAL",
    "annotation": {
@@ -885,9 +828,6 @@ window.CRYPTIC_PUZZLES["cryptic-30063"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Frost ultimately breaks hole in crumbling relic (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "NEOLITH",
    "annotation": {
@@ -941,9 +881,6 @@ window.CRYPTIC_PUZZLES["cryptic-30063"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Supplies of first-class horses (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "AMOUNTS",
    "annotation": {
@@ -984,9 +921,6 @@ window.CRYPTIC_PUZZLES["cryptic-30063"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Satellite phone? It’s crazily old (8)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "CALLISTO",
    "annotation": {
@@ -1040,9 +974,6 @@ window.CRYPTIC_PUZZLES["cryptic-30063"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Drawer primarily containing fabric (6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "CRAYON",
    "annotation": {
@@ -1085,9 +1016,6 @@ window.CRYPTIC_PUZZLES["cryptic-30063"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Head of cabbage with tough green leaves (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "CHARD",
    "annotation": {
@@ -1134,9 +1062,6 @@ window.CRYPTIC_PUZZLES["cryptic-30063"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Domineering writer from Rome, maybe changing sides? (13)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "AUTHORITARIAN",
    "annotation": {
@@ -1179,9 +1104,6 @@ window.CRYPTIC_PUZZLES["cryptic-30063"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Drink in the bar periodically (3)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "TEA",
    "annotation": {
@@ -1223,9 +1145,6 @@ window.CRYPTIC_PUZZLES["cryptic-30063"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "A kid taking it easy (2,4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -1267,9 +1186,6 @@ window.CRYPTIC_PUZZLES["cryptic-30063"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Fun-loving sort of mafia boss involved in robbery (8)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "HEDONIST",
    "annotation": {

@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-11812"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Prayer provided illumination for some (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "LITANY",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["independent-11812"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Pack animal left priest in the high mountains (5)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "LLAMA",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["independent-11812"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "You shouldn't have wasted time over place settings (9)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "TABLEWARE",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["independent-11812"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Agree, bout fixed for sure (2,5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -97,9 +85,6 @@ window.CRYPTIC_PUZZLES["independent-11812"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "A single Venetian magistrate drops round, making you nervous (2,4)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -118,9 +103,6 @@ window.CRYPTIC_PUZZLES["independent-11812"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Decadent city in which anything goes (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "NAUGHTY",
    "annotation": null
@@ -135,9 +117,6 @@ window.CRYPTIC_PUZZLES["independent-11812"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Southern states pass on hosting Chinese leader (5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "DIXIE",
    "annotation": null
@@ -152,9 +131,6 @@ window.CRYPTIC_PUZZLES["independent-11812"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Incredibly, optical flickering in old telly limited to one line (9)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "EXTREMELY",
    "annotation": null
@@ -169,9 +145,6 @@ window.CRYPTIC_PUZZLES["independent-11812"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Clothing something you show pride in, twirling (4)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {},
    "solution": "GARB",
    "annotation": null
@@ -186,9 +159,6 @@ window.CRYPTIC_PUZZLES["independent-11812"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Poorly-mounted knight's day going perfectly, limiting steer to the left (3,7)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -207,9 +177,6 @@ window.CRYPTIC_PUZZLES["independent-11812"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Red giant she realigned, unable to focus so far (4-7)",
-   "group": [
-    "10-down"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -228,9 +195,6 @@ window.CRYPTIC_PUZZLES["independent-11812"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Rich food consumed in most of France, historically (6)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "GATEAU",
    "annotation": null
@@ -245,9 +209,6 @@ window.CRYPTIC_PUZZLES["independent-11812"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "The least out of shape? (8)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "ATHLETES",
    "annotation": null
@@ -262,9 +223,6 @@ window.CRYPTIC_PUZZLES["independent-11812"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Flooded land next to lake, people opposed (8)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "ATLANTIS",
    "annotation": null
@@ -279,9 +237,6 @@ window.CRYPTIC_PUZZLES["independent-11812"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "English during Root's last century were deafening (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "THUNDERED",
    "annotation": null
@@ -296,9 +251,6 @@ window.CRYPTIC_PUZZLES["independent-11812"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "I don't know what to say faced with silly baby's prattle (6)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "YABBER",
    "annotation": null
@@ -313,9 +265,6 @@ window.CRYPTIC_PUZZLES["independent-11812"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Spooner's white wine leaked, silly man (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "BLOCKHEAD",
    "annotation": null
@@ -330,9 +279,6 @@ window.CRYPTIC_PUZZLES["independent-11812"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Brilliant Djokovic perhaps keeps winning (6)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "SUPERB",
    "annotation": null
@@ -347,9 +293,6 @@ window.CRYPTIC_PUZZLES["independent-11812"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Rower using old cash machine in bar (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "BOATMAN",
    "annotation": null
@@ -364,9 +307,6 @@ window.CRYPTIC_PUZZLES["independent-11812"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Pope believing at last, touching blood-stained cross (7,1)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -385,9 +325,6 @@ window.CRYPTIC_PUZZLES["independent-11812"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Man sees sports as one (2,5)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -406,9 +343,6 @@ window.CRYPTIC_PUZZLES["independent-11812"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Notice soldier holding stick out for OC's assistant (8)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "ADJUTANT",
    "annotation": null
@@ -423,9 +357,6 @@ window.CRYPTIC_PUZZLES["independent-11812"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Show the first and third person as objects (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "USHER",
    "annotation": null
@@ -440,9 +371,6 @@ window.CRYPTIC_PUZZLES["independent-11812"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Korean dictator to the west, trouble for Japanese emperor (6)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "MIKADO",
    "annotation": null
@@ -457,9 +385,6 @@ window.CRYPTIC_PUZZLES["independent-11812"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Flat bottom on which daughter stands (5)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "DREAR",
    "annotation": null
@@ -474,9 +399,6 @@ window.CRYPTIC_PUZZLES["independent-11812"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Was ringing in ears troubling Greek mathematician? (10)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "ARCHIMEDES",
    "annotation": null
@@ -491,9 +413,6 @@ window.CRYPTIC_PUZZLES["independent-11812"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Vessel used to be back to front (4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "EWER",
    "annotation": null
@@ -508,9 +427,6 @@ window.CRYPTIC_PUZZLES["independent-11812"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Courageous lover gives heart away (6)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "DARING",
    "annotation": null
@@ -525,9 +441,6 @@ window.CRYPTIC_PUZZLES["independent-11812"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Short fellow apparently embarrassed about sex (6)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "GENDER",
    "annotation": null

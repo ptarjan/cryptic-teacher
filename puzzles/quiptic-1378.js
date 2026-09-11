@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Back of glass lamp is flimsy (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "SLIGHT",
    "annotation": {
@@ -74,9 +71,6 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Suddenly starts special syndicates (7)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "SPRINGS",
    "annotation": {
@@ -115,9 +109,6 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "River shrouded by Berlin dusk (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "INDUS",
    "annotation": {
@@ -152,9 +143,6 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Hid things carelessly in retrospect (9)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "HINDSIGHT",
    "annotation": {
@@ -195,9 +183,6 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Broadcast lesser-known tracks as well (7)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "BESIDES",
    "annotation": {
@@ -233,9 +218,6 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Bird found in freezing north (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "BITTERN",
    "annotation": {
@@ -277,9 +259,6 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Vowel sound endings in Thomas’ poetic triumph wow Swansea (5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "SCHWA",
    "annotation": {
@@ -341,9 +320,6 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Free police officers before accusation (9)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "DISCHARGE",
    "annotation": {
@@ -387,9 +363,6 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Shoe absorbs cold mud (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "SCANDAL",
    "annotation": {
@@ -434,9 +407,6 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Portion is small enough (6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "SAMPLE",
    "annotation": {
@@ -478,9 +448,6 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "No longer needed and turned around (9)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "REDUNDANT",
    "annotation": {
@@ -518,9 +485,6 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Crush a plant (5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "HOSTA",
    "annotation": {
@@ -559,9 +523,6 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Loch contains third of otters’ dens (5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "NESTS",
    "annotation": {
@@ -608,9 +569,6 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "E Shepard working over introduction to Winnie-the-Pooh laid initial coat of paint? (3-6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -659,9 +617,6 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "One holding hot pebbles (7)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "SHINGLE",
    "annotation": {
@@ -707,9 +662,6 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Cossie designed by the French with two sides the same (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "ISOSCELES",
    "annotation": {
@@ -755,9 +707,6 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Opening part of journo’s trilogy (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "NOSTRIL",
    "annotation": {
@@ -792,9 +741,6 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Tight temporary splint restrains band (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "STRINGENT",
    "annotation": {
@@ -839,9 +785,6 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Chicken roll includes last slice of tomato (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "ROOSTER",
    "annotation": {
@@ -888,9 +831,6 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Stretches out concerning pains (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "REACHES",
    "annotation": {
@@ -929,9 +869,6 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Underdone piece in cheese toastie (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "RAREBIT",
    "annotation": {
@@ -973,9 +910,6 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Dog tore into moving water (7)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "CURRENT",
    "annotation": {
@@ -1017,9 +951,6 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Trader caught with unknown vegetable (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "CELERY",
    "annotation": {
@@ -1067,9 +998,6 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Express hesitation in outline for bank (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "TERRACE",
    "annotation": {
@@ -1117,9 +1045,6 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Family ran castle badly (9)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "ANCESTRAL",
    "annotation": {
@@ -1157,9 +1082,6 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Finally dismiss lazy creep (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "SIDLE",
    "annotation": {
@@ -1203,9 +1125,6 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Norse jug more recently discovered (5)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "NEWER",
    "annotation": {
@@ -1244,9 +1163,6 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Which person starts to organise party cheer? (5)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "WHOOP",
    "annotation": {
@@ -1291,9 +1207,6 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Reported part of ship scuttled (5)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "HOLED",
    "annotation": {
@@ -1329,9 +1242,6 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Ban Charlie dancing alone in the city (9)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "BARCELONA",
    "annotation": {
@@ -1390,9 +1300,6 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Dodgy extract of forest ceps usually sent back (7)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "SUSPECT",
    "annotation": {
@@ -1435,9 +1342,6 @@ window.CRYPTIC_PUZZLES["quiptic-1378"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Secure essential food stuff (6)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "STAPLE",
    "annotation": {

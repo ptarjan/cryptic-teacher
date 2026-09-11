@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Breaks one in possession, say, being upset (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "HOLIDAYS",
    "annotation": {
@@ -85,9 +82,6 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "German writer of opera not working with husband after husband’s indiscretion, ultimately (8)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "HOFFMANN",
    "annotation": {
@@ -148,9 +142,6 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Spectacles with rotten leg getting repair (9)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "LORGNETTE",
    "annotation": {
@@ -191,9 +182,6 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Climbing school joined up around top of range - that’s a sight for the morning (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "DEWDROP",
    "annotation": {
@@ -258,9 +246,6 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Cries \"Absolutely!,\" embracing Lord Lieutenant (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "YELLS",
    "annotation": {
@@ -304,9 +289,6 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Dynasty celebration recalled deity (3,3)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -359,9 +341,6 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Trim after last item on menu not yet served? (7)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "UNEATEN",
    "annotation": {
@@ -406,9 +385,6 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Cook finally receiving burn (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "GRILL",
    "annotation": {
@@ -451,9 +427,6 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Everyone in the staff picked up money (6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "DOLLAR",
    "annotation": {
@@ -505,9 +478,6 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Females initially exhibit health for so long (8)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "FAREWELL",
    "annotation": {
@@ -553,9 +523,6 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Failure to accept looking old may be reversed with injection of article (6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "DENIAL",
    "annotation": {
@@ -607,9 +574,6 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Not hard: soft in comparison I deleted (6)",
-   "group": [
-    "11-down"
-   ],
    "separatorLocations": {},
    "solution": "SIMPLE",
    "annotation": {
@@ -660,9 +624,6 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Staff officer cleared out base of operations (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "MANOR",
    "annotation": {
@@ -705,9 +666,6 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Wrong about start of clue - work to get a hint (9)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "SCINTILLA",
    "annotation": {
@@ -766,9 +724,6 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Well-known to involve secretary where comments may be made (7)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "NOTEPAD",
    "annotation": {
@@ -812,9 +767,6 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Condense source in dictionary, one even now incomplete (6)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "DISTIL",
    "annotation": {
@@ -865,9 +817,6 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "A lot of change applied to one Latin writer (6)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "PENCIL",
    "annotation": {
@@ -919,9 +868,6 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Reserve, after cut, repeatedly caging antelope from northern country (9)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "ICELANDIC",
    "annotation": {
@@ -974,9 +920,6 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Not right to occupy village (3)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "ILL",
    "annotation": {
@@ -1010,9 +953,6 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Somewhat here, there, always immaterial (8)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "ETHEREAL",
    "annotation": {
@@ -1046,9 +986,6 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "This is keeping nothing for the lions (6)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "HEROES",
    "annotation": {
@@ -1095,9 +1032,6 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Old John, swallowing a lot of pink wine and sherry (7)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "OLOROSO",
    "annotation": {
@@ -1152,9 +1086,6 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Serious attention given to collection of machine guns (7)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "EARNEST",
    "annotation": {
@@ -1194,9 +1125,6 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Former PM, not one consuming chicken and wine (7)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "RHENISH",
    "annotation": {
@@ -1250,9 +1178,6 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "River grass rising to surface (6)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "TARMAC",
    "annotation": {
@@ -1308,9 +1233,6 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Arab limos going around? Sweet (9)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "AMBROSIAL",
    "annotation": {
@@ -1347,9 +1269,6 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Lump raised above me is rounded mass (5)",
-   "group": [
-    "26-down"
-   ],
    "separatorLocations": {},
    "solution": "BOLUS",
    "annotation": {
@@ -1403,9 +1322,6 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Dodgy look, unknown quantity? That’ll make you cautious (5)",
-   "group": [
-    "27-down"
-   ],
    "separatorLocations": {},
    "solution": "LEERY",
    "annotation": {
@@ -1445,9 +1361,6 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "French and English are backing excise (5)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "ERASE",
    "annotation": {
@@ -1496,9 +1409,6 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Poet’s mostly gentle expression? Mostly (6)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "MILTON",
    "annotation": {
@@ -1546,9 +1456,6 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Type line in section of film that’s cut? Start again (8)",
-   "group": [
-    "30-across"
-   ],
    "separatorLocations": {},
    "solution": "REKINDLE",
    "annotation": {
@@ -1600,9 +1507,6 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Everything to be found in quiet comments accepting kinky sex? (6)",
-   "group": [
-    "31-across"
-   ],
    "separatorLocations": {},
    "solution": "COSMOS",
    "annotation": {
@@ -1649,9 +1553,6 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Imaginary gracious story largely about drunken comment? (8)",
-   "group": [
-    "32-across"
-   ],
    "separatorLocations": {},
    "solution": "MYTHICAL",
    "annotation": {

@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30005"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "There is no way to make a cut holding a weapon with no tip (3,1,6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -94,9 +91,6 @@ window.CRYPTIC_PUZZLES["cryptic-30005"] = /*JSON-START*/ {
      18
     ]
    ],
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "NOUN",
    "annotation": {
@@ -144,9 +138,6 @@ window.CRYPTIC_PUZZLES["cryptic-30005"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Spruce in yard – it shot up (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "TIDY",
    "annotation": {
@@ -199,9 +190,6 @@ window.CRYPTIC_PUZZLES["cryptic-30005"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "The cable car travels across Norway with complete freedom (5,7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -253,9 +241,6 @@ window.CRYPTIC_PUZZLES["cryptic-30005"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Swimming in tears, becoming more nervous (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "ANTSIER",
    "annotation": {
@@ -296,9 +281,6 @@ window.CRYPTIC_PUZZLES["cryptic-30005"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Sausage from Australia one served up after work ended early (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "CHORIZO",
    "annotation": {
@@ -360,9 +342,6 @@ window.CRYPTIC_PUZZLES["cryptic-30005"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Little one eating hot fish (4)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "CHUB",
    "annotation": {
@@ -407,9 +386,6 @@ window.CRYPTIC_PUZZLES["cryptic-30005"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Hot dog prepared with last of vegetable fat mixture (10)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "HODGEPODGE",
    "annotation": {
@@ -467,9 +443,6 @@ window.CRYPTIC_PUZZLES["cryptic-30005"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Somehow heads across city’s east side with many cycling (2,3,5)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -529,9 +502,6 @@ window.CRYPTIC_PUZZLES["cryptic-30005"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "French and German articles written by Rose and Roger (10)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "UNDERSTOOD",
    "annotation": {
@@ -578,9 +548,6 @@ window.CRYPTIC_PUZZLES["cryptic-30005"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Some included Dahl’s old tales (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "EDDA",
    "annotation": {
@@ -616,9 +583,6 @@ window.CRYPTIC_PUZZLES["cryptic-30005"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Defenceless targets police trap including one that initially escapes (7,5)",
-   "group": [
-    "11-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -680,9 +644,6 @@ window.CRYPTIC_PUZZLES["cryptic-30005"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Clearly identify evil criminal (12)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "DEFINITIVELY",
    "annotation": {
@@ -720,9 +681,6 @@ window.CRYPTIC_PUZZLES["cryptic-30005"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Start of short emotional film tackling connection and love (7-3)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     "-": [
      7
@@ -782,9 +740,6 @@ window.CRYPTIC_PUZZLES["cryptic-30005"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Struggle with wordplay for ‘floral’? (4-3-3)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     "-": [
      4,
@@ -836,9 +791,6 @@ window.CRYPTIC_PUZZLES["cryptic-30005"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Small bird found in whiskey barrel at sea (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "WARBLER",
    "annotation": {
@@ -884,9 +836,6 @@ window.CRYPTIC_PUZZLES["cryptic-30005"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Discovered your book about origin of Coriolis effect (7)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "OUTCOME",
    "annotation": {
@@ -939,9 +888,6 @@ window.CRYPTIC_PUZZLES["cryptic-30005"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Outside wanting kiss that’s endless (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "ETERNAL",
    "annotation": {
@@ -988,9 +934,6 @@ window.CRYPTIC_PUZZLES["cryptic-30005"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Ronald’s cooking some bacon (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "LARDONS",
    "annotation": {
@@ -1029,9 +972,6 @@ window.CRYPTIC_PUZZLES["cryptic-30005"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "12 keeping horse in shape (7)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "NONAGON",
    "annotation": {
@@ -1079,9 +1019,6 @@ window.CRYPTIC_PUZZLES["cryptic-30005"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Gas upset baby (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "NEONATE",
    "annotation": {
@@ -1119,9 +1056,6 @@ window.CRYPTIC_PUZZLES["cryptic-30005"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "That is horrid news to broadcast (2,5,5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -1164,9 +1098,6 @@ window.CRYPTIC_PUZZLES["cryptic-30005"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Something growing in street (4)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "TREE",
    "annotation": {
@@ -1201,9 +1132,6 @@ window.CRYPTIC_PUZZLES["cryptic-30005"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Leaders of private schools start to pay attention (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "PSST",
    "annotation": {
@@ -1244,9 +1172,6 @@ window.CRYPTIC_PUZZLES["cryptic-30005"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Summit talks shunning both sides (4)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "PEAK",
    "annotation": {
@@ -1289,9 +1214,6 @@ window.CRYPTIC_PUZZLES["cryptic-30005"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Parts of speech? (5,5)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -1327,9 +1249,6 @@ window.CRYPTIC_PUZZLES["cryptic-30005"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Look back across lake to find slender swimmers (4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "EELS",
    "annotation": {
@@ -1385,9 +1304,6 @@ window.CRYPTIC_PUZZLES["cryptic-30005"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Jack and Jenny excited to tackle beginning of maths test (10)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "ASSESSMENT",
    "annotation": {

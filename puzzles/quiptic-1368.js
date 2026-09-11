@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1368"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Picture covering Queen’s long continuing story (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "SEQUEL",
    "annotation": {
@@ -77,9 +74,6 @@ window.CRYPTIC_PUZZLES["quiptic-1368"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Select spreadsheet program and occasionally alter books (9)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "EXCELLENT",
    "annotation": {
@@ -132,9 +126,6 @@ window.CRYPTIC_PUZZLES["quiptic-1368"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "At university, go for advancement (6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "UPTURN",
    "annotation": {
@@ -176,9 +167,6 @@ window.CRYPTIC_PUZZLES["quiptic-1368"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Bury put ultimate market on street behind Rock (3,2,4)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -243,9 +231,6 @@ window.CRYPTIC_PUZZLES["quiptic-1368"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Fine scientific establishment busy cutting American slack (6)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "FLABBY",
    "annotation": {
@@ -295,9 +280,6 @@ window.CRYPTIC_PUZZLES["quiptic-1368"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Fare well, finally plugging major leak (5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "FLOOD",
    "annotation": {
@@ -344,9 +326,6 @@ window.CRYPTIC_PUZZLES["quiptic-1368"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Repel extra-terrestrial assault that’s drained earth (8)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "ALIENATE",
    "annotation": {
@@ -396,9 +375,6 @@ window.CRYPTIC_PUZZLES["quiptic-1368"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Starters in Bengal have additional jhalmuri in side dish (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "BHAJI",
    "annotation": {
@@ -440,9 +416,6 @@ window.CRYPTIC_PUZZLES["quiptic-1368"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Silently cheers Leicester perhaps securing lead in League (7)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {},
    "solution": "TACITLY",
    "annotation": {
@@ -495,9 +468,6 @@ window.CRYPTIC_PUZZLES["quiptic-1368"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Cutlery with carved apostles on captivating bishop (11)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "TABLESPOONS",
    "annotation": {
@@ -546,9 +516,6 @@ window.CRYPTIC_PUZZLES["quiptic-1368"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Paper craft has old sails etc, one master recalled (7)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "ORIGAMI",
    "annotation": {
@@ -607,9 +574,6 @@ window.CRYPTIC_PUZZLES["quiptic-1368"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Stuff for recipe needs vigorous tenderising (11)",
-   "group": [
-    "10-down"
-   ],
    "separatorLocations": {},
    "solution": "INGREDIENTS",
    "annotation": {
@@ -656,9 +620,6 @@ window.CRYPTIC_PUZZLES["quiptic-1368"] = /*JSON-START*/ {
      0,
      8
     ]
-   ],
-   "group": [
-    "11-across"
    ],
    "separatorLocations": {
     ",": [
@@ -717,9 +678,6 @@ window.CRYPTIC_PUZZLES["quiptic-1368"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Pitcher Webb, initially retained by phone company, gets sponsor in the end (4)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "EWER",
    "annotation": {
@@ -777,9 +735,6 @@ window.CRYPTIC_PUZZLES["quiptic-1368"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Engineers dubiously accept abridged permit for vessel (10)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "RECEPTACLE",
    "annotation": {
@@ -840,9 +795,6 @@ window.CRYPTIC_PUZZLES["quiptic-1368"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Trusting a silly order to enter rising river (6,3)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -908,9 +860,6 @@ window.CRYPTIC_PUZZLES["quiptic-1368"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Company mounts scheme engaging a space traveller (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "COSMONAUT",
    "annotation": {
@@ -969,9 +918,6 @@ window.CRYPTIC_PUZZLES["quiptic-1368"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Conflict with detective on plan for future (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "DIVISION",
    "annotation": {
@@ -1018,9 +964,6 @@ window.CRYPTIC_PUZZLES["quiptic-1368"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Some fellowship at riot is misrepresented as love for one’s country (10)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "PATRIOTISM",
    "annotation": {
@@ -1058,9 +1001,6 @@ window.CRYPTIC_PUZZLES["quiptic-1368"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "It’s a revolution in sparkling wine (4)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "ASTI",
    "annotation": {
@@ -1107,9 +1047,6 @@ window.CRYPTIC_PUZZLES["quiptic-1368"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Former president managed to hide confusion of age (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "REAGAN",
    "annotation": {
@@ -1162,9 +1099,6 @@ window.CRYPTIC_PUZZLES["quiptic-1368"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "On rare occasions previously writer worked, unable to be idle (4,2,1,4,4)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -1235,9 +1169,6 @@ window.CRYPTIC_PUZZLES["quiptic-1368"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Rage about variable care organised (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "CRAZE",
    "annotation": {
@@ -1290,9 +1221,6 @@ window.CRYPTIC_PUZZLES["quiptic-1368"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Put up partial screen or partition that protects clothing (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "APRON",
    "annotation": {
@@ -1329,9 +1257,6 @@ window.CRYPTIC_PUZZLES["quiptic-1368"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Increasingly tentative, I ask her out (7)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "SHAKIER",
    "annotation": {
@@ -1369,9 +1294,6 @@ window.CRYPTIC_PUZZLES["quiptic-1368"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Preserve records admitting gridlocks (7)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "LOGJAMS",
    "annotation": {
@@ -1416,9 +1338,6 @@ window.CRYPTIC_PUZZLES["quiptic-1368"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Check information held by inner assembly (4,2)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -1475,9 +1394,6 @@ window.CRYPTIC_PUZZLES["quiptic-1368"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Typify reactionary public school education (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "DENOTE",
    "annotation": {

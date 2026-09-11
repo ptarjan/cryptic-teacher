@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12381"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Bridget Jones occasionally shows part of her bottom (3,3)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -46,9 +43,6 @@ window.CRYPTIC_PUZZLES["independent-12381"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "I am having my picture taken before party gets very loud and mad (7,3)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -67,9 +61,6 @@ window.CRYPTIC_PUZZLES["independent-12381"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "With which you might catch joke that bears fruit? (6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "PUNNET",
    "annotation": null
@@ -84,9 +75,6 @@ window.CRYPTIC_PUZZLES["independent-12381"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "A fool in Congress (2,2)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -105,9 +93,6 @@ window.CRYPTIC_PUZZLES["independent-12381"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Setter, say, backed up toilet after wiping away runs (8)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "GELATINE",
    "annotation": null
@@ -122,9 +107,6 @@ window.CRYPTIC_PUZZLES["independent-12381"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Perhaps Clare Balding broadcast could be authentic (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "REAL",
    "annotation": null
@@ -139,9 +121,6 @@ window.CRYPTIC_PUZZLES["independent-12381"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Winchester for one night? I'm snuggling over blankets (8)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "GUNSMITH",
    "annotation": null
@@ -156,9 +135,6 @@ window.CRYPTIC_PUZZLES["independent-12381"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Cutting lead, White Lotus recast key figure (10)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {},
    "solution": "SILHOUETTE",
    "annotation": null
@@ -173,9 +149,6 @@ window.CRYPTIC_PUZZLES["independent-12381"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Aussies missing flight found in Science Museum (4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "EMUS",
    "annotation": null
@@ -190,9 +163,6 @@ window.CRYPTIC_PUZZLES["independent-12381"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Number Ten backed old Lib Dem's links with PC (8,6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -211,9 +181,6 @@ window.CRYPTIC_PUZZLES["independent-12381"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Republican plugs rigged election claim in post online (10,4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      10
@@ -232,9 +199,6 @@ window.CRYPTIC_PUZZLES["independent-12381"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Open requires balls on tee (5)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {},
    "solution": "OVERT",
    "annotation": null
@@ -249,9 +213,6 @@ window.CRYPTIC_PUZZLES["independent-12381"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Taking off clothes, Richard Osman stirred drink (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "MARASCHINO",
    "annotation": null
@@ -266,9 +227,6 @@ window.CRYPTIC_PUZZLES["independent-12381"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Strategy that involves destroying terracotta? (8,5)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -287,9 +245,6 @@ window.CRYPTIC_PUZZLES["independent-12381"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Can old companions set up and go quickly? (4,2,2)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -309,9 +264,6 @@ window.CRYPTIC_PUZZLES["independent-12381"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Board member taps staff after mess ousting leader (8)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "CHESSMAN",
    "annotation": null
@@ -326,9 +278,6 @@ window.CRYPTIC_PUZZLES["independent-12381"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "I fret less with files organised into spreads individually (4-10)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -347,9 +296,6 @@ window.CRYPTIC_PUZZLES["independent-12381"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Allege friend oddly looked like a creep (6)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "LEERED",
    "annotation": null
@@ -364,9 +310,6 @@ window.CRYPTIC_PUZZLES["independent-12381"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "One cracking grin, perhaps as happy as Larry (6)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "SIMILE",
    "annotation": null
@@ -381,9 +324,6 @@ window.CRYPTIC_PUZZLES["independent-12381"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "It may help you with digital security (9,5)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {
     ",": [
      9
@@ -402,9 +342,6 @@ window.CRYPTIC_PUZZLES["independent-12381"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Quince takes job on retirement, stressful work (4)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "POEM",
    "annotation": null
@@ -419,9 +356,6 @@ window.CRYPTIC_PUZZLES["independent-12381"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Maybe onion on the counter makes you cry (4)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "BLUB",
    "annotation": null
@@ -436,9 +370,6 @@ window.CRYPTIC_PUZZLES["independent-12381"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "The man goes round a square in Rome where it's busy (4)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "HIVE",
    "annotation": null
@@ -453,9 +384,6 @@ window.CRYPTIC_PUZZLES["independent-12381"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Something in Tinder pictures is not quite right? (5,5)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {
     ",": [
      5

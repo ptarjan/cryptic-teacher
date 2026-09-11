@@ -24,9 +24,6 @@ window.CRYPTIC_PUZZLES["cryptic-30052"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Scold or preach conversion (8)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "REPROACH",
    "annotation": {
@@ -68,9 +65,6 @@ window.CRYPTIC_PUZZLES["cryptic-30052"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Magazine’s obligation to describe source of material (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "TIME",
    "annotation": {
@@ -119,9 +113,6 @@ window.CRYPTIC_PUZZLES["cryptic-30052"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "What even number is divided by 5000? (6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "PARDON",
    "annotation": {
@@ -170,9 +161,6 @@ window.CRYPTIC_PUZZLES["cryptic-30052"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Iron Lady’s bored by acting Tory leader’s ‘soft touch’ (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "FEATHER",
    "annotation": {
@@ -223,9 +211,6 @@ window.CRYPTIC_PUZZLES["cryptic-30052"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Country rejects American PR (4)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "SPIN",
    "annotation": {
@@ -267,9 +252,6 @@ window.CRYPTIC_PUZZLES["cryptic-30052"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "10 hide under end of divan, trembling (10)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "UNHINDERED",
    "annotation": {
@@ -318,9 +300,6 @@ window.CRYPTIC_PUZZLES["cryptic-30052"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Transfer money (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "CHANGE",
    "annotation": {
@@ -355,9 +334,6 @@ window.CRYPTIC_PUZZLES["cryptic-30052"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Fine food store providing meals 50% off (8)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {},
    "solution": "DELICATE",
    "annotation": {
@@ -405,9 +381,6 @@ window.CRYPTIC_PUZZLES["cryptic-30052"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Wordplay by church magazine in the past (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "PUNCH",
    "annotation": {
@@ -448,9 +421,6 @@ window.CRYPTIC_PUZZLES["cryptic-30052"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Release knot after cycling (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "FREE",
    "annotation": {
@@ -487,9 +457,6 @@ window.CRYPTIC_PUZZLES["cryptic-30052"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "50 leave prayers over 10 school punishments? (10)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "DETENTIONS",
    "annotation": {
@@ -540,9 +507,6 @@ window.CRYPTIC_PUZZLES["cryptic-30052"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Lord caught being unproductive (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "BARREN",
    "annotation": {
@@ -580,9 +544,6 @@ window.CRYPTIC_PUZZLES["cryptic-30052"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Stopping official education ignoring tense (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "REFRAINING",
    "annotation": {
@@ -630,9 +591,6 @@ window.CRYPTIC_PUZZLES["cryptic-30052"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Half of them plot to protect cricket match represented (8)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "EMBODIED",
    "annotation": {
@@ -684,9 +642,6 @@ window.CRYPTIC_PUZZLES["cryptic-30052"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Beauty product to go in container (3)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "BOX",
    "annotation": {
@@ -731,9 +686,6 @@ window.CRYPTIC_PUZZLES["cryptic-30052"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Prepare to deal in Harlem, maybe (7)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "SHUFFLE",
    "annotation": {
@@ -769,9 +721,6 @@ window.CRYPTIC_PUZZLES["cryptic-30052"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Guided light (3)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "LED",
    "annotation": {
@@ -806,9 +755,6 @@ window.CRYPTIC_PUZZLES["cryptic-30052"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Ruler deports 1,000 to win vote, say (7)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "EXPRESS",
    "annotation": {
@@ -859,9 +805,6 @@ window.CRYPTIC_PUZZLES["cryptic-30052"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Foolish to steal ten pounds without a sound (8)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "SILENTLY",
    "annotation": {
@@ -913,9 +856,6 @@ window.CRYPTIC_PUZZLES["cryptic-30052"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Take defensive position as grenade’s thrown (2,5)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -965,9 +905,6 @@ window.CRYPTIC_PUZZLES["cryptic-30052"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Occasional cricket sides (3,3,2)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -1008,9 +945,6 @@ window.CRYPTIC_PUZZLES["cryptic-30052"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Demons? Companions, run away! (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "FIENDS",
    "annotation": {
@@ -1052,9 +986,6 @@ window.CRYPTIC_PUZZLES["cryptic-30052"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Wearing white, England finally get 500 with sweep (6)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "PADDLE",
    "annotation": {
@@ -1109,9 +1040,6 @@ window.CRYPTIC_PUZZLES["cryptic-30052"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Stop going both ways? (4-2)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -1158,9 +1086,6 @@ window.CRYPTIC_PUZZLES["cryptic-30052"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "One in court sent in criminal to get shot (6,4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -1216,9 +1141,6 @@ window.CRYPTIC_PUZZLES["cryptic-30052"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Society backing favourite way to go up in the world (4)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "STEP",
    "annotation": {
@@ -1267,9 +1189,6 @@ window.CRYPTIC_PUZZLES["cryptic-30052"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Wide initially given following batting side (4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "WING",
    "annotation": {
@@ -1318,9 +1237,6 @@ window.CRYPTIC_PUZZLES["cryptic-30052"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Creature of indeterminate gender? (4)",
-   "group": [
-    "26-down"
-   ],
    "separatorLocations": {},
    "solution": "WORM",
    "annotation": {
@@ -1364,9 +1280,6 @@ window.CRYPTIC_PUZZLES["cryptic-30052"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Perhaps Hamlet seizes Claudius’s crown in play (5)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "DANCE",
    "annotation": {
@@ -1415,9 +1328,6 @@ window.CRYPTIC_PUZZLES["cryptic-30052"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "‘Beats drinking alcohol’ – aristocrat on reflection with slice of lemon (4,4)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {
     ",": [
      4

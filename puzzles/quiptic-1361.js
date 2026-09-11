@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1361"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Status of lager and porter perhaps in battle of the beers? (6,6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -46,9 +43,6 @@ window.CRYPTIC_PUZZLES["quiptic-1361"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Interrupts victim over offence (5,2)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -67,9 +61,6 @@ window.CRYPTIC_PUZZLES["quiptic-1361"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Thomas occasionally stops working with these creeps (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "TOADIES",
    "annotation": null
@@ -84,9 +75,6 @@ window.CRYPTIC_PUZZLES["quiptic-1361"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "In Devon, he set out for big city (9)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "EINDHOVEN",
    "annotation": null
@@ -101,9 +89,6 @@ window.CRYPTIC_PUZZLES["quiptic-1361"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Quarrelled when posting up some codewords (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "ROWED",
    "annotation": null
@@ -118,9 +103,6 @@ window.CRYPTIC_PUZZLES["quiptic-1361"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Break instrument giving it hollow timbre (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "VIOLATE",
    "annotation": null
@@ -135,9 +117,6 @@ window.CRYPTIC_PUZZLES["quiptic-1361"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "A horse carrying fat is a slow one (7)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "LAGGARD",
    "annotation": null
@@ -152,9 +131,6 @@ window.CRYPTIC_PUZZLES["quiptic-1361"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Undemanding book turned over makes it easier on the eye (5,7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -173,9 +149,6 @@ window.CRYPTIC_PUZZLES["quiptic-1361"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "On the way home by coach (2,5)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -194,9 +167,6 @@ window.CRYPTIC_PUZZLES["quiptic-1361"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Criminal’s gun worn out (5,2)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -215,9 +185,6 @@ window.CRYPTIC_PUZZLES["quiptic-1361"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Charlie and Victor create personal history using it (4,8)",
-   "group": [
-    "10-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -236,9 +203,6 @@ window.CRYPTIC_PUZZLES["quiptic-1361"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Drug causes his getting covered in mess (7)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "HASHISH",
    "annotation": null
@@ -253,9 +217,6 @@ window.CRYPTIC_PUZZLES["quiptic-1361"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Pull legislation related to TV show? (4,3)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -274,9 +235,6 @@ window.CRYPTIC_PUZZLES["quiptic-1361"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Puts order on military divisions? (5)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "RANKS",
    "annotation": null
@@ -291,9 +249,6 @@ window.CRYPTIC_PUZZLES["quiptic-1361"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Half-baked notion EU gave aid at random (5,4)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -312,9 +267,6 @@ window.CRYPTIC_PUZZLES["quiptic-1361"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Superior source of freshwater? (5,4)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -333,9 +285,6 @@ window.CRYPTIC_PUZZLES["quiptic-1361"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Health service asset pursued by unscrupulous law firms (9)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "AMBULANCE",
    "annotation": null
@@ -350,9 +299,6 @@ window.CRYPTIC_PUZZLES["quiptic-1361"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Raised words due to awful libel about artist … (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "BRAILLE",
    "annotation": null
@@ -367,9 +313,6 @@ window.CRYPTIC_PUZZLES["quiptic-1361"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "… a musician being noisy having inhaled half of reefer (3,4)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -388,9 +331,6 @@ window.CRYPTIC_PUZZLES["quiptic-1361"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Embrace son that’s been taken in hand (5)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "CLASP",
    "annotation": null
@@ -405,9 +345,6 @@ window.CRYPTIC_PUZZLES["quiptic-1361"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Fast food outlet puts flake on pastry (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "CHIPPIE",
    "annotation": null
@@ -422,9 +359,6 @@ window.CRYPTIC_PUZZLES["quiptic-1361"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Everyone’s welcoming singular type of precipitation (3,4)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -443,9 +377,6 @@ window.CRYPTIC_PUZZLES["quiptic-1361"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Urinals shut in the centre? Very loudly becomes annoyed (2,1,4)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -465,9 +396,6 @@ window.CRYPTIC_PUZZLES["quiptic-1361"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Risk initiating fall lifting your elderly relative (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "FLYER",
    "annotation": null
@@ -482,9 +410,6 @@ window.CRYPTIC_PUZZLES["quiptic-1361"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Outing by meadow gets the best rating (6,1)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -503,9 +428,6 @@ window.CRYPTIC_PUZZLES["quiptic-1361"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Where art is largely represented (7)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "GALLERY",
    "annotation": null
@@ -520,9 +442,6 @@ window.CRYPTIC_PUZZLES["quiptic-1361"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Calm down gorilla by feeding it some vegetables? (7)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "APPEASE",
    "annotation": null
@@ -537,9 +456,6 @@ window.CRYPTIC_PUZZLES["quiptic-1361"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Sex show lets people know what’s expected (6,6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {
     ",": [
      6

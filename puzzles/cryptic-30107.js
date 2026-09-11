@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30107"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Slur sees liberal undone after having got elected (8)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "INNUENDO",
    "annotation": null
@@ -62,9 +59,6 @@ window.CRYPTIC_PUZZLES["cryptic-30107"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Daredevil bats taking cover (6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "MADCAP",
    "annotation": null
@@ -79,9 +73,6 @@ window.CRYPTIC_PUZZLES["cryptic-30107"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Dumber pants, a forerunner of shorts? (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "BERMUDA",
    "annotation": null
@@ -96,9 +87,6 @@ window.CRYPTIC_PUZZLES["cryptic-30107"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "In respect of failing to start a Latin exam (4)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "ORAL",
    "annotation": null
@@ -113,9 +101,6 @@ window.CRYPTIC_PUZZLES["cryptic-30107"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "‘Green’s getting stony!’ – a familiar complaint (6,4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -134,9 +119,6 @@ window.CRYPTIC_PUZZLES["cryptic-30107"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Wine component almost turning brown! (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "TANNIN",
    "annotation": null
@@ -151,9 +133,6 @@ window.CRYPTIC_PUZZLES["cryptic-30107"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Rather personal hint (8)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {},
    "solution": "INTIMATE",
    "annotation": null
@@ -168,9 +147,6 @@ window.CRYPTIC_PUZZLES["cryptic-30107"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Wine jar adapted to store a frigid body (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "RIOJA",
    "annotation": null
@@ -227,9 +203,6 @@ window.CRYPTIC_PUZZLES["cryptic-30107"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Rejected premier with expert going round north to make a pitch (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "ENCAMP",
    "annotation": null
@@ -244,9 +217,6 @@ window.CRYPTIC_PUZZLES["cryptic-30107"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Under a terrible strain, man is scathing (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "ASTRINGENT",
    "annotation": null
@@ -261,9 +231,6 @@ window.CRYPTIC_PUZZLES["cryptic-30107"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Testifier calls for reduction to include page 1 (8)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "DEPONENT",
    "annotation": null
@@ -278,9 +245,6 @@ window.CRYPTIC_PUZZLES["cryptic-30107"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Groundbreaker’s rejected last quarter’s image (3)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "PIC",
    "annotation": null
@@ -295,9 +259,6 @@ window.CRYPTIC_PUZZLES["cryptic-30107"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "The craft of stirring kith and kin with love (not hard) (3-4)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -316,9 +277,6 @@ window.CRYPTIC_PUZZLES["cryptic-30107"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Agreed to return one’s pet fish (3)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "KOI",
    "annotation": null
@@ -333,9 +291,6 @@ window.CRYPTIC_PUZZLES["cryptic-30107"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "A college matter, for the record (7)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "ACCOUNT",
    "annotation": null
@@ -350,9 +305,6 @@ window.CRYPTIC_PUZZLES["cryptic-30107"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Plain refusal by father to take on troubles (2-6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {
     "-": [
      2
@@ -371,9 +323,6 @@ window.CRYPTIC_PUZZLES["cryptic-30107"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Officer has to revere virtually everybody? Not quite (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "ADMIRAL",
    "annotation": null
@@ -388,9 +337,6 @@ window.CRYPTIC_PUZZLES["cryptic-30107"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Hardened, sibilant vocalist’s ‘turned into the Prince of Darkness’? (8)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "OSSIFIED",
    "annotation": null
@@ -405,9 +351,6 @@ window.CRYPTIC_PUZZLES["cryptic-30107"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Stylish, small disposable pad (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "SNAPPY",
    "annotation": null
@@ -422,9 +365,6 @@ window.CRYPTIC_PUZZLES["cryptic-30107"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Reform’s ‘no extremist’ condition meets with dismay ultimately (6)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "MODIFY",
    "annotation": null
@@ -444,9 +384,6 @@ window.CRYPTIC_PUZZLES["cryptic-30107"] = /*JSON-START*/ {
      22,
      1
     ]
-   ],
-   "group": [
-    "23-down"
    ],
    "separatorLocations": {},
    "solution": "MIGHTY",
@@ -526,9 +463,6 @@ window.CRYPTIC_PUZZLES["cryptic-30107"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Cheese-maker’s dog food tip (4)",
-   "group": [
-    "26-down"
-   ],
    "separatorLocations": {},
    "solution": "CURD",
    "annotation": null
@@ -543,9 +477,6 @@ window.CRYPTIC_PUZZLES["cryptic-30107"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Lowbrow entertainment – Gasp! Exclamation! (5)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "PANTO",
    "annotation": null
@@ -560,9 +491,6 @@ window.CRYPTIC_PUZZLES["cryptic-30107"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Stabilising article by online pest suppressing ego (4-4)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {
     "-": [
      4

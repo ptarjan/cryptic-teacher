@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1820"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Child's organiser contains letters about assembly (10)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "PARLIAMENT",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["indysunday-1820"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Friend throughout the year (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "ALLY",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["indysunday-1820"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Spooner's noticed stolen goods in case (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "LAWSUIT",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["indysunday-1820"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Sortie with no parking, couples cycle (3,6)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -97,9 +85,6 @@ window.CRYPTIC_PUZZLES["indysunday-1820"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Stretch of Devon river full of vessels (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "EXPANSE",
    "annotation": null
@@ -114,9 +99,6 @@ window.CRYPTIC_PUZZLES["indysunday-1820"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Body temperature approximately (5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "TORSO",
    "annotation": null
@@ -131,9 +113,6 @@ window.CRYPTIC_PUZZLES["indysunday-1820"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Strike before 12 breaks record (4)",
-   "group": [
-    "7-across"
-   ],
    "separatorLocations": {},
    "solution": "LAMP",
    "annotation": null
@@ -148,9 +127,6 @@ window.CRYPTIC_PUZZLES["indysunday-1820"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Party girl ate nuts (5,2)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -169,9 +145,6 @@ window.CRYPTIC_PUZZLES["indysunday-1820"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Watch driver graduate before summer starts (10)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "MAINSPRING",
    "annotation": null
@@ -186,9 +159,6 @@ window.CRYPTIC_PUZZLES["indysunday-1820"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Telephone book diminished (6)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "BLOWER",
    "annotation": null
@@ -203,9 +173,6 @@ window.CRYPTIC_PUZZLES["indysunday-1820"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Painter opens wine, just the thing for painting? (8)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "PORTRAIT",
    "annotation": null
@@ -220,9 +187,6 @@ window.CRYPTIC_PUZZLES["indysunday-1820"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Old British car gives mojo to spy (6,6)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -241,9 +205,6 @@ window.CRYPTIC_PUZZLES["indysunday-1820"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Madonna beds German philosopher and later Roman general (4,6)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -262,9 +223,6 @@ window.CRYPTIC_PUZZLES["indysunday-1820"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Knot steadies New Yorker's hood (4,4)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -283,9 +241,6 @@ window.CRYPTIC_PUZZLES["indysunday-1820"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Firework you shouldn't have inside according to daughter (6)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "PETARD",
    "annotation": null
@@ -300,9 +255,6 @@ window.CRYPTIC_PUZZLES["indysunday-1820"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Tasty drink brought over on a board (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "PALATABLE",
    "annotation": null
@@ -317,9 +269,6 @@ window.CRYPTIC_PUZZLES["indysunday-1820"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "City spread jokes about Pep's termination (6)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "SKOPJE",
    "annotation": null
@@ -334,9 +283,6 @@ window.CRYPTIC_PUZZLES["indysunday-1820"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Squash blood under shoe (7)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "PUMPKIN",
    "annotation": null
@@ -351,9 +297,6 @@ window.CRYPTIC_PUZZLES["indysunday-1820"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Sort of rubber star wears still wet in odd places (8)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "SILICONE",
    "annotation": null
@@ -368,9 +311,6 @@ window.CRYPTIC_PUZZLES["indysunday-1820"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Old pictures on loan guarded by security service (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "SILENTS",
    "annotation": null
@@ -385,9 +325,6 @@ window.CRYPTIC_PUZZLES["indysunday-1820"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Dock where dog follows rat (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "CURTAIL",
    "annotation": null
@@ -402,9 +339,6 @@ window.CRYPTIC_PUZZLES["indysunday-1820"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Presumably all-female cult are changing terminology (12)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "NOMENCLATURE",
    "annotation": null
@@ -419,9 +353,6 @@ window.CRYPTIC_PUZZLES["indysunday-1820"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Governor thanked for hiding PM faced with revolting Americans (5)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "NORTH",
    "annotation": null
@@ -436,9 +367,6 @@ window.CRYPTIC_PUZZLES["indysunday-1820"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Wet seed that's no good (4)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "RAIN",
    "annotation": null
@@ -453,9 +381,6 @@ window.CRYPTIC_PUZZLES["indysunday-1820"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Spectator's running after large rugby player, having lost his head (6-2)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     "-": [
      6
@@ -474,9 +399,6 @@ window.CRYPTIC_PUZZLES["indysunday-1820"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Spoilt child claims Chad's inside India (6)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "BHARAT",
    "annotation": null
@@ -491,9 +413,6 @@ window.CRYPTIC_PUZZLES["indysunday-1820"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Song that guy heard (4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "HYMN",
    "annotation": null
@@ -508,9 +427,6 @@ window.CRYPTIC_PUZZLES["indysunday-1820"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "How's saving weight significant on a cheap holiday? (10)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "HOSTELLING",
    "annotation": null

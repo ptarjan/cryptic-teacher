@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1818"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Policeman having a threesome beginning to titillate fellow citizen (9)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "COPATRIOT",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["indysunday-1818"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Message bishop wearing lace pants (5)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "CABLE",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["indysunday-1818"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Spooner's sexy apostle is in difficulty (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "PITFALL",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["indysunday-1818"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "God, Norse, shows spine (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "THORN",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["indysunday-1818"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Begin perhaps boosting current king? Yes, in Madrid (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "ISRAELI",
    "annotation": null
@@ -110,9 +95,6 @@ window.CRYPTIC_PUZZLES["indysunday-1818"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Setter confused over Unionist politician's memorial for the fallen? (4,5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -131,9 +113,6 @@ window.CRYPTIC_PUZZLES["indysunday-1818"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Perhaps something in miniscule fragment of pretty pottery (4)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "TYPO",
    "annotation": null
@@ -148,9 +127,6 @@ window.CRYPTIC_PUZZLES["indysunday-1818"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Combined, like some soup containing whiskey? (7)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "TWINNED",
    "annotation": null
@@ -165,9 +141,6 @@ window.CRYPTIC_PUZZLES["indysunday-1818"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Pregnancy hormone for good developing isn't blocked by drug (9)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "PROGESTIN",
    "annotation": null
@@ -182,9 +155,6 @@ window.CRYPTIC_PUZZLES["indysunday-1818"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Austria hit by disorder returning in killers' domain (8)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {},
    "solution": "ABATTOIR",
    "annotation": null
@@ -199,9 +169,6 @@ window.CRYPTIC_PUZZLES["indysunday-1818"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Journalist's stream over, over, over at last (6)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "EDITOR",
    "annotation": null
@@ -216,9 +183,6 @@ window.CRYPTIC_PUZZLES["indysunday-1818"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Get back American trapped in African country undergoing revolution (6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "REGAIN",
    "annotation": null
@@ -233,9 +197,6 @@ window.CRYPTIC_PUZZLES["indysunday-1818"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Concentrates, being caught going in 3 directions, some more than once (8)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "ESSENCES",
    "annotation": null
@@ -250,9 +211,6 @@ window.CRYPTIC_PUZZLES["indysunday-1818"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Confused tot supervised (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "ADDLED",
    "annotation": null
@@ -267,9 +225,6 @@ window.CRYPTIC_PUZZLES["indysunday-1818"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Haggard book, perhaps, is something from the sewer? (5,4)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -288,9 +243,6 @@ window.CRYPTIC_PUZZLES["indysunday-1818"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Maybe loon meets chap following a different path (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "DIVERGENT",
    "annotation": null
@@ -305,9 +257,6 @@ window.CRYPTIC_PUZZLES["indysunday-1818"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Overwhelm single lady with vow of chastity at romantic encounter (8)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "INUNDATE",
    "annotation": null
@@ -322,9 +271,6 @@ window.CRYPTIC_PUZZLES["indysunday-1818"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Chinese right-wing politician initially regrets the result of over-indulging (8)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "HANGOVER",
    "annotation": null
@@ -339,9 +285,6 @@ window.CRYPTIC_PUZZLES["indysunday-1818"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "More magnificent kitchen implement picked up (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "GREATER",
    "annotation": null
@@ -356,9 +299,6 @@ window.CRYPTIC_PUZZLES["indysunday-1818"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Got better recipe combined (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "RALLIED",
    "annotation": null
@@ -373,9 +313,6 @@ window.CRYPTIC_PUZZLES["indysunday-1818"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Favourite pupil welcoming and unusually academic (6)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "PEDANT",
    "annotation": null
@@ -390,9 +327,6 @@ window.CRYPTIC_PUZZLES["indysunday-1818"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Beasts of burden put on islands (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "DONKEYS",
    "annotation": null
@@ -407,9 +341,6 @@ window.CRYPTIC_PUZZLES["indysunday-1818"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Constituent of popular Tory leader with substantial backing (8)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "INTEGRAL",
    "annotation": null
@@ -424,9 +355,6 @@ window.CRYPTIC_PUZZLES["indysunday-1818"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Rich, like lamb sauce? (6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "MINTED",
    "annotation": null
@@ -441,9 +369,6 @@ window.CRYPTIC_PUZZLES["indysunday-1818"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Slogan of TV comedy originally ignored, then taken up (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "MOTTO",
    "annotation": null
@@ -458,9 +383,6 @@ window.CRYPTIC_PUZZLES["indysunday-1818"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Delighted if your hosts strengthen spiritually (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "EDIFY",
    "annotation": null
@@ -475,9 +397,6 @@ window.CRYPTIC_PUZZLES["indysunday-1818"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "He's too drunk to be calm (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "SOOTHE",
    "annotation": null
@@ -492,9 +411,6 @@ window.CRYPTIC_PUZZLES["indysunday-1818"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Eccles printed out game (8)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "INTREPID",
    "annotation": null
@@ -509,9 +425,6 @@ window.CRYPTIC_PUZZLES["indysunday-1818"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Broadcaster with radical culture (4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "SKYR",
    "annotation": null
@@ -526,9 +439,6 @@ window.CRYPTIC_PUZZLES["indysunday-1818"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Solitude: year wasted in a boring manner (9)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "TEDIOUSLY",
    "annotation": null

@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1398"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "For example, a crow returning for rubbish (7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "GARBAGE",
    "annotation": {
@@ -86,9 +83,6 @@ window.CRYPTIC_PUZZLES["quiptic-1398"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Low-down on Earth, Sun, first person and Sabbath in here? (7)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "GENESIS",
    "annotation": {
@@ -151,9 +145,6 @@ window.CRYPTIC_PUZZLES["quiptic-1398"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "More impolite, I’d turned up, interrupting, becoming increasingly crimson (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "RUDDIER",
    "annotation": {
@@ -209,9 +200,6 @@ window.CRYPTIC_PUZZLES["quiptic-1398"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Entertain, dressed up as Emu (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "AMUSE",
    "annotation": {
@@ -249,9 +237,6 @@ window.CRYPTIC_PUZZLES["quiptic-1398"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Pleaded – hospital department responded with no heart (9)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "ENTREATED",
    "annotation": {
@@ -296,9 +281,6 @@ window.CRYPTIC_PUZZLES["quiptic-1398"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Those serving time ignored and left inside, they sound really upset! (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "WAILERS",
    "annotation": {
@@ -354,9 +336,6 @@ window.CRYPTIC_PUZZLES["quiptic-1398"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Moves fast and has casual sex with other partners, topless (5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "WINGS",
    "annotation": {
@@ -397,9 +376,6 @@ window.CRYPTIC_PUZZLES["quiptic-1398"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Current Rolls Royce, mega dull and dark on the inside – unusual (9)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "IRREGULAR",
    "annotation": {
@@ -464,9 +440,6 @@ window.CRYPTIC_PUZZLES["quiptic-1398"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Destruction of extract from dossier a surety (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "ERASURE",
    "annotation": {
@@ -504,9 +477,6 @@ window.CRYPTIC_PUZZLES["quiptic-1398"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "They offer spiritual healing without consuming meat (7)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "SHAMANS",
    "annotation": {
@@ -553,9 +523,6 @@ window.CRYPTIC_PUZZLES["quiptic-1398"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Money? Nothing for Spooner, surely (2,5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -606,9 +573,6 @@ window.CRYPTIC_PUZZLES["quiptic-1398"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Unit stripped, gunners commandeer vehicle to find ultimate destination? (7)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "NIRVANA",
    "annotation": {
@@ -664,9 +628,6 @@ window.CRYPTIC_PUZZLES["quiptic-1398"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Yellow Skittle eaten by tennis’s Monica, before beginning to serve (9)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "SPINELESS",
    "annotation": {
@@ -722,9 +683,6 @@ window.CRYPTIC_PUZZLES["quiptic-1398"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Nibbles of grapes, olives, unagi, dips and cheese (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "GOUDA",
    "annotation": {
@@ -767,9 +725,6 @@ window.CRYPTIC_PUZZLES["quiptic-1398"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Cancel massage after ‘50% off’ scam (5)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "SCRUB",
    "annotation": {
@@ -816,9 +771,6 @@ window.CRYPTIC_PUZZLES["quiptic-1398"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Money I waste, ultimately, on underwear (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "BRASSIERE",
    "annotation": {
@@ -876,9 +828,6 @@ window.CRYPTIC_PUZZLES["quiptic-1398"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Sensational stories of farm workers smuggling heroin end in disaster (9)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "THRILLERS",
    "annotation": {
@@ -934,9 +883,6 @@ window.CRYPTIC_PUZZLES["quiptic-1398"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Group study covering commercial Moon Hotel (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "RADIOHEAD",
    "annotation": {
@@ -994,9 +940,6 @@ window.CRYPTIC_PUZZLES["quiptic-1398"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Showed appreciation of papal dude dancing (9)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "APPLAUDED",
    "annotation": {
@@ -1037,9 +980,6 @@ window.CRYPTIC_PUZZLES["quiptic-1398"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Woke road use cultivated (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "AROUSED",
    "annotation": {
@@ -1078,9 +1018,6 @@ window.CRYPTIC_PUZZLES["quiptic-1398"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Grazing land on the other side of river (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "PASTURE",
    "annotation": {
@@ -1121,9 +1058,6 @@ window.CRYPTIC_PUZZLES["quiptic-1398"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Esteemed renegade journalist (5)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "RATED",
    "annotation": {
@@ -1164,9 +1098,6 @@ window.CRYPTIC_PUZZLES["quiptic-1398"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Couple Mummy Pig brought up in large book (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "TWOSOME",
    "annotation": {
@@ -1220,9 +1151,6 @@ window.CRYPTIC_PUZZLES["quiptic-1398"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Abandoned South American was no longer around (7)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "DISUSED",
    "annotation": {
@@ -1274,9 +1202,6 @@ window.CRYPTIC_PUZZLES["quiptic-1398"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Old donkey circling island watering hole (5)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "OASIS",
    "annotation": {
@@ -1328,9 +1253,6 @@ window.CRYPTIC_PUZZLES["quiptic-1398"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Contempt surrounding Greek character, Oscar, and the introduction of stinging arachnids (9)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "SCORPIONS",
    "annotation": {
@@ -1392,9 +1314,6 @@ window.CRYPTIC_PUZZLES["quiptic-1398"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "You and I set about making dessert (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "SWEET",
    "annotation": {
@@ -1442,9 +1361,6 @@ window.CRYPTIC_PUZZLES["quiptic-1398"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "First Muslim Prince rising to power (5)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "PRIMA",
    "annotation": {
@@ -1497,9 +1413,6 @@ window.CRYPTIC_PUZZLES["quiptic-1398"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Grasp Camilla, almost ousting individual from mass (7)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "SQUEEZE",
    "annotation": {
@@ -1554,9 +1467,6 @@ window.CRYPTIC_PUZZLES["quiptic-1398"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Newspaper bosses, those we’re indebted to, giving up career, exhausted (7)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "EDITORS",
    "annotation": {
@@ -1602,9 +1512,6 @@ window.CRYPTIC_PUZZLES["quiptic-1398"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Dutch saint, stabbed with twisted sword, as far in as possible (7)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "DEEPEST",
    "annotation": {
@@ -1663,9 +1570,6 @@ window.CRYPTIC_PUZZLES["quiptic-1398"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "No way out of here, badly need Dad (4,3)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {
     ",": [
      4

@@ -24,9 +24,6 @@ window.CRYPTIC_PUZZLES["cryptic-30044"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Scene of confusion, hearing organ accompanied by piano in piece (4,3)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -77,9 +74,6 @@ window.CRYPTIC_PUZZLES["cryptic-30044"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Consider taking bishop instead of rook in attempt to draw (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "BECKON",
    "annotation": {
@@ -124,9 +118,6 @@ window.CRYPTIC_PUZZLES["cryptic-30044"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Stop training or being coached, say, for a match? (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "ALIGHT",
    "annotation": {
@@ -162,9 +153,6 @@ window.CRYPTIC_PUZZLES["cryptic-30044"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Long for pamphlet on education cut (10)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "PROTRACTED",
    "annotation": {
@@ -209,9 +197,6 @@ window.CRYPTIC_PUZZLES["cryptic-30044"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Effective power used by moderate ethically (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "TEETH",
    "annotation": {
@@ -299,9 +284,6 @@ window.CRYPTIC_PUZZLES["cryptic-30044"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Article about state of India occurring immediately after that (9)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "THEREUPON",
    "annotation": {
@@ -350,9 +332,6 @@ window.CRYPTIC_PUZZLES["cryptic-30044"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Part of sail that mariners steer clear of (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "REEF",
    "annotation": {
@@ -386,9 +365,6 @@ window.CRYPTIC_PUZZLES["cryptic-30044"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "University closed in case this class has few students (8)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "TUTORIAL",
    "annotation": {
@@ -434,9 +410,6 @@ window.CRYPTIC_PUZZLES["cryptic-30044"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Orbits … more than once (8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "ELLIPSES",
    "annotation": {
@@ -470,9 +443,6 @@ window.CRYPTIC_PUZZLES["cryptic-30044"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Fabric, only some of which I notice (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "CHINO",
    "annotation": {
@@ -502,9 +472,6 @@ window.CRYPTIC_PUZZLES["cryptic-30044"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Basic conclusions of article reveal state of mind (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "ELEMENTAL",
    "annotation": {
@@ -569,9 +536,6 @@ window.CRYPTIC_PUZZLES["cryptic-30044"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Speaker’s role reversal? (4)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "TRAP",
    "annotation": {
@@ -615,9 +579,6 @@ window.CRYPTIC_PUZZLES["cryptic-30044"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Wrong to assume it’s hard to accept when chess player yields to opponent (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "UNWEARABLE",
    "annotation": {
@@ -662,9 +623,6 @@ window.CRYPTIC_PUZZLES["cryptic-30044"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Damage finish installed by inferior furniture designer (11)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "CHIPPENDALE",
    "annotation": {
@@ -710,9 +668,6 @@ window.CRYPTIC_PUZZLES["cryptic-30044"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Present information, evidence of problems with money originally gifted (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "INGENIOUS",
    "annotation": {
@@ -755,9 +710,6 @@ window.CRYPTIC_PUZZLES["cryptic-30044"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Aggrieved, having downed tools for strike (5,3)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -798,9 +750,6 @@ window.CRYPTIC_PUZZLES["cryptic-30044"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "A nameless minister demolished, point by point (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "SERIATIM",
    "annotation": {
@@ -844,9 +793,6 @@ window.CRYPTIC_PUZZLES["cryptic-30044"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Second Coming? It’s concerning, church embracing person writing in odd genre (2-9)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     "-": [
      2
@@ -906,9 +852,6 @@ window.CRYPTIC_PUZZLES["cryptic-30044"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "A character under pressure, temporarily free (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "PAROLE",
    "annotation": {
@@ -948,9 +891,6 @@ window.CRYPTIC_PUZZLES["cryptic-30044"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Succeeded, caught up in court action? (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "TENNIS",
    "annotation": {
@@ -996,9 +936,6 @@ window.CRYPTIC_PUZZLES["cryptic-30044"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Coverage for everyone in small family (4)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "SKIN",
    "annotation": {
@@ -1035,9 +972,6 @@ window.CRYPTIC_PUZZLES["cryptic-30044"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "A fury I once fomented, impossible to ignore (2-4-4)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     "-": [
      2,
@@ -1080,9 +1014,6 @@ window.CRYPTIC_PUZZLES["cryptic-30044"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Love letter specifying location I announced for plant (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "OXEYE",
    "annotation": {
@@ -1128,9 +1059,6 @@ window.CRYPTIC_PUZZLES["cryptic-30044"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Screen features as live broadcast (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "VEIL",
    "annotation": {
@@ -1168,9 +1096,6 @@ window.CRYPTIC_PUZZLES["cryptic-30044"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Option for better location for spectacles (2,3,4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -1209,9 +1134,6 @@ window.CRYPTIC_PUZZLES["cryptic-30044"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Toast former PM (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "BROWN",
    "annotation": {
@@ -1245,9 +1167,6 @@ window.CRYPTIC_PUZZLES["cryptic-30044"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Flat parts below domes in places of worship (7)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "TEMPLES",
    "annotation": {
@@ -1281,9 +1200,6 @@ window.CRYPTIC_PUZZLES["cryptic-30044"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Holes in European agreement about permit (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "EYELETS",
    "annotation": {

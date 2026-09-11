@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29943"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Just a quarter of this state would be fine (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "OKLAHOMA",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["cryptic-29943"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Note is circulated at the workplace (2-4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     "-": [
      2
@@ -63,9 +57,6 @@ window.CRYPTIC_PUZZLES["cryptic-29943"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "One high-flying fashionable poet (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "LARKIN",
    "annotation": null
@@ -80,9 +71,6 @@ window.CRYPTIC_PUZZLES["cryptic-29943"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Family should hope to move without pressure (9)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "HOUSEHOLD",
    "annotation": null
@@ -97,9 +85,6 @@ window.CRYPTIC_PUZZLES["cryptic-29943"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Party game for conservatoire professors? (7,6)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -118,9 +103,6 @@ window.CRYPTIC_PUZZLES["cryptic-29943"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Ranges of jewellery items (6)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "CHAINS",
    "annotation": null
@@ -135,9 +117,6 @@ window.CRYPTIC_PUZZLES["cryptic-29943"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Japanese work hard, assiduous in keeping up with the leaders (5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "HAIKU",
    "annotation": null
@@ -152,9 +131,6 @@ window.CRYPTIC_PUZZLES["cryptic-29943"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Lock away troublemaker, absolutely not set up (8)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "IMPRISON",
    "annotation": null
@@ -169,9 +145,6 @@ window.CRYPTIC_PUZZLES["cryptic-29943"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Fast mover, first in shop to collect computer equipment (8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "SPRINTER",
    "annotation": null
@@ -186,9 +159,6 @@ window.CRYPTIC_PUZZLES["cryptic-29943"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "He provided waltzes as Truss danced (7)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "STRAUSS",
    "annotation": null
@@ -203,9 +173,6 @@ window.CRYPTIC_PUZZLES["cryptic-29943"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Briskly cheerful person preparing potatoes? (7)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "CHIPPER",
    "annotation": null
@@ -220,9 +187,6 @@ window.CRYPTIC_PUZZLES["cryptic-29943"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Soon abort scan, having broken instrument (13)",
-   "group": [
-    "10-down"
-   ],
    "separatorLocations": {},
    "solution": "CONTRABASSOON",
    "annotation": null
@@ -237,9 +201,6 @@ window.CRYPTIC_PUZZLES["cryptic-29943"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "So shy after being bitten? (5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "TWICE",
    "annotation": null
@@ -254,9 +215,6 @@ window.CRYPTIC_PUZZLES["cryptic-29943"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Roman soldier expecting congratulatory telegram? (9)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "CENTURION",
    "annotation": null
@@ -271,9 +229,6 @@ window.CRYPTIC_PUZZLES["cryptic-29943"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Arrested advocate for peace getting the bird (8,4)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -292,9 +247,6 @@ window.CRYPTIC_PUZZLES["cryptic-29943"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Not scared to relocate here? (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "DONCASTER",
    "annotation": null
@@ -309,9 +261,6 @@ window.CRYPTIC_PUZZLES["cryptic-29943"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "One dies in court, making a point (4,4)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -330,9 +279,6 @@ window.CRYPTIC_PUZZLES["cryptic-29943"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Hearing test (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "AUDITION",
    "annotation": null
@@ -347,9 +293,6 @@ window.CRYPTIC_PUZZLES["cryptic-29943"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "What you don’t see when driving is crazy (5,3,4)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {
     ",": [
      5,
@@ -369,9 +312,6 @@ window.CRYPTIC_PUZZLES["cryptic-29943"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Band, note, played at funfair (6)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "HOOPLA",
    "annotation": null
@@ -386,9 +326,6 @@ window.CRYPTIC_PUZZLES["cryptic-29943"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Scots girl has energy after cold drink (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "LASSIE",
    "annotation": null
@@ -403,9 +340,6 @@ window.CRYPTIC_PUZZLES["cryptic-29943"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Prudish stars get together for elections (9)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "PRIMARIES",
    "annotation": null
@@ -420,9 +354,6 @@ window.CRYPTIC_PUZZLES["cryptic-29943"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "A mortgage said to be unique (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "ALONE",
    "annotation": null
@@ -437,9 +368,6 @@ window.CRYPTIC_PUZZLES["cryptic-29943"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "A traveller’s distinctive fragrance (5)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "AROMA",
    "annotation": null
@@ -454,9 +382,6 @@ window.CRYPTIC_PUZZLES["cryptic-29943"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Outrageously wicked criminal in house (7)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "HEINOUS",
    "annotation": null
@@ -471,9 +396,6 @@ window.CRYPTIC_PUZZLES["cryptic-29943"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "After a few weeks, work for an army type? (7)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "OCTOPUS",
    "annotation": null
@@ -488,9 +410,6 @@ window.CRYPTIC_PUZZLES["cryptic-29943"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Youthful follower of steam engines (6)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "TENDER",
    "annotation": null
@@ -505,9 +424,6 @@ window.CRYPTIC_PUZZLES["cryptic-29943"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "In credit, comfort is to grow (8)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "INCREASE",
    "annotation": null

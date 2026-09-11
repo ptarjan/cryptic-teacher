@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1862"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Partner secures uncut supply just in time (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "PUNCTUAL",
    "annotation": {
@@ -79,9 +76,6 @@ window.CRYPTIC_PUZZLES["indysunday-1862"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Link to website with pound off new vase (3)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "URN",
    "annotation": {
@@ -129,9 +123,6 @@ window.CRYPTIC_PUZZLES["indysunday-1862"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Divided 100 by zero (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "CLOVE",
    "annotation": {
@@ -171,9 +162,6 @@ window.CRYPTIC_PUZZLES["indysunday-1862"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "In secret, run over code leaving nothing suspect (10)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "UNDERCOVER",
    "annotation": {
@@ -217,9 +205,6 @@ window.CRYPTIC_PUZZLES["indysunday-1862"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Dormant in insect net, a locust turned up (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "LATENT",
    "annotation": {
@@ -261,9 +246,6 @@ window.CRYPTIC_PUZZLES["indysunday-1862"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "I'm so taken aback by volume of the Universe (6)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "COSMIC",
    "annotation": {
@@ -313,9 +295,6 @@ window.CRYPTIC_PUZZLES["indysunday-1862"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Thoroughly search male nutcases (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "COMB",
    "annotation": {
@@ -359,9 +338,6 @@ window.CRYPTIC_PUZZLES["indysunday-1862"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Squeezes weed into cut flowers at last (9)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "SHOEHORNS",
    "annotation": {
@@ -413,9 +389,6 @@ window.CRYPTIC_PUZZLES["indysunday-1862"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Doctor Watson - a nice scientist (5,6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -456,9 +429,6 @@ window.CRYPTIC_PUZZLES["indysunday-1862"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Embrace ten times after taking the lead (6)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "ENFOLD",
    "annotation": {
@@ -495,9 +465,6 @@ window.CRYPTIC_PUZZLES["indysunday-1862"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Member with gold duck houses is only lasting a short time (8)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "TEMPORAL",
    "annotation": {
@@ -550,9 +517,6 @@ window.CRYPTIC_PUZZLES["indysunday-1862"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Number one accepts erring badly will get the bird (9)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "PEREGRINE",
    "annotation": {
@@ -607,9 +571,6 @@ window.CRYPTIC_PUZZLES["indysunday-1862"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Bowler's developing with age, experience at either end, and hard work (5,6)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -662,9 +623,6 @@ window.CRYPTIC_PUZZLES["indysunday-1862"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Ken's going off yellow style (4)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "CHIC",
    "annotation": {
@@ -706,9 +664,6 @@ window.CRYPTIC_PUZZLES["indysunday-1862"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Official left \"Out of Order\" notice for consideration (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "REFLECTION",
    "annotation": {
@@ -766,9 +721,6 @@ window.CRYPTIC_PUZZLES["indysunday-1862"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Actor's not Polish revolutionary (6)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "BURTON",
    "annotation": {
@@ -821,9 +773,6 @@ window.CRYPTIC_PUZZLES["indysunday-1862"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Restorer picked up French car with tax overhead reimbursed up-front (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "RENOVATOR",
    "annotation": {
@@ -875,9 +824,6 @@ window.CRYPTIC_PUZZLES["indysunday-1862"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "What's reversing behind big black car? (6)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "HEARSE",
    "annotation": {
@@ -926,9 +872,6 @@ window.CRYPTIC_PUZZLES["indysunday-1862"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Show in Nero's boxing champion (6)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "WINNER",
    "annotation": {
@@ -962,9 +905,6 @@ window.CRYPTIC_PUZZLES["indysunday-1862"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "What 18 didn't do in the middle of court recess (6)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "CLOSET",
    "annotation": {
@@ -1008,9 +948,6 @@ window.CRYPTIC_PUZZLES["indysunday-1862"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Back in Gotham, requested description of Batman and Robin? (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "MASKED",
    "annotation": {
@@ -1054,9 +991,6 @@ window.CRYPTIC_PUZZLES["indysunday-1862"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Go naked to party (4)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "RAVE",
    "annotation": {
@@ -1096,9 +1030,6 @@ window.CRYPTIC_PUZZLES["indysunday-1862"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Authorises international punishment (9)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "SANCTIONS",
    "annotation": {
@@ -1133,9 +1064,6 @@ window.CRYPTIC_PUZZLES["indysunday-1862"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Elected essentially dangerous, vacuous President? Hopeless! (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "INEPT",
    "annotation": {
@@ -1186,9 +1114,6 @@ window.CRYPTIC_PUZZLES["indysunday-1862"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Store Greek character wants up North (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "SILO",
    "annotation": {
@@ -1235,9 +1160,6 @@ window.CRYPTIC_PUZZLES["indysunday-1862"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Deception by bowler might produce this? (3,5)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -1278,9 +1200,6 @@ window.CRYPTIC_PUZZLES["indysunday-1862"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Reserve trimmed steak and refreshing drink (3,3)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -1330,9 +1249,6 @@ window.CRYPTIC_PUZZLES["indysunday-1862"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Green manure covers hedges (3)",
-   "group": [
-    "27-down"
-   ],
    "separatorLocations": {},
    "solution": "ECO",
    "annotation": {
@@ -1366,9 +1282,6 @@ window.CRYPTIC_PUZZLES["indysunday-1862"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Oddball rector interrupts wedding vow after draining wine (6)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "WEIRDO",
    "annotation": {
@@ -1423,9 +1336,6 @@ window.CRYPTIC_PUZZLES["indysunday-1862"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Provide state aid (8)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "DONATION",
    "annotation": {

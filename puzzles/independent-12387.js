@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12387"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Mog hugging Republican after rally? Not his type! (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "DEMOCRAT",
    "annotation": {
@@ -80,9 +77,6 @@ window.CRYPTIC_PUZZLES["independent-12387"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Produce weapon and charge around (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "DRAW",
    "annotation": {
@@ -129,9 +123,6 @@ window.CRYPTIC_PUZZLES["independent-12387"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Compost often coats landscaper's nose (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "MULCH",
    "annotation": {
@@ -178,9 +169,6 @@ window.CRYPTIC_PUZZLES["independent-12387"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Strange erect gait that could harm your health (9)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "CIGARETTE",
    "annotation": {
@@ -224,9 +212,6 @@ window.CRYPTIC_PUZZLES["independent-12387"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Curry house potatoes, fine cold (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "ALOOF",
    "annotation": {
@@ -265,9 +250,6 @@ window.CRYPTIC_PUZZLES["independent-12387"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Fear of Asian soup mostly prejudice (6)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "PHOBIA",
    "annotation": {
@@ -314,9 +296,6 @@ window.CRYPTIC_PUZZLES["independent-12387"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "People working both sides of Harrods? (5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "HANDS",
    "annotation": {
@@ -361,9 +340,6 @@ window.CRYPTIC_PUZZLES["independent-12387"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Brummie dish with added port (9)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "BALTIMORE",
    "annotation": {
@@ -405,9 +381,6 @@ window.CRYPTIC_PUZZLES["independent-12387"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "They're confused with data set (2,3,5)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -463,9 +436,6 @@ window.CRYPTIC_PUZZLES["independent-12387"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Complete ogre sorted quickly (7)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "ALLEGRO",
    "annotation": {
@@ -515,9 +485,6 @@ window.CRYPTIC_PUZZLES["independent-12387"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Belt out maybe with rented vest (7)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "SINGLET",
    "annotation": {
@@ -564,9 +531,6 @@ window.CRYPTIC_PUZZLES["independent-12387"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Use a browser link, looking up excessive amount (7)",
-   "group": [
-    "10-down"
-   ],
    "separatorLocations": {},
    "solution": "SURFEIT",
    "annotation": {
@@ -616,9 +580,6 @@ window.CRYPTIC_PUZZLES["independent-12387"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Present president's take on English county (13)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "HEREFORDSHIRE",
    "annotation": {
@@ -663,9 +624,6 @@ window.CRYPTIC_PUZZLES["independent-12387"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Top star of opera cut over drink (10)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {},
    "solution": "CAPPUCCINO",
    "annotation": {
@@ -715,9 +673,6 @@ window.CRYPTIC_PUZZLES["independent-12387"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "A huge cruise stop? (5)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "AVAST",
    "annotation": {
@@ -757,9 +712,6 @@ window.CRYPTIC_PUZZLES["independent-12387"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Rock frontman eviscerated legally with conviction (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "ADAMANTLY",
    "annotation": {
@@ -803,9 +755,6 @@ window.CRYPTIC_PUZZLES["independent-12387"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Conductor to choose right composition (9)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "ELECTRODE",
    "annotation": {
@@ -850,9 +799,6 @@ window.CRYPTIC_PUZZLES["independent-12387"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Person booted from Genesis before others peak (7)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "EVEREST",
    "annotation": {
@@ -896,9 +842,6 @@ window.CRYPTIC_PUZZLES["independent-12387"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Flat tuba ultimately ruined live set for diners (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "TABLEWARE",
    "annotation": {
@@ -948,9 +891,6 @@ window.CRYPTIC_PUZZLES["independent-12387"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Endless amusement with setter setting (9)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "PLACEMENT",
    "annotation": {
@@ -997,9 +937,6 @@ window.CRYPTIC_PUZZLES["independent-12387"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Mix up introductory letter from bank and loan (5)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "BLEND",
    "annotation": {
@@ -1046,9 +983,6 @@ window.CRYPTIC_PUZZLES["independent-12387"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Cheesy samples arranged in French way (6,7)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -1098,9 +1032,6 @@ window.CRYPTIC_PUZZLES["independent-12387"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Given face down (5)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "PRONE",
    "annotation": {
@@ -1136,9 +1067,6 @@ window.CRYPTIC_PUZZLES["independent-12387"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Current ruptures your once capsized boat (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "YACHT",
    "annotation": {
@@ -1191,9 +1119,6 @@ window.CRYPTIC_PUZZLES["independent-12387"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Quiet thing taking animals from the water? (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "SHARK",
    "annotation": {
@@ -1233,9 +1158,6 @@ window.CRYPTIC_PUZZLES["independent-12387"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Survive with bit of cereal (4)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "WEAR",
    "annotation": {
@@ -1274,9 +1196,6 @@ window.CRYPTIC_PUZZLES["independent-12387"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Regularly disappearing in nature, or into prayer (7)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "INTROIT",
    "annotation": {
@@ -1320,9 +1239,6 @@ window.CRYPTIC_PUZZLES["independent-12387"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Tea grader outwardly shunned pretence (7)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "CHARADE",
    "annotation": {
@@ -1366,9 +1282,6 @@ window.CRYPTIC_PUZZLES["independent-12387"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Cattle securing tails on violently passing gas (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "OXYGEN",
    "annotation": {
@@ -1415,9 +1328,6 @@ window.CRYPTIC_PUZZLES["independent-12387"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Footballer essentially out for each uncovered runner (8)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "STREAKER",
    "annotation": {

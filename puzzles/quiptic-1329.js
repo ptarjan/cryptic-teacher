@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1329"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Several deliveries given by girl’s transport (7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "OVERJOY",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["quiptic-1329"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Hold trophy in Olympic competitive yachting, initially (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "OCCUPY",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["quiptic-1329"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Antelopes secure between two points (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "ELANDS",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["quiptic-1329"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Pick up explosive transaction that may appeal to Cockney consumers (7,3)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -119,9 +107,6 @@ window.CRYPTIC_PUZZLES["quiptic-1329"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Close to involving London College of Energy? (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "NUCLEAR",
    "annotation": null
@@ -158,9 +143,6 @@ window.CRYPTIC_PUZZLES["quiptic-1329"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Young animal left sleeping like a baby? (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "COLT",
    "annotation": null
@@ -175,9 +157,6 @@ window.CRYPTIC_PUZZLES["quiptic-1329"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Below uncovered vent, potter about storehouse (8)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "ENTREPOT",
    "annotation": null
@@ -192,9 +171,6 @@ window.CRYPTIC_PUZZLES["quiptic-1329"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "International organisation studied broadcast before getting angry (3,5)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -213,9 +189,6 @@ window.CRYPTIC_PUZZLES["quiptic-1329"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Calf intermittently cut by cruel stroke (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "CRAWL",
    "annotation": null
@@ -230,9 +203,6 @@ window.CRYPTIC_PUZZLES["quiptic-1329"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Defective neutral and live, both ultimately having no connection (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "UNRELATED",
    "annotation": null
@@ -289,9 +259,6 @@ window.CRYPTIC_PUZZLES["quiptic-1329"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Sporting tournament – Saxons in it, somehow? (3,7)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -310,9 +277,6 @@ window.CRYPTIC_PUZZLES["quiptic-1329"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Double-dealing disgraceful university union primarily upset with politics (11)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "DUPLICITOUS",
    "annotation": null
@@ -347,9 +311,6 @@ window.CRYPTIC_PUZZLES["quiptic-1329"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Frays end of sleeve that’s less damaged externally (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "SCUFFLES",
    "annotation": null
@@ -364,9 +325,6 @@ window.CRYPTIC_PUZZLES["quiptic-1329"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "What takes turn to enter or leave? (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "DOORKNOB",
    "annotation": null
@@ -381,9 +339,6 @@ window.CRYPTIC_PUZZLES["quiptic-1329"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Inactive period concludes each 1st of September, 1st of October and 1st of November (5,6)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -402,9 +357,6 @@ window.CRYPTIC_PUZZLES["quiptic-1329"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Settle’s river entered by police (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "DECIDE",
    "annotation": null
@@ -419,9 +371,6 @@ window.CRYPTIC_PUZZLES["quiptic-1329"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Capital ‘A’ and also lowercase ‘s’ (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "ATHENS",
    "annotation": null
@@ -498,9 +447,6 @@ window.CRYPTIC_PUZZLES["quiptic-1329"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Partly open a receptacle (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "AJAR",
    "annotation": null
@@ -515,9 +461,6 @@ window.CRYPTIC_PUZZLES["quiptic-1329"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Official who decides what’s outside rulings of court? (4,5)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -536,9 +479,6 @@ window.CRYPTIC_PUZZLES["quiptic-1329"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Sheepish individual hides heart of evil (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "OVINE",
    "annotation": null
@@ -553,9 +493,6 @@ window.CRYPTIC_PUZZLES["quiptic-1329"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Not as tipsy as only half of root beers drunk (7)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "SOBERER",
    "annotation": null
@@ -570,9 +507,6 @@ window.CRYPTIC_PUZZLES["quiptic-1329"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Samples of daisies on time (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "TASTERS",
    "annotation": null

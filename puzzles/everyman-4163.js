@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4163"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Seminar's incoherent: that's close to a disaster (4,4)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -71,9 +68,6 @@ window.CRYPTIC_PUZZLES["everyman-4163"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Ribbon for simpleton (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "NOODLE",
    "annotation": {
@@ -111,9 +105,6 @@ window.CRYPTIC_PUZZLES["everyman-4163"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Coffee brewing, nice aroma (9)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "AMERICANO",
    "annotation": {
@@ -156,9 +147,6 @@ window.CRYPTIC_PUZZLES["everyman-4163"] = /*JSON-START*/ {
      7
     ]
    ],
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "MAESTRI",
    "annotation": {
@@ -195,9 +183,6 @@ window.CRYPTIC_PUZZLES["everyman-4163"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Perhaps a whisky with some ice cream, but not outstaying welcome (5,3,5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      5,
@@ -255,9 +240,6 @@ window.CRYPTIC_PUZZLES["everyman-4163"] = /*JSON-START*/ {
      8
     ]
    ],
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "AGHAST",
    "annotation": {
@@ -301,9 +283,6 @@ window.CRYPTIC_PUZZLES["everyman-4163"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Festivity with bore that's noble type (7)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "GALAHAD",
    "annotation": {
@@ -345,9 +324,6 @@ window.CRYPTIC_PUZZLES["everyman-4163"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Fear a long tentacle (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "ALARM",
    "annotation": {
@@ -391,9 +367,6 @@ window.CRYPTIC_PUZZLES["everyman-4163"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Serving of absinthe and espresso somewhere in S America (3,5)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -431,9 +404,6 @@ window.CRYPTIC_PUZZLES["everyman-4163"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Dueller's request: give me a mo (3,6,6)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -473,9 +443,6 @@ window.CRYPTIC_PUZZLES["everyman-4163"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "If I work hard, I get a little plaque (6,7)",
-   "group": [
-    "10-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -511,9 +478,6 @@ window.CRYPTIC_PUZZLES["everyman-4163"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Floral wreath that'll symbolise Hawaii, ultimately? (3)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "LEI",
    "annotation": {
@@ -552,9 +516,6 @@ window.CRYPTIC_PUZZLES["everyman-4163"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Quivering in autumn, thank young monarch (11)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "TUTANKHAMUN",
    "annotation": {
@@ -599,9 +560,6 @@ window.CRYPTIC_PUZZLES["everyman-4163"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Can I head off to find Spanish mansion? (8)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "HACIENDA",
    "annotation": {
@@ -641,9 +599,6 @@ window.CRYPTIC_PUZZLES["everyman-4163"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Nitwit implicated in horrid uncertainty (5)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "DUNCE",
    "annotation": {
@@ -677,9 +632,6 @@ window.CRYPTIC_PUZZLES["everyman-4163"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Boxer's injury: lobe needs to be treated (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "NOSEBLEED",
    "annotation": {
@@ -716,9 +668,6 @@ window.CRYPTIC_PUZZLES["everyman-4163"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Tot embraced by bunches of five enthusiasts (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "FADDISTS",
    "annotation": {
@@ -762,9 +711,6 @@ window.CRYPTIC_PUZZLES["everyman-4163"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "When choosing starters, alliums in oil, lemon intertwined ...? (5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "AIOLI",
    "annotation": {
@@ -805,9 +751,6 @@ window.CRYPTIC_PUZZLES["everyman-4163"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Arrived with US soldier, offered up torches (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "IGNITES",
    "annotation": {
@@ -859,9 +802,6 @@ window.CRYPTIC_PUZZLES["everyman-4163"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "S American writes start of erotic film in Hitchcock style (8)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "SUSPENSE",
    "annotation": {
@@ -919,9 +859,6 @@ window.CRYPTIC_PUZZLES["everyman-4163"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Back to destroy heroin in E London (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "ENDORSE",
    "annotation": {
@@ -967,9 +904,6 @@ window.CRYPTIC_PUZZLES["everyman-4163"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Preference to suppress dated Everyman gags, primarily unsavoury sort (3,3)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -1019,9 +953,6 @@ window.CRYPTIC_PUZZLES["everyman-4163"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Dug up abuse given to Milanese footballers (and one from Liverpool) (11)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "DISINTERRED",
    "annotation": {
@@ -1069,9 +1000,6 @@ window.CRYPTIC_PUZZLES["everyman-4163"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "While entertained by Jamaican music, do up Czech car (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "SKODA",
    "annotation": {
@@ -1128,9 +1056,6 @@ window.CRYPTIC_PUZZLES["everyman-4163"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Smell a snake (3)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "BOA",
    "annotation": {
@@ -1173,9 +1098,6 @@ window.CRYPTIC_PUZZLES["everyman-4163"] = /*JSON-START*/ {
      34,
      7
     ]
-   ],
-   "group": [
-    "25-across"
    ],
    "separatorLocations": {
     ",": [
@@ -1222,9 +1144,6 @@ window.CRYPTIC_PUZZLES["everyman-4163"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Practises boxing with Earl that's slight (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "SPARSE",
    "annotation": {
@@ -1266,9 +1185,6 @@ window.CRYPTIC_PUZZLES["everyman-4163"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Where you might find blanket, one you expect to lose? (8)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "UNDERDOG",
    "annotation": {

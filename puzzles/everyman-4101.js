@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4101"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Tyrant also asking for trouble in the end (4)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "OGRE",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["everyman-4101"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Foresight faulty - if accepting this! (4,5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -63,9 +57,6 @@ window.CRYPTIC_PUZZLES["everyman-4101"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "... but queen's entered passage (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "EXCERPT",
    "annotation": null
@@ -80,9 +71,6 @@ window.CRYPTIC_PUZZLES["everyman-4101"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Computer info that declares you should go out with that woman in the East End (4)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "DATA",
    "annotation": null
@@ -97,9 +85,6 @@ window.CRYPTIC_PUZZLES["everyman-4101"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Gemstone, one of 13 in a pack (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "DIAMOND",
    "annotation": null
@@ -114,9 +99,6 @@ window.CRYPTIC_PUZZLES["everyman-4101"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "List of data showing the Spanish bat how it sleeps (5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "TABLE",
    "annotation": null
@@ -131,9 +113,6 @@ window.CRYPTIC_PUZZLES["everyman-4101"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Rabbit on cake of potato or batter (6)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "WAFFLE",
    "annotation": null
@@ -148,9 +127,6 @@ window.CRYPTIC_PUZZLES["everyman-4101"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Peculiar offspring expected (4-2)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -169,9 +145,6 @@ window.CRYPTIC_PUZZLES["everyman-4101"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Mannered family that's often seen in horror films (10,5)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {
     ",": [
      10
@@ -190,9 +163,6 @@ window.CRYPTIC_PUZZLES["everyman-4101"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Tree crushes nuts in children's film (3,8)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -211,9 +181,6 @@ window.CRYPTIC_PUZZLES["everyman-4101"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Bureaucrats in AFL-CIO of dim bent (11)",
-   "group": [
-    "10-down"
-   ],
    "separatorLocations": {},
    "solution": "OFFICIALDOM",
    "annotation": null
@@ -228,9 +195,6 @@ window.CRYPTIC_PUZZLES["everyman-4101"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "New student, increasingly amorous (7)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "FRESHER",
    "annotation": null
@@ -245,9 +209,6 @@ window.CRYPTIC_PUZZLES["everyman-4101"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Perhaps Virginia's on our side? (3,2,2)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -267,9 +228,6 @@ window.CRYPTIC_PUZZLES["everyman-4101"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Denounced unbalanced tax decree (9)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "EXECRATED",
    "annotation": null
@@ -284,9 +242,6 @@ window.CRYPTIC_PUZZLES["everyman-4101"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Former prisoner; now a Labour supporter? (2-3)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     "-": [
      2
@@ -305,9 +260,6 @@ window.CRYPTIC_PUZZLES["everyman-4101"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Everyman, so we're told, ultimately skips exercise in which vision's impaired (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "EYESTRAIN",
    "annotation": null
@@ -322,9 +274,6 @@ window.CRYPTIC_PUZZLES["everyman-4101"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Philosopher, one from Yale mentioned in speech (5)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "LOCKE",
    "annotation": null
@@ -339,9 +288,6 @@ window.CRYPTIC_PUZZLES["everyman-4101"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "In Franglais, 'the voyage' is to suddenly increase speed (3,3)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -360,9 +306,6 @@ window.CRYPTIC_PUZZLES["everyman-4101"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Most of 'lamb gateau' declined somewhere in S America (9)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "GUATEMALA",
    "annotation": null
@@ -377,9 +320,6 @@ window.CRYPTIC_PUZZLES["everyman-4101"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Brute to leave everything, I swear, finally upset (7)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "GORILLA",
    "annotation": null
@@ -394,9 +334,6 @@ window.CRYPTIC_PUZZLES["everyman-4101"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Cooked sausage bringing calm (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "ASSUAGE",
    "annotation": null
@@ -411,9 +348,6 @@ window.CRYPTIC_PUZZLES["everyman-4101"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "So be it: detective sergeant offering atonement (6)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "AMENDS",
    "annotation": null
@@ -428,9 +362,6 @@ window.CRYPTIC_PUZZLES["everyman-4101"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Primarily, type wavily exercising rear, kept energetically rotating? (7)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "TWERKER",
    "annotation": null
@@ -445,9 +376,6 @@ window.CRYPTIC_PUZZLES["everyman-4101"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "A little dork is sympathetically affectionate (5)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "KISSY",
    "annotation": null
@@ -462,9 +390,6 @@ window.CRYPTIC_PUZZLES["everyman-4101"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Half-hearted idealist resolved to do nothing (3,4)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -483,9 +408,6 @@ window.CRYPTIC_PUZZLES["everyman-4101"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Classmate Darius misbehaving - I don't understand (3,2,5,2,3)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -507,9 +429,6 @@ window.CRYPTIC_PUZZLES["everyman-4101"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Gosh! Note! A talking bird ... (4)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "MYNA",
    "annotation": null
@@ -524,9 +443,6 @@ window.CRYPTIC_PUZZLES["everyman-4101"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "... never - never! - hiding a seabird (4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "ERNE",
    "annotation": null

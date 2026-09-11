@@ -24,9 +24,6 @@ window.CRYPTIC_PUZZLES["cryptic-30042"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Disappearance of Ganymede, say, short time before dawn (7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "MOONSET",
    "annotation": {
@@ -65,9 +62,6 @@ window.CRYPTIC_PUZZLES["cryptic-30042"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Beer swilling if not noble (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "MILORD",
    "annotation": {
@@ -107,9 +101,6 @@ window.CRYPTIC_PUZZLES["cryptic-30042"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Plants kiss where kiss planted, love coming first (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "OXLIPS",
    "annotation": {
@@ -154,9 +145,6 @@ window.CRYPTIC_PUZZLES["cryptic-30042"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Diabolical demon chose the other place? (6,4)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -198,9 +186,6 @@ window.CRYPTIC_PUZZLES["cryptic-30042"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Italian flower again chewed up? (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "TIBER",
    "annotation": {
@@ -239,9 +224,6 @@ window.CRYPTIC_PUZZLES["cryptic-30042"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Lighter article from France entered into poetry competition by Penny (3-4)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -292,9 +274,6 @@ window.CRYPTIC_PUZZLES["cryptic-30042"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "A grub seen wriggling in biology classes (9)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "SUBGENERA",
    "annotation": {
@@ -332,9 +311,6 @@ window.CRYPTIC_PUZZLES["cryptic-30042"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Empty pan? You fill vessel, finally (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "NULL",
    "annotation": {
@@ -370,9 +346,6 @@ window.CRYPTIC_PUZZLES["cryptic-30042"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Resident of nest, fly off graceful animal (8)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "ANTELOPE",
    "annotation": {
@@ -454,9 +427,6 @@ window.CRYPTIC_PUZZLES["cryptic-30042"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Colour I observed in ring given a twirl (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "LILAC",
    "annotation": {
@@ -501,9 +471,6 @@ window.CRYPTIC_PUZZLES["cryptic-30042"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Black then beat blue fluid for drink (6,3)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -555,9 +522,6 @@ window.CRYPTIC_PUZZLES["cryptic-30042"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Wow, the snuff taker has snuffed it! (10)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "RIPSNORTER",
    "annotation": {
@@ -594,9 +558,6 @@ window.CRYPTIC_PUZZLES["cryptic-30042"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Musical symbol split, briefly (4)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "CLEF",
    "annotation": {
@@ -629,9 +590,6 @@ window.CRYPTIC_PUZZLES["cryptic-30042"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Big jobs for a reporter journalist sniffed at (4-6)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -676,9 +634,6 @@ window.CRYPTIC_PUZZLES["cryptic-30042"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Anything but a high-flier for the guillotine, did you say? (11)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "HEDGEHOPPER",
    "annotation": {
@@ -709,9 +664,6 @@ window.CRYPTIC_PUZZLES["cryptic-30042"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Big noise as good egg splits log (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "DIGNITARY",
    "annotation": {
@@ -757,9 +709,6 @@ window.CRYPTIC_PUZZLES["cryptic-30042"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Slow mover races off before caught (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "ESCARGOT",
    "annotation": {
@@ -805,9 +754,6 @@ window.CRYPTIC_PUZZLES["cryptic-30042"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Lentils and duck in red or white dish that’s hot (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "VINDALOO",
    "annotation": {
@@ -853,9 +799,6 @@ window.CRYPTIC_PUZZLES["cryptic-30042"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "First of musicians in parish goes crazy, shaking recorder (11)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "SEISMOGRAPH",
    "annotation": {
@@ -899,9 +842,6 @@ window.CRYPTIC_PUZZLES["cryptic-30042"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "You’re on peak of Annapurna, asking for a lot (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "AGREED",
    "annotation": {
@@ -940,9 +880,6 @@ window.CRYPTIC_PUZZLES["cryptic-30042"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Worthless wood fills crack (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "TRASHY",
    "annotation": {
@@ -982,9 +919,6 @@ window.CRYPTIC_PUZZLES["cryptic-30042"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Turning left, notices a superstore (4)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "ASDA",
    "annotation": {
@@ -1028,9 +962,6 @@ window.CRYPTIC_PUZZLES["cryptic-30042"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Obscene gesture keeps quiet doctor in the gutter? (10)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "FISHMONGER",
    "annotation": {
@@ -1076,9 +1007,6 @@ window.CRYPTIC_PUZZLES["cryptic-30042"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Accommodation in which weed and grass picked up? (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "HOTEL",
    "annotation": {
@@ -1124,9 +1052,6 @@ window.CRYPTIC_PUZZLES["cryptic-30042"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Beer bringing hiccup from below (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "PILS",
    "annotation": {
@@ -1170,9 +1095,6 @@ window.CRYPTIC_PUZZLES["cryptic-30042"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Bother, it having impeded vehicle – search for diversion? (9)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "GALLIVANT",
    "annotation": {
@@ -1240,9 +1162,6 @@ window.CRYPTIC_PUZZLES["cryptic-30042"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Red, pace ahead of blue (7)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "TROTSKY",
    "annotation": {
@@ -1281,9 +1200,6 @@ window.CRYPTIC_PUZZLES["cryptic-30042"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Case on driveway packed into car, end of holiday celebration in March (4,3)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {
     ",": [
      4

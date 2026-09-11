@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30019"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Bill’s relative keeps Charlie company (7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "ACCOUNT",
    "annotation": {
@@ -81,9 +78,6 @@ window.CRYPTIC_PUZZLES["cryptic-30019"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "A very large rugby player breaks fitting (7)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "APROPOS",
    "annotation": {
@@ -197,9 +191,6 @@ window.CRYPTIC_PUZZLES["cryptic-30019"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "You, me and that Girl Guide (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "USHER",
    "annotation": {
@@ -242,9 +233,6 @@ window.CRYPTIC_PUZZLES["cryptic-30019"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Shows guys making American jeans (9)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "TELEVISES",
    "annotation": {
@@ -294,9 +282,6 @@ window.CRYPTIC_PUZZLES["cryptic-30019"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Aussie rugby international’s fool to tackle All Blacks’ biggest units (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "WALLABY",
    "annotation": {
@@ -346,9 +331,6 @@ window.CRYPTIC_PUZZLES["cryptic-30019"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Returning uncooked iron-enriched biscuit (5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "WAFER",
    "annotation": {
@@ -462,9 +444,6 @@ window.CRYPTIC_PUZZLES["cryptic-30019"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Case of protestor getting into trouble in days immediately following March (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "APRIL",
    "annotation": {
@@ -515,9 +494,6 @@ window.CRYPTIC_PUZZLES["cryptic-30019"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Bore seeing almost all eyelids sadly, drooping at the start (7)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "YIELDED",
    "annotation": {
@@ -567,9 +543,6 @@ window.CRYPTIC_PUZZLES["cryptic-30019"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Stretch and run, feel pain after cycling (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "REACH",
    "annotation": {
@@ -622,9 +595,6 @@ window.CRYPTIC_PUZZLES["cryptic-30019"] = /*JSON-START*/ {
      2
     ]
    ],
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -672,9 +642,6 @@ window.CRYPTIC_PUZZLES["cryptic-30019"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "This could make Liam hide? (5,4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -724,9 +691,6 @@ window.CRYPTIC_PUZZLES["cryptic-30019"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Determined game was up (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "RULED",
    "annotation": {
@@ -766,9 +730,6 @@ window.CRYPTIC_PUZZLES["cryptic-30019"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Suit (gent’s) regularly discounted in Marks (5)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "SIGNS",
    "annotation": {
@@ -831,9 +792,6 @@ window.CRYPTIC_PUZZLES["cryptic-30019"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Stunned as Bambi became this grand deer with animation (9)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "STAGGERED",
    "annotation": {
@@ -916,9 +874,6 @@ window.CRYPTIC_PUZZLES["cryptic-30019"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Player of music ultimately wanting in on Mardi Gras parties (9)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "RADIOGRAM",
    "annotation": {
@@ -958,9 +913,6 @@ window.CRYPTIC_PUZZLES["cryptic-30019"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "90 got through on buzzer to go to the loo (2,7)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -1017,9 +969,6 @@ window.CRYPTIC_PUZZLES["cryptic-30019"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "From memory, Spooner’s greeting a Simpson (2,5)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -1069,9 +1018,6 @@ window.CRYPTIC_PUZZLES["cryptic-30019"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Edward VI possibly died thrashing about on reflection (5)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "TUDOR",
    "annotation": {
@@ -1124,9 +1070,6 @@ window.CRYPTIC_PUZZLES["cryptic-30019"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Short song by Queen covered by extremely raucous rappers? (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "RHYMERS",
    "annotation": {
@@ -1184,9 +1127,6 @@ window.CRYPTIC_PUZZLES["cryptic-30019"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "News article on ambassador to add colour? (5)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "HENNA",
    "annotation": {
@@ -1239,9 +1179,6 @@ window.CRYPTIC_PUZZLES["cryptic-30019"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Snooping on revolutionary agreed in retrospect (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "NOSEY",
    "annotation": {
@@ -1298,9 +1235,6 @@ window.CRYPTIC_PUZZLES["cryptic-30019"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Penny read about politician being prone to stalking (9)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "PREDATORY",
    "annotation": {
@@ -1359,9 +1293,6 @@ window.CRYPTIC_PUZZLES["cryptic-30019"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Discussed aircraft’s manifest (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "PLAIN",
    "annotation": {
@@ -1400,9 +1331,6 @@ window.CRYPTIC_PUZZLES["cryptic-30019"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "For this special purpose, stir round hot and cold (2,3)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -1457,9 +1385,6 @@ window.CRYPTIC_PUZZLES["cryptic-30019"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Alan Turing’s beginning to comprehend Nazis’ smart tech he attacks (9)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "ASSAILANT",
    "annotation": {
@@ -1516,9 +1441,6 @@ window.CRYPTIC_PUZZLES["cryptic-30019"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Hotel of inferior quality – not the first in Whitley Bay? (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "HORSE",
    "annotation": {
@@ -1562,9 +1484,6 @@ window.CRYPTIC_PUZZLES["cryptic-30019"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "How’s your father’s leg strain initially? See how far you can push it? (3,2,2)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -1623,9 +1542,6 @@ window.CRYPTIC_PUZZLES["cryptic-30019"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Man cleared out space in resort and pitches tents (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "ENCAMPS",
    "annotation": {

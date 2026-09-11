@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1831"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Dad's fun paperback to take on holiday? (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "PASSPORT",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["indysunday-1831"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Retired president shot Democrat (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "ABED",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["indysunday-1831"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Pool and chess diverted playwright (9)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "SOPHOCLES",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["indysunday-1831"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Stop rubbing metal sheet with top scratched (3)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "OIL",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["indysunday-1831"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Bear and rodents mostly venerated by Native Americans (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "TOTEMIC",
    "annotation": null
@@ -110,9 +95,6 @@ window.CRYPTIC_PUZZLES["indysunday-1831"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Racer showing expertise after gear twisted (2-4)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {
     "-": [
      2
@@ -131,9 +113,6 @@ window.CRYPTIC_PUZZLES["indysunday-1831"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Police station, motorway and lake at the bottom of unusual garden (11)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "GENDARMERIE",
    "annotation": null
@@ -148,9 +127,6 @@ window.CRYPTIC_PUZZLES["indysunday-1831"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Open top Ferrari? I would, given a raise (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "CARDI",
    "annotation": null
@@ -165,9 +141,6 @@ window.CRYPTIC_PUZZLES["indysunday-1831"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Switch identity wearing jewellery with short hairstyle (6,4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -192,9 +165,6 @@ window.CRYPTIC_PUZZLES["indysunday-1831"] = /*JSON-START*/ {
      5
     ]
    ],
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "NEAPOLITAN",
    "annotation": null
@@ -215,9 +185,6 @@ window.CRYPTIC_PUZZLES["indysunday-1831"] = /*JSON-START*/ {
      18
     ]
    ],
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "RIDE",
    "annotation": null
@@ -232,9 +199,6 @@ window.CRYPTIC_PUZZLES["indysunday-1831"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Moral objection against people crossing sea being sent back (12)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "CONDEMNATION",
    "annotation": null
@@ -249,9 +213,6 @@ window.CRYPTIC_PUZZLES["indysunday-1831"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Dire actor in cast fixated with theory (11)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {},
    "solution": "DOCTRINAIRE",
    "annotation": null
@@ -266,9 +227,6 @@ window.CRYPTIC_PUZZLES["indysunday-1831"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Patter of light rain in Manchester town? Check (5,5)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -287,9 +245,6 @@ window.CRYPTIC_PUZZLES["indysunday-1831"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "First item on list Craig developed a stinker? (6)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "GARLIC",
    "annotation": null
@@ -304,9 +259,6 @@ window.CRYPTIC_PUZZLES["indysunday-1831"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Return Spooner's worthless crap (8)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "COMEBACK",
    "annotation": null
@@ -321,9 +273,6 @@ window.CRYPTIC_PUZZLES["indysunday-1831"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Ammunition belt from outlaw desperado emptied with sly look (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "BANDOLEER",
    "annotation": null
@@ -338,9 +287,6 @@ window.CRYPTIC_PUZZLES["indysunday-1831"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Careful, certainly, spiking sweet drink with alcohol (8)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "MEASURED",
    "annotation": null
@@ -355,9 +301,6 @@ window.CRYPTIC_PUZZLES["indysunday-1831"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Desperate religious festival with cross upside-down (2-2-3)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {
     "-": [
      2,
@@ -377,9 +320,6 @@ window.CRYPTIC_PUZZLES["indysunday-1831"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Irregular headed up military department after revolution (6)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "RANDOM",
    "annotation": null
@@ -394,9 +334,6 @@ window.CRYPTIC_PUZZLES["indysunday-1831"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Cheat adjusted the scoreboard at change of ends? (3,3,4,2)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -417,9 +354,6 @@ window.CRYPTIC_PUZZLES["indysunday-1831"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Tariff applied to biological category (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "TAXON",
    "annotation": null
@@ -434,9 +368,6 @@ window.CRYPTIC_PUZZLES["indysunday-1831"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Drug charity stocks a bit of cannabis (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "ACID",
    "annotation": null
@@ -451,9 +382,6 @@ window.CRYPTIC_PUZZLES["indysunday-1831"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Greek river becomes blocked, by the sound of it (4)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "STYX",
    "annotation": null
@@ -468,9 +396,6 @@ window.CRYPTIC_PUZZLES["indysunday-1831"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Dotty lending cue as favour (10)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "INDULGENCE",
    "annotation": null
@@ -485,9 +410,6 @@ window.CRYPTIC_PUZZLES["indysunday-1831"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Shown key turns (3)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "LED",
    "annotation": null
@@ -502,9 +424,6 @@ window.CRYPTIC_PUZZLES["indysunday-1831"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Novelty exhibit in church (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "CHANGE",
    "annotation": null
@@ -519,9 +438,6 @@ window.CRYPTIC_PUZZLES["indysunday-1831"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "The Spanish explorer ultimately disappointed over this quest? (8)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "ELDORADO",
    "annotation": null

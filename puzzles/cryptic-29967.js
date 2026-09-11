@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29967"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "More opportune to stretch out during watch? (8)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "TIMELIER",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["cryptic-29967"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Result of my eye operation? You’ve explained it (1,3)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      1
@@ -63,9 +57,6 @@ window.CRYPTIC_PUZZLES["cryptic-29967"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Veto being lifted, rest seized (6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "NABBED",
    "annotation": null
@@ -80,9 +71,6 @@ window.CRYPTIC_PUZZLES["cryptic-29967"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "The oratorio one long expected (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "MESSIAH",
    "annotation": null
@@ -97,9 +85,6 @@ window.CRYPTIC_PUZZLES["cryptic-29967"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Rearranged Mary, Luke and Jacob’s headgear (8)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "YARMULKE",
    "annotation": null
@@ -114,9 +99,6 @@ window.CRYPTIC_PUZZLES["cryptic-29967"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Severe critic of players, one fierce creature (10)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "CASTIGATOR",
    "annotation": null
@@ -131,9 +113,6 @@ window.CRYPTIC_PUZZLES["cryptic-29967"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Canal bridge to rail off (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "RIALTO",
    "annotation": null
@@ -148,9 +127,6 @@ window.CRYPTIC_PUZZLES["cryptic-29967"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Hallo – is energy briefly produced from this? (3,5)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -169,9 +145,6 @@ window.CRYPTIC_PUZZLES["cryptic-29967"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Notice an attempt to restrict one, so scored slowly (6)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "ADAGIO",
    "annotation": null
@@ -186,9 +159,6 @@ window.CRYPTIC_PUZZLES["cryptic-29967"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Boy’s favourite drug (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "PETE",
    "annotation": null
@@ -203,9 +173,6 @@ window.CRYPTIC_PUZZLES["cryptic-29967"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Copper and iron for example in mass with the others in depots (4,6)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -224,9 +191,6 @@ window.CRYPTIC_PUZZLES["cryptic-29967"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Son lazed about and moved furtively (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "SIDLED",
    "annotation": null
@@ -241,9 +205,6 @@ window.CRYPTIC_PUZZLES["cryptic-29967"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Docker who has lost a lot of weight? (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "LIGHTERMAN",
    "annotation": null
@@ -258,9 +219,6 @@ window.CRYPTIC_PUZZLES["cryptic-29967"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Austins age, Rolls get replaced (8)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "ALLEGROS",
    "annotation": null
@@ -275,9 +233,6 @@ window.CRYPTIC_PUZZLES["cryptic-29967"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Art without tears? (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "ORIGAMI",
    "annotation": null
@@ -292,9 +247,6 @@ window.CRYPTIC_PUZZLES["cryptic-29967"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Tiny thing, skin blemish? Bad clue (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "MOLECULE",
    "annotation": null
@@ -309,9 +261,6 @@ window.CRYPTIC_PUZZLES["cryptic-29967"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Scatter finest roses (except white, initially) (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "BESTREW",
    "annotation": null
@@ -326,9 +275,6 @@ window.CRYPTIC_PUZZLES["cryptic-29967"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Former soldier, American, shielding deserter as a favour (2,6)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -347,9 +293,6 @@ window.CRYPTIC_PUZZLES["cryptic-29967"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "River creature’s back consisting of thin plates (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "LAMINAR",
    "annotation": null
@@ -364,9 +307,6 @@ window.CRYPTIC_PUZZLES["cryptic-29967"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Wrap everything before I jog back (8)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "TORTILLA",
    "annotation": null
@@ -381,9 +321,6 @@ window.CRYPTIC_PUZZLES["cryptic-29967"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Old French tax in force – tire of it regularly (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "OCTROI",
    "annotation": null
@@ -398,9 +335,6 @@ window.CRYPTIC_PUZZLES["cryptic-29967"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Go without, to feed my pride? (6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "FOREGO",
    "annotation": null
@@ -415,9 +349,6 @@ window.CRYPTIC_PUZZLES["cryptic-29967"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Holiday by car (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "FIESTA",
    "annotation": null
@@ -432,9 +363,6 @@ window.CRYPTIC_PUZZLES["cryptic-29967"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Pretty drawing (10)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "ATTRACTIVE",
    "annotation": null
@@ -449,9 +377,6 @@ window.CRYPTIC_PUZZLES["cryptic-29967"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Provision of food cut down a bit for pig (4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "BOAR",
    "annotation": null
@@ -466,9 +391,6 @@ window.CRYPTIC_PUZZLES["cryptic-29967"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "I’m shivering in second class, getting basic education (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "BRRR",
    "annotation": null
@@ -483,9 +405,6 @@ window.CRYPTIC_PUZZLES["cryptic-29967"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Extra reason cricket was held up? (2,4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -504,9 +423,6 @@ window.CRYPTIC_PUZZLES["cryptic-29967"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Foolishly rides to a distant rock (8)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "ASTEROID",
    "annotation": null

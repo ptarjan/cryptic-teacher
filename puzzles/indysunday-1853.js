@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1853"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Eagerly buy something worthless on back of tin (4,2)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -75,9 +72,6 @@ window.CRYPTIC_PUZZLES["indysunday-1853"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Turning point for the sun going up and down (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "NOON",
    "annotation": {
@@ -118,9 +112,6 @@ window.CRYPTIC_PUZZLES["indysunday-1853"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Not amused picking up work after ineffective coffee (2-5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     "-": [
      2
@@ -176,9 +167,6 @@ window.CRYPTIC_PUZZLES["indysunday-1853"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Walk before comprehending warning notice (9)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "PROMENADE",
    "annotation": {
@@ -229,9 +217,6 @@ window.CRYPTIC_PUZZLES["indysunday-1853"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "New tipi soon standing (8)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "POSITION",
    "annotation": {
@@ -274,9 +259,6 @@ window.CRYPTIC_PUZZLES["indysunday-1853"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Painter really in friend's shade (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "PARASOL",
    "annotation": {
@@ -327,9 +309,6 @@ window.CRYPTIC_PUZZLES["indysunday-1853"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Insane jockeys having no end of fun here? (5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "SIENA",
    "annotation": {
@@ -374,9 +353,6 @@ window.CRYPTIC_PUZZLES["indysunday-1853"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Oven with duck in to roast, initially (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "TANDOOR",
    "annotation": {
@@ -435,9 +411,6 @@ window.CRYPTIC_PUZZLES["indysunday-1853"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Upset voter rattled ballot box - Lib Dem leader? (10)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "OVERTURNED",
    "annotation": {
@@ -493,9 +466,6 @@ window.CRYPTIC_PUZZLES["indysunday-1853"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Holes beginning to grow naturally around lake (4,6)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -553,9 +523,6 @@ window.CRYPTIC_PUZZLES["indysunday-1853"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Want massage from lecturer? (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "NEED",
    "annotation": {
@@ -591,9 +558,6 @@ window.CRYPTIC_PUZZLES["indysunday-1853"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Elasticated foot warmers from chemist on King's Road? (7,5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -644,9 +608,6 @@ window.CRYPTIC_PUZZLES["indysunday-1853"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Cunning to take group on board chopper (10)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {},
    "solution": "GUILLOTINE",
    "annotation": {
@@ -697,9 +658,6 @@ window.CRYPTIC_PUZZLES["indysunday-1853"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Cold plain fish sandwiches outside for docker (6)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "TUNDRA",
    "annotation": {
@@ -749,9 +707,6 @@ window.CRYPTIC_PUZZLES["indysunday-1853"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Writer's arty novel rarely containing sex? (8)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "LITERARY",
    "annotation": {
@@ -804,9 +759,6 @@ window.CRYPTIC_PUZZLES["indysunday-1853"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Something nasty in your mug as well - husband cutting facial hair? (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "TOOTHACHE",
    "annotation": {
@@ -857,9 +809,6 @@ window.CRYPTIC_PUZZLES["indysunday-1853"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Joey's father's packing large knickers (8)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "BLOOMERS",
    "annotation": {
@@ -904,9 +853,6 @@ window.CRYPTIC_PUZZLES["indysunday-1853"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Suspicious article covered with ground nuts (2,5)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -963,9 +909,6 @@ window.CRYPTIC_PUZZLES["indysunday-1853"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Bite dog, perhaps after son bit (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "SNIPPET",
    "annotation": {
@@ -1015,9 +958,6 @@ window.CRYPTIC_PUZZLES["indysunday-1853"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Lots love line in poetry (6)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "OODLES",
    "annotation": {
@@ -1068,9 +1008,6 @@ window.CRYPTIC_PUZZLES["indysunday-1853"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Reject managed to conceal stigma (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "DISCARD",
    "annotation": {
@@ -1115,9 +1052,6 @@ window.CRYPTIC_PUZZLES["indysunday-1853"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Show disapproval of wobbly thingies on German porn film (6,6)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -1179,9 +1113,6 @@ window.CRYPTIC_PUZZLES["indysunday-1853"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Cream filling for her diet (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "ELITE",
    "annotation": {
@@ -1228,9 +1159,6 @@ window.CRYPTIC_PUZZLES["indysunday-1853"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "That stinks in a similar way to sulphur (4)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "ALAS",
    "annotation": {
@@ -1268,9 +1196,6 @@ window.CRYPTIC_PUZZLES["indysunday-1853"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Princess up against a woman that acts like one (4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "DIVA",
    "annotation": {
@@ -1314,9 +1239,6 @@ window.CRYPTIC_PUZZLES["indysunday-1853"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Free of sin, one's fit to be kissed in audience (10)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "IMPECCABLE",
    "annotation": {
@@ -1361,9 +1283,6 @@ window.CRYPTIC_PUZZLES["indysunday-1853"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Bum numb? Perhaps cane ... (8)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "DEADBEAT",
    "annotation": {
@@ -1401,9 +1320,6 @@ window.CRYPTIC_PUZZLES["indysunday-1853"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "... mark remains on bottom (2,4)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     ",": [
      2

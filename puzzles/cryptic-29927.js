@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29927"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Celebrate great quintet (4-4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -46,9 +43,6 @@ window.CRYPTIC_PUZZLES["cryptic-29927"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Show shield (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "SCREEN",
    "annotation": null
@@ -63,9 +57,6 @@ window.CRYPTIC_PUZZLES["cryptic-29927"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Song from worker on edge (6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "ANTHEM",
    "annotation": null
@@ -80,9 +71,6 @@ window.CRYPTIC_PUZZLES["cryptic-29927"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Function for a class (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "PERFORM",
    "annotation": null
@@ -97,9 +85,6 @@ window.CRYPTIC_PUZZLES["cryptic-29927"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Approach carriage (8)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "ATTITUDE",
    "annotation": null
@@ -114,9 +99,6 @@ window.CRYPTIC_PUZZLES["cryptic-29927"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Fuss about keeping new article sharp (2,3,3)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -136,9 +118,6 @@ window.CRYPTIC_PUZZLES["cryptic-29927"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Profess everything, say, with energy (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "ALLEGE",
    "annotation": null
@@ -153,9 +132,6 @@ window.CRYPTIC_PUZZLES["cryptic-29927"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Recycling I’d not sorted contains sheep’s head alarmingly (15)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {},
    "solution": "DISCONCERTINGLY",
    "annotation": null
@@ -170,9 +146,6 @@ window.CRYPTIC_PUZZLES["cryptic-29927"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Article quietly includes Queen hit (6)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "THRESH",
    "annotation": null
@@ -187,9 +160,6 @@ window.CRYPTIC_PUZZLES["cryptic-29927"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Startle Conservative in bog (8)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "FRIGHTEN",
    "annotation": null
@@ -204,9 +174,6 @@ window.CRYPTIC_PUZZLES["cryptic-29927"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Memoirs rewritten to include name and unsuitable title (8)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "MISNOMER",
    "annotation": null
@@ -221,9 +188,6 @@ window.CRYPTIC_PUZZLES["cryptic-29927"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "A Parisian passes on garments (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "UNDIES",
    "annotation": null
@@ -238,9 +202,6 @@ window.CRYPTIC_PUZZLES["cryptic-29927"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Something released by mistake hidden by bleak agency (7)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "LEAKAGE",
    "annotation": null
@@ -255,9 +216,6 @@ window.CRYPTIC_PUZZLES["cryptic-29927"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Black ink a journalistic piece used to portray animal (8)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "KINKAJOU",
    "annotation": null
@@ -272,9 +230,6 @@ window.CRYPTIC_PUZZLES["cryptic-29927"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Courteous cougars excitedly embracing one (8)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "GRACIOUS",
    "annotation": null
@@ -289,9 +244,6 @@ window.CRYPTIC_PUZZLES["cryptic-29927"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Bit of Swiss bread? (7)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "CENTIME",
    "annotation": null
@@ -306,9 +258,6 @@ window.CRYPTIC_PUZZLES["cryptic-29927"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Musician wandering in street about to follow master with loyalty at first (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "MINSTREL",
    "annotation": null
@@ -323,9 +272,6 @@ window.CRYPTIC_PUZZLES["cryptic-29927"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Marker touched summit (4,3)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -344,9 +290,6 @@ window.CRYPTIC_PUZZLES["cryptic-29927"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Programme goal in range (6)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "AGENDA",
    "annotation": null
@@ -361,9 +304,6 @@ window.CRYPTIC_PUZZLES["cryptic-29927"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Excess that is lifted to develop muscles (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "GLUTEI",
    "annotation": null
@@ -378,9 +318,6 @@ window.CRYPTIC_PUZZLES["cryptic-29927"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Surroundings of bridge players with five clubs (8)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "ENVIRONS",
    "annotation": null
@@ -395,9 +332,6 @@ window.CRYPTIC_PUZZLES["cryptic-29927"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Six shun wayward God (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "VISHNU",
    "annotation": null
@@ -412,9 +346,6 @@ window.CRYPTIC_PUZZLES["cryptic-29927"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Brighten up tops of random equipment for use round bar (6)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "REFURB",
    "annotation": null
@@ -429,9 +360,6 @@ window.CRYPTIC_PUZZLES["cryptic-29927"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Altruism redirected for one decorating (8)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "MURALIST",
    "annotation": null
@@ -446,9 +374,6 @@ window.CRYPTIC_PUZZLES["cryptic-29927"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Protection for example covering fleet on and off (6)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "SAFETY",
    "annotation": null
@@ -463,9 +388,6 @@ window.CRYPTIC_PUZZLES["cryptic-29927"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Right development sign for rebels (15)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "REVOLUTIONARIES",
    "annotation": null

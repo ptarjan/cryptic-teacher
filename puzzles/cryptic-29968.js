@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Currently attractive? (15)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "ELECTROMAGNETIC",
    "annotation": {
@@ -65,9 +62,6 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "The last thing you’ll see here! (11,4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      11
@@ -108,9 +102,6 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Turned up, unsophisticated in French spa town (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "EVIAN",
    "annotation": {
@@ -157,9 +148,6 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Support from unsettled settler (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "TRESTLE",
    "annotation": {
@@ -200,9 +188,6 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Gold coin tossed over Womble (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "ORINOCO",
    "annotation": {
@@ -258,9 +243,6 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Changed what happened at noon? (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "AMENDED",
    "annotation": {
@@ -298,9 +280,6 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Lack of commitments, around a hundred spies (7)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "NOTICES",
    "annotation": {
@@ -345,9 +324,6 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Only a Brit worried former PM (4,5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -389,9 +365,6 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Acton let brother bother sister (9,6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      9
@@ -433,9 +406,6 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Tree sounding cool for long (5,4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -487,9 +457,6 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Weight gain shed in horse-drawn carriage (5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "TONGA",
    "annotation": {
@@ -533,9 +500,6 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Girl sent back too much food colouring (7)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "ANNATTO",
    "annotation": {
@@ -585,9 +549,6 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Sound measure could be credible – not right! (7)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "DECIBEL",
    "annotation": {
@@ -630,9 +591,6 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Rod’s letter is spoken of (3)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "CUE",
    "annotation": {
@@ -671,9 +629,6 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "C20th style affected trade company (3,4)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -727,9 +682,6 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Fruit perplexed generations – not so! (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "TANGERINE",
    "annotation": {
@@ -772,9 +724,6 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Canoe from which falls an athlete (3)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "COE",
    "annotation": {
@@ -817,9 +766,6 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Reserved half the area with worker (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "DISTANT",
    "annotation": {
@@ -866,9 +812,6 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Fish that is around delta (3)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "IDE",
    "annotation": {
@@ -913,9 +856,6 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Gives the cold shoulder to Italian fellow cycling (7)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "IGNORES",
    "annotation": {
@@ -953,9 +893,6 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Two girls touching Australian parakeet (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "ROSELLA",
    "annotation": {
@@ -999,9 +936,6 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Squealed about tune for drink (7)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "SANGRIA",
    "annotation": {
@@ -1054,9 +988,6 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Vicar on lake, musing (7)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "REVERIE",
    "annotation": {
@@ -1097,9 +1028,6 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Putin is so reactionary – some back out for composer (7)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "ROSSINI",
    "annotation": {
@@ -1139,9 +1067,6 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Furious as flower’s name concealed (7)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "VIOLENT",
    "annotation": {
@@ -1189,9 +1114,6 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Previously Argo had leading role cut (3)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "AGO",
    "annotation": {
@@ -1236,9 +1158,6 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Composer is otherwise in inn, drunk (7)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "NIELSEN",
    "annotation": {
@@ -1288,9 +1207,6 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "T20 batsman as small Canadian woodsman (7)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "SLOGGER",
    "annotation": {
@@ -1331,9 +1247,6 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Good supply of water for seed (5)",
-   "group": [
-    "27-down"
-   ],
    "separatorLocations": {},
    "solution": "GRAIN",
    "annotation": {
@@ -1374,9 +1287,6 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Heartless Elgar and I confused Shakespearean spirit (5)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "ARIEL",
    "annotation": {
@@ -1424,9 +1334,6 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Cause trouble, as Adam and Eve did? (5,4)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -1465,9 +1372,6 @@ window.CRYPTIC_PUZZLES["cryptic-29968"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Stay away from far off fortress (4,2,1,8)",
-   "group": [
-    "30-across"
-   ],
    "separatorLocations": {
     ",": [
      4,

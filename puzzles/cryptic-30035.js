@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30035"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Put out bin at front – one of two (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "BOTHER",
    "annotation": {
@@ -71,9 +68,6 @@ window.CRYPTIC_PUZZLES["cryptic-30035"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Date after chemistry and kinky sex (7)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "BONDAGE",
    "annotation": {
@@ -120,9 +114,6 @@ window.CRYPTIC_PUZZLES["cryptic-30035"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Watch money deposited in bank (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "TIMER",
    "annotation": {
@@ -167,9 +158,6 @@ window.CRYPTIC_PUZZLES["cryptic-30035"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Blow up balloon (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "ENLARGE",
    "annotation": {
@@ -202,9 +190,6 @@ window.CRYPTIC_PUZZLES["cryptic-30035"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Main house where one might get depressed (6)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "KEYPAD",
    "annotation": {
@@ -242,9 +227,6 @@ window.CRYPTIC_PUZZLES["cryptic-30035"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Semi-naked couple cuddle (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "EMBRACE",
    "annotation": {
@@ -288,9 +270,6 @@ window.CRYPTIC_PUZZLES["cryptic-30035"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Over in beer garden at the back knocking back port wine (5,4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -359,9 +338,6 @@ window.CRYPTIC_PUZZLES["cryptic-30035"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Love letter’s opening written in bold (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "DARLING",
    "annotation": {
@@ -408,9 +384,6 @@ window.CRYPTIC_PUZZLES["cryptic-30035"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Large bottom: cut showing cheek (6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "BUMPER",
    "annotation": {
@@ -454,9 +427,6 @@ window.CRYPTIC_PUZZLES["cryptic-30035"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Perhaps, Labour on holding a poll, finally Andy Burnham is running (6,9)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -515,9 +485,6 @@ window.CRYPTIC_PUZZLES["cryptic-30035"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Person sparking up pressing a lighter (6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "FAIRER",
    "annotation": {
@@ -562,9 +529,6 @@ window.CRYPTIC_PUZZLES["cryptic-30035"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Insect transported via straight banana (8)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "PLANTAIN",
    "annotation": {
@@ -609,9 +573,6 @@ window.CRYPTIC_PUZZLES["cryptic-30035"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "M&S restricting space to show clothing range (8)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "MENSWEAR",
    "annotation": {
@@ -662,9 +623,6 @@ window.CRYPTIC_PUZZLES["cryptic-30035"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Bird to cuddle bachelor in bed? (9)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "SPOONBILL",
    "annotation": {
@@ -708,9 +666,6 @@ window.CRYPTIC_PUZZLES["cryptic-30035"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Stop speaking English – virtually nothing (6)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "ENOUGH",
    "annotation": {
@@ -755,9 +710,6 @@ window.CRYPTIC_PUZZLES["cryptic-30035"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Have sex with old females in sack (3-3)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -808,9 +760,6 @@ window.CRYPTIC_PUZZLES["cryptic-30035"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Pair regularly on bender, ultimately they pick up debt (7)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "ARREARS",
    "annotation": {
@@ -866,9 +815,6 @@ window.CRYPTIC_PUZZLES["cryptic-30035"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Wash face with this soft soap (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "FLANNEL",
    "annotation": {
@@ -901,9 +847,6 @@ window.CRYPTIC_PUZZLES["cryptic-30035"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Supporter on seat in stand getting behind defender (8)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "BACKREST",
    "annotation": {
@@ -950,9 +893,6 @@ window.CRYPTIC_PUZZLES["cryptic-30035"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "British PM doesn’t finish campaign (6)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "BATTLE",
    "annotation": {
@@ -996,9 +936,6 @@ window.CRYPTIC_PUZZLES["cryptic-30035"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Sympathise as Charlie not off jobseeker’s allowance (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "CONDOLE",
    "annotation": {
@@ -1045,9 +982,6 @@ window.CRYPTIC_PUZZLES["cryptic-30035"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Bird bath with rook pinching top spot off family member (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "SPARROW",
    "annotation": {
@@ -1100,9 +1034,6 @@ window.CRYPTIC_PUZZLES["cryptic-30035"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Handle of shortened rifle concealed by jacket from tracksuit (8)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "TRANSACT",
    "annotation": {
@@ -1151,9 +1082,6 @@ window.CRYPTIC_PUZZLES["cryptic-30035"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Get lost taking on run in country (6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "NORWAY",
    "annotation": {
@@ -1201,9 +1129,6 @@ window.CRYPTIC_PUZZLES["cryptic-30035"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Admires topless chests (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "RATES",
    "annotation": {
@@ -1241,9 +1166,6 @@ window.CRYPTIC_PUZZLES["cryptic-30035"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Botched tattoo line, briefly – nearly balls up in this drawing (8,7)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -1302,9 +1224,6 @@ window.CRYPTIC_PUZZLES["cryptic-30035"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Only fish by lake close to jetty (6)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "SOLELY",
    "annotation": {
@@ -1357,9 +1276,6 @@ window.CRYPTIC_PUZZLES["cryptic-30035"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Make out while retired women swing (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "SEESAW",
    "annotation": {

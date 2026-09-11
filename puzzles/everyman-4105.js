@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4105"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Doubt integrity of Detective Inspectors given time to decline (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "DISTRUST",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["everyman-4105"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Leaves those fighting Britain in protests (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "DEMOBS",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["everyman-4105"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Dines in haste; expresses derision (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "SCOFFS",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["everyman-4105"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Once again, tries overseeing a Latin band's practice? (9)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "REHEARSAL",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["everyman-4105"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Marries striker that's playing in PM (3,4,7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -115,9 +100,6 @@ window.CRYPTIC_PUZZLES["everyman-4105"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Composer Lionel, taking starters, accrues bumper charges for refreshments (3,3)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -136,9 +118,6 @@ window.CRYPTIC_PUZZLES["everyman-4105"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Hairy Evans regularly shaved sections (5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "AREAS",
    "annotation": null
@@ -153,9 +132,6 @@ window.CRYPTIC_PUZZLES["everyman-4105"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Airtight container for gunpowder? (3,5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -174,9 +150,6 @@ window.CRYPTIC_PUZZLES["everyman-4105"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Tormentor going round southeast Spain? 'Correct!' (5-3)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -195,9 +168,6 @@ window.CRYPTIC_PUZZLES["everyman-4105"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Tale that ends with a sentence? (9,5)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {
     ",": [
      9
@@ -216,9 +186,6 @@ window.CRYPTIC_PUZZLES["everyman-4105"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Bum, low singer (7)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "MOOCHER",
    "annotation": null
@@ -233,9 +200,6 @@ window.CRYPTIC_PUZZLES["everyman-4105"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Blanket and protective garment cut short (7)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "OVERALL",
    "annotation": null
@@ -250,9 +214,6 @@ window.CRYPTIC_PUZZLES["everyman-4105"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Acronym's 'Best Actresses' for Thora aplenty! (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "BAFTA",
    "annotation": null
@@ -267,9 +228,6 @@ window.CRYPTIC_PUZZLES["everyman-4105"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Old Italians, recusants undergoing reform (9)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "ETRUSCANS",
    "annotation": null
@@ -284,9 +242,6 @@ window.CRYPTIC_PUZZLES["everyman-4105"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "In a flap, I fled nursery? Understandable (4-8)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -305,9 +260,6 @@ window.CRYPTIC_PUZZLES["everyman-4105"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Endearing, mercurial, deep-rooted (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "ENGRAINED",
    "annotation": null
@@ -322,9 +274,6 @@ window.CRYPTIC_PUZZLES["everyman-4105"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Divorcée in resort became frosty (4,4)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -343,9 +292,6 @@ window.CRYPTIC_PUZZLES["everyman-4105"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Less tidy, in a way - but with a distinct character (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "STYLISED",
    "annotation": null
@@ -360,9 +306,6 @@ window.CRYPTIC_PUZZLES["everyman-4105"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Hack takes in tipsy tattler where farmer offers drink (6,6)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -381,9 +324,6 @@ window.CRYPTIC_PUZZLES["everyman-4105"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Increasingly feeble wordplay Everyman offered with hesitant expression (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "PUNIER",
    "annotation": null
@@ -398,9 +338,6 @@ window.CRYPTIC_PUZZLES["everyman-4105"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Eschews restaurant: meat singed in parts (4,2)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -419,9 +356,6 @@ window.CRYPTIC_PUZZLES["everyman-4105"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Fancy food shop, veal - not half raw - supplied (9)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "DELIVERED",
    "annotation": null
@@ -436,9 +370,6 @@ window.CRYPTIC_PUZZLES["everyman-4105"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Victory: rebuffed a tailless big cat: ta-da! (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "VOILA",
    "annotation": null
@@ -453,9 +384,6 @@ window.CRYPTIC_PUZZLES["everyman-4105"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Polish entering AA somewhere in the Antilles (5)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "ARUBA",
    "annotation": null
@@ -470,9 +398,6 @@ window.CRYPTIC_PUZZLES["everyman-4105"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Gleaned from harvest? I get just a trace (7)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "VESTIGE",
    "annotation": null
@@ -487,9 +412,6 @@ window.CRYPTIC_PUZZLES["everyman-4105"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Drop of alcohol loosens up relatives (7)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "AUNTIES",
    "annotation": null
@@ -504,9 +426,6 @@ window.CRYPTIC_PUZZLES["everyman-4105"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Give another hand to leader needing attention (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "REDEAL",
    "annotation": null
@@ -521,9 +440,6 @@ window.CRYPTIC_PUZZLES["everyman-4105"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Bureaucrat: one of five daily? (8)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "MANDARIN",
    "annotation": null

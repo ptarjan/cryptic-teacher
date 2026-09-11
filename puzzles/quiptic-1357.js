@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1357"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Waxwork reflected leftist leader and his struggles (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "POLISH",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["quiptic-1357"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Left hospital department with foreboding (7)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "PORTENT",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["quiptic-1357"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Set off for holiday (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "LEAVE",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["quiptic-1357"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Tranquillised, steadied, I dropped off (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "SEDATED",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["quiptic-1357"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Turning point is introduction of Iago in RSC production (6)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "CRISIS",
    "annotation": null
@@ -110,9 +95,6 @@ window.CRYPTIC_PUZZLES["quiptic-1357"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Travelling’s not right without including French friend (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "ROAMING",
    "annotation": null
@@ -127,9 +109,6 @@ window.CRYPTIC_PUZZLES["quiptic-1357"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Put off team on course (9)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "SIDETRACK",
    "annotation": null
@@ -144,9 +123,6 @@ window.CRYPTIC_PUZZLES["quiptic-1357"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Suspect serviceman involved in complex issue (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "SURMISE",
    "annotation": null
@@ -161,9 +137,6 @@ window.CRYPTIC_PUZZLES["quiptic-1357"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Small path circling edges of map gets waterlogged (6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "SWAMPY",
    "annotation": null
@@ -178,9 +151,6 @@ window.CRYPTIC_PUZZLES["quiptic-1357"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Start sobbing, saying ‘Reduce speed!’ before feathers accompanied by shriek (5,4,3,3)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      5,
@@ -201,9 +171,6 @@ window.CRYPTIC_PUZZLES["quiptic-1357"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Dismiss court to pursue concerning point about judge (6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "REJECT",
    "annotation": null
@@ -218,9 +185,6 @@ window.CRYPTIC_PUZZLES["quiptic-1357"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Stand by sea skipper blowing top (8)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "MAINTAIN",
    "annotation": null
@@ -235,9 +199,6 @@ window.CRYPTIC_PUZZLES["quiptic-1357"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Son laid back lazily with no thought (8)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "STUPIDLY",
    "annotation": null
@@ -252,9 +213,6 @@ window.CRYPTIC_PUZZLES["quiptic-1357"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Have a game of bridge with amusing people following theatre show? (4,5)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -273,9 +231,6 @@ window.CRYPTIC_PUZZLES["quiptic-1357"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Browsed primarily in Google running streetmap edition (6)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "GRAZED",
    "annotation": null
@@ -290,9 +245,6 @@ window.CRYPTIC_PUZZLES["quiptic-1357"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Way sunlight diverges (6)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "STRAYS",
    "annotation": null
@@ -307,9 +259,6 @@ window.CRYPTIC_PUZZLES["quiptic-1357"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "By putting personnel in harsh surroundings … (7)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "THROUGH",
    "annotation": null
@@ -324,9 +273,6 @@ window.CRYPTIC_PUZZLES["quiptic-1357"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "… rulers unexpectedly have caught one that’s very odd (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "SURREAL",
    "annotation": null
@@ -347,9 +293,6 @@ window.CRYPTIC_PUZZLES["quiptic-1357"] = /*JSON-START*/ {
      13
     ]
    ],
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "CHEEKIER",
    "annotation": null
@@ -364,9 +307,6 @@ window.CRYPTIC_PUZZLES["quiptic-1357"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Mimic us to mirror characters in tradition (6)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "CUSTOM",
    "annotation": null
@@ -381,9 +321,6 @@ window.CRYPTIC_PUZZLES["quiptic-1357"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Pull out old pamphlet (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "EXTRACT",
    "annotation": null
@@ -398,9 +335,6 @@ window.CRYPTIC_PUZZLES["quiptic-1357"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Tunes he composed make one excited (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "ENTHUSE",
    "annotation": null
@@ -415,9 +349,6 @@ window.CRYPTIC_PUZZLES["quiptic-1357"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Obtains specialist remedies (8)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "PROCURES",
    "annotation": null
@@ -432,9 +363,6 @@ window.CRYPTIC_PUZZLES["quiptic-1357"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Nicely warm when central heaters brought into play (6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "TOASTY",
    "annotation": null
@@ -449,9 +377,6 @@ window.CRYPTIC_PUZZLES["quiptic-1357"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Fly kept out of sight after Dad turned up (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "APHID",
    "annotation": null
@@ -466,9 +391,6 @@ window.CRYPTIC_PUZZLES["quiptic-1357"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Accommodate old supporter with hotel, given you’re inside for some time (7,2,2,4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     ",": [
      7,
@@ -489,9 +411,6 @@ window.CRYPTIC_PUZZLES["quiptic-1357"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Shove spades in shed and leave borders (6)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "HUSTLE",
    "annotation": null
@@ -506,9 +425,6 @@ window.CRYPTIC_PUZZLES["quiptic-1357"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Gets sick filled with retiring party’s heavy carbs (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "STODGE",
    "annotation": null

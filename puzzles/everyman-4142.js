@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4142"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Easy-going, according to correspondence (10)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "PERMISSIVE",
    "annotation": {
@@ -65,9 +62,6 @@ window.CRYPTIC_PUZZLES["everyman-4142"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Increases apparent value of homes (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "PADS",
    "annotation": {
@@ -105,9 +99,6 @@ window.CRYPTIC_PUZZLES["everyman-4142"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Travel with Mum - otherwise going back (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "ROAM",
    "annotation": {
@@ -155,9 +146,6 @@ window.CRYPTIC_PUZZLES["everyman-4142"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Limerick writer offering conundrums, perhaps your best friend? (5,6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -199,9 +187,6 @@ window.CRYPTIC_PUZZLES["everyman-4142"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Good cops straightened out gusset, getting intimate (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "SUGGEST",
    "annotation": {
@@ -248,9 +233,6 @@ window.CRYPTIC_PUZZLES["everyman-4142"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "After revolution, natives most proud (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "VAINEST",
    "annotation": {
@@ -290,9 +272,6 @@ window.CRYPTIC_PUZZLES["everyman-4142"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Knocked off - like some tea? (4)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "ICED",
    "annotation": {
@@ -332,9 +311,6 @@ window.CRYPTIC_PUZZLES["everyman-4142"] = /*JSON-START*/ {
      32,
      11
     ]
-   ],
-   "group": [
-    "7-down"
    ],
    "separatorLocations": {},
    "solution": "COASTLINES",
@@ -376,9 +352,6 @@ window.CRYPTIC_PUZZLES["everyman-4142"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "With diplomacy - and one-by-one, did you say? (10)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "DISCREETLY",
    "annotation": {
@@ -416,9 +389,6 @@ window.CRYPTIC_PUZZLES["everyman-4142"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Making illustration of leg that's tacky (7,3)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -465,9 +435,6 @@ window.CRYPTIC_PUZZLES["everyman-4142"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "I don't know that way through mountains (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "PASS",
    "annotation": {
@@ -505,9 +472,6 @@ window.CRYPTIC_PUZZLES["everyman-4142"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "He gets career arranging help for chef (12)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "CHEESEGRATER",
    "annotation": {
@@ -544,9 +508,6 @@ window.CRYPTIC_PUZZLES["everyman-4142"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Beth took car, swerving to make trouble (4,3,4)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -591,9 +552,6 @@ window.CRYPTIC_PUZZLES["everyman-4142"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Ergo, Scottish river etc (3,2,5)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -636,9 +594,6 @@ window.CRYPTIC_PUZZLES["everyman-4142"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Manual labour finally, I guess, due for upgrade? (5,5)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -686,9 +641,6 @@ window.CRYPTIC_PUZZLES["everyman-4142"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Rising smell of sodium? (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "NASCENT",
    "annotation": {
@@ -729,9 +681,6 @@ window.CRYPTIC_PUZZLES["everyman-4142"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "A bit of eye-contact, I learn, is touching (7)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "TACTILE",
    "annotation": {
@@ -768,9 +717,6 @@ window.CRYPTIC_PUZZLES["everyman-4142"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "You should come up to this damage (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "SCRATCH",
    "annotation": {
@@ -805,9 +751,6 @@ window.CRYPTIC_PUZZLES["everyman-4142"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Primarily happy outcry, sung, about nifty Nazarene's advent? (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "HOSANNA",
    "annotation": {
@@ -850,9 +793,6 @@ window.CRYPTIC_PUZZLES["everyman-4142"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Nothing at repast but porridge, basically (7)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "OATMEAL",
    "annotation": {
@@ -896,9 +836,6 @@ window.CRYPTIC_PUZZLES["everyman-4142"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Relation in on speech (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "ORATION",
    "annotation": {
@@ -942,9 +879,6 @@ window.CRYPTIC_PUZZLES["everyman-4142"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Did she hope her 8 would get +5.0? (6,6)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -982,9 +916,6 @@ window.CRYPTIC_PUZZLES["everyman-4142"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Just panache student's missing (4)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "FAIR",
    "annotation": {
@@ -1026,9 +957,6 @@ window.CRYPTIC_PUZZLES["everyman-4142"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Everyman on vacation sightsees in confusion (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "MESS",
    "annotation": {
@@ -1071,9 +999,6 @@ window.CRYPTIC_PUZZLES["everyman-4142"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Pole, fibber, heading west (4)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "RAIL",
    "annotation": {
@@ -1116,9 +1041,6 @@ window.CRYPTIC_PUZZLES["everyman-4142"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Get perked up - fantastic rigatoni and drops of excellent vinos (10)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "INVIGORATE",
    "annotation": {
@@ -1162,9 +1084,6 @@ window.CRYPTIC_PUZZLES["everyman-4142"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Part of foot to get better, so we're told (4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "HEEL",
    "annotation": {
@@ -1199,9 +1118,6 @@ window.CRYPTIC_PUZZLES["everyman-4142"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Idea sessions not started in precipitation (10)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "RAINSTORMS",
    "annotation": {

@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1348"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Put silver in vessels for heathens (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "PAGANS",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["quiptic-1348"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Agent upset by thousand as bonus (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "PERK",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["quiptic-1348"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Vessel volume written across bottom of base (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "GALLEON",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["quiptic-1348"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Declared info edit mistakenly (8)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "NOTIFIED",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["quiptic-1348"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Joker retaining European system regularly getting fondled (8)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "CARESSED",
    "annotation": null
@@ -110,9 +95,6 @@ window.CRYPTIC_PUZZLES["quiptic-1348"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Paid choirs off with a stimulant (11)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "APHRODISIAC",
    "annotation": null
@@ -127,9 +109,6 @@ window.CRYPTIC_PUZZLES["quiptic-1348"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Fake emerald ring sold as turquoise zirconia originally (6)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "ERSATZ",
    "annotation": null
@@ -144,9 +123,6 @@ window.CRYPTIC_PUZZLES["quiptic-1348"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Nieces upset about constant Physics? (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "SCIENCE",
    "annotation": null
@@ -161,9 +137,6 @@ window.CRYPTIC_PUZZLES["quiptic-1348"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "We hear smart cat weed (9)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "DANDELION",
    "annotation": null
@@ -178,9 +151,6 @@ window.CRYPTIC_PUZZLES["quiptic-1348"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Report about dead (6)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "RELATE",
    "annotation": null
@@ -195,9 +165,6 @@ window.CRYPTIC_PUZZLES["quiptic-1348"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Article: spread covering one performer (8)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "THESPIAN",
    "annotation": null
@@ -212,9 +179,6 @@ window.CRYPTIC_PUZZLES["quiptic-1348"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Policeman frets about egotism (4-10)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -233,9 +197,6 @@ window.CRYPTIC_PUZZLES["quiptic-1348"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Claim ritual involved embracing people of all origins (11)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {},
    "solution": "MULTIRACIAL",
    "annotation": null
@@ -250,9 +211,6 @@ window.CRYPTIC_PUZZLES["quiptic-1348"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Cut sore hip area (10)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "TENDERLOIN",
    "annotation": null
@@ -267,9 +225,6 @@ window.CRYPTIC_PUZZLES["quiptic-1348"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Tickle bird getting sick and annoyed (9)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "TITILLATE",
    "annotation": null
@@ -284,9 +239,6 @@ window.CRYPTIC_PUZZLES["quiptic-1348"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Snowman is even icier at first (4)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "YETI",
    "annotation": null
@@ -301,9 +253,6 @@ window.CRYPTIC_PUZZLES["quiptic-1348"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Infallible fellow having trouble with vault (4-4)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -322,9 +271,6 @@ window.CRYPTIC_PUZZLES["quiptic-1348"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Make disapproving noise encountering uniform skirt that’s short (4)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "TUTU",
    "annotation": null
@@ -339,9 +285,6 @@ window.CRYPTIC_PUZZLES["quiptic-1348"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Skill granted after time to make little pastry (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "TARTLET",
    "annotation": null
@@ -356,9 +299,6 @@ window.CRYPTIC_PUZZLES["quiptic-1348"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Left copy showing lack of talent (10)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "LIMITATION",
    "annotation": null
@@ -373,9 +313,6 @@ window.CRYPTIC_PUZZLES["quiptic-1348"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Domestic chore I call about in advance (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "IRONING",
    "annotation": null
@@ -390,9 +327,6 @@ window.CRYPTIC_PUZZLES["quiptic-1348"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Clears revolting instrument for removing tartar (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "SCALER",
    "annotation": null
@@ -407,9 +341,6 @@ window.CRYPTIC_PUZZLES["quiptic-1348"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Minister in cold hall corner shivering (4,10)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -428,9 +359,6 @@ window.CRYPTIC_PUZZLES["quiptic-1348"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Leader with unpleasant odour starts to smell sweeter (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "BOSS",
    "annotation": null
@@ -445,9 +373,6 @@ window.CRYPTIC_PUZZLES["quiptic-1348"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Everyone the Spanish united beginning to intone a song of praise (8)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "ALLELUIA",
    "annotation": null
@@ -462,9 +387,6 @@ window.CRYPTIC_PUZZLES["quiptic-1348"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Piece of radical, iconoclastic material (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "CALICO",
    "annotation": null
@@ -479,9 +401,6 @@ window.CRYPTIC_PUZZLES["quiptic-1348"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Completely new exhaust after rear of vehicle loudly evacuated (8)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "ENTIRELY",
    "annotation": null
@@ -496,9 +415,6 @@ window.CRYPTIC_PUZZLES["quiptic-1348"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Tightly packs shoes (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "WEDGES",
    "annotation": null

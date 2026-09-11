@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Local punching setter in narrow alleyway (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "GINNEL",
    "annotation": {
@@ -74,9 +71,6 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Epic tale of single boy going round India (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "ILIAD",
    "annotation": {
@@ -126,9 +120,6 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "D'Artagnan finally brought up \"All for one, and one...\" — a bloomer (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "NIGELLA",
    "annotation": {
@@ -189,9 +180,6 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Survives very boring falsehoods (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "LIVES",
    "annotation": {
@@ -235,9 +223,6 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Notes OAP is terrible stirrer (8)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "TEASPOON",
    "annotation": {
@@ -279,9 +264,6 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Oscar then interrupts wild driving manoeuvres (5-5,5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -330,9 +312,6 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Save a piece for eccentric male (5,4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -392,9 +371,6 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Exercises with group running in pack (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "PELOTON",
    "annotation": {
@@ -440,9 +416,6 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Old tin cans ultimately pollute large body of water (5)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "OCEAN",
    "annotation": {
@@ -494,9 +467,6 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Heather is untruthful, taking year out (4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "LING",
    "annotation": {
@@ -538,9 +508,6 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Seller with Visa unusual in palace location (10)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "VERSAILLES",
    "annotation": {
@@ -585,9 +552,6 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "When housing benefit gets bit of money for youth (10)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "ADOLESCENT",
    "annotation": {
@@ -641,9 +605,6 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Quietly happy to leave rip-off shelter (4)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "TENT",
    "annotation": {
@@ -685,9 +646,6 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Perhaps Robbie cut cakes as prepared in opulent mansion (3-1-4)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {
     "-": [
      3,
@@ -741,9 +699,6 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Past master's second attempt (3)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "AGO",
    "annotation": {
@@ -786,9 +741,6 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "European ignored by pescetarian probing suitable candidate (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "APPLICANT",
    "annotation": {
@@ -839,9 +791,6 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Shy singer picked up in French city (6)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "RENNES",
    "annotation": {
@@ -879,9 +828,6 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Stop loan, wasting pound (3)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "END",
    "annotation": {
@@ -923,9 +869,6 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Leave, then go back and chat (6)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "GOSSIP",
    "annotation": {
@@ -977,9 +920,6 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Dictator getting a Parisian to replace American in hot spot (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "SUNTRAP",
    "annotation": {
@@ -1031,9 +971,6 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "New poem about repellent domesticated worm (8)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "NEMATODE",
    "annotation": {
@@ -1090,9 +1027,6 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Left alone dangerous bears with hooked claws (7)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "TALONED",
    "annotation": {
@@ -1126,9 +1060,6 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Steal ring from East Scotland town (4)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "OBAN",
    "annotation": {
@@ -1177,9 +1108,6 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "British eggs on the up? Excellent! (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "BRAVO",
    "annotation": {
@@ -1228,9 +1156,6 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Hear client somehow not under suspicion (2,3,5)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -1272,9 +1197,6 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Church official's European articles (5)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "ELDER",
    "annotation": {
@@ -1314,9 +1236,6 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Fuss over nasty smell in Filipino dish (5)",
-   "group": [
-    "26-down"
-   ],
    "separatorLocations": {},
    "solution": "ADOBO",
    "annotation": {
@@ -1362,9 +1281,6 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Maybe blonde female character ran to the audience (4-6)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -1418,9 +1334,6 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Great English scientist, losing heart, produces gas (4)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "NEON",
    "annotation": {
@@ -1460,9 +1373,6 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Desserts in school regularly loathed by son (8)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "COMPOTES",
    "annotation": {
@@ -1515,9 +1425,6 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Common UK mammal given baguettes possibly to eat, according to Spooner (3,3)",
-   "group": [
-    "30-across"
-   ],
    "separatorLocations": {
     ",": [
      3

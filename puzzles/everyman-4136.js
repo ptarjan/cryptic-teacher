@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4136"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Everyman adhering to decency: that's surprising (8,2)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -76,9 +73,6 @@ window.CRYPTIC_PUZZLES["everyman-4136"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Runs away from bugs in stones (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "GEMS",
    "annotation": {
@@ -124,9 +118,6 @@ window.CRYPTIC_PUZZLES["everyman-4136"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "'Hey you, getting nookie regularly?' - swinish outburst (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "OINK",
    "annotation": {
@@ -175,9 +166,6 @@ window.CRYPTIC_PUZZLES["everyman-4136"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Even pair of cheeks? (4,3,4)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -228,9 +216,6 @@ window.CRYPTIC_PUZZLES["everyman-4136"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Sportsperson, senior, astride pedalled vehicle (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "STRIKER",
    "annotation": {
@@ -275,9 +260,6 @@ window.CRYPTIC_PUZZLES["everyman-4136"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "The writer, politician: that man's ruined city (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "MEMPHIS",
    "annotation": {
@@ -323,9 +305,6 @@ window.CRYPTIC_PUZZLES["everyman-4136"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Jazz fans with bit of sax moved to intro? Improvise lyrics (4)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "SCAT",
    "annotation": {
@@ -363,9 +342,6 @@ window.CRYPTIC_PUZZLES["everyman-4136"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "After reshuffle, actualises hospital wards (10)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "CASUALTIES",
    "annotation": {
@@ -403,9 +379,6 @@ window.CRYPTIC_PUZZLES["everyman-4136"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Short stick in play might effect these? (5,5)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -447,9 +420,6 @@ window.CRYPTIC_PUZZLES["everyman-4136"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Hero - common ground - it's all black-and-white (10)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "MONOCHROME",
    "annotation": {
@@ -490,9 +460,6 @@ window.CRYPTIC_PUZZLES["everyman-4136"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Sparkling wine in course of Lammas-tide (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "ASTI",
    "annotation": {
@@ -527,9 +494,6 @@ window.CRYPTIC_PUZZLES["everyman-4136"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "In the main, disembark? (4,3,5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -568,9 +532,6 @@ window.CRYPTIC_PUZZLES["everyman-4136"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Those drawn to light? (11)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {},
    "solution": "PYROMANIACS",
    "annotation": {
@@ -604,9 +565,6 @@ window.CRYPTIC_PUZZLES["everyman-4136"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "My bulletin edited to provide name of English actress (5,5)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -651,9 +609,6 @@ window.CRYPTIC_PUZZLES["everyman-4136"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Tactician gets artist in a lather (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "STRATEGIST",
    "annotation": {
@@ -691,9 +646,6 @@ window.CRYPTIC_PUZZLES["everyman-4136"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Adjusting to drama, I'm a fighter (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "MATADOR",
    "annotation": {
@@ -734,9 +686,6 @@ window.CRYPTIC_PUZZLES["everyman-4136"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Type of jeans - covering expanse? (7)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "STRETCH",
    "annotation": {
@@ -779,9 +728,6 @@ window.CRYPTIC_PUZZLES["everyman-4136"] = /*JSON-START*/ {
      34,
      11
     ]
-   ],
-   "group": [
-    "17-across"
    ],
    "separatorLocations": {},
    "solution": "LEANEST",
@@ -827,9 +773,6 @@ window.CRYPTIC_PUZZLES["everyman-4136"] = /*JSON-START*/ {
      0,
      3
     ]
-   ],
-   "group": [
-    "18-down"
    ],
    "separatorLocations": {
     "-": [
@@ -886,9 +829,6 @@ window.CRYPTIC_PUZZLES["everyman-4136"] = /*JSON-START*/ {
      4
     ]
    ],
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "GAMIEST",
    "annotation": {
@@ -929,9 +869,6 @@ window.CRYPTIC_PUZZLES["everyman-4136"] = /*JSON-START*/ {
      4
     ]
    ],
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "GABRIEL",
    "annotation": {
@@ -969,9 +906,6 @@ window.CRYPTIC_PUZZLES["everyman-4136"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "As a flooded river may come at too high a price (5,3,4)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      5,
@@ -1011,9 +945,6 @@ window.CRYPTIC_PUZZLES["everyman-4136"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Upon rising, give out prison sentence (4)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "TIME",
    "annotation": {
@@ -1057,9 +988,6 @@ window.CRYPTIC_PUZZLES["everyman-4136"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Money posted (we're told) (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "CENT",
    "annotation": {
@@ -1095,9 +1023,6 @@ window.CRYPTIC_PUZZLES["everyman-4136"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Military subdivision incapable: France lost (4)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "UNIT",
    "annotation": {
@@ -1146,9 +1071,6 @@ window.CRYPTIC_PUZZLES["everyman-4136"] = /*JSON-START*/ {
      3
     ]
    ],
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "OPTIMALISE",
    "annotation": {
@@ -1188,9 +1110,6 @@ window.CRYPTIC_PUZZLES["everyman-4136"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Flipping American junk: I'm off (2-2)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     "-": [
      2
@@ -1243,9 +1162,6 @@ window.CRYPTIC_PUZZLES["everyman-4136"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Youngster's amateur haircut with, after vacation, loathsome cologne (10)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "ADOLESCENT",
    "annotation": {

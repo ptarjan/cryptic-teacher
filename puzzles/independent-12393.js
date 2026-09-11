@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12393"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Wind from the east Portuguese region wiping out half of five hundred, say, in city centre (9,6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      9
@@ -96,9 +93,6 @@ window.CRYPTIC_PUZZLES["independent-12393"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "With added height, being short, this artist would represent three cities (8-7)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     "-": [
      8
@@ -162,9 +156,6 @@ window.CRYPTIC_PUZZLES["independent-12393"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Surprisingly AC Milan dropping name for club initially gets praise (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "ACCLAIM",
    "annotation": {
@@ -221,9 +212,6 @@ window.CRYPTIC_PUZZLES["independent-12393"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "A drapery that’s hard to break is falling down? (9)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "AVALANCHE",
    "annotation": {
@@ -279,9 +267,6 @@ window.CRYPTIC_PUZZLES["independent-12393"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "A dose of Farage no alternative for the City (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "GENOA",
    "annotation": {
@@ -319,9 +304,6 @@ window.CRYPTIC_PUZZLES["independent-12393"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "People like Trump and Putin lacking leadership for members of the local community (9)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "RESIDENTS",
    "annotation": {
@@ -367,9 +349,6 @@ window.CRYPTIC_PUZZLES["independent-12393"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Unconventional rock band dismissive of new record's opening (5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "QUEER",
    "annotation": {
@@ -415,9 +394,6 @@ window.CRYPTIC_PUZZLES["independent-12393"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Symptom of a cold caught an hour after noon - go away! (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "ATISHOO",
    "annotation": {
@@ -455,9 +431,6 @@ window.CRYPTIC_PUZZLES["independent-12393"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Exciting comprehensive that won't leave you cold (8,7)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -499,9 +472,6 @@ window.CRYPTIC_PUZZLES["independent-12393"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Loveless workers' association introducing tea for free (7)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "UNCHAIN",
    "annotation": {
@@ -551,9 +521,6 @@ window.CRYPTIC_PUZZLES["independent-12393"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Tireless criminal abandons a son for being unproductive (7)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "STERILE",
    "annotation": {
@@ -601,9 +568,6 @@ window.CRYPTIC_PUZZLES["independent-12393"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "After retirement I see a way of working in US city (5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "OMAHA",
    "annotation": {
@@ -662,9 +626,6 @@ window.CRYPTIC_PUZZLES["independent-12393"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Try to follow lunar astronaut circling earth who's missing in Hampshire town (9)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "ALDERSHOT",
    "annotation": {
@@ -724,9 +685,6 @@ window.CRYPTIC_PUZZLES["independent-12393"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "House dependency, conservatory, in the end leaves a mark (9)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "SEMICOLON",
    "annotation": {
@@ -777,9 +735,6 @@ window.CRYPTIC_PUZZLES["independent-12393"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Working title of film oddly omitted recurring theme (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "LEITMOTIF",
    "annotation": {
@@ -824,9 +779,6 @@ window.CRYPTIC_PUZZLES["independent-12393"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Sign Keir's opponent is losing her head when drinking orange juice (5)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "EMOJI",
    "annotation": {
@@ -877,9 +829,6 @@ window.CRYPTIC_PUZZLES["independent-12393"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Position in church Liz mostly combined with shepherd after second husband left (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "ELDERSHIP",
    "annotation": {
@@ -935,9 +884,6 @@ window.CRYPTIC_PUZZLES["independent-12393"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Wrongly ordered energy drinks, a mistake (5)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "LAPSE",
    "annotation": {
@@ -980,9 +926,6 @@ window.CRYPTIC_PUZZLES["independent-12393"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "One organises nationals in real power going to heaven (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "PLANNER",
    "annotation": {
@@ -1042,9 +985,6 @@ window.CRYPTIC_PUZZLES["independent-12393"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Criminal activity in team work (6,3)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -1092,9 +1032,6 @@ window.CRYPTIC_PUZZLES["independent-12393"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Swedish tenor Björling accepting old incomplete birthright citizenship (3,4)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -1145,9 +1082,6 @@ window.CRYPTIC_PUZZLES["independent-12393"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "A mixture of sad and humane but not embarrassed (9)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "UNASHAMED",
    "annotation": {
@@ -1194,9 +1128,6 @@ window.CRYPTIC_PUZZLES["independent-12393"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Instrument's initial temperature increases which is welcome (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "HELLO",
    "annotation": {
@@ -1245,9 +1176,6 @@ window.CRYPTIC_PUZZLES["independent-12393"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "TV channel doesn't show very popular dance music (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "DISCO",
    "annotation": {
@@ -1290,9 +1218,6 @@ window.CRYPTIC_PUZZLES["independent-12393"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Opera stars covering Bob Marley? (5)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "RASTA",
    "annotation": {
@@ -1327,9 +1252,6 @@ window.CRYPTIC_PUZZLES["independent-12393"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Right around fireplace is a butterfly (7)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "RINGLET",
    "annotation": {
@@ -1377,9 +1299,6 @@ window.CRYPTIC_PUZZLES["independent-12393"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Inferior school shut (7)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "SCHLOCK",
    "annotation": {
@@ -1417,9 +1336,6 @@ window.CRYPTIC_PUZZLES["independent-12393"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Anarchic contra not pro FBI's measure of green policy (6,9)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {
     ",": [
      6

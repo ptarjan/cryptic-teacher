@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1872"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Time of year a beehive might be unmanageable? (3,4,3)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -63,9 +60,6 @@ window.CRYPTIC_PUZZLES["indysunday-1872"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Dutch boats crossing line gives great pleasure (8)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "DELIGHTS",
    "annotation": {
@@ -115,9 +109,6 @@ window.CRYPTIC_PUZZLES["indysunday-1872"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "One small missile rising by fighter in formation (6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "MASSIF",
    "annotation": {
@@ -169,9 +160,6 @@ window.CRYPTIC_PUZZLES["indysunday-1872"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Black and blue balls ... settle down! (4,4)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -218,9 +206,6 @@ window.CRYPTIC_PUZZLES["indysunday-1872"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Stumped by labours? Not with those delivering babies! (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "STORKS",
    "annotation": {
@@ -271,9 +256,6 @@ window.CRYPTIC_PUZZLES["indysunday-1872"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Singer about to break into Welsh number (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "WREN",
    "annotation": {
@@ -328,9 +310,6 @@ window.CRYPTIC_PUZZLES["indysunday-1872"] = /*JSON-START*/ {
      10
     ]
    ],
-   "group": [
-    "7-across"
-   ],
    "separatorLocations": {},
    "solution": "SAFE",
    "annotation": {
@@ -370,9 +349,6 @@ window.CRYPTIC_PUZZLES["indysunday-1872"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Criminal out by alarm capable of being altered (10)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {},
    "solution": "AMBULATORY",
    "annotation": {
@@ -409,9 +385,6 @@ window.CRYPTIC_PUZZLES["indysunday-1872"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Craft beer trails TUC organised (6,7)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -452,9 +425,6 @@ window.CRYPTIC_PUZZLES["indysunday-1872"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Bondage gear in SEATs Republican dropped off around noon (6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "CHAINS",
    "annotation": {
@@ -509,9 +479,6 @@ window.CRYPTIC_PUZZLES["indysunday-1872"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Very high trail by European circular path (8)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "TOWERING",
    "annotation": {
@@ -554,9 +521,6 @@ window.CRYPTIC_PUZZLES["indysunday-1872"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Just terrible having to lose face (8)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "RIGHTFUL",
    "annotation": {
@@ -601,9 +565,6 @@ window.CRYPTIC_PUZZLES["indysunday-1872"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Service Italian scooter after picking it up (6)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "VESPER",
    "annotation": {
@@ -638,9 +599,6 @@ window.CRYPTIC_PUZZLES["indysunday-1872"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Caterpillar of a sort is one amazing lover! (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "EARTHMOVER",
    "annotation": {
@@ -677,9 +635,6 @@ window.CRYPTIC_PUZZLES["indysunday-1872"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "One to deliver notes and perform with Free and Queen (8,5)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -726,9 +681,6 @@ window.CRYPTIC_PUZZLES["indysunday-1872"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Ruined coat? Need a little yarn? (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "ANECDOTE",
    "annotation": {
@@ -765,9 +717,6 @@ window.CRYPTIC_PUZZLES["indysunday-1872"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Swallowing without restraint primarily? (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "DROWNING",
    "annotation": {
@@ -813,9 +762,6 @@ window.CRYPTIC_PUZZLES["indysunday-1872"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Relocate around outskirts of Yeovil? That's dear! (2,4)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -868,9 +814,6 @@ window.CRYPTIC_PUZZLES["indysunday-1872"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Old contest involving Liberal know-it-all (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "ORACLE",
    "annotation": {
@@ -920,9 +863,6 @@ window.CRYPTIC_PUZZLES["indysunday-1872"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Take kit off a French fool heroically ended at front (8)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "UNCLOTHE",
    "annotation": {
@@ -971,9 +911,6 @@ window.CRYPTIC_PUZZLES["indysunday-1872"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Male fowl left on top of eggs one shelled (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "COCKLE",
    "annotation": {
@@ -1022,9 +959,6 @@ window.CRYPTIC_PUZZLES["indysunday-1872"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "A red van travelling close to lightless porches (8)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "VERANDAS",
    "annotation": {
@@ -1068,9 +1002,6 @@ window.CRYPTIC_PUZZLES["indysunday-1872"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Love God? Explain racists or suffering for starters! (4)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "EROS",
    "annotation": {
@@ -1110,9 +1041,6 @@ window.CRYPTIC_PUZZLES["indysunday-1872"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Tory Party first to mandate Anti-Labour measure (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "CONDOM",
    "annotation": {
@@ -1161,9 +1089,6 @@ window.CRYPTIC_PUZZLES["indysunday-1872"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Security alert local relayed incorrectly (10)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "COLLATERAL",
    "annotation": {
@@ -1200,9 +1125,6 @@ window.CRYPTIC_PUZZLES["indysunday-1872"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Require massage someone has mentioned (4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "NEED",
    "annotation": {

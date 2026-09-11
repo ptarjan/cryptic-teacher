@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30032"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Current President assumed he had succeeded (9)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "TRIUMPHED",
    "annotation": {
@@ -78,9 +75,6 @@ window.CRYPTIC_PUZZLES["cryptic-30032"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Corporation covering it in a molten metal (8)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "TITANIUM",
    "annotation": {
@@ -133,9 +127,6 @@ window.CRYPTIC_PUZZLES["cryptic-30032"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Find keen lads in prime locations getting tattooed (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "INKED",
    "annotation": {
@@ -180,9 +171,6 @@ window.CRYPTIC_PUZZLES["cryptic-30032"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Bill might arrive in this capital before eleven, worried about work (6,8)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -252,9 +240,6 @@ window.CRYPTIC_PUZZLES["cryptic-30032"] = /*JSON-START*/ {
      5
     ]
    ],
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "HACKSAW",
    "annotation": {
@@ -298,9 +283,6 @@ window.CRYPTIC_PUZZLES["cryptic-30032"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Dundee’s comic strips (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "DENUDES",
    "annotation": {
@@ -343,9 +325,6 @@ window.CRYPTIC_PUZZLES["cryptic-30032"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Soot – small amount oddly disappears (4)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "SMUT",
    "annotation": {
@@ -389,9 +368,6 @@ window.CRYPTIC_PUZZLES["cryptic-30032"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Graduate, 22 aimed to work in TV, radio etc (4,5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -454,9 +430,6 @@ window.CRYPTIC_PUZZLES["cryptic-30032"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Thus far, ultimately not, old fruit (2,4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -510,9 +483,6 @@ window.CRYPTIC_PUZZLES["cryptic-30032"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Fix up 8 panels illustrating hero-worship (3,2,1,8)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -564,9 +534,6 @@ window.CRYPTIC_PUZZLES["cryptic-30032"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Representation of crypto Musk finally invested in X (5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "TOKEN",
    "annotation": {
@@ -616,9 +583,6 @@ window.CRYPTIC_PUZZLES["cryptic-30032"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Stunned prisoner swore (9)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "CONCUSSED",
    "annotation": {
@@ -656,9 +620,6 @@ window.CRYPTIC_PUZZLES["cryptic-30032"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Nintendo console installing game after turning knobs (7)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "NODULES",
    "annotation": {
@@ -711,9 +672,6 @@ window.CRYPTIC_PUZZLES["cryptic-30032"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "One looked down on party leader abandoning make-up (7)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "DOORMAT",
    "annotation": {
@@ -845,9 +803,6 @@ window.CRYPTIC_PUZZLES["cryptic-30032"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Good taste, home before 6? (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "INDECENCY",
    "annotation": {
@@ -891,9 +846,6 @@ window.CRYPTIC_PUZZLES["cryptic-30032"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "State of Mar-a-Lago after detailing walls of lavatory in a rococo style (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "FLORIDLY",
    "annotation": {
@@ -964,9 +916,6 @@ window.CRYPTIC_PUZZLES["cryptic-30032"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Worry ad-libs occasionally dry up (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "DISTURB",
    "annotation": {
@@ -1018,9 +967,6 @@ window.CRYPTIC_PUZZLES["cryptic-30032"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Object in stock, we hear (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "DISSENT",
    "annotation": {
@@ -1059,9 +1005,6 @@ window.CRYPTIC_PUZZLES["cryptic-30032"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Question of motive consumes one writing fantasy (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "WHIMSY",
    "annotation": {
@@ -1111,9 +1054,6 @@ window.CRYPTIC_PUZZLES["cryptic-30032"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Spots French disappearing behind hospital barracks (7)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "HECKLES",
    "annotation": {
@@ -1159,9 +1099,6 @@ window.CRYPTIC_PUZZLES["cryptic-30032"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Ship’s pilot eats before noon (7)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "STEAMER",
    "annotation": {
@@ -1214,9 +1151,6 @@ window.CRYPTIC_PUZZLES["cryptic-30032"] = /*JSON-START*/ {
      51,
      6
     ]
-   ],
-   "group": [
-    "23-down"
    ],
    "separatorLocations": {},
    "solution": "MIMIC",
@@ -1274,9 +1208,6 @@ window.CRYPTIC_PUZZLES["cryptic-30032"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "The change made on vacation without delay … (9)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "MENOPAUSE",
    "annotation": {
@@ -1320,9 +1251,6 @@ window.CRYPTIC_PUZZLES["cryptic-30032"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "… change made on time – now under control (5)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "TAMED",
    "annotation": {
@@ -1365,9 +1293,6 @@ window.CRYPTIC_PUZZLES["cryptic-30032"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Type of dieting you endlessly repeated (2-2)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {
     "-": [
      2
@@ -1416,9 +1341,6 @@ window.CRYPTIC_PUZZLES["cryptic-30032"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Book new cattery to accommodate Lambert and Geronimo? (6-3)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     "-": [
      6

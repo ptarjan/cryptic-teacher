@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29993"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Iron a suit – not hem (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "CLUB",
    "annotation": {
@@ -65,9 +62,6 @@ window.CRYPTIC_PUZZLES["cryptic-29993"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Poet outside independent church house (8)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "AUDIENCE",
    "annotation": {
@@ -118,9 +112,6 @@ window.CRYPTIC_PUZZLES["cryptic-29993"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Cook big cheese after centre removed (4)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "CHEF",
    "annotation": {
@@ -161,9 +152,6 @@ window.CRYPTIC_PUZZLES["cryptic-29993"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Utterly fail to produce a breakfast item? (3,2,3)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -205,9 +193,6 @@ window.CRYPTIC_PUZZLES["cryptic-29993"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Piles rocks on top of soil to form pitches (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "SPIELS",
    "annotation": {
@@ -265,9 +250,6 @@ window.CRYPTIC_PUZZLES["cryptic-29993"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Onus is said to melt caution (10)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "DISSUASION",
    "annotation": {
@@ -305,9 +287,6 @@ window.CRYPTIC_PUZZLES["cryptic-29993"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Jack’s partner getting end away with Bill’s partner, so dropped (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "JILTED",
    "annotation": {
@@ -355,9 +334,6 @@ window.CRYPTIC_PUZZLES["cryptic-29993"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Support for piano (4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "PROP",
    "annotation": {
@@ -396,9 +372,6 @@ window.CRYPTIC_PUZZLES["cryptic-29993"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Something funny from US city that’s disgusting (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "LAUGH",
    "annotation": {
@@ -440,9 +413,6 @@ window.CRYPTIC_PUZZLES["cryptic-29993"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Music enhancer, provided one’s in more spacious surroundings (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "AMPLIFIER",
    "annotation": {
@@ -495,9 +465,6 @@ window.CRYPTIC_PUZZLES["cryptic-29993"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Holder, accountant, wears pants with elasticated top (9)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "BRIEFCASE",
    "annotation": {
@@ -553,9 +520,6 @@ window.CRYPTIC_PUZZLES["cryptic-29993"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Was an establishment type wrongly implicated? (3,2)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -594,9 +558,6 @@ window.CRYPTIC_PUZZLES["cryptic-29993"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Start to neuter rescue strays and put down (7)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "CENSURE",
    "annotation": {
@@ -644,9 +605,6 @@ window.CRYPTIC_PUZZLES["cryptic-29993"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Taking the ---s out of universal wit (5)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "COMIC",
    "annotation": {
@@ -684,9 +642,6 @@ window.CRYPTIC_PUZZLES["cryptic-29993"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "‘Turning up a hunter’s pants’ in German (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "UNEARTHING",
    "annotation": {
@@ -748,9 +703,6 @@ window.CRYPTIC_PUZZLES["cryptic-29993"] = /*JSON-START*/ {
      12
     ]
    ],
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -791,9 +743,6 @@ window.CRYPTIC_PUZZLES["cryptic-29993"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Discontented, poor, solemn type – creep! (5)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "PROWL",
    "annotation": {
@@ -837,9 +786,6 @@ window.CRYPTIC_PUZZLES["cryptic-29993"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Not some other viewer’s rubbish (2,3)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -882,9 +828,6 @@ window.CRYPTIC_PUZZLES["cryptic-29993"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Sally’s restraint (3)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "GAG",
    "annotation": {
@@ -921,9 +864,6 @@ window.CRYPTIC_PUZZLES["cryptic-29993"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Go mad with stress – most off-putting (8)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "GROSSEST",
    "annotation": {
@@ -969,9 +909,6 @@ window.CRYPTIC_PUZZLES["cryptic-29993"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Played by band just starting to almost ring out (5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "INTRO",
    "annotation": {
@@ -1016,9 +953,6 @@ window.CRYPTIC_PUZZLES["cryptic-29993"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Stole from a milliner and acknowledged public approval? (4,1,3)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -1066,9 +1000,6 @@ window.CRYPTIC_PUZZLES["cryptic-29993"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Nude in rude act? (7)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "CABARET",
    "annotation": {
@@ -1121,9 +1052,6 @@ window.CRYPTIC_PUZZLES["cryptic-29993"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Ten cooks in pub making jokey remarks (6)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "BANTER",
    "annotation": {
@@ -1186,9 +1114,6 @@ window.CRYPTIC_PUZZLES["cryptic-29993"] = /*JSON-START*/ {
      7
     ]
    ],
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "TIMING",
    "annotation": {
@@ -1242,9 +1167,6 @@ window.CRYPTIC_PUZZLES["cryptic-29993"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "In town? Go alone – the other side will appreciate it (3,4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -1283,9 +1205,6 @@ window.CRYPTIC_PUZZLES["cryptic-29993"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Hit the drink (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "PUNCH",
    "annotation": {
@@ -1319,9 +1238,6 @@ window.CRYPTIC_PUZZLES["cryptic-29993"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Top dictator’s little dog (4)",
-   "group": [
-    "26-down"
-   ],
    "separatorLocations": {},
    "solution": "PEAK",
    "annotation": {
@@ -1357,9 +1273,6 @@ window.CRYPTIC_PUZZLES["cryptic-29993"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Entertainment from such activity around one in shopping centre (5,4)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -1428,9 +1341,6 @@ window.CRYPTIC_PUZZLES["cryptic-29993"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Bird’s tail pulled out of drink (4)",
-   "group": [
-    "28-down"
-   ],
    "separatorLocations": {},
    "solution": "COCK",
    "annotation": {
@@ -1473,9 +1383,6 @@ window.CRYPTIC_PUZZLES["cryptic-29993"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Dash to cover the inside (4)",
-   "group": [
-    "29-down"
-   ],
    "separatorLocations": {},
    "solution": "LINE",
    "annotation": {
@@ -1512,9 +1419,6 @@ window.CRYPTIC_PUZZLES["cryptic-29993"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Mountains figure in Aspen resort (9)",
-   "group": [
-    "30-across"
-   ],
    "separatorLocations": {},
    "solution": "APENNINES",
    "annotation": {
@@ -1567,9 +1471,6 @@ window.CRYPTIC_PUZZLES["cryptic-29993"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Sovereign changes sides – fool! (5)",
-   "group": [
-    "31-across"
-   ],
    "separatorLocations": {},
    "solution": "CLOWN",
    "annotation": {

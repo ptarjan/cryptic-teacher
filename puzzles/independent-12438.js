@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12438"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "God involved in aggressive act by desperately ill conman as president (7,7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -92,9 +89,6 @@ window.CRYPTIC_PUZZLES["independent-12438"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "I trace criminal drilling behind cell (9)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "BACTERIUM",
    "annotation": {
@@ -146,9 +140,6 @@ window.CRYPTIC_PUZZLES["independent-12438"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Scene of conflict a long while back (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "ARENA",
    "annotation": {
@@ -191,9 +182,6 @@ window.CRYPTIC_PUZZLES["independent-12438"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Had a go at casual worker after attending inspirational talk (9)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "ATTEMPTED",
    "annotation": {
@@ -242,9 +230,6 @@ window.CRYPTIC_PUZZLES["independent-12438"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Private area's security measures no good (5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "LOINS",
    "annotation": {
@@ -287,9 +272,6 @@ window.CRYPTIC_PUZZLES["independent-12438"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Damaged manicure on left of digits (9)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "NUMERICAL",
    "annotation": {
@@ -340,9 +322,6 @@ window.CRYPTIC_PUZZLES["independent-12438"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Share view of deforestation's impact? (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "OPINE",
    "annotation": {
@@ -383,9 +362,6 @@ window.CRYPTIC_PUZZLES["independent-12438"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Not one in three, sadly (7)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "NEITHER",
    "annotation": {
@@ -422,9 +398,6 @@ window.CRYPTIC_PUZZLES["independent-12438"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Impart knowledge during class (6)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {},
    "solution": "INFORM",
    "annotation": {
@@ -462,9 +435,6 @@ window.CRYPTIC_PUZZLES["independent-12438"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Mediterranean resort with hotel in bay (5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "NICHE",
    "annotation": {
@@ -511,9 +481,6 @@ window.CRYPTIC_PUZZLES["independent-12438"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Edging around spot of unrest, runs into seven Roman rulers (9)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "TRIUMVIRI",
    "annotation": {
@@ -574,9 +541,6 @@ window.CRYPTIC_PUZZLES["independent-12438"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Offer excessive backing for military service action? (7)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "OVERARM",
    "annotation": {
@@ -617,9 +581,6 @@ window.CRYPTIC_PUZZLES["independent-12438"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Check behind rocks for possible sign of distress (7)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "SCREECH",
    "annotation": {
@@ -665,9 +626,6 @@ window.CRYPTIC_PUZZLES["independent-12438"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Hardline communist, not a wet (5)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "MOIST",
    "annotation": {
@@ -709,9 +667,6 @@ window.CRYPTIC_PUZZLES["independent-12438"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Jazz on electronic record label (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "TRADEMARK",
    "annotation": {
@@ -760,9 +715,6 @@ window.CRYPTIC_PUZZLES["independent-12438"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Keep holding note, intermittently acerbic, for old newsreader (4,5)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -821,9 +773,6 @@ window.CRYPTIC_PUZZLES["independent-12438"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Effort to get section of Commons supporting Labour platform (9)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "WORKBENCH",
    "annotation": {
@@ -869,9 +818,6 @@ window.CRYPTIC_PUZZLES["independent-12438"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Point to pet I claim is abandoned (9)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "IMPLICATE",
    "annotation": {
@@ -908,9 +854,6 @@ window.CRYPTIC_PUZZLES["independent-12438"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Officer's subordinate losing head after signal to pause (9)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "COMMANDER",
    "annotation": {
@@ -955,9 +898,6 @@ window.CRYPTIC_PUZZLES["independent-12438"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Gratuities dry up where turds gather? (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "CESSPIT",
    "annotation": {
@@ -1010,9 +950,6 @@ window.CRYPTIC_PUZZLES["independent-12438"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "50-50 about a sports jacket feature (5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "LAPEL",
    "annotation": {
@@ -1062,9 +999,6 @@ window.CRYPTIC_PUZZLES["independent-12438"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Rubbish batch of small buns? (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "LITTER",
    "annotation": {
@@ -1099,9 +1033,6 @@ window.CRYPTIC_PUZZLES["independent-12438"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Ease when floating, for example, among marine mammals (3,4)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -1149,9 +1080,6 @@ window.CRYPTIC_PUZZLES["independent-12438"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Portion of filo I added, served up as garnish (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "AIOLI",
    "annotation": {
@@ -1196,9 +1124,6 @@ window.CRYPTIC_PUZZLES["independent-12438"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Doesn't go to sleep on board ship (5)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "SKIPS",
    "annotation": {
@@ -1245,9 +1170,6 @@ window.CRYPTIC_PUZZLES["independent-12438"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Splitting chocolate bar to be eaten by hazard (7)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "BETWIXT",
    "annotation": {
@@ -1292,9 +1214,6 @@ window.CRYPTIC_PUZZLES["independent-12438"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Right winger the heart of Athletic (5)",
-   "group": [
-    "26-down"
-   ],
    "separatorLocations": {},
    "solution": "TITLE",
    "annotation": {
@@ -1337,9 +1256,6 @@ window.CRYPTIC_PUZZLES["independent-12438"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Way of putting one's foot down in support of country (9)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "PRONATION",
    "annotation": {
@@ -1377,9 +1293,6 @@ window.CRYPTIC_PUZZLES["independent-12438"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Lord of most of Kent region (5)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "THANE",
    "annotation": {
@@ -1416,9 +1329,6 @@ window.CRYPTIC_PUZZLES["independent-12438"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Fat fool keeping almost emaciated First Lady very close (5,2,7)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {
     ",": [
      5,

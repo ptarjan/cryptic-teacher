@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12434"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Passionate American twisted foot during pause, beginning to limp off (7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "LUSTFUL",
    "annotation": {
@@ -81,9 +78,6 @@ window.CRYPTIC_PUZZLES["independent-12434"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Tradesman avoids parking useless stuff (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "LUMBER",
    "annotation": {
@@ -122,9 +116,6 @@ window.CRYPTIC_PUZZLES["independent-12434"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Busy parent very much taken by cricket club - more perturbed over master (6,3)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -190,9 +181,6 @@ window.CRYPTIC_PUZZLES["independent-12434"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Flustered state following drink (4)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "FLAP",
    "annotation": {
@@ -230,9 +218,6 @@ window.CRYPTIC_PUZZLES["independent-12434"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Lingers over tucking into quantities of American wine (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "LOITERS",
    "annotation": {
@@ -273,9 +258,6 @@ window.CRYPTIC_PUZZLES["independent-12434"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Stone interrupting ballet move? One may be letting off steam (3,4)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -320,9 +302,6 @@ window.CRYPTIC_PUZZLES["independent-12434"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Avoiding politician, elected, though held in prison (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "JUMPING",
    "annotation": {
@@ -374,9 +353,6 @@ window.CRYPTIC_PUZZLES["independent-12434"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Decide on a vocation to work the fast food till? (4,6)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -418,9 +394,6 @@ window.CRYPTIC_PUZZLES["independent-12434"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Struggles to get under one collection of invasive plants (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "IVIES",
    "annotation": {
@@ -460,9 +433,6 @@ window.CRYPTIC_PUZZLES["independent-12434"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Hero of morality play, extremely beset by inversion of reputation (8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "EVERYMAN",
    "annotation": {
@@ -510,9 +480,6 @@ window.CRYPTIC_PUZZLES["independent-12434"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Phi taking opening to include reverse of popular device (9)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "MECHANISM",
    "annotation": {
@@ -569,9 +536,6 @@ window.CRYPTIC_PUZZLES["independent-12434"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Emptied kitchen provided with latest in fashionable kitchen tool? (5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "KNIFE",
    "annotation": {
@@ -621,9 +585,6 @@ window.CRYPTIC_PUZZLES["independent-12434"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Cumbrian river valley that’s perceived back to front (4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "EDEN",
    "annotation": {
@@ -663,9 +624,6 @@ window.CRYPTIC_PUZZLES["independent-12434"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Dispensation of your pills including MDMA, with a degree of risk (10)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "PERILOUSLY",
    "annotation": {
@@ -710,9 +668,6 @@ window.CRYPTIC_PUZZLES["independent-12434"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Create place possibly from which article is taken - or where it may be stored? (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "RECEPTACLE",
    "annotation": {
@@ -757,9 +712,6 @@ window.CRYPTIC_PUZZLES["independent-12434"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Concluding words about one French city (6)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "AMIENS",
    "annotation": {
@@ -800,9 +752,6 @@ window.CRYPTIC_PUZZLES["independent-12434"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Flowering plant: leave it to revert, surrounded by a lot of wood (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "GODETIA",
    "annotation": {
@@ -857,9 +806,6 @@ window.CRYPTIC_PUZZLES["independent-12434"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "NZ city almost recycled fabric (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "TOWELLING",
    "annotation": {
@@ -900,9 +846,6 @@ window.CRYPTIC_PUZZLES["independent-12434"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Old King encountered old Queen - resistance showing here? (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "OHMMETER",
    "annotation": {
@@ -952,9 +895,6 @@ window.CRYPTIC_PUZZLES["independent-12434"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Husband keeps talking, dismissing foremost London team? (7)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "HAMMERS",
    "annotation": {
@@ -1000,9 +940,6 @@ window.CRYPTIC_PUZZLES["independent-12434"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "America engaged in special survey, cut short, regarding the United States? (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "SPOUSAL",
    "annotation": {
@@ -1050,9 +987,6 @@ window.CRYPTIC_PUZZLES["independent-12434"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Net trimmed aboard ship - backbreaking stuff? (6)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "STRAWS",
    "annotation": {
@@ -1095,9 +1029,6 @@ window.CRYPTIC_PUZZLES["independent-12434"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Lovers’ encounter, initially under thoroughly wet part of church? (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "STEEPLE",
    "annotation": {
@@ -1138,9 +1069,6 @@ window.CRYPTIC_PUZZLES["independent-12434"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Shun Italian guy doffing cap (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "IGNORE",
    "annotation": {
@@ -1179,9 +1107,6 @@ window.CRYPTIC_PUZZLES["independent-12434"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Athlete flailing another arm (10)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "MARATHONER",
    "annotation": {
@@ -1220,9 +1145,6 @@ window.CRYPTIC_PUZZLES["independent-12434"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Drunken person leaving new parties on a mountain (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "ROPES",
    "annotation": {
@@ -1267,9 +1189,6 @@ window.CRYPTIC_PUZZLES["independent-12434"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Give ear to piano in advertisement (4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "PLUG",
    "annotation": {
@@ -1310,9 +1229,6 @@ window.CRYPTIC_PUZZLES["independent-12434"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Poor bats: upside down amid defoliation (4)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "TAIL",
    "annotation": {
@@ -1350,9 +1266,6 @@ window.CRYPTIC_PUZZLES["independent-12434"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Discussion subject in honour of film (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "TOPIC",
    "annotation": {
@@ -1390,9 +1303,6 @@ window.CRYPTIC_PUZZLES["independent-12434"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Bribe arranged in Ohio, offering notes in elevated positions? (9)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "SOPRANINO",
    "annotation": {
@@ -1442,9 +1352,6 @@ window.CRYPTIC_PUZZLES["independent-12434"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Philosopher’s stratagem involving singular lines (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "RUSSELL",
    "annotation": {
@@ -1494,9 +1401,6 @@ window.CRYPTIC_PUZZLES["independent-12434"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Poem’s energy reflected in English crossword feature (7)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "ECLOGUE",
    "annotation": {

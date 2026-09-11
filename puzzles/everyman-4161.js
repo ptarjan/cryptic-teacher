@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4161"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Fifty pence 'entertaining' Everyman's spent (4)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "LIMP",
    "annotation": {
@@ -76,9 +73,6 @@ window.CRYPTIC_PUZZLES["everyman-4161"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Organised routine do, and cleared up (6,3)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -122,9 +116,6 @@ window.CRYPTIC_PUZZLES["everyman-4161"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Urges drinks (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "PRESSES",
    "annotation": {
@@ -159,9 +150,6 @@ window.CRYPTIC_PUZZLES["everyman-4161"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Condition in which frost becomes frothed? (4)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "LISP",
    "annotation": {
@@ -193,9 +181,6 @@ window.CRYPTIC_PUZZLES["everyman-4161"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "In vague sense, how post-diet clothes fit (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "LOOSELY",
    "annotation": {
@@ -230,9 +215,6 @@ window.CRYPTIC_PUZZLES["everyman-4161"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Vacuous silly academic getting promotion in ecclesiastical council (5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "SYNOD",
    "annotation": {
@@ -286,9 +268,6 @@ window.CRYPTIC_PUZZLES["everyman-4161"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "We hear of harder breastbones (6)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "STERNA",
    "annotation": {
@@ -326,9 +305,6 @@ window.CRYPTIC_PUZZLES["everyman-4161"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Agreement accepted by leprechaun is ongoing (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "UNISON",
    "annotation": {
@@ -362,9 +338,6 @@ window.CRYPTIC_PUZZLES["everyman-4161"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Swagger, as sax player will do (4,4,3,4)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -405,9 +378,6 @@ window.CRYPTIC_PUZZLES["everyman-4161"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Happy - formerly - to take in brash nephew at home (2,5,4)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -468,9 +438,6 @@ window.CRYPTIC_PUZZLES["everyman-4161"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Dancing upon the sand? That's easily solved (4-3-4)",
-   "group": [
-    "10-down"
-   ],
    "separatorLocations": {
     "-": [
      4,
@@ -515,9 +482,6 @@ window.CRYPTIC_PUZZLES["everyman-4161"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Horses for children who ride motorbikes? (7)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "ROCKERS",
    "annotation": {
@@ -552,9 +516,6 @@ window.CRYPTIC_PUZZLES["everyman-4161"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Like Billy-No-Mates, Friday's gone - going on forever (7)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "ENDLESS",
    "annotation": {
@@ -596,9 +557,6 @@ window.CRYPTIC_PUZZLES["everyman-4161"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Morals you declined in licentious manner (9)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "AMOROUSLY",
    "annotation": {
@@ -635,9 +593,6 @@ window.CRYPTIC_PUZZLES["everyman-4161"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Depicted as haggard (5)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "DRAWN",
    "annotation": {
@@ -675,9 +630,6 @@ window.CRYPTIC_PUZZLES["everyman-4161"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Sinfulness in drunken VE Day trip (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "DEPRAVITY",
    "annotation": {
@@ -723,9 +675,6 @@ window.CRYPTIC_PUZZLES["everyman-4161"] = /*JSON-START*/ {
      3
     ]
    ],
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "CADET",
    "annotation": {
@@ -766,9 +715,6 @@ window.CRYPTIC_PUZZLES["everyman-4161"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Delicious serving of gazpacho I celebrated (6)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "CHOICE",
    "annotation": {
@@ -802,9 +748,6 @@ window.CRYPTIC_PUZZLES["everyman-4161"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Australian pointed rudely, son - here? (9)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "ANTIPODES",
    "annotation": {
@@ -860,9 +803,6 @@ window.CRYPTIC_PUZZLES["everyman-4161"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Revelled topless, titillated (7)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "AROUSED",
    "annotation": {
@@ -899,9 +839,6 @@ window.CRYPTIC_PUZZLES["everyman-4161"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Reveal ultimately stylish line of stitching included in source of wool (5,2)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -957,9 +894,6 @@ window.CRYPTIC_PUZZLES["everyman-4161"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Good to visit Impressionist retrospective that's hung slackly (6)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "SAGGED",
    "annotation": {
@@ -1014,9 +948,6 @@ window.CRYPTIC_PUZZLES["everyman-4161"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Orion arranged company for river to the Atlantic (7)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "ORINOCO",
    "annotation": {
@@ -1068,9 +999,6 @@ window.CRYPTIC_PUZZLES["everyman-4161"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Confess painful response as joke backfires (3,2)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -1126,9 +1054,6 @@ window.CRYPTIC_PUZZLES["everyman-4161"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Primarily 'ravenous', offensively avaricious driver hindering others gallingly? (7)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "ROADHOG",
    "annotation": {
@@ -1171,9 +1096,6 @@ window.CRYPTIC_PUZZLES["everyman-4161"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Spotless: all hesitance was resolved (5,2,1,7)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     ",": [
      5,
@@ -1216,9 +1138,6 @@ window.CRYPTIC_PUZZLES["everyman-4161"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Small dish that's sweet potato (4)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "SPUD",
    "annotation": {
@@ -1256,9 +1175,6 @@ window.CRYPTIC_PUZZLES["everyman-4161"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "After line cut, theatre work is profitable (4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "PAYS",
    "annotation": {

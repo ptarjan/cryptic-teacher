@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30007"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Pick up bargain (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "CONTRACT",
    "annotation": {
@@ -62,9 +59,6 @@ window.CRYPTIC_PUZZLES["cryptic-30007"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Occasionally coarse rock (3)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "ORE",
    "annotation": {
@@ -102,9 +96,6 @@ window.CRYPTIC_PUZZLES["cryptic-30007"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Swimmer getting number with cold bath at the end (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "TENCH",
    "annotation": {
@@ -158,9 +149,6 @@ window.CRYPTIC_PUZZLES["cryptic-30007"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Share a large place (10)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "ALLOCATION",
    "annotation": {
@@ -205,9 +193,6 @@ window.CRYPTIC_PUZZLES["cryptic-30007"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Rolling marijuana – mine is excellent (3-3)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -264,9 +249,6 @@ window.CRYPTIC_PUZZLES["cryptic-30007"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Manx cat principally is clearly even smoother (6)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "PUMICE",
    "annotation": {
@@ -312,9 +294,6 @@ window.CRYPTIC_PUZZLES["cryptic-30007"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Plan to record over (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "PLOT",
    "annotation": {
@@ -358,9 +337,6 @@ window.CRYPTIC_PUZZLES["cryptic-30007"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Style of music Ravel composed with introduction from Brian May, for example (5,4)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -424,9 +400,6 @@ window.CRYPTIC_PUZZLES["cryptic-30007"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Focus on money found in box (11)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "CONCENTRATE",
    "annotation": {
@@ -477,9 +450,6 @@ window.CRYPTIC_PUZZLES["cryptic-30007"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Use handle to carry case of neon bulbs? (6)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "FENNEL",
    "annotation": {
@@ -527,9 +497,6 @@ window.CRYPTIC_PUZZLES["cryptic-30007"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Digging for diamonds – cheating, dropping ring (8)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "PRODDING",
    "annotation": {
@@ -630,9 +597,6 @@ window.CRYPTIC_PUZZLES["cryptic-30007"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Power car using the sun – at the start one’s a bundle of nerves (5,6)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -711,9 +675,6 @@ window.CRYPTIC_PUZZLES["cryptic-30007"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Generous Irish broadcaster interrupting show-off (3-7)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -762,9 +723,6 @@ window.CRYPTIC_PUZZLES["cryptic-30007"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "House entertaining adult books in shed? (4-2)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -822,9 +780,6 @@ window.CRYPTIC_PUZZLES["cryptic-30007"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Recluse has a new job without computers etc (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "ANCHORITE",
    "annotation": {
@@ -884,9 +839,6 @@ window.CRYPTIC_PUZZLES["cryptic-30007"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Mum is back fast (6)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "SILENT",
    "annotation": {
@@ -942,9 +894,6 @@ window.CRYPTIC_PUZZLES["cryptic-30007"] = /*JSON-START*/ {
      7
     ]
    ],
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "RECKON",
    "annotation": {
@@ -979,9 +928,6 @@ window.CRYPTIC_PUZZLES["cryptic-30007"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Fear boss is upset with his PA wasting seconds (6)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "PHOBIA",
    "annotation": {
@@ -1035,9 +981,6 @@ window.CRYPTIC_PUZZLES["cryptic-30007"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Importance of wife joining crew? (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "WEIGHT",
    "annotation": {
@@ -1167,9 +1110,6 @@ window.CRYPTIC_PUZZLES["cryptic-30007"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Turn of phrase in papers I order (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "IDIOM",
    "annotation": {
@@ -1217,9 +1157,6 @@ window.CRYPTIC_PUZZLES["cryptic-30007"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Solicitor regularly paid by politician (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "PIMP",
    "annotation": {
@@ -1266,9 +1203,6 @@ window.CRYPTIC_PUZZLES["cryptic-30007"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Breathtaking old flame calling (8)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "EXCITING",
    "annotation": {
@@ -1307,9 +1241,6 @@ window.CRYPTIC_PUZZLES["cryptic-30007"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "One that follows tinker or follows dog (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "TAILOR",
    "annotation": {
@@ -1353,9 +1284,6 @@ window.CRYPTIC_PUZZLES["cryptic-30007"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Row on Radio 2 (3)",
-   "group": [
-    "27-down"
-   ],
    "separatorLocations": {},
    "solution": "OAR",
    "annotation": {
@@ -1391,9 +1319,6 @@ window.CRYPTIC_PUZZLES["cryptic-30007"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Hibernating snake taking shelter (6)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "ASLEEP",
    "annotation": {
@@ -1438,9 +1363,6 @@ window.CRYPTIC_PUZZLES["cryptic-30007"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Maître d’ oddly last to ask is this where the drink got to? (8)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "TIDEMARK",
    "annotation": {

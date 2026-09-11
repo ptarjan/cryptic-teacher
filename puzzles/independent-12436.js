@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12436"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Lovely lady more fabled when bare (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "ADORABLE",
    "annotation": {
@@ -79,9 +76,6 @@ window.CRYPTIC_PUZZLES["independent-12436"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Supremo's order to a curate finally cancelled (8)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "AUTOCRAT",
    "annotation": {
@@ -128,9 +122,6 @@ window.CRYPTIC_PUZZLES["independent-12436"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Trace very old chopped ham (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "OVERACT",
    "annotation": {
@@ -177,9 +168,6 @@ window.CRYPTIC_PUZZLES["independent-12436"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "School organisation cycling to get fit (3)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "APT",
    "annotation": {
@@ -220,9 +208,6 @@ window.CRYPTIC_PUZZLES["independent-12436"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Part from grille a vent covers (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "LEAVE",
    "annotation": {
@@ -256,9 +241,6 @@ window.CRYPTIC_PUZZLES["independent-12436"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "A surge in activity catches learner out (6)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "ABLOOM",
    "annotation": {
@@ -308,9 +290,6 @@ window.CRYPTIC_PUZZLES["independent-12436"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Cockney chap was flipping covered in pearly tat, maybe being a nuisance (11)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "BEDEVILLING",
    "annotation": {
@@ -368,9 +347,6 @@ window.CRYPTIC_PUZZLES["independent-12436"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Took too much on at once, ultimately (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "OVERATE",
    "annotation": {
@@ -419,9 +395,6 @@ window.CRYPTIC_PUZZLES["independent-12436"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Attack using half of bullets, perhaps, in case (6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "MOLEST",
    "annotation": {
@@ -467,9 +440,6 @@ window.CRYPTIC_PUZZLES["independent-12436"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Most of religious community let down disciple (8)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {},
    "solution": "FOLLOWER",
    "annotation": {
@@ -512,9 +482,6 @@ window.CRYPTIC_PUZZLES["independent-12436"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Negotiate withdrawal after soldiers go AWOL (5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "TREAT",
    "annotation": {
@@ -559,9 +526,6 @@ window.CRYPTIC_PUZZLES["independent-12436"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Much value for money (1,4,4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      1,
@@ -600,9 +564,6 @@ window.CRYPTIC_PUZZLES["independent-12436"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Within enclosed chamber, metres inside, tie down stateside digging equipment (9)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "CLAMSHELL",
    "annotation": {
@@ -655,9 +616,6 @@ window.CRYPTIC_PUZZLES["independent-12436"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Drug users mistakenly freed in talks (5,6)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -706,9 +664,6 @@ window.CRYPTIC_PUZZLES["independent-12436"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "By means of leaks, drained bottles (5)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "VIALS",
    "annotation": {
@@ -751,9 +706,6 @@ window.CRYPTIC_PUZZLES["independent-12436"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Direct reorganisation of Welsh factories (2,3,4,5)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -799,9 +751,6 @@ window.CRYPTIC_PUZZLES["independent-12436"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Borne up bed of glacier, suffering climbing injury (4,4)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -849,9 +798,6 @@ window.CRYPTIC_PUZZLES["independent-12436"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Piece of paper? (4,4)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -890,9 +836,6 @@ window.CRYPTIC_PUZZLES["independent-12436"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Crazily, Trump worsened international speed of data capture (5,3,6)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     ",": [
      5,
@@ -939,9 +882,6 @@ window.CRYPTIC_PUZZLES["independent-12436"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "One facing problem, weighed down by work (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "OPPOSER",
    "annotation": {
@@ -984,9 +924,6 @@ window.CRYPTIC_PUZZLES["independent-12436"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Wrong turn oddly heralds finish of economic improvement (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "UPTREND",
    "annotation": {
@@ -1040,9 +977,6 @@ window.CRYPTIC_PUZZLES["independent-12436"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "A bit raunchy? I show embarrassment outwardly (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "BLUISH",
    "annotation": {
@@ -1086,9 +1020,6 @@ window.CRYPTIC_PUZZLES["independent-12436"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Charitable person accommodates pariah (5)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "LEPER",
    "annotation": {
@@ -1122,9 +1053,6 @@ window.CRYPTIC_PUZZLES["independent-12436"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Big US donor's attendance restricted by what he calls checks (4,5)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -1175,9 +1103,6 @@ window.CRYPTIC_PUZZLES["independent-12436"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Trees in locations bisected by motorway (5)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "LIMES",
    "annotation": {
@@ -1224,9 +1149,6 @@ window.CRYPTIC_PUZZLES["independent-12436"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Platform One at northern station - note crush (9)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "INSTAGRAM",
    "annotation": {
@@ -1284,9 +1206,6 @@ window.CRYPTIC_PUZZLES["independent-12436"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "That's the thing about poor grades, son (2,3)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -1341,9 +1260,6 @@ window.CRYPTIC_PUZZLES["independent-12436"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Reportedly, you can get down from this mountain (3)",
-   "group": [
-    "26-down"
-   ],
    "separatorLocations": {},
    "solution": "IDA",
    "annotation": {
@@ -1378,9 +1294,6 @@ window.CRYPTIC_PUZZLES["independent-12436"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Fergie returns to confront start of soccer trouble (6)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "HARASS",
    "annotation": {
@@ -1434,9 +1347,6 @@ window.CRYPTIC_PUZZLES["independent-12436"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "First man to bring in flier for viewing African landmark (5,3)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {
     ",": [
      5

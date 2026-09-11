@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1397"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Old male cat occupying bronze padded seat (7)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "OTTOMAN",
    "annotation": {
@@ -77,9 +74,6 @@ window.CRYPTIC_PUZZLES["quiptic-1397"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Definite nasty bug in donut (10)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "UNDOUBTING",
    "annotation": {
@@ -121,9 +115,6 @@ window.CRYPTIC_PUZZLES["quiptic-1397"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Nick cheers on vacuous karaoke (4)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "TAKE",
    "annotation": {
@@ -168,9 +159,6 @@ window.CRYPTIC_PUZZLES["quiptic-1397"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Dismiss son, nothing to add over fine (4,3)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -223,9 +211,6 @@ window.CRYPTIC_PUZZLES["quiptic-1397"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "As things transpired, where athletes would compete (2,3,5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -264,9 +249,6 @@ window.CRYPTIC_PUZZLES["quiptic-1397"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Spanish American silver peso found in corduroys (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "DURO",
    "annotation": {
@@ -300,9 +282,6 @@ window.CRYPTIC_PUZZLES["quiptic-1397"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Shell of areca (betel) nuts fit for consumption (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "EATABLE",
    "annotation": {
@@ -346,9 +325,6 @@ window.CRYPTIC_PUZZLES["quiptic-1397"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Wild goat seen in prehistoric period (5,3)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -397,9 +373,6 @@ window.CRYPTIC_PUZZLES["quiptic-1397"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Sweet nothing when alpha ousts husband (6)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "NOUGAT",
    "annotation": {
@@ -451,9 +424,6 @@ window.CRYPTIC_PUZZLES["quiptic-1397"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Poor stooge and journalist decline through neglect (2,2,4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -503,9 +473,6 @@ window.CRYPTIC_PUZZLES["quiptic-1397"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Mentioned rugby forward’s pipe (6)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "HOOKAH",
    "annotation": {
@@ -543,9 +510,6 @@ window.CRYPTIC_PUZZLES["quiptic-1397"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Locksmith that’s scored? (6,2,7)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     ",": [
      6,
@@ -581,9 +545,6 @@ window.CRYPTIC_PUZZLES["quiptic-1397"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "On which being in a union is often indicated (4,6)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -618,9 +579,6 @@ window.CRYPTIC_PUZZLES["quiptic-1397"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Component of engine dirt ruined (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "INGREDIENT",
    "annotation": {
@@ -665,9 +623,6 @@ window.CRYPTIC_PUZZLES["quiptic-1397"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Ally ousts Republican devil (5)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "FIEND",
    "annotation": {
@@ -709,9 +664,6 @@ window.CRYPTIC_PUZZLES["quiptic-1397"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Clergyman cut grass border (5)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "VERGE",
    "annotation": {
@@ -748,9 +700,6 @@ window.CRYPTIC_PUZZLES["quiptic-1397"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Article more dodgy – it requires proof (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "THEOREM",
    "annotation": {
@@ -797,9 +746,6 @@ window.CRYPTIC_PUZZLES["quiptic-1397"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Votes against suppressing super chats (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "CONFABS",
    "annotation": {
@@ -843,9 +789,6 @@ window.CRYPTIC_PUZZLES["quiptic-1397"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Overseas capital gains initially put into Barclays? All right (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "BANGKOK",
    "annotation": {
@@ -903,9 +846,6 @@ window.CRYPTIC_PUZZLES["quiptic-1397"] = /*JSON-START*/ {
      12
     ]
    ],
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -959,9 +899,6 @@ window.CRYPTIC_PUZZLES["quiptic-1397"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Sick owners deteriorate (6)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "WORSEN",
    "annotation": {
@@ -998,9 +935,6 @@ window.CRYPTIC_PUZZLES["quiptic-1397"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "For some, Jupiter rises in Middle Eastern port (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "SUEZ",
    "annotation": {
@@ -1046,9 +980,6 @@ window.CRYPTIC_PUZZLES["quiptic-1397"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Passionate love for bird (8)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "FLAMINGO",
    "annotation": {
@@ -1089,9 +1020,6 @@ window.CRYPTIC_PUZZLES["quiptic-1397"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Sadly, dish of cold vegetables mostly thrown up (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "ALAS",
    "annotation": {
@@ -1141,9 +1069,6 @@ window.CRYPTIC_PUZZLES["quiptic-1397"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Cancel permit to enter river (6)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "DELETE",
    "annotation": {
@@ -1187,9 +1112,6 @@ window.CRYPTIC_PUZZLES["quiptic-1397"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Clever clogs needing support with primary email folder? (8)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "BRAINBOX",
    "annotation": {

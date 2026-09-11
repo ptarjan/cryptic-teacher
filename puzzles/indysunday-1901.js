@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1901"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Squeeze Mike Pence in hearts and spades (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "COMPRESS",
    "annotation": {
@@ -83,9 +80,6 @@ window.CRYPTIC_PUZZLES["indysunday-1901"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Total calculated wrongly then correctly (8)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "OUTRIGHT",
    "annotation": {
@@ -128,9 +122,6 @@ window.CRYPTIC_PUZZLES["indysunday-1901"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Temperature to the north rising, say (3)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "PUT",
    "annotation": {
@@ -178,9 +169,6 @@ window.CRYPTIC_PUZZLES["indysunday-1901"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Talkative dear has answer for everything, initially (9)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "EXPANSIVE",
    "annotation": {
@@ -231,9 +219,6 @@ window.CRYPTIC_PUZZLES["indysunday-1901"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Crumbly sandwich without filling worth getting unwrapped? (5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "SHORT",
    "annotation": {
@@ -281,9 +266,6 @@ window.CRYPTIC_PUZZLES["indysunday-1901"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "What might be left inside hat after opening of sutures? (5)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "SCALP",
    "annotation": {
@@ -337,9 +319,6 @@ window.CRYPTIC_PUZZLES["indysunday-1901"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Land transaction only includes one mistake (6,5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -399,9 +378,6 @@ window.CRYPTIC_PUZZLES["indysunday-1901"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Keep stunning shot of English river (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "AMAZON",
    "annotation": {
@@ -449,9 +425,6 @@ window.CRYPTIC_PUZZLES["indysunday-1901"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Vicar's patch has rip that needs fixing (6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "PARISH",
    "annotation": {
@@ -488,9 +461,6 @@ window.CRYPTIC_PUZZLES["indysunday-1901"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Remove stones from pockets, reversing element of race strategy (3,4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -543,9 +513,6 @@ window.CRYPTIC_PUZZLES["indysunday-1901"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Dog starts to learn Italian, answering \"heel\" there? (6)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {},
    "solution": "PUGLIA",
    "annotation": {
@@ -590,9 +557,6 @@ window.CRYPTIC_PUZZLES["indysunday-1901"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Chat GPT's creator runs outside (4-3)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -633,9 +597,6 @@ window.CRYPTIC_PUZZLES["indysunday-1901"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Pump beginning to generate trickle of water (5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "GRILL",
    "annotation": {
@@ -678,9 +639,6 @@ window.CRYPTIC_PUZZLES["indysunday-1901"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "The Spanish aristocrat does sweet decorations for funeral (4,7)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -731,9 +689,6 @@ window.CRYPTIC_PUZZLES["indysunday-1901"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Different from gold, debt instruments reportedly untrustworthy (9)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "NOTORIOUS",
    "annotation": {
@@ -776,9 +731,6 @@ window.CRYPTIC_PUZZLES["indysunday-1901"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Plain bothies in disrepair providing no shelter (12)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "INHOSPITABLE",
    "annotation": {
@@ -815,9 +767,6 @@ window.CRYPTIC_PUZZLES["indysunday-1901"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Advert claiming merit so inappropriately paid off (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "AMORTISED",
    "annotation": {
@@ -869,9 +818,6 @@ window.CRYPTIC_PUZZLES["indysunday-1901"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Boxing match interrupted by supporter after Fury's face puffed up (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "BOUFFANT",
    "annotation": {
@@ -925,9 +871,6 @@ window.CRYPTIC_PUZZLES["indysunday-1901"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Classical dish Chinese-American lawyer served up (6)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "ADONIS",
    "annotation": {
@@ -975,9 +918,6 @@ window.CRYPTIC_PUZZLES["indysunday-1901"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Orbiter going round Mars, perhaps carrying oxygen tank (4,2,2,4)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -1043,9 +983,6 @@ window.CRYPTIC_PUZZLES["indysunday-1901"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "DIY sale clearing odd bits with kitchen furniture? (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "ISLAND",
    "annotation": {
@@ -1088,9 +1025,6 @@ window.CRYPTIC_PUZZLES["indysunday-1901"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Crawl from Krakow to Warsaw (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "KOWTOW",
    "annotation": {
@@ -1124,9 +1058,6 @@ window.CRYPTIC_PUZZLES["indysunday-1901"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "In a sense, the way force offer resistance (4,5)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -1180,9 +1111,6 @@ window.CRYPTIC_PUZZLES["indysunday-1901"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Male gymnast's head breaks weak beam (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "GLEAM",
    "annotation": {
@@ -1221,9 +1149,6 @@ window.CRYPTIC_PUZZLES["indysunday-1901"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Slightly charming son leaves ego at home (5)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "ELFIN",
    "annotation": {
@@ -1271,9 +1196,6 @@ window.CRYPTIC_PUZZLES["indysunday-1901"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Diplomat not drinking gripped by advanced thirst (7)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "ATTACHE",
    "annotation": {
@@ -1322,9 +1244,6 @@ window.CRYPTIC_PUZZLES["indysunday-1901"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Better teacher said \"Ask me another\" (7)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "SURPASS",
    "annotation": {
@@ -1368,9 +1287,6 @@ window.CRYPTIC_PUZZLES["indysunday-1901"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Go off summit in the wrong direction (3)",
-   "group": [
-    "26-down"
-   ],
    "separatorLocations": {},
    "solution": "ROT",
    "annotation": {
@@ -1413,9 +1329,6 @@ window.CRYPTIC_PUZZLES["indysunday-1901"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Upland swallows (5)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "DOWNS",
    "annotation": {
@@ -1450,9 +1363,6 @@ window.CRYPTIC_PUZZLES["indysunday-1901"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Consider change to script that bores friend (8)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "MEDITATE",
    "annotation": {

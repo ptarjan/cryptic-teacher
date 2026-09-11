@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30083"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "8 Across I’m excited to take on in general (8)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "NAPOLEON",
    "annotation": {
@@ -74,9 +71,6 @@ window.CRYPTIC_PUZZLES["cryptic-30083"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Reportedly, celebrity out of work (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "IDLE",
    "annotation": {
@@ -108,9 +102,6 @@ window.CRYPTIC_PUZZLES["cryptic-30083"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Female agent in support of players’ association was dithering (6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "FAFFED",
    "annotation": {
@@ -156,9 +147,6 @@ window.CRYPTIC_PUZZLES["cryptic-30083"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Commentator’s anticipated error – those hanging on by a neck? (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "DEWLAPS",
    "annotation": {
@@ -196,9 +184,6 @@ window.CRYPTIC_PUZZLES["cryptic-30083"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Partying, where piano found in skip? (5-3)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -240,9 +225,6 @@ window.CRYPTIC_PUZZLES["cryptic-30083"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "A stitch bandaged by beauty, community professional (10)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "CASEWORKER",
    "annotation": {
@@ -289,9 +271,6 @@ window.CRYPTIC_PUZZLES["cryptic-30083"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Tool with key finally locked in dilapidated chest (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "SCYTHE",
    "annotation": {
@@ -332,9 +311,6 @@ window.CRYPTIC_PUZZLES["cryptic-30083"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Clown prepared for war, perhaps (4,4)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -379,9 +355,6 @@ window.CRYPTIC_PUZZLES["cryptic-30083"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Spot in which I will go fish? (6)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "PLAICE",
    "annotation": {
@@ -423,9 +396,6 @@ window.CRYPTIC_PUZZLES["cryptic-30083"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Red four from sevens or eights (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "SORE",
    "annotation": {
@@ -456,9 +426,6 @@ window.CRYPTIC_PUZZLES["cryptic-30083"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "London school probing death on the wobbly bridge (5,5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -517,9 +484,6 @@ window.CRYPTIC_PUZZLES["cryptic-30083"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Pick up only hearts and diamonds then in snap? (3,3)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -566,9 +530,6 @@ window.CRYPTIC_PUZZLES["cryptic-30083"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Eat greener bananas – and heal (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "REGENERATE",
    "annotation": {
@@ -602,9 +563,6 @@ window.CRYPTIC_PUZZLES["cryptic-30083"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Bridge holiday (8)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "PASSOVER",
    "annotation": {
@@ -640,9 +598,6 @@ window.CRYPTIC_PUZZLES["cryptic-30083"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Hopeless at whist, I could get what it is! (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "ANAGRAM",
    "annotation": {
@@ -684,9 +639,6 @@ window.CRYPTIC_PUZZLES["cryptic-30083"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Budget ultimately invested in a better groomed animal (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "ANTEATER",
    "annotation": {
@@ -728,9 +680,6 @@ window.CRYPTIC_PUZZLES["cryptic-30083"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Hearts, the first discarded by those not twisting? (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "TICKERS",
    "annotation": {
@@ -769,9 +718,6 @@ window.CRYPTIC_PUZZLES["cryptic-30083"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Preparation for 8 Acrosses, solo and fish (8)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "RIFFLING",
    "annotation": {
@@ -809,9 +755,6 @@ window.CRYPTIC_PUZZLES["cryptic-30083"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Drained cups free to be checked (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "BRIDLED",
    "annotation": {
@@ -855,9 +798,6 @@ window.CRYPTIC_PUZZLES["cryptic-30083"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Old maid and spider? (8)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "SPINSTER",
    "annotation": {
@@ -892,9 +832,6 @@ window.CRYPTIC_PUZZLES["cryptic-30083"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Benefit introducing former network (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "PLEXUS",
    "annotation": {
@@ -935,9 +872,6 @@ window.CRYPTIC_PUZZLES["cryptic-30083"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "8 Across blasted, inaccessible? (3-3)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -979,9 +913,6 @@ window.CRYPTIC_PUZZLES["cryptic-30083"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Poker face in game, better concealing that (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "FINGER",
    "annotation": {
@@ -1022,9 +953,6 @@ window.CRYPTIC_PUZZLES["cryptic-30083"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Brag about drinking always, with office in location adjoining pub (4,6)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -1086,9 +1014,6 @@ window.CRYPTIC_PUZZLES["cryptic-30083"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "A little patience, else fish (4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "EELS",
    "annotation": {
@@ -1119,9 +1044,6 @@ window.CRYPTIC_PUZZLES["cryptic-30083"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Bounce back in elimination contest, hammering opponent firstly (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "ECHO",
    "annotation": {
@@ -1161,9 +1083,6 @@ window.CRYPTIC_PUZZLES["cryptic-30083"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Cheat thus toyed with love, heart surrendered (6)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "HUSTLE",
    "annotation": {
@@ -1208,9 +1127,6 @@ window.CRYPTIC_PUZZLES["cryptic-30083"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Solo effort’s last seen by retiring footballer, giant (8)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "ELEPHANT",
    "annotation": {

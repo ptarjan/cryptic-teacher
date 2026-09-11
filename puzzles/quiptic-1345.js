@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1345"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "People coming together for sports event (4,7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -46,9 +43,6 @@ window.CRYPTIC_PUZZLES["quiptic-1345"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Dangerous game for which a routine result’s contrived (7,8)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -67,9 +61,6 @@ window.CRYPTIC_PUZZLES["quiptic-1345"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Violent actions in university tackled by police officers (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "COUPS",
    "annotation": null
@@ -84,9 +75,6 @@ window.CRYPTIC_PUZZLES["quiptic-1345"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Intervene and provide drugs to eliminate cold (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "MEDIATE",
    "annotation": null
@@ -101,9 +89,6 @@ window.CRYPTIC_PUZZLES["quiptic-1345"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Speak without stopping? (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "EXPRESS",
    "annotation": null
@@ -118,9 +103,6 @@ window.CRYPTIC_PUZZLES["quiptic-1345"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Popular podcast finally wrapped up as planned (8)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "INTENDED",
    "annotation": null
@@ -135,9 +117,6 @@ window.CRYPTIC_PUZZLES["quiptic-1345"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Happy to have yummy apple (6,9)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -156,9 +135,6 @@ window.CRYPTIC_PUZZLES["quiptic-1345"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Subtly funny nonsense? It may bring the house down! (3-3)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -177,9 +153,6 @@ window.CRYPTIC_PUZZLES["quiptic-1345"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Colleague eating an Indian cheese (6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "PANEER",
    "annotation": null
@@ -194,9 +167,6 @@ window.CRYPTIC_PUZZLES["quiptic-1345"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Transfer of secure bond ultimately made savings? (7)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "RESCUED",
    "annotation": null
@@ -211,9 +181,6 @@ window.CRYPTIC_PUZZLES["quiptic-1345"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Bone from last bit of meat found in rice dish (7)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "PATELLA",
    "annotation": null
@@ -228,9 +195,6 @@ window.CRYPTIC_PUZZLES["quiptic-1345"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Restore control, say (9)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "REINSTATE",
    "annotation": null
@@ -245,9 +209,6 @@ window.CRYPTIC_PUZZLES["quiptic-1345"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Family member is somewhat keen, i.e. cerebral (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "NIECE",
    "annotation": null
@@ -262,9 +223,6 @@ window.CRYPTIC_PUZZLES["quiptic-1345"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Intro to theme with a certain musical sound (4)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "TONE",
    "annotation": null
@@ -279,9 +237,6 @@ window.CRYPTIC_PUZZLES["quiptic-1345"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Nerds were upset about a current affairs host (10)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "NEWSREADER",
    "annotation": null
@@ -296,9 +251,6 @@ window.CRYPTIC_PUZZLES["quiptic-1345"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Small indication of sadness? (8)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "TEARDROP",
    "annotation": null
@@ -313,9 +265,6 @@ window.CRYPTIC_PUZZLES["quiptic-1345"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Honest shareholders’ position? (5,5)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -334,9 +283,6 @@ window.CRYPTIC_PUZZLES["quiptic-1345"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "In the centre of dam, it’s turbulent (6)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "AMIDST",
    "annotation": null
@@ -351,9 +297,6 @@ window.CRYPTIC_PUZZLES["quiptic-1345"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Burden of work supported by journalists (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "OPPRESS",
    "annotation": null
@@ -368,9 +311,6 @@ window.CRYPTIC_PUZZLES["quiptic-1345"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "One not sugarcoating facts about Hollywood elite (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "REALIST",
    "annotation": null
@@ -385,9 +325,6 @@ window.CRYPTIC_PUZZLES["quiptic-1345"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Knocking back lager is a mistake (4)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "SLIP",
    "annotation": null
@@ -402,9 +339,6 @@ window.CRYPTIC_PUZZLES["quiptic-1345"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Refinement of European language (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "POLISH",
    "annotation": null
@@ -419,9 +353,6 @@ window.CRYPTIC_PUZZLES["quiptic-1345"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Individual doing little except relaxing, primarily? (5)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "IDLER",
    "annotation": null
@@ -436,9 +367,6 @@ window.CRYPTIC_PUZZLES["quiptic-1345"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Sensible thing kids often do in science class (9)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "PRACTICAL",
    "annotation": null
@@ -453,9 +381,6 @@ window.CRYPTIC_PUZZLES["quiptic-1345"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Dance team no good on regular occasions (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "TANGO",
    "annotation": null
@@ -470,9 +395,6 @@ window.CRYPTIC_PUZZLES["quiptic-1345"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Release from group costing nothing (3,4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -491,9 +413,6 @@ window.CRYPTIC_PUZZLES["quiptic-1345"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Fiery genius somehow capturing supporter’s heart (7)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "IGNEOUS",
    "annotation": null
@@ -508,9 +427,6 @@ window.CRYPTIC_PUZZLES["quiptic-1345"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Descriptions of old jobs (11)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "EXPOSITIONS",
    "annotation": null

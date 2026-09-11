@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4125"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Small timepiece's piece of cloth (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "SWATCH",
    "annotation": {
@@ -68,9 +65,6 @@ window.CRYPTIC_PUZZLES["everyman-4125"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Encircles tree with garbage including carbon, depression begins now (4,6,5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -135,9 +129,6 @@ window.CRYPTIC_PUZZLES["everyman-4125"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Time we rode off, Rose (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "TOWERED",
    "annotation": {
@@ -186,9 +177,6 @@ window.CRYPTIC_PUZZLES["everyman-4125"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Mineral-rich fluid tumbling earthward (4,5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -229,9 +217,6 @@ window.CRYPTIC_PUZZLES["everyman-4125"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Discriminating announcement of just one summary (6)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "AGEIST",
    "annotation": {
@@ -276,9 +261,6 @@ window.CRYPTIC_PUZZLES["everyman-4125"] = /*JSON-START*/ {
      23,
      7
     ]
-   ],
-   "group": [
-    "5-down"
    ],
    "separatorLocations": {},
    "solution": "APHID",
@@ -331,9 +313,6 @@ window.CRYPTIC_PUZZLES["everyman-4125"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Trade barrier: flickering amber, then green light (7)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "EMBARGO",
    "annotation": {
@@ -385,9 +364,6 @@ window.CRYPTIC_PUZZLES["everyman-4125"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Drops chaps after reshuffle: poor! (8,3,4)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      8,
@@ -429,9 +405,6 @@ window.CRYPTIC_PUZZLES["everyman-4125"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Elbow rather jittery: make things easier (5,3,3)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {
     ",": [
      5,
@@ -473,9 +446,6 @@ window.CRYPTIC_PUZZLES["everyman-4125"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Shoe quiz (4)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {},
    "solution": "PUMP",
    "annotation": {
@@ -510,9 +480,6 @@ window.CRYPTIC_PUZZLES["everyman-4125"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Australian drunk disembarked (4)",
-   "group": [
-    "10-down"
-   ],
    "separatorLocations": {},
    "solution": "ALIT",
    "annotation": {
@@ -550,9 +517,6 @@ window.CRYPTIC_PUZZLES["everyman-4125"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Some of bosun's crew edgy, ready to take off (9)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "UNSCREWED",
    "annotation": {
@@ -586,9 +550,6 @@ window.CRYPTIC_PUZZLES["everyman-4125"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Disgust: social outcast returns (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "REPEL",
    "annotation": {
@@ -631,9 +592,6 @@ window.CRYPTIC_PUZZLES["everyman-4125"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Precious-ish, emeraldesque rock in demand; olivine trinket, primarily! (7)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "PERIDOT",
    "annotation": {
@@ -676,9 +634,6 @@ window.CRYPTIC_PUZZLES["everyman-4125"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Launch campaign? (7)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "PROJECT",
    "annotation": {
@@ -713,9 +668,6 @@ window.CRYPTIC_PUZZLES["everyman-4125"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Say conga is agreed policy (5,4)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -762,9 +714,6 @@ window.CRYPTIC_PUZZLES["everyman-4125"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Overnight train: what it will cross (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "SLEEPER",
    "annotation": {
@@ -799,9 +748,6 @@ window.CRYPTIC_PUZZLES["everyman-4125"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Upset, Everyman cut 50% of fats, being staunch (4)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "STEM",
    "annotation": {
@@ -855,9 +801,6 @@ window.CRYPTIC_PUZZLES["everyman-4125"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Lighter, twinkling, somewhere in Sicily (7)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "PALERMO",
    "annotation": {
@@ -895,9 +838,6 @@ window.CRYPTIC_PUZZLES["everyman-4125"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Snubs enthusiasts for Bible study (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "REBUFFS",
    "annotation": {
@@ -938,9 +878,6 @@ window.CRYPTIC_PUZZLES["everyman-4125"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Dumb row's erupting, cancelling some characters - 23? (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "BROWSER",
    "annotation": {
@@ -974,9 +911,6 @@ window.CRYPTIC_PUZZLES["everyman-4125"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Pest - and missing - neither good nor bad (2-2)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {
     "-": [
      2
@@ -1023,9 +957,6 @@ window.CRYPTIC_PUZZLES["everyman-4125"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "We hear 40 in Rome go far (5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "EXCEL",
    "annotation": {
@@ -1065,9 +996,6 @@ window.CRYPTIC_PUZZLES["everyman-4125"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Frequently depressed characters? (9)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "KEYBOARDS",
    "annotation": {
@@ -1099,9 +1027,6 @@ window.CRYPTIC_PUZZLES["everyman-4125"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Two knights on the street; one's a rascal (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "KNAVE",
    "annotation": {
@@ -1148,9 +1073,6 @@ window.CRYPTIC_PUZZLES["everyman-4125"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Composed acid satire initially attacking Balkans' neighbour (8,3)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -1198,9 +1120,6 @@ window.CRYPTIC_PUZZLES["everyman-4125"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Classic car's finish: Switzerland, then major Italian city (6)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "CHROME",
    "annotation": {
@@ -1246,9 +1165,6 @@ window.CRYPTIC_PUZZLES["everyman-4125"] = /*JSON-START*/ {
      0,
      6
     ]
-   ],
-   "group": [
-    "24-across"
    ],
    "separatorLocations": {},
    "solution": "EARTHY",

@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29929"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Way to produce order using 26 characters helping a bit as arranged (13)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "ALPHABETISING",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["cryptic-29929"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Allowing to capture queen – writing on wall, perhaps (9)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "LETTERING",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["cryptic-29929"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Middle one of 13 (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "HEART",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["cryptic-29929"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "One of three sea-going tradesmen who understates 13? (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "BAKER",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["cryptic-29929"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Securing 13 at sixes and sevens? Good (9)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "TETHERING",
    "annotation": null
@@ -110,9 +95,6 @@ window.CRYPTIC_PUZZLES["cryptic-29929"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Apparently was moved from hut over a rent (4,1,4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -132,9 +114,6 @@ window.CRYPTIC_PUZZLES["cryptic-29929"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Kind of diet contributing to reduction of a tummy (2-3)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     "-": [
      2
@@ -153,9 +132,6 @@ window.CRYPTIC_PUZZLES["cryptic-29929"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Shout out and sing in a part of US – one of 13 colonies (5,8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -174,9 +150,6 @@ window.CRYPTIC_PUZZLES["cryptic-29929"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Like some Rugby matches I attend here, is mishandled (8-1-4)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {
     "-": [
      8,
@@ -196,9 +169,6 @@ window.CRYPTIC_PUZZLES["cryptic-29929"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Both parts of return trip in remote region (7)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "OUTBACK",
    "annotation": null
@@ -213,9 +183,6 @@ window.CRYPTIC_PUZZLES["cryptic-29929"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Some flight flew there, returning before 13th (7)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "TWELFTH",
    "annotation": null
@@ -230,9 +197,6 @@ window.CRYPTIC_PUZZLES["cryptic-29929"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Taking one of London’s papers (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "THEFT",
    "annotation": null
@@ -247,9 +211,6 @@ window.CRYPTIC_PUZZLES["cryptic-29929"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Person taking part in historical pageants? Not to be confused with career (2-7)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {
     "-": [
      2
@@ -268,9 +229,6 @@ window.CRYPTIC_PUZZLES["cryptic-29929"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "French cookery expert, one of 13, possibly (5)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "CHILD",
    "annotation": null
@@ -285,9 +243,6 @@ window.CRYPTIC_PUZZLES["cryptic-29929"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Setter, for example, including double anagram for old weapon (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "DOODLEBUG",
    "annotation": null
@@ -302,9 +257,6 @@ window.CRYPTIC_PUZZLES["cryptic-29929"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Line written in regret after another splits party – that can speed up division (5,4)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -323,9 +275,6 @@ window.CRYPTIC_PUZZLES["cryptic-29929"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Farm worker has drink in piece of pottery (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "SWINEHERD",
    "annotation": null
@@ -340,9 +289,6 @@ window.CRYPTIC_PUZZLES["cryptic-29929"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Less than 13 given to bidder? That’s dishonest (9)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "UNDERHAND",
    "annotation": null
@@ -357,9 +303,6 @@ window.CRYPTIC_PUZZLES["cryptic-29929"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "For instance, din in arena is on the rise again (9)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "REGROWING",
    "annotation": null
@@ -374,9 +317,6 @@ window.CRYPTIC_PUZZLES["cryptic-29929"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Frenchman who sculpted river-god (5)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "RODIN",
    "annotation": null
@@ -391,9 +331,6 @@ window.CRYPTIC_PUZZLES["cryptic-29929"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "I strolled haphazardly, like most aristocratic types (9)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "LORDLIEST",
    "annotation": null
@@ -408,9 +345,6 @@ window.CRYPTIC_PUZZLES["cryptic-29929"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "One of 26 on radio, partnered with one of 13 (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "ROMEO",
    "annotation": null
@@ -425,9 +359,6 @@ window.CRYPTIC_PUZZLES["cryptic-29929"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Land part of Peter Rabbit (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "TERRA",
    "annotation": null
@@ -442,9 +373,6 @@ window.CRYPTIC_PUZZLES["cryptic-29929"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Cause for complaint from man in Latin America (5)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "VIRUS",
    "annotation": null
@@ -459,9 +387,6 @@ window.CRYPTIC_PUZZLES["cryptic-29929"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Record second half for South American city (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "VIDEO",
    "annotation": null
@@ -476,9 +401,6 @@ window.CRYPTIC_PUZZLES["cryptic-29929"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Mediterranean islander backed as OK for nomination (7)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "NAMABLE",
    "annotation": null
@@ -493,9 +415,6 @@ window.CRYPTIC_PUZZLES["cryptic-29929"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Punishment for player, one of 26 (3,4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -514,9 +433,6 @@ window.CRYPTIC_PUZZLES["cryptic-29929"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Trump listened to group of 13 unsophisticated types (5,8)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {
     ",": [
      5

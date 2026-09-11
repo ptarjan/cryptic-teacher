@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12437"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Like a mother bird swallowed by heartless mammal (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "MATERNAL",
    "annotation": {
@@ -73,9 +70,6 @@ window.CRYPTIC_PUZZLES["independent-12437"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Flexible English isle up to support shopping complex (9)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "MALLEABLE",
    "annotation": {
@@ -132,9 +126,6 @@ window.CRYPTIC_PUZZLES["independent-12437"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Swimmer clipped part of motor (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "TURBO",
    "annotation": {
@@ -171,9 +162,6 @@ window.CRYPTIC_PUZZLES["independent-12437"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Soldiers finished eating hot duck (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "REDHEAD",
    "annotation": {
@@ -223,9 +211,6 @@ window.CRYPTIC_PUZZLES["independent-12437"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Alto records wide range (4)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "ALPS",
    "annotation": {
@@ -264,9 +249,6 @@ window.CRYPTIC_PUZZLES["independent-12437"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Soft copper retiring (5)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "CUSHY",
    "annotation": {
@@ -304,9 +286,6 @@ window.CRYPTIC_PUZZLES["independent-12437"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Admit company head's squeezed head of finance (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "CONFESS",
    "annotation": {
@@ -358,9 +337,6 @@ window.CRYPTIC_PUZZLES["independent-12437"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Mired in kerfuffle punching cross superhero (6-3)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     "-": [
      6
@@ -416,9 +392,6 @@ window.CRYPTIC_PUZZLES["independent-12437"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Give up gym, stripping to exercise topless (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "YIELD",
    "annotation": {
@@ -463,9 +436,6 @@ window.CRYPTIC_PUZZLES["independent-12437"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Forgotten in Nice, a dilapidated rental (8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "UNLEARNT",
    "annotation": {
@@ -514,9 +484,6 @@ window.CRYPTIC_PUZZLES["independent-12437"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Sensational learner freed after university (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "LURID",
    "annotation": {
@@ -565,9 +532,6 @@ window.CRYPTIC_PUZZLES["independent-12437"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Work on spike in sound machine's output (4,5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -608,9 +572,6 @@ window.CRYPTIC_PUZZLES["independent-12437"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Last of hare sprang and ran off (6)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "ELOPED",
    "annotation": {
@@ -656,9 +617,6 @@ window.CRYPTIC_PUZZLES["independent-12437"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Republican first lady to rip into minister (8)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "REVEREND",
    "annotation": {
@@ -705,9 +663,6 @@ window.CRYPTIC_PUZZLES["independent-12437"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Get on with photos, having secured right clothes (5,6)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -761,9 +716,6 @@ window.CRYPTIC_PUZZLES["independent-12437"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "A children's game run through immediately (2,1,6)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -812,9 +764,6 @@ window.CRYPTIC_PUZZLES["independent-12437"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Base fellow essentially mainlining wine (8)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "HELIPORT",
    "annotation": {
@@ -863,9 +812,6 @@ window.CRYPTIC_PUZZLES["independent-12437"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Computer club loses backing (3)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "MAC",
    "annotation": {
@@ -902,9 +848,6 @@ window.CRYPTIC_PUZZLES["independent-12437"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Scams nurse with suspicious agreement (9)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "CONSENSUS",
    "annotation": {
@@ -951,9 +894,6 @@ window.CRYPTIC_PUZZLES["independent-12437"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Wild unclothed period (3)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "ERA",
    "annotation": {
@@ -990,9 +930,6 @@ window.CRYPTIC_PUZZLES["independent-12437"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Spread, if melting over steak (5,6)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -1045,9 +982,6 @@ window.CRYPTIC_PUZZLES["independent-12437"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Loud band with extremely egregious haircuts (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "FRINGES",
    "annotation": {
@@ -1099,9 +1033,6 @@ window.CRYPTIC_PUZZLES["independent-12437"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Current translation of Narnia from the Middle East (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "IRANIAN",
    "annotation": {
@@ -1150,9 +1081,6 @@ window.CRYPTIC_PUZZLES["independent-12437"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Muse about work, boring friends endlessly (8)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "CALLIOPE",
    "annotation": {
@@ -1204,9 +1132,6 @@ window.CRYPTIC_PUZZLES["independent-12437"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Performer to share amplifier with another? (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "COMIC",
    "annotation": {
@@ -1249,9 +1174,6 @@ window.CRYPTIC_PUZZLES["independent-12437"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "To annoy deer, cut grass back (6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "RANKLE",
    "annotation": {
@@ -1302,9 +1224,6 @@ window.CRYPTIC_PUZZLES["independent-12437"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Popular first pair of knickers to have (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "KNOWN",
    "annotation": {
@@ -1347,9 +1266,6 @@ window.CRYPTIC_PUZZLES["independent-12437"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Wee partridge's introduction? (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "PEEP",
    "annotation": {
@@ -1392,9 +1308,6 @@ window.CRYPTIC_PUZZLES["independent-12437"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Pennsylvania city pursuing absurd new mega zoo (9)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "MENAGERIE",
    "annotation": {
@@ -1445,9 +1358,6 @@ window.CRYPTIC_PUZZLES["independent-12437"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Decreases caddie's burden (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "IRONS",
    "annotation": {

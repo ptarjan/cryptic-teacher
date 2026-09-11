@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29928"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Concern with one about to leave – leaving partner in this? (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "SOLITUDE",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["cryptic-29928"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Secure underwater line (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "SEAL",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["cryptic-29928"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Article buried by burrower endlessly turning up in soil (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "LOAM",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["cryptic-29928"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "University gone round by number about to get secure position (6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "TENURE",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["cryptic-29928"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Running down daughter, is dad with anger unkind, wasting a bit of time? (13)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "DISPARAGEMENT",
    "annotation": null
@@ -110,9 +95,6 @@ window.CRYPTIC_PUZZLES["cryptic-29928"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Attempt to convey story about something refreshingly sweet? (6)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "GELATO",
    "annotation": null
@@ -127,9 +109,6 @@ window.CRYPTIC_PUZZLES["cryptic-29928"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Finish with love, having spirited sort of marriage (8)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "ENDOGAMY",
    "annotation": null
@@ -144,9 +123,6 @@ window.CRYPTIC_PUZZLES["cryptic-29928"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "A cunning viewpoint that maths teacher may explain (5,5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -165,9 +141,6 @@ window.CRYPTIC_PUZZLES["cryptic-29928"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Old writer’s English unchanged, words having magical effect (4,6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -186,9 +159,6 @@ window.CRYPTIC_PUZZLES["cryptic-29928"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Odd man is sane, as shown in medical record (9)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "ANAMNESIS",
    "annotation": null
@@ -203,9 +173,6 @@ window.CRYPTIC_PUZZLES["cryptic-29928"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Lack of courage that is evident in wormy types (13)",
-   "group": [
-    "10-down"
-   ],
    "separatorLocations": {},
    "solution": "SPINELESSNESS",
    "annotation": null
@@ -220,9 +187,6 @@ window.CRYPTIC_PUZZLES["cryptic-29928"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Trick by five hundred members of religious sect (5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "DRUSE",
    "annotation": null
@@ -237,9 +201,6 @@ window.CRYPTIC_PUZZLES["cryptic-29928"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "The latest answer involves this action in a river (8,4)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -258,9 +219,6 @@ window.CRYPTIC_PUZZLES["cryptic-29928"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Agricultural land to flourish, absorbing warmth with minimum of frost (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "WHEATFIELD",
    "annotation": null
@@ -275,9 +233,6 @@ window.CRYPTIC_PUZZLES["cryptic-29928"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Activity of artist, showing concern about Newcastle? (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "CARTOONING",
    "annotation": null
@@ -292,9 +247,6 @@ window.CRYPTIC_PUZZLES["cryptic-29928"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "House with a sign of something wrong that fraudster perpetrates? (4)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "HOAX",
    "annotation": null
@@ -309,9 +261,6 @@ window.CRYPTIC_PUZZLES["cryptic-29928"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Sad men could do this to atone (4,6)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -330,9 +279,6 @@ window.CRYPTIC_PUZZLES["cryptic-29928"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Fibrous products obtained from sewers? (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "STITCHES",
    "annotation": null
@@ -347,9 +293,6 @@ window.CRYPTIC_PUZZLES["cryptic-29928"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Social worker is embracing these opposite types (10)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "ANTITHESES",
    "annotation": null
@@ -364,9 +307,6 @@ window.CRYPTIC_PUZZLES["cryptic-29928"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Alluring sparkle exuding energy (4)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "GLAM",
    "annotation": null
@@ -381,9 +321,6 @@ window.CRYPTIC_PUZZLES["cryptic-29928"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "What river rises, producing foam? (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "SEETHE",
    "annotation": null
@@ -398,9 +335,6 @@ window.CRYPTIC_PUZZLES["cryptic-29928"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Finer monster upsetting chaps living on the edge? (12)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "FRONTIERSMEN",
    "annotation": null
@@ -415,9 +349,6 @@ window.CRYPTIC_PUZZLES["cryptic-29928"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Bird – one beginning to breed on island (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "IBIS",
    "annotation": null
@@ -432,9 +363,6 @@ window.CRYPTIC_PUZZLES["cryptic-29928"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Trade very limited? Then pack up (4)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "VEND",
    "annotation": null
@@ -449,9 +377,6 @@ window.CRYPTIC_PUZZLES["cryptic-29928"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Woman to change husband (5)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "EDITH",
    "annotation": null
@@ -466,9 +391,6 @@ window.CRYPTIC_PUZZLES["cryptic-29928"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Nasty tear at front of furniture item that can be repaired? (9)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "TREATABLE",
    "annotation": null
@@ -483,9 +405,6 @@ window.CRYPTIC_PUZZLES["cryptic-29928"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Review with snide remark is not British (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "DIGEST",
    "annotation": null
@@ -500,9 +419,6 @@ window.CRYPTIC_PUZZLES["cryptic-29928"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Somehow sad, blue inside, being defamed (8)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "ASPERSED",
    "annotation": null

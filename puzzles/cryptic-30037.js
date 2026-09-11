@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Bowl of hot stuff with foul smell (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "LAVABO",
    "annotation": {
@@ -68,9 +65,6 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Underhand tactic, fudging flaw before time’s up (7)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "LAWFARE",
    "annotation": {
@@ -129,9 +123,6 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Early Porsche development: frontiers of UV waves on spyware (2,3)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -186,9 +177,6 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Bane: where kidneys may be found? (4,5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -229,9 +217,6 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Outspoken choice to be in love with ring combatant (7)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "PICADOR",
    "annotation": {
@@ -276,9 +261,6 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Breathily said: ‘Arsenic’s taken and bootlegged’ (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "PIRATED",
    "annotation": {
@@ -323,9 +305,6 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Stick ice cubes in prime minister’s rear? (5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "CHILL",
    "annotation": {
@@ -362,9 +341,6 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Deadbeat, leaderless knight errant to pursue mobster? Duck! (2-7)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     "-": [
      2
@@ -427,9 +403,6 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Withdraw from drunken trance (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "RECANT",
    "annotation": {
@@ -469,9 +442,6 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Probe small hovel? (6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "STYLET",
    "annotation": {
@@ -508,9 +478,6 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Techie wordsmith holds advanced degree (9)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "WEBMASTER",
    "annotation": {
@@ -554,9 +521,6 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Having special powers but uncrowned, like ancient Greeks (5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "IONIC",
    "annotation": {
@@ -593,9 +557,6 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Mr. Young’s beef? (5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "ANGUS",
    "annotation": {
@@ -632,9 +593,6 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Language of sections of Rio eschewing contrived alliteration (4,5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -684,9 +642,6 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Renewal letter includes payment aid (1-6)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {
     "-": [
      1
@@ -724,9 +679,6 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Defender in a game point (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "APOLOGIST",
    "annotation": {
@@ -772,9 +724,6 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Remnants of reversal of Jewish ritual? (6)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "DEBRIS",
    "annotation": {
@@ -815,9 +764,6 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Three vitamins removed from balanced diet, unwise fix-up (5,4)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -865,9 +811,6 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Blonde, blue-eyed detectives and Harry’s pal lying about (6)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "NORDIC",
    "annotation": {
@@ -916,9 +859,6 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Drug dealer shortened Eastern undergarment (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "CHEMISE",
    "annotation": {
@@ -961,9 +901,6 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Promiscuous sort of small bird? (7)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "SWINGER",
    "annotation": {
@@ -1003,9 +940,6 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Obliterate vegetable (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "SQUASH",
    "annotation": {
@@ -1039,9 +973,6 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Moral of deviant: ‘That’s hilarious!’ (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "ROFLMAO",
    "annotation": {
@@ -1078,9 +1009,6 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "PM expels head of monarchy, a rude sort (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "STARER",
    "annotation": {
@@ -1122,9 +1050,6 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Thick-headed Genevan philosopher’s collection of bride’s clothing (9)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "TROUSSEAU",
    "annotation": {
@@ -1167,9 +1092,6 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Looms spinning at reduced speed (3-2)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -1213,9 +1135,6 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Java, lacking kick, stood up to West (5)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "DECAF",
    "annotation": {
@@ -1258,9 +1177,6 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Around 5/9ths of what biorhythms are (5)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "CIRCA",
    "annotation": {
@@ -1297,9 +1213,6 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Beast with one horn that’s deformed (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "RHINO",
    "annotation": {
@@ -1345,9 +1258,6 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "A migrant’s developed popular app (9)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "INSTAGRAM",
    "annotation": {
@@ -1384,9 +1294,6 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Spa location uncovered in part of squalid digs (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "RATHOLE",
    "annotation": {
@@ -1435,9 +1342,6 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Faction of Minnesota legislature recalled dessert (6)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "GELATO",
    "annotation": {

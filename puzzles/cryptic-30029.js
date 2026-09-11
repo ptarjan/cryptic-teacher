@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30029"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Why it’s hard to open where a gap is unclosed (4,3)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -86,9 +83,6 @@ window.CRYPTIC_PUZZLES["cryptic-30029"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Doctor oversees surgical procedures that went a bit wrong (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "WHOOPS",
    "annotation": {
@@ -133,9 +127,6 @@ window.CRYPTIC_PUZZLES["cryptic-30029"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Riverside waiter, earring perhaps, with shaved head? (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "ANGLER",
    "annotation": {
@@ -180,9 +171,6 @@ window.CRYPTIC_PUZZLES["cryptic-30029"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Smear bit of fish with virus onto vessel (10)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "FINGERMARK",
    "annotation": {
@@ -253,9 +241,6 @@ window.CRYPTIC_PUZZLES["cryptic-30029"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Kid pushed over, veteran shut up (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "GARAGED",
    "annotation": {
@@ -305,9 +290,6 @@ window.CRYPTIC_PUZZLES["cryptic-30029"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Guard on visits reading novel (9)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "GRENADIER",
    "annotation": {
@@ -363,9 +345,6 @@ window.CRYPTIC_PUZZLES["cryptic-30029"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Romeo in drag? (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "RAKE",
    "annotation": {
@@ -426,9 +405,6 @@ window.CRYPTIC_PUZZLES["cryptic-30029"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "A victory proving elusive in daring feats – trap set? (8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "DENTURES",
    "annotation": {
@@ -477,9 +453,6 @@ window.CRYPTIC_PUZZLES["cryptic-30029"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "For example, brain that’s stopped (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "ORGAN",
    "annotation": {
@@ -515,9 +488,6 @@ window.CRYPTIC_PUZZLES["cryptic-30029"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Neither profit nor gain from holiday flat (5,4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -563,9 +533,6 @@ window.CRYPTIC_PUZZLES["cryptic-30029"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "18 needs to be anything but neanderthal (7-3)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     "-": [
      7
@@ -615,9 +582,6 @@ window.CRYPTIC_PUZZLES["cryptic-30029"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Defended by Cuba, Kuwaiti capital (4)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "BAKU",
    "annotation": {
@@ -652,9 +616,6 @@ window.CRYPTIC_PUZZLES["cryptic-30029"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Nearby supply cut by carpenter, say, European and Asian wood (6,4)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -723,9 +684,6 @@ window.CRYPTIC_PUZZLES["cryptic-30029"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Sponge back in shower with a bar of soap, having created one earlier (7,4)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -797,9 +755,6 @@ window.CRYPTIC_PUZZLES["cryptic-30029"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Absence of moral rectitude with which 18 vied (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "DEPRAVITY",
    "annotation": {
@@ -845,9 +800,6 @@ window.CRYPTIC_PUZZLES["cryptic-30029"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Slight boo-boo at first, skedaddle (5-3)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -895,9 +847,6 @@ window.CRYPTIC_PUZZLES["cryptic-30029"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Nervous say after a fall, stuffing knocked out (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "AFLUTTER",
    "annotation": {
@@ -949,9 +898,6 @@ window.CRYPTIC_PUZZLES["cryptic-30029"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Concerned with supporting Leave (my, that’s extreme) – and now this! (6,5)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -1066,9 +1012,6 @@ window.CRYPTIC_PUZZLES["cryptic-30029"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Forward – as one’s behind? (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "CHEEKY",
    "annotation": {
@@ -1108,9 +1051,6 @@ window.CRYPTIC_PUZZLES["cryptic-30029"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Ergo ready for liquid lunch? (4)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "SOUP",
    "annotation": {
@@ -1152,9 +1092,6 @@ window.CRYPTIC_PUZZLES["cryptic-30029"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Flier with orbital course, a measure of speed and spirit (5,5)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -1213,9 +1150,6 @@ window.CRYPTIC_PUZZLES["cryptic-30029"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Cube, elevation skimmed (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "EIGHT",
    "annotation": {
@@ -1305,9 +1239,6 @@ window.CRYPTIC_PUZZLES["cryptic-30029"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Flying weight non-negotiable? (2,3,4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -1355,9 +1286,6 @@ window.CRYPTIC_PUZZLES["cryptic-30029"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "European river runs where white castle initially located? (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "RHONE",
    "annotation": {
@@ -1396,9 +1324,6 @@ window.CRYPTIC_PUZZLES["cryptic-30029"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Scientist’s spirit broken by school of players (7)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "FARADAY",
    "annotation": {
@@ -1446,9 +1371,6 @@ window.CRYPTIC_PUZZLES["cryptic-30029"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "18 and he gets counselling (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "THERAPY",
    "annotation": {

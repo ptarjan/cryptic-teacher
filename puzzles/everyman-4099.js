@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4099"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Some disrupt a keynoter's understanding (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "UPTAKE",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["everyman-4099"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "China grows; upper bounds showing value of money (10,5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      10
@@ -63,9 +57,6 @@ window.CRYPTIC_PUZZLES["everyman-4099"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Street paved with gold bearing up somewhere in C Europe (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "AUSTRIA",
    "annotation": null
@@ -80,9 +71,6 @@ window.CRYPTIC_PUZZLES["everyman-4099"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "I'm alone, to regrettably become het up (9)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "EMOTIONAL",
    "annotation": null
@@ -97,9 +85,6 @@ window.CRYPTIC_PUZZLES["everyman-4099"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "After reflection, stop accommodating 51 aviators (6)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "PILOTS",
    "annotation": null
@@ -114,9 +99,6 @@ window.CRYPTIC_PUZZLES["everyman-4099"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "What may follow cut meat prepared for sandwiches? (5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "PASTE",
    "annotation": null
@@ -131,9 +113,6 @@ window.CRYPTIC_PUZZLES["everyman-4099"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Location encompassing Beirut, a nation - originally Natufian, primarily? (7)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "LEBANON",
    "annotation": null
@@ -148,9 +127,6 @@ window.CRYPTIC_PUZZLES["everyman-4099"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Midnight: time with which cat may be familiar (3,8,4)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -170,9 +146,6 @@ window.CRYPTIC_PUZZLES["everyman-4099"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Sober - to blame? (11)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {},
    "solution": "RESPONSIBLE",
    "annotation": null
@@ -187,9 +160,6 @@ window.CRYPTIC_PUZZLES["everyman-4099"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Grasp where your luggage will be stowed? (4)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {},
    "solution": "HOLD",
    "annotation": null
@@ -204,9 +174,6 @@ window.CRYPTIC_PUZZLES["everyman-4099"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Footballer's games destroying Blues regularly (4)",
-   "group": [
-    "10-down"
-   ],
    "separatorLocations": {},
    "solution": "PELE",
    "annotation": null
@@ -221,9 +188,6 @@ window.CRYPTIC_PUZZLES["everyman-4099"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Failing that is here to - initially - worry about (9)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "OTHERWISE",
    "annotation": null
@@ -238,9 +202,6 @@ window.CRYPTIC_PUZZLES["everyman-4099"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Green Day's forerunner approaching, did you say? (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "NAIVE",
    "annotation": null
@@ -255,9 +216,6 @@ window.CRYPTIC_PUZZLES["everyman-4099"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Amid clamour, retro ads I scorn (7)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "DISDAIN",
    "annotation": null
@@ -272,9 +230,6 @@ window.CRYPTIC_PUZZLES["everyman-4099"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Horned god with hunger to demonstrate swagger (7)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "PANACHE",
    "annotation": null
@@ -289,9 +244,6 @@ window.CRYPTIC_PUZZLES["everyman-4099"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Depicted as predatory savage (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "PORTRAYED",
    "annotation": null
@@ -306,9 +258,6 @@ window.CRYPTIC_PUZZLES["everyman-4099"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Doc charged with ear, nose and throat: hospital's left decongestant (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "MENTHOL",
    "annotation": null
@@ -323,9 +272,6 @@ window.CRYPTIC_PUZZLES["everyman-4099"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Sulking, Everyman's taking on work (4)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "MOPY",
    "annotation": null
@@ -340,9 +286,6 @@ window.CRYPTIC_PUZZLES["everyman-4099"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Like uplands - welcoming sherpa thither, ultimately - that's me (7)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "HILLARY",
    "annotation": null
@@ -357,9 +300,6 @@ window.CRYPTIC_PUZZLES["everyman-4099"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Carries, and plays 'donkey' game again? (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "RETAILS",
    "annotation": null
@@ -374,9 +314,6 @@ window.CRYPTIC_PUZZLES["everyman-4099"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "I butter up, presenting ode? (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "TRIBUTE",
    "annotation": null
@@ -391,9 +328,6 @@ window.CRYPTIC_PUZZLES["everyman-4099"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Part of eye raised to access virtual assistant (4)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "SIRI",
    "annotation": null
@@ -408,9 +342,6 @@ window.CRYPTIC_PUZZLES["everyman-4099"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Heard in Australia: folk related to His Holiness (5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "PAPAL",
    "annotation": null
@@ -425,9 +356,6 @@ window.CRYPTIC_PUZZLES["everyman-4099"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Cut off heavy drinker, perhaps it's a sign (9)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "HARBINGER",
    "annotation": null
@@ -442,9 +370,6 @@ window.CRYPTIC_PUZZLES["everyman-4099"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Guard stall (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "HEDGE",
    "annotation": null
@@ -459,9 +384,6 @@ window.CRYPTIC_PUZZLES["everyman-4099"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Concerning situation, monarch's demand? (4,2,3,2)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -482,9 +404,6 @@ window.CRYPTIC_PUZZLES["everyman-4099"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Lethargy! Lethargic to some extent, seeing pattern on socks (6)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "ARGYLE",
    "annotation": null
@@ -499,9 +418,6 @@ window.CRYPTIC_PUZZLES["everyman-4099"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Unexciting bottom entertained in course of empty day (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "DREARY",
    "annotation": null

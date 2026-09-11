@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Label meant to be edited? That’s very unfortunate (10)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "LAMENTABLE",
    "annotation": {
@@ -67,9 +64,6 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "No opening for bubbly host (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "ARMY",
    "annotation": {
@@ -106,9 +100,6 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Component of toolbox routine took effect (5,3)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -149,9 +140,6 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "A measure of power taken up under old Canadian government? (6)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "OTTAWA",
    "annotation": {
@@ -202,9 +190,6 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Oyster? Simple to swallow half of it (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "NATIVE",
    "annotation": {
@@ -250,9 +235,6 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Area amidst Northern university accommodation provoking illness (10)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "NAUSEATING",
    "annotation": {
@@ -307,9 +289,6 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Study supporting Australian port (4)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "ADEN",
    "annotation": {
@@ -352,9 +331,6 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Suppressing anger is far more dispassionate (6)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {},
    "solution": "FAIRER",
    "annotation": {
@@ -401,9 +377,6 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Source of drink and marijuana given to clubman? (3-5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -447,9 +420,6 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Oxide reliably breaking down (8)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "BERYLLIA",
    "annotation": {
@@ -486,9 +456,6 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Cracked it, entering most of interior (6)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "INSANE",
    "annotation": {
@@ -534,9 +501,6 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "About to leave road? Keep in place (4)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "STET",
    "annotation": {
@@ -578,9 +542,6 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "One of a pair guided through river with hesitation (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "TWEEDLEDUM",
    "annotation": {
@@ -632,9 +593,6 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Book not generating interest or criticism (5)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "BLAME",
    "annotation": {
@@ -674,9 +632,6 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Silent disease - no additional comment (3)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "MUM",
    "annotation": {
@@ -718,9 +673,6 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Hesitate to oust leader in state (4)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "AVER",
    "annotation": {
@@ -765,9 +717,6 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Voters cheer when Minister, ignoring leader, gets in (10)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "ELECTORATE",
    "annotation": {
@@ -817,9 +766,6 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Suggestion engineers should be brought in by city (6)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "BREATH",
    "annotation": {
@@ -866,9 +812,6 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Good to avoid excessive clamour (3)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "HUE",
    "annotation": {
@@ -910,9 +853,6 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "US state home to river touching the sea (6)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "MARINE",
    "annotation": {
@@ -956,9 +896,6 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Lovers at it frenetically, increasingly under covers (8)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "AMORETTI",
    "annotation": {
@@ -1007,9 +944,6 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Sailor escaping bottom of ocean for a start (4)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "SEED",
    "annotation": {
@@ -1054,9 +988,6 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Sauce a part of canapés today? (5)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "PESTO",
    "annotation": {
@@ -1090,9 +1021,6 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Possibly Afghan remains? Read more about that (6)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "PASHTO",
    "annotation": {
@@ -1136,9 +1064,6 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Excellent US sports event not getting the bird? (6)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "SUPERB",
    "annotation": {
@@ -1180,9 +1105,6 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Kick-off of game upset spectators (4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "GATE",
    "annotation": {
@@ -1226,9 +1148,6 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Crowds, perhaps, having hour in river (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "THREES",
    "annotation": {
@@ -1275,9 +1194,6 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Expedition leaving South - what’s not to like? (4)",
-   "group": [
-    "27-down"
-   ],
    "separatorLocations": {},
    "solution": "HATE",
    "annotation": {
@@ -1322,9 +1238,6 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Meadowlands contributing to unalloyed contentment (8)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "PLEASURE",
    "annotation": {
@@ -1368,9 +1281,6 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Mollusc spurning new trip at sea (4)",
-   "group": [
-    "29-down"
-   ],
    "separatorLocations": {},
    "solution": "SAIL",
    "annotation": {
@@ -1412,9 +1322,6 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Impediment bringing in right horse at dressage? (8)",
-   "group": [
-    "30-across"
-   ],
    "separatorLocations": {},
    "solution": "STRUTTER",
    "annotation": {
@@ -1458,9 +1365,6 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Charlie, slowly, finally absorbing section of convoluted story? (6)",
-   "group": [
-    "31-across"
-   ],
    "separatorLocations": {},
    "solution": "TWISTY",
    "annotation": {

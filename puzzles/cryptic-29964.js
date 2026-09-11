@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29964"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Friend’s securing check after check – he wins lots, ultimately, in these (5,7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -46,9 +43,6 @@ window.CRYPTIC_PUZZLES["cryptic-29964"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Singer’s reduced mastery around key (9)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "CONTRALTO",
    "annotation": null
@@ -63,9 +57,6 @@ window.CRYPTIC_PUZZLES["cryptic-29964"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Optional having European active around English court (8)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "ELECTIVE",
    "annotation": null
@@ -80,9 +71,6 @@ window.CRYPTIC_PUZZLES["cryptic-29964"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Light carriage being put out? (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "SULKY",
    "annotation": null
@@ -97,9 +85,6 @@ window.CRYPTIC_PUZZLES["cryptic-29964"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Judge Australia to have right measure of information supply (9)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "ARBITRATE",
    "annotation": null
@@ -114,9 +99,6 @@ window.CRYPTIC_PUZZLES["cryptic-29964"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Expression of surprise regarding one feature of daffodil (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "CORONA",
    "annotation": null
@@ -131,9 +113,6 @@ window.CRYPTIC_PUZZLES["cryptic-29964"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Holderness home to these seabirds? (5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "ERNES",
    "annotation": null
@@ -148,9 +127,6 @@ window.CRYPTIC_PUZZLES["cryptic-29964"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Supportive of appropriate gain (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "PROFIT",
    "annotation": null
@@ -165,9 +141,6 @@ window.CRYPTIC_PUZZLES["cryptic-29964"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Prevent hot fighting in midst of battle (6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "THWART",
    "annotation": null
@@ -182,9 +155,6 @@ window.CRYPTIC_PUZZLES["cryptic-29964"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Some farmer in search for swill (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "RINSE",
    "annotation": null
@@ -199,9 +169,6 @@ window.CRYPTIC_PUZZLES["cryptic-29964"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Experimental area: year in this removing one’s perplexity (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "LABYRINTH",
    "annotation": null
@@ -216,9 +183,6 @@ window.CRYPTIC_PUZZLES["cryptic-29964"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Trees beside end of street likely gutted at the outset (7)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "FIRSTLY",
    "annotation": null
@@ -233,9 +197,6 @@ window.CRYPTIC_PUZZLES["cryptic-29964"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Island I found surrounded by fish in part of Africa (7)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "TUNISIA",
    "annotation": null
@@ -250,9 +211,6 @@ window.CRYPTIC_PUZZLES["cryptic-29964"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Sadly values-lite, like much broadcasting (10)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "TELEVISUAL",
    "annotation": null
@@ -267,9 +225,6 @@ window.CRYPTIC_PUZZLES["cryptic-29964"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Wagner opera is upsetting for one supporter withdrawing name (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "SIEGFRIED",
    "annotation": null
@@ -284,9 +239,6 @@ window.CRYPTIC_PUZZLES["cryptic-29964"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Committed pupil pulls back (4)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "SWOT",
    "annotation": null
@@ -301,9 +253,6 @@ window.CRYPTIC_PUZZLES["cryptic-29964"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Beach feature to coil on vacation (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "WINDBREAK",
    "annotation": null
@@ -318,9 +267,6 @@ window.CRYPTIC_PUZZLES["cryptic-29964"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Image of Jesus church’s taken in two ways – half holy, half mock (4,4)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -339,9 +285,6 @@ window.CRYPTIC_PUZZLES["cryptic-29964"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "This gin gets legions drunk (4)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "SLOE",
    "annotation": null
@@ -356,9 +299,6 @@ window.CRYPTIC_PUZZLES["cryptic-29964"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Informant about your University is unnaturally sweet (6)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "SYRUPY",
    "annotation": null
@@ -373,9 +313,6 @@ window.CRYPTIC_PUZZLES["cryptic-29964"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Ageing somehow seen linked to knowledge I released (10)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "SENESCENCE",
    "annotation": null
@@ -390,9 +327,6 @@ window.CRYPTIC_PUZZLES["cryptic-29964"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Repudiate key source of hope we elevated (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "ESCHEW",
    "annotation": null
@@ -407,9 +341,6 @@ window.CRYPTIC_PUZZLES["cryptic-29964"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "One fond of chow initially fond of cartoon dog … (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "FOODIE",
    "annotation": null
@@ -424,9 +355,6 @@ window.CRYPTIC_PUZZLES["cryptic-29964"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Rebuke? Republican hitting ceiling (7)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "REPROOF",
    "annotation": null
@@ -441,9 +369,6 @@ window.CRYPTIC_PUZZLES["cryptic-29964"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "… cartoon dog left in position with repeated character in cartoon (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "PLUTO",
    "annotation": null
@@ -458,9 +383,6 @@ window.CRYPTIC_PUZZLES["cryptic-29964"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Old still beer getting mark with pen (7)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "ALEMBIC",
    "annotation": null
@@ -475,9 +397,6 @@ window.CRYPTIC_PUZZLES["cryptic-29964"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Upset speaker after cutting off opening (5)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "ANNOY",
    "annotation": null
@@ -492,9 +411,6 @@ window.CRYPTIC_PUZZLES["cryptic-29964"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Thumps one with Guardian heartlessly – it’s a mark of the Greens? (5,4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -513,9 +429,6 @@ window.CRYPTIC_PUZZLES["cryptic-29964"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Flower from old times getting attention (2-3)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {
     "-": [
      2
@@ -534,9 +447,6 @@ window.CRYPTIC_PUZZLES["cryptic-29964"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Yes, bad mood may be aggravated by merely adequate historic records (8,4)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     ",": [
      8

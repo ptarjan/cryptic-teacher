@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1388"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Make a mess of Schubert, missing opening when playing (7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "BUTCHER",
    "annotation": {
@@ -62,9 +59,6 @@ window.CRYPTIC_PUZZLES["quiptic-1388"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Substantial religious books edited, ignoring alternative views? (7)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "BIGOTED",
    "annotation": {
@@ -108,9 +102,6 @@ window.CRYPTIC_PUZZLES["quiptic-1388"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Uses a tour to move around? It’s for after the wedding (9)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "TROUSSEAU",
    "annotation": {
@@ -144,9 +135,6 @@ window.CRYPTIC_PUZZLES["quiptic-1388"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Hair dye Anne Hathaway initially promoted (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "HENNA",
    "annotation": {
@@ -193,9 +181,6 @@ window.CRYPTIC_PUZZLES["quiptic-1388"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "List includes revolutionary romantic hero (9)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "ROCHESTER",
    "annotation": {
@@ -236,9 +221,6 @@ window.CRYPTIC_PUZZLES["quiptic-1388"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "US city smart in the past (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "CHICAGO",
    "annotation": {
@@ -276,9 +258,6 @@ window.CRYPTIC_PUZZLES["quiptic-1388"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Old aeroplane company satisfied (5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "COMET",
    "annotation": {
@@ -316,9 +295,6 @@ window.CRYPTIC_PUZZLES["quiptic-1388"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "I left the hall, struggling – sickness? (3,6)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -366,9 +342,6 @@ window.CRYPTIC_PUZZLES["quiptic-1388"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Finish investing in a University? Farewell (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "ADIEU",
    "annotation": {
@@ -409,9 +382,6 @@ window.CRYPTIC_PUZZLES["quiptic-1388"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "A month’s work to get sea creature (7)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "OCTOPUS",
    "annotation": {
@@ -452,9 +422,6 @@ window.CRYPTIC_PUZZLES["quiptic-1388"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Sound of discomfort from good red horse? (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "GROAN",
    "annotation": {
@@ -495,9 +462,6 @@ window.CRYPTIC_PUZZLES["quiptic-1388"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Frenchman not elaborate in bed, leading to protest (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "COMPLAINT",
    "annotation": {
@@ -547,9 +511,6 @@ window.CRYPTIC_PUZZLES["quiptic-1388"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "What’s left in religious text? (9)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "TESTAMENT",
    "annotation": {
@@ -586,9 +547,6 @@ window.CRYPTIC_PUZZLES["quiptic-1388"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Provide material for joke after end of game (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "EQUIP",
    "annotation": {
@@ -629,9 +587,6 @@ window.CRYPTIC_PUZZLES["quiptic-1388"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Garment rejected among lesser designs? (5)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "DRESS",
    "annotation": {
@@ -663,9 +618,6 @@ window.CRYPTIC_PUZZLES["quiptic-1388"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Small component of clue? It’s combative stuff (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "SWORDPLAY",
    "annotation": {
@@ -706,9 +658,6 @@ window.CRYPTIC_PUZZLES["quiptic-1388"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Rebuilt terminals for transport routes (9)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "TRAMLINES",
    "annotation": {
@@ -745,9 +694,6 @@ window.CRYPTIC_PUZZLES["quiptic-1388"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Real gold subsequently getting mark of correctness? Not quite (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "AUTHENTIC",
    "annotation": {
@@ -796,9 +742,6 @@ window.CRYPTIC_PUZZLES["quiptic-1388"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Nanny with fake surname on documents? (9)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "NURSEMAID",
    "annotation": {
@@ -848,9 +791,6 @@ window.CRYPTIC_PUZZLES["quiptic-1388"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Cartoon dog and cat seizing tail of another fat cat? (9)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "PLUTOCRAT",
    "annotation": {
@@ -898,9 +838,6 @@ window.CRYPTIC_PUZZLES["quiptic-1388"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Large house dismissing last dour religious traveller (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "PILGRIM",
    "annotation": {
@@ -940,9 +877,6 @@ window.CRYPTIC_PUZZLES["quiptic-1388"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Area of New York evicting 50 women living together? (5)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "HAREM",
    "annotation": {
@@ -982,9 +916,6 @@ window.CRYPTIC_PUZZLES["quiptic-1388"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Fail to understand I’m upset over cut (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "MISHEAR",
    "annotation": {
@@ -1031,9 +962,6 @@ window.CRYPTIC_PUZZLES["quiptic-1388"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "End of quatrain, say, showing signs of age? (5)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "LINED",
    "annotation": {
@@ -1076,9 +1004,6 @@ window.CRYPTIC_PUZZLES["quiptic-1388"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "American agency taking line regarding the nose (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "NASAL",
    "annotation": {
@@ -1118,9 +1043,6 @@ window.CRYPTIC_PUZZLES["quiptic-1388"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Multiple bloomers in having veg after dessert (5,4)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -1167,9 +1089,6 @@ window.CRYPTIC_PUZZLES["quiptic-1388"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Rear of ship is part of coaster, note (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "STERN",
    "annotation": {
@@ -1203,9 +1122,6 @@ window.CRYPTIC_PUZZLES["quiptic-1388"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Furniture item not likely to wobble? Not at first (5)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "TABLE",
    "annotation": {
@@ -1239,9 +1155,6 @@ window.CRYPTIC_PUZZLES["quiptic-1388"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Is taken aback by deception in lease? Readily recovering (9)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "RESILIENT",
    "annotation": {
@@ -1295,9 +1208,6 @@ window.CRYPTIC_PUZZLES["quiptic-1388"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Support British competition (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "BRACE",
    "annotation": {
@@ -1335,9 +1245,6 @@ window.CRYPTIC_PUZZLES["quiptic-1388"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Some south-east Asian fellow penning a song (7)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "MALAYAN",
    "annotation": {
@@ -1384,9 +1291,6 @@ window.CRYPTIC_PUZZLES["quiptic-1388"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Gorge in Somerset? He had to take daughter in car (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "CHEDDAR",
    "annotation": {

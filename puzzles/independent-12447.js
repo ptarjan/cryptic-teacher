@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12447"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Penning article, cancel dated book (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "ANNUAL",
    "annotation": {
@@ -95,9 +92,6 @@ window.CRYPTIC_PUZZLES["independent-12447"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Bathroom facilities spoiled bedsit (6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "BIDETS",
    "annotation": {
@@ -134,9 +128,6 @@ window.CRYPTIC_PUZZLES["independent-12447"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Swindles bringing in very little money for troublemakers (6)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "SCAMPS",
    "annotation": {
@@ -183,9 +174,6 @@ window.CRYPTIC_PUZZLES["independent-12447"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Unknown uniform seen in upsetting programme's medical episodes (8)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "SEIZURES",
    "annotation": {
@@ -243,9 +231,6 @@ window.CRYPTIC_PUZZLES["independent-12447"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Old German chancellor perhaps unaffected by revolution (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "OTTO",
    "annotation": {
@@ -285,9 +270,6 @@ window.CRYPTIC_PUZZLES["independent-12447"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Spirits chant with wings the wrong way round (4)",
-   "group": [
-    "7-across"
-   ],
    "separatorLocations": {},
    "solution": "GINS",
    "annotation": {
@@ -334,9 +316,6 @@ window.CRYPTIC_PUZZLES["independent-12447"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Woman from 25A doing a turn during gig that is occasionally lacking tricks (9)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "GASLIGHTS",
    "annotation": {
@@ -390,9 +369,6 @@ window.CRYPTIC_PUZZLES["independent-12447"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Strangely iridescent rash (10)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {},
    "solution": "INDISCREET",
    "annotation": {
@@ -429,9 +405,6 @@ window.CRYPTIC_PUZZLES["independent-12447"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Arms on the counter somewhere in pub (4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "SNUG",
    "annotation": {
@@ -474,9 +447,6 @@ window.CRYPTIC_PUZZLES["independent-12447"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Rooney's latest title with foreign team - one Zinedine Zidane oversaw originally (10)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "INTERMEZZO",
    "annotation": {
@@ -534,9 +504,6 @@ window.CRYPTIC_PUZZLES["independent-12447"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Request from host exhausted religious viewership (1,1,1,1)",
-   "group": [
-    "11-down"
-   ],
    "separatorLocations": {
     ",": [
      1,
@@ -585,9 +552,6 @@ window.CRYPTIC_PUZZLES["independent-12447"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Tricks Methuselah will use shortly ... is one briefly taken in? (9)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "ILLUSIONS",
    "annotation": {
@@ -647,9 +611,6 @@ window.CRYPTIC_PUZZLES["independent-12447"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Poem's outstanding when read aloud (3)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "ODE",
    "annotation": {
@@ -687,9 +648,6 @@ window.CRYPTIC_PUZZLES["independent-12447"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "One of The Wailers on the road with The Police (5)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "SIREN",
    "annotation": {
@@ -720,9 +678,6 @@ window.CRYPTIC_PUZZLES["independent-12447"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "No 10 tears into doughnut with bad reputation (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "NOTORIOUS",
    "annotation": {
@@ -772,9 +727,6 @@ window.CRYPTIC_PUZZLES["independent-12447"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Anxious sheep following that bloke (3,2)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -821,9 +773,6 @@ window.CRYPTIC_PUZZLES["independent-12447"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Some seethe as he strokes trophy (3,5)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -861,9 +810,6 @@ window.CRYPTIC_PUZZLES["independent-12447"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Back in saddle, a pair of bachelors go out (3)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "EBB",
    "annotation": {
@@ -906,9 +852,6 @@ window.CRYPTIC_PUZZLES["independent-12447"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "A certain lady smiles when leaving M&S (3)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "BEA",
    "annotation": {
@@ -950,9 +893,6 @@ window.CRYPTIC_PUZZLES["independent-12447"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Attack dog's half-cut after two drops of beer (5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "BESET",
    "annotation": {
@@ -997,9 +937,6 @@ window.CRYPTIC_PUZZLES["independent-12447"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Stuck-up old Stockholm-born actress failing to finish show off (4)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "BRAG",
    "annotation": {
@@ -1044,9 +981,6 @@ window.CRYPTIC_PUZZLES["independent-12447"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Root vegetable, one of a group found among cabbages? (5)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "SWEDE",
    "annotation": {
@@ -1085,9 +1019,6 @@ window.CRYPTIC_PUZZLES["independent-12447"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Make mummy different meal when doctor intervenes (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "EMBALM",
    "annotation": {
@@ -1142,9 +1073,6 @@ window.CRYPTIC_PUZZLES["independent-12447"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Someone who's made-up about rare catch (9)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "CHARACTER",
    "annotation": {
@@ -1181,9 +1109,6 @@ window.CRYPTIC_PUZZLES["independent-12447"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Wax cylinder working after century, some hope? (6)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "CRAYON",
    "annotation": {
@@ -1232,9 +1157,6 @@ window.CRYPTIC_PUZZLES["independent-12447"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Someone badly missing school days (6)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "TRUANT",
    "annotation": {
@@ -1265,9 +1187,6 @@ window.CRYPTIC_PUZZLES["independent-12447"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Spaniard's \"house white\" is port (10)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "CASABLANCA",
    "annotation": {
@@ -1373,9 +1292,6 @@ window.CRYPTIC_PUZZLES["independent-12447"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Penny caught bouquet (4)",
-   "group": [
-    "26-down"
-   ],
    "separatorLocations": {},
    "solution": "CENT",
    "annotation": {
@@ -1410,9 +1326,6 @@ window.CRYPTIC_PUZZLES["independent-12447"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Player obsessed with technique knocked back whole band (4)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "MUSO",
    "annotation": {
@@ -1461,9 +1374,6 @@ window.CRYPTIC_PUZZLES["independent-12447"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Transported upon sled, somehow fitting every other bit of globe in (10)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "SPELLBOUND",
    "annotation": {
@@ -1509,9 +1419,6 @@ window.CRYPTIC_PUZZLES["independent-12447"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Travel stops Nordic people missing their capital (4)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "INNS",
    "annotation": {

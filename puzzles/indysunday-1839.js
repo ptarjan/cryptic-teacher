@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1839"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Assemble trick grid which possibly splits (10)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "CONGREGATE",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["indysunday-1839"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Rough like sensei's blows? (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "CHOPPY",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["indysunday-1839"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "African Queen worked free in time, then it capsized (9)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "NEFERTITI",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["indysunday-1839"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Agency helping to keep European here (14)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "REPRESENTATION",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["indysunday-1839"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Eccentric left collection of animals with tails removed (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "GONZO",
    "annotation": null
@@ -110,9 +95,6 @@ window.CRYPTIC_PUZZLES["indysunday-1839"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Youth I see across stage attractive on set (9)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "TELEGENIC",
    "annotation": null
@@ -127,9 +109,6 @@ window.CRYPTIC_PUZZLES["indysunday-1839"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Remaining piece put back however small (4)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "STUB",
    "annotation": null
@@ -144,9 +123,6 @@ window.CRYPTIC_PUZZLES["indysunday-1839"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Worry the top comes off lock (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "TRESS",
    "annotation": null
@@ -161,9 +137,6 @@ window.CRYPTIC_PUZZLES["indysunday-1839"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Radiation unintentionally reveals the inside of car parts (4,4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -182,9 +155,6 @@ window.CRYPTIC_PUZZLES["indysunday-1839"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "OTT style Colin developed with drag queen (14)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {},
    "solution": "GRANDILOQUENCE",
    "annotation": null
@@ -199,9 +169,6 @@ window.CRYPTIC_PUZZLES["indysunday-1839"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Sort of ball hits leg (3-4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -220,9 +187,6 @@ window.CRYPTIC_PUZZLES["indysunday-1839"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Glass of beer drunk by Spooner to celebrate (5,2)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -241,9 +205,6 @@ window.CRYPTIC_PUZZLES["indysunday-1839"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Small clean trousers wrinkle (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "PURSE",
    "annotation": null
@@ -258,9 +219,6 @@ window.CRYPTIC_PUZZLES["indysunday-1839"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Runner with hoop earrings jogged (9)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "ORGANISER",
    "annotation": null
@@ -275,9 +233,6 @@ window.CRYPTIC_PUZZLES["indysunday-1839"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Cheap wine not opened by thoughtful lady on vacation (13)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "INEXPENSIVELY",
    "annotation": null
@@ -292,9 +247,6 @@ window.CRYPTIC_PUZZLES["indysunday-1839"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Grant's brother and 'is woman play around (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "PHILANDER",
    "annotation": null
@@ -309,9 +261,6 @@ window.CRYPTIC_PUZZLES["indysunday-1839"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Conductor designate travelled by bike (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "ELECTRODE",
    "annotation": null
@@ -326,9 +275,6 @@ window.CRYPTIC_PUZZLES["indysunday-1839"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Name large dog that pirouettes after Nureyev, perhaps (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "BALLETIC",
    "annotation": null
@@ -343,9 +289,6 @@ window.CRYPTIC_PUZZLES["indysunday-1839"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Celebrity chef on broadcast filling in met old BBC correspondent (8,5)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -364,9 +307,6 @@ window.CRYPTIC_PUZZLES["indysunday-1839"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Not all Gestapo interrogations done nicely (1,5)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {
     ",": [
      1
@@ -385,9 +325,6 @@ window.CRYPTIC_PUZZLES["indysunday-1839"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Field remains full of wheat, initially at any rate (9)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "LEASTWAYS",
    "annotation": null
@@ -402,9 +339,6 @@ window.CRYPTIC_PUZZLES["indysunday-1839"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Party in a navy dress (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "ADORN",
    "annotation": null
@@ -419,9 +353,6 @@ window.CRYPTIC_PUZZLES["indysunday-1839"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Ecuador's capital no longer safe around clubs (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "SUCRE",
    "annotation": null
@@ -436,9 +367,6 @@ window.CRYPTIC_PUZZLES["indysunday-1839"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Presumably nothing from Q in your mind (2,3)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -457,9 +385,6 @@ window.CRYPTIC_PUZZLES["indysunday-1839"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Binary judgment's backing women as they were long ago (7)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "TWOFOLD",
    "annotation": null
@@ -474,9 +399,6 @@ window.CRYPTIC_PUZZLES["indysunday-1839"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "£1 for the last of 26 Italian pastries (7)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "CANNOLI",
    "annotation": null
@@ -491,9 +413,6 @@ window.CRYPTIC_PUZZLES["indysunday-1839"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Lack the strength to lean over (4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "CANT",
    "annotation": null
@@ -508,9 +427,6 @@ window.CRYPTIC_PUZZLES["indysunday-1839"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Cheeky Irish always cutting payment to landlord (10)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "IRREVERENT",
    "annotation": null

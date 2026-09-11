@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29974"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "A girl turning over in a dream when disturbed in city (3,2,6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -93,9 +90,6 @@ window.CRYPTIC_PUZZLES["cryptic-29974"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Awful mod politics – crap group representing country (10,5)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      10
@@ -142,9 +136,6 @@ window.CRYPTIC_PUZZLES["cryptic-29974"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "A prominent Russian upset adherent of African religion (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "RASTA",
    "annotation": {
@@ -194,9 +185,6 @@ window.CRYPTIC_PUZZLES["cryptic-29974"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "With drink around, sound is to increase dramatically (5,2)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -249,9 +237,6 @@ window.CRYPTIC_PUZZLES["cryptic-29974"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Ways academy may be set up for club (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "ARSENAL",
    "annotation": {
@@ -308,9 +293,6 @@ window.CRYPTIC_PUZZLES["cryptic-29974"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "A fellow hugging maiden is husband getting reproach (8)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "ADMONISH",
    "annotation": {
@@ -376,9 +358,6 @@ window.CRYPTIC_PUZZLES["cryptic-29974"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Bird, exceptionally smart, hung o’er air (8,7)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -420,9 +399,6 @@ window.CRYPTIC_PUZZLES["cryptic-29974"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Captain, not opener – one’s smoked before meal (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "KIPPER",
    "annotation": {
@@ -460,9 +436,6 @@ window.CRYPTIC_PUZZLES["cryptic-29974"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Stick around, then go (6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "CLEAVE",
    "annotation": {
@@ -504,9 +477,6 @@ window.CRYPTIC_PUZZLES["cryptic-29974"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "This writer’s quiet, a holy person revealed by old painting (7)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "IMPASTO",
    "annotation": {
@@ -566,9 +536,6 @@ window.CRYPTIC_PUZZLES["cryptic-29974"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Pioneering conceptual artist in short trade event (7)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "SEMINAL",
    "annotation": {
@@ -615,9 +582,6 @@ window.CRYPTIC_PUZZLES["cryptic-29974"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Expert not to have enough money, it’s said, as milk producer’s helper (9)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "PROLACTIN",
    "annotation": {
@@ -665,9 +629,6 @@ window.CRYPTIC_PUZZLES["cryptic-29974"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "US state in the role of wild animal (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "NYALA",
    "annotation": {
@@ -706,9 +667,6 @@ window.CRYPTIC_PUZZLES["cryptic-29974"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Bit of cash made by heartless opponent (4)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "RIAL",
    "annotation": {
@@ -749,9 +707,6 @@ window.CRYPTIC_PUZZLES["cryptic-29974"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Supply a cup please for stewed fruit (5,5)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -796,9 +751,6 @@ window.CRYPTIC_PUZZLES["cryptic-29974"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Lover in the morning in room losing heart (8)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "PARAMOUR",
    "annotation": {
@@ -845,9 +797,6 @@ window.CRYPTIC_PUZZLES["cryptic-29974"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Group capturing apparatus, taking time plundering (10)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "BRIGANDAGE",
    "annotation": {
@@ -901,9 +850,6 @@ window.CRYPTIC_PUZZLES["cryptic-29974"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Honour to have value producing puzzle (6)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "BEMUSE",
    "annotation": {
@@ -946,9 +892,6 @@ window.CRYPTIC_PUZZLES["cryptic-29974"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Some French kit I discarded before work in computer location (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "DESKTOP",
    "annotation": {
@@ -1003,9 +946,6 @@ window.CRYPTIC_PUZZLES["cryptic-29974"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Quickly observe little devils in endless merriment (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "GLIMPSE",
    "annotation": {
@@ -1052,9 +992,6 @@ window.CRYPTIC_PUZZLES["cryptic-29974"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Go away and make no noise with love over (4)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "SHOO",
    "annotation": {
@@ -1103,9 +1040,6 @@ window.CRYPTIC_PUZZLES["cryptic-29974"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Told a gentleman to conceal senior citizenship (3,3)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -1144,9 +1078,6 @@ window.CRYPTIC_PUZZLES["cryptic-29974"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "One drink and second drink that’s different (5)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "MOCHA",
    "annotation": {
@@ -1188,9 +1119,6 @@ window.CRYPTIC_PUZZLES["cryptic-29974"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Son sent to prison, one ultimately angry-looking, expressed a little amusement (9)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "SNICKERED",
    "annotation": {
@@ -1246,9 +1174,6 @@ window.CRYPTIC_PUZZLES["cryptic-29974"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "So getting duck not century brings reverse of commendation needed (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "KUDOS",
    "annotation": {
@@ -1313,9 +1238,6 @@ window.CRYPTIC_PUZZLES["cryptic-29974"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Discipline soldiers sunk in alcoholic drink (4,3)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -1364,9 +1286,6 @@ window.CRYPTIC_PUZZLES["cryptic-29974"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Food theologian favoured being fed to dog (7)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "PUDDING",
    "annotation": {
@@ -1417,9 +1336,6 @@ window.CRYPTIC_PUZZLES["cryptic-29974"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Starter and pies wrong for entertainer who needs good figure? (11)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "STRIPTEASER",
    "annotation": {

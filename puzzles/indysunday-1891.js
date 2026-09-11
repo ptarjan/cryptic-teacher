@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1891"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Convincing suggestion for businessman? (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "COGENT",
    "annotation": {
@@ -67,9 +64,6 @@ window.CRYPTIC_PUZZLES["indysunday-1891"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Examinee may go out taking papers (9)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "CANDIDATE",
    "annotation": {
@@ -119,9 +113,6 @@ window.CRYPTIC_PUZZLES["indysunday-1891"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Flush stuck (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "GORED",
    "annotation": {
@@ -163,9 +154,6 @@ window.CRYPTIC_PUZZLES["indysunday-1891"] = /*JSON-START*/ {
      44,
      12
     ]
-   ],
-   "group": [
-    "3-down"
    ],
    "separatorLocations": {},
    "solution": "NAIVETE",
@@ -210,9 +198,6 @@ window.CRYPTIC_PUZZLES["indysunday-1891"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Tail Miss Piggy had is splitting (6)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "SHADOW",
    "annotation": {
@@ -256,9 +241,6 @@ window.CRYPTIC_PUZZLES["indysunday-1891"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Did weed have an energetic dance? (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "HOEDOWN",
    "annotation": {
@@ -295,9 +277,6 @@ window.CRYPTIC_PUZZLES["indysunday-1891"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Suburban property beginning to dry up, rent cheap place in NYC? (4,5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -357,9 +336,6 @@ window.CRYPTIC_PUZZLES["indysunday-1891"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Slice iron through rolling green (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "WAFER",
    "annotation": {
@@ -414,9 +390,6 @@ window.CRYPTIC_PUZZLES["indysunday-1891"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Spooner's providing canal-side labour for ridiculous figure (8,5)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -467,9 +440,6 @@ window.CRYPTIC_PUZZLES["indysunday-1891"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Extravagant old princess wearing fancy clothes (10)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "INORDINATE",
    "annotation": {
@@ -519,9 +489,6 @@ window.CRYPTIC_PUZZLES["indysunday-1891"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Warmer boob (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "MUFF",
    "annotation": {
@@ -555,9 +522,6 @@ window.CRYPTIC_PUZZLES["indysunday-1891"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Reader loving literature superficially (6)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "KINDLE",
    "annotation": {
@@ -600,9 +564,6 @@ window.CRYPTIC_PUZZLES["indysunday-1891"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Specialised dictionary idiot brought over in triumph (8)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "GLOSSARY",
    "annotation": {
@@ -654,9 +615,6 @@ window.CRYPTIC_PUZZLES["indysunday-1891"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Italian peers east regularly on walk back from Aldi (8)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "MARCHESI",
    "annotation": {
@@ -709,9 +667,6 @@ window.CRYPTIC_PUZZLES["indysunday-1891"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Caroline squirms letting Mike in, a smutty labourer (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "COALMINER",
    "annotation": {
@@ -755,9 +710,6 @@ window.CRYPTIC_PUZZLES["indysunday-1891"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Strip to plunge into boiling water? (6)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "NOODLE",
    "annotation": {
@@ -788,9 +740,6 @@ window.CRYPTIC_PUZZLES["indysunday-1891"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Thieving needs clear criminal intelligence (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "LARCENOUS",
    "annotation": {
@@ -835,9 +784,6 @@ window.CRYPTIC_PUZZLES["indysunday-1891"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Still covered with random lace, bride twirled (6)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "BECALM",
    "annotation": {
@@ -879,9 +825,6 @@ window.CRYPTIC_PUZZLES["indysunday-1891"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Earth going round sun which is yellow and hot (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "MUSTARD",
    "annotation": {
@@ -928,9 +871,6 @@ window.CRYPTIC_PUZZLES["indysunday-1891"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "BBC boss starts to examine tweets stored by Lineker's devices (8)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "GADGETRY",
    "annotation": {
@@ -983,9 +923,6 @@ window.CRYPTIC_PUZZLES["indysunday-1891"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Upsetting bloody film about India's partition (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "DIVIDER",
    "annotation": {
@@ -1042,9 +979,6 @@ window.CRYPTIC_PUZZLES["indysunday-1891"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Planet invaded by second alien creature with tufty ears (8)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "MARMOSET",
    "annotation": {
@@ -1094,9 +1028,6 @@ window.CRYPTIC_PUZZLES["indysunday-1891"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Interrupt Kazakh journalist, giving answer up front (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "ABORT",
    "annotation": {
@@ -1142,9 +1073,6 @@ window.CRYPTIC_PUZZLES["indysunday-1891"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Fire's lovely after a ramble (6)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "VOLLEY",
    "annotation": {
@@ -1184,9 +1112,6 @@ window.CRYPTIC_PUZZLES["indysunday-1891"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "See interruptions on YouTube much? (5)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "LOADS",
    "annotation": {
@@ -1224,9 +1149,6 @@ window.CRYPTIC_PUZZLES["indysunday-1891"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Last member of 1950s radio comedy (2,2)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -1265,9 +1187,6 @@ window.CRYPTIC_PUZZLES["indysunday-1891"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Vagrant had race against senior minister (10)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "ARCHDEACON",
    "annotation": {
@@ -1309,9 +1228,6 @@ window.CRYPTIC_PUZZLES["indysunday-1891"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Harangue weary assistant on the phone (6)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "TIRADE",
    "annotation": {
@@ -1346,9 +1262,6 @@ window.CRYPTIC_PUZZLES["indysunday-1891"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Conservative is revolting in difficult moments (6)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "CRISES",
    "annotation": {

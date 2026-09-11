@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1358"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Artist possibly producing proper art – Titian? (8,7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -46,9 +43,6 @@ window.CRYPTIC_PUZZLES["quiptic-1358"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Old leader revised Part 1 with support (9)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "PATRIARCH",
    "annotation": null
@@ -63,9 +57,6 @@ window.CRYPTIC_PUZZLES["quiptic-1358"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Staff carrying barrel over a round building (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "ROTUNDA",
    "annotation": null
@@ -80,9 +71,6 @@ window.CRYPTIC_PUZZLES["quiptic-1358"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Des, increasingly wan, turned up and fell ill again (8)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "RELAPSED",
    "annotation": null
@@ -97,9 +85,6 @@ window.CRYPTIC_PUZZLES["quiptic-1358"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Publication is certain, though not right (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "ISSUE",
    "annotation": null
@@ -114,9 +99,6 @@ window.CRYPTIC_PUZZLES["quiptic-1358"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Macho cider-making guy? One’s a fixer (5,4)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -135,9 +117,6 @@ window.CRYPTIC_PUZZLES["quiptic-1358"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "I try an unusual way of receiving work? (2-4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     "-": [
      2
@@ -156,9 +135,6 @@ window.CRYPTIC_PUZZLES["quiptic-1358"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Rented property in outskirts of the French city (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "TENANCY",
    "annotation": null
@@ -173,9 +149,6 @@ window.CRYPTIC_PUZZLES["quiptic-1358"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Arrive at some rare achievement (5)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "REACH",
    "annotation": null
@@ -190,9 +163,6 @@ window.CRYPTIC_PUZZLES["quiptic-1358"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Gossips time and time again engaged in lies (7)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "TATTLES",
    "annotation": null
@@ -207,9 +177,6 @@ window.CRYPTIC_PUZZLES["quiptic-1358"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "European is not upset by a European country (7)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "ESTONIA",
    "annotation": null
@@ -224,9 +191,6 @@ window.CRYPTIC_PUZZLES["quiptic-1358"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Pub, one with two names (3)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "INN",
    "annotation": null
@@ -241,9 +205,6 @@ window.CRYPTIC_PUZZLES["quiptic-1358"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "How NASA may activate rocket for publicity event? (5,6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -262,9 +223,6 @@ window.CRYPTIC_PUZZLES["quiptic-1358"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Settle area, moving houses etc. (4,6)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -283,9 +241,6 @@ window.CRYPTIC_PUZZLES["quiptic-1358"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Hitter hit out, being some way down the list? (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "THIRTIETH",
    "annotation": null
@@ -300,9 +255,6 @@ window.CRYPTIC_PUZZLES["quiptic-1358"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Ancient story? I am surprised this is only half complete (4)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "MYTH",
    "annotation": null
@@ -317,9 +269,6 @@ window.CRYPTIC_PUZZLES["quiptic-1358"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Hard American male plugging sweetheart for illicit cash (4,5)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -338,9 +287,6 @@ window.CRYPTIC_PUZZLES["quiptic-1358"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Popular salesman supporting public relations computer information (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "PRINTOUT",
    "annotation": null
@@ -355,9 +301,6 @@ window.CRYPTIC_PUZZLES["quiptic-1358"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Dislike speed, avoiding start of sprint (4)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "HATE",
    "annotation": null
@@ -372,9 +315,6 @@ window.CRYPTIC_PUZZLES["quiptic-1358"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Not upset about relative in Somerset town (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "TAUNTON",
    "annotation": null
@@ -389,9 +329,6 @@ window.CRYPTIC_PUZZLES["quiptic-1358"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Sentence hurts the head of silly people (10)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "BIRDBRAINS",
    "annotation": null
@@ -406,9 +343,6 @@ window.CRYPTIC_PUZZLES["quiptic-1358"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Suggested mischievous character didn’t tell the truth (7)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "IMPLIED",
    "annotation": null
@@ -423,9 +357,6 @@ window.CRYPTIC_PUZZLES["quiptic-1358"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Meeting for which some visitors are late? (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "SEANCE",
    "annotation": null
@@ -440,9 +371,6 @@ window.CRYPTIC_PUZZLES["quiptic-1358"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Educational payment? End with total NUS disputed (7,4)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -461,9 +389,6 @@ window.CRYPTIC_PUZZLES["quiptic-1358"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Mild dispute about river fish (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "SPRAT",
    "annotation": null
@@ -478,9 +403,6 @@ window.CRYPTIC_PUZZLES["quiptic-1358"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Europe rather suppressing this stage work (5)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "OPERA",
    "annotation": null
@@ -495,9 +417,6 @@ window.CRYPTIC_PUZZLES["quiptic-1358"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Expat in part of Melbourne, primarily (3)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "POM",
    "annotation": null
@@ -512,9 +431,6 @@ window.CRYPTIC_PUZZLES["quiptic-1358"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Regret pinching English money for followers (7)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "RETINUE",
    "annotation": null
@@ -529,9 +445,6 @@ window.CRYPTIC_PUZZLES["quiptic-1358"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Book recalled in embracing love and passion (7)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "EMOTION",
    "annotation": null
@@ -546,9 +459,6 @@ window.CRYPTIC_PUZZLES["quiptic-1358"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "The trendy dealer, not well treated with kindness (6-9)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {
     "-": [
      6

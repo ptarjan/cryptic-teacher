@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30034"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "How many setters start the day in chaos? (4.9)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ".": [
      4
@@ -77,9 +74,6 @@ window.CRYPTIC_PUZZLES["cryptic-30034"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Honour thrilled niece – ASBO! (9)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "OBEISANCE",
    "annotation": {
@@ -122,9 +116,6 @@ window.CRYPTIC_PUZZLES["cryptic-30034"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Confess, having originally eaten char (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "SINGE",
    "annotation": {
@@ -171,9 +162,6 @@ window.CRYPTIC_PUZZLES["cryptic-30034"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Drive home to meet (3,4)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -221,9 +209,6 @@ window.CRYPTIC_PUZZLES["cryptic-30034"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Lays into American behind troubles (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "ASSAILS",
    "annotation": {
@@ -261,9 +246,6 @@ window.CRYPTIC_PUZZLES["cryptic-30034"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Gordon, comically tight, sent back shooting accessories (9)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "FLASHGUNS",
    "annotation": {
@@ -313,9 +295,6 @@ window.CRYPTIC_PUZZLES["cryptic-30034"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Take responsibility for diatomic carbon, they said (3,2)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -360,9 +339,6 @@ window.CRYPTIC_PUZZLES["cryptic-30034"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Women doctors taking train east nervous – ‘Where can one get a drink?’ (8,5)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -430,9 +406,6 @@ window.CRYPTIC_PUZZLES["cryptic-30034"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Dire prospects unsettled group morale (6,2,5)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {
     ",": [
      6,
@@ -480,9 +453,6 @@ window.CRYPTIC_PUZZLES["cryptic-30034"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "A long lens ultimately keeping Lenny’s body in range (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "APENNINES",
    "annotation": {
@@ -546,9 +516,6 @@ window.CRYPTIC_PUZZLES["cryptic-30034"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Supports while accepting risk (5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "ABETS",
    "annotation": {
@@ -593,9 +560,6 @@ window.CRYPTIC_PUZZLES["cryptic-30034"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Check Republican’s been sacked – result! (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "ENSUE",
    "annotation": {
@@ -638,9 +602,6 @@ window.CRYPTIC_PUZZLES["cryptic-30034"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Awkward our being close to Spanish border (9)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "NEIGHBOUR",
    "annotation": {
@@ -690,9 +651,6 @@ window.CRYPTIC_PUZZLES["cryptic-30034"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Is company taking on somebody as playwright? (7)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "IONESCO",
    "annotation": {
@@ -745,9 +703,6 @@ window.CRYPTIC_PUZZLES["cryptic-30034"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Students about to have sex endlessly – nurse providing some sort of protection (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "SUNSCREEN",
    "annotation": {
@@ -808,9 +763,6 @@ window.CRYPTIC_PUZZLES["cryptic-30034"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Enjoyment’s over – ready to leave for good (5,2)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -867,9 +819,6 @@ window.CRYPTIC_PUZZLES["cryptic-30034"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Shocks on the way in cabaret (5,4)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -920,9 +869,6 @@ window.CRYPTIC_PUZZLES["cryptic-30034"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "‘Gathered government’s not productive’ (Davey) (7)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "GLEANED",
    "annotation": {
@@ -966,9 +912,6 @@ window.CRYPTIC_PUZZLES["cryptic-30034"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Crazy English repeatedly defending king – one chosen to serve (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "DRAFTEE",
    "annotation": {
@@ -1021,9 +964,6 @@ window.CRYPTIC_PUZZLES["cryptic-30034"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Keep boss cut off, exactly as ordered (7)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "BESPOKE",
    "annotation": {
@@ -1073,9 +1013,6 @@ window.CRYPTIC_PUZZLES["cryptic-30034"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Idiot stops benefit – blow it! (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "BASSOON",
    "annotation": {
@@ -1121,9 +1058,6 @@ window.CRYPTIC_PUZZLES["cryptic-30034"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Go with girl to collect a little cabinet – it should contain drawers (4,5)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -1183,9 +1117,6 @@ window.CRYPTIC_PUZZLES["cryptic-30034"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Cake maker with large number over (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "FLOUR",
    "annotation": {
@@ -1233,9 +1164,6 @@ window.CRYPTIC_PUZZLES["cryptic-30034"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Load coach before journey (5)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "CARGO",
    "annotation": {
@@ -1279,9 +1207,6 @@ window.CRYPTIC_PUZZLES["cryptic-30034"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Skip picked up more packing cases (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "CAPER",
    "annotation": {
@@ -1346,9 +1271,6 @@ window.CRYPTIC_PUZZLES["cryptic-30034"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "I made a mistake taking heroin during journey – 19s might be on it (9)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "TROOPSHIP",
    "annotation": {

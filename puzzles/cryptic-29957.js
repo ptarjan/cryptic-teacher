@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29957"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "King’s is turned by informer (8)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "EVIDENCE",
    "annotation": null
@@ -64,9 +61,6 @@ window.CRYPTIC_PUZZLES["cryptic-29957"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Sound at heart if at home (6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "FATHOM",
    "annotation": null
@@ -81,9 +75,6 @@ window.CRYPTIC_PUZZLES["cryptic-29957"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Scruffy type’s flab spread with age (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "FLEABAG",
    "annotation": null
@@ -118,9 +109,6 @@ window.CRYPTIC_PUZZLES["cryptic-29957"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Medic in ground with TNT charge (10)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "INDICTMENT",
    "annotation": null
@@ -135,9 +123,6 @@ window.CRYPTIC_PUZZLES["cryptic-29957"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Food shop with cross on top of entrance, elevated and barred (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "EXILED",
    "annotation": null
@@ -152,9 +137,6 @@ window.CRYPTIC_PUZZLES["cryptic-29957"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Halve our shuttle service (8)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {},
    "solution": "OVERHAUL",
    "annotation": null
@@ -169,9 +151,6 @@ window.CRYPTIC_PUZZLES["cryptic-29957"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Appropriate names acquired by a partner in the past (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "ANNEX",
    "annotation": null
@@ -186,9 +165,6 @@ window.CRYPTIC_PUZZLES["cryptic-29957"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Having no end to continental shelf is an advantage (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "EDGE",
    "annotation": null
@@ -203,9 +179,6 @@ window.CRYPTIC_PUZZLES["cryptic-29957"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Side with health arrangement for capsule protection? (4,6)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -224,9 +197,6 @@ window.CRYPTIC_PUZZLES["cryptic-29957"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Accepted company is failing (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "INFIRM",
    "annotation": null
@@ -241,9 +211,6 @@ window.CRYPTIC_PUZZLES["cryptic-29957"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Engrave ‘swell’ over end of the combine? (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "INTERWEAVE",
    "annotation": null
@@ -258,9 +225,6 @@ window.CRYPTIC_PUZZLES["cryptic-29957"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Bent aide put off protecting territorial head (8)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "APTITUDE",
    "annotation": null
@@ -297,9 +261,6 @@ window.CRYPTIC_PUZZLES["cryptic-29957"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Get through Don’s confiscated article (7)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "WEATHER",
    "annotation": null
@@ -334,9 +295,6 @@ window.CRYPTIC_PUZZLES["cryptic-29957"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Dishevelled, drunk, empty? Dry out! (7)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "UNKEMPT",
    "annotation": null
@@ -351,9 +309,6 @@ window.CRYPTIC_PUZZLES["cryptic-29957"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Is lip/gum hurt by this activity? (8)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "PUGILISM",
    "annotation": null
@@ -368,9 +323,6 @@ window.CRYPTIC_PUZZLES["cryptic-29957"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Piano makes you elated – just (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "UPRIGHT",
    "annotation": null
@@ -385,9 +337,6 @@ window.CRYPTIC_PUZZLES["cryptic-29957"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Musical stagehand’s lock retainer (8)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "HAIRGRIP",
    "annotation": null
@@ -402,9 +351,6 @@ window.CRYPTIC_PUZZLES["cryptic-29957"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Agreement to link air conditioning with cable (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "ACCORD",
    "annotation": null
@@ -419,9 +365,6 @@ window.CRYPTIC_PUZZLES["cryptic-29957"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Power failure abroad goes on a long time (6)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "OUTAGE",
    "annotation": null
@@ -436,9 +379,6 @@ window.CRYPTIC_PUZZLES["cryptic-29957"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Get boat moving with current (6)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "OBTAIN",
    "annotation": null
@@ -453,9 +393,6 @@ window.CRYPTIC_PUZZLES["cryptic-29957"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Diagram maker matches its bends (10)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "SCHEMATIST",
    "annotation": null
@@ -470,9 +407,6 @@ window.CRYPTIC_PUZZLES["cryptic-29957"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "To collapse after fellow’s gone is not common (4)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "AINT",
    "annotation": null
@@ -487,9 +421,6 @@ window.CRYPTIC_PUZZLES["cryptic-29957"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Lawyer – southern kind (4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "SILK",
    "annotation": null
@@ -504,9 +435,6 @@ window.CRYPTIC_PUZZLES["cryptic-29957"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Fish is brought up by line at depth (4)",
-   "group": [
-    "26-down"
-   ],
    "separatorLocations": {},
    "solution": "SILD",
    "annotation": null
@@ -521,9 +449,6 @@ window.CRYPTIC_PUZZLES["cryptic-29957"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Forced to dispose of top cut (5)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "RIVEN",
    "annotation": null
@@ -538,9 +463,6 @@ window.CRYPTIC_PUZZLES["cryptic-29957"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Husband: stuffy, with nothing up top (8)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "HAIRLESS",
    "annotation": null

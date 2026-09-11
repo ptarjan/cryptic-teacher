@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4106"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Jokes ... silences (4)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "GAGS",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["everyman-4106"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "To age, getting to grips with a change of home: speed it up! (3,1,4,2)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -65,9 +59,6 @@ window.CRYPTIC_PUZZLES["everyman-4106"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Crushed - then rejoiced, seeing airport staff (6,4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -86,9 +77,6 @@ window.CRYPTIC_PUZZLES["everyman-4106"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Suddenly exclaims: 'cistern jet's malfunctioning' (10)",
-   "group": [
-    "3-across"
-   ],
    "separatorLocations": {},
    "solution": "INTERJECTS",
    "annotation": null
@@ -103,9 +91,6 @@ window.CRYPTIC_PUZZLES["everyman-4106"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "One tipped for award? No, Everyman's, in the end, average (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "NOMINEE",
    "annotation": null
@@ -120,9 +105,6 @@ window.CRYPTIC_PUZZLES["everyman-4106"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Relax in East End as that bloke's leaving (4,3)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -151,9 +133,6 @@ window.CRYPTIC_PUZZLES["everyman-4106"] = /*JSON-START*/ {
      3
     ]
    ],
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -172,9 +151,6 @@ window.CRYPTIC_PUZZLES["everyman-4106"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Is unable to tilt to one side (4)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "CANT",
    "annotation": null
@@ -189,9 +165,6 @@ window.CRYPTIC_PUZZLES["everyman-4106"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Help! Operetta's overture neither good nor bad (2-2)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     "-": [
      2
@@ -210,9 +183,6 @@ window.CRYPTIC_PUZZLES["everyman-4106"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Implement the return of stolen goods (4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "TOOL",
    "annotation": null
@@ -227,9 +197,6 @@ window.CRYPTIC_PUZZLES["everyman-4106"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "What'll make you laugh? Met Gala: ultimately, US menswear not half wacky (10)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "AMUSEMENTS",
    "annotation": null
@@ -244,9 +211,6 @@ window.CRYPTIC_PUZZLES["everyman-4106"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Fellow's playing dance music; one's welcomed in mayoral residence (7,5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -265,9 +229,6 @@ window.CRYPTIC_PUZZLES["everyman-4106"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Memorialist worked to ___ (11)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {},
    "solution": "IMMORTALISE",
    "annotation": null
@@ -282,9 +243,6 @@ window.CRYPTIC_PUZZLES["everyman-4106"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Cut-price, pooh-poohed (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "DISCOUNTED",
    "annotation": null
@@ -299,9 +257,6 @@ window.CRYPTIC_PUZZLES["everyman-4106"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Forebear enacted ten plays (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "ANTECEDENT",
    "annotation": null
@@ -322,9 +277,6 @@ window.CRYPTIC_PUZZLES["everyman-4106"] = /*JSON-START*/ {
      25
     ]
    ],
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "VICOMTE",
    "annotation": null
@@ -339,9 +291,6 @@ window.CRYPTIC_PUZZLES["everyman-4106"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Backing of rule of monarch from another land (7)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "FOREIGN",
    "annotation": null
@@ -356,9 +305,6 @@ window.CRYPTIC_PUZZLES["everyman-4106"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Here, so near the drinks (2,5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -377,9 +323,6 @@ window.CRYPTIC_PUZZLES["everyman-4106"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Partially shaven otter, poor wretch (4-3)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -398,9 +341,6 @@ window.CRYPTIC_PUZZLES["everyman-4106"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Clive, he reinvented scooter? (7)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "VEHICLE",
    "annotation": null
@@ -415,9 +355,6 @@ window.CRYPTIC_PUZZLES["everyman-4106"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Scar I've ruptured - showing these? (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "VISCERA",
    "annotation": null
@@ -432,9 +369,6 @@ window.CRYPTIC_PUZZLES["everyman-4106"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Rose must have 'dealt with' rodent (7,5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -453,9 +387,6 @@ window.CRYPTIC_PUZZLES["everyman-4106"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Fish complain (4)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "CARP",
    "annotation": null
@@ -470,9 +401,6 @@ window.CRYPTIC_PUZZLES["everyman-4106"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Peel fruit on the radio (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "PARE",
    "annotation": null
@@ -487,9 +415,6 @@ window.CRYPTIC_PUZZLES["everyman-4106"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Asian bear swimming around a body of water (7,3)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -508,9 +433,6 @@ window.CRYPTIC_PUZZLES["everyman-4106"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "So, thyme regularly found to be ocular irritant (4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "STYE",
    "annotation": null
@@ -525,9 +447,6 @@ window.CRYPTIC_PUZZLES["everyman-4106"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Now, Christmas, for example ... (7,3)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -546,9 +465,6 @@ window.CRYPTIC_PUZZLES["everyman-4106"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Make alterations to the battered safari suit at last (4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "EDIT",
    "annotation": null

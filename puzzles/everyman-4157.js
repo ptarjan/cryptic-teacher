@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4157"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Fly - or endlessly, repeatedly to sea (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "TSETSE",
    "annotation": {
@@ -75,9 +72,6 @@ window.CRYPTIC_PUZZLES["everyman-4157"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Traditional number of herbs? (11,4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      11
@@ -113,9 +107,6 @@ window.CRYPTIC_PUZZLES["everyman-4157"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "What may be taken from Raptor on tour somewhere in Ontario (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "TORONTO",
    "annotation": {
@@ -149,9 +140,6 @@ window.CRYPTIC_PUZZLES["everyman-4157"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Penning rubbish long since (9)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "ENCLOSING",
    "annotation": {
@@ -193,9 +181,6 @@ window.CRYPTIC_PUZZLES["everyman-4157"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Brothers who may give prior approval (6)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "ABBOTS",
    "annotation": {
@@ -230,9 +215,6 @@ window.CRYPTIC_PUZZLES["everyman-4157"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "On social media, befriended a journalist bored by Double Dutch (5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "ADDED",
    "annotation": {
@@ -281,9 +263,6 @@ window.CRYPTIC_PUZZLES["everyman-4157"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Continue to divulge secrets, overheard in city of sin (7)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "BABYLON",
    "annotation": {
@@ -326,9 +305,6 @@ window.CRYPTIC_PUZZLES["everyman-4157"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "A larger squat, far off in London location (9,6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      9
@@ -377,9 +353,6 @@ window.CRYPTIC_PUZZLES["everyman-4157"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "A supporter twice defending scoundrel, it might be said - for a spell (11)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {},
    "solution": "ABRACADABRA",
    "annotation": {
@@ -438,9 +411,6 @@ window.CRYPTIC_PUZZLES["everyman-4157"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Vacuous 'gagster', Everyman's leaving you stony-faced (4)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {},
    "solution": "GRIM",
    "annotation": {
@@ -486,9 +456,6 @@ window.CRYPTIC_PUZZLES["everyman-4157"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "What has holy musician turned out? (4)",
-   "group": [
-    "10-down"
-   ],
    "separatorLocations": {},
    "solution": "HYMN",
    "annotation": {
@@ -532,9 +499,6 @@ window.CRYPTIC_PUZZLES["everyman-4157"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "One in the green helping those in the red? (5,4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -573,9 +537,6 @@ window.CRYPTIC_PUZZLES["everyman-4157"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "LSD enthusiast allegedly revolutionising youth in their heads? (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "LEARY",
    "annotation": {
@@ -617,9 +578,6 @@ window.CRYPTIC_PUZZLES["everyman-4157"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Study hard about ... about ... primarily Italian ... Italian engineer (7)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "MARCONI",
    "annotation": {
@@ -676,9 +634,6 @@ window.CRYPTIC_PUZZLES["everyman-4157"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Kingpin mixed drink (4,3)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -724,9 +679,6 @@ window.CRYPTIC_PUZZLES["everyman-4157"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "His dishonesty increases the bill (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "PINOCCHIO",
    "annotation": {
@@ -758,9 +710,6 @@ window.CRYPTIC_PUZZLES["everyman-4157"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Accommodation husband finding stimulating - run away (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "HOUSING",
    "annotation": {
@@ -812,9 +761,6 @@ window.CRYPTIC_PUZZLES["everyman-4157"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "In hearing, ne'er-do-well is to improve (4)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "HEAL",
    "annotation": {
@@ -857,9 +803,6 @@ window.CRYPTIC_PUZZLES["everyman-4157"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Imminent aperçu (2,5)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -898,9 +841,6 @@ window.CRYPTIC_PUZZLES["everyman-4157"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "With head cleared, migraine treated somewhere in W Africa (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "NIGERIA",
    "annotation": {
@@ -944,9 +884,6 @@ window.CRYPTIC_PUZZLES["everyman-4157"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Criminals and perjurer throwing off tail: some nerve! (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "GANGLIA",
    "annotation": {
@@ -998,9 +935,6 @@ window.CRYPTIC_PUZZLES["everyman-4157"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Fires X and Y? (4)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "AXES",
    "annotation": {
@@ -1035,9 +969,6 @@ window.CRYPTIC_PUZZLES["everyman-4157"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Causes of discomfort hidden in tea chest (5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "ACHES",
    "annotation": {
@@ -1071,9 +1002,6 @@ window.CRYPTIC_PUZZLES["everyman-4157"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Method with which you prepare the quince (9)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "TECHNIQUE",
    "annotation": {
@@ -1118,9 +1046,6 @@ window.CRYPTIC_PUZZLES["everyman-4157"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Mechanically produces seat for cycling (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "TOOLS",
    "annotation": {
@@ -1161,9 +1086,6 @@ window.CRYPTIC_PUZZLES["everyman-4157"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "At first, Aston Villa (without No 1) hoping to animate emotion of England fans (11)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "ANGLOPHILIA",
    "annotation": {
@@ -1214,9 +1136,6 @@ window.CRYPTIC_PUZZLES["everyman-4157"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Good: musical instrument's flipping free (6)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "GRATIS",
    "annotation": {
@@ -1265,9 +1184,6 @@ window.CRYPTIC_PUZZLES["everyman-4157"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Speechified, valued by none (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "ORATED",
    "annotation": {

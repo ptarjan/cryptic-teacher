@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4104"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Decline a long story (4)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "SAGA",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["everyman-4104"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Wears underwear twisted in the middle in drinking spots (6,4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -63,9 +57,6 @@ window.CRYPTIC_PUZZLES["everyman-4104"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "In Kigali, dancing with curt rocker's flourish (6,4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -84,9 +75,6 @@ window.CRYPTIC_PUZZLES["everyman-4104"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Prepare what may be toast for deceased? (5,5)",
-   "group": [
-    "3-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -105,9 +93,6 @@ window.CRYPTIC_PUZZLES["everyman-4104"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Stagger and feel sick audibly: it's the booze (4,3)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -126,9 +111,6 @@ window.CRYPTIC_PUZZLES["everyman-4104"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Claret? Flipping claret!? (4-3)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -147,9 +129,6 @@ window.CRYPTIC_PUZZLES["everyman-4104"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Sci-fi film: drunken lunar bender (5,6)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -168,9 +147,6 @@ window.CRYPTIC_PUZZLES["everyman-4104"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Volcano regularly lost heat and area (4)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "ETNA",
    "annotation": null
@@ -185,9 +161,6 @@ window.CRYPTIC_PUZZLES["everyman-4104"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Legendary queen performed at Globe (4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "DIDO",
    "annotation": null
@@ -202,9 +175,6 @@ window.CRYPTIC_PUZZLES["everyman-4104"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Loves to embrace welcome somewhere in America (4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "OHIO",
    "annotation": null
@@ -225,9 +195,6 @@ window.CRYPTIC_PUZZLES["everyman-4104"] = /*JSON-START*/ {
      8
     ]
    ],
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "MAINTAINED",
    "annotation": null
@@ -242,9 +209,6 @@ window.CRYPTIC_PUZZLES["everyman-4104"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Tear off with rare bird: it prevents a sale (5,7)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -263,9 +227,6 @@ window.CRYPTIC_PUZZLES["everyman-4104"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "E China, golden place where contrary views unheard? (4,7)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -284,9 +245,6 @@ window.CRYPTIC_PUZZLES["everyman-4104"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Secret kind of ad (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "CLASSIFIED",
    "annotation": null
@@ -301,9 +259,6 @@ window.CRYPTIC_PUZZLES["everyman-4104"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Daft pedaller is in rope-soled footwear (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "ESPADRILLE",
    "annotation": null
@@ -324,9 +279,6 @@ window.CRYPTIC_PUZZLES["everyman-4104"] = /*JSON-START*/ {
      11
     ]
    ],
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "BOLSHIE",
    "annotation": null
@@ -341,9 +293,6 @@ window.CRYPTIC_PUZZLES["everyman-4104"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Lookalikes in nightcaps, maybe (7)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "DOUBLES",
    "annotation": null
@@ -358,9 +307,6 @@ window.CRYPTIC_PUZZLES["everyman-4104"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Stagger company with ultimately rancid fish (4,3)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -379,9 +325,6 @@ window.CRYPTIC_PUZZLES["everyman-4104"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Perhaps info from spy that's increasingly lazy (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "DOSSIER",
    "annotation": null
@@ -396,9 +339,6 @@ window.CRYPTIC_PUZZLES["everyman-4104"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Getting names wrong, Everyman, a kind of absent-mindedness (7)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "AMNESIA",
    "annotation": null
@@ -413,9 +353,6 @@ window.CRYPTIC_PUZZLES["everyman-4104"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Swim topless, 'creative work' - truly! (2,5)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -434,9 +371,6 @@ window.CRYPTIC_PUZZLES["everyman-4104"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Flying creature from the red planet, very hard and disappointingly rarer to capture one (5,7)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -455,9 +389,6 @@ window.CRYPTIC_PUZZLES["everyman-4104"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Artist, somewhat sesquipedalian (4)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "DALI",
    "annotation": null
@@ -472,9 +403,6 @@ window.CRYPTIC_PUZZLES["everyman-4104"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Notebook entry describes this English county (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "KENT",
    "annotation": null
@@ -489,9 +417,6 @@ window.CRYPTIC_PUZZLES["everyman-4104"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Somewhere in W Asia - obtained from bazaar - tajine? No thanks ...! (10)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "AZERBAIJAN",
    "annotation": null
@@ -506,9 +431,6 @@ window.CRYPTIC_PUZZLES["everyman-4104"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "... foreign currency in den, from the East (4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "RIAL",
    "annotation": null
@@ -523,9 +445,6 @@ window.CRYPTIC_PUZZLES["everyman-4104"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Reads hype from Milan footballers: they've come a long way! (10)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "INTERPRETS",
    "annotation": null
@@ -540,9 +459,6 @@ window.CRYPTIC_PUZZLES["everyman-4104"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Redundant, a false god? So they say (4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "IDLE",
    "annotation": null

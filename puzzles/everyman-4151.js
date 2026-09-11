@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4151"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Ace meals on a ship (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "ABOARD",
    "annotation": {
@@ -70,9 +67,6 @@ window.CRYPTIC_PUZZLES["everyman-4151"] = /*JSON-START*/ {
      12,
      6
     ]
-   ],
-   "group": [
-    "2-down"
    ],
    "separatorLocations": {
     "-": [
@@ -118,9 +112,6 @@ window.CRYPTIC_PUZZLES["everyman-4151"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Graceless sabre-rattler not starting to usher in war dead (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "AWKWARD",
    "annotation": {
@@ -171,9 +162,6 @@ window.CRYPTIC_PUZZLES["everyman-4151"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Spiritual leader in a state, a chap's written up (5,4)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -229,9 +217,6 @@ window.CRYPTIC_PUZZLES["everyman-4151"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "You shouldn't have got into setter, perhaps Everyman's beginning to show feebleness (6)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "DOTAGE",
    "annotation": {
@@ -285,9 +270,6 @@ window.CRYPTIC_PUZZLES["everyman-4151"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Drop in moat? (5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "DITCH",
    "annotation": {
@@ -325,9 +307,6 @@ window.CRYPTIC_PUZZLES["everyman-4151"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Those people: one soldier; three kings (3,4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -375,9 +354,6 @@ window.CRYPTIC_PUZZLES["everyman-4151"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Experience mishap when visiting geyser? (3,4,3,5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -424,9 +400,6 @@ window.CRYPTIC_PUZZLES["everyman-4151"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Startled kittens bolt in psych procedure (3-4,4)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -473,9 +446,6 @@ window.CRYPTIC_PUZZLES["everyman-4151"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Foul air from small cat (4)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {},
    "solution": "SMOG",
    "annotation": {
@@ -516,9 +486,6 @@ window.CRYPTIC_PUZZLES["everyman-4151"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Major port in Pasadena (4)",
-   "group": [
-    "10-down"
-   ],
    "separatorLocations": {},
    "solution": "ADEN",
    "annotation": {
@@ -552,9 +519,6 @@ window.CRYPTIC_PUZZLES["everyman-4151"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Birthday announcement pathetic, a mawkish constant (4,1,4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -602,9 +566,6 @@ window.CRYPTIC_PUZZLES["everyman-4151"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Spotty old hat for a Cockney (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "ACNED",
    "annotation": {
@@ -644,9 +605,6 @@ window.CRYPTIC_PUZZLES["everyman-4151"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "He's related Greek saga's finale including, additionally, prince (7)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "GRANDPA",
    "annotation": {
@@ -703,9 +661,6 @@ window.CRYPTIC_PUZZLES["everyman-4151"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Unlisted (not indexed) company offering riches nowadays, primarily? (7)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "UNICORN",
    "annotation": {
@@ -748,9 +703,6 @@ window.CRYPTIC_PUZZLES["everyman-4151"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Turned out, sadly, to be ignorant (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "UNTUTORED",
    "annotation": {
@@ -790,9 +742,6 @@ window.CRYPTIC_PUZZLES["everyman-4151"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Part of Finland - or, rather, another country (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "ANDORRA",
    "annotation": {
@@ -826,9 +775,6 @@ window.CRYPTIC_PUZZLES["everyman-4151"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Help with a passport, perhaps as embassy opens (4)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "AIDE",
    "annotation": {
@@ -876,9 +822,6 @@ window.CRYPTIC_PUZZLES["everyman-4151"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Rush around California airport that's restful (7)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "RELAXED",
    "annotation": {
@@ -925,9 +868,6 @@ window.CRYPTIC_PUZZLES["everyman-4151"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Wearisome after time, editor with promises of payment (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "TEDIOUS",
    "annotation": {
@@ -975,9 +915,6 @@ window.CRYPTIC_PUZZLES["everyman-4151"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Rodents cut up - headless worm inside (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "DORMICE",
    "annotation": {
@@ -1023,9 +960,6 @@ window.CRYPTIC_PUZZLES["everyman-4151"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "I'm surprised map-maker's upset part of London (4)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "SOHO",
    "annotation": {
@@ -1073,9 +1007,6 @@ window.CRYPTIC_PUZZLES["everyman-4151"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "On reflection, Liberal parliamentarian is amusing (5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "DROLL",
    "annotation": {
@@ -1126,9 +1057,6 @@ window.CRYPTIC_PUZZLES["everyman-4151"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "How gut-rot's provoked? (9)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "OUTGROWTH",
    "annotation": {
@@ -1165,9 +1093,6 @@ window.CRYPTIC_PUZZLES["everyman-4151"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "In a weird way, how number's found in the end? (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "ODDLY",
    "annotation": {
@@ -1202,9 +1127,6 @@ window.CRYPTIC_PUZZLES["everyman-4151"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Stuffy type occupied with relics of the past? (11)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "TAXIDERMIST",
    "annotation": {
@@ -1236,9 +1158,6 @@ window.CRYPTIC_PUZZLES["everyman-4151"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Good is the one that comes yearly (6)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "FRIDAY",
    "annotation": {
@@ -1270,9 +1189,6 @@ window.CRYPTIC_PUZZLES["everyman-4151"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Gloomy and arid, capturing attention (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "DREARY",
    "annotation": {

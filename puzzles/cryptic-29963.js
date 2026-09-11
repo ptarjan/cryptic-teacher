@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29963"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Spoiling old woman wearing jewellery (7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "BLOWING",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["cryptic-29963"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "General hides a cigarette in vegetation (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "LEAFAGE",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["cryptic-29963"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Snakes and ladders board in Fiji now ends being flipped (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "WINDS",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["cryptic-29963"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Woman’s brown back has a fracture (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "NATASHA",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["cryptic-29963"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Modern cricketer gets final boundary of series (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "BATTERY",
    "annotation": null
@@ -110,9 +95,6 @@ window.CRYPTIC_PUZZLES["cryptic-29963"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Chooses a pet with no tail, a bit tame in afterthought (6)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "ADOPTS",
    "annotation": null
@@ -127,9 +109,6 @@ window.CRYPTIC_PUZZLES["cryptic-29963"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Elizabeth Reef – our secret signature (5-4)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -148,9 +127,6 @@ window.CRYPTIC_PUZZLES["cryptic-29963"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Managed royal position (7)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "RANKING",
    "annotation": null
@@ -165,9 +141,6 @@ window.CRYPTIC_PUZZLES["cryptic-29963"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Sand dune got moved – plausible? (6-7)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {
     "-": [
      6
@@ -186,9 +159,6 @@ window.CRYPTIC_PUZZLES["cryptic-29963"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Novelist in a state penning article (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "MANN",
    "annotation": null
@@ -203,9 +173,6 @@ window.CRYPTIC_PUZZLES["cryptic-29963"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Playing tuba in Rome with another instrument (10)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "TAMBOURINE",
    "annotation": null
@@ -220,9 +187,6 @@ window.CRYPTIC_PUZZLES["cryptic-29963"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Cold musician’s unlimited drink (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "CASSIS",
    "annotation": null
@@ -237,9 +201,6 @@ window.CRYPTIC_PUZZLES["cryptic-29963"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Live report of where Prince William’s crown might be? (2,3,3)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -259,9 +220,6 @@ window.CRYPTIC_PUZZLES["cryptic-29963"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Subject’s alter ego ‘Gary’ seen outside pub (9)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "GEOGRAPHY",
    "annotation": null
@@ -276,9 +234,6 @@ window.CRYPTIC_PUZZLES["cryptic-29963"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Sing loudly following party in open area outside town (5,4)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -297,9 +252,6 @@ window.CRYPTIC_PUZZLES["cryptic-29963"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Relatives stealing £1,000 records … (5)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "SONGS",
    "annotation": null
@@ -314,9 +266,6 @@ window.CRYPTIC_PUZZLES["cryptic-29963"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "… by backing group holding note (5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "TIMES",
    "annotation": null
@@ -331,9 +280,6 @@ window.CRYPTIC_PUZZLES["cryptic-29963"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "During chaotic reign, no good prince becomes smoker? (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "INHALER",
    "annotation": null
@@ -348,9 +294,6 @@ window.CRYPTIC_PUZZLES["cryptic-29963"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Make president replace politician with court after tricks (9)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "CONSTRUCT",
    "annotation": null
@@ -365,9 +308,6 @@ window.CRYPTIC_PUZZLES["cryptic-29963"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Boss to drink more rum (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "SUPREMO",
    "annotation": null
@@ -382,9 +322,6 @@ window.CRYPTIC_PUZZLES["cryptic-29963"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Growth of bird has head increase by a factor of 20 (7)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "CULTURE",
    "annotation": null
@@ -399,9 +336,6 @@ window.CRYPTIC_PUZZLES["cryptic-29963"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Matches 50 and 88? Pointless at first (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "LIGHTS",
    "annotation": null
@@ -416,9 +350,6 @@ window.CRYPTIC_PUZZLES["cryptic-29963"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Reforming c-capital punishment (8)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "CHANGING",
    "annotation": null
@@ -433,9 +364,6 @@ window.CRYPTIC_PUZZLES["cryptic-29963"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Sell bicycle part to the audience (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "PEDDLE",
    "annotation": null
@@ -450,9 +378,6 @@ window.CRYPTIC_PUZZLES["cryptic-29963"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Welshman taking part in Normandy landings (5)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "DYLAN",
    "annotation": null
@@ -467,9 +392,6 @@ window.CRYPTIC_PUZZLES["cryptic-29963"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Low church, perhaps York, returned English food (4,6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -488,9 +410,6 @@ window.CRYPTIC_PUZZLES["cryptic-29963"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Praise God for all to hear (4)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "LAUD",
    "annotation": null
@@ -505,9 +424,6 @@ window.CRYPTIC_PUZZLES["cryptic-29963"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Demonstrate in favour of cricket’s longest format (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "PROTEST",
    "annotation": null
@@ -522,9 +438,6 @@ window.CRYPTIC_PUZZLES["cryptic-29963"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Oppose noble queen (7)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "COUNTER",
    "annotation": null

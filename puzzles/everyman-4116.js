@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4116"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Clobber team denied opening, game displaying this? (3-2-3-2)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     "-": [
      3,
@@ -48,9 +45,6 @@ window.CRYPTIC_PUZZLES["everyman-4116"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Present talent (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "GIFT",
    "annotation": null
@@ -65,9 +59,6 @@ window.CRYPTIC_PUZZLES["everyman-4116"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Made haste - and a ladder (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "TORE",
    "annotation": null
@@ -82,9 +73,6 @@ window.CRYPTIC_PUZZLES["everyman-4116"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Soldier, moor up somewhere calm (7,4)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -103,9 +91,6 @@ window.CRYPTIC_PUZZLES["everyman-4116"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Primarily: naturally / oh, so what / easy / any time? (2,5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -124,9 +109,6 @@ window.CRYPTIC_PUZZLES["everyman-4116"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Gentleman to drive away, we're told, in casual footwear (3,4)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -145,9 +127,6 @@ window.CRYPTIC_PUZZLES["everyman-4116"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Wildebeests celebrated in retrospective (4)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "GNUS",
    "annotation": null
@@ -162,9 +141,6 @@ window.CRYPTIC_PUZZLES["everyman-4116"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Vain man's crisis? (10)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "NARCISSISM",
    "annotation": null
@@ -179,9 +155,6 @@ window.CRYPTIC_PUZZLES["everyman-4116"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Warbler's shorts hung up (4,6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -200,9 +173,6 @@ window.CRYPTIC_PUZZLES["everyman-4116"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Because, quaintly, it is mostly Paul singing loudly (10)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "FORTISSIMO",
    "annotation": null
@@ -217,9 +187,6 @@ window.CRYPTIC_PUZZLES["everyman-4116"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Architect who creates home from moss (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "WREN",
    "annotation": null
@@ -234,9 +201,6 @@ window.CRYPTIC_PUZZLES["everyman-4116"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Cover roast with foil and plan a crime? (4,3,5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -256,9 +220,6 @@ window.CRYPTIC_PUZZLES["everyman-4116"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "With seconds to spare, just damn edgy, worried it's the end of the world (8,3)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -277,9 +238,6 @@ window.CRYPTIC_PUZZLES["everyman-4116"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "To dream: all cured meat! (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "MORTADELLA",
    "annotation": null
@@ -294,9 +252,6 @@ window.CRYPTIC_PUZZLES["everyman-4116"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Cat, to spite, shredded lingerie (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "PETTICOATS",
    "annotation": null
@@ -311,9 +266,6 @@ window.CRYPTIC_PUZZLES["everyman-4116"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "After deliveries, with just the starters, Everyman's apt to indulge (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "OVEREAT",
    "annotation": null
@@ -328,9 +280,6 @@ window.CRYPTIC_PUZZLES["everyman-4116"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Ensured supply for customer (3,4)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -349,9 +298,6 @@ window.CRYPTIC_PUZZLES["everyman-4116"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Needlework showing military displays (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "TATTOOS",
    "annotation": null
@@ -366,9 +312,6 @@ window.CRYPTIC_PUZZLES["everyman-4116"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "New Orleans: it's SE of Naples (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "SALERNO",
    "annotation": null
@@ -383,9 +326,6 @@ window.CRYPTIC_PUZZLES["everyman-4116"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Flipping sibling with sound that's meditative, very - it permeates gradually (7)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "OSMOSIS",
    "annotation": null
@@ -410,9 +350,6 @@ window.CRYPTIC_PUZZLES["everyman-4116"] = /*JSON-START*/ {
      10
     ]
    ],
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "OROTUND",
    "annotation": null
@@ -427,9 +364,6 @@ window.CRYPTIC_PUZZLES["everyman-4116"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Mark eschewed by the vulgar? (7,5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -448,9 +382,6 @@ window.CRYPTIC_PUZZLES["everyman-4116"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Suitor's loud ribbon (4)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "BEAU",
    "annotation": null
@@ -465,9 +396,6 @@ window.CRYPTIC_PUZZLES["everyman-4116"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Do in seafront (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "AFRO",
    "annotation": null
@@ -482,9 +410,6 @@ window.CRYPTIC_PUZZLES["everyman-4116"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Heavy metal star (4)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "LEAD",
    "annotation": null
@@ -499,9 +424,6 @@ window.CRYPTIC_PUZZLES["everyman-4116"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Argue, with justification, for what goes into burger (6,4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -520,9 +442,6 @@ window.CRYPTIC_PUZZLES["everyman-4116"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "And gangster's love (4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "ALSO",
    "annotation": null
@@ -537,9 +456,6 @@ window.CRYPTIC_PUZZLES["everyman-4116"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Hello, fuss (3-2-3-2)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {
     "-": [
      3,

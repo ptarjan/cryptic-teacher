@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12407"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "this pathetic specimen spewed out (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "SPAT",
    "annotation": {
@@ -61,9 +58,6 @@ window.CRYPTIC_PUZZLES["independent-12407"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "a parcel - after removing wrappings, the girl! A sign in the sky (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "ARCHER",
    "annotation": {
@@ -106,9 +100,6 @@ window.CRYPTIC_PUZZLES["independent-12407"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "stupendous and uplifting to one of strong beliefs (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "BIGOT",
    "annotation": {
@@ -160,9 +151,6 @@ window.CRYPTIC_PUZZLES["independent-12407"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "developed there at noon to foreshadow (8)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "THREATEN",
    "annotation": {
@@ -204,9 +192,6 @@ window.CRYPTIC_PUZZLES["independent-12407"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "a well-mannered fellow, extremely ideal, being nobility formerly (10)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "GENTILESSE",
    "annotation": {
@@ -255,9 +240,6 @@ window.CRYPTIC_PUZZLES["independent-12407"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Once upon a time, one of great skill (6)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "EXPERT",
    "annotation": {
@@ -306,9 +288,6 @@ window.CRYPTIC_PUZZLES["independent-12407"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "a prince, one in a guardian's care having Balls, perhaps above all (6)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "EDWARD",
    "annotation": {
@@ -353,9 +332,6 @@ window.CRYPTIC_PUZZLES["independent-12407"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "intoxicated by head royal's title (8)",
-   "group": [
-    "7-across"
-   ],
    "separatorLocations": {},
    "solution": "HIGHNESS",
    "annotation": {
@@ -398,9 +374,6 @@ window.CRYPTIC_PUZZLES["independent-12407"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "quietly commandeering, located centrally between two poles in a movable chair (5)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "SEDAN",
    "annotation": {
@@ -456,9 +429,6 @@ window.CRYPTIC_PUZZLES["independent-12407"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Thin and straggly, see the tragic princess upset, supported by the old queen inside! (7)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {},
    "solution": "SPIDERY",
    "annotation": {
@@ -512,9 +482,6 @@ window.CRYPTIC_PUZZLES["independent-12407"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "a sorcerer, was (when hidden) longing (5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "WITCH",
    "annotation": {
@@ -557,9 +524,6 @@ window.CRYPTIC_PUZZLES["independent-12407"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "for, primarily, the emperor's stepdaughter. The emperor's daughter objected (9)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "PROTESTED",
    "annotation": {
@@ -608,9 +572,6 @@ window.CRYPTIC_PUZZLES["independent-12407"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "concerned with needing rest, and left (7)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "RETIRED",
    "annotation": {
@@ -651,9 +612,6 @@ window.CRYPTIC_PUZZLES["independent-12407"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Couple having split, he, initially leaving her for a decisive struggle (3-7)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -711,9 +669,6 @@ window.CRYPTIC_PUZZLES["independent-12407"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Hot, horribly lost, occasionally mean (6)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "STOLEN",
    "annotation": {
@@ -757,9 +712,6 @@ window.CRYPTIC_PUZZLES["independent-12407"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "seconds after, succeeded stabbing the flying lover-boy with arrows and teeth! (7)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "CUSPIDS",
    "annotation": {
@@ -811,9 +763,6 @@ window.CRYPTIC_PUZZLES["independent-12407"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "he cursed endlessly, unravelling with no less depravity - (13)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "LECHEROUSNESS",
    "annotation": {
@@ -860,9 +809,6 @@ window.CRYPTIC_PUZZLES["independent-12407"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "She, left aside with no answer, cracked - wanting the protector of her body (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "HIDELESS",
    "annotation": {
@@ -916,9 +862,6 @@ window.CRYPTIC_PUZZLES["independent-12407"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "engaged in combat, tenderly to be present (6)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "ATTEND",
    "annotation": {
@@ -952,9 +895,6 @@ window.CRYPTIC_PUZZLES["independent-12407"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "ego invested in dealing an abusive harangue (6)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "TIRADE",
    "annotation": {
@@ -998,9 +938,6 @@ window.CRYPTIC_PUZZLES["independent-12407"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "The electric superstar, least surprisingly - (5)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "TESLA",
    "annotation": {
@@ -1037,9 +974,6 @@ window.CRYPTIC_PUZZLES["independent-12407"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "turning her into a fairy-tale vegetable, with temperature ready for baking (7)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "PREHEAT",
    "annotation": {
@@ -1094,9 +1028,6 @@ window.CRYPTIC_PUZZLES["independent-12407"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "if wee kiss excited one of the parties after the marriage was over - (2-4)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {
     "-": [
      2
@@ -1142,9 +1073,6 @@ window.CRYPTIC_PUZZLES["independent-12407"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "turned bawdy and there, not in our world, lived (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "DWELT",
    "annotation": {
@@ -1198,9 +1126,6 @@ window.CRYPTIC_PUZZLES["independent-12407"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Little bird entered, empty inside, and ate (9)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "SWALLOWED",
    "annotation": {
@@ -1246,9 +1171,6 @@ window.CRYPTIC_PUZZLES["independent-12407"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "every bit, with difficulty (5)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "WHOLE",
    "annotation": {
@@ -1286,9 +1208,6 @@ window.CRYPTIC_PUZZLES["independent-12407"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "well, happily ever after (4)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "OKAY",
    "annotation": {
@@ -1331,9 +1250,6 @@ window.CRYPTIC_PUZZLES["independent-12407"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Critically out of depth, reluctantly (8)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "AVERSELY",
    "annotation": {
@@ -1376,9 +1292,6 @@ window.CRYPTIC_PUZZLES["independent-12407"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "sounding like a stressed chicken (6)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "AFRAID",
    "annotation": {

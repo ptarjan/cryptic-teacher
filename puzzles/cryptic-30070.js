@@ -24,9 +24,6 @@ window.CRYPTIC_PUZZLES["cryptic-30070"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Rugby player lacking weight put in the shade? (9)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "BACKLIGHT",
    "annotation": {
@@ -63,9 +60,6 @@ window.CRYPTIC_PUZZLES["cryptic-30070"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "How stamps are affixed? Crikey! (2,3)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -103,9 +97,6 @@ window.CRYPTIC_PUZZLES["cryptic-30070"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Starry Parisian is one active in political group (9)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "CELESTIAL",
    "annotation": {
@@ -157,9 +148,6 @@ window.CRYPTIC_PUZZLES["cryptic-30070"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "University brought in rare title, fantastic writing (10)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "LITERATURE",
    "annotation": {
@@ -198,9 +186,6 @@ window.CRYPTIC_PUZZLES["cryptic-30070"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Book salvaged from rubbish daughter stored (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "GARAGED",
    "annotation": {
@@ -244,9 +229,6 @@ window.CRYPTIC_PUZZLES["cryptic-30070"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Peculiar warped wits hosted by talks provider? (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "TWISTED",
    "annotation": {
@@ -293,9 +275,6 @@ window.CRYPTIC_PUZZLES["cryptic-30070"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Words to live by, not initially arse-backwards (5)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "MOTTO",
    "annotation": {
@@ -335,9 +314,6 @@ window.CRYPTIC_PUZZLES["cryptic-30070"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "A way with meter and rhyme? (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "MODE",
    "annotation": {
@@ -374,9 +350,6 @@ window.CRYPTIC_PUZZLES["cryptic-30070"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Fish like the location where fish are readily shot? (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "TUNNY",
    "annotation": {
@@ -410,9 +383,6 @@ window.CRYPTIC_PUZZLES["cryptic-30070"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Stereo apt to distort musical works (9)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "OPERETTAS",
    "annotation": {
@@ -445,9 +415,6 @@ window.CRYPTIC_PUZZLES["cryptic-30070"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Joe, for one, allowed a padded jacket (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "GILET",
    "annotation": {
@@ -484,9 +451,6 @@ window.CRYPTIC_PUZZLES["cryptic-30070"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Call for monsoon? Mumbai resident dropping one in a hurry (4,5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -536,9 +500,6 @@ window.CRYPTIC_PUZZLES["cryptic-30070"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Tigress, with ‘Yum!’, mauled grumbler (6,4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -580,9 +541,6 @@ window.CRYPTIC_PUZZLES["cryptic-30070"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Some charity, perhaps, would be kind (4)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "TYPE",
    "annotation": {
@@ -615,9 +573,6 @@ window.CRYPTIC_PUZZLES["cryptic-30070"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "US actress swallowing whisky up – by the way, it’s illuminating (6,4)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -668,9 +623,6 @@ window.CRYPTIC_PUZZLES["cryptic-30070"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Showed desire to embrace one in make-up? (7)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "PAINTED",
    "annotation": {
@@ -710,9 +662,6 @@ window.CRYPTIC_PUZZLES["cryptic-30070"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "A chap is upset about scripture lessons being hypocritical (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "PHARISAIC",
    "annotation": {
@@ -754,9 +703,6 @@ window.CRYPTIC_PUZZLES["cryptic-30070"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "US lawyer ready to accept thanks for information (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "DATASET",
    "annotation": {
@@ -804,9 +750,6 @@ window.CRYPTIC_PUZZLES["cryptic-30070"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Promoting us following cake decoration appearing to be enough (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "SUFFICING",
    "annotation": {
@@ -857,9 +800,6 @@ window.CRYPTIC_PUZZLES["cryptic-30070"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "A goal almost entirely securing first place in league, in general (2,5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -910,9 +850,6 @@ window.CRYPTIC_PUZZLES["cryptic-30070"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Billionaire probing work unit soon (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "ERELONG",
    "annotation": {
@@ -952,9 +889,6 @@ window.CRYPTIC_PUZZLES["cryptic-30070"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Duke’s decline largely involving unknown figure in French scandal (7)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "DREYFUS",
    "annotation": {
@@ -1001,9 +935,6 @@ window.CRYPTIC_PUZZLES["cryptic-30070"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Starring role involving some cut upset the old girl (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "DAMOSEL",
    "annotation": {
@@ -1051,9 +982,6 @@ window.CRYPTIC_PUZZLES["cryptic-30070"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Desire to lose, discarding diamonds (4)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "ITCH",
    "annotation": {
@@ -1091,9 +1019,6 @@ window.CRYPTIC_PUZZLES["cryptic-30070"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Government committee’s firm support (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "COBRA",
    "annotation": {
@@ -1130,9 +1055,6 @@ window.CRYPTIC_PUZZLES["cryptic-30070"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Allowing style’s suitable, but not fine (10)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "PERMITTING",
    "annotation": {
@@ -1176,9 +1098,6 @@ window.CRYPTIC_PUZZLES["cryptic-30070"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Unrefined Imperial measure? (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "GROSS",
    "annotation": {
@@ -1212,9 +1131,6 @@ window.CRYPTIC_PUZZLES["cryptic-30070"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Eager to see name removed from a medal (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "AGOG",
    "annotation": {
@@ -1256,9 +1172,6 @@ window.CRYPTIC_PUZZLES["cryptic-30070"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Pompous Unionist blocking a timid one, mostly? That’s of doubtful value (9)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "AMBIGUOUS",
    "annotation": {
@@ -1307,9 +1220,6 @@ window.CRYPTIC_PUZZLES["cryptic-30070"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Friend I’m backing to invest in a success (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "AMIGO",
    "annotation": {
@@ -1359,9 +1269,6 @@ window.CRYPTIC_PUZZLES["cryptic-30070"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Big noise in family group estranging nearly all? (5)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "CLANG",
    "annotation": {
@@ -1400,9 +1307,6 @@ window.CRYPTIC_PUZZLES["cryptic-30070"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Drink in the past contributing to atmosphere in islands (9)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "GALAPAGOS",
    "annotation": {

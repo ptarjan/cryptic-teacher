@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4114"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "In this way, vacuous business breaks down (4)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "SOBS",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["everyman-4114"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Reports of flying objects (5,5)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -63,9 +57,6 @@ window.CRYPTIC_PUZZLES["everyman-4114"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "PM stands for Polar Mammals? No, their relatives (5,5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -84,9 +75,6 @@ window.CRYPTIC_PUZZLES["everyman-4114"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "The northern newspaper twice backing stand-up that's funny some of the time (10)",
-   "group": [
-    "3-across"
-   ],
    "separatorLocations": {},
    "solution": "TRAGICOMIC",
    "annotation": null
@@ -101,9 +89,6 @@ window.CRYPTIC_PUZZLES["everyman-4114"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Billionaire is sued - mostly ignored - we've seen this before (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "REISSUE",
    "annotation": null
@@ -118,9 +103,6 @@ window.CRYPTIC_PUZZLES["everyman-4114"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Slate in recess in Victorian street feature (3,4)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -139,9 +121,6 @@ window.CRYPTIC_PUZZLES["everyman-4114"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Supporter of wicked things (11)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "CANDELABRUM",
    "annotation": null
@@ -156,9 +135,6 @@ window.CRYPTIC_PUZZLES["everyman-4114"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Like men in armour, you said? (4)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "MALE",
    "annotation": null
@@ -173,9 +149,6 @@ window.CRYPTIC_PUZZLES["everyman-4114"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Having a bag sent up in Spanish home (4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "CASA",
    "annotation": null
@@ -190,9 +163,6 @@ window.CRYPTIC_PUZZLES["everyman-4114"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Two refusals, one rejected in time (4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "NOON",
    "annotation": null
@@ -207,9 +177,6 @@ window.CRYPTIC_PUZZLES["everyman-4114"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Attacks fireplaces in most popular songs (3,7)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -228,9 +195,6 @@ window.CRYPTIC_PUZZLES["everyman-4114"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Small amount of money to remain mellow where the action is (6,5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -249,9 +213,6 @@ window.CRYPTIC_PUZZLES["everyman-4114"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Raised alarm - raider - one on the boat (4,7)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -270,9 +231,6 @@ window.CRYPTIC_PUZZLES["everyman-4114"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Octet of which we're a member - performing this suite? (3,7)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -291,9 +249,6 @@ window.CRYPTIC_PUZZLES["everyman-4114"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "In Derby, 'agers' whimsically described as such? (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "GREYBEARDS",
    "annotation": null
@@ -308,9 +263,6 @@ window.CRYPTIC_PUZZLES["everyman-4114"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Not young enough? That's excessive! (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "OVERAGE",
    "annotation": null
@@ -325,9 +277,6 @@ window.CRYPTIC_PUZZLES["everyman-4114"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Trespasser; thief; one getting into hot water? (7)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "POACHER",
    "annotation": null
@@ -342,9 +291,6 @@ window.CRYPTIC_PUZZLES["everyman-4114"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Though always tailed, she's never seen (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "MERMAID",
    "annotation": null
@@ -359,9 +305,6 @@ window.CRYPTIC_PUZZLES["everyman-4114"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "After bolting candy, I'm energetic (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "DYNAMIC",
    "annotation": null
@@ -376,9 +319,6 @@ window.CRYPTIC_PUZZLES["everyman-4114"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Decline the World Cup, for example (7)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "ATROPHY",
    "annotation": null
@@ -399,9 +339,6 @@ window.CRYPTIC_PUZZLES["everyman-4114"] = /*JSON-START*/ {
      7
     ]
    ],
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "ARMENIA",
    "annotation": null
@@ -416,9 +353,6 @@ window.CRYPTIC_PUZZLES["everyman-4114"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Small and quiet, carry on for scant remuneration (7,4)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -437,9 +371,6 @@ window.CRYPTIC_PUZZLES["everyman-4114"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Snake in hurricane? (4)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "WIND",
    "annotation": null
@@ -454,9 +385,6 @@ window.CRYPTIC_PUZZLES["everyman-4114"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "A small fellow, but enthralling - Everyman? Hardly (2,2)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -475,9 +403,6 @@ window.CRYPTIC_PUZZLES["everyman-4114"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Viola perhaps prepared nutriments (10)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "INSTRUMENT",
    "annotation": null
@@ -492,9 +417,6 @@ window.CRYPTIC_PUZZLES["everyman-4114"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "On hearing where you're seated in theatre, a show of sorrow (4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "TEAR",
    "annotation": null
@@ -509,9 +431,6 @@ window.CRYPTIC_PUZZLES["everyman-4114"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Endless fateful cold, shivering? You need this (6,4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -530,9 +449,6 @@ window.CRYPTIC_PUZZLES["everyman-4114"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Goddess exists; you can say that again (4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "ISIS",
    "annotation": null

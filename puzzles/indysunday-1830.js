@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1830"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Papal candidate elected on paper by majority of total (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "CARDINAL",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["indysunday-1830"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Sun god's head surrounded by halo every so often (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "APOLLO",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["indysunday-1830"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Dave's outside bar before woman who's not appeared yet (9)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "DEBUTANTE",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["indysunday-1830"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Getting hitched, said Hugh finally - bad follow-up to Four Weddings? (7,4)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -97,9 +85,6 @@ window.CRYPTIC_PUZZLES["indysunday-1830"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Lecture successful business student enters at the end (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "LAMBAST",
    "annotation": null
@@ -114,9 +99,6 @@ window.CRYPTIC_PUZZLES["indysunday-1830"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Fill out promissory note without reflecting (6)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "BILLOW",
    "annotation": null
@@ -131,9 +113,6 @@ window.CRYPTIC_PUZZLES["indysunday-1830"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Scratching both sides, curse wide vehicle (3)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "BUS",
    "annotation": null
@@ -148,9 +127,6 @@ window.CRYPTIC_PUZZLES["indysunday-1830"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Many love young man's trousers (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "LOADS",
    "annotation": null
@@ -165,9 +141,6 @@ window.CRYPTIC_PUZZLES["indysunday-1830"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Obvious question, tax too much? (8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "OVERTASK",
    "annotation": null
@@ -182,9 +155,6 @@ window.CRYPTIC_PUZZLES["indysunday-1830"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Groom with fine teeth initially averse to fighting (6)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "COMBAT",
    "annotation": null
@@ -199,9 +169,6 @@ window.CRYPTIC_PUZZLES["indysunday-1830"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "White male American trainee learning how to use guns? (8)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "MUSCADET",
    "annotation": null
@@ -216,9 +183,6 @@ window.CRYPTIC_PUZZLES["indysunday-1830"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Scheme of random selection to succeed Papa (4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "PLOT",
    "annotation": null
@@ -233,9 +197,6 @@ window.CRYPTIC_PUZZLES["indysunday-1830"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "For replacement, is antipope unsuitable? (10)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "INAPPOSITE",
    "annotation": null
@@ -250,9 +211,6 @@ window.CRYPTIC_PUZZLES["indysunday-1830"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Estate Golf outside home, fair extra cost to motorist? (7,4)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -271,9 +229,6 @@ window.CRYPTIC_PUZZLES["indysunday-1830"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Trifle's quality resonating with us cooks (12)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "NUGATORINESS",
    "annotation": null
@@ -288,9 +243,6 @@ window.CRYPTIC_PUZZLES["indysunday-1830"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Church going up, built right inside school (5,4)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -309,9 +261,6 @@ window.CRYPTIC_PUZZLES["indysunday-1830"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "A VIP organised celebrity team building (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "PAVILION",
    "annotation": null
@@ -326,9 +275,6 @@ window.CRYPTIC_PUZZLES["indysunday-1830"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "King in utopia recalled unforgiving mountainous country (4,8)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -347,9 +293,6 @@ window.CRYPTIC_PUZZLES["indysunday-1830"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Twitcher stumbles across corncrake in the Borders (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "TRICEPS",
    "annotation": null
@@ -364,9 +307,6 @@ window.CRYPTIC_PUZZLES["indysunday-1830"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Sheep boxed by boomer in Oz (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "MERINO",
    "annotation": null
@@ -381,9 +321,6 @@ window.CRYPTIC_PUZZLES["indysunday-1830"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Divorcing princess, gnome pockets £50 (10)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "DISALLYING",
    "annotation": null
@@ -398,9 +335,6 @@ window.CRYPTIC_PUZZLES["indysunday-1830"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Rep theatre in London, years earlier (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "AGENT",
    "annotation": null
@@ -415,9 +349,6 @@ window.CRYPTIC_PUZZLES["indysunday-1830"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "First Lady Republican at all times (4)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "EVER",
    "annotation": null
@@ -432,9 +363,6 @@ window.CRYPTIC_PUZZLES["indysunday-1830"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Terrier was shown something brown to drink (8)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "AIREDALE",
    "annotation": null
@@ -449,9 +377,6 @@ window.CRYPTIC_PUZZLES["indysunday-1830"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Dust to clean with wife away (3)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "ASH",
    "annotation": null
@@ -466,9 +391,6 @@ window.CRYPTIC_PUZZLES["indysunday-1830"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Henry is forgotten by people before long (2,1,3)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -488,9 +410,6 @@ window.CRYPTIC_PUZZLES["indysunday-1830"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Canary egg brought into school (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "SNITCH",
    "annotation": null
@@ -505,9 +424,6 @@ window.CRYPTIC_PUZZLES["indysunday-1830"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Steel OK to fashion new frame (8)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "SKELETON",
    "annotation": null

@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1331"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Football association secures revolutionary tie (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "FASTEN",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["quiptic-1331"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Joined around old college as directed (7)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "FOCUSED",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["quiptic-1331"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Brown pea is pulped (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "SEPIA",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["quiptic-1331"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Old dogs I directed towards Sally (9)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "EXCURSION",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["quiptic-1331"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Dig dome out for Maui perhaps (7)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "DEMIGOD",
    "annotation": null
@@ -110,9 +95,6 @@ window.CRYPTIC_PUZZLES["quiptic-1331"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Stand up unusual cleaning aid (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "DUSTPAN",
    "annotation": null
@@ -127,9 +109,6 @@ window.CRYPTIC_PUZZLES["quiptic-1331"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Masculine coat hung outside at first (5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "MACHO",
    "annotation": null
@@ -144,9 +123,6 @@ window.CRYPTIC_PUZZLES["quiptic-1331"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Dug soil up around LA to produce bloom (9)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "GLADIOLUS",
    "annotation": null
@@ -161,9 +137,6 @@ window.CRYPTIC_PUZZLES["quiptic-1331"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Machine for deepening harbour deserted by river side (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "DREDGE",
    "annotation": null
@@ -178,9 +151,6 @@ window.CRYPTIC_PUZZLES["quiptic-1331"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Setter taking test showing degree of optimism (6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "MORALE",
    "annotation": null
@@ -195,9 +165,6 @@ window.CRYPTIC_PUZZLES["quiptic-1331"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Big top a circus initially promises (9)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "CAPACIOUS",
    "annotation": null
@@ -212,9 +179,6 @@ window.CRYPTIC_PUZZLES["quiptic-1331"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Box in clubs with speed (5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "CRATE",
    "annotation": null
@@ -229,9 +193,6 @@ window.CRYPTIC_PUZZLES["quiptic-1331"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Knight accepting thanks for one in flight (5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "STAIR",
    "annotation": null
@@ -246,9 +207,6 @@ window.CRYPTIC_PUZZLES["quiptic-1331"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Admiring programme with roaming (9)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "APPROVING",
    "annotation": null
@@ -263,9 +221,6 @@ window.CRYPTIC_PUZZLES["quiptic-1331"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Lessening recession (7)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "DECLINE",
    "annotation": null
@@ -280,9 +235,6 @@ window.CRYPTIC_PUZZLES["quiptic-1331"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Barrel maker and wastrel regularly work together (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "COOPERATE",
    "annotation": null
@@ -297,9 +249,6 @@ window.CRYPTIC_PUZZLES["quiptic-1331"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Lay net out tidily (6)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "NEATLY",
    "annotation": null
@@ -314,9 +263,6 @@ window.CRYPTIC_PUZZLES["quiptic-1331"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Correction of last word on private message by hospital department (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "AMENDMENT",
    "annotation": null
@@ -331,9 +277,6 @@ window.CRYPTIC_PUZZLES["quiptic-1331"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Hard growth on head alien bug (6)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "HORNET",
    "annotation": null
@@ -348,9 +291,6 @@ window.CRYPTIC_PUZZLES["quiptic-1331"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Cheater upset rabbi? (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "TEACHER",
    "annotation": null
@@ -365,9 +305,6 @@ window.CRYPTIC_PUZZLES["quiptic-1331"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Exercise before cat returns (5-2)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -386,9 +323,6 @@ window.CRYPTIC_PUZZLES["quiptic-1331"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Piano with a canvas covering is conspicuous (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "PATENT",
    "annotation": null
@@ -403,9 +337,6 @@ window.CRYPTIC_PUZZLES["quiptic-1331"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Melody to pinch revolting seed (4,3)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -424,9 +355,6 @@ window.CRYPTIC_PUZZLES["quiptic-1331"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "French fish with heart removed is toxic (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "POISON",
    "annotation": null
@@ -441,9 +369,6 @@ window.CRYPTIC_PUZZLES["quiptic-1331"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Six deliveries by doctor behind bank arrangement (9)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "OVERDRAFT",
    "annotation": null
@@ -458,9 +383,6 @@ window.CRYPTIC_PUZZLES["quiptic-1331"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Headed back to hot island somewhere in India (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "DELHI",
    "annotation": null
@@ -475,9 +397,6 @@ window.CRYPTIC_PUZZLES["quiptic-1331"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Clamour about V&A furniture item (5)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "DIVAN",
    "annotation": null
@@ -492,9 +411,6 @@ window.CRYPTIC_PUZZLES["quiptic-1331"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "View six tailless deer (5)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "VISTA",
    "annotation": null
@@ -509,9 +425,6 @@ window.CRYPTIC_PUZZLES["quiptic-1331"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Marshal leading section for will (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "SHALL",
    "annotation": null
@@ -526,9 +439,6 @@ window.CRYPTIC_PUZZLES["quiptic-1331"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Husband annoys working dependants (7-2)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     "-": [
      7
@@ -547,9 +457,6 @@ window.CRYPTIC_PUZZLES["quiptic-1331"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "More attention-seeking wild reindeer losing head (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "NEEDIER",
    "annotation": null
@@ -564,9 +471,6 @@ window.CRYPTIC_PUZZLES["quiptic-1331"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Narrow passage artist represented (6)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "STRAIT",
    "annotation": null

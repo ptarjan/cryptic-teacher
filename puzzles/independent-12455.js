@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12455"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Company business comes before a drink (5)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "COCOA",
    "annotation": {
@@ -77,9 +74,6 @@ window.CRYPTIC_PUZZLES["independent-12455"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Make a mess of power grab acquiring fashion brand (4,2)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -128,9 +122,6 @@ window.CRYPTIC_PUZZLES["independent-12455"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Devoted Christian's two chapters about ancient city soldier ... (9)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "CHURCHMAN",
    "annotation": {
@@ -184,9 +175,6 @@ window.CRYPTIC_PUZZLES["independent-12455"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "... partially mislead her enthusiastic follower (8)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "ADHERENT",
    "annotation": {
@@ -221,9 +209,6 @@ window.CRYPTIC_PUZZLES["independent-12455"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Reggie's finally tired of cooked breakfast? (5,4)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -273,9 +258,6 @@ window.CRYPTIC_PUZZLES["independent-12455"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Basic for baptism that rector's in prominent position (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "FRONT",
    "annotation": {
@@ -323,9 +305,6 @@ window.CRYPTIC_PUZZLES["independent-12455"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Tablet dad found amongst papers (4)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "IPAD",
    "annotation": {
@@ -370,9 +349,6 @@ window.CRYPTIC_PUZZLES["independent-12455"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Over for a day, walk in the park and draw (nothing in particular) (6)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "DOODLE",
    "annotation": {
@@ -423,9 +399,6 @@ window.CRYPTIC_PUZZLES["independent-12455"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Remarkable rasping sound heard (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "GREAT",
    "annotation": {
@@ -461,9 +434,6 @@ window.CRYPTIC_PUZZLES["independent-12455"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Eric and Ernie wanted this star to excel (8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "SUNSHINE",
    "annotation": {
@@ -502,9 +472,6 @@ window.CRYPTIC_PUZZLES["independent-12455"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Lazybones put across rubbish business cases (5,6)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -559,9 +526,6 @@ window.CRYPTIC_PUZZLES["independent-12455"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Heroin taken regularly for a long time (3)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "EON",
    "annotation": {
@@ -602,9 +566,6 @@ window.CRYPTIC_PUZZLES["independent-12455"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Rotten clues mostly deserve to fester? (8)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "ULCERATE",
    "annotation": {
@@ -659,9 +620,6 @@ window.CRYPTIC_PUZZLES["independent-12455"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Irregular discoloration left within clumsy work (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "BLOTCH",
    "annotation": {
@@ -706,9 +664,6 @@ window.CRYPTIC_PUZZLES["independent-12455"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Some recalled you as extremely hairy man (4)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "ESAU",
    "annotation": {
@@ -745,9 +700,6 @@ window.CRYPTIC_PUZZLES["independent-12455"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Stokes close to speechless defending home record (7)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "MINUTES",
    "annotation": {
@@ -801,9 +753,6 @@ window.CRYPTIC_PUZZLES["independent-12455"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Getting sides confused, presenter is rubbish (4)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "TOSH",
    "annotation": {
@@ -844,9 +793,6 @@ window.CRYPTIC_PUZZLES["independent-12455"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Sir Elton abandons husband in favour of American woman (4)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "JOAN",
    "annotation": {
@@ -896,9 +842,6 @@ window.CRYPTIC_PUZZLES["independent-12455"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "See lover agitated - terminal to relationship to miss alarm? (9)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "OVERSLEEP",
    "annotation": {
@@ -943,9 +886,6 @@ window.CRYPTIC_PUZZLES["independent-12455"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Cringe at awful food at function (8)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "CATERING",
    "annotation": {
@@ -983,9 +923,6 @@ window.CRYPTIC_PUZZLES["independent-12455"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Turned up anxious for culinary courses (8)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "DESSERTS",
    "annotation": {
@@ -1032,9 +969,6 @@ window.CRYPTIC_PUZZLES["independent-12455"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Out of hospital, frequently visit relative (4)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "AUNT",
    "annotation": {
@@ -1077,9 +1011,6 @@ window.CRYPTIC_PUZZLES["independent-12455"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Extort from girlfriend? (7)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "SQUEEZE",
    "annotation": {
@@ -1113,9 +1044,6 @@ window.CRYPTIC_PUZZLES["independent-12455"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Hospital department entertained by youngster kept unwillingly (4-2)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -1164,9 +1092,6 @@ window.CRYPTIC_PUZZLES["independent-12455"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "He'll bring drink one assumes (6)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "WAITER",
    "annotation": {
@@ -1211,9 +1136,6 @@ window.CRYPTIC_PUZZLES["independent-12455"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Team taking part in Whitechapel event (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "ELEVEN",
    "annotation": {
@@ -1248,9 +1170,6 @@ window.CRYPTIC_PUZZLES["independent-12455"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "French writer appearing in European court to exit rapidly (5)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "EJECT",
    "annotation": {
@@ -1300,9 +1219,6 @@ window.CRYPTIC_PUZZLES["independent-12455"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Vexed witness reported dangerous swimming conditions (5,3)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -1351,9 +1267,6 @@ window.CRYPTIC_PUZZLES["independent-12455"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Sport Dawson dominates (5)",
-   "group": [
-    "27-down"
-   ],
    "separatorLocations": {},
    "solution": "RULES",
    "annotation": {
@@ -1392,9 +1305,6 @@ window.CRYPTIC_PUZZLES["independent-12455"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Departed towards the end (4)",
-   "group": [
-    "28-down"
-   ],
    "separatorLocations": {},
    "solution": "LATE",
    "annotation": {
@@ -1428,9 +1338,6 @@ window.CRYPTIC_PUZZLES["independent-12455"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Broadcast exposed anger (3)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "IRE",
    "annotation": {
@@ -1473,9 +1380,6 @@ window.CRYPTIC_PUZZLES["independent-12455"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "River borders dilapidated retail and holiday accommodation (7,4)",
-   "group": [
-    "30-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -1535,9 +1439,6 @@ window.CRYPTIC_PUZZLES["independent-12455"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Republican with ego stops mingling to progress publication (2,2,5)",
-   "group": [
-    "31-across"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -1588,9 +1489,6 @@ window.CRYPTIC_PUZZLES["independent-12455"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Marvellous old queen in pursuit of drink (5)",
-   "group": [
-    "32-across"
-   ],
    "separatorLocations": {},
    "solution": "SUPER",
    "annotation": {

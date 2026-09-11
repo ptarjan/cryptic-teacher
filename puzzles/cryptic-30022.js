@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30022"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Cover figure in fancy crepe (8)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "PRETENCE",
    "annotation": {
@@ -73,9 +70,6 @@ window.CRYPTIC_PUZZLES["cryptic-30022"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Live recording’s electronic alert (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "BEEP",
    "annotation": {
@@ -113,9 +107,6 @@ window.CRYPTIC_PUZZLES["cryptic-30022"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Devious worker, bully and lout getting a rise (6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "COWBOY",
    "annotation": {
@@ -165,9 +156,6 @@ window.CRYPTIC_PUZZLES["cryptic-30022"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Laying it on thick: ‘One’s too old for love’ (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "IMPASTO",
    "annotation": {
@@ -214,9 +202,6 @@ window.CRYPTIC_PUZZLES["cryptic-30022"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Hiker told about covering arduous walk (4)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "TREK",
    "annotation": {
@@ -253,9 +238,6 @@ window.CRYPTIC_PUZZLES["cryptic-30022"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Lingering sensation of behind getting smack (10)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "AFTERTASTE",
    "annotation": {
@@ -297,9 +279,6 @@ window.CRYPTIC_PUZZLES["cryptic-30022"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Shelves heaving – husband’s abandoned junk? (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "VESSEL",
    "annotation": {
@@ -344,9 +323,6 @@ window.CRYPTIC_PUZZLES["cryptic-30022"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Unstructured feature of shelf reef or massif (4-4)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -385,9 +361,6 @@ window.CRYPTIC_PUZZLES["cryptic-30022"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Agitate live, dumped freshwater fish (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "RUFFE",
    "annotation": {
@@ -430,9 +403,6 @@ window.CRYPTIC_PUZZLES["cryptic-30022"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Great opera houses going under? The opposite (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "ATOP",
    "annotation": {
@@ -467,9 +437,6 @@ window.CRYPTIC_PUZZLES["cryptic-30022"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Ken’s verbal rendering of ‘To be, or not to be’, say (5,5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -514,9 +481,6 @@ window.CRYPTIC_PUZZLES["cryptic-30022"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Condescending southern outdated name given to Clark? (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "SNOBBY",
    "annotation": {
@@ -554,9 +518,6 @@ window.CRYPTIC_PUZZLES["cryptic-30022"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Excessive to introduce diamonds into construction of Bill the artist? (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "BOTTICELLI",
    "annotation": {
@@ -617,9 +578,6 @@ window.CRYPTIC_PUZZLES["cryptic-30022"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Rubbish, vacuous tutorial fills the silence (8)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "THROTTLE",
    "annotation": {
@@ -694,9 +652,6 @@ window.CRYPTIC_PUZZLES["cryptic-30022"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "City’s upset with ref, right? (7)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "RECTIFY",
    "annotation": {
@@ -791,9 +746,6 @@ window.CRYPTIC_PUZZLES["cryptic-30022"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Martin’s residence in row that’s not highly rated? (3-4)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -845,9 +797,6 @@ window.CRYPTIC_PUZZLES["cryptic-30022"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "A relative (not I) appropriating little Dorothy’s account (8)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "ANECDOTE",
    "annotation": {
@@ -905,9 +854,6 @@ window.CRYPTIC_PUZZLES["cryptic-30022"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Spare cape’s peculiarity (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "ODDNESS",
    "annotation": {
@@ -945,9 +891,6 @@ window.CRYPTIC_PUZZLES["cryptic-30022"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Transferred in the manner indicated (8)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "ASSIGNED",
    "annotation": {
@@ -985,9 +928,6 @@ window.CRYPTIC_PUZZLES["cryptic-30022"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "It is male discrimination? (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "SEXISM",
    "annotation": {
@@ -1041,9 +981,6 @@ window.CRYPTIC_PUZZLES["cryptic-30022"] = /*JSON-START*/ {
      8
     ]
    ],
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "VIEWER",
    "annotation": {
@@ -1091,9 +1028,6 @@ window.CRYPTIC_PUZZLES["cryptic-30022"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Goya worked in extremely venerable passage (6)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "VOYAGE",
    "annotation": {
@@ -1148,9 +1082,6 @@ window.CRYPTIC_PUZZLES["cryptic-30022"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Anticipation’s useless except with name-dropping former First Lady (10)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "EXPECTANCY",
    "annotation": {
@@ -1264,9 +1195,6 @@ window.CRYPTIC_PUZZLES["cryptic-30022"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Stiff, wow, having died inside! (4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "BODY",
    "annotation": {
@@ -1336,9 +1264,6 @@ window.CRYPTIC_PUZZLES["cryptic-30022"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Also diverted river as energy source (5)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "SOLAR",
    "annotation": {
@@ -1395,9 +1320,6 @@ window.CRYPTIC_PUZZLES["cryptic-30022"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Wisdom of imposing flag on a large community (8)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "SAGACITY",
    "annotation": {

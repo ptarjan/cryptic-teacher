@@ -24,9 +24,6 @@ window.CRYPTIC_PUZZLES["cryptic-30062"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Old-fashioned lass, social worker at home beginning to eat cold dish (9)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "GALANTINE",
    "annotation": {
@@ -81,9 +78,6 @@ window.CRYPTIC_PUZZLES["cryptic-30062"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Good dog taken short in wood? (5)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "GROVE",
    "annotation": {
@@ -129,9 +123,6 @@ window.CRYPTIC_PUZZLES["cryptic-30062"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "The French g-girl deemed attractive – rude boy may be this (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "LADDISH",
    "annotation": {
@@ -174,9 +165,6 @@ window.CRYPTIC_PUZZLES["cryptic-30062"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "European inventor not in the same league as American one, reportedly (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "NOBEL",
    "annotation": {
@@ -211,9 +199,6 @@ window.CRYPTIC_PUZZLES["cryptic-30062"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Trendy, endlessly tired, somehow having a disinclination to move (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "INERTIA",
    "annotation": {
@@ -270,9 +255,6 @@ window.CRYPTIC_PUZZLES["cryptic-30062"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "No longer wanting inept cluing, engaging editor – that’s advantageous (9)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "EXPEDIENT",
    "annotation": {
@@ -330,9 +312,6 @@ window.CRYPTIC_PUZZLES["cryptic-30062"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Attack nanny? (4)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "GOAT",
    "annotation": {
@@ -370,9 +349,6 @@ window.CRYPTIC_PUZZLES["cryptic-30062"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Mess in which a Parisian male tucks into curry (7)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "GUNROOM",
    "annotation": {
@@ -419,9 +395,6 @@ window.CRYPTIC_PUZZLES["cryptic-30062"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Greek king, one man troubled about leg (9)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "AGAMEMNON",
    "annotation": {
@@ -470,9 +443,6 @@ window.CRYPTIC_PUZZLES["cryptic-30062"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Story about ancient newspaper should be this (8)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {},
    "solution": "FOLDABLE",
    "annotation": {
@@ -516,9 +486,6 @@ window.CRYPTIC_PUZZLES["cryptic-30062"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "A husband trailing after sort of rock fan (6)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "PUNKAH",
    "annotation": {
@@ -567,9 +534,6 @@ window.CRYPTIC_PUZZLES["cryptic-30062"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Maiden friendly, no good as servant? (6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "MENIAL",
    "annotation": {
@@ -620,9 +584,6 @@ window.CRYPTIC_PUZZLES["cryptic-30062"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Little creatures told apes to scatter (8)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "TADPOLES",
    "annotation": {
@@ -664,9 +625,6 @@ window.CRYPTIC_PUZZLES["cryptic-30062"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Account penned by survivor of flood, political leader (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "SACHEM",
    "annotation": {
@@ -710,9 +668,6 @@ window.CRYPTIC_PUZZLES["cryptic-30062"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "This opera, sadly, goes downhill (9)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "ATROPHIES",
    "annotation": {
@@ -754,9 +709,6 @@ window.CRYPTIC_PUZZLES["cryptic-30062"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Second entrance blocked by donkey flipping over stone (4,5)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -817,9 +769,6 @@ window.CRYPTIC_PUZZLES["cryptic-30062"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Chaps entering prevent allegation (8)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "AVERMENT",
    "annotation": {
@@ -863,9 +812,6 @@ window.CRYPTIC_PUZZLES["cryptic-30062"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Intended to give reminder about model (8)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "PROPOSED",
    "annotation": {
@@ -912,9 +858,6 @@ window.CRYPTIC_PUZZLES["cryptic-30062"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Drink passing through children’s lips the wrong way (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "PILSNER",
    "annotation": {
@@ -950,9 +893,6 @@ window.CRYPTIC_PUZZLES["cryptic-30062"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Prepare to look smart in something with hem raised (5,2)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -997,9 +937,6 @@ window.CRYPTIC_PUZZLES["cryptic-30062"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Mathematician on a round trip with nothing to lose (6)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "TURING",
    "annotation": {
@@ -1041,9 +978,6 @@ window.CRYPTIC_PUZZLES["cryptic-30062"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Reject what could be seen as lure (4,3)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -1083,9 +1017,6 @@ window.CRYPTIC_PUZZLES["cryptic-30062"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Wise person swallowing tablet, water going all over the place? (8)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "SPILLAGE",
    "annotation": {
@@ -1129,9 +1060,6 @@ window.CRYPTIC_PUZZLES["cryptic-30062"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "One green dish about to be served with bit of bread in Africa (6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "DALASI",
    "annotation": {
@@ -1183,9 +1111,6 @@ window.CRYPTIC_PUZZLES["cryptic-30062"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Stars in old club perhaps being upset (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "DRACO",
    "annotation": {
@@ -1233,9 +1158,6 @@ window.CRYPTIC_PUZZLES["cryptic-30062"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "What enables one to hear what comes from some scratches on a record (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "SONAR",
    "annotation": {
@@ -1269,9 +1191,6 @@ window.CRYPTIC_PUZZLES["cryptic-30062"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Plant I found at back of small hotel in South Africa (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "ZINNIA",
    "annotation": {
@@ -1323,9 +1242,6 @@ window.CRYPTIC_PUZZLES["cryptic-30062"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "One must get excited about a large underwater feature (8)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "SEAMOUNT",
    "annotation": {
@@ -1372,9 +1288,6 @@ window.CRYPTIC_PUZZLES["cryptic-30062"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Ruler using skills, cycling round (4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "TSAR",
    "annotation": {
@@ -1414,9 +1327,6 @@ window.CRYPTIC_PUZZLES["cryptic-30062"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Old lover quietly to hang around for abusive boss? (9)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "EXPLOITER",
    "annotation": {

@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12398"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Conspicuous military decorations possibly getting you singing (8)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "WARBLING",
    "annotation": {
@@ -72,9 +69,6 @@ window.CRYPTIC_PUZZLES["independent-12398"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "A kick, after millions invested, to have a successful place (4,4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -131,9 +125,6 @@ window.CRYPTIC_PUZZLES["independent-12398"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Dates ruined by variable boyfriend? (6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "STEADY",
    "annotation": {
@@ -175,9 +166,6 @@ window.CRYPTIC_PUZZLES["independent-12398"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Opening verse put at the front by Roman poet (4)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "VOID",
    "annotation": {
@@ -223,9 +211,6 @@ window.CRYPTIC_PUZZLES["independent-12398"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Worship of sacred figures, i.e. holy art, possibly about right (10)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "HIEROLATRY",
    "annotation": {
@@ -269,9 +254,6 @@ window.CRYPTIC_PUZZLES["independent-12398"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Small bag fed to horse results in heavy defeat (8)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "MASSACRE",
    "annotation": {
@@ -324,9 +306,6 @@ window.CRYPTIC_PUZZLES["independent-12398"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Facing blow at university, succeed, getting degree (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "UPWIND",
    "annotation": {
@@ -369,9 +348,6 @@ window.CRYPTIC_PUZZLES["independent-12398"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "A system of divination disposing of one longing (6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "ACHING",
    "annotation": {
@@ -419,9 +395,6 @@ window.CRYPTIC_PUZZLES["independent-12398"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Defensive position adopted by excellent core of motorists with stronger reason (1,8)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      1
@@ -477,9 +450,6 @@ window.CRYPTIC_PUZZLES["independent-12398"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "A reduced flavouring in jelly (5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "ASPIC",
    "annotation": {
@@ -525,9 +495,6 @@ window.CRYPTIC_PUZZLES["independent-12398"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Assail directors about quantity of computer data (7)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "BOMBARD",
    "annotation": {
@@ -571,9 +538,6 @@ window.CRYPTIC_PUZZLES["independent-12398"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Special bit of naughtiness concealed by French king’s composer (7)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "ROSSINI",
    "annotation": {
@@ -623,9 +587,6 @@ window.CRYPTIC_PUZZLES["independent-12398"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Shade of gold in plant that’s generally green or off-white (5)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "IVORY",
    "annotation": {
@@ -672,9 +633,6 @@ window.CRYPTIC_PUZZLES["independent-12398"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Contributor to law enforcement chilled during game? Good (6,3)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -728,9 +686,6 @@ window.CRYPTIC_PUZZLES["independent-12398"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "City with Grub Street set up in central part (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "PITTSBURGH",
    "annotation": {
@@ -782,9 +737,6 @@ window.CRYPTIC_PUZZLES["independent-12398"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Merry widow and gent, eh? Hint for a film (4,4,3,4)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -830,9 +782,6 @@ window.CRYPTIC_PUZZLES["independent-12398"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Melted the Ring in a little bit, having a high temperature (5-3)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -888,9 +837,6 @@ window.CRYPTIC_PUZZLES["independent-12398"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Believes Italy has silver in pits (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "IMAGINES",
    "annotation": {
@@ -943,9 +889,6 @@ window.CRYPTIC_PUZZLES["independent-12398"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Populist speechifying you’d once picked up around giant figure (8)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "DEMAGOGY",
    "annotation": {
@@ -997,9 +940,6 @@ window.CRYPTIC_PUZZLES["independent-12398"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "A new racket followed by broadcaster, getting behind king’s painter (9)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "KANDINSKY",
    "annotation": {
@@ -1062,9 +1002,6 @@ window.CRYPTIC_PUZZLES["independent-12398"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "1,000 determine to avoid initial riot control area (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "KETTLE",
    "annotation": {
@@ -1112,9 +1049,6 @@ window.CRYPTIC_PUZZLES["independent-12398"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Vineyard owner’s negative comment for some, about half-bottle (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "NABOTH",
    "annotation": {
@@ -1160,9 +1094,6 @@ window.CRYPTIC_PUZZLES["independent-12398"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Charles, heading for Moon and space (5)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "CHASM",
    "annotation": {
@@ -1205,9 +1136,6 @@ window.CRYPTIC_PUZZLES["independent-12398"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Crow initially flying, doing this? (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "CAWING",
    "annotation": {
@@ -1250,9 +1178,6 @@ window.CRYPTIC_PUZZLES["independent-12398"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Cross about having skill to produce picture? (7)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "TABLEAU",
    "annotation": {
@@ -1299,9 +1224,6 @@ window.CRYPTIC_PUZZLES["independent-12398"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Rear of shabby window-shade showing a big gap (7)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "YAWNING",
    "annotation": {
@@ -1344,9 +1266,6 @@ window.CRYPTIC_PUZZLES["independent-12398"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Thing without tail, unknown climbing mountain creature (4)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "YETI",
    "annotation": {
@@ -1397,9 +1316,6 @@ window.CRYPTIC_PUZZLES["independent-12398"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Sack that ultimately contains bricks? On the contrary (3,2)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -1451,9 +1367,6 @@ window.CRYPTIC_PUZZLES["independent-12398"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Pressman, instinctive, with book probing Green manoeuvring (9)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "GUTENBERG",
    "annotation": {

@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4097"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Bigwig: most important figure on the board? (1,4,7,3)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      1,
@@ -48,9 +45,6 @@ window.CRYPTIC_PUZZLES["everyman-4097"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "A cow's audible 'Hello' (5)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "ALOHA",
    "annotation": null
@@ -71,9 +65,6 @@ window.CRYPTIC_PUZZLES["everyman-4097"] = /*JSON-START*/ {
      3
     ]
    ],
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "ITERATE",
    "annotation": null
@@ -88,9 +79,6 @@ window.CRYPTIC_PUZZLES["everyman-4097"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "One seeking riches, gross, grasping: worn-out and explosive (4,5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -109,9 +97,6 @@ window.CRYPTIC_PUZZLES["everyman-4097"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Small, English: Englishman in Oz, when rebuffed, sulks (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "MOPES",
    "annotation": null
@@ -126,9 +111,6 @@ window.CRYPTIC_PUZZLES["everyman-4097"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Such as the Round Table, you say, or such as the Hippodrome? (9)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "NIGHTCLUB",
    "annotation": null
@@ -143,9 +125,6 @@ window.CRYPTIC_PUZZLES["everyman-4097"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Quiet little fellow, singleton left here (5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "SHELF",
    "annotation": null
@@ -160,9 +139,6 @@ window.CRYPTIC_PUZZLES["everyman-4097"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Megabucks are invested in tower (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "MINARET",
    "annotation": null
@@ -177,9 +153,6 @@ window.CRYPTIC_PUZZLES["everyman-4097"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "The sonar acting up in arm of Atlantic (5,3)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -198,9 +171,6 @@ window.CRYPTIC_PUZZLES["everyman-4097"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Drink too much? Coincidence! (7)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "OVERLAP",
    "annotation": null
@@ -215,9 +185,6 @@ window.CRYPTIC_PUZZLES["everyman-4097"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Frenchman given tiny bit of work; in retrospect, increasingly naive (7)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "GREENER",
    "annotation": null
@@ -232,9 +199,6 @@ window.CRYPTIC_PUZZLES["everyman-4097"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Territorial Army hiding rattle (5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "ALARM",
    "annotation": null
@@ -249,9 +213,6 @@ window.CRYPTIC_PUZZLES["everyman-4097"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Leaves presents (4,5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -270,9 +231,6 @@ window.CRYPTIC_PUZZLES["everyman-4097"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Philosopher twisting jar seal: peanut butter at last! (4-4,6)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -294,9 +252,6 @@ window.CRYPTIC_PUZZLES["everyman-4097"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Some creamer I can order for coffee (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "AMERICANO",
    "annotation": null
@@ -311,9 +266,6 @@ window.CRYPTIC_PUZZLES["everyman-4097"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Professed nuance; don dubious (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "ANNOUNCED",
    "annotation": null
@@ -328,9 +280,6 @@ window.CRYPTIC_PUZZLES["everyman-4097"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "One shooting around outstripped hare, backing over - primarily, this one's charged to protect (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "TORTOISE",
    "annotation": null
@@ -345,9 +294,6 @@ window.CRYPTIC_PUZZLES["everyman-4097"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Fruity character you might pull in the pub (3-5,6)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -369,9 +315,6 @@ window.CRYPTIC_PUZZLES["everyman-4097"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Not a good look! (4,3)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -390,9 +333,6 @@ window.CRYPTIC_PUZZLES["everyman-4097"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Everyman to ultimate degree - routine, overwhelmed, to be honest (2,5)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -411,9 +351,6 @@ window.CRYPTIC_PUZZLES["everyman-4097"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Visibly edgy, getting tense before spelling (9)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "TWITCHING",
    "annotation": null
@@ -428,9 +365,6 @@ window.CRYPTIC_PUZZLES["everyman-4097"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Spiteful, like an Abyssinian (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "CATTY",
    "annotation": null
@@ -445,9 +379,6 @@ window.CRYPTIC_PUZZLES["everyman-4097"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "'Gold' here, also named 'Ashanti', originally? (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "GHANA",
    "annotation": null
@@ -462,9 +393,6 @@ window.CRYPTIC_PUZZLES["everyman-4097"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Before 1 in Paris, terribly intricate lunch's starters (5)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "UNTIL",
    "annotation": null
@@ -479,9 +407,6 @@ window.CRYPTIC_PUZZLES["everyman-4097"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Divulge student passed back note (3,2)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -500,9 +425,6 @@ window.CRYPTIC_PUZZLES["everyman-4097"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Passivity fashionable, it falls back in time (7)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "INERTIA",
    "annotation": null
@@ -517,9 +439,6 @@ window.CRYPTIC_PUZZLES["everyman-4097"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Bill's story (7)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "ACCOUNT",
    "annotation": null
@@ -534,9 +453,6 @@ window.CRYPTIC_PUZZLES["everyman-4097"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Very tanned, he won sports occasionally (5,3,3,4)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     ",": [
      5,

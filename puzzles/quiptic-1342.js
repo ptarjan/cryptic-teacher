@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1342"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Locked-up prisoner punished for not returning book to library on time? (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "CONFINED",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["quiptic-1342"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Nothing clear somehow? Wise person needed (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "ORACLE",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["quiptic-1342"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Female, one with American general – someone hoping to make a catch! (9)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "FISHERMAN",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["quiptic-1342"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Martial arts exponent contributing to tradition in Japan (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "NINJA",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["quiptic-1342"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Ineffective person gone mad shows resentment (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "DUDGEON",
    "annotation": null
@@ -110,9 +95,6 @@ window.CRYPTIC_PUZZLES["quiptic-1342"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "About to take little medicine with yen to be put right (6)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "REMEDY",
    "annotation": null
@@ -127,9 +109,6 @@ window.CRYPTIC_PUZZLES["quiptic-1342"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "New student joining engineers for training session? (9)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "REFRESHER",
    "annotation": null
@@ -144,9 +123,6 @@ window.CRYPTIC_PUZZLES["quiptic-1342"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Soldiers on American lists (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "MENUS",
    "annotation": null
@@ -161,9 +137,6 @@ window.CRYPTIC_PUZZLES["quiptic-1342"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Eastern writer in act became more profound (8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "DEEPENED",
    "annotation": null
@@ -178,9 +151,6 @@ window.CRYPTIC_PUZZLES["quiptic-1342"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Fruit and nuts about to be given to boy (6)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "DAMSON",
    "annotation": null
@@ -195,9 +165,6 @@ window.CRYPTIC_PUZZLES["quiptic-1342"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Guarded three successive characters, then finished (8)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "DEFENDED",
    "annotation": null
@@ -212,9 +179,6 @@ window.CRYPTIC_PUZZLES["quiptic-1342"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Estrange a right troublesome goddess (8)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "ALIENATE",
    "annotation": null
@@ -229,9 +193,6 @@ window.CRYPTIC_PUZZLES["quiptic-1342"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Son participating in apple festival (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "EASTER",
    "annotation": null
@@ -246,9 +207,6 @@ window.CRYPTIC_PUZZLES["quiptic-1342"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Awful pains – mothers who hate people? (12)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "MISANTHROPES",
    "annotation": null
@@ -263,9 +221,6 @@ window.CRYPTIC_PUZZLES["quiptic-1342"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Eccentric priest, man bringing a particular flavour (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "SPEARMINT",
    "annotation": null
@@ -280,9 +235,6 @@ window.CRYPTIC_PUZZLES["quiptic-1342"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "How tree is dealt with differently (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "OTHERWISE",
    "annotation": null
@@ -297,9 +249,6 @@ window.CRYPTIC_PUZZLES["quiptic-1342"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Bully, horrible to maiden (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "DOMINATE",
    "annotation": null
@@ -314,9 +263,6 @@ window.CRYPTIC_PUZZLES["quiptic-1342"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Part of military parade finds nobleman with hesitation at start of month (12)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "COUNTERMARCH",
    "annotation": null
@@ -331,9 +277,6 @@ window.CRYPTIC_PUZZLES["quiptic-1342"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Yours truly atop a home most miserly (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "MEANEST",
    "annotation": null
@@ -348,9 +291,6 @@ window.CRYPTIC_PUZZLES["quiptic-1342"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Lectures without passion aboard ship (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "SCOLDS",
    "annotation": null
@@ -365,9 +305,6 @@ window.CRYPTIC_PUZZLES["quiptic-1342"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Very cold beer (6)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "BITTER",
    "annotation": null
@@ -382,9 +319,6 @@ window.CRYPTIC_PUZZLES["quiptic-1342"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Guy drinks last of wine (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "TEASE",
    "annotation": null
@@ -399,9 +333,6 @@ window.CRYPTIC_PUZZLES["quiptic-1342"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Sailor’s pamphlet gives summary (8)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "ABSTRACT",
    "annotation": null
@@ -416,9 +347,6 @@ window.CRYPTIC_PUZZLES["quiptic-1342"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "A pie’s cooked – it’s a shade of brown (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "SEPIA",
    "annotation": null
@@ -433,9 +361,6 @@ window.CRYPTIC_PUZZLES["quiptic-1342"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Military depot in periodical publication (8)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "MAGAZINE",
    "annotation": null
@@ -450,9 +375,6 @@ window.CRYPTIC_PUZZLES["quiptic-1342"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Documentation reportedly in small bottles! (6)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "PHIALS",
    "annotation": null
@@ -467,9 +389,6 @@ window.CRYPTIC_PUZZLES["quiptic-1342"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Material bringing this writer into a bit of money (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "CEMENT",
    "annotation": null
@@ -484,9 +403,6 @@ window.CRYPTIC_PUZZLES["quiptic-1342"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Translated a bit of poetry, making one cross (8)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "TRAVERSE",
    "annotation": null

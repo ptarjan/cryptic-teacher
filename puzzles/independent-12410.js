@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12410"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Former US President - R Reagan - mistakenly ignoring a backwoodsman (10)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "BUSHRANGER",
    "annotation": {
@@ -80,9 +77,6 @@ window.CRYPTIC_PUZZLES["independent-12410"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Wild country? Public transport heading for home (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "BUSH",
    "annotation": {
@@ -125,9 +119,6 @@ window.CRYPTIC_PUZZLES["independent-12410"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Playwright’s maxim about hearts (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "SHAW",
    "annotation": {
@@ -174,9 +165,6 @@ window.CRYPTIC_PUZZLES["independent-12410"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "List eighteen letters in reverse order (4)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "ROTA",
    "annotation": {
@@ -219,9 +207,6 @@ window.CRYPTIC_PUZZLES["independent-12410"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Note Spanish girl’s standard of perfection? (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "NINES",
    "annotation": {
@@ -262,9 +247,6 @@ window.CRYPTIC_PUZZLES["independent-12410"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "English more authoritarian about a person from the Orient (9)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "EASTERNER",
    "annotation": {
@@ -313,9 +295,6 @@ window.CRYPTIC_PUZZLES["independent-12410"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Beer initially on verge of running out? Calamity (4)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "BLOW",
    "annotation": {
@@ -361,9 +340,6 @@ window.CRYPTIC_PUZZLES["independent-12410"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "A name involved with this clue? Cape Canaveral, perhaps (6,4)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -417,9 +393,6 @@ window.CRYPTIC_PUZZLES["independent-12410"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Playwright with point about river and wasteland (10)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "WILDERNESS",
    "annotation": {
@@ -472,9 +445,6 @@ window.CRYPTIC_PUZZLES["independent-12410"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Lack of coverage from tin spikes on board ship (10)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "SCANTINESS",
    "annotation": {
@@ -527,9 +497,6 @@ window.CRYPTIC_PUZZLES["independent-12410"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Cow without tail? Nonsense (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "BULL",
    "annotation": {
@@ -571,9 +538,6 @@ window.CRYPTIC_PUZZLES["independent-12410"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Description of job, with story about cocaine - a remarkable thing (9)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "SPECTACLE",
    "annotation": {
@@ -626,9 +590,6 @@ window.CRYPTIC_PUZZLES["independent-12410"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Beats first couple of thieves with sacks (6)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {},
    "solution": "THROBS",
    "annotation": {
@@ -674,9 +635,6 @@ window.CRYPTIC_PUZZLES["independent-12410"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Government dispute blocking blatant hospital extension beyond limits (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "OVERGROWTH",
    "annotation": {
@@ -732,9 +690,6 @@ window.CRYPTIC_PUZZLES["independent-12410"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Puritan translation of Latin is circumspect (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "PRUDENTIAL",
    "annotation": {
@@ -789,9 +744,6 @@ window.CRYPTIC_PUZZLES["independent-12410"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "South Africa’s composer turning up in Croatian city (6)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "ZAGREB",
    "annotation": {
@@ -844,9 +796,6 @@ window.CRYPTIC_PUZZLES["independent-12410"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "New take on music: bit of opera follows version, one in fashion (9)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "VARIATION",
    "annotation": {
@@ -904,9 +853,6 @@ window.CRYPTIC_PUZZLES["independent-12410"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Interruption popular in tours? Wrong (9)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "INTRUSION",
    "annotation": {
@@ -952,9 +898,6 @@ window.CRYPTIC_PUZZLES["independent-12410"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Green is erratic, partly reflecting amber? (5)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "RESIN",
    "annotation": {
@@ -996,9 +939,6 @@ window.CRYPTIC_PUZZLES["independent-12410"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Attacker offing one horseman (5)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "RIDER",
    "annotation": {
@@ -1040,9 +980,6 @@ window.CRYPTIC_PUZZLES["independent-12410"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Failed battery starts to endanger substantial amounts of data (9)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "TERABYTES",
    "annotation": {
@@ -1086,9 +1023,6 @@ window.CRYPTIC_PUZZLES["independent-12410"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Races including contest chasing American cars? (9)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "RUNABOUTS",
    "annotation": {
@@ -1140,9 +1074,6 @@ window.CRYPTIC_PUZZLES["independent-12410"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Succeeded in blocking annoying emails in abrupt movement (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "SPASM",
    "annotation": {
@@ -1189,9 +1120,6 @@ window.CRYPTIC_PUZZLES["independent-12410"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Court decision offering only opening for club (4)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "WOOD",
    "annotation": {
@@ -1237,9 +1165,6 @@ window.CRYPTIC_PUZZLES["independent-12410"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Prison reporting not concluded (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "CAGE",
    "annotation": {
@@ -1281,9 +1206,6 @@ window.CRYPTIC_PUZZLES["independent-12410"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Separate opportunity for actor (4)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "PART",
    "annotation": {
@@ -1317,9 +1239,6 @@ window.CRYPTIC_PUZZLES["independent-12410"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Dam that is put back in Western Region (4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "WEIR",
    "annotation": {
@@ -1371,9 +1290,6 @@ window.CRYPTIC_PUZZLES["independent-12410"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Fix a drink, getting US lawyer a cocktail (4,6)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -1429,9 +1345,6 @@ window.CRYPTIC_PUZZLES["independent-12410"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Elevated area cold? Skip the top (4)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "HILL",
    "annotation": {
@@ -1473,9 +1386,6 @@ window.CRYPTIC_PUZZLES["independent-12410"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Complain train’s getting rackety? Prepared to limit volume internally (10)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "ANIMADVERT",
    "annotation": {

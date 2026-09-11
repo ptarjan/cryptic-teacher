@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30090"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Crazy MAGA ran America as a repeated crime, for instance (7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "ANAGRAM",
    "annotation": {
@@ -64,9 +61,6 @@ window.CRYPTIC_PUZZLES["cryptic-30090"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Something solvers may lack – and so were not finished (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "ANSWER",
    "annotation": {
@@ -115,9 +109,6 @@ window.CRYPTIC_PUZZLES["cryptic-30090"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Part of bloomer in Guardian? There you have it (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "ANTHER",
    "annotation": {
@@ -151,9 +142,6 @@ window.CRYPTIC_PUZZLES["cryptic-30090"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Happens to meet – as any intersecting answer here does (4,6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -191,9 +179,6 @@ window.CRYPTIC_PUZZLES["cryptic-30090"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Good lesson as example of double definition (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "MORAL",
    "annotation": {
@@ -231,9 +216,6 @@ window.CRYPTIC_PUZZLES["cryptic-30090"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Traumatized son held by uncle outside (2,5)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -281,9 +263,6 @@ window.CRYPTIC_PUZZLES["cryptic-30090"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "About negative introduction, admission of meanie who delivers jabs? (9)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "IMMUNISER",
    "annotation": {
@@ -332,9 +311,6 @@ window.CRYPTIC_PUZZLES["cryptic-30090"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Get across what’s central to crossword? Separate out valuable bits (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "SPAN",
    "annotation": {
@@ -377,9 +353,6 @@ window.CRYPTIC_PUZZLES["cryptic-30090"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Excel on course in skill, not in approach (8)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "OUTDRIVE",
    "annotation": {
@@ -416,9 +389,6 @@ window.CRYPTIC_PUZZLES["cryptic-30090"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "In part of Florida, wife or daughter located crucial elements (3,5)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -478,9 +448,6 @@ window.CRYPTIC_PUZZLES["cryptic-30090"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Compose crosswords at home to become established (3,2)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -524,9 +491,6 @@ window.CRYPTIC_PUZZLES["cryptic-30090"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "River plant may spread in profusion (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "RAMPANTLY",
    "annotation": {
@@ -568,9 +532,6 @@ window.CRYPTIC_PUZZLES["cryptic-30090"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Closely observing vote in favour, with subsequent outcry heard (10)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "EYEBALLING",
    "annotation": {
@@ -617,9 +578,6 @@ window.CRYPTIC_PUZZLES["cryptic-30090"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "… is 21 reversed? So it is! (4)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "ERGO",
    "annotation": {
@@ -662,9 +620,6 @@ window.CRYPTIC_PUZZLES["cryptic-30090"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Builds lead in constituency, embraced by Tory supporters (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "CONSTRUCTS",
    "annotation": {
@@ -715,9 +670,6 @@ window.CRYPTIC_PUZZLES["cryptic-30090"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Kind of setter one’s figured out? Produced solution again (11)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "REDISSOLVED",
    "annotation": {
@@ -760,9 +712,6 @@ window.CRYPTIC_PUZZLES["cryptic-30090"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Doctor’s beginning new round, confused and extremely distant (4,5)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -810,9 +759,6 @@ window.CRYPTIC_PUZZLES["cryptic-30090"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Wordplay known to Greeks, Socratic sort (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "ACROSTIC",
    "annotation": {
@@ -849,9 +795,6 @@ window.CRYPTIC_PUZZLES["cryptic-30090"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Little Women, for example, in half a reel? (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "FOURSOME",
    "annotation": {
@@ -888,9 +831,6 @@ window.CRYPTIC_PUZZLES["cryptic-30090"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Angry outburst about small fight (5,6)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -943,9 +883,6 @@ window.CRYPTIC_PUZZLES["cryptic-30090"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Like certain answers in relation to clues, some of which I’d denigrate (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "HIDDEN",
    "annotation": {
@@ -979,9 +916,6 @@ window.CRYPTIC_PUZZLES["cryptic-30090"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Girl’s name forming part of solution (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "INGRID",
    "annotation": {
@@ -1018,9 +952,6 @@ window.CRYPTIC_PUZZLES["cryptic-30090"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Turn back on monster (4)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "OGRE",
    "annotation": {
@@ -1069,9 +1000,6 @@ window.CRYPTIC_PUZZLES["cryptic-30090"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Nothing in numbers is changed as result of moving 15 (10)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "SUBMERSION",
    "annotation": {
@@ -1116,9 +1044,6 @@ window.CRYPTIC_PUZZLES["cryptic-30090"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Way to address lady in Mother’s Union (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "MADAM",
    "annotation": {
@@ -1164,9 +1089,6 @@ window.CRYPTIC_PUZZLES["cryptic-30090"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Endure like this clue (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "LAST",
    "annotation": {
@@ -1200,9 +1122,6 @@ window.CRYPTIC_PUZZLES["cryptic-30090"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Like the most one can do, in terms of manual employment (3-6)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -1237,9 +1156,6 @@ window.CRYPTIC_PUZZLES["cryptic-30090"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Program’s producer, person able to handle Morse, say (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "CODER",
    "annotation": {
@@ -1273,9 +1189,6 @@ window.CRYPTIC_PUZZLES["cryptic-30090"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Rector having letter forwarded? It’s about one name for God (7)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "CREATOR",
    "annotation": {
@@ -1327,9 +1240,6 @@ window.CRYPTIC_PUZZLES["cryptic-30090"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Solidly constructed – one’s mad to change it (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "MASONED",
    "annotation": {

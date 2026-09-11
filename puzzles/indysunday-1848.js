@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1848"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "National survey over the telephone (4)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "POLE",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["indysunday-1848"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Old enough for starters to purchase cigarette? (2,3)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -63,9 +57,6 @@ window.CRYPTIC_PUZZLES["indysunday-1848"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Ability to cope with nude swimming managed today (9)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "ENDURANCE",
    "annotation": null
@@ -80,9 +71,6 @@ window.CRYPTIC_PUZZLES["indysunday-1848"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Holds frame for glasses masking grave expression (5)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "GRIPS",
    "annotation": null
@@ -97,9 +85,6 @@ window.CRYPTIC_PUZZLES["indysunday-1848"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Exposed medium with two guardian spirits (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "GENII",
    "annotation": null
@@ -114,9 +99,6 @@ window.CRYPTIC_PUZZLES["indysunday-1848"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Teeing off over par ultimately getting whole number (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "INTEGER",
    "annotation": null
@@ -131,9 +113,6 @@ window.CRYPTIC_PUZZLES["indysunday-1848"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Write up further thoughts on adult resort (3)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "SPA",
    "annotation": null
@@ -148,9 +127,6 @@ window.CRYPTIC_PUZZLES["indysunday-1848"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Pressure fool to make the grade (4)",
-   "group": [
-    "7-across"
-   ],
    "separatorLocations": {},
    "solution": "PASS",
    "annotation": null
@@ -165,9 +141,6 @@ window.CRYPTIC_PUZZLES["indysunday-1848"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Still in bed retiring for present (3,2)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -186,9 +159,6 @@ window.CRYPTIC_PUZZLES["indysunday-1848"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Obstruct nasty snot that's disgusting everyone (9)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "STONEWALL",
    "annotation": null
@@ -203,9 +173,6 @@ window.CRYPTIC_PUZZLES["indysunday-1848"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "First ever to mix up I and me (6)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "MAIDEN",
    "annotation": null
@@ -220,9 +187,6 @@ window.CRYPTIC_PUZZLES["indysunday-1848"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Performing group stops complicated intro gaining popularity (8)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "TRACTION",
    "annotation": null
@@ -237,9 +201,6 @@ window.CRYPTIC_PUZZLES["indysunday-1848"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Focus of Ferrari to eavesdrop about new aerodynamic part (4,4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -258,9 +219,6 @@ window.CRYPTIC_PUZZLES["indysunday-1848"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Who attempts to get in touch with twin? (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "RINGER",
    "annotation": null
@@ -275,9 +233,6 @@ window.CRYPTIC_PUZZLES["indysunday-1848"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Cobra certainly eclipses North American snake (5)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {},
    "solution": "RACER",
    "annotation": null
@@ -292,9 +247,6 @@ window.CRYPTIC_PUZZLES["indysunday-1848"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Outing secret agent finishing early at work (4)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "SPIN",
    "annotation": null
@@ -309,9 +261,6 @@ window.CRYPTIC_PUZZLES["indysunday-1848"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "An effort to support green vegetables in farming class (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "PEASANTRY",
    "annotation": null
@@ -326,9 +275,6 @@ window.CRYPTIC_PUZZLES["indysunday-1848"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Concerned with design of street away from the town crossing defaced channel (10)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "STRUCTURAL",
    "annotation": null
@@ -343,9 +289,6 @@ window.CRYPTIC_PUZZLES["indysunday-1848"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Hurry son and daughter outside to go to the toilet (5)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "SPEED",
    "annotation": null
@@ -360,9 +303,6 @@ window.CRYPTIC_PUZZLES["indysunday-1848"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Peacekeepers try to work out fine lacking precedent (7-2)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {
     "-": [
      7
@@ -381,9 +321,6 @@ window.CRYPTIC_PUZZLES["indysunday-1848"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "One leading expert's entertained by favourite theory regularly (10)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "PACESETTER",
    "annotation": null
@@ -398,9 +335,6 @@ window.CRYPTIC_PUZZLES["indysunday-1848"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "I'm hesitant to enter line of vehicles making ground (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "TERRAIN",
    "annotation": null
@@ -415,9 +349,6 @@ window.CRYPTIC_PUZZLES["indysunday-1848"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Glory hole's opening next to a toilet wiping rear (4)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "HALO",
    "annotation": null
@@ -432,9 +363,6 @@ window.CRYPTIC_PUZZLES["indysunday-1848"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Californian law enforcement arresting perp not half drunk (6)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "LAPPED",
    "annotation": null
@@ -449,9 +377,6 @@ window.CRYPTIC_PUZZLES["indysunday-1848"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Cool writer captures lives (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "POISE",
    "annotation": null
@@ -466,9 +391,6 @@ window.CRYPTIC_PUZZLES["indysunday-1848"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "The man on seat secures coach (8)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "REHEARSE",
    "annotation": null
@@ -483,9 +405,6 @@ window.CRYPTIC_PUZZLES["indysunday-1848"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Free type of takeaway's set aside cold (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "HIPPY",
    "annotation": null
@@ -500,9 +419,6 @@ window.CRYPTIC_PUZZLES["indysunday-1848"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Sit semi-naked in this sweater? (5)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "SAUNA",
    "annotation": null
@@ -517,9 +433,6 @@ window.CRYPTIC_PUZZLES["indysunday-1848"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "I hope it breaks American nation (8)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "ETHIOPIA",
    "annotation": null
@@ -534,9 +447,6 @@ window.CRYPTIC_PUZZLES["indysunday-1848"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Dirty place arises where antiperspirant may be required (3)",
-   "group": [
-    "26-down"
-   ],
    "separatorLocations": {},
    "solution": "PIT",
    "annotation": null
@@ -551,9 +461,6 @@ window.CRYPTIC_PUZZLES["indysunday-1848"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Stage cricket match for all ages in afternoon (6)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "PODIUM",
    "annotation": null
@@ -568,9 +475,6 @@ window.CRYPTIC_PUZZLES["indysunday-1848"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Part of car exhaust heard (4)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "TYRE",
    "annotation": null
@@ -585,9 +489,6 @@ window.CRYPTIC_PUZZLES["indysunday-1848"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Brown crust of gooseberry tart (5)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "TANGY",
    "annotation": null
@@ -602,9 +503,6 @@ window.CRYPTIC_PUZZLES["indysunday-1848"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Attempt to draw attention of two females as the second turns around (4)",
-   "group": [
-    "30-across"
-   ],
    "separatorLocations": {},
    "solution": "FLAG",
    "annotation": null

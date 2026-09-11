@@ -31,9 +31,6 @@ window.CRYPTIC_PUZZLES["independent-12446"] = /*JSON-START*/ {
      9
     ]
    ],
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "LOHENGRIN",
    "annotation": {
@@ -82,9 +79,6 @@ window.CRYPTIC_PUZZLES["independent-12446"] = /*JSON-START*/ {
      18,
      13
     ]
-   ],
-   "group": [
-    "1-down"
    ],
    "separatorLocations": {
     ",": [
@@ -138,9 +132,6 @@ window.CRYPTIC_PUZZLES["independent-12446"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Describing classic story in full? Not quite (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "HOMERIC",
    "annotation": {
@@ -183,9 +174,6 @@ window.CRYPTIC_PUZZLES["independent-12446"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Symbolic writing in religious texts held by country (8)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "NOTATION",
    "annotation": {
@@ -232,9 +220,6 @@ window.CRYPTIC_PUZZLES["independent-12446"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Early travel writing? Free to engage in surreal tripping (5,5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -290,9 +275,6 @@ window.CRYPTIC_PUZZLES["independent-12446"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Tuck into this lunch, finally, after noon (4)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "NOSH",
    "annotation": {
@@ -337,9 +319,6 @@ window.CRYPTIC_PUZZLES["independent-12446"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Aim of mountaineering clubs attracting member ... (5)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "CLIMB",
    "annotation": {
@@ -382,9 +361,6 @@ window.CRYPTIC_PUZZLES["independent-12446"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Relative, American, coming into money (6)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "COUSIN",
    "annotation": {
@@ -428,9 +404,6 @@ window.CRYPTIC_PUZZLES["independent-12446"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Very hot area - I never will import non-flowering plant (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "INFERNO",
    "annotation": {
@@ -480,9 +453,6 @@ window.CRYPTIC_PUZZLES["independent-12446"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Strikes table end, getting drunk? It’s just a bit of fun (4,3,8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -527,9 +497,6 @@ window.CRYPTIC_PUZZLES["independent-12446"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "... draw recalled around morning range (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "GAMUT",
    "annotation": {
@@ -581,9 +548,6 @@ window.CRYPTIC_PUZZLES["independent-12446"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Change of membership upset Liberal in new arrangement, mostly (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "RESHUFFLE",
    "annotation": {
@@ -635,9 +599,6 @@ window.CRYPTIC_PUZZLES["independent-12446"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Suppress outrageous Latin penned by trio, cutting end (8)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "THROTTLE",
    "annotation": {
@@ -689,9 +650,6 @@ window.CRYPTIC_PUZZLES["independent-12446"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "America is backtracking about mistake in Hispanic mountains (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "SIERRA",
    "annotation": {
@@ -746,9 +704,6 @@ window.CRYPTIC_PUZZLES["independent-12446"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "One with a headache: curious uprising keeping Nigeria unsettled (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "MIGRAINEUR",
    "annotation": {
@@ -808,9 +763,6 @@ window.CRYPTIC_PUZZLES["independent-12446"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Revealing garments? I’m turning crimson, randomly clutching one (5-5)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -873,9 +825,6 @@ window.CRYPTIC_PUZZLES["independent-12446"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Fish biting line in Arctic (4)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "COLD",
    "annotation": {
@@ -922,9 +871,6 @@ window.CRYPTIC_PUZZLES["independent-12446"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Co-ordinate basic manoeuvres before fool shows up (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "ABSCISSA",
    "annotation": {
@@ -983,9 +929,6 @@ window.CRYPTIC_PUZZLES["independent-12446"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "It’s a big book in my opinion (4)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "TOME",
    "annotation": {
@@ -1025,9 +968,6 @@ window.CRYPTIC_PUZZLES["independent-12446"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Spooner’s plan for water incursion: protective item on vehicle (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "MUDFLAP",
    "annotation": {
@@ -1072,9 +1012,6 @@ window.CRYPTIC_PUZZLES["independent-12446"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Distress? Try a holiday after resort's closure (10)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "HEARTBREAK",
    "annotation": {
@@ -1125,9 +1062,6 @@ window.CRYPTIC_PUZZLES["independent-12446"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Ecstasy, as it happens, will keep our group undefinable (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "ELUSIVE",
    "annotation": {
@@ -1177,9 +1111,6 @@ window.CRYPTIC_PUZZLES["independent-12446"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Europium and vanadium in mineral? A lot of work here (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "OEUVRE",
    "annotation": {
@@ -1232,9 +1163,6 @@ window.CRYPTIC_PUZZLES["independent-12446"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Medic protecting society members, heading off trickster (6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "DODGER",
    "annotation": {
@@ -1280,9 +1208,6 @@ window.CRYPTIC_PUZZLES["independent-12446"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Reduced price: initial 99% reduction for this nobleman (8)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "VISCOUNT",
    "annotation": {
@@ -1333,9 +1258,6 @@ window.CRYPTIC_PUZZLES["independent-12446"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Stone containing aluminium compound (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "SALT",
    "annotation": {
@@ -1379,9 +1301,6 @@ window.CRYPTIC_PUZZLES["independent-12446"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Cushion a large rise, ignoring first time (9)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "ALLEVIATE",
    "annotation": {
@@ -1435,9 +1354,6 @@ window.CRYPTIC_PUZZLES["independent-12446"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Eddy, man embracing wife and student (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "SWIRL",
    "annotation": {
@@ -1487,9 +1403,6 @@ window.CRYPTIC_PUZZLES["independent-12446"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Sufficient number in survey? Not initially (5)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "AMPLE",
    "annotation": {
@@ -1526,9 +1439,6 @@ window.CRYPTIC_PUZZLES["independent-12446"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Promises danger to thirty, wanting one Earl replaced by Australian (9)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "THREATENS",
    "annotation": {

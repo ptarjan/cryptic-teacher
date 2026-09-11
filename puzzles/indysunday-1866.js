@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1866"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Giving lecture, do numbers that prime divides (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "SPEAKING",
    "annotation": {
@@ -74,9 +71,6 @@ window.CRYPTIC_PUZZLES["indysunday-1866"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Very desirable bachelor perfectly erect (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "PLUMB",
    "annotation": {
@@ -113,9 +107,6 @@ window.CRYPTIC_PUZZLES["indysunday-1866"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Every guy in first set of books back for novelist's growing plot (9)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "ALLOTMENT",
    "annotation": {
@@ -175,9 +166,6 @@ window.CRYPTIC_PUZZLES["indysunday-1866"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Islands that are East or West, mostly free from big business (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "INDIE",
    "annotation": {
@@ -214,9 +202,6 @@ window.CRYPTIC_PUZZLES["indysunday-1866"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Wild fruit tree in western state present to the north (4-3)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -272,9 +257,6 @@ window.CRYPTIC_PUZZLES["indysunday-1866"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Get ready for a night out? (6)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "ENCAMP",
    "annotation": {
@@ -305,9 +287,6 @@ window.CRYPTIC_PUZZLES["indysunday-1866"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Living arrangement snug during English spring (9)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "ECOSYSTEM",
    "annotation": {
@@ -356,9 +335,6 @@ window.CRYPTIC_PUZZLES["indysunday-1866"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Organised action saving North American mammal (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "COATI",
    "annotation": {
@@ -402,9 +378,6 @@ window.CRYPTIC_PUZZLES["indysunday-1866"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Road sign, in case you should have motorway ahead (9)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "MILESTONE",
    "annotation": {
@@ -456,9 +429,6 @@ window.CRYPTIC_PUZZLES["indysunday-1866"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Mathematician's prompt returning cap (6)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "EUCLID",
    "annotation": {
@@ -510,9 +480,6 @@ window.CRYPTIC_PUZZLES["indysunday-1866"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Mother returned by 1 without thinking what might be wrong (8)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "AMORALLY",
    "annotation": {
@@ -561,9 +528,6 @@ window.CRYPTIC_PUZZLES["indysunday-1866"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Several quick strokes of the lash as foreplay? (9,4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      9
@@ -598,9 +562,6 @@ window.CRYPTIC_PUZZLES["indysunday-1866"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Eccentric freak caught by mean spook (4,6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -656,9 +617,6 @@ window.CRYPTIC_PUZZLES["indysunday-1866"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Peace - Crimea's flourishing with it (9)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "ARMISTICE",
    "annotation": {
@@ -703,9 +661,6 @@ window.CRYPTIC_PUZZLES["indysunday-1866"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Meat curry, good parts horse rib (5,4)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -759,9 +714,6 @@ window.CRYPTIC_PUZZLES["indysunday-1866"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Bit of tooth decay multiplied internally (4)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "ROOT",
    "annotation": {
@@ -805,9 +757,6 @@ window.CRYPTIC_PUZZLES["indysunday-1866"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Charlie finished cutting grass, green again after drought? (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "RECOVERED",
    "annotation": {
@@ -857,9 +806,6 @@ window.CRYPTIC_PUZZLES["indysunday-1866"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Let out on reversal of prison sentence (4)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "EMIT",
    "annotation": {
@@ -905,9 +851,6 @@ window.CRYPTIC_PUZZLES["indysunday-1866"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "In shock, return edition full of nasty sex (10)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "GOBSMACKED",
    "annotation": {
@@ -956,9 +899,6 @@ window.CRYPTIC_PUZZLES["indysunday-1866"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "GP's location that's unsatisfactory and wet (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "BAHRAIN",
    "annotation": {
@@ -995,9 +935,6 @@ window.CRYPTIC_PUZZLES["indysunday-1866"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Small flat subsequently hosts have converted, a delightful place (7,6)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -1065,9 +1002,6 @@ window.CRYPTIC_PUZZLES["indysunday-1866"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Landscape remains in a box upside-down (5)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "VISTA",
    "annotation": {
@@ -1119,9 +1053,6 @@ window.CRYPTIC_PUZZLES["indysunday-1866"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Provide means of support for heel that hurts (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "ENDOW",
    "annotation": {
@@ -1161,9 +1092,6 @@ window.CRYPTIC_PUZZLES["indysunday-1866"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Silly hotel apparently competing with the Plaza? (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "NINNY",
    "annotation": {
@@ -1202,9 +1130,6 @@ window.CRYPTIC_PUZZLES["indysunday-1866"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "People scattered seeing snake interrupt radio broadcast (8)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "DIASPORA",
    "annotation": {
@@ -1259,9 +1184,6 @@ window.CRYPTIC_PUZZLES["indysunday-1866"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Bold sound of operatic cycle in German (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "DARING",
    "annotation": {
@@ -1301,9 +1223,6 @@ window.CRYPTIC_PUZZLES["indysunday-1866"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Claire has homework including AI's thoughts on topic? (6)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "REHASH",
    "annotation": {
@@ -1338,9 +1257,6 @@ window.CRYPTIC_PUZZLES["indysunday-1866"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "A lack of banknotes, say, circulating currently (8)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "NOWADAYS",
    "annotation": {

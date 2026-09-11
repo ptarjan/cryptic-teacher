@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1888"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Difficult crossword arrived? Bugger, you might say (8-2)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     "-": [
      8
@@ -71,9 +68,6 @@ window.CRYPTIC_PUZZLES["indysunday-1888"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Five Turkish and British commanders in Rover (8)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "VAGABOND",
    "annotation": {
@@ -119,9 +113,6 @@ window.CRYPTIC_PUZZLES["indysunday-1888"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Reversible instrument (4)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "DEED",
    "annotation": {
@@ -161,9 +152,6 @@ window.CRYPTIC_PUZZLES["indysunday-1888"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Miraculous nun is at God's disposal (10)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "ASTOUNDING",
    "annotation": {
@@ -201,9 +189,6 @@ window.CRYPTIC_PUZZLES["indysunday-1888"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Country walk with first half climbing attractive rock (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "MARBLE",
    "annotation": {
@@ -252,9 +237,6 @@ window.CRYPTIC_PUZZLES["indysunday-1888"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Fierce wife is lady every so often (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "WILD",
    "annotation": {
@@ -297,9 +279,6 @@ window.CRYPTIC_PUZZLES["indysunday-1888"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Bright church strangely frightening (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "CHEERY",
    "annotation": {
@@ -336,9 +315,6 @@ window.CRYPTIC_PUZZLES["indysunday-1888"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Senior clergyman intimate with very becoming maidens (7)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {},
    "solution": "PRIMATE",
    "annotation": {
@@ -387,9 +363,6 @@ window.CRYPTIC_PUZZLES["indysunday-1888"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Young animal had to enter cocoon (6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "PUPATE",
    "annotation": {
@@ -429,9 +402,6 @@ window.CRYPTIC_PUZZLES["indysunday-1888"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "European sleeps on Channel Tunnel line, going back (7)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "SPANISH",
    "annotation": {
@@ -482,9 +452,6 @@ window.CRYPTIC_PUZZLES["indysunday-1888"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Scotch added on drinks dad and I had (3,4,2)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -545,9 +512,6 @@ window.CRYPTIC_PUZZLES["indysunday-1888"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Harry deprived of king's insignia (5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "BADGE",
    "annotation": {
@@ -589,9 +553,6 @@ window.CRYPTIC_PUZZLES["indysunday-1888"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Part of bolt on doorframe painted round (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "TONDO",
    "annotation": {
@@ -625,9 +586,6 @@ window.CRYPTIC_PUZZLES["indysunday-1888"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "For real crime, Capone cleared out bank (9)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "SINCERELY",
    "annotation": {
@@ -676,9 +634,6 @@ window.CRYPTIC_PUZZLES["indysunday-1888"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Think a lot of groups ran past? (3,5,2)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -726,9 +681,6 @@ window.CRYPTIC_PUZZLES["indysunday-1888"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Editor's lead article in fact without substance (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "ETHEREALLY",
    "annotation": {
@@ -777,9 +729,6 @@ window.CRYPTIC_PUZZLES["indysunday-1888"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Heroic term interchangeable with \"Centre of roundabout west of Paris\" (3,2,8)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -835,9 +784,6 @@ window.CRYPTIC_PUZZLES["indysunday-1888"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Strong cold wind around island impaired hearing (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "MISTRIAL",
    "annotation": {
@@ -881,9 +827,6 @@ window.CRYPTIC_PUZZLES["indysunday-1888"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "States positively upset, losing American accent (6)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "STRESS",
    "annotation": {
@@ -933,9 +876,6 @@ window.CRYPTIC_PUZZLES["indysunday-1888"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "British label on pants giving one away in German's house (9)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "BUNDESTAG",
    "annotation": {
@@ -991,9 +931,6 @@ window.CRYPTIC_PUZZLES["indysunday-1888"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Too near (6)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "BESIDE",
    "annotation": {
@@ -1028,9 +965,6 @@ window.CRYPTIC_PUZZLES["indysunday-1888"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Reprimand headless chicken? (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "EARFUL",
    "annotation": {
@@ -1067,9 +1001,6 @@ window.CRYPTIC_PUZZLES["indysunday-1888"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Fish squirted water from mouths across river (5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "SPRAT",
    "annotation": {
@@ -1113,9 +1044,6 @@ window.CRYPTIC_PUZZLES["indysunday-1888"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Separate intro for song on record (5)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "SEVER",
    "annotation": {
@@ -1158,9 +1086,6 @@ window.CRYPTIC_PUZZLES["indysunday-1888"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "End of manoeuvres in tank covering great area (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "VAST",
    "annotation": {
@@ -1206,9 +1131,6 @@ window.CRYPTIC_PUZZLES["indysunday-1888"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "News in the paper concerning Republican in the soup (9)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "REPORTAGE",
    "annotation": {
@@ -1258,9 +1180,6 @@ window.CRYPTIC_PUZZLES["indysunday-1888"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Lick a bit of expensive cappuccino up (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "PACE",
    "annotation": {
@@ -1311,9 +1230,6 @@ window.CRYPTIC_PUZZLES["indysunday-1888"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Offer to cover tracks reflected trouble (7)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "DISTURB",
    "annotation": {
@@ -1365,9 +1281,6 @@ window.CRYPTIC_PUZZLES["indysunday-1888"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "French drink tea with delight, mostly (7)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "CHABLIS",
    "annotation": {

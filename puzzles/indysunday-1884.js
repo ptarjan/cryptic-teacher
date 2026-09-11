@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1884"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Italian child leaving home with nothing shoots to eat (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "BAMBOO",
    "annotation": {
@@ -76,9 +73,6 @@ window.CRYPTIC_PUZZLES["indysunday-1884"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Cool, trick answer entered upside down (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "ALOOF",
    "annotation": {
@@ -127,9 +121,6 @@ window.CRYPTIC_PUZZLES["indysunday-1884"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Make criminal steal flip-flops (3)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "BAN",
    "annotation": {
@@ -172,9 +163,6 @@ window.CRYPTIC_PUZZLES["indysunday-1884"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Suspect severe cop exposed witness unintentionally (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "OVERSEE",
    "annotation": {
@@ -218,9 +206,6 @@ window.CRYPTIC_PUZZLES["indysunday-1884"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Macabre S Korean survival show shunned by American press (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "SQUIDGE",
    "annotation": {
@@ -263,9 +248,6 @@ window.CRYPTIC_PUZZLES["indysunday-1884"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Cloud begins lifting around you (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "STRATUS",
    "annotation": {
@@ -317,9 +299,6 @@ window.CRYPTIC_PUZZLES["indysunday-1884"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Disorderly house women left, lacking family values? (11)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "UNWHOLESOME",
    "annotation": {
@@ -361,9 +340,6 @@ window.CRYPTIC_PUZZLES["indysunday-1884"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Duke vacated seat taken by needy customer at bank (9)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "DEPOSITOR",
    "annotation": {
@@ -415,9 +391,6 @@ window.CRYPTIC_PUZZLES["indysunday-1884"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Make vase out of your mug? (4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "EARN",
    "annotation": {
@@ -452,9 +425,6 @@ window.CRYPTIC_PUZZLES["indysunday-1884"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Yogi, say, won Barbera endless spoils (5,4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -502,9 +472,6 @@ window.CRYPTIC_PUZZLES["indysunday-1884"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Wave's concave shape beneath hulls (8)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {},
    "solution": "BRANDISH",
    "annotation": {
@@ -550,9 +517,6 @@ window.CRYPTIC_PUZZLES["indysunday-1884"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Arm waving in front of driver with decapitated snake (5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "WIPER",
    "annotation": {
@@ -595,9 +559,6 @@ window.CRYPTIC_PUZZLES["indysunday-1884"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Though less than satisfactory, what EV's range is? (2,3,2,2,4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -636,9 +597,6 @@ window.CRYPTIC_PUZZLES["indysunday-1884"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Smallest union member wobbly on his ladder (5,6)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -679,9 +637,6 @@ window.CRYPTIC_PUZZLES["indysunday-1884"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Helpful diner ordered in hurry (8)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "FRIENDLY",
    "annotation": {
@@ -733,9 +688,6 @@ window.CRYPTIC_PUZZLES["indysunday-1884"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Settle back in bed? OK, reluctantly (7)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "DISPOSE",
    "annotation": {
@@ -778,9 +730,6 @@ window.CRYPTIC_PUZZLES["indysunday-1884"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Bank blown up in winter? (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "SNOWDRIFT",
    "annotation": {
@@ -811,9 +760,6 @@ window.CRYPTIC_PUZZLES["indysunday-1884"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Top part of UK for cider and nice apple (7)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "SWEATER",
    "annotation": {
@@ -850,9 +796,6 @@ window.CRYPTIC_PUZZLES["indysunday-1884"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Orpheus played for support underground, perhaps (5,2)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -896,9 +839,6 @@ window.CRYPTIC_PUZZLES["indysunday-1884"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Potentially big game that woman starts with deep breath (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "PANTHER",
    "annotation": {
@@ -941,9 +881,6 @@ window.CRYPTIC_PUZZLES["indysunday-1884"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Flog half of Scotch eggs, saving the last (7)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "SCOURGE",
    "annotation": {
@@ -988,9 +925,6 @@ window.CRYPTIC_PUZZLES["indysunday-1884"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Type that is limited by small muscles (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "SPECIES",
    "annotation": {
@@ -1040,9 +974,6 @@ window.CRYPTIC_PUZZLES["indysunday-1884"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Exhume Caesar's heart with Catholic priest unconcerned (13)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "DISINTERESTED",
    "annotation": {
@@ -1094,9 +1025,6 @@ window.CRYPTIC_PUZZLES["indysunday-1884"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Cast connected by phone to the audience (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "THREW",
    "annotation": {
@@ -1131,9 +1059,6 @@ window.CRYPTIC_PUZZLES["indysunday-1884"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Unreal opportunity, those backing this magic formula claim (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "SCAM",
    "annotation": {
@@ -1173,9 +1098,6 @@ window.CRYPTIC_PUZZLES["indysunday-1884"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Source of tea in tea cups? (5)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "CHINA",
    "annotation": {
@@ -1211,9 +1133,6 @@ window.CRYPTIC_PUZZLES["indysunday-1884"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Hot breezes please setter in salon (9)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "HAIRSPRAY",
    "annotation": {
@@ -1256,9 +1175,6 @@ window.CRYPTIC_PUZZLES["indysunday-1884"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Man tapped on the shoulder is turning back to customer (3)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "SIR",
    "annotation": {
@@ -1309,9 +1225,6 @@ window.CRYPTIC_PUZZLES["indysunday-1884"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Deadly sportsman twirling stick at amateur (7)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "MATADOR",
    "annotation": {
@@ -1366,9 +1279,6 @@ window.CRYPTIC_PUZZLES["indysunday-1884"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Penetrating offensive reported after call for peace (6)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "SHREWD",
    "annotation": {

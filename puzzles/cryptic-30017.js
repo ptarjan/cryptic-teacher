@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30017"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Bird settled down first on a kind of trap (4-6,5)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      10
@@ -86,9 +83,6 @@ window.CRYPTIC_PUZZLES["cryptic-30017"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "It’s coming up in newest development of the decade (8)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "TWENTIES",
    "annotation": {
@@ -150,9 +144,6 @@ window.CRYPTIC_PUZZLES["cryptic-30017"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Support for couple (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "BRACE",
    "annotation": {
@@ -188,9 +179,6 @@ window.CRYPTIC_PUZZLES["cryptic-30017"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Heaps in poor condition? (3,5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -235,9 +223,6 @@ window.CRYPTIC_PUZZLES["cryptic-30017"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Iron man or woman (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "FEMALE",
    "annotation": {
@@ -278,9 +263,6 @@ window.CRYPTIC_PUZZLES["cryptic-30017"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Boat to have sufficient power to go round a river (9)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "CATAMARAN",
    "annotation": {
@@ -325,9 +307,6 @@ window.CRYPTIC_PUZZLES["cryptic-30017"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Then life in France finally went communist (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "SOVIET",
    "annotation": {
@@ -377,9 +356,6 @@ window.CRYPTIC_PUZZLES["cryptic-30017"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Like some liaisons, golf and drinks could be a minefield (9,6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      9
@@ -430,9 +406,6 @@ window.CRYPTIC_PUZZLES["cryptic-30017"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "So we clear out capital? No (5-4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -474,9 +447,6 @@ window.CRYPTIC_PUZZLES["cryptic-30017"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Pythagoras selectively doing his shopping here? (5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "AGORA",
    "annotation": {
@@ -511,9 +481,6 @@ window.CRYPTIC_PUZZLES["cryptic-30017"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Return regularly with such hopeless ineffectual people (7)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "EUNUCHS",
    "annotation": {
@@ -568,9 +535,6 @@ window.CRYPTIC_PUZZLES["cryptic-30017"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "A mother with energy that’s sensational (7)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "AMAZING",
    "annotation": {
@@ -618,9 +582,6 @@ window.CRYPTIC_PUZZLES["cryptic-30017"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Love little tribute (4)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "OBIT",
    "annotation": {
@@ -658,9 +619,6 @@ window.CRYPTIC_PUZZLES["cryptic-30017"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Outlaw the Y-chromosome? (10)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "MALEFACTOR",
    "annotation": {
@@ -698,9 +656,6 @@ window.CRYPTIC_PUZZLES["cryptic-30017"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Permits and penalties (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "SANCTIONS",
    "annotation": {
@@ -736,9 +691,6 @@ window.CRYPTIC_PUZZLES["cryptic-30017"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Having decided what to do with the last of equipment and possessions (7)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "TESTATE",
    "annotation": {
@@ -785,9 +737,6 @@ window.CRYPTIC_PUZZLES["cryptic-30017"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Serving gets gold level (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "PLATEAU",
    "annotation": {
@@ -828,9 +777,6 @@ window.CRYPTIC_PUZZLES["cryptic-30017"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Flat joke on broken truce (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "PUNCTURE",
    "annotation": {
@@ -882,9 +828,6 @@ window.CRYPTIC_PUZZLES["cryptic-30017"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Followed suit and dealt inappropriately with Australian native (8)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "EMULATED",
    "annotation": {
@@ -938,9 +881,6 @@ window.CRYPTIC_PUZZLES["cryptic-30017"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Casually chatted about blokes ‘being cool’ (10)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "DETACHMENT",
    "annotation": {
@@ -985,9 +925,6 @@ window.CRYPTIC_PUZZLES["cryptic-30017"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Little movement from child drinking whisky (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "TWITCH",
    "annotation": {
@@ -1035,9 +972,6 @@ window.CRYPTIC_PUZZLES["cryptic-30017"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "As the Fens are where contrary girl’s kept quiet (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "MARSHY",
    "annotation": {
@@ -1085,9 +1019,6 @@ window.CRYPTIC_PUZZLES["cryptic-30017"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Young German friend of 23 (4)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "JUNG",
    "annotation": {
@@ -1121,9 +1052,6 @@ window.CRYPTIC_PUZZLES["cryptic-30017"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Romeo, beset by trouble between Capulets and Montagues, gets a therapist (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "FREUD",
    "annotation": {
@@ -1171,9 +1099,6 @@ window.CRYPTIC_PUZZLES["cryptic-30017"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "One who wanted more after bagging one award (7)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "OLIVIER",
    "annotation": {
@@ -1221,9 +1146,6 @@ window.CRYPTIC_PUZZLES["cryptic-30017"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Road not negotiable in this (7)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "TORNADO",
    "annotation": {
@@ -1261,9 +1183,6 @@ window.CRYPTIC_PUZZLES["cryptic-30017"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "What one may save to rescue artist (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "BACON",
    "annotation": {
@@ -1296,9 +1215,6 @@ window.CRYPTIC_PUZZLES["cryptic-30017"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Powerful ambassador touched on nuclear annihilation (9)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "HERCULEAN",
    "annotation": {

@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29954"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Parting shot to provoke interrupted by Republican mug (7,3)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -46,9 +43,6 @@ window.CRYPTIC_PUZZLES["cryptic-29954"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "No end to deception? Bank more responsible (8)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "GUILTIER",
    "annotation": null
@@ -63,9 +57,6 @@ window.CRYPTIC_PUZZLES["cryptic-29954"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Model that’s short inspired with sexy pictures (6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "PHOTOS",
    "annotation": null
@@ -80,9 +71,6 @@ window.CRYPTIC_PUZZLES["cryptic-29954"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Newspaper plugging a column (4)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "PIER",
    "annotation": null
@@ -97,9 +85,6 @@ window.CRYPTIC_PUZZLES["cryptic-29954"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Any, perhaps put off by Tramp’s ribaldry, initially? (10)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "DETERMINER",
    "annotation": null
@@ -114,9 +99,6 @@ window.CRYPTIC_PUZZLES["cryptic-29954"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Singer of core piece in heavy metal on tour (4,4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -135,9 +117,6 @@ window.CRYPTIC_PUZZLES["cryptic-29954"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "More sentimental movie occasionally entertained by promiscuous type (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "GOOIER",
    "annotation": null
@@ -152,9 +131,6 @@ window.CRYPTIC_PUZZLES["cryptic-29954"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Fix gates having lost a sheep (4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "TEGS",
    "annotation": null
@@ -169,9 +145,6 @@ window.CRYPTIC_PUZZLES["cryptic-29954"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Tuchel on playing over one side of pitch (9)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "TOUCHLINE",
    "annotation": null
@@ -186,9 +159,6 @@ window.CRYPTIC_PUZZLES["cryptic-29954"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Eat in bar filling beer out of case (5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "ERODE",
    "annotation": null
@@ -203,9 +173,6 @@ window.CRYPTIC_PUZZLES["cryptic-29954"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "One tells Romeo to come back for coffee first (7)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "RELATER",
    "annotation": null
@@ -220,9 +187,6 @@ window.CRYPTIC_PUZZLES["cryptic-29954"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Admissions with nurse getting samples (7)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "ENTRIES",
    "annotation": null
@@ -237,9 +201,6 @@ window.CRYPTIC_PUZZLES["cryptic-29954"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Forces American to accept idiot (5)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "UNITS",
    "annotation": null
@@ -254,9 +215,6 @@ window.CRYPTIC_PUZZLES["cryptic-29954"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Scan, mark and tick in school going over stuff (9)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "MAMMOGRAM",
    "annotation": null
@@ -271,9 +229,6 @@ window.CRYPTIC_PUZZLES["cryptic-29954"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "They shot once in game with forwards (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "MATCHLOCKS",
    "annotation": null
@@ -288,9 +243,6 @@ window.CRYPTIC_PUZZLES["cryptic-29954"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "They might have finished second drink, primarily restricted by menus? (10)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "MEDALLISTS",
    "annotation": null
@@ -305,9 +257,6 @@ window.CRYPTIC_PUZZLES["cryptic-29954"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Sort out clothing for catholic girlfriend: something to cover boobs in work? (10,5)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {
     ",": [
      10
@@ -326,9 +275,6 @@ window.CRYPTIC_PUZZLES["cryptic-29954"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Use team with changes to draw in league matches (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "EMULATES",
    "annotation": null
@@ -343,9 +289,6 @@ window.CRYPTIC_PUZZLES["cryptic-29954"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Have erred cracking Paul cryptic leading to confusion (8)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "UPHEAVAL",
    "annotation": null
@@ -360,9 +303,6 @@ window.CRYPTIC_PUZZLES["cryptic-29954"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Life around north: show one with boring job (3-6)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -381,9 +321,6 @@ window.CRYPTIC_PUZZLES["cryptic-29954"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Figure in a dress? (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "NUMBER",
    "annotation": null
@@ -398,9 +335,6 @@ window.CRYPTIC_PUZZLES["cryptic-29954"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Doctor from department parking by hospital on single line (5)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "DPHIL",
    "annotation": null
@@ -415,9 +349,6 @@ window.CRYPTIC_PUZZLES["cryptic-29954"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Clear religious person is bored by mass (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "DEMIST",
    "annotation": null
@@ -432,9 +363,6 @@ window.CRYPTIC_PUZZLES["cryptic-29954"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Release album: sound issue with disc, perhaps? (7)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "LUMBAGO",
    "annotation": null
@@ -449,9 +377,6 @@ window.CRYPTIC_PUZZLES["cryptic-29954"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "They kiss with small tablet, shortly getting erect (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "LIPS",
    "annotation": null
@@ -466,9 +391,6 @@ window.CRYPTIC_PUZZLES["cryptic-29954"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Cut chicken to eat roast; they have skins on top (7)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "TIMPANI",
    "annotation": null
@@ -483,9 +405,6 @@ window.CRYPTIC_PUZZLES["cryptic-29954"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Lorry driver finally going for food (4)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "TUCK",
    "annotation": null
@@ -500,9 +419,6 @@ window.CRYPTIC_PUZZLES["cryptic-29954"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Man that could be a hunk (5)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "PIECE",
    "annotation": null
@@ -517,9 +433,6 @@ window.CRYPTIC_PUZZLES["cryptic-29954"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Set off with Tom after thrills (4-5)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     "-": [
      4
