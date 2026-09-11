@@ -321,6 +321,8 @@ tools/data/unclueable.json                   words rejected as answers, with rea
                                              grid_fill.py vetoes them
 tools/data/difficulty_baseline.json          the frozen distribution difficulty.py normalises
                                              against
+tools/data/lexicon.tsv                       192,738 British-cryptic words by frequency rank;
+                                             difficulty.py scores obscurity off it
 tools/data/grading_rubric.md                 the five axes a blind judge scores a clue on
 tools/data/sample_fill_11.json               the worked 11x11 fill tools/AUTHORING.md walks
                                              through
