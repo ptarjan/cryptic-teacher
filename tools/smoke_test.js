@@ -120,21 +120,23 @@ const numberOf = (id) => (((global.CRYPTIC_INDEX || {}).puzzles || [])
       `puzzles/index.js has a stale ?v= for ${p.file} (run tools/fetch_puzzle.py --reindex)`);
   });
 
-  // And the same hazard sideways: the generated pages — the archive, the lesson,
-  // the glossary and one per puzzle — carry their own stamps, written by
-  // build_seo_pages.py rather than by the stamper. Editing an asset without
-  // rebuilding leaves them pointing at a hash that no longer exists, which is a
+  // And the same hazard sideways, for the files the REPO commits: a stamp
+  // written by hand or by the stamper can go stale, so every one of them is
+  // resolved back to the file it names. The generated pages are not swept here
+  // and cannot be: they are gitignored now, built from the current assets on a
+  // clean checkout by .github/workflows/pages.yml, so their stamps are right by
+  // construction and a copy left lying in a working tree says nothing about
+  // what gets deployed. What this catches is the tracked file that
+  // rebuilding leaves pointing at a hash that no longer exists, which is a
   // 404 on the stylesheet and an unstyled page for anyone who arrives from
   // search. Every stamp in every HTML file is checked, so a page added later is
   // covered without being listed here.
-  const stampedPages = [];
-  const walk = (dir) => fs.readdirSync(dir, { withFileTypes: true }).forEach((d) => {
-    if (d.name.startsWith(".") || d.name === "node_modules") return;
-    const full = path.join(dir, d.name);
-    if (d.isDirectory()) walk(full);
-    else if (d.name.endsWith(".html")) stampedPages.push(full);
-  });
-  walk(ROOT);
+  // Tracked files only, asked of git rather than guessed from a list here: the
+  // ignore rules are where "generated" is defined, and a second copy of that
+  // definition is a copy to disagree with.
+  const stampedPages = require("child_process")
+    .execFileSync("git", ["-C", ROOT, "ls-files", "-z", "*.html"], { encoding: "utf8" })
+    .split("\0").filter(Boolean).map((rel) => path.join(ROOT, rel));
   // The generated pages write absolute URLs and index.html writes relative ones,
   // so a stamp is resolved back to a file on disk rather than pattern-matched:
   // a check that quietly skips the form it cannot parse is a check that passes
@@ -160,10 +162,13 @@ const numberOf = (id) => (((global.CRYPTIC_INDEX || {}).puzzles || [])
         `tools/stamp_assets.py)`);
     }
   });
-  assert(stampedPages.length > 100,
-    "the generated pages were found: " + stampedPages.length);
-  assert(stampsChecked > stampedPages.length,
-    "every page carries stamps that resolved to a real file: " + stampsChecked);
+  assert(stampedPages.some((f) => path.relative(ROOT, f) === "index.html"),
+    "the app's own page is in the sweep: " + stampedPages.length + " tracked page(s)");
+  // Every stamped SCRIPT and STYLESHEET, which is what the sweep's regex can
+  // see; the images on the list are stamped in markup it does not read.
+  const stampedCode = stamped.filter((rel) => /\.(js|css)$/.test(rel)).length;
+  assert(stampsChecked >= stampedCode,
+    `every stamped asset resolved back to a real file: ${stampsChecked} of ${stampedCode}`);
 }
 
 // --- the solver's abbreviation glossary is the clue-writer's, not a copy ---
