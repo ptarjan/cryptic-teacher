@@ -19,6 +19,102 @@
     del(key) { try { localStorage.removeItem(key); } catch (e) {} }
   };
 
+  /* ---------- what solvers thought of it ----------
+
+     One tap, and only once the clue is out: before the answer is on the grid
+     "was that a good clue" is a question about how stuck you are, not about the
+     clue. The puzzle gets the same question when the last square goes in.
+
+     Counted the way the milestones are — the Worker stores a key per vote and
+     tallies by listing them (see /v in sync/worker.js) — so there is nothing
+     stored about who voted, and two people rating the same clue at the same
+     moment cannot overwrite each other. The cost of that is the honest one: a
+     ballot box that cannot identify a voter cannot spot a second ballot either,
+     so one-vote-per-clue is this device remembering, and clearing the browser
+     buys another vote. That is a fair price for keeping the votes anonymous.
+
+     The whole puzzle's tally arrives in ONE request when the grid opens, not one
+     per clue. Everything here is best-effort: no tally is a row with no numbers
+     in it, never an error in front of somebody solving.  */
+  const VOTES_KEY = "ct:votes";
+  let myVotes = store.get(VOTES_KEY, {}) || {};
+  let voteTally = {};
+
+  const voteTarget = (e) => (e ? `c:${P.id}:${entryKey(e)}` : `p:${P.id}`);
+
+  function fetchVotes(id) {
+    voteTally = {};
+    if (!SYNC_ENDPOINT || typeof fetch !== "function") return;
+    fetch(`${SYNC_ENDPOINT}/v?p=${encodeURIComponent(id)}`)
+      .then((r) => (r.ok ? r.json() : null))
+      .then((t) => {
+        // The grid may have moved on while this was in the air; a tally is
+        // about one puzzle and must never be shown against another.
+        if (!t || !P || P.id !== id) return;
+        voteTally = t;
+        renderHintPanel();
+        // The finish panel draws once and then holds still, so the arrival of
+        // the numbers is the one thing allowed to make it draw again.
+        tallyDrawn = false;
+        celebrate(wasComplete === true, false);
+      })
+      .catch(() => {});
+  }
+
+  function castVote(target, verdict) {
+    if (myVotes[target]) return;
+    myVotes[target] = verdict;
+    store.set(VOTES_KEY, myVotes);
+    // Counted here as well as at the Worker, so the row answers the tap rather
+    // than waiting for a round trip it is not going to look at.
+    const t = (voteTally[target] = voteTally[target] || { up: 0, down: 0 });
+    t[verdict]++;
+    tallyDrawn = false;
+    const body = `${target}|${verdict}`;
+    try {
+      if (!SYNC_ENDPOINT) return;
+      if (navigator.sendBeacon)
+        navigator.sendBeacon(SYNC_ENDPOINT + "/v", new Blob([body], { type: "text/plain" }));
+      else if (typeof fetch === "function")
+        fetch(SYNC_ENDPOINT + "/v", { method: "POST", body, keepalive: true }).catch(() => {});
+    } catch (e) { /* a vote is never worth an exception in the middle of a solve */ }
+  }
+
+  // The row reads as a sentence once it has been answered: what you said, and
+  // what everyone else said, in that order. Before that it is the question and
+  // two buttons. Numbers only when there are any — "0 of 0 liked it" is a way
+  // of saying nobody has been here, which is not a thing to tell a solver.
+  function voteRowHTML(target, ask, yes, no) {
+    const mine = myVotes[target];
+    const t = voteTally[target] || { up: 0, down: 0 };
+    const said = t.up + t.down;
+    const others = said - (mine ? 1 : 0);
+    const crowd = others > 0
+      ? `<span class="vote-said">${t.up} of ${said} liked it</span>` : "";
+    if (mine) {
+      return `<div class="vote-row"><span class="vote-mine">${
+        mine === "up" ? "You liked it" : "Not one of yours"}</span>${crowd}</div>`;
+    }
+    return `<div class="vote-row"><span class="vote-ask">${ask}</span>` +
+      `<button type="button" class="ghost small vote-btn" data-vote="${esc(target)}|up">${yes}</button>` +
+      `<button type="button" class="ghost small vote-btn" data-vote="${esc(target)}|down">${no}</button>` +
+      `${crowd}</div>`;
+  }
+
+  // Wires whatever vote buttons a freshly drawn container holds, and redraws it
+  // through the same path that drew it: a vote changes the row it was cast in.
+  function wireVotes(el, redraw) {
+    if (!el || !el.querySelectorAll) return;
+    el.querySelectorAll("button.vote-btn").forEach((b) => {
+      b.onclick = () => {
+        const [target, verdict] = (b.getAttribute("data-vote") || "").split("|");
+        if (!target || !verdict) return;
+        castVote(target, verdict);
+        redraw();
+      };
+    });
+  }
+
   // ---------- sync across machines ----------
   // The Worker in sync/. Blank it and every path below goes inert and the Sync
   // button hides itself, so the page keeps working exactly as it did offline —
@@ -26,7 +122,7 @@
   const SYNC_ENDPOINT = "https://cryptic-teacher-sync.curly-unit-b9e0.workers.dev";
   // Reserved localStorage names, so scanning for saves cannot pick up settings.
   // Every key this app writes is "ct:<something>"; the rest are puzzle ids.
-  const SYNC_RESERVED = { last: 1, sync: 1, seen: 1, notify: 1, "notify-after": 1 };
+  const SYNC_RESERVED = { last: 1, sync: 1, seen: 1, notify: 1, "notify-after": 1, votes: 1 };
   const CODE_ALPHABET = "23456789ABCDEFGHJKMNPQRSTVWXYZ"; // no 0/O/1/I/L to mistype
 
   /* ---------- counting solves, not solvers ----------
@@ -3745,6 +3841,11 @@
         bodyHTML += guessHTML(ask, at + 1, steps[at].label, holder === e);
       }
 
+      // And once the answer is out, what did you make of it? Under the ladder,
+      // because it is the thing you do when you have finished reading rather
+      // than a step in the reading.
+      if (solved) bodyHTML += voteRowHTML(voteTarget(e), "Good clue?", "Yes", "Not really");
+
       // How the ladder works, said once and then never again: it stops the
       // moment a rung is worked out anywhere in this puzzle, because at that
       // point it has been demonstrated and repeating it is just noise on every
@@ -3891,6 +3992,8 @@
         if (a) finishGuess(null, a);
       };
     }
+
+    wireVotes(panel, renderHintPanel);
 
     // The anagram ring. Both handlers only ever touch `ring`, so a redraw is
     // the whole update — the tiles are where the letters are, not what they are.
@@ -4419,6 +4522,7 @@
     // not something to celebrate.
     wasComplete = null;
     tallyDrawn = false;
+    fetchVotes(id);
     // Forget the last puzzle's clue too, so syncClueUrl always writes the new
     // one. It compares refs, not puzzles, and "1A" left over from the puzzle
     // just closed reads as no change if the new one also opens on "1A" —
@@ -4516,7 +4620,9 @@
     if (mins) bits.push(`<strong>${mins}</strong> minute${mins === 1 ? "" : "s"} at it`);
     box.innerHTML = (earned ? confettiHTML(24) : "")
       + `<p class="shout">Finished — the whole grid.</p>`
-      + `<p class="tally">${bits.join(" · ")}</p>`;
+      + `<p class="tally">${bits.join(" · ")}</p>`
+      + voteRowHTML(voteTarget(null), "How was the puzzle?", "Enjoyed it", "Not really");
+    wireVotes(box, () => celebrate(true, false));
   }
 
   // Spans with per-piece delays, falling once. prefers-reduced-motion turns the
