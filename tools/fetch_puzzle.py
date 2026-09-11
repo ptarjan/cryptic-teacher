@@ -470,9 +470,9 @@ def puzzle_is_annotated(puzzle):
 
 def reindex():
     # Difficulty needs every puzzle at once (each rating is relative to the
-    # others), so it is scored in one pass here rather than per-file. It is
-    # optional on purpose: tools/difficulty.py leans on the gitignored lexicon,
-    # and a clone that hasn't fetched it should still get a working index.
+    # others), so it is scored in one pass here rather than per-file. It stays
+    # optional so that a checkout missing any of its data still gets a working
+    # index, with the ratings left off rather than the whole file unwritten.
     try:
         sys.path.insert(0, str(Path(__file__).resolve().parent))
         from difficulty import all_scores
@@ -538,6 +538,13 @@ def reindex():
         + json.dumps(index, indent=1, ensure_ascii=False)
         + f" {JSON_END};\n",
         encoding="utf-8")
+    # index.html names index.js by content hash, so the two are only ever
+    # correct together. Stamp here rather than leaving it to the caller: CI
+    # restamps before it builds, so a stale stamp fails nothing and surfaces
+    # only as a deploy check that can never go green.
+    from stamp_assets import INDEX_HTML, stamp
+    INDEX_HTML.write_text(stamp(INDEX_HTML.read_text(encoding="utf-8")),
+                          encoding="utf-8")
     return index
 
 
