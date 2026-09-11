@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1814"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Italian butterflies passenger catches drop dead (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "FARFALLE",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["indysunday-1814"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Fitting a large person in the front row, so getting up (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "APROPOS",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["indysunday-1814"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Dividing piece of fish, allow fighter no steak (5,6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -80,9 +71,6 @@ window.CRYPTIC_PUZZLES["indysunday-1814"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Reveal unqualified lawyers bet on losing case (3,4)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -101,9 +89,6 @@ window.CRYPTIC_PUZZLES["indysunday-1814"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Remove surplus empty chest (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "EXTRACT",
    "annotation": null
@@ -118,9 +103,6 @@ window.CRYPTIC_PUZZLES["indysunday-1814"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Function on back street expected award for successful party (5)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "COSTS",
    "annotation": null
@@ -153,9 +135,6 @@ window.CRYPTIC_PUZZLES["indysunday-1814"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Icarus, finally ready to have feathers attached, played the hero (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "STARRED",
    "annotation": null
@@ -170,9 +149,6 @@ window.CRYPTIC_PUZZLES["indysunday-1814"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Team sounded disappointed without speaking in interview (4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "SIDE",
    "annotation": null
@@ -187,9 +163,6 @@ window.CRYPTIC_PUZZLES["indysunday-1814"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Maiden using her mouth in a virtuous way (7)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "MORALLY",
    "annotation": null
@@ -204,9 +177,6 @@ window.CRYPTIC_PUZZLES["indysunday-1814"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Noisy high speed's the usual way to show virility (8)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {},
    "solution": "MACHISMO",
    "annotation": null
@@ -221,9 +191,6 @@ window.CRYPTIC_PUZZLES["indysunday-1814"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Brown most of duck, turning that in pot (7)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "TANKARD",
    "annotation": null
@@ -238,9 +205,6 @@ window.CRYPTIC_PUZZLES["indysunday-1814"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "What was the point of Nelson's greatest triumph? (4,9)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -259,9 +223,6 @@ window.CRYPTIC_PUZZLES["indysunday-1814"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Object of worship serious sorcerer keeps nuts in (6,5)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -280,9 +241,6 @@ window.CRYPTIC_PUZZLES["indysunday-1814"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Men alone played a soulful song (4,2,2)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -302,9 +260,6 @@ window.CRYPTIC_PUZZLES["indysunday-1814"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Spark from burning church tower (7)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "INSPIRE",
    "annotation": null
@@ -319,9 +274,6 @@ window.CRYPTIC_PUZZLES["indysunday-1814"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Couple with no last make rotten cobblers (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "TWADDLE",
    "annotation": null
@@ -336,9 +288,6 @@ window.CRYPTIC_PUZZLES["indysunday-1814"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Show rug I want shortened (7)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "MATINEE",
    "annotation": null
@@ -353,9 +302,6 @@ window.CRYPTIC_PUZZLES["indysunday-1814"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Rum butler drinks marks glass (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "TUMBLER",
    "annotation": null
@@ -370,9 +316,6 @@ window.CRYPTIC_PUZZLES["indysunday-1814"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Passage right through bar (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "EXCERPT",
    "annotation": null
@@ -387,9 +330,6 @@ window.CRYPTIC_PUZZLES["indysunday-1814"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Fed outside shelter, an old minstrel (7)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "GLEEMAN",
    "annotation": null
@@ -404,9 +344,6 @@ window.CRYPTIC_PUZZLES["indysunday-1814"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "New pain after switching silver filling (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "GANACHE",
    "annotation": null
@@ -421,9 +358,6 @@ window.CRYPTIC_PUZZLES["indysunday-1814"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Cycling jersey to post, eBay item perhaps (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "MAILLOT",
    "annotation": null
@@ -438,9 +372,6 @@ window.CRYPTIC_PUZZLES["indysunday-1814"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Fresh coin not dim, in this initially? (4,9)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -459,9 +390,6 @@ window.CRYPTIC_PUZZLES["indysunday-1814"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Valves when turned sprayed droplets (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "SPAT",
    "annotation": null
@@ -476,9 +404,6 @@ window.CRYPTIC_PUZZLES["indysunday-1814"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Discussion yearly with former champion at Wimbledon (7)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "PALAVER",
    "annotation": null
@@ -511,9 +436,6 @@ window.CRYPTIC_PUZZLES["indysunday-1814"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Bucket boy got from cleaning lady by dishonesty (7)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "CHARLIE",
    "annotation": null
@@ -528,9 +450,6 @@ window.CRYPTIC_PUZZLES["indysunday-1814"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Thinner version of Proust in which nothing is forgotten (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "TURPS",
    "annotation": null
@@ -545,9 +464,6 @@ window.CRYPTIC_PUZZLES["indysunday-1814"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Modern stretches to 14C in the art world (8)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "TRECENTO",
    "annotation": null

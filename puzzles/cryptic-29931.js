@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29931"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Liable to involuntary laughter in such a tricky situation (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "TICKLISH",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["cryptic-29931"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Friar stabbed, not the first (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "TUCK",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["cryptic-29931"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Calorie associated with single ice-cream (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "CONE",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["cryptic-29931"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Reader in church sounds like Hannibal? (6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "LECTOR",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["cryptic-29931"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Emitting gasp, I staggered to see my double (8,5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -114,9 +99,6 @@ window.CRYPTIC_PUZZLES["cryptic-29931"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "I say purchase pasta, for example, that goes in kitchen cupboard (6)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "BICARB",
    "annotation": null
@@ -131,9 +113,6 @@ window.CRYPTIC_PUZZLES["cryptic-29931"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Gathering family I head for black state (8)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "INKINESS",
    "annotation": null
@@ -148,9 +127,6 @@ window.CRYPTIC_PUZZLES["cryptic-29931"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Mark address wrong too, perhaps (10)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "APOSTROPHE",
    "annotation": null
@@ -165,9 +141,6 @@ window.CRYPTIC_PUZZLES["cryptic-29931"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Something on toast for hotheads? (5,5)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -186,9 +159,6 @@ window.CRYPTIC_PUZZLES["cryptic-29931"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "One called up to study one’s lines (9)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "CONSCRIPT",
    "annotation": null
@@ -203,9 +173,6 @@ window.CRYPTIC_PUZZLES["cryptic-29931"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Moody secretary taking age without using any paper (13)",
-   "group": [
-    "10-down"
-   ],
    "separatorLocations": {},
    "solution": "TEMPERAMENTAL",
    "annotation": null
@@ -220,9 +187,6 @@ window.CRYPTIC_PUZZLES["cryptic-29931"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Criticise minor injury in time at the crease (5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "KNOCK",
    "annotation": null
@@ -237,9 +201,6 @@ window.CRYPTIC_PUZZLES["cryptic-29931"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Possibly made radioactive, so no admittance, unfortunately (12)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "CONTAMINATED",
    "annotation": null
@@ -254,9 +215,6 @@ window.CRYPTIC_PUZZLES["cryptic-29931"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Disconcerting, to be away on the golf course? (3-7)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -275,9 +233,6 @@ window.CRYPTIC_PUZZLES["cryptic-29931"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Signed up, but got less (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "CONTRACTED",
    "annotation": null
@@ -292,9 +247,6 @@ window.CRYPTIC_PUZZLES["cryptic-29931"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Food for Nancy that may stick in the throat (4)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "FROG",
    "annotation": null
@@ -309,9 +261,6 @@ window.CRYPTIC_PUZZLES["cryptic-29931"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Emphasise how one’s counted as a teenager? (10)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "UNDERSCORE",
    "annotation": null
@@ -326,9 +275,6 @@ window.CRYPTIC_PUZZLES["cryptic-29931"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Singer in large church lifting one hand, then the other (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "MINSTREL",
    "annotation": null
@@ -343,9 +289,6 @@ window.CRYPTIC_PUZZLES["cryptic-29931"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Irish saint almost laid out, harbouring unfatherly thoughts? (10)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "PATRICIDAL",
    "annotation": null
@@ -360,9 +303,6 @@ window.CRYPTIC_PUZZLES["cryptic-29931"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Avoid attention (4)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "SHUN",
    "annotation": null
@@ -377,9 +317,6 @@ window.CRYPTIC_PUZZLES["cryptic-29931"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Bad scare about parking: a scuff (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "SCRAPE",
    "annotation": null
@@ -394,9 +331,6 @@ window.CRYPTIC_PUZZLES["cryptic-29931"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Lack of guile in what may be shown on the screen (12)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "TRANSPARENCY",
    "annotation": null
@@ -411,9 +345,6 @@ window.CRYPTIC_PUZZLES["cryptic-29931"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Cover over swimming pool (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "LIDO",
    "annotation": null
@@ -428,9 +359,6 @@ window.CRYPTIC_PUZZLES["cryptic-29931"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Married over a year, so eyed as naive (4)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "DEWY",
    "annotation": null
@@ -445,9 +373,6 @@ window.CRYPTIC_PUZZLES["cryptic-29931"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Italian team doesn’t take the lead in some three months (5)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "INTER",
    "annotation": null
@@ -462,9 +387,6 @@ window.CRYPTIC_PUZZLES["cryptic-29931"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "From abroad obtain more unusual diet (9)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "EXTRADITE",
    "annotation": null
@@ -479,9 +401,6 @@ window.CRYPTIC_PUZZLES["cryptic-29931"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Irritating person after wander about has to race away (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "GADFLY",
    "annotation": null
@@ -501,9 +420,6 @@ window.CRYPTIC_PUZZLES["cryptic-29931"] = /*JSON-START*/ {
      0,
      18
     ]
-   ],
-   "group": [
-    "27-across"
    ],
    "separatorLocations": {},
    "solution": "ALLEGORY",

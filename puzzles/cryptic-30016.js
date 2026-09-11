@@ -98,9 +98,6 @@ window.CRYPTIC_PUZZLES["cryptic-30016"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Have I got it in me to be ‘nice’? (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "AMIABLE",
    "annotation": {
@@ -147,9 +144,6 @@ window.CRYPTIC_PUZZLES["cryptic-30016"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Chooses shady spot (4)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "OPTS",
    "annotation": {
@@ -192,9 +186,6 @@ window.CRYPTIC_PUZZLES["cryptic-30016"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Once more assigns blame for space to play on six courts (10)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "RECONVICTS",
    "annotation": {
@@ -247,9 +238,6 @@ window.CRYPTIC_PUZZLES["cryptic-30016"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Honest to God, I burn within? (1,5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      1
@@ -304,9 +292,6 @@ window.CRYPTIC_PUZZLES["cryptic-30016"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Mistake to put ‘male’ after only matching gender observed at birth (8)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {},
    "solution": "SOLECISM",
    "annotation": {
@@ -391,9 +376,6 @@ window.CRYPTIC_PUZZLES["cryptic-30016"] = /*JSON-START*/ {
      30
     ]
    ],
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "OTHO",
    "annotation": {
@@ -428,9 +410,6 @@ window.CRYPTIC_PUZZLES["cryptic-30016"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Teacher prepares fruit for markers (10)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "HEADSTONES",
    "annotation": {
@@ -471,9 +450,6 @@ window.CRYPTIC_PUZZLES["cryptic-30016"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Dislike of despicable supervillain leads to dangerous game ending (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "GRUDGE",
    "annotation": {
@@ -545,9 +521,6 @@ window.CRYPTIC_PUZZLES["cryptic-30016"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Brief stops Romeos taking forever (8)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "LAYOVERS",
    "annotation": {
@@ -647,9 +620,6 @@ window.CRYPTIC_PUZZLES["cryptic-30016"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Make provision for poison tentacle tips in a frisky toad (5,2)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -775,9 +745,6 @@ window.CRYPTIC_PUZZLES["cryptic-30016"] = /*JSON-START*/ {
      15
     ]
    ],
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "QUICKIE",
    "annotation": {
@@ -836,9 +803,6 @@ window.CRYPTIC_PUZZLES["cryptic-30016"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Reserve at port grew cold (4,4)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -883,9 +847,6 @@ window.CRYPTIC_PUZZLES["cryptic-30016"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Windy mansion that makes one go blind? (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "ONANISM",
    "annotation": {
@@ -929,9 +890,6 @@ window.CRYPTIC_PUZZLES["cryptic-30016"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Barking Scot has scraggly beard – even for a poet (8)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "ABERDEEN",
    "annotation": {
@@ -1009,9 +967,6 @@ window.CRYPTIC_PUZZLES["cryptic-30016"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Source of Russian news takes on the Spanish threads (6)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "TASSEL",
    "annotation": {
@@ -1056,9 +1011,6 @@ window.CRYPTIC_PUZZLES["cryptic-30016"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "The spies’ line of argument (6)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "THESIS",
    "annotation": {
@@ -1096,9 +1048,6 @@ window.CRYPTIC_PUZZLES["cryptic-30016"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Long shot, but here’s an opportunity to diet (4,6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -1143,9 +1092,6 @@ window.CRYPTIC_PUZZLES["cryptic-30016"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Hong Kong accepts American protection (4)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "HUSK",
    "annotation": {
@@ -1190,9 +1136,6 @@ window.CRYPTIC_PUZZLES["cryptic-30016"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "In suspense? Half excited? Try always turning round (4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "AGOG",
    "annotation": {
@@ -1302,9 +1245,6 @@ window.CRYPTIC_PUZZLES["cryptic-30016"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Canniness concealing squares (5)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "NINES",
    "annotation": {
@@ -1339,9 +1279,6 @@ window.CRYPTIC_PUZZLES["cryptic-30016"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "These knocked back by Westminster set if drunk (8)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "SWIFTIES",
    "annotation": {

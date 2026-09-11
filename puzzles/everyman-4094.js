@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4094"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Serving of risotto’s for German lad (4)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "OTTO",
    "annotation": {
@@ -65,9 +62,6 @@ window.CRYPTIC_PUZZLES["everyman-4094"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Combatants of Chester mustered (3,6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -109,9 +103,6 @@ window.CRYPTIC_PUZZLES["everyman-4094"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Love Prince? He will get love interest afflicted principally: her (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "OPHELIA",
    "annotation": {
@@ -171,9 +162,6 @@ window.CRYPTIC_PUZZLES["everyman-4094"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Nitwit in protective cover taken aback (4)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "PRAT",
    "annotation": {
@@ -220,9 +208,6 @@ window.CRYPTIC_PUZZLES["everyman-4094"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Elite soldier having hissy fit in defensive structure (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "PARAPET",
    "annotation": {
@@ -266,9 +251,6 @@ window.CRYPTIC_PUZZLES["everyman-4094"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Something unpleasant afoot? No, a treat for Piglet (5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "ACORN",
    "annotation": {
@@ -308,9 +290,6 @@ window.CRYPTIC_PUZZLES["everyman-4094"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Decide against show of emotion: that’s rotten (3,3)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -357,9 +336,6 @@ window.CRYPTIC_PUZZLES["everyman-4094"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Give another grade to statement (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "REMARK",
    "annotation": {
@@ -394,9 +370,6 @@ window.CRYPTIC_PUZZLES["everyman-4094"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Rescuers here for nonsensical update (9,6)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {
     ",": [
      9
@@ -438,9 +411,6 @@ window.CRYPTIC_PUZZLES["everyman-4094"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "OK? Not quite: demon gin drunk in children’s film (7,4)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -499,9 +469,6 @@ window.CRYPTIC_PUZZLES["everyman-4094"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Wealthy businessman to surprise, finally, Claude and Hewer (11)",
-   "group": [
-    "10-down"
-   ],
    "separatorLocations": {},
    "solution": "ROCKEFELLER",
    "annotation": {
@@ -554,9 +521,6 @@ window.CRYPTIC_PUZZLES["everyman-4094"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "In which defence alas is best form of attack? (3,4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -592,9 +556,6 @@ window.CRYPTIC_PUZZLES["everyman-4094"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Loudly criticise a prophet’s cure-all (7)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "PANACEA",
    "annotation": {
@@ -642,9 +603,6 @@ window.CRYPTIC_PUZZLES["everyman-4094"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Facetious chat overcoming resistance; it helps the presentation (4,5)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -699,9 +657,6 @@ window.CRYPTIC_PUZZLES["everyman-4094"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "You can hear part of car stop working (5)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "BREAK",
    "annotation": {
@@ -737,9 +692,6 @@ window.CRYPTIC_PUZZLES["everyman-4094"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Liz refurbished helmet endlessly in ancient town (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "BETHLEHEM",
    "annotation": {
@@ -794,9 +746,6 @@ window.CRYPTIC_PUZZLES["everyman-4094"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Epic tales whichever way you look at it (5)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "SAGAS",
    "annotation": {
@@ -837,9 +786,6 @@ window.CRYPTIC_PUZZLES["everyman-4094"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Disdainful son humming (6)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "SNIFFY",
    "annotation": {
@@ -879,9 +825,6 @@ window.CRYPTIC_PUZZLES["everyman-4094"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Time invested in joke by paper that affects current events (3,6)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -939,9 +882,6 @@ window.CRYPTIC_PUZZLES["everyman-4094"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Justice terribly delayed – energy dropping – without enthusiasm (7)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "JADEDLY",
    "annotation": {
@@ -998,9 +938,6 @@ window.CRYPTIC_PUZZLES["everyman-4094"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Told any cobblers in realm of children’s tales? (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "TOYLAND",
    "annotation": {
@@ -1041,9 +978,6 @@ window.CRYPTIC_PUZZLES["everyman-4094"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "10am, rising, embracing German that’s attractive (6)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "MAGNET",
    "annotation": {
@@ -1096,9 +1030,6 @@ window.CRYPTIC_PUZZLES["everyman-4094"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Some chic élan demonstrated in Northern location (7)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "ICELAND",
    "annotation": {
@@ -1142,9 +1073,6 @@ window.CRYPTIC_PUZZLES["everyman-4094"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Arouse radiant smouldering – only, naughtily, primarily? (5)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "ARSON",
    "annotation": {
@@ -1188,9 +1116,6 @@ window.CRYPTIC_PUZZLES["everyman-4094"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Christmas list – piece of cake (4,3)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -1235,9 +1160,6 @@ window.CRYPTIC_PUZZLES["everyman-4094"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Pursues lost cause – seeks money at proverbial glue factory? (5,1,4,5)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     ",": [
      5,
@@ -1286,9 +1208,6 @@ window.CRYPTIC_PUZZLES["everyman-4094"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Begrudge diplomat wanting nothing (4)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "ENVY",
    "annotation": {
@@ -1331,9 +1250,6 @@ window.CRYPTIC_PUZZLES["everyman-4094"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Woman starts to drowse alongside Everyman (4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "DAME",
    "annotation": {

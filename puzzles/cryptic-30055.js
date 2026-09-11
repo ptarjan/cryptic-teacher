@@ -24,9 +24,6 @@ window.CRYPTIC_PUZZLES["cryptic-30055"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Drug supplier cut short proposal in church (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "COFFEE",
    "annotation": {
@@ -72,9 +69,6 @@ window.CRYPTIC_PUZZLES["cryptic-30055"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Member of nobility beheaded 9 in castle (7)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "CHATEAU",
    "annotation": {
@@ -120,9 +114,6 @@ window.CRYPTIC_PUZZLES["cryptic-30055"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Imagined being a queen in fancy clothing (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "FAERY",
    "annotation": {
@@ -174,9 +165,6 @@ window.CRYPTIC_PUZZLES["cryptic-30055"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Oriental festival ending in confusion (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "EASTERN",
    "annotation": {
@@ -219,9 +207,6 @@ window.CRYPTIC_PUZZLES["cryptic-30055"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Comic character in yellow? (6)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "SCREAM",
    "annotation": {
@@ -261,9 +246,6 @@ window.CRYPTIC_PUZZLES["cryptic-30055"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Incentive rising in motor racing (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "CARROT",
    "annotation": {
@@ -305,9 +287,6 @@ window.CRYPTIC_PUZZLES["cryptic-30055"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Old joke by judge giving pardon (9)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "EXONERATE",
    "annotation": {
@@ -355,9 +334,6 @@ window.CRYPTIC_PUZZLES["cryptic-30055"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Mother has fixed idea about River Island (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "MADEIRA",
    "annotation": {
@@ -411,9 +387,6 @@ window.CRYPTIC_PUZZLES["cryptic-30055"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "ELO apparently created a bit of atmosphere (8,5)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -454,9 +427,6 @@ window.CRYPTIC_PUZZLES["cryptic-30055"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Greek actress partly redirected Hollywood production? (4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "CAKE",
    "annotation": {
@@ -498,9 +468,6 @@ window.CRYPTIC_PUZZLES["cryptic-30055"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Poor US Feds demolished Fruit & Nuts? (10)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "SUPERFOODS",
    "annotation": {
@@ -537,9 +504,6 @@ window.CRYPTIC_PUZZLES["cryptic-30055"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Peter Kay at last playing key characters again (6)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "RETYPE",
    "annotation": {
@@ -583,9 +547,6 @@ window.CRYPTIC_PUZZLES["cryptic-30055"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Briefly visited butcher’s next to Scottish city (6,2)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -632,9 +593,6 @@ window.CRYPTIC_PUZZLES["cryptic-30055"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "American making a comeback with bronze in former territory (9)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "SULTANATE",
    "annotation": {
@@ -695,9 +653,6 @@ window.CRYPTIC_PUZZLES["cryptic-30055"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Wooden bench with section removed for brewing accessory (3,6)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -753,9 +708,6 @@ window.CRYPTIC_PUZZLES["cryptic-30055"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "9 sailors from the East (4)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "BABA",
    "annotation": {
@@ -799,9 +751,6 @@ window.CRYPTIC_PUZZLES["cryptic-30055"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "9 having afternoon in bed (4)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "COAT",
    "annotation": {
@@ -848,9 +797,6 @@ window.CRYPTIC_PUZZLES["cryptic-30055"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "More than one whoopsie from Business Secretary’s empty threats about women (7)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "COWPATS",
    "annotation": {
@@ -907,9 +853,6 @@ window.CRYPTIC_PUZZLES["cryptic-30055"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Great-niece unfortunately lacking the focus of Blake Lively (9)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "ENERGETIC",
    "annotation": {
@@ -955,9 +898,6 @@ window.CRYPTIC_PUZZLES["cryptic-30055"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Heart of Hugh Bonneville ultimately captured by fancy-free Paddington Bear? (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "REFUGEE",
    "annotation": {
@@ -1019,9 +959,6 @@ window.CRYPTIC_PUZZLES["cryptic-30055"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Imagines day in Rome includes scoff (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "IDEATES",
    "annotation": {
@@ -1065,9 +1002,6 @@ window.CRYPTIC_PUZZLES["cryptic-30055"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Wipe bum (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "SPONGE",
    "annotation": {
@@ -1102,9 +1036,6 @@ window.CRYPTIC_PUZZLES["cryptic-30055"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Rock maybe cut mountain climber (5,3)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -1153,9 +1084,6 @@ window.CRYPTIC_PUZZLES["cryptic-30055"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Rod Hull’s beginning to get into battered fries (6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "FISHER",
    "annotation": {
@@ -1201,9 +1129,6 @@ window.CRYPTIC_PUZZLES["cryptic-30055"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Finally calls 999? (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "SCONE",
    "annotation": {
@@ -1246,9 +1171,6 @@ window.CRYPTIC_PUZZLES["cryptic-30055"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Austrian barman hiding half of national treasure in 9 (10)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "BATTENBERG",
    "annotation": {
@@ -1297,9 +1219,6 @@ window.CRYPTIC_PUZZLES["cryptic-30055"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Attila the Hun originally behind old curse (4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "OATH",
    "annotation": {
@@ -1344,9 +1263,6 @@ window.CRYPTIC_PUZZLES["cryptic-30055"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Tennis player getting journalist stoned (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "SEEDED",
    "annotation": {
@@ -1387,9 +1303,6 @@ window.CRYPTIC_PUZZLES["cryptic-30055"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Joe Swash oddly hoarding article of Spanish treasure (6)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "JEWELS",
    "annotation": {

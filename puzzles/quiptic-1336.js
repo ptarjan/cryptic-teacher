@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1336"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Satisfactory agreement includes indication of ‘more info soon’ (3,3)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -46,9 +43,6 @@ window.CRYPTIC_PUZZLES["quiptic-1336"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Errata corrected after end of election recount (7)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "NARRATE",
    "annotation": null
@@ -63,9 +57,6 @@ window.CRYPTIC_PUZZLES["quiptic-1336"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Item of furniture ultimately not up to the task (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "TABLE",
    "annotation": null
@@ -80,9 +71,6 @@ window.CRYPTIC_PUZZLES["quiptic-1336"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "A short product test covering America or somewhere in Europe (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "AUSTRIA",
    "annotation": null
@@ -97,9 +85,6 @@ window.CRYPTIC_PUZZLES["quiptic-1336"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Gather everybody together at first for protest (6)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "PICKET",
    "annotation": null
@@ -114,9 +99,6 @@ window.CRYPTIC_PUZZLES["quiptic-1336"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "One new, exclusive part of Oxford? (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "INSOLE",
    "annotation": null
@@ -131,9 +113,6 @@ window.CRYPTIC_PUZZLES["quiptic-1336"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Teacher, nurse, or typist, perhaps (3,6)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -152,9 +131,6 @@ window.CRYPTIC_PUZZLES["quiptic-1336"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Those people taking hit for rehab treatment (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "THERAPY",
    "annotation": null
@@ -169,9 +145,6 @@ window.CRYPTIC_PUZZLES["quiptic-1336"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Good, alarming blow represented danger to us all? (6,7)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -190,9 +163,6 @@ window.CRYPTIC_PUZZLES["quiptic-1336"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Dreary poet making comeback (4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "DRAB",
    "annotation": null
@@ -207,9 +177,6 @@ window.CRYPTIC_PUZZLES["quiptic-1336"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Less deftly manipulated, like many online ‘experts’? (4-6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -228,9 +195,6 @@ window.CRYPTIC_PUZZLES["quiptic-1336"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Rush job? (6)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "CAREER",
    "annotation": null
@@ -245,9 +209,6 @@ window.CRYPTIC_PUZZLES["quiptic-1336"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Running amok, Rambo captures a large, large castle (8)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "BALMORAL",
    "annotation": null
@@ -262,9 +223,6 @@ window.CRYPTIC_PUZZLES["quiptic-1336"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "As a rule, information gathering consumes energy (9)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "GENERALLY",
    "annotation": null
@@ -279,9 +237,6 @@ window.CRYPTIC_PUZZLES["quiptic-1336"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Source of comfort and serenity you initially found in each melody (4,5)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -300,9 +255,6 @@ window.CRYPTIC_PUZZLES["quiptic-1336"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Fine old animal heading west (4)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "OKAY",
    "annotation": null
@@ -317,9 +269,6 @@ window.CRYPTIC_PUZZLES["quiptic-1336"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Shame on you accepting a piece of work! (4)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "TASK",
    "annotation": null
@@ -334,9 +283,6 @@ window.CRYPTIC_PUZZLES["quiptic-1336"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "They battle bulls and wild rooster (7)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "TOREROS",
    "annotation": null
@@ -351,9 +297,6 @@ window.CRYPTIC_PUZZLES["quiptic-1336"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Put in the ground, or possibly let rot, say (3,2,4)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -373,9 +316,6 @@ window.CRYPTIC_PUZZLES["quiptic-1336"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "High-level betrayal requiring time, plus justification (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "TREASON",
    "annotation": null
@@ -390,9 +330,6 @@ window.CRYPTIC_PUZZLES["quiptic-1336"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Regular payment and bonus money put in post (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "STIPEND",
    "annotation": null
@@ -407,9 +344,6 @@ window.CRYPTIC_PUZZLES["quiptic-1336"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Empty container inside a different one (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "VACANT",
    "annotation": null
@@ -424,9 +358,6 @@ window.CRYPTIC_PUZZLES["quiptic-1336"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Make official statement supporting insurance case (8)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "PROCLAIM",
    "annotation": null
@@ -441,9 +372,6 @@ window.CRYPTIC_PUZZLES["quiptic-1336"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Bring out party drug (legal) (6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "ELICIT",
    "annotation": null
@@ -458,9 +386,6 @@ window.CRYPTIC_PUZZLES["quiptic-1336"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Everything considered integral to criminal lawsuit (2,3)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -479,9 +404,6 @@ window.CRYPTIC_PUZZLES["quiptic-1336"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Gross Texan regularly teases family members (5-5)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -500,9 +422,6 @@ window.CRYPTIC_PUZZLES["quiptic-1336"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Provide help for a British sci-fi film (4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "ABET",
    "annotation": null
@@ -517,9 +436,6 @@ window.CRYPTIC_PUZZLES["quiptic-1336"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Branding activity in place for soft drink (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "SPRITE",
    "annotation": null
@@ -534,9 +450,6 @@ window.CRYPTIC_PUZZLES["quiptic-1336"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Leaderless gang was in charge on a corner (6)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "ANGLED",
    "annotation": null

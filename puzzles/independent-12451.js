@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12451"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Seizes one million quid (8)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "IMPOUNDS",
    "annotation": {
@@ -70,9 +67,6 @@ window.CRYPTIC_PUZZLES["independent-12451"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Policeman's tips for potential overdose (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "PLOD",
    "annotation": {
@@ -115,9 +109,6 @@ window.CRYPTIC_PUZZLES["independent-12451"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Athletic person climbing in tight army gear (3,3)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -163,9 +154,6 @@ window.CRYPTIC_PUZZLES["independent-12451"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Chaucerian character in Canterbury who sang Hallelujah, ultimately (4)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "YOGH",
    "annotation": {
@@ -205,9 +193,6 @@ window.CRYPTIC_PUZZLES["independent-12451"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Flush is source of water agitation (4-2-2)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     "-": [
      4,
@@ -253,9 +238,6 @@ window.CRYPTIC_PUZZLES["independent-12451"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Risk regressive revolution as German leader (10)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "CHANCELLOR",
    "annotation": {
@@ -307,9 +289,6 @@ window.CRYPTIC_PUZZLES["independent-12451"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Studied Shakespearean role at National Theatre (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "LEARNT",
    "annotation": {
@@ -349,9 +328,6 @@ window.CRYPTIC_PUZZLES["independent-12451"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Dog-sit for Spooner and give too many treats? (11)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {},
    "solution": "MOLLYCODDLE",
    "annotation": {
@@ -400,9 +376,6 @@ window.CRYPTIC_PUZZLES["independent-12451"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Airship left large current, free to go north then east (9)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {},
    "solution": "DIRIGIBLE",
    "annotation": {
@@ -469,9 +442,6 @@ window.CRYPTIC_PUZZLES["independent-12451"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Colour of uniform that man adopts (3)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "HUE",
    "annotation": {
@@ -518,9 +488,6 @@ window.CRYPTIC_PUZZLES["independent-12451"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Other ranks visibly embarrassed about group of knights (5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "ORDER",
    "annotation": {
@@ -569,9 +536,6 @@ window.CRYPTIC_PUZZLES["independent-12451"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "One often inflexible doctor reversing course to plug new inhaler (9)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "HARDLINER",
    "annotation": {
@@ -634,9 +598,6 @@ window.CRYPTIC_PUZZLES["independent-12451"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Electrician finally wiring to ground - disaster narrowly avoided (4,5)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -683,9 +644,6 @@ window.CRYPTIC_PUZZLES["independent-12451"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "E-mail edited to speechify better (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "AMELIORATE",
    "annotation": {
@@ -740,9 +698,6 @@ window.CRYPTIC_PUZZLES["independent-12451"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Put out sea-god's declaration exiling setter (7,2)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -789,9 +744,6 @@ window.CRYPTIC_PUZZLES["independent-12451"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Manifest completed before time (5)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "OVERT",
    "annotation": {
@@ -834,9 +786,6 @@ window.CRYPTIC_PUZZLES["independent-12451"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Increasingly rush through half-forgotten speeches at party (5,2)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -886,9 +835,6 @@ window.CRYPTIC_PUZZLES["independent-12451"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Give an account of Chester river, including top of stony bed (8)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "DESCRIBE",
    "annotation": {
@@ -940,9 +886,6 @@ window.CRYPTIC_PUZZLES["independent-12451"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Merseyside town, origin of grisly pirate (7)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "BOOTLEG",
    "annotation": {
@@ -985,9 +928,6 @@ window.CRYPTIC_PUZZLES["independent-12451"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Calm down, perhaps uplifted by signature expression of condolences (3,1,4)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -1050,9 +990,6 @@ window.CRYPTIC_PUZZLES["independent-12451"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Wrong answer written by teacher (5)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "AMISS",
    "annotation": {
@@ -1092,9 +1029,6 @@ window.CRYPTIC_PUZZLES["independent-12451"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Admission in court's beginning to crack criminal cases (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "ACCESS",
    "annotation": {
@@ -1149,9 +1083,6 @@ window.CRYPTIC_PUZZLES["independent-12451"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Become suspicious of cryptic master holding everything back (5,1,3)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     ",": [
      5,
@@ -1222,9 +1153,6 @@ window.CRYPTIC_PUZZLES["independent-12451"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Swimming pool inspires non-heterosexual desire (6)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "LIBIDO",
    "annotation": {
@@ -1268,9 +1196,6 @@ window.CRYPTIC_PUZZLES["independent-12451"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Round of game after pawn's lost by Charlie (9)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "CARTRIDGE",
    "annotation": {
@@ -1322,9 +1247,6 @@ window.CRYPTIC_PUZZLES["independent-12451"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Beautiful women not covered in fashion magazine (4)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "ELLE",
    "annotation": {
@@ -1364,9 +1286,6 @@ window.CRYPTIC_PUZZLES["independent-12451"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Lower visibility of marshland traps leader of expeditionary force (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "BEFOG",
    "annotation": {
@@ -1418,9 +1337,6 @@ window.CRYPTIC_PUZZLES["independent-12451"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Rapid foxtrot by topless performers (4)",
-   "group": [
-    "27-down"
-   ],
    "separatorLocations": {},
    "solution": "FAST",
    "annotation": {
@@ -1466,9 +1382,6 @@ window.CRYPTIC_PUZZLES["independent-12451"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Drunkard takes Coke product half-heartedly (3)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "SOT",
    "annotation": {
@@ -1508,9 +1421,6 @@ window.CRYPTIC_PUZZLES["independent-12451"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Commonwealth citizen accommodated in urban glade's high-rise (11)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "BANGLADESHI",
    "annotation": {

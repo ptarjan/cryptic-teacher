@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1847"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Office enjoys short meal quickly (9)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "POSTHASTE",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["indysunday-1847"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Never finishing, choose appropriate meal (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "PICNIC",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["indysunday-1847"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Shy type treating fellow winner like Mike Teavee? (9,6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      9
@@ -80,9 +71,6 @@ window.CRYPTIC_PUZZLES["indysunday-1847"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Very fine ventilation policy introduced by hospital (8)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "HAIRLINE",
    "annotation": null
@@ -97,9 +85,6 @@ window.CRYPTIC_PUZZLES["indysunday-1847"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Frisky agent holding hands? (9)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "SPRIGHTLY",
    "annotation": null
@@ -114,9 +99,6 @@ window.CRYPTIC_PUZZLES["indysunday-1847"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Tall bird among others on time (5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "EGRET",
    "annotation": null
@@ -131,9 +113,6 @@ window.CRYPTIC_PUZZLES["indysunday-1847"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Nut packers agreed to include high grade plant fibre (5)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "KAPOK",
    "annotation": null
@@ -148,9 +127,6 @@ window.CRYPTIC_PUZZLES["indysunday-1847"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Pure in faith, that woman bears heavy blows (6)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "KOSHER",
    "annotation": null
@@ -165,9 +141,6 @@ window.CRYPTIC_PUZZLES["indysunday-1847"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "High diver losing day in terrible career-ending flop (9,6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      9
@@ -186,9 +159,6 @@ window.CRYPTIC_PUZZLES["indysunday-1847"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "King with deer in sight shows years of education (3,5)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -207,9 +177,6 @@ window.CRYPTIC_PUZZLES["indysunday-1847"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Woman in Number 10 once, remembered primarily for bag? (7)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "CARRIER",
    "annotation": null
@@ -224,9 +191,6 @@ window.CRYPTIC_PUZZLES["indysunday-1847"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Fresh out of clothing may I ask for new coat? (7)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "RESPRAY",
    "annotation": null
@@ -241,9 +205,6 @@ window.CRYPTIC_PUZZLES["indysunday-1847"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Somewhere to stay during November (3)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "INN",
    "annotation": null
@@ -258,9 +219,6 @@ window.CRYPTIC_PUZZLES["indysunday-1847"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Less beefy women's crew on land (11)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "LIGHTWEIGHT",
    "annotation": null
@@ -275,9 +233,6 @@ window.CRYPTIC_PUZZLES["indysunday-1847"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Early Jesuit outfit an American soldier brought back (8)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "IGNATIUS",
    "annotation": null
@@ -292,9 +247,6 @@ window.CRYPTIC_PUZZLES["indysunday-1847"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Football team having gone up finished without improvement (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "UNAMENDED",
    "annotation": null
@@ -309,9 +261,6 @@ window.CRYPTIC_PUZZLES["indysunday-1847"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Honk in MG, taking the car outside (4)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "MING",
    "annotation": null
@@ -332,9 +281,6 @@ window.CRYPTIC_PUZZLES["indysunday-1847"] = /*JSON-START*/ {
      10
     ]
    ],
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "BARBICAN",
    "annotation": null
@@ -349,9 +295,6 @@ window.CRYPTIC_PUZZLES["indysunday-1847"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Some pressure building across stream, perhaps obstruction limiting current (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "MILLIBAR",
    "annotation": null
@@ -366,9 +309,6 @@ window.CRYPTIC_PUZZLES["indysunday-1847"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Simple liver in water left in oven (4)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "ALGA",
    "annotation": null
@@ -383,9 +323,6 @@ window.CRYPTIC_PUZZLES["indysunday-1847"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Man upset with deity destroying stuff (8)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "DYNAMITE",
    "annotation": null
@@ -400,9 +337,6 @@ window.CRYPTIC_PUZZLES["indysunday-1847"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Ill guy trembles in a bad way (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "UGLILY",
    "annotation": null
@@ -417,9 +351,6 @@ window.CRYPTIC_PUZZLES["indysunday-1847"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Refuse some fake generosity, returning it (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "RENEGE",
    "annotation": null
@@ -434,9 +365,6 @@ window.CRYPTIC_PUZZLES["indysunday-1847"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Fish follows Brighton swimming master (5,2,4)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     ",": [
      5,
@@ -456,9 +384,6 @@ window.CRYPTIC_PUZZLES["indysunday-1847"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Brown ring lifted in unpleasant job (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "OCHRE",
    "annotation": null
@@ -473,9 +398,6 @@ window.CRYPTIC_PUZZLES["indysunday-1847"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Mischievous goddess visiting Earth (3)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "ATE",
    "annotation": null
@@ -490,9 +412,6 @@ window.CRYPTIC_PUZZLES["indysunday-1847"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Pass food on its way to being frozen? (7)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "COLDISH",
    "annotation": null
@@ -507,9 +426,6 @@ window.CRYPTIC_PUZZLES["indysunday-1847"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Returning European sent a telegram, having left late in fiasco (7)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "DEBACLE",
    "annotation": null
@@ -524,9 +440,6 @@ window.CRYPTIC_PUZZLES["indysunday-1847"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Smart abstaining in negative vote (5)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "NATTY",
    "annotation": null
@@ -541,9 +454,6 @@ window.CRYPTIC_PUZZLES["indysunday-1847"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Nun cared about English patient suffering (9)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "ENDURANCE",
    "annotation": null

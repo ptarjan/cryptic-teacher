@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1350"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Informed this bit of crossword dessert should be returned (5-2)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -46,9 +43,6 @@ window.CRYPTIC_PUZZLES["quiptic-1350"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Restrained speed after crashing at the outset (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "CHASTE",
    "annotation": null
@@ -63,9 +57,6 @@ window.CRYPTIC_PUZZLES["quiptic-1350"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Seduced academic embraced by a Parisienne (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "UNDONE",
    "annotation": null
@@ -80,9 +71,6 @@ window.CRYPTIC_PUZZLES["quiptic-1350"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Curves and dots decorated book jackets (4,6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -101,9 +89,6 @@ window.CRYPTIC_PUZZLES["quiptic-1350"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Cannelloni, perhaps, and where it appears in the dictionary? (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "PASTA",
    "annotation": null
@@ -118,9 +103,6 @@ window.CRYPTIC_PUZZLES["quiptic-1350"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Following American, notice a nitpicker (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "FUSSPOT",
    "annotation": null
@@ -135,9 +117,6 @@ window.CRYPTIC_PUZZLES["quiptic-1350"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Like the Bee Gees fan later excited about origin of rock (9)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "FRATERNAL",
    "annotation": null
@@ -152,9 +131,6 @@ window.CRYPTIC_PUZZLES["quiptic-1350"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Some players I demand for team (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "SIDE",
    "annotation": null
@@ -169,9 +145,6 @@ window.CRYPTIC_PUZZLES["quiptic-1350"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Airborne soldier not bright, welcoming good example (8)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "PARADIGM",
    "annotation": null
@@ -186,9 +159,6 @@ window.CRYPTIC_PUZZLES["quiptic-1350"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Drone reverberating in your Biblical song of lamentation (8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "THRENODY",
    "annotation": null
@@ -203,9 +173,6 @@ window.CRYPTIC_PUZZLES["quiptic-1350"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Attaching a name of the French mountains (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "ANDES",
    "annotation": null
@@ -220,9 +187,6 @@ window.CRYPTIC_PUZZLES["quiptic-1350"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "One offers fake news: spacecraft appearing in series? (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "SLANDERER",
    "annotation": null
@@ -237,9 +201,6 @@ window.CRYPTIC_PUZZLES["quiptic-1350"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Drink ruined winter coat (5,5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -258,9 +219,6 @@ window.CRYPTIC_PUZZLES["quiptic-1350"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Have dinner, ignoring latest racket (3)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "DIN",
    "annotation": null
@@ -275,9 +233,6 @@ window.CRYPTIC_PUZZLES["quiptic-1350"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Prosecute criminal sequestering a very remote region (5,5)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -296,9 +251,6 @@ window.CRYPTIC_PUZZLES["quiptic-1350"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Treated too well, vile underdog will turn nasty (12)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "OVERINDULGED",
    "annotation": null
@@ -313,9 +265,6 @@ window.CRYPTIC_PUZZLES["quiptic-1350"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Tries to block genuine theatre preparation (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "REHEARSAL",
    "annotation": null
@@ -330,9 +279,6 @@ window.CRYPTIC_PUZZLES["quiptic-1350"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Mike in Ushant, possibly Northern fellow pursuing fox? (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "HUNTSMAN",
    "annotation": null
@@ -347,9 +293,6 @@ window.CRYPTIC_PUZZLES["quiptic-1350"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Notice study – not entirely stupid – as an extra item (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "ADDENDUM",
    "annotation": null
@@ -364,9 +307,6 @@ window.CRYPTIC_PUZZLES["quiptic-1350"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Led by, and steered, following West? Not impressed (12)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "UNDERWHELMED",
    "annotation": null
@@ -381,9 +321,6 @@ window.CRYPTIC_PUZZLES["quiptic-1350"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "The German’s receiving charge for cloth seller (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "DRAPER",
    "annotation": null
@@ -398,9 +335,6 @@ window.CRYPTIC_PUZZLES["quiptic-1350"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Rescue rock group crossing river (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "REDEEM",
    "annotation": null
@@ -415,9 +349,6 @@ window.CRYPTIC_PUZZLES["quiptic-1350"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Prison sentence eliminating male bond (3)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "TIE",
    "annotation": null
@@ -432,9 +363,6 @@ window.CRYPTIC_PUZZLES["quiptic-1350"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "A sister wildly tucking into dessert in cake shop (10)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "PATISSERIE",
    "annotation": null
@@ -449,9 +377,6 @@ window.CRYPTIC_PUZZLES["quiptic-1350"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "One pawn caught in trap? That’s not very competent (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "INEPT",
    "annotation": null
@@ -466,9 +391,6 @@ window.CRYPTIC_PUZZLES["quiptic-1350"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Insubstantial object, with bottom missing (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "THIN",
    "annotation": null
@@ -483,9 +405,6 @@ window.CRYPTIC_PUZZLES["quiptic-1350"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Steamed ahead? Steam ahead, dropping an article clumsily (4,5)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -504,9 +423,6 @@ window.CRYPTIC_PUZZLES["quiptic-1350"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Liberal politician getting stuck into beer (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "AMPLE",
    "annotation": null
@@ -521,9 +437,6 @@ window.CRYPTIC_PUZZLES["quiptic-1350"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Trivial pit running short with no aluminium around (7)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "NOMINAL",
    "annotation": null
@@ -538,9 +451,6 @@ window.CRYPTIC_PUZZLES["quiptic-1350"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Source of metal retained by those people in principle (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "THEOREM",
    "annotation": null

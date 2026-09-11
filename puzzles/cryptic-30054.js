@@ -24,9 +24,6 @@ window.CRYPTIC_PUZZLES["cryptic-30054"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Modified missile they compare (not literally) (7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "SIMILES",
    "annotation": {
@@ -63,9 +60,6 @@ window.CRYPTIC_PUZZLES["cryptic-30054"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Bias added to a line in personal kind of column (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "SPINAL",
    "annotation": {
@@ -113,9 +107,6 @@ window.CRYPTIC_PUZZLES["cryptic-30054"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Waist hit when batting – precisely (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "MIDDLE",
    "annotation": {
@@ -149,9 +140,6 @@ window.CRYPTIC_PUZZLES["cryptic-30054"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Heard you and I ruled tax out of order, had it very easy (10)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "LUXURIATED",
    "annotation": {
@@ -196,9 +184,6 @@ window.CRYPTIC_PUZZLES["cryptic-30054"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Tool that’s sharp but may be said to be blunt (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "SPADE",
    "annotation": {
@@ -229,9 +214,6 @@ window.CRYPTIC_PUZZLES["cryptic-30054"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "For Americans, field that’s extremely hard (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "DIAMOND",
    "annotation": {
@@ -268,9 +250,6 @@ window.CRYPTIC_PUZZLES["cryptic-30054"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Firing careless shot might result in this (9)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "DISMISSAL",
    "annotation": {
@@ -304,9 +283,6 @@ window.CRYPTIC_PUZZLES["cryptic-30054"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Perfectly performed in most social classes (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "ACED",
    "annotation": {
@@ -349,9 +325,6 @@ window.CRYPTIC_PUZZLES["cryptic-30054"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Covered as a learner, I drove erratically (8)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "OVERLAID",
    "annotation": {
@@ -396,9 +369,6 @@ window.CRYPTIC_PUZZLES["cryptic-30054"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "A coach secured by side in disarray? Correct (8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "DISABUSE",
    "annotation": {
@@ -456,9 +426,6 @@ window.CRYPTIC_PUZZLES["cryptic-30054"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Last part of book, perhaps, some find exciting (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "INDEX",
    "annotation": {
@@ -492,9 +459,6 @@ window.CRYPTIC_PUZZLES["cryptic-30054"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Respondents, as can be seen, covering all points about right (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "ANSWERERS",
    "annotation": {
@@ -549,9 +513,6 @@ window.CRYPTIC_PUZZLES["cryptic-30054"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Recalling upset about drug producing bad reaction (10)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "ALLERGENIC",
    "annotation": {
@@ -595,9 +556,6 @@ window.CRYPTIC_PUZZLES["cryptic-30054"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Arsenal’s example of this weapon (4)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "CLUB",
    "annotation": {
@@ -631,9 +589,6 @@ window.CRYPTIC_PUZZLES["cryptic-30054"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "It takes several horses to move it inches? (4-2-4)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     "-": [
      4,
@@ -669,9 +624,6 @@ window.CRYPTIC_PUZZLES["cryptic-30054"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "They help thieves steal handbags etc. (11)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "ACCESSORIES",
    "annotation": {
@@ -705,9 +657,6 @@ window.CRYPTIC_PUZZLES["cryptic-30054"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Complicity in conflict, having change of heart (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "COLLUSION",
    "annotation": {
@@ -754,9 +703,6 @@ window.CRYPTIC_PUZZLES["cryptic-30054"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Being promoted on board – for French, that upset good number (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "QUEENING",
    "annotation": {
@@ -810,9 +756,6 @@ window.CRYPTIC_PUZZLES["cryptic-30054"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Faction supporting gang in area close to fighting (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "RINGSIDE",
    "annotation": {
@@ -858,9 +801,6 @@ window.CRYPTIC_PUZZLES["cryptic-30054"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Like life as simple as possible? I’ll run a clue that’s convoluted (11)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "UNICELLULAR",
    "annotation": {
@@ -900,9 +840,6 @@ window.CRYPTIC_PUZZLES["cryptic-30054"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Short rhyme for it will, when spoken quickly (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "LITTLE",
    "annotation": {
@@ -939,9 +876,6 @@ window.CRYPTIC_PUZZLES["cryptic-30054"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Emoji used by wooer in suit (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "HEARTS",
    "annotation": {
@@ -979,9 +913,6 @@ window.CRYPTIC_PUZZLES["cryptic-30054"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Soccer goalkeeper goofed thus (once in each half) (4)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "ERGO",
    "annotation": {
@@ -1020,9 +951,6 @@ window.CRYPTIC_PUZZLES["cryptic-30054"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Volume in English about an isolated regime (10)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "QUARANTINE",
    "annotation": {
@@ -1078,9 +1006,6 @@ window.CRYPTIC_PUZZLES["cryptic-30054"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Once more restrict speech, for example in newspaper (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "REGAG",
    "annotation": {
@@ -1124,9 +1049,6 @@ window.CRYPTIC_PUZZLES["cryptic-30054"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Device for lifting injured hill-climber (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "JACK",
    "annotation": {
@@ -1160,9 +1082,6 @@ window.CRYPTIC_PUZZLES["cryptic-30054"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Following one action of union, embracing it (9)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "IMITATING",
    "annotation": {
@@ -1212,9 +1131,6 @@ window.CRYPTIC_PUZZLES["cryptic-30054"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Succeeding with a more stern position? (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "AFTER",
    "annotation": {
@@ -1255,9 +1171,6 @@ window.CRYPTIC_PUZZLES["cryptic-30054"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Last of aging female’s family that may be prepared to help in a pickle (7)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "GHERKIN",
    "annotation": {
@@ -1309,9 +1222,6 @@ window.CRYPTIC_PUZZLES["cryptic-30054"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Beautiful woman performs without love in theatre part (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "GODDESS",
    "annotation": {

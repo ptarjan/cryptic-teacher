@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29987"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Hunts persistently? (7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "FORAGES",
    "annotation": {
@@ -66,9 +63,6 @@ window.CRYPTIC_PUZZLES["cryptic-29987"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Inject vitamins into skin that’s loose (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "FLABBY",
    "annotation": {
@@ -118,9 +112,6 @@ window.CRYPTIC_PUZZLES["cryptic-29987"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Published party minute – that’s irregular (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "RANDOM",
    "annotation": {
@@ -168,9 +159,6 @@ window.CRYPTIC_PUZZLES["cryptic-29987"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Dull count showing some capacity for thinking (4,6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -216,9 +204,6 @@ window.CRYPTIC_PUZZLES["cryptic-29987"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Stand-in accepts credit for clean-up (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "SCRUB",
    "annotation": {
@@ -266,9 +251,6 @@ window.CRYPTIC_PUZZLES["cryptic-29987"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Be careful with cat that’s gone wild (5,2)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -318,9 +300,6 @@ window.CRYPTIC_PUZZLES["cryptic-29987"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Game played mostly by those out of their depth (5,4)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -356,9 +335,6 @@ window.CRYPTIC_PUZZLES["cryptic-29987"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Starts to trudge around coffee outlet providing food (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "TACO",
    "annotation": {
@@ -402,9 +378,6 @@ window.CRYPTIC_PUZZLES["cryptic-29987"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Afghan governor hides suffering in the morning? (8)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "HANGOVER",
    "annotation": {
@@ -439,9 +412,6 @@ window.CRYPTIC_PUZZLES["cryptic-29987"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Scores left during games (8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "TWENTIES",
    "annotation": {
@@ -486,9 +456,6 @@ window.CRYPTIC_PUZZLES["cryptic-29987"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Treatment centre hosted by Pamela Anderson (1,3,1)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      1,
@@ -528,9 +495,6 @@ window.CRYPTIC_PUZZLES["cryptic-29987"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Crete: nice, surprisingly – that’s not saying much (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "RETICENCE",
    "annotation": {
@@ -577,9 +541,6 @@ window.CRYPTIC_PUZZLES["cryptic-29987"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Literary set gets flowers put in the ground (10)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "BLOOMSBURY",
    "annotation": {
@@ -621,9 +582,6 @@ window.CRYPTIC_PUZZLES["cryptic-29987"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Wolf down sandwich with duck filling (4)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "BOLT",
    "annotation": {
@@ -671,9 +629,6 @@ window.CRYPTIC_PUZZLES["cryptic-29987"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Bananas perhaps too often what’s misplaced by grocers? (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "APOSTROPHE",
    "annotation": {
@@ -716,9 +671,6 @@ window.CRYPTIC_PUZZLES["cryptic-29987"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Engineer restores path; it’s very high above us (12)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "STRATOSPHERE",
    "annotation": {
@@ -765,9 +717,6 @@ window.CRYPTIC_PUZZLES["cryptic-29987"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Top guy provides upset pal with meat and drink (5,4)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -832,9 +781,6 @@ window.CRYPTIC_PUZZLES["cryptic-29987"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Final word, effective and quite open (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "AMENABLE",
    "annotation": {
@@ -876,9 +822,6 @@ window.CRYPTIC_PUZZLES["cryptic-29987"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Vicar delving into religious sins of the past (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "PREVIOUS",
    "annotation": {
@@ -923,9 +866,6 @@ window.CRYPTIC_PUZZLES["cryptic-29987"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Time-poor French author misinterpreted as nostalgic? (6,6)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -961,9 +901,6 @@ window.CRYPTIC_PUZZLES["cryptic-29987"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Open fire! (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "LAUNCH",
    "annotation": {
@@ -999,9 +936,6 @@ window.CRYPTIC_PUZZLES["cryptic-29987"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Violent gangster endlessly engages in evil? It’s almost guaranteed (4-2)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -1052,9 +986,6 @@ window.CRYPTIC_PUZZLES["cryptic-29987"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Where religious crowd congregate to see villain beheaded (4)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "NAVE",
    "annotation": {
@@ -1095,9 +1026,6 @@ window.CRYPTIC_PUZZLES["cryptic-29987"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "It’s more obvious having race later is nonsense (10)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "BALDERDASH",
    "annotation": {
@@ -1146,9 +1074,6 @@ window.CRYPTIC_PUZZLES["cryptic-29987"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Dead, for example, like this old artist (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "DEGAS",
    "annotation": {
@@ -1196,9 +1121,6 @@ window.CRYPTIC_PUZZLES["cryptic-29987"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Stitched up in every direction (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "SEWN",
    "annotation": {
@@ -1252,9 +1174,6 @@ window.CRYPTIC_PUZZLES["cryptic-29987"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Carnage regularly follows elderly American – and it returns repeatedly (9)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "BOOMERANG",
    "annotation": {
@@ -1303,9 +1222,6 @@ window.CRYPTIC_PUZZLES["cryptic-29987"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Keep in touch, having stabled horse (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "PINTO",
    "annotation": {
@@ -1343,9 +1259,6 @@ window.CRYPTIC_PUZZLES["cryptic-29987"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Pure quality of German city church (7)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "ESSENCE",
    "annotation": {
@@ -1387,9 +1300,6 @@ window.CRYPTIC_PUZZLES["cryptic-29987"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Name of female acquired on re-marriage? (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "STEPHEN",
    "annotation": {

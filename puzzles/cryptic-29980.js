@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29980"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "First of the chickens moulting as programmes finishing once (7,4)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -78,9 +75,6 @@ window.CRYPTIC_PUZZLES["cryptic-29980"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Finish one’s sentence and heed driving instructor (4,2,1,4,4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -125,9 +119,6 @@ window.CRYPTIC_PUZZLES["cryptic-29980"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Invigorating air in Gozo? Never! (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "OZONE",
    "annotation": {
@@ -162,9 +153,6 @@ window.CRYPTIC_PUZZLES["cryptic-29980"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Sick notes lead to notoriety (3,4)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -209,9 +197,6 @@ window.CRYPTIC_PUZZLES["cryptic-29980"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Band’s origin (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "GENESIS",
    "annotation": {
@@ -249,9 +234,6 @@ window.CRYPTIC_PUZZLES["cryptic-29980"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Islander’s love of pastoral life lacks initial attractiveness (8)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "ORCADIAN",
    "annotation": {
@@ -305,9 +287,6 @@ window.CRYPTIC_PUZZLES["cryptic-29980"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Windies won – Kent gets caught out, when the last man is batting (4,7,4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -358,9 +337,6 @@ window.CRYPTIC_PUZZLES["cryptic-29980"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Letter to boy questionable help getting Botham as US citizen (13)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "PHILADELPHIAN",
    "annotation": {
@@ -427,9 +403,6 @@ window.CRYPTIC_PUZZLES["cryptic-29980"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "It’s deteriorated a lot, sadly wasn’t over here (5,4,4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      5,
@@ -472,9 +445,6 @@ window.CRYPTIC_PUZZLES["cryptic-29980"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Poor actor’s part as expressed on picnic menu (3,4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -527,9 +497,6 @@ window.CRYPTIC_PUZZLES["cryptic-29980"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Bottle party? (2,3,2)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -572,9 +539,6 @@ window.CRYPTIC_PUZZLES["cryptic-29980"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Martin’s followers reform most of unearthly beliefs ultimately (9)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "LUTHERANS",
    "annotation": {
@@ -621,9 +585,6 @@ window.CRYPTIC_PUZZLES["cryptic-29980"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "They’re not here, but are in Sussex and Hampshire (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "DOWNS",
    "annotation": {
@@ -661,9 +622,6 @@ window.CRYPTIC_PUZZLES["cryptic-29980"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "College official – idle, vain, absent now and again (4)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "DEAN",
    "annotation": {
@@ -701,9 +659,6 @@ window.CRYPTIC_PUZZLES["cryptic-29980"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Welsh girl about to be cuddled by cute pedigree pet (7,3)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -758,9 +713,6 @@ window.CRYPTIC_PUZZLES["cryptic-29980"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "F. Gump actor cuts toe, because of … ? (6,2)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -808,9 +760,6 @@ window.CRYPTIC_PUZZLES["cryptic-29980"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Rude hallo I might produce? (4-6)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -852,9 +801,6 @@ window.CRYPTIC_PUZZLES["cryptic-29980"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Sharon, say, is PM, losing head (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "ISRAELI",
    "annotation": {
@@ -900,9 +846,6 @@ window.CRYPTIC_PUZZLES["cryptic-29980"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Land collapsing into sea (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "ESTONIA",
    "annotation": {
@@ -940,9 +883,6 @@ window.CRYPTIC_PUZZLES["cryptic-29980"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Regularly – often – tea is cheese (4)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "FETA",
    "annotation": {
@@ -983,9 +923,6 @@ window.CRYPTIC_PUZZLES["cryptic-29980"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Beauty captured by the lens (5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "HELEN",
    "annotation": {
@@ -1020,9 +957,6 @@ window.CRYPTIC_PUZZLES["cryptic-29980"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Trousers, lost at the start, eventually turned up (9)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "RETROUSSE",
    "annotation": {
@@ -1067,9 +1001,6 @@ window.CRYPTIC_PUZZLES["cryptic-29980"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Orchids, originally unaltered, an ikebana requirement? (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "OASIS",
    "annotation": {
@@ -1113,9 +1044,6 @@ window.CRYPTIC_PUZZLES["cryptic-29980"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Tastier dancing from this performer? (7)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "ARTISTE",
    "annotation": {
@@ -1156,9 +1084,6 @@ window.CRYPTIC_PUZZLES["cryptic-29980"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Duck. On reflection, 20! (2,5)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -1212,9 +1137,6 @@ window.CRYPTIC_PUZZLES["cryptic-29980"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "NT character making drop-goals in error (8,3)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      8

@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Where I see my Reds playing? (10)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "MERSEYSIDE",
    "annotation": {
@@ -64,9 +61,6 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Work together well, as Everyman quiet (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "MESH",
    "annotation": {
@@ -106,9 +100,6 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Piglet's friend, we hear, is basis for various sauces (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "ROUX",
    "annotation": {
@@ -146,9 +137,6 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Beer, average (but free): I'm keen (5,6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -190,9 +178,6 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Output of lawmaker investing time in public art (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "STATUTE",
    "annotation": {
@@ -239,9 +224,6 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Compadres denied bottles somewhere on the Elbe (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "DRESDEN",
    "annotation": {
@@ -275,9 +257,6 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Man-eater correspondingly retires (4)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "OGRE",
    "annotation": {
@@ -326,9 +305,6 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
      1
     ]
    ],
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -363,9 +339,6 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Archaeopteryx etc: their diet includes worms (5,5)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -403,9 +376,6 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Unedified attitude of our gross primate on board (4,6)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -468,9 +438,6 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Item that sounds like prune - or another fruit (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "PAIR",
    "annotation": {
@@ -511,9 +478,6 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Occasion celebrating pork mince - yet again? (9,3)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      9
@@ -572,9 +536,6 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
      2
     ]
    ],
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -615,9 +576,6 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Predictor's remiss: that tells you something (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "DESCRIPTOR",
    "annotation": {
@@ -654,9 +612,6 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Emphasise cricket match is trial demanding endurance (6,4)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -700,9 +655,6 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Kiss in cemetery, naked, dancing: it's a bit much (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "EXTREME",
    "annotation": {
@@ -749,9 +701,6 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Flipping interminable, the writer wearies Scotsman somewhere in Kenya (7)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "NAIROBI",
    "annotation": {
@@ -808,9 +757,6 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Butcher, vilified, hides leaves (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "CHERVIL",
    "annotation": {
@@ -844,9 +790,6 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Monarch and family switching sides to gain allegiance (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "LOYALTY",
    "annotation": {
@@ -892,9 +835,6 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Highway robber's sturdy as well as round: right! (7)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "BRIGAND",
    "annotation": {
@@ -944,9 +884,6 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Helpful youngster baked something that's chewy (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "BROWNIE",
    "annotation": {
@@ -980,9 +917,6 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Or is my story a shambles, sadly? (2,5,2,3)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -1025,9 +959,6 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Yes, Russian getting UK newspaper is ridiculous (4)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "DAFT",
    "annotation": {
@@ -1067,9 +998,6 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Moneyed European's resplendent carrier, primarily? (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "MERC",
    "annotation": {
@@ -1109,9 +1037,6 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Like shoelaces needing extra time (4)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "TIED",
    "annotation": {
@@ -1145,9 +1070,6 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Fresh start; military dummies behind schedule (5,5)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -1188,9 +1110,6 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Spoil a list of duties (4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "ROTA",
    "annotation": {
@@ -1227,9 +1146,6 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Britain restrained by unwise reticency regarding futuristic tech (10)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "CYBERNETIC",
    "annotation": {

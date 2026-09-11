@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1341"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Particular way of thinking cares about film alien (7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "MINDSET",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["quiptic-1341"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Frightening horse seen around hansom (7)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "MACABRE",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["quiptic-1341"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Fine distinctions about island pests (9)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "NUISANCES",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["quiptic-1341"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Dismissal keeping 50 without a lot of work? (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "SLACK",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["quiptic-1341"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Hide art from this artist? (9)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "TATTOOIST",
    "annotation": null
@@ -110,9 +95,6 @@ window.CRYPTIC_PUZZLES["quiptic-1341"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Giant pig concealing rear end when reversing (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "GOLIATH",
    "annotation": null
@@ -127,9 +109,6 @@ window.CRYPTIC_PUZZLES["quiptic-1341"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Look astonished about source of ripe fruit (5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "GRAPE",
    "annotation": null
@@ -144,9 +123,6 @@ window.CRYPTIC_PUZZLES["quiptic-1341"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Delicate garden item – indication of a bright idea? (5,4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -165,9 +141,6 @@ window.CRYPTIC_PUZZLES["quiptic-1341"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "American tucking into a drink one more time (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "AGAIN",
    "annotation": null
@@ -182,9 +155,6 @@ window.CRYPTIC_PUZZLES["quiptic-1341"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Mostly horrible time in refuge (7)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "HIDEOUT",
    "annotation": null
@@ -199,9 +169,6 @@ window.CRYPTIC_PUZZLES["quiptic-1341"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Major country’s machinations partly revealed (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "CHINA",
    "annotation": null
@@ -216,9 +183,6 @@ window.CRYPTIC_PUZZLES["quiptic-1341"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Rip apart good ground? It produces signs of sadness (4,5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -237,9 +201,6 @@ window.CRYPTIC_PUZZLES["quiptic-1341"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Support accepting source of light? Difficulty – this emits no light (5,4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -258,9 +219,6 @@ window.CRYPTIC_PUZZLES["quiptic-1341"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Beat and energy in dance (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "TANGO",
    "annotation": null
@@ -275,9 +233,6 @@ window.CRYPTIC_PUZZLES["quiptic-1341"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Fish: catching 90, do well (5)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "EXCEL",
    "annotation": null
@@ -292,9 +247,6 @@ window.CRYPTIC_PUZZLES["quiptic-1341"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Stupidest, nevertheless, in America (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "LEASTWISE",
    "annotation": null
@@ -309,9 +261,6 @@ window.CRYPTIC_PUZZLES["quiptic-1341"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "I’m a puritan, not heartless, but unwise (9)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "IMPRUDENT",
    "annotation": null
@@ -326,9 +275,6 @@ window.CRYPTIC_PUZZLES["quiptic-1341"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Leader’s power given to citizen (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "PRESIDENT",
    "annotation": null
@@ -343,9 +289,6 @@ window.CRYPTIC_PUZZLES["quiptic-1341"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Eliminate idea and react strangely (9)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "ERADICATE",
    "annotation": null
@@ -360,9 +303,6 @@ window.CRYPTIC_PUZZLES["quiptic-1341"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Take apart battered tin medals (9)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "DISMANTLE",
    "annotation": null
@@ -377,9 +317,6 @@ window.CRYPTIC_PUZZLES["quiptic-1341"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Seemly behaviour heading off public meeting after last month (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "DECORUM",
    "annotation": null
@@ -394,9 +331,6 @@ window.CRYPTIC_PUZZLES["quiptic-1341"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Unexciting line penned by group (5)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "BLAND",
    "annotation": null
@@ -411,9 +345,6 @@ window.CRYPTIC_PUZZLES["quiptic-1341"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Ruin of the French city of antiquity (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "DESTROY",
    "annotation": null
@@ -428,9 +359,6 @@ window.CRYPTIC_PUZZLES["quiptic-1341"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Wagon carrying a measure of gold (5)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "CARAT",
    "annotation": null
@@ -445,9 +373,6 @@ window.CRYPTIC_PUZZLES["quiptic-1341"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Turn away and show astonishment about start of play (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "REPEL",
    "annotation": null
@@ -462,9 +387,6 @@ window.CRYPTIC_PUZZLES["quiptic-1341"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Formal sign in US elections (9)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "PRIMARIES",
    "annotation": null
@@ -479,9 +401,6 @@ window.CRYPTIC_PUZZLES["quiptic-1341"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Gospel character I omitted in part of service (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "PLATE",
    "annotation": null
@@ -496,9 +415,6 @@ window.CRYPTIC_PUZZLES["quiptic-1341"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "A farm crop is source of much growth (5)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "ACORN",
    "annotation": null
@@ -513,9 +429,6 @@ window.CRYPTIC_PUZZLES["quiptic-1341"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Copy broadcast of later epic (9)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "REPLICATE",
    "annotation": null
@@ -530,9 +443,6 @@ window.CRYPTIC_PUZZLES["quiptic-1341"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Broadcasting extract from Siberian orchestra in reverse (2,3)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -551,9 +461,6 @@ window.CRYPTIC_PUZZLES["quiptic-1341"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Island resident, a man, holding group back (7)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "MALTESE",
    "annotation": null
@@ -568,9 +475,6 @@ window.CRYPTIC_PUZZLES["quiptic-1341"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Leather producer woman featured in essay (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "TANNERY",
    "annotation": null

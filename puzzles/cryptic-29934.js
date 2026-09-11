@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29934"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Scottish symbols left out in ironic pieces (7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "SATIRES",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["cryptic-29934"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "First to snatch key amid the rioting shows sneakiness (7)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "STEALTH",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["cryptic-29934"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Leaves magistrates imprisoning Rector for drinking sessions (3,6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -80,9 +71,6 @@ window.CRYPTIC_PUZZLES["cryptic-29934"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Perhaps Vaughan Williams recording receiving cheer? On the contrary (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "RALPH",
    "annotation": null
@@ -97,9 +85,6 @@ window.CRYPTIC_PUZZLES["cryptic-29934"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Acrobatic toy was high – about time? That is about time (5,4)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -118,9 +103,6 @@ window.CRYPTIC_PUZZLES["cryptic-29934"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Conservative, challenged, losing head, snickered (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "CACKLED",
    "annotation": null
@@ -135,9 +117,6 @@ window.CRYPTIC_PUZZLES["cryptic-29934"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Lead meeting to ditch hot, old African city (5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "CAIRO",
    "annotation": null
@@ -152,9 +131,6 @@ window.CRYPTIC_PUZZLES["cryptic-29934"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Queen relocated to palace, embracing King (9)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "CLEOPATRA",
    "annotation": null
@@ -169,9 +145,6 @@ window.CRYPTIC_PUZZLES["cryptic-29934"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Ranch equipment to remain fresh, trimmed in this way (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "LASSO",
    "annotation": null
@@ -186,9 +159,6 @@ window.CRYPTIC_PUZZLES["cryptic-29934"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Unhappy party line about distribution of fuel (7)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "DOLEFUL",
    "annotation": null
@@ -203,9 +173,6 @@ window.CRYPTIC_PUZZLES["cryptic-29934"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "I will block rejection of unconvincing message (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "EMAIL",
    "annotation": null
@@ -220,9 +187,6 @@ window.CRYPTIC_PUZZLES["cryptic-29934"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Film company runs a live broadcast (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "UNIVERSAL",
    "annotation": null
@@ -237,9 +201,6 @@ window.CRYPTIC_PUZZLES["cryptic-29934"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Musical piece: singer tailing off in front of non-mainstream group (9)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "LARGHETTO",
    "annotation": null
@@ -254,9 +215,6 @@ window.CRYPTIC_PUZZLES["cryptic-29934"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Possible result of investigation: academic with double character (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "PROOF",
    "annotation": null
@@ -271,9 +229,6 @@ window.CRYPTIC_PUZZLES["cryptic-29934"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Keep a big audience, say, on the radio (5)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "HOARD",
    "annotation": null
@@ -288,9 +243,6 @@ window.CRYPTIC_PUZZLES["cryptic-29934"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Air support picked up one’s identification (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "DIAGNOSIS",
    "annotation": null
@@ -305,9 +257,6 @@ window.CRYPTIC_PUZZLES["cryptic-29934"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Impression received by two clubs almost entirely the same (9)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "IDENTICAL",
    "annotation": null
@@ -322,9 +271,6 @@ window.CRYPTIC_PUZZLES["cryptic-29934"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "A source of wealth? It’s sick, without question, getting surprised comment about individual (4,5)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -343,9 +289,6 @@ window.CRYPTIC_PUZZLES["cryptic-29934"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Person in legal affair getting tense, in a stew (9)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "CASSOULET",
    "annotation": null
@@ -360,9 +303,6 @@ window.CRYPTIC_PUZZLES["cryptic-29934"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Spanish percussion and Scottish rock in Lloyd Webber musical (9)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "CASTANETS",
    "annotation": null
@@ -377,9 +317,6 @@ window.CRYPTIC_PUZZLES["cryptic-29934"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Painstaking official probing birth membrane (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "CAREFUL",
    "annotation": null
@@ -394,9 +331,6 @@ window.CRYPTIC_PUZZLES["cryptic-29934"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Energy in assistant is something useful (5)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "ASSET",
    "annotation": null
@@ -411,9 +345,6 @@ window.CRYPTIC_PUZZLES["cryptic-29934"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Youngster supporting viewpoint is distraught (5,2)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -432,9 +363,6 @@ window.CRYPTIC_PUZZLES["cryptic-29934"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Continue to split Yorkshire city (5)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "RIPON",
    "annotation": null
@@ -449,9 +377,6 @@ window.CRYPTIC_PUZZLES["cryptic-29934"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Expressionless when absorbing racy picture (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "PHOTO",
    "annotation": null
@@ -466,9 +391,6 @@ window.CRYPTIC_PUZZLES["cryptic-29934"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Mike capturing dismissive sound after company’s funny scenes here (5,4)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -487,9 +409,6 @@ window.CRYPTIC_PUZZLES["cryptic-29934"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Engrave Harold’s initial in piece of luggage (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "CHASE",
    "annotation": null
@@ -504,9 +423,6 @@ window.CRYPTIC_PUZZLES["cryptic-29934"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Pessimist in Surrey finally turned up, blocking County Council (5)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "CYNIC",
    "annotation": null
@@ -521,9 +437,6 @@ window.CRYPTIC_PUZZLES["cryptic-29934"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Fellow sadly wrong about spring as source of amphibians (9)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "FROGSPAWN",
    "annotation": null
@@ -538,9 +451,6 @@ window.CRYPTIC_PUZZLES["cryptic-29934"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Invalidates lines in newspaper after backlash? (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "NULLS",
    "annotation": null
@@ -555,9 +465,6 @@ window.CRYPTIC_PUZZLES["cryptic-29934"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Quick scan: beauty, grace and allure at last (4-3)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -576,9 +483,6 @@ window.CRYPTIC_PUZZLES["cryptic-29934"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Recalled vote against including University guy in part of Mexican trip (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "YUCATAN",
    "annotation": null

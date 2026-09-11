@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30028"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Quins getting slaughtered reportedly in this game format (4,1,4)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -80,9 +77,6 @@ window.CRYPTIC_PUZZLES["cryptic-30028"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Aim is to shrink Fort Custer by half (5)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "FOCUS",
    "annotation": {
@@ -131,9 +125,6 @@ window.CRYPTIC_PUZZLES["cryptic-30028"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Block clergyman over argument (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "VERBALS",
    "annotation": {
@@ -184,9 +175,6 @@ window.CRYPTIC_PUZZLES["cryptic-30028"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Common direction of travel after they open border fronts (1,2,1)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      1,
@@ -246,9 +234,6 @@ window.CRYPTIC_PUZZLES["cryptic-30028"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Thing that makes loving couple … (4)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "ITEM",
    "annotation": {
@@ -286,9 +271,6 @@ window.CRYPTIC_PUZZLES["cryptic-30028"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "… irritated by indolent author (4,6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -330,9 +312,6 @@ window.CRYPTIC_PUZZLES["cryptic-30028"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Take apart resistance with very little money raised (3,2)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -389,9 +368,6 @@ window.CRYPTIC_PUZZLES["cryptic-30028"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Got up coloured with optimism (4-6)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -434,9 +410,6 @@ window.CRYPTIC_PUZZLES["cryptic-30028"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "One paid on channel to provide content (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "PRODUCT",
    "annotation": {
@@ -478,9 +451,6 @@ window.CRYPTIC_PUZZLES["cryptic-30028"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Issue dispatch ASAP (4-5)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -522,9 +492,6 @@ window.CRYPTIC_PUZZLES["cryptic-30028"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Transport doctor secures undertaking to show damaging output (6,9)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -582,9 +549,6 @@ window.CRYPTIC_PUZZLES["cryptic-30028"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Muck about in street (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "SCAT",
    "annotation": {
@@ -629,9 +593,6 @@ window.CRYPTIC_PUZZLES["cryptic-30028"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Casting chum bait overboard? (1,3,4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      1,
@@ -674,9 +635,6 @@ window.CRYPTIC_PUZZLES["cryptic-30028"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Put off recording what we’re living though (10)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {},
    "solution": "DISCOURAGE",
    "annotation": {
@@ -715,9 +673,6 @@ window.CRYPTIC_PUZZLES["cryptic-30028"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "British agent satisfied capturing vessel – something that intimidates governments! (4,6)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -772,9 +727,6 @@ window.CRYPTIC_PUZZLES["cryptic-30028"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Examine current wealth declaration that’s provided in court (9)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "TESTIMONY",
    "annotation": {
@@ -819,9 +771,6 @@ window.CRYPTIC_PUZZLES["cryptic-30028"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "America sticks poor material in papers (3,6)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -872,9 +821,6 @@ window.CRYPTIC_PUZZLES["cryptic-30028"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Resolved to return short communications (5)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "NOTES",
    "annotation": {
@@ -921,9 +867,6 @@ window.CRYPTIC_PUZZLES["cryptic-30028"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Traditional name dropped – it’s a matter of principle (5)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "ETHIC",
    "annotation": {
@@ -969,9 +912,6 @@ window.CRYPTIC_PUZZLES["cryptic-30028"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "They’ll come into estate carrying 50% of feed for livestock (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "HEIFERS",
    "annotation": {
@@ -1021,9 +961,6 @@ window.CRYPTIC_PUZZLES["cryptic-30028"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Made clear: hero moved improperly (5,4)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -1065,9 +1002,6 @@ window.CRYPTIC_PUZZLES["cryptic-30028"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Beat in a gunfight with banned move? (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "OUTDRAW",
    "annotation": {
@@ -1108,9 +1042,6 @@ window.CRYPTIC_PUZZLES["cryptic-30028"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Enquiry identifies food included in sample (8)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "TRIBUNAL",
    "annotation": {
@@ -1158,9 +1089,6 @@ window.CRYPTIC_PUZZLES["cryptic-30028"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Retaliation involves the others (2,2)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -1199,9 +1127,6 @@ window.CRYPTIC_PUZZLES["cryptic-30028"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Sort of early film (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "LAYER",
    "annotation": {
@@ -1239,9 +1164,6 @@ window.CRYPTIC_PUZZLES["cryptic-30028"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Occasional infusion is required on that basis (2,2)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -1286,9 +1208,6 @@ window.CRYPTIC_PUZZLES["cryptic-30028"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Simple form of life spotted in spiral galaxy (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "ALGA",
    "annotation": {
@@ -1323,9 +1242,6 @@ window.CRYPTIC_PUZZLES["cryptic-30028"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Terribly fat York bachelor the source of hot stuff (3,4,2,1,5)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -1370,9 +1286,6 @@ window.CRYPTIC_PUZZLES["cryptic-30028"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Defence is useless to hold back this woman (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "SUSIE",
    "annotation": {
@@ -1416,9 +1329,6 @@ window.CRYPTIC_PUZZLES["cryptic-30028"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Extended conflict has grafter almost completely apprehensive (6,3)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     ",": [
      6

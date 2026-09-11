@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1893"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Ability to calculate shower pressure in boudoir (10)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "BRAINPOWER",
    "annotation": {
@@ -77,9 +74,6 @@ window.CRYPTIC_PUZZLES["indysunday-1893"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Gift from fiancé on vacation, the traditional one (8)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "OFFERING",
    "annotation": {
@@ -128,9 +122,6 @@ window.CRYPTIC_PUZZLES["indysunday-1893"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "High ground dropped away (4)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "FELL",
    "annotation": {
@@ -214,9 +205,6 @@ window.CRYPTIC_PUZZLES["indysunday-1893"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Mother in stable steps in dirt according to Spooner (4-4)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -265,9 +253,6 @@ window.CRYPTIC_PUZZLES["indysunday-1893"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Republican in crooked club means to straighten out (10)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "UNSCRAMBLE",
    "annotation": {
@@ -316,9 +301,6 @@ window.CRYPTIC_PUZZLES["indysunday-1893"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Velvety fabric nearly quality that's desirable (4)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "PLUS",
    "annotation": {
@@ -355,9 +337,6 @@ window.CRYPTIC_PUZZLES["indysunday-1893"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Spinning round? (5,4)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -392,9 +371,6 @@ window.CRYPTIC_PUZZLES["indysunday-1893"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Post just arrived left on end of table (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "NEWEL",
    "annotation": {
@@ -465,9 +441,6 @@ window.CRYPTIC_PUZZLES["indysunday-1893"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Model observed fish using ears (5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "IDEAL",
    "annotation": {
@@ -502,9 +475,6 @@ window.CRYPTIC_PUZZLES["indysunday-1893"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Clear sporting clue is for guys (9)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "RIDICULES",
    "annotation": {
@@ -559,9 +529,6 @@ window.CRYPTIC_PUZZLES["indysunday-1893"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Charges covering any number of people like Andrew in the past (7)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "PRINCES",
    "annotation": {
@@ -605,9 +572,6 @@ window.CRYPTIC_PUZZLES["indysunday-1893"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Charlie driving across fields perhaps promising party (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "CONTRACTOR",
    "annotation": {
@@ -644,9 +608,6 @@ window.CRYPTIC_PUZZLES["indysunday-1893"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Therapist at gathering votes against admitting learner (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "ANALYST",
    "annotation": {
@@ -699,9 +660,6 @@ window.CRYPTIC_PUZZLES["indysunday-1893"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Hotel in Goa boiling? God, I know! (10)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "THEOLOGIAN",
    "annotation": {
@@ -744,9 +702,6 @@ window.CRYPTIC_PUZZLES["indysunday-1893"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Truck came first loaded with silver (5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "WAGON",
    "annotation": {
@@ -790,9 +745,6 @@ window.CRYPTIC_PUZZLES["indysunday-1893"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "One already mentioned mother's embraces (3)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "THE",
    "annotation": {
@@ -827,9 +779,6 @@ window.CRYPTIC_PUZZLES["indysunday-1893"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Bath covered with hair gives offence (8)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "TRESPASS",
    "annotation": {
@@ -876,9 +825,6 @@ window.CRYPTIC_PUZZLES["indysunday-1893"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Green surface of parking spaces reported (5)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "BAIZE",
    "annotation": {
@@ -916,9 +862,6 @@ window.CRYPTIC_PUZZLES["indysunday-1893"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Setter's opposed to editor's thought (8)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "IMAGINED",
    "annotation": {
@@ -961,9 +904,6 @@ window.CRYPTIC_PUZZLES["indysunday-1893"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Official dealing with loose pockets back in time (7)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "REFEREE",
    "annotation": {
@@ -1015,9 +955,6 @@ window.CRYPTIC_PUZZLES["indysunday-1893"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Large breaks show talent (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "FLAIR",
    "annotation": {
@@ -1061,9 +998,6 @@ window.CRYPTIC_PUZZLES["indysunday-1893"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Line you wait for, to shout out loud \"4D 18A ___ 25A?\" (3,4)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -1112,9 +1046,6 @@ window.CRYPTIC_PUZZLES["indysunday-1893"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "A hundred and two sailors share the bill (2-4)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {
     "-": [
      2
@@ -1156,9 +1087,6 @@ window.CRYPTIC_PUZZLES["indysunday-1893"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Frames featuring the blue? (9)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "SEASCAPES",
    "annotation": {
@@ -1189,9 +1117,6 @@ window.CRYPTIC_PUZZLES["indysunday-1893"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Put money by bar (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "SAVE",
    "annotation": {
@@ -1225,9 +1150,6 @@ window.CRYPTIC_PUZZLES["indysunday-1893"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "On and off (5)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "GOING",
    "annotation": {
@@ -1262,9 +1184,6 @@ window.CRYPTIC_PUZZLES["indysunday-1893"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Down under ginger's first to turn red, perhaps (4)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "GLOW",
    "annotation": {
@@ -1312,9 +1231,6 @@ window.CRYPTIC_PUZZLES["indysunday-1893"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Sign name for 17 18 & 19 across (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "VIRGO",
    "annotation": {
@@ -1348,9 +1264,6 @@ window.CRYPTIC_PUZZLES["indysunday-1893"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "... thus time takes a popular TV institution (4,5)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     ",": [
      4

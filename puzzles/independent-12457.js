@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12457"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "One stands by swinger cross over something seen on X (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "DOORPOST",
    "annotation": {
@@ -83,9 +80,6 @@ window.CRYPTIC_PUZZLES["independent-12457"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Turn back and take drugs (3-3)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -136,9 +130,6 @@ window.CRYPTIC_PUZZLES["independent-12457"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "American power is supporting fine residents of DRC (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "OKAPIS",
    "annotation": {
@@ -200,9 +191,6 @@ window.CRYPTIC_PUZZLES["independent-12457"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "First-class setter's rich! (6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "PLUMMY",
    "annotation": {
@@ -246,9 +234,6 @@ window.CRYPTIC_PUZZLES["independent-12457"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Most prim actress hit drunk (10)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "STARCHIEST",
    "annotation": {
@@ -292,9 +277,6 @@ window.CRYPTIC_PUZZLES["independent-12457"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "He's \"Hot Priest\"? I'm not so sure (6)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "HELIUM",
    "annotation": {
@@ -347,9 +329,6 @@ window.CRYPTIC_PUZZLES["independent-12457"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Bishop departs behind schedule in a joyful manner (8)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "ELATEDLY",
    "annotation": {
@@ -398,9 +377,6 @@ window.CRYPTIC_PUZZLES["independent-12457"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Those covering popular and confident Republican succeeded (8)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "INSURERS",
    "annotation": {
@@ -459,9 +435,6 @@ window.CRYPTIC_PUZZLES["independent-12457"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Dances with character like M on film locations back to back (8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "MUSETTES",
    "annotation": {
@@ -528,9 +501,6 @@ window.CRYPTIC_PUZZLES["independent-12457"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Gritty queen and spare king finally moving forward (8)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "GRANULAR",
    "annotation": {
@@ -581,9 +551,6 @@ window.CRYPTIC_PUZZLES["independent-12457"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Erica's sister nurses fruit drink (6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "CASSIS",
    "annotation": {
@@ -624,9 +591,6 @@ window.CRYPTIC_PUZZLES["independent-12457"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Hard to tolerate rather dirty husband squeezing out KY (1,3,4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      1,
@@ -686,9 +650,6 @@ window.CRYPTIC_PUZZLES["independent-12457"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Capital tour ruined by regularly being knocked back (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "BEIRUT",
    "annotation": {
@@ -740,9 +701,6 @@ window.CRYPTIC_PUZZLES["independent-12457"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Build-up of lactose in athlete's initial runs (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "ESCALATION",
    "annotation": {
@@ -796,9 +754,6 @@ window.CRYPTIC_PUZZLES["independent-12457"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Large plant third son leaves film studio's beauty queen? (6,4)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -851,9 +806,6 @@ window.CRYPTIC_PUZZLES["independent-12457"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "One helps the chippy wash cod or skate's wings (8)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "SAWHORSE",
    "annotation": {
@@ -917,9 +869,6 @@ window.CRYPTIC_PUZZLES["independent-12457"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Bendy pens go in holes (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "OPENINGS",
    "annotation": {
@@ -963,9 +912,6 @@ window.CRYPTIC_PUZZLES["independent-12457"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "First to grab opportunity in golf cleaning up (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "GROOMING",
    "annotation": {
@@ -1027,9 +973,6 @@ window.CRYPTIC_PUZZLES["independent-12457"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Like a drink just like always? (2,3,5)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -1084,9 +1027,6 @@ window.CRYPTIC_PUZZLES["independent-12457"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "One's blooming trouble had returned (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "DAHLIA",
    "annotation": {
@@ -1141,9 +1081,6 @@ window.CRYPTIC_PUZZLES["independent-12457"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Elevated position where one of four rooks sits (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "HEIGHT",
    "annotation": {
@@ -1187,9 +1124,6 @@ window.CRYPTIC_PUZZLES["independent-12457"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Judge Judy ultimately accepts mimic runs pranks (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "JAPERY",
    "annotation": {
@@ -1252,9 +1186,6 @@ window.CRYPTIC_PUZZLES["independent-12457"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Listen very carefully to Remain (4,2)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -1299,9 +1230,6 @@ window.CRYPTIC_PUZZLES["independent-12457"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "City pad Sean organised close to LA (8)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "PASADENA",
    "annotation": {
@@ -1352,9 +1280,6 @@ window.CRYPTIC_PUZZLES["independent-12457"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Where one might find better Irish impressionist (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "RENOIR",
    "annotation": {
@@ -1398,9 +1323,6 @@ window.CRYPTIC_PUZZLES["independent-12457"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Europeans try laid back conversation (8)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "DIALOGUE",
    "annotation": {
@@ -1460,9 +1382,6 @@ window.CRYPTIC_PUZZLES["independent-12457"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Tennis big guns periodically flag (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "ENSIGN",
    "annotation": {
@@ -1506,9 +1425,6 @@ window.CRYPTIC_PUZZLES["independent-12457"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Abrupt Iberian princess readily discharged soldiers (8)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "INFANTRY",
    "annotation": {

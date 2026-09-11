@@ -24,9 +24,6 @@ window.CRYPTIC_PUZZLES["cryptic-30056"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Resistant to changing it, bar I am an expert in (6-5)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     "-": [
      6
@@ -117,9 +114,6 @@ window.CRYPTIC_PUZZLES["cryptic-30056"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Lesson in speaking presided over by master (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "MORAL",
    "annotation": {
@@ -162,9 +156,6 @@ window.CRYPTIC_PUZZLES["cryptic-30056"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Upcoming party to start celebrating Agamemnon’s daughter (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "ELECTRA",
    "annotation": {
@@ -200,9 +191,6 @@ window.CRYPTIC_PUZZLES["cryptic-30056"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Babe’s grub mixed up? Tucking in, girlfriend beginning to eructate (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "PIGFEED",
    "annotation": {
@@ -254,9 +242,6 @@ window.CRYPTIC_PUZZLES["cryptic-30056"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Open a suggestion (8)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "OVERTONE",
    "annotation": {
@@ -433,9 +418,6 @@ window.CRYPTIC_PUZZLES["cryptic-30056"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Cleared by air defence after skirmish, and OK to travel? (3-4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -483,9 +465,6 @@ window.CRYPTIC_PUZZLES["cryptic-30056"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "One drug troublingly Tennyson’s reward? (7)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "GUERDON",
    "annotation": {
@@ -528,9 +507,6 @@ window.CRYPTIC_PUZZLES["cryptic-30056"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Essential for dress colours on outside of uniform? (9)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "EPAULETTE",
    "annotation": {
@@ -582,9 +558,6 @@ window.CRYPTIC_PUZZLES["cryptic-30056"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "In Exodus, perhaps, you’ll have run through a crowd (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "THREE",
    "annotation": {
@@ -631,9 +604,6 @@ window.CRYPTIC_PUZZLES["cryptic-30056"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Gold in reserve not often spherical (4)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "ORBY",
    "annotation": {
@@ -675,9 +645,6 @@ window.CRYPTIC_PUZZLES["cryptic-30056"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Frantically rang about empty domicile, having been let down – one such? (6,4)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -732,9 +699,6 @@ window.CRYPTIC_PUZZLES["cryptic-30056"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "With Grace to summon up, ducking delivery? (8)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "BALLETIC",
    "annotation": {
@@ -786,9 +750,6 @@ window.CRYPTIC_PUZZLES["cryptic-30056"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Who say, in fancy dress: ‘Can I go as me?’ (10)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "EGOMANIACS",
    "annotation": {
@@ -825,9 +786,6 @@ window.CRYPTIC_PUZZLES["cryptic-30056"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Slimmers enjoy taking dip (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "IMMERSE",
    "annotation": {
@@ -861,9 +819,6 @@ window.CRYPTIC_PUZZLES["cryptic-30056"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Such parts this catastrophic? (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "CHAOTIC",
    "annotation": {
@@ -905,9 +860,6 @@ window.CRYPTIC_PUZZLES["cryptic-30056"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Identified with a circle, called, spoke (4)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "RUNG",
    "annotation": {
@@ -946,9 +898,6 @@ window.CRYPTIC_PUZZLES["cryptic-30056"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Absolute idealist turned on by Man (5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "HEGEL",
    "annotation": {
@@ -997,9 +946,6 @@ window.CRYPTIC_PUZZLES["cryptic-30056"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "What might be refused by statesmen? (5,4)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -1040,9 +986,6 @@ window.CRYPTIC_PUZZLES["cryptic-30056"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Selection of exotic cakes along the way gets us high (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "SUSHI",
    "annotation": {
@@ -1076,9 +1019,6 @@ window.CRYPTIC_PUZZLES["cryptic-30056"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Controversial claim about Glastonbury? One puts the music down (7)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "NOTATOR",
    "annotation": {
@@ -1119,9 +1059,6 @@ window.CRYPTIC_PUZZLES["cryptic-30056"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Tortoises originally used to supply cover for Roman soldiers (7)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "TESTUDO",
    "annotation": {
@@ -1172,9 +1109,6 @@ window.CRYPTIC_PUZZLES["cryptic-30056"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Cashier’s wound dressed with fine designer cravat? (11)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "NECKERCHIEF",
    "annotation": {

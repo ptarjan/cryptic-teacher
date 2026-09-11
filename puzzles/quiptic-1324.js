@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1324"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Small accident spoiled most of pie and mash (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "MISHAP",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["quiptic-1324"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Working demonstration’s enthralling Queen (7)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "MONARCH",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["quiptic-1324"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Vowed to be tender, protecting wife (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "SWORE",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["quiptic-1324"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Vie and cheat briefly, desperate to win (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "ACHIEVE",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["quiptic-1324"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Cheers Celtic eluding the Spanish strategy (6)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "TACTIC",
    "annotation": null
@@ -110,9 +95,6 @@ window.CRYPTIC_PUZZLES["quiptic-1324"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Clever you, finally infiltrating state organisation (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "ASTUTE",
    "annotation": null
@@ -127,9 +109,6 @@ window.CRYPTIC_PUZZLES["quiptic-1324"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Short article on outbreak available for debate (6,3)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -148,9 +127,6 @@ window.CRYPTIC_PUZZLES["quiptic-1324"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Steering boat to take in capital of Antigua’s tempting (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "COAXING",
    "annotation": null
@@ -165,9 +141,6 @@ window.CRYPTIC_PUZZLES["quiptic-1324"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Rang computer department to resign; succeeded and put end to dispute (6,2,5)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      6,
@@ -187,9 +160,6 @@ window.CRYPTIC_PUZZLES["quiptic-1324"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Cancel posh party after first night (4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "UNDO",
    "annotation": null
@@ -204,9 +174,6 @@ window.CRYPTIC_PUZZLES["quiptic-1324"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Something that beats rest for pain? (10)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "HEARTBREAK",
    "annotation": null
@@ -221,9 +188,6 @@ window.CRYPTIC_PUZZLES["quiptic-1324"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Cool-sounding decorative strip around room (6)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "FRIEZE",
    "annotation": null
@@ -238,9 +202,6 @@ window.CRYPTIC_PUZZLES["quiptic-1324"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Gives away rejected lager and Stella with a third off (4,4)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -259,9 +220,6 @@ window.CRYPTIC_PUZZLES["quiptic-1324"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Livestock managers initially prefer to split female flocks (9)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "SHEPHERDS",
    "annotation": null
@@ -276,9 +234,6 @@ window.CRYPTIC_PUZZLES["quiptic-1324"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Went along with parent worried about daughter (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "PARTNERED",
    "annotation": null
@@ -293,9 +248,6 @@ window.CRYPTIC_PUZZLES["quiptic-1324"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Hum piano tune dropping intro (4)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "PONG",
    "annotation": null
@@ -310,9 +262,6 @@ window.CRYPTIC_PUZZLES["quiptic-1324"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Horse requires time and money to be turned around (4)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "MARE",
    "annotation": null
@@ -327,9 +276,6 @@ window.CRYPTIC_PUZZLES["quiptic-1324"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Mum and John played golf game (7)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "MAHJONG",
    "annotation": null
@@ -344,9 +290,6 @@ window.CRYPTIC_PUZZLES["quiptic-1324"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Required by law to have artwork contracted by politician (9)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "STATUTORY",
    "annotation": null
@@ -361,9 +304,6 @@ window.CRYPTIC_PUZZLES["quiptic-1324"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "High wind ripped a door half off (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "TORNADO",
    "annotation": null
@@ -378,9 +318,6 @@ window.CRYPTIC_PUZZLES["quiptic-1324"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Book substitute (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "RESERVE",
    "annotation": null
@@ -395,9 +332,6 @@ window.CRYPTIC_PUZZLES["quiptic-1324"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Some lovely cheese and fruit (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "LYCHEE",
    "annotation": null
@@ -412,9 +346,6 @@ window.CRYPTIC_PUZZLES["quiptic-1324"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "You shouldn’t have tissue stuffed in to back of bureau (5,3)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -433,9 +364,6 @@ window.CRYPTIC_PUZZLES["quiptic-1324"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Say no to waste (6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "REFUSE",
    "annotation": null
@@ -450,9 +378,6 @@ window.CRYPTIC_PUZZLES["quiptic-1324"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Husband invested in elaborate gift box (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "FIGHT",
    "annotation": null
@@ -467,9 +392,6 @@ window.CRYPTIC_PUZZLES["quiptic-1324"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Act as mother in retrospective work with university theatre cast (4,3,3)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -489,9 +411,6 @@ window.CRYPTIC_PUZZLES["quiptic-1324"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Virus: retired man’s energy beginning to go (4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "GERM",
    "annotation": null
@@ -506,9 +425,6 @@ window.CRYPTIC_PUZZLES["quiptic-1324"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Notice packing goods evenly tests clever little appliance (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "GADGET",
    "annotation": null
@@ -523,9 +439,6 @@ window.CRYPTIC_PUZZLES["quiptic-1324"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Nerve of boy messing up toilet I scrubbed! (6)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "BOTTLE",
    "annotation": null

@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1385"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Scolding official over poor distribution (7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "REPROOF",
    "annotation": {
@@ -83,9 +80,6 @@ window.CRYPTIC_PUZZLES["quiptic-1385"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Relaxes, absorbing information, then takes test again (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "RESITS",
    "annotation": {
@@ -133,9 +127,6 @@ window.CRYPTIC_PUZZLES["quiptic-1385"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Money transaction platform reportedly belonging to the Vatican? (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "PAYPAL",
    "annotation": {
@@ -171,9 +162,6 @@ window.CRYPTIC_PUZZLES["quiptic-1385"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Light weight cover sheltering individual provides protection from radiation (5,5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -230,9 +218,6 @@ window.CRYPTIC_PUZZLES["quiptic-1385"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Fine pitcher – but there’s not so many (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "FEWER",
    "annotation": {
@@ -274,9 +259,6 @@ window.CRYPTIC_PUZZLES["quiptic-1385"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Old queen put on underwear quietly – it’s comfortable to wear indoors (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "SLIPPER",
    "annotation": {
@@ -330,9 +312,6 @@ window.CRYPTIC_PUZZLES["quiptic-1385"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Row needs ground outside to be reinforced (9)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "STIFFENED",
    "annotation": {
@@ -391,9 +370,6 @@ window.CRYPTIC_PUZZLES["quiptic-1385"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Fond of accompanying wife that’s leaving (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "INTO",
    "annotation": {
@@ -436,9 +412,6 @@ window.CRYPTIC_PUZZLES["quiptic-1385"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Game strategy when given literary choices in Charades (8)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "PLAYBOOK",
    "annotation": {
@@ -480,9 +453,6 @@ window.CRYPTIC_PUZZLES["quiptic-1385"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Embarrassed having freed cad in error (3-5)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -527,9 +497,6 @@ window.CRYPTIC_PUZZLES["quiptic-1385"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Authority rebuffing some cosy assumptions (3,2)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -576,9 +543,6 @@ window.CRYPTIC_PUZZLES["quiptic-1385"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Rubbish sounding combo that gets tighter with age? (5,4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -628,9 +592,6 @@ window.CRYPTIC_PUZZLES["quiptic-1385"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Exchange vessels needed for espionage (10)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "TRADECRAFT",
    "annotation": {
@@ -672,9 +633,6 @@ window.CRYPTIC_PUZZLES["quiptic-1385"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Scarf that may be constricting? (3)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "BOA",
    "annotation": {
@@ -713,9 +671,6 @@ window.CRYPTIC_PUZZLES["quiptic-1385"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Family’s left for hunt? (5,5)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -761,9 +716,6 @@ window.CRYPTIC_PUZZLES["quiptic-1385"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Contradictory description of irresponsible behaviour (4,3,5)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -802,9 +754,6 @@ window.CRYPTIC_PUZZLES["quiptic-1385"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Canine perhaps not everyone finds so delightful (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "TOOTHSOME",
    "annotation": {
@@ -846,9 +795,6 @@ window.CRYPTIC_PUZZLES["quiptic-1385"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Is ambassador part of group expelled? (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "BANISHED",
    "annotation": {
@@ -899,9 +845,6 @@ window.CRYPTIC_PUZZLES["quiptic-1385"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Bishop has levy overturned? Not how a good job’s done (2,6)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -958,9 +901,6 @@ window.CRYPTIC_PUZZLES["quiptic-1385"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Nancy swooned deliriously as it’s about to happen (3,6,3)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -1007,9 +947,6 @@ window.CRYPTIC_PUZZLES["quiptic-1385"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Decoration without heart is somewhat vulgar (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "GARISH",
    "annotation": {
@@ -1055,9 +992,6 @@ window.CRYPTIC_PUZZLES["quiptic-1385"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Messenger constrained by tougher aldermen (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "HERALD",
    "annotation": {
@@ -1092,9 +1026,6 @@ window.CRYPTIC_PUZZLES["quiptic-1385"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Windbag regularly detains this woman (3)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "IDA",
    "annotation": {
@@ -1134,9 +1065,6 @@ window.CRYPTIC_PUZZLES["quiptic-1385"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "A packet he’s laid out? He’s too mean for that (10)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "CHEAPSKATE",
    "annotation": {
@@ -1178,9 +1106,6 @@ window.CRYPTIC_PUZZLES["quiptic-1385"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "A desire to be leader of House (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "AITCH",
    "annotation": {
@@ -1222,9 +1147,6 @@ window.CRYPTIC_PUZZLES["quiptic-1385"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Knocking back a small drink in Italian city (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "PISA",
    "annotation": {
@@ -1271,9 +1193,6 @@ window.CRYPTIC_PUZZLES["quiptic-1385"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Settle dispute about last-resort dental treatment (4,2,3)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -1317,9 +1236,6 @@ window.CRYPTIC_PUZZLES["quiptic-1385"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Spirited board offers union independent jobs assessment at first (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "OUIJA",
    "annotation": {
@@ -1377,9 +1293,6 @@ window.CRYPTIC_PUZZLES["quiptic-1385"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Belittle facility creating complaint (7)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "DISEASE",
    "annotation": {
@@ -1421,9 +1334,6 @@ window.CRYPTIC_PUZZLES["quiptic-1385"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Really regretted church intervening when born (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "HATCHED",
    "annotation": {

@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12444"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Flatulence of cricket team beginning to subside around November (9)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "WINDINESS",
    "annotation": {
@@ -78,9 +75,6 @@ window.CRYPTIC_PUZZLES["independent-12444"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "County flags (5)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "WILTS",
    "annotation": {
@@ -115,9 +109,6 @@ window.CRYPTIC_PUZZLES["independent-12444"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Things struggling with fossil fuel waste (5,4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -173,9 +164,6 @@ window.CRYPTIC_PUZZLES["independent-12444"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Reportedly, I adore residents of Battersea, part of London (4,2,4)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -230,9 +218,6 @@ window.CRYPTIC_PUZZLES["independent-12444"] = /*JSON-START*/ {
      5
     ]
    ],
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "ERASURE",
    "annotation": {
@@ -278,9 +263,6 @@ window.CRYPTIC_PUZZLES["independent-12444"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Family stopping small cat doing unhealthy activity (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "SMOKING",
    "annotation": {
@@ -329,9 +311,6 @@ window.CRYPTIC_PUZZLES["independent-12444"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Premise of large book set in Highbury (5)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "LEMMA",
    "annotation": {
@@ -371,9 +350,6 @@ window.CRYPTIC_PUZZLES["independent-12444"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Accumulate boomerangs in circle (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "LOOP",
    "annotation": {
@@ -419,9 +395,6 @@ window.CRYPTIC_PUZZLES["independent-12444"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Crop cloth covering snooker table, with money to replace balls, at first (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "MAIZE",
    "annotation": {
@@ -474,9 +447,6 @@ window.CRYPTIC_PUZZLES["independent-12444"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Negative critique of creative work regarding skilled worker (9)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "ARTISANAL",
    "annotation": {
@@ -516,9 +486,6 @@ window.CRYPTIC_PUZZLES["independent-12444"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Allowed actor initially to enter stage left (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "LEGAL",
    "annotation": {
@@ -569,9 +536,6 @@ window.CRYPTIC_PUZZLES["independent-12444"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "A game point for champion (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "APOLOGIST",
    "annotation": {
@@ -617,9 +581,6 @@ window.CRYPTIC_PUZZLES["independent-12444"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Noted work? (3,2,5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -655,9 +616,6 @@ window.CRYPTIC_PUZZLES["independent-12444"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Starting late, foreigners bypassing one French city (4)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "LENS",
    "annotation": {
@@ -701,9 +659,6 @@ window.CRYPTIC_PUZZLES["independent-12444"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "European chap worried about withdrawn photo's release (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "EMANCIPATE",
    "annotation": {
@@ -766,9 +721,6 @@ window.CRYPTIC_PUZZLES["independent-12444"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Perhaps Declan Donnelly content to scavenge or diet (7)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "GEORDIE",
    "annotation": {
@@ -802,9 +754,6 @@ window.CRYPTIC_PUZZLES["independent-12444"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Have to stop game in river (5,4)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -855,9 +804,6 @@ window.CRYPTIC_PUZZLES["independent-12444"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Match tactics having quietly ignored SE Asian players (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "GAMELAN",
    "annotation": {
@@ -909,9 +855,6 @@ window.CRYPTIC_PUZZLES["independent-12444"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Royal dorm upset Dick Whittington? (4,5)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -952,9 +895,6 @@ window.CRYPTIC_PUZZLES["independent-12444"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Relating to acid derived from gall nuts put into melting ice (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "ELLAGIC",
    "annotation": {
@@ -1015,9 +955,6 @@ window.CRYPTIC_PUZZLES["independent-12444"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Prove bit of negligence in two companies (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "CONFIRM",
    "annotation": {
@@ -1068,9 +1005,6 @@ window.CRYPTIC_PUZZLES["independent-12444"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Army officer is common (7)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "GENERAL",
    "annotation": {
@@ -1107,9 +1041,6 @@ window.CRYPTIC_PUZZLES["independent-12444"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Scrambled eggs in back of van can be restorative (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "GINSENG",
    "annotation": {
@@ -1156,9 +1087,6 @@ window.CRYPTIC_PUZZLES["independent-12444"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Pull close to station in Barnsley? (4)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "TOWN",
    "annotation": {
@@ -1204,9 +1132,6 @@ window.CRYPTIC_PUZZLES["independent-12444"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Shorebird is nameless stray (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "WADER",
    "annotation": {
@@ -1251,9 +1176,6 @@ window.CRYPTIC_PUZZLES["independent-12444"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Awkwardly mention ear — it's one of a pair, the mirror image of the other (10)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "ENANTIOMER",
    "annotation": {
@@ -1293,9 +1215,6 @@ window.CRYPTIC_PUZZLES["independent-12444"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Helping to release one in desert (3,2)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -1345,9 +1264,6 @@ window.CRYPTIC_PUZZLES["independent-12444"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Lament almost lying about network (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "GRID",
    "annotation": {
@@ -1392,9 +1308,6 @@ window.CRYPTIC_PUZZLES["independent-12444"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Weaken female leaving to provide finance for fur (9)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "UNDERMINE",
    "annotation": {
@@ -1445,9 +1358,6 @@ window.CRYPTIC_PUZZLES["independent-12444"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "So far, simple to cycle in front of Tesla (2,3)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -1496,9 +1406,6 @@ window.CRYPTIC_PUZZLES["independent-12444"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Made a mistake about western wine (5)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "ERRED",
    "annotation": {
@@ -1547,9 +1454,6 @@ window.CRYPTIC_PUZZLES["independent-12444"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Nursing officer welcoming revolutionary English microwave source (9)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "MAGNETRON",
    "annotation": {

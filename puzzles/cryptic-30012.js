@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30012"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Just as orgasm prompts poem by Yeats … (3,6,6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -75,9 +72,6 @@ window.CRYPTIC_PUZZLES["cryptic-30012"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Backup part of database liable to corruption (9)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "TEMPTABLE",
    "annotation": {
@@ -117,9 +111,6 @@ window.CRYPTIC_PUZZLES["cryptic-30012"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Sea-sick seabird from China? (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "EASTERN",
    "annotation": {
@@ -169,9 +160,6 @@ window.CRYPTIC_PUZZLES["cryptic-30012"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Challenging former lover on stage (8)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "EXACTING",
    "annotation": {
@@ -211,9 +199,6 @@ window.CRYPTIC_PUZZLES["cryptic-30012"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Huge honour to sit on banks of Seine (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "OBESE",
    "annotation": {
@@ -259,9 +244,6 @@ window.CRYPTIC_PUZZLES["cryptic-30012"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Re-entering language course (9)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "DIRECTION",
    "annotation": {
@@ -306,9 +288,6 @@ window.CRYPTIC_PUZZLES["cryptic-30012"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Gone wild with axes splitting something needed for fire (6)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "OXYGEN",
    "annotation": {
@@ -364,9 +343,6 @@ window.CRYPTIC_PUZZLES["cryptic-30012"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Provide detailed account of quite miserable passage (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "ITEMISE",
    "annotation": {
@@ -401,9 +377,6 @@ window.CRYPTIC_PUZZLES["cryptic-30012"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Donates, as replacing 4, 6 and 15 (5)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "GASES",
    "annotation": {
@@ -453,9 +426,6 @@ window.CRYPTIC_PUZZLES["cryptic-30012"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "… wrongly read note by misfortunate Keats (7)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "MISTAKE",
    "annotation": {
@@ -508,9 +478,6 @@ window.CRYPTIC_PUZZLES["cryptic-30012"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "For example, Keats and Yeats (or not) (7)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "RHYMERS",
    "annotation": {
@@ -562,9 +529,6 @@ window.CRYPTIC_PUZZLES["cryptic-30012"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Heretics are punished for unfaithful acts (11)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "TREACHERIES",
    "annotation": {
@@ -610,9 +574,6 @@ window.CRYPTIC_PUZZLES["cryptic-30012"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "You might slip on this bats blood (6,4)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -656,9 +617,6 @@ window.CRYPTIC_PUZZLES["cryptic-30012"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "International waters still surrounded by dumb-asses (5,4)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -715,9 +673,6 @@ window.CRYPTIC_PUZZLES["cryptic-30012"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Light’s non-binding energy (4)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "NEON",
    "annotation": {
@@ -765,9 +720,6 @@ window.CRYPTIC_PUZZLES["cryptic-30012"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Dropping dead, wrote frantically (6,3)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -821,9 +773,6 @@ window.CRYPTIC_PUZZLES["cryptic-30012"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Fresher report of any toilet more sullied (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "NEWCOMER",
    "annotation": {
@@ -882,9 +831,6 @@ window.CRYPTIC_PUZZLES["cryptic-30012"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "E … e (4)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "ECHO",
    "annotation": {
@@ -922,9 +868,6 @@ window.CRYPTIC_PUZZLES["cryptic-30012"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Take end from communion wafer – on reflection, an exaltation! (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "HOSANNA",
    "annotation": {
@@ -982,9 +925,6 @@ window.CRYPTIC_PUZZLES["cryptic-30012"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Bible teaching wrongly maligns Eve (10)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "EVANGELISM",
    "annotation": {
@@ -1027,9 +967,6 @@ window.CRYPTIC_PUZZLES["cryptic-30012"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Slight temperature dropping off with cool hormone (7)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "INSULIN",
    "annotation": {
@@ -1081,9 +1018,6 @@ window.CRYPTIC_PUZZLES["cryptic-30012"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "A right-beginning, dotted-letter-including alphabet (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "ARABIC",
    "annotation": {
@@ -1141,9 +1075,6 @@ window.CRYPTIC_PUZZLES["cryptic-30012"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Gordon’s starter presented to massive foody? (11)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "GASTRONOMIC",
    "annotation": {
@@ -1190,9 +1121,6 @@ window.CRYPTIC_PUZZLES["cryptic-30012"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Sadness as building terminally fire-damaged (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "GRIEF",
    "annotation": {
@@ -1252,9 +1180,6 @@ window.CRYPTIC_PUZZLES["cryptic-30012"] = /*JSON-START*/ {
      5,
      7
     ]
-   ],
-   "group": [
-    "24-down"
    ],
    "separatorLocations": {},
    "solution": "MACHO",
@@ -1358,9 +1283,6 @@ window.CRYPTIC_PUZZLES["cryptic-30012"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Playing bingo, the French are mean (7)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "IGNOBLE",
    "annotation": {
@@ -1413,9 +1335,6 @@ window.CRYPTIC_PUZZLES["cryptic-30012"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Beast of burden returned to castle (7)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "CAMELOT",
    "annotation": {
@@ -1465,9 +1384,6 @@ window.CRYPTIC_PUZZLES["cryptic-30012"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Fascist leader controlled Houston with rumba master general (9,6)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {
     ",": [
      9

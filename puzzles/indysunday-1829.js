@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1829"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Machine that supplies more tightly packed boxes is quiet (9)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "DISPENSER",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["indysunday-1829"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Detectives eating lots turned up full of beans (7)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "DYNAMIC",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["indysunday-1829"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Melanesian for one day, I lie about (7,8)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -80,9 +71,6 @@ window.CRYPTIC_PUZZLES["indysunday-1829"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Fictitious details troubled bride more, close to ceremony (10)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "EMBROIDERY",
    "annotation": null
@@ -97,9 +85,6 @@ window.CRYPTIC_PUZZLES["indysunday-1829"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Slope, white and cordial in fine weather (3,3)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -118,9 +103,6 @@ window.CRYPTIC_PUZZLES["indysunday-1829"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Large bottle tramp wrapped with much paper (8)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "REHOBOAM",
    "annotation": null
@@ -135,9 +117,6 @@ window.CRYPTIC_PUZZLES["indysunday-1829"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Bishop must return to queen's boudoir (5)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "BOWER",
    "annotation": null
@@ -152,9 +131,6 @@ window.CRYPTIC_PUZZLES["indysunday-1829"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "How might kids get to school with Tesla on the blink? (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "BUST",
    "annotation": null
@@ -169,9 +145,6 @@ window.CRYPTIC_PUZZLES["indysunday-1829"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "If quartet chosen to play on the radio, piece after the news? (7,8)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -190,9 +163,6 @@ window.CRYPTIC_PUZZLES["indysunday-1829"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Nuts near kid quickly piled up (5,2)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -211,9 +181,6 @@ window.CRYPTIC_PUZZLES["indysunday-1829"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Love playing football? (3)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "NIL",
    "annotation": null
@@ -228,9 +195,6 @@ window.CRYPTIC_PUZZLES["indysunday-1829"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Smartie from vividly coloured box kid's opening (6,5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -249,9 +213,6 @@ window.CRYPTIC_PUZZLES["indysunday-1829"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Silly jargon posh doctor fed to mother and father of 8? (5-5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -270,9 +231,6 @@ window.CRYPTIC_PUZZLES["indysunday-1829"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Chas Hodges hiding in Boots? (4)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "SHOD",
    "annotation": null
@@ -287,9 +245,6 @@ window.CRYPTIC_PUZZLES["indysunday-1829"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Finest street full of building society employees after evacuation (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "SLENDEREST",
    "annotation": null
@@ -304,9 +259,6 @@ window.CRYPTIC_PUZZLES["indysunday-1829"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Miraculous wedding venue daughter saw on the inside, Celine Dion's home once (6)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "CANADA",
    "annotation": null
@@ -321,9 +273,6 @@ window.CRYPTIC_PUZZLES["indysunday-1829"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "100 litres in a round cooking pot (8)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "CAULDRON",
    "annotation": null
@@ -338,9 +287,6 @@ window.CRYPTIC_PUZZLES["indysunday-1829"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Flooded land upset tennis organisers and opponents (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "ATLANTIS",
    "annotation": null
@@ -355,9 +301,6 @@ window.CRYPTIC_PUZZLES["indysunday-1829"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Level of interest shown by Spooner's hare at the dog track? (4,4)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -376,9 +319,6 @@ window.CRYPTIC_PUZZLES["indysunday-1829"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Little sibling that's revolting teenager initially took along (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "BROUGHT",
    "annotation": null
@@ -399,9 +339,6 @@ window.CRYPTIC_PUZZLES["indysunday-1829"] = /*JSON-START*/ {
      8
     ]
    ],
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "ENTOMB",
    "annotation": null
@@ -416,9 +353,6 @@ window.CRYPTIC_PUZZLES["indysunday-1829"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Too many drinks, taking leak in bar that's spinning (5-2)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -437,9 +371,6 @@ window.CRYPTIC_PUZZLES["indysunday-1829"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Wanting part from autopsy, choose nut (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "PSYCHO",
    "annotation": null
@@ -454,9 +385,6 @@ window.CRYPTIC_PUZZLES["indysunday-1829"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Virtuous releasing maiden from one's trap (4)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "ORAL",
    "annotation": null
@@ -471,9 +399,6 @@ window.CRYPTIC_PUZZLES["indysunday-1829"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Invest wrongly, easily receive nothing (3,5,2)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -493,9 +418,6 @@ window.CRYPTIC_PUZZLES["indysunday-1829"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Primitive accommodation English hoover up (4)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "CAVE",
    "annotation": null
@@ -510,9 +432,6 @@ window.CRYPTIC_PUZZLES["indysunday-1829"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Crook got lad price for Higgs boson (3,8)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -531,9 +450,6 @@ window.CRYPTIC_PUZZLES["indysunday-1829"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Do away with unlimited tariffs (3)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "AXE",
    "annotation": null
@@ -548,9 +464,6 @@ window.CRYPTIC_PUZZLES["indysunday-1829"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Mobile service provider without ties, according to Danny Dyer? (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "THREE",
    "annotation": null
@@ -565,9 +478,6 @@ window.CRYPTIC_PUZZLES["indysunday-1829"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Trousers spinner gives close fielder (9)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "SHORTSTOP",
    "annotation": null

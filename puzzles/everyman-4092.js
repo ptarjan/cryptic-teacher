@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4092"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "One-time passcode that might make sense, a poem (4,6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -77,9 +74,6 @@ window.CRYPTIC_PUZZLES["everyman-4092"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Somewhat upfront? I’m early! Not late, anyway … (2,4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -123,9 +117,6 @@ window.CRYPTIC_PUZZLES["everyman-4092"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Yet, really – knight to take place of queen? (4,2)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -173,9 +164,6 @@ window.CRYPTIC_PUZZLES["everyman-4092"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Ill-tempered; also ingratiating – thankfully concise (5,3,5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      5,
@@ -225,9 +213,6 @@ window.CRYPTIC_PUZZLES["everyman-4092"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Bird generally dull in appearance? That’s rough, as Aussie tells it (9)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "SANDPIPER",
    "annotation": {
@@ -263,9 +248,6 @@ window.CRYPTIC_PUZZLES["everyman-4092"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Audio kit invariably preceding Novembers? (5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "MIKES",
    "annotation": {
@@ -301,9 +283,6 @@ window.CRYPTIC_PUZZLES["everyman-4092"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Spouse scratching backside stopped by a ragamuffin (4)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "WAIF",
    "annotation": {
@@ -355,9 +334,6 @@ window.CRYPTIC_PUZZLES["everyman-4092"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "After outburst (anger), Dad served up drinkie (8)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "APERITIF",
    "annotation": {
@@ -414,9 +390,6 @@ window.CRYPTIC_PUZZLES["everyman-4092"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Weld, insulate and earth aeroplane’s body (8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "FUSELAGE",
    "annotation": {
@@ -464,9 +437,6 @@ window.CRYPTIC_PUZZLES["everyman-4092"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Primarily trademarked aerobic exercises, boogieing occasionally? (3-2)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -514,9 +484,6 @@ window.CRYPTIC_PUZZLES["everyman-4092"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Raw beside Loch – because of this under kilt? (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "NAKEDNESS",
    "annotation": {
@@ -563,9 +530,6 @@ window.CRYPTIC_PUZZLES["everyman-4092"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Drinkin’ G&T in which a little slice (lime?), where the powerful are (7,6)",
-   "group": [
-    "11-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -628,9 +592,6 @@ window.CRYPTIC_PUZZLES["everyman-4092"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Overturning favourite sofas, gutted, Everyman’s making a gaffe (7)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "MISSTEP",
    "annotation": {
@@ -689,9 +650,6 @@ window.CRYPTIC_PUZZLES["everyman-4092"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Bird noticed notice (7)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "SAWBILL",
    "annotation": {
@@ -730,9 +688,6 @@ window.CRYPTIC_PUZZLES["everyman-4092"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Fried pig in peanuts, hardly savoury (12)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "UNAPPETISING",
    "annotation": {
@@ -775,9 +730,6 @@ window.CRYPTIC_PUZZLES["everyman-4092"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Pop Idol Jack in trashed hotel, sonny, stripped off (5,4)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -845,9 +797,6 @@ window.CRYPTIC_PUZZLES["everyman-4092"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Gathered that man, clumsy fellow, to be given upside-down cake? (6,2)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -910,9 +859,6 @@ window.CRYPTIC_PUZZLES["everyman-4092"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Did Amy and Ted never stop getting bling? (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "DIAMANTE",
    "annotation": {
@@ -971,9 +917,6 @@ window.CRYPTIC_PUZZLES["everyman-4092"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Plan for how to get out: try flailing with axes, get it? (4,8)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -1034,9 +977,6 @@ window.CRYPTIC_PUZZLES["everyman-4092"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Courage? That’s not on tap (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "BOTTLE",
    "annotation": {
@@ -1074,9 +1014,6 @@ window.CRYPTIC_PUZZLES["everyman-4092"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Clip of broadcast, Rally of the Stars (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "ASTRAL",
    "annotation": {
@@ -1117,9 +1054,6 @@ window.CRYPTIC_PUZZLES["everyman-4092"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Classical city of Greek character wherein I mope about (7)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "POMPEII",
    "annotation": {
@@ -1180,9 +1114,6 @@ window.CRYPTIC_PUZZLES["everyman-4092"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Where a house-warming will get you a frosty reception (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "IGLOO",
    "annotation": {
@@ -1214,9 +1145,6 @@ window.CRYPTIC_PUZZLES["everyman-4092"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Fancies new liniments, scratching head (7)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "NOTIONS",
    "annotation": {
@@ -1265,9 +1193,6 @@ window.CRYPTIC_PUZZLES["everyman-4092"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Artist’s party welcoming concerning amateur archer (9)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "DONATELLO",
    "annotation": {
@@ -1324,9 +1249,6 @@ window.CRYPTIC_PUZZLES["everyman-4092"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "With no entrance, tenant to go in (5)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "ENTER",
    "annotation": {
@@ -1369,9 +1291,6 @@ window.CRYPTIC_PUZZLES["everyman-4092"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Loudly plead for Merlin’s victim? (4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "PREY",
    "annotation": {
@@ -1410,9 +1329,6 @@ window.CRYPTIC_PUZZLES["everyman-4092"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Poor – and potentially sole-destroying? (4-2-4)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     "-": [
      4,

@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1326"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Faculty holding wriggling asp in bag (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "KNAPSACK",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["quiptic-1326"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Evil initially missing after king gets struck (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "KICKED",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["quiptic-1326"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Looks for article by comedians about acting (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "AWAITS",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["quiptic-1326"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "African region is strangely greenest just before 4th of April (9)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "SERENGETI",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["quiptic-1326"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Help to improve vision as clean contests arranged (7,6)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -114,9 +99,6 @@ window.CRYPTIC_PUZZLES["quiptic-1326"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Frequent public area (6)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "COMMON",
    "annotation": null
@@ -131,9 +113,6 @@ window.CRYPTIC_PUZZLES["quiptic-1326"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Heads of organisation run a terrific educational talk (5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "ORATE",
    "annotation": null
@@ -148,9 +127,6 @@ window.CRYPTIC_PUZZLES["quiptic-1326"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Gentle sheep – dead and covered in fungus (8)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "MILDEWED",
    "annotation": null
@@ -165,9 +141,6 @@ window.CRYPTIC_PUZZLES["quiptic-1326"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Negative votes involving round bundle at present time (8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "NOWADAYS",
    "annotation": null
@@ -182,9 +155,6 @@ window.CRYPTIC_PUZZLES["quiptic-1326"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Annoyance church meets with a smile (7)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "CHAGRIN",
    "annotation": null
@@ -199,9 +169,6 @@ window.CRYPTIC_PUZZLES["quiptic-1326"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Superficial pig crossing lobby (7)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "SHALLOW",
    "annotation": null
@@ -216,9 +183,6 @@ window.CRYPTIC_PUZZLES["quiptic-1326"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Temporary staff member’s happy lectures stimulated (6,7)",
-   "group": [
-    "10-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -237,9 +201,6 @@ window.CRYPTIC_PUZZLES["quiptic-1326"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Reparteeing as every other piece is consumed (5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "EATEN",
    "annotation": null
@@ -254,9 +215,6 @@ window.CRYPTIC_PUZZLES["quiptic-1326"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Become aware of arrest (9)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "APPREHEND",
    "annotation": null
@@ -271,9 +229,6 @@ window.CRYPTIC_PUZZLES["quiptic-1326"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Criminal crept neatly by end of alley for bit of theft (5,7)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -292,9 +247,6 @@ window.CRYPTIC_PUZZLES["quiptic-1326"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Give back position to harvest feature (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "REAPPOINT",
    "annotation": null
@@ -309,9 +261,6 @@ window.CRYPTIC_PUZZLES["quiptic-1326"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Widespread and impressive encompassing short thought by master (8)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "EPIDEMIC",
    "annotation": null
@@ -326,9 +275,6 @@ window.CRYPTIC_PUZZLES["quiptic-1326"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Interpret scam’s firm (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "CONSTRUE",
    "annotation": null
@@ -343,9 +289,6 @@ window.CRYPTIC_PUZZLES["quiptic-1326"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Supply new examination lacking rule that’s opportune (12)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "PROVIDENTIAL",
    "annotation": null
@@ -360,9 +303,6 @@ window.CRYPTIC_PUZZLES["quiptic-1326"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "High protein food gathered up by gym hunks at first (6)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "TEMPEH",
    "annotation": null
@@ -377,9 +317,6 @@ window.CRYPTIC_PUZZLES["quiptic-1326"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Hear small seal and little bird (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "CYGNET",
    "annotation": null
@@ -394,9 +331,6 @@ window.CRYPTIC_PUZZLES["quiptic-1326"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Days sadly drinking cola causing indigestion (9)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "DYSPEPSIA",
    "annotation": null
@@ -411,9 +345,6 @@ window.CRYPTIC_PUZZLES["quiptic-1326"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Banishment from old island by the French (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "EXILE",
    "annotation": null
@@ -428,9 +359,6 @@ window.CRYPTIC_PUZZLES["quiptic-1326"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Dish they emptied to show devotion (5)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "PIETY",
    "annotation": null
@@ -445,9 +373,6 @@ window.CRYPTIC_PUZZLES["quiptic-1326"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Joins male bears getting caught out (7)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "MARRIES",
    "annotation": null
@@ -462,9 +387,6 @@ window.CRYPTIC_PUZZLES["quiptic-1326"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Hot mixture of gases to fix bend (7)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "HAIRPIN",
    "annotation": null
@@ -479,9 +401,6 @@ window.CRYPTIC_PUZZLES["quiptic-1326"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Axe perhaps without centre is ingenious (6)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "CLEVER",
    "annotation": null
@@ -496,9 +415,6 @@ window.CRYPTIC_PUZZLES["quiptic-1326"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Note alien put on fork (8)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "CROTCHET",
    "annotation": null

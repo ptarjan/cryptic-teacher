@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1821"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Start removing number of Romans from testudo in retreat (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "OUTSET",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["indysunday-1821"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Outstanding secretary one had, inferior to Pierre's one (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "UNPAID",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["indysunday-1821"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Litter in street and someone being sick (9)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "STRETCHER",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["indysunday-1821"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Try and listen to rap (3)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "TAP",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["indysunday-1821"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Computer confused the English hacker (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "MACHETE",
    "annotation": null
@@ -110,9 +95,6 @@ window.CRYPTIC_PUZZLES["indysunday-1821"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Marriageable fellow failed to attend a ceremony, you hear (2,5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -131,9 +113,6 @@ window.CRYPTIC_PUZZLES["indysunday-1821"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Reliably hot region also coldest irregularly (5,3,3)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      5,
@@ -153,9 +132,6 @@ window.CRYPTIC_PUZZLES["indysunday-1821"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Papers no longer like showing maidens inside (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "EXAMS",
    "annotation": null
@@ -170,9 +146,6 @@ window.CRYPTIC_PUZZLES["indysunday-1821"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Service still no good (8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "EVENSONG",
    "annotation": null
@@ -187,9 +160,6 @@ window.CRYPTIC_PUZZLES["indysunday-1821"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "What's needed to repair small cut on revolving belt? (5,5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -208,9 +178,6 @@ window.CRYPTIC_PUZZLES["indysunday-1821"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Dictator's talented younger brother bumped off (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "ABEL",
    "annotation": null
@@ -225,9 +192,6 @@ window.CRYPTIC_PUZZLES["indysunday-1821"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Crook did try and go for treatment (5,3)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -246,9 +210,6 @@ window.CRYPTIC_PUZZLES["indysunday-1821"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Doctor's mother storing anything new in drawer (11)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {},
    "solution": "DRAUGHTSMAN",
    "annotation": null
@@ -263,9 +224,6 @@ window.CRYPTIC_PUZZLES["indysunday-1821"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Help guitar player that's forgotten intro (6)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "ASSIST",
    "annotation": null
@@ -280,9 +238,6 @@ window.CRYPTIC_PUZZLES["indysunday-1821"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Try going viral - it's very upsetting (5-7)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -301,9 +256,6 @@ window.CRYPTIC_PUZZLES["indysunday-1821"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Businessperson always with hot drink on the go? (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "DISTILLER",
    "annotation": null
@@ -318,9 +270,6 @@ window.CRYPTIC_PUZZLES["indysunday-1821"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Airborne swallows migrate (2,6)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -339,9 +288,6 @@ window.CRYPTIC_PUZZLES["indysunday-1821"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Removing these, does fat lady appear smaller? (5,7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -360,9 +306,6 @@ window.CRYPTIC_PUZZLES["indysunday-1821"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Statistical work, realm an actuary has covered (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "ALMANAC",
    "annotation": null
@@ -377,9 +320,6 @@ window.CRYPTIC_PUZZLES["indysunday-1821"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Bags full of any number of nuts, bananas, crackers, etc (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "SNACKS",
    "annotation": null
@@ -394,9 +334,6 @@ window.CRYPTIC_PUZZLES["indysunday-1821"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Fender includes one narrow part (6)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "STRAIT",
    "annotation": null
@@ -411,9 +348,6 @@ window.CRYPTIC_PUZZLES["indysunday-1821"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Heading north, graduate gripped compass (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "AMBIT",
    "annotation": null
@@ -428,9 +362,6 @@ window.CRYPTIC_PUZZLES["indysunday-1821"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Mint factory is keeping going (8)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "MILLIONS",
    "annotation": null
@@ -445,9 +376,6 @@ window.CRYPTIC_PUZZLES["indysunday-1821"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Non-striker switched bats after changing ends in cricket (4)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "SCAB",
    "annotation": null
@@ -462,9 +390,6 @@ window.CRYPTIC_PUZZLES["indysunday-1821"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Agency interested in aliens - one can blink strangely (3,2,5)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -484,9 +409,6 @@ window.CRYPTIC_PUZZLES["indysunday-1821"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Tot your particular sequence of digits up (3)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "NIP",
    "annotation": null
@@ -501,9 +423,6 @@ window.CRYPTIC_PUZZLES["indysunday-1821"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "In play, an act is very bad indeed (7)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "SATANIC",
    "annotation": null
@@ -518,9 +437,6 @@ window.CRYPTIC_PUZZLES["indysunday-1821"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Neighbourhood what you'd expect, more or less (6)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "PARISH",
    "annotation": null

@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29953"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Fine iced tea brew includes slice of lemon (8)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "DELICATE",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["cryptic-29953"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Passionately kiss fashion designer after 1-0? (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "NECK",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["cryptic-29953"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Heated battle over sea (6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "WARMED",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["cryptic-29953"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "God admits partners’ stupidity (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "DENSITY",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["cryptic-29953"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Frozen without top of thin material (4)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "LACE",
    "annotation": null
@@ -110,9 +95,6 @@ window.CRYPTIC_PUZZLES["cryptic-29953"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "8 queen put on big green pants (6,4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -131,9 +113,6 @@ window.CRYPTIC_PUZZLES["cryptic-29953"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Prized examples of fruit, large and small (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "PEARLS",
    "annotation": null
@@ -148,9 +127,6 @@ window.CRYPTIC_PUZZLES["cryptic-29953"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "During game First Lady has energy drink (8)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {},
    "solution": "BEVERAGE",
    "annotation": null
@@ -165,9 +141,6 @@ window.CRYPTIC_PUZZLES["cryptic-29953"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "A story involving Carroll’s lead girl (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "ALICE",
    "annotation": null
@@ -182,9 +155,6 @@ window.CRYPTIC_PUZZLES["cryptic-29953"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "100 escape jail ring (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "LINK",
    "annotation": null
@@ -199,9 +169,6 @@ window.CRYPTIC_PUZZLES["cryptic-29953"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "European town beset by germs spread by couriers (10)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "MESSENGERS",
    "annotation": null
@@ -216,9 +183,6 @@ window.CRYPTIC_PUZZLES["cryptic-29953"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Drunk princess breaks record (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "CANNED",
    "annotation": null
@@ -233,9 +197,6 @@ window.CRYPTIC_PUZZLES["cryptic-29953"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Award – final two exchanged money and the rest gold? (5,5)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -254,9 +215,6 @@ window.CRYPTIC_PUZZLES["cryptic-29953"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "God is protecting Earth leading everyone to speculate (8)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "THEORISE",
    "annotation": null
@@ -271,9 +229,6 @@ window.CRYPTIC_PUZZLES["cryptic-29953"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "The Listener’s not half simple, right? (3)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "EAR",
    "annotation": null
@@ -288,9 +243,6 @@ window.CRYPTIC_PUZZLES["cryptic-29953"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Long winded poetry describes flower seen in the mirror (7)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "VERBOSE",
    "annotation": null
@@ -305,9 +257,6 @@ window.CRYPTIC_PUZZLES["cryptic-29953"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Runner is prepared to tackle 1K (3)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "SKI",
    "annotation": null
@@ -322,9 +271,6 @@ window.CRYPTIC_PUZZLES["cryptic-29953"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Read about the origin of law throughout sailor’s trials (7)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "ORDEALS",
    "annotation": null
@@ -339,9 +285,6 @@ window.CRYPTIC_PUZZLES["cryptic-29953"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Neil cooked oats, maybe to control character (4,4)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -360,9 +303,6 @@ window.CRYPTIC_PUZZLES["cryptic-29953"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Church director installs locks then ran meeting (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "CHAIRED",
    "annotation": null
@@ -377,9 +317,6 @@ window.CRYPTIC_PUZZLES["cryptic-29953"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Hippies excited to catch fellow swimmer (8)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "PIPEFISH",
    "annotation": null
@@ -394,9 +331,6 @@ window.CRYPTIC_PUZZLES["cryptic-29953"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Perhaps cricket side’s exhausted after batting then caught (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "INSECT",
    "annotation": null
@@ -411,9 +345,6 @@ window.CRYPTIC_PUZZLES["cryptic-29953"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Season starter of nachos – garnish with bit of greenery (6)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "SPRING",
    "annotation": null
@@ -428,9 +359,6 @@ window.CRYPTIC_PUZZLES["cryptic-29953"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Seal is swimming with gent (6)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "SIGNET",
    "annotation": null
@@ -445,9 +373,6 @@ window.CRYPTIC_PUZZLES["cryptic-29953"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "A tip about jewellery making (10)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "ASSEMBLING",
    "annotation": null
@@ -462,9 +387,6 @@ window.CRYPTIC_PUZZLES["cryptic-29953"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Group not allowed on the radio (4)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "BAND",
    "annotation": null
@@ -479,9 +401,6 @@ window.CRYPTIC_PUZZLES["cryptic-29953"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Hit copper with great force (4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "CUFF",
    "annotation": null
@@ -496,9 +415,6 @@ window.CRYPTIC_PUZZLES["cryptic-29953"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Extract 150 over 3.14? (4)",
-   "group": [
-    "26-down"
-   ],
    "separatorLocations": {},
    "solution": "CLIP",
    "annotation": null
@@ -513,9 +429,6 @@ window.CRYPTIC_PUZZLES["cryptic-29953"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Mate finally moving to centre of mountain range (5)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "CHAIN",
    "annotation": null
@@ -530,9 +443,6 @@ window.CRYPTIC_PUZZLES["cryptic-29953"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "On river long ago, you returned with make-up (8)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "EYELINER",
    "annotation": null

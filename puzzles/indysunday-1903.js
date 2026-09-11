@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1903"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Very wet planet helpfully drained (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "MARSHY",
    "annotation": {
@@ -70,9 +67,6 @@ window.CRYPTIC_PUZZLES["indysunday-1903"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Might this be shown up in road safety test? (5,1)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -128,9 +122,6 @@ window.CRYPTIC_PUZZLES["indysunday-1903"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Irregular shifts for doorman, with none repeated (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "RANDOM",
    "annotation": {
@@ -174,9 +165,6 @@ window.CRYPTIC_PUZZLES["indysunday-1903"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Notice street in centre gets competitive advantage (4,5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -233,9 +221,6 @@ window.CRYPTIC_PUZZLES["indysunday-1903"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Wicked vandalism (8)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "SMASHING",
    "annotation": {
@@ -270,9 +255,6 @@ window.CRYPTIC_PUZZLES["indysunday-1903"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Face with scars perhaps from rioting in one stadium (12)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "MOUNTAINSIDE",
    "annotation": {
@@ -312,9 +294,6 @@ window.CRYPTIC_PUZZLES["indysunday-1903"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Concrete ran smoothly with nothing to stop it (5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "SOLID",
    "annotation": {
@@ -358,9 +337,6 @@ window.CRYPTIC_PUZZLES["indysunday-1903"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Solvers worldwide let rip on cryptic (8)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "INTERPOL",
    "annotation": {
@@ -398,9 +374,6 @@ window.CRYPTIC_PUZZLES["indysunday-1903"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Cautiously leaving ahead of schedule, saving seconds (8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "GINGERLY",
    "annotation": {
@@ -448,9 +421,6 @@ window.CRYPTIC_PUZZLES["indysunday-1903"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Disclaimer not invoked initially when breaking contract (6)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "DENIAL",
    "annotation": {
@@ -499,9 +469,6 @@ window.CRYPTIC_PUZZLES["indysunday-1903"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Nearly all nonsense, admitted intelligence report (8)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "BULLETIN",
    "annotation": {
@@ -549,9 +516,6 @@ window.CRYPTIC_PUZZLES["indysunday-1903"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Personal appeal from Messi in the middle after pass: \"Really, guys?\" (12)",
-   "group": [
-    "11-down"
-   ],
    "separatorLocations": {},
    "solution": "HANDSOMENESS",
    "annotation": {
@@ -611,9 +575,6 @@ window.CRYPTIC_PUZZLES["indysunday-1903"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Can end of tack give sharp pain? Step on it (4,5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -669,9 +630,6 @@ window.CRYPTIC_PUZZLES["indysunday-1903"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Rewind intro of extremely grating dismal song (5)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "DIRGE",
    "annotation": {
@@ -722,9 +680,6 @@ window.CRYPTIC_PUZZLES["indysunday-1903"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Decomposing floater in place where kids play (8,4)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -778,9 +733,6 @@ window.CRYPTIC_PUZZLES["indysunday-1903"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "E.g. Harrison intuitive about India, playing sitar (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "GUITARIST",
    "annotation": {
@@ -838,9 +790,6 @@ window.CRYPTIC_PUZZLES["indysunday-1903"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "One with amorous intentions dispatches note with perfume (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "AROMATIC",
    "annotation": {
@@ -889,9 +838,6 @@ window.CRYPTIC_PUZZLES["indysunday-1903"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Minor animal attack somewhat interrupting run (4,4)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -939,9 +885,6 @@ window.CRYPTIC_PUZZLES["indysunday-1903"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Affair delights husband going through split (12)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "RELATIONSHIP",
    "annotation": {
@@ -991,9 +934,6 @@ window.CRYPTIC_PUZZLES["indysunday-1903"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Dwarf on BA is spoiled (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "BONSAI",
    "annotation": {
@@ -1030,9 +970,6 @@ window.CRYPTIC_PUZZLES["indysunday-1903"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Problem written wrongly like that holding teacher up (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "CRISIS",
    "annotation": {
@@ -1084,9 +1021,6 @@ window.CRYPTIC_PUZZLES["indysunday-1903"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Reluctant to spend son's money (5)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "MEANS",
    "annotation": {
@@ -1128,9 +1062,6 @@ window.CRYPTIC_PUZZLES["indysunday-1903"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Eastern principles some start using the wrong way (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "SUTRA",
    "annotation": {
@@ -1173,9 +1104,6 @@ window.CRYPTIC_PUZZLES["indysunday-1903"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Labour's demise always on the radio (9)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "ENDEAVOUR",
    "annotation": {
@@ -1222,9 +1150,6 @@ window.CRYPTIC_PUZZLES["indysunday-1903"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Figure suspected of depleting fortune moved her tent around island (8)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "THIRTEEN",
    "annotation": {
@@ -1276,9 +1201,6 @@ window.CRYPTIC_PUZZLES["indysunday-1903"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Dutch regret withdrawal from America (6)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "MISSUS",
    "annotation": {
@@ -1316,9 +1238,6 @@ window.CRYPTIC_PUZZLES["indysunday-1903"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Half agreed with Conservative minister's deep rift (8)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "CREVASSE",
    "annotation": {
@@ -1370,9 +1289,6 @@ window.CRYPTIC_PUZZLES["indysunday-1903"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Fat family's in need of fine dietician (6)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "ATKINS",
    "annotation": {

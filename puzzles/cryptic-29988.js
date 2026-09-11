@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29988"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Footballer crossing road to get pound (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "PESTLE",
    "annotation": {
@@ -75,9 +72,6 @@ window.CRYPTIC_PUZZLES["cryptic-29988"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Coat of plaster like a 2-layer (7)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "PROVINE",
    "annotation": {
@@ -121,9 +115,6 @@ window.CRYPTIC_PUZZLES["cryptic-29988"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "What’s up with record stock? (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "SHEEP",
    "annotation": {
@@ -176,9 +167,6 @@ window.CRYPTIC_PUZZLES["cryptic-29988"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Pianist leaving church to tour one part of Africa (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "LIBERIA",
    "annotation": {
@@ -230,9 +218,6 @@ window.CRYPTIC_PUZZLES["cryptic-29988"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Poor shots from Spain’s No.1 player in Philadelphia (6)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "SHANKS",
    "annotation": {
@@ -279,9 +264,6 @@ window.CRYPTIC_PUZZLES["cryptic-29988"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Salesman’s wife getting into fish recipe (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "HAWKER",
    "annotation": {
@@ -332,9 +314,6 @@ window.CRYPTIC_PUZZLES["cryptic-29988"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Foolish jester made woollen items for Spooner (9)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "NITWITTED",
    "annotation": {
@@ -380,9 +359,6 @@ window.CRYPTIC_PUZZLES["cryptic-29988"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Performed chore and cried into drink (5,2)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -434,9 +410,6 @@ window.CRYPTIC_PUZZLES["cryptic-29988"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Becks played incredibly to inspire team’s midfield for Fergie’s old outfit (5,4,4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      5,
@@ -496,9 +469,6 @@ window.CRYPTIC_PUZZLES["cryptic-29988"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Italian dignitary delivers Elon Musk’s baby? (4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "DOGE",
    "annotation": {
@@ -537,9 +507,6 @@ window.CRYPTIC_PUZZLES["cryptic-29988"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Ring with number for trendsetter (10)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "BELLWETHER",
    "annotation": {
@@ -587,9 +554,6 @@ window.CRYPTIC_PUZZLES["cryptic-29988"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Duck followed by a bird (6)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "DIPPER",
    "annotation": {
@@ -633,9 +597,6 @@ window.CRYPTIC_PUZZLES["cryptic-29988"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Pervert chose ITV2 (8)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "CHEVIOTS",
    "annotation": {
@@ -678,9 +639,6 @@ window.CRYPTIC_PUZZLES["cryptic-29988"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Comic Stewart Lee forgetting line 2 (9)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "TEESWATER",
    "annotation": {
@@ -730,9 +688,6 @@ window.CRYPTIC_PUZZLES["cryptic-29988"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Fencing covers problem for 2 poets (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "SCABBARDS",
    "annotation": {
@@ -771,9 +726,6 @@ window.CRYPTIC_PUZZLES["cryptic-29988"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Backing favourites to show pace (4)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "STEP",
    "annotation": {
@@ -820,9 +772,6 @@ window.CRYPTIC_PUZZLES["cryptic-29988"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "‘Dog in the mirror’ is entertaining answer for god (4)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "BAAL",
    "annotation": {
@@ -879,9 +828,6 @@ window.CRYPTIC_PUZZLES["cryptic-29988"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Unfinished Monster Munches regularly account for fires (7)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "BEACONS",
    "annotation": {
@@ -933,9 +879,6 @@ window.CRYPTIC_PUZZLES["cryptic-29988"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Ambassador’s wife getting tips from Ascension Islander (9)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "HEBRIDEAN",
    "annotation": {
@@ -985,9 +928,6 @@ window.CRYPTIC_PUZZLES["cryptic-29988"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Male chimney sweep in dance company (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "RAMBERT",
    "annotation": {
@@ -1029,9 +969,6 @@ window.CRYPTIC_PUZZLES["cryptic-29988"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Spider has distinctive pattern on behind occasionally (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "ARANEID",
    "annotation": {
@@ -1080,9 +1017,6 @@ window.CRYPTIC_PUZZLES["cryptic-29988"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Stuck-up date tucking into revolutionary food (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "CHEESE",
    "annotation": {
@@ -1135,9 +1069,6 @@ window.CRYPTIC_PUZZLES["cryptic-29988"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Dear Charlie Dance showing a bit of flesh (4,4)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -1189,9 +1120,6 @@ window.CRYPTIC_PUZZLES["cryptic-29988"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Untidy Womble briefly embracing a form of anarchy (3,3)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -1247,9 +1175,6 @@ window.CRYPTIC_PUZZLES["cryptic-29988"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Club accepting the French complaint (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "BLEAT",
    "annotation": {
@@ -1294,9 +1219,6 @@ window.CRYPTIC_PUZZLES["cryptic-29988"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "2 drunk cider or beer (10)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "CORRIEDALE",
    "annotation": {
@@ -1344,9 +1266,6 @@ window.CRYPTIC_PUZZLES["cryptic-29988"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Females take drugs orally (4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "EWES",
    "annotation": {
@@ -1382,9 +1301,6 @@ window.CRYPTIC_PUZZLES["cryptic-29988"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "South American relations in part of England (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "SUSSEX",
    "annotation": {
@@ -1432,9 +1348,6 @@ window.CRYPTIC_PUZZLES["cryptic-29988"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Declared dead by the entrance of Serpentine Gallery (6)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "STATED",
    "annotation": {

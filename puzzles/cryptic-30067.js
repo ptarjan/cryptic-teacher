@@ -24,9 +24,6 @@ window.CRYPTIC_PUZZLES["cryptic-30067"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Rubbish clothes, baggier with holes at intervals (7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "GARBAGE",
    "annotation": {
@@ -65,9 +62,6 @@ window.CRYPTIC_PUZZLES["cryptic-30067"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Unyielding squad a man triumphantly arrests (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "ADAMANT",
    "annotation": {
@@ -97,9 +91,6 @@ window.CRYPTIC_PUZZLES["cryptic-30067"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Fraudulent attempt to climb into conveyance (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "BOGUS",
    "annotation": {
@@ -146,9 +137,6 @@ window.CRYPTIC_PUZZLES["cryptic-30067"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Creators of digital protection are not just good friends? (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "GLOVERS",
    "annotation": {
@@ -185,9 +173,6 @@ window.CRYPTIC_PUZZLES["cryptic-30067"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Wasted help, say, to get in trim (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "SHAPELY",
    "annotation": {
@@ -225,9 +210,6 @@ window.CRYPTIC_PUZZLES["cryptic-30067"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "In base, extravagant to luxuriate in this? (3,3)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -271,9 +253,6 @@ window.CRYPTIC_PUZZLES["cryptic-30067"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Spirited, transforming hotel into a place of culture (5,4)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -320,9 +299,6 @@ window.CRYPTIC_PUZZLES["cryptic-30067"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Roast meat: like a bit of turkey? (7)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "LAMBAST",
    "annotation": {
@@ -367,9 +343,6 @@ window.CRYPTIC_PUZZLES["cryptic-30067"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Being born again, robe outwardly in pink (13)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {},
    "solution": "REINCARNATION",
    "annotation": {
@@ -414,9 +387,6 @@ window.CRYPTIC_PUZZLES["cryptic-30067"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Hungry feeling? Frier finally working (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "PANG",
    "annotation": {
@@ -455,9 +425,6 @@ window.CRYPTIC_PUZZLES["cryptic-30067"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Exercising, animate toes almost in sequence (3,2,1,4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -507,9 +474,6 @@ window.CRYPTIC_PUZZLES["cryptic-30067"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Cup from Scotland, or one from Hobart? (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "TASSIE",
    "annotation": {
@@ -542,9 +506,6 @@ window.CRYPTIC_PUZZLES["cryptic-30067"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Called out indecent state of the crew (8)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "NAUTICAL",
    "annotation": {
@@ -585,9 +546,6 @@ window.CRYPTIC_PUZZLES["cryptic-30067"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "New magazine from US island (9)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "STATESMAN",
    "annotation": {
@@ -624,9 +582,6 @@ window.CRYPTIC_PUZZLES["cryptic-30067"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Fellow in community had injured brainstem (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "TRIBESMAN",
    "annotation": {
@@ -664,9 +619,6 @@ window.CRYPTIC_PUZZLES["cryptic-30067"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Looking west, this elevated point used to measure height and circumference (5)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "GIRTH",
    "annotation": {
@@ -710,9 +662,6 @@ window.CRYPTIC_PUZZLES["cryptic-30067"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Peach burst open (5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "SPLIT",
    "annotation": {
@@ -745,9 +694,6 @@ window.CRYPTIC_PUZZLES["cryptic-30067"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Arrive before opening of park, and go back (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "PRECEDE",
    "annotation": {
@@ -786,9 +732,6 @@ window.CRYPTIC_PUZZLES["cryptic-30067"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Beautiful girl whose twin perished (4,5)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -830,9 +773,6 @@ window.CRYPTIC_PUZZLES["cryptic-30067"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Bertie develops from bad to worse (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "WOOSTER",
    "annotation": {
@@ -875,9 +815,6 @@ window.CRYPTIC_PUZZLES["cryptic-30067"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "About to go off perhaps, indicating right (7)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "TICKING",
    "annotation": {
@@ -910,9 +847,6 @@ window.CRYPTIC_PUZZLES["cryptic-30067"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Weirdo following one in poor visibility (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "MISFIT",
    "annotation": {
@@ -958,9 +892,6 @@ window.CRYPTIC_PUZZLES["cryptic-30067"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Pope’s half genial proclamation (8)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "BENEDICT",
    "annotation": {
@@ -999,9 +930,6 @@ window.CRYPTIC_PUZZLES["cryptic-30067"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "The precise hour business is over, close up (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "OCLOCK",
    "annotation": {
@@ -1046,9 +974,6 @@ window.CRYPTIC_PUZZLES["cryptic-30067"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Brief description of timeless ballet dancing (5)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "LABEL",
    "annotation": {
@@ -1087,9 +1012,6 @@ window.CRYPTIC_PUZZLES["cryptic-30067"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "A couple of hairstyles, extremely smart feature of the Arctic (10)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "PERMAFROST",
    "annotation": {
@@ -1129,9 +1051,6 @@ window.CRYPTIC_PUZZLES["cryptic-30067"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "In rage, black a source of energy (4)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "BOIL",
    "annotation": {
@@ -1168,9 +1087,6 @@ window.CRYPTIC_PUZZLES["cryptic-30067"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Lousy payment for cartoon (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "PEANUTS",
    "annotation": {
@@ -1204,9 +1120,6 @@ window.CRYPTIC_PUZZLES["cryptic-30067"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Hear about one record in a set of three (7)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "TRILOGY",
    "annotation": {

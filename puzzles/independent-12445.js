@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12445"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "You shouldn't have holiday sex with wretched Keir to please yourself (4,2,2,5,2)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -98,9 +95,6 @@ window.CRYPTIC_PUZZLES["independent-12445"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Labour introducing shifting scale that makes sparks fly (5,4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -156,9 +150,6 @@ window.CRYPTIC_PUZZLES["independent-12445"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Orderly looked after nurses close to sanatorium (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "KEMPT",
    "annotation": {
@@ -204,9 +195,6 @@ window.CRYPTIC_PUZZLES["independent-12445"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Third off price for ham? (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "INDIA",
    "annotation": {
@@ -243,9 +231,6 @@ window.CRYPTIC_PUZZLES["independent-12445"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "One beastly Conservative's unguarded kiss (4)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "ORYX",
    "annotation": {
@@ -288,9 +273,6 @@ window.CRYPTIC_PUZZLES["independent-12445"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Key expert's cant in hearing (5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "LISZT",
    "annotation": {
@@ -328,9 +310,6 @@ window.CRYPTIC_PUZZLES["independent-12445"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "TV show possibly exposed sporting star as one who gets high (9)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "AERIALIST",
    "annotation": {
@@ -381,9 +360,6 @@ window.CRYPTIC_PUZZLES["independent-12445"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Europeans disturbed by news on international lack of interest (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "ENNUI",
    "annotation": {
@@ -441,9 +417,6 @@ window.CRYPTIC_PUZZLES["independent-12445"] = /*JSON-START*/ {
      14
     ]
    ],
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "TREAD",
    "annotation": {
@@ -495,9 +468,6 @@ window.CRYPTIC_PUZZLES["independent-12445"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "One quits newspapers possibly drowning in sauce sooner or later (7)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "SOMEDAY",
    "annotation": {
@@ -550,9 +520,6 @@ window.CRYPTIC_PUZZLES["independent-12445"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "To choke, losing heart in Wimbledon, is hard to explain (7)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "STRANGE",
    "annotation": {
@@ -596,9 +563,6 @@ window.CRYPTIC_PUZZLES["independent-12445"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Vauxhall car approaching yard is off course (6)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "ASTRAY",
    "annotation": {
@@ -644,9 +608,6 @@ window.CRYPTIC_PUZZLES["independent-12445"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Made firm second date arranged with bombshell (8)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "STEADIED",
    "annotation": {
@@ -704,9 +665,6 @@ window.CRYPTIC_PUZZLES["independent-12445"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "American woman who won five Grand Slam titles (4)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "ASHE",
    "annotation": {
@@ -743,9 +701,6 @@ window.CRYPTIC_PUZZLES["independent-12445"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Republicans originally redacted models' faces (7)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "OPPOSES",
    "annotation": {
@@ -796,9 +751,6 @@ window.CRYPTIC_PUZZLES["independent-12445"] = /*JSON-START*/ {
      11
     ]
    ],
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "PHI",
    "annotation": {
@@ -838,9 +790,6 @@ window.CRYPTIC_PUZZLES["independent-12445"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Four times Sugar wasted capital in Baden-Württemberg (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "STUTTGART",
    "annotation": {
@@ -887,9 +836,6 @@ window.CRYPTIC_PUZZLES["independent-12445"] = /*JSON-START*/ {
      33,
      9
     ]
-   ],
-   "group": [
-    "17-across"
    ],
    "separatorLocations": {},
    "solution": "CLIENTS",
@@ -951,9 +897,6 @@ window.CRYPTIC_PUZZLES["independent-12445"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Meloni's opener: \"Trump's intelligence? Zero!\" (4)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "CIAO",
    "annotation": {
@@ -990,9 +933,6 @@ window.CRYPTIC_PUZZLES["independent-12445"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Collar's missing a zip (3)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "NIL",
    "annotation": {
@@ -1029,9 +969,6 @@ window.CRYPTIC_PUZZLES["independent-12445"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Insignificant banker's unacceptable service on the back of jet (9)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "STREAMLET",
    "annotation": {
@@ -1077,9 +1014,6 @@ window.CRYPTIC_PUZZLES["independent-12445"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "The French certain to embrace current convenient opportunity (7)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "LEISURE",
    "annotation": {
@@ -1128,9 +1062,6 @@ window.CRYPTIC_PUZZLES["independent-12445"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Tips from angry sub: \"Trying your luck annoys readers wanting columns\" (7)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "ASTYLAR",
    "annotation": {
@@ -1173,9 +1104,6 @@ window.CRYPTIC_PUZZLES["independent-12445"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "United’s lead cut by player’s mistake ... (8)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "TOGETHER",
    "annotation": {
@@ -1222,9 +1150,6 @@ window.CRYPTIC_PUZZLES["independent-12445"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Half-hearted old Tory enforcer upset region in dispute (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "TIBET",
    "annotation": {
@@ -1269,9 +1194,6 @@ window.CRYPTIC_PUZZLES["independent-12445"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Eagle going around after golf class (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "GENRE",
    "annotation": {
@@ -1322,9 +1244,6 @@ window.CRYPTIC_PUZZLES["independent-12445"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Space kept by priest for fragrant resin (5)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "ELEMI",
    "annotation": {
@@ -1371,9 +1290,6 @@ window.CRYPTIC_PUZZLES["independent-12445"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "... short cross Rayan Aït-Nouri initially returned back to Donnarumma for City (6)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "ANKARA",
    "annotation": {
@@ -1431,9 +1347,6 @@ window.CRYPTIC_PUZZLES["independent-12445"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "New York city cops heading to apprehend animal (5)",
-   "group": [
-    "26-down"
-   ],
    "separatorLocations": {},
    "solution": "NYALA",
    "annotation": {
@@ -1484,9 +1397,6 @@ window.CRYPTIC_PUZZLES["independent-12445"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Gay, maybe rampant and single! (5)",
-   "group": [
-    "27-down"
-   ],
    "separatorLocations": {},
    "solution": "ALONE",
    "annotation": {
@@ -1534,9 +1444,6 @@ window.CRYPTIC_PUZZLES["independent-12445"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Huxley's soporific book on revolution (4)",
-   "group": [
-    "28-down"
-   ],
    "separatorLocations": {},
    "solution": "SOMA",
    "annotation": {
@@ -1582,9 +1489,6 @@ window.CRYPTIC_PUZZLES["independent-12445"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Who's licensed to kill twisted, barely legal kink? (7)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "BONDAGE",
    "annotation": {
@@ -1626,9 +1530,6 @@ window.CRYPTIC_PUZZLES["independent-12445"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "List of elite US students said to be doing well (2,1,4)",
-   "group": [
-    "30-across"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -1671,9 +1572,6 @@ window.CRYPTIC_PUZZLES["independent-12445"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Professional representative could be awful charlatan getting cut repeatedly: first 12.5% of earnings (10,5)",
-   "group": [
-    "31-across"
-   ],
    "separatorLocations": {
     ",": [
      10

@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12392"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Hat Liberal discarded in recess (5)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "BOWER",
    "annotation": {
@@ -73,9 +70,6 @@ window.CRYPTIC_PUZZLES["independent-12392"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Dreadful pub documentation (5)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "BUMPH",
    "annotation": {
@@ -114,9 +108,6 @@ window.CRYPTIC_PUZZLES["independent-12392"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Twist unsettling re: new prices for car accessory (10,5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      10
@@ -170,9 +161,6 @@ window.CRYPTIC_PUZZLES["independent-12392"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Border in order, though not at first (3)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "RIM",
    "annotation": {
@@ -215,9 +203,6 @@ window.CRYPTIC_PUZZLES["independent-12392"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Problems for wine-makers: six detectives probing links (9)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "VITICIDES",
    "annotation": {
@@ -268,9 +253,6 @@ window.CRYPTIC_PUZZLES["independent-12392"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Hedonist elevated endless desire, elevated attempt to seize gold, on reflection (10)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "VOLUPTUARY",
    "annotation": {
@@ -349,9 +331,6 @@ window.CRYPTIC_PUZZLES["independent-12392"] = /*JSON-START*/ {
      4
     ]
    ],
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "TOSS",
    "annotation": {
@@ -394,9 +373,6 @@ window.CRYPTIC_PUZZLES["independent-12392"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "One considering the Universe dispersing stoic’s gloom (11)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "COSMOLOGIST",
    "annotation": {
@@ -434,9 +410,6 @@ window.CRYPTIC_PUZZLES["independent-12392"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Wait at a late point of the evening, being between turns on the floor? (5,10)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -496,9 +469,6 @@ window.CRYPTIC_PUZZLES["independent-12392"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Small place initially without facilities for skating? Not quite - touches here and there (9)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "SPRINKLES",
    "annotation": {
@@ -544,9 +514,6 @@ window.CRYPTIC_PUZZLES["independent-12392"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Top celebrities enthralled by notes from some contemporary composers … (11)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "MINIMALISTS",
    "annotation": {
@@ -594,9 +561,6 @@ window.CRYPTIC_PUZZLES["independent-12392"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "… and not enthralled by countertenors (3)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "NOR",
    "annotation": {
@@ -631,9 +595,6 @@ window.CRYPTIC_PUZZLES["independent-12392"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "It may dampen expectation about cooked pies (8)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "HOSEPIPE",
    "annotation": {
@@ -683,9 +644,6 @@ window.CRYPTIC_PUZZLES["independent-12392"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Publicity group is taking care of pop singer and other divas (5,6)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -742,9 +700,6 @@ window.CRYPTIC_PUZZLES["independent-12392"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Youngster pursuing work recalled making illegal booze (6)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "POTEEN",
    "annotation": {
@@ -799,9 +754,6 @@ window.CRYPTIC_PUZZLES["independent-12392"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "With Charlie and I involved, excitedly develop European road transport? (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "VELOCIPEDE",
    "annotation": {
@@ -856,9 +808,6 @@ window.CRYPTIC_PUZZLES["independent-12392"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Bondage TV series not entirely scrapped, receiving backing of the French (9)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "SERVITUDE",
    "annotation": {
@@ -918,9 +867,6 @@ window.CRYPTIC_PUZZLES["independent-12392"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Deliver sermon: quick to dismiss God, capturing Church uncertainty (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "SPEECHIFY",
    "annotation": {
@@ -978,9 +924,6 @@ window.CRYPTIC_PUZZLES["independent-12392"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Sources in Oxford and Cambridge chat endlessly regarding eights (5)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "OCTAL",
    "annotation": {
@@ -1026,9 +969,6 @@ window.CRYPTIC_PUZZLES["independent-12392"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Blokes in A&E returned for medical intervention (5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "ENEMA",
    "annotation": {
@@ -1084,9 +1024,6 @@ window.CRYPTIC_PUZZLES["independent-12392"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Aussie creatures surrounding excavations? Lots of space (9)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "ROOMINESS",
    "annotation": {
@@ -1131,9 +1068,6 @@ window.CRYPTIC_PUZZLES["independent-12392"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Rancher wary, suppressing expression of pain in front of buckaroo, initially (6)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "COWBOY",
    "annotation": {
@@ -1188,9 +1122,6 @@ window.CRYPTIC_PUZZLES["independent-12392"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Yard probing juicy gossip over Government scoundrel (5,3)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -1250,9 +1181,6 @@ window.CRYPTIC_PUZZLES["independent-12392"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Chap clutching stone, feeling effects of gale (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "GUSTY",
    "annotation": {
@@ -1297,9 +1225,6 @@ window.CRYPTIC_PUZZLES["independent-12392"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Case ends in outcome against you and I (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "ETUI",
    "annotation": {
@@ -1350,9 +1275,6 @@ window.CRYPTIC_PUZZLES["independent-12392"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Independent politician, a source of funny business? (3)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "IMP",
    "annotation": {
@@ -1391,9 +1313,6 @@ window.CRYPTIC_PUZZLES["independent-12392"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Country swamping the river in neon lights (11)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "NETHERLANDS",
    "annotation": {
@@ -1447,9 +1366,6 @@ window.CRYPTIC_PUZZLES["independent-12392"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Water movement lacking force, lacking strength (3)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "LOW",
    "annotation": {
@@ -1492,9 +1408,6 @@ window.CRYPTIC_PUZZLES["independent-12392"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Factory at first trimmed wages after year in part of Northern England (9)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "YORKSHIRE",
    "annotation": {
@@ -1549,9 +1462,6 @@ window.CRYPTIC_PUZZLES["independent-12392"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Went quietly, finally exhibiting little strength (5)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "WEEDY",
    "annotation": {

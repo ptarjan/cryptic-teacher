@@ -48,9 +48,6 @@ window.CRYPTIC_PUZZLES["cryptic-29960"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "When empty, rule 1 is to fill glasses for salutations (8)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "RESPECTS",
    "annotation": null
@@ -65,9 +62,6 @@ window.CRYPTIC_PUZZLES["cryptic-29960"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Group left in trouble in retirement (4)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "BLUR",
    "annotation": null
@@ -82,9 +76,6 @@ window.CRYPTIC_PUZZLES["cryptic-29960"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "News account breaking down summit (8)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "PINNACLE",
    "annotation": null
@@ -99,9 +90,6 @@ window.CRYPTIC_PUZZLES["cryptic-29960"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Folly of international firm returning self-assembly boxes (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "IDIOCY",
    "annotation": null
@@ -116,9 +104,6 @@ window.CRYPTIC_PUZZLES["cryptic-29960"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Thrash a legal case for trial out – it’s iron-clad (10)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "FLAGELLATE",
    "annotation": null
@@ -133,9 +118,6 @@ window.CRYPTIC_PUZZLES["cryptic-29960"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "If not, French articles succeeded (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "UNLESS",
    "annotation": null
@@ -174,9 +156,6 @@ window.CRYPTIC_PUZZLES["cryptic-29960"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Regularly birdie and occasionally eagle – perfect (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "IDEAL",
    "annotation": null
@@ -191,9 +170,6 @@ window.CRYPTIC_PUZZLES["cryptic-29960"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Laziness in Céline Dion cast – one is dropped (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "INDOLENCE",
    "annotation": null
@@ -208,9 +184,6 @@ window.CRYPTIC_PUZZLES["cryptic-29960"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Language from mum, say, when A&E switch over tablets at the outset (9)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "ESPERANTO",
    "annotation": null
@@ -225,9 +198,6 @@ window.CRYPTIC_PUZZLES["cryptic-29960"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Eco-friendly facts about drilling (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "GREEN",
    "annotation": null
@@ -242,9 +212,6 @@ window.CRYPTIC_PUZZLES["cryptic-29960"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Antique sabre – every now and then American cuts with it (7)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "ARCHAIC",
    "annotation": null
@@ -282,9 +249,6 @@ window.CRYPTIC_PUZZLES["cryptic-29960"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Better speak with a married priest first (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "AMELIORATE",
    "annotation": null
@@ -299,9 +263,6 @@ window.CRYPTIC_PUZZLES["cryptic-29960"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Spooner’s drunk talk – it could confirm pregnancy (4,3)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -343,9 +304,6 @@ window.CRYPTIC_PUZZLES["cryptic-29960"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Liking a street in middle of Cheltenham (5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "TASTE",
    "annotation": null
@@ -360,9 +318,6 @@ window.CRYPTIC_PUZZLES["cryptic-29960"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Bird’s thigh bone discovered (3)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "EMU",
    "annotation": null
@@ -377,9 +332,6 @@ window.CRYPTIC_PUZZLES["cryptic-29960"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Shout with gun going off – it’s not called for (8)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "UNSOUGHT",
    "annotation": null
@@ -400,9 +352,6 @@ window.CRYPTIC_PUZZLES["cryptic-29960"] = /*JSON-START*/ {
      15
     ]
    ],
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -421,9 +370,6 @@ window.CRYPTIC_PUZZLES["cryptic-29960"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Remains when Oscar leaves largest city in Michigan, America (8)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "DETRITUS",
    "annotation": null
@@ -444,9 +390,6 @@ window.CRYPTIC_PUZZLES["cryptic-29960"] = /*JSON-START*/ {
      11
     ]
    ],
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "RESCIND",
    "annotation": null
@@ -461,9 +404,6 @@ window.CRYPTIC_PUZZLES["cryptic-29960"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Enough to support son, 17 (6)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "SAMPLE",
    "annotation": null
@@ -478,9 +418,6 @@ window.CRYPTIC_PUZZLES["cryptic-29960"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Perhaps Deborah Meaden’s doctor detailed extreme suffering (6)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "DRAGON",
    "annotation": null
@@ -495,9 +432,6 @@ window.CRYPTIC_PUZZLES["cryptic-29960"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Tense during drama initially directed like some soaps? (7)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "SCENTED",
    "annotation": null
@@ -512,9 +446,6 @@ window.CRYPTIC_PUZZLES["cryptic-29960"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Powerless monkey – one seen in a circus? (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "TAMER",
    "annotation": null
@@ -550,9 +481,6 @@ window.CRYPTIC_PUZZLES["cryptic-29960"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Modern day translation of Latin essentially Your Worship (9)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "ADULATION",
    "annotation": null
@@ -567,9 +495,6 @@ window.CRYPTIC_PUZZLES["cryptic-29960"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Distributing small – not large – handouts (4)",
-   "group": [
-    "28-down"
-   ],
    "separatorLocations": {},
    "solution": "ALMS",
    "annotation": null
@@ -605,9 +530,6 @@ window.CRYPTIC_PUZZLES["cryptic-29960"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Kind to insect assuming one might be found under a pillow? (4,5)",
-   "group": [
-    "30-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -626,9 +548,6 @@ window.CRYPTIC_PUZZLES["cryptic-29960"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Keen – having second go after wasting first (5)",
-   "group": [
-    "31-across"
-   ],
    "separatorLocations": {},
    "solution": "MOURN",
    "annotation": null

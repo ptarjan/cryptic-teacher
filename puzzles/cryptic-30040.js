@@ -24,9 +24,6 @@ window.CRYPTIC_PUZZLES["cryptic-30040"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Perform better than leader of party cutting expenditure (7)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "OUTPLAY",
    "annotation": {
@@ -73,9 +70,6 @@ window.CRYPTIC_PUZZLES["cryptic-30040"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Cheap outlet with 70s music and a French name losing money (10)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "DISCOUNTER",
    "annotation": {
@@ -121,9 +115,6 @@ window.CRYPTIC_PUZZLES["cryptic-30040"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Sport seen in Jarrow earlier (4)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "WEAR",
    "annotation": {
@@ -154,9 +145,6 @@ window.CRYPTIC_PUZZLES["cryptic-30040"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Dim bore concocted placatory statement (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "BROMIDE",
    "annotation": {
@@ -195,9 +183,6 @@ window.CRYPTIC_PUZZLES["cryptic-30040"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Performing individual with singular object of concern? (2,4,4)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -252,9 +237,6 @@ window.CRYPTIC_PUZZLES["cryptic-30040"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Revolutionary face encapsulating a US territory (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "GUAM",
    "annotation": {
@@ -302,9 +284,6 @@ window.CRYPTIC_PUZZLES["cryptic-30040"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Husband in trim overturned longing for Indian food (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "CHUTNEY",
    "annotation": {
@@ -358,9 +337,6 @@ window.CRYPTIC_PUZZLES["cryptic-30040"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Term in use possibly with no end of churches for Christian, say (8)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {},
    "solution": "MUTINEER",
    "annotation": {
@@ -405,9 +381,6 @@ window.CRYPTIC_PUZZLES["cryptic-30040"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Duck in middle of canal looked for when sun is out (6)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "NOUGHT",
    "annotation": {
@@ -448,9 +421,6 @@ window.CRYPTIC_PUZZLES["cryptic-30040"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Colourful band from special city snubbed president (8)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "SPECTRUM",
    "annotation": {
@@ -496,9 +466,6 @@ window.CRYPTIC_PUZZLES["cryptic-30040"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Dimwit put many off after scrubbing article (6)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "NUMPTY",
    "annotation": {
@@ -543,9 +510,6 @@ window.CRYPTIC_PUZZLES["cryptic-30040"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Supermarket among restaurants stricken in flood, maybe (7,8)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -594,9 +558,6 @@ window.CRYPTIC_PUZZLES["cryptic-30040"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Paul S’s partner in Paris to go over unknown site with a collection? (3,7)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -647,9 +608,6 @@ window.CRYPTIC_PUZZLES["cryptic-30040"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Tar was here at sea to locate marine bird (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "SHEARWATER",
    "annotation": {
@@ -691,9 +649,6 @@ window.CRYPTIC_PUZZLES["cryptic-30040"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Declare condition (5)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "STATE",
    "annotation": {
@@ -728,9 +683,6 @@ window.CRYPTIC_PUZZLES["cryptic-30040"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Amusements (not half) for one working in a suit (5)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "DIVER",
    "annotation": {
@@ -764,9 +716,6 @@ window.CRYPTIC_PUZZLES["cryptic-30040"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Islander clearly disheartened facing start of public disorder (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "CYPRIOT",
    "annotation": {
@@ -814,9 +763,6 @@ window.CRYPTIC_PUZZLES["cryptic-30040"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Duke defending a theologian, one given to temporary obsession? (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "FADDIST",
    "annotation": {
@@ -857,9 +803,6 @@ window.CRYPTIC_PUZZLES["cryptic-30040"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Agrees with Italian and French priests (not English) (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "CONCURS",
    "annotation": {
@@ -899,9 +842,6 @@ window.CRYPTIC_PUZZLES["cryptic-30040"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Andorra terribly treated in an experimental way? (2,5,3,5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -946,9 +886,6 @@ window.CRYPTIC_PUZZLES["cryptic-30040"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Insurable activity held in extra velodrome (6)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "TRAVEL",
    "annotation": {
@@ -979,9 +916,6 @@ window.CRYPTIC_PUZZLES["cryptic-30040"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Sanction over Eton excluding outsiders (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "VETO",
    "annotation": {
@@ -1021,9 +955,6 @@ window.CRYPTIC_PUZZLES["cryptic-30040"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Circling resort, abandon speed (8)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "DISPATCH",
    "annotation": {
@@ -1064,9 +995,6 @@ window.CRYPTIC_PUZZLES["cryptic-30040"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Decline feature in a kitchen (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "SINK",
    "annotation": {
@@ -1101,9 +1029,6 @@ window.CRYPTIC_PUZZLES["cryptic-30040"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "One engaged in break, perhaps, gets to move with little energy (6)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "POTTER",
    "annotation": {
@@ -1138,9 +1063,6 @@ window.CRYPTIC_PUZZLES["cryptic-30040"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Anglican bishop into sound tipple (8)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "SANCERRE",
    "annotation": {

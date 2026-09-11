@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12385"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Would rozzers (PCs) suspect this? (9,6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      9
@@ -69,9 +66,6 @@ window.CRYPTIC_PUZZLES["independent-12385"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Silent about one going after rogue element (7)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "CADMIUM",
    "annotation": {
@@ -124,9 +118,6 @@ window.CRYPTIC_PUZZLES["independent-12385"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Start to regain consciousness, despite anaesthesiologist's conclusions (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "ONSET",
    "annotation": {
@@ -168,9 +159,6 @@ window.CRYPTIC_PUZZLES["independent-12385"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Jacket accessory ought to drape differently (8,3)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -224,9 +212,6 @@ window.CRYPTIC_PUZZLES["independent-12385"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Deliveries by comedian go too far (9)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "OVERSHOOT",
    "annotation": {
@@ -267,9 +252,6 @@ window.CRYPTIC_PUZZLES["independent-12385"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Group of Chicago CSI detectives going over nightclub (5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "DISCO",
    "annotation": {
@@ -312,9 +294,6 @@ window.CRYPTIC_PUZZLES["independent-12385"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Card game using queen but not jack (3)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "UNO",
    "annotation": {
@@ -360,9 +339,6 @@ window.CRYPTIC_PUZZLES["independent-12385"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Prophet from Australia upset critic? (9)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "ZOROASTER",
    "annotation": {
@@ -415,9 +391,6 @@ window.CRYPTIC_PUZZLES["independent-12385"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Words displayed here preceding a German article (1-6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     "-": [
      1
@@ -465,9 +438,6 @@ window.CRYPTIC_PUZZLES["independent-12385"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Bride so excited to take off clothes (7)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "DISROBE",
    "annotation": {
@@ -508,9 +478,6 @@ window.CRYPTIC_PUZZLES["independent-12385"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Search outside of Google for cause of affliction (7)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "SCOURGE",
    "annotation": {
@@ -557,9 +524,6 @@ window.CRYPTIC_PUZZLES["independent-12385"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Acquired secrets via home telephone (5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "INTEL",
    "annotation": {
@@ -601,9 +565,6 @@ window.CRYPTIC_PUZZLES["independent-12385"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Ride going downhill as Spooner's lover was loud in bed? (9)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "SNOWBOARD",
    "annotation": {
@@ -652,9 +613,6 @@ window.CRYPTIC_PUZZLES["independent-12385"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Convince Google cofounder with revolutionary \"silver bullet\", perhaps (5,6)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -719,9 +677,6 @@ window.CRYPTIC_PUZZLES["independent-12385"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Picture that is appended to second volume (5)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "MOVIE",
    "annotation": {
@@ -771,9 +726,6 @@ window.CRYPTIC_PUZZLES["independent-12385"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Matinée idol from Depression not in broadcast (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "VALENTINO",
    "annotation": {
@@ -825,9 +777,6 @@ window.CRYPTIC_PUZZLES["independent-12385"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Volunteer adopting traditional dress that's not quite right (3-6)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -879,9 +828,6 @@ window.CRYPTIC_PUZZLES["independent-12385"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Swimming event runs from Lebanese port after left/right mix-up (9)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "FREESTYLE",
    "annotation": {
@@ -928,9 +874,6 @@ window.CRYPTIC_PUZZLES["independent-12385"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "A letter P's incorrectly signifying potassium compound (9)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "SALTPETRE",
    "annotation": {
@@ -971,9 +914,6 @@ window.CRYPTIC_PUZZLES["independent-12385"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Win this kind of board game after losing hard twice (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "SUCCESS",
    "annotation": {
@@ -1027,9 +967,6 @@ window.CRYPTIC_PUZZLES["independent-12385"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Bit of maths going over height and circumference (5)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "GIRTH",
    "annotation": {
@@ -1082,9 +1019,6 @@ window.CRYPTIC_PUZZLES["independent-12385"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "That man angers leader of suffragists—she has it coming (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "HEIRESS",
    "annotation": {
@@ -1135,9 +1069,6 @@ window.CRYPTIC_PUZZLES["independent-12385"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Maybe Toronto team are able to spot one answer (9)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "CANADIANS",
    "annotation": {
@@ -1188,9 +1119,6 @@ window.CRYPTIC_PUZZLES["independent-12385"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Returned to sign agreement and District Attorney's supplement (3-2)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -1247,9 +1175,6 @@ window.CRYPTIC_PUZZLES["independent-12385"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Starter of savoury flatbread wraps and Swiss-style fried potato (5)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "ROSTI",
    "annotation": {
@@ -1299,9 +1224,6 @@ window.CRYPTIC_PUZZLES["independent-12385"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Reject fiancée, essentially following incentive (5)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "SPURN",
    "annotation": {
@@ -1347,9 +1269,6 @@ window.CRYPTIC_PUZZLES["independent-12385"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Were split screens central part of episode? (7)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "EXISTED",
    "annotation": {
@@ -1396,9 +1315,6 @@ window.CRYPTIC_PUZZLES["independent-12385"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Hamburger's good, on reflection, for Yank (3)",
-   "group": [
-    "26-down"
-   ],
    "separatorLocations": {},
    "solution": "TUG",
    "annotation": {
@@ -1445,9 +1361,6 @@ window.CRYPTIC_PUZZLES["independent-12385"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "After collapse, buy out electronic tech company (7)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "YOUTUBE",
    "annotation": {
@@ -1493,9 +1406,6 @@ window.CRYPTIC_PUZZLES["independent-12385"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Unions that are forced to raise issue legitimately? (7,8)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {
     ",": [
      7

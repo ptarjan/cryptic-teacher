@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30023"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "American friend’s a nuisance in European 2 (8)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "BUDAPEST",
    "annotation": {
@@ -71,9 +68,6 @@ window.CRYPTIC_PUZZLES["cryptic-30023"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "100,120 went off football team? (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "CITY",
    "annotation": {
@@ -123,9 +117,6 @@ window.CRYPTIC_PUZZLES["cryptic-30023"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Wife more majestic once King George departs to ramble (6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "WANDER",
    "annotation": {
@@ -179,9 +170,6 @@ window.CRYPTIC_PUZZLES["cryptic-30023"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Looking for our sun, perhaps, in edge of galaxy (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "STARING",
    "annotation": {
@@ -236,9 +224,6 @@ window.CRYPTIC_PUZZLES["cryptic-30023"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Measure the holy soul (4)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "ACRE",
    "annotation": {
@@ -279,9 +264,6 @@ window.CRYPTIC_PUZZLES["cryptic-30023"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "To secure vote, Reform lied with items like male pattern baldness? (3-7)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -333,9 +315,6 @@ window.CRYPTIC_PUZZLES["cryptic-30023"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Singer in terrible danger (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "GRANDE",
    "annotation": {
@@ -381,9 +360,6 @@ window.CRYPTIC_PUZZLES["cryptic-30023"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Jack built new houses: a number on top of the world (8)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {},
    "solution": "JUBILANT",
    "annotation": {
@@ -442,9 +418,6 @@ window.CRYPTIC_PUZZLES["cryptic-30023"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Obvious Charlie’s King (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "CLEAR",
    "annotation": {
@@ -487,9 +460,6 @@ window.CRYPTIC_PUZZLES["cryptic-30023"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Removing a corner from wood stacks (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "MANY",
    "annotation": {
@@ -534,9 +504,6 @@ window.CRYPTIC_PUZZLES["cryptic-30023"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Japanese fish served in wild leaves (10)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "DARJEELING",
    "annotation": {
@@ -588,9 +555,6 @@ window.CRYPTIC_PUZZLES["cryptic-30023"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "In 2000, Spain rejecting port’s account (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "MEMOIR",
    "annotation": {
@@ -652,9 +616,6 @@ window.CRYPTIC_PUZZLES["cryptic-30023"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Public arguments involving husband’s ‘extras’ (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "OVERTHROWS",
    "annotation": {
@@ -707,9 +668,6 @@ window.CRYPTIC_PUZZLES["cryptic-30023"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Time period at the heart of Romeo and Juliet? (8)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "NOVEMBER",
    "annotation": {
@@ -747,9 +705,6 @@ window.CRYPTIC_PUZZLES["cryptic-30023"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Hooligan ignores young bloke reversing vehicle (3)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "VAN",
    "annotation": {
@@ -800,9 +755,6 @@ window.CRYPTIC_PUZZLES["cryptic-30023"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "I don’t believe helium is found in a nucleus of matter (7)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "ATHEIST",
    "annotation": {
@@ -862,9 +814,6 @@ window.CRYPTIC_PUZZLES["cryptic-30023"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Uplifting new Big Issue (3)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "SON",
    "annotation": {
@@ -914,9 +863,6 @@ window.CRYPTIC_PUZZLES["cryptic-30023"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "At home with special hot date? Rather! (7)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "INSTEAD",
    "annotation": {
@@ -975,9 +921,6 @@ window.CRYPTIC_PUZZLES["cryptic-30023"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Sceptic’s odd actions over the origin of God (8)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "AGNOSTIC",
    "annotation": {
@@ -1035,9 +978,6 @@ window.CRYPTIC_PUZZLES["cryptic-30023"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "As seen, Bogart is a naturally skilled worker (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "ARTISAN",
    "annotation": {
@@ -1072,9 +1012,6 @@ window.CRYPTIC_PUZZLES["cryptic-30023"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Frenchman retired after shake with artificial milk (8)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "WHITENER",
    "annotation": {
@@ -1134,9 +1071,6 @@ window.CRYPTIC_PUZZLES["cryptic-30023"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "H-h-housing? (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "HOTELS",
    "annotation": {
@@ -1171,9 +1105,6 @@ window.CRYPTIC_PUZZLES["cryptic-30023"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Finish mailing out 17 (6)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "ENDING",
    "annotation": {
@@ -1216,9 +1147,6 @@ window.CRYPTIC_PUZZLES["cryptic-30023"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "What describes authority to abolish leader’s position? (6)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "EIGHTH",
    "annotation": {
@@ -1268,9 +1196,6 @@ window.CRYPTIC_PUZZLES["cryptic-30023"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Cooking mash first then the ultimate in jelly-filled doughnut (4-6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -1400,9 +1325,6 @@ window.CRYPTIC_PUZZLES["cryptic-30023"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Film society hosted by Cambridge University (4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "MIST",
    "annotation": {
@@ -1467,9 +1389,6 @@ window.CRYPTIC_PUZZLES["cryptic-30023"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "50 close to farms keep sheep in Sussex town (5)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "LEWES",
    "annotation": {
@@ -1523,9 +1442,6 @@ window.CRYPTIC_PUZZLES["cryptic-30023"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Radio set played rock (8)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "ASTEROID",
    "annotation": {

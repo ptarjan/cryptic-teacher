@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1360"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Foolhardy king left in hole (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "RECKLESS",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["quiptic-1360"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Demarcated grass around firm (10)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "RESTRICTED",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["quiptic-1360"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Reclaim one strange ritual (10)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "CEREMONIAL",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["quiptic-1360"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Recline naked clutching sheets (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "LINEN",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["quiptic-1360"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Assembled one’s camp for comfort (12)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "SATISFACTION",
    "annotation": null
@@ -110,9 +95,6 @@ window.CRYPTIC_PUZZLES["quiptic-1360"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Maintain a reflex lock (6)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "ASSERT",
    "annotation": null
@@ -127,9 +109,6 @@ window.CRYPTIC_PUZZLES["quiptic-1360"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Go in street getting small prize for optimal location (5,4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -148,9 +127,6 @@ window.CRYPTIC_PUZZLES["quiptic-1360"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Be up to no good (4)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "EVIL",
    "annotation": null
@@ -165,9 +141,6 @@ window.CRYPTIC_PUZZLES["quiptic-1360"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Tango with bird afterward (4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "THEN",
    "annotation": null
@@ -182,9 +155,6 @@ window.CRYPTIC_PUZZLES["quiptic-1360"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Eccentric tiny seer is cool (8)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "SERENITY",
    "annotation": null
@@ -199,9 +169,6 @@ window.CRYPTIC_PUZZLES["quiptic-1360"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Returned Little Life declaring parts dirty (6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "DEFILE",
    "annotation": null
@@ -216,9 +183,6 @@ window.CRYPTIC_PUZZLES["quiptic-1360"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Scolded fiend playing subordinate role (6,6)",
-   "group": [
-    "11-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -237,9 +201,6 @@ window.CRYPTIC_PUZZLES["quiptic-1360"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Suggestive skirts with fresh lining (11)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "REMINISCENT",
    "annotation": null
@@ -254,9 +215,6 @@ window.CRYPTIC_PUZZLES["quiptic-1360"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Pity commander with enthusiasm (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "COMPASSION",
    "annotation": null
@@ -271,9 +229,6 @@ window.CRYPTIC_PUZZLES["quiptic-1360"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Moron tears up seeing Galileo perhaps (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "ASTRONOMER",
    "annotation": null
@@ -288,9 +243,6 @@ window.CRYPTIC_PUZZLES["quiptic-1360"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Boat made from bamboo perhaps with hole in (5)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "CANOE",
    "annotation": null
@@ -305,9 +257,6 @@ window.CRYPTIC_PUZZLES["quiptic-1360"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Kit starting to enjoy joke with blokes ahead of time (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "EQUIPMENT",
    "annotation": null
@@ -322,9 +271,6 @@ window.CRYPTIC_PUZZLES["quiptic-1360"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Shapeless, empty plinth held by Randy (9)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "AMORPHOUS",
    "annotation": null
@@ -339,9 +285,6 @@ window.CRYPTIC_PUZZLES["quiptic-1360"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Emptied bowels of European vessel holding a copper edition? (9)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "EVACUATED",
    "annotation": null
@@ -356,9 +299,6 @@ window.CRYPTIC_PUZZLES["quiptic-1360"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Spill from faucet heard regularly (5)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "TAPER",
    "annotation": null
@@ -373,9 +313,6 @@ window.CRYPTIC_PUZZLES["quiptic-1360"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Wandering relative returned from a gold prison in disarray (8,3)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -394,9 +331,6 @@ window.CRYPTIC_PUZZLES["quiptic-1360"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Heads of agriculture believe animal care incentives to be things that can be counted on (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "ABACI",
    "annotation": null
@@ -411,9 +345,6 @@ window.CRYPTIC_PUZZLES["quiptic-1360"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Gives weapons to ranches needing force (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "ARMS",
    "annotation": null
@@ -428,9 +359,6 @@ window.CRYPTIC_PUZZLES["quiptic-1360"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Idle leader removed from finish (4)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "LAZE",
    "annotation": null
@@ -445,9 +373,6 @@ window.CRYPTIC_PUZZLES["quiptic-1360"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Audience for book of French held by parent (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "READER",
    "annotation": null
@@ -462,9 +387,6 @@ window.CRYPTIC_PUZZLES["quiptic-1360"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Impracticality of one trade is misunderstood initially (8)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "IDEALISM",
    "annotation": null
@@ -479,9 +401,6 @@ window.CRYPTIC_PUZZLES["quiptic-1360"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Hustle disorganised detective (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "SLEUTH",
    "annotation": null
@@ -496,9 +415,6 @@ window.CRYPTIC_PUZZLES["quiptic-1360"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Buck perhaps holding placard for architect (8)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "DESIGNER",
    "annotation": null

@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1826"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Decadent holiday starts with Jeff losing case (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "EFFETE",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["indysunday-1826"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Grip plum, having bitten a third off (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "ENGAGE",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["indysunday-1826"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Bob Marley among others in castle, initially (3,1,5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -81,9 +72,6 @@ window.CRYPTIC_PUZZLES["indysunday-1826"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Murphy's one to argue against getting up (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "TUBER",
    "annotation": null
@@ -98,9 +86,6 @@ window.CRYPTIC_PUZZLES["indysunday-1826"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "A newspaper's covering gendarme's troubles (8)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "AFFLICTS",
    "annotation": null
@@ -115,9 +100,6 @@ window.CRYPTIC_PUZZLES["indysunday-1826"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Helpful woman just not the same after my dog exploded (5,9)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -136,9 +118,6 @@ window.CRYPTIC_PUZZLES["indysunday-1826"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Attend new Hamlet, say, halfway through Lear (4,2,3)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -158,9 +137,6 @@ window.CRYPTIC_PUZZLES["indysunday-1826"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Shin up branch following child's lead (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "CLIMB",
    "annotation": null
@@ -175,9 +151,6 @@ window.CRYPTIC_PUZZLES["indysunday-1826"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Notice son in terror kept rising and sinking (8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "SEESAWED",
    "annotation": null
@@ -192,9 +165,6 @@ window.CRYPTIC_PUZZLES["indysunday-1826"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Find your bottle - chance new dog has swallowed beer? (5,2,7)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {
     ",": [
      5,
@@ -214,9 +184,6 @@ window.CRYPTIC_PUZZLES["indysunday-1826"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Cheap supermarket by habit stocking one sort of biscuit (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "GARIBALDI",
    "annotation": null
@@ -231,9 +198,6 @@ window.CRYPTIC_PUZZLES["indysunday-1826"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Simple coming back through Cambridge via Newmarket (5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "NAIVE",
    "annotation": null
@@ -248,9 +212,6 @@ window.CRYPTIC_PUZZLES["indysunday-1826"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Talk German equally (3)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "GAS",
    "annotation": null
@@ -265,9 +226,6 @@ window.CRYPTIC_PUZZLES["indysunday-1826"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Adrian's muscly boyfriend Clark tangled with a yobbo (5,6)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -286,9 +244,6 @@ window.CRYPTIC_PUZZLES["indysunday-1826"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Win gold for old coach (6)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "LANDAU",
    "annotation": null
@@ -309,9 +264,6 @@ window.CRYPTIC_PUZZLES["indysunday-1826"] = /*JSON-START*/ {
      6
     ]
    ],
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "DANNEBROG",
    "annotation": null
@@ -326,9 +278,6 @@ window.CRYPTIC_PUZZLES["indysunday-1826"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Concerning condensation reported late (7)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "OVERDUE",
    "annotation": null
@@ -343,9 +292,6 @@ window.CRYPTIC_PUZZLES["indysunday-1826"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Work schedule marked up, one sets off (9)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "DETONATOR",
    "annotation": null
@@ -360,9 +306,6 @@ window.CRYPTIC_PUZZLES["indysunday-1826"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Break from work initially suits head servant (8)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "STOPPAGE",
    "annotation": null
@@ -377,9 +320,6 @@ window.CRYPTIC_PUZZLES["indysunday-1826"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Massive cuckoo feeds little bird, start of contrition? (7)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "TITANIC",
    "annotation": null
@@ -394,9 +334,6 @@ window.CRYPTIC_PUZZLES["indysunday-1826"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Mike tries developing good qualities (6)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "MERITS",
    "annotation": null
@@ -411,9 +348,6 @@ window.CRYPTIC_PUZZLES["indysunday-1826"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Lifted German's fruit loaf that's one pound lighter (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "STOLEN",
    "annotation": null
@@ -428,9 +362,6 @@ window.CRYPTIC_PUZZLES["indysunday-1826"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Show freezer a year on, full of good rump (5,6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -449,9 +380,6 @@ window.CRYPTIC_PUZZLES["indysunday-1826"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Absolute crackpot whose head has gone (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "UTTER",
    "annotation": null
@@ -466,9 +394,6 @@ window.CRYPTIC_PUZZLES["indysunday-1826"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Picture from life-drawing class includes good elbow (5)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "NUDGE",
    "annotation": null
@@ -483,9 +408,6 @@ window.CRYPTIC_PUZZLES["indysunday-1826"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Our usual base turned clear (3)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "NET",
    "annotation": null
@@ -500,9 +422,6 @@ window.CRYPTIC_PUZZLES["indysunday-1826"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Table set with candles, bread and wine, cook heard? (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "ALTAR",
    "annotation": null
@@ -517,9 +436,6 @@ window.CRYPTIC_PUZZLES["indysunday-1826"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Criminal acted alone mostly, according to reports (9)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "ANECDOTAL",
    "annotation": null
@@ -534,9 +450,6 @@ window.CRYPTIC_PUZZLES["indysunday-1826"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Half fat separates before long in tea (4,4)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -555,9 +468,6 @@ window.CRYPTIC_PUZZLES["indysunday-1826"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Starmer entered for bike race (6)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "KEIRIN",
    "annotation": null

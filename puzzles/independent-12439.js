@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12439"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "I jettison crop that's failed one screening (13)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "PROJECTIONIST",
    "annotation": {
@@ -64,9 +61,6 @@ window.CRYPTIC_PUZZLES["independent-12439"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Epic want solo pared down on one instrument (7)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "PIANOLA",
    "annotation": {
@@ -121,9 +115,6 @@ window.CRYPTIC_PUZZLES["independent-12439"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Happy to share opinions upon Stoke undergoing an earthquake (9)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "OUTSPOKEN",
    "annotation": {
@@ -160,9 +151,6 @@ window.CRYPTIC_PUZZLES["independent-12439"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Record tenants removing walls (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "ENTER",
    "annotation": {
@@ -204,9 +192,6 @@ window.CRYPTIC_PUZZLES["independent-12439"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Fancy jacket time for everyone on social media site (3)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "TUX",
    "annotation": {
@@ -254,9 +239,6 @@ window.CRYPTIC_PUZZLES["independent-12439"] = /*JSON-START*/ {
      20,
      5
     ]
-   ],
-   "group": [
-    "5-down"
    ],
    "separatorLocations": {},
    "solution": "OVERCOATS",
@@ -310,9 +292,6 @@ window.CRYPTIC_PUZZLES["independent-12439"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Buddhist chant supports old Ugandan saying (5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "IDIOM",
    "annotation": {
@@ -355,9 +334,6 @@ window.CRYPTIC_PUZZLES["independent-12439"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Internet troublemaker initially explains young loony's off this? (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "TROLLEY",
    "annotation": {
@@ -401,9 +377,6 @@ window.CRYPTIC_PUZZLES["independent-12439"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Slow at thinking, displays a bit of power (4)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {},
    "solution": "WATT",
    "annotation": {
@@ -437,9 +410,6 @@ window.CRYPTIC_PUZZLES["independent-12439"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "How setter might contact boss on a mobile application (4,6)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -485,9 +455,6 @@ window.CRYPTIC_PUZZLES["independent-12439"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "On air, was a show host judged against somebody else? (8)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "COMPARED",
    "annotation": {
@@ -522,9 +489,6 @@ window.CRYPTIC_PUZZLES["independent-12439"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Small detachments of troops severely criticised about Italy’s uprising (7)",
-   "group": [
-    "11-down"
-   ],
    "separatorLocations": {},
    "solution": "DETAILS",
    "annotation": {
@@ -574,9 +538,6 @@ window.CRYPTIC_PUZZLES["independent-12439"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Go along with firm parliamentarian - lobby must be eviscerated (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "COMPLY",
    "annotation": {
@@ -625,9 +586,6 @@ window.CRYPTIC_PUZZLES["independent-12439"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Bust rioting punk brat (8)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "BANKRUPT",
    "annotation": {
@@ -664,9 +622,6 @@ window.CRYPTIC_PUZZLES["independent-12439"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Liberated a French church Diane renovated (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "UNCHAINED",
    "annotation": {
@@ -721,9 +676,6 @@ window.CRYPTIC_PUZZLES["independent-12439"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Haul a weary ass regularly, or every time? (6)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "ALWAYS",
    "annotation": {
@@ -763,9 +715,6 @@ window.CRYPTIC_PUZZLES["independent-12439"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Colonist's religious outfit - tiny according to Spooner (6,3)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -817,9 +766,6 @@ window.CRYPTIC_PUZZLES["independent-12439"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Husband about to crash photo of speech (6)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "PHONIC",
    "annotation": {
@@ -868,9 +814,6 @@ window.CRYPTIC_PUZZLES["independent-12439"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "European condition found in that woman's cows, ... (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "HEIFERS",
    "annotation": {
@@ -919,9 +862,6 @@ window.CRYPTIC_PUZZLES["independent-12439"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Carve manger in Xmas decoration, avoiding the edges (8)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "INSCRIBE",
    "annotation": {
@@ -967,9 +907,6 @@ window.CRYPTIC_PUZZLES["independent-12439"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "... chickens, bats and man out of sorts (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "BANTAMS",
    "annotation": {
@@ -1006,9 +943,6 @@ window.CRYPTIC_PUZZLES["independent-12439"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Roman street artist swallows good drug (6)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "VIAGRA",
    "annotation": {
@@ -1057,9 +991,6 @@ window.CRYPTIC_PUZZLES["independent-12439"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Look around you for light dressing (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "GAUZE",
    "annotation": {
@@ -1106,9 +1037,6 @@ window.CRYPTIC_PUZZLES["independent-12439"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Encourage onboard medical professionals (8)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "SURGEONS",
    "annotation": {
@@ -1152,9 +1080,6 @@ window.CRYPTIC_PUZZLES["independent-12439"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Correct audio for ceremony (5)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "RIGHT",
    "annotation": {
@@ -1192,9 +1117,6 @@ window.CRYPTIC_PUZZLES["independent-12439"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Ordering mashed quince in shells of Senegalese nutmeg (10)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "SEQUENCING",
    "annotation": {
@@ -1253,9 +1175,6 @@ window.CRYPTIC_PUZZLES["independent-12439"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Cretan's height of impertinence, disregarding Athenian's introductions (3)",
-   "group": [
-    "26-down"
-   ],
    "separatorLocations": {},
    "solution": "IDA",
    "annotation": {
@@ -1294,9 +1213,6 @@ window.CRYPTIC_PUZZLES["independent-12439"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Heartless, trite ancient god (4)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "BAAL",
    "annotation": {
@@ -1338,9 +1254,6 @@ window.CRYPTIC_PUZZLES["independent-12439"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Stan's deaf - Tess possibly shows loyalty (13)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "STEADFASTNESS",
    "annotation": {

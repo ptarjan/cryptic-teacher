@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1362"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Observer working with attractive person (8)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "ONLOOKER",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["quiptic-1362"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Dog, namely small Lhasa apso, taking leads (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "VIZSLA",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["quiptic-1362"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Iron nut turned on new part of cannon, say (8)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "TRUNNION",
    "annotation": null
@@ -82,9 +73,6 @@ window.CRYPTIC_PUZZLES["quiptic-1362"] = /*JSON-START*/ {
      16
     ]
    ],
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "ANNEXE",
    "annotation": null
@@ -99,9 +87,6 @@ window.CRYPTIC_PUZZLES["quiptic-1362"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Scottish author managed by family (6)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "RANKIN",
    "annotation": null
@@ -116,9 +101,6 @@ window.CRYPTIC_PUZZLES["quiptic-1362"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Where you might land fugitive, disheartened (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "RUNWAY",
    "annotation": null
@@ -133,9 +115,6 @@ window.CRYPTIC_PUZZLES["quiptic-1362"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Engineer’s ancient letter kept by British Library (6)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "BRUNEL",
    "annotation": null
@@ -150,9 +129,6 @@ window.CRYPTIC_PUZZLES["quiptic-1362"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Note Yorkshire river ending in beautiful bay (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "LAUREL",
    "annotation": null
@@ -167,9 +143,6 @@ window.CRYPTIC_PUZZLES["quiptic-1362"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Composer’s poor aunt chokes after starter of soup (11)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "STOCKHAUSEN",
    "annotation": null
@@ -184,9 +157,6 @@ window.CRYPTIC_PUZZLES["quiptic-1362"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Fancies girl among dozens? Not half (6)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "ENJOYS",
    "annotation": null
@@ -201,9 +171,6 @@ window.CRYPTIC_PUZZLES["quiptic-1362"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Plastered punk date abandoned (6,2)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -222,9 +189,6 @@ window.CRYPTIC_PUZZLES["quiptic-1362"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Communicate unfinished story by king (4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "TALK",
    "annotation": null
@@ -239,9 +203,6 @@ window.CRYPTIC_PUZZLES["quiptic-1362"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Greek scientist heads crime broadcast (10)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "ARCHIMEDES",
    "annotation": null
@@ -256,9 +217,6 @@ window.CRYPTIC_PUZZLES["quiptic-1362"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Eccentric name that started up old saloon? (11)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "CRANKHANDLE",
    "annotation": null
@@ -273,9 +231,6 @@ window.CRYPTIC_PUZZLES["quiptic-1362"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Bulbous growths seen in blurred iris scan (8)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "NARCISSI",
    "annotation": null
@@ -290,9 +245,6 @@ window.CRYPTIC_PUZZLES["quiptic-1362"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Rake knotted hair with tool (8)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "LOTHARIO",
    "annotation": null
@@ -307,9 +259,6 @@ window.CRYPTIC_PUZZLES["quiptic-1362"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Eg translating from German, and in German (6)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "GERUND",
    "annotation": null
@@ -324,9 +273,6 @@ window.CRYPTIC_PUZZLES["quiptic-1362"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Fish particular spot around island (6)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "PLAICE",
    "annotation": null
@@ -341,9 +287,6 @@ window.CRYPTIC_PUZZLES["quiptic-1362"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Potter surnamed so unusually (4,6)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -362,9 +305,6 @@ window.CRYPTIC_PUZZLES["quiptic-1362"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "I’m not quite sure boy keeps address (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "SERMON",
    "annotation": null
@@ -379,9 +319,6 @@ window.CRYPTIC_PUZZLES["quiptic-1362"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Read up about quiet reindeer (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "DASHER",
    "annotation": null
@@ -396,9 +333,6 @@ window.CRYPTIC_PUZZLES["quiptic-1362"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Unintroduced foul narrative (4)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "TALE",
    "annotation": null
@@ -413,9 +347,6 @@ window.CRYPTIC_PUZZLES["quiptic-1362"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Statistical group trial scrapped in Quebec (8)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "QUARTILE",
    "annotation": null
@@ -430,9 +361,6 @@ window.CRYPTIC_PUZZLES["quiptic-1362"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Still, it may affect reception (6)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "STATIC",
    "annotation": null
@@ -447,9 +375,6 @@ window.CRYPTIC_PUZZLES["quiptic-1362"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Sluggish doctor that hurts somebody’s skin (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "DROWSY",
    "annotation": null
@@ -464,9 +389,6 @@ window.CRYPTIC_PUZZLES["quiptic-1362"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Damage extremely delicate tool (6)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "DEFILE",
    "annotation": null

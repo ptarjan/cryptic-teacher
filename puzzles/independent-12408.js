@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12408"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Heats up, after slip welcomes end of Phil Salt (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "SULPHATE",
    "annotation": {
@@ -76,9 +73,6 @@ window.CRYPTIC_PUZZLES["independent-12408"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Time that is left for King Charles? (7)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "SPANIEL",
    "annotation": {
@@ -125,9 +119,6 @@ window.CRYPTIC_PUZZLES["independent-12408"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Steals fifty-one paper planes, ultimately (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "LIFTS",
    "annotation": {
@@ -176,9 +167,6 @@ window.CRYPTIC_PUZZLES["independent-12408"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Passionate about entertaining American city (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "HOUSTON",
    "annotation": {
@@ -222,9 +210,6 @@ window.CRYPTIC_PUZZLES["independent-12408"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Try following beat music (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "TANGO",
    "annotation": {
@@ -267,9 +252,6 @@ window.CRYPTIC_PUZZLES["independent-12408"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "One wearing confused tramp's sweater? (6)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "ARMPIT",
    "annotation": {
@@ -313,9 +295,6 @@ window.CRYPTIC_PUZZLES["independent-12408"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "At first, Rotherham United got better (7)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "RALLIED",
    "annotation": {
@@ -358,9 +337,6 @@ window.CRYPTIC_PUZZLES["independent-12408"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Star writer supported by Ravel (9)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "PENTANGLE",
    "annotation": {
@@ -403,9 +379,6 @@ window.CRYPTIC_PUZZLES["independent-12408"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "The Spanish probing 4 fruit (7)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "TANGELO",
    "annotation": {
@@ -449,9 +422,6 @@ window.CRYPTIC_PUZZLES["independent-12408"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Broadcast about foreign cash settled matter (8)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {},
    "solution": "SEDIMENT",
    "annotation": {
@@ -495,9 +465,6 @@ window.CRYPTIC_PUZZLES["independent-12408"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Plenty of waste exposed in American church (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "AFFLUENCE",
    "annotation": {
@@ -550,9 +517,6 @@ window.CRYPTIC_PUZZLES["independent-12408"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Russian leader in square originally leading revolutionary (5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "LENIN",
    "annotation": {
@@ -606,9 +570,6 @@ window.CRYPTIC_PUZZLES["independent-12408"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Perhaps Ant ignoring Conservative figure in the corner? (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "INSET",
    "annotation": {
@@ -652,9 +613,6 @@ window.CRYPTIC_PUZZLES["independent-12408"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Produce social security cheque sent back in haste regularly by Earl (9)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "ORIGINATE",
    "annotation": {
@@ -720,9 +678,6 @@ window.CRYPTIC_PUZZLES["independent-12408"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Swimmer in Moselle on mobile! (5,4)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -766,9 +721,6 @@ window.CRYPTIC_PUZZLES["independent-12408"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Friend drinking sparkling wine beginning to crave champ (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "MASTICATE",
    "annotation": {
@@ -820,9 +772,6 @@ window.CRYPTIC_PUZZLES["independent-12408"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Cancel patent on receptacle (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "OVERTURN",
    "annotation": {
@@ -865,9 +814,6 @@ window.CRYPTIC_PUZZLES["independent-12408"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Quietly hiding, Silvanus perhaps turned to leave (5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "DOGGO",
    "annotation": {
@@ -922,9 +868,6 @@ window.CRYPTIC_PUZZLES["independent-12408"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Actor's school subjects, in brief (5)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "PESCI",
    "annotation": {
@@ -970,9 +913,6 @@ window.CRYPTIC_PUZZLES["independent-12408"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Priest likely to be flexible (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "PLIABLE",
    "annotation": {
@@ -1013,9 +953,6 @@ window.CRYPTIC_PUZZLES["independent-12408"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Be left at home with husband with tax going up (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "INHERIT",
    "annotation": {
@@ -1073,9 +1010,6 @@ window.CRYPTIC_PUZZLES["independent-12408"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Outgoing person is greener? (9)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "EXTRAVERT",
    "annotation": {
@@ -1116,9 +1050,6 @@ window.CRYPTIC_PUZZLES["independent-12408"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Prayer from setter in hole (7)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "ANGELUS",
    "annotation": {
@@ -1165,9 +1096,6 @@ window.CRYPTIC_PUZZLES["independent-12408"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Satellite rattles around (7)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "TELSTAR",
    "annotation": {
@@ -1204,9 +1132,6 @@ window.CRYPTIC_PUZZLES["independent-12408"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Cook rises with traditional dish (5,4)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -1247,9 +1172,6 @@ window.CRYPTIC_PUZZLES["independent-12408"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "More sage in group of women's English recipe (5)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "WISER",
    "annotation": {
@@ -1296,9 +1218,6 @@ window.CRYPTIC_PUZZLES["independent-12408"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Good public transport system is the ultimate aim (5)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "GRAIL",
    "annotation": {
@@ -1339,9 +1258,6 @@ window.CRYPTIC_PUZZLES["independent-12408"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Ace boss is winning (5)",
-   "group": [
-    "26-down"
-   ],
    "separatorLocations": {},
    "solution": "AHEAD",
    "annotation": {
@@ -1382,9 +1298,6 @@ window.CRYPTIC_PUZZLES["independent-12408"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Former leader, second-class, getting money from Iran returned (5)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "BLAIR",
    "annotation": {
@@ -1436,9 +1349,6 @@ window.CRYPTIC_PUZZLES["independent-12408"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Right to enter exam? It's tough (9)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "RESILIENT",
    "annotation": {
@@ -1485,9 +1395,6 @@ window.CRYPTIC_PUZZLES["independent-12408"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Happenings in flat extremely tedious (6)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "EVENTS",
    "annotation": {
@@ -1533,9 +1440,6 @@ window.CRYPTIC_PUZZLES["independent-12408"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Campaigner is more vulgar about essay on the radio (8)",
-   "group": [
-    "30-across"
-   ],
    "separatorLocations": {},
    "solution": "CRUSADER",
    "annotation": {

@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12413"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Pressing demand from internet pioneer for friends at university in German city (9)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "ULTIMATUM",
    "annotation": {
@@ -86,9 +83,6 @@ window.CRYPTIC_PUZZLES["independent-12413"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Pull out with no win or lose then (8)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "WITHDRAW",
    "annotation": {
@@ -131,9 +125,6 @@ window.CRYPTIC_PUZZLES["independent-12413"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "See red perhaps more than once, beginning to struggle with tension inside (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "WITNESS",
    "annotation": {
@@ -192,9 +183,6 @@ window.CRYPTIC_PUZZLES["independent-12413"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "What Heathrow wants: less control, neither left or right-wing policies (5,3)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -242,9 +230,6 @@ window.CRYPTIC_PUZZLES["independent-12413"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Artist's conflict with Picasso surreal ultimately (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "WARHOL",
    "annotation": {
@@ -290,9 +275,6 @@ window.CRYPTIC_PUZZLES["independent-12413"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Love Austria being ahead of Germany or Spain (5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "ADORE",
    "annotation": {
@@ -347,9 +329,6 @@ window.CRYPTIC_PUZZLES["independent-12413"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "English composer avoiding a river in Moray town (5)",
-   "group": [
-    "7-across"
-   ],
    "separatorLocations": {},
    "solution": "ELGIN",
    "annotation": {
@@ -397,9 +376,6 @@ window.CRYPTIC_PUZZLES["independent-12413"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Husband with dashing looks initially wandering in mountainous area (9)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {},
    "solution": "HIGHLANDS",
    "annotation": {
@@ -452,9 +428,6 @@ window.CRYPTIC_PUZZLES["independent-12413"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Extremely ambitious area including India? (4)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {},
    "solution": "ASIA",
    "annotation": {
@@ -682,9 +655,6 @@ window.CRYPTIC_PUZZLES["independent-12413"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "England striker talked about after Colombia initially criticised life of luxury here (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "COCKAIGNE",
    "annotation": {
@@ -739,9 +709,6 @@ window.CRYPTIC_PUZZLES["independent-12413"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Mostly better to keep hostilities away from the centre (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "OUTWARD",
    "annotation": {
@@ -787,9 +754,6 @@ window.CRYPTIC_PUZZLES["independent-12413"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "New SEAT oddly lacking airbag - it's designed to deliberately make you angry (4,4)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -840,9 +804,6 @@ window.CRYPTIC_PUZZLES["independent-12413"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Deranged Trump's latest 'victory': having Venezuela's leader removed for one from Europe (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "CYPRIOT",
    "annotation": {
@@ -896,9 +857,6 @@ window.CRYPTIC_PUZZLES["independent-12413"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Something unusual like bloody chicken (4,4)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -940,9 +898,6 @@ window.CRYPTIC_PUZZLES["independent-12413"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Non-theoretical program spread fake news? (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "APPLIED",
    "annotation": {
@@ -980,9 +935,6 @@ window.CRYPTIC_PUZZLES["independent-12413"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Very good to receive money for something that is breathtaking (4)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "SMOG",
    "annotation": {
@@ -1034,9 +986,6 @@ window.CRYPTIC_PUZZLES["independent-12413"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Bit of mango fruit topped for later (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "MANANA",
    "annotation": {
@@ -1084,9 +1033,6 @@ window.CRYPTIC_PUZZLES["independent-12413"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Parking space was revealed in Welsh town (8)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "PEMBROKE",
    "annotation": {
@@ -1133,9 +1079,6 @@ window.CRYPTIC_PUZZLES["independent-12413"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Every now and then Emmanuel gets badly hurt (4)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "MAUL",
    "annotation": {
@@ -1175,9 +1118,6 @@ window.CRYPTIC_PUZZLES["independent-12413"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "One of seven slightly intoxicated (5)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "HAPPY",
    "annotation": {
@@ -1212,9 +1152,6 @@ window.CRYPTIC_PUZZLES["independent-12413"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "At first hungry maneater beheaded an enemy of Rome (8)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "HANNIBAL",
    "annotation": {
@@ -1259,9 +1196,6 @@ window.CRYPTIC_PUZZLES["independent-12413"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Capital of Campania is not in part of England but somewhere in Italy (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "UMBRIA",
    "annotation": {
@@ -1308,9 +1242,6 @@ window.CRYPTIC_PUZZLES["independent-12413"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Type of pasta mostly found in lively Siena, a feature of Italy (9)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "APENNINES",
    "annotation": {
@@ -1365,9 +1296,6 @@ window.CRYPTIC_PUZZLES["independent-12413"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Fashion that would be causing great sadness if displayed during hearing (5)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "TREND",
    "annotation": {

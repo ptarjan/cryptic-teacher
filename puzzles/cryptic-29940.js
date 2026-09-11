@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29940"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Grease, where Virginia McKenna finally has taken lead from Travolta (4,3)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -46,9 +43,6 @@ window.CRYPTIC_PUZZLES["cryptic-29940"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Trash miles below for refuse collector (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "WOMBLE",
    "annotation": null
@@ -63,9 +57,6 @@ window.CRYPTIC_PUZZLES["cryptic-29940"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Short act over in play – it’s the interval (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "OCTAVE",
    "annotation": null
@@ -80,9 +71,6 @@ window.CRYPTIC_PUZZLES["cryptic-29940"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Why one might have combs in safe places (10)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "FORTRESSES",
    "annotation": null
@@ -97,9 +85,6 @@ window.CRYPTIC_PUZZLES["cryptic-29940"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Half-hearted bowler, say, drunk (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "TOPER",
    "annotation": null
@@ -114,9 +99,6 @@ window.CRYPTIC_PUZZLES["cryptic-29940"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Scarf worn by one on border in unconventional community (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "BOHEMIA",
    "annotation": null
@@ -131,9 +113,6 @@ window.CRYPTIC_PUZZLES["cryptic-29940"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "River crossed by dog taking a snapper (3,6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -152,9 +131,6 @@ window.CRYPTIC_PUZZLES["cryptic-29940"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Spot of bother showing full amount to the auditor? (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "HOLE",
    "annotation": null
@@ -169,9 +145,6 @@ window.CRYPTIC_PUZZLES["cryptic-29940"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Spirit broken by cruciverbalist’s stuff, I suppose (8)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "METHINKS",
    "annotation": null
@@ -186,9 +159,6 @@ window.CRYPTIC_PUZZLES["cryptic-29940"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Shockingly bad at cutting diamonds, hand back crown (8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "ABDICATE",
    "annotation": null
@@ -203,9 +173,6 @@ window.CRYPTIC_PUZZLES["cryptic-29940"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Wheels land, stunt in the end nailed (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "MOTOR",
    "annotation": null
@@ -220,9 +187,6 @@ window.CRYPTIC_PUZZLES["cryptic-29940"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Hard to see more than 3, 10 high (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "PIXELATED",
    "annotation": null
@@ -237,9 +201,6 @@ window.CRYPTIC_PUZZLES["cryptic-29940"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Welsh table has a grammatical term studied by learner (10)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "LAVERBREAD",
    "annotation": null
@@ -254,9 +215,6 @@ window.CRYPTIC_PUZZLES["cryptic-29940"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Record is secreted in the White House, perhaps? (4)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "DISC",
    "annotation": null
@@ -271,9 +229,6 @@ window.CRYPTIC_PUZZLES["cryptic-29940"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Nickel, say, 20% of that where I had invested in agreement (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "COINCIDENT",
    "annotation": null
@@ -288,9 +243,6 @@ window.CRYPTIC_PUZZLES["cryptic-29940"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Speeding craft has wheel torpedoed by pilot (5,6)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -309,9 +261,6 @@ window.CRYPTIC_PUZZLES["cryptic-29940"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "A rush coming through ocean water – that resembles grass (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "ASTROTURF",
    "annotation": null
@@ -326,9 +275,6 @@ window.CRYPTIC_PUZZLES["cryptic-29940"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "More violent rioters on the rampage, thousand kettled (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "STORMIER",
    "annotation": null
@@ -343,9 +289,6 @@ window.CRYPTIC_PUZZLES["cryptic-29940"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Did it having bagged last of garbage? (6,2)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -364,9 +307,6 @@ window.CRYPTIC_PUZZLES["cryptic-29940"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Sequence beyond cleansing, ready to go (6-5)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     "-": [
      6
@@ -385,9 +325,6 @@ window.CRYPTIC_PUZZLES["cryptic-29940"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Palatial European banks finished (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "SUPERB",
    "annotation": null
@@ -402,9 +339,6 @@ window.CRYPTIC_PUZZLES["cryptic-29940"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Labour led by dope in high society (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "GENTRY",
    "annotation": null
@@ -419,9 +353,6 @@ window.CRYPTIC_PUZZLES["cryptic-29940"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Check what comes down gets picked up (4)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "REIN",
    "annotation": null
@@ -436,9 +367,6 @@ window.CRYPTIC_PUZZLES["cryptic-29940"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Chip in bone has opened cut, note, after surgery (10)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "CONTRIBUTE",
    "annotation": null
@@ -453,9 +381,6 @@ window.CRYPTIC_PUZZLES["cryptic-29940"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Greek character turning up at what time? (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "THETA",
    "annotation": null
@@ -470,9 +395,6 @@ window.CRYPTIC_PUZZLES["cryptic-29940"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Hooked on point, object’s hooked! (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "INTO",
    "annotation": null
@@ -487,9 +409,6 @@ window.CRYPTIC_PUZZLES["cryptic-29940"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Under ten, I adjusted contract (9)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "INDENTURE",
    "annotation": null
@@ -504,9 +423,6 @@ window.CRYPTIC_PUZZLES["cryptic-29940"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Use energy, and old giant toppled over (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "EXERT",
    "annotation": null
@@ -521,9 +437,6 @@ window.CRYPTIC_PUZZLES["cryptic-29940"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Salesperson covering carpeting (7)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "REPROOF",
    "annotation": null
@@ -538,9 +451,6 @@ window.CRYPTIC_PUZZLES["cryptic-29940"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "A bill in play for good work! (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "ATTABOY",
    "annotation": null

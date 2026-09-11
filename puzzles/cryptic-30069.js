@@ -24,9 +24,6 @@ window.CRYPTIC_PUZZLES["cryptic-30069"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Extremely boring oldster is young after treatment (4-10)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -67,9 +64,6 @@ window.CRYPTIC_PUZZLES["cryptic-30069"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Anticlimactic account of oversexed pet? (6,3,5)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      6,
@@ -117,9 +111,6 @@ window.CRYPTIC_PUZZLES["cryptic-30069"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "What to wear in college class (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "UNIFORM",
    "annotation": {
@@ -159,9 +150,6 @@ window.CRYPTIC_PUZZLES["cryptic-30069"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Cabin shutter so easy to pick up? (9)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "DEADLIGHT",
    "annotation": {
@@ -198,9 +186,6 @@ window.CRYPTIC_PUZZLES["cryptic-30069"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "What you are doing is very caring, nothing omitted (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "SOLVING",
    "annotation": {
@@ -251,9 +236,6 @@ window.CRYPTIC_PUZZLES["cryptic-30069"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Sink back asleep, shattered after run (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "RELAPSE",
    "annotation": {
@@ -308,9 +290,6 @@ window.CRYPTIC_PUZZLES["cryptic-30069"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "The old folks land (5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "YEMEN",
    "annotation": {
@@ -353,9 +332,6 @@ window.CRYPTIC_PUZZLES["cryptic-30069"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Inquisitively touring island, while playing loud music? (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "NOISILY",
    "annotation": {
@@ -399,9 +375,6 @@ window.CRYPTIC_PUZZLES["cryptic-30069"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Grim from the start, hearing cantor messing up old music (9,5)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      9
@@ -459,9 +432,6 @@ window.CRYPTIC_PUZZLES["cryptic-30069"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Woman needs a large beer delivered (7)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "ABIGAIL",
    "annotation": {
@@ -514,9 +484,6 @@ window.CRYPTIC_PUZZLES["cryptic-30069"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Less smooth piece of sugar? That is right (7)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "LUMPIER",
    "annotation": {
@@ -559,9 +526,6 @@ window.CRYPTIC_PUZZLES["cryptic-30069"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Warning sound from half grey bird (5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "GROWL",
    "annotation": {
@@ -607,9 +571,6 @@ window.CRYPTIC_PUZZLES["cryptic-30069"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Threatening little devil with termination (9)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "IMPENDING",
    "annotation": {
@@ -649,9 +610,6 @@ window.CRYPTIC_PUZZLES["cryptic-30069"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Democrat, very eager, occasionally pure rabble-rouser (9)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "DEMAGOGUE",
    "annotation": {
@@ -700,9 +658,6 @@ window.CRYPTIC_PUZZLES["cryptic-30069"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "PM, or less important office (5)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "MAYOR",
    "annotation": {
@@ -739,9 +694,6 @@ window.CRYPTIC_PUZZLES["cryptic-30069"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Stole time for fixing Christmas decoration (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "MISTLETOE",
    "annotation": {
@@ -781,9 +733,6 @@ window.CRYPTIC_PUZZLES["cryptic-30069"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Tennis champion finally quit hard work (5)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "GRAFT",
    "annotation": {
@@ -826,9 +775,6 @@ window.CRYPTIC_PUZZLES["cryptic-30069"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Declare period of history unexceptional (7)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "AVERAGE",
    "annotation": {
@@ -865,9 +811,6 @@ window.CRYPTIC_PUZZLES["cryptic-30069"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "US state’s old university is covered in creeper (9)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "LOUISIANA",
    "annotation": {
@@ -924,9 +867,6 @@ window.CRYPTIC_PUZZLES["cryptic-30069"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Museum cooled at last, given openings for air (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "LOUVRED",
    "annotation": {
@@ -969,9 +909,6 @@ window.CRYPTIC_PUZZLES["cryptic-30069"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Left you to tidy up (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "UNEATEN",
    "annotation": {
@@ -1011,9 +948,6 @@ window.CRYPTIC_PUZZLES["cryptic-30069"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Missing some gear, rang emporium to order (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "ARRANGE",
    "annotation": {
@@ -1055,9 +989,6 @@ window.CRYPTIC_PUZZLES["cryptic-30069"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Branch manager may put this up for children’s play (4,5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -1092,9 +1023,6 @@ window.CRYPTIC_PUZZLES["cryptic-30069"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Raise anchor: I contributed (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "HOIST",
    "annotation": {
@@ -1138,9 +1066,6 @@ window.CRYPTIC_PUZZLES["cryptic-30069"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "What one can get from really rich poem (5)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "LYRIC",
    "annotation": {
@@ -1174,9 +1099,6 @@ window.CRYPTIC_PUZZLES["cryptic-30069"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Better prepared to fail in the end (7)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "READIER",
    "annotation": {
@@ -1220,9 +1142,6 @@ window.CRYPTIC_PUZZLES["cryptic-30069"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "The last to leave doomed ship, a drama queen (7)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "TITANIA",
    "annotation": {
@@ -1265,9 +1184,6 @@ window.CRYPTIC_PUZZLES["cryptic-30069"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Financial claim as tense test drive crashed (6,8)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      6

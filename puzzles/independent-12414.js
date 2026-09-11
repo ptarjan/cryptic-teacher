@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12414"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Separate from icy mass, save large bears sleeping in here? (4)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "CAVE",
    "annotation": {
@@ -69,9 +66,6 @@ window.CRYPTIC_PUZZLES["independent-12414"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Pickle from the south-west reportedly concerning (9)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "CORNICHON",
    "annotation": {
@@ -115,9 +109,6 @@ window.CRYPTIC_PUZZLES["independent-12414"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Goddess given usual offers (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "VENUS",
    "annotation": {
@@ -151,9 +142,6 @@ window.CRYPTIC_PUZZLES["independent-12414"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Strand building that might have been shelled? (10)",
-   "group": [
-    "3-across"
-   ],
    "separatorLocations": {},
    "solution": "SANDCASTLE",
    "annotation": {
@@ -190,9 +178,6 @@ window.CRYPTIC_PUZZLES["independent-12414"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Beer drinking can lead to group feeling excited (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "ATINGLE",
    "annotation": {
@@ -244,9 +229,6 @@ window.CRYPTIC_PUZZLES["independent-12414"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Make tracks from record inspired by Rush (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "DEPART",
    "annotation": {
@@ -293,9 +275,6 @@ window.CRYPTIC_PUZZLES["independent-12414"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Trip to Cairo in February's beginning wild holiday romance? (7,7)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -343,9 +322,6 @@ window.CRYPTIC_PUZZLES["independent-12414"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Transport for pair (sea otter and wife) swimming together (9)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "TWOSEATER",
    "annotation": {
@@ -387,9 +363,6 @@ window.CRYPTIC_PUZZLES["independent-12414"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Scottish beast I released turns up in German city (5)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "ESSEN",
    "annotation": {
@@ -442,9 +415,6 @@ window.CRYPTIC_PUZZLES["independent-12414"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Unrecognisable figures try Guinness I brewed with me (3,2,4,5)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -501,9 +471,6 @@ window.CRYPTIC_PUZZLES["independent-12414"] = /*JSON-START*/ {
      7
     ]
    ],
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "RANGE",
    "annotation": {
@@ -554,9 +521,6 @@ window.CRYPTIC_PUZZLES["independent-12414"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Queen stops reprobate assuming command (9)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "IMPERIOUS",
    "annotation": {
@@ -600,9 +564,6 @@ window.CRYPTIC_PUZZLES["independent-12414"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Gets to dump women's footballer making you cross? (9)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "INSWINGER",
    "annotation": {
@@ -653,9 +614,6 @@ window.CRYPTIC_PUZZLES["independent-12414"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Cinema shortened Christmas party after reflection (5)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "ODEON",
    "annotation": {
@@ -706,9 +664,6 @@ window.CRYPTIC_PUZZLES["independent-12414"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Brave people hiding perhaps? I'm gonna do it! (4,4)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -756,9 +711,6 @@ window.CRYPTIC_PUZZLES["independent-12414"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Child protagonist hurt twice without a choice (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "RECHERCHE",
    "annotation": {
@@ -801,9 +753,6 @@ window.CRYPTIC_PUZZLES["independent-12414"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Mend circumstances broken by tension (6)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "STITCH",
    "annotation": {
@@ -847,9 +796,6 @@ window.CRYPTIC_PUZZLES["independent-12414"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Unfortunately hard copy admits large and small secret (9)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "HAPLESSLY",
    "annotation": {
@@ -911,9 +857,6 @@ window.CRYPTIC_PUZZLES["independent-12414"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Nothing keeps American away from cake piece (6)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "NICKEL",
    "annotation": {
@@ -964,9 +907,6 @@ window.CRYPTIC_PUZZLES["independent-12414"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Fall over ending in you getting large bandage (8)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "TUBIGRIP",
    "annotation": {
@@ -1019,9 +959,6 @@ window.CRYPTIC_PUZZLES["independent-12414"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Drawing naked friends, topless men can be seen going here (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "URINALS",
    "annotation": {
@@ -1066,9 +1003,6 @@ window.CRYPTIC_PUZZLES["independent-12414"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Go over hill lapping Tesla? (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "REVISE",
    "annotation": {
@@ -1112,9 +1046,6 @@ window.CRYPTIC_PUZZLES["independent-12414"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Broadcast decorated band releases (5)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "FREES",
    "annotation": {
@@ -1149,9 +1080,6 @@ window.CRYPTIC_PUZZLES["independent-12414"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "50% of ACME parts cartoon hunter cut were about to explode? (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "FUMED",
    "annotation": {
@@ -1199,9 +1127,6 @@ window.CRYPTIC_PUZZLES["independent-12414"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Being sixteen, suspect taking coke not OK (9)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "EXISTENCE",
    "annotation": {
@@ -1259,9 +1184,6 @@ window.CRYPTIC_PUZZLES["independent-12414"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Cherish new wallet when penniless? (5)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "NURSE",
    "annotation": {
@@ -1307,9 +1229,6 @@ window.CRYPTIC_PUZZLES["independent-12414"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Animated film a small hotel group briefly backed (9)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "MACHINIMA",
    "annotation": {
@@ -1372,9 +1291,6 @@ window.CRYPTIC_PUZZLES["independent-12414"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Fragrant root repellent when peeled slowly at first (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "ORRIS",
    "annotation": {
@@ -1422,9 +1338,6 @@ window.CRYPTIC_PUZZLES["independent-12414"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Designer's clothing succeeded in 8 countries, ultimately eastern style (5,5)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -1495,9 +1408,6 @@ window.CRYPTIC_PUZZLES["independent-12414"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Bank very heartless (4)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "RELY",
    "annotation": {

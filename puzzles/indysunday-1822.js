@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1822"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Imagine Labour's behind, with Conservative party leading (8)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "CONSIDER",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["indysunday-1822"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "In Rome, one editor surplus to requirements (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "UNUSED",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["indysunday-1822"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Dog raised knowing right from wrong in royal palace (8)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "BALMORAL",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["indysunday-1822"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Car in cemetery tries heading for exit (6)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "HEARSE",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["indysunday-1822"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Reason golf has 18 holes? (6)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "GROUND",
    "annotation": null
@@ -110,9 +95,6 @@ window.CRYPTIC_PUZZLES["indysunday-1822"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Englishman in Mexico, perhaps good drummer (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "GRINGO",
    "annotation": null
@@ -127,9 +109,6 @@ window.CRYPTIC_PUZZLES["indysunday-1822"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Pet is concerned to get a bit of sausage (6)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "CARESS",
    "annotation": null
@@ -144,9 +123,6 @@ window.CRYPTIC_PUZZLES["indysunday-1822"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Event where people talk, therefore spies left (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "SOCIAL",
    "annotation": null
@@ -161,9 +137,6 @@ window.CRYPTIC_PUZZLES["indysunday-1822"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Secretive Scottish family all but doomed (11)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "CLANDESTINE",
    "annotation": null
@@ -178,9 +151,6 @@ window.CRYPTIC_PUZZLES["indysunday-1822"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Feel the loss of American wife (6)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "MISSUS",
    "annotation": null
@@ -195,9 +165,6 @@ window.CRYPTIC_PUZZLES["indysunday-1822"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Creamed rice and milk, type Lear liked? (8)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "LIMERICK",
    "annotation": null
@@ -212,9 +179,6 @@ window.CRYPTIC_PUZZLES["indysunday-1822"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Silver Edward kept in storage for a time (4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "AGED",
    "annotation": null
@@ -229,9 +193,6 @@ window.CRYPTIC_PUZZLES["indysunday-1822"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Hot sandwich made by inventive baker - bravo (5,5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -250,9 +211,6 @@ window.CRYPTIC_PUZZLES["indysunday-1822"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Concrete wind break? (6,5)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -271,9 +229,6 @@ window.CRYPTIC_PUZZLES["indysunday-1822"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Train tours are subject to alteration (8)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "EUROSTAR",
    "annotation": null
@@ -288,9 +243,6 @@ window.CRYPTIC_PUZZLES["indysunday-1822"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Improvised recital includes new instrument (8)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "CLARINET",
    "annotation": null
@@ -305,9 +257,6 @@ window.CRYPTIC_PUZZLES["indysunday-1822"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Drink can go cold when served up (6)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "COGNAC",
    "annotation": null
@@ -322,9 +271,6 @@ window.CRYPTIC_PUZZLES["indysunday-1822"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Graduate bank with nothing to spare (6)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "BARELY",
    "annotation": null
@@ -339,9 +285,6 @@ window.CRYPTIC_PUZZLES["indysunday-1822"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "E.g. Bob Dylan back in Bognor Regis, town going wild (10)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "SONGWRITER",
    "annotation": null
@@ -356,9 +299,6 @@ window.CRYPTIC_PUZZLES["indysunday-1822"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Horse found in the middle of hunting-grounds? (3-3)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -377,9 +317,6 @@ window.CRYPTIC_PUZZLES["indysunday-1822"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Slice of meat wrapped by butcher as he recommended (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "RASHER",
    "annotation": null
@@ -394,9 +331,6 @@ window.CRYPTIC_PUZZLES["indysunday-1822"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Unfortunately a girl loses one shilling (4)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "ALAS",
    "annotation": null
@@ -411,9 +345,6 @@ window.CRYPTIC_PUZZLES["indysunday-1822"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Fairy-tale writer with Irish name (8)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "ANDERSEN",
    "annotation": null
@@ -428,9 +359,6 @@ window.CRYPTIC_PUZZLES["indysunday-1822"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Dirty son covered with grease (6)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "SOILED",
    "annotation": null
@@ -445,9 +373,6 @@ window.CRYPTIC_PUZZLES["indysunday-1822"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "\"Arrest that woman,\" said man attacked in Senate (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "CAESAR",
    "annotation": null
@@ -462,9 +387,6 @@ window.CRYPTIC_PUZZLES["indysunday-1822"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Cure connected with year by the sea (6)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "REMEDY",
    "annotation": null

@@ -24,9 +24,6 @@ window.CRYPTIC_PUZZLES["cryptic-30059"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Stop pain in the ear? (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "WHOA",
    "annotation": {
@@ -61,9 +58,6 @@ window.CRYPTIC_PUZZLES["cryptic-30059"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Economist, possible dish for cannibal? (8)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "FRIEDMAN",
    "annotation": {
@@ -100,9 +94,6 @@ window.CRYPTIC_PUZZLES["cryptic-30059"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Measure of alcohol in two alcoholic drinks (6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "NOGGIN",
    "annotation": {
@@ -142,9 +133,6 @@ window.CRYPTIC_PUZZLES["cryptic-30059"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Silver no better than fabric (8)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "CASHMERE",
    "annotation": {
@@ -181,9 +169,6 @@ window.CRYPTIC_PUZZLES["cryptic-30059"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Very true, origin forgotten (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "ACTUAL",
    "annotation": {
@@ -225,9 +210,6 @@ window.CRYPTIC_PUZZLES["cryptic-30059"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Vicious circles ending in deadlock, lose control (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "SKID",
    "annotation": {
@@ -273,9 +255,6 @@ window.CRYPTIC_PUZZLES["cryptic-30059"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Hoot passing steamer in 9 (7)",
-   "group": [
-    "7-across"
-   ],
    "separatorLocations": {},
    "solution": "CHARIOT",
    "annotation": {
@@ -321,9 +300,6 @@ window.CRYPTIC_PUZZLES["cryptic-30059"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "17 across 9? (7)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {},
    "solution": "PANCAKE",
    "annotation": {
@@ -358,9 +334,6 @@ window.CRYPTIC_PUZZLES["cryptic-30059"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Run – and whizz! (4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "RACE",
    "annotation": {
@@ -394,9 +367,6 @@ window.CRYPTIC_PUZZLES["cryptic-30059"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Track associated with 12 down 9 (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "GREYHOUND",
    "annotation": {
@@ -439,9 +409,6 @@ window.CRYPTIC_PUZZLES["cryptic-30059"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "9 run, ace played after finishing line (9)",
-   "group": [
-    "11-down"
-   ],
    "separatorLocations": {},
    "solution": "ENDURANCE",
    "annotation": {
@@ -492,9 +459,6 @@ window.CRYPTIC_PUZZLES["cryptic-30059"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "I’m thinking to enter old ruling dynasty in 9 (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "HUMAN",
    "annotation": {
@@ -541,9 +505,6 @@ window.CRYPTIC_PUZZLES["cryptic-30059"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Reportedly rough 9 (5)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {},
    "solution": "HORSE",
    "annotation": {
@@ -578,9 +539,6 @@ window.CRYPTIC_PUZZLES["cryptic-30059"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Challenger with gun anticipated getting shot still (8)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "DUELLIST",
    "annotation": {
@@ -629,9 +587,6 @@ window.CRYPTIC_PUZZLES["cryptic-30059"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "      9 (5)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "SPACE",
    "annotation": {
@@ -662,9 +617,6 @@ window.CRYPTIC_PUZZLES["cryptic-30059"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Fee, one third off – decrease? (4)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "IRON",
    "annotation": {
@@ -748,9 +700,6 @@ window.CRYPTIC_PUZZLES["cryptic-30059"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Youngster on tour of Korea working to become firmly established (4,4)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -798,9 +747,6 @@ window.CRYPTIC_PUZZLES["cryptic-30059"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Boring 9 (4)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "FLAT",
    "annotation": {
@@ -834,9 +780,6 @@ window.CRYPTIC_PUZZLES["cryptic-30059"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Satirist square or deep, perhaps? (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "FIELDING",
    "annotation": {
@@ -871,9 +814,6 @@ window.CRYPTIC_PUZZLES["cryptic-30059"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Snake is swimming around lake – hide! (8)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "SEALSKIN",
    "annotation": {
@@ -950,9 +890,6 @@ window.CRYPTIC_PUZZLES["cryptic-30059"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Musical creation where harmony heard? (5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "PIECE",
    "annotation": {
@@ -990,9 +927,6 @@ window.CRYPTIC_PUZZLES["cryptic-30059"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "9 that’s eyed (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "POTATO",
    "annotation": {
@@ -1026,9 +960,6 @@ window.CRYPTIC_PUZZLES["cryptic-30059"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Plant eater bugs cuckoo (5,4)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -1069,9 +1000,6 @@ window.CRYPTIC_PUZZLES["cryptic-30059"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "9 boot (4)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "SACK",
    "annotation": {
@@ -1105,9 +1033,6 @@ window.CRYPTIC_PUZZLES["cryptic-30059"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Boring thing, 9 (4)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "DRAG",
    "annotation": {
@@ -1141,9 +1066,6 @@ window.CRYPTIC_PUZZLES["cryptic-30059"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "9 heats won’t start (4)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "ARMS",
    "annotation": {
@@ -1185,9 +1107,6 @@ window.CRYPTIC_PUZZLES["cryptic-30059"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Team welcomed by child able to be connected (5-2)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -1235,9 +1154,6 @@ window.CRYPTIC_PUZZLES["cryptic-30059"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Partial recollection of theme, not so by George! (5,2)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      5

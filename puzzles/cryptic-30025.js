@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Old or modern artist endlessly showing up (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "AGED",
    "annotation": {
@@ -76,9 +73,6 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Kind of court that proceeds by leaps and bounds (8)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "KANGAROO",
    "annotation": {
@@ -116,9 +110,6 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Italian playwright’s storyline mostly about Ireland, oddly (10)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "PIRANDELLO",
    "annotation": {
@@ -176,9 +167,6 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Serious English or Irish novelist (6)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "STERNE",
    "annotation": {
@@ -220,9 +208,6 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Dorothy’s largely wrong steer, as usual (8)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "ORTHODOX",
    "annotation": {
@@ -281,9 +266,6 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Novel part of proof putting off learner at first (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "EMMA",
    "annotation": {
@@ -328,9 +310,6 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "A large tree or plant (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "ALPINE",
    "annotation": {
@@ -378,9 +357,6 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Floating object waterbird’s almost turned over (4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "BERG",
    "annotation": {
@@ -429,9 +405,6 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Old fighter happy I reversed schedule (9)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "GLADIATOR",
    "annotation": {
@@ -487,9 +460,6 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "The writer’s penning line as children’s author (5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "MILNE",
    "annotation": {
@@ -537,9 +507,6 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Blind faith in a male deity? Just the opposite (5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "DOGMA",
    "annotation": {
@@ -598,9 +565,6 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Trying afresh, male gets absorbed in parental task (9)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "REHEARING",
    "annotation": {
@@ -645,9 +609,6 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Prior to game of cards, a cut (7)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "ABRIDGE",
    "annotation": {
@@ -691,9 +652,6 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Like part of ancient Greece that’s accessible by flights? (5)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "ATTIC",
    "annotation": {
@@ -732,9 +690,6 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Author named in expression of surprise (7)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "DICKENS",
    "annotation": {
@@ -772,9 +727,6 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "People as created initially in books (10)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "CHARACTERS",
    "annotation": {
@@ -821,9 +773,6 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Author’s a mug, used to drink a lot (5)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "STEIN",
    "annotation": {
@@ -861,9 +810,6 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Republican in charge producing offensive poster (5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "TROLL",
    "annotation": {
@@ -911,9 +857,6 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Backed team’s long shot (3)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "SIX",
    "annotation": {
@@ -962,9 +905,6 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Process yielding mixed results is what you seek (8)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "SOLUTION",
    "annotation": {
@@ -1002,9 +942,6 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Celia’s name-change? (5)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "ALICE",
    "annotation": {
@@ -1042,9 +979,6 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Launch minimal review of restaurant (8)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "INITIATE",
    "annotation": {
@@ -1085,9 +1019,6 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Lewis, Oxford don and writer (7)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "CARROLL",
    "annotation": {
@@ -1119,9 +1050,6 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Write for newspaper about position of left wing (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "REPORT",
    "annotation": {
@@ -1160,9 +1088,6 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Befuddled brain taking in article after article from part of Asia (7)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "ARABIAN",
    "annotation": {
@@ -1207,9 +1132,6 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "English author sharing pronouncement with state capital (6)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "AUSTEN",
    "annotation": {
@@ -1245,9 +1167,6 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Short piece of text in suitable American structure (9)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "APPARATUS",
    "annotation": {
@@ -1298,9 +1217,6 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "A pale cast? Just the opposite (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "ASHY",
    "annotation": {
@@ -1344,9 +1260,6 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Fish farm, so to speak (4)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "RAYS",
    "annotation": {
@@ -1382,9 +1295,6 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Squeeze using spades in dummy (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "TWIST",
    "annotation": {
@@ -1432,9 +1342,6 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Tragic heroine, as Dickinson, say, quaintly concludes (4)",
-   "group": [
-    "27-down"
-   ],
    "separatorLocations": {},
    "solution": "TESS",
    "annotation": {
@@ -1474,9 +1381,6 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Robust half of comic duo (5)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "HARDY",
    "annotation": {
@@ -1511,9 +1415,6 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Test data? Assesses excessively (9)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "OVERRATES",
    "annotation": {

@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4152"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Cosmetic surgeon suppresses mannerisms (4)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "TICS",
    "annotation": {
@@ -61,9 +58,6 @@ window.CRYPTIC_PUZZLES["everyman-4152"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Tiny individual ain't humble, sadly (10)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "THUMBELINA",
    "annotation": {
@@ -100,9 +94,6 @@ window.CRYPTIC_PUZZLES["everyman-4152"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "In which a monarch hopes not to find a mate (5,5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -138,9 +129,6 @@ window.CRYPTIC_PUZZLES["everyman-4152"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Bin ends in Ruislip, Southall and Acton shifting? (5,5)",
-   "group": [
-    "3-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -194,9 +182,6 @@ window.CRYPTIC_PUZZLES["everyman-4152"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Curtly malign a Republican that's xenophobic (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "INSULAR",
    "annotation": {
@@ -248,9 +233,6 @@ window.CRYPTIC_PUZZLES["everyman-4152"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Part of cosmos isn't oozing (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "OSMOSIS",
    "annotation": {
@@ -284,9 +266,6 @@ window.CRYPTIC_PUZZLES["everyman-4152"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Films depicting icon of Britishness? They hold things together (7,5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -333,9 +312,6 @@ window.CRYPTIC_PUZZLES["everyman-4152"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Might this prompt someone to give you a hand? (4)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "ANTE",
    "annotation": {
@@ -367,9 +343,6 @@ window.CRYPTIC_PUZZLES["everyman-4152"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "2 mostly rejected - 13 rejects it (4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "CARB",
    "annotation": {
@@ -414,9 +387,6 @@ window.CRYPTIC_PUZZLES["everyman-4152"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Second-hand American edition (4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "USED",
    "annotation": {
@@ -454,9 +424,6 @@ window.CRYPTIC_PUZZLES["everyman-4152"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Mark Steel, a comic? I don't have time for this (3,2,5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -498,9 +465,6 @@ window.CRYPTIC_PUZZLES["everyman-4152"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Dish splitting loudly - tiny pieces (4,3,5)",
-   "group": [
-    "11-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -549,9 +513,6 @@ window.CRYPTIC_PUZZLES["everyman-4152"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Made like an animal after changes to destabilise (11)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "BESTIALISED",
    "annotation": {
@@ -588,9 +549,6 @@ window.CRYPTIC_PUZZLES["everyman-4152"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Regime in which, after a time, Parliament includes families (6,4)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -648,9 +606,6 @@ window.CRYPTIC_PUZZLES["everyman-4152"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Contaminate territory that will be accepted by fawn (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "ADULTERATE",
    "annotation": {
@@ -694,9 +649,6 @@ window.CRYPTIC_PUZZLES["everyman-4152"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Belt and coat? (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "LEATHER",
    "annotation": {
@@ -731,9 +683,6 @@ window.CRYPTIC_PUZZLES["everyman-4152"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Seen, quoted, talked about (7)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "SIGHTED",
    "annotation": {
@@ -768,9 +717,6 @@ window.CRYPTIC_PUZZLES["everyman-4152"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Lack of honesty you are heard missing in refusal (2,3,2)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -829,9 +775,6 @@ window.CRYPTIC_PUZZLES["everyman-4152"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Figure can go to ... has gone to the dogs (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "OCTAGON",
    "annotation": {
@@ -868,9 +811,6 @@ window.CRYPTIC_PUZZLES["everyman-4152"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Everyman is going to leave bitterness (3-4)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -912,9 +852,6 @@ window.CRYPTIC_PUZZLES["everyman-4152"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Made from fire, rampant soldier with gumption and energy boxed (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "IGNEOUS",
    "annotation": {
@@ -972,9 +909,6 @@ window.CRYPTIC_PUZZLES["everyman-4152"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Perform digital operations by reinstalling updates? Can't! (3,3,5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -1025,9 +959,6 @@ window.CRYPTIC_PUZZLES["everyman-4152"] = /*JSON-START*/ {
      15
     ]
    ],
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "EPIC",
    "annotation": {
@@ -1073,9 +1004,6 @@ window.CRYPTIC_PUZZLES["everyman-4152"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Not starting to walk like a crab? That's unimportant (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "IDLE",
    "annotation": {
@@ -1115,9 +1043,6 @@ window.CRYPTIC_PUZZLES["everyman-4152"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Bear fruit finally after waffling on (10)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "PADDINGTON",
    "annotation": {
@@ -1168,9 +1093,6 @@ window.CRYPTIC_PUZZLES["everyman-4152"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "A taste that's repulsive somewhere in Italy (4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "PISA",
    "annotation": {
@@ -1216,9 +1138,6 @@ window.CRYPTIC_PUZZLES["everyman-4152"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "His essence, weirdly, having broad appeal (10)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "CHEESINESS",
    "annotation": {
@@ -1255,9 +1174,6 @@ window.CRYPTIC_PUZZLES["everyman-4152"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Something taunting your eye, primarily? (4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "STYE",
    "annotation": {

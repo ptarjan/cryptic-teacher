@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Cross edge of field? (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "FORD",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Large quantity of Spooner’s urban people (8)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "MOUNTAIN",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "State I left for job (4)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "POST",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Adam didn’t have one cut (5,3)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -97,9 +85,6 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Mystery hole (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "RIDDLE",
    "annotation": null
@@ -114,9 +99,6 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Had spasms: ill-treated, doc high, cure not right (10)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "HICCOUGHED",
    "annotation": null
@@ -131,9 +113,6 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Fashioned motor van’s first edition (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "CARVED",
    "annotation": null
@@ -148,9 +127,6 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Shock horror, at first express is behind (4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "HAIR",
    "annotation": null
@@ -165,9 +141,6 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Moulding over very old fronts of library offices (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "OVOLO",
    "annotation": null
@@ -182,9 +155,6 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "New mother, demure, has one jumper (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "PRIMIPARA",
    "annotation": null
@@ -199,9 +169,6 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Study in location near to you reportedly burning and rendered unusable (9)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "DENATURED",
    "annotation": null
@@ -236,9 +203,6 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Getting French wine, no money left for room (7)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "CHAMBER",
    "annotation": null
@@ -253,9 +217,6 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Irish poet and Unesco luminary discovered (5)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "COLUM",
    "annotation": null
@@ -270,9 +231,6 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Stripy birds, say, or marsupials (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "BANDICOOTS",
    "annotation": null
@@ -287,9 +245,6 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Revolutionary travelled around Cuba, a country in the Americas (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "ECUADOR",
    "annotation": null
@@ -324,9 +279,6 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Skirt has Northern material (5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "LINEN",
    "annotation": null
@@ -341,9 +293,6 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Old monk, lacking energy, got the sack (3)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "BED",
    "annotation": null
@@ -358,9 +307,6 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Rodri in Paris perhaps knocking back a few (8)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "DRINKING",
    "annotation": null
@@ -375,9 +321,6 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "That man will love getting to say this when meeting (5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "HELLO",
    "annotation": null
@@ -392,9 +335,6 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Means of escape, quietly opening toilet shack (8)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "LOOPHOLE",
    "annotation": null
@@ -409,9 +349,6 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Mother’s pet breed (7)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "MASTIFF",
    "annotation": null
@@ -426,9 +363,6 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Kite’s one, replacing earlier English model (6)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "SITTER",
    "annotation": null
@@ -443,9 +377,6 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Guy, the Spanish Casanova, pulled up trousers (6)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "FELLOW",
    "annotation": null
@@ -460,9 +391,6 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Not out of Tamarindo or soda bottles? (7)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "INDOORS",
    "annotation": null
@@ -477,9 +405,6 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Picasso’s uncle follows artist in relationship (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "RATIO",
    "annotation": null
@@ -516,9 +441,6 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Hake, not initially hunted, loathe swimming in Californian water (4,5)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -559,9 +481,6 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Blackboard turning up (4)",
-   "group": [
-    "29-down"
-   ],
    "separatorLocations": {},
    "solution": "EVIL",
    "annotation": null
@@ -576,9 +495,6 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Vegetable growth after small tank’s opening, introducing discharged fluid (9)",
-   "group": [
-    "30-across"
-   ],
    "separatorLocations": {},
    "solution": "SWEETCORN",
    "annotation": null
@@ -593,9 +509,6 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Duchess’s place bad, even though set back (5)",
-   "group": [
-    "31-across"
-   ],
    "separatorLocations": {},
    "solution": "MALFI",
    "annotation": null

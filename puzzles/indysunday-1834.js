@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1834"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Relief, partner's rewound programme of course (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "SYLLABUS",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["indysunday-1834"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Lord piled up roughly cut grass for cattle (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "YAHWEH",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["indysunday-1834"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Without zip, teach girl knots (9)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "LETHARGIC",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["indysunday-1834"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Piper, say, keeps playing tune one loaded (11)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "BILLIONAIRE",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["indysunday-1834"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Crow finally finds the way from France (4,3)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -114,9 +99,6 @@ window.CRYPTIC_PUZZLES["indysunday-1834"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Money left on account Emily's closing (6)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "LEGACY",
    "annotation": null
@@ -131,9 +113,6 @@ window.CRYPTIC_PUZZLES["indysunday-1834"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Delete third of the longest sentence in story (3)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "LIE",
    "annotation": null
@@ -148,9 +127,6 @@ window.CRYPTIC_PUZZLES["indysunday-1834"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Good thing winners inflict brilliance (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "GLOSS",
    "annotation": null
@@ -165,9 +141,6 @@ window.CRYPTIC_PUZZLES["indysunday-1834"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "The universe's response if the speed of light goes up (8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "CREATION",
    "annotation": null
@@ -182,9 +155,6 @@ window.CRYPTIC_PUZZLES["indysunday-1834"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Wicket taken by bowler? That's unbelievable (4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "WHAT",
    "annotation": null
@@ -199,9 +169,6 @@ window.CRYPTIC_PUZZLES["indysunday-1834"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Dry balls on toilet seat fabric (5,5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -220,9 +187,6 @@ window.CRYPTIC_PUZZLES["indysunday-1834"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Italian's colourful sweet selection - buy one to eat there in Rome (6)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "GELATI",
    "annotation": null
@@ -237,9 +201,6 @@ window.CRYPTIC_PUZZLES["indysunday-1834"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Facing work, assert it's boring (8)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "OPPOSITE",
    "annotation": null
@@ -254,9 +215,6 @@ window.CRYPTIC_PUZZLES["indysunday-1834"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Most powerful pair on tandem dashed around island (11)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "PREDOMINANT",
    "annotation": null
@@ -271,9 +229,6 @@ window.CRYPTIC_PUZZLES["indysunday-1834"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Knee-bend in training, lunge once fit (12)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "GENUFLECTION",
    "annotation": null
@@ -288,9 +243,6 @@ window.CRYPTIC_PUZZLES["indysunday-1834"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "For instance, punching total thug as a benefit (2,3,4)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -310,9 +262,6 @@ window.CRYPTIC_PUZZLES["indysunday-1834"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Starry arrogance not just for show? (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "SIDEREAL",
    "annotation": null
@@ -327,9 +276,6 @@ window.CRYPTIC_PUZZLES["indysunday-1834"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Spooner's trying to sell publican stake in western, perhaps (8,4)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -348,9 +294,6 @@ window.CRYPTIC_PUZZLES["indysunday-1834"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Unbranded cognac Irene guiltily wraps up (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "GENERIC",
    "annotation": null
@@ -365,9 +308,6 @@ window.CRYPTIC_PUZZLES["indysunday-1834"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "American 4's marbles (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "AGATES",
    "annotation": null
@@ -382,9 +322,6 @@ window.CRYPTIC_PUZZLES["indysunday-1834"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Write about match in shade of poet's beautiful boat (3-5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -403,9 +340,6 @@ window.CRYPTIC_PUZZLES["indysunday-1834"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Bush second, his defeated opponent claims (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "GORSE",
    "annotation": null
@@ -420,9 +354,6 @@ window.CRYPTIC_PUZZLES["indysunday-1834"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Time global warming stopped, agreed wise man on the radio (3,3)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -441,9 +372,6 @@ window.CRYPTIC_PUZZLES["indysunday-1834"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Land after air manoeuvres providing cover for marines (5,5)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -462,9 +390,6 @@ window.CRYPTIC_PUZZLES["indysunday-1834"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Young to be given the chair (3)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "FRY",
    "annotation": null
@@ -479,9 +404,6 @@ window.CRYPTIC_PUZZLES["indysunday-1834"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Bond hot on the heels of every other character in Volante (4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "OATH",
    "annotation": null
@@ -496,9 +418,6 @@ window.CRYPTIC_PUZZLES["indysunday-1834"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "3 barks from the back yard (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "SLEEPY",
    "annotation": null
@@ -513,9 +432,6 @@ window.CRYPTIC_PUZZLES["indysunday-1834"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "A hundred American lawyers in Utah look sharp (3,1,4)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     ",": [
      3,

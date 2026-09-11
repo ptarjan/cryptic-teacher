@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30095"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Quite friendly person playing with mates, man paying a visit (2,8,5)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -81,9 +78,6 @@ window.CRYPTIC_PUZZLES["cryptic-30095"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "How one might make bid, terribly (2,6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -122,9 +116,6 @@ window.CRYPTIC_PUZZLES["cryptic-30095"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Revolution trammelled by democracy, clearly (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "CYCLE",
    "annotation": {
@@ -158,9 +149,6 @@ window.CRYPTIC_PUZZLES["cryptic-30095"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Old drama served up with opera in state capital (8)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "HONOLULU",
    "annotation": {
@@ -213,9 +201,6 @@ window.CRYPTIC_PUZZLES["cryptic-30095"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Small strips in small bone (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "STAPES",
    "annotation": {
@@ -256,9 +241,6 @@ window.CRYPTIC_PUZZLES["cryptic-30095"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Descent as intolerance of spirit reported? (9)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "GENEALOGY",
    "annotation": {
@@ -296,9 +278,6 @@ window.CRYPTIC_PUZZLES["cryptic-30095"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Country in defeat like that, 5-0 (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "KOSOVO",
    "annotation": {
@@ -345,9 +324,6 @@ window.CRYPTIC_PUZZLES["cryptic-30095"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "LIST, say, how Trump sees Canada? (5-5,5)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      10
@@ -397,9 +373,6 @@ window.CRYPTIC_PUZZLES["cryptic-30095"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Big Apple’s best ever on bread – and butter (5,4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -455,9 +428,6 @@ window.CRYPTIC_PUZZLES["cryptic-30095"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Possible sickener, incomplete story of environmentalism? (1,4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      1
@@ -504,9 +474,6 @@ window.CRYPTIC_PUZZLES["cryptic-30095"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Father, forward in motion … (4,3)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -554,9 +521,6 @@ window.CRYPTIC_PUZZLES["cryptic-30095"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "… priest entering job (7)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "PREVOST",
    "annotation": {
@@ -600,9 +564,6 @@ window.CRYPTIC_PUZZLES["cryptic-30095"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Deputy Viking perhaps flayed (4)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "AIDE",
    "annotation": {
@@ -644,9 +605,6 @@ window.CRYPTIC_PUZZLES["cryptic-30095"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "European city recovering from disappointment, investing not as much (10)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "DUSSELDORF",
    "annotation": {
@@ -703,9 +661,6 @@ window.CRYPTIC_PUZZLES["cryptic-30095"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Book in cypher so encrypted for etailer (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "CYBERSHOP",
    "annotation": {
@@ -755,9 +710,6 @@ window.CRYPTIC_PUZZLES["cryptic-30095"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "A burden for a Titan in debt – Lord have mercy! (1,3,3)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {
     ",": [
      1,
@@ -812,9 +764,6 @@ window.CRYPTIC_PUZZLES["cryptic-30095"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Describing a vessel – whimsically or not? (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "JUGULAR",
    "annotation": {
@@ -857,9 +806,6 @@ window.CRYPTIC_PUZZLES["cryptic-30095"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Fraction outside of second, swimmer pushing hard? (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "JOSTLING",
    "annotation": {
@@ -909,9 +855,6 @@ window.CRYPTIC_PUZZLES["cryptic-30095"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Something possibly sugared in water turned up, sweet (8)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "LOLLIPOP",
    "annotation": {
@@ -963,9 +906,6 @@ window.CRYPTIC_PUZZLES["cryptic-30095"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Kid’s knocked over shed one rebuilt – a wind-up for the horticulturalist? (6,4)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -1024,9 +964,6 @@ window.CRYPTIC_PUZZLES["cryptic-30095"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Sound clothes I had on (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "RIDING",
    "annotation": {
@@ -1071,9 +1008,6 @@ window.CRYPTIC_PUZZLES["cryptic-30095"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Run over manuscript for secluded groups (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "HAREMS",
    "annotation": {
@@ -1119,9 +1053,6 @@ window.CRYPTIC_PUZZLES["cryptic-30095"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Building unit razed to the ground? (4)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "FLAT",
    "annotation": {
@@ -1156,9 +1087,6 @@ window.CRYPTIC_PUZZLES["cryptic-30095"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Routinely concerned with all one’s toes? (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "OFTEN",
    "annotation": {
@@ -1196,9 +1124,6 @@ window.CRYPTIC_PUZZLES["cryptic-30095"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "After embroidering, sender wraps uniform for purchaser (3,4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -1255,9 +1180,6 @@ window.CRYPTIC_PUZZLES["cryptic-30095"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Pink paper is tucked inside permit, red (7)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "LEFTIST",
    "annotation": {
@@ -1307,9 +1229,6 @@ window.CRYPTIC_PUZZLES["cryptic-30095"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "I don’t want you, old bean, in fruit … (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "MANGO",
    "annotation": {
@@ -1350,9 +1269,6 @@ window.CRYPTIC_PUZZLES["cryptic-30095"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "… and similarly in veg? (9)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "MANGETOUT",
    "annotation": {

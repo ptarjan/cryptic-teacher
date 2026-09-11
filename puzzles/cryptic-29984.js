@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29984"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Total eclipse enthralling smart guy (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "ALEC",
    "annotation": {
@@ -62,9 +59,6 @@ window.CRYPTIC_PUZZLES["cryptic-29984"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Star’s name shortened, in slang (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "POLARI",
    "annotation": {
@@ -110,9 +104,6 @@ window.CRYPTIC_PUZZLES["cryptic-29984"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Feasting king has a small herbal brew, interrupted by short nap? (10)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "BELSHAZZAR",
    "annotation": {
@@ -160,9 +151,6 @@ window.CRYPTIC_PUZZLES["cryptic-29984"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Like the usual answer (part) (2,4)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -205,9 +193,6 @@ window.CRYPTIC_PUZZLES["cryptic-29984"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "For one, David succeeded opening a handy reader (8)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "PSALMIST",
    "annotation": {
@@ -252,9 +237,6 @@ window.CRYPTIC_PUZZLES["cryptic-29984"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Opportunity coming round to change colour, artist has no hesitation (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "TURN",
    "annotation": {
@@ -298,9 +280,6 @@ window.CRYPTIC_PUZZLES["cryptic-29984"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Round hospital, murderer noticed massacre weapon that was filmed (8)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "CHAINSAW",
    "annotation": {
@@ -351,9 +330,6 @@ window.CRYPTIC_PUZZLES["cryptic-29984"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Penalty would be fit, if this swimmer knocked out (4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "ORFE",
    "annotation": {
@@ -396,9 +372,6 @@ window.CRYPTIC_PUZZLES["cryptic-29984"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Football team 1-1 after leading at first, idiots missing header (9)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "LIONESSES",
    "annotation": {
@@ -459,9 +432,6 @@ window.CRYPTIC_PUZZLES["cryptic-29984"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Old teacher’s pronouns (5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "USHER",
    "annotation": {
@@ -503,9 +473,6 @@ window.CRYPTIC_PUZZLES["cryptic-29984"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Charlie brings in bowl for dog’s dinner (5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "CHAOS",
    "annotation": {
@@ -553,9 +520,6 @@ window.CRYPTIC_PUZZLES["cryptic-29984"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Card for One Gentleman of Verona (9)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "VALENTINE",
    "annotation": {
@@ -594,9 +558,6 @@ window.CRYPTIC_PUZZLES["cryptic-29984"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Feature of High Peak in which to disappear (4,3)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -636,9 +597,6 @@ window.CRYPTIC_PUZZLES["cryptic-29984"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "In other words, what to do with broken-down car (2,3)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -681,9 +639,6 @@ window.CRYPTIC_PUZZLES["cryptic-29984"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Imogen’s model daughter required to be paid (7)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "IMPOSED",
    "annotation": {
@@ -728,9 +683,6 @@ window.CRYPTIC_PUZZLES["cryptic-29984"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Writer covering India with nothing about treatment for infection (10)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "PENICILLIN",
    "annotation": {
@@ -792,9 +744,6 @@ window.CRYPTIC_PUZZLES["cryptic-29984"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Mostly ease off work, getting handouts (5)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "DOLES",
    "annotation": {
@@ -840,9 +789,6 @@ window.CRYPTIC_PUZZLES["cryptic-29984"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Dance music from Disney on air (5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "WALTZ",
    "annotation": {
@@ -878,9 +824,6 @@ window.CRYPTIC_PUZZLES["cryptic-29984"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "More wary than anyone of lake, most unearthly (8)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "LEERIEST",
    "annotation": {
@@ -922,9 +865,6 @@ window.CRYPTIC_PUZZLES["cryptic-29984"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Whippet? (3)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "CAT",
    "annotation": {
@@ -957,9 +897,6 @@ window.CRYPTIC_PUZZLES["cryptic-29984"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Calvin’s business giving off bad smell gets halved (8)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "COOLIDGE",
    "annotation": {
@@ -1012,9 +949,6 @@ window.CRYPTIC_PUZZLES["cryptic-29984"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Changing hands, more recent post (5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "NEWEL",
    "annotation": {
@@ -1057,9 +991,6 @@ window.CRYPTIC_PUZZLES["cryptic-29984"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Boot her out? There are strings attached to that (7)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "THEORBO",
    "annotation": {
@@ -1103,9 +1034,6 @@ window.CRYPTIC_PUZZLES["cryptic-29984"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Regularly take free measures of wood cut as logs (7)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "RECORDS",
    "annotation": {
@@ -1231,9 +1159,6 @@ window.CRYPTIC_PUZZLES["cryptic-29984"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Huge energy in description of 60s London (9)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "SWINGEING",
    "annotation": {
@@ -1278,9 +1203,6 @@ window.CRYPTIC_PUZZLES["cryptic-29984"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Stitched up by all the cardinals (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "SEWN",
    "annotation": {
@@ -1334,9 +1256,6 @@ window.CRYPTIC_PUZZLES["cryptic-29984"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Artist’s ascetic discipline: cycling backwards (4)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "GOYA",
    "annotation": {
@@ -1386,9 +1305,6 @@ window.CRYPTIC_PUZZLES["cryptic-29984"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "A number in the vicinity (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "LOCAL",
    "annotation": {
@@ -1424,9 +1340,6 @@ window.CRYPTIC_PUZZLES["cryptic-29984"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Come close, perhaps threatening weaver (4)",
-   "group": [
-    "27-down"
-   ],
    "separatorLocations": {},
    "solution": "LOOM",
    "annotation": {
@@ -1463,9 +1376,6 @@ window.CRYPTIC_PUZZLES["cryptic-29984"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Flimsy Caribbean agent (5)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "WISPY",
    "annotation": {
@@ -1504,9 +1414,6 @@ window.CRYPTIC_PUZZLES["cryptic-29984"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "See to twig confused for a different twig (3,4,2)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {
     ",": [
      3,

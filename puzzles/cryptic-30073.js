@@ -24,9 +24,6 @@ window.CRYPTIC_PUZZLES["cryptic-30073"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Spooner’s man from Bangkok makes meal (4,3)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -78,9 +75,6 @@ window.CRYPTIC_PUZZLES["cryptic-30073"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Club is ultimately perfect for George Bernard Shaw? (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "IRONIST",
    "annotation": {
@@ -132,9 +126,6 @@ window.CRYPTIC_PUZZLES["cryptic-30073"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Hard rock capturing the heart of Mason Mount (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "HORSE",
    "annotation": {
@@ -186,9 +177,6 @@ window.CRYPTIC_PUZZLES["cryptic-30073"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Plant from eastern New Guinea (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "EUGENIA",
    "annotation": {
@@ -233,9 +221,6 @@ window.CRYPTIC_PUZZLES["cryptic-30073"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Bouncer defending right cause (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "TRIGGER",
    "annotation": {
@@ -279,9 +264,6 @@ window.CRYPTIC_PUZZLES["cryptic-30073"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "3 makes a killing after receiving a tip (3,3)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -331,9 +313,6 @@ window.CRYPTIC_PUZZLES["cryptic-30073"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Billionaire boss in Northern town (9)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "GATESHEAD",
    "annotation": {
@@ -373,9 +352,6 @@ window.CRYPTIC_PUZZLES["cryptic-30073"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Climatic events during climbing season in Lesotho (2,5)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -421,9 +397,6 @@ window.CRYPTIC_PUZZLES["cryptic-30073"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Emma made point about cross-dresser (9,4)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {
     ",": [
      9
@@ -464,9 +437,6 @@ window.CRYPTIC_PUZZLES["cryptic-30073"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Square meal left out (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "FOUR",
    "annotation": {
@@ -508,9 +478,6 @@ window.CRYPTIC_PUZZLES["cryptic-30073"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Show off magnificent stomach (10)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "GRANDSTAND",
    "annotation": {
@@ -547,9 +514,6 @@ window.CRYPTIC_PUZZLES["cryptic-30073"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Christian Bale finally doing wrong (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "GIDEON",
    "annotation": {
@@ -593,9 +557,6 @@ window.CRYPTIC_PUZZLES["cryptic-30073"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "PM briefly in front of No.11 preparing joint (8)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "TRUSSING",
    "annotation": {
@@ -644,9 +605,6 @@ window.CRYPTIC_PUZZLES["cryptic-30073"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Dr Faust confused by manuscript showing birthplaces of 6 and 28 (4,5)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -695,9 +653,6 @@ window.CRYPTIC_PUZZLES["cryptic-30073"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Pedigree dog’s heading off to investigate more thoroughly (3,6)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -748,9 +703,6 @@ window.CRYPTIC_PUZZLES["cryptic-30073"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Soundness of judgement is some change for Donald Trump in speech (5)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "SENSE",
    "annotation": {
@@ -788,9 +740,6 @@ window.CRYPTIC_PUZZLES["cryptic-30073"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "3 whimsically entertained by youth’s description of Slough (5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "BOGGY",
    "annotation": {
@@ -836,9 +785,6 @@ window.CRYPTIC_PUZZLES["cryptic-30073"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Bird not up for courtship dancing (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "OSTRICH",
    "annotation": {
@@ -891,9 +837,6 @@ window.CRYPTIC_PUZZLES["cryptic-30073"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "3D wrestling match (9)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "SMACKDOWN",
    "annotation": {
@@ -930,9 +873,6 @@ window.CRYPTIC_PUZZLES["cryptic-30073"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "3 is hot and frisky (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "COLTISH",
    "annotation": {
@@ -978,9 +918,6 @@ window.CRYPTIC_PUZZLES["cryptic-30073"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Spin bowler containing Australia up front? (7)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "WARZONE",
    "annotation": {
@@ -1032,9 +969,6 @@ window.CRYPTIC_PUZZLES["cryptic-30073"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Movie about mustang (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "FLICKA",
    "annotation": {
@@ -1071,9 +1005,6 @@ window.CRYPTIC_PUZZLES["cryptic-30073"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "3 taking pulse oddly inspired? (8)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "STEEPLED",
    "annotation": {
@@ -1119,9 +1050,6 @@ window.CRYPTIC_PUZZLES["cryptic-30073"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Organ Symphony’s finale is uniform (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "LIVERY",
    "annotation": {
@@ -1167,9 +1095,6 @@ window.CRYPTIC_PUZZLES["cryptic-30073"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Counsellor spending a day in the shade (5)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "VISOR",
    "annotation": {
@@ -1216,9 +1141,6 @@ window.CRYPTIC_PUZZLES["cryptic-30073"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Bits of grey matter in fish (10)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "HIPPOCAMPI",
    "annotation": {
@@ -1255,9 +1177,6 @@ window.CRYPTIC_PUZZLES["cryptic-30073"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Weeds cycling in Oxford? (4)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "SHOE",
    "annotation": {
@@ -1298,9 +1217,6 @@ window.CRYPTIC_PUZZLES["cryptic-30073"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "That woman in tattered clothing coming round for 3 (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "SHERGAR",
    "annotation": {
@@ -1355,9 +1271,6 @@ window.CRYPTIC_PUZZLES["cryptic-30073"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Spice Girl cut by tea tray (7)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "CHARGER",
    "annotation": {

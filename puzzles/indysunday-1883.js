@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1883"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "San Diego quakes were really worrying (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "AGONISED",
    "annotation": {
@@ -64,9 +61,6 @@ window.CRYPTIC_PUZZLES["indysunday-1883"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Wrestle gross eater? (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "GRAPPLE",
    "annotation": {
@@ -103,9 +97,6 @@ window.CRYPTIC_PUZZLES["indysunday-1883"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Stuff that explodes can upset returning troops (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "NITRO",
    "annotation": {
@@ -160,9 +151,6 @@ window.CRYPTIC_PUZZLES["indysunday-1883"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Aggressive cleaner ransacking home (8,3)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -203,9 +191,6 @@ window.CRYPTIC_PUZZLES["indysunday-1883"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Prepare for party with various reds to drink (5,2)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -264,9 +249,6 @@ window.CRYPTIC_PUZZLES["indysunday-1883"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Pass on concerning file with images left in taxi (6)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "REGIFT",
    "annotation": {
@@ -315,9 +297,6 @@ window.CRYPTIC_PUZZLES["indysunday-1883"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Doctor half justified claims (3)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "RIG",
    "annotation": {
@@ -354,9 +333,6 @@ window.CRYPTIC_PUZZLES["indysunday-1883"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Damaging middle of smelly bag, soil spread everywhere (9)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "GLOBALISE",
    "annotation": {
@@ -400,9 +376,6 @@ window.CRYPTIC_PUZZLES["indysunday-1883"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Loud sopranos perhaps wanting top piano players? (7)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "FINGERS",
    "annotation": {
@@ -445,9 +418,6 @@ window.CRYPTIC_PUZZLES["indysunday-1883"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Fixed ahead of time (4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "FAST",
    "annotation": {
@@ -479,9 +449,6 @@ window.CRYPTIC_PUZZLES["indysunday-1883"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Maybe too powdery on the surface (10)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "OVERGROUND",
    "annotation": {
@@ -523,9 +490,6 @@ window.CRYPTIC_PUZZLES["indysunday-1883"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Poorly, so partier can't make it later (13)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "PROCRASTINATE",
    "annotation": {
@@ -562,9 +526,6 @@ window.CRYPTIC_PUZZLES["indysunday-1883"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "500 diamonds to pack among discounted items, mounted (2,3,6)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -618,9 +579,6 @@ window.CRYPTIC_PUZZLES["indysunday-1883"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Middle Eastern country spending billions to intimidate (4,2)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -667,9 +625,6 @@ window.CRYPTIC_PUZZLES["indysunday-1883"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Gas rising and depleted, almost bound to be taxed (3-6)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -724,9 +679,6 @@ window.CRYPTIC_PUZZLES["indysunday-1883"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Make key golf shot around trees (3,5)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -774,9 +726,6 @@ window.CRYPTIC_PUZZLES["indysunday-1883"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Overcome feeling of cold, say, in Canadian city (8)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "WINNIPEG",
    "annotation": {
@@ -822,9 +771,6 @@ window.CRYPTIC_PUZZLES["indysunday-1883"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Swimmer seen grabbing duck (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "IMMERSE",
    "annotation": {
@@ -858,9 +804,6 @@ window.CRYPTIC_PUZZLES["indysunday-1883"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Gang member John Travolta plays as Romeo, after cast agrees (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "GREASER",
    "annotation": {
@@ -917,9 +860,6 @@ window.CRYPTIC_PUZZLES["indysunday-1883"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Flat and incredibly still (4,2)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -963,9 +903,6 @@ window.CRYPTIC_PUZZLES["indysunday-1883"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Old Arab hospital admitting certain type of people? (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "SARACEN",
    "annotation": {
@@ -1009,9 +946,6 @@ window.CRYPTIC_PUZZLES["indysunday-1883"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Is one white elephant in the room? (5,8)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -1046,9 +980,6 @@ window.CRYPTIC_PUZZLES["indysunday-1883"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "This sending up a little tipple to honeymooners? (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "HOTEL",
    "annotation": {
@@ -1090,9 +1021,6 @@ window.CRYPTIC_PUZZLES["indysunday-1883"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Shot by wayward side put in play, perhaps (10)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "DRAMATISED",
    "annotation": {
@@ -1150,9 +1078,6 @@ window.CRYPTIC_PUZZLES["indysunday-1883"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Reduced very small part of bronze (3)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "TIN",
    "annotation": {
@@ -1189,9 +1114,6 @@ window.CRYPTIC_PUZZLES["indysunday-1883"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Stitch silk lining for hats back to front (4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "TACK",
    "annotation": {
@@ -1242,9 +1164,6 @@ window.CRYPTIC_PUZZLES["indysunday-1883"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Allowed to use Elton's clothing during 9? (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "LENTEN",
    "annotation": {
@@ -1287,9 +1206,6 @@ window.CRYPTIC_PUZZLES["indysunday-1883"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Sir Nigel turned white (8)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "RIESLING",
    "annotation": {

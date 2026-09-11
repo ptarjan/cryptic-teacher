@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1343"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Lower the value of day geared for recreation (7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "DEGRADE",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["quiptic-1343"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Ban scruffy garb amid protest, first off (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "EMBARGO",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["quiptic-1343"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Assessed artist, one with a noted quiff (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "RATED",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["quiptic-1343"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Turn away learner beset by shortcoming (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "DEFLECT",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["quiptic-1343"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Greek character taking in a fast dance (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "LAMBADA",
    "annotation": null
@@ -110,9 +95,6 @@ window.CRYPTIC_PUZZLES["quiptic-1343"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Off course when on carrier? (6)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "ASTRAY",
    "annotation": null
@@ -127,9 +109,6 @@ window.CRYPTIC_PUZZLES["quiptic-1343"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Remaining cheerful with relation in the lead (7,2)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -148,9 +127,6 @@ window.CRYPTIC_PUZZLES["quiptic-1343"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Reportedly, prepare an early version of drink (7)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "DRAUGHT",
    "annotation": null
@@ -165,9 +141,6 @@ window.CRYPTIC_PUZZLES["quiptic-1343"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Dismissed team getting luck? There’s slight likelihood (7,6)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -186,9 +159,6 @@ window.CRYPTIC_PUZZLES["quiptic-1343"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Support a thing done by punters? (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "ABET",
    "annotation": null
@@ -203,9 +173,6 @@ window.CRYPTIC_PUZZLES["quiptic-1343"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "French adult is excited about a cold dessert (5,5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -224,9 +191,6 @@ window.CRYPTIC_PUZZLES["quiptic-1343"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "After missing start, shorten card game (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "BRIDGE",
    "annotation": null
@@ -241,9 +205,6 @@ window.CRYPTIC_PUZZLES["quiptic-1343"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Possessing on board ship thin slices of wood? (8)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "SHAVINGS",
    "annotation": null
@@ -258,9 +219,6 @@ window.CRYPTIC_PUZZLES["quiptic-1343"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Fitter duo after surgery showing bravery (9)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "FORTITUDE",
    "annotation": null
@@ -275,9 +233,6 @@ window.CRYPTIC_PUZZLES["quiptic-1343"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Tiny male priest with US college gets closing date (4,5)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -296,9 +251,6 @@ window.CRYPTIC_PUZZLES["quiptic-1343"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Period around centre of Bath to get gemstone (5)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "AGATE",
    "annotation": null
@@ -313,9 +265,6 @@ window.CRYPTIC_PUZZLES["quiptic-1343"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Feature of cricket accepted by most umpires (5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "STUMP",
    "annotation": null
@@ -330,9 +279,6 @@ window.CRYPTIC_PUZZLES["quiptic-1343"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Voracious insect? Call it close to bothersome (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "TERMITE",
    "annotation": null
@@ -347,9 +293,6 @@ window.CRYPTIC_PUZZLES["quiptic-1343"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Go along with account by set of actors (9)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "ACCOMPANY",
    "annotation": null
@@ -364,9 +307,6 @@ window.CRYPTIC_PUZZLES["quiptic-1343"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Left out diet Tom cooked (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "OMITTED",
    "annotation": null
@@ -381,9 +321,6 @@ window.CRYPTIC_PUZZLES["quiptic-1343"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Part of a hooter? (7)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "NOSTRIL",
    "annotation": null
@@ -398,9 +335,6 @@ window.CRYPTIC_PUZZLES["quiptic-1343"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Remaining lot of students in university education (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "UNUSED",
    "annotation": null
@@ -415,9 +349,6 @@ window.CRYPTIC_PUZZLES["quiptic-1343"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Rail sank badly in island nation (3,5)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -436,9 +367,6 @@ window.CRYPTIC_PUZZLES["quiptic-1343"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Where one might put holiday clothes if needed? (2,4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -457,9 +385,6 @@ window.CRYPTIC_PUZZLES["quiptic-1343"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Top sportsperson found in Altrincham, possibly (5)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "CHAMP",
    "annotation": null
@@ -474,9 +399,6 @@ window.CRYPTIC_PUZZLES["quiptic-1343"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Ace site Sam devised for whiskery pet (7,3)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -495,9 +417,6 @@ window.CRYPTIC_PUZZLES["quiptic-1343"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Those succeeding on radio producing tunes (4)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "AIRS",
    "annotation": null
@@ -512,9 +431,6 @@ window.CRYPTIC_PUZZLES["quiptic-1343"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Examine again note by boss before end of holiday (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "RESTUDY",
    "annotation": null
@@ -529,9 +445,6 @@ window.CRYPTIC_PUZZLES["quiptic-1343"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "A department largely emptied in a skilful manner (7)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "ADEPTLY",
    "annotation": null

@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29914"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Prisoner finally does bird over murder (7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "CONSUME",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["cryptic-29914"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Visual is current with work coming up (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "OPTICAL",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["cryptic-29914"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Perhaps Gala lifting sound after struggle? (9)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "SCRUMPING",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["cryptic-29914"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "I’m upset with this swimming stroke that went wrong (6)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "MISHIT",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["cryptic-29914"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Spooner’s old man wagered unrecoverable liability (3,4)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -114,9 +99,6 @@ window.CRYPTIC_PUZZLES["cryptic-29914"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Deletion of program on phone, wanting space, ok (8)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "APPROVAL",
    "annotation": null
@@ -131,9 +113,6 @@ window.CRYPTIC_PUZZLES["cryptic-29914"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Tea for one of Doctor Kildare’s first home visits (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "DRINK",
    "annotation": null
@@ -148,9 +127,6 @@ window.CRYPTIC_PUZZLES["cryptic-29914"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Part of town that’s revolting – King taken by surprise at the outset (7)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "BOROUGH",
    "annotation": null
@@ -165,9 +141,6 @@ window.CRYPTIC_PUZZLES["cryptic-29914"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "E.g enthuse defender with say, 4-4-2 (4-9)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -186,9 +159,6 @@ window.CRYPTIC_PUZZLES["cryptic-29914"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Wind in America goes the other way (1-5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     "-": [
      1
@@ -207,9 +177,6 @@ window.CRYPTIC_PUZZLES["cryptic-29914"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "A power tool they hope to get in (8)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "APPLIERS",
    "annotation": null
@@ -224,9 +191,6 @@ window.CRYPTIC_PUZZLES["cryptic-29914"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Thick walls collapsing here in ancient Rome (3)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "HIC",
    "annotation": null
@@ -241,9 +205,6 @@ window.CRYPTIC_PUZZLES["cryptic-29914"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Seafood swindle pursued by detective (6)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "SCAMPI",
    "annotation": null
@@ -258,9 +219,6 @@ window.CRYPTIC_PUZZLES["cryptic-29914"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Available after pound fell (5,3)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -279,9 +237,6 @@ window.CRYPTIC_PUZZLES["cryptic-29914"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Quietly ring back to get checked (5)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "PLAID",
    "annotation": null
@@ -296,9 +251,6 @@ window.CRYPTIC_PUZZLES["cryptic-29914"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Record a beat on the radio, calculating power (9)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "LOGARITHM",
    "annotation": null
@@ -313,9 +265,6 @@ window.CRYPTIC_PUZZLES["cryptic-29914"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Disguised gin with tonic swirling round (9)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "INCOGNITO",
    "annotation": null
@@ -330,9 +279,6 @@ window.CRYPTIC_PUZZLES["cryptic-29914"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "One fifth of thirteen going into 26 freely without fractions (8)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "INTEGRAL",
    "annotation": null
@@ -347,9 +293,6 @@ window.CRYPTIC_PUZZLES["cryptic-29914"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Produce – and handle – Elton John for instance (5,4)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -368,9 +311,6 @@ window.CRYPTIC_PUZZLES["cryptic-29914"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Best team to make cut (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "TOPSIDE",
    "annotation": null
@@ -385,9 +325,6 @@ window.CRYPTIC_PUZZLES["cryptic-29914"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Threatening look from member of parliament on select committee for starters (5)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "SCOWL",
    "annotation": null
@@ -402,9 +339,6 @@ window.CRYPTIC_PUZZLES["cryptic-29914"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Little fib about husband’s bike stunt (7)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "WHEELIE",
    "annotation": null
@@ -419,9 +353,6 @@ window.CRYPTIC_PUZZLES["cryptic-29914"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Jaunty part of anorak is hood (6)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "RAKISH",
    "annotation": null
@@ -436,9 +367,6 @@ window.CRYPTIC_PUZZLES["cryptic-29914"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Rival Pope made strange claims about religious books (8)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "OPPONENT",
    "annotation": null
@@ -453,9 +381,6 @@ window.CRYPTIC_PUZZLES["cryptic-29914"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Different gold-plated article (5)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "OTHER",
    "annotation": null
@@ -470,9 +395,6 @@ window.CRYPTIC_PUZZLES["cryptic-29914"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Hulk director’s detailed tip to actor – one with a line? (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "ANGLER",
    "annotation": null
@@ -487,9 +409,6 @@ window.CRYPTIC_PUZZLES["cryptic-29914"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "When half-cut, draw back tattoo (3)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "INK",
    "annotation": null
@@ -504,9 +423,6 @@ window.CRYPTIC_PUZZLES["cryptic-29914"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Heriot Watt, Edinburgh ultimately struggling until now (8)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "HITHERTO",
    "annotation": null
@@ -521,9 +437,6 @@ window.CRYPTIC_PUZZLES["cryptic-29914"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Frosty Spike Milligan scene with actor, Oliver Reed taking only seconds (6)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "ICICLE",
    "annotation": null
@@ -538,9 +451,6 @@ window.CRYPTIC_PUZZLES["cryptic-29914"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Drunkenly mess up one line, using skirts to monkey around (7)",
-   "group": [
-    "30-across"
-   ],
    "separatorLocations": {},
    "solution": "MERRILY",
    "annotation": null
@@ -555,9 +465,6 @@ window.CRYPTIC_PUZZLES["cryptic-29914"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Maybe Magnum’s close to his nose (7)",
-   "group": [
-    "31-across"
-   ],
    "separatorLocations": {},
    "solution": "SHOOTER",
    "annotation": null

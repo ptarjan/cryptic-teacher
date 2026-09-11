@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12389"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Risky venture drinking barrel – up for it? (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "GAMBLE",
    "annotation": {
@@ -72,9 +69,6 @@ window.CRYPTIC_PUZZLES["independent-12389"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Religious folk understand about eternities (7)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "GIDEONS",
    "annotation": {
@@ -124,9 +118,6 @@ window.CRYPTIC_PUZZLES["independent-12389"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Etonian getting mixed up with S&M is a state (9)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "MINNESOTA",
    "annotation": {
@@ -173,9 +164,6 @@ window.CRYPTIC_PUZZLES["independent-12389"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Clingy type is flaccid and extremely expectant (6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "LIMPET",
    "annotation": {
@@ -223,9 +211,6 @@ window.CRYPTIC_PUZZLES["independent-12389"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Don't start chuckling after passing of dead relative (8)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "DAUGHTER",
    "annotation": {
@@ -271,9 +256,6 @@ window.CRYPTIC_PUZZLES["independent-12389"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Arabian with touch of irritating trapped wind (3)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "AIR",
    "annotation": {
@@ -323,9 +305,6 @@ window.CRYPTIC_PUZZLES["independent-12389"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Bloke on line my boss stroked soothingly (7)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "GENTLED",
    "annotation": {
@@ -375,9 +354,6 @@ window.CRYPTIC_PUZZLES["independent-12389"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Greek character hugged by lithe Tasmanian (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "THETA",
    "annotation": {
@@ -412,9 +388,6 @@ window.CRYPTIC_PUZZLES["independent-12389"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Reservation about South Island street fights (7)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "RESISTS",
    "annotation": {
@@ -471,9 +444,6 @@ window.CRYPTIC_PUZZLES["independent-12389"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Private parts at last held by naughty coterie (8)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {},
    "solution": "ESOTERIC",
    "annotation": {
@@ -520,9 +490,6 @@ window.CRYPTIC_PUZZLES["independent-12389"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Material from pit steed finally brought back (5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "DENIM",
    "annotation": {
@@ -576,9 +543,6 @@ window.CRYPTIC_PUZZLES["independent-12389"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Murderers doing away with fifty foreigners? (9)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "STRANGERS",
    "annotation": {
@@ -621,9 +585,6 @@ window.CRYPTIC_PUZZLES["independent-12389"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Amusingly trivial work is awful to repeat (8)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "OPERETTA",
    "annotation": {
@@ -664,9 +625,6 @@ window.CRYPTIC_PUZZLES["independent-12389"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Gangster is ahead of customs every time (6)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "ALWAYS",
    "annotation": {
@@ -713,9 +671,6 @@ window.CRYPTIC_PUZZLES["independent-12389"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "After losing heart, boy shot back for a kiss (4)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "SNOG",
    "annotation": {
@@ -771,9 +726,6 @@ window.CRYPTIC_PUZZLES["independent-12389"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Freshly-made cider cools some basking in the sun? (10)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "CROCODILES",
    "annotation": {
@@ -811,9 +763,6 @@ window.CRYPTIC_PUZZLES["independent-12389"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Brighter ace bails out of chopper with spinning soldiers (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "CLEVERER",
    "annotation": {
@@ -873,9 +822,6 @@ window.CRYPTIC_PUZZLES["independent-12389"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Some unfinished business in bogs Earl concludes (5,4)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -927,9 +873,6 @@ window.CRYPTIC_PUZZLES["independent-12389"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Gang in uniform head regularly boxed before assembly? (4-6)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -985,9 +928,6 @@ window.CRYPTIC_PUZZLES["independent-12389"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Wicked types snarfing rat-arsed leader's Buds (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "FRIENDS",
    "annotation": {
@@ -1034,9 +974,6 @@ window.CRYPTIC_PUZZLES["independent-12389"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Polish school monitor Roedean's head sent down (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "PERFECT",
    "annotation": {
@@ -1081,9 +1018,6 @@ window.CRYPTIC_PUZZLES["independent-12389"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Group imbibing drop of stout will get wasted (4)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "LOST",
    "annotation": {
@@ -1133,9 +1067,6 @@ window.CRYPTIC_PUZZLES["independent-12389"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "What was tense man on assistant? Busted essentially! (3,4)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -1197,9 +1128,6 @@ window.CRYPTIC_PUZZLES["independent-12389"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Royal visiting church is after publicity (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "PRINCE",
    "annotation": {
@@ -1252,9 +1180,6 @@ window.CRYPTIC_PUZZLES["independent-12389"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Where one might find desire to perform back to back (2,4)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -1290,9 +1215,6 @@ window.CRYPTIC_PUZZLES["independent-12389"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Flipping love pint with Hoskins getting in speed (5)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "TEMPO",
    "annotation": {
@@ -1351,9 +1273,6 @@ window.CRYPTIC_PUZZLES["independent-12389"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Ruddy turned on about pinching one's buttocks (8)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "DERRIERE",
    "annotation": {
@@ -1417,9 +1336,6 @@ window.CRYPTIC_PUZZLES["independent-12389"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Drink after drug like opium is the best (6,3)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -1470,9 +1386,6 @@ window.CRYPTIC_PUZZLES["independent-12389"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Wife visits Iona naked? That's personal! (3)",
-   "group": [
-    "27-down"
-   ],
    "separatorLocations": {},
    "solution": "OWN",
    "annotation": {
@@ -1522,9 +1435,6 @@ window.CRYPTIC_PUZZLES["independent-12389"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Mercenary judge held in ship going to America? (5)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "NINJA",
    "annotation": {
@@ -1575,9 +1485,6 @@ window.CRYPTIC_PUZZLES["independent-12389"] = /*JSON-START*/ {
      5
     ]
    ],
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "SHOOTING",
    "annotation": {
@@ -1622,9 +1529,6 @@ window.CRYPTIC_PUZZLES["independent-12389"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Live debuts from Dre and Snoop one tenor digs? (6)",
-   "group": [
-    "30-across"
-   ],
    "separatorLocations": {},
    "solution": "BEDSIT",
    "annotation": {

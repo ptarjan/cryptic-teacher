@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1899"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Awful telephone company's reported two types of complaint (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "DIABETES",
    "annotation": {
@@ -73,9 +70,6 @@ window.CRYPTIC_PUZZLES["indysunday-1899"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "See two tins blended in food processor (9)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "INTESTINE",
    "annotation": {
@@ -117,9 +111,6 @@ window.CRYPTIC_PUZZLES["indysunday-1899"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "First in by-election ballot box, someone over-performing? (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "BURNHAM",
    "annotation": {
@@ -169,9 +160,6 @@ window.CRYPTIC_PUZZLES["indysunday-1899"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Conservative forking out nothing in tax (3)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "TRY",
    "annotation": {
@@ -213,9 +201,6 @@ window.CRYPTIC_PUZZLES["indysunday-1899"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "One consigned to watery grave (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "SERIOUS",
    "annotation": {
@@ -259,9 +244,6 @@ window.CRYPTIC_PUZZLES["indysunday-1899"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Little'un runs into quiet kid causing trouble (6)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "SHRIMP",
    "annotation": {
@@ -310,9 +292,6 @@ window.CRYPTIC_PUZZLES["indysunday-1899"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Cheap restaurant sold sandwiches in grand structure outside (11)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "SCAFFOLDING",
    "annotation": {
@@ -364,9 +343,6 @@ window.CRYPTIC_PUZZLES["indysunday-1899"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Nearly all go back to church to celebrate (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "REJOICE",
    "annotation": {
@@ -409,9 +385,6 @@ window.CRYPTIC_PUZZLES["indysunday-1899"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Leader during flight sees half-hearted order overturned (5)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "MOSES",
    "annotation": {
@@ -462,9 +435,6 @@ window.CRYPTIC_PUZZLES["indysunday-1899"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Robust seat at the front, like a stool? (6)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "STURDY",
    "annotation": {
@@ -507,9 +477,6 @@ window.CRYPTIC_PUZZLES["indysunday-1899"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Interpret right tune another time (8)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "READJUST",
    "annotation": {
@@ -547,9 +514,6 @@ window.CRYPTIC_PUZZLES["indysunday-1899"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Straight bananas for sale with EC regulators' backing (2,3,4,5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -599,9 +563,6 @@ window.CRYPTIC_PUZZLES["indysunday-1899"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Study cape worn by model (11)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {},
    "solution": "CONTEMPLATE",
    "annotation": {
@@ -645,9 +606,6 @@ window.CRYPTIC_PUZZLES["indysunday-1899"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Greeting leather-clad male who might take you out? (6)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "HITMAN",
    "annotation": {
@@ -697,9 +655,6 @@ window.CRYPTIC_PUZZLES["indysunday-1899"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Having bucks to spare, doctor loves NYC (8)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "SOLVENCY",
    "annotation": {
@@ -742,9 +697,6 @@ window.CRYPTIC_PUZZLES["indysunday-1899"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Following date, let Neil chat nurses up? (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "CLIENTELE",
    "annotation": {
@@ -786,9 +738,6 @@ window.CRYPTIC_PUZZLES["indysunday-1899"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Depression ten times, perhaps self-indulgent? (8)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "DECADENT",
    "annotation": {
@@ -826,9 +775,6 @@ window.CRYPTIC_PUZZLES["indysunday-1899"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Con advances towards guards (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "AGAINST",
    "annotation": {
@@ -872,9 +818,6 @@ window.CRYPTIC_PUZZLES["indysunday-1899"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Annoying fly around light's in a muddle (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "TANGLED",
    "annotation": {
@@ -926,9 +869,6 @@ window.CRYPTIC_PUZZLES["indysunday-1899"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Where plumber has spare part, hopefully installing one for nothing (2,4)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -976,9 +916,6 @@ window.CRYPTIC_PUZZLES["indysunday-1899"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Victor and I love last minute break (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "VIOLATE",
    "annotation": {
@@ -1028,9 +965,6 @@ window.CRYPTIC_PUZZLES["indysunday-1899"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Bit of glue inside sealing circular patch (8,6)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -1085,9 +1019,6 @@ window.CRYPTIC_PUZZLES["indysunday-1899"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Reel turning goes round (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "SPOOL",
    "annotation": {
@@ -1130,9 +1061,6 @@ window.CRYPTIC_PUZZLES["indysunday-1899"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Ruin unearthed entirely by Spooner (8)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "DOWNFALL",
    "annotation": {
@@ -1176,9 +1104,6 @@ window.CRYPTIC_PUZZLES["indysunday-1899"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Wooden hut guy occupied for period without power (6)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "CHALET",
    "annotation": {
@@ -1226,9 +1151,6 @@ window.CRYPTIC_PUZZLES["indysunday-1899"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Clubs then set up for speaking informally (3)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "COS",
    "annotation": {
@@ -1277,9 +1199,6 @@ window.CRYPTIC_PUZZLES["indysunday-1899"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Happy using high explosive for bombing campaign's finale (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "BLITHE",
    "annotation": {
@@ -1332,9 +1251,6 @@ window.CRYPTIC_PUZZLES["indysunday-1899"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Mess left after meal the day before (8)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "DISHEVEL",
    "annotation": {

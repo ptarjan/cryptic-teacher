@@ -24,9 +24,6 @@ window.CRYPTIC_PUZZLES["cryptic-30065"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Sort of holiday some rugby players must have time for (7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "PACKAGE",
    "annotation": {
@@ -64,9 +61,6 @@ window.CRYPTIC_PUZZLES["cryptic-30065"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Maintains focus for cryptic clues (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "PLEADS",
    "annotation": {
@@ -164,9 +158,6 @@ window.CRYPTIC_PUZZLES["cryptic-30065"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "David Beckham makes one eat dessert first (10)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "AFTERSHAVE",
    "annotation": {
@@ -209,9 +200,6 @@ window.CRYPTIC_PUZZLES["cryptic-30065"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Silver lining – occasionally he’ll get two below par (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "EAGLE",
    "annotation": {
@@ -257,9 +245,6 @@ window.CRYPTIC_PUZZLES["cryptic-30065"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Cup of tea turned up with a little Bounty Bar? (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "BREWPUB",
    "annotation": {
@@ -316,9 +301,6 @@ window.CRYPTIC_PUZZLES["cryptic-30065"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Supply gum rubber – wanting metre on new roll? (6,3)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -371,9 +353,6 @@ window.CRYPTIC_PUZZLES["cryptic-30065"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "2 seconds to read advertising watchdog’s email (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "EDAM",
    "annotation": {
@@ -473,9 +452,6 @@ window.CRYPTIC_PUZZLES["cryptic-30065"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "… one from The Strokes (unoriginal pop group, according to him) (8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "BACKHAND",
    "annotation": {
@@ -524,9 +500,6 @@ window.CRYPTIC_PUZZLES["cryptic-30065"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Possibility of outlet store finally opening (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "EVENT",
    "annotation": {
@@ -574,9 +547,6 @@ window.CRYPTIC_PUZZLES["cryptic-30065"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "I worked with cash register she’s discarded – it’s old (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "GERIATRIC",
    "annotation": {
@@ -628,9 +598,6 @@ window.CRYPTIC_PUZZLES["cryptic-30065"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Confused as senior coppers demanded … (10)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "DISORDERED",
    "annotation": {
@@ -671,9 +638,6 @@ window.CRYPTIC_PUZZLES["cryptic-30065"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "… commanding officer essentially use the truncheon (4)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "COSH",
    "annotation": {
@@ -716,9 +680,6 @@ window.CRYPTIC_PUZZLES["cryptic-30065"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Allowed to take caravan briefly – that is assuming posh car up front is connected? Not so (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "IRRELEVANT",
    "annotation": {
@@ -781,9 +742,6 @@ window.CRYPTIC_PUZZLES["cryptic-30065"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Firm steal something many people like to drive (4,7)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -825,9 +783,6 @@ window.CRYPTIC_PUZZLES["cryptic-30065"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Can rule Tottenham’s first 11 out – ultimately not up for it (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "RELUCTANT",
    "annotation": {
@@ -883,9 +838,6 @@ window.CRYPTIC_PUZZLES["cryptic-30065"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Made cloudy as former students smoked (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "OBSCURED",
    "annotation": {
@@ -950,9 +902,6 @@ window.CRYPTIC_PUZZLES["cryptic-30065"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Goodness – neighbour’s entrance buzzer rings with excessive force – I must hide (11)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "BENEVOLENCE",
    "annotation": {
@@ -1033,9 +982,6 @@ window.CRYPTIC_PUZZLES["cryptic-30065"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Teasing related to exploit (4,2)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -1077,9 +1023,6 @@ window.CRYPTIC_PUZZLES["cryptic-30065"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Show off contribution to murder (4)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "CROW",
    "annotation": {
@@ -1114,9 +1057,6 @@ window.CRYPTIC_PUZZLES["cryptic-30065"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "A Western losing Oscar – that’s unexpected (10)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "ACCIDENTAL",
    "annotation": {
@@ -1167,9 +1107,6 @@ window.CRYPTIC_PUZZLES["cryptic-30065"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "One wood is perfect (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "IDEAL",
    "annotation": {
@@ -1210,9 +1147,6 @@ window.CRYPTIC_PUZZLES["cryptic-30065"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Perhaps Rosemary is writing her book (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "HERB",
    "annotation": {
@@ -1253,9 +1187,6 @@ window.CRYPTIC_PUZZLES["cryptic-30065"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "It must go through on time they regularly stress (9)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "REITERATE",
    "annotation": {
@@ -1312,9 +1243,6 @@ window.CRYPTIC_PUZZLES["cryptic-30065"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Order Andrew’s source to meet King Charles, say (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "ARRAY",
    "annotation": {
@@ -1367,9 +1295,6 @@ window.CRYPTIC_PUZZLES["cryptic-30065"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Fool taking smack maybe loves to escape (7)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "DINGBAT",
    "annotation": {
@@ -1419,9 +1344,6 @@ window.CRYPTIC_PUZZLES["cryptic-30065"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Drunk dwelt on disappointment (3-4)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {
     "-": [
      3

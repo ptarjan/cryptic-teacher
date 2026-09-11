@@ -24,9 +24,6 @@ window.CRYPTIC_PUZZLES["cryptic-30071"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Line from the same source about British political type (3-3)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -76,9 +73,6 @@ window.CRYPTIC_PUZZLES["cryptic-30071"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Popular houseplant I set in a pot adapted (10)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "POINSETTIA",
    "annotation": {
@@ -116,9 +110,6 @@ window.CRYPTIC_PUZZLES["cryptic-30071"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "They help people with deliveries after car gets in line, we hear (8)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "AUTOCUES",
    "annotation": {
@@ -162,9 +153,6 @@ window.CRYPTIC_PUZZLES["cryptic-30071"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Pay attention about opposing points, namely for novice (6)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "NEWBIE",
    "annotation": {
@@ -213,9 +201,6 @@ window.CRYPTIC_PUZZLES["cryptic-30071"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Quartet playing best performance? That’s made-up propaganda (8)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "NEWSPEAK",
    "annotation": {
@@ -255,9 +240,6 @@ window.CRYPTIC_PUZZLES["cryptic-30071"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Female serving as half of ward sister’s replacement (8)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "WAITRESS",
    "annotation": {
@@ -306,9 +288,6 @@ window.CRYPTIC_PUZZLES["cryptic-30071"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Medic and aged Brit traversing America for TV series (8)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "DOCUSOAP",
    "annotation": {
@@ -356,9 +335,6 @@ window.CRYPTIC_PUZZLES["cryptic-30071"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Newspaper article began in old-fashioned way (2-2)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     "-": [
      2
@@ -396,9 +372,6 @@ window.CRYPTIC_PUZZLES["cryptic-30071"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Negative reactions from pedant and his sort, primarily (4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "PAHS",
    "annotation": {
@@ -437,9 +410,6 @@ window.CRYPTIC_PUZZLES["cryptic-30071"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Current controller leading party is eccentric (6)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "WEIRDO",
    "annotation": {
@@ -481,9 +451,6 @@ window.CRYPTIC_PUZZLES["cryptic-30071"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Foci then shifted to computer applications etc` (8)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "INFOTECH",
    "annotation": {
@@ -524,9 +491,6 @@ window.CRYPTIC_PUZZLES["cryptic-30071"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Piece of luggage left on board by guy you heard consuming drink (11)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "PORTMANTEAU",
    "annotation": {
@@ -582,9 +546,6 @@ window.CRYPTIC_PUZZLES["cryptic-30071"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Suspenseful part in capture (4-6)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -628,9 +589,6 @@ window.CRYPTIC_PUZZLES["cryptic-30071"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Concluding pieces from head of state in last literary event (8)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "WORDFEST",
    "annotation": {
@@ -671,9 +629,6 @@ window.CRYPTIC_PUZZLES["cryptic-30071"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Drama as seen from the box (8)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "TELEPLAY",
    "annotation": {
@@ -712,9 +667,6 @@ window.CRYPTIC_PUZZLES["cryptic-30071"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Weapon, for instance, deployed in unending attack (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "ASSEGAI",
    "annotation": {
@@ -755,9 +707,6 @@ window.CRYPTIC_PUZZLES["cryptic-30071"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Proceeds clumsily with talk about growth and height (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "GALUMPHS",
    "annotation": {
@@ -806,9 +755,6 @@ window.CRYPTIC_PUZZLES["cryptic-30071"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Coarse fabric making us hurt after short time (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "TUSSORE",
    "annotation": {
@@ -856,9 +802,6 @@ window.CRYPTIC_PUZZLES["cryptic-30071"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Awfully adorable old pet (11)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "LABRADOODLE",
    "annotation": {
@@ -896,9 +839,6 @@ window.CRYPTIC_PUZZLES["cryptic-30071"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Bellowing, losing head, and having a row (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "OARING",
    "annotation": {
@@ -931,9 +871,6 @@ window.CRYPTIC_PUZZLES["cryptic-30071"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Pound’s gone out of fashion – that could affect one’s view of things (4)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "STYE",
    "annotation": {
@@ -971,9 +908,6 @@ window.CRYPTIC_PUZZLES["cryptic-30071"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Legal action that may be taken on by boarder (4)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "CASE",
    "annotation": {
@@ -1007,9 +941,6 @@ window.CRYPTIC_PUZZLES["cryptic-30071"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Fellow in squad raving at me in first half, otherwise in second (8)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "TEAMMATE",
    "annotation": {
@@ -1064,9 +995,6 @@ window.CRYPTIC_PUZZLES["cryptic-30071"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "One English author or another abridged (6)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "ORWELL",
    "annotation": {
@@ -1105,9 +1033,6 @@ window.CRYPTIC_PUZZLES["cryptic-30071"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Owner of trunk that must be repacked for the plane (8)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "ELEPHANT",
    "annotation": {
@@ -1148,9 +1073,6 @@ window.CRYPTIC_PUZZLES["cryptic-30071"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Like bad deal, difficult to undo? (6)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "KNOTTY",
    "annotation": {

@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30004"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Row about newspaper backing Panama? (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "TITFER",
    "annotation": {
@@ -80,9 +77,6 @@ window.CRYPTIC_PUZZLES["cryptic-30004"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "From Goethe, a tremendous play enacted here (7)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "THEATRE",
    "annotation": {
@@ -171,9 +165,6 @@ window.CRYPTIC_PUZZLES["cryptic-30004"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "One chooses shock treatment in role reversal (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "ELECTOR",
    "annotation": {
@@ -227,9 +218,6 @@ window.CRYPTIC_PUZZLES["cryptic-30004"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Silly positions must be rejected – I would (6)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "STUPID",
    "annotation": {
@@ -303,9 +291,6 @@ window.CRYPTIC_PUZZLES["cryptic-30004"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Palestine suffering sanctions (9)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "PENALTIES",
    "annotation": {
@@ -343,9 +328,6 @@ window.CRYPTIC_PUZZLES["cryptic-30004"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Want to start eating potato (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "DESIREE",
    "annotation": {
@@ -392,9 +374,6 @@ window.CRYPTIC_PUZZLES["cryptic-30004"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Disparate motel with a twist in the tail? End of story! (6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "MOTLEY",
    "annotation": {
@@ -446,9 +425,6 @@ window.CRYPTIC_PUZZLES["cryptic-30004"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Exploit flyer with imperfect tenses to get personal benefit (7,4,4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      7,
@@ -512,9 +488,6 @@ window.CRYPTIC_PUZZLES["cryptic-30004"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Bowler may be here to give evidence (6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "ATTEST",
    "annotation": {
@@ -552,9 +525,6 @@ window.CRYPTIC_PUZZLES["cryptic-30004"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Proprietor with joiner in funny comeback (8)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "LANDLORD",
    "annotation": {
@@ -610,9 +580,6 @@ window.CRYPTIC_PUZZLES["cryptic-30004"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Nightcap on vacation during jovial preparatory celebration (3,5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -663,9 +630,6 @@ window.CRYPTIC_PUZZLES["cryptic-30004"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Fill up ten forms, that’s more than enough (9)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "PLENTIFUL",
    "annotation": {
@@ -706,9 +670,6 @@ window.CRYPTIC_PUZZLES["cryptic-30004"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "John is one outwardly for hire (6)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "TOILET",
    "annotation": {
@@ -756,9 +717,6 @@ window.CRYPTIC_PUZZLES["cryptic-30004"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "First couple of letters dispatched, so not here (6)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "ABSENT",
    "annotation": {
@@ -799,9 +757,6 @@ window.CRYPTIC_PUZZLES["cryptic-30004"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Relative souper? (7)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "BROTHER",
    "annotation": {
@@ -839,9 +794,6 @@ window.CRYPTIC_PUZZLES["cryptic-30004"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Prepared letters of support (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "TRESTLE",
    "annotation": {
@@ -882,9 +834,6 @@ window.CRYPTIC_PUZZLES["cryptic-30004"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Sounds like Bath perhaps being in short supply (8)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "SPARSITY",
    "annotation": {
@@ -922,9 +871,6 @@ window.CRYPTIC_PUZZLES["cryptic-30004"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "First and last to arrive can generate conflict (6)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "STRIFE",
    "annotation": {
@@ -969,9 +915,6 @@ window.CRYPTIC_PUZZLES["cryptic-30004"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Embarrassed to display university degree in an outhouse (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "ABASHED",
    "annotation": {
@@ -1019,9 +962,6 @@ window.CRYPTIC_PUZZLES["cryptic-30004"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Cute name that is for a youngster (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "TWEENIE",
    "annotation": {
@@ -1068,9 +1008,6 @@ window.CRYPTIC_PUZZLES["cryptic-30004"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Settle where stated in Oxford or Derby (8)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "FOOTWEAR",
    "annotation": {
@@ -1119,9 +1056,6 @@ window.CRYPTIC_PUZZLES["cryptic-30004"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Learnt to play the horn (6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "ANTLER",
    "annotation": {
@@ -1159,9 +1093,6 @@ window.CRYPTIC_PUZZLES["cryptic-30004"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Finally enrol in crash diet mañana, got that, but not tomorrow (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "TILDE",
    "annotation": {
@@ -1217,9 +1148,6 @@ window.CRYPTIC_PUZZLES["cryptic-30004"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Best in everything for big Brits (3,3,2,3,4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -1264,9 +1192,6 @@ window.CRYPTIC_PUZZLES["cryptic-30004"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Ease with which judge accepts falsehood (6)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "RELIEF",
    "annotation": {
@@ -1314,9 +1239,6 @@ window.CRYPTIC_PUZZLES["cryptic-30004"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Stick poster, but not over there! (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "ADHERE",
    "annotation": {

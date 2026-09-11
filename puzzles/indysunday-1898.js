@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1898"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "More and more entered for race, processed one by one (12)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "INCREASINGLY",
    "annotation": {
@@ -82,9 +79,6 @@ window.CRYPTIC_PUZZLES["indysunday-1898"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Cast bar where Batman can be found scorning bad acting (5)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "INGOT",
    "annotation": {
@@ -126,9 +120,6 @@ window.CRYPTIC_PUZZLES["indysunday-1898"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Jazz fan bored by plain acts at club (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "CABARET",
    "annotation": {
@@ -172,9 +163,6 @@ window.CRYPTIC_PUZZLES["indysunday-1898"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Scots keep Red Sea nightclub running ... (9,6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      9
@@ -220,9 +208,6 @@ window.CRYPTIC_PUZZLES["indysunday-1898"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "... Englishman there sticks around, entertained by band (9)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "SASSENACH",
    "annotation": {
@@ -274,9 +259,6 @@ window.CRYPTIC_PUZZLES["indysunday-1898"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Nearly all notice guy rolling big cheeses (5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "NAMES",
    "annotation": {
@@ -327,9 +309,6 @@ window.CRYPTIC_PUZZLES["indysunday-1898"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Mixture of table salt to nuts ultimately significant? (4,3,3,5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -377,9 +356,6 @@ window.CRYPTIC_PUZZLES["indysunday-1898"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Orbiting body like spinning wheel (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "SATURN",
    "annotation": {
@@ -428,9 +404,6 @@ window.CRYPTIC_PUZZLES["indysunday-1898"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Plastic card in mess, ATM ejecting it? (4,4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -477,9 +450,6 @@ window.CRYPTIC_PUZZLES["indysunday-1898"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Return of bad code trashes device (7)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "GUBBINS",
    "annotation": {
@@ -529,9 +499,6 @@ window.CRYPTIC_PUZZLES["indysunday-1898"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Hair thickener Cliff brought into male support group (7)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "MASCARA",
    "annotation": {
@@ -580,9 +547,6 @@ window.CRYPTIC_PUZZLES["indysunday-1898"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Strong beat via bass (5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "THROB",
    "annotation": {
@@ -619,9 +583,6 @@ window.CRYPTIC_PUZZLES["indysunday-1898"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "European surprise about British making move towards China? (9)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "EASTBOUND",
    "annotation": {
@@ -671,9 +632,6 @@ window.CRYPTIC_PUZZLES["indysunday-1898"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Figure on banknote Washington designate a Republican king (9)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "WATERMARK",
    "annotation": {
@@ -728,9 +686,6 @@ window.CRYPTIC_PUZZLES["indysunday-1898"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Women can't stand university, that's inevitable (4,4)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -777,9 +732,6 @@ window.CRYPTIC_PUZZLES["indysunday-1898"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Adult guide reviewed Amtrak when crossing northern America (4,5)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -830,9 +782,6 @@ window.CRYPTIC_PUZZLES["indysunday-1898"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Indian's cart excellent on Ganges' bridges (5)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "TONGA",
    "annotation": {
@@ -866,9 +815,6 @@ window.CRYPTIC_PUZZLES["indysunday-1898"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Receding somewhat, Noah saw Ararat barely sticking out of the water (5)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "AWASH",
    "annotation": {
@@ -904,9 +850,6 @@ window.CRYPTIC_PUZZLES["indysunday-1898"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Clothes dry in breeze, barely wet (6)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "ATTIRE",
    "annotation": {
@@ -958,9 +901,6 @@ window.CRYPTIC_PUZZLES["indysunday-1898"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Ineffective therapist in work at hospital (9)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "HOMEOPATH",
    "annotation": {
@@ -1009,9 +949,6 @@ window.CRYPTIC_PUZZLES["indysunday-1898"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Sleeve Doris cut in odd places on wardrobe (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "ARMOIRE",
    "annotation": {
@@ -1060,9 +997,6 @@ window.CRYPTIC_PUZZLES["indysunday-1898"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Ways in which empty nester can't see changes? (9)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "ENTRANCES",
    "annotation": {
@@ -1109,9 +1043,6 @@ window.CRYPTIC_PUZZLES["indysunday-1898"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Valley searched methodically but no diamonds (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "COMBE",
    "annotation": {
@@ -1153,9 +1084,6 @@ window.CRYPTIC_PUZZLES["indysunday-1898"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "American Tour de France winner mostly in yellow (5)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "LEMON",
    "annotation": {
@@ -1195,9 +1123,6 @@ window.CRYPTIC_PUZZLES["indysunday-1898"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Hot drink for example accepted by rising star (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "NEGUS",
    "annotation": {
@@ -1249,9 +1174,6 @@ window.CRYPTIC_PUZZLES["indysunday-1898"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Fact that's doubtful about river level (7)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "STRATUM",
    "annotation": {
@@ -1301,9 +1223,6 @@ window.CRYPTIC_PUZZLES["indysunday-1898"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "How cute crush squeezes, becoming friendlier (7)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "THAWING",
    "annotation": {
@@ -1347,9 +1266,6 @@ window.CRYPTIC_PUZZLES["indysunday-1898"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Donor putting lock on account after complaint about Nigel's capital (12)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "BENEFACTRESS",
    "annotation": {

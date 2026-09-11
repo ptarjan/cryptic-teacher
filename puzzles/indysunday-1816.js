@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1816"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Story of unfair dismissal had hippie all worked up (12)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "PHILADELPHIA",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["indysunday-1816"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Operation in sub (3,11)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -63,9 +57,6 @@ window.CRYPTIC_PUZZLES["indysunday-1816"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Friend given a raise celebrated, making tea (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "LAPSANG",
    "annotation": null
@@ -80,9 +71,6 @@ window.CRYPTIC_PUZZLES["indysunday-1816"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Daughters in education took courses (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "DINED",
    "annotation": null
@@ -97,9 +85,6 @@ window.CRYPTIC_PUZZLES["indysunday-1816"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Back from Chernobyl in the morning, criminal's glowing (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "LAMBENT",
    "annotation": null
@@ -114,9 +99,6 @@ window.CRYPTIC_PUZZLES["indysunday-1816"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Crew feathers easily (5,4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -135,9 +117,6 @@ window.CRYPTIC_PUZZLES["indysunday-1816"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "In danger while pinching Tesla on drive (2,5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -156,9 +135,6 @@ window.CRYPTIC_PUZZLES["indysunday-1816"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Furiously making kid suffer? (4-3-7)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     "-": [
      4,
@@ -178,9 +154,6 @@ window.CRYPTIC_PUZZLES["indysunday-1816"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Nurse gets hose inserted for shock treatment (6)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "EPIPEN",
    "annotation": null
@@ -195,9 +168,6 @@ window.CRYPTIC_PUZZLES["indysunday-1816"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Very short and severe cut for priest (8)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "MINISTER",
    "annotation": null
@@ -212,9 +182,6 @@ window.CRYPTIC_PUZZLES["indysunday-1816"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Royal costume changing hands anyway (10)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "REGARDLESS",
    "annotation": null
@@ -229,9 +196,6 @@ window.CRYPTIC_PUZZLES["indysunday-1816"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Beer bottles by bar spinning? (4)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "AXLE",
    "annotation": null
@@ -246,9 +210,6 @@ window.CRYPTIC_PUZZLES["indysunday-1816"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Book something you'd burn with job writing on-line (8)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "BLOGPOST",
    "annotation": null
@@ -263,9 +224,6 @@ window.CRYPTIC_PUZZLES["indysunday-1816"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Old man at home cuts open coat again (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "OVERPAINT",
    "annotation": null
@@ -280,9 +238,6 @@ window.CRYPTIC_PUZZLES["indysunday-1816"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Cat turned green by random drawing (6)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "OCELOT",
    "annotation": null
@@ -297,9 +252,6 @@ window.CRYPTIC_PUZZLES["indysunday-1816"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Coffee shop feeds me business cleaning drives etc. (6)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "MCAFEE",
    "annotation": null
@@ -314,9 +266,6 @@ window.CRYPTIC_PUZZLES["indysunday-1816"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Doctor's tool meant to be used on fungal growths (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "FORCEPS",
    "annotation": null
@@ -331,9 +280,6 @@ window.CRYPTIC_PUZZLES["indysunday-1816"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Story on X about Conservative grasping organ (8)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "TENTACLE",
    "annotation": null
@@ -348,9 +294,6 @@ window.CRYPTIC_PUZZLES["indysunday-1816"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Sportsmen seeing irritable bull coming over? (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "TOREROS",
    "annotation": null
@@ -365,9 +308,6 @@ window.CRYPTIC_PUZZLES["indysunday-1816"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Determined US lawyer Ray gets back up (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "ADAMANT",
    "annotation": null
@@ -382,9 +322,6 @@ window.CRYPTIC_PUZZLES["indysunday-1816"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Queen holds reversible one metre ruler (4)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "EMIR",
    "annotation": null
@@ -399,9 +336,6 @@ window.CRYPTIC_PUZZLES["indysunday-1816"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Notice each boy twice (8,2)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -420,9 +354,6 @@ window.CRYPTIC_PUZZLES["indysunday-1816"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "President entertained by dream about going to heaven (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "OBAMA",
    "annotation": null
@@ -437,9 +368,6 @@ window.CRYPTIC_PUZZLES["indysunday-1816"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Westerly parts of Ireland entered by priest regularly, up-country (8)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "INTERIOR",
    "annotation": null
@@ -454,9 +382,6 @@ window.CRYPTIC_PUZZLES["indysunday-1816"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Lack of care, making a burger's ultimate temperature hot (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "APATHY",
    "annotation": null
@@ -471,9 +396,6 @@ window.CRYPTIC_PUZZLES["indysunday-1816"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Thrashing a fascist right-winger is OK (12)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "SATISFACTORY",
    "annotation": null

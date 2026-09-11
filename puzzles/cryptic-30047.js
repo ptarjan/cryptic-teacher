@@ -24,9 +24,6 @@ window.CRYPTIC_PUZZLES["cryptic-30047"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Expected firm book binding (2,4)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -71,9 +68,6 @@ window.CRYPTIC_PUZZLES["cryptic-30047"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Small story about taking posh cast on tour … (8)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "TROUPERS",
    "annotation": {
@@ -125,9 +119,6 @@ window.CRYPTIC_PUZZLES["cryptic-30047"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "… band drink meaning Jersey’s cut? (4,4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -172,9 +163,6 @@ window.CRYPTIC_PUZZLES["cryptic-30047"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Spill double (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "MATCH",
    "annotation": {
@@ -209,9 +197,6 @@ window.CRYPTIC_PUZZLES["cryptic-30047"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Risk touring America in August (8)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "IMPERIAL",
    "annotation": {
@@ -255,9 +240,6 @@ window.CRYPTIC_PUZZLES["cryptic-30047"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Theatre feel bitter about lines girl delivers inaccurately (13)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "MISREPRESENTS",
    "annotation": {
@@ -304,9 +286,6 @@ window.CRYPTIC_PUZZLES["cryptic-30047"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Doctor: cure can – having killed cold – end patient suffering (9)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "ENDURANCE",
    "annotation": {
@@ -356,9 +335,6 @@ window.CRYPTIC_PUZZLES["cryptic-30047"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Trainee from Bury on reception, ultimately (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "INTERN",
    "annotation": {
@@ -402,9 +378,6 @@ window.CRYPTIC_PUZZLES["cryptic-30047"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Sumptuously drunk, sitting on lavatory, exhausted (6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "LUSHLY",
    "annotation": {
@@ -445,9 +418,6 @@ window.CRYPTIC_PUZZLES["cryptic-30047"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Up first in The Open (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "OVERT",
    "annotation": {
@@ -487,9 +457,6 @@ window.CRYPTIC_PUZZLES["cryptic-30047"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Comes after Poles gathered in fruit (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "POSTDATES",
    "annotation": {
@@ -530,9 +497,6 @@ window.CRYPTIC_PUZZLES["cryptic-30047"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Ready before clergyman describes Eden? (5,8)",
-   "group": [
-    "10-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -579,9 +543,6 @@ window.CRYPTIC_PUZZLES["cryptic-30047"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Judy’s husband having job say, to get to the other side … (5,4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -627,9 +588,6 @@ window.CRYPTIC_PUZZLES["cryptic-30047"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "… of the country. Largely regret going by rail – without one … (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "RURAL",
    "annotation": {
@@ -676,9 +634,6 @@ window.CRYPTIC_PUZZLES["cryptic-30047"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "… track engineer working close to train shed – it’s extortion (12)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "RACKETEERING",
    "annotation": {
@@ -728,9 +683,6 @@ window.CRYPTIC_PUZZLES["cryptic-30047"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Charmed by change of demeanour (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "ENAMOURED",
    "annotation": {
@@ -772,9 +724,6 @@ window.CRYPTIC_PUZZLES["cryptic-30047"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Check warehouse facility using powers to knock out door at the back (8)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "STOPPAGE",
    "annotation": {
@@ -822,9 +771,6 @@ window.CRYPTIC_PUZZLES["cryptic-30047"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Juicy gossip for you – Salvador Dali Tate Modern exhibit finally showing (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "PRURIENT",
    "annotation": {
@@ -858,9 +804,6 @@ window.CRYPTIC_PUZZLES["cryptic-30047"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Revenue man in quiet zone checks in on duty at the earliest opportunity (3,9)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -919,9 +862,6 @@ window.CRYPTIC_PUZZLES["cryptic-30047"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Very upset about Mark getting awards (6)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "OSCARS",
    "annotation": {
@@ -972,9 +912,6 @@ window.CRYPTIC_PUZZLES["cryptic-30047"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Viewer’s complaint leads to Musical Youth’s opening piano number being cancelled (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "MYOPIA",
    "annotation": {
@@ -1015,9 +952,6 @@ window.CRYPTIC_PUZZLES["cryptic-30047"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Rumour is, many Ascot odds must be cut (3-2)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -1055,9 +989,6 @@ window.CRYPTIC_PUZZLES["cryptic-30047"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Cool name – probably number one part in nativity play? (9)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "INNKEEPER",
    "annotation": {
@@ -1101,9 +1032,6 @@ window.CRYPTIC_PUZZLES["cryptic-30047"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Cross old man in Egypt on vacation – he’s far from home (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "EXPAT",
    "annotation": {
@@ -1150,9 +1078,6 @@ window.CRYPTIC_PUZZLES["cryptic-30047"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Supplies air to a buccaneer on board ship (9)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "ASPIRATES",
    "annotation": {
@@ -1199,9 +1124,6 @@ window.CRYPTIC_PUZZLES["cryptic-30047"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Worry in audition for stage (5)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "PHASE",
    "annotation": {
@@ -1236,9 +1158,6 @@ window.CRYPTIC_PUZZLES["cryptic-30047"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Day after Laurel and Hardy discovered model (8)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "STANDARD",
    "annotation": {
@@ -1285,9 +1204,6 @@ window.CRYPTIC_PUZZLES["cryptic-30047"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Every now and then say, Tati is in French show (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "ATTEST",
    "annotation": {

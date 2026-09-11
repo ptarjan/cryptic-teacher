@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30089"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Benny Hill? (8)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "MOUNTAIN",
    "annotation": {
@@ -58,9 +55,6 @@ window.CRYPTIC_PUZZLES["cryptic-30089"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Hero knocked over nuclear fuel (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "LION",
    "annotation": {
@@ -109,9 +103,6 @@ window.CRYPTIC_PUZZLES["cryptic-30089"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "11 stopping Spanish team getting close again (6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "RESEAL",
    "annotation": {
@@ -158,9 +149,6 @@ window.CRYPTIC_PUZZLES["cryptic-30089"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Suppose Big Bird’s turning up to support Trump? (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "PRESUME",
    "annotation": {
@@ -211,9 +199,6 @@ window.CRYPTIC_PUZZLES["cryptic-30089"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Mother starts to upset Lily Savage (4)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "MAUL",
    "annotation": {
@@ -257,9 +242,6 @@ window.CRYPTIC_PUZZLES["cryptic-30089"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Award sounded crazy for playwright (5,5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -310,9 +292,6 @@ window.CRYPTIC_PUZZLES["cryptic-30089"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Bad-tempered types last to get up for walk (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "STROLL",
    "annotation": {
@@ -353,9 +332,6 @@ window.CRYPTIC_PUZZLES["cryptic-30089"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Flexible practitioner to support animated character (4,4)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -396,9 +372,6 @@ window.CRYPTIC_PUZZLES["cryptic-30089"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Strength from dog shaking off lead (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "ASSET",
    "annotation": {
@@ -443,9 +416,6 @@ window.CRYPTIC_PUZZLES["cryptic-30089"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Year in Spanish Main’s ending soon (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "ANON",
    "annotation": {
@@ -488,9 +458,6 @@ window.CRYPTIC_PUZZLES["cryptic-30089"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Disney princess left queen over trouble in country (2,8)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -553,9 +520,6 @@ window.CRYPTIC_PUZZLES["cryptic-30089"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Book that is set in strange land (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "DANIEL",
    "annotation": {
@@ -607,9 +571,6 @@ window.CRYPTIC_PUZZLES["cryptic-30089"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Value of New Romantic EP (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "IMPORTANCE",
    "annotation": {
@@ -649,9 +610,6 @@ window.CRYPTIC_PUZZLES["cryptic-30089"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Football team crush defensive formation (8)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "MILLWALL",
    "annotation": {
@@ -688,9 +646,6 @@ window.CRYPTIC_PUZZLES["cryptic-30089"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Shot regularly dismissed Ollie Pope (3)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "LEO",
    "annotation": {
@@ -729,9 +684,6 @@ window.CRYPTIC_PUZZLES["cryptic-30089"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "North Korea’s leader hacking into computer’s digital printing devices (7)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "INKPADS",
    "annotation": {
@@ -780,9 +732,6 @@ window.CRYPTIC_PUZZLES["cryptic-30089"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Study of depression cut short (3)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "DEN",
    "annotation": {
@@ -822,9 +771,6 @@ window.CRYPTIC_PUZZLES["cryptic-30089"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Most generous and good of Poirot to make a comeback in case (7)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "NOBLEST",
    "annotation": {
@@ -876,9 +822,6 @@ window.CRYPTIC_PUZZLES["cryptic-30089"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Swindling trick from man in uniform (4,4)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -929,9 +872,6 @@ window.CRYPTIC_PUZZLES["cryptic-30089"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Denis Villeneuve’s right to film movie in US city (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "DETROIT",
    "annotation": {
@@ -978,9 +918,6 @@ window.CRYPTIC_PUZZLES["cryptic-30089"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Carriage clock’s face cutting clumsy cleaner (8)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "CLARENCE",
    "annotation": {
@@ -1024,9 +961,6 @@ window.CRYPTIC_PUZZLES["cryptic-30089"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Chemist replacing parts of large Whopper (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "LIEBIG",
    "annotation": {
@@ -1069,9 +1003,6 @@ window.CRYPTIC_PUZZLES["cryptic-30089"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Personal assistant admits one form of word blindness (6)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "ALEXIA",
    "annotation": {
@@ -1115,9 +1046,6 @@ window.CRYPTIC_PUZZLES["cryptic-30089"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "2 followed by Tesla obliquely (6)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "ASLANT",
    "annotation": {
@@ -1160,9 +1088,6 @@ window.CRYPTIC_PUZZLES["cryptic-30089"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Distressed maid in pantry retreating from flying insect (3,7)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -1229,9 +1154,6 @@ window.CRYPTIC_PUZZLES["cryptic-30089"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Artist trimmed long hair (4)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "MANE",
    "annotation": {
@@ -1268,9 +1190,6 @@ window.CRYPTIC_PUZZLES["cryptic-30089"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Heartless bum in prison (4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "CAGE",
    "annotation": {
@@ -1310,9 +1229,6 @@ window.CRYPTIC_PUZZLES["cryptic-30089"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Musical Youth finally escaping from Jaws (4)",
-   "group": [
-    "26-down"
-   ],
    "separatorLocations": {},
    "solution": "CATS",
    "annotation": {
@@ -1357,9 +1273,6 @@ window.CRYPTIC_PUZZLES["cryptic-30089"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Hotel California charges old person (5)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "INCAN",
    "annotation": {
@@ -1403,9 +1316,6 @@ window.CRYPTIC_PUZZLES["cryptic-30089"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "I mention getting hammered before you can say Jack Robinson (2,2,4)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {
     ",": [
      2,

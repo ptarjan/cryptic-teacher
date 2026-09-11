@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1841"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Slender girl shapely after remodelling but needing A&E (5)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "SYLPH",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["indysunday-1841"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Magnus Pym, a stereotype keeping control in Le Carré? (9)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "SPYMASTER",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["indysunday-1841"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Couple enjoy collecting new silver separately (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "LINKAGE",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["indysunday-1841"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Introductory line that chap will love (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "HELLO",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["indysunday-1841"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Rather inflexible suits returned by swimmer (8)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "STIFFISH",
    "annotation": null
@@ -110,9 +95,6 @@ window.CRYPTIC_PUZZLES["indysunday-1841"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Honest fellow with spots on nose taking portrait back? (8,7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -131,9 +113,6 @@ window.CRYPTIC_PUZZLES["indysunday-1841"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Fine cycling legend beyond description (9)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "INEFFABLE",
    "annotation": null
@@ -148,9 +127,6 @@ window.CRYPTIC_PUZZLES["indysunday-1841"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Set of instructions to make Chinese Disney film incomplete (7)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "FORMULA",
    "annotation": null
@@ -165,9 +141,6 @@ window.CRYPTIC_PUZZLES["indysunday-1841"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Can it copy fashion? (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "SHAPE",
    "annotation": null
@@ -182,9 +155,6 @@ window.CRYPTIC_PUZZLES["indysunday-1841"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Orchestra playing Elgar holds back in symphony, mostly (2,3,5)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -204,9 +174,6 @@ window.CRYPTIC_PUZZLES["indysunday-1841"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Study woodwind instrument's sound (4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "READ",
    "annotation": null
@@ -221,9 +188,6 @@ window.CRYPTIC_PUZZLES["indysunday-1841"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Motorway blocked by a vehicle dealing with bent tubes (8)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "MACARONI",
    "annotation": null
@@ -238,9 +202,6 @@ window.CRYPTIC_PUZZLES["indysunday-1841"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "University on Florida island benefitting from fortune (6)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "FLUKEY",
    "annotation": null
@@ -255,9 +216,6 @@ window.CRYPTIC_PUZZLES["indysunday-1841"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Act rated poorly Shakespeare's? Nothing in that (5,3,6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     ",": [
      5,
@@ -277,9 +235,6 @@ window.CRYPTIC_PUZZLES["indysunday-1841"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "European editor in the ascendancy taking on Channel 4 using logic (9)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "DEDUCTIVE",
    "annotation": null
@@ -294,9 +249,6 @@ window.CRYPTIC_PUZZLES["indysunday-1841"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Finish, say that Negrete demonstrated partly doing a flip (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "DETERGENT",
    "annotation": null
@@ -311,9 +263,6 @@ window.CRYPTIC_PUZZLES["indysunday-1841"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Metro, sirens and riots in part of Paris (14)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "ARRONDISSEMENT",
    "annotation": null
@@ -328,9 +277,6 @@ window.CRYPTIC_PUZZLES["indysunday-1841"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Yellow mosquito, for instance, that flies round and round (7)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "ORBITER",
    "annotation": null
@@ -345,9 +291,6 @@ window.CRYPTIC_PUZZLES["indysunday-1841"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Chase group inside 19 partying with drugs (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "ENGRAVE",
    "annotation": null
@@ -362,9 +305,6 @@ window.CRYPTIC_PUZZLES["indysunday-1841"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Particularly afraid of supernatural creature in photo (6)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "PHOBIC",
    "annotation": null
@@ -379,9 +319,6 @@ window.CRYPTIC_PUZZLES["indysunday-1841"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Ancient earthwork has hedgerow in the middle with bird laying eggs on it (5)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "HENGE",
    "annotation": null
@@ -396,9 +333,6 @@ window.CRYPTIC_PUZZLES["indysunday-1841"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Park warden trailing round yard where fruit trees grow (8)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "ORANGERY",
    "annotation": null
@@ -413,9 +347,6 @@ window.CRYPTIC_PUZZLES["indysunday-1841"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Cold dry sandwiches unpleasant to smell and taste (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "ACRID",
    "annotation": null
@@ -430,9 +361,6 @@ window.CRYPTIC_PUZZLES["indysunday-1841"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Soldiers with egg on uniform (4)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "UNIT",
    "annotation": null
@@ -447,9 +375,6 @@ window.CRYPTIC_PUZZLES["indysunday-1841"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Put underground cafes all over the place as meeting points (10)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "INTERFACES",
    "annotation": null
@@ -464,9 +389,6 @@ window.CRYPTIC_PUZZLES["indysunday-1841"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Call to approve two presents over the phone (4,4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -485,9 +407,6 @@ window.CRYPTIC_PUZZLES["indysunday-1841"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Mark from lash on deckhand's back remained (5)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "DWELT",
    "annotation": null

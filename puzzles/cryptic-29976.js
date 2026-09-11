@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29976"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Place to ruminate clue for ‘ewer’? (5,3)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -117,9 +114,6 @@ window.CRYPTIC_PUZZLES["cryptic-29976"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "One colour only – second one not included (8)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "MONOTONE",
    "annotation": {
@@ -169,9 +163,6 @@ window.CRYPTIC_PUZZLES["cryptic-29976"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Resort to cornmeal unfortunately (5,5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -213,9 +204,6 @@ window.CRYPTIC_PUZZLES["cryptic-29976"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Peninsula of Palermo – if rock climbing regularly (6)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "CRIMEA",
    "annotation": {
@@ -264,9 +252,6 @@ window.CRYPTIC_PUZZLES["cryptic-29976"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Its application could help you get into Oxford? (8)",
-   "group": [
-    "7-across"
-   ],
    "separatorLocations": {},
    "solution": "SHOEHORN",
    "annotation": {
@@ -323,9 +308,6 @@ window.CRYPTIC_PUZZLES["cryptic-29976"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Understood our son’s bedding smells (6)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "ODOURS",
    "annotation": {
@@ -407,9 +389,6 @@ window.CRYPTIC_PUZZLES["cryptic-29976"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Early on, I go to party with deviant I’d met (2,4,4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -517,9 +496,6 @@ window.CRYPTIC_PUZZLES["cryptic-29976"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Family group putting down first part of table setting? (6,4)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -573,9 +549,6 @@ window.CRYPTIC_PUZZLES["cryptic-29976"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Warship covered by press (4-4)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -678,9 +651,6 @@ window.CRYPTIC_PUZZLES["cryptic-29976"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Cambridge university worried boring papers will be copied (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "IMITATED",
    "annotation": {
@@ -796,9 +766,6 @@ window.CRYPTIC_PUZZLES["cryptic-29976"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Appropriate clubs potentially qualified (8)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "SUITABLE",
    "annotation": {
@@ -864,9 +831,6 @@ window.CRYPTIC_PUZZLES["cryptic-29976"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Stayed over in Soho – oddly it’s diabolical (8)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "DEVILISH",
    "annotation": {
@@ -921,9 +885,6 @@ window.CRYPTIC_PUZZLES["cryptic-29976"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Appear upset about King supporting Eastern Arabic rulers (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "EMEERS",
    "annotation": {
@@ -1058,9 +1019,6 @@ window.CRYPTIC_PUZZLES["cryptic-29976"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Fresh investment in Arsenal meant changes on wing at kick-off (10)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "REARMAMENT",
    "annotation": {
@@ -1190,9 +1148,6 @@ window.CRYPTIC_PUZZLES["cryptic-29976"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Less important call when 14 (6)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "FRINGE",
    "annotation": {
@@ -1234,9 +1189,6 @@ window.CRYPTIC_PUZZLES["cryptic-29976"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Supreme influencer leaving a little something out (8)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "SVENGALI",
    "annotation": {

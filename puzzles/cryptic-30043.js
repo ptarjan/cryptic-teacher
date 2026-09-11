@@ -24,9 +24,6 @@ window.CRYPTIC_PUZZLES["cryptic-30043"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Bans recitals – where this is played? (4,8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -69,9 +66,6 @@ window.CRYPTIC_PUZZLES["cryptic-30043"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Basalt cracked with ice in chilly water (6,3)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -119,9 +113,6 @@ window.CRYPTIC_PUZZLES["cryptic-30043"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Mum permits paddling here? (8)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "SHALLOWS",
    "annotation": {
@@ -159,9 +150,6 @@ window.CRYPTIC_PUZZLES["cryptic-30043"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Vegetable, cold, resistant to the bite (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "CHARD",
    "annotation": {
@@ -199,9 +187,6 @@ window.CRYPTIC_PUZZLES["cryptic-30043"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Vegetable skill – I fail at a crucial moment (9)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "ARTICHOKE",
    "annotation": {
@@ -245,9 +230,6 @@ window.CRYPTIC_PUZZLES["cryptic-30043"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Admired pair about to study carbon (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "ICONIC",
    "annotation": {
@@ -294,9 +276,6 @@ window.CRYPTIC_PUZZLES["cryptic-30043"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Delete Times article finally (5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "ERASE",
    "annotation": {
@@ -336,9 +315,6 @@ window.CRYPTIC_PUZZLES["cryptic-30043"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Applications supporting section of stage work (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "OPUSES",
    "annotation": {
@@ -379,9 +355,6 @@ window.CRYPTIC_PUZZLES["cryptic-30043"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Immediately agreeing to bring in Conservative (2,4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -426,9 +399,6 @@ window.CRYPTIC_PUZZLES["cryptic-30043"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Old President leading America a dance (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "POLKA",
    "annotation": {
@@ -468,9 +438,6 @@ window.CRYPTIC_PUZZLES["cryptic-30043"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Australian working with Australian in support for Nasa employee (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "ASTRONAUT",
    "annotation": {
@@ -523,9 +490,6 @@ window.CRYPTIC_PUZZLES["cryptic-30043"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Went down the Cresta carrying child’s protective headgear? (4,3)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -570,9 +534,6 @@ window.CRYPTIC_PUZZLES["cryptic-30043"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "South American or Greek character offering little of profit (7)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "CHILEAN",
    "annotation": {
@@ -610,9 +571,6 @@ window.CRYPTIC_PUZZLES["cryptic-30043"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Source of light remains current in plant (4,6)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -663,9 +621,6 @@ window.CRYPTIC_PUZZLES["cryptic-30043"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Metal? You mined rocks, gaining mass (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "NEODYMIUM",
    "annotation": {
@@ -710,9 +665,6 @@ window.CRYPTIC_PUZZLES["cryptic-30043"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Ready to complain after leader’s ousted (4)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "RIPE",
    "annotation": {
@@ -746,9 +698,6 @@ window.CRYPTIC_PUZZLES["cryptic-30043"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "I note that woman with sex-appeal and gold – recipient of legacy? (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "INHERITOR",
    "annotation": {
@@ -804,9 +753,6 @@ window.CRYPTIC_PUZZLES["cryptic-30043"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "They help one view fix over Church elevating Eastern philosophy (5-3)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -863,9 +809,6 @@ window.CRYPTIC_PUZZLES["cryptic-30043"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Go to bring in a salver (4)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "TRAY",
    "annotation": {
@@ -906,9 +849,6 @@ window.CRYPTIC_PUZZLES["cryptic-30043"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Parts swapped in Latin song from part of Italy (6)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "TUSCAN",
    "annotation": {
@@ -942,9 +882,6 @@ window.CRYPTIC_PUZZLES["cryptic-30043"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Alluring? Happen to have success with leading man (not love) (4-6)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -994,9 +931,6 @@ window.CRYPTIC_PUZZLES["cryptic-30043"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Concerned with Muslim leader rejecting an outcome (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "RESULT",
    "annotation": {
@@ -1036,9 +970,6 @@ window.CRYPTIC_PUZZLES["cryptic-30043"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Beautiful spot to get hot Javanese food (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "TEMPEH",
    "annotation": {
@@ -1076,9 +1007,6 @@ window.CRYPTIC_PUZZLES["cryptic-30043"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "A lot of mud, intensely gleaming (7)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "SILVERY",
    "annotation": {
@@ -1118,9 +1046,6 @@ window.CRYPTIC_PUZZLES["cryptic-30043"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Only rich seen around this theatre? (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "LYRIC",
    "annotation": {
@@ -1151,9 +1076,6 @@ window.CRYPTIC_PUZZLES["cryptic-30043"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "No longer suppresses scorn – UK’s struggling (7)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "UNCORKS",
    "annotation": {
@@ -1197,9 +1119,6 @@ window.CRYPTIC_PUZZLES["cryptic-30043"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "No place to steal from subordinate (5)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "UNDER",
    "annotation": {
@@ -1238,9 +1157,6 @@ window.CRYPTIC_PUZZLES["cryptic-30043"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Moved fast after active harbour regressed, becoming degenerate (9)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "ATROPHIED",
    "annotation": {
@@ -1292,9 +1208,6 @@ window.CRYPTIC_PUZZLES["cryptic-30043"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Describing birth name in any way? Not entirely (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "NATAL",
    "annotation": {
@@ -1334,9 +1247,6 @@ window.CRYPTIC_PUZZLES["cryptic-30043"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Wild shamrock Portuguese islands twice cut down, reducing unnecessary quantities (7,5)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     ",": [
      7

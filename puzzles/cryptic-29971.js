@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29971"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Knot tied in less-than-committed marriage? (4,5)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -74,9 +71,6 @@ window.CRYPTIC_PUZZLES["cryptic-29971"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Conclusion of Moor’s pick-up line? (5)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "HELLO",
    "annotation": {
@@ -114,9 +108,6 @@ window.CRYPTIC_PUZZLES["cryptic-29971"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Star of heavy metal, needing no introduction or finale: Plant (4,5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -167,9 +158,6 @@ window.CRYPTIC_PUZZLES["cryptic-29971"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "To begin journey, addled Edith Wharton losing direction, first and last (3,3,4)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -221,9 +209,6 @@ window.CRYPTIC_PUZZLES["cryptic-29971"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "AI trade-off in methodology producing sweets (3,4)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -275,9 +260,6 @@ window.CRYPTIC_PUZZLES["cryptic-29971"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Picked up off-site, collected by brick-and-mortar tool (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "HOISTED",
    "annotation": {
@@ -333,9 +315,6 @@ window.CRYPTIC_PUZZLES["cryptic-29971"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Wine tossed back during Cinco de Mayo (5)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "MEDOC",
    "annotation": {
@@ -378,9 +357,6 @@ window.CRYPTIC_PUZZLES["cryptic-29971"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Equine owned by Jomo Kenyatta (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "MOKE",
    "annotation": {
@@ -415,9 +391,6 @@ window.CRYPTIC_PUZZLES["cryptic-29971"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Legislatures, losing propositions (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "DIETS",
    "annotation": {
@@ -452,9 +425,6 @@ window.CRYPTIC_PUZZLES["cryptic-29971"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Johnny, you and I stand on head for snack item? (6,3)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -517,9 +487,6 @@ window.CRYPTIC_PUZZLES["cryptic-29971"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Favoured dictator’s time to give up (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "LEANT",
    "annotation": {
@@ -555,9 +522,6 @@ window.CRYPTIC_PUZZLES["cryptic-29971"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Spooner’s to opt for dairy product, hummus ingredient (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "CHICKPEAS",
    "annotation": {
@@ -604,9 +568,6 @@ window.CRYPTIC_PUZZLES["cryptic-29971"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "It requires brushing hale harlot off (4,6)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -648,9 +609,6 @@ window.CRYPTIC_PUZZLES["cryptic-29971"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Legendary court figure that was seen all over Herculaneum, reportedly (4)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "ASHE",
    "annotation": {
@@ -686,9 +644,6 @@ window.CRYPTIC_PUZZLES["cryptic-29971"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Ten pirates slaughtered early Pope (5,5)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -730,9 +685,6 @@ window.CRYPTIC_PUZZLES["cryptic-29971"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Repairs ruptured uterus, opening surgically (7)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "SUTURES",
    "annotation": {
@@ -777,9 +729,6 @@ window.CRYPTIC_PUZZLES["cryptic-29971"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Like Swift, awfully racialist (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "SATIRICAL",
    "annotation": {
@@ -817,9 +766,6 @@ window.CRYPTIC_PUZZLES["cryptic-29971"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Without expression: ‘Improv rock band is dreadful’? (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "DEADPAN",
    "annotation": {
@@ -859,9 +805,6 @@ window.CRYPTIC_PUZZLES["cryptic-29971"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "I, for one, pursued by religious institution, say (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "PRONOUNCE",
    "annotation": {
@@ -905,9 +848,6 @@ window.CRYPTIC_PUZZLES["cryptic-29971"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Two turncoats left skinhead’s horde once (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "TARTARS",
    "annotation": {
@@ -965,9 +905,6 @@ window.CRYPTIC_PUZZLES["cryptic-29971"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Laptop dropped into hot pastry (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "STOLLEN",
    "annotation": {
@@ -1014,9 +951,6 @@ window.CRYPTIC_PUZZLES["cryptic-29971"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Geraint’s beloved returns to South Central to visit restaurant? (4,3)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -1081,9 +1015,6 @@ window.CRYPTIC_PUZZLES["cryptic-29971"] = /*JSON-START*/ {
      23
     ]
    ],
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -1137,9 +1068,6 @@ window.CRYPTIC_PUZZLES["cryptic-29971"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Dappled horse in river, did you say? (4)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "ROAN",
    "annotation": {
@@ -1184,9 +1112,6 @@ window.CRYPTIC_PUZZLES["cryptic-29971"] = /*JSON-START*/ {
      8
     ]
    ],
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "ARGUS",
    "annotation": {
@@ -1227,9 +1152,6 @@ window.CRYPTIC_PUZZLES["cryptic-29971"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Tosspot taking up a largely synthesised instrument (10)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "SOUSAPHONE",
    "annotation": {
@@ -1282,9 +1204,6 @@ window.CRYPTIC_PUZZLES["cryptic-29971"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Primitive, like a peer? (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "EARLY",
    "annotation": {
@@ -1324,9 +1243,6 @@ window.CRYPTIC_PUZZLES["cryptic-29971"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Biscuit switcheroo (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "OREO",
    "annotation": {
@@ -1364,9 +1280,6 @@ window.CRYPTIC_PUZZLES["cryptic-29971"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Garlic oil turned into smoke (9)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "CIGARILLO",
    "annotation": {
@@ -1407,9 +1320,6 @@ window.CRYPTIC_PUZZLES["cryptic-29971"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Singer, major part of Ronettes’ comeback (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "TENOR",
    "annotation": {
@@ -1452,9 +1362,6 @@ window.CRYPTIC_PUZZLES["cryptic-29971"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Young lady with not a single way to catch horse (5)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "LASSO",
    "annotation": {
@@ -1497,9 +1404,6 @@ window.CRYPTIC_PUZZLES["cryptic-29971"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Ugly tie picked up by avowed liberal getting unwanted attention (9)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "NOTORIETY",
    "annotation": {

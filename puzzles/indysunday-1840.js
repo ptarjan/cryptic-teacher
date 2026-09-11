@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1840"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Good sort speaks: does so with spasmodic repetition? (8)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "STUTTERS",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["indysunday-1840"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Country girl entered in spelling competition? (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "BELIZE",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["indysunday-1840"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Failing Tesla right — fast beginning to question? (5,5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -80,9 +71,6 @@ window.CRYPTIC_PUZZLES["indysunday-1840"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Toxin from French fish, a second discarded (6)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "POISON",
    "annotation": null
@@ -97,9 +85,6 @@ window.CRYPTIC_PUZZLES["indysunday-1840"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Lorde ultimately inclined to throttle pub trumpeter (8)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "ELEPHANT",
    "annotation": null
@@ -114,9 +99,6 @@ window.CRYPTIC_PUZZLES["indysunday-1840"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Side road to turn down endlessly (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "SPUR",
    "annotation": null
@@ -200,9 +182,6 @@ window.CRYPTIC_PUZZLES["indysunday-1840"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Say two or three runs one Frenchman gets in games? (5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "PRIME",
    "annotation": null
@@ -236,9 +215,6 @@ window.CRYPTIC_PUZZLES["indysunday-1840"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Smashing woman's love for Kent maybe (9)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "SUPERHERO",
    "annotation": null
@@ -253,9 +229,6 @@ window.CRYPTIC_PUZZLES["indysunday-1840"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Writer's the writer powerless character inspires (7)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "EMERSON",
    "annotation": null
@@ -270,9 +243,6 @@ window.CRYPTIC_PUZZLES["indysunday-1840"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "A last look back for Greek maiden (7)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "ARIADNE",
    "annotation": null
@@ -287,9 +257,6 @@ window.CRYPTIC_PUZZLES["indysunday-1840"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Ostensibly popular celebrity on left unknown (2,4,4)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -309,9 +276,6 @@ window.CRYPTIC_PUZZLES["indysunday-1840"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Bird no longer seen on South American islands (5)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "SAMOA",
    "annotation": null
@@ -326,9 +290,6 @@ window.CRYPTIC_PUZZLES["indysunday-1840"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Greek character lay back beside anaemic creature (4,4)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -347,9 +308,6 @@ window.CRYPTIC_PUZZLES["indysunday-1840"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Start computer deleting an old autonomous program (3)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "BOT",
    "annotation": null
@@ -364,9 +322,6 @@ window.CRYPTIC_PUZZLES["indysunday-1840"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Many a house in this Manhattan thoroughfare (8)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "BROADWAY",
    "annotation": null
@@ -381,9 +336,6 @@ window.CRYPTIC_PUZZLES["indysunday-1840"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "On booze heading west for river (5)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "NIGER",
    "annotation": null
@@ -398,9 +350,6 @@ window.CRYPTIC_PUZZLES["indysunday-1840"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Sister to tempestuous Pre-Raphaelite co-founder (8)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "ROSSETTI",
    "annotation": null
@@ -439,9 +388,6 @@ window.CRYPTIC_PUZZLES["indysunday-1840"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Immoral women's group on deck soused (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "WICKED",
    "annotation": null
@@ -456,9 +402,6 @@ window.CRYPTIC_PUZZLES["indysunday-1840"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Fights in unruly mob tigers must devour? (7)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "COMBATS",
    "annotation": null
@@ -473,9 +416,6 @@ window.CRYPTIC_PUZZLES["indysunday-1840"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Load for guns in Light Brigade assault? (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "CHARGE",
    "annotation": null
@@ -490,9 +430,6 @@ window.CRYPTIC_PUZZLES["indysunday-1840"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Unearth urn containing son to Pendragon (6)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "ARTHUR",
    "annotation": null
@@ -507,9 +444,6 @@ window.CRYPTIC_PUZZLES["indysunday-1840"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Woman never believed as in random canards (9)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "CASSANDRA",
    "annotation": null
@@ -524,9 +458,6 @@ window.CRYPTIC_PUZZLES["indysunday-1840"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Mistake to ignore leader in church area (4)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "APSE",
    "annotation": null
@@ -565,9 +496,6 @@ window.CRYPTIC_PUZZLES["indysunday-1840"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Welshman last to service vehicles (5)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "EVANS",
    "annotation": null
@@ -582,9 +510,6 @@ window.CRYPTIC_PUZZLES["indysunday-1840"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "PCP from doctor opening time draws in (5,4)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {
     ",": [
      5

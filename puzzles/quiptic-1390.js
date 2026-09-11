@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1390"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Countryside walkers go on grass regularly (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "RAMBLERS",
    "annotation": {
@@ -67,9 +64,6 @@ window.CRYPTIC_PUZZLES["quiptic-1390"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Principles of Ancient Greece overthrown in the past (3)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "AGO",
    "annotation": {
@@ -105,9 +99,6 @@ window.CRYPTIC_PUZZLES["quiptic-1390"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Move clumsily in boat (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "BARGE",
    "annotation": {
@@ -144,9 +135,6 @@ window.CRYPTIC_PUZZLES["quiptic-1390"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Celtic and Real played with a kind of energy (10)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "ELECTRICAL",
    "annotation": {
@@ -184,9 +172,6 @@ window.CRYPTIC_PUZZLES["quiptic-1390"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Back in a mo! (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "SECOND",
    "annotation": {
@@ -223,9 +208,6 @@ window.CRYPTIC_PUZZLES["quiptic-1390"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Physical training on esplanade is timely (6)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "PROMPT",
    "annotation": {
@@ -268,9 +250,6 @@ window.CRYPTIC_PUZZLES["quiptic-1390"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Reportedly look for breakwater (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "PIER",
    "annotation": {
@@ -305,9 +284,6 @@ window.CRYPTIC_PUZZLES["quiptic-1390"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Gold box right next to a group of musicians (9)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "ORCHESTRA",
    "annotation": {
@@ -359,9 +335,6 @@ window.CRYPTIC_PUZZLES["quiptic-1390"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Acquisition of professional remedy meant amateur excluded (11)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "PROCUREMENT",
    "annotation": {
@@ -415,9 +388,6 @@ window.CRYPTIC_PUZZLES["quiptic-1390"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Origin of flexible course (6)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "SOURCE",
    "annotation": {
@@ -454,9 +424,6 @@ window.CRYPTIC_PUZZLES["quiptic-1390"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Force translation of Cicero? No! (8)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "COERCION",
    "annotation": {
@@ -490,9 +457,6 @@ window.CRYPTIC_PUZZLES["quiptic-1390"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Travelling miles to north-eastern rock (9)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "LIMESTONE",
    "annotation": {
@@ -538,9 +502,6 @@ window.CRYPTIC_PUZZLES["quiptic-1390"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Ancient trio improvised joint performance (11)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {},
    "solution": "INTERACTION",
    "annotation": {
@@ -574,9 +535,6 @@ window.CRYPTIC_PUZZLES["quiptic-1390"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Seven ushers surrounding goddess (5)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "VENUS",
    "annotation": {
@@ -607,9 +565,6 @@ window.CRYPTIC_PUZZLES["quiptic-1390"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Badly parse a term for boundaries (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "PARAMETERS",
    "annotation": {
@@ -646,9 +601,6 @@ window.CRYPTIC_PUZZLES["quiptic-1390"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Very sad ending to Hamlet leads to riots against Gertrude in consequence (6)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "TRAGIC",
    "annotation": {
@@ -695,9 +647,6 @@ window.CRYPTIC_PUZZLES["quiptic-1390"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Astronauts initially strap up a complicated piece of equipment (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "APPARATUS",
    "annotation": {
@@ -737,9 +686,6 @@ window.CRYPTIC_PUZZLES["quiptic-1390"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Paris art revolution absorbs philosopher (6)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "SARTRE",
    "annotation": {
@@ -770,9 +716,6 @@ window.CRYPTIC_PUZZLES["quiptic-1390"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Withdraw from drive back across Australia (6)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "REPEAL",
    "annotation": {
@@ -816,9 +759,6 @@ window.CRYPTIC_PUZZLES["quiptic-1390"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Dish overwhelms a sense of taste (6)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "PALATE",
    "annotation": {
@@ -859,9 +799,6 @@ window.CRYPTIC_PUZZLES["quiptic-1390"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Mate cooked around noon (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "FRIEND",
    "annotation": {
@@ -902,9 +839,6 @@ window.CRYPTIC_PUZZLES["quiptic-1390"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Oscar frequently clutches muffler (5)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "SCARF",
    "annotation": {
@@ -935,9 +869,6 @@ window.CRYPTIC_PUZZLES["quiptic-1390"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Incentives to buy liberal Guardian at first, then Independent, FT and Sun (4,5)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -1018,9 +949,6 @@ window.CRYPTIC_PUZZLES["quiptic-1390"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Current business account’s opening in island (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "IBIZA",
    "annotation": {
@@ -1069,9 +997,6 @@ window.CRYPTIC_PUZZLES["quiptic-1390"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Member of clergy loses hat immediately according to Shakespeare (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "ANON",
    "annotation": {
@@ -1105,9 +1030,6 @@ window.CRYPTIC_PUZZLES["quiptic-1390"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Reserve placing first in tango? (8)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "DISTANCE",
    "annotation": {
@@ -1149,9 +1071,6 @@ window.CRYPTIC_PUZZLES["quiptic-1390"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Produce unlawful broadcast roughly (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "ELICIT",
    "annotation": {
@@ -1184,9 +1103,6 @@ window.CRYPTIC_PUZZLES["quiptic-1390"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Unwell? Unwrap tablets (3)",
-   "group": [
-    "27-down"
-   ],
    "separatorLocations": {},
    "solution": "ILL",
    "annotation": {
@@ -1220,9 +1136,6 @@ window.CRYPTIC_PUZZLES["quiptic-1390"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Complete agreement from academic offspring? (6)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "UNISON",
    "annotation": {
@@ -1262,9 +1175,6 @@ window.CRYPTIC_PUZZLES["quiptic-1390"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Sadly, not big in home-improvement (8)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "DISMALLY",
    "annotation": {

@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1356"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Delete replacement document (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "SUBTRACT",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["quiptic-1356"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Bare message delivered – take off a little weight (10)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "STRIPAGRAM",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["quiptic-1356"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Autocrat runs into serious difficulty (3,7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -80,9 +71,6 @@ window.CRYPTIC_PUZZLES["quiptic-1356"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "One evaluating evidence of old volcano having blown its top (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "RATER",
    "annotation": null
@@ -97,9 +85,6 @@ window.CRYPTIC_PUZZLES["quiptic-1356"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Exceptionally strong cluing for grooming apparatus (7,5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -118,9 +103,6 @@ window.CRYPTIC_PUZZLES["quiptic-1356"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Commercial division is off course (6)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "ADRIFT",
    "annotation": null
@@ -135,9 +117,6 @@ window.CRYPTIC_PUZZLES["quiptic-1356"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Daughter torn apart over mother returning has gone insane (6,3)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -156,9 +135,6 @@ window.CRYPTIC_PUZZLES["quiptic-1356"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Electronic device lets assistant fill in papers (4)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "IPAD",
    "annotation": null
@@ -173,9 +149,6 @@ window.CRYPTIC_PUZZLES["quiptic-1356"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Trifles raise some jealousy Othello harbours (4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "TOYS",
    "annotation": null
@@ -190,9 +163,6 @@ window.CRYPTIC_PUZZLES["quiptic-1356"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Suitable branch for leader’s most important assistant (5,3)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -211,9 +181,6 @@ window.CRYPTIC_PUZZLES["quiptic-1356"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Significant woman causing marital irregularity (6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "BIGAMY",
    "annotation": null
@@ -228,9 +195,6 @@ window.CRYPTIC_PUZZLES["quiptic-1356"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Hardening quality shown by compiler doing fast job (5-7)",
-   "group": [
-    "11-down"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -249,9 +213,6 @@ window.CRYPTIC_PUZZLES["quiptic-1356"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Golden quality in perfect works of art (11)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "PORTRAITURE",
    "annotation": null
@@ -266,9 +227,6 @@ window.CRYPTIC_PUZZLES["quiptic-1356"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "African native died next to capital theatre (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "HIPPODROME",
    "annotation": null
@@ -283,9 +241,6 @@ window.CRYPTIC_PUZZLES["quiptic-1356"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Rough ganger said make it bigger (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "AGGRANDISE",
    "annotation": null
@@ -300,9 +255,6 @@ window.CRYPTIC_PUZZLES["quiptic-1356"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Board work well together (3,2)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -321,9 +273,6 @@ window.CRYPTIC_PUZZLES["quiptic-1356"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Doctor clings to a longing for the past (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "NOSTALGIC",
    "annotation": null
@@ -338,9 +287,6 @@ window.CRYPTIC_PUZZLES["quiptic-1356"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Leaving party inside to spend some time outdoors (2,7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -359,9 +305,6 @@ window.CRYPTIC_PUZZLES["quiptic-1356"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Dislikes top class interpretations (9)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "AVERSIONS",
    "annotation": null
@@ -376,9 +319,6 @@ window.CRYPTIC_PUZZLES["quiptic-1356"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Con artist, half repudiated, making comeback (5)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "DUPER",
    "annotation": null
@@ -393,9 +333,6 @@ window.CRYPTIC_PUZZLES["quiptic-1356"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Greatly stressed when trading ends badly (5-6)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -414,9 +351,6 @@ window.CRYPTIC_PUZZLES["quiptic-1356"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Insect found in central Crimea, Ghana and Angola (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "IMAGO",
    "annotation": null
@@ -431,9 +365,6 @@ window.CRYPTIC_PUZZLES["quiptic-1356"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Watchers regularly become experts (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "ACES",
    "annotation": null
@@ -448,9 +379,6 @@ window.CRYPTIC_PUZZLES["quiptic-1356"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Bog has a very hot flow (4)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "LAVA",
    "annotation": null
@@ -465,9 +393,6 @@ window.CRYPTIC_PUZZLES["quiptic-1356"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Linger in church – it can be transformative (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "CHANGE",
    "annotation": null
@@ -482,9 +407,6 @@ window.CRYPTIC_PUZZLES["quiptic-1356"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Fix a little pick-me-up and some Italian food (8)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "RIGATONI",
    "annotation": null
@@ -499,9 +421,6 @@ window.CRYPTIC_PUZZLES["quiptic-1356"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Nick is small – of course (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "SNATCH",
    "annotation": null
@@ -516,9 +435,6 @@ window.CRYPTIC_PUZZLES["quiptic-1356"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Don’t pay attention to my views on regime changes (6,2)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     ",": [
      6

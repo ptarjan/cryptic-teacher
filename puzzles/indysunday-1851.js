@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1851"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Dispiriting picture? (12)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "GHOSTBUSTERS",
    "annotation": {
@@ -59,9 +56,6 @@ window.CRYPTIC_PUZZLES["indysunday-1851"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Book with Romeo in kept by (4,5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -119,9 +113,6 @@ window.CRYPTIC_PUZZLES["indysunday-1851"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Nutty dish dropped onto chair, alas (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "SATAY",
    "annotation": {
@@ -160,9 +151,6 @@ window.CRYPTIC_PUZZLES["indysunday-1851"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Promise boyfriend with cramped identity breathing space (3,4)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -220,9 +208,6 @@ window.CRYPTIC_PUZZLES["indysunday-1851"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Wrinkly torso brought about elderly actor's exit (5,4)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -279,9 +264,6 @@ window.CRYPTIC_PUZZLES["indysunday-1851"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Horsey type last to imitate nicker (5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "EQUID",
    "annotation": {
@@ -325,9 +307,6 @@ window.CRYPTIC_PUZZLES["indysunday-1851"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Prescott tangling with prat, so fun to watch? (9,5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      9
@@ -379,9 +358,6 @@ window.CRYPTIC_PUZZLES["indysunday-1851"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Hertz essentially opposed to driving on the left behind bike (5,3,6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      5,
@@ -444,9 +420,6 @@ window.CRYPTIC_PUZZLES["indysunday-1851"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Moisturised skin you hear admired (8)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "HYDRATED",
    "annotation": {
@@ -491,9 +464,6 @@ window.CRYPTIC_PUZZLES["indysunday-1851"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Ability to discern Caesar's head among gold pieces (6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "ACUMEN",
    "annotation": {
@@ -544,9 +514,6 @@ window.CRYPTIC_PUZZLES["indysunday-1851"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "France in recent times barring English outright (6)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "FLATLY",
    "annotation": {
@@ -596,9 +563,6 @@ window.CRYPTIC_PUZZLES["indysunday-1851"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Narrative one acted out (8)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "ANECDOTE",
    "annotation": {
@@ -641,9 +605,6 @@ window.CRYPTIC_PUZZLES["indysunday-1851"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Plans to review unopened emails? (4)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "SPAM",
    "annotation": {
@@ -688,9 +649,6 @@ window.CRYPTIC_PUZZLES["indysunday-1851"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Wheels turn - factory turning out large and small trousers (5,5)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -755,9 +713,6 @@ window.CRYPTIC_PUZZLES["indysunday-1851"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Scar from treacherous Arctic floes? (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "CICATRICE",
    "annotation": {
@@ -808,9 +763,6 @@ window.CRYPTIC_PUZZLES["indysunday-1851"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Equally mild, sub-standard additive (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "ASPARTAME",
    "annotation": {
@@ -860,9 +812,6 @@ window.CRYPTIC_PUZZLES["indysunday-1851"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Lawyer's basic writing cleverer when spoken (10)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "PROSECUTOR",
    "annotation": {
@@ -910,9 +859,6 @@ window.CRYPTIC_PUZZLES["indysunday-1851"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "One supports aristocratic bears? (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "TSARIST",
    "annotation": {
@@ -947,9 +893,6 @@ window.CRYPTIC_PUZZLES["indysunday-1851"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Son pinched from mom's handbag without guilt (4)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "PURE",
    "annotation": {
@@ -993,9 +936,6 @@ window.CRYPTIC_PUZZLES["indysunday-1851"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "500 gatecrashing ground at event prolonged antagonism (8)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "VENDETTA",
    "annotation": {
@@ -1048,9 +988,6 @@ window.CRYPTIC_PUZZLES["indysunday-1851"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Pushing tractor, one rests briefly (5)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "DOZER",
    "annotation": {
@@ -1085,9 +1022,6 @@ window.CRYPTIC_PUZZLES["indysunday-1851"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Angel shaves around front of her ... (6)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "SERAPH",
    "annotation": {
@@ -1144,9 +1078,6 @@ window.CRYPTIC_PUZZLES["indysunday-1851"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Bill allows inverted badge on boots (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "SKODA",
    "annotation": {
@@ -1195,9 +1126,6 @@ window.CRYPTIC_PUZZLES["indysunday-1851"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Dog bin unfinished pasta goes in (6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "BORZOI",
    "annotation": {
@@ -1244,9 +1172,6 @@ window.CRYPTIC_PUZZLES["indysunday-1851"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Worship as bride and groom agree, initially like a shot (8)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "IDOLATRY",
    "annotation": {
@@ -1302,9 +1227,6 @@ window.CRYPTIC_PUZZLES["indysunday-1851"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Wetter wander around part of the Lake District (12)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "DERWENTWATER",
    "annotation": {

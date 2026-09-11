@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29946"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Feline, wild being on the moor, only tail glimpsed (7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "PANTHER",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["cryptic-29946"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Coming from Europe – like staff? (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "POLISH",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["cryptic-29946"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Around Land’s End, lack of Spanish enthusiasm it seems for pasta (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "NOODLE",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["cryptic-29946"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Performance of the ode encapsulates style of fast-paced walk (4-3-3)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     "-": [
      4,
@@ -98,9 +86,6 @@ window.CRYPTIC_PUZZLES["cryptic-29946"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Very uplifting southern puzzle (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "REBUS",
    "annotation": null
@@ -115,9 +100,6 @@ window.CRYPTIC_PUZZLES["cryptic-29946"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Serene icon punched by a cleaner (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "PACIFIC",
    "annotation": null
@@ -132,9 +114,6 @@ window.CRYPTIC_PUZZLES["cryptic-29946"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Remarkably sharp jackets I detect for ancient sect (9)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "PHARISEES",
    "annotation": null
@@ -149,9 +128,6 @@ window.CRYPTIC_PUZZLES["cryptic-29946"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Murderer in good book residing in Jamaica Inn (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "CAIN",
    "annotation": null
@@ -166,9 +142,6 @@ window.CRYPTIC_PUZZLES["cryptic-29946"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Nut and oaf dancing in spring (8)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "FOUNTAIN",
    "annotation": null
@@ -183,9 +156,6 @@ window.CRYPTIC_PUZZLES["cryptic-29946"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Put together with jam ultimately covered, a Cornish treat (5,3)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -204,9 +174,6 @@ window.CRYPTIC_PUZZLES["cryptic-29946"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Debauched son in Cornish town (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "LOOSE",
    "annotation": null
@@ -221,9 +188,6 @@ window.CRYPTIC_PUZZLES["cryptic-29946"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Joy sees what to do with 8 down, say, in Cornish town (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "BEATITUDE",
    "annotation": null
@@ -238,9 +202,6 @@ window.CRYPTIC_PUZZLES["cryptic-29946"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Mischievous pals shut in leader’s office (10)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "SULTANSHIP",
    "annotation": null
@@ -255,9 +216,6 @@ window.CRYPTIC_PUZZLES["cryptic-29946"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Tiny amount, nothing to plug hole in the wall (4)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "ATOM",
    "annotation": null
@@ -272,9 +230,6 @@ window.CRYPTIC_PUZZLES["cryptic-29946"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "So, may hate going out, time taken inside? (4-2-4)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     "-": [
      4,
@@ -294,9 +249,6 @@ window.CRYPTIC_PUZZLES["cryptic-29946"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Gone west, westernised drink! (7,4)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -315,9 +267,6 @@ window.CRYPTIC_PUZZLES["cryptic-29946"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Having bagged last of garbage, dumped metal stick with it (7,2)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -336,9 +285,6 @@ window.CRYPTIC_PUZZLES["cryptic-29946"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Robbers in briny leaving New York, Penzance pirates people? (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "BRIGANDS",
    "annotation": null
@@ -353,9 +299,6 @@ window.CRYPTIC_PUZZLES["cryptic-29946"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Criticise one tipster dressed for Royal Ascot? (3,3,2)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -375,9 +318,6 @@ window.CRYPTIC_PUZZLES["cryptic-29946"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Operation where end of scalpel slices through Afro/Cornish meat dish? (11)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "RHINOPLASTY",
    "annotation": null
@@ -392,9 +332,6 @@ window.CRYPTIC_PUZZLES["cryptic-29946"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "‘arbour used regularly as street (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "AVENUE",
    "annotation": null
@@ -409,9 +346,6 @@ window.CRYPTIC_PUZZLES["cryptic-29946"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Towards the back, seat adjusted before service (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "ASTERN",
    "annotation": null
@@ -426,9 +360,6 @@ window.CRYPTIC_PUZZLES["cryptic-29946"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Gorilla somewhere in Cornwall, where hilly? (4)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "GOON",
    "annotation": null
@@ -443,9 +374,6 @@ window.CRYPTIC_PUZZLES["cryptic-29946"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "What lover of Cornwall might do, scoffing English biscuits (10)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "DIGESTIVES",
    "annotation": null
@@ -460,9 +388,6 @@ window.CRYPTIC_PUZZLES["cryptic-29946"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Country where Eden Project failed, say: ultimately foolhardy exercise (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "EGYPT",
    "annotation": null
@@ -477,9 +402,6 @@ window.CRYPTIC_PUZZLES["cryptic-29946"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Reminder, a few seconds for myself? (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "MEMO",
    "annotation": null
@@ -494,9 +416,6 @@ window.CRYPTIC_PUZZLES["cryptic-29946"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Less emphatically, train finally coming in late? (3,6)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -515,9 +434,6 @@ window.CRYPTIC_PUZZLES["cryptic-29946"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Feline with shaved ball? (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "OUNCE",
    "annotation": null
@@ -532,9 +448,6 @@ window.CRYPTIC_PUZZLES["cryptic-29946"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Group experiencing the blues record (3,4)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -553,9 +466,6 @@ window.CRYPTIC_PUZZLES["cryptic-29946"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Article with check so enclosed? (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "THEREIN",
    "annotation": null

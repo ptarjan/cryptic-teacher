@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1896"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Baby group starts with some trigonometry (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "COSSET",
    "annotation": {
@@ -70,9 +67,6 @@ window.CRYPTIC_PUZZLES["indysunday-1896"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Sportsperson physically flexible and cold at the top (7)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "CLIMBER",
    "annotation": {
@@ -115,9 +109,6 @@ window.CRYPTIC_PUZZLES["indysunday-1896"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Scot mostly takes His Majesty for a fool (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "SCHMO",
    "annotation": {
@@ -166,9 +157,6 @@ window.CRYPTIC_PUZZLES["indysunday-1896"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Ground elder's back - what, more soil improver? (9)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "EARTHWORM",
    "annotation": {
@@ -217,9 +205,6 @@ window.CRYPTIC_PUZZLES["indysunday-1896"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Hit with tear gas from behind, quietly scarper (6)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "DECAMP",
    "annotation": {
@@ -268,9 +253,6 @@ window.CRYPTIC_PUZZLES["indysunday-1896"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Senior member aching after party (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "DOYEN",
    "annotation": {
@@ -313,9 +295,6 @@ window.CRYPTIC_PUZZLES["indysunday-1896"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "One half of Macclesfield stupidly admit criminal activity (4,5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -368,9 +347,6 @@ window.CRYPTIC_PUZZLES["indysunday-1896"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Jersey put in the post with sale item (7)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "MAILLOT",
    "annotation": {
@@ -410,9 +386,6 @@ window.CRYPTIC_PUZZLES["indysunday-1896"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Carrie having squeezed out four, mechanism to limit that? (13)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "CONTRACEPTION",
    "annotation": {
@@ -456,9 +429,6 @@ window.CRYPTIC_PUZZLES["indysunday-1896"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Clashing plate host eats on (10)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {},
    "solution": "DISHARMONY",
    "annotation": {
@@ -508,9 +478,6 @@ window.CRYPTIC_PUZZLES["indysunday-1896"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Help island cutting bananas (4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "MAID",
    "annotation": {
@@ -554,9 +521,6 @@ window.CRYPTIC_PUZZLES["indysunday-1896"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Three types of buffet show indecision (4,3,3,4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -601,9 +565,6 @@ window.CRYPTIC_PUZZLES["indysunday-1896"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Underground shelter arrived at with input from Republican (6)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "GROTTO",
    "annotation": {
@@ -647,9 +608,6 @@ window.CRYPTIC_PUZZLES["indysunday-1896"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Naff stuff primarily in gallery? Not so (9)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {},
    "solution": "TASTELESS",
    "annotation": {
@@ -701,9 +659,6 @@ window.CRYPTIC_PUZZLES["indysunday-1896"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Not drinking after a dreadful experience with old liqueur (8)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "AMARETTO",
    "annotation": {
@@ -761,9 +716,6 @@ window.CRYPTIC_PUZZLES["indysunday-1896"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Agree to gold even if more money (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "AUTHORISE",
    "annotation": {
@@ -806,9 +758,6 @@ window.CRYPTIC_PUZZLES["indysunday-1896"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Prisoner's muddled memo that's clear for Spooner? (8)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "CONSOMME",
    "annotation": {
@@ -858,9 +807,6 @@ window.CRYPTIC_PUZZLES["indysunday-1896"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "M25 maybe spoken about little (7)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "ORBITAL",
    "annotation": {
@@ -904,9 +850,6 @@ window.CRYPTIC_PUZZLES["indysunday-1896"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Hebrew bible Ruth can attempt in part, reading backwards (6)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "TANACH",
    "annotation": {
@@ -942,9 +885,6 @@ window.CRYPTIC_PUZZLES["indysunday-1896"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Hide boat with start of cyclone forecast (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "CORACLE",
    "annotation": {
@@ -990,9 +930,6 @@ window.CRYPTIC_PUZZLES["indysunday-1896"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Jockey in bar over Ascot where there are track-side views (11,3)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {
     ",": [
      11
@@ -1038,9 +975,6 @@ window.CRYPTIC_PUZZLES["indysunday-1896"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "12's fast, making the top five (5)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "VAPID",
    "annotation": {
@@ -1083,9 +1017,6 @@ window.CRYPTIC_PUZZLES["indysunday-1896"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Male cat has caught rat, perhaps (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "CHEAT",
    "annotation": {
@@ -1129,9 +1060,6 @@ window.CRYPTIC_PUZZLES["indysunday-1896"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Infection small yet spreading (4)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "STYE",
    "annotation": {
@@ -1178,9 +1106,6 @@ window.CRYPTIC_PUZZLES["indysunday-1896"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "God's will supporting study into sin (10)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "PROVIDENCE",
    "annotation": {
@@ -1230,9 +1155,6 @@ window.CRYPTIC_PUZZLES["indysunday-1896"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Exclusive clubs get rid of head of diversity (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "CLOSED",
    "annotation": {
@@ -1281,9 +1203,6 @@ window.CRYPTIC_PUZZLES["indysunday-1896"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Sinister type didn't eat filling in pies (6)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "LEFTIE",
    "annotation": {

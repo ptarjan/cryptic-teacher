@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1352"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Discards hospital attire (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "SCRUBS",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["quiptic-1352"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Claret’s alternative red (7)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "SCARLET",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["quiptic-1352"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Agent penning account, upsetting summary (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "RECAP",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["quiptic-1352"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Big actors in TV show? (9)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "BROADCAST",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["quiptic-1352"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Exerted force on journalists and editor (7)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "PRESSED",
    "annotation": null
@@ -110,9 +95,6 @@ window.CRYPTIC_PUZZLES["quiptic-1352"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Entertainer with requests, entertainer completely gutted (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "PLEASER",
    "annotation": null
@@ -127,9 +109,6 @@ window.CRYPTIC_PUZZLES["quiptic-1352"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Expunge article in Irish language (5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "ERASE",
    "annotation": null
@@ -144,9 +123,6 @@ window.CRYPTIC_PUZZLES["quiptic-1352"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Eastern females needing external protection in Yorkshire city (9)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "SHEFFIELD",
    "annotation": null
@@ -161,9 +137,6 @@ window.CRYPTIC_PUZZLES["quiptic-1352"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Readily working, one coming out at great cost (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "DEARLY",
    "annotation": null
@@ -178,9 +151,6 @@ window.CRYPTIC_PUZZLES["quiptic-1352"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Vehicle with chaps in opera (6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "CARMEN",
    "annotation": null
@@ -195,9 +165,6 @@ window.CRYPTIC_PUZZLES["quiptic-1352"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Place for vehicles to stop in Alaskan port (9)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "ANCHORAGE",
    "annotation": null
@@ -212,9 +179,6 @@ window.CRYPTIC_PUZZLES["quiptic-1352"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Stadium zone accommodating small number (5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "ARENA",
    "annotation": null
@@ -229,9 +193,6 @@ window.CRYPTIC_PUZZLES["quiptic-1352"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Ran, being guided outside work (5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "LOPED",
    "annotation": null
@@ -246,9 +207,6 @@ window.CRYPTIC_PUZZLES["quiptic-1352"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Domineering maiden has ‘er faults unfortunately (9)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "MASTERFUL",
    "annotation": null
@@ -263,9 +221,6 @@ window.CRYPTIC_PUZZLES["quiptic-1352"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Piece of ground in second half of season needing wet weather (7)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "TERRAIN",
    "annotation": null
@@ -280,9 +235,6 @@ window.CRYPTIC_PUZZLES["quiptic-1352"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Chemical processes bringing responses (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "REACTIONS",
    "annotation": null
@@ -297,9 +249,6 @@ window.CRYPTIC_PUZZLES["quiptic-1352"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Greek character pinned by exceptionally rare sword (6)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "RAPIER",
    "annotation": null
@@ -314,9 +263,6 @@ window.CRYPTIC_PUZZLES["quiptic-1352"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Servant admitting fiery crime in minister’s home (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "PARSONAGE",
    "annotation": null
@@ -331,9 +277,6 @@ window.CRYPTIC_PUZZLES["quiptic-1352"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Bishop and former PM endlessly struggle (6)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "BATTLE",
    "annotation": null
@@ -348,9 +291,6 @@ window.CRYPTIC_PUZZLES["quiptic-1352"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Familiar territory for copper perhaps (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "ELEMENT",
    "annotation": null
@@ -365,9 +305,6 @@ window.CRYPTIC_PUZZLES["quiptic-1352"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Shorten a card game (7)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "ABRIDGE",
    "annotation": null
@@ -382,9 +319,6 @@ window.CRYPTIC_PUZZLES["quiptic-1352"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "King showing skill. monarch finally coming to old city (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "ARTHUR",
    "annotation": null
@@ -399,9 +333,6 @@ window.CRYPTIC_PUZZLES["quiptic-1352"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Collapsed in seat, hugging love in the country (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "ESTONIA",
    "annotation": null
@@ -416,9 +347,6 @@ window.CRYPTIC_PUZZLES["quiptic-1352"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Healthy Edward given appropriate kit? (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "FITTED",
    "annotation": null
@@ -433,9 +361,6 @@ window.CRYPTIC_PUZZLES["quiptic-1352"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Bury group, about a hundred, becoming cross (9)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "INTERSECT",
    "annotation": null
@@ -450,9 +375,6 @@ window.CRYPTIC_PUZZLES["quiptic-1352"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Get up about middle of morning and wash (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "RINSE",
    "annotation": null
@@ -467,9 +389,6 @@ window.CRYPTIC_PUZZLES["quiptic-1352"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Attack with stone being thrown (5)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "ONSET",
    "annotation": null
@@ -484,9 +403,6 @@ window.CRYPTIC_PUZZLES["quiptic-1352"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Move and keep quiet if having little time (5)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "SHIFT",
    "annotation": null
@@ -501,9 +417,6 @@ window.CRYPTIC_PUZZLES["quiptic-1352"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Old English character conveyed by author naturally (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "THORN",
    "annotation": null
@@ -518,9 +431,6 @@ window.CRYPTIC_PUZZLES["quiptic-1352"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Action due to change in school activity (9)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "EDUCATION",
    "annotation": null
@@ -535,9 +445,6 @@ window.CRYPTIC_PUZZLES["quiptic-1352"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Sweet son stuck in Sahara? (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "DESSERT",
    "annotation": null
@@ -552,9 +459,6 @@ window.CRYPTIC_PUZZLES["quiptic-1352"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Woman in the bar, sozzled (6)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "BERTHA",
    "annotation": null

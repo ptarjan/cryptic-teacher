@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1890"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Critical about weak golf on the back of lessons (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "SCATHING",
    "annotation": {
@@ -82,9 +79,6 @@ window.CRYPTIC_PUZZLES["indysunday-1890"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Easy to reach sister's house where pigeon regularly nests (10)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "CONVENIENT",
    "annotation": {
@@ -133,9 +127,6 @@ window.CRYPTIC_PUZZLES["indysunday-1890"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Cub leader's ramble starting late with tons to carry (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "TIGRESS",
    "annotation": {
@@ -183,9 +174,6 @@ window.CRYPTIC_PUZZLES["indysunday-1890"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Turning up halfway through test panicky is not ideal (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "INAPT",
    "annotation": {
@@ -281,9 +269,6 @@ window.CRYPTIC_PUZZLES["indysunday-1890"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Right leaving rogue aristocrat disinherited (3,3)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -335,9 +320,6 @@ window.CRYPTIC_PUZZLES["indysunday-1890"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Staunch Titoist cleared out communist dictator's original closets (9)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "COMMITTED",
    "annotation": {
@@ -388,9 +370,6 @@ window.CRYPTIC_PUZZLES["indysunday-1890"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Stir cooking fat after hearing how long it lasts (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "TURMOIL",
    "annotation": {
@@ -434,9 +413,6 @@ window.CRYPTIC_PUZZLES["indysunday-1890"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Charge pound for love, perhaps (4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "FEEL",
    "annotation": {
@@ -476,9 +452,6 @@ window.CRYPTIC_PUZZLES["indysunday-1890"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Term for singultus? Have a go at hiccup (4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "SNAG",
    "annotation": {
@@ -521,9 +494,6 @@ window.CRYPTIC_PUZZLES["indysunday-1890"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Tube connected back on Franco's heart before death (4,6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -590,9 +560,6 @@ window.CRYPTIC_PUZZLES["indysunday-1890"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Volts inside transformed the inner zoo's inescapable boundary (5,7)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -669,9 +636,6 @@ window.CRYPTIC_PUZZLES["indysunday-1890"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Article taken from old Iranian's shelter hard to get rid of (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "PERSISTENT",
    "annotation": {
@@ -719,9 +683,6 @@ window.CRYPTIC_PUZZLES["indysunday-1890"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Breakdown company tails Italian cars, ignoring Tesla (6)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "FIASCO",
    "annotation": {
@@ -771,9 +732,6 @@ window.CRYPTIC_PUZZLES["indysunday-1890"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Obvious method to bag runs - fielding error (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "OVERTHROW",
    "annotation": {
@@ -823,9 +781,6 @@ window.CRYPTIC_PUZZLES["indysunday-1890"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Highly regarded old partner rang (8)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "EXTOLLED",
    "annotation": {
@@ -862,9 +817,6 @@ window.CRYPTIC_PUZZLES["indysunday-1890"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "A certain (Liberal perhaps) North American to the west (8)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "ANGELENO",
    "annotation": {
@@ -925,9 +877,6 @@ window.CRYPTIC_PUZZLES["indysunday-1890"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Dealing with story about case of ageism upset correspondent (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "EMAILER",
    "annotation": {
@@ -987,9 +936,6 @@ window.CRYPTIC_PUZZLES["indysunday-1890"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "15 give evidence (6)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "DEPOSE",
    "annotation": {
@@ -1023,9 +969,6 @@ window.CRYPTIC_PUZZLES["indysunday-1890"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Left aboard spaceship, Mike's worry reported to Houston? (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "PROBLEM",
    "annotation": {
@@ -1080,9 +1023,6 @@ window.CRYPTIC_PUZZLES["indysunday-1890"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Is oiler able to go finally, with America picking quarrels? (12)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "CANTANKEROUS",
    "annotation": {
@@ -1142,9 +1082,6 @@ window.CRYPTIC_PUZZLES["indysunday-1890"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "French bread you proved, one hears (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "EUROS",
    "annotation": {
@@ -1180,9 +1117,6 @@ window.CRYPTIC_PUZZLES["indysunday-1890"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Giant gnome gardener keeps inside (4)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "MEGA",
    "annotation": {
@@ -1216,9 +1150,6 @@ window.CRYPTIC_PUZZLES["indysunday-1890"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Last month city turned greener, to announce start of campaign (7,3)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -1301,9 +1232,6 @@ window.CRYPTIC_PUZZLES["indysunday-1890"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "National emblem that's terrifying on lieutenant's face (4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "LEEK",
    "annotation": {
@@ -1348,9 +1276,6 @@ window.CRYPTIC_PUZZLES["indysunday-1890"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Old lady spat on Republican, giving tissue (6)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "MARROW",
    "annotation": {
@@ -1402,9 +1327,6 @@ window.CRYPTIC_PUZZLES["indysunday-1890"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Yeti wanders around some blasted mountain wilderness (8)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "YOSEMITE",
    "annotation": {

@@ -24,9 +24,6 @@ window.CRYPTIC_PUZZLES["cryptic-30046"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Congratulations, having lofted sixes, almost? (4,5)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -67,9 +64,6 @@ window.CRYPTIC_PUZZLES["cryptic-30046"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Ferret wounded small creatures in a hole (7)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "HOBBITS",
    "annotation": {
@@ -112,9 +106,6 @@ window.CRYPTIC_PUZZLES["cryptic-30046"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Try united batter and stew (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "GOULASH",
    "annotation": {
@@ -160,9 +151,6 @@ window.CRYPTIC_PUZZLES["cryptic-30046"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Social gathering vital for one usually on laptop (8,3)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -206,9 +194,6 @@ window.CRYPTIC_PUZZLES["cryptic-30046"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Selective eaters may have struggles to eat this protein? (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "VEGGIES",
    "annotation": {
@@ -251,9 +236,6 @@ window.CRYPTIC_PUZZLES["cryptic-30046"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Had accommodation across river, then wandered off (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "STRAYED",
    "annotation": {
@@ -296,9 +278,6 @@ window.CRYPTIC_PUZZLES["cryptic-30046"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Tease bird a small distance off (5)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "CHAFF",
    "annotation": {
@@ -336,9 +315,6 @@ window.CRYPTIC_PUZZLES["cryptic-30046"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Agency’s brief goodbye (3)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "CIA",
    "annotation": {
@@ -374,9 +350,6 @@ window.CRYPTIC_PUZZLES["cryptic-30046"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Bail due to be reviewed in hearing (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "AUDIBLE",
    "annotation": {
@@ -414,9 +387,6 @@ window.CRYPTIC_PUZZLES["cryptic-30046"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Having crossed river, shot by arrow in the head, and left like this? (3,4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -460,9 +430,6 @@ window.CRYPTIC_PUZZLES["cryptic-30046"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Disaster, going after black bear (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "BRUIN",
    "annotation": {
@@ -501,9 +468,6 @@ window.CRYPTIC_PUZZLES["cryptic-30046"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Manipulate voting arrangement, cancelling all-out rally in plant (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "GERMANDER",
    "annotation": {
@@ -544,9 +508,6 @@ window.CRYPTIC_PUZZLES["cryptic-30046"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Princess on stage may sound like a duck (3)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "IDA",
    "annotation": {
@@ -577,9 +538,6 @@ window.CRYPTIC_PUZZLES["cryptic-30046"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Unfortunately still barely functioning as an example (11)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "TRISYLLABLE",
    "annotation": {
@@ -617,9 +575,6 @@ window.CRYPTIC_PUZZLES["cryptic-30046"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Despairing, how ‘miserable’ becomes me (6,5)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -657,9 +612,6 @@ window.CRYPTIC_PUZZLES["cryptic-30046"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Academy halved deficit in grand house (7)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "SCHLOSS",
    "annotation": {
@@ -701,9 +653,6 @@ window.CRYPTIC_PUZZLES["cryptic-30046"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Detectives are liable to exaggerate (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "DISTEND",
    "annotation": {
@@ -740,9 +689,6 @@ window.CRYPTIC_PUZZLES["cryptic-30046"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "More grim to be nearly naked (7)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "STARKER",
    "annotation": {
@@ -778,9 +724,6 @@ window.CRYPTIC_PUZZLES["cryptic-30046"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Spy’s simple earring (7)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "SLEEPER",
    "annotation": {
@@ -817,9 +760,6 @@ window.CRYPTIC_PUZZLES["cryptic-30046"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Way back, wise guy’s first to drop a board game (4,3)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -868,9 +808,6 @@ window.CRYPTIC_PUZZLES["cryptic-30046"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Turned back, taking opposite directions in circle (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "REWOUND",
    "annotation": {
@@ -911,9 +848,6 @@ window.CRYPTIC_PUZZLES["cryptic-30046"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Youngster with Guardian wanting whiskey in pubs shows guts (7)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "INNARDS",
    "annotation": {
@@ -973,9 +907,6 @@ window.CRYPTIC_PUZZLES["cryptic-30046"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Happening before delivery to change routine (2,5)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -1017,9 +948,6 @@ window.CRYPTIC_PUZZLES["cryptic-30046"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Run a brief fiddle making pasta (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "RAVIOLI",
    "annotation": {
@@ -1067,9 +995,6 @@ window.CRYPTIC_PUZZLES["cryptic-30046"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "A way to heave and strain (7)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "STRETCH",
    "annotation": {
@@ -1109,9 +1034,6 @@ window.CRYPTIC_PUZZLES["cryptic-30046"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Bizarrely we envy almost all that’s horrible in author (6,5)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -1161,9 +1083,6 @@ window.CRYPTIC_PUZZLES["cryptic-30046"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "One checks whistleblower in French department (3)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "VAR",
    "annotation": {
@@ -1200,9 +1119,6 @@ window.CRYPTIC_PUZZLES["cryptic-30046"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Wendy’s theatre? (9)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "PLAYHOUSE",
    "annotation": {
@@ -1236,9 +1152,6 @@ window.CRYPTIC_PUZZLES["cryptic-30046"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Partner dropping by in centre of activity (3)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "HUB",
    "annotation": {
@@ -1279,9 +1192,6 @@ window.CRYPTIC_PUZZLES["cryptic-30046"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Under way a short distance (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "AFOOT",
    "annotation": {
@@ -1315,9 +1225,6 @@ window.CRYPTIC_PUZZLES["cryptic-30046"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Foreign character doctor found in shape (5)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "RHOMB",
    "annotation": {
@@ -1357,9 +1264,6 @@ window.CRYPTIC_PUZZLES["cryptic-30046"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Opposite of gauche, that missing husband in spa town (9)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "DROITWICH",
    "annotation": {

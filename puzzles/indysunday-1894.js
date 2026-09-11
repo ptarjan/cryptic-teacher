@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1894"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Uniform in East Germany Wessis regularly wear for parties (7,5)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -86,9 +83,6 @@ window.CRYPTIC_PUZZLES["indysunday-1894"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Playing against Hearts in tears, club get prize (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "VALUE",
    "annotation": {
@@ -143,9 +137,6 @@ window.CRYPTIC_PUZZLES["indysunday-1894"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Silver Spirit on drive upset miser (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "NIGGARD",
    "annotation": {
@@ -210,9 +201,6 @@ window.CRYPTIC_PUZZLES["indysunday-1894"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Anonymous text appended to edition of Donne (11)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "NONDESCRIPT",
    "annotation": {
@@ -256,9 +244,6 @@ window.CRYPTIC_PUZZLES["indysunday-1894"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "500 traitors shot after revolution as shining example (3,4)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -324,9 +309,6 @@ window.CRYPTIC_PUZZLES["indysunday-1894"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Detective agreed, on the record? (3)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "EYE",
    "annotation": {
@@ -361,9 +343,6 @@ window.CRYPTIC_PUZZLES["indysunday-1894"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Spooner's crew decline help with water coming in (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "SANDBAG",
    "annotation": {
@@ -412,9 +391,6 @@ window.CRYPTIC_PUZZLES["indysunday-1894"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Giving cheer, Scooby-Doo gleefully lifted masks (8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "FEELGOOD",
    "annotation": {
@@ -450,9 +426,6 @@ window.CRYPTIC_PUZZLES["indysunday-1894"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Weary having consumed jug of wine (6)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "FLAGON",
    "annotation": {
@@ -489,9 +462,6 @@ window.CRYPTIC_PUZZLES["indysunday-1894"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "What's certainly near EU and close to Cherbourg, going west? (8)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "GUERNSEY",
    "annotation": {
@@ -562,9 +532,6 @@ window.CRYPTIC_PUZZLES["indysunday-1894"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Most sober people you see set limits (8)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "SEDATEST",
    "annotation": {
@@ -608,9 +575,6 @@ window.CRYPTIC_PUZZLES["indysunday-1894"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Dog rolled over in bed, kind of blue (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "COBALT",
    "annotation": {
@@ -662,9 +626,6 @@ window.CRYPTIC_PUZZLES["indysunday-1894"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Pirate well-trained behind bar, collecting empties primarily (11)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {},
    "solution": "COUNTERFEIT",
    "annotation": {
@@ -718,9 +679,6 @@ window.CRYPTIC_PUZZLES["indysunday-1894"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Political aide, one in black suit mostly (4)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "SPAD",
    "annotation": {
@@ -757,9 +715,6 @@ window.CRYPTIC_PUZZLES["indysunday-1894"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Purple robes do for upper-class swinger (8)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "PENDULUM",
    "annotation": {
@@ -809,9 +764,6 @@ window.CRYPTIC_PUZZLES["indysunday-1894"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Dancing cured Mungo's grump (10)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "CURMUDGEON",
    "annotation": {
@@ -856,9 +808,6 @@ window.CRYPTIC_PUZZLES["indysunday-1894"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "A fan of 11 is unable to drink, perhaps (10)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "INTOXICANT",
    "annotation": {
@@ -904,9 +853,6 @@ window.CRYPTIC_PUZZLES["indysunday-1894"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Former Soviet regions love sound of bombing (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "OBLASTS",
    "annotation": {
@@ -943,9 +889,6 @@ window.CRYPTIC_PUZZLES["indysunday-1894"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Money expert Ed swaps capital for gold (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "AUDITOR",
    "annotation": {
@@ -993,9 +936,6 @@ window.CRYPTIC_PUZZLES["indysunday-1894"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Report of grain yield (4)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "CEDE",
    "annotation": {
@@ -1030,9 +970,6 @@ window.CRYPTIC_PUZZLES["indysunday-1894"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Sleep outside house with right insect repellent (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "CAMPHOR",
    "annotation": {
@@ -1078,9 +1015,6 @@ window.CRYPTIC_PUZZLES["indysunday-1894"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Currently popular hairstyle, say, that's iffy from behind (6)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "MULLET",
    "annotation": {
@@ -1133,9 +1067,6 @@ window.CRYPTIC_PUZZLES["indysunday-1894"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Withdrawn advert affected market for cheaper poultry (4,4)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -1195,9 +1126,6 @@ window.CRYPTIC_PUZZLES["indysunday-1894"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Friend's promise to leave in the morning? (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "AMIGO",
    "annotation": {
@@ -1238,9 +1166,6 @@ window.CRYPTIC_PUZZLES["indysunday-1894"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "At a social event maybe wearing a suit's best (8)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "OUTSMART",
    "annotation": {
@@ -1280,9 +1205,6 @@ window.CRYPTIC_PUZZLES["indysunday-1894"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Height bagged by phenomenal pole-vaulter (3)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "ALP",
    "annotation": {
@@ -1316,9 +1238,6 @@ window.CRYPTIC_PUZZLES["indysunday-1894"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Cycling finishes in sprint, French kind of race (6)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "ETHNIC",
    "annotation": {
@@ -1363,9 +1282,6 @@ window.CRYPTIC_PUZZLES["indysunday-1894"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Celebrity sprouted arms in different places (12)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "SUPERSTARDOM",
    "annotation": {

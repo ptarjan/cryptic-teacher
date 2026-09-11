@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29981"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Ultimately penned by innocent child, a letter on papyrus, perhaps? (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "LAMBDA",
    "annotation": {
@@ -141,9 +138,6 @@ window.CRYPTIC_PUZZLES["cryptic-29981"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Someone loathing vampire, point driven through heart – might this cover the body? (9)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "BATHWATER",
    "annotation": {
@@ -188,9 +182,6 @@ window.CRYPTIC_PUZZLES["cryptic-29981"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Duck under perfect child in martial art (6)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "AIKIDO",
    "annotation": {
@@ -243,9 +234,6 @@ window.CRYPTIC_PUZZLES["cryptic-29981"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "A parting bicycle travelling, getting away from relations (8)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "CELIBACY",
    "annotation": {
@@ -290,9 +278,6 @@ window.CRYPTIC_PUZZLES["cryptic-29981"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "On which it’s cold and bitter after temperature in liquid decreasing? (10,5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      10
@@ -349,9 +334,6 @@ window.CRYPTIC_PUZZLES["cryptic-29981"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Feeling ready for tennis achievement (4,4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -396,9 +378,6 @@ window.CRYPTIC_PUZZLES["cryptic-29981"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Drill, tedious thing? (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "BORER",
    "annotation": {
@@ -434,9 +413,6 @@ window.CRYPTIC_PUZZLES["cryptic-29981"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Preserving wood, one going in strong, ecofreak? (10)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "CREOSOTING",
    "annotation": {
@@ -486,9 +462,6 @@ window.CRYPTIC_PUZZLES["cryptic-29981"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Ill-conceived, a plastic boyfriend on film (8)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "MISTAKEN",
    "annotation": {
@@ -538,9 +511,6 @@ window.CRYPTIC_PUZZLES["cryptic-29981"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Partner once put on green top (6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "VERTEX",
    "annotation": {
@@ -584,9 +554,6 @@ window.CRYPTIC_PUZZLES["cryptic-29981"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Train carriage required with this? (7,5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -622,9 +589,6 @@ window.CRYPTIC_PUZZLES["cryptic-29981"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Monsters had been identified as footballers (10)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {},
    "solution": "WEREWOLVES",
    "annotation": {
@@ -687,9 +651,6 @@ window.CRYPTIC_PUZZLES["cryptic-29981"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Megastar at sea port (8)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "RAMSGATE",
    "annotation": {
@@ -727,9 +688,6 @@ window.CRYPTIC_PUZZLES["cryptic-29981"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Cat still gripping tail of dog, another cat upset about that (6,3)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -797,9 +755,6 @@ window.CRYPTIC_PUZZLES["cryptic-29981"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Bugs Bunny’s first song about carrot extremely emotional at first (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "BACTERIA",
    "annotation": {
@@ -862,9 +817,6 @@ window.CRYPTIC_PUZZLES["cryptic-29981"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Bounty boarded by a mutineer finally, astern (8)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "REARWARD",
    "annotation": {
@@ -917,9 +869,6 @@ window.CRYPTIC_PUZZLES["cryptic-29981"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Baseball team certainly not heard of in Europe? (4)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "NINE",
    "annotation": {
@@ -955,9 +904,6 @@ window.CRYPTIC_PUZZLES["cryptic-29981"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Caught in German town, you’ve been captured! (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "GOTCHA",
    "annotation": {
@@ -1002,9 +948,6 @@ window.CRYPTIC_PUZZLES["cryptic-29981"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Villa’s place secured in prize museum piece (7,5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -1053,9 +996,6 @@ window.CRYPTIC_PUZZLES["cryptic-29981"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Key tenant initially lost? (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "ENTER",
    "annotation": {
@@ -1098,9 +1038,6 @@ window.CRYPTIC_PUZZLES["cryptic-29981"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Embroidered anecdote? (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "YARN",
    "annotation": {
@@ -1132,9 +1069,6 @@ window.CRYPTIC_PUZZLES["cryptic-29981"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Vishnu, leader lost in war following attacks, reportedly? (6)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "AVATAR",
    "annotation": {
@@ -1183,9 +1117,6 @@ window.CRYPTIC_PUZZLES["cryptic-29981"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Prison, where racketeer has time inside (8)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "ALCATRAZ",
    "annotation": {
@@ -1233,9 +1164,6 @@ window.CRYPTIC_PUZZLES["cryptic-29981"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Sequence logged by gentleman, resubmitted when typed the wrong way? (8)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "USERNAME",
    "annotation": {
@@ -1278,9 +1206,6 @@ window.CRYPTIC_PUZZLES["cryptic-29981"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "A loch, out of which pulled the first old nut (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "ALMOND",
    "annotation": {

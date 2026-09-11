@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12391"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Thread appropriate to be worn by some Californians? (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "FILAMENT",
    "annotation": {
@@ -72,9 +69,6 @@ window.CRYPTIC_PUZZLES["independent-12391"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Sit in with youngster at the end of lunchtime (8)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "INCUBATE",
    "annotation": {
@@ -122,9 +116,6 @@ window.CRYPTIC_PUZZLES["independent-12391"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "One brother looks up to grab both boxes (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "ABBOT",
    "annotation": {
@@ -159,9 +150,6 @@ window.CRYPTIC_PUZZLES["independent-12391"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "No matter what I wear they must change (6,3)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -203,9 +191,6 @@ window.CRYPTIC_PUZZLES["independent-12391"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Close to crying, student at the back gets reprimand (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "TEARFUL",
    "annotation": {
@@ -252,9 +237,6 @@ window.CRYPTIC_PUZZLES["independent-12391"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Instigate frolicking, in part (6)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "PROMPT",
    "annotation": {
@@ -299,9 +281,6 @@ window.CRYPTIC_PUZZLES["independent-12391"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Groom not fully prepared, suffering head loss under pressure (5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "PREEN",
    "annotation": {
@@ -347,9 +326,6 @@ window.CRYPTIC_PUZZLES["independent-12391"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Tendon he damaged covering miles is healing (2,3,4)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -402,9 +378,6 @@ window.CRYPTIC_PUZZLES["independent-12391"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Expression clashes in speech (6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "PHRASE",
    "annotation": {
@@ -440,9 +413,6 @@ window.CRYPTIC_PUZZLES["independent-12391"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Sing composition about bobbin initially wound once? (4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "SCAB",
    "annotation": {
@@ -483,9 +453,6 @@ window.CRYPTIC_PUZZLES["independent-12391"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Path of hauling vehicle transporting most of jet back to bay (10)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "TRAJECTORY",
    "annotation": {
@@ -539,9 +506,6 @@ window.CRYPTIC_PUZZLES["independent-12391"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "She often drops in but regrets dancing with fellow (13)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "BUTTERFINGERS",
    "annotation": {
@@ -588,9 +552,6 @@ window.CRYPTIC_PUZZLES["independent-12391"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Cook makes moist rolls (4)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "STEW",
    "annotation": {
@@ -634,9 +595,6 @@ window.CRYPTIC_PUZZLES["independent-12391"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Sadly try hard to pen fresh clues (5,4)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -693,9 +651,6 @@ window.CRYPTIC_PUZZLES["independent-12391"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Reversal of rule tricks swimmers (8)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "WALRUSES",
    "annotation": {
@@ -748,9 +703,6 @@ window.CRYPTIC_PUZZLES["independent-12391"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Football team admitting former champion's top is cool (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "UNEXCITED",
    "annotation": {
@@ -804,9 +756,6 @@ window.CRYPTIC_PUZZLES["independent-12391"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Hearts card seen ahead of the turn, finally? Raise! (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "HEIGHTEN",
    "annotation": {
@@ -858,9 +807,6 @@ window.CRYPTIC_PUZZLES["independent-12391"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Fish, bass, placed in appropriate dish for sharing (8)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "TRAYBAKE",
    "annotation": {
@@ -911,9 +857,6 @@ window.CRYPTIC_PUZZLES["independent-12391"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Satisfy upset Thorpe Park-goers at last following early closure of attraction (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "APPEASE",
    "annotation": {
@@ -969,9 +912,6 @@ window.CRYPTIC_PUZZLES["independent-12391"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Song cover lacking volume (4)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "DUET",
    "annotation": {
@@ -1014,9 +954,6 @@ window.CRYPTIC_PUZZLES["independent-12391"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Hard to find vehicle near small church (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "SCARCE",
    "annotation": {
@@ -1066,9 +1003,6 @@ window.CRYPTIC_PUZZLES["independent-12391"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Be visibly upset about that woman's photo, man being biased? (6-7)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {
     "-": [
      6
@@ -1129,9 +1063,6 @@ window.CRYPTIC_PUZZLES["independent-12391"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Mature lone pirate held up harbours (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "RIPEN",
    "annotation": {
@@ -1174,9 +1105,6 @@ window.CRYPTIC_PUZZLES["independent-12391"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Receive hot dog (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "INCUR",
    "annotation": {
@@ -1215,9 +1143,6 @@ window.CRYPTIC_PUZZLES["independent-12391"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Celebrating two caps spanning one November on separate occasions (10)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "TRIUMPHANT",
    "annotation": {
@@ -1272,9 +1197,6 @@ window.CRYPTIC_PUZZLES["independent-12391"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Clever tool for breaking walls closer to joist (4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "CUTE",
    "annotation": {
@@ -1319,9 +1241,6 @@ window.CRYPTIC_PUZZLES["independent-12391"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Sign man potted overwhelms beginner on Crucible floor (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "BECKON",
    "annotation": {
@@ -1376,9 +1295,6 @@ window.CRYPTIC_PUZZLES["independent-12391"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Going on foot, mathematician leaves capital (8)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "ENDURING",
    "annotation": {

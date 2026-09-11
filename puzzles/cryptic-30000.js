@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30000"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Einstein retrospectively taking legal action over equation’s origin (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "GENIUS",
    "annotation": {
@@ -80,9 +77,6 @@ window.CRYPTIC_PUZZLES["cryptic-30000"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Lustrous, wingless bug (6,2)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -124,9 +118,6 @@ window.CRYPTIC_PUZZLES["cryptic-30000"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Parched after cycling in area south of Suez (3,3)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -171,9 +162,6 @@ window.CRYPTIC_PUZZLES["cryptic-30000"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Loose gravel’s slippery stuff (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "VERGLAS",
    "annotation": {
@@ -211,9 +199,6 @@ window.CRYPTIC_PUZZLES["cryptic-30000"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "See you doffing cap a lot (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "OODLES",
    "annotation": {
@@ -251,9 +236,6 @@ window.CRYPTIC_PUZZLES["cryptic-30000"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Fossil fuel left dons suffering agonies (8)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "GASOLINE",
    "annotation": {
@@ -298,9 +280,6 @@ window.CRYPTIC_PUZZLES["cryptic-30000"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Edges of empire sacked by Egypt’s last queen (9)",
-   "group": [
-    "7-across"
-   ],
    "separatorLocations": {},
    "solution": "PERIMETER",
    "annotation": {
@@ -355,9 +334,6 @@ window.CRYPTIC_PUZZLES["cryptic-30000"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Told ally to lose three pounds before tomorrow (5)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {},
    "solution": "TODAY",
    "annotation": {
@@ -400,9 +376,6 @@ window.CRYPTIC_PUZZLES["cryptic-30000"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Bring this novel for Leo, perhaps (5,4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -447,9 +420,6 @@ window.CRYPTIC_PUZZLES["cryptic-30000"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Reportedly failing, fell (5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "FLOOR",
    "annotation": {
@@ -485,9 +455,6 @@ window.CRYPTIC_PUZZLES["cryptic-30000"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Offer and appraisal both turned out to be unwritten (4)",
-   "group": [
-    "11-down"
-   ],
    "separatorLocations": {},
    "solution": "ORAL",
    "annotation": {
@@ -534,9 +501,6 @@ window.CRYPTIC_PUZZLES["cryptic-30000"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Some thoughts on Gabonese Bantu language (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "TSONGA",
    "annotation": {
@@ -571,9 +535,6 @@ window.CRYPTIC_PUZZLES["cryptic-30000"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Always, come rain or shine, tongue in cheek? (8)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "ACROSTIC",
    "annotation": {
@@ -613,9 +574,6 @@ window.CRYPTIC_PUZZLES["cryptic-30000"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "In bits, heads to America (see below) (7)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "ASUNDER",
    "annotation": {
@@ -668,9 +626,6 @@ window.CRYPTIC_PUZZLES["cryptic-30000"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "False promise goads nurses (8)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "SPURIOUS",
    "annotation": {
@@ -715,9 +670,6 @@ window.CRYPTIC_PUZZLES["cryptic-30000"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Authentic beach huts oddly disappearing (4)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "ECHT",
    "annotation": {
@@ -755,9 +707,6 @@ window.CRYPTIC_PUZZLES["cryptic-30000"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Earliest of begonias continued blooming (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "BLASTED",
    "annotation": {
@@ -802,9 +751,6 @@ window.CRYPTIC_PUZZLES["cryptic-30000"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Buys barrier to stop litter droppers (8)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "SWALLOWS",
    "annotation": {
@@ -849,9 +795,6 @@ window.CRYPTIC_PUZZLES["cryptic-30000"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Familiar with your sib’s butt trouble (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "PERTURB",
    "annotation": {
@@ -904,9 +847,6 @@ window.CRYPTIC_PUZZLES["cryptic-30000"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Free money for Americans, with short notice (8)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "BUCKSHEE",
    "annotation": {
@@ -953,9 +893,6 @@ window.CRYPTIC_PUZZLES["cryptic-30000"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Roger backing strike for change in Russia (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "KOPECK",
    "annotation": {
@@ -1008,9 +945,6 @@ window.CRYPTIC_PUZZLES["cryptic-30000"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Goes off round centre of Damascus and swelters (6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "ROASTS",
    "annotation": {
@@ -1060,9 +994,6 @@ window.CRYPTIC_PUZZLES["cryptic-30000"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Lacking vigour in harem is shameful (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "REMISS",
    "annotation": {
@@ -1097,9 +1028,6 @@ window.CRYPTIC_PUZZLES["cryptic-30000"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Chasing game, regularly dispatching zebras and big cats (6)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "TIGERS",
    "annotation": {
@@ -1146,9 +1074,6 @@ window.CRYPTIC_PUZZLES["cryptic-30000"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Delicate international agent put on weight (5)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "WISPY",
    "annotation": {
@@ -1198,9 +1123,6 @@ window.CRYPTIC_PUZZLES["cryptic-30000"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Exciting yet gloomy study of roots (9)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "ETYMOLOGY",
    "annotation": {
@@ -1238,9 +1160,6 @@ window.CRYPTIC_PUZZLES["cryptic-30000"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Brief question for bachelor in automobile (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "QUICK",
    "annotation": {
@@ -1291,9 +1210,6 @@ window.CRYPTIC_PUZZLES["cryptic-30000"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Oblique signal in setter’s work (9)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "CROSSWORD",
    "annotation": {

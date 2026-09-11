@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30091"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Not much of an experience for the Artemis II crew at the end (1,4,2,3,5)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      1,
@@ -71,9 +68,6 @@ window.CRYPTIC_PUZZLES["cryptic-30091"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Smiley book’s going up I learn? (8)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "EMOTICON",
    "annotation": {
@@ -128,9 +122,6 @@ window.CRYPTIC_PUZZLES["cryptic-30091"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Insults marrow in seconds (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "SNUBS",
    "annotation": {
@@ -174,9 +165,6 @@ window.CRYPTIC_PUZZLES["cryptic-30091"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Company actor initially wearing plain attire (8)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "OVERCOAT",
    "annotation": {
@@ -228,9 +216,6 @@ window.CRYPTIC_PUZZLES["cryptic-30091"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Black, easily portable mould (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "BLIGHT",
    "annotation": {
@@ -267,9 +252,6 @@ window.CRYPTIC_PUZZLES["cryptic-30091"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Incline to quash civil act by end of day (9)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "ACCLIVITY",
    "annotation": {
@@ -316,9 +298,6 @@ window.CRYPTIC_PUZZLES["cryptic-30091"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Valour shown after detonation of part of a plant (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "OVULAR",
    "annotation": {
@@ -355,9 +334,6 @@ window.CRYPTIC_PUZZLES["cryptic-30091"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Tree expert’s concoction of citrus and oil-tar rub (15)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "ARBORICULTURIST",
    "annotation": {
@@ -397,9 +373,6 @@ window.CRYPTIC_PUZZLES["cryptic-30091"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "‘Evil demon vanquished!’ makes sensational reading (4,5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -443,9 +416,6 @@ window.CRYPTIC_PUZZLES["cryptic-30091"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Sporty type beneath the surface, but one who’ll give in? (5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "CAVER",
    "annotation": {
@@ -479,9 +449,6 @@ window.CRYPTIC_PUZZLES["cryptic-30091"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Court award presented in alternative month (7)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "OCTOBER",
    "annotation": {
@@ -531,9 +498,6 @@ window.CRYPTIC_PUZZLES["cryptic-30091"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Astronomer’s western partner, one with a sign (7)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "GALILEO",
    "annotation": {
@@ -579,9 +543,6 @@ window.CRYPTIC_PUZZLES["cryptic-30091"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Tongue-in-cheek, creep inside (4)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "INCH",
    "annotation": {
@@ -615,9 +576,6 @@ window.CRYPTIC_PUZZLES["cryptic-30091"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Composer of divertimento managed without it (10)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "MONTEVERDI",
    "annotation": {
@@ -659,9 +617,6 @@ window.CRYPTIC_PUZZLES["cryptic-30091"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "It refreshes dictionary’s backing – and work by Bellow (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "DEODORANT",
    "annotation": {
@@ -716,9 +671,6 @@ window.CRYPTIC_PUZZLES["cryptic-30091"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Treasure’s almost buried by explosive – touching (7)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "TANGENT",
    "annotation": {
@@ -770,9 +722,6 @@ window.CRYPTIC_PUZZLES["cryptic-30091"] = /*JSON-START*/ {
      26
     ]
    ],
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "WATTEAU",
    "annotation": {
@@ -812,9 +761,6 @@ window.CRYPTIC_PUZZLES["cryptic-30091"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Travel on board Chinook, say, seated on foam (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "WINDSURF",
    "annotation": {
@@ -859,9 +805,6 @@ window.CRYPTIC_PUZZLES["cryptic-30091"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Buddy possibly needs energy to be put in goal and improved (8)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "ENRICHED",
    "annotation": {
@@ -926,9 +869,6 @@ window.CRYPTIC_PUZZLES["cryptic-30091"] = /*JSON-START*/ {
      8
     ]
    ],
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "EMBODIMENT",
    "annotation": {
@@ -980,9 +920,6 @@ window.CRYPTIC_PUZZLES["cryptic-30091"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Elected, elevated and taken to party’s heart – then shut out (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "BANISH",
    "annotation": {
@@ -1037,9 +974,6 @@ window.CRYPTIC_PUZZLES["cryptic-30091"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Nice woman gets a daughter into musical? (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "MADAME",
    "annotation": {
@@ -1084,9 +1018,6 @@ window.CRYPTIC_PUZZLES["cryptic-30091"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Child has right to enter club (4)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "BRAT",
    "annotation": {
@@ -1130,9 +1061,6 @@ window.CRYPTIC_PUZZLES["cryptic-30091"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Sing and entertain (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "ADMIT",
    "annotation": {
@@ -1166,9 +1094,6 @@ window.CRYPTIC_PUZZLES["cryptic-30091"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Focused on getting money – shamefaced (7)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "CENTRED",
    "annotation": {
@@ -1214,9 +1139,6 @@ window.CRYPTIC_PUZZLES["cryptic-30091"] = /*JSON-START*/ {
      8
     ]
    ],
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "SEDUCER",
    "annotation": {
@@ -1260,9 +1182,6 @@ window.CRYPTIC_PUZZLES["cryptic-30091"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Minister without Portfolio’s capital offence (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "ARSON",
    "annotation": {
@@ -1304,9 +1223,6 @@ window.CRYPTIC_PUZZLES["cryptic-30091"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Very hard as level of gratitude abroad reduced? (9)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "MERCILESS",
    "annotation": {

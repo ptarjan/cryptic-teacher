@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4137"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "The person in charge is a knob (4)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "BOSS",
    "annotation": {
@@ -65,9 +62,6 @@ window.CRYPTIC_PUZZLES["everyman-4137"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Cause excessive strain to old, old monarch: that's clear all round (9)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "OVEREXERT",
    "annotation": {
@@ -121,9 +115,6 @@ window.CRYPTIC_PUZZLES["everyman-4137"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Small business held up by No 10? It's a sign (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "SCORPIO",
    "annotation": {
@@ -176,9 +167,6 @@ window.CRYPTIC_PUZZLES["everyman-4137"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "A system? Not at home (4)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "AWAY",
    "annotation": {
@@ -216,9 +204,6 @@ window.CRYPTIC_PUZZLES["everyman-4137"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Australian, a little tease, to prove alluring - or try (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "ATTEMPT",
    "annotation": {
@@ -271,9 +256,6 @@ window.CRYPTIC_PUZZLES["everyman-4137"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Dined at home from single can, reportedly (3,2)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -321,9 +303,6 @@ window.CRYPTIC_PUZZLES["everyman-4137"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Pretty vacant, taken in by hoax surveillance kit (6)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "SPYCAM",
    "annotation": {
@@ -370,9 +349,6 @@ window.CRYPTIC_PUZZLES["everyman-4137"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Islands separated? These hairlines might interlink, primarily! (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "ISTHMI",
    "annotation": {
@@ -410,9 +386,6 @@ window.CRYPTIC_PUZZLES["everyman-4137"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "In Athens, fat people edited film (6,2,3,4)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {
     ",": [
      6,
@@ -464,9 +437,6 @@ window.CRYPTIC_PUZZLES["everyman-4137"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Terrible mess, perhaps, setter's table (1,4,6)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {
     ",": [
      1,
@@ -516,9 +486,6 @@ window.CRYPTIC_PUZZLES["everyman-4137"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Business bending paper-thin, vacuous regulations (11)",
-   "group": [
-    "10-down"
-   ],
    "separatorLocations": {},
    "solution": "PARTNERSHIP",
    "annotation": {
@@ -568,9 +535,6 @@ window.CRYPTIC_PUZZLES["everyman-4137"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Detailed photo? Stop talking! (5-2)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -610,9 +574,6 @@ window.CRYPTIC_PUZZLES["everyman-4137"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Pharaoh perhaps included in symposium on archaeology (7)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "MONARCH",
    "annotation": {
@@ -647,9 +608,6 @@ window.CRYPTIC_PUZZLES["everyman-4137"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Inaccurately describe importers' bananas (9)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "MISREPORT",
    "annotation": {
@@ -692,9 +650,6 @@ window.CRYPTIC_PUZZLES["everyman-4137"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Regressive 'topless' wordplay, not entirely new: Everyman prompting weariness (5)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "ENNUI",
    "annotation": {
@@ -756,9 +711,6 @@ window.CRYPTIC_PUZZLES["everyman-4137"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "What remains of razed supermarket, you say: a few small hairs (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "EYELASHES",
    "annotation": {
@@ -800,9 +752,6 @@ window.CRYPTIC_PUZZLES["everyman-4137"] = /*JSON-START*/ {
      12
     ]
    ],
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "SWIFT",
    "annotation": {
@@ -840,9 +789,6 @@ window.CRYPTIC_PUZZLES["everyman-4137"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Very rainy - I'm surprised - somewhere in S Africa (6)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "SOWETO",
    "annotation": {
@@ -886,9 +832,6 @@ window.CRYPTIC_PUZZLES["everyman-4137"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Underarm's faltering: beat this! (5,4)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -936,9 +879,6 @@ window.CRYPTIC_PUZZLES["everyman-4137"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Ex-president, leader of Zimbabwe okays reforms adopting rand (7)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "SARKOZY",
    "annotation": {
@@ -990,9 +930,6 @@ window.CRYPTIC_PUZZLES["everyman-4137"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "American made American biopic (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "AMADEUS",
    "annotation": {
@@ -1036,9 +973,6 @@ window.CRYPTIC_PUZZLES["everyman-4137"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "American backing school for doctors, one wanting decapitation (6)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "MEDUSA",
    "annotation": {
@@ -1082,9 +1016,6 @@ window.CRYPTIC_PUZZLES["everyman-4137"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Party to unwind, so Rolfing a kind of knot (7)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "WINDSOR",
    "annotation": {
@@ -1119,9 +1050,6 @@ window.CRYPTIC_PUZZLES["everyman-4137"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Channel, one doing some embroidery (5)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "SEWER",
    "annotation": {
@@ -1155,9 +1083,6 @@ window.CRYPTIC_PUZZLES["everyman-4137"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "After a party, journalist shamefaced (7)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "ABASHED",
    "annotation": {
@@ -1207,9 +1132,6 @@ window.CRYPTIC_PUZZLES["everyman-4137"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Dance, and unsettle sundry squares? (5,4,6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     ",": [
      5,
@@ -1261,9 +1183,6 @@ window.CRYPTIC_PUZZLES["everyman-4137"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Goods cart, just under 1m in length, rejected (4)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "DRAY",
    "annotation": {
@@ -1307,9 +1226,6 @@ window.CRYPTIC_PUZZLES["everyman-4137"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Ornamental band showing RIP - LEFT - DEPARTED (4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "SASH",
    "annotation": {

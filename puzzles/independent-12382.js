@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12382"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Farewell remark respecting a Royal Academician (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "SAYONARA",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["independent-12382"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Person staying cool thanks to ice packs (5)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "STOIC",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["independent-12382"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Americans behind bars try bottles right on top of shelf after measure of ale (9)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "YARDBIRDS",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["independent-12382"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Sky Group withdrawing health measure covered by National Insurance (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "NIMBI",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["independent-12382"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Gets empty urn out steadily (4,3)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -114,9 +99,6 @@ window.CRYPTIC_PUZZLES["independent-12382"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Heading to Oxford with writer – excellent company for a chat? (4,1,1)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -136,9 +118,6 @@ window.CRYPTIC_PUZZLES["independent-12382"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Tradesperson alerts rep after restructure (9)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "PLASTERER",
    "annotation": null
@@ -153,9 +132,6 @@ window.CRYPTIC_PUZZLES["independent-12382"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Earl received by respectable relative (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "NIECE",
    "annotation": null
@@ -170,9 +146,6 @@ window.CRYPTIC_PUZZLES["independent-12382"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Overwhelmed by loving lines, extended play (2,3,4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -192,9 +165,6 @@ window.CRYPTIC_PUZZLES["independent-12382"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Emergency room supporting soldier with organ donor (6)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {},
    "solution": "GIFTER",
    "annotation": null
@@ -209,9 +179,6 @@ window.CRYPTIC_PUZZLES["independent-12382"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Wrestling a Roman over leadership of Senate, he pulls a blade (7)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "OARSMAN",
    "annotation": null
@@ -226,9 +193,6 @@ window.CRYPTIC_PUZZLES["independent-12382"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Superlatively silly – like a cuckoo? (7)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "INANEST",
    "annotation": null
@@ -243,9 +207,6 @@ window.CRYPTIC_PUZZLES["independent-12382"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Roughly dash with rental car (9)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "CABRIOLET",
    "annotation": null
@@ -260,9 +221,6 @@ window.CRYPTIC_PUZZLES["independent-12382"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Moving tongue, get shoe ready for exercise (3-2)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -281,9 +239,6 @@ window.CRYPTIC_PUZZLES["independent-12382"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Award stripped for opposition to peace (3)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "WAR",
    "annotation": null
@@ -298,9 +253,6 @@ window.CRYPTIC_PUZZLES["independent-12382"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Special effect Oscar accepted by WWF performer (3,6)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -319,9 +271,6 @@ window.CRYPTIC_PUZZLES["independent-12382"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Grow tired and be remarkably crosser with tourists in London (5,6)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -346,9 +295,6 @@ window.CRYPTIC_PUZZLES["independent-12382"] = /*JSON-START*/ {
      15
     ]
    ],
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "TREADMILL",
    "annotation": null
@@ -363,9 +309,6 @@ window.CRYPTIC_PUZZLES["independent-12382"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Contests settled after recording rising shares (7,2)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -384,9 +327,6 @@ window.CRYPTIC_PUZZLES["independent-12382"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Second member of gym gets her drawers in a twist over cycling machine (6-5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {
     "-": [
      6
@@ -405,9 +345,6 @@ window.CRYPTIC_PUZZLES["independent-12382"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Smartly-dressed salesperson home, laid up (6)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "DAPPER",
    "annotation": null
@@ -422,9 +359,6 @@ window.CRYPTIC_PUZZLES["independent-12382"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Comfy on the bottom, chair for sunbathing topless is comparatively new (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "YOUNGER",
    "annotation": null
@@ -439,9 +373,6 @@ window.CRYPTIC_PUZZLES["independent-12382"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Somebody demanding sixpence? (1,1,1)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      1,
@@ -461,9 +392,6 @@ window.CRYPTIC_PUZZLES["independent-12382"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Eager to gather round duck (5)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "AVOID",
    "annotation": null
@@ -478,9 +406,6 @@ window.CRYPTIC_PUZZLES["independent-12382"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Dynamic pieces of trap start to open up (2,3)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -499,9 +424,6 @@ window.CRYPTIC_PUZZLES["independent-12382"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Lear’s beginning to enter stage and I’m keeping close to you – powerful stuff (9)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "PLUTONIUM",
    "annotation": null
@@ -516,9 +438,6 @@ window.CRYPTIC_PUZZLES["independent-12382"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Figures out values and leaves Sotheby’s at the opening (5)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "OVALS",
    "annotation": null
@@ -533,9 +452,6 @@ window.CRYPTIC_PUZZLES["independent-12382"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Considered problem raised by editor (5)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "MUSED",
    "annotation": null
@@ -550,9 +466,6 @@ window.CRYPTIC_PUZZLES["independent-12382"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "End of bottle – setter’s last in store for drinking session? (7)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "TEATIME",
    "annotation": null
@@ -567,9 +480,6 @@ window.CRYPTIC_PUZZLES["independent-12382"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "In the end, disbelieving kids – you can see right through them (7)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "GLASSES",
    "annotation": null
@@ -584,9 +494,6 @@ window.CRYPTIC_PUZZLES["independent-12382"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Rodent let out, causing alarm (6)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "RATTLE",
    "annotation": null
@@ -601,9 +508,6 @@ window.CRYPTIC_PUZZLES["independent-12382"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Bunk with Bill, welcoming quiet place to sleep (8)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "CRASHPAD",
    "annotation": null

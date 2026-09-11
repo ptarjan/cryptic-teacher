@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1823"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Dance round home gym backward (3-4)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -46,9 +43,6 @@ window.CRYPTIC_PUZZLES["indysunday-1823"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Company overthrown by top U.S. Army figure? (7)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "OCTOPUS",
    "annotation": null
@@ -63,9 +57,6 @@ window.CRYPTIC_PUZZLES["indysunday-1823"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Please go in vehicle right away (9)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "ENTERTAIN",
    "annotation": null
@@ -80,9 +71,6 @@ window.CRYPTIC_PUZZLES["indysunday-1823"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Lacking energy after tango and twist (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "TWEAK",
    "annotation": null
@@ -97,9 +85,6 @@ window.CRYPTIC_PUZZLES["indysunday-1823"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "A response about training period (9)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "PRESEASON",
    "annotation": null
@@ -114,9 +99,6 @@ window.CRYPTIC_PUZZLES["indysunday-1823"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Shout at last shattered glass (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "CRYSTAL",
    "annotation": null
@@ -131,9 +113,6 @@ window.CRYPTIC_PUZZLES["indysunday-1823"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Young animals abandoning large underground areas (5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "CAVES",
    "annotation": null
@@ -148,9 +127,6 @@ window.CRYPTIC_PUZZLES["indysunday-1823"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Very recently in the past you strayed carelessly (9)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "YESTERDAY",
    "annotation": null
@@ -165,9 +141,6 @@ window.CRYPTIC_PUZZLES["indysunday-1823"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Approximately under end of elephant's trunk (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "TORSO",
    "annotation": null
@@ -182,9 +155,6 @@ window.CRYPTIC_PUZZLES["indysunday-1823"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Friend climbing up to capture grand bird (7)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "LAPWING",
    "annotation": null
@@ -199,9 +169,6 @@ window.CRYPTIC_PUZZLES["indysunday-1823"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Name of bird with large plumage in the back (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "TITLE",
    "annotation": null
@@ -216,9 +183,6 @@ window.CRYPTIC_PUZZLES["indysunday-1823"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Listen in on what happens in \"The Fall\" after lead character goes missing (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "EAVESDROP",
    "annotation": null
@@ -233,9 +197,6 @@ window.CRYPTIC_PUZZLES["indysunday-1823"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Peak rates upset flyers (9)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "PARAKEETS",
    "annotation": null
@@ -250,9 +211,6 @@ window.CRYPTIC_PUZZLES["indysunday-1823"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Mushroom found in jalapeno kimchi (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "ENOKI",
    "annotation": null
@@ -267,9 +225,6 @@ window.CRYPTIC_PUZZLES["indysunday-1823"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "A lot of shrimp and urchin (5)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "SCAMP",
    "annotation": null
@@ -284,9 +239,6 @@ window.CRYPTIC_PUZZLES["indysunday-1823"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Apple reduced price abroad for piece of office equipment (5,4)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -305,9 +257,6 @@ window.CRYPTIC_PUZZLES["indysunday-1823"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Wrapping up small bundle containing tail of striped fish (9)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "SWADDLING",
    "annotation": null
@@ -322,9 +271,6 @@ window.CRYPTIC_PUZZLES["indysunday-1823"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "A river bank had traps close to shore, illustrating hunter's point? (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "ARROWHEAD",
    "annotation": null
@@ -339,9 +285,6 @@ window.CRYPTIC_PUZZLES["indysunday-1823"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Old American comedians working together (2,7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -360,9 +303,6 @@ window.CRYPTIC_PUZZLES["indysunday-1823"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "One pecan crushed with head of round kitchen tool (3-6)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -381,9 +321,6 @@ window.CRYPTIC_PUZZLES["indysunday-1823"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Hunter who gives a damn about nothing! (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "COURSER",
    "annotation": null
@@ -398,9 +335,6 @@ window.CRYPTIC_PUZZLES["indysunday-1823"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Unknown number in German boat (5)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "YACHT",
    "annotation": null
@@ -415,9 +349,6 @@ window.CRYPTIC_PUZZLES["indysunday-1823"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Playing outside is tiring (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "TEDIOUS",
    "annotation": null
@@ -432,9 +363,6 @@ window.CRYPTIC_PUZZLES["indysunday-1823"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Superior evening meal starting late (5)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "UPPER",
    "annotation": null
@@ -449,9 +377,6 @@ window.CRYPTIC_PUZZLES["indysunday-1823"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Softly lifted dead part of flower (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "PETAL",
    "annotation": null
@@ -466,9 +391,6 @@ window.CRYPTIC_PUZZLES["indysunday-1823"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Charmed  by European with desire in bed (9)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "BEWITCHED",
    "annotation": null
@@ -483,9 +405,6 @@ window.CRYPTIC_PUZZLES["indysunday-1823"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Pickle and cheese sandwiches back in fashion (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "BRINE",
    "annotation": null
@@ -500,9 +419,6 @@ window.CRYPTIC_PUZZLES["indysunday-1823"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Tent cut in the back with sword (5)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "TEPEE",
    "annotation": null
@@ -517,9 +433,6 @@ window.CRYPTIC_PUZZLES["indysunday-1823"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Positioned select group around planet's second moon (9)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "SATELLITE",
    "annotation": null
@@ -534,9 +447,6 @@ window.CRYPTIC_PUZZLES["indysunday-1823"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Papa in old picture (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "PHOTO",
    "annotation": null
@@ -551,9 +461,6 @@ window.CRYPTIC_PUZZLES["indysunday-1823"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Fall back on side of ladder at recess (7)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "RELAPSE",
    "annotation": null
@@ -568,9 +475,6 @@ window.CRYPTIC_PUZZLES["indysunday-1823"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Doctor having difficulties, missing medium bandages (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "DRESSES",
    "annotation": null

@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30006"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Goddess at one time packing case in America (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "ATHENA",
    "annotation": {
@@ -77,9 +74,6 @@ window.CRYPTIC_PUZZLES["cryptic-30006"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Bottle consumed by familiar artist (8)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "MAGRITTE",
    "annotation": {
@@ -124,9 +118,6 @@ window.CRYPTIC_PUZZLES["cryptic-30006"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Artist, artist after split (6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "RIVERA",
    "annotation": {
@@ -170,9 +161,6 @@ window.CRYPTIC_PUZZLES["cryptic-30006"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Bacon paintings hard for artist (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "HOGARTH",
    "annotation": {
@@ -219,9 +207,6 @@ window.CRYPTIC_PUZZLES["cryptic-30006"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Wife and artist keeping pea, essentially, in pod (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "WHALES",
    "annotation": {
@@ -279,9 +264,6 @@ window.CRYPTIC_PUZZLES["cryptic-30006"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Artist in clover, one senses (8)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "VERONESE",
    "annotation": {
@@ -316,9 +298,6 @@ window.CRYPTIC_PUZZLES["cryptic-30006"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Smoother artist after ammo initially loading type of gun (5,4)",
-   "group": [
-    "7-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -383,9 +362,6 @@ window.CRYPTIC_PUZZLES["cryptic-30006"] = /*JSON-START*/ {
      12
     ]
    ],
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {},
    "solution": "WHEEL",
    "annotation": {
@@ -417,9 +393,6 @@ window.CRYPTIC_PUZZLES["cryptic-30006"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Rescuing relative at sea, Romeo saved (9)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "RETRIEVAL",
    "annotation": {
@@ -469,9 +442,6 @@ window.CRYPTIC_PUZZLES["cryptic-30006"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Sailing boat in lottery capsized (5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "SLOOP",
    "annotation": {
@@ -518,9 +488,6 @@ window.CRYPTIC_PUZZLES["cryptic-30006"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Sport in which artist has lost tie (4)",
-   "group": [
-    "11-down"
-   ],
    "separatorLocations": {},
    "solution": "POLO",
    "annotation": {
@@ -566,9 +533,6 @@ window.CRYPTIC_PUZZLES["cryptic-30006"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Artist not entirely impressed by intro of traditional chant that’s sacred (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "MANTRA",
    "annotation": {
@@ -617,9 +581,6 @@ window.CRYPTIC_PUZZLES["cryptic-30006"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Told hoes (or hose), or those old screws – here? (4,4)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -672,9 +633,6 @@ window.CRYPTIC_PUZZLES["cryptic-30006"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Tissue cut then by artist (7)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "KLEENEX",
    "annotation": {
@@ -721,9 +679,6 @@ window.CRYPTIC_PUZZLES["cryptic-30006"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Artist excited ship’s lookout? (8)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "LANDSEER",
    "annotation": {
@@ -761,9 +716,6 @@ window.CRYPTIC_PUZZLES["cryptic-30006"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Artist, sign unframed? (4)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "EMIN",
    "annotation": {
@@ -806,9 +758,6 @@ window.CRYPTIC_PUZZLES["cryptic-30006"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Wood nailed back by bloody artist (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "GORMLEY",
    "annotation": {
@@ -864,9 +813,6 @@ window.CRYPTIC_PUZZLES["cryptic-30006"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Manet or Hockney originally turned over (4,4)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -920,9 +866,6 @@ window.CRYPTIC_PUZZLES["cryptic-30006"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Questionable claims come up briefly for artist (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "MORISOT",
    "annotation": {
@@ -972,9 +915,6 @@ window.CRYPTIC_PUZZLES["cryptic-30006"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Artist in cage with lion torn to pieces (8)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "ANGELICO",
    "annotation": {
@@ -1021,9 +961,6 @@ window.CRYPTIC_PUZZLES["cryptic-30006"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Brow wiped of female, say, stealing a charm (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "ENDEAR",
    "annotation": {
@@ -1070,9 +1007,6 @@ window.CRYPTIC_PUZZLES["cryptic-30006"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Whistler recalled mother having little time for theorist (6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "FERMAT",
    "annotation": {
@@ -1131,9 +1065,6 @@ window.CRYPTIC_PUZZLES["cryptic-30006"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Foxtrot is the dancing obsession (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "FETISH",
    "annotation": {
@@ -1181,9 +1112,6 @@ window.CRYPTIC_PUZZLES["cryptic-30006"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "In a particular way, what a lone ranger might need? (6)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "ANALLY",
    "annotation": {
@@ -1224,9 +1152,6 @@ window.CRYPTIC_PUZZLES["cryptic-30006"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Whisper first song on record? (5)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "ASIDE",
    "annotation": {
@@ -1264,9 +1189,6 @@ window.CRYPTIC_PUZZLES["cryptic-30006"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Artist, it’s time to check out food expert! (9)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "DIETITIAN",
    "annotation": {
@@ -1304,9 +1226,6 @@ window.CRYPTIC_PUZZLES["cryptic-30006"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Artist burst bubble, in a manner of speaking? (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "DEGAS",
    "annotation": {
@@ -1350,9 +1269,6 @@ window.CRYPTIC_PUZZLES["cryptic-30006"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Artifice still for artist (9)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "CONSTABLE",
    "annotation": {

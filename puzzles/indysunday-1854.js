@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1854"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Arguing with dad, getting into spirits, teenage trouble (7,5)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -85,9 +82,6 @@ window.CRYPTIC_PUZZLES["indysunday-1854"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Text read by minister, my suggestion for vin rosé (7,7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -141,9 +135,6 @@ window.CRYPTIC_PUZZLES["indysunday-1854"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Cop caught by reduction in force is hopeful (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "WANNABE",
    "annotation": {
@@ -191,9 +182,6 @@ window.CRYPTIC_PUZZLES["indysunday-1854"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "See blonde misapplied red running down face? (9)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "NOSEBLEED",
    "annotation": {
@@ -236,9 +224,6 @@ window.CRYPTIC_PUZZLES["indysunday-1854"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Charity supports US criminal upset with charges met earlier (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "PREPAID",
    "annotation": {
@@ -290,9 +275,6 @@ window.CRYPTIC_PUZZLES["indysunday-1854"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Winning score one put up for seed playing (5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "IPPON",
    "annotation": {
@@ -345,9 +327,6 @@ window.CRYPTIC_PUZZLES["indysunday-1854"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "American feeds permanently dirty bear (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "SUSTAIN",
    "annotation": {
@@ -392,9 +371,6 @@ window.CRYPTIC_PUZZLES["indysunday-1854"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Spanish point out Tenerife is crap (4,10)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -441,9 +417,6 @@ window.CRYPTIC_PUZZLES["indysunday-1854"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Weathercocks on English church vanish (8)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "EVANESCE",
    "annotation": {
@@ -493,9 +466,6 @@ window.CRYPTIC_PUZZLES["indysunday-1854"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Sent after the French in retreat (6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "POSTAL",
    "annotation": {
@@ -546,9 +516,6 @@ window.CRYPTIC_PUZZLES["indysunday-1854"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Large area breakdown service covers remains subject to review (4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "ASIA",
    "annotation": {
@@ -601,9 +568,6 @@ window.CRYPTIC_PUZZLES["indysunday-1854"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Spooner's someone who played Cowboys and Indians for mental activity (10)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "BRAINWAVES",
    "annotation": {
@@ -653,9 +617,6 @@ window.CRYPTIC_PUZZLES["indysunday-1854"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Butchered head on stick (6)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "ADHERE",
    "annotation": {
@@ -708,9 +669,6 @@ window.CRYPTIC_PUZZLES["indysunday-1854"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Blithe director switched live broadcast (8)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "DEBONAIR",
    "annotation": {
@@ -766,9 +724,6 @@ window.CRYPTIC_PUZZLES["indysunday-1854"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Missile German shot with shocking noise overhead (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "BOOMERANG",
    "annotation": {
@@ -823,9 +778,6 @@ window.CRYPTIC_PUZZLES["indysunday-1854"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "That woman caught casing supermarket dealing in arms (8)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "HERALDIC",
    "annotation": {
@@ -876,9 +828,6 @@ window.CRYPTIC_PUZZLES["indysunday-1854"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Where old fighter might roll up? (3,4)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -914,9 +863,6 @@ window.CRYPTIC_PUZZLES["indysunday-1854"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "American filling punch with vermouth turned red (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "CHIANTI",
    "annotation": {
@@ -978,9 +924,6 @@ window.CRYPTIC_PUZZLES["indysunday-1854"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Ugly beast concealed natural beauty (6)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "ORCHID",
    "annotation": {
@@ -1019,9 +962,6 @@ window.CRYPTIC_PUZZLES["indysunday-1854"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Charles with Anne as his relation in carriage (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "CHASSIS",
    "annotation": {
@@ -1064,9 +1004,6 @@ window.CRYPTIC_PUZZLES["indysunday-1854"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Support for writer really bored by criticism in Ireland (10)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "ESCRITOIRE",
    "annotation": {
@@ -1120,9 +1057,6 @@ window.CRYPTIC_PUZZLES["indysunday-1854"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Root vegetables out of Northern Ireland could be thinner (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "TURPS",
    "annotation": {
@@ -1169,9 +1103,6 @@ window.CRYPTIC_PUZZLES["indysunday-1854"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Voice instruction to open Format menu? (4)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "ALTO",
    "annotation": {
@@ -1213,9 +1144,6 @@ window.CRYPTIC_PUZZLES["indysunday-1854"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Rats black and not black, presumably (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "BOTHER",
    "annotation": {
@@ -1257,9 +1185,6 @@ window.CRYPTIC_PUZZLES["indysunday-1854"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Flipping reckless cutting new tree for DIY project after storm warning (5,3)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -1325,9 +1250,6 @@ window.CRYPTIC_PUZZLES["indysunday-1854"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Is no more fuel in can confirmed? It's a non-renewable resource (7,5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {
     ",": [
      7

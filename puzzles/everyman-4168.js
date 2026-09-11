@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4168"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Pet's loud greeting (4)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "FAVE",
    "annotation": {
@@ -69,9 +66,6 @@ window.CRYPTIC_PUZZLES["everyman-4168"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "The whiffler mostly daft, useless individual (5,5)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -115,9 +109,6 @@ window.CRYPTIC_PUZZLES["everyman-4168"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "That's all you have to say? (10)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "VOCABULARY",
    "annotation": {
@@ -150,9 +141,6 @@ window.CRYPTIC_PUZZLES["everyman-4168"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Slightly spoil drink put before friend (10)",
-   "group": [
-    "3-across"
-   ],
    "separatorLocations": {},
    "solution": "MARGINALLY",
    "annotation": {
@@ -202,9 +190,6 @@ window.CRYPTIC_PUZZLES["everyman-4168"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Converted layman suppresses expression of wonder, showing inconsistency (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "ANOMALY",
    "annotation": {
@@ -257,9 +242,6 @@ window.CRYPTIC_PUZZLES["everyman-4168"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Weapon's warm: has this been discharged? (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "GUNSHOT",
    "annotation": {
@@ -298,9 +280,6 @@ window.CRYPTIC_PUZZLES["everyman-4168"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "I've not saying I've done my run after workout (5,3,4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      5,
@@ -343,9 +322,6 @@ window.CRYPTIC_PUZZLES["everyman-4168"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "God, that's almost flipping funny (4)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "LORD",
    "annotation": {
@@ -394,9 +370,6 @@ window.CRYPTIC_PUZZLES["everyman-4168"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "We're told the solver's going to festival (4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "YULE",
    "annotation": {
@@ -432,9 +405,6 @@ window.CRYPTIC_PUZZLES["everyman-4168"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Falsehood's absolute converse; truth, primarily? (4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "FACT",
    "annotation": {
@@ -490,9 +460,6 @@ window.CRYPTIC_PUZZLES["everyman-4168"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Popular online: dubiously 'original', vacuous vlogging (5,5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -542,9 +509,6 @@ window.CRYPTIC_PUZZLES["everyman-4168"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Part of bedtime routine: depict nursery-rhyme mice? (4,3,5)",
-   "group": [
-    "11-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -588,9 +552,6 @@ window.CRYPTIC_PUZZLES["everyman-4168"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Sewer's outlet? (11)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "HABERDASHER",
    "annotation": {
@@ -623,9 +584,6 @@ window.CRYPTIC_PUZZLES["everyman-4168"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Avoid having charged description of Drake? (4-6)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -671,9 +629,6 @@ window.CRYPTIC_PUZZLES["everyman-4168"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Flighty type giving crockery to nitwit (5,5)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -720,9 +675,6 @@ window.CRYPTIC_PUZZLES["everyman-4168"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "At midpoint of entrance area, having change of heart (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "HALLWAY",
    "annotation": {
@@ -770,9 +722,6 @@ window.CRYPTIC_PUZZLES["everyman-4168"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Meditator's sound, in a sense, is more than is tolerable (3,4)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -824,9 +773,6 @@ window.CRYPTIC_PUZZLES["everyman-4168"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Most of the lining primitive material (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "EARTHLY",
    "annotation": {
@@ -873,9 +819,6 @@ window.CRYPTIC_PUZZLES["everyman-4168"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Former president in style, fashionable (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "YELTSIN",
    "annotation": {
@@ -913,9 +856,6 @@ window.CRYPTIC_PUZZLES["everyman-4168"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Protuberance on monarch, largely unsophisticated type (7)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "BUMPKIN",
    "annotation": {
@@ -962,9 +902,6 @@ window.CRYPTIC_PUZZLES["everyman-4168"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Bare mud wrestling in Atlantic tourist destination (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "BERMUDA",
    "annotation": {
@@ -1005,9 +942,6 @@ window.CRYPTIC_PUZZLES["everyman-4168"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Activity in church reminding you of something? (4-7)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -1047,9 +981,6 @@ window.CRYPTIC_PUZZLES["everyman-4168"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "As a rule, what's found in an extremity of neoliberalism (4)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "NORM",
    "annotation": {
@@ -1100,9 +1031,6 @@ window.CRYPTIC_PUZZLES["everyman-4168"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Describing ears somewhat idiotically (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "OTIC",
    "annotation": {
@@ -1137,9 +1065,6 @@ window.CRYPTIC_PUZZLES["everyman-4168"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Beefy broth and duck, served badly, spoil a tux (6,4)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -1189,9 +1114,6 @@ window.CRYPTIC_PUZZLES["everyman-4168"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Further some characters in Royal Society (4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "ALSO",
    "annotation": {
@@ -1226,9 +1148,6 @@ window.CRYPTIC_PUZZLES["everyman-4168"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Balkan spice introduced to academic Scotsman (10)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "MACEDONIAN",
    "annotation": {
@@ -1278,9 +1197,6 @@ window.CRYPTIC_PUZZLES["everyman-4168"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Workshy Everyman had leave (on vacation) (4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "IDLE",
    "annotation": {

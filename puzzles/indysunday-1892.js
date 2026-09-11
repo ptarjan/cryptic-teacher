@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1892"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Substitute second one of three Shakespearean sisters (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "SWITCH",
    "annotation": {
@@ -64,9 +61,6 @@ window.CRYPTIC_PUZZLES["indysunday-1892"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Obvious trail grew blurred (4,5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -107,9 +101,6 @@ window.CRYPTIC_PUZZLES["indysunday-1892"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Children anxious when putting electronics together (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "TEENS",
    "annotation": {
@@ -146,9 +137,6 @@ window.CRYPTIC_PUZZLES["indysunday-1892"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Huge museum valued old stuff, bagging millions (9)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "HERMITAGE",
    "annotation": {
@@ -192,9 +180,6 @@ window.CRYPTIC_PUZZLES["indysunday-1892"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Outside in deluge, fellow gets drier in the car (8)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "DEMISTER",
    "annotation": {
@@ -240,9 +225,6 @@ window.CRYPTIC_PUZZLES["indysunday-1892"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "500 pies to supply store (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "DEPOSIT",
    "annotation": {
@@ -291,9 +273,6 @@ window.CRYPTIC_PUZZLES["indysunday-1892"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Our team runs after flash vehicle driven on the pitch? (5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "MOWER",
    "annotation": {
@@ -342,9 +321,6 @@ window.CRYPTIC_PUZZLES["indysunday-1892"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Welfare services in Worcestershire going up, an alarming figure (9)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "SCARECROW",
    "annotation": {
@@ -396,9 +372,6 @@ window.CRYPTIC_PUZZLES["indysunday-1892"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "What some pappardelle at Enzo's might be? (5)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "EATEN",
    "annotation": {
@@ -432,9 +405,6 @@ window.CRYPTIC_PUZZLES["indysunday-1892"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Dangerous building's engineers caught by appropriate criminal charge (8)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "FIRETRAP",
    "annotation": {
@@ -487,9 +457,6 @@ window.CRYPTIC_PUZZLES["indysunday-1892"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Plenty breaking the law (6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "WEALTH",
    "annotation": {
@@ -526,9 +493,6 @@ window.CRYPTIC_PUZZLES["indysunday-1892"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Doctor photos including bottom, prick and leg (7,7)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -591,9 +555,6 @@ window.CRYPTIC_PUZZLES["indysunday-1892"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Rose planted in west-facing flower garden (4)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "GREW",
    "annotation": {
@@ -635,9 +596,6 @@ window.CRYPTIC_PUZZLES["indysunday-1892"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Spooner's low-alcohol champagne perhaps driver's limit (5,4)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -686,9 +644,6 @@ window.CRYPTIC_PUZZLES["indysunday-1892"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Gold fried tortilla filled by Romeo the Italian way (10)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "AUTOSTRADA",
    "annotation": {
@@ -738,9 +693,6 @@ window.CRYPTIC_PUZZLES["indysunday-1892"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Boiling southern trip (3,6)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -781,9 +733,6 @@ window.CRYPTIC_PUZZLES["indysunday-1892"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Flip deep-fried pastry, pinching runny nose (2,4,3)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -840,9 +789,6 @@ window.CRYPTIC_PUZZLES["indysunday-1892"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Slow and careful French composer reduced tempo (10)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "DELIBERATE",
    "annotation": {
@@ -885,9 +831,6 @@ window.CRYPTIC_PUZZLES["indysunday-1892"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Sell uranium which military operation has seized (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "AUCTION",
    "annotation": {
@@ -934,9 +877,6 @@ window.CRYPTIC_PUZZLES["indysunday-1892"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Strand unwound from ball left on court (4)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "WOOL",
    "annotation": {
@@ -979,9 +919,6 @@ window.CRYPTIC_PUZZLES["indysunday-1892"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Doctor's cleverer friend treated more shell shock (8,6)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -1022,9 +959,6 @@ window.CRYPTIC_PUZZLES["indysunday-1892"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Hot-tub party being made sexless (5)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "SPADO",
    "annotation": {
@@ -1061,9 +995,6 @@ window.CRYPTIC_PUZZLES["indysunday-1892"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Sensible group of investigators has uncovered clue first (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "LUCID",
    "annotation": {
@@ -1111,9 +1042,6 @@ window.CRYPTIC_PUZZLES["indysunday-1892"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Anaesthetic that's laughter-inducing, about to be inhaled (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "LOCAL",
    "annotation": {
@@ -1157,9 +1085,6 @@ window.CRYPTIC_PUZZLES["indysunday-1892"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Mother with 50p, say, brought back root vegetable (6)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "MANIOC",
    "annotation": {
@@ -1211,9 +1136,6 @@ window.CRYPTIC_PUZZLES["indysunday-1892"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Old pope inside rather than outside church, and disrobed (8)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "INNOCENT",
    "annotation": {
@@ -1271,9 +1193,6 @@ window.CRYPTIC_PUZZLES["indysunday-1892"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Attitude I assume is Olympian (8)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "POSEIDON",
    "annotation": {
@@ -1319,9 +1238,6 @@ window.CRYPTIC_PUZZLES["indysunday-1892"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "US et al organised simultaneous gunfire, say (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "SALUTE",
    "annotation": {

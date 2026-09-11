@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30086"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Specially illuminated set of old books torn on the outside (7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "SPOTLIT",
    "annotation": {
@@ -71,9 +68,6 @@ window.CRYPTIC_PUZZLES["cryptic-30086"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Bird, one on lake after daily drink? (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "PINTAIL",
    "annotation": {
@@ -124,9 +118,6 @@ window.CRYPTIC_PUZZLES["cryptic-30086"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "The royal I found in upsetting fate – it’s absorbing? (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "TOWEL",
    "annotation": {
@@ -179,9 +170,6 @@ window.CRYPTIC_PUZZLES["cryptic-30086"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "One bit of nut is stuck in my tooth (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "INCISOR",
    "annotation": {
@@ -239,9 +227,6 @@ window.CRYPTIC_PUZZLES["cryptic-30086"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Wine that’s drunk always cold makes a pile for the country dweller (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "HAYCOCK",
    "annotation": {
@@ -294,9 +279,6 @@ window.CRYPTIC_PUZZLES["cryptic-30086"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "A bishop must get by, having welcomed a Catholic in ecclesiastical office (6)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "ABBACY",
    "annotation": {
@@ -362,9 +344,6 @@ window.CRYPTIC_PUZZLES["cryptic-30086"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Conservative minister entertaining those from the ranks – someone putting the record straight? (9)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "CORRECTOR",
    "annotation": {
@@ -413,9 +392,6 @@ window.CRYPTIC_PUZZLES["cryptic-30086"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Like tree worse affected by fungus – one penetrating horse chestnut (7)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "CONKIER",
    "annotation": {
@@ -459,9 +435,6 @@ window.CRYPTIC_PUZZLES["cryptic-30086"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "The old way engineer catches fish with something wooden (7,6)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -518,9 +491,6 @@ window.CRYPTIC_PUZZLES["cryptic-30086"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Coke spells out end of dryness for the moment (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "SNOW",
    "annotation": {
@@ -566,9 +536,6 @@ window.CRYPTIC_PUZZLES["cryptic-30086"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Moving awkwardly using clutch when straddling warning sign (10)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "CLAMBERING",
    "annotation": {
@@ -616,9 +583,6 @@ window.CRYPTIC_PUZZLES["cryptic-30086"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Old rustics admitting love for pretender Don (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "CARLOS",
    "annotation": {
@@ -665,9 +629,6 @@ window.CRYPTIC_PUZZLES["cryptic-30086"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Fate is pursuing learner with pains (8)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "LACHESIS",
    "annotation": {
@@ -719,9 +680,6 @@ window.CRYPTIC_PUZZLES["cryptic-30086"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Blooming fellow needs taking down (9)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "FLOWERING",
    "annotation": {
@@ -761,9 +719,6 @@ window.CRYPTIC_PUZZLES["cryptic-30086"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Rod collects wood and stone to make item of furniture (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "WASHSTAND",
    "annotation": {
@@ -887,9 +842,6 @@ window.CRYPTIC_PUZZLES["cryptic-30086"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Beginning of intensive care organised to save old boy reliant on oxygen (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "AEROBIC",
    "annotation": {
@@ -945,9 +897,6 @@ window.CRYPTIC_PUZZLES["cryptic-30086"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "A coterie’s unusual mysteries? (9)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "ESOTERICA",
    "annotation": {
@@ -984,9 +933,6 @@ window.CRYPTIC_PUZZLES["cryptic-30086"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Cry in the country – gentry ultimately trapped in multi-storey house? (5-2)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -1041,9 +987,6 @@ window.CRYPTIC_PUZZLES["cryptic-30086"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Stylish dressmaking not in fashion – external remedy needed (7)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "COUTURE",
    "annotation": {
@@ -1090,9 +1033,6 @@ window.CRYPTIC_PUZZLES["cryptic-30086"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Trendy business not enjoying healthy state (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "INFIRM",
    "annotation": {
@@ -1129,9 +1069,6 @@ window.CRYPTIC_PUZZLES["cryptic-30086"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Punished rogue primarily, one is in stir, right? (8)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "PRISONER",
    "annotation": {
@@ -1188,9 +1125,6 @@ window.CRYPTIC_PUZZLES["cryptic-30086"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "See problem with drinking too much port? Switch off (3,3)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -1231,9 +1165,6 @@ window.CRYPTIC_PUZZLES["cryptic-30086"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Let me have a piece of string immediately (5)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "GIMME",
    "annotation": {
@@ -1267,9 +1198,6 @@ window.CRYPTIC_PUZZLES["cryptic-30086"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Leader of America having courageous style? Is twisted inside, showing bluntness (10)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "ABRASIVELY",
    "annotation": {
@@ -1332,9 +1260,6 @@ window.CRYPTIC_PUZZLES["cryptic-30086"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Muck covering a woman lured into the garden? (4)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "MAUD",
    "annotation": {
@@ -1378,9 +1303,6 @@ window.CRYPTIC_PUZZLES["cryptic-30086"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Little woman grabbing baddy, head of English in school (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "ACADEMY",
    "annotation": {
@@ -1435,9 +1357,6 @@ window.CRYPTIC_PUZZLES["cryptic-30086"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "What Adam became after realisation of nudity? Fellow looking embarrassed (7)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "COVERED",
    "annotation": {

@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12430"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Lothario's shrewder when touring gulf state (9)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "WOMANISER",
    "annotation": {
@@ -75,9 +72,6 @@ window.CRYPTIC_PUZZLES["independent-12430"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Lead astray some apprentices (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "ENTICE",
    "annotation": {
@@ -111,9 +105,6 @@ window.CRYPTIC_PUZZLES["independent-12430"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Unprofitable bank (4)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "LEAN",
    "annotation": {
@@ -148,9 +139,6 @@ window.CRYPTIC_PUZZLES["independent-12430"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Test top of rainwater tank (10)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "CHALLENGER",
    "annotation": {
@@ -193,9 +181,6 @@ window.CRYPTIC_PUZZLES["independent-12430"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Histrionic pub server describes age (8)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "OPERATIC",
    "annotation": {
@@ -239,9 +224,6 @@ window.CRYPTIC_PUZZLES["independent-12430"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Motorway network in Italian city (5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "MILAN",
    "annotation": {
@@ -281,9 +263,6 @@ window.CRYPTIC_PUZZLES["independent-12430"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "More recent winner of Pop Idol seen by European river (7)",
-   "group": [
-    "7-across"
-   ],
    "separatorLocations": {},
    "solution": "YOUNGER",
    "annotation": {
@@ -338,9 +317,6 @@ window.CRYPTIC_PUZZLES["independent-12430"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Man taps phone program that is ... (7)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {},
    "solution": "CHAPPIE",
    "annotation": {
@@ -383,9 +359,6 @@ window.CRYPTIC_PUZZLES["independent-12430"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Study purpose for return to hospital? (11)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {},
    "solution": "READMISSION",
    "annotation": {
@@ -425,9 +398,6 @@ window.CRYPTIC_PUZZLES["independent-12430"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "... surprisingly neat epic game (8)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "PATIENCE",
    "annotation": {
@@ -464,9 +434,6 @@ window.CRYPTIC_PUZZLES["independent-12430"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Burglar I attacked holding rope (6)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "LARIAT",
    "annotation": {
@@ -500,9 +467,6 @@ window.CRYPTIC_PUZZLES["independent-12430"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Unsuitable pix?  I need ten developed (11)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "INEXPEDIENT",
    "annotation": {
@@ -544,9 +508,6 @@ window.CRYPTIC_PUZZLES["independent-12430"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Film title about independent group of soldiers in a pickle (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "PICCALILLI",
    "annotation": {
@@ -605,9 +566,6 @@ window.CRYPTIC_PUZZLES["independent-12430"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Pastor with bug is tipsy in posh boozer (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "GASTROPUB",
    "annotation": {
@@ -653,9 +611,6 @@ window.CRYPTIC_PUZZLES["independent-12430"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Conference maybe cut back we hear (4)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "PEAR",
    "annotation": {
@@ -690,9 +645,6 @@ window.CRYPTIC_PUZZLES["independent-12430"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Writer raised hesitation over old railway worker (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "REPORTER",
    "annotation": {
@@ -743,9 +695,6 @@ window.CRYPTIC_PUZZLES["independent-12430"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Hold fast having caught fish (5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "CLING",
    "annotation": {
@@ -785,9 +734,6 @@ window.CRYPTIC_PUZZLES["independent-12430"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "See you appearing regularly in Chicago (4)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "CIAO",
    "annotation": {
@@ -830,9 +776,6 @@ window.CRYPTIC_PUZZLES["independent-12430"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "A trusty plan devised for what Ferris Bueller does (5,6)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -876,9 +819,6 @@ window.CRYPTIC_PUZZLES["independent-12430"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Time chairman originally enters City office (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "AGENCY",
    "annotation": {
@@ -930,9 +870,6 @@ window.CRYPTIC_PUZZLES["independent-12430"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Officer commanding old volunteers left base (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "OCTAL",
    "annotation": {
@@ -975,9 +912,6 @@ window.CRYPTIC_PUZZLES["independent-12430"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Tax return on investment after 31 days (6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "OCTROI",
    "annotation": {
@@ -1020,9 +954,6 @@ window.CRYPTIC_PUZZLES["independent-12430"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "At work dealing with article and book (2,3,3)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -1073,9 +1004,6 @@ window.CRYPTIC_PUZZLES["independent-12430"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Tough husband aboard boat (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "THUG",
    "annotation": {
@@ -1119,9 +1047,6 @@ window.CRYPTIC_PUZZLES["independent-12430"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Meat spread all around bone (7)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "PATELLA",
    "annotation": {
@@ -1170,9 +1095,6 @@ window.CRYPTIC_PUZZLES["independent-12430"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Which Spanish friend finally abandoned a Peruvian? (7)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "QUECHUA",
    "annotation": {

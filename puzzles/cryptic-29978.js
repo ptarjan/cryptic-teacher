@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29978"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Ladies’ organisation names retiring magician (4,3)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -81,9 +78,6 @@ window.CRYPTIC_PUZZLES["cryptic-29978"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "High-speed train sound covering mostly quiet first of whistles at the outset (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "WHOOSH",
    "annotation": {
@@ -137,9 +131,6 @@ window.CRYPTIC_PUZZLES["cryptic-29978"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "PM with tummy upset on board getting slippers (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "SKIERS",
    "annotation": {
@@ -195,9 +186,6 @@ window.CRYPTIC_PUZZLES["cryptic-29978"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Person largely mature and fit is compliant (10)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "MANAGEABLE",
    "annotation": {
@@ -251,9 +239,6 @@ window.CRYPTIC_PUZZLES["cryptic-29978"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Nosy neighbour’s opening a half of salmon (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "NASAL",
    "annotation": {
@@ -305,9 +290,6 @@ window.CRYPTIC_PUZZLES["cryptic-29978"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Bonaparte mistress’s a goddess (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "ARTEMIS",
    "annotation": {
@@ -342,9 +324,6 @@ window.CRYPTIC_PUZZLES["cryptic-29978"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Share program or no one backs saving time (9)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "APPORTION",
    "annotation": {
@@ -408,9 +387,6 @@ window.CRYPTIC_PUZZLES["cryptic-29978"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Change act (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "TURN",
    "annotation": {
@@ -444,9 +420,6 @@ window.CRYPTIC_PUZZLES["cryptic-29978"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Ambitious project – show behind picture? (8)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "MOONSHOT",
    "annotation": {
@@ -484,9 +457,6 @@ window.CRYPTIC_PUZZLES["cryptic-29978"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "These fellows wear tight-fitting headgear or small bowlers (8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "SPACEMEN",
    "annotation": {
@@ -527,9 +497,6 @@ window.CRYPTIC_PUZZLES["cryptic-29978"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "‘Old flower’, term for bargain hunter (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "ORION",
    "annotation": {
@@ -582,9 +549,6 @@ window.CRYPTIC_PUZZLES["cryptic-29978"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "A sun proven briefly to be unstable (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "SUPERNOVA",
    "annotation": {
@@ -629,9 +593,6 @@ window.CRYPTIC_PUZZLES["cryptic-29978"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Those last wrestlers maybe united being acknowledged at first (10)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "STRAGGLERS",
    "annotation": {
@@ -685,9 +646,6 @@ window.CRYPTIC_PUZZLES["cryptic-29978"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "We’re told Kite will land in water (4)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "ISLE",
    "annotation": {
@@ -723,9 +681,6 @@ window.CRYPTIC_PUZZLES["cryptic-29978"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "She with loads of bananas and pork pies (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "FALSEHOODS",
    "annotation": {
@@ -777,9 +732,6 @@ window.CRYPTIC_PUZZLES["cryptic-29978"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Pa OK, with a pie and gin cocktail or a bacon sandwich? (1,3,2,1,4)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      1,
@@ -844,9 +796,6 @@ window.CRYPTIC_PUZZLES["cryptic-29978"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Trendy Conservative including detailed sale in register (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "INVENTORY",
    "annotation": {
@@ -901,9 +850,6 @@ window.CRYPTIC_PUZZLES["cryptic-29978"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Duke’s vessel starting to sink given sailor’s not a light body (4,4)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -966,9 +912,6 @@ window.CRYPTIC_PUZZLES["cryptic-29978"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Standard finish for screen (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "PARCLOSE",
    "annotation": {
@@ -1009,9 +952,6 @@ window.CRYPTIC_PUZZLES["cryptic-29978"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Anyway, slave with talent for cooking (2,3,6)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -1068,9 +1008,6 @@ window.CRYPTIC_PUZZLES["cryptic-29978"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Craftsman makes good partner (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "GLOVER",
    "annotation": {
@@ -1111,9 +1048,6 @@ window.CRYPTIC_PUZZLES["cryptic-29978"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "German/English name for leprosy pioneer (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "HANSEN",
    "annotation": {
@@ -1160,9 +1094,6 @@ window.CRYPTIC_PUZZLES["cryptic-29978"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "German scientist has floor with central heating (4)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "KOCH",
    "annotation": {
@@ -1204,9 +1135,6 @@ window.CRYPTIC_PUZZLES["cryptic-29978"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Not ideal, he reused tissues (10)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "ENDOTHELIA",
    "annotation": {
@@ -1249,9 +1177,6 @@ window.CRYPTIC_PUZZLES["cryptic-29978"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Piece of gold circle (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "ORBIT",
    "annotation": {
@@ -1292,9 +1217,6 @@ window.CRYPTIC_PUZZLES["cryptic-29978"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Bird or rabbit (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "CHAT",
    "annotation": {
@@ -1332,9 +1254,6 @@ window.CRYPTIC_PUZZLES["cryptic-29978"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "It’s fine, so they say now, very thin, evenly-divided dress (9)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "TOOTHCOMB",
    "annotation": {
@@ -1385,9 +1304,6 @@ window.CRYPTIC_PUZZLES["cryptic-29978"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Idiots’ heads not used at the beginning (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "OAVES",
    "annotation": {
@@ -1430,9 +1346,6 @@ window.CRYPTIC_PUZZLES["cryptic-29978"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Note record for return of 8 (2-5)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     "-": [
      2
@@ -1477,9 +1390,6 @@ window.CRYPTIC_PUZZLES["cryptic-29978"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Check score of 1 in game (4,3)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {
     ",": [
      4

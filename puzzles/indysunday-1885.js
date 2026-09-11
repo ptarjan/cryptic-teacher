@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1885"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Nobody climbing from 12 to 7? (5,3)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -84,9 +81,6 @@ window.CRYPTIC_PUZZLES["indysunday-1885"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Improvement in relationship seen during month away (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "THAW",
    "annotation": {
@@ -120,9 +114,6 @@ window.CRYPTIC_PUZZLES["indysunday-1885"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Name from range in eastern US, you hear (11)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "APPELLATION",
    "annotation": {
@@ -160,9 +151,6 @@ window.CRYPTIC_PUZZLES["indysunday-1885"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Muscly type miles more posh after makeover (9)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "MESOMORPH",
    "annotation": {
@@ -214,9 +202,6 @@ window.CRYPTIC_PUZZLES["indysunday-1885"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Express back to Waterloo departing midday's best (3-4)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -268,9 +253,6 @@ window.CRYPTIC_PUZZLES["indysunday-1885"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Correct wordplay is hard (6)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "PUNISH",
    "annotation": {
@@ -313,9 +295,6 @@ window.CRYPTIC_PUZZLES["indysunday-1885"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Look upset, wearing standard alternative to brown or black? (5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "POLAR",
    "annotation": {
@@ -361,9 +340,6 @@ window.CRYPTIC_PUZZLES["indysunday-1885"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "American war, oh boy, on the rise (3)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "NAM",
    "annotation": {
@@ -406,9 +382,6 @@ window.CRYPTIC_PUZZLES["indysunday-1885"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "New Orleans pal producing silent generator (5,5)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -452,9 +425,6 @@ window.CRYPTIC_PUZZLES["indysunday-1885"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Discourage power-crazy revolutionary (4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "DAMP",
    "annotation": {
@@ -502,9 +472,6 @@ window.CRYPTIC_PUZZLES["indysunday-1885"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Spooner's blend, basic flavour whiskey (6,4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -553,9 +520,6 @@ window.CRYPTIC_PUZZLES["indysunday-1885"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Weapon's elm haft troubled man wielding blade (12)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "FLAMETHROWER",
    "annotation": {
@@ -610,9 +574,6 @@ window.CRYPTIC_PUZZLES["indysunday-1885"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Design shoe during walk with regular gaps, showing what's better hidden (5,3,3)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {
     ",": [
      5,
@@ -674,9 +635,6 @@ window.CRYPTIC_PUZZLES["indysunday-1885"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Blue skirts from Amazon received by Sporty Spice, divine (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "MELANCHOLY",
    "annotation": {
@@ -728,9 +686,6 @@ window.CRYPTIC_PUZZLES["indysunday-1885"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Touching melody on piano, more than a tune? (6)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "REPAIR",
    "annotation": {
@@ -776,9 +731,6 @@ window.CRYPTIC_PUZZLES["indysunday-1885"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Pre-natal changes concerning dad? (8)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "PATERNAL",
    "annotation": {
@@ -815,9 +767,6 @@ window.CRYPTIC_PUZZLES["indysunday-1885"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Scathing daughter put off by fashion mantra (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "TRENCHANT",
    "annotation": {
@@ -865,9 +814,6 @@ window.CRYPTIC_PUZZLES["indysunday-1885"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Ravenous Shakers ate sandwiches (8)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "FAMISHED",
    "annotation": {
@@ -911,9 +857,6 @@ window.CRYPTIC_PUZZLES["indysunday-1885"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Most genuinely felt insect repellent reduced irritation (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "DEEPEST",
    "annotation": {
@@ -956,9 +899,6 @@ window.CRYPTIC_PUZZLES["indysunday-1885"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Leaving home, trainees worked extra long weekend (6)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "EASTER",
    "annotation": {
@@ -1002,9 +942,6 @@ window.CRYPTIC_PUZZLES["indysunday-1885"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Cold following track across glen, now recovering (12)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "CONVALESCENT",
    "annotation": {
@@ -1059,9 +996,6 @@ window.CRYPTIC_PUZZLES["indysunday-1885"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Divide a tax on motorists up (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "ALLOT",
    "annotation": {
@@ -1110,9 +1044,6 @@ window.CRYPTIC_PUZZLES["indysunday-1885"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Round microwave? (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "HEAT",
    "annotation": {
@@ -1144,9 +1075,6 @@ window.CRYPTIC_PUZZLES["indysunday-1885"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Thin rope in bad condition, time for chain (10)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "CORDILLERA",
    "annotation": {
@@ -1192,9 +1120,6 @@ window.CRYPTIC_PUZZLES["indysunday-1885"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Retreat without warning, in the second half (3)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "DEN",
    "annotation": {
@@ -1231,9 +1156,6 @@ window.CRYPTIC_PUZZLES["indysunday-1885"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Winter Olympics aerial manoeuvre beginning for Lindsey on chopper (4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "AXEL",
    "annotation": {
@@ -1279,9 +1201,6 @@ window.CRYPTIC_PUZZLES["indysunday-1885"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "New pen, say, Charlie gently agitated with line not appearing (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "CYGNET",
    "annotation": {
@@ -1334,9 +1253,6 @@ window.CRYPTIC_PUZZLES["indysunday-1885"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Whole form replaced in ceremony by child (8)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "TOTALITY",
    "annotation": {

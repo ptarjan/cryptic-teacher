@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1897"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Wedge hammered in restricts small moving part (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "PISTON",
    "annotation": {
@@ -71,9 +68,6 @@ window.CRYPTIC_PUZZLES["indysunday-1897"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Receiving contrary tip, friend had flutter (9)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "PALPITATE",
    "annotation": {
@@ -130,9 +124,6 @@ window.CRYPTIC_PUZZLES["indysunday-1897"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Group given lift in Transit up to HS2's trackside event (4,3)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -172,9 +163,6 @@ window.CRYPTIC_PUZZLES["indysunday-1897"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Exercise too much without shower in public (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "OVERT",
    "annotation": {
@@ -216,9 +204,6 @@ window.CRYPTIC_PUZZLES["indysunday-1897"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Worried RAF leaders for instance make fighters stand by (6)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "AFFIRM",
    "annotation": {
@@ -262,9 +247,6 @@ window.CRYPTIC_PUZZLES["indysunday-1897"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Anticipate logging area completely (9)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "FORESTALL",
    "annotation": {
@@ -301,9 +283,6 @@ window.CRYPTIC_PUZZLES["indysunday-1897"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Heathen has daughter dropped in marked area around bases (7)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "INFIELD",
    "annotation": {
@@ -352,9 +331,6 @@ window.CRYPTIC_PUZZLES["indysunday-1897"] = /*JSON-START*/ {
      10
     ]
    ],
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "MACAU",
    "annotation": {
@@ -396,9 +372,6 @@ window.CRYPTIC_PUZZLES["indysunday-1897"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Arranging new pet health insurance, primarily big waste of money (5,8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -446,9 +419,6 @@ window.CRYPTIC_PUZZLES["indysunday-1897"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Quite good number by singer (10)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "ALTOGETHER",
    "annotation": {
@@ -497,9 +467,6 @@ window.CRYPTIC_PUZZLES["indysunday-1897"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "F1's brand representative? (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "FACE",
    "annotation": {
@@ -536,9 +503,6 @@ window.CRYPTIC_PUZZLES["indysunday-1897"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Floppy alien creature adapted to Klingon, you hear? (6)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "LIMPET",
    "annotation": {
@@ -575,9 +539,6 @@ window.CRYPTIC_PUZZLES["indysunday-1897"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Managing debts at university, might one signal bitterness? (5,3)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -623,9 +584,6 @@ window.CRYPTIC_PUZZLES["indysunday-1897"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "E.g. Georgian opposed to what Spaniard says (7)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "ANTIQUE",
    "annotation": {
@@ -662,9 +620,6 @@ window.CRYPTIC_PUZZLES["indysunday-1897"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Sentence of many years cut by one in court, subject to conditions (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "QUALIFIED",
    "annotation": {
@@ -715,9 +670,6 @@ window.CRYPTIC_PUZZLES["indysunday-1897"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Unlikely name for new baby aunt oddly picked at random (6)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "ANDREW",
    "annotation": {
@@ -760,9 +712,6 @@ window.CRYPTIC_PUZZLES["indysunday-1897"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "9 in complete list of Scottish islands (5,4)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -803,9 +752,6 @@ window.CRYPTIC_PUZZLES["indysunday-1897"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Article on green bananas named botanical types, say (6)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "GENERA",
    "annotation": {
@@ -850,9 +796,6 @@ window.CRYPTIC_PUZZLES["indysunday-1897"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Doctor reunited with Newton leaving full of knowledge (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "ERUDITE",
    "annotation": {
@@ -896,9 +839,6 @@ window.CRYPTIC_PUZZLES["indysunday-1897"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Cover fastens in case of effervescence (7)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "ECLIPSE",
    "annotation": {
@@ -944,9 +884,6 @@ window.CRYPTIC_PUZZLES["indysunday-1897"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Wood for cremation almost in centre of mausoleum (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "PYRAMID",
    "annotation": {
@@ -989,9 +926,6 @@ window.CRYPTIC_PUZZLES["indysunday-1897"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Like meal to be successful? (8)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "FLOURISH",
    "annotation": {
@@ -1028,9 +962,6 @@ window.CRYPTIC_PUZZLES["indysunday-1897"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Smallest portion left for banquet's starter (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "LEAST",
    "annotation": {
@@ -1075,9 +1006,6 @@ window.CRYPTIC_PUZZLES["indysunday-1897"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Son asks earnestly for paints straight out of the can (6)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "SPRAYS",
    "annotation": {
@@ -1117,9 +1045,6 @@ window.CRYPTIC_PUZZLES["indysunday-1897"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Five in comfortable bar save on round of shots (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "SALVO",
    "annotation": {
@@ -1170,9 +1095,6 @@ window.CRYPTIC_PUZZLES["indysunday-1897"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "A little kid awoke, coming round in bed that's dried out (4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "WADI",
    "annotation": {
@@ -1208,9 +1130,6 @@ window.CRYPTIC_PUZZLES["indysunday-1897"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Dodgy file naming intelligence operative published in 1950s (3,7)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -1251,9 +1170,6 @@ window.CRYPTIC_PUZZLES["indysunday-1897"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Shot, taking aim with it (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "TRENDY",
    "annotation": {
@@ -1297,9 +1213,6 @@ window.CRYPTIC_PUZZLES["indysunday-1897"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Seat on jumbo had to be turned on using what? (6)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "HOWDAH",
    "annotation": {

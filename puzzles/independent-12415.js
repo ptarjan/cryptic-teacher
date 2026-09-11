@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12415"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Americans mad about work, as this lot are (11)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "ERGOMANIACS",
    "annotation": {
@@ -72,9 +69,6 @@ window.CRYPTIC_PUZZLES["independent-12415"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Those who lure models in secret (8)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "ENTICERS",
    "annotation": {
@@ -111,9 +105,6 @@ window.CRYPTIC_PUZZLES["independent-12415"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Mixture of lust and rage expressed in body movements (8)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "GESTURAL",
    "annotation": {
@@ -150,9 +141,6 @@ window.CRYPTIC_PUZZLES["independent-12415"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "She has the Man in the Moon's darkish features (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "MARIA",
    "annotation": {
@@ -189,9 +177,6 @@ window.CRYPTIC_PUZZLES["independent-12415"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Old lady's man on board in Chinese port (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "NANKING",
    "annotation": {
@@ -231,9 +216,6 @@ window.CRYPTIC_PUZZLES["independent-12415"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Song cycles \"about\" a mountain? On the contrary, it's \"in\" (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "AMONGST",
    "annotation": {
@@ -287,9 +269,6 @@ window.CRYPTIC_PUZZLES["independent-12415"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Son starts drinking and painting in dotty fashion (9)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "STIPPLING",
    "annotation": {
@@ -335,9 +314,6 @@ window.CRYPTIC_PUZZLES["independent-12415"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "No shame occasionally offering some resistance (3)",
-   "group": [
-    "7-across"
-   ],
    "separatorLocations": {},
    "solution": "OHM",
    "annotation": {
@@ -379,9 +355,6 @@ window.CRYPTIC_PUZZLES["independent-12415"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Round lump sum of money in ancient Greece (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "OBOLUS",
    "annotation": {
@@ -418,9 +391,6 @@ window.CRYPTIC_PUZZLES["independent-12415"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Well I never pay for rubbish! (2,4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -461,9 +431,6 @@ window.CRYPTIC_PUZZLES["independent-12415"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "A weapon was tested again after backfiring (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "TASER",
    "annotation": {
@@ -509,9 +476,6 @@ window.CRYPTIC_PUZZLES["independent-12415"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Follow one complaint about controversial feminist author (5,4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -570,9 +534,6 @@ window.CRYPTIC_PUZZLES["independent-12415"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "American bill to stop college group campaigning (9)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "CRUSADING",
    "annotation": {
@@ -628,9 +589,6 @@ window.CRYPTIC_PUZZLES["independent-12415"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "What was foreshadowed by Percival Lowell initially before bowing out? (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "PLUTO",
    "annotation": {
@@ -683,9 +641,6 @@ window.CRYPTIC_PUZZLES["independent-12415"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Reckless driver runs over lad, out of his head when approaching corner (4,3)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -746,9 +701,6 @@ window.CRYPTIC_PUZZLES["independent-12415"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "German scorer in game has hard time making a comeback (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "HINDEMITH",
    "annotation": {
@@ -802,9 +754,6 @@ window.CRYPTIC_PUZZLES["independent-12415"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Heads off to Ramallah in Palestine for vacation? (4)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "TRIP",
    "annotation": {
@@ -847,9 +796,6 @@ window.CRYPTIC_PUZZLES["independent-12415"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "That place in east Alabama is heavenly (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "ETHEREAL",
    "annotation": {
@@ -901,9 +847,6 @@ window.CRYPTIC_PUZZLES["independent-12415"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "The curse of Bibiana the Martyr (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "ANATHEMA",
    "annotation": {
@@ -937,9 +880,6 @@ window.CRYPTIC_PUZZLES["independent-12415"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Odd parts declined by John Wayne? He pulled out at the last minute (4)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "ONAN",
    "annotation": {
@@ -982,9 +922,6 @@ window.CRYPTIC_PUZZLES["independent-12415"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Moonie's bum is foul-smelling (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "NOISOME",
    "annotation": {
@@ -1024,9 +961,6 @@ window.CRYPTIC_PUZZLES["independent-12415"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Announcement of giant squeeze (7)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "TIGHTEN",
    "annotation": {
@@ -1061,9 +995,6 @@ window.CRYPTIC_PUZZLES["independent-12415"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "I'm grateful for that piebald hack (3,4)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -1104,9 +1035,6 @@ window.CRYPTIC_PUZZLES["independent-12415"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Change in pieces? (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "SPECIE",
    "annotation": {
@@ -1143,9 +1071,6 @@ window.CRYPTIC_PUZZLES["independent-12415"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Backside of prominent Liberal observed in mature threesome (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "TRIPLE",
    "annotation": {
@@ -1197,9 +1122,6 @@ window.CRYPTIC_PUZZLES["independent-12415"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Pressure applied to city of old Georgia to eliminate dissidents? (5)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "PURGE",
    "annotation": {
@@ -1245,9 +1167,6 @@ window.CRYPTIC_PUZZLES["independent-12415"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Tense setter is cutting short cigar (9)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "IMPERFECT",
    "annotation": {
@@ -1290,9 +1209,6 @@ window.CRYPTIC_PUZZLES["independent-12415"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Old director general punches where it hurts (5)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "REITH",
    "annotation": {
@@ -1326,9 +1242,6 @@ window.CRYPTIC_PUZZLES["independent-12415"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Island to the west of my new house (9)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "CAPRICORN",
    "annotation": {
@@ -1377,9 +1290,6 @@ window.CRYPTIC_PUZZLES["independent-12415"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Descartes declaring himself the personification of peace (5)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "IRENE",
    "annotation": {
@@ -1416,9 +1326,6 @@ window.CRYPTIC_PUZZLES["independent-12415"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Scrumper evicting companion finally from flat (3)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "EVE",
    "annotation": {
@@ -1465,9 +1372,6 @@ window.CRYPTIC_PUZZLES["independent-12415"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Henry recollected Ophelia and Mia having problem with the Victoria Line? (11)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "HAEMOPHILIA",
    "annotation": {

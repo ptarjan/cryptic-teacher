@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12435"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Nuts in AA to meet separately (3,2,1,4)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -70,9 +67,6 @@ window.CRYPTIC_PUZZLES["independent-12435"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Female no wife for Saudi neighbour (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "OMAN",
    "annotation": {
@@ -117,9 +111,6 @@ window.CRYPTIC_PUZZLES["independent-12435"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "American visiting The Ritz all obey — volatile player? (9,6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      9
@@ -167,9 +158,6 @@ window.CRYPTIC_PUZZLES["independent-12435"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Hint from artist forsaking daily grind (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "TRACE",
    "annotation": {
@@ -214,9 +202,6 @@ window.CRYPTIC_PUZZLES["independent-12435"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Garments: those in which to sleep almost removed? (1-6)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     "-": [
      1
@@ -262,9 +247,6 @@ window.CRYPTIC_PUZZLES["independent-12435"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Overcome small albatross sometimes seen here? (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "MASTERS",
    "annotation": {
@@ -301,9 +283,6 @@ window.CRYPTIC_PUZZLES["independent-12435"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Snake-haired monster leaving cheese for writer (4)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "ZOLA",
    "annotation": {
@@ -348,9 +327,6 @@ window.CRYPTIC_PUZZLES["independent-12435"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "One possibly retired hurt alongside opener? (3-3,9)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -394,9 +370,6 @@ window.CRYPTIC_PUZZLES["independent-12435"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Significant hole in one by an old African? (10)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "ABYSSINIAN",
    "annotation": {
@@ -448,9 +421,6 @@ window.CRYPTIC_PUZZLES["independent-12435"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Caribbean sort to sight whaler up north (8)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {},
    "solution": "BAHAMIAN",
    "annotation": {
@@ -504,9 +474,6 @@ window.CRYPTIC_PUZZLES["independent-12435"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Andy Burnham is cross about a Liberal raising stock (6,9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -559,9 +526,6 @@ window.CRYPTIC_PUZZLES["independent-12435"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "50 with a king by unearthly American feature (4,4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -614,9 +578,6 @@ window.CRYPTIC_PUZZLES["independent-12435"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Protection from serviceman in ebbing tide (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "AEGIS",
    "annotation": {
@@ -671,9 +632,6 @@ window.CRYPTIC_PUZZLES["independent-12435"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Ground where one welcomes island leader (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "EISENHOWER",
    "annotation": {
@@ -717,9 +675,6 @@ window.CRYPTIC_PUZZLES["independent-12435"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Pole features in Room 101 making comeback (7)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "ICECAPS",
    "annotation": {
@@ -770,9 +725,6 @@ window.CRYPTIC_PUZZLES["independent-12435"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "One kills when elite troops stray from path (8)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "ASSASSIN",
    "annotation": {
@@ -815,9 +767,6 @@ window.CRYPTIC_PUZZLES["independent-12435"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Slippery surface sends child into bridge (7)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "SKIDPAN",
    "annotation": {
@@ -863,9 +812,6 @@ window.CRYPTIC_PUZZLES["independent-12435"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Wild sheep accompanies us in ancient city (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "EPHESUS",
    "annotation": {
@@ -922,9 +868,6 @@ window.CRYPTIC_PUZZLES["independent-12435"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Is it Ringo installing Ringoe as PM? ()",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "STARMER",
    "annotation": {
@@ -971,9 +914,6 @@ window.CRYPTIC_PUZZLES["independent-12435"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Granny seen in Dickens a godsend (7)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "BONANZA",
    "annotation": {
@@ -1022,9 +962,6 @@ window.CRYPTIC_PUZZLES["independent-12435"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Assist insect outside close to sunken well (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "BENEFIT",
    "annotation": {
@@ -1076,9 +1013,6 @@ window.CRYPTIC_PUZZLES["independent-12435"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Captains perhaps in privy at sea (5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "HEADS",
    "annotation": {
@@ -1116,9 +1050,6 @@ window.CRYPTIC_PUZZLES["independent-12435"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Sceptical as a good number remain we hear (8)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "AGNOSTIC",
    "annotation": {
@@ -1177,9 +1108,6 @@ window.CRYPTIC_PUZZLES["independent-12435"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Seconds for good child (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "SPROG",
    "annotation": {
@@ -1222,9 +1150,6 @@ window.CRYPTIC_PUZZLES["independent-12435"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Revolutionary augury one found in movie? (4)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "NEMO",
    "annotation": {
@@ -1267,9 +1192,6 @@ window.CRYPTIC_PUZZLES["independent-12435"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Ruler's order for backer briefly touring two states (7,2,6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     ",": [
      7,
@@ -1335,9 +1257,6 @@ window.CRYPTIC_PUZZLES["independent-12435"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Exquisite morsel missed in savoury dish (4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "RARE",
    "annotation": {
@@ -1382,9 +1301,6 @@ window.CRYPTIC_PUZZLES["independent-12435"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Star to rage when drunk grabs dress (5,5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {
     ",": [
      5

@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1393"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Resort name is hard in European language (7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "SPANISH",
    "annotation": {
@@ -80,9 +77,6 @@ window.CRYPTIC_PUZZLES["quiptic-1393"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Gradually introduce heaps for repair at home (5,2)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -132,9 +126,6 @@ window.CRYPTIC_PUZZLES["quiptic-1393"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Woman found in Oregon or Maine (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "NORMA",
    "annotation": {
@@ -165,9 +156,6 @@ window.CRYPTIC_PUZZLES["quiptic-1393"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "More delicate sort of troubles, nothing less (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "SUBTLER",
    "annotation": {
@@ -207,9 +195,6 @@ window.CRYPTIC_PUZZLES["quiptic-1393"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Bag for books put in stores at Cheltenham (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "SATCHEL",
    "annotation": {
@@ -240,9 +225,6 @@ window.CRYPTIC_PUZZLES["quiptic-1393"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Fancy bar elevated front in Torquay? That’s unexpected (6)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "ABRUPT",
    "annotation": {
@@ -295,9 +277,6 @@ window.CRYPTIC_PUZZLES["quiptic-1393"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Charlie attending programme of study in large open space (9)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "CONCOURSE",
    "annotation": {
@@ -344,9 +323,6 @@ window.CRYPTIC_PUZZLES["quiptic-1393"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Perhaps, lead factor (7)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "ELEMENT",
    "annotation": {
@@ -381,9 +357,6 @@ window.CRYPTIC_PUZZLES["quiptic-1393"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Leading limo to move in due course (3,2,4,4)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -428,9 +401,6 @@ window.CRYPTIC_PUZZLES["quiptic-1393"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Mention of orchard fruit for couple (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "PAIR",
    "annotation": {
@@ -465,9 +435,6 @@ window.CRYPTIC_PUZZLES["quiptic-1393"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "One regularly making changes? (4-6)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -503,9 +470,6 @@ window.CRYPTIC_PUZZLES["quiptic-1393"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Throw off course dishonest type with journalist when backsliding (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "DERAIL",
    "annotation": {
@@ -551,9 +515,6 @@ window.CRYPTIC_PUZZLES["quiptic-1393"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "This person’s to thrive after leaving society that’s not acceptable (8)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "IMPROPER",
    "annotation": {
@@ -596,9 +557,6 @@ window.CRYPTIC_PUZZLES["quiptic-1393"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Rally those heading each new company before this period? (9)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "ENCOURAGE",
    "annotation": {
@@ -639,9 +597,6 @@ window.CRYPTIC_PUZZLES["quiptic-1393"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Dealing with a problem, like an attentive lawyer? (2,3,4)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -681,9 +636,6 @@ window.CRYPTIC_PUZZLES["quiptic-1393"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Reportedly, substantial framework of bars (5)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "GRATE",
    "annotation": {
@@ -715,9 +667,6 @@ window.CRYPTIC_PUZZLES["quiptic-1393"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "First of police in place showing deliberate nastiness (5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "SPITE",
    "annotation": {
@@ -762,9 +711,6 @@ window.CRYPTIC_PUZZLES["quiptic-1393"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Crude advertising by individual around flag intermittently (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "PROFANE",
    "annotation": {
@@ -815,9 +761,6 @@ window.CRYPTIC_PUZZLES["quiptic-1393"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Score in darts led pub too to get excited (6,3)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -860,9 +803,6 @@ window.CRYPTIC_PUZZLES["quiptic-1393"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "British brace of fellows probing complicated deal in a confused state (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "BAFFLED",
    "annotation": {
@@ -916,9 +856,6 @@ window.CRYPTIC_PUZZLES["quiptic-1393"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Acquire too much fuel? (7)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "OVEREAT",
    "annotation": {
@@ -950,9 +887,6 @@ window.CRYPTIC_PUZZLES["quiptic-1393"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Model couple of Poles, people of great energy (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "DEMONS",
    "annotation": {
@@ -990,9 +924,6 @@ window.CRYPTIC_PUZZLES["quiptic-1393"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Drab outcome at work still in area around Darwin (3-5)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -1043,9 +974,6 @@ window.CRYPTIC_PUZZLES["quiptic-1393"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Fine sailor was ahead of others, being legendary (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "FABLED",
    "annotation": {
@@ -1092,9 +1020,6 @@ window.CRYPTIC_PUZZLES["quiptic-1393"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Embargo a line of a hackneyed nature (5)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "BANAL",
    "annotation": {
@@ -1138,9 +1063,6 @@ window.CRYPTIC_PUZZLES["quiptic-1393"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Old man managed by soldiers badly in France, defying rational explanation? (10)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "PARANORMAL",
    "annotation": {
@@ -1193,9 +1115,6 @@ window.CRYPTIC_PUZZLES["quiptic-1393"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Requirement once ready at intervals (4)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "NEED",
    "annotation": {
@@ -1235,9 +1154,6 @@ window.CRYPTIC_PUZZLES["quiptic-1393"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Put out note before rental agreement (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "RELEASE",
    "annotation": {
@@ -1277,9 +1193,6 @@ window.CRYPTIC_PUZZLES["quiptic-1393"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Flatter American scheduled to tour Californian city with tons (7)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "ADULATE",
    "annotation": {

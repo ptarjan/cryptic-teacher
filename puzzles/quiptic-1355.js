@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1355"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "So, Christmas Eve I prepared a label (3,7,5)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -47,9 +44,6 @@ window.CRYPTIC_PUZZLES["quiptic-1355"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Cut short elephantine part 8 in report (8)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "TRUNCATE",
    "annotation": null
@@ -64,9 +58,6 @@ window.CRYPTIC_PUZZLES["quiptic-1355"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Giant conger-eel regularly picked out (4)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "OGRE",
    "annotation": null
@@ -81,9 +72,6 @@ window.CRYPTIC_PUZZLES["quiptic-1355"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Approving British novelist Doris (8)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "BLESSING",
    "annotation": null
@@ -98,9 +86,6 @@ window.CRYPTIC_PUZZLES["quiptic-1355"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Amorous prof’s heart captured by upright quote (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "EROTIC",
    "annotation": null
@@ -115,9 +100,6 @@ window.CRYPTIC_PUZZLES["quiptic-1355"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "What may connect means of opening crucial calls (3,5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -136,9 +118,6 @@ window.CRYPTIC_PUZZLES["quiptic-1355"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Goddess passing through Africa then Asia (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "ATHENA",
    "annotation": null
@@ -153,9 +132,6 @@ window.CRYPTIC_PUZZLES["quiptic-1355"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Stuff overturning tired victory changed decisive decision (8,7)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -174,9 +150,6 @@ window.CRYPTIC_PUZZLES["quiptic-1355"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Disorderly soldier pursues international resistance (9)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "IRREGULAR",
    "annotation": null
@@ -191,9 +164,6 @@ window.CRYPTIC_PUZZLES["quiptic-1355"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Additional paintings returned by former partner (5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "EXTRA",
    "annotation": null
@@ -208,9 +178,6 @@ window.CRYPTIC_PUZZLES["quiptic-1355"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Social conduct of married princess extremely rigorous (7)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "MANNERS",
    "annotation": null
@@ -225,9 +192,6 @@ window.CRYPTIC_PUZZLES["quiptic-1355"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Roped to abandoned wreck (7)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "TORPEDO",
    "annotation": null
@@ -242,9 +206,6 @@ window.CRYPTIC_PUZZLES["quiptic-1355"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Fake suntan primarily associated with awful actor (4)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "SHAM",
    "annotation": null
@@ -259,9 +220,6 @@ window.CRYPTIC_PUZZLES["quiptic-1355"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Supreme commander in Nato almost back in Miami, a US city (10)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "CINCINNATI",
    "annotation": null
@@ -276,9 +234,6 @@ window.CRYPTIC_PUZZLES["quiptic-1355"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Latter part of day still boring after halfway mark (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "EVENING",
    "annotation": null
@@ -293,9 +248,6 @@ window.CRYPTIC_PUZZLES["quiptic-1355"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Broke entire shell of hard nuts (2,3,3)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -315,9 +267,6 @@ window.CRYPTIC_PUZZLES["quiptic-1355"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Critics ultimately coming in to sink amateur show (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "DISPLAY",
    "annotation": null
@@ -332,9 +281,6 @@ window.CRYPTIC_PUZZLES["quiptic-1355"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Stupor consuming one top politician that’s swallowed a tranquillizer (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "DIAZEPAM",
    "annotation": null
@@ -349,9 +295,6 @@ window.CRYPTIC_PUZZLES["quiptic-1355"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Free beer 50% of Italians brewed (8)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "LIBERATE",
    "annotation": null
@@ -366,9 +309,6 @@ window.CRYPTIC_PUZZLES["quiptic-1355"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Proudly exhibit damn budgie smugglers? (10)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "SPORTSWEAR",
    "annotation": null
@@ -383,9 +323,6 @@ window.CRYPTIC_PUZZLES["quiptic-1355"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Alternative point breaks hearts of spoilt baronets (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "OPTION",
    "annotation": null
@@ -400,9 +337,6 @@ window.CRYPTIC_PUZZLES["quiptic-1355"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Rings after start of weekend – my mistake (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "WHOOPS",
    "annotation": null
@@ -417,9 +351,6 @@ window.CRYPTIC_PUZZLES["quiptic-1355"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Gong smothers old instrument (4)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "OBOE",
    "annotation": null
@@ -434,9 +365,6 @@ window.CRYPTIC_PUZZLES["quiptic-1355"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Busy month egocentric nails (2,3,2)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -456,9 +384,6 @@ window.CRYPTIC_PUZZLES["quiptic-1355"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Electrician’s first dodgy tender came in (7)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "ENTERED",
    "annotation": null
@@ -473,9 +398,6 @@ window.CRYPTIC_PUZZLES["quiptic-1355"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Remote partly turned up volume (4)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "TOME",
    "annotation": null
@@ -490,9 +412,6 @@ window.CRYPTIC_PUZZLES["quiptic-1355"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Task husband to cut my coiffure, finally (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "CHORE",
    "annotation": null
@@ -507,9 +426,6 @@ window.CRYPTIC_PUZZLES["quiptic-1355"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Matter-of-fact drunken tramp with trimmed cigar (9)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "PRAGMATIC",
    "annotation": null

@@ -74,9 +74,6 @@ window.CRYPTIC_PUZZLES["cryptic-29995"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Say no more, narcissist has doffed cap for supreme Being (5)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "SHIVA",
    "annotation": {
@@ -123,9 +120,6 @@ window.CRYPTIC_PUZZLES["cryptic-29995"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Difficult work, or not, opening present (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "AWKWARD",
    "annotation": {
@@ -172,9 +166,6 @@ window.CRYPTIC_PUZZLES["cryptic-29995"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Explicit case of wood in tree (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "BAWDY",
    "annotation": {
@@ -221,9 +212,6 @@ window.CRYPTIC_PUZZLES["cryptic-29995"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Song about India in raga oddly similar in sound (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "RHYMING",
    "annotation": {
@@ -277,9 +265,6 @@ window.CRYPTIC_PUZZLES["cryptic-29995"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Child, and corn she has on the backside? (2,3,4)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -332,9 +317,6 @@ window.CRYPTIC_PUZZLES["cryptic-29995"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Weed in pig’s ear? (4)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "HASH",
    "annotation": {
@@ -373,9 +355,6 @@ window.CRYPTIC_PUZZLES["cryptic-29995"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "For ‘haunt’, try entering an anagram of that! (4-3)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -438,9 +417,6 @@ window.CRYPTIC_PUZZLES["cryptic-29995"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Capacity remains for out-of-this-world 23 (5,4)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -486,9 +462,6 @@ window.CRYPTIC_PUZZLES["cryptic-29995"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Use unknown technique for out-of-this-world 23 (5,3)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -540,9 +513,6 @@ window.CRYPTIC_PUZZLES["cryptic-29995"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Recovered, trouble far from islander (6)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "TONGAN",
    "annotation": {
@@ -614,9 +584,6 @@ window.CRYPTIC_PUZZLES["cryptic-29995"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Divorcee, after breaking up, froze (4,4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -658,9 +625,6 @@ window.CRYPTIC_PUZZLES["cryptic-29995"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Vicious swine sent back in time machine (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "TARDIS",
    "annotation": {
@@ -713,9 +677,6 @@ window.CRYPTIC_PUZZLES["cryptic-29995"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "A river down below capital of Zimbabwe in shade (5,4)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -779,9 +740,6 @@ window.CRYPTIC_PUZZLES["cryptic-29995"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Rags, those sent abroad, insufficient amounts (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "SHORTAGES",
    "annotation": {
@@ -819,9 +777,6 @@ window.CRYPTIC_PUZZLES["cryptic-29995"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Dreary lecture, reportedly – that would never take off (5,3)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -872,9 +827,6 @@ window.CRYPTIC_PUZZLES["cryptic-29995"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Question having caught cold: is spring here? (4,4)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -983,9 +935,6 @@ window.CRYPTIC_PUZZLES["cryptic-29995"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Out-of-this-world 23 warps beam (4,3)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -1028,9 +977,6 @@ window.CRYPTIC_PUZZLES["cryptic-29995"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Extra tests: restrain oneself, turning tail (6)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "RESITS",
    "annotation": {
@@ -1097,9 +1043,6 @@ window.CRYPTIC_PUZZLES["cryptic-29995"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Old scandalmonger keeping politicians in check (8)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "DEMPSTER",
    "annotation": {
@@ -1144,9 +1087,6 @@ window.CRYPTIC_PUZZLES["cryptic-29995"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Eat around a fire (6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "LAUNCH",
    "annotation": {
@@ -1191,9 +1131,6 @@ window.CRYPTIC_PUZZLES["cryptic-29995"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Chance to win big wasted, lead blown (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "LOTTO",
    "annotation": {
@@ -1302,9 +1239,6 @@ window.CRYPTIC_PUZZLES["cryptic-29995"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Some birds pecked others (8)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "BITTERNS",
    "annotation": {
@@ -1343,9 +1277,6 @@ window.CRYPTIC_PUZZLES["cryptic-29995"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Austrian maestro with an uber-Germanic piece (4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "BERG",
    "annotation": {
@@ -1383,9 +1314,6 @@ window.CRYPTIC_PUZZLES["cryptic-29995"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Very much for the love of God! (9)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "SERIOUSLY",
    "annotation": {

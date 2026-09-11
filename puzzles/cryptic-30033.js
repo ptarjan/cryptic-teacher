@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30033"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Stellar team, one from Spain (8)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "SIDEREAL",
    "annotation": {
@@ -65,9 +62,6 @@ window.CRYPTIC_PUZZLES["cryptic-30033"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Man possibly barring a passage (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "ISLE",
    "annotation": {
@@ -168,9 +162,6 @@ window.CRYPTIC_PUZZLES["cryptic-30033"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Firm stem (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "STAUNCH",
    "annotation": {
@@ -205,9 +196,6 @@ window.CRYPTIC_PUZZLES["cryptic-30033"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "One expression of approval or several (4)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "AYES",
    "annotation": {
@@ -249,9 +237,6 @@ window.CRYPTIC_PUZZLES["cryptic-30033"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Commotion when a bear seen near city (10)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "HULLABALOO",
    "annotation": {
@@ -304,9 +289,6 @@ window.CRYPTIC_PUZZLES["cryptic-30033"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "We’re disappointed when ostrich skin gets expensive (2,4)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -436,9 +418,6 @@ window.CRYPTIC_PUZZLES["cryptic-30033"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Just water (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "MERE",
    "annotation": {
@@ -473,9 +452,6 @@ window.CRYPTIC_PUZZLES["cryptic-30033"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Solvers being solvers with every other beauty product (10)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "YOURSELVES",
    "annotation": {
@@ -529,9 +505,6 @@ window.CRYPTIC_PUZZLES["cryptic-30033"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Officer sounding a bit of a nut (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "KERNEL",
    "annotation": {
@@ -567,9 +540,6 @@ window.CRYPTIC_PUZZLES["cryptic-30033"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Perhaps silk handkerchief is irrelevant (3,2,5)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -615,9 +585,6 @@ window.CRYPTIC_PUZZLES["cryptic-30033"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Last users promoting the ultimate in rock’n’roll hits (8)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "CLOBBERS",
    "annotation": {
@@ -662,9 +629,6 @@ window.CRYPTIC_PUZZLES["cryptic-30033"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Choose Pinot? (3)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "OPT",
    "annotation": {
@@ -709,9 +673,6 @@ window.CRYPTIC_PUZZLES["cryptic-30033"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Tom’s entry for Spooner’s headgear (4,3)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -789,9 +750,6 @@ window.CRYPTIC_PUZZLES["cryptic-30033"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Skinhead speaker’s undesirable presence (7)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "STALKER",
    "annotation": {
@@ -832,9 +790,6 @@ window.CRYPTIC_PUZZLES["cryptic-30033"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Cast a spell on the way in (8)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "ENTRANCE",
    "annotation": {
@@ -869,9 +824,6 @@ window.CRYPTIC_PUZZLES["cryptic-30033"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Juliet exits crossing to get ointment (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "UNCTION",
    "annotation": {
@@ -917,9 +869,6 @@ window.CRYPTIC_PUZZLES["cryptic-30033"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Big beast that was unsettling to nomads (8)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "MASTODON",
    "annotation": {
@@ -965,9 +914,6 @@ window.CRYPTIC_PUZZLES["cryptic-30033"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Commercial division is off course (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "ADRIFT",
    "annotation": {
@@ -1008,9 +954,6 @@ window.CRYPTIC_PUZZLES["cryptic-30033"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Bravo, gambling drunk (6)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "BLOTTO",
    "annotation": {
@@ -1048,9 +991,6 @@ window.CRYPTIC_PUZZLES["cryptic-30033"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Dine in part and leave (4,2)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -1102,9 +1042,6 @@ window.CRYPTIC_PUZZLES["cryptic-30033"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Toast giving thanks to Schubert composition (10)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "BRUSCHETTA",
    "annotation": {
@@ -1269,9 +1206,6 @@ window.CRYPTIC_PUZZLES["cryptic-30033"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Discovered love in money (5)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "FOUND",
    "annotation": {
@@ -1316,9 +1250,6 @@ window.CRYPTIC_PUZZLES["cryptic-30033"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Crude oil charge mostly makes wealthy and powerful individual (8)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "OLIGARCH",
    "annotation": {

@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12431"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Pasta recipe? Voila! Introduction to Italian cooking (7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "RAVIOLI",
    "annotation": {
@@ -79,9 +76,6 @@ window.CRYPTIC_PUZZLES["independent-12431"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Reasonable portion: a large (8)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "RATIONAL",
    "annotation": {
@@ -124,9 +118,6 @@ window.CRYPTIC_PUZZLES["independent-12431"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "In half-dark toilet after very hot curry (8)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "VINDALOO",
    "annotation": {
@@ -178,9 +169,6 @@ window.CRYPTIC_PUZZLES["independent-12431"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "After the start, adore new kitchen appliance (4)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "OVEN",
    "annotation": {
@@ -220,9 +208,6 @@ window.CRYPTIC_PUZZLES["independent-12431"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Egg feeding two in Rome completely unknown as a starter (9)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "INITIALLY",
    "annotation": {
@@ -275,9 +260,6 @@ window.CRYPTIC_PUZZLES["independent-12431"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Something good for you, varied in taste, taking beginners one minute (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "VITAMIN",
    "annotation": {
@@ -323,9 +305,6 @@ window.CRYPTIC_PUZZLES["independent-12431"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Utter failing to eat nothing (5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "VOICE",
    "annotation": {
@@ -366,9 +345,6 @@ window.CRYPTIC_PUZZLES["independent-12431"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Blending hot tripe with icing in the end? This creates a problem with balance (9)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "TIGHTROPE",
    "annotation": {
@@ -408,9 +384,6 @@ window.CRYPTIC_PUZZLES["independent-12431"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "In a stew, brief period before microwave's indication that it's finished (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "MOPING",
    "annotation": {
@@ -447,9 +420,6 @@ window.CRYPTIC_PUZZLES["independent-12431"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Something in fish for example I can cut up at home (6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "NIACIN",
    "annotation": {
@@ -495,9 +465,6 @@ window.CRYPTIC_PUZZLES["independent-12431"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Assemble ingredients making chewing easier (11)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "TENDERISING",
    "annotation": {
@@ -536,9 +503,6 @@ window.CRYPTIC_PUZZLES["independent-12431"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Chop the end off fruit and vegetable (3)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "PEA",
    "annotation": {
@@ -572,9 +536,6 @@ window.CRYPTIC_PUZZLES["independent-12431"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Flavour comes back somewhat similar to an egg (4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "OVAL",
    "annotation": {
@@ -606,9 +567,6 @@ window.CRYPTIC_PUZZLES["independent-12431"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Enthusiasts of diet sandwiches left thank-you note before tea delivered (10)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "DILETTANTI",
    "annotation": {
@@ -669,9 +627,6 @@ window.CRYPTIC_PUZZLES["independent-12431"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Sherry in the morning acceptable before a party (11)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "AMONTILLADO",
    "annotation": {
@@ -726,9 +681,6 @@ window.CRYPTIC_PUZZLES["independent-12431"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Deals with type of unhealthy fat, then gets down to business (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "TRANSACTS",
    "annotation": {
@@ -768,9 +720,6 @@ window.CRYPTIC_PUZZLES["independent-12431"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Lacking a clear plan, prepare ham or soup (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "AMORPHOUS",
    "annotation": {
@@ -809,9 +758,6 @@ window.CRYPTIC_PUZZLES["independent-12431"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Supplier's broth is nutritional at the core (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "STOCKIST",
    "annotation": {
@@ -860,9 +806,6 @@ window.CRYPTIC_PUZZLES["independent-12431"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Secretly plan hot, dependable stuffing with essence of figs (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "INTRIGUE",
    "annotation": {
@@ -910,9 +853,6 @@ window.CRYPTIC_PUZZLES["independent-12431"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "May unfortunately see can contains rejected mushroom starch component (11)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "AMYLOPECTIN",
    "annotation": {
@@ -978,9 +918,6 @@ window.CRYPTIC_PUZZLES["independent-12431"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Sweet made sharper with addition of iodine (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "HONIED",
    "annotation": {
@@ -1021,9 +958,6 @@ window.CRYPTIC_PUZZLES["independent-12431"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Course is enough for one doing the work of five (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "SERIES",
    "annotation": {
@@ -1069,9 +1003,6 @@ window.CRYPTIC_PUZZLES["independent-12431"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Finished small pastries at last after flipping flake fails to rise (10)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "OVERSLEEPS",
    "annotation": {
@@ -1130,9 +1061,6 @@ window.CRYPTIC_PUZZLES["independent-12431"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Burned when initially forgotten, as cereal typically is (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "EARED",
    "annotation": {
@@ -1166,9 +1094,6 @@ window.CRYPTIC_PUZZLES["independent-12431"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Spoil escargot partway through (4)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "SCAR",
    "annotation": {
@@ -1199,9 +1124,6 @@ window.CRYPTIC_PUZZLES["independent-12431"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Bread on American menus from Pisa - feta not reliable (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "PITA",
    "annotation": {
@@ -1240,9 +1162,6 @@ window.CRYPTIC_PUZZLES["independent-12431"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Chemical company at one time dissolving biscuit in odd locations (1,1,1)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      1,
@@ -1284,9 +1203,6 @@ window.CRYPTIC_PUZZLES["independent-12431"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Char occasionally good, as the French say, in emerging \"extreme grilling\" (11)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "CARBONISING",
    "annotation": {
@@ -1334,9 +1250,6 @@ window.CRYPTIC_PUZZLES["independent-12431"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Deli on the fringes marinated missing duck left to rot (7)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "DISUSED",
    "annotation": {
@@ -1382,9 +1295,6 @@ window.CRYPTIC_PUZZLES["independent-12431"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Surprise! After brief wait trifle, if dropped, reconstituted (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "STARTLE",
    "annotation": {

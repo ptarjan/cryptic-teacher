@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1323"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Marvel race film remade without female (7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "MIRACLE",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["quiptic-1323"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Abysmal ice-cream containing venom (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "MALICE",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["quiptic-1323"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Wandered around with setter getting in way (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "ROAMED",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["quiptic-1323"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Take away finest coca concoction (10)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "CONFISCATE",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["quiptic-1323"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Lament missing first bird (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "EGRET",
    "annotation": null
@@ -110,9 +95,6 @@ window.CRYPTIC_PUZZLES["quiptic-1323"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Lays on international male models (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "IMPOSES",
    "annotation": null
@@ -127,9 +109,6 @@ window.CRYPTIC_PUZZLES["quiptic-1323"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Popular coin I have as bribe (9)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "INCENTIVE",
    "annotation": null
@@ -144,9 +123,6 @@ window.CRYPTIC_PUZZLES["quiptic-1323"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Boat stake (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "PUNT",
    "annotation": null
@@ -161,9 +137,6 @@ window.CRYPTIC_PUZZLES["quiptic-1323"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "General cleaning up (8)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "SWEEPING",
    "annotation": null
@@ -178,9 +151,6 @@ window.CRYPTIC_PUZZLES["quiptic-1323"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "President taking drug foolishly ran (8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "SPRINTED",
    "annotation": null
@@ -195,9 +165,6 @@ window.CRYPTIC_PUZZLES["quiptic-1323"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Be informed of incline around start of road (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "LEARN",
    "annotation": null
@@ -212,9 +179,6 @@ window.CRYPTIC_PUZZLES["quiptic-1323"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Story teller and traitor carrying prisoner to Europe (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "RACONTEUR",
    "annotation": null
@@ -229,9 +193,6 @@ window.CRYPTIC_PUZZLES["quiptic-1323"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "So exciting newly living together (10)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "COEXISTING",
    "annotation": null
@@ -246,9 +207,6 @@ window.CRYPTIC_PUZZLES["quiptic-1323"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Fix options regularly (3)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "PIN",
    "annotation": null
@@ -263,9 +221,6 @@ window.CRYPTIC_PUZZLES["quiptic-1323"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Draw with time and revolutionary skill during battle (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "ATTRACTION",
    "annotation": null
@@ -280,9 +235,6 @@ window.CRYPTIC_PUZZLES["quiptic-1323"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Someone you know dancing a quiet can-can (12)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "ACQUAINTANCE",
    "annotation": null
@@ -297,9 +249,6 @@ window.CRYPTIC_PUZZLES["quiptic-1323"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "United nations operation put forward without dissent (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "UNOPPOSED",
    "annotation": null
@@ -314,9 +263,6 @@ window.CRYPTIC_PUZZLES["quiptic-1323"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Her plans going to pieces (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "SHRAPNEL",
    "annotation": null
@@ -331,9 +277,6 @@ window.CRYPTIC_PUZZLES["quiptic-1323"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Lightly fry radish tip with new English wine (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "SAUTERNE",
    "annotation": null
@@ -348,9 +291,6 @@ window.CRYPTIC_PUZZLES["quiptic-1323"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Intimate interaction from one card to another (5-2-5)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     "-": [
      5,
@@ -370,9 +310,6 @@ window.CRYPTIC_PUZZLES["quiptic-1323"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Loudly frolic and take a chance (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "GAMBLE",
    "annotation": null
@@ -387,9 +324,6 @@ window.CRYPTIC_PUZZLES["quiptic-1323"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Puts off those discussing dropping degree (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "DETERS",
    "annotation": null
@@ -404,9 +338,6 @@ window.CRYPTIC_PUZZLES["quiptic-1323"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Worker accepts new technology at first (3)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "ANT",
    "annotation": null
@@ -421,9 +352,6 @@ window.CRYPTIC_PUZZLES["quiptic-1323"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Be aware of ice parapet melting (10)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "APPRECIATE",
    "annotation": null
@@ -438,9 +366,6 @@ window.CRYPTIC_PUZZLES["quiptic-1323"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Lie about one exam (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "RESIT",
    "annotation": null
@@ -455,9 +380,6 @@ window.CRYPTIC_PUZZLES["quiptic-1323"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Upset keen female performer (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "DIVA",
    "annotation": null
@@ -472,9 +394,6 @@ window.CRYPTIC_PUZZLES["quiptic-1323"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Plant US drugs agent is starting to share with us (9)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "NARCISSUS",
    "annotation": null
@@ -489,9 +408,6 @@ window.CRYPTIC_PUZZLES["quiptic-1323"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Inspire hearts of grimly robust men (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "IMBUE",
    "annotation": null
@@ -506,9 +422,6 @@ window.CRYPTIC_PUZZLES["quiptic-1323"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Sketch fish returning in direction of shelter (7)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "LEEWARD",
    "annotation": null
@@ -523,9 +436,6 @@ window.CRYPTIC_PUZZLES["quiptic-1323"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Let nuns broadcast passages (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "TUNNELS",
    "annotation": null

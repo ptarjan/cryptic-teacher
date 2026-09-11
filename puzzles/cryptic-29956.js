@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29956"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Disorderly mess left inside sailing boat (7)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "CLUTTER",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["cryptic-29956"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "British singer accepting help somewhere in Australia (8)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "ADELAIDE",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["cryptic-29956"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "The chap caught up in tough spot is running late (6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "BEHIND",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["cryptic-29956"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "King or queen maybe meet comedian (4,4)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -97,9 +85,6 @@ window.CRYPTIC_PUZZLES["cryptic-29956"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Somewhat fallow, interminably cold part of the year (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "WINTER",
    "annotation": null
@@ -114,9 +99,6 @@ window.CRYPTIC_PUZZLES["cryptic-29956"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "You and I are mostly bored by the rain and snow, perhaps (7)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "WEATHER",
    "annotation": null
@@ -131,9 +113,6 @@ window.CRYPTIC_PUZZLES["cryptic-29956"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Promise of place with slight advantage (6)",
-   "group": [
-    "7-across"
-   ],
    "separatorLocations": {},
    "solution": "PLEDGE",
    "annotation": null
@@ -148,9 +127,6 @@ window.CRYPTIC_PUZZLES["cryptic-29956"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Recital changed to incorporate new instrument (8)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {},
    "solution": "CLARINET",
    "annotation": null
@@ -165,9 +141,6 @@ window.CRYPTIC_PUZZLES["cryptic-29956"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Contentious character central to stories in horribly vile cartoons (13)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "CONTROVERSIAL",
    "annotation": null
@@ -182,9 +155,6 @@ window.CRYPTIC_PUZZLES["cryptic-29956"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Stable about to take on one horse (8)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "STALLION",
    "annotation": null
@@ -199,9 +169,6 @@ window.CRYPTIC_PUZZLES["cryptic-29956"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Group of houses close to off-licence, say (6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "ESTATE",
    "annotation": null
@@ -216,9 +183,6 @@ window.CRYPTIC_PUZZLES["cryptic-29956"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Act more recklessly and act in a perplexing manner (8)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "BEWILDER",
    "annotation": null
@@ -233,9 +197,6 @@ window.CRYPTIC_PUZZLES["cryptic-29956"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "A selfish desire? No argument there! (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "AGREED",
    "annotation": null
@@ -250,9 +211,6 @@ window.CRYPTIC_PUZZLES["cryptic-29956"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Clear reorganisation of field events (4-7)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -271,9 +229,6 @@ window.CRYPTIC_PUZZLES["cryptic-29956"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Pretty fine engraved artwork (8)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "FETCHING",
    "annotation": null
@@ -288,9 +243,6 @@ window.CRYPTIC_PUZZLES["cryptic-29956"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Citizen of North America – Latino, possibly (8)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "NATIONAL",
    "annotation": null
@@ -305,9 +257,6 @@ window.CRYPTIC_PUZZLES["cryptic-29956"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Token reply (7)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "COUNTER",
    "annotation": null
@@ -322,9 +271,6 @@ window.CRYPTIC_PUZZLES["cryptic-29956"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Bird taking off around small lake (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "GOSLING",
    "annotation": null
@@ -339,9 +285,6 @@ window.CRYPTIC_PUZZLES["cryptic-29956"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Little kid suppresses surprising cry as well (2,4)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -360,9 +303,6 @@ window.CRYPTIC_PUZZLES["cryptic-29956"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "No item needing to be recycled promptly (2,4)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -381,9 +321,6 @@ window.CRYPTIC_PUZZLES["cryptic-29956"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Backlash concerning director’s call? (8)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "REACTION",
    "annotation": null
@@ -398,9 +335,6 @@ window.CRYPTIC_PUZZLES["cryptic-29956"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Reluctant amateur poet’s output? (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "AVERSE",
    "annotation": null
@@ -415,9 +349,6 @@ window.CRYPTIC_PUZZLES["cryptic-29956"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Weightlifting move is strenuous to begin with, of course! (6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "SNATCH",
    "annotation": null
@@ -432,9 +363,6 @@ window.CRYPTIC_PUZZLES["cryptic-29956"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Reserve money for summer treat (3,5)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -453,9 +381,6 @@ window.CRYPTIC_PUZZLES["cryptic-29956"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Final destination of reconstructed tramline (8)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "TERMINAL",
    "annotation": null
@@ -470,9 +395,6 @@ window.CRYPTIC_PUZZLES["cryptic-29956"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "On regular occasions, situations lead to sticky spots (6)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "STAINS",
    "annotation": null

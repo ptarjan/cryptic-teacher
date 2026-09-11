@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30080"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Left in van (7,5)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -68,9 +65,6 @@ window.CRYPTIC_PUZZLES["cryptic-30080"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Could be Nepal one accepted – also separately Malta? (5,4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -124,9 +118,6 @@ window.CRYPTIC_PUZZLES["cryptic-30080"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "‘They’re on the house’ – worker comes in a lot (8)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "PANTILES",
    "annotation": {
@@ -171,9 +162,6 @@ window.CRYPTIC_PUZZLES["cryptic-30080"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Decoy pocketing Charlie’s money (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "LUCRE",
    "annotation": {
@@ -217,9 +205,6 @@ window.CRYPTIC_PUZZLES["cryptic-30080"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Element from Red Planet (4,5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -263,9 +248,6 @@ window.CRYPTIC_PUZZLES["cryptic-30080"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Arrive in drag – men bowled over (4,2)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -321,9 +303,6 @@ window.CRYPTIC_PUZZLES["cryptic-30080"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Titled gent upset by journalist (5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "NAMED",
    "annotation": {
@@ -375,9 +354,6 @@ window.CRYPTIC_PUZZLES["cryptic-30080"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Greedily handles fruit (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "PAWPAW",
    "annotation": {
@@ -420,9 +396,6 @@ window.CRYPTIC_PUZZLES["cryptic-30080"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Through Henry about to get free modern car (6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "HYBRID",
    "annotation": {
@@ -476,9 +449,6 @@ window.CRYPTIC_PUZZLES["cryptic-30080"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "With Adams’ header, win a second time (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "AGAIN",
    "annotation": {
@@ -524,9 +494,6 @@ window.CRYPTIC_PUZZLES["cryptic-30080"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Wow! Old political leader pointlessly filmed Harry entering (3.6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     ".": [
      3
@@ -581,9 +548,6 @@ window.CRYPTIC_PUZZLES["cryptic-30080"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Trivial Pursuit’s first two getting egghead upset (7)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "PUERILE",
    "annotation": {
@@ -635,9 +599,6 @@ window.CRYPTIC_PUZZLES["cryptic-30080"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Expert fisherman, one might say, takes you round country (7)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "ECUADOR",
    "annotation": {
@@ -687,9 +648,6 @@ window.CRYPTIC_PUZZLES["cryptic-30080"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Wives receiving ‘support’? No way, it’s a misleading term (6,4)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -752,9 +710,6 @@ window.CRYPTIC_PUZZLES["cryptic-30080"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Powder, not drug – it’s right for treating medical condition (5-4)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -812,9 +767,6 @@ window.CRYPTIC_PUZZLES["cryptic-30080"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "President departs, lying (4)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "ABED",
    "annotation": {
@@ -851,9 +803,6 @@ window.CRYPTIC_PUZZLES["cryptic-30080"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Playful lambs in SE showing soft and gentle nature (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "BALMINESS",
    "annotation": {
@@ -903,9 +852,6 @@ window.CRYPTIC_PUZZLES["cryptic-30080"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Cunning hiding effect of injury – won leading decoration in battle (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "WARPAINT",
    "annotation": {
@@ -957,9 +903,6 @@ window.CRYPTIC_PUZZLES["cryptic-30080"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Try to get religious believer talking (4)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "SEEK",
    "annotation": {
@@ -994,9 +937,6 @@ window.CRYPTIC_PUZZLES["cryptic-30080"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Writer’s copy almost ready for wrapping (6)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "SCRIBE",
    "annotation": {
@@ -1045,9 +985,6 @@ window.CRYPTIC_PUZZLES["cryptic-30080"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Run up to end something special (8,2)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -1097,9 +1034,6 @@ window.CRYPTIC_PUZZLES["cryptic-30080"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Iceland ordeal over, having a ball (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "TESTIS",
    "annotation": {
@@ -1145,9 +1079,6 @@ window.CRYPTIC_PUZZLES["cryptic-30080"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Against describing one medic standing as blue-eyed boy (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "NORDIC",
    "annotation": {
@@ -1207,9 +1138,6 @@ window.CRYPTIC_PUZZLES["cryptic-30080"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Music and Liverpool? It’s a good relationship (7)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "RAPPORT",
    "annotation": {
@@ -1250,9 +1178,6 @@ window.CRYPTIC_PUZZLES["cryptic-30080"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Where to see pictures causing trouble with publicists? (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "PRADO",
    "annotation": {
@@ -1293,9 +1218,6 @@ window.CRYPTIC_PUZZLES["cryptic-30080"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "‘Dead soldiers ultimately losers’ – Mr President regularly awful (7)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "EMPTIES",
    "annotation": {
@@ -1341,9 +1263,6 @@ window.CRYPTIC_PUZZLES["cryptic-30080"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "The bilingual church official (5)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "ELDER",
    "annotation": {
@@ -1386,9 +1305,6 @@ window.CRYPTIC_PUZZLES["cryptic-30080"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Wasted chance to go higher when retired? (9)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "BLADDERED",
    "annotation": {
@@ -1429,9 +1345,6 @@ window.CRYPTIC_PUZZLES["cryptic-30080"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Old people’s home rejected jewellery originally (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "ICENI",
    "annotation": {
@@ -1485,9 +1398,6 @@ window.CRYPTIC_PUZZLES["cryptic-30080"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Thieves disposed of mostly property and cash around island (5,7)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     ",": [
      5

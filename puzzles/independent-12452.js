@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12452"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Living things turning brown, certainly missing sun (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "NATURE",
    "annotation": {
@@ -84,9 +81,6 @@ window.CRYPTIC_PUZZLES["independent-12452"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Organisation receiving articles about stomach in the ape (5-5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -146,9 +140,6 @@ window.CRYPTIC_PUZZLES["independent-12452"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "According to Fleming it’s M for misbehaviour? (8)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "MISCHIEF",
    "annotation": {
@@ -194,9 +185,6 @@ window.CRYPTIC_PUZZLES["independent-12452"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Legal establishments showing limits to imagination nonetheless (4)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "INNS",
    "annotation": {
@@ -242,9 +230,6 @@ window.CRYPTIC_PUZZLES["independent-12452"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Important naval figure seen in hold? (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "NELSON",
    "annotation": {
@@ -281,9 +266,6 @@ window.CRYPTIC_PUZZLES["independent-12452"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Nervous European Democrat generally cleared out (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "EDGY",
    "annotation": {
@@ -332,9 +314,6 @@ window.CRYPTIC_PUZZLES["independent-12452"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Prudent to visit, taking in relative in Holland (8)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "SENSIBLE",
    "annotation": {
@@ -385,9 +364,6 @@ window.CRYPTIC_PUZZLES["independent-12452"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Attitude after line in retreat (4)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {},
    "solution": "LAIR",
    "annotation": {
@@ -433,9 +409,6 @@ window.CRYPTIC_PUZZLES["independent-12452"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Bar menu not initially ruined - works at possibly dodgy suggestions (10)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "INNUENDOES",
    "annotation": {
@@ -498,9 +471,6 @@ window.CRYPTIC_PUZZLES["independent-12452"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Challenges putting pot in ovens (8)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "FURNACES",
    "annotation": {
@@ -544,9 +514,6 @@ window.CRYPTIC_PUZZLES["independent-12452"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Mum certainly tense - most likely to withdraw (6)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "SHYEST",
    "annotation": {
@@ -589,9 +556,6 @@ window.CRYPTIC_PUZZLES["independent-12452"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Particular probe gutted by copper taking on unreliable source (8)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "PECULIAR",
    "annotation": {
@@ -645,9 +609,6 @@ window.CRYPTIC_PUZZLES["independent-12452"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Bounders impounding river ferries (2-3)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     "-": [
      2
@@ -695,9 +656,6 @@ window.CRYPTIC_PUZZLES["independent-12452"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Head back round South, ending in legendary battleground (6)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "NASEBY",
    "annotation": {
@@ -757,9 +715,6 @@ window.CRYPTIC_PUZZLES["independent-12452"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Yahoo menu’s edited? I thought that was very bad (5,2,3)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {
     ",": [
      5,
@@ -806,9 +761,6 @@ window.CRYPTIC_PUZZLES["independent-12452"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Meteorological measure is absolute farce in a storm (8,5)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -857,9 +809,6 @@ window.CRYPTIC_PUZZLES["independent-12452"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "B_____ fool almost cut through item on score (4,4)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -912,9 +861,6 @@ window.CRYPTIC_PUZZLES["independent-12452"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Odd crime newspaper picked up, involving university lecturer (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "SINGULAR",
    "annotation": {
@@ -978,9 +924,6 @@ window.CRYPTIC_PUZZLES["independent-12452"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Our group adds wrinkles to ways of working (6)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "USAGES",
    "annotation": {
@@ -1020,9 +963,6 @@ window.CRYPTIC_PUZZLES["independent-12452"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "High-pitched soprano damaging after brief time (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "SHRILL",
    "annotation": {
@@ -1073,9 +1013,6 @@ window.CRYPTIC_PUZZLES["independent-12452"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "More reasonable about bringing in college’s white wine (8)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "SANCERRE",
    "annotation": {
@@ -1125,9 +1062,6 @@ window.CRYPTIC_PUZZLES["independent-12452"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Haphazard components of read-only memory (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "RANDOM",
    "annotation": {
@@ -1170,9 +1104,6 @@ window.CRYPTIC_PUZZLES["independent-12452"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Cake - first answer provided by every cook at the outset (6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "ECLAIR",
    "annotation": {
@@ -1218,9 +1149,6 @@ window.CRYPTIC_PUZZLES["independent-12452"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Hearts absorbed by cool desire (4)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "ACHE",
    "annotation": {
@@ -1264,9 +1192,6 @@ window.CRYPTIC_PUZZLES["independent-12452"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Regretting our name being appropriated by China (8)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "MOURNING",
    "annotation": {
@@ -1316,9 +1241,6 @@ window.CRYPTIC_PUZZLES["independent-12452"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Lots of people, some upsetting bird (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "MYNA",
    "annotation": {
@@ -1367,9 +1289,6 @@ window.CRYPTIC_PUZZLES["independent-12452"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "I will enter a chapel on rocky Greek island (10)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "CEPHALONIA",
    "annotation": {
@@ -1418,9 +1337,6 @@ window.CRYPTIC_PUZZLES["independent-12452"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Old tidal wave eliminating river reed (4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "OBOE",
    "annotation": {

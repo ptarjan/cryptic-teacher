@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30020"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Ultimately, Katie Hopkins cuts off support for the poor (4,8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -76,9 +73,6 @@ window.CRYPTIC_PUZZLES["cryptic-30020"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Filter air – not at home (6,3)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -121,9 +115,6 @@ window.CRYPTIC_PUZZLES["cryptic-30020"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Fail to warm up sufficiently before start of game – one’s likely to lose (8)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "UNDERDOG",
    "annotation": {
@@ -169,9 +160,6 @@ window.CRYPTIC_PUZZLES["cryptic-30020"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Before artist put on the canvas new religious work (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "KORAN",
    "annotation": {
@@ -221,9 +209,6 @@ window.CRYPTIC_PUZZLES["cryptic-30020"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Feel sad? Come in (5,4)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -266,9 +251,6 @@ window.CRYPTIC_PUZZLES["cryptic-30020"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Beating from punch, getting cut before sound of the bell (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "HIDING",
    "annotation": {
@@ -317,9 +299,6 @@ window.CRYPTIC_PUZZLES["cryptic-30020"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Rugby Union club having straight rugby posts? (5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "NEATH",
    "annotation": {
@@ -366,9 +345,6 @@ window.CRYPTIC_PUZZLES["cryptic-30020"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Perhaps copper maintains good power – it might retain output from battery for consumer (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "EGGCUP",
    "annotation": {
@@ -424,9 +400,6 @@ window.CRYPTIC_PUZZLES["cryptic-30020"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Pretty certain con is set-up – sucker not Yankee (4-2)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -490,9 +463,6 @@ window.CRYPTIC_PUZZLES["cryptic-30020"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Pierced from stab and stained with blood (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "GORED",
    "annotation": {
@@ -535,9 +505,6 @@ window.CRYPTIC_PUZZLES["cryptic-30020"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Way to write cards after game of golf (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "ROUNDHAND",
    "annotation": {
@@ -581,9 +548,6 @@ window.CRYPTIC_PUZZLES["cryptic-30020"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Check – moving over knight, one might give away rank (7)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "CHEVRON",
    "annotation": {
@@ -639,9 +603,6 @@ window.CRYPTIC_PUZZLES["cryptic-30020"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Hotel food around midday, that’s left out, curls up (7)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "HUNCHES",
    "annotation": {
@@ -693,9 +654,6 @@ window.CRYPTIC_PUZZLES["cryptic-30020"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "A Spice Girl over making comeback around fiery studio session (10)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "PHOTOSHOOT",
    "annotation": {
@@ -754,9 +712,6 @@ window.CRYPTIC_PUZZLES["cryptic-30020"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Not initially bad weather for swimming in spring? (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "HEADWATER",
    "annotation": {
@@ -801,9 +756,6 @@ window.CRYPTIC_PUZZLES["cryptic-30020"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Restrain having thrown a punch (4)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "CHIN",
    "annotation": {
@@ -846,9 +798,6 @@ window.CRYPTIC_PUZZLES["cryptic-30020"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Romeo during passion done in a flash (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "HEARTBEAT",
    "annotation": {
@@ -899,9 +848,6 @@ window.CRYPTIC_PUZZLES["cryptic-30020"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Ocean vessel docked for a major route (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "MAINLINE",
    "annotation": {
@@ -948,9 +894,6 @@ window.CRYPTIC_PUZZLES["cryptic-30020"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Saucy thing admits backside in miniskirt sticks out (4)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "JUTS",
    "annotation": {
@@ -1000,9 +943,6 @@ window.CRYPTIC_PUZZLES["cryptic-30020"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Biblical figure formed from rib inspiring epistle (6)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "JOSEPH",
    "annotation": {
@@ -1050,9 +990,6 @@ window.CRYPTIC_PUZZLES["cryptic-30020"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Nothing from lover, as many desperate to pick up date (5,5)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -1116,9 +1053,6 @@ window.CRYPTIC_PUZZLES["cryptic-30020"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "They hold balls in opening of Royal Ascot racing (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "SCROTA",
    "annotation": {
@@ -1166,9 +1100,6 @@ window.CRYPTIC_PUZZLES["cryptic-30020"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Body in zone for running during training (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "PLANET",
    "annotation": {
@@ -1216,9 +1147,6 @@ window.CRYPTIC_PUZZLES["cryptic-30020"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Typical bits of grass, garden getting trimmed (4,3)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -1267,9 +1195,6 @@ window.CRYPTIC_PUZZLES["cryptic-30020"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Criticise old following Conservative Party (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "DISCO",
    "annotation": {
@@ -1319,9 +1244,6 @@ window.CRYPTIC_PUZZLES["cryptic-30020"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Check dipstick in car? No time (7)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "MONITOR",
    "annotation": {
@@ -1373,9 +1295,6 @@ window.CRYPTIC_PUZZLES["cryptic-30020"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Old singer, ace, supporting Spice Girl (5)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "MELBA",
    "annotation": {
@@ -1419,9 +1338,6 @@ window.CRYPTIC_PUZZLES["cryptic-30020"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Last panto rearranged after infant pulled out (9)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "POSTNATAL",
    "annotation": {
@@ -1459,9 +1375,6 @@ window.CRYPTIC_PUZZLES["cryptic-30020"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Awkward to write about boring sex (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "INEPT",
    "annotation": {
@@ -1517,9 +1430,6 @@ window.CRYPTIC_PUZZLES["cryptic-30020"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Guardian fellow sent a report for editing (6-6)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     "-": [
      6

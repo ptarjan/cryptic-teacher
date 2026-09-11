@@ -70,9 +70,6 @@ window.CRYPTIC_PUZZLES["cryptic-29958"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "When the tide goes out one might view such accommodation! (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "FLATS",
    "annotation": null
@@ -87,9 +84,6 @@ window.CRYPTIC_PUZZLES["cryptic-29958"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Striking Brazilian moorlands discovered on tour (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "RONALDO",
    "annotation": null
@@ -124,9 +118,6 @@ window.CRYPTIC_PUZZLES["cryptic-29958"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Pause when performing play of disreputable author (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "TABLEAU",
    "annotation": null
@@ -141,9 +132,6 @@ window.CRYPTIC_PUZZLES["cryptic-29958"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "At times rocky, otherwise mountainous country (4,5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -185,9 +173,6 @@ window.CRYPTIC_PUZZLES["cryptic-29958"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Still preferring bishop to rook, extremely optimistically (2,4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -206,9 +191,6 @@ window.CRYPTIC_PUZZLES["cryptic-29958"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Personage perhaps lying in state is unknown for now (7,2,2,4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      7,
@@ -271,9 +253,6 @@ window.CRYPTIC_PUZZLES["cryptic-29958"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Keeping in touch, poorly Enigmatist’s going to take a break (5,3)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -292,9 +271,6 @@ window.CRYPTIC_PUZZLES["cryptic-29958"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Ultimately harmful combo, big effects if activated (5,4)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -313,9 +289,6 @@ window.CRYPTIC_PUZZLES["cryptic-29958"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Ruin preparation of minute steak: two internationals sacked (6)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "UNMAKE",
    "annotation": null
@@ -330,9 +303,6 @@ window.CRYPTIC_PUZZLES["cryptic-29958"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Cover one’s tracks maybe to achieve objective (6)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "TARGET",
    "annotation": null
@@ -367,9 +337,6 @@ window.CRYPTIC_PUZZLES["cryptic-29958"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Fire obsessive bouncer for pinching clubber’s bottom (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "TRIGGER",
    "annotation": null
@@ -384,9 +351,6 @@ window.CRYPTIC_PUZZLES["cryptic-29958"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Very good supports covering us when blasting? (8)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "PITPROPS",
    "annotation": null
@@ -401,9 +365,6 @@ window.CRYPTIC_PUZZLES["cryptic-29958"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "School’s out when psychologist waves pen (6)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "PIGSTY",
    "annotation": null
@@ -418,9 +379,6 @@ window.CRYPTIC_PUZZLES["cryptic-29958"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "This bar’s swinging ex-Palace favourite who likes scoring after gin (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "TRAPEZE",
    "annotation": null
@@ -497,9 +455,6 @@ window.CRYPTIC_PUZZLES["cryptic-29958"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "There but for all to see, our most prominent, looking skyward? (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "ORION",
    "annotation": null
@@ -514,9 +469,6 @@ window.CRYPTIC_PUZZLES["cryptic-29958"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Considered Scotswoman correct to hide face away from sundown to sunrise (7,3,5)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     ",": [
      7,

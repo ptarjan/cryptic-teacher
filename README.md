@@ -358,7 +358,7 @@ read and rewrite it. Shape:
       "id": "16-across", "number": 16, "direction": "across",
       "position": {"x": 0, "y": 8}, "length": 10,
       "clue": "Destroying climate, sun reaches highest point (10)",
-      "group": ["16-across"], "separatorLocations": {},
+      "separatorLocations": {},
       "solution": "CULMINATES",
       "annotation": {
         "type": "anagram",

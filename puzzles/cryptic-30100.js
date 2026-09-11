@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30100"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Take flight, carrying Charlie, following sea transportation issue (7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "SUBJECT",
    "annotation": {
@@ -79,9 +76,6 @@ window.CRYPTIC_PUZZLES["cryptic-30100"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Principally, social categorisation has one overwhelming limitation – it’s divided by class (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "SCHOOL",
    "annotation": {
@@ -126,9 +120,6 @@ window.CRYPTIC_PUZZLES["cryptic-30100"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Chief briefly interrupted by a doctor turning tables (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "BOARDS",
    "annotation": {
@@ -188,9 +179,6 @@ window.CRYPTIC_PUZZLES["cryptic-30100"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "French milk served up in German city’s just what we need (10)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "ESSENTIALS",
    "annotation": {
@@ -248,9 +236,6 @@ window.CRYPTIC_PUZZLES["cryptic-30100"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Instructor’s express disapproval with soldiers (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "TUTOR",
    "annotation": {
@@ -291,9 +276,6 @@ window.CRYPTIC_PUZZLES["cryptic-30100"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Recognises love shared by you and me? (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "HONOURS",
    "annotation": {
@@ -330,9 +312,6 @@ window.CRYPTIC_PUZZLES["cryptic-30100"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Smell I left before I ate is cause to feel bad (9)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "HUMILIATE",
    "annotation": {
@@ -386,9 +365,6 @@ window.CRYPTIC_PUZZLES["cryptic-30100"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "N American, African, Asian, Oceanian or even from the Antarctic! (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "NOTE",
    "annotation": {
@@ -419,9 +395,6 @@ window.CRYPTIC_PUZZLES["cryptic-30100"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Open-minded nude American Bishop is sacked (8)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "UNBIASED",
    "annotation": {
@@ -473,9 +446,6 @@ window.CRYPTIC_PUZZLES["cryptic-30100"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Watch Spooner’s electronics series? (8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "SPECTATE",
    "annotation": {
@@ -520,9 +490,6 @@ window.CRYPTIC_PUZZLES["cryptic-30100"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Oversees advancement of ecstasy in hell (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "HEADS",
    "annotation": {
@@ -562,9 +529,6 @@ window.CRYPTIC_PUZZLES["cryptic-30100"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Schedule board to pursue Master embroiled in relationship (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "TIMETABLE",
    "annotation": {
@@ -616,9 +580,6 @@ window.CRYPTIC_PUZZLES["cryptic-30100"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Normally, on the other hand, start off cautiously after loud noise (10)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "ORDINARILY",
    "annotation": {
@@ -669,9 +630,6 @@ window.CRYPTIC_PUZZLES["cryptic-30100"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Reality show tailing female (4)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "FACT",
    "annotation": {
@@ -714,9 +672,6 @@ window.CRYPTIC_PUZZLES["cryptic-30100"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Nice places being arranged – somewhere to accommodate writers (6-4)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     "-": [
      6
@@ -757,9 +712,6 @@ window.CRYPTIC_PUZZLES["cryptic-30100"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Being out of order, criticise and put down setter, heartless nut! (12)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "DISPLACEMENT",
    "annotation": {
@@ -814,9 +766,6 @@ window.CRYPTIC_PUZZLES["cryptic-30100"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "1Ds for young, strait-laced group of stars (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "PRIMARIES",
    "annotation": {
@@ -853,9 +802,6 @@ window.CRYPTIC_PUZZLES["cryptic-30100"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Gin diet’s crazy – and most dull! (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "DINGIEST",
    "annotation": {
@@ -892,9 +838,6 @@ window.CRYPTIC_PUZZLES["cryptic-30100"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Mood elevation when drinking Tango, putting away litres! (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "ATTITUDE",
    "annotation": {
@@ -945,9 +888,6 @@ window.CRYPTIC_PUZZLES["cryptic-30100"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Another order for gilt Nile scene excluding special information (12)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "INTELLIGENCE",
    "annotation": {
@@ -994,9 +934,6 @@ window.CRYPTIC_PUZZLES["cryptic-30100"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "It may be carrying files from the French supporting Eastern currency (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "DONGLE",
    "annotation": {
@@ -1042,9 +979,6 @@ window.CRYPTIC_PUZZLES["cryptic-30100"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "State agreement for rise (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "ASCENT",
    "annotation": {
@@ -1082,9 +1016,6 @@ window.CRYPTIC_PUZZLES["cryptic-30100"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Giganet’s first free network (4)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "GRID",
    "annotation": {
@@ -1127,9 +1058,6 @@ window.CRYPTIC_PUZZLES["cryptic-30100"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Flying creature with claws circling international groups of soldiers (10)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "BATTALIONS",
    "annotation": {
@@ -1179,9 +1107,6 @@ window.CRYPTIC_PUZZLES["cryptic-30100"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Disorganised teens stressed (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "TENSE",
    "annotation": {
@@ -1218,9 +1143,6 @@ window.CRYPTIC_PUZZLES["cryptic-30100"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Antifa illegally concealing collapse (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "FAIL",
    "annotation": {
@@ -1254,9 +1176,6 @@ window.CRYPTIC_PUZZLES["cryptic-30100"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Teaching can die out if it’s disordered (9)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "EDUCATION",
    "annotation": {
@@ -1293,9 +1212,6 @@ window.CRYPTIC_PUZZLES["cryptic-30100"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Swing headless fish (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "ANGLE",
    "annotation": {
@@ -1337,9 +1253,6 @@ window.CRYPTIC_PUZZLES["cryptic-30100"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Wood surrounding the outskirts of Blackpool gets three times bigger (7)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "TREBLES",
    "annotation": {
@@ -1385,9 +1298,6 @@ window.CRYPTIC_PUZZLES["cryptic-30100"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Part company in English hamlet, half-cut (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "ELEMENT",
    "annotation": {

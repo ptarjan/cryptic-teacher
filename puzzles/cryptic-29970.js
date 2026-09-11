@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29970"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "What drawers might hold: chain, bow and ring on a length (8)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "CHARCOAL",
    "annotation": {
@@ -89,9 +86,6 @@ window.CRYPTIC_PUZZLES["cryptic-29970"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Harsh sound of underwear rubbing against somebody’s rear (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "BRAY",
    "annotation": {
@@ -145,9 +139,6 @@ window.CRYPTIC_PUZZLES["cryptic-29970"] = /*JSON-START*/ {
      22,
      8
     ]
-   ],
-   "group": [
-    "3-down"
    ],
    "separatorLocations": {},
    "solution": "SUGARY",
@@ -203,9 +194,6 @@ window.CRYPTIC_PUZZLES["cryptic-29970"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Cat saying ‘tree cutter’? (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "WHIPSAW",
    "annotation": {
@@ -244,9 +232,6 @@ window.CRYPTIC_PUZZLES["cryptic-29970"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Brief shots of mother, topless doing a twirl (4)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "AMMO",
    "annotation": {
@@ -295,9 +280,6 @@ window.CRYPTIC_PUZZLES["cryptic-29970"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Student group in exposed surroundings put in the shade (10)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "OUTCLASSED",
    "annotation": {
@@ -344,9 +326,6 @@ window.CRYPTIC_PUZZLES["cryptic-29970"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Car is revolutionary (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "WHEELS",
    "annotation": {
@@ -379,9 +358,6 @@ window.CRYPTIC_PUZZLES["cryptic-29970"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Disk installed in finished comprehensive (8)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {},
    "solution": "THOROUGH",
    "annotation": {
@@ -426,9 +402,6 @@ window.CRYPTIC_PUZZLES["cryptic-29970"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Hum – to set trap (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "MOUTH",
    "annotation": {
@@ -466,9 +439,6 @@ window.CRYPTIC_PUZZLES["cryptic-29970"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Horse led by Earl? (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "GREY",
    "annotation": {
@@ -503,9 +473,6 @@ window.CRYPTIC_PUZZLES["cryptic-29970"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Came near to rewriting ad hoc paper (10)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "APPROACHED",
    "annotation": {
@@ -546,9 +513,6 @@ window.CRYPTIC_PUZZLES["cryptic-29970"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Very faint-hearted, not quite returning salvo (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "VOLLEY",
    "annotation": {
@@ -600,9 +564,6 @@ window.CRYPTIC_PUZZLES["cryptic-29970"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Elgar too hip, perhaps, to drop round for this type of work (5,5)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -655,9 +616,6 @@ window.CRYPTIC_PUZZLES["cryptic-29970"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "One American in multinational company gives a hand (8)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "APPLAUSE",
    "annotation": {
@@ -711,9 +669,6 @@ window.CRYPTIC_PUZZLES["cryptic-29970"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Hapless Republican’s abandoned passed motion (3)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "POO",
    "annotation": {
@@ -756,9 +711,6 @@ window.CRYPTIC_PUZZLES["cryptic-29970"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Irresponsible, filthy cracks about gang leader (7)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "FLIGHTY",
    "annotation": {
@@ -805,9 +757,6 @@ window.CRYPTIC_PUZZLES["cryptic-29970"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Hill’s tale uncovered (3)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "TOR",
    "annotation": {
@@ -848,9 +797,6 @@ window.CRYPTIC_PUZZLES["cryptic-29970"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Cheer gamer’s device (7)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "CONSOLE",
    "annotation": {
@@ -885,9 +831,6 @@ window.CRYPTIC_PUZZLES["cryptic-29970"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Duration of biography’s going to pot (8)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "LIFESPAN",
    "annotation": {
@@ -931,9 +874,6 @@ window.CRYPTIC_PUZZLES["cryptic-29970"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Mark for each bolt (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "SCARPER",
    "annotation": {
@@ -972,9 +912,6 @@ window.CRYPTIC_PUZZLES["cryptic-29970"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "One of the Trumps hiding small toe-curling secret (8)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "ESOTERIC",
    "annotation": {
@@ -1033,9 +970,6 @@ window.CRYPTIC_PUZZLES["cryptic-29970"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Foreign alcoholic drinks poured over Henry’s cold drinks (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "SHAKES",
    "annotation": {
@@ -1080,9 +1014,6 @@ window.CRYPTIC_PUZZLES["cryptic-29970"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Order of fish provided by end of day (6)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "CODIFY",
    "annotation": {
@@ -1136,9 +1067,6 @@ window.CRYPTIC_PUZZLES["cryptic-29970"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Cold? Here’s fishy toast (6)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "CHEERS",
    "annotation": {
@@ -1188,9 +1116,6 @@ window.CRYPTIC_PUZZLES["cryptic-29970"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "House safeguard that makes for heavy going? (4-6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -1229,9 +1154,6 @@ window.CRYPTIC_PUZZLES["cryptic-29970"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Player’s behind this aspect of polo cheating? (4)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "OCHE",
    "annotation": {
@@ -1266,9 +1188,6 @@ window.CRYPTIC_PUZZLES["cryptic-29970"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Mean-sounding voice (4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "BASS",
    "annotation": {
@@ -1304,9 +1223,6 @@ window.CRYPTIC_PUZZLES["cryptic-29970"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Police work that often gets support (4)",
-   "group": [
-    "26-down"
-   ],
    "separatorLocations": {},
    "solution": "BUST",
    "annotation": {
@@ -1341,9 +1257,6 @@ window.CRYPTIC_PUZZLES["cryptic-29970"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Near the boundless land (5)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "EARTH",
    "annotation": {
@@ -1381,9 +1294,6 @@ window.CRYPTIC_PUZZLES["cryptic-29970"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Centaurs cast out of a pre-Roman state (8)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "ETRUSCAN",
    "annotation": {

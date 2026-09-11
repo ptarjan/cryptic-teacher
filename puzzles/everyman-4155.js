@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4155"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Occupy thoughts of bosses following reorg (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "OBSESS",
    "annotation": {
@@ -64,9 +61,6 @@ window.CRYPTIC_PUZZLES["everyman-4155"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Increasingly encouraging couple at the bookies? (6,3,6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      6,
@@ -115,9 +109,6 @@ window.CRYPTIC_PUZZLES["everyman-4155"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Red light for traffic - changes to amber - go! (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "EMBARGO",
    "annotation": {
@@ -159,9 +150,6 @@ window.CRYPTIC_PUZZLES["everyman-4155"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Hot spot whereby 'don't sweat it' is poor advice (5,4)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -197,9 +185,6 @@ window.CRYPTIC_PUZZLES["everyman-4155"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Spirited gathering that's not without its knockers (6)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "SEANCE",
    "annotation": {
@@ -231,9 +216,6 @@ window.CRYPTIC_PUZZLES["everyman-4155"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Cursed as new arguments rebutted (5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "SWORN",
    "annotation": {
@@ -285,9 +267,6 @@ window.CRYPTIC_PUZZLES["everyman-4155"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Goddess, Astarte, misbehaved in some measure (7)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "ARTEMIS",
    "annotation": {
@@ -321,9 +300,6 @@ window.CRYPTIC_PUZZLES["everyman-4155"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Mad dog covers news: quite the puzzler! (9,6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      9
@@ -376,9 +352,6 @@ window.CRYPTIC_PUZZLES["everyman-4155"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "I'm often the basis for a romantic evening (5,3,3)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {
     ",": [
      5,
@@ -427,9 +400,6 @@ window.CRYPTIC_PUZZLES["everyman-4155"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Employed house detective to eject some characters (4)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {},
    "solution": "USED",
    "annotation": {
@@ -463,9 +433,6 @@ window.CRYPTIC_PUZZLES["everyman-4155"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Perhaps makes Brown edgy and tense regularly (4)",
-   "group": [
-    "10-down"
-   ],
    "separatorLocations": {},
    "solution": "DYES",
    "annotation": {
@@ -508,9 +475,6 @@ window.CRYPTIC_PUZZLES["everyman-4155"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Fellow directing tidying-up of mare's nest (9)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "STEERSMAN",
    "annotation": {
@@ -550,9 +514,6 @@ window.CRYPTIC_PUZZLES["everyman-4155"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Walk back expressions of agreement and contemplation (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "MOSEY",
    "annotation": {
@@ -610,9 +571,6 @@ window.CRYPTIC_PUZZLES["everyman-4155"] = /*JSON-START*/ {
      10
     ]
    ],
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "DIABOLO",
    "annotation": {
@@ -656,9 +614,6 @@ window.CRYPTIC_PUZZLES["everyman-4155"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Most people do these duties (7)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "CUSTOMS",
    "annotation": {
@@ -693,9 +648,6 @@ window.CRYPTIC_PUZZLES["everyman-4155"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Diplomatic office not happy with clause (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "CONSULATE",
    "annotation": {
@@ -740,9 +692,6 @@ window.CRYPTIC_PUZZLES["everyman-4155"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Shock trimmed for election (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "MIDTERM",
    "annotation": {
@@ -782,9 +731,6 @@ window.CRYPTIC_PUZZLES["everyman-4155"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Stingy Everyman getting a round - not until the fourth (4)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "MEAN",
    "annotation": {
@@ -836,9 +782,6 @@ window.CRYPTIC_PUZZLES["everyman-4155"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Former partner greeting boring tool: it's for show (7)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "EXHIBIT",
    "annotation": {
@@ -882,9 +825,6 @@ window.CRYPTIC_PUZZLES["everyman-4155"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Zero that are crazy; 99 drifting (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "NOMADIC",
    "annotation": {
@@ -931,9 +871,6 @@ window.CRYPTIC_PUZZLES["everyman-4155"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "This chap's pullin' faces at front of stage (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "MUGGINS",
    "annotation": {
@@ -978,9 +915,6 @@ window.CRYPTIC_PUZZLES["everyman-4155"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Rod for Old Testament murderer, we're told (4)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "CANE",
    "annotation": {
@@ -1018,9 +952,6 @@ window.CRYPTIC_PUZZLES["everyman-4155"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Antediluvian letter equipping Phoenicians, Hebrews, initially? (5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "ALEPH",
    "annotation": {
@@ -1063,9 +994,6 @@ window.CRYPTIC_PUZZLES["everyman-4155"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Two tones together: silly bungler ringing phone company (4-5)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -1121,9 +1049,6 @@ window.CRYPTIC_PUZZLES["everyman-4155"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Spooner's delivering Clark, maybe, a roll (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "BAGEL",
    "annotation": {
@@ -1161,9 +1086,6 @@ window.CRYPTIC_PUZZLES["everyman-4155"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Church musician's headed for loo for want of alternative: things will go downhill fast for her (11)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "TOBOGGANIST",
    "annotation": {
@@ -1212,9 +1134,6 @@ window.CRYPTIC_PUZZLES["everyman-4155"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "With temperature receding, hail landing on lecturer, one that's lost in the woods (6)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "GRETEL",
    "annotation": {
@@ -1265,9 +1184,6 @@ window.CRYPTIC_PUZZLES["everyman-4155"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Disapproval, but not about warrant (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "ENSURE",
    "annotation": {

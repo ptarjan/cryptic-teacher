@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29922"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Sweet stuff wrapped in fancy lace (7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "CARAMEL",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["cryptic-29922"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Carefully organise minister (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "CURATE",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["cryptic-29922"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Type of music that’s right for a sharp instrument (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "RAPIER",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["cryptic-29922"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Latest rent cost me terribly (4,6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -97,9 +85,6 @@ window.CRYPTIC_PUZZLES["cryptic-29922"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Infectious Ebola on the rise, involving parts of the lung or liver (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "LOBES",
    "annotation": null
@@ -114,9 +99,6 @@ window.CRYPTIC_PUZZLES["cryptic-29922"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Totally out of order for soldiers to eat here (2,1,4)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -136,9 +118,6 @@ window.CRYPTIC_PUZZLES["cryptic-29922"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Clever and honest once I replaced you, as they say (9)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "INGENIOUS",
    "annotation": null
@@ -153,9 +132,6 @@ window.CRYPTIC_PUZZLES["cryptic-29922"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Surrounded by the morning papers (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "AMID",
    "annotation": null
@@ -170,9 +146,6 @@ window.CRYPTIC_PUZZLES["cryptic-29922"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Once legal proceedings start in advance, it’s clear (8)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "EXPLICIT",
    "annotation": null
@@ -187,9 +160,6 @@ window.CRYPTIC_PUZZLES["cryptic-29922"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Officer material displayed by soldier (8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "SERGEANT",
    "annotation": null
@@ -204,9 +174,6 @@ window.CRYPTIC_PUZZLES["cryptic-29922"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Strings that are shown to a novice (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "ROPES",
    "annotation": null
@@ -221,9 +188,6 @@ window.CRYPTIC_PUZZLES["cryptic-29922"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Barged in at first and carelessly gripped the plough (3,6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -285,9 +249,6 @@ window.CRYPTIC_PUZZLES["cryptic-29922"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Newcastle card game (4,6)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -306,9 +267,6 @@ window.CRYPTIC_PUZZLES["cryptic-29922"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Firm tummy (11)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "CORPORATION",
    "annotation": null
@@ -323,9 +281,6 @@ window.CRYPTIC_PUZZLES["cryptic-29922"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Paddy’s funny intro accepted by Eric Idle after editing (4,5)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -344,9 +299,6 @@ window.CRYPTIC_PUZZLES["cryptic-29922"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Hatchback in cross section (4,4)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -365,9 +317,6 @@ window.CRYPTIC_PUZZLES["cryptic-29922"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Like Charlie was over rose (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "ASCENDED",
    "annotation": null
@@ -382,9 +331,6 @@ window.CRYPTIC_PUZZLES["cryptic-29922"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Crisis song composed about the ultimate in rampant inflation (6,5)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -490,9 +436,6 @@ window.CRYPTIC_PUZZLES["cryptic-29922"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Lily Allen’s top trodden by MC (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "HOSTA",
    "annotation": null
@@ -507,9 +450,6 @@ window.CRYPTIC_PUZZLES["cryptic-29922"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "City protected by Kilimanjaro (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "LIMA",
    "annotation": null
@@ -524,9 +464,6 @@ window.CRYPTIC_PUZZLES["cryptic-29922"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Grandfathers and their clocks (3-6)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -545,9 +482,6 @@ window.CRYPTIC_PUZZLES["cryptic-29922"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "German newspaper that’s come out and lived (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "DWELT",
    "annotation": null
@@ -562,9 +496,6 @@ window.CRYPTIC_PUZZLES["cryptic-29922"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Penalty from the queen of hearts? (3,4)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -583,9 +514,6 @@ window.CRYPTIC_PUZZLES["cryptic-29922"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "An improved assistant (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "ABETTER",
    "annotation": null

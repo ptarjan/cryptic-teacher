@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30011"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Cheers one who’d expect to be paid to be an MP? (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "PROSIT",
    "annotation": {
@@ -65,9 +62,6 @@ window.CRYPTIC_PUZZLES["cryptic-30011"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Fancy knocking off leader for paper? (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "REAM",
    "annotation": {
@@ -108,9 +102,6 @@ window.CRYPTIC_PUZZLES["cryptic-30011"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Mark’s house settlement’s not finished (9)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "SEMICOLON",
    "annotation": {
@@ -154,9 +145,6 @@ window.CRYPTIC_PUZZLES["cryptic-30011"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Lulu’s half escaping depression in the old city (6)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "THEBES",
    "annotation": {
@@ -202,9 +190,6 @@ window.CRYPTIC_PUZZLES["cryptic-30011"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Light material suffering more snags if not new (8)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "GOSSAMER",
    "annotation": {
@@ -249,9 +234,6 @@ window.CRYPTIC_PUZZLES["cryptic-30011"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Cynically proposing futile measures – a ‘two-fingered salute’ way of governing? (7,8)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -293,9 +275,6 @@ window.CRYPTIC_PUZZLES["cryptic-30011"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Lyricist dancing – time for one very popular show (8)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "STRICTLY",
    "annotation": {
@@ -340,9 +319,6 @@ window.CRYPTIC_PUZZLES["cryptic-30011"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Foul’s legal – linesman’s heading off (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "AWFUL",
    "annotation": {
@@ -385,9 +361,6 @@ window.CRYPTIC_PUZZLES["cryptic-30011"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Sushi: meant to be prepared with relish (10)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "ENTHUSIASM",
    "annotation": {
@@ -428,9 +401,6 @@ window.CRYPTIC_PUZZLES["cryptic-30011"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Safe getting hot as Venus in the Louvre (8)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "HARMLESS",
    "annotation": {
@@ -471,9 +441,6 @@ window.CRYPTIC_PUZZLES["cryptic-30011"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Official Aussie pick-up counter (6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "REFUTE",
    "annotation": {
@@ -511,9 +478,6 @@ window.CRYPTIC_PUZZLES["cryptic-30011"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Putting two lots of uranium into affected corpuscles is dim! (12)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "CREPUSCULOUS",
    "annotation": {
@@ -559,9 +523,6 @@ window.CRYPTIC_PUZZLES["cryptic-30011"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "End cut off cob stuffed with Parmesan cheese (10)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {},
    "solution": "MASCARPONE",
    "annotation": {
@@ -609,9 +570,6 @@ window.CRYPTIC_PUZZLES["cryptic-30011"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Marine fish in abandoned clay (4)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "MARL",
    "annotation": {
@@ -654,9 +612,6 @@ window.CRYPTIC_PUZZLES["cryptic-30011"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Oval’s pitch initially breaking up till ice melted (8)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "ELLIPTIC",
    "annotation": {
@@ -701,9 +656,6 @@ window.CRYPTIC_PUZZLES["cryptic-30011"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Notice soldiers pinching one’s bottom (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "POSTERIOR",
    "annotation": {
@@ -753,9 +705,6 @@ window.CRYPTIC_PUZZLES["cryptic-30011"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Church head one books into rave for a game (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "CRIBBAGE",
    "annotation": {
@@ -816,9 +765,6 @@ window.CRYPTIC_PUZZLES["cryptic-30011"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Opera section with city situation (8)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "SCENARIO",
    "annotation": {
@@ -859,9 +805,6 @@ window.CRYPTIC_PUZZLES["cryptic-30011"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Frame in which beauty pageant winner appears? (4)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "SASH",
    "annotation": {
@@ -897,9 +840,6 @@ window.CRYPTIC_PUZZLES["cryptic-30011"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Wonder if a motorhome’s possessed by a Spice girl? (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "MARVEL",
    "annotation": {
@@ -953,9 +893,6 @@ window.CRYPTIC_PUZZLES["cryptic-30011"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "A fibre carpet used to make flatpack kit, say (12)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "PREFABRICATE",
    "annotation": {
@@ -996,9 +933,6 @@ window.CRYPTIC_PUZZLES["cryptic-30011"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "US state not allowed to mock (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "FLOUT",
    "annotation": {
@@ -1039,9 +973,6 @@ window.CRYPTIC_PUZZLES["cryptic-30011"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Nut-covered Latin dish (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "FLAN",
    "annotation": {
@@ -1086,9 +1017,6 @@ window.CRYPTIC_PUZZLES["cryptic-30011"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Wow, performing with a cigar! (6)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "CORONA",
    "annotation": {
@@ -1135,9 +1063,6 @@ window.CRYPTIC_PUZZLES["cryptic-30011"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Very into fancy lingerie but right off sweet-talk (8)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "INVEIGLE",
    "annotation": {
@@ -1192,9 +1117,6 @@ window.CRYPTIC_PUZZLES["cryptic-30011"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Expert: ‘Nessie is mostly brass’ (8)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "PERTNESS",
    "annotation": {
@@ -1232,9 +1154,6 @@ window.CRYPTIC_PUZZLES["cryptic-30011"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Cat circling a rocking lead vocalist’s equipment (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "LARYNX",
    "annotation": {

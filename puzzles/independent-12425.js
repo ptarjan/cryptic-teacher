@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Age of Information speech starting late, after English ... (10)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "GENERATION",
    "annotation": {
@@ -79,9 +76,6 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Heat possibly rising before Spain match (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "GAME",
    "annotation": {
@@ -130,9 +124,6 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Show outside broadcast in Northern Ireland's capital (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "NAIROBI",
    "annotation": {
@@ -185,9 +176,6 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Argyle periodically showing spirit (3)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "RYE",
    "annotation": {
@@ -227,9 +215,6 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Dump student taken in by a society's regular drinkers (8)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "TIPPLERS",
    "annotation": {
@@ -288,9 +273,6 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Stared at Adele, upset and exposed after pitch error (5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "OGLED",
    "annotation": {
@@ -341,9 +323,6 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "... act's song on piano (4)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "PLAY",
    "annotation": {
@@ -389,9 +368,6 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Hangs around Liberal, going off Tories (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "LOITERS",
    "annotation": {
@@ -433,9 +409,6 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Attractive model's daughter becoming Yale's principal (5)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "YUMMY",
    "annotation": {
@@ -485,9 +458,6 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "One of fifty children I amused somewhat when falling over (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "MAINE",
    "annotation": {
@@ -529,9 +499,6 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Cloud facing union's leader amid unruly element (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "PALLADIUM",
    "annotation": {
@@ -582,9 +549,6 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Instruction from Madonna, losing head badly when covering metal? (9)",
-   "group": [
-    "11-down"
-   ],
    "separatorLocations": {},
    "solution": "ANDANTINO",
    "annotation": {
@@ -633,9 +597,6 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Easy listening music? Promote short piece (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "MORSEL",
    "annotation": {
@@ -678,9 +639,6 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Small uniform, clothing that hurts rear of admiral in vessel (5,4)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -748,9 +706,6 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Faltering comedian ending on unintelligible line (7)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "DODDERY",
    "annotation": {
@@ -799,9 +754,6 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "People who shy girls sent almost mad (8)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "SLINGERS",
    "annotation": {
@@ -845,9 +797,6 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Relative clears Chianti bottles last of all (3)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "SIS",
    "annotation": {
@@ -884,9 +833,6 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Idle American bores classy new journalist (6)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "UNUSED",
    "annotation": {
@@ -941,9 +887,6 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Robin perhaps lifted by hand now and then (3)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "DAY",
    "annotation": {
@@ -988,9 +931,6 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Move seats and get props and scenery (5,3)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -1031,9 +971,6 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "\"Give us a twirl!\" Games with King Brucie at the front, terrific (6)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "SUPERB",
    "annotation": {
@@ -1096,9 +1033,6 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Under pressure formerly, are United level? (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "PLATEAU",
    "annotation": {
@@ -1153,9 +1087,6 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Case for Turandot lyrics being translated to the letter? (8)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "STRICTLY",
    "annotation": {
@@ -1205,9 +1136,6 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Primate thanks sailor without hesitation (7)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "TAMARIN",
    "annotation": {
@@ -1255,9 +1183,6 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Charm of hair swept back over curl in the centre (7)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "ENAMOUR",
    "annotation": {
@@ -1317,9 +1242,6 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Like judge probing opera company? Initially, yes (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "ENJOY",
    "annotation": {
@@ -1371,9 +1293,6 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Just female getting away from the creeps, ... (5)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "RIGHT",
    "annotation": {
@@ -1415,9 +1334,6 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "German ladies say brother's dim (6)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "GLOOMY",
    "annotation": {
@@ -1469,9 +1385,6 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "... vacuous admirers, posers and snakes (4)",
-   "group": [
-    "26-down"
-   ],
    "separatorLocations": {},
    "solution": "ASPS",
    "annotation": {
@@ -1514,9 +1427,6 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Book records for auditor, average kind of chap (3,6)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -1565,9 +1475,6 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Republican interrupting scoundrel's brag? (5)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "CARDS",
    "annotation": {
@@ -1612,9 +1519,6 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Being cut off from papa affected banker (3)",
-   "group": [
-    "28-down"
-   ],
    "separatorLocations": {},
    "solution": "CAM",
    "annotation": {
@@ -1656,9 +1560,6 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Solver's Yankee ball game in retirement (4)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "YOUR",
    "annotation": {
@@ -1713,9 +1614,6 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Maybe 9 soldiers tense before special bulletins (10)",
-   "group": [
-    "30-across"
-   ],
    "separatorLocations": {},
    "solution": "STATEMENTS",
    "annotation": {

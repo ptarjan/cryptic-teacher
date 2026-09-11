@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29989"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Release tiny amount (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "DROP",
    "annotation": {
@@ -63,9 +60,6 @@ window.CRYPTIC_PUZZLES["cryptic-29989"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Personified Space Boy briefly, then kicked the bucket (8)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "EMBODIED",
    "annotation": {
@@ -118,9 +112,6 @@ window.CRYPTIC_PUZZLES["cryptic-29989"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Farewell, depression! (4)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "VALE",
    "annotation": {
@@ -156,9 +147,6 @@ window.CRYPTIC_PUZZLES["cryptic-29989"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Tom cries pathetically in severe weather (3,5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -203,9 +191,6 @@ window.CRYPTIC_PUZZLES["cryptic-29989"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Discovers artist reflected in piece of curved glass (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "LEARNS",
    "annotation": {
@@ -258,9 +243,6 @@ window.CRYPTIC_PUZZLES["cryptic-29989"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Stupid suggestive remark a knight emitted with decreasing loudness (10)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "DIMINUENDO",
    "annotation": {
@@ -312,9 +294,6 @@ window.CRYPTIC_PUZZLES["cryptic-29989"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Capital of Texas initially thanks Washington (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "OTTAWA",
    "annotation": {
@@ -364,9 +343,6 @@ window.CRYPTIC_PUZZLES["cryptic-29989"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Vortex emptied gully and ravine (4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "GYRE",
    "annotation": {
@@ -413,9 +389,6 @@ window.CRYPTIC_PUZZLES["cryptic-29989"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Strange bachelor’s dance (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "RUMBA",
    "annotation": {
@@ -457,9 +430,6 @@ window.CRYPTIC_PUZZLES["cryptic-29989"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Subject in short dress getting turn (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "CHEMISTRY",
    "annotation": {
@@ -506,9 +476,6 @@ window.CRYPTIC_PUZZLES["cryptic-29989"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Chip for scrambling scores (9)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "PROCESSOR",
    "annotation": {
@@ -558,9 +525,6 @@ window.CRYPTIC_PUZZLES["cryptic-29989"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Angry judge’s claim? (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "IRATE",
    "annotation": {
@@ -602,9 +566,6 @@ window.CRYPTIC_PUZZLES["cryptic-29989"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Gold icon roughly treated by old recycling team member (7)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "ORINOCO",
    "annotation": {
@@ -663,9 +624,6 @@ window.CRYPTIC_PUZZLES["cryptic-29989"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Ring Herb in Oklahoma’s largest county (5)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "OSAGE",
    "annotation": {
@@ -707,9 +665,6 @@ window.CRYPTIC_PUZZLES["cryptic-29989"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Caused pit viper to shed skin one day (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "OCCASIONED",
    "annotation": {
@@ -759,9 +714,6 @@ window.CRYPTIC_PUZZLES["cryptic-29989"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Queen captured by US navy forces wails (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "SQUEALS",
    "annotation": {
@@ -806,9 +758,6 @@ window.CRYPTIC_PUZZLES["cryptic-29989"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Holy person with bear (5)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "STAND",
    "annotation": {
@@ -847,9 +796,6 @@ window.CRYPTIC_PUZZLES["cryptic-29989"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Early sub detector regularly seen near us in Dominica (5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "ASDIC",
    "annotation": {
@@ -891,9 +837,6 @@ window.CRYPTIC_PUZZLES["cryptic-29989"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "State of mind about the boy, from Ella Fitzgerald ultimately (3)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "MAD",
    "annotation": {
@@ -939,9 +882,6 @@ window.CRYPTIC_PUZZLES["cryptic-29989"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Raise great fear comedian Miles must be broadcast (6,2)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -991,9 +931,6 @@ window.CRYPTIC_PUZZLES["cryptic-29989"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Shearer’s fancy manor (5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "NORMA",
    "annotation": {
@@ -1034,9 +971,6 @@ window.CRYPTIC_PUZZLES["cryptic-29989"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Bugle call distorted in live reel (8)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "REVEILLE",
    "annotation": {
@@ -1082,9 +1016,6 @@ window.CRYPTIC_PUZZLES["cryptic-29989"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Gushed and swore about American (7)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "EFFUSED",
    "annotation": {
@@ -1132,9 +1063,6 @@ window.CRYPTIC_PUZZLES["cryptic-29989"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Motorsport firm admitting mid-season cock-up (6)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "FIASCO",
    "annotation": {
@@ -1184,9 +1112,6 @@ window.CRYPTIC_PUZZLES["cryptic-29989"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Recollected bride’s scattered stuff (6)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "DEBRIS",
    "annotation": {
@@ -1224,9 +1149,6 @@ window.CRYPTIC_PUZZLES["cryptic-29989"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "First woman abruptly cracked without starting to be transformed (7)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "EVOLVED",
    "annotation": {
@@ -1275,9 +1197,6 @@ window.CRYPTIC_PUZZLES["cryptic-29989"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Tips of bacon rashers are very overcooked or well done (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "BRAVO",
    "annotation": {
@@ -1322,9 +1241,6 @@ window.CRYPTIC_PUZZLES["cryptic-29989"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Food tossed over fortified town (4)",
-   "group": [
-    "26-down"
-   ],
    "separatorLocations": {},
    "solution": "BURG",
    "annotation": {
@@ -1368,9 +1284,6 @@ window.CRYPTIC_PUZZLES["cryptic-29989"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Start pleading to swap pub for one grand (9)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "BEGINNING",
    "annotation": {
@@ -1421,9 +1334,6 @@ window.CRYPTIC_PUZZLES["cryptic-29989"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "The King conceals ascendant spirit of victory (4)",
-   "group": [
-    "28-down"
-   ],
    "separatorLocations": {},
    "solution": "NIKE",
    "annotation": {
@@ -1466,9 +1376,6 @@ window.CRYPTIC_PUZZLES["cryptic-29989"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Encouraged U2’s guitarist to split and join up with New Order (4)",
-   "group": [
-    "29-down"
-   ],
    "separatorLocations": {},
    "solution": "GEED",
    "annotation": {
@@ -1514,9 +1421,6 @@ window.CRYPTIC_PUZZLES["cryptic-29989"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Opulent European place for French cardinal (9)",
-   "group": [
-    "30-across"
-   ],
    "separatorLocations": {},
    "solution": "RICHELIEU",
    "annotation": {
@@ -1564,9 +1468,6 @@ window.CRYPTIC_PUZZLES["cryptic-29989"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Lucky Liechtensteiner keeps throwing stick (5)",
-   "group": [
-    "31-across"
-   ],
    "separatorLocations": {},
    "solution": "KYLIE",
    "annotation": {

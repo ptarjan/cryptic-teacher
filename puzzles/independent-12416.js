@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12416"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Call latest from Zoffany a fake (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "PHONEY",
    "annotation": {
@@ -70,9 +67,6 @@ window.CRYPTIC_PUZZLES["independent-12416"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Acting students under pressure from fashion house (5)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "PRADA",
    "annotation": {
@@ -118,9 +112,6 @@ window.CRYPTIC_PUZZLES["independent-12416"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Someone avoiding the truth making surprised comment about precise cut (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "OSTRICH",
    "annotation": {
@@ -169,9 +160,6 @@ window.CRYPTIC_PUZZLES["independent-12416"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Better to have change of heart and drive off (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "EXPEL",
    "annotation": {
@@ -215,9 +203,6 @@ window.CRYPTIC_PUZZLES["independent-12416"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Severe cut allowing incursion by a second badger (6)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "HARASS",
    "annotation": {
@@ -268,9 +253,6 @@ window.CRYPTIC_PUZZLES["independent-12416"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Period in a substantial hospital – and what follows? (9)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "AFTERMATH",
    "annotation": {
@@ -326,9 +308,6 @@ window.CRYPTIC_PUZZLES["independent-12416"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Shade of gold seen in a small group of cupids? (7)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "AMORINI",
    "annotation": {
@@ -378,9 +357,6 @@ window.CRYPTIC_PUZZLES["independent-12416"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Source of idea almost appeared to enthral male soldier (9)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "SEMANTEME",
    "annotation": {
@@ -432,9 +408,6 @@ window.CRYPTIC_PUZZLES["independent-12416"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Computer suitable for use in large operation (6)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {},
    "solution": "LAPTOP",
    "annotation": {
@@ -488,9 +461,6 @@ window.CRYPTIC_PUZZLES["independent-12416"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Caterpillars stayed away from historic German city (8)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "CUTWORMS",
    "annotation": {
@@ -527,9 +497,6 @@ window.CRYPTIC_PUZZLES["independent-12416"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Tory having a lot of sex with a lot of babes including five in a row (11)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {},
    "solution": "CONSECUTIVE",
    "annotation": {
@@ -587,9 +554,6 @@ window.CRYPTIC_PUZZLES["independent-12416"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Visit taking in first couple of ringing bells (8)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "CARILLON",
    "annotation": {
@@ -636,9 +600,6 @@ window.CRYPTIC_PUZZLES["independent-12416"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Stays in power, to abdicate after son moves (6)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "REIGNS",
    "annotation": {
@@ -681,9 +642,6 @@ window.CRYPTIC_PUZZLES["independent-12416"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Third child fixed to get husband (4)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "SETH",
    "annotation": {
@@ -723,9 +681,6 @@ window.CRYPTIC_PUZZLES["independent-12416"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Swear, dear? I will have show of hesitation: it pollutes the air (9)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "EFFLUVIUM",
    "annotation": {
@@ -777,9 +732,6 @@ window.CRYPTIC_PUZZLES["independent-12416"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "King with a bomb brought about end of battle? Observe again (2-7)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     "-": [
      2
@@ -841,9 +793,6 @@ window.CRYPTIC_PUZZLES["independent-12416"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Official, as it happens, embracing former lover by instinct (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "REFLEXIVE",
    "annotation": {
@@ -894,9 +843,6 @@ window.CRYPTIC_PUZZLES["independent-12416"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Pair of couples look embarrassed? It’s the basis of a bluff (4-5)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -940,9 +886,6 @@ window.CRYPTIC_PUZZLES["independent-12416"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "You are getting over treatment for heart and internal duct (7)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "URETHRA",
    "annotation": {
@@ -996,9 +939,6 @@ window.CRYPTIC_PUZZLES["independent-12416"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Row of seats: new design gutted after reflection (4)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "TIER",
    "annotation": {
@@ -1048,9 +988,6 @@ window.CRYPTIC_PUZZLES["independent-12416"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Going around Channel Island, drunk overturned source of drink (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "THERMOS",
    "annotation": {
@@ -1102,9 +1039,6 @@ window.CRYPTIC_PUZZLES["independent-12416"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Certain to involve Parisian and Calais police once (6)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "SURETE",
    "annotation": {
@@ -1148,9 +1082,6 @@ window.CRYPTIC_PUZZLES["independent-12416"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Courageous Republican probing international documents (8)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "INTREPID",
    "annotation": {
@@ -1199,9 +1130,6 @@ window.CRYPTIC_PUZZLES["independent-12416"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Mark on letter - Scrabble letter - covering two-pointer? (5)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "TILDE",
    "annotation": {
@@ -1245,9 +1173,6 @@ window.CRYPTIC_PUZZLES["independent-12416"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Finger one subsequently cut handling tip of dagger (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "INDEX",
    "annotation": {
@@ -1301,9 +1226,6 @@ window.CRYPTIC_PUZZLES["independent-12416"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Middle of night - female entering busy area - enthusiastic welcome (4,4)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -1359,9 +1281,6 @@ window.CRYPTIC_PUZZLES["independent-12416"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Innocent daughter linked to a character in Homer (6)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "LAMBDA",
    "annotation": {
@@ -1407,9 +1326,6 @@ window.CRYPTIC_PUZZLES["independent-12416"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Complained article suppressed by second editor (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "MOANED",
    "annotation": {
@@ -1458,9 +1374,6 @@ window.CRYPTIC_PUZZLES["independent-12416"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Group of composers with nine missing? (3,3)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      3

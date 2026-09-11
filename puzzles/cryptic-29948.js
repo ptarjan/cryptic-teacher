@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29948"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Leader of Beatles and Wings? (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "BAND",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["cryptic-29948"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Managing to set peg in gearwheel (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "COPING",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["cryptic-29948"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "It stops water: a minute monster (10)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "COCKATRICE",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["cryptic-29948"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Halfway to catching bad end, paid attention (6)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "MINDED",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["cryptic-29948"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Red light flickering on panel across motorway (4,4)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -114,9 +99,6 @@ window.CRYPTIC_PUZZLES["cryptic-29948"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Boatman will, you say, be here, surrounded by the sea (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "ISLE",
    "annotation": null
@@ -131,9 +113,6 @@ window.CRYPTIC_PUZZLES["cryptic-29948"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Confetti: romantic, unusual after discontented multitudes contacted this way (8)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "CIRCULAR",
    "annotation": null
@@ -148,9 +127,6 @@ window.CRYPTIC_PUZZLES["cryptic-29948"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Thong placing little weight on top of thigh (4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "WHIP",
    "annotation": null
@@ -165,9 +141,6 @@ window.CRYPTIC_PUZZLES["cryptic-29948"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "One cool about cut-down tree to show regret (9)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "APOLOGISE",
    "annotation": null
@@ -182,9 +155,6 @@ window.CRYPTIC_PUZZLES["cryptic-29948"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Forger correcting mismatch without using Mac? (5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "SMITH",
    "annotation": null
@@ -199,9 +169,6 @@ window.CRYPTIC_PUZZLES["cryptic-29948"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "At last melted ice to make liquid (5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "DRINK",
    "annotation": null
@@ -216,9 +183,6 @@ window.CRYPTIC_PUZZLES["cryptic-29948"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Clue to depth: symbolically, the mark of a fool (6,3)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -237,9 +201,6 @@ window.CRYPTIC_PUZZLES["cryptic-29948"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Saw rowing crews swapping sides before end of pond (7)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "SIGHTED",
    "annotation": null
@@ -254,9 +215,6 @@ window.CRYPTIC_PUZZLES["cryptic-29948"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Animals moving to sierra from top of forest where it’s hot (5)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "SAUNA",
    "annotation": null
@@ -271,9 +229,6 @@ window.CRYPTIC_PUZZLES["cryptic-29948"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Heavenly confection of glacé nuts and ices, principally (7)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "ANGELIC",
    "annotation": null
@@ -288,9 +243,6 @@ window.CRYPTIC_PUZZLES["cryptic-29948"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Seeing prejudice toward men’s side, anger erupts around Britain (6,4)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -309,9 +261,6 @@ window.CRYPTIC_PUZZLES["cryptic-29948"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Part of dance, popular for group (5)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "CHAIN",
    "annotation": null
@@ -326,9 +275,6 @@ window.CRYPTIC_PUZZLES["cryptic-29948"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "It tastes distinctively yummy, even with a half of mild (5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "UMAMI",
    "annotation": null
@@ -343,9 +289,6 @@ window.CRYPTIC_PUZZLES["cryptic-29948"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Saw crash or mishap (8)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "APHORISM",
    "annotation": null
@@ -360,9 +303,6 @@ window.CRYPTIC_PUZZLES["cryptic-29948"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Tear often expressed in epitaph (3)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "RIP",
    "annotation": null
@@ -383,9 +323,6 @@ window.CRYPTIC_PUZZLES["cryptic-29948"] = /*JSON-START*/ {
      38
     ]
    ],
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "RHETORIC",
    "annotation": null
@@ -400,9 +337,6 @@ window.CRYPTIC_PUZZLES["cryptic-29948"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Girl cycling round country house (5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "NORMA",
    "annotation": null
@@ -417,9 +351,6 @@ window.CRYPTIC_PUZZLES["cryptic-29948"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Primarily, anyone trying hurdles, lifting, endurance training etc (7)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "ATHLETE",
    "annotation": null
@@ -434,9 +365,6 @@ window.CRYPTIC_PUZZLES["cryptic-29948"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Drop price of bundle, cutting $0.0075 (7)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "CHEAPEN",
    "annotation": null
@@ -451,9 +379,6 @@ window.CRYPTIC_PUZZLES["cryptic-29948"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Perhaps saw Boatman’s craft (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "CUTTER",
    "annotation": null
@@ -468,9 +393,6 @@ window.CRYPTIC_PUZZLES["cryptic-29948"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Controversially doping chimp? (6)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "PONGID",
    "annotation": null
@@ -485,9 +407,6 @@ window.CRYPTIC_PUZZLES["cryptic-29948"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Tough interviewer of disgraced president could show what’s generally evident in Greenland (4,5)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -506,9 +425,6 @@ window.CRYPTIC_PUZZLES["cryptic-29948"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Journalist’s unauthorised access (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "HACK",
    "annotation": null
@@ -523,9 +439,6 @@ window.CRYPTIC_PUZZLES["cryptic-29948"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Worry reflecting one taking part in the culture wars (4)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "FRET",
    "annotation": null
@@ -540,9 +453,6 @@ window.CRYPTIC_PUZZLES["cryptic-29948"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Maybe settle in Switzerland, behind a mountain (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "BENCH",
    "annotation": null
@@ -557,9 +467,6 @@ window.CRYPTIC_PUZZLES["cryptic-29948"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Help remove packaging from fizzy beverage (4)",
-   "group": [
-    "27-down"
-   ],
    "separatorLocations": {},
    "solution": "HAND",
    "annotation": null
@@ -574,9 +481,6 @@ window.CRYPTIC_PUZZLES["cryptic-29948"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Class division: a problem to be investigated, taking time (5)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "CASTE",
    "annotation": null
@@ -591,9 +495,6 @@ window.CRYPTIC_PUZZLES["cryptic-29948"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Laa-Laa etc skipping every repeat (9)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "ITERATION",
    "annotation": null

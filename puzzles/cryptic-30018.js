@@ -120,9 +120,6 @@ window.CRYPTIC_PUZZLES["cryptic-30018"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Unsophisticated member enthralled by trendy European worker (9)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "INELEGANT",
    "annotation": {
@@ -178,9 +175,6 @@ window.CRYPTIC_PUZZLES["cryptic-30018"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Press’s outspoken demands (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "NEEDS",
    "annotation": {
@@ -216,9 +210,6 @@ window.CRYPTIC_PUZZLES["cryptic-30018"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Skin rash oddly deep, I’m starting to itch, unfortunately (9)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "EPIDERMIS",
    "annotation": {
@@ -292,9 +283,6 @@ window.CRYPTIC_PUZZLES["cryptic-30018"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Type of food (French) that is delicious starter (5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "FRIED",
    "annotation": {
@@ -345,9 +333,6 @@ window.CRYPTIC_PUZZLES["cryptic-30018"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Guy with cape swallowing drug that 12 might like (9)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "CHEAPNESS",
    "annotation": {
@@ -402,9 +387,6 @@ window.CRYPTIC_PUZZLES["cryptic-30018"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "I can show one score, not 150 (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "ITALY",
    "annotation": {
@@ -512,9 +494,6 @@ window.CRYPTIC_PUZZLES["cryptic-30018"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Ray meeting first lady magistrate (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "REEVE",
    "annotation": {
@@ -558,9 +537,6 @@ window.CRYPTIC_PUZZLES["cryptic-30018"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Vagrant makes one point before shouting (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "ITINERANT",
    "annotation": {
@@ -613,9 +589,6 @@ window.CRYPTIC_PUZZLES["cryptic-30018"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Concluded special finish to exhaust (9)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "OVERSPEND",
    "annotation": {
@@ -662,9 +635,6 @@ window.CRYPTIC_PUZZLES["cryptic-30018"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "The old boring mean settler (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "PAYER",
    "annotation": {
@@ -709,9 +679,6 @@ window.CRYPTIC_PUZZLES["cryptic-30018"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Ruins potatoes? (5)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "SMASH",
    "annotation": {
@@ -749,9 +716,6 @@ window.CRYPTIC_PUZZLES["cryptic-30018"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Overexcited setter to noisily approach flowering plant (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "HYPERICUM",
    "annotation": {
@@ -805,9 +769,6 @@ window.CRYPTIC_PUZZLES["cryptic-30018"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Expert ship’s captain mostly occupied (9)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "MASTERFUL",
    "annotation": {
@@ -851,9 +812,6 @@ window.CRYPTIC_PUZZLES["cryptic-30018"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Places that display musical boards? (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "SHOWROOMS",
    "annotation": {
@@ -891,9 +849,6 @@ window.CRYPTIC_PUZZLES["cryptic-30018"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "In favour of ex-president (Democrat), blocked and debarred (9)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "FORBIDDEN",
    "annotation": {
@@ -947,9 +902,6 @@ window.CRYPTIC_PUZZLES["cryptic-30018"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Liking the present, love? It’s a starter (9)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "ANTIPASTO",
    "annotation": {
@@ -1013,9 +965,6 @@ window.CRYPTIC_PUZZLES["cryptic-30018"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Alarm son accompanying trim Papas’ woman (5)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "SIREN",
    "annotation": {
@@ -1083,9 +1032,6 @@ window.CRYPTIC_PUZZLES["cryptic-30018"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Coach tyres unable to operate reliably at the beginning (5)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "TUTOR",
    "annotation": {
@@ -1127,9 +1073,6 @@ window.CRYPTIC_PUZZLES["cryptic-30018"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Some barristers examine brief (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "TERSE",
    "annotation": {
@@ -1164,9 +1107,6 @@ window.CRYPTIC_PUZZLES["cryptic-30018"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Lacking love, Chinese philosophy embraces yelling and uncontrolled dancing (9)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "TARANTISM",
    "annotation": {
@@ -1221,9 +1161,6 @@ window.CRYPTIC_PUZZLES["cryptic-30018"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Test introduction of tandoori bread in the Middle East (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "TRIAL",
    "annotation": {
@@ -1267,9 +1204,6 @@ window.CRYPTIC_PUZZLES["cryptic-30018"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Bottom part of horrid android’s turned up (5)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "NADIR",
    "annotation": {
@@ -1317,9 +1251,6 @@ window.CRYPTIC_PUZZLES["cryptic-30018"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Instrument associated with West African city and lake (9)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "MARACAIBO",
    "annotation": {
@@ -1360,9 +1291,6 @@ window.CRYPTIC_PUZZLES["cryptic-30018"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Move out of the way of car (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "DODGE",
    "annotation": {

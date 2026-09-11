@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29991"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Pretty shy hugging me at rear of school (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "COMELY",
    "annotation": {
@@ -80,9 +77,6 @@ window.CRYPTIC_PUZZLES["cryptic-29991"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Budgie perhaps free in big cedar (4-4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -132,9 +126,6 @@ window.CRYPTIC_PUZZLES["cryptic-29991"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Swell breakfast item (8)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "MUSHROOM",
    "annotation": {
@@ -170,9 +161,6 @@ window.CRYPTIC_PUZZLES["cryptic-29991"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "An idiot picked up sponge (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "LOOFA",
    "annotation": {
@@ -222,9 +210,6 @@ window.CRYPTIC_PUZZLES["cryptic-29991"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Get over arch, and one may make a bolt for it (8)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "CROSSBOW",
    "annotation": {
@@ -266,9 +251,6 @@ window.CRYPTIC_PUZZLES["cryptic-29991"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Brazen volte-face about poem, ‘Polecat’ (7,6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -317,9 +299,6 @@ window.CRYPTIC_PUZZLES["cryptic-29991"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "People searching for these here but they lack concentration (9)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "SOLUTIONS",
    "annotation": {
@@ -359,9 +338,6 @@ window.CRYPTIC_PUZZLES["cryptic-29991"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Reach the top of chest (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "BREAST",
    "annotation": {
@@ -397,9 +373,6 @@ window.CRYPTIC_PUZZLES["cryptic-29991"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Hardy folk lived here in primarily wild county (6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "WESSEX",
    "annotation": {
@@ -446,9 +419,6 @@ window.CRYPTIC_PUZZLES["cryptic-29991"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Relish oxygen brought by sudden wind (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "GUSTO",
    "annotation": {
@@ -492,9 +462,6 @@ window.CRYPTIC_PUZZLES["cryptic-29991"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Old Parliamentary radicals who told it to you straight? (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "LEVELLERS",
    "annotation": {
@@ -530,9 +497,6 @@ window.CRYPTIC_PUZZLES["cryptic-29991"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Hello again, rector: still not made a bishop? (4,4,2,3)",
-   "group": [
-    "10-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -577,9 +541,6 @@ window.CRYPTIC_PUZZLES["cryptic-29991"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Deal-maker in pub, one taking a profit (9)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "BARGAINER",
    "annotation": {
@@ -621,9 +582,6 @@ window.CRYPTIC_PUZZLES["cryptic-29991"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "A brief experience of discrimination (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "TASTE",
    "annotation": {
@@ -662,9 +620,6 @@ window.CRYPTIC_PUZZLES["cryptic-29991"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Lower tier seats filled first for this film? (4,2,3,3)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -703,9 +658,6 @@ window.CRYPTIC_PUZZLES["cryptic-29991"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Ideas for a reform mentioned earlier (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "AFORESAID",
    "annotation": {
@@ -748,9 +700,6 @@ window.CRYPTIC_PUZZLES["cryptic-29991"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "New American widescreen system (8)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "CINERAMA",
    "annotation": {
@@ -793,9 +742,6 @@ window.CRYPTIC_PUZZLES["cryptic-29991"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Cook breakfast, including coffee, getting insincere praise? (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "FLATTERY",
    "annotation": {
@@ -843,9 +789,6 @@ window.CRYPTIC_PUZZLES["cryptic-29991"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "In isle grey tomb crumbling, typically romantic (3-5-4)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {
     "-": [
      3,
@@ -896,9 +839,6 @@ window.CRYPTIC_PUZZLES["cryptic-29991"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Spoke of what one has in each arms (6)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "RADIUS",
    "annotation": {
@@ -937,9 +877,6 @@ window.CRYPTIC_PUZZLES["cryptic-29991"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Shrub and vegetable penetrated by decay (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "PROTEA",
    "annotation": {
@@ -987,9 +924,6 @@ window.CRYPTIC_PUZZLES["cryptic-29991"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Have no argument with an Athenian amputee (5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "AGREE",
    "annotation": {
@@ -1041,9 +975,6 @@ window.CRYPTIC_PUZZLES["cryptic-29991"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Missile landing in sniper’s lair: this tightest of squeaks? (9)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "NARROWEST",
    "annotation": {
@@ -1096,9 +1027,6 @@ window.CRYPTIC_PUZZLES["cryptic-29991"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Many times relent, though not at first (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "OFTEN",
    "annotation": {
@@ -1144,9 +1072,6 @@ window.CRYPTIC_PUZZLES["cryptic-29991"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "On journey, train isn’t moving (2,7)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -1193,9 +1118,6 @@ window.CRYPTIC_PUZZLES["cryptic-29991"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Track down a very tiny amount (5)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "TRACE",
    "annotation": {
@@ -1231,9 +1153,6 @@ window.CRYPTIC_PUZZLES["cryptic-29991"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Kubrick briefly portrayed Scottish patron (2,6)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -1286,9 +1205,6 @@ window.CRYPTIC_PUZZLES["cryptic-29991"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Not simple, so restive (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "UNEASY",
    "annotation": {

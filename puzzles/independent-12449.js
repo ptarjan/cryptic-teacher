@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Foolish joke, better on reflection (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "CRACKPOT",
    "annotation": {
@@ -76,9 +73,6 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Hearing, once again, trailer being broadcast (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "RETRIAL",
    "annotation": {
@@ -120,9 +114,6 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Chest cold carrier passing on bug originally (6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "CASKET",
    "annotation": {
@@ -172,9 +163,6 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Pooh's half-forgotten no good Hum (4)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "PONG",
    "annotation": {
@@ -223,9 +211,6 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "We trade art abroad to stay afloat (5,5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -274,9 +259,6 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Modest shaded avenue heading South? Quite the reverse (5)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "SMALL",
    "annotation": {
@@ -321,9 +303,6 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Progress at last, a substitute for milk! (8)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "SCREAMER",
    "annotation": {
@@ -367,9 +346,6 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Italian football manager during final leg, riled (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "ALLEGRI",
    "annotation": {
@@ -403,9 +379,6 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Fine volley following shot (5)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "LIGHT",
    "annotation": {
@@ -447,9 +420,6 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Grim day to be on lifeboat? (4)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {},
    "solution": "DARK",
    "annotation": {
@@ -492,9 +462,6 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Sinatra when performing, a master of his craft (7)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "ARTISAN",
    "annotation": {
@@ -536,9 +503,6 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "European artist backing commercial noise-reduction system? (7)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "EARPLUG",
    "annotation": {
@@ -593,9 +557,6 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Imperial title periodically at issue between two kings (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "KAISER",
    "annotation": {
@@ -646,9 +607,6 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "During dry spell, love going for a drink (7)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "DRAUGHT",
    "annotation": {
@@ -699,9 +657,6 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "In which salaried English women might be dressed? (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "LADIESWEAR",
    "annotation": {
@@ -753,9 +708,6 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Central Line stops bland (4)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "MILD",
    "annotation": {
@@ -799,9 +751,6 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Mush something to chew over (3)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "MUG",
    "annotation": {
@@ -844,9 +793,6 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Stirring tonic essentially into a weak gin cocktail (9)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "AWAKENING",
    "annotation": {
@@ -898,9 +844,6 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Taking regular breaks, group stop to plunder (3)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "GUT",
    "annotation": {
@@ -942,9 +885,6 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Lead batsman to become established (4,4)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -986,9 +926,6 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "New Yorker bought cured meat item when reduced (9)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "GOTHAMITE",
    "annotation": {
@@ -1040,9 +977,6 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Scotch barely open, flipping rubbish party folds (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "TORPEDO",
    "annotation": {
@@ -1101,9 +1035,6 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Whisky makers: Ardbeg, Laphroaig and Talisker for starters (4)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "MALT",
    "annotation": {
@@ -1143,9 +1074,6 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Switch on air-conditioning, worried about temperature you said? (7)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "ACTUATE",
    "annotation": {
@@ -1201,9 +1129,6 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Red spirit, say, turning up rarely at first (6)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "GINGER",
    "annotation": {
@@ -1260,9 +1185,6 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Sierra Grande, ground which could produce vegetables? (7)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "GARDENS",
    "annotation": {
@@ -1310,9 +1232,6 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Under gravity, form striking carbon crystal (5)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "GLASS",
    "annotation": {
@@ -1362,9 +1281,6 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Resentful canine perhaps time will break (6)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "BITTER",
    "annotation": {
@@ -1410,9 +1326,6 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Some grasses become hostile if caught (4)",
-   "group": [
-    "26-down"
-   ],
    "separatorLocations": {},
    "solution": "RYES",
    "annotation": {
@@ -1447,9 +1360,6 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Question dancer's choice of footwear (4)",
-   "group": [
-    "27-down"
-   ],
    "separatorLocations": {},
    "solution": "PUMP",
    "annotation": {
@@ -1483,9 +1393,6 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Plant notice: \"No men allowed around stores\" (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "ANEMONE",
    "annotation": {
@@ -1521,9 +1428,6 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Character completing apprenticeship argued about raise (7)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "UPGRADE",
    "annotation": {
@@ -1572,9 +1476,6 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Resolute hawk going after seconds (5)",
-   "group": [
-    "30-across"
-   ],
    "separatorLocations": {},
    "solution": "STOUT",
    "annotation": {
@@ -1617,9 +1518,6 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Hack about, left and right, winning hole at last (8)",
-   "group": [
-    "31-across"
-   ],
    "separatorLocations": {},
    "solution": "REPORTER",
    "annotation": {

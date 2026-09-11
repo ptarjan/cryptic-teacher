@@ -24,9 +24,6 @@ window.CRYPTIC_PUZZLES["cryptic-30057"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Sort of surgery that’s built outside town (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "BYPASS",
    "annotation": {
@@ -63,9 +60,6 @@ window.CRYPTIC_PUZZLES["cryptic-30057"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Town’s nasty smell unhealthy (7)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "BOROUGH",
    "annotation": {
@@ -105,9 +99,6 @@ window.CRYPTIC_PUZZLES["cryptic-30057"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Diarist looks furtively for audience (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "PEPYS",
    "annotation": {
@@ -142,9 +133,6 @@ window.CRYPTIC_PUZZLES["cryptic-30057"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "He spent wildly for an old king (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "STEPHEN",
    "annotation": {
@@ -184,9 +172,6 @@ window.CRYPTIC_PUZZLES["cryptic-30057"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Physicist from college welcomed by board (6)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "PLANCK",
    "annotation": {
@@ -233,9 +218,6 @@ window.CRYPTIC_PUZZLES["cryptic-30057"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Women protecting daughters and sons maybe (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "LADDIES",
    "annotation": {
@@ -279,9 +261,6 @@ window.CRYPTIC_PUZZLES["cryptic-30057"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Fruit, entire can demolished (9)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "NECTARINE",
    "annotation": {
@@ -318,9 +297,6 @@ window.CRYPTIC_PUZZLES["cryptic-30057"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Dakar, a Chinese controlled city (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "KARACHI",
    "annotation": {
@@ -354,9 +330,6 @@ window.CRYPTIC_PUZZLES["cryptic-30057"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Headgear of good French fabric (6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "BONNET",
    "annotation": {
@@ -396,9 +369,6 @@ window.CRYPTIC_PUZZLES["cryptic-30057"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "In corridor we slept badly, but it’s a bonus to be on Red Square (6,4,5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      6,
@@ -444,9 +414,6 @@ window.CRYPTIC_PUZZLES["cryptic-30057"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Revolutionary outbreak shut PC up (6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "PUTSCH",
    "annotation": {
@@ -483,9 +450,6 @@ window.CRYPTIC_PUZZLES["cryptic-30057"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Inconvenience of one square being in the shade (8)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "NUISANCE",
    "annotation": {
@@ -538,9 +502,6 @@ window.CRYPTIC_PUZZLES["cryptic-30057"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Horse box, large cask on back (8)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "CHESTNUT",
    "annotation": {
@@ -589,9 +550,6 @@ window.CRYPTIC_PUZZLES["cryptic-30057"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "A game to stir up the boss? (4,5)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -632,9 +590,6 @@ window.CRYPTIC_PUZZLES["cryptic-30057"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Animation of Irish in light rain (6)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "SPIRIT",
    "annotation": {
@@ -681,9 +636,6 @@ window.CRYPTIC_PUZZLES["cryptic-30057"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Dairy product finally baffling in your starter for ten (6)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "YOGURT",
    "annotation": {
@@ -737,9 +689,6 @@ window.CRYPTIC_PUZZLES["cryptic-30057"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Produce eggs to value specially (7)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "OVULATE",
    "annotation": {
@@ -776,9 +725,6 @@ window.CRYPTIC_PUZZLES["cryptic-30057"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Into which to disappear up Everest? (4,3)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -814,9 +760,6 @@ window.CRYPTIC_PUZZLES["cryptic-30057"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "For a line of poetry, deliberately obscure (8)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "PERVERSE",
    "annotation": {
@@ -853,9 +796,6 @@ window.CRYPTIC_PUZZLES["cryptic-30057"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Show off row of shops (6)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "PARADE",
    "annotation": {
@@ -889,9 +829,6 @@ window.CRYPTIC_PUZZLES["cryptic-30057"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "I contribute online in extremely rude retort (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "RIPOSTE",
    "annotation": {
@@ -943,9 +880,6 @@ window.CRYPTIC_PUZZLES["cryptic-30057"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Slim line in transmitter (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "SLENDER",
    "annotation": {
@@ -989,9 +923,6 @@ window.CRYPTIC_PUZZLES["cryptic-30057"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Caterer is purple with rage (8)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "SUPPLIER",
    "annotation": {
@@ -1028,9 +959,6 @@ window.CRYPTIC_PUZZLES["cryptic-30057"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Go round church for a sign from heaven (6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "PISCES",
    "annotation": {
@@ -1077,9 +1005,6 @@ window.CRYPTIC_PUZZLES["cryptic-30057"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Domestic equipment now may be so fashionable (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "SMART",
    "annotation": {
@@ -1113,9 +1038,6 @@ window.CRYPTIC_PUZZLES["cryptic-30057"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Make landfall, and kiss ground in remote region (8,7)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -1160,9 +1082,6 @@ window.CRYPTIC_PUZZLES["cryptic-30057"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Fears not starting boobs (6)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "ERRORS",
    "annotation": {
@@ -1199,9 +1118,6 @@ window.CRYPTIC_PUZZLES["cryptic-30057"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Much recovered, I’ll wager (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "BETTER",
    "annotation": {

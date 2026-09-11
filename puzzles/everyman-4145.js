@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4145"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Remarks to audience: 'So, a bad day for Caesar' (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "ASIDES",
    "annotation": {
@@ -70,9 +67,6 @@ window.CRYPTIC_PUZZLES["everyman-4145"] = /*JSON-START*/ {
      29,
      20
     ]
-   ],
-   "group": [
-    "2-down"
    ],
    "separatorLocations": {
     ",": [
@@ -125,9 +119,6 @@ window.CRYPTIC_PUZZLES["everyman-4145"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Sad to remain, ultimately, in storied Abbey (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "DOWNTON",
    "annotation": {
@@ -179,9 +170,6 @@ window.CRYPTIC_PUZZLES["everyman-4145"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "One description of wearing a vest? (9)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "SINGLETON",
    "annotation": {
@@ -222,9 +210,6 @@ window.CRYPTIC_PUZZLES["everyman-4145"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "'Releases'? Come on! (4,2)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -263,9 +248,6 @@ window.CRYPTIC_PUZZLES["everyman-4145"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Study section of trochlear nerve (5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "LEARN",
    "annotation": {
@@ -299,9 +281,6 @@ window.CRYPTIC_PUZZLES["everyman-4145"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Trade in what may be used in jam-making (7)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "TRAFFIC",
    "annotation": {
@@ -345,9 +324,6 @@ window.CRYPTIC_PUZZLES["everyman-4145"] = /*JSON-START*/ {
      10
     ]
    ],
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -388,9 +364,6 @@ window.CRYPTIC_PUZZLES["everyman-4145"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Last of ill-gotten wonga Diana wasted from time to time (3,3,5)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -439,9 +412,6 @@ window.CRYPTIC_PUZZLES["everyman-4145"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Yearning, in East End, to ride free (4)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {},
    "solution": "ITCH",
    "annotation": {
@@ -483,9 +453,6 @@ window.CRYPTIC_PUZZLES["everyman-4145"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Such is primarily gowned, radiant, accepting diploma! (4)",
-   "group": [
-    "10-down"
-   ],
    "separatorLocations": {},
    "solution": "GRAD",
    "annotation": {
@@ -525,9 +492,6 @@ window.CRYPTIC_PUZZLES["everyman-4145"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Ran, hot, 'til knackered - as part of this? (9)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "TRIATHLON",
    "annotation": {
@@ -564,9 +528,6 @@ window.CRYPTIC_PUZZLES["everyman-4145"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Fine water jug, no less! (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "FEWER",
    "annotation": {
@@ -607,9 +568,6 @@ window.CRYPTIC_PUZZLES["everyman-4145"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Cook's convenience: mop to take home (7)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "HAIRNET",
    "annotation": {
@@ -647,9 +605,6 @@ window.CRYPTIC_PUZZLES["everyman-4145"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Roused, seeing old flame mentioned (7)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "EXCITED",
    "annotation": {
@@ -690,9 +645,6 @@ window.CRYPTIC_PUZZLES["everyman-4145"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Alienates sergeants, foolishly (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "ESTRANGES",
    "annotation": {
@@ -729,9 +681,6 @@ window.CRYPTIC_PUZZLES["everyman-4145"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Sullen Everyman finally gets the bird (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "BITTERN",
    "annotation": {
@@ -777,9 +726,6 @@ window.CRYPTIC_PUZZLES["everyman-4145"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Second tail (4)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "BACK",
    "annotation": {
@@ -814,9 +760,6 @@ window.CRYPTIC_PUZZLES["everyman-4145"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Aussie animal had nice bananas (7)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "ECHIDNA",
    "annotation": {
@@ -853,9 +796,6 @@ window.CRYPTIC_PUZZLES["everyman-4145"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "What has a turret but isn't armed? (4,3)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -891,9 +831,6 @@ window.CRYPTIC_PUZZLES["everyman-4145"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Asian greeting in Vietnam, as teacher taking part (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "NAMASTE",
    "annotation": {
@@ -930,9 +867,6 @@ window.CRYPTIC_PUZZLES["everyman-4145"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Friends: small circle shrinking (4)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "PALS",
    "annotation": {
@@ -981,9 +915,6 @@ window.CRYPTIC_PUZZLES["everyman-4145"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Language Bill's spoken (5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "CZECH",
    "annotation": {
@@ -1021,9 +952,6 @@ window.CRYPTIC_PUZZLES["everyman-4145"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Marble all shattered: this may be because of a drill (5,4)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -1064,9 +992,6 @@ window.CRYPTIC_PUZZLES["everyman-4145"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "A teacher's coming! (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "AHEAD",
    "annotation": {
@@ -1107,9 +1032,6 @@ window.CRYPTIC_PUZZLES["everyman-4145"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "A (as in grades) reassigned to sports star (5,6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -1153,9 +1075,6 @@ window.CRYPTIC_PUZZLES["everyman-4145"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Convenient, like an oven glove (2,4)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -1194,9 +1113,6 @@ window.CRYPTIC_PUZZLES["everyman-4145"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "After upset, learned to wear outsize swimwear brand (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "SPEEDO",
    "annotation": {

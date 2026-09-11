@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Attractive employment opportunity in testicular enhancement surgery? (4,3)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -71,9 +68,6 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Afternoon retreats in mountain spot (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "PIMPLE",
    "annotation": {
@@ -125,9 +119,6 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Elevated feeling of empathy is difficult to control (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "UPPITY",
    "annotation": {
@@ -167,9 +158,6 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Liberal judge hates Euro-American national park (6,4)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -215,9 +203,6 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Item to assist washing behind ears trialled initially under offer (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "BIDET",
    "annotation": {
@@ -262,9 +247,6 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Burglar in Shoreditch that’s likely to end up in hot water (3,4)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -305,9 +287,6 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Brief violent disturbance in match report? That is probably exaggerated (4,5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -357,9 +336,6 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Discovered wildlife trip a long way away (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "AFAR",
    "annotation": {
@@ -396,9 +372,6 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Prepared cod pies, eating one from time to time (8)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "EPISODIC",
    "annotation": {
@@ -443,9 +416,6 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Trump's trousers in English painting? (4,4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -499,9 +469,6 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Roaming Epsom Downs (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "MOPES",
    "annotation": {
@@ -538,9 +505,6 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Matilda reworked by an Adriatic resident (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "DALMATIAN",
    "annotation": {
@@ -591,9 +555,6 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Touchstone's requirement to be inspired by working titles (6,4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -652,9 +613,6 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "What could follow on from club's spinning difficulties (4)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "SODA",
    "annotation": {
@@ -700,9 +658,6 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Separating from Esther? The woman's away and phoned up during golf! (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "ESTRANGING",
    "annotation": {
@@ -757,9 +712,6 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "A flirty swot developed into international chart topper (6,5)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -803,9 +755,6 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "It's your turn, we're told, to toil endlessly ahead of South Balkans race (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "YUGOSLAVS",
    "annotation": {
@@ -860,9 +809,6 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Site manager detailed ineffective medication (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "PLACEBOS",
    "annotation": {
@@ -906,9 +852,6 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Academician put in danger rings London college (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "IMPERIAL",
    "annotation": {
@@ -952,9 +895,6 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Perhaps chicken crosses major road to join vulture (11)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "LAMMERGEYER",
    "annotation": {
@@ -1007,9 +947,6 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Party hire for merchant banks (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "REFORM",
    "annotation": {
@@ -1043,9 +980,6 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Ban on sailing vessels turning up and dropping off children is to remain after all (4,2)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -1108,9 +1042,6 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Champ in essentially atrocious shape (4)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "CHEW",
    "annotation": {
@@ -1156,9 +1087,6 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Die-cast ring entrepreneur imports acid (10)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "ASTRINGENT",
    "annotation": {
@@ -1192,9 +1120,6 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Where lurchers rounded, guarding the King? (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "RULER",
    "annotation": {
@@ -1236,9 +1161,6 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Read superficially, Jagger's missing constant \"rolling\" (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "SKIM",
    "annotation": {
@@ -1282,9 +1204,6 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Barrier erected as a result of Spooner's fight in Northern Scotland (5,4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -1336,9 +1255,6 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Heard why seaweed from the East is rich in essential element (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "IRONY",
    "annotation": {
@@ -1389,9 +1305,6 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Setter is regrettably backing square sausages (7)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "SALAMIS",
    "annotation": {
@@ -1445,9 +1358,6 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Government trimmed part of the army (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "REGIMEN",
    "annotation": {

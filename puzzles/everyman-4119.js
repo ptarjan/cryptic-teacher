@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4119"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Brace, after Everyman's blunt (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "IMPAIR",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["everyman-4119"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "The memo can lower hiccups - much appreciated! (4,4,7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -64,9 +58,6 @@ window.CRYPTIC_PUZZLES["everyman-4119"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Opposing but touching (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "AGAINST",
    "annotation": null
@@ -81,9 +72,6 @@ window.CRYPTIC_PUZZLES["everyman-4119"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Gradients grappled with; they're highly intense (3,6)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -102,9 +90,6 @@ window.CRYPTIC_PUZZLES["everyman-4119"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "King of music's festive tune ending in carnage (6)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "CAROLE",
    "annotation": null
@@ -119,9 +104,6 @@ window.CRYPTIC_PUZZLES["everyman-4119"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Duchesses somewhat game (5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "CHESS",
    "annotation": null
@@ -136,9 +118,6 @@ window.CRYPTIC_PUZZLES["everyman-4119"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Stage showing, among others, Navarro's trumpet (7)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "ROSTRUM",
    "annotation": null
@@ -159,9 +138,6 @@ window.CRYPTIC_PUZZLES["everyman-4119"] = /*JSON-START*/ {
      17
     ]
    ],
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -181,9 +157,6 @@ window.CRYPTIC_PUZZLES["everyman-4119"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Chooses new recipient for frocks following study (11)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {},
    "solution": "READDRESSES",
    "annotation": null
@@ -198,9 +171,6 @@ window.CRYPTIC_PUZZLES["everyman-4119"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Portray, without limits, vast tale (4)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {},
    "solution": "EPIC",
    "annotation": null
@@ -215,9 +185,6 @@ window.CRYPTIC_PUZZLES["everyman-4119"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Rejected legal wrong in red (4)",
-   "group": [
-    "10-down"
-   ],
    "separatorLocations": {},
    "solution": "TROT",
    "annotation": null
@@ -232,9 +199,6 @@ window.CRYPTIC_PUZZLES["everyman-4119"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Act superior in broadcasts behind stage (3,2,4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -254,9 +218,6 @@ window.CRYPTIC_PUZZLES["everyman-4119"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Turbine component you may see going round again (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "ROTOR",
    "annotation": null
@@ -271,9 +232,6 @@ window.CRYPTIC_PUZZLES["everyman-4119"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Applaud heavyweight, he plays guitar (7)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "CLAPTON",
    "annotation": null
@@ -288,9 +246,6 @@ window.CRYPTIC_PUZZLES["everyman-4119"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Incline, cunning defence (7)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "RAMPART",
    "annotation": null
@@ -305,9 +260,6 @@ window.CRYPTIC_PUZZLES["everyman-4119"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "One might be first to consider backing resolution (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "RESPONDER",
    "annotation": null
@@ -322,9 +274,6 @@ window.CRYPTIC_PUZZLES["everyman-4119"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Biologist was kind to rock (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "DAWKINS",
    "annotation": null
@@ -339,9 +288,6 @@ window.CRYPTIC_PUZZLES["everyman-4119"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Blue clue, like this? (4)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "DOWN",
    "annotation": null
@@ -356,9 +302,6 @@ window.CRYPTIC_PUZZLES["everyman-4119"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Venerated figure and scoundrel agreed (1,6)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {
     ",": [
      1
@@ -377,9 +320,6 @@ window.CRYPTIC_PUZZLES["everyman-4119"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Components of dribble where children play (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "SANDPIT",
    "annotation": null
@@ -394,9 +334,6 @@ window.CRYPTIC_PUZZLES["everyman-4119"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Most of red wine's drunk, increasingly full of tidings (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "NEWSIER",
    "annotation": null
@@ -411,9 +348,6 @@ window.CRYPTIC_PUZZLES["everyman-4119"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "The northern tree's hairy growth (4)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "TASH",
    "annotation": null
@@ -428,9 +362,6 @@ window.CRYPTIC_PUZZLES["everyman-4119"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Is Olympic honcho going to read out agreeable message? (5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "WILCO",
    "annotation": null
@@ -445,9 +376,6 @@ window.CRYPTIC_PUZZLES["everyman-4119"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Plant contraptions for the evening, involving job (9)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "IRONWORKS",
    "annotation": null
@@ -462,9 +390,6 @@ window.CRYPTIC_PUZZLES["everyman-4119"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Twist 21 products like this? (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "IRONY",
    "annotation": null
@@ -479,9 +404,6 @@ window.CRYPTIC_PUZZLES["everyman-4119"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Could you get this merry in inn? One could! (2,5,4)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -501,9 +423,6 @@ window.CRYPTIC_PUZZLES["everyman-4119"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Primarily 'hardy'; elsewhere 'ample' / 'rich' / 'typically yeomanly'? (6)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "HEARTY",
    "annotation": null
@@ -518,9 +437,6 @@ window.CRYPTIC_PUZZLES["everyman-4119"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Bloody quality that's seldom seen (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "RARITY",
    "annotation": null

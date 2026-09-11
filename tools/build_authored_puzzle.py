@@ -63,7 +63,6 @@ def build(fill_path, clues_path, puzzle_id, name, setter, date_ms):
             "position": e["position"],
             "length": e["length"],
             "clue": spec["clue"],
-            "group": [eid],
             "solution": e["solution"],
             "annotation": ann,
         })

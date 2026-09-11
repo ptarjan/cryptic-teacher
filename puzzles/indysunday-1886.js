@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1886"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Frank works in a gallery, retired in a sense (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "STRAIGHT",
    "annotation": {
@@ -77,9 +74,6 @@ window.CRYPTIC_PUZZLES["indysunday-1886"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Fool admits going round new places sharing culture (4,5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -133,9 +127,6 @@ window.CRYPTIC_PUZZLES["indysunday-1886"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Nurse fish with twisted tail (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "ANGEL",
    "annotation": {
@@ -187,9 +178,6 @@ window.CRYPTIC_PUZZLES["indysunday-1886"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Get everything out of tower that's going up (3)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "GUT",
    "annotation": {
@@ -232,9 +220,6 @@ window.CRYPTIC_PUZZLES["indysunday-1886"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Hard, taking hour from start to finish (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "THROUGH",
    "annotation": {
@@ -278,9 +263,6 @@ window.CRYPTIC_PUZZLES["indysunday-1886"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Only son with acne wanting face wiped (6)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "SIMPLY",
    "annotation": {
@@ -330,9 +312,6 @@ window.CRYPTIC_PUZZLES["indysunday-1886"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Somewhat inexpert heads of Spectre each botched assassinations? (11)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "SEMISKILLED",
    "annotation": {
@@ -375,9 +354,6 @@ window.CRYPTIC_PUZZLES["indysunday-1886"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Guy silences husky relatives (9)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "MALEMUTES",
    "annotation": {
@@ -414,9 +390,6 @@ window.CRYPTIC_PUZZLES["indysunday-1886"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Estate Volvo's unique character, alongside Sierra (5)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "LANDS",
    "annotation": {
@@ -460,9 +433,6 @@ window.CRYPTIC_PUZZLES["indysunday-1886"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Wee half-way through good Spielberg film (6)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "MIDGET",
    "annotation": {
@@ -505,9 +475,6 @@ window.CRYPTIC_PUZZLES["indysunday-1886"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "King on walkabout making little sense (8)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "RAMBLING",
    "annotation": {
@@ -544,9 +511,6 @@ window.CRYPTIC_PUZZLES["indysunday-1886"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Where we live, every hotel opens annoyingly late (2,3,5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -601,9 +565,6 @@ window.CRYPTIC_PUZZLES["indysunday-1886"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Sorting out her hair and mood, a pain in the arse? (11)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {},
    "solution": "HAEMORRHOID",
    "annotation": {
@@ -640,9 +601,6 @@ window.CRYPTIC_PUZZLES["indysunday-1886"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Wish you were with younger woman? (4)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "MISS",
    "annotation": {
@@ -679,9 +637,6 @@ window.CRYPTIC_PUZZLES["indysunday-1886"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Noel made pretty clever electronics during joint postgrad courses (5,9)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -735,9 +690,6 @@ window.CRYPTIC_PUZZLES["indysunday-1886"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Wrong since exposed by cycling clergyman (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "INCORRECT",
    "annotation": {
@@ -785,9 +737,6 @@ window.CRYPTIC_PUZZLES["indysunday-1886"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Attacked when seconds at duel ordered (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "ASSAULTED",
    "annotation": {
@@ -834,9 +783,6 @@ window.CRYPTIC_PUZZLES["indysunday-1886"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Doctor says no physical treatment for problems (14)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "PSYCHOANALYSIS",
    "annotation": {
@@ -873,9 +819,6 @@ window.CRYPTIC_PUZZLES["indysunday-1886"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Nervous about Tesla's gearbox position breaking transmission (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "NEUTRAL",
    "annotation": {
@@ -919,9 +862,6 @@ window.CRYPTIC_PUZZLES["indysunday-1886"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Broadcast beginning with piano duet (4)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "PAIR",
    "annotation": {
@@ -964,9 +904,6 @@ window.CRYPTIC_PUZZLES["indysunday-1886"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Secretary brought over card with dispatch (5)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "APACE",
    "annotation": {
@@ -1015,9 +952,6 @@ window.CRYPTIC_PUZZLES["indysunday-1886"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "With diversions, outdo urban one-way system (10)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "ROUNDABOUT",
    "annotation": {
@@ -1054,9 +988,6 @@ window.CRYPTIC_PUZZLES["indysunday-1886"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Child in Scotland showing AI lowered mental ability (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "BRAIN",
    "annotation": {
@@ -1093,9 +1024,6 @@ window.CRYPTIC_PUZZLES["indysunday-1886"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Attendee at meeting developing career, full of pep (8)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "RACEGOER",
    "annotation": {
@@ -1150,9 +1078,6 @@ window.CRYPTIC_PUZZLES["indysunday-1886"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Modest expedition led by Conservative (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "CHASTE",
    "annotation": {
@@ -1195,9 +1120,6 @@ window.CRYPTIC_PUZZLES["indysunday-1886"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Turning and pushing piece starts to annoy Magnus Carlsen terribly (3)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "CAM",
    "annotation": {
@@ -1236,9 +1158,6 @@ window.CRYPTIC_PUZZLES["indysunday-1886"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Angry husband very happy when learner driver vanishes (6)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "HEATED",
    "annotation": {
@@ -1286,9 +1205,6 @@ window.CRYPTIC_PUZZLES["indysunday-1886"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Article in French newspaper that's refreshingly sharp (8)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "LEMONADE",
    "annotation": {

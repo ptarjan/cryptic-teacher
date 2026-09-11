@@ -24,9 +24,6 @@ window.CRYPTIC_PUZZLES["cryptic-30050"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Spies admitting author’s missing the first tests (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "CRITERIA",
    "annotation": {
@@ -93,9 +90,6 @@ window.CRYPTIC_PUZZLES["cryptic-30050"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "To stop from working during start of play, 5 brew tea (10)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "INACTIVATE",
    "annotation": {
@@ -156,9 +150,6 @@ window.CRYPTIC_PUZZLES["cryptic-30050"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Directions for European city (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "ESSEN",
    "annotation": {
@@ -196,9 +187,6 @@ window.CRYPTIC_PUZZLES["cryptic-30050"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Trendy state with former vice-president accepting objective is home rule (12)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "INDEPENDENCE",
    "annotation": {
@@ -327,9 +315,6 @@ window.CRYPTIC_PUZZLES["cryptic-30050"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Smashing knight, as bachelor, is having a chat (9)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "NATTERING",
    "annotation": {
@@ -375,9 +360,6 @@ window.CRYPTIC_PUZZLES["cryptic-30050"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Babies’ fingers (4)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "TOTS",
    "annotation": {
@@ -411,9 +393,6 @@ window.CRYPTIC_PUZZLES["cryptic-30050"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Depressed about Charles the Second ruin (4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "DASH",
    "annotation": {
@@ -464,9 +443,6 @@ window.CRYPTIC_PUZZLES["cryptic-30050"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "See drain broken facing the kerb (8)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "NEARSIDE",
    "annotation": {
@@ -525,9 +501,6 @@ window.CRYPTIC_PUZZLES["cryptic-30050"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Bloody selfish Officer Commanding hospital seen in ancient Scottish settlement (12)",
-   "group": [
-    "11-down"
-   ],
    "separatorLocations": {},
    "solution": "BALLYMEANOCH",
    "annotation": {
@@ -579,9 +552,6 @@ window.CRYPTIC_PUZZLES["cryptic-30050"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Bats get in palace restaurant perhaps (6,5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -622,9 +592,6 @@ window.CRYPTIC_PUZZLES["cryptic-30050"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Cool, a jerk I almost recognise gets to become obsessive (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "FANATICISE",
    "annotation": {
@@ -688,9 +655,6 @@ window.CRYPTIC_PUZZLES["cryptic-30050"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Seize and confirm (3,5,2)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -732,9 +696,6 @@ window.CRYPTIC_PUZZLES["cryptic-30050"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Book Christmas drinks – vodka at the start (5)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "NOVEL",
    "annotation": {
@@ -780,9 +741,6 @@ window.CRYPTIC_PUZZLES["cryptic-30050"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Lamela discontented with strip’s cleaner (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "LAUNDRESS",
    "annotation": {
@@ -829,9 +787,6 @@ window.CRYPTIC_PUZZLES["cryptic-30050"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "One with no issue is invalid sitting next to one short diver (9)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "NULLIPARA",
    "annotation": {
@@ -885,9 +840,6 @@ window.CRYPTIC_PUZZLES["cryptic-30050"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Old are with mother, describing operation where hangings occur (3,6)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -944,9 +896,6 @@ window.CRYPTIC_PUZZLES["cryptic-30050"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Chart Viagra Pharmaceuticals supplies (5)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "GRAPH",
    "annotation": {
@@ -980,9 +929,6 @@ window.CRYPTIC_PUZZLES["cryptic-30050"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Month with City helping to make announcement (11)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "DECLARATION",
    "annotation": {
@@ -1029,9 +975,6 @@ window.CRYPTIC_PUZZLES["cryptic-30050"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Fling mail that’s not readable on the front (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "AMOUR",
    "annotation": {
@@ -1148,9 +1091,6 @@ window.CRYPTIC_PUZZLES["cryptic-30050"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Avoided crazy duel with journalist (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "ELUDED",
    "annotation": {
@@ -1202,9 +1142,6 @@ window.CRYPTIC_PUZZLES["cryptic-30050"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Possessions: last of batteries including that is … (8)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "COLONIES",
    "annotation": {
@@ -1255,9 +1192,6 @@ window.CRYPTIC_PUZZLES["cryptic-30050"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "… 11 ones easy to charge (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "IONISE",
    "annotation": {
@@ -1299,9 +1233,6 @@ window.CRYPTIC_PUZZLES["cryptic-30050"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Their ten bananas or bakers’ 12 (8)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "THIRTEEN",
    "annotation": {

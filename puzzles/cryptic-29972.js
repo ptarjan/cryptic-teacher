@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29972"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Ill-considered result of conflagration after 7th of October (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "RASH",
    "annotation": {
@@ -73,9 +70,6 @@ window.CRYPTIC_PUZZLES["cryptic-29972"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Expecting quiet fury to rise over holy books (8)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "PREGNANT",
    "annotation": {
@@ -133,9 +127,6 @@ window.CRYPTIC_PUZZLES["cryptic-29972"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "With the end of truth, he’s evasive: a despicable type (4)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "HEEL",
    "annotation": {
@@ -183,9 +174,6 @@ window.CRYPTIC_PUZZLES["cryptic-29972"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Paroxysm of pointless killing? (8)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "LAUGHTER",
    "annotation": {
@@ -231,9 +219,6 @@ window.CRYPTIC_PUZZLES["cryptic-29972"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Apparently a lawyer, she is one that moves quickly in hearing (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "PORTIA",
    "annotation": {
@@ -272,9 +257,6 @@ window.CRYPTIC_PUZZLES["cryptic-29972"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Band initially denied piss-up over unmixed disc set up inside (4,6)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -400,9 +382,6 @@ window.CRYPTIC_PUZZLES["cryptic-29972"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Toti Soler covers King of Soul (4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "OTIS",
    "annotation": {
@@ -437,9 +416,6 @@ window.CRYPTIC_PUZZLES["cryptic-29972"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Comply with one hooked on avarice without end? (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "AGREE",
    "annotation": {
@@ -493,9 +469,6 @@ window.CRYPTIC_PUZZLES["cryptic-29972"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Reparation that one mentioned in passing (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "ATONEMENT",
    "annotation": {
@@ -530,9 +503,6 @@ window.CRYPTIC_PUZZLES["cryptic-29972"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Hair colour of intoxicated bully at core ‘not starting conflict’ (9)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "HIGHLIGHT",
    "annotation": {
@@ -587,9 +557,6 @@ window.CRYPTIC_PUZZLES["cryptic-29972"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Displacing the leader of a country causes agonies (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "PAINS",
    "annotation": {
@@ -631,9 +598,6 @@ window.CRYPTIC_PUZZLES["cryptic-29972"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Boatman in base for watch (5,2)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -685,9 +649,6 @@ window.CRYPTIC_PUZZLES["cryptic-29972"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Society to raise former ruler to be glorious (5)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "SUPER",
    "annotation": {
@@ -735,9 +696,6 @@ window.CRYPTIC_PUZZLES["cryptic-29972"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Assembly of Experts with grip on oil wrongly supply profiteers (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "EXPLOITERS",
    "annotation": {
@@ -793,9 +751,6 @@ window.CRYPTIC_PUZZLES["cryptic-29972"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Aggressors led out of rules-based order in chaos (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "ABUSERS",
    "annotation": {
@@ -845,9 +800,6 @@ window.CRYPTIC_PUZZLES["cryptic-29972"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Powerful movement, certain to embrace an end to fighting (5)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "SURGE",
    "annotation": {
@@ -894,9 +846,6 @@ window.CRYPTIC_PUZZLES["cryptic-29972"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Falsely planned from both sides (3-2)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -943,9 +892,6 @@ window.CRYPTIC_PUZZLES["cryptic-29972"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Stood by elimination of a country’s leader (3)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "RAN",
    "annotation": {
@@ -993,9 +939,6 @@ window.CRYPTIC_PUZZLES["cryptic-29972"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Fox etc an extreme instance of Orwellian communication (8)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "NEWSPEAK",
    "annotation": {
@@ -1037,9 +980,6 @@ window.CRYPTIC_PUZZLES["cryptic-29972"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Might is right? Captive enemy’s leader taken at the front (5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "POWER",
    "annotation": {
@@ -1094,9 +1034,6 @@ window.CRYPTIC_PUZZLES["cryptic-29972"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Where Trump, lacking guts, is not to touch this: would be unwise (3,5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -1150,9 +1087,6 @@ window.CRYPTIC_PUZZLES["cryptic-29972"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Playing conkers with judges (7)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "RECKONS",
    "annotation": {
@@ -1215,9 +1149,6 @@ window.CRYPTIC_PUZZLES["cryptic-29972"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Strictly austere, doubly devout Hindu, unshod primarily (6)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "SADDHU",
    "annotation": {
@@ -1255,9 +1186,6 @@ window.CRYPTIC_PUZZLES["cryptic-29972"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Honour as peace finally follows devastation of the war (7)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "WREATHE",
    "annotation": {
@@ -1311,9 +1239,6 @@ window.CRYPTIC_PUZZLES["cryptic-29972"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Signified Boatman by symbol of industry (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "MEANT",
    "annotation": {
@@ -1355,9 +1280,6 @@ window.CRYPTIC_PUZZLES["cryptic-29972"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Man using computer virus etc: battle is lost (4)",
-   "group": [
-    "26-down"
-   ],
    "separatorLocations": {},
    "solution": "MALE",
    "annotation": {
@@ -1403,9 +1325,6 @@ window.CRYPTIC_PUZZLES["cryptic-29972"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Order: comply with aid talks (9)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "DIPLOMACY",
    "annotation": {
@@ -1444,9 +1363,6 @@ window.CRYPTIC_PUZZLES["cryptic-29972"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Depose leader missing in combat (4)",
-   "group": [
-    "28-down"
-   ],
    "separatorLocations": {},
    "solution": "OUST",
    "annotation": {
@@ -1494,9 +1410,6 @@ window.CRYPTIC_PUZZLES["cryptic-29972"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Where to hang sheets in back garden (4)",
-   "group": [
-    "29-down"
-   ],
    "separatorLocations": {},
    "solution": "YARD",
    "annotation": {
@@ -1534,9 +1447,6 @@ window.CRYPTIC_PUZZLES["cryptic-29972"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Content of blogs: sorry, cheap, using too many words (9)",
-   "group": [
-    "30-across"
-   ],
    "separatorLocations": {},
    "solution": "LOGORRHEA",
    "annotation": {
@@ -1586,9 +1496,6 @@ window.CRYPTIC_PUZZLES["cryptic-29972"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Cycling round raising fire as a defence against submarines (5)",
-   "group": [
-    "31-across"
-   ],
    "separatorLocations": {},
    "solution": "SONAR",
    "annotation": {

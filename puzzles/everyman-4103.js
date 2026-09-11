@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4103"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "A crude base pounded for condiment (5,5)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -72,9 +69,6 @@ window.CRYPTIC_PUZZLES["everyman-4103"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Having each time bumped off 50%, sombre hitmen in German city (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "BREMEN",
    "annotation": {
@@ -122,9 +116,6 @@ window.CRYPTIC_PUZZLES["everyman-4103"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Groups of rowers called out: 'Little islands!' (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "EIGHTS",
    "annotation": {
@@ -160,9 +151,6 @@ window.CRYPTIC_PUZZLES["everyman-4103"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Supply more cured meat: all I ever hoped for (5,4,4)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      5,
@@ -205,9 +193,6 @@ window.CRYPTIC_PUZZLES["everyman-4103"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Hides vase that's damaged, wanting glue etc (9)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "ADHESIVES",
    "annotation": {
@@ -250,9 +235,6 @@ window.CRYPTIC_PUZZLES["everyman-4103"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Primarily: cannon - adroit rebound - or miscue? (5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "CAROM",
    "annotation": {
@@ -320,9 +302,6 @@ window.CRYPTIC_PUZZLES["everyman-4103"] = /*JSON-START*/ {
      6
     ]
    ],
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "FILM",
    "annotation": {
@@ -372,9 +351,6 @@ window.CRYPTIC_PUZZLES["everyman-4103"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Affection gleaned from Tin Tim, a cyborg (8)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "INTIMACY",
    "annotation": {
@@ -409,9 +385,6 @@ window.CRYPTIC_PUZZLES["everyman-4103"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Herb's rearranged components to present Tudor ship (4,4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -462,9 +435,6 @@ window.CRYPTIC_PUZZLES["everyman-4103"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Bird of prey left in earnest? Not quite (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "EAGLE",
    "annotation": {
@@ -511,9 +481,6 @@ window.CRYPTIC_PUZZLES["everyman-4103"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Calcium-rich liquid hurtling earthward (4,5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -555,9 +522,6 @@ window.CRYPTIC_PUZZLES["everyman-4103"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Question about York and Orleans that's no surprise? (4,4,2,3)",
-   "group": [
-    "11-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -598,9 +562,6 @@ window.CRYPTIC_PUZZLES["everyman-4103"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Says goodbye forever to snob met in resort (7)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "ENTOMBS",
    "annotation": {
@@ -641,9 +602,6 @@ window.CRYPTIC_PUZZLES["everyman-4103"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "When reversing, drive into no Shakespearean master somewhere in SE Asia (7)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "MYANMAR",
    "annotation": {
@@ -699,9 +657,6 @@ window.CRYPTIC_PUZZLES["everyman-4103"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Perhaps ladies' devices offering comfort (12)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "CONVENIENCES",
    "annotation": {
@@ -736,9 +691,6 @@ window.CRYPTIC_PUZZLES["everyman-4103"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Once called, enjoys fancy meal, initially suppressing desire for attention (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "NEEDINESS",
    "annotation": {
@@ -788,9 +740,6 @@ window.CRYPTIC_PUZZLES["everyman-4103"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Strong drink and some kebabs - in theory (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "ABSINTHE",
    "annotation": {
@@ -828,9 +777,6 @@ window.CRYPTIC_PUZZLES["everyman-4103"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Punishment dispatched: receiver of stolen goods decapitated (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "SENTENCE",
    "annotation": {
@@ -874,9 +820,6 @@ window.CRYPTIC_PUZZLES["everyman-4103"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Terry saw bees, bizarrely, as help in making beer (7,5)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -927,9 +870,6 @@ window.CRYPTIC_PUZZLES["everyman-4103"] = /*JSON-START*/ {
      10
     ]
    ],
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "KINDER",
    "annotation": {
@@ -964,9 +904,6 @@ window.CRYPTIC_PUZZLES["everyman-4103"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Trousers - loud and large - are last thing in grooviness (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "FLARES",
    "annotation": {
@@ -1025,9 +962,6 @@ window.CRYPTIC_PUZZLES["everyman-4103"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Detains trainees ... (7)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "INTERNS",
    "annotation": {
@@ -1062,9 +996,6 @@ window.CRYPTIC_PUZZLES["everyman-4103"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Heavens! Abrupt right for one doing slaloms? (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "SKIER",
    "annotation": {
@@ -1111,9 +1042,6 @@ window.CRYPTIC_PUZZLES["everyman-4103"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "... first sign (7)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "INITIAL",
    "annotation": {
@@ -1148,9 +1076,6 @@ window.CRYPTIC_PUZZLES["everyman-4103"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Argentine mixed fruit (9)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "TANGERINE",
    "annotation": {
@@ -1188,9 +1113,6 @@ window.CRYPTIC_PUZZLES["everyman-4103"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Deliver a new flipping low (5)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "NADIR",
    "annotation": {
@@ -1246,9 +1168,6 @@ window.CRYPTIC_PUZZLES["everyman-4103"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Lamb's mum runs for source of water (4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "EWER",
    "annotation": {
@@ -1291,9 +1210,6 @@ window.CRYPTIC_PUZZLES["everyman-4103"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Troubles, overwhelming perhaps, foil Everyman's business (10)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "CROSSWORDS",
    "annotation": {

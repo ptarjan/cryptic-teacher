@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4122"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Straighten out - but it's exhausting! (10)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "SHATTERING",
    "annotation": {
@@ -67,9 +64,6 @@ window.CRYPTIC_PUZZLES["everyman-4122"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Heard prophet sizzle (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "SEAR",
    "annotation": {
@@ -104,9 +98,6 @@ window.CRYPTIC_PUZZLES["everyman-4122"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Slowly, learner's lost mighty ship (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "ARGO",
    "annotation": {
@@ -148,9 +139,6 @@ window.CRYPTIC_PUZZLES["everyman-4122"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Race brother pathetically - he's seen in the lead (11)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "TORCHBEARER",
    "annotation": {
@@ -187,9 +175,6 @@ window.CRYPTIC_PUZZLES["everyman-4122"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Made another recording of French father that's stuck up (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "RETAPED",
    "annotation": {
@@ -240,9 +225,6 @@ window.CRYPTIC_PUZZLES["everyman-4122"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Songs in book (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "NUMBERS",
    "annotation": {
@@ -280,9 +262,6 @@ window.CRYPTIC_PUZZLES["everyman-4122"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Still, India's supposed mountain-dweller (4)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "YETI",
    "annotation": {
@@ -320,9 +299,6 @@ window.CRYPTIC_PUZZLES["everyman-4122"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Air battle across the Continent? (10)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "EUROVISION",
    "annotation": {
@@ -354,9 +330,6 @@ window.CRYPTIC_PUZZLES["everyman-4122"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Cross Italian footballers given Belgium: maybe buck up (10)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "INTERBREED",
    "annotation": {
@@ -416,9 +389,6 @@ window.CRYPTIC_PUZZLES["everyman-4122"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Procedures for solving problems as clattering hailstorm overwhelms golf (10)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "ALGORITHMS",
    "annotation": {
@@ -465,9 +435,6 @@ window.CRYPTIC_PUZZLES["everyman-4122"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Determination regularly exhibited by Geraint (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "GRIT",
    "annotation": {
@@ -510,9 +477,6 @@ window.CRYPTIC_PUZZLES["everyman-4122"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Axed before 50, Everyman's at end of career, an irrelevance (7,5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -573,9 +537,6 @@ window.CRYPTIC_PUZZLES["everyman-4122"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Statesman: Gee! Old Glory aflutter! (5,6)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -616,9 +577,6 @@ window.CRYPTIC_PUZZLES["everyman-4122"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Sportsperson damaged golf-club (4-6)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -660,9 +618,6 @@ window.CRYPTIC_PUZZLES["everyman-4122"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Servants in the auditorium: but how many in the audience? (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "ATTENDANCE",
    "annotation": {
@@ -706,9 +661,6 @@ window.CRYPTIC_PUZZLES["everyman-4122"] = /*JSON-START*/ {
      6
     ]
    ],
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "HOTHEAD",
    "annotation": {
@@ -742,9 +694,6 @@ window.CRYPTIC_PUZZLES["everyman-4122"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "North, then south, track circling: back! (7)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "SPONSOR",
    "annotation": {
@@ -788,9 +737,6 @@ window.CRYPTIC_PUZZLES["everyman-4122"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Some loathe - or embrace - idea (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "THEOREM",
    "annotation": {
@@ -824,9 +770,6 @@ window.CRYPTIC_PUZZLES["everyman-4122"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "At sea, ark teems with small flying kind of a mammal (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "MEERKAT",
    "annotation": {
@@ -870,9 +813,6 @@ window.CRYPTIC_PUZZLES["everyman-4122"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "I'm grateful to get support embracing prince who'll become a frog (7)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "TADPOLE",
    "annotation": {
@@ -925,9 +865,6 @@ window.CRYPTIC_PUZZLES["everyman-4122"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Unusual issue characteristic of Pitt the Elder? (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "TRIPLET",
    "annotation": {
@@ -962,9 +899,6 @@ window.CRYPTIC_PUZZLES["everyman-4122"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Rashly endure drivel; fail to make good on promise (12)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "UNDERDELIVER",
    "annotation": {
@@ -1001,9 +935,6 @@ window.CRYPTIC_PUZZLES["everyman-4122"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Present the northern fruit that's offered up (4)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "GIFT",
    "annotation": {
@@ -1060,9 +991,6 @@ window.CRYPTIC_PUZZLES["everyman-4122"] = /*JSON-START*/ {
      8
     ]
    ],
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "EGOS",
    "annotation": {
@@ -1102,9 +1030,6 @@ window.CRYPTIC_PUZZLES["everyman-4122"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Ultimately prudent to learn mingling; one would lose grip without partner at the barbecue (4)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "TONG",
    "annotation": {
@@ -1159,9 +1084,6 @@ window.CRYPTIC_PUZZLES["everyman-4122"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Broadcaster backing poet (German) gallivanting (10)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "SKYLARKING",
    "annotation": {
@@ -1210,9 +1132,6 @@ window.CRYPTIC_PUZZLES["everyman-4122"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "It may be a Fisherman's Dance (4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "REEL",
    "annotation": {
@@ -1247,9 +1166,6 @@ window.CRYPTIC_PUZZLES["everyman-4122"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Laws covering alien little figures (10)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "STATUETTES",
    "annotation": {

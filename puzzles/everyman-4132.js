@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4132"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Seconds: extremely cheap and most delicious (10)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "SCRUMMIEST",
    "annotation": {
@@ -68,9 +65,6 @@ window.CRYPTIC_PUZZLES["everyman-4132"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Primarily solve / understand (somewhat slangily!) (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "SUSS",
    "annotation": {
@@ -110,9 +104,6 @@ window.CRYPTIC_PUZZLES["everyman-4132"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Regretted being audibly crass (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "RUED",
    "annotation": {
@@ -150,9 +141,6 @@ window.CRYPTIC_PUZZLES["everyman-4132"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Everyman broadcast main goal: modicum of admiration (a delusion) (11)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "MEGALOMANIA",
    "annotation": {
@@ -209,9 +197,6 @@ window.CRYPTIC_PUZZLES["everyman-4132"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Wine Kit's drunk: that's no shock (1,4,2)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      1,
@@ -253,9 +238,6 @@ window.CRYPTIC_PUZZLES["everyman-4132"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Suspends from ledges (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "SHELVES",
    "annotation": {
@@ -291,9 +273,6 @@ window.CRYPTIC_PUZZLES["everyman-4132"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Making comeback, builds upon incomplete work (4)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "OPUS",
    "annotation": {
@@ -335,9 +314,6 @@ window.CRYPTIC_PUZZLES["everyman-4132"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Performs at resort in which it's always cold (10)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "PERMAFROST",
    "annotation": {
@@ -375,9 +351,6 @@ window.CRYPTIC_PUZZLES["everyman-4132"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "What could be represented as 'eats mice'? (7,3)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -418,9 +391,6 @@ window.CRYPTIC_PUZZLES["everyman-4132"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Repress redhead that's spicy in the kitchen (4,6)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -466,9 +436,6 @@ window.CRYPTIC_PUZZLES["everyman-4132"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Guard's van regularly out of service: bear up? (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "URSA",
    "annotation": {
@@ -515,9 +482,6 @@ window.CRYPTIC_PUZZLES["everyman-4132"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Divorcées getting dog, we're told: it may not be true (3,5,4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -569,9 +533,6 @@ window.CRYPTIC_PUZZLES["everyman-4132"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "'Bird watching' is one for these? (11)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {},
    "solution": "SPOONERISMS",
    "annotation": {
@@ -604,9 +565,6 @@ window.CRYPTIC_PUZZLES["everyman-4132"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Interlaced characters arranged for an entitlement (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "CREDENTIAL",
    "annotation": {
@@ -646,9 +604,6 @@ window.CRYPTIC_PUZZLES["everyman-4132"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Note describing quarrel over grain in vessel (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "NARROWBOAT",
    "annotation": {
@@ -703,9 +658,6 @@ window.CRYPTIC_PUZZLES["everyman-4132"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Let back in to study at Cambridge University (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "READMIT",
    "annotation": {
@@ -746,9 +698,6 @@ window.CRYPTIC_PUZZLES["everyman-4132"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Anathema: jerk takes over company (7)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "SCOURGE",
    "annotation": {
@@ -792,9 +741,6 @@ window.CRYPTIC_PUZZLES["everyman-4132"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Led government that's welcomed by pair in Mexican city (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "DURANGO",
    "annotation": {
@@ -848,9 +794,6 @@ window.CRYPTIC_PUZZLES["everyman-4132"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Act dictatorially towards operation by newspapers (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "OPPRESS",
    "annotation": {
@@ -891,9 +834,6 @@ window.CRYPTIC_PUZZLES["everyman-4132"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Forgetting a name is awkward (7)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "AMNESIA",
    "annotation": {
@@ -930,9 +870,6 @@ window.CRYPTIC_PUZZLES["everyman-4132"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "A quiet time, breeze regularly blowing in bit of woodland (3,4)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -994,9 +931,6 @@ window.CRYPTIC_PUZZLES["everyman-4132"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Ashen, whimper pathetically somewhere in the USA (3,9)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -1037,9 +971,6 @@ window.CRYPTIC_PUZZLES["everyman-4132"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Bertie and Rosemary? (4)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "HERB",
    "annotation": {
@@ -1075,9 +1006,6 @@ window.CRYPTIC_PUZZLES["everyman-4132"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Ocular irritant in some dusty environs (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "STYE",
    "annotation": {
@@ -1114,9 +1042,6 @@ window.CRYPTIC_PUZZLES["everyman-4132"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Sample from Antipodean music held here (4)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "IPOD",
    "annotation": {
@@ -1151,9 +1076,6 @@ window.CRYPTIC_PUZZLES["everyman-4132"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Reports, etc. edited in contemplation of the past (10)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "RETROSPECT",
    "annotation": {
@@ -1193,9 +1115,6 @@ window.CRYPTIC_PUZZLES["everyman-4132"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "And others sent back behind (4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "LATE",
    "annotation": {
@@ -1243,9 +1162,6 @@ window.CRYPTIC_PUZZLES["everyman-4132"] = /*JSON-START*/ {
      10,
      8
     ]
-   ],
-   "group": [
-    "26-across"
    ],
    "separatorLocations": {},
    "solution": "OSTENSIBLE",

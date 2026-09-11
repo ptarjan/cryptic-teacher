@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1875"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "University nurses oddly in favour of master's degree remaining the same (10)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "UNREFORMED",
    "annotation": {
@@ -83,9 +80,6 @@ window.CRYPTIC_PUZZLES["indysunday-1875"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Sewer in street's an irritating thing? (8)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "STITCHER",
    "annotation": {
@@ -127,9 +121,6 @@ window.CRYPTIC_PUZZLES["indysunday-1875"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Head lost in despair abandoned hope (6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "ASPIRE",
    "annotation": {
@@ -172,9 +163,6 @@ window.CRYPTIC_PUZZLES["indysunday-1875"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Arsenal reserves warm up (4)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "GUNS",
    "annotation": {
@@ -218,9 +206,6 @@ window.CRYPTIC_PUZZLES["indysunday-1875"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "County has address centrally within mall perhaps to let (10)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "SHROPSHIRE",
    "annotation": {
@@ -278,9 +263,6 @@ window.CRYPTIC_PUZZLES["indysunday-1875"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "People accommodated in principle here? (8)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "TENEMENT",
    "annotation": {
@@ -325,9 +307,6 @@ window.CRYPTIC_PUZZLES["indysunday-1875"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "What’s on is below standard today essentially (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "PARDON",
    "annotation": {
@@ -382,9 +361,6 @@ window.CRYPTIC_PUZZLES["indysunday-1875"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "One is or used to be (4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "WERE",
    "annotation": {
@@ -415,9 +391,6 @@ window.CRYPTIC_PUZZLES["indysunday-1875"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Small amount wasted - order less! (3,2,4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -470,9 +443,6 @@ window.CRYPTIC_PUZZLES["indysunday-1875"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "TV channel once held back final part of Daphne Duck (5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "EVADE",
    "annotation": {
@@ -524,9 +494,6 @@ window.CRYPTIC_PUZZLES["indysunday-1875"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Guards opening exits and access points (7)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "ENTRIES",
    "annotation": {
@@ -569,9 +536,6 @@ window.CRYPTIC_PUZZLES["indysunday-1875"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Public performance by couple out of time throughout and late (7)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "OVERDUE",
    "annotation": {
@@ -625,9 +589,6 @@ window.CRYPTIC_PUZZLES["indysunday-1875"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Yellow aggregate containing clay and hematite primarily (5)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "OCHRE",
    "annotation": {
@@ -674,9 +635,6 @@ window.CRYPTIC_PUZZLES["indysunday-1875"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "One well ahead of our time with new style of serene art (9)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "EASTERNER",
    "annotation": {
@@ -717,9 +675,6 @@ window.CRYPTIC_PUZZLES["indysunday-1875"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Promotions delight some at first with envy occasionally admitted (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "ELEVATIONS",
    "annotation": {
@@ -777,9 +732,6 @@ window.CRYPTIC_PUZZLES["indysunday-1875"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Al Shearer’s injured in practice sessions (10)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "REHEARSALS",
    "annotation": {
@@ -820,9 +772,6 @@ window.CRYPTIC_PUZZLES["indysunday-1875"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Old singer broadcast hit and real men cried (7,8)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -872,9 +821,6 @@ window.CRYPTIC_PUZZLES["indysunday-1875"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Sinister force existing to the North where the monster lurks (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "EVILNESS",
    "annotation": {
@@ -924,9 +870,6 @@ window.CRYPTIC_PUZZLES["indysunday-1875"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Variations in chemical make-up established by organisation that standardises drinks (8)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "ISOTOPES",
    "annotation": {
@@ -967,9 +910,6 @@ window.CRYPTIC_PUZZLES["indysunday-1875"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Break up with Spooner’s tetchy American girlfriend (9)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "DISSIPATE",
    "annotation": {
@@ -1018,9 +958,6 @@ window.CRYPTIC_PUZZLES["indysunday-1875"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "It’s mostly easy relaxing (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "SIESTA",
    "annotation": {
@@ -1060,9 +997,6 @@ window.CRYPTIC_PUZZLES["indysunday-1875"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Italian brother boxes leftover plants (5)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "FLORA",
    "annotation": {
@@ -1108,9 +1042,6 @@ window.CRYPTIC_PUZZLES["indysunday-1875"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Hunt's changing of gear (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "FORAGE",
    "annotation": {
@@ -1151,9 +1082,6 @@ window.CRYPTIC_PUZZLES["indysunday-1875"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Cannabis regularly taken eating chicken Madras! (7)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "CHENNAI",
    "annotation": {
@@ -1200,9 +1128,6 @@ window.CRYPTIC_PUZZLES["indysunday-1875"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "One hundred, worn-out and stiff (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "COLD",
    "annotation": {
@@ -1243,9 +1168,6 @@ window.CRYPTIC_PUZZLES["indysunday-1875"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Loads of ‘brrm brrm’ when this happens? (7)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "CARGOES",
    "annotation": {
@@ -1286,9 +1208,6 @@ window.CRYPTIC_PUZZLES["indysunday-1875"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Copper on beat missing half of block (4)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "CUBE",
    "annotation": {
@@ -1337,9 +1256,6 @@ window.CRYPTIC_PUZZLES["indysunday-1875"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Fortune laid out by American for prestigious car (5)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "LOTUS",
    "annotation": {
@@ -1386,9 +1302,6 @@ window.CRYPTIC_PUZZLES["indysunday-1875"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Trifling Ig Nobel award - extremely funny (2,3,4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      2,

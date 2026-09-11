@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4143"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "A little vicar used to be high-flier (for a while) (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "ICARUS",
    "annotation": {
@@ -64,9 +61,6 @@ window.CRYPTIC_PUZZLES["everyman-4143"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Explained: goat maybe ingredient for frying (9,6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      9
@@ -108,9 +102,6 @@ window.CRYPTIC_PUZZLES["everyman-4143"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Most intense potpourri chests will contain (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "RICHEST",
    "annotation": {
@@ -144,9 +135,6 @@ window.CRYPTIC_PUZZLES["everyman-4143"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Avoid narrow streets in cold-weather vehicles (3-6)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -191,9 +179,6 @@ window.CRYPTIC_PUZZLES["everyman-4143"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Take as read: Everyman twit first and foremost; secondarily, buffoon (6)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "ASSUME",
    "annotation": {
@@ -244,9 +229,6 @@ window.CRYPTIC_PUZZLES["everyman-4143"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "By the side of a pine (5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "ALONG",
    "annotation": {
@@ -284,9 +266,6 @@ window.CRYPTIC_PUZZLES["everyman-4143"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Relative in cowboy hat having change of heart (4-3)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -337,9 +316,6 @@ window.CRYPTIC_PUZZLES["everyman-4143"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Rude intent might - possibly - give you this? (4,2,3,6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -382,9 +358,6 @@ window.CRYPTIC_PUZZLES["everyman-4143"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Much water wanting vigorous aeration, carbon thrice (6,5)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -433,9 +406,6 @@ window.CRYPTIC_PUZZLES["everyman-4143"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Small worm, exhausted, clenching - first to crawl? (4)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {},
    "solution": "SWIM",
    "annotation": {
@@ -490,9 +460,6 @@ window.CRYPTIC_PUZZLES["everyman-4143"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Tower: look up (4)",
-   "group": [
-    "10-down"
-   ],
    "separatorLocations": {},
    "solution": "KEEP",
    "annotation": {
@@ -535,9 +502,6 @@ window.CRYPTIC_PUZZLES["everyman-4143"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Ashen prisoner accepting fine, showing sign of submission (5,4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -593,9 +557,6 @@ window.CRYPTIC_PUZZLES["everyman-4143"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Take control of waters, as dictated (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "SEIZE",
    "annotation": {
@@ -630,9 +591,6 @@ window.CRYPTIC_PUZZLES["everyman-4143"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Perhaps lick fourth of stamps: it's one that's damaged (7)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "MOISTEN",
    "annotation": {
@@ -676,9 +634,6 @@ window.CRYPTIC_PUZZLES["everyman-4143"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Steadily, at pool table, sinks last of seven ... on ... on a roll (3-4)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -735,9 +690,6 @@ window.CRYPTIC_PUZZLES["everyman-4143"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Spray blue rinse all over the place (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "NEBULISER",
    "annotation": {
@@ -774,9 +726,6 @@ window.CRYPTIC_PUZZLES["everyman-4143"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Censors in Communist legislation (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "REDACTS",
    "annotation": {
@@ -817,9 +766,6 @@ window.CRYPTIC_PUZZLES["everyman-4143"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Disputes files (4)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "ROWS",
    "annotation": {
@@ -854,9 +800,6 @@ window.CRYPTIC_PUZZLES["everyman-4143"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Provençal character? (7)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "CEDILLA",
    "annotation": {
@@ -890,9 +833,6 @@ window.CRYPTIC_PUZZLES["everyman-4143"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Receptacles for pelts (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "BUCKETS",
    "annotation": {
@@ -930,9 +870,6 @@ window.CRYPTIC_PUZZLES["everyman-4143"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Monster, one I only mentioned? (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "CYCLOPS",
    "annotation": {
@@ -966,9 +903,6 @@ window.CRYPTIC_PUZZLES["everyman-4143"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Primarily slangy expression signifying hangin'? (4)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "SESH",
    "annotation": {
@@ -1008,9 +942,6 @@ window.CRYPTIC_PUZZLES["everyman-4143"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Tightened injury (5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "WOUND",
    "annotation": {
@@ -1045,9 +976,6 @@ window.CRYPTIC_PUZZLES["everyman-4143"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Where Woods would use woods - or woods? (4,5)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -1089,9 +1017,6 @@ window.CRYPTIC_PUZZLES["everyman-4143"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Are you familiar with that woman delivered in Italian port? (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "GENOA",
    "annotation": {
@@ -1129,9 +1054,6 @@ window.CRYPTIC_PUZZLES["everyman-4143"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "I'm seeking that special someone in foreign consulate, time and time again (6,5)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -1181,9 +1103,6 @@ window.CRYPTIC_PUZZLES["everyman-4143"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Mistakes rare at resorts (6)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "ERRATA",
    "annotation": {
@@ -1220,9 +1139,6 @@ window.CRYPTIC_PUZZLES["everyman-4143"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Extract of intro's transcribed as lecturers talk here (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "ROSTRA",
    "annotation": {

@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1858"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Old men with heads together pulled apart, glaring (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "APPARENT",
    "annotation": {
@@ -77,9 +74,6 @@ window.CRYPTIC_PUZZLES["indysunday-1858"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Quickly drop crumbs in empty pot (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "PLUMMET",
    "annotation": {
@@ -126,9 +120,6 @@ window.CRYPTIC_PUZZLES["indysunday-1858"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Protection English and American soldier wear equally (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "AEGIS",
    "annotation": {
@@ -179,9 +170,6 @@ window.CRYPTIC_PUZZLES["indysunday-1858"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Euro Senor tossed bum (9)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "ERRONEOUS",
    "annotation": {
@@ -219,9 +207,6 @@ window.CRYPTIC_PUZZLES["indysunday-1858"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Heel pain occupies mind (4,3)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -270,9 +255,6 @@ window.CRYPTIC_PUZZLES["indysunday-1858"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Cryptic equivalent of temperature into Celsius? (6)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "COVERT",
    "annotation": {
@@ -319,9 +301,6 @@ window.CRYPTIC_PUZZLES["indysunday-1858"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Copper that takes the biscuit showing restraint? (5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "CUFFS",
    "annotation": {
@@ -360,9 +339,6 @@ window.CRYPTIC_PUZZLES["indysunday-1858"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Rivals tee off, good all round (9)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "VERSATILE",
    "annotation": {
@@ -400,9 +376,6 @@ window.CRYPTIC_PUZZLES["indysunday-1858"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "University dons party after dealing with surplus (7)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "RESIDUE",
    "annotation": {
@@ -454,9 +427,6 @@ window.CRYPTIC_PUZZLES["indysunday-1858"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Chuck's ready to corrupt official, perhaps (4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "BUNG",
    "annotation": {
@@ -494,9 +464,6 @@ window.CRYPTIC_PUZZLES["indysunday-1858"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Artist chosen to replace Parisian is soaking wood (10)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "RAINFOREST",
    "annotation": {
@@ -546,9 +513,6 @@ window.CRYPTIC_PUZZLES["indysunday-1858"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Take wrong street with east of motorway split (13)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "MISUNDERSTAND",
    "annotation": {
@@ -604,9 +568,6 @@ window.CRYPTIC_PUZZLES["indysunday-1858"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Plaster commanding officers put on wounds in retreat (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "STUCCO",
    "annotation": {
@@ -658,9 +619,6 @@ window.CRYPTIC_PUZZLES["indysunday-1858"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Uncle Tom, terrible yankee insult (9)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "CONTUMELY",
    "annotation": {
@@ -703,9 +661,6 @@ window.CRYPTIC_PUZZLES["indysunday-1858"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Stripped, dive deeper at sea using half the energy (8)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "DEPRIVED",
    "annotation": {
@@ -745,9 +700,6 @@ window.CRYPTIC_PUZZLES["indysunday-1858"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Food for retail earlier cleared out (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "PROVENDER",
    "annotation": {
@@ -797,9 +749,6 @@ window.CRYPTIC_PUZZLES["indysunday-1858"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Despite arrangement, doesn't date pay for drink? (6,2)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -841,9 +790,6 @@ window.CRYPTIC_PUZZLES["indysunday-1858"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Pedant not starting difficult puzzle (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "TICKLER",
    "annotation": {
@@ -886,9 +832,6 @@ window.CRYPTIC_PUZZLES["indysunday-1858"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "That could be a hot spring rising (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "PERHAPS",
    "annotation": {
@@ -944,9 +887,6 @@ window.CRYPTIC_PUZZLES["indysunday-1858"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Too old really to snort line (6)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "OVERLY",
    "annotation": {
@@ -997,9 +937,6 @@ window.CRYPTIC_PUZZLES["indysunday-1858"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Doctor dwelt on disappointing outcome (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "LETDOWN",
    "annotation": {
@@ -1037,9 +974,6 @@ window.CRYPTIC_PUZZLES["indysunday-1858"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Opposing force tally with crew on Queen Elizabeth (13)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "COUNTERWEIGHT",
    "annotation": {
@@ -1095,9 +1029,6 @@ window.CRYPTIC_PUZZLES["indysunday-1858"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Criminal group lasered air traffic from beneath shelters (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "TRIAD",
    "annotation": {
@@ -1134,9 +1065,6 @@ window.CRYPTIC_PUZZLES["indysunday-1858"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Dieter's good sandwiches are primarily meat spread (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "GAMUT",
    "annotation": {
@@ -1183,9 +1111,6 @@ window.CRYPTIC_PUZZLES["indysunday-1858"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Atlantic voyage's record Iand-lubber sabotaged with hidden typo? (4,6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -1229,9 +1154,6 @@ window.CRYPTIC_PUZZLES["indysunday-1858"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Usually high area's right next to low (4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "MOOR",
    "annotation": {
@@ -1278,9 +1200,6 @@ window.CRYPTIC_PUZZLES["indysunday-1858"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Report of attack on unknown shot inside (1-5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {
     "-": [
      1
@@ -1329,9 +1248,6 @@ window.CRYPTIC_PUZZLES["indysunday-1858"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Wee behind bushes avoiding bachelor's gaze (8)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "SCRUTINY",
    "annotation": {

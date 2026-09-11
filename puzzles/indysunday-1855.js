@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1855"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Old childminder shot French writer's son (9)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "GOVERNESS",
    "annotation": {
@@ -72,9 +69,6 @@ window.CRYPTIC_PUZZLES["indysunday-1855"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Almost all grouse in bag (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "GRIP",
    "annotation": {
@@ -120,9 +114,6 @@ window.CRYPTIC_PUZZLES["indysunday-1855"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Hearing of hols in narrow boat, prepare to cope with awful conditions (9)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "VACCINATE",
    "annotation": {
@@ -168,9 +159,6 @@ window.CRYPTIC_PUZZLES["indysunday-1855"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Stand back up in ceremony when told (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "RIGHT",
    "annotation": {
@@ -209,9 +197,6 @@ window.CRYPTIC_PUZZLES["indysunday-1855"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Promised to stop talking English in terminus (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "ENGAGED",
    "annotation": {
@@ -265,9 +250,6 @@ window.CRYPTIC_PUZZLES["indysunday-1855"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Group beneath lead us on the climb in novel feature (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "SUBPLOT",
    "annotation": {
@@ -327,9 +309,6 @@ window.CRYPTIC_PUZZLES["indysunday-1855"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Scottish give up bad diet around start of May (5)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "DEMIT",
    "annotation": {
@@ -374,9 +353,6 @@ window.CRYPTIC_PUZZLES["indysunday-1855"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Overalls brown with smeared grease (9)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "DUNGAREES",
    "annotation": {
@@ -426,9 +402,6 @@ window.CRYPTIC_PUZZLES["indysunday-1855"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Painter turned up one hour before morning tea-break (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "MANET",
    "annotation": {
@@ -472,9 +445,6 @@ window.CRYPTIC_PUZZLES["indysunday-1855"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Tile Lesley positioned upside down at the last minute (10)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "TESSELLATE",
    "annotation": {
@@ -529,9 +499,6 @@ window.CRYPTIC_PUZZLES["indysunday-1855"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Using secret identity, male avoids coming out (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "INCOG",
    "annotation": {
@@ -576,9 +543,6 @@ window.CRYPTIC_PUZZLES["indysunday-1855"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "When catching granny on backed-up toilet, get potty (2,7)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -643,9 +607,6 @@ window.CRYPTIC_PUZZLES["indysunday-1855"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Stain and stick together shed in Beer, busy SW seaside spot (8,6)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -709,9 +670,6 @@ window.CRYPTIC_PUZZLES["indysunday-1855"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Racing driver I see eating meat in steak restaurant (6,4)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -769,9 +727,6 @@ window.CRYPTIC_PUZZLES["indysunday-1855"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Splintering boarded base for rail (7)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "ROADBED",
    "annotation": {
@@ -809,9 +764,6 @@ window.CRYPTIC_PUZZLES["indysunday-1855"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Empty bottles filled by blonder people in shower? (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "BLIGHTERS",
    "annotation": {
@@ -858,9 +810,6 @@ window.CRYPTIC_PUZZLES["indysunday-1855"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "After cycling that lady's whisky is warming (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "THERMAL",
    "annotation": {
@@ -907,9 +856,6 @@ window.CRYPTIC_PUZZLES["indysunday-1855"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "One creating secret character for Spooner in spy film (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "MOONRAKER",
    "annotation": {
@@ -958,9 +904,6 @@ window.CRYPTIC_PUZZLES["indysunday-1855"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "\"Getting health back\" read out on a list (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "HEELING",
    "annotation": {
@@ -1002,9 +945,6 @@ window.CRYPTIC_PUZZLES["indysunday-1855"] = /*JSON-START*/ {
      30,
      10
     ]
-   ],
-   "group": [
-    "18-down"
    ],
    "separatorLocations": {},
    "solution": "GANDALF",
@@ -1058,9 +998,6 @@ window.CRYPTIC_PUZZLES["indysunday-1855"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Dad's heading for Antarctica shortly to complete army training (4,3)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -1111,9 +1048,6 @@ window.CRYPTIC_PUZZLES["indysunday-1855"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Innovator going east during long walk on stilts (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "PIONEER",
    "annotation": {
@@ -1164,9 +1098,6 @@ window.CRYPTIC_PUZZLES["indysunday-1855"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Doctor beginning to doubt Roger's charm in the sack (8,6)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -1213,9 +1144,6 @@ window.CRYPTIC_PUZZLES["indysunday-1855"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Fully develop small state prison (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "RIPEN",
    "annotation": {
@@ -1254,9 +1182,6 @@ window.CRYPTIC_PUZZLES["indysunday-1855"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Land where there isn't any? (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "DITCH",
    "annotation": {
@@ -1288,9 +1213,6 @@ window.CRYPTIC_PUZZLES["indysunday-1855"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Grecian tenderly holds the beginnings of a pot (4)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "ANTE",
    "annotation": {
@@ -1325,9 +1247,6 @@ window.CRYPTIC_PUZZLES["indysunday-1855"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Curse that is extended by politician dealing with whip (9)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "IMPRECATE",
    "annotation": {
@@ -1384,9 +1303,6 @@ window.CRYPTIC_PUZZLES["indysunday-1855"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "You shouldn't have everything you know taught (5)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "TAKEN",
    "annotation": {
@@ -1425,9 +1341,6 @@ window.CRYPTIC_PUZZLES["indysunday-1855"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Chain left marks on skin (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "LINKS",
    "annotation": {
@@ -1467,9 +1380,6 @@ window.CRYPTIC_PUZZLES["indysunday-1855"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Best runner probably in class runs in socks (4,5)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     ",": [
      4

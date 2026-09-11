@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1344"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Sore second rate celebrity (7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "BLISTER",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["quiptic-1344"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Starts to bitch about failure to achieve such awards (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "BAFTAS",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["quiptic-1344"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Hot Italian leader? Bring it on! (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "INDUCE",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["quiptic-1344"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Heated Tory upset from first moment (3,4,3)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -98,9 +86,6 @@ window.CRYPTIC_PUZZLES["quiptic-1344"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Fourth line has yankee being disorderly (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "ROWDY",
    "annotation": null
@@ -115,9 +100,6 @@ window.CRYPTIC_PUZZLES["quiptic-1344"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Standard way to cut vegetable (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "PARSNIP",
    "annotation": null
@@ -132,9 +114,6 @@ window.CRYPTIC_PUZZLES["quiptic-1344"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Stick with training run that’s very tough (9)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "PERSEVERE",
    "annotation": null
@@ -149,9 +128,6 @@ window.CRYPTIC_PUZZLES["quiptic-1344"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Something written up in birthday card is risque (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "RACY",
    "annotation": null
@@ -166,9 +142,6 @@ window.CRYPTIC_PUZZLES["quiptic-1344"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Note ruin that’s been rebuilt – it’s very very small (8)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "NEUTRINO",
    "annotation": null
@@ -183,9 +156,6 @@ window.CRYPTIC_PUZZLES["quiptic-1344"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Sick types tucking tie into trousers (8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "PATIENTS",
    "annotation": null
@@ -200,9 +170,6 @@ window.CRYPTIC_PUZZLES["quiptic-1344"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Avoid making something explicit or sweet (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "FUDGE",
    "annotation": null
@@ -217,9 +184,6 @@ window.CRYPTIC_PUZZLES["quiptic-1344"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Amount written about matter on news (4,5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -238,9 +202,6 @@ window.CRYPTIC_PUZZLES["quiptic-1344"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Models spy cheater getting messy (10)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "ARCHETYPES",
    "annotation": null
@@ -255,9 +216,6 @@ window.CRYPTIC_PUZZLES["quiptic-1344"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "English town that makes whiskey for America (3)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "RYE",
    "annotation": null
@@ -272,9 +230,6 @@ window.CRYPTIC_PUZZLES["quiptic-1344"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Travel like fugitives? (4,6)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -293,9 +248,6 @@ window.CRYPTIC_PUZZLES["quiptic-1344"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Gifted German fabricated cooler decoration (6,6)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -314,9 +266,6 @@ window.CRYPTIC_PUZZLES["quiptic-1344"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Concerning evolution of a wind / rain formation (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "DARWINIAN",
    "annotation": null
@@ -331,9 +280,6 @@ window.CRYPTIC_PUZZLES["quiptic-1344"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Deposits required to get somewhere to live (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "LODGINGS",
    "annotation": null
@@ -348,9 +294,6 @@ window.CRYPTIC_PUZZLES["quiptic-1344"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Countdown starting at 12.50? (3,2,3)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -370,9 +313,6 @@ window.CRYPTIC_PUZZLES["quiptic-1344"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Points achieved from All Black clearance (3,4,5)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -392,9 +332,6 @@ window.CRYPTIC_PUZZLES["quiptic-1344"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Old king appealing to have article suppressed (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "CANUTE",
    "annotation": null
@@ -409,9 +346,6 @@ window.CRYPTIC_PUZZLES["quiptic-1344"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Times worker not using machinery (2,4)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -430,9 +364,6 @@ window.CRYPTIC_PUZZLES["quiptic-1344"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Obtained heroin from old German (3)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "GOT",
    "annotation": null
@@ -447,9 +378,6 @@ window.CRYPTIC_PUZZLES["quiptic-1344"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Slam nicely arranged assortment (10)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "MISCELLANY",
    "annotation": null
@@ -464,9 +392,6 @@ window.CRYPTIC_PUZZLES["quiptic-1344"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Business leader receives a million for brief appearance (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "CAMEO",
    "annotation": null
@@ -481,9 +406,6 @@ window.CRYPTIC_PUZZLES["quiptic-1344"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Extravagant dressers finally off to pop-up shops (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "FOPS",
    "annotation": null
@@ -498,9 +420,6 @@ window.CRYPTIC_PUZZLES["quiptic-1344"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Coinage may prompt solvers to say ‘never heard of it’ (9)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "NEOLOGISM",
    "annotation": null
@@ -515,9 +434,6 @@ window.CRYPTIC_PUZZLES["quiptic-1344"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Leave tundra regularly to find cheese (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "GOUDA",
    "annotation": null
@@ -532,9 +448,6 @@ window.CRYPTIC_PUZZLES["quiptic-1344"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Crushes relative (7)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "STEPSON",
    "annotation": null
@@ -549,9 +462,6 @@ window.CRYPTIC_PUZZLES["quiptic-1344"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "In central Bonn district, French cider is fashionable (2,5)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {
     ",": [
      2

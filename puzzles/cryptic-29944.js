@@ -47,9 +47,6 @@ window.CRYPTIC_PUZZLES["cryptic-29944"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Express unhappiness about programme that’s trashy (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "CRAPPY",
    "annotation": null
@@ -64,9 +61,6 @@ window.CRYPTIC_PUZZLES["cryptic-29944"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Awfully sorry to have pocketed a chaplet (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "ROSARY",
    "annotation": null
@@ -81,9 +75,6 @@ window.CRYPTIC_PUZZLES["cryptic-29944"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Poorly writer’s in favour of vague reply (10)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "IMPROPERLY",
    "annotation": null
@@ -140,9 +131,6 @@ window.CRYPTIC_PUZZLES["cryptic-29944"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Replace McEnroe in broadcast? (9)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "SUPERSEDE",
    "annotation": null
@@ -157,9 +145,6 @@ window.CRYPTIC_PUZZLES["cryptic-29944"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Almost raw and red (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "RARE",
    "annotation": null
@@ -174,9 +159,6 @@ window.CRYPTIC_PUZZLES["cryptic-29944"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Not going to a restaurant with inane git misbehaving (6,2)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -195,9 +177,6 @@ window.CRYPTIC_PUZZLES["cryptic-29944"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Wedding band for a shilling in Northern poor regions (4,4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -216,9 +195,6 @@ window.CRYPTIC_PUZZLES["cryptic-29944"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "A model turned storyteller (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "AESOP",
    "annotation": null
@@ -233,9 +209,6 @@ window.CRYPTIC_PUZZLES["cryptic-29944"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Being criminals sucks (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "ASPIRATES",
    "annotation": null
@@ -250,9 +223,6 @@ window.CRYPTIC_PUZZLES["cryptic-29944"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Each prior show to begin with cast (10)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "PERFORMERS",
    "annotation": null
@@ -267,9 +237,6 @@ window.CRYPTIC_PUZZLES["cryptic-29944"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Single move divorce city’s backing (4)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "ONER",
    "annotation": null
@@ -284,9 +251,6 @@ window.CRYPTIC_PUZZLES["cryptic-29944"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Pianist playing ‘Waterfalls’ (4,6)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -305,9 +269,6 @@ window.CRYPTIC_PUZZLES["cryptic-29944"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Old individual helping to get acquittal (11)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "EXONERATION",
    "annotation": null
@@ -342,9 +303,6 @@ window.CRYPTIC_PUZZLES["cryptic-29944"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Is in France consuming load – this? (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "ESCARGOT",
    "annotation": null
@@ -359,9 +317,6 @@ window.CRYPTIC_PUZZLES["cryptic-29944"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Massive waste in fossil fuel (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "COLOSSAL",
    "annotation": null
@@ -376,9 +331,6 @@ window.CRYPTIC_PUZZLES["cryptic-29944"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "They possibly pilfer hot stores, removing content (11)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "SHOPLIFTERS",
    "annotation": null
@@ -399,9 +351,6 @@ window.CRYPTIC_PUZZLES["cryptic-29944"] = /*JSON-START*/ {
      6
     ]
    ],
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "BARBER",
    "annotation": null
@@ -416,9 +365,6 @@ window.CRYPTIC_PUZZLES["cryptic-29944"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "On board boat, ten days – be there! (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "ATTEND",
    "annotation": null
@@ -433,9 +379,6 @@ window.CRYPTIC_PUZZLES["cryptic-29944"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Feel reasonably well or berserk (4)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "AMOK",
    "annotation": null
@@ -450,9 +393,6 @@ window.CRYPTIC_PUZZLES["cryptic-29944"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Nasty and perhaps guilty, wearing fake suntan (10)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "UNPLEASANT",
    "annotation": null
@@ -467,9 +407,6 @@ window.CRYPTIC_PUZZLES["cryptic-29944"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Go straight (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "LEGIT",
    "annotation": null
@@ -506,9 +443,6 @@ window.CRYPTIC_PUZZLES["cryptic-29944"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Teaching the students at last, mathematician is using body language (9)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "GESTURING",
    "annotation": null
@@ -543,9 +477,6 @@ window.CRYPTIC_PUZZLES["cryptic-29944"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Farm work up to maturity (7)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "TILLAGE",
    "annotation": null
@@ -560,9 +491,6 @@ window.CRYPTIC_PUZZLES["cryptic-29944"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Look embarrassed seeing nurse regularly in motion (4,3)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {
     ",": [
      4

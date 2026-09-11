@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1905"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Box opened by wizard with bishop's long key (5,3)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -84,9 +81,6 @@ window.CRYPTIC_PUZZLES["indysunday-1905"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Italian's first proper answer (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "PRIMA",
    "annotation": {
@@ -124,9 +118,6 @@ window.CRYPTIC_PUZZLES["indysunday-1905"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "E.g. Calvin and Hobbes love getting into wagon and going (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "CARTOON",
    "annotation": {
@@ -175,9 +166,6 @@ window.CRYPTIC_PUZZLES["indysunday-1905"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Charming parent stuck with Aunt Ethel every so often (9,2)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      9
@@ -227,9 +215,6 @@ window.CRYPTIC_PUZZLES["indysunday-1905"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "One could be cavalryman crossing area's frontier (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "RAIDER",
    "annotation": {
@@ -275,9 +260,6 @@ window.CRYPTIC_PUZZLES["indysunday-1905"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Lip turned grey - effect of heat, you see (6)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "MIRAGE",
    "annotation": {
@@ -326,9 +308,6 @@ window.CRYPTIC_PUZZLES["indysunday-1905"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Police came to rally (3)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "MET",
    "annotation": {
@@ -363,9 +342,6 @@ window.CRYPTIC_PUZZLES["indysunday-1905"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "We learn in a forced way, repetition (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "RENEWAL",
    "annotation": {
@@ -402,9 +378,6 @@ window.CRYPTIC_PUZZLES["indysunday-1905"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Prisoner charges grand less than original charge for weapons (9)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "GUNPOWDER",
    "annotation": {
@@ -454,9 +427,6 @@ window.CRYPTIC_PUZZLES["indysunday-1905"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Half of Stilgoe's Bitter ordered for Tim Rice? (10)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "LIBRETTIST",
    "annotation": {
@@ -503,9 +473,6 @@ window.CRYPTIC_PUZZLES["indysunday-1905"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Sister reported an absence (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "NONE",
    "annotation": {
@@ -540,9 +507,6 @@ window.CRYPTIC_PUZZLES["indysunday-1905"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Leaflets now distributed round work all together (2,3,4,5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -595,9 +559,6 @@ window.CRYPTIC_PUZZLES["indysunday-1905"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Big spender delays start of ambitious moon shot (11)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {},
    "solution": "LOADSAMONEY",
    "annotation": {
@@ -646,9 +607,6 @@ window.CRYPTIC_PUZZLES["indysunday-1905"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Frank's a hundred, with evidence to prove it (6)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "CANDID",
    "annotation": {
@@ -695,9 +653,6 @@ window.CRYPTIC_PUZZLES["indysunday-1905"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Exit from garden behind shed I slam (9)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "CASTIGATE",
    "annotation": {
@@ -746,9 +701,6 @@ window.CRYPTIC_PUZZLES["indysunday-1905"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Woman on the street delighted to fit into parking space (3,4)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -796,9 +748,6 @@ window.CRYPTIC_PUZZLES["indysunday-1905"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Temper made Gauss add brackets the wrong way (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "ASSUAGE",
    "annotation": {
@@ -840,9 +789,6 @@ window.CRYPTIC_PUZZLES["indysunday-1905"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Many men up there in trouble without her (7)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "UMPTEEN",
    "annotation": {
@@ -886,9 +832,6 @@ window.CRYPTIC_PUZZLES["indysunday-1905"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Groom heartlessly pinched gold rings (6)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "OSTLER",
    "annotation": {
@@ -934,9 +877,6 @@ window.CRYPTIC_PUZZLES["indysunday-1905"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Liberal America curtailed president's five year term (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "LUSTRUM",
    "annotation": {
@@ -985,9 +925,6 @@ window.CRYPTIC_PUZZLES["indysunday-1905"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Queen wearing corset gets out of control (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "STRAYS",
    "annotation": {
@@ -1031,9 +968,6 @@ window.CRYPTIC_PUZZLES["indysunday-1905"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Weed in cool river tickles bathers on the bottom (14)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "HIPPOPOTAMUSES",
    "annotation": {
@@ -1088,9 +1022,6 @@ window.CRYPTIC_PUZZLES["indysunday-1905"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Boiling apparatus not bubbling yet (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "STILL",
    "annotation": {
@@ -1125,9 +1056,6 @@ window.CRYPTIC_PUZZLES["indysunday-1905"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Composer who wanted quiet shut up (4)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "CAGE",
    "annotation": {
@@ -1162,9 +1090,6 @@ window.CRYPTIC_PUZZLES["indysunday-1905"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Loss of brightness, with black day between spells of bad weather (5,5)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -1226,9 +1151,6 @@ window.CRYPTIC_PUZZLES["indysunday-1905"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Club spa where Henry has gone (3)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "BAT",
    "annotation": {
@@ -1270,9 +1192,6 @@ window.CRYPTIC_PUZZLES["indysunday-1905"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "One contributing to very little? (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "PEANUT",
    "annotation": {
@@ -1304,9 +1223,6 @@ window.CRYPTIC_PUZZLES["indysunday-1905"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Vegan option really kind hosts left for Yolanda in the morning (4,4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      4

@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30076"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Customized bicycle’s hollow wheel feature (7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "BESPOKE",
    "annotation": {
@@ -70,9 +67,6 @@ window.CRYPTIC_PUZZLES["cryptic-30076"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Tabby is sickly – mind the mites (4-3)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -118,9 +112,6 @@ window.CRYPTIC_PUZZLES["cryptic-30076"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Communication made meaningless by this climber (9)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "SCRAMBLER",
    "annotation": {
@@ -155,9 +146,6 @@ window.CRYPTIC_PUZZLES["cryptic-30076"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "A lot of figure (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "OFTEN",
    "annotation": {
@@ -195,9 +183,6 @@ window.CRYPTIC_PUZZLES["cryptic-30076"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Foreign cities limiting energy and temperature in vain (9)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "EGOTISTIC",
    "annotation": {
@@ -254,9 +239,6 @@ window.CRYPTIC_PUZZLES["cryptic-30076"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Located outside building’s entrance, Ladies sadly put out of action (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "DISABLE",
    "annotation": {
@@ -302,9 +284,6 @@ window.CRYPTIC_PUZZLES["cryptic-30076"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Fancy backing with fibrous edges for cut flowers (5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "DAFFS",
    "annotation": {
@@ -360,9 +339,6 @@ window.CRYPTIC_PUZZLES["cryptic-30076"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "How disciplinarians show restraint describing a dress? (9)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "STRAPLESS",
    "annotation": {
@@ -405,9 +381,6 @@ window.CRYPTIC_PUZZLES["cryptic-30076"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Stock bar with drink – 1/3 off (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "BANAL",
    "annotation": {
@@ -453,9 +426,6 @@ window.CRYPTIC_PUZZLES["cryptic-30076"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Net Tennyson carried regularly (7)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "ENSNARE",
    "annotation": {
@@ -578,9 +548,6 @@ window.CRYPTIC_PUZZLES["cryptic-30076"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "A meaningful area of study (9)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "SEMANTICS",
    "annotation": {
@@ -612,9 +579,6 @@ window.CRYPTIC_PUZZLES["cryptic-30076"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Use sleight of hand with ace? Capital! (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "PALMA",
    "annotation": {
@@ -655,9 +619,6 @@ window.CRYPTIC_PUZZLES["cryptic-30076"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Pull it out to eject large bulb (5)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "TULIP",
    "annotation": {
@@ -704,9 +665,6 @@ window.CRYPTIC_PUZZLES["cryptic-30076"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Blown up – impact spread over northern Brussels (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "PNEUMATIC",
    "annotation": {
@@ -758,9 +716,6 @@ window.CRYPTIC_PUZZLES["cryptic-30076"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Championship register reportedly taken by lead player? (5,4)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -808,9 +763,6 @@ window.CRYPTIC_PUZZLES["cryptic-30076"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Mixed up rotor with BP engine (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "TURBOPROP",
    "annotation": {
@@ -865,9 +817,6 @@ window.CRYPTIC_PUZZLES["cryptic-30076"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Moving position of horseshoe? (2,3,4)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -907,9 +856,6 @@ window.CRYPTIC_PUZZLES["cryptic-30076"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Vehicle gives way, getting around a river (9)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "STREETCAR",
    "annotation": {
@@ -963,9 +909,6 @@ window.CRYPTIC_PUZZLES["cryptic-30076"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Northwesterner has to rummage around Kent etc (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "SCOUSER",
    "annotation": {
@@ -1012,9 +955,6 @@ window.CRYPTIC_PUZZLES["cryptic-30076"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Was an MP your heartless lecher? (5)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "SATYR",
    "annotation": {
@@ -1057,9 +997,6 @@ window.CRYPTIC_PUZZLES["cryptic-30076"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Denial of tearful drunk (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "REFUTAL",
    "annotation": {
@@ -1104,9 +1041,6 @@ window.CRYPTIC_PUZZLES["cryptic-30076"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Organisation is the essence of paradox, famously (5)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "OXFAM",
    "annotation": {
@@ -1140,9 +1074,6 @@ window.CRYPTIC_PUZZLES["cryptic-30076"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Dispute about queen’s dream interpreter (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "FREUD",
    "annotation": {
@@ -1189,9 +1120,6 @@ window.CRYPTIC_PUZZLES["cryptic-30076"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Reserve: quiet little creature’s novel resting place (9)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "BOOKSHELF",
    "annotation": {
@@ -1238,9 +1166,6 @@ window.CRYPTIC_PUZZLES["cryptic-30076"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "‘Beer time’s off!’ one snaps (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "BITER",
    "annotation": {
@@ -1282,9 +1207,6 @@ window.CRYPTIC_PUZZLES["cryptic-30076"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Shut your mouth after ejecting hot Italian starter snack? (5)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "SUSHI",
    "annotation": {
@@ -1412,9 +1334,6 @@ window.CRYPTIC_PUZZLES["cryptic-30076"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Casanova gets a new top for chemical solution (7)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "REDUCER",
    "annotation": {
@@ -1460,9 +1379,6 @@ window.CRYPTIC_PUZZLES["cryptic-30076"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Disagreeable one having fun touring in China (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "PAINFUL",
    "annotation": {

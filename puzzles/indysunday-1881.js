@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Who's in pub besetting teetotal European? (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "BATTER",
    "annotation": {
@@ -77,9 +74,6 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Incoherent talk from a loud female on feeding baby cut short (9)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "BAFFLEGAB",
    "annotation": {
@@ -143,9 +137,6 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Tool REM deployed for musical effect (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "TREMOLO",
    "annotation": {
@@ -185,9 +176,6 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Dust devils? Large maybe, then small (6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "EDDIES",
    "annotation": {
@@ -233,9 +221,6 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Corks regularly seen around Fitzgerald's booze-filled rooms? (7)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "CELLARS",
    "annotation": {
@@ -281,9 +266,6 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Patisserie items are wrapped in piece of cling film (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "CAKES",
    "annotation": {
@@ -334,9 +316,6 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Rugby player huffs over tight formation (8)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "LOCKSTEP",
    "annotation": {
@@ -385,9 +364,6 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Shocking, American's scorn undermining male in support group (7)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "AMAZING",
    "annotation": {
@@ -439,9 +415,6 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "E.g. exhausted live stand-up comedian from Liverpool? (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "SAYLE",
    "annotation": {
@@ -484,9 +457,6 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "More close-fitting silken pants I must wear with Romeo (8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "SLINKIER",
    "annotation": {
@@ -536,9 +506,6 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Massive fan of sci-fi endorsing Banks (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "FIEND",
    "annotation": {
@@ -575,9 +542,6 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Be attracted to eccentric with a will (4,5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -619,9 +583,6 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "John Cleese's latest two characters complete special BBC radio show (5,4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -680,9 +641,6 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Sleeps around, initially eschewing drug (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "SPIKE",
    "annotation": {
@@ -733,9 +691,6 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Turn over waffle (2,2)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -777,9 +732,6 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Pinch Mini (6)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "LITTLE",
    "annotation": {
@@ -814,9 +766,6 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Like a rough gust, high on the rocks (8)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "THUGGISH",
    "annotation": {
@@ -853,9 +802,6 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Room accommodating squatters? (3)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "GYM",
    "annotation": {
@@ -889,9 +835,6 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Habit of guy, beginning to moan when interrupted by flipping alarm (9)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "MANNERISM",
    "annotation": {
@@ -950,9 +893,6 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Beatles movie mostly set on island somewhere in Finland (8)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "HELSINKI",
    "annotation": {
@@ -1004,9 +944,6 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Height of Boeing occasionally overlooked (3)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "BEN",
    "annotation": {
@@ -1046,9 +983,6 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Scored ten at Old Trafford in the end — fantastic! (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "NOTATED",
    "annotation": {
@@ -1102,9 +1036,6 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Roasting chicken, having removed its head (6)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "EARFUL",
    "annotation": {
@@ -1146,9 +1077,6 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Youth essentially brightening poet's evening (4)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "TEEN",
    "annotation": {
@@ -1191,9 +1119,6 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Unpredictable Clapton perhaps covering Supergrass? (7)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "ERRATIC",
    "annotation": {
@@ -1239,9 +1164,6 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "McCartney possibly excellent right away (6)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "STELLA",
    "annotation": {
@@ -1283,9 +1205,6 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Son finishing off dull hour in school lesson (5)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "MATHS",
    "annotation": {
@@ -1337,9 +1256,6 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Tidy mess made by Englishman in Australia, as it were (3,2)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -1386,9 +1302,6 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Get a shirt undone — one buttoned-up (5-4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -1429,9 +1342,6 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Weak and ultimately disappointing cup of tea (5)",
-   "group": [
-    "26-down"
-   ],
    "separatorLocations": {},
    "solution": "THING",
    "annotation": {
@@ -1477,9 +1387,6 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Broadcast satisfactory, assume a haughty manner (3,2,4)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -1522,9 +1429,6 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Partly flat, Hindu's wooden weapon (5)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "LATHI",
    "annotation": {
@@ -1558,9 +1462,6 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Party brought about noise next to golf course (7)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "PUDDING",
    "annotation": {
@@ -1618,9 +1519,6 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Neither finishing much, each having twisted part of gut (6)",
-   "group": [
-    "30-across"
-   ],
    "separatorLocations": {},
    "solution": "CAECUM",
    "annotation": {

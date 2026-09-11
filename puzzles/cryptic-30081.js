@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30081"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Teased, wearing tatty clothes (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "RAGGED",
    "annotation": {
@@ -61,9 +58,6 @@ window.CRYPTIC_PUZZLES["cryptic-30081"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Emphasise lost sheep is found? (3,4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -104,9 +98,6 @@ window.CRYPTIC_PUZZLES["cryptic-30081"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Bill for garden features (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "GATES",
    "annotation": {
@@ -144,9 +135,6 @@ window.CRYPTIC_PUZZLES["cryptic-30081"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Eating out as an artistic activity (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "ETCHING",
    "annotation": {
@@ -183,9 +171,6 @@ window.CRYPTIC_PUZZLES["cryptic-30081"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "End of play is baffling (6)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "STUMPS",
    "annotation": {
@@ -220,9 +205,6 @@ window.CRYPTIC_PUZZLES["cryptic-30081"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "A penny accepted by ticket seller to leave the Tube (3,3)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -270,9 +252,6 @@ window.CRYPTIC_PUZZLES["cryptic-30081"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Some Mormons ignore Catholic dignitary (9)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "MONSIGNOR",
    "annotation": {
@@ -303,9 +282,6 @@ window.CRYPTIC_PUZZLES["cryptic-30081"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Girl from South America banned, leaving the borders (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "SUSANNE",
    "annotation": {
@@ -351,9 +327,6 @@ window.CRYPTIC_PUZZLES["cryptic-30081"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "To keep smooth, shave, then change: utter bliss (7,6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -396,9 +369,6 @@ window.CRYPTIC_PUZZLES["cryptic-30081"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Love university, but fail (4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "OMIT",
    "annotation": {
@@ -435,9 +405,6 @@ window.CRYPTIC_PUZZLES["cryptic-30081"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Virginia’s eerie quality? (10)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "CREEPINESS",
    "annotation": {
@@ -468,9 +435,6 @@ window.CRYPTIC_PUZZLES["cryptic-30081"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "A pretentious type rejected one little-grown tree (6)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "BONSAI",
    "annotation": {
@@ -516,9 +480,6 @@ window.CRYPTIC_PUZZLES["cryptic-30081"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Bubbling tureen is making us very hungry (8)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "ESURIENT",
    "annotation": {
@@ -555,9 +516,6 @@ window.CRYPTIC_PUZZLES["cryptic-30081"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Isolate small wader scratching back at barrier (9)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "SEGREGATE",
    "annotation": {
@@ -603,9 +561,6 @@ window.CRYPTIC_PUZZLES["cryptic-30081"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Feeling unwell, throw off outdoor coat (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "ROUGHCAST",
    "annotation": {
@@ -642,9 +597,6 @@ window.CRYPTIC_PUZZLES["cryptic-30081"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "One submissively bent is taken to offer respect (4)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "KNEE",
    "annotation": {
@@ -681,9 +633,6 @@ window.CRYPTIC_PUZZLES["cryptic-30081"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Very British marketplace (4)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "SOUK",
    "annotation": {
@@ -720,9 +669,6 @@ window.CRYPTIC_PUZZLES["cryptic-30081"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Simple skill in bridge (7)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "SPARTAN",
    "annotation": {
@@ -763,9 +709,6 @@ window.CRYPTIC_PUZZLES["cryptic-30081"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Rehearsal for musical that has prearranged result? (4,5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -810,9 +753,6 @@ window.CRYPTIC_PUZZLES["cryptic-30081"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Fabric of lowest quality last to be used (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "WORSTED",
    "annotation": {
@@ -852,9 +792,6 @@ window.CRYPTIC_PUZZLES["cryptic-30081"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Very old person’s nice tan misguided (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "ANCIENT",
    "annotation": {
@@ -891,9 +828,6 @@ window.CRYPTIC_PUZZLES["cryptic-30081"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Spot that woman’s musical instrument (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "ZITHER",
    "annotation": {
@@ -930,9 +864,6 @@ window.CRYPTIC_PUZZLES["cryptic-30081"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Note a mishap, tumbling shawl (8)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "PASHMINA",
    "annotation": {
@@ -971,9 +902,6 @@ window.CRYPTIC_PUZZLES["cryptic-30081"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Edit colourful performance (6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "REDACT",
    "annotation": {
@@ -1010,9 +938,6 @@ window.CRYPTIC_PUZZLES["cryptic-30081"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "A quantity of drug wife’s swallowed: look for water (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "DOWSE",
    "annotation": {
@@ -1053,9 +978,6 @@ window.CRYPTIC_PUZZLES["cryptic-30081"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Fondness for use of paperclip (10)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "ATTACHMENT",
    "annotation": {
@@ -1092,9 +1014,6 @@ window.CRYPTIC_PUZZLES["cryptic-30081"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Stimulate husband, outwardly feeble (4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "WHET",
    "annotation": {
@@ -1135,9 +1054,6 @@ window.CRYPTIC_PUZZLES["cryptic-30081"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Charitable society has new head, a public official (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "NOTARY",
    "annotation": {
@@ -1177,9 +1093,6 @@ window.CRYPTIC_PUZZLES["cryptic-30081"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Most useless papers in case (6)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "IDLEST",
    "annotation": {

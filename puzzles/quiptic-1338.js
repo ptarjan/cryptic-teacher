@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1338"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Maybe a piece in the Guardian (7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "ARTICLE",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["quiptic-1338"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "With difficulty, cheers up, a hot drink having been knocked over (2,1,4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -64,9 +58,6 @@ window.CRYPTIC_PUZZLES["quiptic-1338"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Awfully abhorrent men not naturally suited to something (2,3,6,4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -87,9 +78,6 @@ window.CRYPTIC_PUZZLES["quiptic-1338"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Clubs give in to spreading of knowledge acquisition (9)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "COGNITIVE",
    "annotation": null
@@ -104,9 +92,6 @@ window.CRYPTIC_PUZZLES["quiptic-1338"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Force through former law (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "EXACT",
    "annotation": null
@@ -121,9 +106,6 @@ window.CRYPTIC_PUZZLES["quiptic-1338"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Big town mostly protected by historic royal account (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "RECITAL",
    "annotation": null
@@ -138,9 +120,6 @@ window.CRYPTIC_PUZZLES["quiptic-1338"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Tries to block genuine practice run (9)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "REHEARSAL",
    "annotation": null
@@ -161,9 +140,6 @@ window.CRYPTIC_PUZZLES["quiptic-1338"] = /*JSON-START*/ {
      8
     ]
    ],
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "CELLS",
    "annotation": null
@@ -178,9 +154,6 @@ window.CRYPTIC_PUZZLES["quiptic-1338"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Robust firm, American, made acceptable car components (5,2,3,5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      5,
@@ -201,9 +174,6 @@ window.CRYPTIC_PUZZLES["quiptic-1338"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "African kingdom’s extremely large lush house (7)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "LESOTHO",
    "annotation": null
@@ -218,9 +188,6 @@ window.CRYPTIC_PUZZLES["quiptic-1338"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Deplorably, a pro laughs at pinching Tramp’s memorabilia collections (9,6)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      9
@@ -239,9 +206,6 @@ window.CRYPTIC_PUZZLES["quiptic-1338"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Partly cauterised organs (5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "UTERI",
    "annotation": null
@@ -256,9 +220,6 @@ window.CRYPTIC_PUZZLES["quiptic-1338"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Specific tautological statement, nothing more to discuss (5,4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -277,9 +238,6 @@ window.CRYPTIC_PUZZLES["quiptic-1338"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Cynthia liberally feeds borders of herbaceous plants (9)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "HYACINTHS",
    "annotation": null
@@ -300,9 +258,6 @@ window.CRYPTIC_PUZZLES["quiptic-1338"] = /*JSON-START*/ {
      5
     ]
    ],
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -321,9 +276,6 @@ window.CRYPTIC_PUZZLES["quiptic-1338"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Dance in two circles? (5)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "DISCO",
    "annotation": null
@@ -338,9 +290,6 @@ window.CRYPTIC_PUZZLES["quiptic-1338"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Do sad sucker, unfortunately (5,4)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -359,9 +308,6 @@ window.CRYPTIC_PUZZLES["quiptic-1338"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Musical arrangement nowhere near interesting enough initially (5)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "ANNIE",
    "annotation": null
@@ -376,9 +322,6 @@ window.CRYPTIC_PUZZLES["quiptic-1338"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Hindu retreats from animals under tree (7)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "ASHRAMS",
    "annotation": null
@@ -393,9 +336,6 @@ window.CRYPTIC_PUZZLES["quiptic-1338"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Spy hints for shifting 50 tiny things (9)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "MOLECULES",
    "annotation": null
@@ -410,9 +350,6 @@ window.CRYPTIC_PUZZLES["quiptic-1338"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Crushes young relative (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "STEPSON",
    "annotation": null
@@ -427,9 +364,6 @@ window.CRYPTIC_PUZZLES["quiptic-1338"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "What could be stuffing heroin, top-notch, inside empty holder (9)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "HORSEHAIR",
    "annotation": null
@@ -444,9 +378,6 @@ window.CRYPTIC_PUZZLES["quiptic-1338"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Dismiss defective item with missing cap (5)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "EJECT",
    "annotation": null
@@ -461,9 +392,6 @@ window.CRYPTIC_PUZZLES["quiptic-1338"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Vacuous roommate qualifying for makeover (5)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "REFIT",
    "annotation": null
@@ -478,9 +406,6 @@ window.CRYPTIC_PUZZLES["quiptic-1338"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Black market consumes bachelor (5)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "SABLE",
    "annotation": null
@@ -495,9 +420,6 @@ window.CRYPTIC_PUZZLES["quiptic-1338"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Play both sides of early Corrs demo for a broadcast (1,6,2,6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     ",": [
      1,
@@ -518,9 +440,6 @@ window.CRYPTIC_PUZZLES["quiptic-1338"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Legislator in defence association cutting first half of speech (7)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "SENATOR",
    "annotation": null
@@ -535,9 +454,6 @@ window.CRYPTIC_PUZZLES["quiptic-1338"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Crime from boy after beverage round back of bar (7)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "TREASON",
    "annotation": null

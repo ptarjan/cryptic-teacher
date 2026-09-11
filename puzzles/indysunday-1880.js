@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1880"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Pharma giant getting into development of magical pesticide, perhaps (12)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "AGROCHEMICAL",
    "annotation": {
@@ -79,9 +76,6 @@ window.CRYPTIC_PUZZLES["indysunday-1880"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Bellyache from drinking rum punch (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "GRUMP",
    "annotation": {
@@ -115,9 +109,6 @@ window.CRYPTIC_PUZZLES["indysunday-1880"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Exclude East German breed taking lead in Crufts? (9)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "OSTRACISE",
    "annotation": {
@@ -169,9 +160,6 @@ window.CRYPTIC_PUZZLES["indysunday-1880"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Someone who has quit company misusing HR time (6)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "HERMIT",
    "annotation": {
@@ -208,9 +196,6 @@ window.CRYPTIC_PUZZLES["indysunday-1880"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Gunman maybe spinning barrel before start of roulette (8)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "MURDERER",
    "annotation": {
@@ -267,9 +252,6 @@ window.CRYPTIC_PUZZLES["indysunday-1880"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Intriguing group from California set up research establishment (5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "CABAL",
    "annotation": {
@@ -321,9 +303,6 @@ window.CRYPTIC_PUZZLES["indysunday-1880"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Girl hosts banal ceremony before popping off (4,5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -371,9 +350,6 @@ window.CRYPTIC_PUZZLES["indysunday-1880"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "To run successful budget, introduce limits? (4,4,4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -417,9 +393,6 @@ window.CRYPTIC_PUZZLES["indysunday-1880"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Screen that opens in silence, say (7)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "SHUTTER",
    "annotation": {
@@ -460,9 +433,6 @@ window.CRYPTIC_PUZZLES["indysunday-1880"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Taps in expensive rental run with water periodically (12)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {},
    "solution": "STEEPLECHASE",
    "annotation": {
@@ -511,9 +481,6 @@ window.CRYPTIC_PUZZLES["indysunday-1880"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Coach breaks work schedule for coffee (7)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "ROBUSTA",
    "annotation": {
@@ -560,9 +527,6 @@ window.CRYPTIC_PUZZLES["indysunday-1880"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Underline M representing magnitude in report (9)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "EMPHASISE",
    "annotation": {
@@ -607,9 +571,6 @@ window.CRYPTIC_PUZZLES["indysunday-1880"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "What leads Veronica into temptation? Affection, ironically (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "LURVE",
    "annotation": {
@@ -658,9 +619,6 @@ window.CRYPTIC_PUZZLES["indysunday-1880"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Doctor sips at aperitif (6)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "PASTIS",
    "annotation": {
@@ -697,9 +655,6 @@ window.CRYPTIC_PUZZLES["indysunday-1880"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Wicket-keepers perhaps, who can be difficult to get out? (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "SQUATTERS",
    "annotation": {
@@ -731,9 +686,6 @@ window.CRYPTIC_PUZZLES["indysunday-1880"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Intensify stock cube using chicken (8)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "HEIGHTEN",
    "annotation": {
@@ -782,9 +734,6 @@ window.CRYPTIC_PUZZLES["indysunday-1880"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "These perhaps disturbed eelgrass catching prey finally (4,5)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -834,9 +783,6 @@ window.CRYPTIC_PUZZLES["indysunday-1880"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Tailors around close to Royal Academy's area (4,4)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -884,9 +830,6 @@ window.CRYPTIC_PUZZLES["indysunday-1880"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Pale green used by teenage Auden illegibly (3,2,3)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -925,9 +868,6 @@ window.CRYPTIC_PUZZLES["indysunday-1880"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "On the radio, maybe hear America's checking who's in the country (6)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "CENSUS",
    "annotation": {
@@ -972,9 +912,6 @@ window.CRYPTIC_PUZZLES["indysunday-1880"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Car repairs botched with loss of power (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "SIERRA",
    "annotation": {
@@ -1018,9 +955,6 @@ window.CRYPTIC_PUZZLES["indysunday-1880"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Leave egg where food is served (5)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "HATCH",
    "annotation": {
@@ -1055,9 +989,6 @@ window.CRYPTIC_PUZZLES["indysunday-1880"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Permit I see to put up tiny building on Park Lane? (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "HOTEL",
    "annotation": {
@@ -1106,9 +1037,6 @@ window.CRYPTIC_PUZZLES["indysunday-1880"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "French composer recalled job on island in Ireland (4,5)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -1169,9 +1097,6 @@ window.CRYPTIC_PUZZLES["indysunday-1880"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Police force raised detective's rates (5)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "TEMPI",
    "annotation": {
@@ -1220,9 +1145,6 @@ window.CRYPTIC_PUZZLES["indysunday-1880"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Husband and wife changing in tent, perhaps are too hot (7)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "SWELTER",
    "annotation": {
@@ -1271,9 +1193,6 @@ window.CRYPTIC_PUZZLES["indysunday-1880"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Let back in to lecture at American uni (7)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "READMIT",
    "annotation": {
@@ -1314,9 +1233,6 @@ window.CRYPTIC_PUZZLES["indysunday-1880"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Mincing Spanish males marketing art (12)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "SALESMANSHIP",
    "annotation": {

@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1877"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Undivided cooking apple on right of oven (4-4)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -75,9 +72,6 @@ window.CRYPTIC_PUZZLES["indysunday-1877"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Large tentacled creature raised behind pub is extraordinary (10)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "PHENOMENAL",
    "annotation": {
@@ -136,9 +130,6 @@ window.CRYPTIC_PUZZLES["indysunday-1877"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Some other people, presumably suggesting southerly wind (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "NOTUS",
    "annotation": {
@@ -178,9 +169,6 @@ window.CRYPTIC_PUZZLES["indysunday-1877"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Running club train - it makes running easier (9)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "LUBRICANT",
    "annotation": {
@@ -217,9 +205,6 @@ window.CRYPTIC_PUZZLES["indysunday-1877"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Exceedingly hot in apartment and going up (3,4)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -278,9 +263,6 @@ window.CRYPTIC_PUZZLES["indysunday-1877"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Notable partygoer brought back aboard oil rig tipsy (2,4)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -326,9 +308,6 @@ window.CRYPTIC_PUZZLES["indysunday-1877"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Tribe from apparently glacial part of UK? (5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "ICENI",
    "annotation": {
@@ -368,9 +347,6 @@ window.CRYPTIC_PUZZLES["indysunday-1877"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Leave hands to become cracked (2,7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -414,9 +390,6 @@ window.CRYPTIC_PUZZLES["indysunday-1877"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Excellent red at dinner (4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "RARE",
    "annotation": {
@@ -448,9 +421,6 @@ window.CRYPTIC_PUZZLES["indysunday-1877"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Hide pepper (4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "PELT",
    "annotation": {
@@ -482,9 +452,6 @@ window.CRYPTIC_PUZZLES["indysunday-1877"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Cake British composer eats when the news is on? (10)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "BATTENBERG",
    "annotation": {
@@ -533,9 +500,6 @@ window.CRYPTIC_PUZZLES["indysunday-1877"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Slow movement moving to Toscanini when piano comes in (12)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "CONSTIPATION",
    "annotation": {
@@ -579,9 +543,6 @@ window.CRYPTIC_PUZZLES["indysunday-1877"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Swear idiot always spilled tea (10)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {},
    "solution": "ASSEVERATE",
    "annotation": {
@@ -636,9 +597,6 @@ window.CRYPTIC_PUZZLES["indysunday-1877"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Small plane's crew's using AM that cuts out at certain frequency (6)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "CESSNA",
    "annotation": {
@@ -681,9 +639,6 @@ window.CRYPTIC_PUZZLES["indysunday-1877"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Women's group in US recalled eloquence of Lincoln (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "SUGABABES",
    "annotation": {
@@ -741,9 +696,6 @@ window.CRYPTIC_PUZZLES["indysunday-1877"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Iron front and back of shirt holding baby, objecting to it? (8)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "FEMINIST",
    "annotation": {
@@ -795,9 +747,6 @@ window.CRYPTIC_PUZZLES["indysunday-1877"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Silly men heartless viragos lead to ruin? (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "MISGOVERN",
    "annotation": {
@@ -841,9 +790,6 @@ window.CRYPTIC_PUZZLES["indysunday-1877"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Snickers that's disgusting after sandwiches (8)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "LAUGHTER",
    "annotation": {
@@ -893,9 +839,6 @@ window.CRYPTIC_PUZZLES["indysunday-1877"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Rugby hooligan heard in bar (4,3)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -946,9 +889,6 @@ window.CRYPTIC_PUZZLES["indysunday-1877"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Nun's remains in nameless grave (6)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "SISTER",
    "annotation": {
@@ -994,9 +934,6 @@ window.CRYPTIC_PUZZLES["indysunday-1877"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Cravenly lose first of series - boozing essential (6-6)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     "-": [
      6
@@ -1037,9 +974,6 @@ window.CRYPTIC_PUZZLES["indysunday-1877"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Remain black and sticky (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "TARRY",
    "annotation": {
@@ -1071,9 +1005,6 @@ window.CRYPTIC_PUZZLES["indysunday-1877"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "The end Cervantes might have written, delicate and charming (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "ELFIN",
    "annotation": {
@@ -1116,9 +1047,6 @@ window.CRYPTIC_PUZZLES["indysunday-1877"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "King and queen flying north sound pleased (4)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "PURR",
    "annotation": {
@@ -1171,9 +1099,6 @@ window.CRYPTIC_PUZZLES["indysunday-1877"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Awkward part alongside Charlie Brown (10)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "CUMBERSOME",
    "annotation": {
@@ -1222,9 +1147,6 @@ window.CRYPTIC_PUZZLES["indysunday-1877"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Fat dog on lead in field (4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "FLAB",
    "annotation": {
@@ -1269,9 +1191,6 @@ window.CRYPTIC_PUZZLES["indysunday-1877"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Junky lacking caution emptied twenty bags (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "TRASHY",
    "annotation": {
@@ -1322,9 +1241,6 @@ window.CRYPTIC_PUZZLES["indysunday-1877"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Let an Irish priest on X? (8)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "TENANTED",
    "annotation": {

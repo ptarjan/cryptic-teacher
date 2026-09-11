@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4131"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Supports - ticks (7)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "SECONDS",
    "annotation": {
@@ -62,9 +59,6 @@ window.CRYPTIC_PUZZLES["everyman-4131"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Red insect with horn's noise entertaining King (8)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "BEETROOT",
    "annotation": {
@@ -117,9 +111,6 @@ window.CRYPTIC_PUZZLES["everyman-4131"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Lapel splotched with a saffrony mixture (6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "PAELLA",
    "annotation": {
@@ -156,9 +147,6 @@ window.CRYPTIC_PUZZLES["everyman-4131"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "A little prude can't eradicate provider of vino (8)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "DECANTER",
    "annotation": {
@@ -192,9 +180,6 @@ window.CRYPTIC_PUZZLES["everyman-4131"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "'Lavish' starter for lunch covered in young insects sent back (4-2)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -252,9 +237,6 @@ window.CRYPTIC_PUZZLES["everyman-4131"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Rotten luck, Ken: a horrible kind of 'sandwich' (7)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "KNUCKLE",
    "annotation": {
@@ -291,9 +273,6 @@ window.CRYPTIC_PUZZLES["everyman-4131"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Almond cake consumed in Jarbidge, Nevada (6)",
-   "group": [
-    "7-across"
-   ],
    "separatorLocations": {},
    "solution": "GENEVA",
    "annotation": {
@@ -327,9 +306,6 @@ window.CRYPTIC_PUZZLES["everyman-4131"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Vino - cheese (not started) - then cocktail (8)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {},
    "solution": "RIESLING",
    "annotation": {
@@ -375,9 +351,6 @@ window.CRYPTIC_PUZZLES["everyman-4131"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Pungent ingredient presenting unfortunate gastric ordeal (7,6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -426,9 +399,6 @@ window.CRYPTIC_PUZZLES["everyman-4131"] = /*JSON-START*/ {
      36,
      3
     ]
-   ],
-   "group": [
-    "9-across"
    ],
    "separatorLocations": {},
    "solution": "TORTILLA",
@@ -484,9 +454,6 @@ window.CRYPTIC_PUZZLES["everyman-4131"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "A small image's showing jellies (6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "ASPICS",
    "annotation": {
@@ -539,9 +506,6 @@ window.CRYPTIC_PUZZLES["everyman-4131"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Champion mostly having swallowed a liqueur (8)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "ADVOCAAT",
    "annotation": {
@@ -587,9 +551,6 @@ window.CRYPTIC_PUZZLES["everyman-4131"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Before curt excuse, spill drink (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "TIPPLE",
    "annotation": {
@@ -634,9 +595,6 @@ window.CRYPTIC_PUZZLES["everyman-4131"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Drunk at Conference perhaps suggesting compote (6,5)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -686,9 +644,6 @@ window.CRYPTIC_PUZZLES["everyman-4131"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Catch intro to elegant music where one may drink elegantly (4,4)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -741,9 +696,6 @@ window.CRYPTIC_PUZZLES["everyman-4131"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Dessert: the writer emits shrill laugh audibly (3,5)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -792,9 +744,6 @@ window.CRYPTIC_PUZZLES["everyman-4131"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Every so often, Linus boils angrily - being this? (7)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "BILIOUS",
    "annotation": {
@@ -839,9 +788,6 @@ window.CRYPTIC_PUZZLES["everyman-4131"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "'Unfinished, Cubistic' - confused, perhaps - snap! (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "BISCUIT",
    "annotation": {
@@ -882,9 +828,6 @@ window.CRYPTIC_PUZZLES["everyman-4131"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Home, once more begins to eat (4,2)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -926,9 +869,6 @@ window.CRYPTIC_PUZZLES["everyman-4131"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Plans sent back: Everyman's persistently irritating online (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "SPAMMY",
    "annotation": {
@@ -977,9 +917,6 @@ window.CRYPTIC_PUZZLES["everyman-4131"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Yankiness yardstick? (5,3)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -1015,9 +952,6 @@ window.CRYPTIC_PUZZLES["everyman-4131"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Gutted: canapés - mixed nuts (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "PECANS",
    "annotation": {
@@ -1056,9 +990,6 @@ window.CRYPTIC_PUZZLES["everyman-4131"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Baking powder composed of bismuth, calcium and rubidium (6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "BICARB",
    "annotation": {
@@ -1111,9 +1042,6 @@ window.CRYPTIC_PUZZLES["everyman-4131"] = /*JSON-START*/ {
      6
     ]
    ],
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "LICORICE",
    "annotation": {
@@ -1156,9 +1084,6 @@ window.CRYPTIC_PUZZLES["everyman-4131"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "New recruit, Miles, gets curry powder (8)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "TURMERIC",
    "annotation": {
@@ -1203,9 +1128,6 @@ window.CRYPTIC_PUZZLES["everyman-4131"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Necessity in alimentation; compound; indispensable nutrient, primarily! (6)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "NIACIN",
    "annotation": {

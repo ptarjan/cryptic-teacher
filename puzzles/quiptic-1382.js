@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1382"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Terrible wind interrupts middle of meal. Curry perhaps? (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "EDWINA",
    "annotation": {
@@ -82,9 +79,6 @@ window.CRYPTIC_PUZZLES["quiptic-1382"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "The morning after ejecting good Hislop, say, from a royal house (10)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "HANOVERIAN",
    "annotation": {
@@ -135,9 +129,6 @@ window.CRYPTIC_PUZZLES["quiptic-1382"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Overturned legal action about new fool’s complaint in hearing (8)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "TINNITUS",
    "annotation": {
@@ -199,9 +190,6 @@ window.CRYPTIC_PUZZLES["quiptic-1382"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Fuss follows Kipling novel about Japanese emperor (6)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "MIKADO",
    "annotation": {
@@ -253,9 +241,6 @@ window.CRYPTIC_PUZZLES["quiptic-1382"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Discrepancy is holding up male striker? (8)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "MISMATCH",
    "annotation": {
@@ -305,9 +290,6 @@ window.CRYPTIC_PUZZLES["quiptic-1382"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "OK, USA angry with raw Japanese film-maker (8)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "KUROSAWA",
    "annotation": {
@@ -367,9 +349,6 @@ window.CRYPTIC_PUZZLES["quiptic-1382"] = /*JSON-START*/ {
      1
     ]
    ],
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "VARIABLE",
    "annotation": {
@@ -405,9 +384,6 @@ window.CRYPTIC_PUZZLES["quiptic-1382"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Crash into party (4)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "BASH",
    "annotation": {
@@ -446,9 +422,6 @@ window.CRYPTIC_PUZZLES["quiptic-1382"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Regularly observed Neptunian volcano (4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "ETNA",
    "annotation": {
@@ -489,9 +462,6 @@ window.CRYPTIC_PUZZLES["quiptic-1382"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Snack wherein raspberries somewhat making a comeback (6)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "SARNIE",
    "annotation": {
@@ -534,9 +504,6 @@ window.CRYPTIC_PUZZLES["quiptic-1382"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Angrily attacks plump child (6,2)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -579,9 +546,6 @@ window.CRYPTIC_PUZZLES["quiptic-1382"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Awful magnate uses relief (11)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "ASSUAGEMENT",
    "annotation": {
@@ -619,9 +583,6 @@ window.CRYPTIC_PUZZLES["quiptic-1382"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "English pirate confused with tax exile (10)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {},
    "solution": "EXPATRIATE",
    "annotation": {
@@ -672,9 +633,6 @@ window.CRYPTIC_PUZZLES["quiptic-1382"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Rubbish collection of points almost nobody accepts (8)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "NONSENSE",
    "annotation": {
@@ -720,9 +678,6 @@ window.CRYPTIC_PUZZLES["quiptic-1382"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Create classes in biology on vacuous theme (8)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "GENERATE",
    "annotation": {
@@ -768,9 +723,6 @@ window.CRYPTIC_PUZZLES["quiptic-1382"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Outdo Kew Gardens, ultimately plugging trim variety of primula (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "COWSLIP",
    "annotation": {
@@ -817,9 +769,6 @@ window.CRYPTIC_PUZZLES["quiptic-1382"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Track automatically not changed after secure start to Olympics (4,2,2)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -884,9 +833,6 @@ window.CRYPTIC_PUZZLES["quiptic-1382"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Imminent selection of trains to Retford (2,5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -925,9 +871,6 @@ window.CRYPTIC_PUZZLES["quiptic-1382"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Updates can’t corrupt word-processing technique (3,3,5)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -970,9 +913,6 @@ window.CRYPTIC_PUZZLES["quiptic-1382"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Shrub split in part (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "PRIVET",
    "annotation": {
@@ -1017,9 +957,6 @@ window.CRYPTIC_PUZZLES["quiptic-1382"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Increasingly bright star Victor wears angora, off and on (4)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "NOVA",
    "annotation": {
@@ -1066,9 +1003,6 @@ window.CRYPTIC_PUZZLES["quiptic-1382"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Finally evading snake, breathe with effort (4)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "GASP",
    "annotation": {
@@ -1112,9 +1046,6 @@ window.CRYPTIC_PUZZLES["quiptic-1382"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Composition of other ranks taken on by Nelson without introduction (8)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "ORATORIO",
    "annotation": {
@@ -1164,9 +1095,6 @@ window.CRYPTIC_PUZZLES["quiptic-1382"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Compete with sides from Nigeria outside northern capital (6)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "VIENNA",
    "annotation": {
@@ -1222,9 +1150,6 @@ window.CRYPTIC_PUZZLES["quiptic-1382"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Pop round, given small desire for food (8)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "APPETITE",
    "annotation": {
@@ -1277,9 +1202,6 @@ window.CRYPTIC_PUZZLES["quiptic-1382"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Venerate American patriot Paul (6)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "REVERE",
    "annotation": {

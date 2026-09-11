@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12394"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Writer of 7D is well positioned to secure motor part? Not quite! (5,7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -83,9 +80,6 @@ window.CRYPTIC_PUZZLES["independent-12394"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Holiday time in lieu is every so often uncertain? No! (7)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "LEISURE",
    "annotation": {
@@ -134,9 +128,6 @@ window.CRYPTIC_PUZZLES["independent-12394"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Bridge partner devours cake less the icing - most unhealthy (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "WEAKEST",
    "annotation": {
@@ -183,9 +174,6 @@ window.CRYPTIC_PUZZLES["independent-12394"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Perfume containing iodine first for one qualified in olfactology? (9)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "SCIENTIST",
    "annotation": {
@@ -239,9 +227,6 @@ window.CRYPTIC_PUZZLES["independent-12394"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Ancient overseer refined sugar (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "ARGUS",
    "annotation": {
@@ -279,9 +264,6 @@ window.CRYPTIC_PUZZLES["independent-12394"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Upwardly mobile officer overheard hostility (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "RANCOUR",
    "annotation": {
@@ -317,9 +299,6 @@ window.CRYPTIC_PUZZLES["independent-12394"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Fizzy drink somehow emailed (7)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "LIMEADE",
    "annotation": {
@@ -357,9 +336,6 @@ window.CRYPTIC_PUZZLES["independent-12394"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Cases of fortified wine fellow starts to unceremoniously swill after evening meal (12)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "PORTMANTEAUS",
    "annotation": {
@@ -417,9 +393,6 @@ window.CRYPTIC_PUZZLES["independent-12394"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Japanese craft fit with sails, following old comrade to Marseille (7)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {},
    "solution": "ORIGAMI",
    "annotation": {
@@ -469,9 +442,6 @@ window.CRYPTIC_PUZZLES["independent-12394"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Instructions Ken discovered inside garden ornaments (7)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "GENOMES",
    "annotation": {
@@ -518,9 +488,6 @@ window.CRYPTIC_PUZZLES["independent-12394"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Sewers and streams broadcast - ssssssssssss? (12)",
-   "group": [
-    "10-down"
-   ],
    "separatorLocations": {},
    "solution": "SEAMSTRESSES",
    "annotation": {
@@ -566,9 +533,6 @@ window.CRYPTIC_PUZZLES["independent-12394"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Go round Scotsman, we hear, bullish sort (7)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "TAUREAN",
    "annotation": {
@@ -614,9 +578,6 @@ window.CRYPTIC_PUZZLES["independent-12394"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Buys Tom a table with hidden leaf sections (7)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "STOMATA",
    "annotation": {
@@ -651,9 +612,6 @@ window.CRYPTIC_PUZZLES["independent-12394"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Head off from party, cycling plastered essentially (5)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "AVERT",
    "annotation": {
@@ -702,9 +660,6 @@ window.CRYPTIC_PUZZLES["independent-12394"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "1A’s impressive supporters, they bring a lot in (9)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "IMPORTERS",
    "annotation": {
@@ -748,9 +703,6 @@ window.CRYPTIC_PUZZLES["independent-12394"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Means of identifying 1A’s passionless spoilsports (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "PASSPORTS",
    "annotation": {
@@ -794,9 +746,6 @@ window.CRYPTIC_PUZZLES["independent-12394"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Casual worker behind schedule, a little slow to find pro-forma documents (9)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "TEMPLATES",
    "annotation": {
@@ -849,9 +798,6 @@ window.CRYPTIC_PUZZLES["independent-12394"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Civilian fighters lost in battle getting one fired (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "MILITIA",
    "annotation": {
@@ -903,9 +849,6 @@ window.CRYPTIC_PUZZLES["independent-12394"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Hearing part where water drains when spending penny (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "LUGHOLE",
    "annotation": {
@@ -948,9 +891,6 @@ window.CRYPTIC_PUZZLES["independent-12394"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Afro’s styled up to a point (2,3)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -992,9 +932,6 @@ window.CRYPTIC_PUZZLES["independent-12394"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Banshee pledging to give sanctuary to those easily led (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "SHEEPLE",
    "annotation": {
@@ -1029,9 +966,6 @@ window.CRYPTIC_PUZZLES["independent-12394"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Fine fellow from Fontainebleau Bard’s sparring partner? (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "FRENEMY",
    "annotation": {
@@ -1076,9 +1010,6 @@ window.CRYPTIC_PUZZLES["independent-12394"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Put forward member in new deal (7)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "ALLEGED",
    "annotation": {
@@ -1128,9 +1059,6 @@ window.CRYPTIC_PUZZLES["independent-12394"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Regularly drop speed (prescribed) (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "DOSED",
    "annotation": {
@@ -1168,9 +1096,6 @@ window.CRYPTIC_PUZZLES["independent-12394"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Goes around empty palace with King and surveyors (7)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "PEEPERS",
    "annotation": {
@@ -1227,9 +1152,6 @@ window.CRYPTIC_PUZZLES["independent-12394"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Shows model company manuscript (7)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "SITCOMS",
    "annotation": {
@@ -1274,9 +1196,6 @@ window.CRYPTIC_PUZZLES["independent-12394"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Charged salesman to lease convertible, ultimately (7)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "REPLETE",
    "annotation": {
@@ -1329,9 +1248,6 @@ window.CRYPTIC_PUZZLES["independent-12394"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Shop has rye bread replaced - bit of hair stuck in it (12)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "HABERDASHERY",
    "annotation": {

@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29992"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Master beginning break over the weekend? (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "BOSS",
    "annotation": {
@@ -77,9 +74,6 @@ window.CRYPTIC_PUZZLES["cryptic-29992"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Single rebel royalist (8)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "SOLITARY",
    "annotation": {
@@ -117,9 +111,6 @@ window.CRYPTIC_PUZZLES["cryptic-29992"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Club sacks woman with fringe (4)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "EDGE",
    "annotation": {
@@ -165,9 +156,6 @@ window.CRYPTIC_PUZZLES["cryptic-29992"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Very angry man gets upset over independence (8)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "STEAMING",
    "annotation": {
@@ -211,9 +199,6 @@ window.CRYPTIC_PUZZLES["cryptic-29992"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Doctor Who saves 50,500 in pit? (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "HOLLOW",
    "annotation": {
@@ -272,9 +257,6 @@ window.CRYPTIC_PUZZLES["cryptic-29992"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Piece covering honour (10)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "KNIGHTHOOD",
    "annotation": {
@@ -313,9 +295,6 @@ window.CRYPTIC_PUZZLES["cryptic-29992"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Against German city scrapping new large ship (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "VESSEL",
    "annotation": {
@@ -370,9 +349,6 @@ window.CRYPTIC_PUZZLES["cryptic-29992"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Remain close to boats on river (4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "STAY",
    "annotation": {
@@ -419,9 +395,6 @@ window.CRYPTIC_PUZZLES["cryptic-29992"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Like 0, nothing (0) divides 51500 (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "OVOID",
    "annotation": {
@@ -472,9 +445,6 @@ window.CRYPTIC_PUZZLES["cryptic-29992"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "It’s not her fault being most difficult (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "THORNIEST",
    "annotation": {
@@ -515,9 +485,6 @@ window.CRYPTIC_PUZZLES["cryptic-29992"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "One secures Milligan no trouble (5-4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -566,9 +533,6 @@ window.CRYPTIC_PUZZLES["cryptic-29992"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Bubbly girl in Germany on vacation, not Luxembourg (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "GASSY",
    "annotation": {
@@ -622,9 +586,6 @@ window.CRYPTIC_PUZZLES["cryptic-29992"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Tea includes some butter and bread (7)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "CHAPATI",
    "annotation": {
@@ -672,9 +633,6 @@ window.CRYPTIC_PUZZLES["cryptic-29992"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Church wing’s appeal (5)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "CHARM",
    "annotation": {
@@ -716,9 +674,6 @@ window.CRYPTIC_PUZZLES["cryptic-29992"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Perhaps Dame Edna is a natural disaster (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "AUSTRALIAN",
    "annotation": {
@@ -756,9 +711,6 @@ window.CRYPTIC_PUZZLES["cryptic-29992"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Country imports dry fencing material (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "WATTLES",
    "annotation": {
@@ -804,9 +756,6 @@ window.CRYPTIC_PUZZLES["cryptic-29992"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Floor to ceiling, hell’s in gloom (5)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "SHADE",
    "annotation": {
@@ -848,9 +797,6 @@ window.CRYPTIC_PUZZLES["cryptic-29992"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Sailor’s ship crossing unknown gulf (5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "ABYSS",
    "annotation": {
@@ -900,9 +846,6 @@ window.CRYPTIC_PUZZLES["cryptic-29992"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "On retreat, say love of the earth (3)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "GEO",
    "annotation": {
@@ -952,9 +895,6 @@ window.CRYPTIC_PUZZLES["cryptic-29992"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Where to find fruit tea lined by gold roads (8)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "ORCHARDS",
    "annotation": {
@@ -1004,9 +944,6 @@ window.CRYPTIC_PUZZLES["cryptic-29992"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "The final of some game shown (5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "OMEGA",
    "annotation": {
@@ -1041,9 +978,6 @@ window.CRYPTIC_PUZZLES["cryptic-29992"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Corrupt police wanting Conservative government to reverse EU’s conclusion (8)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "EPILOGUE",
    "annotation": {
@@ -1117,9 +1051,6 @@ window.CRYPTIC_PUZZLES["cryptic-29992"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "In Ireland, my dear, telecom company completes high speed runs (7)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "MACHREE",
    "annotation": {
@@ -1169,9 +1100,6 @@ window.CRYPTIC_PUZZLES["cryptic-29992"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "The King asks ‘Why guard that woman’s virginity?’ (6)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "CHERRY",
    "annotation": {
@@ -1222,9 +1150,6 @@ window.CRYPTIC_PUZZLES["cryptic-29992"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Curried lamb follows starter of egg and finally plum preserve (6)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "EMBALM",
    "annotation": {
@@ -1289,9 +1214,6 @@ window.CRYPTIC_PUZZLES["cryptic-29992"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Drug lines captured by film (7)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "CODEINE",
    "annotation": {
@@ -1336,9 +1258,6 @@ window.CRYPTIC_PUZZLES["cryptic-29992"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Magic time (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "SPELL",
    "annotation": {
@@ -1374,9 +1293,6 @@ window.CRYPTIC_PUZZLES["cryptic-29992"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Male to talk about employing technical leader (4)",
-   "group": [
-    "26-down"
-   ],
    "separatorLocations": {},
    "solution": "STAG",
    "annotation": {
@@ -1434,9 +1350,6 @@ window.CRYPTIC_PUZZLES["cryptic-29992"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Where executives are allegedly uninterested by discharge (9)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "BOARDROOM",
    "annotation": {
@@ -1481,9 +1394,6 @@ window.CRYPTIC_PUZZLES["cryptic-29992"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Drop down tree (4)",
-   "group": [
-    "28-down"
-   ],
    "separatorLocations": {},
    "solution": "DASH",
    "annotation": {
@@ -1522,9 +1432,6 @@ window.CRYPTIC_PUZZLES["cryptic-29992"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "To hide tiara from bank robbers ends in calamity (4)",
-   "group": [
-    "29-down"
-   ],
    "separatorLocations": {},
    "solution": "MASK",
    "annotation": {
@@ -1564,9 +1471,6 @@ window.CRYPTIC_PUZZLES["cryptic-29992"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Sent flying, high admiral tours Italy and Spain (9)",
-   "group": [
-    "30-across"
-   ],
    "separatorLocations": {},
    "solution": "AIRMAILED",
    "annotation": {
@@ -1616,9 +1520,6 @@ window.CRYPTIC_PUZZLES["cryptic-29992"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Call for help preserves university lecturer’s spirits (5)",
-   "group": [
-    "31-across"
-   ],
    "separatorLocations": {},
    "solution": "SOULS",
    "annotation": {

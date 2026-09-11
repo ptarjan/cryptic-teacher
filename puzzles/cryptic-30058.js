@@ -24,9 +24,6 @@ window.CRYPTIC_PUZZLES["cryptic-30058"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Kissogram in Ireland hides dress (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "MINI",
    "annotation": {
@@ -60,9 +57,6 @@ window.CRYPTIC_PUZZLES["cryptic-30058"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "One who flogs deranged 15 with tree (8)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "RETAILER",
    "annotation": {
@@ -104,9 +98,6 @@ window.CRYPTIC_PUZZLES["cryptic-30058"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Republic not quite free to include liberation movement (6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "FRANCE",
    "annotation": {
@@ -152,9 +143,6 @@ window.CRYPTIC_PUZZLES["cryptic-30058"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Weird DNA seen in indifferent society scoundrels (2-3-3)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     "-": [
      2,
@@ -217,9 +205,6 @@ window.CRYPTIC_PUZZLES["cryptic-30058"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Inherited nearly everything after occupation (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "LINEAL",
    "annotation": {
@@ -264,9 +249,6 @@ window.CRYPTIC_PUZZLES["cryptic-30058"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Retirement no longer PC, etc (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "EXIT",
    "annotation": {
@@ -303,9 +285,6 @@ window.CRYPTIC_PUZZLES["cryptic-30058"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Part of Arsenal’s business includes ability to discern pitch (7)",
-   "group": [
-    "7-across"
-   ],
    "separatorLocations": {},
    "solution": "FIREARM",
    "annotation": {
@@ -352,9 +331,6 @@ window.CRYPTIC_PUZZLES["cryptic-30058"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Rees-Zammit, say, and his team that once ruled 3 (5,2)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -404,9 +380,6 @@ window.CRYPTIC_PUZZLES["cryptic-30058"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Residence permit is in state (4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "VISA",
    "annotation": {
@@ -450,9 +423,6 @@ window.CRYPTIC_PUZZLES["cryptic-30058"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Consent to split – basis for a good divorce? (2,7)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -493,9 +463,6 @@ window.CRYPTIC_PUZZLES["cryptic-30058"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "US tint – a measure of rank for one from Aspen or Boulder (9)",
-   "group": [
-    "11-down"
-   ],
    "separatorLocations": {},
    "solution": "COLORADAN",
    "annotation": {
@@ -541,9 +508,6 @@ window.CRYPTIC_PUZZLES["cryptic-30058"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Setter takes refuge in scrum (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "MELEE",
    "annotation": {
@@ -610,9 +574,6 @@ window.CRYPTIC_PUZZLES["cryptic-30058"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Limp, missing heel? (8)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "LISTLESS",
    "annotation": {
@@ -649,9 +610,6 @@ window.CRYPTIC_PUZZLES["cryptic-30058"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Surprise when viscous substance covers street? Just the reverse (5)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "START",
    "annotation": {
@@ -700,9 +658,6 @@ window.CRYPTIC_PUZZLES["cryptic-30058"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Mowgli – a rebel part for storyteller (4)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "LIAR",
    "annotation": {
@@ -806,9 +761,6 @@ window.CRYPTIC_PUZZLES["cryptic-30058"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Dismissal of one in Euro VAR review (2,6)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -858,9 +810,6 @@ window.CRYPTIC_PUZZLES["cryptic-30058"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "With strike, filming is finished now (4)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "WRAP",
    "annotation": {
@@ -898,9 +847,6 @@ window.CRYPTIC_PUZZLES["cryptic-30058"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Swimwear fits after spine removed (3,5)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -947,9 +893,6 @@ window.CRYPTIC_PUZZLES["cryptic-30058"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Served red, red wine (WI abstaining) to get plastered (8)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "RENDERED",
    "annotation": {
@@ -1071,9 +1014,6 @@ window.CRYPTIC_PUZZLES["cryptic-30058"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Split pea reversed the German food chain (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "LADDER",
    "annotation": {
@@ -1122,9 +1062,6 @@ window.CRYPTIC_PUZZLES["cryptic-30058"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Brought a bit of fun to number, as it happens, in desperate need (9)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "ENLIVENED",
    "annotation": {
@@ -1181,9 +1118,6 @@ window.CRYPTIC_PUZZLES["cryptic-30058"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Trace oche awkwardly (4)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "ECHO",
    "annotation": {
@@ -1220,9 +1154,6 @@ window.CRYPTIC_PUZZLES["cryptic-30058"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Overturn internationally accepted code of conduct? (4)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "UNDO",
    "annotation": {
@@ -1259,9 +1190,6 @@ window.CRYPTIC_PUZZLES["cryptic-30058"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Party or 6? (4)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "DOOR",
    "annotation": {
@@ -1298,9 +1226,6 @@ window.CRYPTIC_PUZZLES["cryptic-30058"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "A smile follows church discontent (7)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "CHAGRIN",
    "annotation": {

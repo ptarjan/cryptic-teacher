@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1374"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Loudly rips part of contract (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "CLAUSE",
    "annotation": {
@@ -63,9 +60,6 @@ window.CRYPTIC_PUZZLES["quiptic-1374"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Vacant colonel with temper makes stupid mistake (7)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "CLANGER",
    "annotation": {
@@ -113,9 +107,6 @@ window.CRYPTIC_PUZZLES["quiptic-1374"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Deflect state tracing initially (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "AVERT",
    "annotation": {
@@ -159,9 +150,6 @@ window.CRYPTIC_PUZZLES["quiptic-1374"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Coy about question by a school’s head being soft (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "SQUASHY",
    "annotation": {
@@ -224,9 +212,6 @@ window.CRYPTIC_PUZZLES["quiptic-1374"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Personal assistant exploits interruptions (6)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "PAUSES",
    "annotation": {
@@ -265,9 +250,6 @@ window.CRYPTIC_PUZZLES["quiptic-1374"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Charm a stubborn person over time (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "AMULET",
    "annotation": {
@@ -317,9 +299,6 @@ window.CRYPTIC_PUZZLES["quiptic-1374"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Spend a lot of money, getting belt aboard jet (6,3)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -371,9 +350,6 @@ window.CRYPTIC_PUZZLES["quiptic-1374"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Bone bird in entirety (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "STERNUM",
    "annotation": {
@@ -418,9 +394,6 @@ window.CRYPTIC_PUZZLES["quiptic-1374"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Offer card to editor being kind (6-7)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     "-": [
      6
@@ -473,9 +446,6 @@ window.CRYPTIC_PUZZLES["quiptic-1374"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Spike netting (4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "LACE",
    "annotation": {
@@ -511,9 +481,6 @@ window.CRYPTIC_PUZZLES["quiptic-1374"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "A dull queen strangely without peer (10)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "UNEQUALLED",
    "annotation": {
@@ -556,9 +523,6 @@ window.CRYPTIC_PUZZLES["quiptic-1374"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "An entrance with small stones (6)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "AGATES",
    "annotation": {
@@ -606,9 +570,6 @@ window.CRYPTIC_PUZZLES["quiptic-1374"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Director redesigned singer’s clothing (8)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "DRESSING",
    "annotation": {
@@ -656,9 +617,6 @@ window.CRYPTIC_PUZZLES["quiptic-1374"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Serious distance to resting place (9)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "GRAVEYARD",
    "annotation": {
@@ -700,9 +658,6 @@ window.CRYPTIC_PUZZLES["quiptic-1374"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Air talent I’ve developed (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "VENTILATE",
    "annotation": {
@@ -745,9 +700,6 @@ window.CRYPTIC_PUZZLES["quiptic-1374"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Class protocol (4)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "FORM",
    "annotation": {
@@ -783,9 +735,6 @@ window.CRYPTIC_PUZZLES["quiptic-1374"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Smooth leaders of society attracting new devotees (4)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "SAND",
    "annotation": {
@@ -841,9 +790,6 @@ window.CRYPTIC_PUZZLES["quiptic-1374"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Whip company into upswing (7)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "SCOURGE",
    "annotation": {
@@ -888,9 +834,6 @@ window.CRYPTIC_PUZZLES["quiptic-1374"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Flexible relatives cavorting (9)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "VERSATILE",
    "annotation": {
@@ -933,9 +876,6 @@ window.CRYPTIC_PUZZLES["quiptic-1374"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Division of, say, soldiers in street (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "SEGMENT",
    "annotation": {
@@ -989,9 +929,6 @@ window.CRYPTIC_PUZZLES["quiptic-1374"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Mostly rearranged gallery (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "LARGELY",
    "annotation": {
@@ -1034,9 +971,6 @@ window.CRYPTIC_PUZZLES["quiptic-1374"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Aromatic plant found in swamp and North Eastern lake (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "FENNEL",
    "annotation": {
@@ -1085,9 +1019,6 @@ window.CRYPTIC_PUZZLES["quiptic-1374"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Browbeat active person carrying explosive (8)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "DOMINEER",
    "annotation": {
@@ -1132,9 +1063,6 @@ window.CRYPTIC_PUZZLES["quiptic-1374"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Control bit of manufacturing overnight (6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "GOVERN",
    "annotation": {
@@ -1169,9 +1097,6 @@ window.CRYPTIC_PUZZLES["quiptic-1374"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Vehicle after six for clergywoman (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "VICAR",
    "annotation": {
@@ -1218,9 +1143,6 @@ window.CRYPTIC_PUZZLES["quiptic-1374"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Relative is unusually energetic around middle of day (5-5)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -1277,9 +1199,6 @@ window.CRYPTIC_PUZZLES["quiptic-1374"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Cook cooked halved elephant fish heads (4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "CHEF",
    "annotation": {
@@ -1335,9 +1254,6 @@ window.CRYPTIC_PUZZLES["quiptic-1374"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Beryl never holds back consistently (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "EVENLY",
    "annotation": {
@@ -1380,9 +1296,6 @@ window.CRYPTIC_PUZZLES["quiptic-1374"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Solid investigation involving leader of research (6)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "STURDY",
    "annotation": {

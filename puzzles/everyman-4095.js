@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4095"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Unable to escape, in huff, danced atrociously (10)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "HANDCUFFED",
    "annotation": {
@@ -73,9 +70,6 @@ window.CRYPTIC_PUZZLES["everyman-4095"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Journalist cut (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "HACK",
    "annotation": {
@@ -110,9 +104,6 @@ window.CRYPTIC_PUZZLES["everyman-4095"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Wine stains covering cosy spot (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "NEST",
    "annotation": {
@@ -147,9 +138,6 @@ window.CRYPTIC_PUZZLES["everyman-4095"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Harms, actual but not bodily? (12)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "CYBERATTACKS",
    "annotation": {
@@ -181,9 +169,6 @@ window.CRYPTIC_PUZZLES["everyman-4095"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Apartment: better capital investment (4,3)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -225,9 +210,6 @@ window.CRYPTIC_PUZZLES["everyman-4095"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "One absconding from starters of steak and kidney pies, you say? (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "ESCAPEE",
    "annotation": {
@@ -273,9 +255,6 @@ window.CRYPTIC_PUZZLES["everyman-4095"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Junk messages: plans to return? (4)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "SPAM",
    "annotation": {
@@ -325,9 +304,6 @@ window.CRYPTIC_PUZZLES["everyman-4095"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Concerning hobby having enormous familiarity with The Queen’s Head (10)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "PHILATELIC",
    "annotation": {
@@ -359,9 +335,6 @@ window.CRYPTIC_PUZZLES["everyman-4095"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "This person’s business? On the contrary, don’t mention it (2,8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -409,9 +382,6 @@ window.CRYPTIC_PUZZLES["everyman-4095"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Pierce, cut into melon somewhere on Atlantic coast (10)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "CASABLANCA",
    "annotation": {
@@ -463,9 +433,6 @@ window.CRYPTIC_PUZZLES["everyman-4095"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "In this manner of speaking, power comes forth (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "LISP",
    "annotation": {
@@ -497,9 +464,6 @@ window.CRYPTIC_PUZZLES["everyman-4095"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Bullion and cash man’s collected – here? (7,5)",
-   "group": [
-    "11-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -559,9 +523,6 @@ window.CRYPTIC_PUZZLES["everyman-4095"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Cook’s directions describing flipping Mexican food, right to do the same? (11)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "RECIPROCATE",
    "annotation": {
@@ -620,9 +581,6 @@ window.CRYPTIC_PUZZLES["everyman-4095"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Authority’s laughable admonition (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "DOMINATION",
    "annotation": {
@@ -668,9 +626,6 @@ window.CRYPTIC_PUZZLES["everyman-4095"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "N African to pick up engaging eagle that’s flapping (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "SENEGALESE",
    "annotation": {
@@ -726,9 +681,6 @@ window.CRYPTIC_PUZZLES["everyman-4095"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Clear absolutely minimal amount of money – and leave too much (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "OVERTIP",
    "annotation": {
@@ -770,9 +722,6 @@ window.CRYPTIC_PUZZLES["everyman-4095"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Some recommend Les Six as eternal (7)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "ENDLESS",
    "annotation": {
@@ -816,9 +765,6 @@ window.CRYPTIC_PUZZLES["everyman-4095"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Independent republic, ‘Éire’ label acknowledging nature’s divinity, originally? (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "IRELAND",
    "annotation": {
@@ -892,9 +838,6 @@ window.CRYPTIC_PUZZLES["everyman-4095"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Deserts’ shortcomings (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "DEFECTS",
    "annotation": {
@@ -929,9 +872,6 @@ window.CRYPTIC_PUZZLES["everyman-4095"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Furious Grizelda sacking Dutch tradesperson (7)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "GLAZIER",
    "annotation": {
@@ -981,9 +921,6 @@ window.CRYPTIC_PUZZLES["everyman-4095"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Dour expert’s frown (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "GRIMACE",
    "annotation": {
@@ -1024,9 +961,6 @@ window.CRYPTIC_PUZZLES["everyman-4095"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Baked goods all gone, according to Spooner: porkies! (1,4,2,4)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      1,
@@ -1078,9 +1012,6 @@ window.CRYPTIC_PUZZLES["everyman-4095"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "For the most part, walk dragging leg: b___ leg! (4)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "LIMB",
    "annotation": {
@@ -1124,9 +1055,6 @@ window.CRYPTIC_PUZZLES["everyman-4095"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Revolting sung play’s regularly rejected (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "UGLY",
    "annotation": {
@@ -1164,9 +1092,6 @@ window.CRYPTIC_PUZZLES["everyman-4095"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Everyman endlessly late: fancy! (4)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "IDEA",
    "annotation": {
@@ -1210,9 +1135,6 @@ window.CRYPTIC_PUZZLES["everyman-4095"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Scoring – or practising turntablism? (10)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "SCRATCHING",
    "annotation": {
@@ -1250,9 +1172,6 @@ window.CRYPTIC_PUZZLES["everyman-4095"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "On the one hand, finally, Miss … (4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "NEED",
    "annotation": {
@@ -1308,9 +1227,6 @@ window.CRYPTIC_PUZZLES["everyman-4095"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Rowdy boys ‘silent’, so it would appear (10)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "OSTENSIBLY",
    "annotation": {

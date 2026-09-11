@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29965"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Refs abused after boy band’s sporting feats (4-4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -64,9 +61,6 @@ window.CRYPTIC_PUZZLES["cryptic-29965"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "A couple short of a dozen legs – and joints? (6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "TENONS",
    "annotation": null
@@ -81,9 +75,6 @@ window.CRYPTIC_PUZZLES["cryptic-29965"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Burns fumes about cigar’s end (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "STREAMS",
    "annotation": null
@@ -122,9 +113,6 @@ window.CRYPTIC_PUZZLES["cryptic-29965"] = /*JSON-START*/ {
      15
     ]
    ],
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "THREESOMES",
    "annotation": null
@@ -139,9 +127,6 @@ window.CRYPTIC_PUZZLES["cryptic-29965"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Scratching surface of dark side in barrel (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "KEYING",
    "annotation": null
@@ -156,9 +141,6 @@ window.CRYPTIC_PUZZLES["cryptic-29965"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Painstaking papers back essentially glib man (8)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {},
    "solution": "DILIGENT",
    "annotation": null
@@ -173,9 +155,6 @@ window.CRYPTIC_PUZZLES["cryptic-29965"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Badenoch reveals strain – of iron? (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "OCHRE",
    "annotation": null
@@ -190,9 +169,6 @@ window.CRYPTIC_PUZZLES["cryptic-29965"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Stable houses setter – was one lost? (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "MEWS",
    "annotation": null
@@ -207,9 +183,6 @@ window.CRYPTIC_PUZZLES["cryptic-29965"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Regarding those unidentified, technology goes too far (8,2)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -228,9 +201,6 @@ window.CRYPTIC_PUZZLES["cryptic-29965"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Savages live, pasts quietly forgotten (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "BEASTS",
    "annotation": null
@@ -245,9 +215,6 @@ window.CRYPTIC_PUZZLES["cryptic-29965"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Here solstice worshipping teens go wild, gobbling bird (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "STONEHENGE",
    "annotation": null
@@ -262,9 +229,6 @@ window.CRYPTIC_PUZZLES["cryptic-29965"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Video game reversed practice: that’s not right (8)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "MISUSAGE",
    "annotation": null
@@ -297,9 +261,6 @@ window.CRYPTIC_PUZZLES["cryptic-29965"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Drugs cost (including recipe) negotiable for gigolos (7)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "ESCORTS",
    "annotation": null
@@ -336,9 +297,6 @@ window.CRYPTIC_PUZZLES["cryptic-29965"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Excuses politician embraced by alien in sex romp (7)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "EXEMPTS",
    "annotation": null
@@ -353,9 +311,6 @@ window.CRYPTIC_PUZZLES["cryptic-29965"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Settlers erected timber frames (8)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "TRESTLES",
    "annotation": null
@@ -370,9 +325,6 @@ window.CRYPTIC_PUZZLES["cryptic-29965"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Confused? Yes – call in dope dispenser (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "SYRINGE",
    "annotation": null
@@ -387,9 +339,6 @@ window.CRYPTIC_PUZZLES["cryptic-29965"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Otherwise show one mercy in service (8)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "CEREMONY",
    "annotation": null
@@ -422,9 +371,6 @@ window.CRYPTIC_PUZZLES["cryptic-29965"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Revelling used to put out (6)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "OUSTED",
    "annotation": null
@@ -439,9 +385,6 @@ window.CRYPTIC_PUZZLES["cryptic-29965"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "‘Aussie’ (not American) nightwear (6)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "ONESIE",
    "annotation": null
@@ -456,9 +399,6 @@ window.CRYPTIC_PUZZLES["cryptic-29965"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Football seen around half ten, with commentary for audience (5-1-4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     "-": [
      5,
@@ -478,9 +418,6 @@ window.CRYPTIC_PUZZLES["cryptic-29965"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Affected Reform UK, say, with head removed (4)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "ARTY",
    "annotation": null
@@ -557,9 +494,6 @@ window.CRYPTIC_PUZZLES["cryptic-29965"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "More graceful win; limper member abandoned (8)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "GAINLIER",
    "annotation": null

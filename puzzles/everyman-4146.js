@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4146"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Predictably, sadly, start to unclasp purse, alas! (2,3,5)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -76,9 +73,6 @@ window.CRYPTIC_PUZZLES["everyman-4146"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "A revolutionary's a persistent pain (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "ACHE",
    "annotation": {
@@ -119,9 +113,6 @@ window.CRYPTIC_PUZZLES["everyman-4146"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Quiz mostly a beast (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "PUMA",
    "annotation": {
@@ -164,9 +155,6 @@ window.CRYPTIC_PUZZLES["everyman-4146"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "How to make realisation? (11)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "RATIONALISE",
    "annotation": {
@@ -203,9 +191,6 @@ window.CRYPTIC_PUZZLES["everyman-4146"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Activate a kind of cycle and long to swap hands (4-3)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -253,9 +238,6 @@ window.CRYPTIC_PUZZLES["everyman-4146"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Orange licorice, somewhat divine (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "ANGELIC",
    "annotation": {
@@ -289,9 +271,6 @@ window.CRYPTIC_PUZZLES["everyman-4146"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Computer owner regularly getting bum steer (4)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "USER",
    "annotation": {
@@ -331,9 +310,6 @@ window.CRYPTIC_PUZZLES["everyman-4146"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "She regularly attended court having broken giraffe's foot (6,4)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -379,9 +355,6 @@ window.CRYPTIC_PUZZLES["everyman-4146"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Pay rock band in Paris, one wanting speed (10)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "REMUNERATE",
    "annotation": {
@@ -428,9 +401,6 @@ window.CRYPTIC_PUZZLES["everyman-4146"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Bad actors smothering series - but to pull them would be painful (10)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "HAMSTRINGS",
    "annotation": {
@@ -475,9 +445,6 @@ window.CRYPTIC_PUZZLES["everyman-4146"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Eleven, maybe, in swarm that's heard (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "TEAM",
    "annotation": {
@@ -515,9 +482,6 @@ window.CRYPTIC_PUZZLES["everyman-4146"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Canoodle, most of fungi spreading - hardly this! (4,5,3)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -567,9 +531,6 @@ window.CRYPTIC_PUZZLES["everyman-4146"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Bad timing? (11)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {},
    "solution": "ANACHRONISM",
    "annotation": {
@@ -601,9 +562,6 @@ window.CRYPTIC_PUZZLES["everyman-4146"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Chess player getting money - that might be a bloomer (5,5)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -648,9 +606,6 @@ window.CRYPTIC_PUZZLES["everyman-4146"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Stumbled when given flatfish that's one-third cooked (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "FLOUNDERED",
    "annotation": {
@@ -696,9 +651,6 @@ window.CRYPTIC_PUZZLES["everyman-4146"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Adventurer going to extremes with many heights surrounding? (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "HILLARY",
    "annotation": {
@@ -744,9 +696,6 @@ window.CRYPTIC_PUZZLES["everyman-4146"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "It'll bring your phone back to life - or is that bull? (7)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "CHARGER",
    "annotation": {
@@ -781,9 +730,6 @@ window.CRYPTIC_PUZZLES["everyman-4146"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "The writer visiting French city with Frenchman - doing this? (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "TOURISM",
    "annotation": {
@@ -836,9 +782,6 @@ window.CRYPTIC_PUZZLES["everyman-4146"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Top musician, cellist, smeared roset (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "MAESTRO",
    "annotation": {
@@ -890,9 +833,6 @@ window.CRYPTIC_PUZZLES["everyman-4146"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Basically a menace when a little rascal scoots over (2,5)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -940,9 +880,6 @@ window.CRYPTIC_PUZZLES["everyman-4146"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Modified wonky treadle (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "ALTERED",
    "annotation": {
@@ -979,9 +916,6 @@ window.CRYPTIC_PUZZLES["everyman-4146"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "It has insufficient bars - or no bar at all (3,9)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -1020,9 +954,6 @@ window.CRYPTIC_PUZZLES["everyman-4146"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Blood vessel's useless, you said? (4)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "VEIN",
    "annotation": {
@@ -1060,9 +991,6 @@ window.CRYPTIC_PUZZLES["everyman-4146"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Requests jobs that will take no time (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "ASKS",
    "annotation": {
@@ -1104,9 +1032,6 @@ window.CRYPTIC_PUZZLES["everyman-4146"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Everyman's introduction, meeting bishop, first of several blunders (4)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "ERRS",
    "annotation": {
@@ -1160,9 +1085,6 @@ window.CRYPTIC_PUZZLES["everyman-4146"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Stud rinses off showing lusty quality (10)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "STURDINESS",
    "annotation": {
@@ -1202,9 +1124,6 @@ window.CRYPTIC_PUZZLES["everyman-4146"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Duchamp's / Arp's derisive avant-gardism, primarily? (4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "DADA",
    "annotation": {
@@ -1244,9 +1163,6 @@ window.CRYPTIC_PUZZLES["everyman-4146"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "After split second, mint for mint sauce, etc (10)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "CONDIMENTS",
    "annotation": {

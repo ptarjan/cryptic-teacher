@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1902"] = /*JSON-START*/{
    },
    "length": 8,
    "clue": "Wedding party so nearly having start delayed (3,5)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -74,9 +71,6 @@ window.CRYPTIC_PUZZLES["indysunday-1902"] = /*JSON-START*/{
    },
    "length": 7,
    "clue": "Notable experience swimming so deep around island (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "EPISODE",
    "annotation": {
@@ -120,9 +114,6 @@ window.CRYPTIC_PUZZLES["indysunday-1902"] = /*JSON-START*/{
    },
    "length": 3,
    "clue": "Pig's head turning 180 degrees unlike before (3)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "NOW",
    "annotation": {
@@ -165,9 +156,6 @@ window.CRYPTIC_PUZZLES["indysunday-1902"] = /*JSON-START*/{
    },
    "length": 9,
    "clue": "Four brave nurses go out for a good time (9)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "GALLIVANT",
    "annotation": {
@@ -211,9 +199,6 @@ window.CRYPTIC_PUZZLES["indysunday-1902"] = /*JSON-START*/{
    },
    "length": 7,
    "clue": "Did 25 fully pay attention to getting shirt on? (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "TEEHEED",
    "annotation": {
@@ -256,9 +241,6 @@ window.CRYPTIC_PUZZLES["indysunday-1902"] = /*JSON-START*/{
    },
    "length": 6,
    "clue": "Turn odd bits of bomber jacket green (6)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "BECOME",
    "annotation": {
@@ -304,9 +286,6 @@ window.CRYPTIC_PUZZLES["indysunday-1902"] = /*JSON-START*/{
    },
    "length": 5,
    "clue": "No-frills airline defective but let's go with it (5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "BASIC",
    "annotation": {
@@ -344,9 +323,6 @@ window.CRYPTIC_PUZZLES["indysunday-1902"] = /*JSON-START*/{
    },
    "length": 11,
    "clue": "Addicts who frequent bars never weary? (11)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "CHOCOHOLICS",
    "annotation": {
@@ -378,9 +354,6 @@ window.CRYPTIC_PUZZLES["indysunday-1902"] = /*JSON-START*/{
    },
    "length": 7,
    "clue": "Original guy bored by literature mounted musical (7)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "MATILDA",
    "annotation": {
@@ -437,9 +410,6 @@ window.CRYPTIC_PUZZLES["indysunday-1902"] = /*JSON-START*/{
      31,
      28
     ]
-   ],
-   "group": [
-    "9-across"
    ],
    "separatorLocations": {
     ",": [
@@ -502,9 +472,6 @@ window.CRYPTIC_PUZZLES["indysunday-1902"] = /*JSON-START*/{
    },
    "length": 8,
    "clue": "Short cone and tall cone share an end (8)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "CONSPIRE",
    "annotation": {
@@ -550,9 +517,6 @@ window.CRYPTIC_PUZZLES["indysunday-1902"] = /*JSON-START*/{
    },
    "length": 11,
    "clue": "One put off from playing gig after this? (5,6)",
-   "group": [
-    "11-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -601,9 +565,6 @@ window.CRYPTIC_PUZZLES["indysunday-1902"] = /*JSON-START*/{
    },
    "length": 6,
    "clue": "Company outing abandoned by Jack with indifference (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "COOLLY",
    "annotation": {
@@ -651,9 +612,6 @@ window.CRYPTIC_PUZZLES["indysunday-1902"] = /*JSON-START*/{
    },
    "length": 4,
    "clue": "Bumper possibly clipped by old lady (4)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "MEGA",
    "annotation": {
@@ -697,9 +655,6 @@ window.CRYPTIC_PUZZLES["indysunday-1902"] = /*JSON-START*/{
    },
    "length": 10,
    "clue": "Bill wandering into Aldi further (10)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "ADDITIONAL",
    "annotation": {
@@ -741,9 +696,6 @@ window.CRYPTIC_PUZZLES["indysunday-1902"] = /*JSON-START*/{
    },
    "length": 9,
    "clue": "Bum drained extremely hot brew in NY's skid row (3,6)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -794,9 +746,6 @@ window.CRYPTIC_PUZZLES["indysunday-1902"] = /*JSON-START*/{
    },
    "length": 10,
    "clue": "Enjoy security? Commission bespoke tech (4,2,4)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -840,9 +789,6 @@ window.CRYPTIC_PUZZLES["indysunday-1902"] = /*JSON-START*/{
    },
    "length": 7,
    "clue": "Nearly everyone puttin' on show at Christmas (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "ALADDIN",
    "annotation": {
@@ -885,9 +831,6 @@ window.CRYPTIC_PUZZLES["indysunday-1902"] = /*JSON-START*/{
    },
    "length": 7,
    "clue": "Copper section in Dell rival's charger (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "ACCUSER",
    "annotation": {
@@ -937,9 +880,6 @@ window.CRYPTIC_PUZZLES["indysunday-1902"] = /*JSON-START*/{
    },
    "length": 4,
    "clue": "Jesus lives forever (1,3)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {
     ",": [
      1
@@ -981,9 +921,6 @@ window.CRYPTIC_PUZZLES["indysunday-1902"] = /*JSON-START*/{
    },
    "length": 7,
    "clue": "Spaniard's so long collecting silver pieces (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "ADAGIOS",
    "annotation": {
@@ -1027,9 +964,6 @@ window.CRYPTIC_PUZZLES["indysunday-1902"] = /*JSON-START*/{
    },
    "length": 6,
    "clue": "Grand, opulent, almost plush? (6)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "FABRIC",
    "annotation": {
@@ -1072,9 +1006,6 @@ window.CRYPTIC_PUZZLES["indysunday-1902"] = /*JSON-START*/{
    },
    "length": 5,
    "clue": "Eager to help both sides in Congo (3-2)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -1122,9 +1053,6 @@ window.CRYPTIC_PUZZLES["indysunday-1902"] = /*JSON-START*/{
    },
    "length": 8,
    "clue": "Snappy save that stops high shot? (8)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "CROSSBAR",
    "annotation": {
@@ -1162,9 +1090,6 @@ window.CRYPTIC_PUZZLES["indysunday-1902"] = /*JSON-START*/{
    },
    "length": 14,
    "clue": "Refuse to move bowl containing dead fish from outside (3,4,5,2)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -1226,9 +1151,6 @@ window.CRYPTIC_PUZZLES["indysunday-1902"] = /*JSON-START*/{
    },
    "length": 3,
    "clue": "See face of lunatic that slays me (3)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "LOL",
    "annotation": {
@@ -1271,9 +1193,6 @@ window.CRYPTIC_PUZZLES["indysunday-1902"] = /*JSON-START*/{
    },
    "length": 6,
    "clue": "Punches landed excessively on your ear (3-3)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -1323,9 +1242,6 @@ window.CRYPTIC_PUZZLES["indysunday-1902"] = /*JSON-START*/{
    },
    "length": 8,
    "clue": "Suspect solitary enemy of Republican (8)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "ROYALIST",
    "annotation": {

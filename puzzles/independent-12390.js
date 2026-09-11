@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12390"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Needs time for new power measurement (5)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "WATTS",
    "annotation": {
@@ -71,9 +68,6 @@ window.CRYPTIC_PUZZLES["independent-12390"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Alloy Matthew and Eli smelted (5,5)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -120,9 +114,6 @@ window.CRYPTIC_PUZZLES["independent-12390"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Two notes, one endlessly rising, using conventional harmony (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "TONAL",
    "annotation": {
@@ -178,9 +169,6 @@ window.CRYPTIC_PUZZLES["independent-12390"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Seriously very well-built, we hear (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "SOBERLY",
    "annotation": {
@@ -216,9 +204,6 @@ window.CRYPTIC_PUZZLES["independent-12390"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Indicated item belonging to ancient history (4)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "THIS",
    "annotation": {
@@ -253,9 +238,6 @@ window.CRYPTIC_PUZZLES["independent-12390"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Crush an optical instrument (9)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "TELESCOPE",
    "annotation": {
@@ -290,9 +272,6 @@ window.CRYPTIC_PUZZLES["independent-12390"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Poem your setter would loudly call pointless (5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "IDYLL",
    "annotation": {
@@ -336,9 +315,6 @@ window.CRYPTIC_PUZZLES["independent-12390"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Politician closed railway (4)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "TORY",
    "annotation": {
@@ -377,9 +353,6 @@ window.CRYPTIC_PUZZLES["independent-12390"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Audibly amazed to be provided with blades (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "OARED",
    "annotation": {
@@ -418,9 +391,6 @@ window.CRYPTIC_PUZZLES["independent-12390"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Ma, possibly, gets you toy (2-2)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     "-": [
      2
@@ -462,9 +432,6 @@ window.CRYPTIC_PUZZLES["independent-12390"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Showed strong feelings when first duke departs reduced in rank (6)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {},
    "solution": "EMOTED",
    "annotation": {
@@ -509,9 +476,6 @@ window.CRYPTIC_PUZZLES["independent-12390"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Local Nordic people banning outsiders (3)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "INN",
    "annotation": {
@@ -554,9 +518,6 @@ window.CRYPTIC_PUZZLES["independent-12390"] = /*JSON-START*/ {
      0,
      5
     ]
-   ],
-   "group": [
-    "11-across"
    ],
    "separatorLocations": {},
    "solution": "BALLY",
@@ -605,9 +566,6 @@ window.CRYPTIC_PUZZLES["independent-12390"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Fish ethically removed from lakes - quite the reverse (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "MORAY",
    "annotation": {
@@ -652,9 +610,6 @@ window.CRYPTIC_PUZZLES["independent-12390"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Algebra oddly omitted by European University mathematician (5)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "EULER",
    "annotation": {
@@ -707,9 +662,6 @@ window.CRYPTIC_PUZZLES["independent-12390"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Anxiety leaving Channel Islands in the absence of company (8)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "SOLITUDE",
    "annotation": {
@@ -755,9 +707,6 @@ window.CRYPTIC_PUZZLES["independent-12390"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Perhaps not a bloke's type of footwear (5,5)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -804,9 +753,6 @@ window.CRYPTIC_PUZZLES["independent-12390"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Henry wanted oven adjusted periodically (5,3,3,4)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {
     ",": [
      5,
@@ -855,9 +801,6 @@ window.CRYPTIC_PUZZLES["independent-12390"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "In short established a psychological training programme (3)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "EST",
    "annotation": {
@@ -895,9 +838,6 @@ window.CRYPTIC_PUZZLES["independent-12390"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "25D confused Mr. Hislop's country-folk (9)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "ALGERIANS",
    "annotation": {
@@ -950,9 +890,6 @@ window.CRYPTIC_PUZZLES["independent-12390"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Picture of goddess scratching bottom (3)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "HER",
    "annotation": {
@@ -990,9 +927,6 @@ window.CRYPTIC_PUZZLES["independent-12390"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Lawyer who briefly represents German company (8,7)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -1028,9 +962,6 @@ window.CRYPTIC_PUZZLES["independent-12390"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Pirate king and queen capturing assistant (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "RAIDER",
    "annotation": {
@@ -1080,9 +1011,6 @@ window.CRYPTIC_PUZZLES["independent-12390"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Revolutionary top socialist in capital (7)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "NICOSIA",
    "annotation": {
@@ -1146,9 +1074,6 @@ window.CRYPTIC_PUZZLES["independent-12390"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Arrogantly command activist to carry bomb (8)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "DOMINEER",
    "annotation": {
@@ -1193,9 +1118,6 @@ window.CRYPTIC_PUZZLES["independent-12390"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Type of rook entering river (5)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "ORDER",
    "annotation": {
@@ -1243,9 +1165,6 @@ window.CRYPTIC_PUZZLES["independent-12390"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Tease the French over composer (5)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "ELGAR",
    "annotation": {
@@ -1299,9 +1218,6 @@ window.CRYPTIC_PUZZLES["independent-12390"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "My storage unit in valley (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "COOMB",
    "annotation": {
@@ -1343,9 +1259,6 @@ window.CRYPTIC_PUZZLES["independent-12390"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Main part of our home (5)",
-   "group": [
-    "27-down"
-   ],
    "separatorLocations": {},
    "solution": "OCEAN",
    "annotation": {
@@ -1380,9 +1293,6 @@ window.CRYPTIC_PUZZLES["independent-12390"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Primarily salacious material used titillatingly (4)",
-   "group": [
-    "28-down"
-   ],
    "separatorLocations": {},
    "solution": "SMUT",
    "annotation": {
@@ -1438,9 +1348,6 @@ window.CRYPTIC_PUZZLES["independent-12390"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Small tailless pest (5)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "MIDGE",
    "annotation": {
@@ -1478,9 +1385,6 @@ window.CRYPTIC_PUZZLES["independent-12390"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Almost expressionless composer (5)",
-   "group": [
-    "30-across"
-   ],
    "separatorLocations": {},
    "solution": "GLASS",
    "annotation": {
@@ -1518,9 +1422,6 @@ window.CRYPTIC_PUZZLES["independent-12390"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Self esteem of love god (3)",
-   "group": [
-    "31-across"
-   ],
    "separatorLocations": {},
    "solution": "EGO",
    "annotation": {
@@ -1555,9 +1456,6 @@ window.CRYPTIC_PUZZLES["independent-12390"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Reportedly go off to see flier (4)",
-   "group": [
-    "32-across"
-   ],
    "separatorLocations": {},
    "solution": "TERN",
    "annotation": {
@@ -1596,9 +1494,6 @@ window.CRYPTIC_PUZZLES["independent-12390"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Cockney damages weapons (4)",
-   "group": [
-    "33-across"
-   ],
    "separatorLocations": {},
    "solution": "ARMS",
    "annotation": {
@@ -1636,9 +1531,6 @@ window.CRYPTIC_PUZZLES["independent-12390"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Outings without Jack's relatives (5)",
-   "group": [
-    "34-across"
-   ],
    "separatorLocations": {},
    "solution": "AUNTS",
    "annotation": {

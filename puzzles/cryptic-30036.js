@@ -45,9 +45,6 @@ window.CRYPTIC_PUZZLES["cryptic-30036"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Pluck item from the wine rack? (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "BOTTLE",
    "annotation": {
@@ -83,9 +80,6 @@ window.CRYPTIC_PUZZLES["cryptic-30036"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Survivor brightened up again having caught cold (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "RELICT",
    "annotation": {
@@ -130,9 +124,6 @@ window.CRYPTIC_PUZZLES["cryptic-30036"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Rough tongue in nude rogue (10)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "UNPOLISHED",
    "annotation": {
@@ -243,9 +234,6 @@ window.CRYPTIC_PUZZLES["cryptic-30036"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Frank discussions in a trade-off digested (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "SINATRA",
    "annotation": {
@@ -280,9 +268,6 @@ window.CRYPTIC_PUZZLES["cryptic-30036"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Animated solver’s clue? (6,3)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -325,9 +310,6 @@ window.CRYPTIC_PUZZLES["cryptic-30036"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Christmas movie cut, cut for Christmas! (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "NOEL",
    "annotation": {
@@ -378,9 +360,6 @@ window.CRYPTIC_PUZZLES["cryptic-30036"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Hawker steals present from that place (8)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "THEREOUT",
    "annotation": {
@@ -425,9 +404,6 @@ window.CRYPTIC_PUZZLES["cryptic-30036"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "A cap in use tilted badly, level up (8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "ALTITUDE",
    "annotation": {
@@ -478,9 +454,6 @@ window.CRYPTIC_PUZZLES["cryptic-30036"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Clue about bulb, essentially? (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "TULIP",
    "annotation": {
@@ -527,9 +500,6 @@ window.CRYPTIC_PUZZLES["cryptic-30036"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "A few missing artist in essence, US president (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "ROOSEVELT",
    "annotation": {
@@ -581,9 +551,6 @@ window.CRYPTIC_PUZZLES["cryptic-30036"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "See Yorkshire flower near Sheff U v Sheff W, say (5,5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -685,9 +652,6 @@ window.CRYPTIC_PUZZLES["cryptic-30036"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "That said in support of stinker, describing nicer comic 23 down (6,4)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -752,9 +716,6 @@ window.CRYPTIC_PUZZLES["cryptic-30036"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Land idols in trouble? (5,6)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -802,9 +763,6 @@ window.CRYPTIC_PUZZLES["cryptic-30036"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Chance gone, lots being wasted? (6,3)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -846,9 +804,6 @@ window.CRYPTIC_PUZZLES["cryptic-30036"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Expression of embarrassment while burying head in whelk shell (2,6)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -905,9 +860,6 @@ window.CRYPTIC_PUZZLES["cryptic-30036"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Riddle from Sphinx’s first teacher (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "STRAINER",
    "annotation": {
@@ -954,9 +906,6 @@ window.CRYPTIC_PUZZLES["cryptic-30036"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "US actress, how might she cause a stir in speech? (11)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "WITHERSPOON",
    "annotation": {
@@ -992,9 +941,6 @@ window.CRYPTIC_PUZZLES["cryptic-30036"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Little bird in leak (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "PETITE",
    "annotation": {
@@ -1039,9 +985,6 @@ window.CRYPTIC_PUZZLES["cryptic-30036"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Force once applied to opening in sink blockage (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "STASIS",
    "annotation": {
@@ -1089,9 +1032,6 @@ window.CRYPTIC_PUZZLES["cryptic-30036"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Groovy chassis on a jalopy (4)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "HEAP",
    "annotation": {
@@ -1136,9 +1076,6 @@ window.CRYPTIC_PUZZLES["cryptic-30036"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Sense of outrageous theatre initially dressing Australian in drag (10)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "SNOOZEFEST",
    "annotation": {
@@ -1251,9 +1188,6 @@ window.CRYPTIC_PUZZLES["cryptic-30036"] = /*JSON-START*/ {
      11
     ]
    ],
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "CONSTABLE",
    "annotation": {
@@ -1332,9 +1266,6 @@ window.CRYPTIC_PUZZLES["cryptic-30036"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Team getting stuffed in flop, I give up! (5,2)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -1383,9 +1314,6 @@ window.CRYPTIC_PUZZLES["cryptic-30036"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Close, as Mexican dog in East London? (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "AIRLESS",
    "annotation": {

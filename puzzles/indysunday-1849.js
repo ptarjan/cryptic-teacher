@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1849"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Fighter provided hints from behind rope on each side (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "SPITFIRE",
    "annotation": {
@@ -132,9 +129,6 @@ window.CRYPTIC_PUZZLES["indysunday-1849"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Sandwich sample filled with bits separately (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "TOASTIE",
    "annotation": {
@@ -183,9 +177,6 @@ window.CRYPTIC_PUZZLES["indysunday-1849"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Suggest taking top off only (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "IMPLY",
    "annotation": {
@@ -223,9 +214,6 @@ window.CRYPTIC_PUZZLES["indysunday-1849"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Dogs seen swimming across river caught up (9)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "ENGROSSED",
    "annotation": {
@@ -270,9 +258,6 @@ window.CRYPTIC_PUZZLES["indysunday-1849"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Increase already high level of canine dedication? (3,2)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -318,9 +303,6 @@ window.CRYPTIC_PUZZLES["indysunday-1849"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Catch close to fence after American's easy swing (7)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "TRAPEZE",
    "annotation": {
@@ -370,9 +352,6 @@ window.CRYPTIC_PUZZLES["indysunday-1849"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Deep hole revolutionary digs for attacks (7,4)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -425,9 +404,6 @@ window.CRYPTIC_PUZZLES["indysunday-1849"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Cactus is sort of ecotype that avoids cold (6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "PEYOTE",
    "annotation": {
@@ -475,9 +451,6 @@ window.CRYPTIC_PUZZLES["indysunday-1849"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "God's gift, guy already taken? (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "MANNA",
    "annotation": {
@@ -516,9 +489,6 @@ window.CRYPTIC_PUZZLES["indysunday-1849"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "US entreés including tip for table service (6)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {},
    "solution": "MATINS",
    "annotation": {
@@ -565,9 +535,6 @@ window.CRYPTIC_PUZZLES["indysunday-1849"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Display article and essay on piece of paper (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "PAGEANTRY",
    "annotation": {
@@ -617,9 +584,6 @@ window.CRYPTIC_PUZZLES["indysunday-1849"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "You shouldn't have left going into town without saying anything (7)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "TACITLY",
    "annotation": {
@@ -670,9 +634,6 @@ window.CRYPTIC_PUZZLES["indysunday-1849"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Pets Charles keeps at home have a relaxed time (11)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {},
    "solution": "CHINCHILLAS",
    "annotation": {
@@ -723,9 +684,6 @@ window.CRYPTIC_PUZZLES["indysunday-1849"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Send the ball long on smash (7)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "OVERHIT",
    "annotation": {
@@ -764,9 +722,6 @@ window.CRYPTIC_PUZZLES["indysunday-1849"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Silence grunting player getting in top seed's head (13)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "NOISELESSNESS",
    "annotation": {
@@ -817,9 +772,6 @@ window.CRYPTIC_PUZZLES["indysunday-1849"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Old judge under cover with flags raised is dry (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "EVAPORATE",
    "annotation": {
@@ -880,9 +832,6 @@ window.CRYPTIC_PUZZLES["indysunday-1849"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Fellow behind vehicle causing tailback, perhaps (6)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "HEARSE",
    "annotation": {
@@ -921,9 +870,6 @@ window.CRYPTIC_PUZZLES["indysunday-1849"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Two things you get from overpaid butcher show inconsistency (4,3,6)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -973,9 +919,6 @@ window.CRYPTIC_PUZZLES["indysunday-1849"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Part-time queen not as expensive (2,5)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -1019,9 +962,6 @@ window.CRYPTIC_PUZZLES["indysunday-1849"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Upset since doctor I see is difficult to get hold of (4-3)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -1084,9 +1024,6 @@ window.CRYPTIC_PUZZLES["indysunday-1849"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Internet-based catastrophe stopped by odd bits of tech (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "DOTCOM",
    "annotation": {
@@ -1133,9 +1070,6 @@ window.CRYPTIC_PUZZLES["indysunday-1849"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Venezuelan water company started by several stars switching on (7)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "ORINOCO",
    "annotation": {
@@ -1188,9 +1122,6 @@ window.CRYPTIC_PUZZLES["indysunday-1849"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Free running stream swamps shelter during flood (7)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "PARKOUR",
    "annotation": {
@@ -1235,9 +1166,6 @@ window.CRYPTIC_PUZZLES["indysunday-1849"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Playing padel, say in court? (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "PLEAD",
    "annotation": {
@@ -1275,9 +1203,6 @@ window.CRYPTIC_PUZZLES["indysunday-1849"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Garden shelter made for Carol's outside being reassembled (4,5)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -1326,9 +1251,6 @@ window.CRYPTIC_PUZZLES["indysunday-1849"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Hearing trouser measurement, lose a lot of weight (5)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "WASTE",
    "annotation": {
@@ -1384,9 +1306,6 @@ window.CRYPTIC_PUZZLES["indysunday-1849"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Mize reportedly back on Tour? He's unlikely to chip in (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "MISER",
    "annotation": {
@@ -1433,9 +1352,6 @@ window.CRYPTIC_PUZZLES["indysunday-1849"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Risk outrage putting finale first (8)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "ENDANGER",
    "annotation": {

@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29999"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "One hard man, he was involved with Ezra initially (8)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "NEHEMIAH",
    "annotation": {
@@ -82,9 +79,6 @@ window.CRYPTIC_PUZZLES["cryptic-29999"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Considered a soft fabric (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "FELT",
    "annotation": {
@@ -119,9 +113,6 @@ window.CRYPTIC_PUZZLES["cryptic-29999"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Dwelling on tense vote in favour (6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "PLACET",
    "annotation": {
@@ -165,9 +156,6 @@ window.CRYPTIC_PUZZLES["cryptic-29999"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Sad that Spain has invaded a foreign port (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "TRIESTE",
    "annotation": {
@@ -212,9 +200,6 @@ window.CRYPTIC_PUZZLES["cryptic-29999"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "They don’t make the film, dates having been switched (3-5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -262,9 +247,6 @@ window.CRYPTIC_PUZZLES["cryptic-29999"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "What we are called in explosive competition (10)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "TOURNAMENT",
    "annotation": {
@@ -309,9 +291,6 @@ window.CRYPTIC_PUZZLES["cryptic-29999"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Time goose should be cooked in foil (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "STOOGE",
    "annotation": {
@@ -357,9 +336,6 @@ window.CRYPTIC_PUZZLES["cryptic-29999"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Rock purveyor we will make rude noises about (8)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {},
    "solution": "JEWELLER",
    "annotation": {
@@ -404,9 +380,6 @@ window.CRYPTIC_PUZZLES["cryptic-29999"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Sprinter in bar bent back to grasp nuts (1,4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      1
@@ -448,9 +421,6 @@ window.CRYPTIC_PUZZLES["cryptic-29999"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Scots knew England’s garden? (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "KENT",
    "annotation": {
@@ -485,9 +455,6 @@ window.CRYPTIC_PUZZLES["cryptic-29999"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Author as boxer, could one say – heavyweight (10)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "CHESTERTON",
    "annotation": {
@@ -534,9 +501,6 @@ window.CRYPTIC_PUZZLES["cryptic-29999"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Childish type, endlessly dim, breaking equipment (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "KIDULT",
    "annotation": {
@@ -583,9 +547,6 @@ window.CRYPTIC_PUZZLES["cryptic-29999"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Hunt neared ground, positioned for concealment? (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "UNDERNEATH",
    "annotation": {
@@ -623,9 +584,6 @@ window.CRYPTIC_PUZZLES["cryptic-29999"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Invite to relax and steal from church? (4,1,3)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -666,9 +624,6 @@ window.CRYPTIC_PUZZLES["cryptic-29999"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Indistinct notice with garish border (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "SHADOWY",
    "annotation": {
@@ -716,9 +671,6 @@ window.CRYPTIC_PUZZLES["cryptic-29999"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Distortion isn’t commonly cosmetic (3,5)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -766,9 +718,6 @@ window.CRYPTIC_PUZZLES["cryptic-29999"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Slander, heartlessly audacious in itself (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "ASPERSE",
    "annotation": {
@@ -812,9 +761,6 @@ window.CRYPTIC_PUZZLES["cryptic-29999"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Aching to suppress German city university (8)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "SORBONNE",
    "annotation": {
@@ -859,9 +805,6 @@ window.CRYPTIC_PUZZLES["cryptic-29999"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Stagger about, ‘run out’ replaced by ‘stumped’ (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "ASTOUND",
    "annotation": {
@@ -911,9 +854,6 @@ window.CRYPTIC_PUZZLES["cryptic-29999"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Cathedral search resolved: it’s right in the centre (8)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "CHARTRES",
    "annotation": {
@@ -966,9 +906,6 @@ window.CRYPTIC_PUZZLES["cryptic-29999"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "The peak hour, dinner time? (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "HEIGHT",
    "annotation": {
@@ -1006,9 +943,6 @@ window.CRYPTIC_PUZZLES["cryptic-29999"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "God posed with big pot of tea (6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "SATURN",
    "annotation": {
@@ -1049,9 +983,6 @@ window.CRYPTIC_PUZZLES["cryptic-29999"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Uncompromising boss ultimately deceived on Radio 4 (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "STRICT",
    "annotation": {
@@ -1098,9 +1029,6 @@ window.CRYPTIC_PUZZLES["cryptic-29999"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Screen addict perhaps, one contorted with grimace (10)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "CINEMAGOER",
    "annotation": {
@@ -1146,9 +1074,6 @@ window.CRYPTIC_PUZZLES["cryptic-29999"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Youngster spends year on benefit (4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "BOON",
    "annotation": {
@@ -1197,9 +1122,6 @@ window.CRYPTIC_PUZZLES["cryptic-29999"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Start to bash away in contest (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "BOUT",
    "annotation": {
@@ -1246,9 +1168,6 @@ window.CRYPTIC_PUZZLES["cryptic-29999"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Suddenly discover hotel is losing pounds (3,2)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -1298,9 +1217,6 @@ window.CRYPTIC_PUZZLES["cryptic-29999"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Short walk in once moving moonlit scene (8)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "NOCTURNE",
    "annotation": {

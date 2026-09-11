@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30015"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Makeshift untried army beaten (11)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "RUDIMENTARY",
    "annotation": {
@@ -65,9 +62,6 @@ window.CRYPTIC_PUZZLES["cryptic-30015"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "How to handle a privy counsellor? (5,10)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -103,9 +97,6 @@ window.CRYPTIC_PUZZLES["cryptic-30015"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Quietly hiding pet, leave (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "DOGGO",
    "annotation": {
@@ -145,9 +136,6 @@ window.CRYPTIC_PUZZLES["cryptic-30015"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "No time to contemplate – intervene (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "MEDIATE",
    "annotation": {
@@ -190,9 +178,6 @@ window.CRYPTIC_PUZZLES["cryptic-30015"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Renders ineffective nearly new entrances (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "NEGATES",
    "annotation": {
@@ -236,9 +221,6 @@ window.CRYPTIC_PUZZLES["cryptic-30015"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Enjoying watching rigid man relaxing (8)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "ADMIRING",
    "annotation": {
@@ -276,9 +258,6 @@ window.CRYPTIC_PUZZLES["cryptic-30015"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Way to fictional city made of monochrome Lego? (6,5,4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      6,
@@ -317,9 +296,6 @@ window.CRYPTIC_PUZZLES["cryptic-30015"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Philosopher went to see a doctor (13)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "METAPHYSICIAN",
    "annotation": {
@@ -364,9 +340,6 @@ window.CRYPTIC_PUZZLES["cryptic-30015"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Annotate minor change in embellishment (13)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "ORNAMENTATION",
    "annotation": {
@@ -407,9 +380,6 @@ window.CRYPTIC_PUZZLES["cryptic-30015"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Busy preparing for wedding (7)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "ENGAGED",
    "annotation": {
@@ -442,9 +412,6 @@ window.CRYPTIC_PUZZLES["cryptic-30015"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Grand thriller writer? I bet (7)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "GAMBLER",
    "annotation": {
@@ -484,9 +451,6 @@ window.CRYPTIC_PUZZLES["cryptic-30015"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "To Saturn, a trip for her (9)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "ASTRONAUT",
    "annotation": {
@@ -524,9 +488,6 @@ window.CRYPTIC_PUZZLES["cryptic-30015"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Stick around hospital with a woman (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "RHODA",
    "annotation": {
@@ -580,9 +541,6 @@ window.CRYPTIC_PUZZLES["cryptic-30015"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "What the uncaring owl doesn’t give? (4)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "HOOT",
    "annotation": {
@@ -614,9 +572,6 @@ window.CRYPTIC_PUZZLES["cryptic-30015"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Fit after work out, not too expensive (10)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "REASONABLE",
    "annotation": {
@@ -660,9 +615,6 @@ window.CRYPTIC_PUZZLES["cryptic-30015"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Neaten Christmas tree after erection (6,2)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -705,9 +657,6 @@ window.CRYPTIC_PUZZLES["cryptic-30015"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Athlete murdered golfer (4,6)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -750,9 +699,6 @@ window.CRYPTIC_PUZZLES["cryptic-30015"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Lisper heard to struggle with start of Med island, so weedy (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "THISTLY",
    "annotation": {
@@ -798,9 +744,6 @@ window.CRYPTIC_PUZZLES["cryptic-30015"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "I complete speaking, getting something to look through (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "EYEHOLE",
    "annotation": {
@@ -849,9 +792,6 @@ window.CRYPTIC_PUZZLES["cryptic-30015"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "I must sit in oily car (4)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "FIAT",
    "annotation": {
@@ -896,9 +836,6 @@ window.CRYPTIC_PUZZLES["cryptic-30015"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Holiday island’s clubs, four in resort (5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "CORFU",
    "annotation": {
@@ -950,9 +887,6 @@ window.CRYPTIC_PUZZLES["cryptic-30015"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Picture police build up of one kitten I’d mistreated (9)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "IDENTIKIT",
    "annotation": {
@@ -998,9 +932,6 @@ window.CRYPTIC_PUZZLES["cryptic-30015"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Chinese gang sending up missile across India (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "TRIAD",
    "annotation": {
@@ -1053,9 +984,6 @@ window.CRYPTIC_PUZZLES["cryptic-30015"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Such relaxing music in the morning wreathed around one (7)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "AMBIENT",
    "annotation": {
@@ -1106,9 +1034,6 @@ window.CRYPTIC_PUZZLES["cryptic-30015"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "River, one under Wimbledon Common? (7)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "ORINOCO",
    "annotation": {
@@ -1141,9 +1066,6 @@ window.CRYPTIC_PUZZLES["cryptic-30015"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Worthless sort of notepaper is stupid (5-6)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     "-": [
      5

@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29997"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Wife desires charming women … (7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "WITCHES",
    "annotation": {
@@ -66,9 +63,6 @@ window.CRYPTIC_PUZZLES["cryptic-29997"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Add in what I did here, as stated (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "INCLUDE",
    "annotation": {
@@ -113,9 +107,6 @@ window.CRYPTIC_PUZZLES["cryptic-29997"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Summit’s within Worcester, centrally, elevated (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "CROWN",
    "annotation": {
@@ -161,9 +152,6 @@ window.CRYPTIC_PUZZLES["cryptic-29997"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Use charm to control tendency to avoid pressure (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "ENCHANT",
    "annotation": {
@@ -206,9 +194,6 @@ window.CRYPTIC_PUZZLES["cryptic-29997"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "… valour is boring her – ordinary and primarily ‘macho’ (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "HEROISM",
    "annotation": {
@@ -266,9 +251,6 @@ window.CRYPTIC_PUZZLES["cryptic-29997"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Barrier dropped to protect pupil (6)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "EYELID",
    "annotation": {
@@ -301,9 +283,6 @@ window.CRYPTIC_PUZZLES["cryptic-29997"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Toast peer performing in musical dramas (9)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "OPERETTAS",
    "annotation": {
@@ -344,9 +323,6 @@ window.CRYPTIC_PUZZLES["cryptic-29997"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Rise up, capturing aged warrior (7)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "SOLDIER",
    "annotation": {
@@ -399,9 +375,6 @@ window.CRYPTIC_PUZZLES["cryptic-29997"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "White dominance troubling viewers (4,9)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -438,9 +411,6 @@ window.CRYPTIC_PUZZLES["cryptic-29997"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "E-copy (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "ECHO",
    "annotation": {
@@ -474,9 +444,6 @@ window.CRYPTIC_PUZZLES["cryptic-29997"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Tale of servitude recalled in reels (10)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "CINDERELLA",
    "annotation": {
@@ -514,9 +481,6 @@ window.CRYPTIC_PUZZLES["cryptic-29997"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "One in five heading to Open are seeds (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "QUINOA",
    "annotation": {
@@ -561,9 +525,6 @@ window.CRYPTIC_PUZZLES["cryptic-29997"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Remain on the right side of suspicious cook – porky but harmless? (5,3)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -611,9 +572,6 @@ window.CRYPTIC_PUZZLES["cryptic-29997"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Way to find a giant, live, and chat about man’s missing head? (9)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "BEANSTALK",
    "annotation": {
@@ -665,9 +623,6 @@ window.CRYPTIC_PUZZLES["cryptic-29997"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Dark approaching, tenses, one male, alone at the end (5-4)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -733,9 +688,6 @@ window.CRYPTIC_PUZZLES["cryptic-29997"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Censors essentially blue tale (5)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "STORY",
    "annotation": {
@@ -779,9 +731,6 @@ window.CRYPTIC_PUZZLES["cryptic-29997"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Barnaby ousts Romeo and takes Juliet – he’s a trier! (5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "JUDGE",
    "annotation": {
@@ -835,9 +784,6 @@ window.CRYPTIC_PUZZLES["cryptic-29997"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Odd you twice caught group of students drawn in by unframed Dali (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "UNUSUAL",
    "annotation": {
@@ -900,9 +846,6 @@ window.CRYPTIC_PUZZLES["cryptic-29997"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "INXS provided Yates’s first shoot up (9)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "INTENSIFY",
    "annotation": {
@@ -952,9 +895,6 @@ window.CRYPTIC_PUZZLES["cryptic-29997"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Overlooked, start off angry, swear endlessly inside (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "EXCUSED",
    "annotation": {
@@ -1003,9 +943,6 @@ window.CRYPTIC_PUZZLES["cryptic-29997"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Most rewarding transposing soprano flute line (7)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "FULLEST",
    "annotation": {
@@ -1053,9 +990,6 @@ window.CRYPTIC_PUZZLES["cryptic-29997"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "This setter’s regularly upset with contrary editor’s delay (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "IMPEDE",
    "annotation": {
@@ -1116,9 +1050,6 @@ window.CRYPTIC_PUZZLES["cryptic-29997"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Barbarian, turning good guy, with trimmed locks – he’s chasing foxy type? (8)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "HUNTSMAN",
    "annotation": {
@@ -1179,9 +1110,6 @@ window.CRYPTIC_PUZZLES["cryptic-29997"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Move to try and cover King’s naked glee after fling (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "CASTLE",
    "annotation": {
@@ -1230,9 +1158,6 @@ window.CRYPTIC_PUZZLES["cryptic-29997"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Catch spots orally (5)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "SEIZE",
    "annotation": {
@@ -1268,9 +1193,6 @@ window.CRYPTIC_PUZZLES["cryptic-29997"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Ventures boundless flair inspired by coaches (10)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "BUSINESSES",
    "annotation": {
@@ -1317,9 +1239,6 @@ window.CRYPTIC_PUZZLES["cryptic-29997"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Once partner is following, beginning to introduce glimpse of billy goat (4)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "IBEX",
    "annotation": {
@@ -1376,9 +1295,6 @@ window.CRYPTIC_PUZZLES["cryptic-29997"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "One holding up the line returning skins again? (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "SLEEPER",
    "annotation": {
@@ -1422,9 +1338,6 @@ window.CRYPTIC_PUZZLES["cryptic-29997"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Trailers way back, after about 5½ days travelling west (7)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "ADVERTS",
    "annotation": {

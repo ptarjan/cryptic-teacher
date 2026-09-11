@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1863"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "A few coins left for parking? Excellent (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "TIPTOP",
    "annotation": {
@@ -71,9 +68,6 @@ window.CRYPTIC_PUZZLES["indysunday-1863"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Common large cracks worried Boeing (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "IGNOBLE",
    "annotation": {
@@ -128,9 +122,6 @@ window.CRYPTIC_PUZZLES["indysunday-1863"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Sound of 'Go', then lake with hat for cycling and running around it? (9)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "TRIATHLON",
    "annotation": {
@@ -190,9 +181,6 @@ window.CRYPTIC_PUZZLES["indysunday-1863"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Bishop alongside demonstrator, moral in a line (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "PROVERB",
    "annotation": {
@@ -235,9 +223,6 @@ window.CRYPTIC_PUZZLES["indysunday-1863"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Refugee camp's perseverance with area becoming tense (4,4)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -289,9 +274,6 @@ window.CRYPTIC_PUZZLES["indysunday-1863"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Now we're making progress which means computers are increasingly popular (5,4,4,2)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      5,
@@ -342,9 +324,6 @@ window.CRYPTIC_PUZZLES["indysunday-1863"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Butcher can dine pleasantly ... (4,3)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -385,9 +364,6 @@ window.CRYPTIC_PUZZLES["indysunday-1863"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Tweets showing no Republican means to gamble (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "CHIPS",
    "annotation": {
@@ -429,9 +405,6 @@ window.CRYPTIC_PUZZLES["indysunday-1863"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Murphy coming round starts on the latest gossip (7)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "TATTLER",
    "annotation": {
@@ -477,9 +450,6 @@ window.CRYPTIC_PUZZLES["indysunday-1863"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Opponent of UK institution possibly giving nation its charm? (14)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "ANTIMONARCHIST",
    "annotation": {
@@ -519,9 +489,6 @@ window.CRYPTIC_PUZZLES["indysunday-1863"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Bondi Beach swimming costume that woman wears out to lunch (7)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "BATHERS",
    "annotation": {
@@ -566,9 +533,6 @@ window.CRYPTIC_PUZZLES["indysunday-1863"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Saintly Archbishop of Canterbury laments perverts avoiding time (6)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "ANSELM",
    "annotation": {
@@ -612,9 +576,6 @@ window.CRYPTIC_PUZZLES["indysunday-1863"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Betray clandestine group in report (4)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "SELL",
    "annotation": {
@@ -649,9 +610,6 @@ window.CRYPTIC_PUZZLES["indysunday-1863"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Promise from Pitt, say, involving old military equipment (10)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "BROADSWORD",
    "annotation": {
@@ -701,9 +659,6 @@ window.CRYPTIC_PUZZLES["indysunday-1863"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "New WC broken by husband making table (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "WORKBENCH",
    "annotation": {
@@ -748,9 +703,6 @@ window.CRYPTIC_PUZZLES["indysunday-1863"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Daughter holds last bit of toilet paper as the water runs (10)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "DOWNSTREAM",
    "annotation": {
@@ -805,9 +757,6 @@ window.CRYPTIC_PUZZLES["indysunday-1863"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Vault with bones broken in your ass (7)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "OSSUARY",
    "annotation": {
@@ -847,9 +796,6 @@ window.CRYPTIC_PUZZLES["indysunday-1863"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Maybe hours of delay wind university up (4,3)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -902,9 +848,6 @@ window.CRYPTIC_PUZZLES["indysunday-1863"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Sage beanie, say, pocketed by lesbian parents? (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "MAHATMA",
    "annotation": {
@@ -948,9 +891,6 @@ window.CRYPTIC_PUZZLES["indysunday-1863"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Unsatisfactory seats 16 back in the audience (4)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "ROPY",
    "annotation": {
@@ -995,9 +935,6 @@ window.CRYPTIC_PUZZLES["indysunday-1863"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Danger for cyclists even if coming through icy zone (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "POTHOLE",
    "annotation": {
@@ -1041,9 +978,6 @@ window.CRYPTIC_PUZZLES["indysunday-1863"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Favour endless semester for revising (6)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "ESTEEM",
    "annotation": {
@@ -1085,9 +1019,6 @@ window.CRYPTIC_PUZZLES["indysunday-1863"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Spirit's teeth 16D contains (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "ETHOS",
    "annotation": {
@@ -1124,9 +1055,6 @@ window.CRYPTIC_PUZZLES["indysunday-1863"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "People soon bored by hospital (7)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "INHABIT",
    "annotation": {
@@ -1170,9 +1098,6 @@ window.CRYPTIC_PUZZLES["indysunday-1863"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Body part wrongly put in a trunk lengthways (8,6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -1226,9 +1151,6 @@ window.CRYPTIC_PUZZLES["indysunday-1863"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Ability to spy certainly limited by double-0 following Bond? (8)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "EYESIGHT",
    "annotation": {
@@ -1272,9 +1194,6 @@ window.CRYPTIC_PUZZLES["indysunday-1863"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Seed for tree that's dying back remains important (3-3)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {
     "-": [
      3

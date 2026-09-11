@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1837"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Having issue with hearth, cooked boring meal (10)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "FATHERHOOD",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["indysunday-1837"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Seafood close to sea bass and sole (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "ABALONE",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["indysunday-1837"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Henry put on pretty dress (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "HABIT",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["indysunday-1837"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Racecourse favourite gets VIP treatment (3,6)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -97,9 +85,6 @@ window.CRYPTIC_PUZZLES["indysunday-1837"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Somewhat friendly pranks seeming to upset (2,8,5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -119,9 +104,6 @@ window.CRYPTIC_PUZZLES["indysunday-1837"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Things said at police getting twisted (5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "DICTA",
    "annotation": null
@@ -136,9 +118,6 @@ window.CRYPTIC_PUZZLES["indysunday-1837"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Band of elite soldiers back on warpath (4)",
-   "group": [
-    "7-across"
-   ],
    "separatorLocations": {},
    "solution": "SASH",
    "annotation": null
@@ -153,9 +132,6 @@ window.CRYPTIC_PUZZLES["indysunday-1837"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Bog went by water on map, near delta (9)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "SWAMPLAND",
    "annotation": null
@@ -170,9 +146,6 @@ window.CRYPTIC_PUZZLES["indysunday-1837"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Special festival's back with yen to spend extravagantly (7)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "SPLURGE",
    "annotation": null
@@ -187,9 +160,6 @@ window.CRYPTIC_PUZZLES["indysunday-1837"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Spotted flatfish at bottom of river (6)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "DABBED",
    "annotation": null
@@ -204,9 +174,6 @@ window.CRYPTIC_PUZZLES["indysunday-1837"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Warm fur coats start to outsell cold one (8)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "SOCIABLE",
    "annotation": null
@@ -221,9 +188,6 @@ window.CRYPTIC_PUZZLES["indysunday-1837"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Stole evidence in Oxbridge row? (4,4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -242,9 +206,6 @@ window.CRYPTIC_PUZZLES["indysunday-1837"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Hope is a small, quiet emotion (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "ASPIRE",
    "annotation": null
@@ -259,9 +220,6 @@ window.CRYPTIC_PUZZLES["indysunday-1837"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Betray group of spies as dictator (4)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "SELL",
    "annotation": null
@@ -276,9 +234,6 @@ window.CRYPTIC_PUZZLES["indysunday-1837"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Eleventh-hour comeback using creative thinking (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "LATERALLY",
    "annotation": null
@@ -293,9 +248,6 @@ window.CRYPTIC_PUZZLES["indysunday-1837"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Bluffer's expression perfect when holding decent card (5,4)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -314,9 +266,6 @@ window.CRYPTIC_PUZZLES["indysunday-1837"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Runner smuggles ketamine and ecstasy for dodgy dealer (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "RACKETEER",
    "annotation": null
@@ -331,9 +280,6 @@ window.CRYPTIC_PUZZLES["indysunday-1837"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "In a stupor, Tom perhaps needs a pick-me-up (9)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "CATATONIC",
    "annotation": null
@@ -354,9 +300,6 @@ window.CRYPTIC_PUZZLES["indysunday-1837"] = /*JSON-START*/ {
      5
     ]
    ],
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "CREDITS",
    "annotation": null
@@ -371,9 +314,6 @@ window.CRYPTIC_PUZZLES["indysunday-1837"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Couple performing outstanding tango (4)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "DUET",
    "annotation": null
@@ -388,9 +328,6 @@ window.CRYPTIC_PUZZLES["indysunday-1837"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Beheaded queens wrongly over sex in private washroom (2,5)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -409,9 +346,6 @@ window.CRYPTIC_PUZZLES["indysunday-1837"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Pointillist surfaces on some unfamiliar art (6)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "SEURAT",
    "annotation": null
@@ -426,9 +360,6 @@ window.CRYPTIC_PUZZLES["indysunday-1837"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "He sings relatively high note for audience (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "TENOR",
    "annotation": null
@@ -443,9 +374,6 @@ window.CRYPTIC_PUZZLES["indysunday-1837"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Nancy's very flirtatious act causes offence (8)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "TRESPASS",
    "annotation": null
@@ -460,9 +388,6 @@ window.CRYPTIC_PUZZLES["indysunday-1837"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "On the counter is energy drink (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "PEPSI",
    "annotation": null
@@ -477,9 +402,6 @@ window.CRYPTIC_PUZZLES["indysunday-1837"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Military ship worker who might deal with Green Berets (8)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "MILLINER",
    "annotation": null
@@ -494,9 +416,6 @@ window.CRYPTIC_PUZZLES["indysunday-1837"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Dash of medium strength liquor ultimately vermouth (6)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "ESPRIT",
    "annotation": null
@@ -511,9 +430,6 @@ window.CRYPTIC_PUZZLES["indysunday-1837"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Upsilon and psi reversed in guessing game (1-3)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {
     "-": [
      1
@@ -532,9 +448,6 @@ window.CRYPTIC_PUZZLES["indysunday-1837"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Checked others showered (10)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "RESTRAINED",
    "annotation": null

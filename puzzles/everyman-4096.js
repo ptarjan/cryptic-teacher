@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4096"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "With choppers battle-ready? (5,2,3,5)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      5,
@@ -68,9 +65,6 @@ window.CRYPTIC_PUZZLES["everyman-4096"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "A cow’s audible ‘Goodbye’ (5)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "ALOHA",
    "annotation": {
@@ -105,9 +99,6 @@ window.CRYPTIC_PUZZLES["everyman-4096"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Offer ring to one who’s not intended? (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "MISDIAL",
    "annotation": {
@@ -139,9 +130,6 @@ window.CRYPTIC_PUZZLES["everyman-4096"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Spot Mark and point … (3,3,3)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -193,9 +181,6 @@ window.CRYPTIC_PUZZLES["everyman-4096"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Poo-poos a kabuki’s characters in Japanese port (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "OSAKA",
    "annotation": {
@@ -229,9 +214,6 @@ window.CRYPTIC_PUZZLES["everyman-4096"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Spooner’s advice to Great Expectations lad considering using pawnbroker where money may be found (3,6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -286,9 +268,6 @@ window.CRYPTIC_PUZZLES["everyman-4096"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Judgment in hearing’s parallel (5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "TASTE",
    "annotation": {
@@ -326,9 +305,6 @@ window.CRYPTIC_PUZZLES["everyman-4096"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Everyman practises hygiene, you say? Baloney! (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "EYEWASH",
    "annotation": {
@@ -372,9 +348,6 @@ window.CRYPTIC_PUZZLES["everyman-4096"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "In this place, heartless simple tune that’s passed down (8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "HEREDITY",
    "annotation": {
@@ -417,9 +390,6 @@ window.CRYPTIC_PUZZLES["everyman-4096"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Excellent: Miss ‘d’Urberville’ and love to return, finding border region (7)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "OSSETIA",
    "annotation": {
@@ -477,9 +447,6 @@ window.CRYPTIC_PUZZLES["everyman-4096"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Mouldy Frenchman tears up when cleaned up (7)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "PASTEUR",
    "annotation": {
@@ -516,9 +483,6 @@ window.CRYPTIC_PUZZLES["everyman-4096"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Is the writer to be sold, my friend? (5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "AMIGO",
    "annotation": {
@@ -562,9 +526,6 @@ window.CRYPTIC_PUZZLES["everyman-4096"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Poorly raised oaf, as previously discussed (9)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "AFORESAID",
    "annotation": {
@@ -601,9 +562,6 @@ window.CRYPTIC_PUZZLES["everyman-4096"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Evil doctor to tattoo most of infants? Covering bottoms up (3,5,2,4)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -670,9 +628,6 @@ window.CRYPTIC_PUZZLES["everyman-4096"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Pests playing sitar – with tin whistler at the end (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "IRRITANTS",
    "annotation": {
@@ -724,9 +679,6 @@ window.CRYPTIC_PUZZLES["everyman-4096"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Calm rests for hospital staff (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "ORDERLIES",
    "annotation": {
@@ -767,9 +719,6 @@ window.CRYPTIC_PUZZLES["everyman-4096"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "One shooting around outstripped hare, backing over – primarily, this one’s charged to protect (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "GUARDIAN",
    "annotation": {
@@ -829,9 +778,6 @@ window.CRYPTIC_PUZZLES["everyman-4096"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "With endless fury, aunt tasted a dodgy, unhealthy ingredient (11,3)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {
     ",": [
      11
@@ -879,9 +825,6 @@ window.CRYPTIC_PUZZLES["everyman-4096"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Source of warmth, lad’s pronounced grin (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "SUNBEAM",
    "annotation": {
@@ -925,9 +868,6 @@ window.CRYPTIC_PUZZLES["everyman-4096"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Opposing bulk of US territory, Caribbean island (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "ANTIGUA",
    "annotation": {
@@ -970,9 +910,6 @@ window.CRYPTIC_PUZZLES["everyman-4096"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Fixer-up ran over to stable? No (9)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "RENOVATOR",
    "annotation": {
@@ -1009,9 +946,6 @@ window.CRYPTIC_PUZZLES["everyman-4096"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "What may you get from chavs, ignobly? (1-4)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {
     "-": [
      1
@@ -1045,9 +979,6 @@ window.CRYPTIC_PUZZLES["everyman-4096"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "New England gentleman getting up, out of bed (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "RISEN",
    "annotation": {
@@ -1096,9 +1027,6 @@ window.CRYPTIC_PUZZLES["everyman-4096"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Principally relative association that indicates odds? (5)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "RATIO",
    "annotation": {
@@ -1140,9 +1068,6 @@ window.CRYPTIC_PUZZLES["everyman-4096"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Cockney mob loudly rowed (5)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "OARED",
    "annotation": {
@@ -1184,9 +1109,6 @@ window.CRYPTIC_PUZZLES["everyman-4096"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Spanish maybe brainier – almost devious (7)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "IBERIAN",
    "annotation": {
@@ -1225,9 +1147,6 @@ window.CRYPTIC_PUZZLES["everyman-4096"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Acrobat, one who in 60s was iconic (7)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "SWINGER",
    "annotation": {
@@ -1262,9 +1181,6 @@ window.CRYPTIC_PUZZLES["everyman-4096"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Is Douglas on a peninsula … ? (2,3,2,2,6)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     ",": [
      2,

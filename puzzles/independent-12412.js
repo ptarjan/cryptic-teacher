@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12412"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Draw an area of land in hearing (7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "ATTRACT",
    "annotation": {
@@ -62,9 +59,6 @@ window.CRYPTIC_PUZZLES["independent-12412"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Dye source in Manila envelope discarded (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "ANIL",
    "annotation": {
@@ -100,9 +94,6 @@ window.CRYPTIC_PUZZLES["independent-12412"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Extremists in Tory pressure group get ready to print (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "TYPESET",
    "annotation": {
@@ -151,9 +142,6 @@ window.CRYPTIC_PUZZLES["independent-12412"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "The author will read out loud a passage (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "AISLE",
    "annotation": {
@@ -188,9 +176,6 @@ window.CRYPTIC_PUZZLES["independent-12412"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Potentially injurious plants she tilts alarmingly (8)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "THISTLES",
    "annotation": {
@@ -227,9 +212,6 @@ window.CRYPTIC_PUZZLES["independent-12412"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Fellow gets drink for each girl in 20s (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "FLAPPER",
    "annotation": {
@@ -276,9 +258,6 @@ window.CRYPTIC_PUZZLES["independent-12412"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Spooner's marshland enemy, that shines faintly in mist (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "FOGBOW",
    "annotation": {
@@ -323,9 +302,6 @@ window.CRYPTIC_PUZZLES["independent-12412"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Getting down after trimming gas street lamps, possibly (9)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "ALIGHTING",
    "annotation": {
@@ -370,9 +346,6 @@ window.CRYPTIC_PUZZLES["independent-12412"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Re-order punnet containing single salad item (4,3)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -420,9 +393,6 @@ window.CRYPTIC_PUZZLES["independent-12412"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "About to suppress rising chaos in island and put things back together (10)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "REASSEMBLE",
    "annotation": {
@@ -486,9 +456,6 @@ window.CRYPTIC_PUZZLES["independent-12412"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Carol touring Spain first, incidentally (2,7)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -543,9 +510,6 @@ window.CRYPTIC_PUZZLES["independent-12412"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Roman couple stopping close to a classical region (5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "IONIA",
    "annotation": {
@@ -595,9 +559,6 @@ window.CRYPTIC_PUZZLES["independent-12412"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Teen songs with incoherent, lovey-dovey words (5,8)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -638,9 +599,6 @@ window.CRYPTIC_PUZZLES["independent-12412"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Mixes up seasonal posts - openings go begging (10)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {},
    "solution": "INTERLACES",
    "annotation": {
@@ -683,9 +641,6 @@ window.CRYPTIC_PUZZLES["independent-12412"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Schedules denial to be put before VIPs (8)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "NOTABLES",
    "annotation": {
@@ -728,9 +683,6 @@ window.CRYPTIC_PUZZLES["independent-12412"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Berated retired surgical pioneer? (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "BLISTERED",
    "annotation": {
@@ -774,9 +726,6 @@ window.CRYPTIC_PUZZLES["independent-12412"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Formal pronouncement by police, turning on corporation (6)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "DICTUM",
    "annotation": {
@@ -829,9 +778,6 @@ window.CRYPTIC_PUZZLES["independent-12412"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Canned drinks in Perth? Tango's most cheap (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "TINNIEST",
    "annotation": {
@@ -872,9 +818,6 @@ window.CRYPTIC_PUZZLES["independent-12412"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Shutter of Leica only opening to one diameter? Yes, as reported initially (6)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "EYELID",
    "annotation": {
@@ -928,9 +871,6 @@ window.CRYPTIC_PUZZLES["independent-12412"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "French maid turns up - the French turn to peer? (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "ENNOBLE",
    "annotation": {
@@ -979,9 +919,6 @@ window.CRYPTIC_PUZZLES["independent-12412"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Close-knit criminals, perhaps, Force can part (4-4)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -1028,9 +965,6 @@ window.CRYPTIC_PUZZLES["independent-12412"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Discover caribou near the hides (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "UNEARTH",
    "annotation": {
@@ -1064,9 +998,6 @@ window.CRYPTIC_PUZZLES["independent-12412"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Victoria wasn't thought to follow Albert's lead (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "AMUSED",
    "annotation": {
@@ -1111,9 +1042,6 @@ window.CRYPTIC_PUZZLES["independent-12412"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "On meeting old Les: 'Fantastic - we haven't met in yonks' (4,4,2,3)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -1166,9 +1094,6 @@ window.CRYPTIC_PUZZLES["independent-12412"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Boosted range of remote orbiter (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "SEDNA",
    "annotation": {
@@ -1214,9 +1139,6 @@ window.CRYPTIC_PUZZLES["independent-12412"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Football stand filled with soft music (1-3)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {
     "-": [
      1
@@ -1264,9 +1186,6 @@ window.CRYPTIC_PUZZLES["independent-12412"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Pole dancing bare at clubs (5)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "CABER",
    "annotation": {
@@ -1311,9 +1230,6 @@ window.CRYPTIC_PUZZLES["independent-12412"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "What lies in wait for those over 30, sometimes? (5,4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -1352,9 +1268,6 @@ window.CRYPTIC_PUZZLES["independent-12412"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Travelled down in snow in silver Dodge periodically used by Penny (7)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "SLEDDED",
    "annotation": {
@@ -1400,9 +1313,6 @@ window.CRYPTIC_PUZZLES["independent-12412"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Dance with short guy in genteel establishment (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "TEASHOP",
    "annotation": {

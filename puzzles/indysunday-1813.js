@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1813"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Literally resign as number one (6-2-7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     "-": [
      6,
@@ -53,9 +50,6 @@ window.CRYPTIC_PUZZLES["indysunday-1813"] = /*JSON-START*/ {
      3
     ]
    ],
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      5,
@@ -75,9 +69,6 @@ window.CRYPTIC_PUZZLES["indysunday-1813"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Gas company in charge of heat (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "CALORIC",
    "annotation": null
@@ -92,9 +83,6 @@ window.CRYPTIC_PUZZLES["indysunday-1813"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Born and raised in Greenwich (3)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "NEE",
    "annotation": null
@@ -109,9 +97,6 @@ window.CRYPTIC_PUZZLES["indysunday-1813"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Senses petitioner's rant is ill-made (15)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "INTERPRETATIONS",
    "annotation": null
@@ -126,9 +111,6 @@ window.CRYPTIC_PUZZLES["indysunday-1813"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Guy's stress when Jacob's son acts for new media outlet (5,10)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -147,9 +129,6 @@ window.CRYPTIC_PUZZLES["indysunday-1813"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Generous national publication's first intention to embrace love (11)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "MAGNANIMOUS",
    "annotation": null
@@ -164,9 +143,6 @@ window.CRYPTIC_PUZZLES["indysunday-1813"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "When insurer originally insured weapon (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "ASSAGAI",
    "annotation": null
@@ -181,9 +157,6 @@ window.CRYPTIC_PUZZLES["indysunday-1813"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Don's tackling tries in team practices (5,10)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -202,9 +175,6 @@ window.CRYPTIC_PUZZLES["indysunday-1813"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Complaint with food soldiers returned (7)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "AILMENT",
    "annotation": null
@@ -219,9 +189,6 @@ window.CRYPTIC_PUZZLES["indysunday-1813"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Refuse to get benefit cut (7)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "BAGASSE",
    "annotation": null
@@ -236,9 +203,6 @@ window.CRYPTIC_PUZZLES["indysunday-1813"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Tax officer goes round church without leading chaplain (9)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "SURCHARGE",
    "annotation": null
@@ -253,9 +217,6 @@ window.CRYPTIC_PUZZLES["indysunday-1813"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Claret flows from this (11)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {},
    "solution": "HAEMORRHAGE",
    "annotation": null
@@ -270,9 +231,6 @@ window.CRYPTIC_PUZZLES["indysunday-1813"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Giant ship docked by you and me (5)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "ARGUS",
    "annotation": null
@@ -287,9 +245,6 @@ window.CRYPTIC_PUZZLES["indysunday-1813"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Might this provide relief from piles?! (7,8)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -308,9 +263,6 @@ window.CRYPTIC_PUZZLES["indysunday-1813"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "It may cause you to swallow your words (4,2,3,6)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -331,9 +283,6 @@ window.CRYPTIC_PUZZLES["indysunday-1813"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Island accordingly accommodates motorway in narrow strip of land (7)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "ISTHMUS",
    "annotation": null
@@ -348,9 +297,6 @@ window.CRYPTIC_PUZZLES["indysunday-1813"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Graphical user interface on sailor's instruments (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "GUITARS",
    "annotation": null
@@ -365,9 +311,6 @@ window.CRYPTIC_PUZZLES["indysunday-1813"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Heard Greek character briefly rushed to make revolutionary device (5)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "ROTOR",
    "annotation": null
@@ -382,9 +325,6 @@ window.CRYPTIC_PUZZLES["indysunday-1813"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Keener row about modern artist (9)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "THIRSTIER",
    "annotation": null
@@ -399,9 +339,6 @@ window.CRYPTIC_PUZZLES["indysunday-1813"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Ritual refusal to swallow a fish (7)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "POMPANO",
    "annotation": null
@@ -416,9 +353,6 @@ window.CRYPTIC_PUZZLES["indysunday-1813"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Some like banal form of art (7)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "IKEBANA",
    "annotation": null
@@ -433,9 +367,6 @@ window.CRYPTIC_PUZZLES["indysunday-1813"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Mack maybe comes back for fish (3)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "EEL",
    "annotation": null
@@ -450,9 +381,6 @@ window.CRYPTIC_PUZZLES["indysunday-1813"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Discontented spy stops meeting shrinks and other experts (7,8)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {
     ",": [
      7

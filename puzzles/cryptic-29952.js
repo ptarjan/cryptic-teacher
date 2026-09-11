@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29952"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "That’s all on Feds busting politician (3,2,5)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -47,9 +44,6 @@ window.CRYPTIC_PUZZLES["cryptic-29952"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Food waste at several stores (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "EATS",
    "annotation": null
@@ -64,9 +58,6 @@ window.CRYPTIC_PUZZLES["cryptic-29952"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Flat flatfish: that’s about right (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "DRAB",
    "annotation": null
@@ -81,9 +72,6 @@ window.CRYPTIC_PUZZLES["cryptic-29952"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Delicate creatures tomorrow and for another week, according to one’s horoscope? (12)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "FRITILLARIES",
    "annotation": null
@@ -98,9 +86,6 @@ window.CRYPTIC_PUZZLES["cryptic-29952"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "17 21 brief, 17 21 to 21? (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "THONG",
    "annotation": null
@@ -115,9 +100,6 @@ window.CRYPTIC_PUZZLES["cryptic-29952"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "People staying at home, and stumbling, hopeful steps taken before a fall? (4,5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -136,9 +118,6 @@ window.CRYPTIC_PUZZLES["cryptic-29952"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Swinging both ways in the guise of intolerance (4)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "BIAS",
    "annotation": null
@@ -153,9 +132,6 @@ window.CRYPTIC_PUZZLES["cryptic-29952"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Short, and a quite misshapen nose, ultimately (10)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "INADEQUATE",
    "annotation": null
@@ -170,9 +146,6 @@ window.CRYPTIC_PUZZLES["cryptic-29952"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Unctuous windbag, potential killer? (6-4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     "-": [
      6
@@ -191,9 +164,6 @@ window.CRYPTIC_PUZZLES["cryptic-29952"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Seriously funny minute where head blown off in which Groucho’s prop backfires? (10)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "TRAGICOMIC",
    "annotation": null
@@ -208,9 +178,6 @@ window.CRYPTIC_PUZZLES["cryptic-29952"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Equerry’s rump plastered in red sauce (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "MAYO",
    "annotation": null
@@ -225,9 +192,6 @@ window.CRYPTIC_PUZZLES["cryptic-29952"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Show agony and sign the forms (8,4)",
-   "group": [
-    "11-down"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -246,9 +210,6 @@ window.CRYPTIC_PUZZLES["cryptic-29952"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Fly, say, in starter of soup etc, dining we found funny? (6,6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -267,9 +228,6 @@ window.CRYPTIC_PUZZLES["cryptic-29952"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Heart palpitating over wife in bedroom, tickler of infant’s bottom? (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "THREADWORM",
    "annotation": null
@@ -284,9 +242,6 @@ window.CRYPTIC_PUZZLES["cryptic-29952"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Back stabbed by company in African country – warmer in Asia? (6,4)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -305,9 +260,6 @@ window.CRYPTIC_PUZZLES["cryptic-29952"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Pompous, more than is usual at an airport, did you say? (9)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "HIFALUTIN",
    "annotation": null
@@ -322,9 +274,6 @@ window.CRYPTIC_PUZZLES["cryptic-29952"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "A packet with something sticky, work on sweetie that’s wrapped up (3,6)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -343,9 +292,6 @@ window.CRYPTIC_PUZZLES["cryptic-29952"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Hitch where consumption disturbed by whiff (5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "THUMB",
    "annotation": null
@@ -360,9 +306,6 @@ window.CRYPTIC_PUZZLES["cryptic-29952"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "III wrong? Alternatively, I or II divided by the number (5)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "ETHER",
    "annotation": null
@@ -377,9 +320,6 @@ window.CRYPTIC_PUZZLES["cryptic-29952"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Colour in image on rock for sign (9)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "PREDICTOR",
    "annotation": null
@@ -394,9 +334,6 @@ window.CRYPTIC_PUZZLES["cryptic-29952"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Some Sandinista, get role in a dictatorship after revolution – would I? (6,6)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -415,9 +352,6 @@ window.CRYPTIC_PUZZLES["cryptic-29952"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Aversion to heights is never good where always at the summit? (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "THING",
    "annotation": null
@@ -432,9 +366,6 @@ window.CRYPTIC_PUZZLES["cryptic-29952"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Sky, might you have said? Oddly it’s blue! (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "ISLE",
    "annotation": null
@@ -449,9 +380,6 @@ window.CRYPTIC_PUZZLES["cryptic-29952"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Particular Turner turned up? (4)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "ANAL",
    "annotation": null
@@ -466,9 +394,6 @@ window.CRYPTIC_PUZZLES["cryptic-29952"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Member of the orchestra I understand, violin player picked up? (4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "OBOE",
    "annotation": null
@@ -483,9 +408,6 @@ window.CRYPTIC_PUZZLES["cryptic-29952"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Queasy one, relative gulping oxygen is in a state (10)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "ILLINOISAN",
    "annotation": null
@@ -500,9 +422,6 @@ window.CRYPTIC_PUZZLES["cryptic-29952"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Spot channel on the radio? (4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "MOTE",
    "annotation": null
@@ -517,9 +436,6 @@ window.CRYPTIC_PUZZLES["cryptic-29952"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Victorian author set to field question left after fumbles overheard? (3,7)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     ",": [
      3

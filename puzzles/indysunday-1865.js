@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1865"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Monsieur enters to have a little soup (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "CONSOMME",
    "annotation": {
@@ -77,9 +74,6 @@ window.CRYPTIC_PUZZLES["indysunday-1865"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Bit of wind taking the wings off two Boeings (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "OBOE",
    "annotation": {
@@ -113,9 +107,6 @@ window.CRYPTIC_PUZZLES["indysunday-1865"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Son worked on boat up the creek (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "SCREWED",
    "annotation": {
@@ -152,9 +143,6 @@ window.CRYPTIC_PUZZLES["indysunday-1865"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Rug on top for Spooner? Surely not (2,3)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -207,9 +195,6 @@ window.CRYPTIC_PUZZLES["indysunday-1865"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Shortened horsy draught animal's 12 hour day (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "EQUINOX",
    "annotation": {
@@ -260,9 +245,6 @@ window.CRYPTIC_PUZZLES["indysunday-1865"] = /*JSON-START*/ {
      13,
      5
     ]
-   ],
-   "group": [
-    "6-across"
    ],
    "separatorLocations": {},
    "solution": "DIGEST",
@@ -318,9 +300,6 @@ window.CRYPTIC_PUZZLES["indysunday-1865"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Scoffing expert finally said \"That is an old master\" (9)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "DIETITIAN",
    "annotation": {
@@ -369,9 +348,6 @@ window.CRYPTIC_PUZZLES["indysunday-1865"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Burning light alarmingly close in space (3,4)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -419,9 +395,6 @@ window.CRYPTIC_PUZZLES["indysunday-1865"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Acting independently troubled Nelson a tad (5-5)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -462,9 +435,6 @@ window.CRYPTIC_PUZZLES["indysunday-1865"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Trying venue where race might be held that accommodates 1,000 (10)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "COURTHOUSE",
    "annotation": {
@@ -508,9 +478,6 @@ window.CRYPTIC_PUZZLES["indysunday-1865"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Anorak's over fleece (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "SCAM",
    "annotation": {
@@ -553,9 +520,6 @@ window.CRYPTIC_PUZZLES["indysunday-1865"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Wii boxing in back of tavern in Thailand, drunken comedy (8,3,1)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      8,
@@ -615,9 +579,6 @@ window.CRYPTIC_PUZZLES["indysunday-1865"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Get rid of husband, but shag single comedian first (2,4,4)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -677,9 +638,6 @@ window.CRYPTIC_PUZZLES["indysunday-1865"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Sponge without water perhaps upsetting Mary, die on cross (5-3)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -731,9 +689,6 @@ window.CRYPTIC_PUZZLES["indysunday-1865"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "You must cut extremely long hair (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "MOUSTACHE",
    "annotation": {
@@ -783,9 +738,6 @@ window.CRYPTIC_PUZZLES["indysunday-1865"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Stick one's china back on mantelpiece (6)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "IMPALE",
    "annotation": {
@@ -834,9 +786,6 @@ window.CRYPTIC_PUZZLES["indysunday-1865"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Japanese island ducks largely avoid (6)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "HONSHU",
    "annotation": {
@@ -879,9 +828,6 @@ window.CRYPTIC_PUZZLES["indysunday-1865"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Shoe reeks, case of aeration failing? (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "SNEAKER",
    "annotation": {
@@ -925,9 +871,6 @@ window.CRYPTIC_PUZZLES["indysunday-1865"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Accurately position leg and off-side fielder (8)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "PINPOINT",
    "annotation": {
@@ -964,9 +907,6 @@ window.CRYPTIC_PUZZLES["indysunday-1865"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Half retire in style earlier than expected (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "PRETERM",
    "annotation": {
@@ -1012,9 +952,6 @@ window.CRYPTIC_PUZZLES["indysunday-1865"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "How to serve cheese and beans? Not with head inside oven (2,5)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -1068,9 +1005,6 @@ window.CRYPTIC_PUZZLES["indysunday-1865"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Old record tied yet broken in prospect (7-5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     "-": [
      7
@@ -1132,9 +1066,6 @@ window.CRYPTIC_PUZZLES["indysunday-1865"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Put precious coat on to cover uniform for society (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "GUILD",
    "annotation": {
@@ -1181,9 +1112,6 @@ window.CRYPTIC_PUZZLES["indysunday-1865"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Slow mover missing the last scheduled time (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "SLOT",
    "annotation": {
@@ -1220,9 +1148,6 @@ window.CRYPTIC_PUZZLES["indysunday-1865"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Beat little pest that won't let go (4)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "TICK",
    "annotation": {
@@ -1256,9 +1181,6 @@ window.CRYPTIC_PUZZLES["indysunday-1865"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Decent plastic ID bracelet (10)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "CREDITABLE",
    "annotation": {
@@ -1295,9 +1217,6 @@ window.CRYPTIC_PUZZLES["indysunday-1865"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Bill right to replace note in coins (6)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "CHARGE",
    "annotation": {
@@ -1346,9 +1265,6 @@ window.CRYPTIC_PUZZLES["indysunday-1865"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Consider change to clue, perhaps Mike worried about it? (8)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "MEDITATE",
    "annotation": {

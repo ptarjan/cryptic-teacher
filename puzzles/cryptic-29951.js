@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29951"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Like something flapping – say, insect going round (8)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "FLUTTERY",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["cryptic-29951"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Disciple upset before he had had some loaves and fishes? (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "NOSHED",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["cryptic-29951"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Sore member of the family hiding under something warm (8)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "FURUNCLE",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["cryptic-29951"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Jazz fan turned up with old mum in American city (6)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "TACOMA",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["cryptic-29951"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Crude guy also accompanying prisoner on return (6)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "GALOOT",
    "annotation": null
@@ -110,9 +95,6 @@ window.CRYPTIC_PUZZLES["cryptic-29951"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Intelligent leader – kind inside (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "GENTLE",
    "annotation": null
@@ -127,9 +109,6 @@ window.CRYPTIC_PUZZLES["cryptic-29951"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Greek character with blemish, not one monstrous type? (6)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "MUTANT",
    "annotation": null
@@ -144,9 +123,6 @@ window.CRYPTIC_PUZZLES["cryptic-29951"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Union less troubled or fighting? (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "TUSSLE",
    "annotation": null
@@ -161,9 +137,6 @@ window.CRYPTIC_PUZZLES["cryptic-29951"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Requirement to do well in heat? This climate is awful (11)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "ATHLETICISM",
    "annotation": null
@@ -178,9 +151,6 @@ window.CRYPTIC_PUZZLES["cryptic-29951"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Steal money going round in school (6)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "SNITCH",
    "annotation": null
@@ -195,9 +165,6 @@ window.CRYPTIC_PUZZLES["cryptic-29951"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "‘Ladies and Gentlemen’ perhaps heard in French city (8)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "TOULOUSE",
    "annotation": null
@@ -234,9 +201,6 @@ window.CRYPTIC_PUZZLES["cryptic-29951"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Delicious cold food served after sign to remove something (10)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "DELECTABLE",
    "annotation": null
@@ -251,9 +215,6 @@ window.CRYPTIC_PUZZLES["cryptic-29951"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "I tap my chest, animatedly commiserating (11)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "SYMPATHETIC",
    "annotation": null
@@ -268,9 +229,6 @@ window.CRYPTIC_PUZZLES["cryptic-29951"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "I spit egg out, being most disgusting at the meal? (8)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "PIGGIEST",
    "annotation": null
@@ -285,9 +243,6 @@ window.CRYPTIC_PUZZLES["cryptic-29951"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Damages home fitting panels below (8)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "INJURIES",
    "annotation": null
@@ -302,9 +257,6 @@ window.CRYPTIC_PUZZLES["cryptic-29951"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Got to the top – said to be so offended (6)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "PIQUED",
    "annotation": null
@@ -319,9 +271,6 @@ window.CRYPTIC_PUZZLES["cryptic-29951"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Top of country house that’s horrible for bird (6)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "CHOUGH",
    "annotation": null
@@ -336,9 +285,6 @@ window.CRYPTIC_PUZZLES["cryptic-29951"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Minister transporting a gent around in old vehicle (7,3)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -357,9 +303,6 @@ window.CRYPTIC_PUZZLES["cryptic-29951"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Be a swinger at the club, stripped to the waist? (3,3)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -378,9 +321,6 @@ window.CRYPTIC_PUZZLES["cryptic-29951"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Musician and artist married overlooking water abroad (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "RAMEAU",
    "annotation": null
@@ -457,9 +397,6 @@ window.CRYPTIC_PUZZLES["cryptic-29951"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Brill employment brings ease (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "DEFUSE",
    "annotation": null
@@ -474,9 +411,6 @@ window.CRYPTIC_PUZZLES["cryptic-29951"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "He sang about an Indian god (6)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "GANESH",
    "annotation": null

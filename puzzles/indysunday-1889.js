@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1889"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Mother and doctor of many years bloom (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "MARIGOLD",
    "annotation": {
@@ -73,9 +70,6 @@ window.CRYPTIC_PUZZLES["indysunday-1889"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Down second flipping hot drink (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "MOPISH",
    "annotation": {
@@ -129,9 +123,6 @@ window.CRYPTIC_PUZZLES["indysunday-1889"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Enthusiastic clique supporting Gunners (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "RARING",
    "annotation": {
@@ -174,9 +165,6 @@ window.CRYPTIC_PUZZLES["indysunday-1889"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Old king hides unexpected death of spiritual mentor (9)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "GODFATHER",
    "annotation": {
@@ -225,9 +213,6 @@ window.CRYPTIC_PUZZLES["indysunday-1889"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Conductor reducing weight of baton, saving energy (9,3)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      9
@@ -279,9 +264,6 @@ window.CRYPTIC_PUZZLES["indysunday-1889"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Extreme mutt's barking outside back of Tesco (6)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "UTMOST",
    "annotation": {
@@ -327,9 +309,6 @@ window.CRYPTIC_PUZZLES["indysunday-1889"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Feel OK, when nothing is fine (5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "THINK",
    "annotation": {
@@ -372,9 +351,6 @@ window.CRYPTIC_PUZZLES["indysunday-1889"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Check right after crossing (4-4)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -415,9 +391,6 @@ window.CRYPTIC_PUZZLES["indysunday-1889"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Naturally good books accepted by story editor (8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "TALENTED",
    "annotation": {
@@ -466,9 +439,6 @@ window.CRYPTIC_PUZZLES["indysunday-1889"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Yearly grub in batter for model (8)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "PARADIGM",
    "annotation": {
@@ -521,9 +491,6 @@ window.CRYPTIC_PUZZLES["indysunday-1889"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Dealing with revenue approximately on island in Florida (6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "FISCAL",
    "annotation": {
@@ -575,9 +542,6 @@ window.CRYPTIC_PUZZLES["indysunday-1889"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Piano maker half polishes piano, preferring one side (12)",
-   "group": [
-    "11-down"
-   ],
    "separatorLocations": {},
    "solution": "PARTISANSHIP",
    "annotation": {
@@ -632,9 +596,6 @@ window.CRYPTIC_PUZZLES["indysunday-1889"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Princess first in salon, back for quick Brazilian (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "SENNA",
    "annotation": {
@@ -688,9 +649,6 @@ window.CRYPTIC_PUZZLES["indysunday-1889"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Find curtain rail on the floor (5,4)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -731,9 +689,6 @@ window.CRYPTIC_PUZZLES["indysunday-1889"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Shifting last of crops, harvest mice stocking up then? (9,3)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      9
@@ -782,9 +737,6 @@ window.CRYPTIC_PUZZLES["indysunday-1889"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Archer quickly comprehends flight technology (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "AEROSPACE",
    "annotation": {
@@ -828,9 +780,6 @@ window.CRYPTIC_PUZZLES["indysunday-1889"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Returned to power, Labour's leader admitted requirement to fix potholes (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "BLACKTOP",
    "annotation": {
@@ -880,9 +829,6 @@ window.CRYPTIC_PUZZLES["indysunday-1889"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Close friend cheers up, parting eventually (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "INTIMATE",
    "annotation": {
@@ -934,9 +880,6 @@ window.CRYPTIC_PUZZLES["indysunday-1889"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Record holder with most titles? (4,8)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -971,9 +914,6 @@ window.CRYPTIC_PUZZLES["indysunday-1889"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Announce that woman's hairless except head (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "HERALD",
    "annotation": {
@@ -1021,9 +961,6 @@ window.CRYPTIC_PUZZLES["indysunday-1889"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Monsieur's ready with a kiss - potentially gross? (3-3)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -1073,9 +1010,6 @@ window.CRYPTIC_PUZZLES["indysunday-1889"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Bristly feature next to private dining area? (9)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "CHINATOWN",
    "annotation": {
@@ -1118,9 +1052,6 @@ window.CRYPTIC_PUZZLES["indysunday-1889"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "A little cyclist pedalled around showing proficiency (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "ADEPT",
    "annotation": {
@@ -1156,9 +1087,6 @@ window.CRYPTIC_PUZZLES["indysunday-1889"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Pipe down keel's centre runs straight down (5)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "SHEER",
    "annotation": {
@@ -1207,9 +1135,6 @@ window.CRYPTIC_PUZZLES["indysunday-1889"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Extent of movement beginning to trouble composer (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "TRAVEL",
    "annotation": {
@@ -1252,9 +1177,6 @@ window.CRYPTIC_PUZZLES["indysunday-1889"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Long trousers affected Ashe's game (8)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "PHEASANT",
    "annotation": {
@@ -1307,9 +1229,6 @@ window.CRYPTIC_PUZZLES["indysunday-1889"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Nice to see motorbike race in quarry (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "PRETTY",
    "annotation": {
@@ -1356,9 +1275,6 @@ window.CRYPTIC_PUZZLES["indysunday-1889"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "A writer Richard's mentioned added pages (8)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "APPENDIX",
    "annotation": {

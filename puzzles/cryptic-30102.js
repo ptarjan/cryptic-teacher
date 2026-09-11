@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30102"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Imposing women arrange bets (8)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "DOWAGERS",
    "annotation": {
@@ -64,9 +61,6 @@ window.CRYPTIC_PUZZLES["cryptic-30102"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Particular canine abandoned by waterway (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "ANAL",
    "annotation": {
@@ -108,9 +102,6 @@ window.CRYPTIC_PUZZLES["cryptic-30102"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Car rentals regularly in competition (6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "BEETLE",
    "annotation": {
@@ -156,9 +147,6 @@ window.CRYPTIC_PUZZLES["cryptic-30102"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Derisive remark about my Picasso? (8)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "JEWELLER",
    "annotation": {
@@ -202,9 +190,6 @@ window.CRYPTIC_PUZZLES["cryptic-30102"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Fruit recipe stopping tennis ace going bananas (10)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "NECTARINES",
    "annotation": {
@@ -257,9 +242,6 @@ window.CRYPTIC_PUZZLES["cryptic-30102"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Top ambassador interrupting ball (6)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "BEHEAD",
    "annotation": {
@@ -303,9 +285,6 @@ window.CRYPTIC_PUZZLES["cryptic-30102"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Wrestler’s trick with bad acne (4,4)",
-   "group": [
-    "7-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -362,9 +341,6 @@ window.CRYPTIC_PUZZLES["cryptic-30102"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Means business (6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "AGENCY",
    "annotation": {
@@ -401,9 +377,6 @@ window.CRYPTIC_PUZZLES["cryptic-30102"] = /*JSON-START*/ {
      17,
      9
     ]
-   ],
-   "group": [
-    "9-across"
    ],
    "separatorLocations": {},
    "solution": "EYELET",
@@ -455,9 +428,6 @@ window.CRYPTIC_PUZZLES["cryptic-30102"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Sample from Lulu apparently repulsed my colleague (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "PAUL",
    "annotation": {
@@ -502,9 +472,6 @@ window.CRYPTIC_PUZZLES["cryptic-30102"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Musicians performing late in ancient city (3,7)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -560,9 +527,6 @@ window.CRYPTIC_PUZZLES["cryptic-30102"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Stuff clinging to the back of Pete Best? (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "GEORGE",
    "annotation": {
@@ -606,9 +570,6 @@ window.CRYPTIC_PUZZLES["cryptic-30102"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "One who may charge money around statue (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "RHINOCEROS",
    "annotation": {
@@ -651,9 +612,6 @@ window.CRYPTIC_PUZZLES["cryptic-30102"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Militant going into business with John Denver here (8)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "COLORADO",
    "annotation": {
@@ -703,9 +661,6 @@ window.CRYPTIC_PUZZLES["cryptic-30102"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Ducks once more coming back for rest (6)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "SPIDER",
    "annotation": {
@@ -751,9 +706,6 @@ window.CRYPTIC_PUZZLES["cryptic-30102"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "3 characters in hotel ate ridiculously (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "ELATERID",
    "annotation": {
@@ -787,9 +739,6 @@ window.CRYPTIC_PUZZLES["cryptic-30102"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "German band love Foreigner, but not in a nice way (6)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "GRINGO",
    "annotation": {
@@ -832,9 +781,6 @@ window.CRYPTIC_PUZZLES["cryptic-30102"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Islander’s fine home about to get washed out (8)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "OKINAWAN",
    "annotation": {
@@ -887,9 +833,6 @@ window.CRYPTIC_PUZZLES["cryptic-30102"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Blue Ivy Carter initially supports Beyonce’s latest nonsense (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "EROTIC",
    "annotation": {
@@ -942,9 +885,6 @@ window.CRYPTIC_PUZZLES["cryptic-30102"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Child cuddling cross monster (8)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "MINOTAUR",
    "annotation": {
@@ -988,9 +928,6 @@ window.CRYPTIC_PUZZLES["cryptic-30102"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Console gutted Modigliani over pictures (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "IMAGES",
    "annotation": {
@@ -1040,9 +977,6 @@ window.CRYPTIC_PUZZLES["cryptic-30102"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Every year songbirds going west over the hill (4,2)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -1095,9 +1029,6 @@ window.CRYPTIC_PUZZLES["cryptic-30102"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Long track in evergreen forest (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "PINERY",
    "annotation": {
@@ -1137,9 +1068,6 @@ window.CRYPTIC_PUZZLES["cryptic-30102"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Ground doesn’t vex a Manchester United manager (4,6)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -1180,9 +1108,6 @@ window.CRYPTIC_PUZZLES["cryptic-30102"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Put on endless party (4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "STAG",
    "annotation": {
@@ -1230,9 +1155,6 @@ window.CRYPTIC_PUZZLES["cryptic-30102"] = /*JSON-START*/ {
      7
     ]
    ],
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "SOIL",
    "annotation": {
@@ -1279,9 +1201,6 @@ window.CRYPTIC_PUZZLES["cryptic-30102"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Prime minister’s note opened by billionaire (6)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "MELONI",
    "annotation": {
@@ -1328,9 +1247,6 @@ window.CRYPTIC_PUZZLES["cryptic-30102"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Number 19 nailing 501 (8)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "CARDINAL",
    "annotation": {

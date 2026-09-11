@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12418"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Marsupial reproductive organ initially astounded taxonomists (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "WOMBAT",
    "annotation": {
@@ -71,9 +68,6 @@ window.CRYPTIC_PUZZLES["independent-12418"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Burmese boarding houses served up super roly-poly (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "OBESE",
    "annotation": {
@@ -109,9 +103,6 @@ window.CRYPTIC_PUZZLES["independent-12418"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Stupid Scandinavian spawned Spoonerism (5-4)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -160,9 +151,6 @@ window.CRYPTIC_PUZZLES["independent-12418"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Hunter S dismissed as gossip? (6)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "TALKER",
    "annotation": {
@@ -202,9 +190,6 @@ window.CRYPTIC_PUZZLES["independent-12418"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Troublemakers playing REM single endlessly (8)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "GREMLINS",
    "annotation": {
@@ -248,9 +233,6 @@ window.CRYPTIC_PUZZLES["independent-12418"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Enraged MAGA chants meet defending Democrat's victory statement (4,3,3,5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -314,9 +296,6 @@ window.CRYPTIC_PUZZLES["independent-12418"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Cries of former international comprehended by reticent people (8)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "EXCLAIMS",
    "annotation": {
@@ -367,9 +346,6 @@ window.CRYPTIC_PUZZLES["independent-12418"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Odd characters fleeing flood in Rye Valley (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "LOIRE",
    "annotation": {
@@ -406,9 +382,6 @@ window.CRYPTIC_PUZZLES["independent-12418"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Drunken bum slunk around Lima? Idiot! (9)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "NUMBSKULL",
    "annotation": {
@@ -463,9 +436,6 @@ window.CRYPTIC_PUZZLES["independent-12418"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Lament extremely bizarre rule about nursing institute (6)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "BEWAIL",
    "annotation": {
@@ -523,9 +493,6 @@ window.CRYPTIC_PUZZLES["independent-12418"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Chairman maintains church is centre of harmful masculinity (8)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "MACHISMO",
    "annotation": {
@@ -583,9 +550,6 @@ window.CRYPTIC_PUZZLES["independent-12418"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Turns nasty colour, repulsed by sulphur (8)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "MEANDERS",
    "annotation": {
@@ -640,9 +604,6 @@ window.CRYPTIC_PUZZLES["independent-12418"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Opposed state surveillance on vacation (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "AVERSE",
    "annotation": {
@@ -685,9 +646,6 @@ window.CRYPTIC_PUZZLES["independent-12418"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "District of Cadiz on escarpment (4)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "ZONE",
    "annotation": {
@@ -721,9 +679,6 @@ window.CRYPTIC_PUZZLES["independent-12418"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Deference award one kept in study overlooking empty countryside (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "OBEDIENCE",
    "annotation": {
@@ -781,9 +736,6 @@ window.CRYPTIC_PUZZLES["independent-12418"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Fearful rodent discovered on Southeast Asian island (8)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "TIMOROUS",
    "annotation": {
@@ -828,9 +780,6 @@ window.CRYPTIC_PUZZLES["independent-12418"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Drag one's feet following concerning shake-up (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "RESHUFFLE",
    "annotation": {
@@ -873,9 +822,6 @@ window.CRYPTIC_PUZZLES["independent-12418"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Pinch child squashing tiny insect (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "SMIDGEON",
    "annotation": {
@@ -919,9 +865,6 @@ window.CRYPTIC_PUZZLES["independent-12418"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Detective entertained by Melville's name for bucolic character (8)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "HERDSMAN",
    "annotation": {
@@ -968,9 +911,6 @@ window.CRYPTIC_PUZZLES["independent-12418"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Piece one played very softly in auditorium (4)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "SOLO",
    "annotation": {
@@ -1005,9 +945,6 @@ window.CRYPTIC_PUZZLES["independent-12418"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Seek over-the-counter drug when lacking in energy (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "ASPIRE",
    "annotation": {
@@ -1050,9 +987,6 @@ window.CRYPTIC_PUZZLES["independent-12418"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Funny bone with a large diameter (6)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "RIBALD",
    "annotation": {
@@ -1104,9 +1038,6 @@ window.CRYPTIC_PUZZLES["independent-12418"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "An epoch reflected in entertainment venue (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "ARENA",
    "annotation": {
@@ -1157,9 +1088,6 @@ window.CRYPTIC_PUZZLES["independent-12418"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Times desperately stifling question over inaccurate citation (8)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "MISQUOTE",
    "annotation": {
@@ -1223,9 +1151,6 @@ window.CRYPTIC_PUZZLES["independent-12418"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Seduce office worker close to retirement (5)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "TEMPT",
    "annotation": {
@@ -1268,9 +1193,6 @@ window.CRYPTIC_PUZZLES["independent-12418"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Entire broadcast about New Hampshire native (8)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "INHERENT",
    "annotation": {
@@ -1325,9 +1247,6 @@ window.CRYPTIC_PUZZLES["independent-12418"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Popular fellow beginning to appreciate setter's notoriety (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "INFAMY",
    "annotation": {
@@ -1382,9 +1301,6 @@ window.CRYPTIC_PUZZLES["independent-12418"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "A filling meal after essentially free promotional event (8)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "RELAUNCH",
    "annotation": {
@@ -1438,9 +1354,6 @@ window.CRYPTIC_PUZZLES["independent-12418"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Releases tip of willie caught in flies! (6)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "EJECTS",
    "annotation": {

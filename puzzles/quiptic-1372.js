@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1372"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "What leaves one exhibiting bare-faced cheek? (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "SHAVER",
    "annotation": {
@@ -59,9 +56,6 @@ window.CRYPTIC_PUZZLES["quiptic-1372"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Eminence of Queen possessed by Venus de Milo? (7)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "STATURE",
    "annotation": {
@@ -109,9 +103,6 @@ window.CRYPTIC_PUZZLES["quiptic-1372"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Helps offender since being impaled with stake (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "ABETS",
    "annotation": {
@@ -156,9 +147,6 @@ window.CRYPTIC_PUZZLES["quiptic-1372"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Raise tax in European shelter (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "ELEVATE",
    "annotation": {
@@ -209,9 +197,6 @@ window.CRYPTIC_PUZZLES["quiptic-1372"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Blunders made by bosses having run away (6)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "GAFFES",
    "annotation": {
@@ -257,9 +242,6 @@ window.CRYPTIC_PUZZLES["quiptic-1372"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Speak to a groom about daughter (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "ADDRESS",
    "annotation": {
@@ -309,9 +291,6 @@ window.CRYPTIC_PUZZLES["quiptic-1372"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "One used to keep up standards? (9)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "FLAGSTAFF",
    "annotation": {
@@ -343,9 +322,6 @@ window.CRYPTIC_PUZZLES["quiptic-1372"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Hide case of sleaze on Mediterranean island (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "SECRETE",
    "annotation": {
@@ -391,9 +367,6 @@ window.CRYPTIC_PUZZLES["quiptic-1372"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Mother embraces tense affair (6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "MATTER",
    "annotation": {
@@ -438,9 +411,6 @@ window.CRYPTIC_PUZZLES["quiptic-1372"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Summing-up after court battle (4,3,3,5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -478,9 +448,6 @@ window.CRYPTIC_PUZZLES["quiptic-1372"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Country, reportedly one that moves swiftly (6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "RUSSIA",
    "annotation": {
@@ -516,9 +483,6 @@ window.CRYPTIC_PUZZLES["quiptic-1372"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Seethe as Hesketh secures trophy (3,5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -557,9 +521,6 @@ window.CRYPTIC_PUZZLES["quiptic-1372"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "To be published again, most of papers are amended (8)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "REAPPEAR",
    "annotation": {
@@ -609,9 +570,6 @@ window.CRYPTIC_PUZZLES["quiptic-1372"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Toxic boy, devout externally, pinches ring (9)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "POISONOUS",
    "annotation": {
@@ -665,9 +623,6 @@ window.CRYPTIC_PUZZLES["quiptic-1372"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "River bird with wings of eagle (6)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "SWANEE",
    "annotation": {
@@ -714,9 +669,6 @@ window.CRYPTIC_PUZZLES["quiptic-1372"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Economical, refusing a rise (6)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "SPRING",
    "annotation": {
@@ -759,9 +711,6 @@ window.CRYPTIC_PUZZLES["quiptic-1372"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Tender academic intensely passionate? Not half (7)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "PROFFER",
    "annotation": {
@@ -805,9 +754,6 @@ window.CRYPTIC_PUZZLES["quiptic-1372"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Compound clues go astray (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "GLUCOSE",
    "annotation": {
@@ -850,9 +796,6 @@ window.CRYPTIC_PUZZLES["quiptic-1372"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Site of mining company with a large clock (8)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "COALFACE",
    "annotation": {
@@ -906,9 +849,6 @@ window.CRYPTIC_PUZZLES["quiptic-1372"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Announced vulgar race (6)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "COURSE",
    "annotation": {
@@ -944,9 +884,6 @@ window.CRYPTIC_PUZZLES["quiptic-1372"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Ancient social worker that is covering up question (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "ANTIQUE",
    "annotation": {
@@ -997,9 +934,6 @@ window.CRYPTIC_PUZZLES["quiptic-1372"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Rather brief form of shock? (4,3)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -1035,9 +969,6 @@ window.CRYPTIC_PUZZLES["quiptic-1372"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Hard old Scottish singer nets working capital (8)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "HONOLULU",
    "annotation": {
@@ -1093,9 +1024,6 @@ window.CRYPTIC_PUZZLES["quiptic-1372"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Bicycle stand emptied, partly (6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "TANDEM",
    "annotation": {
@@ -1130,9 +1058,6 @@ window.CRYPTIC_PUZZLES["quiptic-1372"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "The more of these you have, the more you want (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "NEEDS",
    "annotation": {
@@ -1164,9 +1089,6 @@ window.CRYPTIC_PUZZLES["quiptic-1372"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "From midday, series involving Charlie Petty? (2,2,11)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -1228,9 +1150,6 @@ window.CRYPTIC_PUZZLES["quiptic-1372"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "More reckless swine, to a tiny extent (6)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "RASHER",
    "annotation": {
@@ -1263,9 +1182,6 @@ window.CRYPTIC_PUZZLES["quiptic-1372"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Took effect outside editor’s living room? (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "BEDSIT",
    "annotation": {

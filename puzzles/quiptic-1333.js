@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1333"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Not abstract material (8)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "CONCRETE",
    "annotation": null
@@ -62,9 +59,6 @@ window.CRYPTIC_PUZZLES["quiptic-1333"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Cleaner, someone despondent keeping quiet (6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "MOPPER",
    "annotation": null
@@ -79,9 +73,6 @@ window.CRYPTIC_PUZZLES["quiptic-1333"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Disappointment making one deflated (3,4)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -100,9 +91,6 @@ window.CRYPTIC_PUZZLES["quiptic-1333"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Status of e.g. priest in trouble (8)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "PRESTIGE",
    "annotation": null
@@ -117,9 +105,6 @@ window.CRYPTIC_PUZZLES["quiptic-1333"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "A clan out to catch cunning one disregarding convention? (10)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "ANARCHICAL",
    "annotation": null
@@ -134,9 +119,6 @@ window.CRYPTIC_PUZZLES["quiptic-1333"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Soldiers, excellent, in danger (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "MENACE",
    "annotation": null
@@ -151,9 +133,6 @@ window.CRYPTIC_PUZZLES["quiptic-1333"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Sleepy mum in bed – very big, with little energy (8)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {},
    "solution": "COMATOSE",
    "annotation": null
@@ -168,9 +147,6 @@ window.CRYPTIC_PUZZLES["quiptic-1333"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Outdoor official showing wrath by river (6)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "RANGER",
    "annotation": null
@@ -207,9 +183,6 @@ window.CRYPTIC_PUZZLES["quiptic-1333"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Fantastic speed, fantastic train? One only moves at a few mph (10)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "PEDESTRIAN",
    "annotation": null
@@ -224,9 +197,6 @@ window.CRYPTIC_PUZZLES["quiptic-1333"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Problem with shifting Easter (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "TEASER",
    "annotation": null
@@ -241,9 +211,6 @@ window.CRYPTIC_PUZZLES["quiptic-1333"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Smashing person at crazy party to perform as vocalist outside (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "SHATTERING",
    "annotation": null
@@ -258,9 +225,6 @@ window.CRYPTIC_PUZZLES["quiptic-1333"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Number in course of day becoming burdened (8)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "WEIGHTED",
    "annotation": null
@@ -275,9 +239,6 @@ window.CRYPTIC_PUZZLES["quiptic-1333"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "False debater taken to task (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "BERATED",
    "annotation": null
@@ -292,9 +253,6 @@ window.CRYPTIC_PUZZLES["quiptic-1333"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Dirtier air there blown around (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "EARTHIER",
    "annotation": null
@@ -309,9 +267,6 @@ window.CRYPTIC_PUZZLES["quiptic-1333"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Bird gets something to eat by pile of hay? (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "PEACOCK",
    "annotation": null
@@ -326,9 +281,6 @@ window.CRYPTIC_PUZZLES["quiptic-1333"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Vehicles I love appearing in hit lists (8)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "CHARIOTS",
    "annotation": null
@@ -343,9 +295,6 @@ window.CRYPTIC_PUZZLES["quiptic-1333"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Changes in advertisements – only recently being introduced (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "ADJUSTS",
    "annotation": null
@@ -360,9 +309,6 @@ window.CRYPTIC_PUZZLES["quiptic-1333"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Old car of a certain hue with lots of indentations? (8)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "CRATERED",
    "annotation": null
@@ -377,9 +323,6 @@ window.CRYPTIC_PUZZLES["quiptic-1333"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Keep control, receiving thanks (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "RETAIN",
    "annotation": null
@@ -394,9 +337,6 @@ window.CRYPTIC_PUZZLES["quiptic-1333"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Some bunting always on display in Irish county (6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "GALWAY",
    "annotation": null
@@ -411,9 +351,6 @@ window.CRYPTIC_PUZZLES["quiptic-1333"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Author supporting ecological reform, from what we hear (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "GREENE",
    "annotation": null
@@ -428,9 +365,6 @@ window.CRYPTIC_PUZZLES["quiptic-1333"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Depot others use, otherwise containing nothing (10)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "STOREHOUSE",
    "annotation": null
@@ -487,9 +421,6 @@ window.CRYPTIC_PUZZLES["quiptic-1333"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Enthusiast hugging one by church, fellow anticipating ceremony there? (6)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "FIANCE",
    "annotation": null
@@ -504,9 +435,6 @@ window.CRYPTIC_PUZZLES["quiptic-1333"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Number coming to a place like Oxford must show perseverance (8)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "TENACITY",
    "annotation": null

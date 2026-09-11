@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Defeated criminal paid for 2 charges (10)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "CONFOUNDED",
    "annotation": {
@@ -77,9 +74,6 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "With a C but no L or E, Wordle could be CRUSH (5)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "CROWD",
    "annotation": {
@@ -126,9 +120,6 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "FA never fine time-wasting, ultimately (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "NOTHING",
    "annotation": {
@@ -177,9 +168,6 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Suffering upset stomach - fine wine can be like that (4)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "OAKY",
    "annotation": {
@@ -216,9 +204,6 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Ascending ladder, support youngster (8)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "NURSLING",
    "annotation": {
@@ -267,9 +252,6 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "US officer training is never over houses (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "ENSIGN",
    "annotation": {
@@ -305,9 +287,6 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Fifty fish nets reserved (4)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "COLD",
    "annotation": {
@@ -351,9 +330,6 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Huge public expressions of disappointment in speech (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "OUTSIZE",
    "annotation": {
@@ -397,9 +373,6 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Coot, gripped by rude urge, not behaving in line with convention (2,7)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -447,9 +420,6 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Faceless oafs backing industrial action, mostly in suburbs (9)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "OUTSKIRTS",
    "annotation": {
@@ -505,9 +475,6 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Lecher perched alongside westbound track (5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "SATYR",
    "annotation": {
@@ -559,9 +526,6 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Comedian who's missed bend cycling cracks chin? (4,4)",
-   "group": [
-    "10-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -611,9 +575,6 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Stage production of Aida short of an alto and soprano (4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "DAIS",
    "annotation": {
@@ -663,9 +624,6 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Jack Grealish's girl, maybe, supping wine in France, being patriotic (4-6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -719,9 +677,6 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Component of blood pressure behind false start in court (8)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "PLATELET",
    "annotation": {
@@ -765,9 +720,6 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Urge to bed emoji? (8)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "EGGPLANT",
    "annotation": {
@@ -808,9 +760,6 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Telephone call in space - somewhat elaborate (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "EMBELLISH",
    "annotation": {
@@ -857,9 +806,6 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Tell stories, for example about sovereign (5)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "LIEGE",
    "annotation": {
@@ -908,9 +854,6 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Batsman could face this serious injury (3,5)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -949,9 +892,6 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Suddenly mention glimpse of Lune going into Lancaster (5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "BLURT",
    "annotation": {
@@ -997,9 +937,6 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Obscure type of weapon Greek character brought round (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "UNCLEAR",
    "annotation": {
@@ -1048,9 +985,6 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Recent arrival discovered domes C Wren designed (8)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "NEWCOMER",
    "annotation": {
@@ -1094,9 +1028,6 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Lunchbox cover located by staff (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "MANHOOD",
    "annotation": {
@@ -1139,9 +1070,6 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Man of the cloth's endless compassion over late queen (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "MERCER",
    "annotation": {
@@ -1189,9 +1117,6 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Boldly race criminal in encounter close to home (5,5)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -1235,9 +1160,6 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Insult by sending cakes back (4)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "SNUB",
    "annotation": {
@@ -1285,9 +1207,6 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "In bottom position? That makes Bert alert (5)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "BASAL",
    "annotation": {
@@ -1336,9 +1255,6 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "American leaves home for university party (4)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "CAMP",
    "annotation": {
@@ -1380,9 +1296,6 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Disinclined to move from Gewürztraminer tasting (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "INERT",
    "annotation": {
@@ -1416,9 +1329,6 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Money's invested in those who produce furnaces (9)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "CREMATORS",
    "annotation": {
@@ -1465,9 +1375,6 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Became aware of gathered mob (4)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "HERD",
    "annotation": {
@@ -1502,9 +1409,6 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "What can stop British playboy duke entering insane plea? (5,5)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {
     ",": [
      5

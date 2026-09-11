@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4124"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Where to comfortably enjoy Spooner's schmaltzy music (4,6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -76,9 +73,6 @@ window.CRYPTIC_PUZZLES["everyman-4124"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Key limes regularly seen in trees (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "ELMS",
    "annotation": {
@@ -121,9 +115,6 @@ window.CRYPTIC_PUZZLES["everyman-4124"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Seven in number. Satanic? Originally (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "SINS",
    "annotation": {
@@ -164,9 +155,6 @@ window.CRYPTIC_PUZZLES["everyman-4124"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Unimportant employee with no trace - bit of inkling they know (11)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "COGNOSCENTI",
    "annotation": {
@@ -217,9 +205,6 @@ window.CRYPTIC_PUZZLES["everyman-4124"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Broadcast: food's price to go up (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "AIRFARE",
    "annotation": {
@@ -260,9 +245,6 @@ window.CRYPTIC_PUZZLES["everyman-4124"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Perform hiphop about old admiral? I'll tell you where to go (4,3)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -316,9 +298,6 @@ window.CRYPTIC_PUZZLES["everyman-4124"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Talked of colours in prunes dramatically (4)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "HEWS",
    "annotation": {
@@ -356,9 +335,6 @@ window.CRYPTIC_PUZZLES["everyman-4124"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "English feasted on novel - one from 1952 (4,2,4)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -405,9 +381,6 @@ window.CRYPTIC_PUZZLES["everyman-4124"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "So let baby cavort; they won't frighten the horses (6,4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -449,9 +422,6 @@ window.CRYPTIC_PUZZLES["everyman-4124"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Concerning boss's hidey-hole, say, an American in retirement (10)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "MANAGERIAL",
    "annotation": {
@@ -515,9 +485,6 @@ window.CRYPTIC_PUZZLES["everyman-4124"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Perhaps ChatGPT's a step back for most of humanity (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "ASIA",
    "annotation": {
@@ -569,9 +536,6 @@ window.CRYPTIC_PUZZLES["everyman-4124"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Dodgy moolah for nun: forgive the transgression (2,4,2,4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -615,9 +579,6 @@ window.CRYPTIC_PUZZLES["everyman-4124"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Creation on the fringes: bizarrely, it's our trade (8,3)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -658,9 +619,6 @@ window.CRYPTIC_PUZZLES["everyman-4124"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "One signing in and restarting after revision (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "REGISTRANT",
    "annotation": {
@@ -700,9 +658,6 @@ window.CRYPTIC_PUZZLES["everyman-4124"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "May, say, but may ... not (6,4)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -738,9 +693,6 @@ window.CRYPTIC_PUZZLES["everyman-4124"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "What makes a lug smart? (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "EARACHE",
    "annotation": {
@@ -778,9 +730,6 @@ window.CRYPTIC_PUZZLES["everyman-4124"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Swap other basket - that contains culinary flavouring (3-4)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -818,9 +767,6 @@ window.CRYPTIC_PUZZLES["everyman-4124"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Everyman's to send text: Everyman's beginning to intrude (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "IMPINGE",
    "annotation": {
@@ -869,9 +815,6 @@ window.CRYPTIC_PUZZLES["everyman-4124"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Sap getting a kind of pipe (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "EXHAUST",
    "annotation": {
@@ -909,9 +852,6 @@ window.CRYPTIC_PUZZLES["everyman-4124"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Abrupt notion: run into intelligence agent like Black Widow? (7)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "SPIDERY",
    "annotation": {
@@ -963,9 +903,6 @@ window.CRYPTIC_PUZZLES["everyman-4124"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Small bed with couple and pooch (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "SCOTTIE",
    "annotation": {
@@ -1013,9 +950,6 @@ window.CRYPTIC_PUZZLES["everyman-4124"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "What gets wetter when it dries up in Istanbul? (7,5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -1051,9 +985,6 @@ window.CRYPTIC_PUZZLES["everyman-4124"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "A friendly 'hello' in Naples - or quite the opposite (4)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "CIAO",
    "annotation": {
@@ -1088,9 +1019,6 @@ window.CRYPTIC_PUZZLES["everyman-4124"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Maybe Blyton's a bit uneven? I daresay (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "ENID",
    "annotation": {
@@ -1127,9 +1055,6 @@ window.CRYPTIC_PUZZLES["everyman-4124"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Tiny thing seen in first half of dictionary (4)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "ATOM",
    "annotation": {
@@ -1164,9 +1089,6 @@ window.CRYPTIC_PUZZLES["everyman-4124"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Gold pin Arthur's taken back - is he from Perth? (10)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "AUSTRALIAN",
    "annotation": {
@@ -1223,9 +1145,6 @@ window.CRYPTIC_PUZZLES["everyman-4124"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Cistern to fail - at great cost (4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "TANK",
    "annotation": {
@@ -1260,9 +1179,6 @@ window.CRYPTIC_PUZZLES["everyman-4124"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Trendy dining option: Coronation chicken? (6,4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {
     ",": [
      6

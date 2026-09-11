@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30031"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Detectives so worried about a former data-storage platform (13)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "VIDEOCASSETTE",
    "annotation": {
@@ -70,9 +67,6 @@ window.CRYPTIC_PUZZLES["cryptic-30031"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Harpo pitches books around north London borough (9)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "ISLINGTON",
    "annotation": {
@@ -134,9 +128,6 @@ window.CRYPTIC_PUZZLES["cryptic-30031"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Some steeplejack’s climbing record (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "ELPEE",
    "annotation": {
@@ -173,9 +164,6 @@ window.CRYPTIC_PUZZLES["cryptic-30031"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "I’m here to host two kings separately for cuisine (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "COOKERY",
    "annotation": {
@@ -233,9 +221,6 @@ window.CRYPTIC_PUZZLES["cryptic-30031"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Fostering environment created by dame and duke supporting diocese (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "SEEDBED",
    "annotation": {
@@ -288,9 +273,6 @@ window.CRYPTIC_PUZZLES["cryptic-30031"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Chiefly moot ‘science’, for the most part blurry? (9)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "ECONOMICS",
    "annotation": {
@@ -337,9 +319,6 @@ window.CRYPTIC_PUZZLES["cryptic-30031"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "With time, perhaps dock material (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "TWEED",
    "annotation": {
@@ -386,9 +365,6 @@ window.CRYPTIC_PUZZLES["cryptic-30031"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Shoe tongue, one that’s a bit stiff? (6,7)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -431,9 +407,6 @@ window.CRYPTIC_PUZZLES["cryptic-30031"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Poor girl almost regrets son going back (13)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {},
    "solution": "RETROGRESSING",
    "annotation": {
@@ -483,9 +456,6 @@ window.CRYPTIC_PUZZLES["cryptic-30031"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Set of wooden bars cut between axes and whetstone (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "XYLOPHONE",
    "annotation": {
@@ -535,9 +505,6 @@ window.CRYPTIC_PUZZLES["cryptic-30031"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Stout or beer seen regularly (5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "OBESE",
    "annotation": {
@@ -575,9 +542,6 @@ window.CRYPTIC_PUZZLES["cryptic-30031"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Cat bound to scratch head (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "OUNCE",
    "annotation": {
@@ -623,9 +587,6 @@ window.CRYPTIC_PUZZLES["cryptic-30031"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Elaborate cycling honour and ring cyclist maybe accepts (9)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "EMBROIDER",
    "annotation": {
@@ -683,9 +644,6 @@ window.CRYPTIC_PUZZLES["cryptic-30031"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Hesitant setter would back lines on article (7)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "DITHERY",
    "annotation": {
@@ -743,9 +701,6 @@ window.CRYPTIC_PUZZLES["cryptic-30031"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Fragrant plant, say, a linnet damaged (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "EGLANTINE",
    "annotation": {
@@ -788,9 +743,6 @@ window.CRYPTIC_PUZZLES["cryptic-30031"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Energetic daughter splitting (7)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "DRIVING",
    "annotation": {
@@ -829,9 +781,6 @@ window.CRYPTIC_PUZZLES["cryptic-30031"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Having ditched ‘Mike’, coming into new assumed identity (9)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "INCOGNITO",
    "annotation": {
@@ -876,9 +825,6 @@ window.CRYPTIC_PUZZLES["cryptic-30031"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Confound what could be seen as negative? (7)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "NONPLUS",
    "annotation": {
@@ -922,9 +868,6 @@ window.CRYPTIC_PUZZLES["cryptic-30031"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Dispelling onset of ennui, inspires rising energy (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "STAMINA",
    "annotation": {
@@ -971,9 +914,6 @@ window.CRYPTIC_PUZZLES["cryptic-30031"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Peeling away front, disclose broken bone (7)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "OSSICLE",
    "annotation": {
@@ -1018,9 +958,6 @@ window.CRYPTIC_PUZZLES["cryptic-30031"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Half of African country welcomes retiring setter’s large source of games? (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "OLYMPIA",
    "annotation": {
@@ -1080,9 +1017,6 @@ window.CRYPTIC_PUZZLES["cryptic-30031"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Very famous cricket side totally gutted, eleven runs in 24 hours (9)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "LEGENDARY",
    "annotation": {
@@ -1141,9 +1075,6 @@ window.CRYPTIC_PUZZLES["cryptic-30031"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Composer lowering final note causes trouble (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "GRIEF",
    "annotation": {
@@ -1190,9 +1121,6 @@ window.CRYPTIC_PUZZLES["cryptic-30031"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Summons Pope intermittently filled out? (5)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "PAGES",
    "annotation": {
@@ -1232,9 +1160,6 @@ window.CRYPTIC_PUZZLES["cryptic-30031"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Dog muck held up by child (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "POOCH",
    "annotation": {
@@ -1278,9 +1203,6 @@ window.CRYPTIC_PUZZLES["cryptic-30031"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Literary genre evident in podcaster’s Athenian letters (3-2)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -1329,9 +1251,6 @@ window.CRYPTIC_PUZZLES["cryptic-30031"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Naughty kid is turning into fool, collapsing inwards (9)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "IMPLOSION",
    "annotation": {
@@ -1391,9 +1310,6 @@ window.CRYPTIC_PUZZLES["cryptic-30031"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "In one sense, food flipped in hot fat remains revolutionary number one (5,1,7)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {
     ",": [
      5,

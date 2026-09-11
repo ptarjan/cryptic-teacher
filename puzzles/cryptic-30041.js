@@ -24,9 +24,6 @@ window.CRYPTIC_PUZZLES["cryptic-30041"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Old comedian has pee in garden (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "HOPE",
    "annotation": {
@@ -66,9 +63,6 @@ window.CRYPTIC_PUZZLES["cryptic-30041"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Bedsore very inflamed and spotted (8)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "OBSERVED",
    "annotation": {
@@ -111,9 +105,6 @@ window.CRYPTIC_PUZZLES["cryptic-30041"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Tipped fanatic’s bowl over (4)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "STUN",
    "annotation": {
@@ -152,9 +143,6 @@ window.CRYPTIC_PUZZLES["cryptic-30041"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "‘Curst LP’ smashed over Old Moore? (8)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "SCULPTOR",
    "annotation": {
@@ -197,9 +185,6 @@ window.CRYPTIC_PUZZLES["cryptic-30041"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "After battle, English duke’s worn out (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "FRAYED",
    "annotation": {
@@ -244,9 +229,6 @@ window.CRYPTIC_PUZZLES["cryptic-30041"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Sack Latin person encouraging a criminal (10)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "BOOTLEGGER",
    "annotation": {
@@ -289,9 +271,6 @@ window.CRYPTIC_PUZZLES["cryptic-30041"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Raider: short woman married to ruler (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "VIKING",
    "annotation": {
@@ -330,9 +309,6 @@ window.CRYPTIC_PUZZLES["cryptic-30041"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "English composer’s ‘Lark’ broadcast (4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "BYRD",
    "annotation": {
@@ -363,9 +339,6 @@ window.CRYPTIC_PUZZLES["cryptic-30041"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Exorbitant housing revolution (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "ORBIT",
    "annotation": {
@@ -395,9 +368,6 @@ window.CRYPTIC_PUZZLES["cryptic-30041"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Our city is removing cat killer? (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "CURIOSITY",
    "annotation": {
@@ -435,9 +405,6 @@ window.CRYPTIC_PUZZLES["cryptic-30041"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Always on the outside, having no vote (9)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "ETERNALLY",
    "annotation": {
@@ -476,9 +443,6 @@ window.CRYPTIC_PUZZLES["cryptic-30041"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Some notes one introduced in jazz revival (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "TRIAD",
    "annotation": {
@@ -518,9 +482,6 @@ window.CRYPTIC_PUZZLES["cryptic-30041"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "A place for fliers to act almost timid when held in check (7)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "DOVECOT",
    "annotation": {
@@ -567,9 +528,6 @@ window.CRYPTIC_PUZZLES["cryptic-30041"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Deserts surrounding northern hills (5)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "DUNES",
    "annotation": {
@@ -609,9 +567,6 @@ window.CRYPTIC_PUZZLES["cryptic-30041"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Gas: large escapes from hatch we left undone (4,3,3)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -660,9 +615,6 @@ window.CRYPTIC_PUZZLES["cryptic-30041"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Working vessel’s doctor – creep, right? (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "DREDGER",
    "annotation": {
@@ -705,9 +657,6 @@ window.CRYPTIC_PUZZLES["cryptic-30041"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Run after Troy punches Joey Turner (5)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "ROTOR",
    "annotation": {
@@ -754,9 +703,6 @@ window.CRYPTIC_PUZZLES["cryptic-30041"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Jog without clothes, without much money (5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "NUDGE",
    "annotation": {
@@ -796,9 +742,6 @@ window.CRYPTIC_PUZZLES["cryptic-30041"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Wine that’s often put in a pocket (3)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "RED",
    "annotation": {
@@ -831,9 +774,6 @@ window.CRYPTIC_PUZZLES["cryptic-30041"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Throw away fish pudding (8)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "DUMPLING",
    "annotation": {
@@ -870,9 +810,6 @@ window.CRYPTIC_PUZZLES["cryptic-30041"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Maybe get laid after ace date’s removed top (5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "GILET",
    "annotation": {
@@ -921,9 +858,6 @@ window.CRYPTIC_PUZZLES["cryptic-30041"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Extended gesture used by some broadcasters? (4,4)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -964,9 +898,6 @@ window.CRYPTIC_PUZZLES["cryptic-30041"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Frequently to be found in station vehicle (4,3)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -1010,9 +941,6 @@ window.CRYPTIC_PUZZLES["cryptic-30041"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Small telescope of superior quality includes detachable cap (6)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "FINDER",
    "annotation": {
@@ -1053,9 +981,6 @@ window.CRYPTIC_PUZZLES["cryptic-30041"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Mercury makes tree gain temperature? (6)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "PLANET",
    "annotation": {
@@ -1094,9 +1019,6 @@ window.CRYPTIC_PUZZLES["cryptic-30041"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Prospector collecting top grade river tar (7)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "MARINER",
    "annotation": {
@@ -1141,9 +1063,6 @@ window.CRYPTIC_PUZZLES["cryptic-30041"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Pressure, therefore, to dispose of hard cash (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "PENCE",
    "annotation": {
@@ -1187,9 +1106,6 @@ window.CRYPTIC_PUZZLES["cryptic-30041"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Way to get bed less cold (4)",
-   "group": [
-    "26-down"
-   ],
    "separatorLocations": {},
    "solution": "PATH",
    "annotation": {
@@ -1228,9 +1144,6 @@ window.CRYPTIC_PUZZLES["cryptic-30041"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "What alley twists to the very end? (3,3,3)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -1273,9 +1186,6 @@ window.CRYPTIC_PUZZLES["cryptic-30041"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "One pursuing female character in mythology (4)",
-   "group": [
-    "28-down"
-   ],
    "separatorLocations": {},
    "solution": "HERA",
    "annotation": {
@@ -1314,9 +1224,6 @@ window.CRYPTIC_PUZZLES["cryptic-30041"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Drug-free period, end of addiction – do not swallow one! (4)",
-   "group": [
-    "29-down"
-   ],
    "separatorLocations": {},
    "solution": "YARN",
    "annotation": {
@@ -1356,9 +1263,6 @@ window.CRYPTIC_PUZZLES["cryptic-30041"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Legendary music venue later hosting explorer (3,6)",
-   "group": [
-    "30-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -1402,9 +1306,6 @@ window.CRYPTIC_PUZZLES["cryptic-30041"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Collar at last on dog? (5)",
-   "group": [
-    "31-across"
-   ],
    "separatorLocations": {},
    "solution": "ROVER",
    "annotation": {

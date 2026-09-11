@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1882"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Eccentric newspaper hack everyone follows about (3-3-4)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     "-": [
      3,
@@ -87,9 +84,6 @@ window.CRYPTIC_PUZZLES["indysunday-1882"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Move supply of iron by crossing lake (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "FLEX",
    "annotation": {
@@ -141,9 +135,6 @@ window.CRYPTIC_PUZZLES["indysunday-1882"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Fried tortilla drunk flipped with cry of accomplishment (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "TOSTADA",
    "annotation": {
@@ -195,9 +186,6 @@ window.CRYPTIC_PUZZLES["indysunday-1882"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "E.g. more time for homework available after turning sixteen (9)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "EXTENSION",
    "annotation": {
@@ -251,9 +239,6 @@ window.CRYPTIC_PUZZLES["indysunday-1882"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "A starry role, with moon involved? (10,5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      10
@@ -299,9 +284,6 @@ window.CRYPTIC_PUZZLES["indysunday-1882"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Shade of flowering tree in India, during visit to north (5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "LILAC",
    "annotation": {
@@ -356,9 +338,6 @@ window.CRYPTIC_PUZZLES["indysunday-1882"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Appear keen to serve venison one day? (4)",
-   "group": [
-    "7-across"
-   ],
    "separatorLocations": {},
    "solution": "FAWN",
    "annotation": {
@@ -390,9 +369,6 @@ window.CRYPTIC_PUZZLES["indysunday-1882"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Avoid terror gripping globe (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "FORBEAR",
    "annotation": {
@@ -436,9 +412,6 @@ window.CRYPTIC_PUZZLES["indysunday-1882"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Women given orders by nice young wizard (10)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "WUNDERKIND",
    "annotation": {
@@ -481,9 +454,6 @@ window.CRYPTIC_PUZZLES["indysunday-1882"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Watch dog, say, beginning to splash through wee in Paris (3-3)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -533,9 +503,6 @@ window.CRYPTIC_PUZZLES["indysunday-1882"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Patient alert, not wandering (8)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "TOLERANT",
    "annotation": {
@@ -572,9 +539,6 @@ window.CRYPTIC_PUZZLES["indysunday-1882"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Spooner's family all named after original matriarch, a queen (4,2,6)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -624,9 +588,6 @@ window.CRYPTIC_PUZZLES["indysunday-1882"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Gaunt head of operations keeping rogue state and America apart (10)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {},
    "solution": "CADAVEROUS",
    "annotation": {
@@ -683,9 +644,6 @@ window.CRYPTIC_PUZZLES["indysunday-1882"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Hunting trip mostly free of risk and very dry (6)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "SAFARI",
    "annotation": {
@@ -728,9 +686,6 @@ window.CRYPTIC_PUZZLES["indysunday-1882"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Facing out (2,6)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -766,9 +721,6 @@ window.CRYPTIC_PUZZLES["indysunday-1882"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Plan huge upset after kick-off, moving right up (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "STRATAGEM",
    "annotation": {
@@ -825,9 +777,6 @@ window.CRYPTIC_PUZZLES["indysunday-1882"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Mathematician telephoned Euler's number after delay (8)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "LAGRANGE",
    "annotation": {
@@ -876,9 +825,6 @@ window.CRYPTIC_PUZZLES["indysunday-1882"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Turn money into Euro abroad (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "ROUTINE",
    "annotation": {
@@ -930,9 +876,6 @@ window.CRYPTIC_PUZZLES["indysunday-1882"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Stormy piece by Joplin with one sharp? (6)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "RAGING",
    "annotation": {
@@ -969,9 +912,6 @@ window.CRYPTIC_PUZZLES["indysunday-1882"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Hateful gin has one turning to rum in the morning (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "GODDAMN",
    "annotation": {
@@ -1026,9 +966,6 @@ window.CRYPTIC_PUZZLES["indysunday-1882"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Hunt traitor with likely winner outside kept apart (12)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "SEQUESTRATED",
    "annotation": {
@@ -1081,9 +1018,6 @@ window.CRYPTIC_PUZZLES["indysunday-1882"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Incredibly, cap's all made of the same material (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "SOLID",
    "annotation": {
@@ -1123,9 +1057,6 @@ window.CRYPTIC_PUZZLES["indysunday-1882"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Attend course for police (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "BEAT",
    "annotation": {
@@ -1162,9 +1093,6 @@ window.CRYPTIC_PUZZLES["indysunday-1882"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Royal Marine crosses Roman road in high spirits (8)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "JOVIALLY",
    "annotation": {
@@ -1208,9 +1136,6 @@ window.CRYPTIC_PUZZLES["indysunday-1882"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Was an idler after golf given coat then fired? (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "GLAZED",
    "annotation": {
@@ -1253,9 +1178,6 @@ window.CRYPTIC_PUZZLES["indysunday-1882"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "In centre of Paris, level area for Notre-Dame? (4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "ISLE",
    "annotation": {
@@ -1289,9 +1211,6 @@ window.CRYPTIC_PUZZLES["indysunday-1882"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Peel apart, eat lime and bananas (10)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "DELAMINATE",
    "annotation": {

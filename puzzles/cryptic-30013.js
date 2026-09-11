@@ -49,9 +49,6 @@ window.CRYPTIC_PUZZLES["cryptic-30013"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Determined 1 cycling is overtaken by true rogue (8)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "RESOLUTE",
    "annotation": {
@@ -106,9 +103,6 @@ window.CRYPTIC_PUZZLES["cryptic-30013"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Down-and-dirty (4)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "BLUE",
    "annotation": {
@@ -146,9 +140,6 @@ window.CRYPTIC_PUZZLES["cryptic-30013"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Metal producers manufactured steel frames occasionally (8)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "SMELTERS",
    "annotation": {
@@ -199,9 +190,6 @@ window.CRYPTIC_PUZZLES["cryptic-30013"] = /*JSON-START*/ {
      15
     ]
    ],
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "TRAWLS",
    "annotation": {
@@ -248,9 +236,6 @@ window.CRYPTIC_PUZZLES["cryptic-30013"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Words in song embracing trouble ending for Crystal Palace (10)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "VERSAILLES",
    "annotation": {
@@ -355,9 +340,6 @@ window.CRYPTIC_PUZZLES["cryptic-30013"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Strip from page 1 (4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "PEEL",
    "annotation": {
@@ -398,9 +380,6 @@ window.CRYPTIC_PUZZLES["cryptic-30013"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Perfect 1-wood (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "IDEAL",
    "annotation": {
@@ -438,9 +417,6 @@ window.CRYPTIC_PUZZLES["cryptic-30013"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Communication system is common kind for Spooner (5,4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -493,9 +469,6 @@ window.CRYPTIC_PUZZLES["cryptic-30013"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Wales played by captain’s physical principle (6,3)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -554,9 +527,6 @@ window.CRYPTIC_PUZZLES["cryptic-30013"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Hotel entertained by country backing group (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "SHOAL",
    "annotation": {
@@ -609,9 +579,6 @@ window.CRYPTIC_PUZZLES["cryptic-30013"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Sweet Caroline’s opening fight in Madison Square Garden (7)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "CRUMBLE",
    "annotation": {
@@ -660,9 +627,6 @@ window.CRYPTIC_PUZZLES["cryptic-30013"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Allure of 1 million (5)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "CHARM",
    "annotation": {
@@ -703,9 +667,6 @@ window.CRYPTIC_PUZZLES["cryptic-30013"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Spanish players delivered part of song (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "BARCAROLLE",
    "annotation": {
@@ -749,9 +710,6 @@ window.CRYPTIC_PUZZLES["cryptic-30013"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Heather in Shropshire borders close to the heart of Percy Thrower (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "SLINGER",
    "annotation": {
@@ -808,9 +766,6 @@ window.CRYPTIC_PUZZLES["cryptic-30013"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Amber perhaps originally yellowish-red (5)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "RUDDY",
    "annotation": {
@@ -859,9 +814,6 @@ window.CRYPTIC_PUZZLES["cryptic-30013"] = /*JSON-START*/ {
      35,
      10
     ]
-   ],
-   "group": [
-    "17-across"
    ],
    "separatorLocations": {},
    "solution": "AMEER",
@@ -947,9 +899,6 @@ window.CRYPTIC_PUZZLES["cryptic-30013"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Potted game eaten by Bill (8)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "ABRIDGED",
    "annotation": {
@@ -994,9 +943,6 @@ window.CRYPTIC_PUZZLES["cryptic-30013"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Fat detective wearing hat (5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "LIPID",
    "annotation": {
@@ -1041,9 +987,6 @@ window.CRYPTIC_PUZZLES["cryptic-30013"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "1 brief period gripping nation (8)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "PIRANHAS",
    "annotation": {
@@ -1090,9 +1033,6 @@ window.CRYPTIC_PUZZLES["cryptic-30013"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Harry Lime drinking tea for 1? (7)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "MICHAEL",
    "annotation": {
@@ -1149,9 +1089,6 @@ window.CRYPTIC_PUZZLES["cryptic-30013"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Group of hot men in bed (6)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "COHORT",
    "annotation": {
@@ -1205,9 +1142,6 @@ window.CRYPTIC_PUZZLES["cryptic-30013"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Shed Seven essentially leaving the Eastern Mediterranean with nothing (4-2)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -1271,9 +1205,6 @@ window.CRYPTIC_PUZZLES["cryptic-30013"] = /*JSON-START*/ {
      11
     ]
    ],
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "RESPRAY",
    "annotation": {
@@ -1318,9 +1249,6 @@ window.CRYPTIC_PUZZLES["cryptic-30013"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Ashe regularly missed out in Court No.1 (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "WAHOO",
    "annotation": {
@@ -1414,9 +1342,6 @@ window.CRYPTIC_PUZZLES["cryptic-30013"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Pikachu’s sandwich contains dog meat (4)",
-   "group": [
-    "28-down"
-   ],
    "separatorLocations": {},
    "solution": "HUSS",
    "annotation": {
@@ -1451,9 +1376,6 @@ window.CRYPTIC_PUZZLES["cryptic-30013"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Clairvoyant brought up on drugs (4)",
-   "group": [
-    "29-down"
-   ],
    "separatorLocations": {},
    "solution": "SEER",
    "annotation": {
@@ -1531,9 +1453,6 @@ window.CRYPTIC_PUZZLES["cryptic-30013"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Flat 1 has entrance in Shepherd’s Bush? (5)",
-   "group": [
-    "31-across"
-   ],
    "separatorLocations": {},
    "solution": "SKATE",
    "annotation": {

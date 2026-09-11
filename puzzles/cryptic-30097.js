@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30097"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Iron Man is a woman (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "FEMALE",
    "annotation": {
@@ -67,9 +64,6 @@ window.CRYPTIC_PUZZLES["cryptic-30097"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Satisfactory punishment (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "FINE",
    "annotation": {
@@ -101,9 +95,6 @@ window.CRYPTIC_PUZZLES["cryptic-30097"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Ingredient of comfort food covering rear end of Shakespearean (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "MACDUFF",
    "annotation": {
@@ -147,9 +138,6 @@ window.CRYPTIC_PUZZLES["cryptic-30097"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Celebrated rugby player offside (8)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "LIONISED",
    "annotation": {
@@ -198,9 +186,6 @@ window.CRYPTIC_PUZZLES["cryptic-30097"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Criticise character from Athens, thus creating sort of poetry (3,5)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -250,9 +235,6 @@ window.CRYPTIC_PUZZLES["cryptic-30097"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Amoebae and such travelled nautical miles, giving up sex in retrospect (11)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "ANIMALCULES",
    "annotation": {
@@ -304,9 +286,6 @@ window.CRYPTIC_PUZZLES["cryptic-30097"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Lower, but greater (6)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "MEANER",
    "annotation": {
@@ -338,9 +317,6 @@ window.CRYPTIC_PUZZLES["cryptic-30097"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Originally, source (excessively loud noise) was a sub (5,2)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -393,9 +369,6 @@ window.CRYPTIC_PUZZLES["cryptic-30097"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Hustler’s damage includes train wreck (3,6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -457,9 +430,6 @@ window.CRYPTIC_PUZZLES["cryptic-30097"] = /*JSON-START*/ {
      8
     ]
    ],
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "NACHOS",
    "annotation": {
@@ -493,9 +463,6 @@ window.CRYPTIC_PUZZLES["cryptic-30097"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Photo, a character from long ago: outspoken rogue (8)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "PICAROON",
    "annotation": {
@@ -545,9 +512,6 @@ window.CRYPTIC_PUZZLES["cryptic-30097"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Engaged in drink, CIA annulled cryptic system of old Rome (6,8)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -603,9 +567,6 @@ window.CRYPTIC_PUZZLES["cryptic-30097"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Singer wanting cabbage to whip up piece in advance (3,4,4)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -670,9 +631,6 @@ window.CRYPTIC_PUZZLES["cryptic-30097"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Plunderers’ music fest in part of Winchester? (5,5)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -716,9 +674,6 @@ window.CRYPTIC_PUZZLES["cryptic-30097"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Don’t play at stalls where Yanks relieve themselves? (4,5)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -759,9 +714,6 @@ window.CRYPTIC_PUZZLES["cryptic-30097"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Prey for an aardvark: one Contra (4)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "ANTI",
    "annotation": {
@@ -798,9 +750,6 @@ window.CRYPTIC_PUZZLES["cryptic-30097"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Drunken peer falls into brewski-chugging contraption in drinkers’ diversion (4,4)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -856,9 +805,6 @@ window.CRYPTIC_PUZZLES["cryptic-30097"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "God backflips into canal (4)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "SUEZ",
    "annotation": {
@@ -901,9 +847,6 @@ window.CRYPTIC_PUZZLES["cryptic-30097"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "E, for Einstein? (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "EGGHEAD",
    "annotation": {
@@ -934,9 +877,6 @@ window.CRYPTIC_PUZZLES["cryptic-30097"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Lifted off around two, say: it may require a shot (5,5)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -994,9 +934,6 @@ window.CRYPTIC_PUZZLES["cryptic-30097"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "€ is based on this Greek character harboured by lone lunatic (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "EPSILON",
    "annotation": {
@@ -1054,9 +991,6 @@ window.CRYPTIC_PUZZLES["cryptic-30097"] = /*JSON-START*/ {
      8
     ]
    ],
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "SONATA",
    "annotation": {
@@ -1101,9 +1035,6 @@ window.CRYPTIC_PUZZLES["cryptic-30097"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Get ogress irritated and annoyed with symbol (2,7,5)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -1157,9 +1088,6 @@ window.CRYPTIC_PUZZLES["cryptic-30097"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Killer imprisoned in Windsor Castle (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "ORCA",
    "annotation": {
@@ -1193,9 +1121,6 @@ window.CRYPTIC_PUZZLES["cryptic-30097"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Smooth talker on X, say (8)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "OPERATOR",
    "annotation": {
@@ -1227,9 +1152,6 @@ window.CRYPTIC_PUZZLES["cryptic-30097"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Arrest in general location reversed (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "COLLAR",
    "annotation": {
@@ -1270,9 +1192,6 @@ window.CRYPTIC_PUZZLES["cryptic-30097"] = /*JSON-START*/ {
      15,
      5
     ]
-   ],
-   "group": [
-    "25-across"
    ],
    "separatorLocations": {
     ",": [
@@ -1326,9 +1245,6 @@ window.CRYPTIC_PUZZLES["cryptic-30097"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Turkish bigwig covers arse, it may be hidden (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "AGENDA",
    "annotation": {

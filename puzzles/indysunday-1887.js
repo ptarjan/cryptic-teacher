@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1887"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Climber melted last ice with bit of muesli (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "CLEMATIS",
    "annotation": {
@@ -74,9 +71,6 @@ window.CRYPTIC_PUZZLES["indysunday-1887"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Fancy bishop does nothing with much passion (4,6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -123,9 +117,6 @@ window.CRYPTIC_PUZZLES["indysunday-1887"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Friar spat regularly beneath cross in seminary (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "MADRASA",
    "annotation": {
@@ -173,9 +164,6 @@ window.CRYPTIC_PUZZLES["indysunday-1887"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Did flirt ruffle Daisy's skirts with toe? (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "TOYED",
    "annotation": {
@@ -222,9 +210,6 @@ window.CRYPTIC_PUZZLES["indysunday-1887"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Relative keeps walking (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "STEPSON",
    "annotation": {
@@ -261,9 +246,6 @@ window.CRYPTIC_PUZZLES["indysunday-1887"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "That woman sounded doubly pretentious (6)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "CHICHI",
    "annotation": {
@@ -305,9 +287,6 @@ window.CRYPTIC_PUZZLES["indysunday-1887"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Cold tea left in canteen (9)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "CHARMLESS",
    "annotation": {
@@ -357,9 +336,6 @@ window.CRYPTIC_PUZZLES["indysunday-1887"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Profound how decimal system counts irrational number (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "INTENSE",
    "annotation": {
@@ -397,9 +373,6 @@ window.CRYPTIC_PUZZLES["indysunday-1887"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Worker delivered new parts (4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "HAND",
    "annotation": {
@@ -443,9 +416,6 @@ window.CRYPTIC_PUZZLES["indysunday-1887"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Small child having very weak grip (6)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "SKIDDY",
    "annotation": {
@@ -482,9 +452,6 @@ window.CRYPTIC_PUZZLES["indysunday-1887"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Difficult pretending to be someone else on X (8)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "EXACTING",
    "annotation": {
@@ -527,9 +494,6 @@ window.CRYPTIC_PUZZLES["indysunday-1887"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Guys that are fairly dull last to expect flattery (12)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "BLANDISHMENT",
    "annotation": {
@@ -578,9 +542,6 @@ window.CRYPTIC_PUZZLES["indysunday-1887"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Driving fan parking here at old ground (10)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {},
    "solution": "PETROLHEAD",
    "annotation": {
@@ -622,9 +583,6 @@ window.CRYPTIC_PUZZLES["indysunday-1887"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Fuel with nasty smell brought round by soldier (8)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "PARAFFIN",
    "annotation": {
@@ -677,9 +635,6 @@ window.CRYPTIC_PUZZLES["indysunday-1887"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Throwing couple of rights, initially fear punch-up (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "FISTFIGHT",
    "annotation": {
@@ -727,9 +682,6 @@ window.CRYPTIC_PUZZLES["indysunday-1887"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Team with Pele but no wingers, well-balanced? (6)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "ELEVEN",
    "annotation": {
@@ -775,9 +727,6 @@ window.CRYPTIC_PUZZLES["indysunday-1887"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Mike wears heels for endurance race (2,4)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -828,9 +777,6 @@ window.CRYPTIC_PUZZLES["indysunday-1887"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Very keen on Gordian knots (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "ADORING",
    "annotation": {
@@ -867,9 +813,6 @@ window.CRYPTIC_PUZZLES["indysunday-1887"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "One entertained by revolting celebrities on flight (8)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "UPSTAIRS",
    "annotation": {
@@ -919,9 +862,6 @@ window.CRYPTIC_PUZZLES["indysunday-1887"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Bear short of energy (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "UNDERGO",
    "annotation": {
@@ -958,9 +898,6 @@ window.CRYPTIC_PUZZLES["indysunday-1887"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Traveller first to arrive by way of height? (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "AVIATOR",
    "annotation": {
@@ -1009,9 +946,6 @@ window.CRYPTIC_PUZZLES["indysunday-1887"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Move lad with infection that mustn't be passed on (12)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "CONFIDENTIAL",
    "annotation": {
@@ -1056,9 +990,6 @@ window.CRYPTIC_PUZZLES["indysunday-1887"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Hospital in south coast resort attracting particular clientele (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "NICHE",
    "annotation": {
@@ -1102,9 +1033,6 @@ window.CRYPTIC_PUZZLES["indysunday-1887"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Heavy blow toppled English prisoner (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "GALE",
    "annotation": {
@@ -1159,9 +1087,6 @@ window.CRYPTIC_PUZZLES["indysunday-1887"] = /*JSON-START*/ {
      10
     ]
    ],
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "MALINGER",
    "annotation": {
@@ -1200,9 +1125,6 @@ window.CRYPTIC_PUZZLES["indysunday-1887"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Conservative, say, one reducing spending? (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "CUTTER",
    "annotation": {
@@ -1239,9 +1161,6 @@ window.CRYPTIC_PUZZLES["indysunday-1887"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Force directed towards Earth pause when told (6)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "WEIGHT",
    "annotation": {
@@ -1276,9 +1195,6 @@ window.CRYPTIC_PUZZLES["indysunday-1887"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Emergency control on the other side of bike? (8)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "OVERRIDE",
    "annotation": {

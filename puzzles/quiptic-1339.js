@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1339"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Regret hiding key for release (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "RESCUE",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["quiptic-1339"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "What’s at stake climbing volcano (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "ETNA",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["quiptic-1339"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Regime change due to pact being broken (4,5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -80,9 +71,6 @@ window.CRYPTIC_PUZZLES["quiptic-1339"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Surviving navigation aid lacking its lid (6)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "EXTANT",
    "annotation": null
@@ -97,9 +85,6 @@ window.CRYPTIC_PUZZLES["quiptic-1339"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "I can’t wait to see dams shut off (4,4)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -118,9 +103,6 @@ window.CRYPTIC_PUZZLES["quiptic-1339"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Core season broadcast provides extra weight (6,3,6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      6,
@@ -140,9 +122,6 @@ window.CRYPTIC_PUZZLES["quiptic-1339"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Demonstrated about empty airfield that’s obscured (8)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "SHADOWED",
    "annotation": null
@@ -157,9 +136,6 @@ window.CRYPTIC_PUZZLES["quiptic-1339"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "AI contributes occasional parts to DVD showing Michelangelo’s masterpiece (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "DAVID",
    "annotation": null
@@ -174,9 +150,6 @@ window.CRYPTIC_PUZZLES["quiptic-1339"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Lyric producer, one misquoting what Spooner said? (10)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "SONGWRITER",
    "annotation": null
@@ -191,9 +164,6 @@ window.CRYPTIC_PUZZLES["quiptic-1339"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Humiliated – without a means to be protected (8)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "INSULTED",
    "annotation": null
@@ -208,9 +178,6 @@ window.CRYPTIC_PUZZLES["quiptic-1339"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "First appearance of commercial release (6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "ADVENT",
    "annotation": null
@@ -225,9 +192,6 @@ window.CRYPTIC_PUZZLES["quiptic-1339"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Advice given to climbers – appear optimistic! (4,4,4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -247,9 +211,6 @@ window.CRYPTIC_PUZZLES["quiptic-1339"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Very eager to describe what it’s like being dead? (10)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {},
    "solution": "BREATHLESS",
    "annotation": null
@@ -264,9 +225,6 @@ window.CRYPTIC_PUZZLES["quiptic-1339"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Dry, although fed by river (4)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "BRUT",
    "annotation": null
@@ -281,9 +239,6 @@ window.CRYPTIC_PUZZLES["quiptic-1339"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Primate has short service providing drink (8)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "APERITIF",
    "annotation": null
@@ -298,9 +253,6 @@ window.CRYPTIC_PUZZLES["quiptic-1339"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Oops, I got muddled about information that makes it true (4,5)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -319,9 +271,6 @@ window.CRYPTIC_PUZZLES["quiptic-1339"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "As it happens, doing something that will satisfy (4,2,2)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -341,9 +290,6 @@ window.CRYPTIC_PUZZLES["quiptic-1339"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Leaf tips damaged? It’s happened to you before (4,4)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -362,9 +308,6 @@ window.CRYPTIC_PUZZLES["quiptic-1339"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Measure part of flight (4)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "STEP",
    "annotation": null
@@ -379,9 +322,6 @@ window.CRYPTIC_PUZZLES["quiptic-1339"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Crowds reported in stores (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "HOARDS",
    "annotation": null
@@ -396,9 +336,6 @@ window.CRYPTIC_PUZZLES["quiptic-1339"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Destroy evidence that’s impossible to crack (12)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "SHATTERPROOF",
    "annotation": null
@@ -413,9 +350,6 @@ window.CRYPTIC_PUZZLES["quiptic-1339"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Number present as resistance rises a notch (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "THREE",
    "annotation": null
@@ -430,9 +364,6 @@ window.CRYPTIC_PUZZLES["quiptic-1339"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Leaders of Britain always look desperate – that’s plain (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "BALD",
    "annotation": null
@@ -447,9 +378,6 @@ window.CRYPTIC_PUZZLES["quiptic-1339"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Rent doubled? Get really angry (3,3)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -468,9 +396,6 @@ window.CRYPTIC_PUZZLES["quiptic-1339"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Official in Brussels mixed up our crate (8)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "EUROCRAT",
    "annotation": null
@@ -485,9 +410,6 @@ window.CRYPTIC_PUZZLES["quiptic-1339"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Heavenly body of flower copied regularly (8)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "ASTEROID",
    "annotation": null
@@ -502,9 +424,6 @@ window.CRYPTIC_PUZZLES["quiptic-1339"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Modest clothing uneven and substandard (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "SHODDY",
    "annotation": null

@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12423"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Herald for one hundred and one entering the sea in France (10)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "PROCLAIMER",
    "annotation": {
@@ -78,9 +75,6 @@ window.CRYPTIC_PUZZLES["independent-12423"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Perhaps repent? Not this woman (3-5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -121,9 +115,6 @@ window.CRYPTIC_PUZZLES["independent-12423"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Captures one abandoning bid during sales (10)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "ABDUCTIONS",
    "annotation": {
@@ -169,9 +160,6 @@ window.CRYPTIC_PUZZLES["independent-12423"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Hit button on the counter (4)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "BONK",
    "annotation": {
@@ -214,9 +202,6 @@ window.CRYPTIC_PUZZLES["independent-12423"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Study heart in love with love once more (2,4)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -269,9 +254,6 @@ window.CRYPTIC_PUZZLES["independent-12423"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Perhaps Jesus and Hazard sent new losing sides (8)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "NAZARENE",
    "annotation": {
@@ -326,9 +308,6 @@ window.CRYPTIC_PUZZLES["independent-12423"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Upcoming artist mostly past his prime (4)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "AGED",
    "annotation": {
@@ -373,9 +352,6 @@ window.CRYPTIC_PUZZLES["independent-12423"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Unpleasant smell leaves area of city (5)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {},
    "solution": "ROUGH",
    "annotation": {
@@ -417,9 +393,6 @@ window.CRYPTIC_PUZZLES["independent-12423"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "One attacks occasionally dumb loyalty (1-4)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {
     "-": [
      1
@@ -460,9 +433,6 @@ window.CRYPTIC_PUZZLES["independent-12423"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "\"I hate this dessert,\" said one coming back (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "BOOMERANG",
    "annotation": {
@@ -506,9 +476,6 @@ window.CRYPTIC_PUZZLES["independent-12423"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Criminal could undo a lock without key in ideal world (5-6-4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     "-": [
      5,
@@ -570,9 +537,6 @@ window.CRYPTIC_PUZZLES["independent-12423"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Sparks when Romeo meets Juliet set back by sides in Verona (9)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "ACTIVATES",
    "annotation": {
@@ -629,9 +593,6 @@ window.CRYPTIC_PUZZLES["independent-12423"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "He’s as burnt at sea as others in his position (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "SUNBATHERS",
    "annotation": {
@@ -668,9 +629,6 @@ window.CRYPTIC_PUZZLES["independent-12423"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "I've finished speaking special spell (5)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "OVERS",
    "annotation": {
@@ -708,9 +666,6 @@ window.CRYPTIC_PUZZLES["independent-12423"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "How to make waxing glide and move smoothly (5,1,4)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {
     ",": [
      5,
@@ -746,9 +701,6 @@ window.CRYPTIC_PUZZLES["independent-12423"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Where you might find husband off the beaten track (6,2,7)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {
     ",": [
      6,
@@ -786,9 +738,6 @@ window.CRYPTIC_PUZZLES["independent-12423"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "United go over stopping time to attack — it’s not going to work (5,3)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -845,9 +794,6 @@ window.CRYPTIC_PUZZLES["independent-12423"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Time to stick spring chicken in that case (4,4)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -900,9 +846,6 @@ window.CRYPTIC_PUZZLES["independent-12423"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Show regret overtaking Tesla, say (5)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "REVUE",
    "annotation": {
@@ -946,9 +889,6 @@ window.CRYPTIC_PUZZLES["independent-12423"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Attention-seeking academic's plea to retire — it makes you sick (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "EMETIC",
    "annotation": {
@@ -991,9 +931,6 @@ window.CRYPTIC_PUZZLES["independent-12423"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Post from sketch show entertaining great man in audience (5,4)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -1050,9 +987,6 @@ window.CRYPTIC_PUZZLES["independent-12423"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "I taxi over after heading to Ann Summers (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "ABACI",
    "annotation": {
@@ -1109,9 +1043,6 @@ window.CRYPTIC_PUZZLES["independent-12423"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Set for success from section of record following where Trump lies (2,3,5,5)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -1163,9 +1094,6 @@ window.CRYPTIC_PUZZLES["independent-12423"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Some sexy group needing erection (4)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "ORGY",
    "annotation": {
@@ -1207,9 +1135,6 @@ window.CRYPTIC_PUZZLES["independent-12423"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Dirtbag occasionally pens love letter (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "IOTA",
    "annotation": {
@@ -1255,9 +1180,6 @@ window.CRYPTIC_PUZZLES["independent-12423"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Fighter happy a riot erupted (9)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "GLADIATOR",
    "annotation": {
@@ -1309,9 +1231,6 @@ window.CRYPTIC_PUZZLES["independent-12423"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Team appearing in French and Saunders finally retires (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "EXITS",
    "annotation": {

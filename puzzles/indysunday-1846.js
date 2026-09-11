@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1846"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Rank Keith last in project, without further ado (4,4,4)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -47,9 +44,6 @@ window.CRYPTIC_PUZZLES["indysunday-1846"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Night-time suits block by modernist architect (7)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "JAMMIES",
    "annotation": null
@@ -64,9 +58,6 @@ window.CRYPTIC_PUZZLES["indysunday-1846"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Species of small tortoise seen in odd places to the north (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "SORTS",
    "annotation": null
@@ -81,9 +72,6 @@ window.CRYPTIC_PUZZLES["indysunday-1846"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Field sets off with half dropping out (3)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "LEA",
    "annotation": null
@@ -98,9 +86,6 @@ window.CRYPTIC_PUZZLES["indysunday-1846"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Picture card Welshman turned up after king (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "KNAVE",
    "annotation": null
@@ -115,9 +100,6 @@ window.CRYPTIC_PUZZLES["indysunday-1846"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Scrape lady's underwear with Marmite? (5,4)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -136,9 +118,6 @@ window.CRYPTIC_PUZZLES["indysunday-1846"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "American colourist upset East European periodically (2,9)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -157,9 +136,6 @@ window.CRYPTIC_PUZZLES["indysunday-1846"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "E.g. Christie's produce etchings, lithographs, etc in series (8)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "SPRINTER",
    "annotation": null
@@ -174,9 +150,6 @@ window.CRYPTIC_PUZZLES["indysunday-1846"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Eggs sat on by considerate male penguin (6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "GENTOO",
    "annotation": null
@@ -191,9 +164,6 @@ window.CRYPTIC_PUZZLES["indysunday-1846"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Nougat confection cooked with sweet wine (7)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "MARSALA",
    "annotation": null
@@ -208,9 +178,6 @@ window.CRYPTIC_PUZZLES["indysunday-1846"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Catch sight of naughty kid cutting legs off (7)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "GLIMPSE",
    "annotation": null
@@ -225,9 +192,6 @@ window.CRYPTIC_PUZZLES["indysunday-1846"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Popular figure out with conservationists on the rocks (9)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "INSOLVENT",
    "annotation": null
@@ -242,9 +206,6 @@ window.CRYPTIC_PUZZLES["indysunday-1846"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Act is fool's last during diplomatic mission (11)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {},
    "solution": "LEGISLATION",
    "annotation": null
@@ -259,9 +220,6 @@ window.CRYPTIC_PUZZLES["indysunday-1846"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Wind noodle around middle of chopstick (5)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "TWIST",
    "annotation": null
@@ -276,9 +234,6 @@ window.CRYPTIC_PUZZLES["indysunday-1846"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Doubtfully lift pipe down by carpet (5)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "SHRUG",
    "annotation": null
@@ -293,9 +248,6 @@ window.CRYPTIC_PUZZLES["indysunday-1846"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Bruce Willis film that's bagged an Oscar released (8)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "REWILDED",
    "annotation": null
@@ -310,9 +262,6 @@ window.CRYPTIC_PUZZLES["indysunday-1846"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Water bus manoeuvring at stop-over loses seconds (9)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "VAPORETTO",
    "annotation": null
@@ -327,9 +276,6 @@ window.CRYPTIC_PUZZLES["indysunday-1846"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Fiddle turned into crime (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "VIOLATION",
    "annotation": null
@@ -344,9 +290,6 @@ window.CRYPTIC_PUZZLES["indysunday-1846"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Seaside town bluer than any other, frequently (9)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "LOWESTOFT",
    "annotation": null
@@ -361,9 +304,6 @@ window.CRYPTIC_PUZZLES["indysunday-1846"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Klutz left masseur without top (6)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "LUBBER",
    "annotation": null
@@ -378,9 +318,6 @@ window.CRYPTIC_PUZZLES["indysunday-1846"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Missile part thinned with file (5)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "ARROW",
    "annotation": null
@@ -395,9 +332,6 @@ window.CRYPTIC_PUZZLES["indysunday-1846"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "How exhilarating to go flat out for stunt (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "WHEELIE",
    "annotation": null
@@ -412,9 +346,6 @@ window.CRYPTIC_PUZZLES["indysunday-1846"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Learner in Saab bumped tree (5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "BALSA",
    "annotation": null
@@ -429,9 +360,6 @@ window.CRYPTIC_PUZZLES["indysunday-1846"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Heavens, how quickly a chocolate bar goes (9)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "AEROSPACE",
    "annotation": null
@@ -446,9 +374,6 @@ window.CRYPTIC_PUZZLES["indysunday-1846"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Department concerned with charitable donations, mostly (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "REALM",
    "annotation": null
@@ -463,9 +388,6 @@ window.CRYPTIC_PUZZLES["indysunday-1846"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Bewildered when temperature rises in a constituency (2,3)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -484,9 +406,6 @@ window.CRYPTIC_PUZZLES["indysunday-1846"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "I wear myself out in retirement, like some professors perhaps (7)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "EMERITI",
    "annotation": null
@@ -501,9 +420,6 @@ window.CRYPTIC_PUZZLES["indysunday-1846"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "In a deep depression, covered with baby's saliva (7)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "ABYSSAL",
    "annotation": null
@@ -518,9 +434,6 @@ window.CRYPTIC_PUZZLES["indysunday-1846"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Extras denied lead part, I suppose (3)",
-   "group": [
-    "26-down"
-   ],
    "separatorLocations": {},
    "solution": "YES",
    "annotation": null
@@ -535,9 +448,6 @@ window.CRYPTIC_PUZZLES["indysunday-1846"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Simple penniless fellow returned, with money in pockets? Certainly (3,2,7)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     ",": [
      3,

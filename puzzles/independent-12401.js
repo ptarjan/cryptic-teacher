@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12401"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Country depicted in jacket of Rabelais book (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "ROMANS",
    "annotation": {
@@ -79,9 +76,6 @@ window.CRYPTIC_PUZZLES["independent-12401"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Writer gulps high tea if blissful (8)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "BEATIFIC",
    "annotation": {
@@ -138,9 +132,6 @@ window.CRYPTIC_PUZZLES["independent-12401"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Now and then, pair stay in city of 1 (4)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "PISA",
    "annotation": {
@@ -180,9 +171,6 @@ window.CRYPTIC_PUZZLES["independent-12401"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Pastime of six, thoroughly discontented after start of play (8)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "ACTIVITY",
    "annotation": {
@@ -233,9 +221,6 @@ window.CRYPTIC_PUZZLES["independent-12401"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Tragic heroine's flogged in Irish domain (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "ISOLDE",
    "annotation": {
@@ -287,9 +272,6 @@ window.CRYPTIC_PUZZLES["independent-12401"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Say Dorothy's served up heavy food (6)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "STODGE",
    "annotation": {
@@ -338,9 +320,6 @@ window.CRYPTIC_PUZZLES["independent-12401"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Passes NY's bustling electrified junctions (8)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "SYNAPSES",
    "annotation": {
@@ -377,9 +356,6 @@ window.CRYPTIC_PUZZLES["independent-12401"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "I put the end of Endymion in the middle of poem (3)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {},
    "solution": "ONE",
    "annotation": {
@@ -435,9 +411,6 @@ window.CRYPTIC_PUZZLES["independent-12401"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Constantly breaking Nancy's tiles (11)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "INCESSANTLY",
    "annotation": {
@@ -474,9 +447,6 @@ window.CRYPTIC_PUZZLES["independent-12401"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Dead wrong about thin gravy - temperature is changed (8)",
-   "group": [
-    "10-down"
-   ],
    "separatorLocations": {},
    "solution": "ADJUSTED",
    "annotation": {
@@ -536,9 +506,6 @@ window.CRYPTIC_PUZZLES["independent-12401"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Do you briefly join a western den of insurance workers? (9)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "ACTUARIAL",
    "annotation": {
@@ -604,9 +571,6 @@ window.CRYPTIC_PUZZLES["independent-12401"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Law set by head of administration in province of 1D (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "JUDEA",
    "annotation": {
@@ -653,9 +617,6 @@ window.CRYPTIC_PUZZLES["independent-12401"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Protected documents a felon guards (4)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "SAFE",
    "annotation": {
@@ -689,9 +650,6 @@ window.CRYPTIC_PUZZLES["independent-12401"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Endlessly varied loons in America (6)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "DIVERS",
    "annotation": {
@@ -733,9 +691,6 @@ window.CRYPTIC_PUZZLES["independent-12401"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Right to leave archer for divine Greek lady (3)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "EOS",
    "annotation": {
@@ -780,9 +735,6 @@ window.CRYPTIC_PUZZLES["independent-12401"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Volcano's sulphur removed from bubbling toxic soap (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "COTOPAXI",
    "annotation": {
@@ -829,9 +781,6 @@ window.CRYPTIC_PUZZLES["independent-12401"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Wings quit fancy show with covers from Vanity and Fish (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "ANCHOVY",
    "annotation": {
@@ -892,9 +841,6 @@ window.CRYPTIC_PUZZLES["independent-12401"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Australian politician greeting school's crustacean (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "AMPHIPOD",
    "annotation": {
@@ -947,9 +893,6 @@ window.CRYPTIC_PUZZLES["independent-12401"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "They print letters on electoral system (7)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "PRESSES",
    "annotation": {
@@ -992,9 +935,6 @@ window.CRYPTIC_PUZZLES["independent-12401"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Corporation's year under pressure from drug ring (3-5)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -1056,9 +996,6 @@ window.CRYPTIC_PUZZLES["independent-12401"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Notice habitual junkie Holmes is finally clean (8)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "SPOTLESS",
    "annotation": {
@@ -1101,9 +1038,6 @@ window.CRYPTIC_PUZZLES["independent-12401"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Essentially happy community cabin? (3)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "PUB",
    "annotation": {
@@ -1152,9 +1086,6 @@ window.CRYPTIC_PUZZLES["independent-12401"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Corpses' nasty smell fades away (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "BODIES",
    "annotation": {
@@ -1192,9 +1123,6 @@ window.CRYPTIC_PUZZLES["independent-12401"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "How Eastender says \"fingers crossed he consumed drug\" (6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "OPIATE",
    "annotation": {
@@ -1239,9 +1167,6 @@ window.CRYPTIC_PUZZLES["independent-12401"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Block Mev's editor interrupting exercises (6)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "IMPEDE",
    "annotation": {
@@ -1296,9 +1221,6 @@ window.CRYPTIC_PUZZLES["independent-12401"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Promise the return of some imprisoned rowdies (4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "WORD",
    "annotation": {
@@ -1334,9 +1256,6 @@ window.CRYPTIC_PUZZLES["independent-12401"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "European article following old comedian's simple task (6)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "DODDLE",
    "annotation": {
@@ -1382,9 +1301,6 @@ window.CRYPTIC_PUZZLES["independent-12401"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Asian god's atrocious nadir (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "INDRA",
    "annotation": {
@@ -1424,9 +1340,6 @@ window.CRYPTIC_PUZZLES["independent-12401"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Quiet clergyman was sick, came through (9)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "PREVAILED",
    "annotation": {
@@ -1470,9 +1383,6 @@ window.CRYPTIC_PUZZLES["independent-12401"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Small number of sports administrators raised two points (1,3)",
-   "group": [
-    "28-down"
-   ],
    "separatorLocations": {
     ",": [
      1
@@ -1528,9 +1438,6 @@ window.CRYPTIC_PUZZLES["independent-12401"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Go live under crooked gorge (11)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "OVERINDULGE",
    "annotation": {
@@ -1567,9 +1474,6 @@ window.CRYPTIC_PUZZLES["independent-12401"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Very large source of light for 1D (3)",
-   "group": [
-    "30-across"
-   ],
    "separatorLocations": {},
    "solution": "SOL",
    "annotation": {

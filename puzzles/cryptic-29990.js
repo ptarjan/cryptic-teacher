@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29990"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Plain stewed prune being like spirit? (15)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "UNPREPOSSESSING",
    "annotation": {
@@ -77,9 +74,6 @@ window.CRYPTIC_PUZZLES["cryptic-29990"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "He fancies his chances as a version of Dylan Thomas (tho’ lacking) (5,3)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -131,9 +125,6 @@ window.CRYPTIC_PUZZLES["cryptic-29990"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Lifted a garment (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "STOLE",
    "annotation": {
@@ -169,9 +160,6 @@ window.CRYPTIC_PUZZLES["cryptic-29990"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Offender of Zeus’s son is grimly pushy (8)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "SISYPHUS",
    "annotation": {
@@ -224,9 +212,6 @@ window.CRYPTIC_PUZZLES["cryptic-29990"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Say doctor’s confiscated copper breakfast container? (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "EGGCUP",
    "annotation": {
@@ -277,9 +262,6 @@ window.CRYPTIC_PUZZLES["cryptic-29990"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Past Hirst works that might be put on (9)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "OVERSHIRT",
    "annotation": {
@@ -329,9 +311,6 @@ window.CRYPTIC_PUZZLES["cryptic-29990"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Misuse of umlaut is common (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "MUTUAL",
    "annotation": {
@@ -377,9 +356,6 @@ window.CRYPTIC_PUZZLES["cryptic-29990"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "One who exaggerates agent’s role in getting player off the pitch (9-6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     "-": [
      9
@@ -426,9 +402,6 @@ window.CRYPTIC_PUZZLES["cryptic-29990"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Zero protection for organ (not ball) – almost a disaster? (4,5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -484,9 +457,6 @@ window.CRYPTIC_PUZZLES["cryptic-29990"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Relation following victory parade (5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "VAUNT",
    "annotation": {
@@ -530,9 +500,6 @@ window.CRYPTIC_PUZZLES["cryptic-29990"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Reward of author, King and his ilk? (7)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "ROYALTY",
    "annotation": {
@@ -568,9 +535,6 @@ window.CRYPTIC_PUZZLES["cryptic-29990"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "English river on right of coach party (7)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "CAROUSE",
    "annotation": {
@@ -614,9 +578,6 @@ window.CRYPTIC_PUZZLES["cryptic-29990"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Male circle backed out of fancy ball ceremony (4)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "POMP",
    "annotation": {
@@ -672,9 +633,6 @@ window.CRYPTIC_PUZZLES["cryptic-29990"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "One who might not, however, buy the idea they were compulsive? (10)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "SHOPAHOLIC",
    "annotation": {
@@ -707,9 +665,6 @@ window.CRYPTIC_PUZZLES["cryptic-29990"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Party competed to secure East Coast state? Sure (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "CONVINCED",
    "annotation": {
@@ -760,9 +715,6 @@ window.CRYPTIC_PUZZLES["cryptic-29990"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Curved air passage round centre of Slough (7)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "SINUOUS",
    "annotation": {
@@ -809,9 +761,6 @@ window.CRYPTIC_PUZZLES["cryptic-29990"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Blunder, caging wingless bird as a zoo attraction? (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "GIRAFFE",
    "annotation": {
@@ -861,9 +810,6 @@ window.CRYPTIC_PUZZLES["cryptic-29990"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Look into playing online after sundown (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "GLOAMING",
    "annotation": {
@@ -909,9 +855,6 @@ window.CRYPTIC_PUZZLES["cryptic-29990"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Cooler and relaxed? Try dance (8)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "FANDANGO",
    "annotation": {
@@ -967,9 +910,6 @@ window.CRYPTIC_PUZZLES["cryptic-29990"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Songfest combining money with fantasy (10)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "EUROVISION",
    "annotation": {
@@ -1016,9 +956,6 @@ window.CRYPTIC_PUZZLES["cryptic-29990"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Old advice about concealed earthworks entrances: ‘Get back!’ (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "RECEDE",
    "annotation": {
@@ -1065,9 +1002,6 @@ window.CRYPTIC_PUZZLES["cryptic-29990"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Picture framing mother’s climbing plant (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "SESAME",
    "annotation": {
@@ -1120,9 +1054,6 @@ window.CRYPTIC_PUZZLES["cryptic-29990"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "New York’s bottom, turning humble (4)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "SNUB",
    "annotation": {
@@ -1166,9 +1097,6 @@ window.CRYPTIC_PUZZLES["cryptic-29990"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Sailor finally is into top sea food (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "KRILL",
    "annotation": {
@@ -1218,9 +1146,6 @@ window.CRYPTIC_PUZZLES["cryptic-29990"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Boxer supports another course? (7)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "SECONDS",
    "annotation": {
@@ -1256,9 +1181,6 @@ window.CRYPTIC_PUZZLES["cryptic-29990"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Wine means the world to the French (7)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "MARSALA",
    "annotation": {
@@ -1300,9 +1222,6 @@ window.CRYPTIC_PUZZLES["cryptic-29990"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Elbow’s exposed outside gown’s opening (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "NUDGE",
    "annotation": {
@@ -1352,9 +1271,6 @@ window.CRYPTIC_PUZZLES["cryptic-29990"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Address of poor mug with one loo (9)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "MONOLOGUE",
    "annotation": {

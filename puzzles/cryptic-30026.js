@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30026"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Revealed by this fog breaking up? Hardly (3,2,5)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -85,9 +82,6 @@ window.CRYPTIC_PUZZLES["cryptic-30026"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Master on board climbing wooden mast stops playing (8)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "KASPAROV",
    "annotation": {
@@ -146,9 +140,6 @@ window.CRYPTIC_PUZZLES["cryptic-30026"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Assumes trouble with Potus regularly (6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "ADOPTS",
    "annotation": {
@@ -195,9 +186,6 @@ window.CRYPTIC_PUZZLES["cryptic-30026"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "I don’t like that Republican lout (4)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "BOOR",
    "annotation": {
@@ -236,9 +224,6 @@ window.CRYPTIC_PUZZLES["cryptic-30026"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "One following gets careless, almost dying (2,8)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -295,9 +280,6 @@ window.CRYPTIC_PUZZLES["cryptic-30026"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Mint tea with a touch of nutmeg added (5-3)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -352,9 +334,6 @@ window.CRYPTIC_PUZZLES["cryptic-30026"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "‘Animals’ in Post Office beginning to sweat (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "HIPPOS",
    "annotation": {
@@ -404,9 +383,6 @@ window.CRYPTIC_PUZZLES["cryptic-30026"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Sense it could be largely pointless (4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "NOUS",
    "annotation": {
@@ -447,9 +423,6 @@ window.CRYPTIC_PUZZLES["cryptic-30026"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Not on the level? Dunno, Paw tricked over 500 (2-3-4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     "-": [
      2,
@@ -500,9 +473,6 @@ window.CRYPTIC_PUZZLES["cryptic-30026"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Neighbour of 7 right at home wearing nothing (5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "RHINO",
    "annotation": {
@@ -556,9 +526,6 @@ window.CRYPTIC_PUZZLES["cryptic-30026"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "How many like to solve crosswords in theory? (2,5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -598,9 +565,6 @@ window.CRYPTIC_PUZZLES["cryptic-30026"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "When reviewing, I used to love her work about new frog genus (7)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "XENOPUS",
    "annotation": {
@@ -658,9 +622,6 @@ window.CRYPTIC_PUZZLES["cryptic-30026"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "They’re not free to work (5)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "SERFS",
    "annotation": {
@@ -693,9 +654,6 @@ window.CRYPTIC_PUZZLES["cryptic-30026"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Breeding grebes in a N Pacific location (6,3)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -737,9 +695,6 @@ window.CRYPTIC_PUZZLES["cryptic-30026"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Like Kelvin and the others in bed, not a reliable type (6,4)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -800,9 +755,6 @@ window.CRYPTIC_PUZZLES["cryptic-30026"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Scrap music hall staple (3,3,4)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -843,9 +795,6 @@ window.CRYPTIC_PUZZLES["cryptic-30026"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Yes, I will get move to Reform … and put the boot in? (4.2,4.5)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -895,9 +844,6 @@ window.CRYPTIC_PUZZLES["cryptic-30026"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Where you may find me contracted not natural (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "INHERENT",
    "annotation": {
@@ -940,9 +886,6 @@ window.CRYPTIC_PUZZLES["cryptic-30026"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Where do soldiers go? Are they required at the front during occupations? (8)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "LATRINES",
    "annotation": {
@@ -989,9 +932,6 @@ window.CRYPTIC_PUZZLES["cryptic-30026"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Moves casually round hotel, speed initially being ineffective (9)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "TOOTHLESS",
    "annotation": {
@@ -1047,9 +987,6 @@ window.CRYPTIC_PUZZLES["cryptic-30026"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "They have a point, debtors admitting (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "OWNERS",
    "annotation": {
@@ -1094,9 +1031,6 @@ window.CRYPTIC_PUZZLES["cryptic-30026"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Books sweetheart into empty Montreal accommodation (5)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "MOTEL",
    "annotation": {
@@ -1149,9 +1083,6 @@ window.CRYPTIC_PUZZLES["cryptic-30026"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Insect (a different one) is trapped under Tom’s foot (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "MANTIS",
    "annotation": {
@@ -1203,9 +1134,6 @@ window.CRYPTIC_PUZZLES["cryptic-30026"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Type of sex from Thailand grotesque – runs to join in (7)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "TANTRIC",
    "annotation": {
@@ -1260,9 +1188,6 @@ window.CRYPTIC_PUZZLES["cryptic-30026"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Both gutted he’s out? Flipping rubbish! (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "TOSH",
    "annotation": {
@@ -1314,9 +1239,6 @@ window.CRYPTIC_PUZZLES["cryptic-30026"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Skirt covering nether regions the French rejected for beachwear (7)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "MANKINI",
    "annotation": {
@@ -1371,9 +1293,6 @@ window.CRYPTIC_PUZZLES["cryptic-30026"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "My best friend’s letter to Times? (4)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "MUTT",
    "annotation": {
@@ -1416,9 +1335,6 @@ window.CRYPTIC_PUZZLES["cryptic-30026"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Wrong about hidden warning (5)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "SIREN",
    "annotation": {
@@ -1463,9 +1379,6 @@ window.CRYPTIC_PUZZLES["cryptic-30026"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Do something about sealing gap over light (3,4,2)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      3,

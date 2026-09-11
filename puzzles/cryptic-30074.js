@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30074"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Court serves claims, primarily making sound lawsuits with these (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "ACES",
    "annotation": {
@@ -77,9 +74,6 @@ window.CRYPTIC_PUZZLES["cryptic-30074"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Blemish on this wobbly bottom of frequent flyer (5,3)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -142,9 +136,6 @@ window.CRYPTIC_PUZZLES["cryptic-30074"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Ignoring the last perfect theory (4)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "IDEA",
    "annotation": {
@@ -181,9 +172,6 @@ window.CRYPTIC_PUZZLES["cryptic-30074"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "First of cantilever bridges crossed having no parking inspectors (8)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "SCANNERS",
    "annotation": {
@@ -234,9 +222,6 @@ window.CRYPTIC_PUZZLES["cryptic-30074"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Pet Labrador’s initially absent after eating posh food (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "FONDUE",
    "annotation": {
@@ -292,9 +277,6 @@ window.CRYPTIC_PUZZLES["cryptic-30074"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Plant maybe in Spooner’s garment dryer (4,6)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -346,9 +328,6 @@ window.CRYPTIC_PUZZLES["cryptic-30074"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Troops I fed left yankee wanting eggs (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "CAVIAR",
    "annotation": {
@@ -405,9 +384,6 @@ window.CRYPTIC_PUZZLES["cryptic-30074"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Nice summer, fine at the beginning for festival (4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "FETE",
    "annotation": {
@@ -453,9 +429,6 @@ window.CRYPTIC_PUZZLES["cryptic-30074"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Vegetable patch ardently covered (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "CHARD",
    "annotation": {
@@ -489,9 +462,6 @@ window.CRYPTIC_PUZZLES["cryptic-30074"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Sweet coke, hot drinks in cafe with espresso at first (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "CHOCOLATE",
    "annotation": {
@@ -549,9 +519,6 @@ window.CRYPTIC_PUZZLES["cryptic-30074"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Confirmed fronts of service uniforms dirty (9)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "SUSTAINED",
    "annotation": {
@@ -600,9 +567,6 @@ window.CRYPTIC_PUZZLES["cryptic-30074"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Drunk Nelson at last provided English cutter (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "KNIFE",
    "annotation": {
@@ -657,9 +621,6 @@ window.CRYPTIC_PUZZLES["cryptic-30074"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Extravagant Co-op surrounds home (7)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "COTTAGE",
    "annotation": {
@@ -703,9 +664,6 @@ window.CRYPTIC_PUZZLES["cryptic-30074"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Join firm, starts scared (5)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "COWED",
    "annotation": {
@@ -748,9 +706,6 @@ window.CRYPTIC_PUZZLES["cryptic-30074"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Jews ask him a Zen problem (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "ASHKENAZIM",
    "annotation": {
@@ -792,9 +747,6 @@ window.CRYPTIC_PUZZLES["cryptic-30074"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Sufferer I treated internally in a state (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "ERITREA",
    "annotation": {
@@ -831,9 +783,6 @@ window.CRYPTIC_PUZZLES["cryptic-30074"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Bad religious scholar opens beer (5)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "ADDLE",
    "annotation": {
@@ -877,9 +826,6 @@ window.CRYPTIC_PUZZLES["cryptic-30074"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "View sample that is trimmed at the front (5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "WATCH",
    "annotation": {
@@ -919,9 +865,6 @@ window.CRYPTIC_PUZZLES["cryptic-30074"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Sink in which neon reflected? (3)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "SAG",
    "annotation": {
@@ -967,9 +910,6 @@ window.CRYPTIC_PUZZLES["cryptic-30074"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Last song performed in Moscow, it shows sincerity (8)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "GLASNOST",
    "annotation": {
@@ -1011,9 +951,6 @@ window.CRYPTIC_PUZZLES["cryptic-30074"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "17, you say, in type of carriage coming back (5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "GUARD",
    "annotation": {
@@ -1068,9 +1005,6 @@ window.CRYPTIC_PUZZLES["cryptic-30074"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Three articles by mother providing curse (8)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "ANATHEMA",
    "annotation": {
@@ -1113,9 +1047,6 @@ window.CRYPTIC_PUZZLES["cryptic-30074"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Peer from jet, disregarding old ship (7)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "DUCHESS",
    "annotation": {
@@ -1166,9 +1097,6 @@ window.CRYPTIC_PUZZLES["cryptic-30074"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Bad luck if it’s hard (6)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "CHEESE",
    "annotation": {
@@ -1200,9 +1128,6 @@ window.CRYPTIC_PUZZLES["cryptic-30074"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "One that displays useless lot (6)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "SHOWER",
    "annotation": {
@@ -1237,9 +1162,6 @@ window.CRYPTIC_PUZZLES["cryptic-30074"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Sky-high price of cockney’s locks sounds reasonable (7)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "AIRFARE",
    "annotation": {
@@ -1288,9 +1210,6 @@ window.CRYPTIC_PUZZLES["cryptic-30074"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Directions with extra finally given after short arm bowl (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "ARENA",
    "annotation": {
@@ -1343,9 +1262,6 @@ window.CRYPTIC_PUZZLES["cryptic-30074"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Adams entertaining republican soldiers (4)",
-   "group": [
-    "26-down"
-   ],
    "separatorLocations": {},
    "solution": "ARMY",
    "annotation": {
@@ -1390,9 +1306,6 @@ window.CRYPTIC_PUZZLES["cryptic-30074"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Possession of pier shown to be condemned (9)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "OWNERSHIP",
    "annotation": {
@@ -1437,9 +1350,6 @@ window.CRYPTIC_PUZZLES["cryptic-30074"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "A bit funny Penny’s missing something needed for toilet (4)",
-   "group": [
-    "28-down"
-   ],
    "separatorLocations": {},
    "solution": "ROLL",
    "annotation": {
@@ -1481,9 +1391,6 @@ window.CRYPTIC_PUZZLES["cryptic-30074"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Yearn to stick close to fiancée (4)",
-   "group": [
-    "29-down"
-   ],
    "separatorLocations": {},
    "solution": "PINE",
    "annotation": {
@@ -1529,9 +1436,6 @@ window.CRYPTIC_PUZZLES["cryptic-30074"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "One packing essential cape that’s showing mould (9)",
-   "group": [
-    "30-across"
-   ],
    "separatorLocations": {},
    "solution": "MUSTINESS",
    "annotation": {
@@ -1584,9 +1488,6 @@ window.CRYPTIC_PUZZLES["cryptic-30074"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Colour in retrospective Tarantino melodrama (5)",
-   "group": [
-    "31-across"
-   ],
    "separatorLocations": {},
    "solution": "LEMON",
    "annotation": {

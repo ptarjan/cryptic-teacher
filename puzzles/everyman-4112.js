@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4112"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Where broth may be black bird of prey (4)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "BOWL",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["everyman-4112"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Period of small misfortunes - like losing to a tortoise, reports suggest (3,4,3)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -64,9 +58,6 @@ window.CRYPTIC_PUZZLES["everyman-4112"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Baked pie? Good, now what's in it? (4,6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -85,9 +76,6 @@ window.CRYPTIC_PUZZLES["everyman-4112"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "What makes you die of cold? (3,7)",
-   "group": [
-    "3-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -106,9 +94,6 @@ window.CRYPTIC_PUZZLES["everyman-4112"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Business trouble (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "CONCERN",
    "annotation": null
@@ -123,9 +108,6 @@ window.CRYPTIC_PUZZLES["everyman-4112"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Resents '80s film's outlook on life (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "MINDSET",
    "annotation": null
@@ -140,9 +122,6 @@ window.CRYPTIC_PUZZLES["everyman-4112"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Rise and criticise church? That's just retribution (11)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "COMEUPPANCE",
    "annotation": null
@@ -157,9 +136,6 @@ window.CRYPTIC_PUZZLES["everyman-4112"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "'I' - one that's Athenian, primarily? (4)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "IOTA",
    "annotation": null
@@ -174,9 +150,6 @@ window.CRYPTIC_PUZZLES["everyman-4112"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "At first, Everyman's dreary, vacuous, dreary - I'm going round in circles (4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "EDDY",
    "annotation": null
@@ -191,9 +164,6 @@ window.CRYPTIC_PUZZLES["everyman-4112"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Condemn atmosphere that's reactionary (4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "DOOM",
    "annotation": null
@@ -208,9 +178,6 @@ window.CRYPTIC_PUZZLES["everyman-4112"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "A grandma won at chess, did you say? Not so fast (10)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "UNANIMATED",
    "annotation": null
@@ -225,9 +192,6 @@ window.CRYPTIC_PUZZLES["everyman-4112"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "If you're spoonfed, this may put words in your mouth (8,4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -246,9 +210,6 @@ window.CRYPTIC_PUZZLES["everyman-4112"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Titian to rub out credit (11)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {},
    "solution": "ATTRIBUTION",
    "annotation": null
@@ -263,9 +224,6 @@ window.CRYPTIC_PUZZLES["everyman-4112"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Swimming pool - mine - so refuse to share (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "MONOPOLISE",
    "annotation": null
@@ -280,9 +238,6 @@ window.CRYPTIC_PUZZLES["everyman-4112"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Dull, like a perfume you don't smell? (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "UNINSPIRED",
    "annotation": null
@@ -297,9 +252,6 @@ window.CRYPTIC_PUZZLES["everyman-4112"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Topless seaside town? Amen (5,2)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -318,9 +270,6 @@ window.CRYPTIC_PUZZLES["everyman-4112"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Tea and slice of nougat gives you wind (7)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "TYPHOON",
    "annotation": null
@@ -335,9 +284,6 @@ window.CRYPTIC_PUZZLES["everyman-4112"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Put an end to slippery oil baths - no time! (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "ABOLISH",
    "annotation": null
@@ -352,9 +298,6 @@ window.CRYPTIC_PUZZLES["everyman-4112"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Stink surrounding old, old, rough ruffian (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "HOODLUM",
    "annotation": null
@@ -369,9 +312,6 @@ window.CRYPTIC_PUZZLES["everyman-4112"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Was in charge of twerp somewhere in Burma (7)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "RANGOON",
    "annotation": null
@@ -386,9 +326,6 @@ window.CRYPTIC_PUZZLES["everyman-4112"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Dealing with part of the eye, actual metal's inserted (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "RETINAL",
    "annotation": null
@@ -403,9 +340,6 @@ window.CRYPTIC_PUZZLES["everyman-4112"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Not included: how crossword setter found anagram for 'pothole'? (3,2,3,4)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -426,9 +360,6 @@ window.CRYPTIC_PUZZLES["everyman-4112"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Volcano: pet name some ignored (4)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "ETNA",
    "annotation": null
@@ -443,9 +374,6 @@ window.CRYPTIC_PUZZLES["everyman-4112"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Rejected plans to pester people online (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "SPAM",
    "annotation": null
@@ -460,9 +388,6 @@ window.CRYPTIC_PUZZLES["everyman-4112"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Celebrity in jumper maybe sending invoice (3,7)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -481,9 +406,6 @@ window.CRYPTIC_PUZZLES["everyman-4112"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Pork pie purveyor admitted to Juilliard (4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "LIAR",
    "annotation": null
@@ -498,9 +420,6 @@ window.CRYPTIC_PUZZLES["everyman-4112"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Mad monk? I'll supply drink (6,4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -519,9 +438,6 @@ window.CRYPTIC_PUZZLES["everyman-4112"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Crossword setter getting commercial for booze (4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "MEAD",
    "annotation": null

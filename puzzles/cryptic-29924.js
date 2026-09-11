@@ -47,9 +47,6 @@ window.CRYPTIC_PUZZLES["cryptic-29924"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Have group sex missing former partner, repeatedly (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "POSSESS",
    "annotation": null
@@ -64,9 +61,6 @@ window.CRYPTIC_PUZZLES["cryptic-29924"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Ford hybrid (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "CROSS",
    "annotation": null
@@ -81,9 +75,6 @@ window.CRYPTIC_PUZZLES["cryptic-29924"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Idiot secure having taken away Iran’s primary weapons (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "ARSENAL",
    "annotation": null
@@ -98,9 +89,6 @@ window.CRYPTIC_PUZZLES["cryptic-29924"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Grill liberal before Reform UK MP (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "LATTICE",
    "annotation": null
@@ -115,9 +103,6 @@ window.CRYPTIC_PUZZLES["cryptic-29924"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Show up around college that’s busy (6)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "ACTIVE",
    "annotation": null
@@ -132,9 +117,6 @@ window.CRYPTIC_PUZZLES["cryptic-29924"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Spinner to enter game goes off length during match (9)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "TURNSTILE",
    "annotation": null
@@ -149,9 +131,6 @@ window.CRYPTIC_PUZZLES["cryptic-29924"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Designer trousers new for sewer? (7)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "CHANNEL",
    "annotation": null
@@ -186,9 +165,6 @@ window.CRYPTIC_PUZZLES["cryptic-29924"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Pandora’s box keeps order for something bad (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "ASBO",
    "annotation": null
@@ -203,9 +179,6 @@ window.CRYPTIC_PUZZLES["cryptic-29924"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Wanting lolly or biscuit (10)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "SHORTBREAD",
    "annotation": null
@@ -220,9 +193,6 @@ window.CRYPTIC_PUZZLES["cryptic-29924"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Age they smell, looking back, around start of adolescence (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "SEASON",
    "annotation": null
@@ -237,9 +207,6 @@ window.CRYPTIC_PUZZLES["cryptic-29924"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Correcting The King that’s out of line during call (8)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "REVISING",
    "annotation": null
@@ -254,9 +221,6 @@ window.CRYPTIC_PUZZLES["cryptic-29924"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Prove herbalists wrong having dismissed recipe (9)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "ESTABLISH",
    "annotation": null
@@ -271,9 +235,6 @@ window.CRYPTIC_PUZZLES["cryptic-29924"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Gold sovereign: one great deal that could help bank (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "AUTOPILOT",
    "annotation": null
@@ -288,9 +249,6 @@ window.CRYPTIC_PUZZLES["cryptic-29924"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "A key passage (5)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "AISLE",
    "annotation": null
@@ -305,9 +263,6 @@ window.CRYPTIC_PUZZLES["cryptic-29924"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Boozers drinking in quiet places (5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "SPOTS",
    "annotation": null
@@ -322,9 +277,6 @@ window.CRYPTIC_PUZZLES["cryptic-29924"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Portrait for hanging up in mansion (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "PROFILE",
    "annotation": null
@@ -339,9 +291,6 @@ window.CRYPTIC_PUZZLES["cryptic-29924"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Get on blue broadcast with saucy thing in recession (6-3)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {
     "-": [
      6
@@ -360,9 +309,6 @@ window.CRYPTIC_PUZZLES["cryptic-29924"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Last couple in bar re-ordered pure spirit (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "BRAVERY",
    "annotation": null
@@ -377,9 +323,6 @@ window.CRYPTIC_PUZZLES["cryptic-29924"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Cold Brigitte Bardot’s here getting cape (7)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "ICINESS",
    "annotation": null
@@ -394,9 +337,6 @@ window.CRYPTIC_PUZZLES["cryptic-29924"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Arrogance of lead form teacher upset over uniform (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "HUBRIS",
    "annotation": null
@@ -411,9 +351,6 @@ window.CRYPTIC_PUZZLES["cryptic-29924"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Unite member joining company to strike (8)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "COMPOUND",
    "annotation": null
@@ -428,9 +365,6 @@ window.CRYPTIC_PUZZLES["cryptic-29924"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Let oneself down as bails knocked off with back of knee (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "ABSEIL",
    "annotation": null
@@ -445,9 +379,6 @@ window.CRYPTIC_PUZZLES["cryptic-29924"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Hold up sign at front high (5)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "STALL",
    "annotation": null
@@ -462,9 +393,6 @@ window.CRYPTIC_PUZZLES["cryptic-29924"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Fire in this? Rang fire bell essentially distressed (5,5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -483,9 +411,6 @@ window.CRYPTIC_PUZZLES["cryptic-29924"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Fearful American to get married (4)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "AWED",
    "annotation": null
@@ -500,9 +425,6 @@ window.CRYPTIC_PUZZLES["cryptic-29924"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "One might fix bridge as it tends to wobble (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "DENTIST",
    "annotation": null
@@ -517,9 +439,6 @@ window.CRYPTIC_PUZZLES["cryptic-29924"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Rider from celebrity on vacation (minor celebrity) (7)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "CYCLIST",
    "annotation": null

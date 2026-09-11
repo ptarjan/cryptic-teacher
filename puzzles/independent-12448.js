@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12448"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Show contempt for church when snubbing cardinal's char (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "SCORCH",
    "annotation": {
@@ -75,9 +72,6 @@ window.CRYPTIC_PUZZLES["independent-12448"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Family goes on vacation to northern capital (8)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "KINGSTON",
    "annotation": {
@@ -132,9 +126,6 @@ window.CRYPTIC_PUZZLES["independent-12448"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Spooner's apostle's train makes scheduled stop (4,2,4)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -192,9 +183,6 @@ window.CRYPTIC_PUZZLES["independent-12448"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Abigail is prepared for eavesdroppers (4)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "MAID",
    "annotation": {
@@ -232,9 +220,6 @@ window.CRYPTIC_PUZZLES["independent-12448"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Recidivist regularly concealed gear under rugby player's top (10)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "BACKSLIDER",
    "annotation": {
@@ -285,9 +270,6 @@ window.CRYPTIC_PUZZLES["independent-12448"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Weed provided by fellow impresario (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "WIMP",
    "annotation": {
@@ -321,9 +303,6 @@ window.CRYPTIC_PUZZLES["independent-12448"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Straight man discovered aboard ship (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "LINEAR",
    "annotation": {
@@ -369,9 +348,6 @@ window.CRYPTIC_PUZZLES["independent-12448"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Flapper admits boss shot shooter (8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "CROSSBOW",
    "annotation": {
@@ -423,9 +399,6 @@ window.CRYPTIC_PUZZLES["independent-12448"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Sausage French fry with oil, salt and bay occasionally (9)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "CHIPOLATA",
    "annotation": {
@@ -471,9 +444,6 @@ window.CRYPTIC_PUZZLES["independent-12448"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Cooler setter essentially renounced drink (5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "ICIER",
    "annotation": {
@@ -521,9 +491,6 @@ window.CRYPTIC_PUZZLES["independent-12448"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Set straight communist about conflicts without borders (7)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "RIGHTED",
    "annotation": {
@@ -569,9 +536,6 @@ window.CRYPTIC_PUZZLES["independent-12448"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Fish captain primarily shipped to East End (7)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "KIPPERS",
    "annotation": {
@@ -670,9 +634,6 @@ window.CRYPTIC_PUZZLES["independent-12448"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "One who wangles tip from passenger in taxi? Animal! (7,4)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -728,9 +689,6 @@ window.CRYPTIC_PUZZLES["independent-12448"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Doctor initially assists German dissecting aged script consultant (10)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "DRAMATURGE",
    "annotation": {
@@ -788,9 +746,6 @@ window.CRYPTIC_PUZZLES["independent-12448"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "One might provide over-optimistic worldview? (4,6)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -828,9 +783,6 @@ window.CRYPTIC_PUZZLES["independent-12448"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Italian lady returning an unspoken acknowledgement (5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "DONNA",
    "annotation": {
@@ -878,9 +830,6 @@ window.CRYPTIC_PUZZLES["independent-12448"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Subdued party with Nollywood's top actors (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "DOWNCAST",
    "annotation": {
@@ -960,9 +909,6 @@ window.CRYPTIC_PUZZLES["independent-12448"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Suture holds in tendon (5)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "SINEW",
    "annotation": {
@@ -1006,9 +952,6 @@ window.CRYPTIC_PUZZLES["independent-12448"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Random drunk entering city where many disembarked (8)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "NORMANDY",
    "annotation": {
@@ -1060,9 +1003,6 @@ window.CRYPTIC_PUZZLES["independent-12448"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Pub brawl after Welsh emptied fish cart (11)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "WHEELBARROW",
    "annotation": {
@@ -1119,9 +1059,6 @@ window.CRYPTIC_PUZZLES["independent-12448"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Partially retired middleman enjoys dental cover (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "ENAMEL",
    "annotation": {
@@ -1184,9 +1121,6 @@ window.CRYPTIC_PUZZLES["independent-12448"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Character in novella that you consider memorable, ultimately (6)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "NATURE",
    "annotation": {
@@ -1233,9 +1167,6 @@ window.CRYPTIC_PUZZLES["independent-12448"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Tom consumes hot water in French stately home (7)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "CHATEAU",
    "annotation": {
@@ -1285,9 +1216,6 @@ window.CRYPTIC_PUZZLES["independent-12448"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Nobleman almost loses case (4)",
-   "group": [
-    "26-down"
-   ],
    "separatorLocations": {},
    "solution": "EARL",
    "annotation": {
@@ -1329,9 +1257,6 @@ window.CRYPTIC_PUZZLES["independent-12448"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Ornament from Norway acquired by purist (7)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "PENDANT",
    "annotation": {
@@ -1378,9 +1303,6 @@ window.CRYPTIC_PUZZLES["independent-12448"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Long needle supplier (4)",
-   "group": [
-    "27-down"
-   ],
    "separatorLocations": {},
    "solution": "PINE",
    "annotation": {
@@ -1415,9 +1337,6 @@ window.CRYPTIC_PUZZLES["independent-12448"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Thin bedcover Romeo brought in for model (5)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "SHEER",
    "annotation": {
@@ -1465,9 +1384,6 @@ window.CRYPTIC_PUZZLES["independent-12448"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Grown-up desperate to secure extremely destructive explosive (9)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "GUNPOWDER",
    "annotation": {

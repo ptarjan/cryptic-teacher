@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1364"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Nation pissed off authority (12)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "DISPENSATION",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["quiptic-1364"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Turned around holding working bomb part (9)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "DETONATOR",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["quiptic-1364"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Rainbow tattoo initially strange below small muscle (8)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "SPECTRUM",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["quiptic-1364"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "About to pass up duck (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "EIDER",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["quiptic-1364"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Flower holding small, small volume you and I raised for person who follows (9)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "SUCCESSOR",
    "annotation": null
@@ -110,9 +95,6 @@ window.CRYPTIC_PUZZLES["quiptic-1364"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Toy with small amount of dessert (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "TRIFLE",
    "annotation": null
@@ -127,9 +109,6 @@ window.CRYPTIC_PUZZLES["quiptic-1364"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Proposal from former queen (5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "OFFER",
    "annotation": null
@@ -144,9 +123,6 @@ window.CRYPTIC_PUZZLES["quiptic-1364"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Iron covering meat served with blazing alcohol (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "FLAMBE",
    "annotation": null
@@ -161,9 +137,6 @@ window.CRYPTIC_PUZZLES["quiptic-1364"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Profess everything for example before end of June (6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "ALLEGE",
    "annotation": null
@@ -178,9 +151,6 @@ window.CRYPTIC_PUZZLES["quiptic-1364"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Delayed imbibing last bit of hot drink (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "LATTE",
    "annotation": null
@@ -195,9 +165,6 @@ window.CRYPTIC_PUZZLES["quiptic-1364"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Deft clue I arranged to be misleading (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "DECEITFUL",
    "annotation": null
@@ -212,9 +179,6 @@ window.CRYPTIC_PUZZLES["quiptic-1364"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Big first day back (almost) (7)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "MONSTER",
    "annotation": null
@@ -229,9 +193,6 @@ window.CRYPTIC_PUZZLES["quiptic-1364"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Make bigger part of integral network in retrospect (7)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "ENLARGE",
    "annotation": null
@@ -246,9 +207,6 @@ window.CRYPTIC_PUZZLES["quiptic-1364"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Sushi meant to be chewed up with zeal (10)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "ENTHUSIASM",
    "annotation": null
@@ -263,9 +221,6 @@ window.CRYPTIC_PUZZLES["quiptic-1364"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Unflappable setter’s repeatedly embracing graduate (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "IMPASSIVE",
    "annotation": null
@@ -280,9 +235,6 @@ window.CRYPTIC_PUZZLES["quiptic-1364"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Missing odd pieces of neoprene weapon (4)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "EPEE",
    "annotation": null
@@ -297,9 +249,6 @@ window.CRYPTIC_PUZZLES["quiptic-1364"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Press release popular board finds fit to publish (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "PRINTABLE",
    "annotation": null
@@ -314,9 +263,6 @@ window.CRYPTIC_PUZZLES["quiptic-1364"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Irritating engineer in agony pierced by tip of needle (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "ANNOYING",
    "annotation": null
@@ -331,9 +277,6 @@ window.CRYPTIC_PUZZLES["quiptic-1364"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Announced reasonable ticket price (4)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "FARE",
    "annotation": null
@@ -348,9 +291,6 @@ window.CRYPTIC_PUZZLES["quiptic-1364"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "In favour of period to rummage (6)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "FORAGE",
    "annotation": null
@@ -365,9 +305,6 @@ window.CRYPTIC_PUZZLES["quiptic-1364"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Programme rejigged at first to attract one learning the ropes (10)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "APPRENTICE",
    "annotation": null
@@ -382,9 +319,6 @@ window.CRYPTIC_PUZZLES["quiptic-1364"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Earl fixes edits (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "EMENDS",
    "annotation": null
@@ -399,9 +333,6 @@ window.CRYPTIC_PUZZLES["quiptic-1364"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Pungent paste used to be on top of all baked Indonesian starters (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "WASABI",
    "annotation": null
@@ -416,9 +347,6 @@ window.CRYPTIC_PUZZLES["quiptic-1364"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "In revolutionary prison uniform a lag originally wears for ceremonies (7)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "RITUALS",
    "annotation": null
@@ -433,9 +361,6 @@ window.CRYPTIC_PUZZLES["quiptic-1364"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Goatee that catches parts of comb (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "TEETH",
    "annotation": null
@@ -450,9 +375,6 @@ window.CRYPTIC_PUZZLES["quiptic-1364"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Time left during task for a laugh (7)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "CHORTLE",
    "annotation": null
@@ -467,9 +389,6 @@ window.CRYPTIC_PUZZLES["quiptic-1364"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Transport work freight (5)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "CARGO",
    "annotation": null
@@ -484,9 +403,6 @@ window.CRYPTIC_PUZZLES["quiptic-1364"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Explosive containing iodine beginning to rattle soldier (9)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "GRENADIER",
    "annotation": null
@@ -501,9 +417,6 @@ window.CRYPTIC_PUZZLES["quiptic-1364"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Lodge one married posh girl from the East (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "IMBED",
    "annotation": null
@@ -518,9 +431,6 @@ window.CRYPTIC_PUZZLES["quiptic-1364"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Clearing house moving and removing right piece of furniture (6,6)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     ",": [
      6

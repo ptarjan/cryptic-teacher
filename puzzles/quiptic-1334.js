@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1334"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Cast takes on a hunt (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "FORAGE",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["quiptic-1334"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Italian director collapsed in current (7)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "FELLINI",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["quiptic-1334"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Sauces made using spun sugar (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "RAGUS",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["quiptic-1334"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Speculated about how visitor is picked up (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "GUESSED",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["quiptic-1334"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Music system created by some austere orchestras (6)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "STEREO",
    "annotation": null
@@ -110,9 +95,6 @@ window.CRYPTIC_PUZZLES["quiptic-1334"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Cheers advanced facility (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "TALENT",
    "annotation": null
@@ -127,9 +109,6 @@ window.CRYPTIC_PUZZLES["quiptic-1334"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Way to seek admission that will sound familiar (4,1,4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -149,9 +128,6 @@ window.CRYPTIC_PUZZLES["quiptic-1334"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Published fiction on queen is something abnormal (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "OUTLIER",
    "annotation": null
@@ -166,9 +142,6 @@ window.CRYPTIC_PUZZLES["quiptic-1334"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Mostly what you wear and feel in battle (6,7)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -187,9 +160,6 @@ window.CRYPTIC_PUZZLES["quiptic-1334"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Promote extremely punctual underling (4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "PLUG",
    "annotation": null
@@ -204,9 +174,6 @@ window.CRYPTIC_PUZZLES["quiptic-1334"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Texan lopes about finding places out of this world (10)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "EXOPLANETS",
    "annotation": null
@@ -221,9 +188,6 @@ window.CRYPTIC_PUZZLES["quiptic-1334"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Casually called wife the most beautiful in America (6)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "MISSUS",
    "annotation": null
@@ -238,9 +202,6 @@ window.CRYPTIC_PUZZLES["quiptic-1334"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Biblical fellow creating difficulty in African country (8)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "BENJAMIN",
    "annotation": null
@@ -255,9 +216,6 @@ window.CRYPTIC_PUZZLES["quiptic-1334"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Sad fitter abandoned initial romantic encounter (5,4)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -276,9 +234,6 @@ window.CRYPTIC_PUZZLES["quiptic-1334"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Being in good form accurately underpins race odds (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "SPRIGHTLY",
    "annotation": null
@@ -293,9 +248,6 @@ window.CRYPTIC_PUZZLES["quiptic-1334"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "You express absolute resolution when starting this time (4)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "YEAR",
    "annotation": null
@@ -310,9 +262,6 @@ window.CRYPTIC_PUZZLES["quiptic-1334"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Fossil fuel that may lead to war? (4)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "TURF",
    "annotation": null
@@ -327,9 +276,6 @@ window.CRYPTIC_PUZZLES["quiptic-1334"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Wedges have this fine finish – it’s just the start (4,3)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -348,9 +294,6 @@ window.CRYPTIC_PUZZLES["quiptic-1334"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Unrivalled competition? Not so much (9)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "MATCHLESS",
    "annotation": null
@@ -365,9 +308,6 @@ window.CRYPTIC_PUZZLES["quiptic-1334"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Reluctantly deliver expression of horror to disrupt power grab (5,2)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -386,9 +326,6 @@ window.CRYPTIC_PUZZLES["quiptic-1334"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Devotee of major pop sensation broke wifi set (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "SWIFTIE",
    "annotation": null
@@ -403,9 +340,6 @@ window.CRYPTIC_PUZZLES["quiptic-1334"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Boiled rice in iron container – that’s very intense (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "FIERCE",
    "annotation": null
@@ -420,9 +354,6 @@ window.CRYPTIC_PUZZLES["quiptic-1334"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Fish sounding very small to contribute food for Italians (8)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "LINGUINI",
    "annotation": null
@@ -437,9 +368,6 @@ window.CRYPTIC_PUZZLES["quiptic-1334"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Media snubs insider’s return – it’s not reported (6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "UNSAID",
    "annotation": null
@@ -454,9 +382,6 @@ window.CRYPTIC_PUZZLES["quiptic-1334"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Informed about liberal jargon (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "SLANG",
    "annotation": null
@@ -471,9 +396,6 @@ window.CRYPTIC_PUZZLES["quiptic-1334"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Don’t be fooled by this flimsy type of material (3,7)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -492,9 +414,6 @@ window.CRYPTIC_PUZZLES["quiptic-1334"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Pretentious faction loses power (4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "ARTY",
    "annotation": null
@@ -509,9 +428,6 @@ window.CRYPTIC_PUZZLES["quiptic-1334"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Really dull study of poet (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "DRYDEN",
    "annotation": null
@@ -526,9 +442,6 @@ window.CRYPTIC_PUZZLES["quiptic-1334"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Top primate nursing bruised ego (6)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "APOGEE",
    "annotation": null

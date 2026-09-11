@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4167"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Spy working precisely (4-2)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -69,9 +66,6 @@ window.CRYPTIC_PUZZLES["everyman-4167"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Strong liquor: drunkard's called for pics (8)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "SCHNAPPS",
    "annotation": {
@@ -106,9 +100,6 @@ window.CRYPTIC_PUZZLES["everyman-4167"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Nine or three sheets to the wind? (3,4,3,5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -152,9 +143,6 @@ window.CRYPTIC_PUZZLES["everyman-4167"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Primarily obtuse, asinine fathead? (3)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "OAF",
    "annotation": {
@@ -203,9 +191,6 @@ window.CRYPTIC_PUZZLES["everyman-4167"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Puddings - anxious - sent back (8)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "DESSERTS",
    "annotation": {
@@ -248,9 +233,6 @@ window.CRYPTIC_PUZZLES["everyman-4167"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Type up welcoming German country (5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "EGYPT",
    "annotation": {
@@ -294,9 +276,6 @@ window.CRYPTIC_PUZZLES["everyman-4167"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Spelled out imperatives, not entirely in public (4-7)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -337,9 +316,6 @@ window.CRYPTIC_PUZZLES["everyman-4167"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Hesitator, biting unwisely - fish's last action? (6,2,3,4)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      6,
@@ -382,9 +358,6 @@ window.CRYPTIC_PUZZLES["everyman-4167"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "American pastries rejected, more than one rank (6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "STRATA",
    "annotation": {
@@ -433,9 +406,6 @@ window.CRYPTIC_PUZZLES["everyman-4167"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Cake-burner not finishing half of scones: like a picnic? (8)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {},
    "solution": "ALFRESCO",
    "annotation": {
@@ -480,9 +450,6 @@ window.CRYPTIC_PUZZLES["everyman-4167"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Henry necessarily not beginning in attentive manner (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "HEEDFULLY",
    "annotation": {
@@ -525,9 +492,6 @@ window.CRYPTIC_PUZZLES["everyman-4167"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Flipping Everyman's ultimately parsimonious: code for 'skinflint' (5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "MISER",
    "annotation": {
@@ -578,9 +542,6 @@ window.CRYPTIC_PUZZLES["everyman-4167"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "I recommend Bill gets protection from sun (7)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "ADVISOR",
    "annotation": {
@@ -622,9 +583,6 @@ window.CRYPTIC_PUZZLES["everyman-4167"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Social event that's hardly a ball! (6,5)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -660,9 +618,6 @@ window.CRYPTIC_PUZZLES["everyman-4167"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "King wearing t-shirt, perhaps, not 'man-bun'-style hairdo (7)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "TOPKNOT",
    "annotation": {
@@ -713,9 +668,6 @@ window.CRYPTIC_PUZZLES["everyman-4167"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Musician wanted for buffets? (13)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "PERCUSSIONIST",
    "annotation": {
@@ -747,9 +699,6 @@ window.CRYPTIC_PUZZLES["everyman-4167"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Noted repeatedly concerning electrical component (2,6)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -802,9 +751,6 @@ window.CRYPTIC_PUZZLES["everyman-4167"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Babbles, splatter splashing (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "PRATTLES",
    "annotation": {
@@ -841,9 +787,6 @@ window.CRYPTIC_PUZZLES["everyman-4167"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Damaged sub with mortar: hear who's overseeing the boats? (13)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "HARBOURMASTER",
    "annotation": {
@@ -880,9 +823,6 @@ window.CRYPTIC_PUZZLES["everyman-4167"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Use your phone to find self-catering room with bill 50% reduced (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "SCROLL",
    "annotation": {
@@ -934,9 +874,6 @@ window.CRYPTIC_PUZZLES["everyman-4167"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Pop diva's entertaining, making a comeback, total cheese (7)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "CHEDDAR",
    "annotation": {
@@ -988,9 +925,6 @@ window.CRYPTIC_PUZZLES["everyman-4167"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Intelligence-gathering mission giving description of sunken ships, did you say? (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "RECCE",
    "annotation": {
@@ -1028,9 +962,6 @@ window.CRYPTIC_PUZZLES["everyman-4167"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Kind of article mentioned (7)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "CLEMENT",
    "annotation": {
@@ -1070,9 +1001,6 @@ window.CRYPTIC_PUZZLES["everyman-4167"] = /*JSON-START*/ {
      8
     ]
    ],
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "ORGAN",
    "annotation": {
@@ -1110,9 +1038,6 @@ window.CRYPTIC_PUZZLES["everyman-4167"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Recreational vehicle inspired by piece of snooker equipment? That's unexpected (9)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "CURVEBALL",
    "annotation": {
@@ -1156,9 +1081,6 @@ window.CRYPTIC_PUZZLES["everyman-4167"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Age of beermat regularly noted (3)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "ERA",
    "annotation": {
@@ -1198,9 +1120,6 @@ window.CRYPTIC_PUZZLES["everyman-4167"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Behaved antisocially and gave birth (8)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "LITTERED",
    "annotation": {
@@ -1239,9 +1158,6 @@ window.CRYPTIC_PUZZLES["everyman-4167"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "In Cuba and America, pretend to be one that can last a while without drink (6)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "CACTUS",
    "annotation": {

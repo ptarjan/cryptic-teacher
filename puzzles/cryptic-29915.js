@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29915"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Companion enters hospital department in pain (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "ACHE",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["cryptic-29915"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Trip to arrive in mountainous area (8)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "HIGHLAND",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["cryptic-29915"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Ring in memory of 13 down (4)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "ROOM",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["cryptic-29915"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "3 + 3 + 3 = 1/4 + 1/4 +1/4? (8)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "QUARTERS",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["cryptic-29915"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Last one standing carries lots of weight (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "STONES",
    "annotation": null
@@ -110,9 +95,6 @@ window.CRYPTIC_PUZZLES["cryptic-29915"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Silver seal broken in palace (10)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "VERSAILLES",
    "annotation": null
@@ -127,9 +109,6 @@ window.CRYPTIC_PUZZLES["cryptic-29915"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Expose country defending man’s rambling (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "UNMASK",
    "annotation": null
@@ -144,9 +123,6 @@ window.CRYPTIC_PUZZLES["cryptic-29915"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Discovering they made leader (4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "HEAD",
    "annotation": null
@@ -161,9 +137,6 @@ window.CRYPTIC_PUZZLES["cryptic-29915"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Look into firm’s capital (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "CAIRO",
    "annotation": null
@@ -178,9 +151,6 @@ window.CRYPTIC_PUZZLES["cryptic-29915"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "‘Increase risk from chopped peanut’ – inspiring article (2,3,4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -200,9 +170,6 @@ window.CRYPTIC_PUZZLES["cryptic-29915"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Record bird circling me – it won’t last long (9)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "EPHEMERON",
    "annotation": null
@@ -217,9 +184,6 @@ window.CRYPTIC_PUZZLES["cryptic-29915"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "In Polish, ‘time’ means ‘resistance’ (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "STAND",
    "annotation": null
@@ -234,9 +198,6 @@ window.CRYPTIC_PUZZLES["cryptic-29915"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Perhaps the Sun let being hacked shock (7)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "STARTLE",
    "annotation": null
@@ -251,9 +212,6 @@ window.CRYPTIC_PUZZLES["cryptic-29915"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Well, church builds no character (5)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "SPACE",
    "annotation": null
@@ -268,9 +226,6 @@ window.CRYPTIC_PUZZLES["cryptic-29915"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Stealing fancy store jewellery – you involved? (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "TROUSERING",
    "annotation": null
@@ -285,9 +240,6 @@ window.CRYPTIC_PUZZLES["cryptic-29915"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Dagger, not a dessert, smuggled into prison (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "STICKER",
    "annotation": null
@@ -302,9 +254,6 @@ window.CRYPTIC_PUZZLES["cryptic-29915"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Soundly twists snooker equipment (5)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "RESTS",
    "annotation": null
@@ -319,9 +268,6 @@ window.CRYPTIC_PUZZLES["cryptic-29915"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Car with one wheel – sound? (5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "AUDIO",
    "annotation": null
@@ -336,9 +282,6 @@ window.CRYPTIC_PUZZLES["cryptic-29915"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Firm sofa 50% off (3)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "SET",
    "annotation": null
@@ -353,9 +296,6 @@ window.CRYPTIC_PUZZLES["cryptic-29915"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "VAR rewound during short cross (8)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "TRAVERSE",
    "annotation": null
@@ -370,9 +310,6 @@ window.CRYPTIC_PUZZLES["cryptic-29915"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Punches produce shiners (5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "LAMPS",
    "annotation": null
@@ -387,9 +324,6 @@ window.CRYPTIC_PUZZLES["cryptic-29915"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Film on extremely serious Lady Hamilton? (8)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "MISTRESS",
    "annotation": null
@@ -404,9 +338,6 @@ window.CRYPTIC_PUZZLES["cryptic-29915"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Clasp them briefly with heaving moobs (7)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "EMBOSOM",
    "annotation": null
@@ -421,9 +352,6 @@ window.CRYPTIC_PUZZLES["cryptic-29915"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Don’t allow mirrored license plate with old car (6)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "BANGER",
    "annotation": null
@@ -438,9 +366,6 @@ window.CRYPTIC_PUZZLES["cryptic-29915"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Ruler quicker to change gender? (6)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "MASTER",
    "annotation": null
@@ -455,9 +380,6 @@ window.CRYPTIC_PUZZLES["cryptic-29915"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Helps donkey get first and second (7)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "ASSISTS",
    "annotation": null
@@ -472,9 +394,6 @@ window.CRYPTIC_PUZZLES["cryptic-29915"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Ship to remain without any goods (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "LINER",
    "annotation": null
@@ -489,9 +408,6 @@ window.CRYPTIC_PUZZLES["cryptic-29915"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Cops missing work over bugs (4)",
-   "group": [
-    "26-down"
-   ],
    "separatorLocations": {},
    "solution": "LICE",
    "annotation": null
@@ -506,9 +422,6 @@ window.CRYPTIC_PUZZLES["cryptic-29915"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Must elder play this instrument? (5,4)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -527,9 +440,6 @@ window.CRYPTIC_PUZZLES["cryptic-29915"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "South of the border, we’re told lake is secure (4)",
-   "group": [
-    "28-down"
-   ],
    "separatorLocations": {},
    "solution": "LOCK",
    "annotation": null
@@ -544,9 +454,6 @@ window.CRYPTIC_PUZZLES["cryptic-29915"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Plant grasses someone up inside (4)",
-   "group": [
-    "29-down"
-   ],
    "separatorLocations": {},
    "solution": "MOSS",
    "annotation": null
@@ -561,9 +468,6 @@ window.CRYPTIC_PUZZLES["cryptic-29915"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Not half clever getting solutions without soap? (9)",
-   "group": [
-    "30-across"
-   ],
    "separatorLocations": {},
    "solution": "CLEANSERS",
    "annotation": null
@@ -578,9 +482,6 @@ window.CRYPTIC_PUZZLES["cryptic-29915"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Examples of luggage (5)",
-   "group": [
-    "31-across"
-   ],
    "separatorLocations": {},
    "solution": "CASES",
    "annotation": null

@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1827"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Metronome sounds a hundred beats (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "CLICKS",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["indysunday-1827"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Freer in loose robe, tailor having removed a hoop (9)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "LIBERATOR",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["indysunday-1827"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Property's rent rising with gas on top (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "CHATTEL",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["indysunday-1827"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Perhaps I turned blue (8)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "SAPPHIRE",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["indysunday-1827"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Level unfinished mud pies that aren't crusted over (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "STRATUM",
    "annotation": null
@@ -110,9 +95,6 @@ window.CRYPTIC_PUZZLES["indysunday-1827"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Russian who disappeared left in shame (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "STALIN",
    "annotation": null
@@ -127,9 +109,6 @@ window.CRYPTIC_PUZZLES["indysunday-1827"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Quickly list river fish from France (4,3)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -148,9 +127,6 @@ window.CRYPTIC_PUZZLES["indysunday-1827"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Daughter lifts pretty heavy material (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "TWEED",
    "annotation": null
@@ -165,9 +141,6 @@ window.CRYPTIC_PUZZLES["indysunday-1827"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Body changes hard for pal raised and housed by religious patriarch (13)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "METAMORPHOSES",
    "annotation": null
@@ -182,9 +155,6 @@ window.CRYPTIC_PUZZLES["indysunday-1827"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Fernando's group led by Jack, a big fat slug (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "JABBA",
    "annotation": null
@@ -199,9 +169,6 @@ window.CRYPTIC_PUZZLES["indysunday-1827"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Non-Darwinian fictions only help right-wingers (4,2,7)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -221,9 +188,6 @@ window.CRYPTIC_PUZZLES["indysunday-1827"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Tie up soldiers in empty Pret for work experience (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "PLACEMENT",
    "annotation": null
@@ -238,9 +202,6 @@ window.CRYPTIC_PUZZLES["indysunday-1827"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Special hire car from list, hot Merc convertible (7,4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -259,9 +220,6 @@ window.CRYPTIC_PUZZLES["indysunday-1827"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Faint half-way through spinning (3)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "DIM",
    "annotation": null
@@ -276,9 +234,6 @@ window.CRYPTIC_PUZZLES["indysunday-1827"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "People who have moved in crossing line with dogs (8)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "SETTLERS",
    "annotation": null
@@ -293,9 +248,6 @@ window.CRYPTIC_PUZZLES["indysunday-1827"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Love reversible zip, right? (6)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "AFFAIR",
    "annotation": null
@@ -310,9 +262,6 @@ window.CRYPTIC_PUZZLES["indysunday-1827"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Level with secretary about lusts (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "ALONGSIDE",
    "annotation": null
@@ -327,9 +276,6 @@ window.CRYPTIC_PUZZLES["indysunday-1827"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Intimidate pig, taking pressure off colleague (2-6)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {
     "-": [
      2
@@ -348,9 +294,6 @@ window.CRYPTIC_PUZZLES["indysunday-1827"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Quiet station reduced its capacity (6)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "SHRANK",
    "annotation": null
@@ -365,9 +308,6 @@ window.CRYPTIC_PUZZLES["indysunday-1827"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Never happy in the highest society (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "NOBLEST",
    "annotation": null
@@ -382,9 +322,6 @@ window.CRYPTIC_PUZZLES["indysunday-1827"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Castle housing very old hotel, quaint indeed (8)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "FORSOOTH",
    "annotation": null
@@ -399,9 +336,6 @@ window.CRYPTIC_PUZZLES["indysunday-1827"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Cold drink Bond necks? A strong one, for his countrymen (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "SCRUMPY",
    "annotation": null
@@ -416,9 +350,6 @@ window.CRYPTIC_PUZZLES["indysunday-1827"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Light greeting ICU nurses on the way back (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "IGNITE",
    "annotation": null
@@ -433,9 +364,6 @@ window.CRYPTIC_PUZZLES["indysunday-1827"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Smooth snakes shedding skin (3)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "OIL",
    "annotation": null
@@ -450,9 +378,6 @@ window.CRYPTIC_PUZZLES["indysunday-1827"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Spinner used to turn stumps and bails, perhaps (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "LATHE",
    "annotation": null
@@ -467,9 +392,6 @@ window.CRYPTIC_PUZZLES["indysunday-1827"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Resort's toilet vagrant rogers in (6,5)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -488,9 +410,6 @@ window.CRYPTIC_PUZZLES["indysunday-1827"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Tattoo covering hip, ten bats? Very well (2,3,4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -510,9 +429,6 @@ window.CRYPTIC_PUZZLES["indysunday-1827"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Domestic supply mothers must keep at home (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "MAINS",
    "annotation": null
@@ -527,9 +443,6 @@ window.CRYPTIC_PUZZLES["indysunday-1827"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Notice couple carrying wide pumpkin in NY? (7)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "SWEETIE",
    "annotation": null
@@ -544,9 +457,6 @@ window.CRYPTIC_PUZZLES["indysunday-1827"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Communist pens short anthem with similar sounds (6)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "RHYMED",
    "annotation": null

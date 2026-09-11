@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30094"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Still pace fuel supply (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "PEACEFUL",
    "annotation": {
@@ -64,9 +61,6 @@ window.CRYPTIC_PUZZLES["cryptic-30094"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Finally tune dulciana for organ (3)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "EAR",
    "annotation": {
@@ -115,9 +109,6 @@ window.CRYPTIC_PUZZLES["cryptic-30094"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Sovereign’s palace captured, we hear? (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "COURT",
    "annotation": {
@@ -152,9 +143,6 @@ window.CRYPTIC_PUZZLES["cryptic-30094"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Engineer used filler for heraldic design (5-2-3)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     "-": [
      5,
@@ -199,9 +187,6 @@ window.CRYPTIC_PUZZLES["cryptic-30094"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Crusty growth in part of metallic henneries (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "LICHEN",
    "annotation": {
@@ -238,9 +223,6 @@ window.CRYPTIC_PUZZLES["cryptic-30094"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Understood this Roman style of architecture (6)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "GOTHIC",
    "annotation": {
@@ -277,9 +259,6 @@ window.CRYPTIC_PUZZLES["cryptic-30094"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Up for tennis? (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "GAME",
    "annotation": {
@@ -313,9 +292,6 @@ window.CRYPTIC_PUZZLES["cryptic-30094"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Part of cog starts to aggravate cyclist’s healthy exercise – such a pain (9)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "TOOTHACHE",
    "annotation": {
@@ -358,9 +334,6 @@ window.CRYPTIC_PUZZLES["cryptic-30094"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Cook special bean? Sure! (11)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "INESCAPABLE",
    "annotation": {
@@ -397,9 +370,6 @@ window.CRYPTIC_PUZZLES["cryptic-30094"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Bird in Greek river (6)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "GROUSE",
    "annotation": {
@@ -439,9 +409,6 @@ window.CRYPTIC_PUZZLES["cryptic-30094"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Calm company man initially sat for artist (8)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "COMPOSED",
    "annotation": {
@@ -490,9 +457,6 @@ window.CRYPTIC_PUZZLES["cryptic-30094"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Leader in Cambridge blues after six wins (9)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "VICTORIES",
    "annotation": {
@@ -543,9 +507,6 @@ window.CRYPTIC_PUZZLES["cryptic-30094"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Translator to bury Peter Rabbit’s introduction inside (11)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {},
    "solution": "INTERPRETER",
    "annotation": {
@@ -597,9 +558,6 @@ window.CRYPTIC_PUZZLES["cryptic-30094"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Pick up European vet (5)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "CHECK",
    "annotation": {
@@ -634,9 +592,6 @@ window.CRYPTIC_PUZZLES["cryptic-30094"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Recklessly sells dowry without a sound (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "WORDLESSLY",
    "annotation": {
@@ -673,9 +628,6 @@ window.CRYPTIC_PUZZLES["cryptic-30094"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Mark it right in report card (6)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "TICKET",
    "annotation": {
@@ -710,9 +662,6 @@ window.CRYPTIC_PUZZLES["cryptic-30094"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Doctor: send Clara for lists of appointments (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "CALENDARS",
    "annotation": {
@@ -752,9 +701,6 @@ window.CRYPTIC_PUZZLES["cryptic-30094"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "One returning in jumper, say – it’s for protection (6)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "TOECAP",
    "annotation": {
@@ -806,9 +752,6 @@ window.CRYPTIC_PUZZLES["cryptic-30094"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Section of sundial erroneously rotated and put down again (6)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "RELAID",
    "annotation": {
@@ -853,9 +796,6 @@ window.CRYPTIC_PUZZLES["cryptic-30094"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Perhaps surprisingly, notice very short book (6)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "ADVERB",
    "annotation": {
@@ -904,9 +844,6 @@ window.CRYPTIC_PUZZLES["cryptic-30094"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Missing first letter, imagine resolved riddle (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "ENIGMA",
    "annotation": {
@@ -945,9 +882,6 @@ window.CRYPTIC_PUZZLES["cryptic-30094"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Stamp grain product with date (5)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "BRAND",
    "annotation": {
@@ -987,9 +921,6 @@ window.CRYPTIC_PUZZLES["cryptic-30094"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Is the cause of stories behind two foreign articles (9)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "UNDERLIES",
    "annotation": {
@@ -1033,9 +964,6 @@ window.CRYPTIC_PUZZLES["cryptic-30094"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Send off without a meal (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "LUNCH",
    "annotation": {
@@ -1077,9 +1005,6 @@ window.CRYPTIC_PUZZLES["cryptic-30094"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Overshoot M1 service station’s entrances (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "MISS",
    "annotation": {
@@ -1122,9 +1047,6 @@ window.CRYPTIC_PUZZLES["cryptic-30094"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Chef’s team in grey trousers getting very hot (8)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "STEAMING",
    "annotation": {
@@ -1158,9 +1080,6 @@ window.CRYPTIC_PUZZLES["cryptic-30094"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Boy attending a musical performance (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "SONATA",
    "annotation": {
@@ -1203,9 +1122,6 @@ window.CRYPTIC_PUZZLES["cryptic-30094"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Heads off to outlying rock-strewn mountain (3)",
-   "group": [
-    "27-down"
-   ],
    "separatorLocations": {},
    "solution": "TOR",
    "annotation": {
@@ -1244,9 +1160,6 @@ window.CRYPTIC_PUZZLES["cryptic-30094"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Charlie takes a break in mountain-tops (6)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "CRESTS",
    "annotation": {
@@ -1286,9 +1199,6 @@ window.CRYPTIC_PUZZLES["cryptic-30094"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "A New Year with present in whichever location (8)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "ANYWHERE",
    "annotation": {

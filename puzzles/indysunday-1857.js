@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Plaster-work crosses over with business (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "STUCCO",
    "annotation": {
@@ -80,9 +77,6 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "One female crossword compiler, among others (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "AMELIA",
    "annotation": {
@@ -127,9 +121,6 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Possibly vote against party (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "BEANO",
    "annotation": {
@@ -168,9 +159,6 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Official quietly breaks into military area (9)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "INSPECTOR",
    "annotation": {
@@ -215,9 +203,6 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Dumb-ass guy disturbs writer somewhat (8)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "MEATHEAD",
    "annotation": {
@@ -267,9 +252,6 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Historic train terminus in Co. Durham – not Beds – carrying King north (8)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "STOCKTON",
    "annotation": {
@@ -327,9 +309,6 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Beautiful valley not enough for tyrant emperor (5)",
-   "group": [
-    "7-across"
-   ],
    "separatorLocations": {},
    "solution": "TEMPE",
    "annotation": {
@@ -367,9 +346,6 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "What deli may offer visiting prodnose down west (8)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {},
    "solution": "PANCETTA",
    "annotation": {
@@ -425,9 +401,6 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Take head off/tail off parrot (4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "POLL",
    "annotation": {
@@ -465,9 +438,6 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Promotion introducing love song and dance (3)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "ADO",
    "annotation": {
@@ -511,9 +481,6 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Pass over Panamanian port (5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "COLON",
    "annotation": {
@@ -551,9 +518,6 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Spooner’s suggestions are much better than cosmetic (8)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "LIPSTICK",
    "annotation": {
@@ -599,9 +563,6 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "How hard, hiding large hooter (3)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "OWL",
    "annotation": {
@@ -650,9 +611,6 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "River Don (4)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "WEAR",
    "annotation": {
@@ -687,9 +645,6 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "The Sun’s as large when Earth’s eclipsed (5)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "SOLAR",
    "annotation": {
@@ -747,9 +702,6 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
      3
     ]
    ],
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "SOH",
    "annotation": {
@@ -801,9 +753,6 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Trunks he’s thrown in for nothing in the price of suit (6)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "CHESTS",
    "annotation": {
@@ -853,9 +802,6 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Don’t read all of tense letter (3)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "TAU",
    "annotation": {
@@ -893,9 +839,6 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Poet wanted hug? He shunned embraces (3,6)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -934,9 +877,6 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Comparatively modest height at which acrobat has no head (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "HUMBLER",
    "annotation": {
@@ -983,9 +923,6 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Like the champagne that’s on ice, this is his (8)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "UNOPENED",
    "annotation": {
@@ -1017,9 +954,6 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "He’ll sing it through with a single exception (8)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "BARITONE",
    "annotation": {
@@ -1072,9 +1006,6 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Roman speciality laid out on a grid (7)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "ROADING",
    "annotation": {
@@ -1112,9 +1043,6 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Transported under cover, thus delivered? (4)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "RAPT",
    "annotation": {
@@ -1150,9 +1078,6 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Cut short energy supply (3)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "GAS",
    "annotation": {
@@ -1190,9 +1115,6 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Dark substance prepared by distilling salt (3)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "TAR",
    "annotation": {
@@ -1227,9 +1149,6 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Some of our thoroughbreds out of the frame (6)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "FOURTH",
    "annotation": {
@@ -1264,9 +1183,6 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Young people support couple holding hands (5)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "TEENS",
    "annotation": {
@@ -1304,9 +1220,6 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "French poet read in French; read in translation about it (6)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "ELUARD",
    "annotation": {
@@ -1359,9 +1272,6 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Born, then died, one no longer essential (6)",
-   "group": [
-    "26-down"
-   ],
    "separatorLocations": {},
    "solution": "NEEDED",
    "annotation": {
@@ -1413,9 +1323,6 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Mischiefmaker was irritating (3)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "ATE",
    "annotation": {
@@ -1450,9 +1357,6 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Hill residents periodically cannot use (4)",
-   "group": [
-    "27-down"
-   ],
    "separatorLocations": {},
    "solution": "ANTS",
    "annotation": {
@@ -1490,9 +1394,6 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Napoleon with energy climbing tree (5)",
-   "group": [
-    "28-down"
-   ],
    "separatorLocations": {},
    "solution": "EBONY",
    "annotation": {
@@ -1539,9 +1440,6 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Author is apparently identifiable figure (8)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "PENTAGON",
    "annotation": {
@@ -1583,9 +1481,6 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Monster course dominated by stand (5)",
-   "group": [
-    "30-across"
-   ],
    "separatorLocations": {},
    "solution": "BRUTE",
    "annotation": {
@@ -1630,9 +1525,6 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "The first fifteen letters as well? (3)",
-   "group": [
-    "31-across"
-   ],
    "separatorLocations": {},
    "solution": "TOO",
    "annotation": {
@@ -1669,9 +1561,6 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Slimmed manner, not so round? (8)",
-   "group": [
-    "32-across"
-   ],
    "separatorLocations": {},
    "solution": "LEANNESS",
    "annotation": {
@@ -1717,9 +1606,6 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Spanish gentleman has cycled here from Scandinavia (5)",
-   "group": [
-    "33-across"
-   ],
    "separatorLocations": {},
    "solution": "NORSE",
    "annotation": {

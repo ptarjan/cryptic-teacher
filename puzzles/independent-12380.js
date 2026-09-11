@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12380"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Piano directly behind you - this type? (7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "UPRIGHT",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["independent-12380"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Topless beefcake welcoming keen response to get at the drink? (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "UNCORK",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["independent-12380"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Wine bringing hint of shakiness into part of eye (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "RETSINA",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["independent-12380"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Roman poet, half-cut, gambles on hard legendary king (9)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "GILGAMESH",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["independent-12380"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Edward supporting name adopted by present family, being sensitive (4-7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -114,9 +99,6 @@ window.CRYPTIC_PUZZLES["independent-12380"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Remains with company after start of critical week? It’s a profitable business (4,3)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -135,9 +117,6 @@ window.CRYPTIC_PUZZLES["independent-12380"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Family disposing of large container (3)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "CAN",
    "annotation": null
@@ -152,9 +131,6 @@ window.CRYPTIC_PUZZLES["independent-12380"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Organisation that’s leading in tennis? (3-2)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -173,9 +149,6 @@ window.CRYPTIC_PUZZLES["independent-12380"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Legendary creature’s heart mostly filled with gold (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "CENTAUR",
    "annotation": null
@@ -190,9 +163,6 @@ window.CRYPTIC_PUZZLES["independent-12380"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Question about weird tale by English horror writer (8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "WHEATLEY",
    "annotation": null
@@ -207,9 +177,6 @@ window.CRYPTIC_PUZZLES["independent-12380"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Lively dance giving you time in twist with hero (9)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "COTILLION",
    "annotation": null
@@ -224,9 +191,6 @@ window.CRYPTIC_PUZZLES["independent-12380"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Painting evidently involves a touch of colour (5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "TINGE",
    "annotation": null
@@ -241,9 +205,6 @@ window.CRYPTIC_PUZZLES["independent-12380"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Blokes getting out of clothing, meeting a dish from India (5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "RAITA",
    "annotation": null
@@ -258,9 +219,6 @@ window.CRYPTIC_PUZZLES["independent-12380"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Chap’s not at liberty to accept unknown supplier of sugar or butter (9)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "SYCOPHANT",
    "annotation": null
@@ -275,9 +233,6 @@ window.CRYPTIC_PUZZLES["independent-12380"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Historic works surrounding small office of medical specialist (11)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "CHIROPODIST",
    "annotation": null
@@ -292,9 +247,6 @@ window.CRYPTIC_PUZZLES["independent-12380"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Target of pilgrimage in rocky Spain etc if not entirely gone astray? (4,10)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -313,9 +265,6 @@ window.CRYPTIC_PUZZLES["independent-12380"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Fisherman’s info? Start of tall fish story involving bass (4,5)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -334,9 +283,6 @@ window.CRYPTIC_PUZZLES["independent-12380"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Son’s preparing potatoes? Excellent (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "SMASHING",
    "annotation": null
@@ -351,9 +297,6 @@ window.CRYPTIC_PUZZLES["independent-12380"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Instructions to leave militant religious groups? (8,6)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -372,9 +315,6 @@ window.CRYPTIC_PUZZLES["independent-12380"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Unrestrained, like Brazil-NY flight? (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "RIOTOUS",
    "annotation": null
@@ -389,9 +329,6 @@ window.CRYPTIC_PUZZLES["independent-12380"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Dance with repeated element? Sweet (3,4)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -410,9 +347,6 @@ window.CRYPTIC_PUZZLES["independent-12380"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Positive cry for help, being short of money? When will money arrive? (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "PAYDAY",
    "annotation": null
@@ -427,9 +361,6 @@ window.CRYPTIC_PUZZLES["independent-12380"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Cartoon character’s news story curtailed by having opening trimmed (6-3)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {
     "-": [
      6
@@ -448,9 +379,6 @@ window.CRYPTIC_PUZZLES["independent-12380"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "In US, marshy spot in inlet not wholly dismissed (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "BAYOU",
    "annotation": null
@@ -465,9 +393,6 @@ window.CRYPTIC_PUZZLES["independent-12380"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "You shouldn’t have to go round some current American city (5)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "TAMPA",
    "annotation": null
@@ -482,9 +407,6 @@ window.CRYPTIC_PUZZLES["independent-12380"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Soldiers probing climber for key material (5)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "IVORY",
    "annotation": null
@@ -499,9 +421,6 @@ window.CRYPTIC_PUZZLES["independent-12380"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Good rate given to directors for stationery item (9)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "CLIPBOARD",
    "annotation": null
@@ -516,9 +435,6 @@ window.CRYPTIC_PUZZLES["independent-12380"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Encouragement to speak with charm, wasting time (3)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "CUE",
    "annotation": null
@@ -533,9 +449,6 @@ window.CRYPTIC_PUZZLES["independent-12380"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Indicate end of these tracks, say, turning back (7)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "GESTURE",
    "annotation": null
@@ -550,9 +463,6 @@ window.CRYPTIC_PUZZLES["independent-12380"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Charge accepted by those people providing form of treatment (7)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "THERAPY",
    "annotation": null

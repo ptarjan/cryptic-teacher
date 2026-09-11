@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1828"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Ship's officers make fast haul to port (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "WARDROOM",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["indysunday-1828"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Stretching account with car purchase, one's sorry (10)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "APOLOGETIC",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["indysunday-1828"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Useful number mother used to get hold of trade union (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "DATUM",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["indysunday-1828"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Injury from fight with swords (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "OFFENCE",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["indysunday-1828"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "A potentate so mad might become commonplace in America (4-3-8)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     "-": [
      4,
@@ -115,9 +100,6 @@ window.CRYPTIC_PUZZLES["indysunday-1828"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Moth damaged by flame keeps back from candle (6)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "BURNET",
    "annotation": null
@@ -132,9 +114,6 @@ window.CRYPTIC_PUZZLES["indysunday-1828"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Things piled up in in-tray have nowhere to go, according to Spooner (7)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "BACKLOG",
    "annotation": null
@@ -149,9 +128,6 @@ window.CRYPTIC_PUZZLES["indysunday-1828"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Check school during break (9)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "RESTRAINT",
    "annotation": null
@@ -166,9 +142,6 @@ window.CRYPTIC_PUZZLES["indysunday-1828"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Land before crossing island (4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "EIRE",
    "annotation": null
@@ -183,9 +156,6 @@ window.CRYPTIC_PUZZLES["indysunday-1828"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Rather like that ruined fort (4,2)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -204,9 +174,6 @@ window.CRYPTIC_PUZZLES["indysunday-1828"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Line of railway on winding ascent (8)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "ANCESTRY",
    "annotation": null
@@ -221,9 +188,6 @@ window.CRYPTIC_PUZZLES["indysunday-1828"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Writer casting doubt on William the Conqueror's armour? (6,6)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -242,9 +206,6 @@ window.CRYPTIC_PUZZLES["indysunday-1828"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Son clumsily walking in sleep (10)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {},
    "solution": "SLUMBERING",
    "annotation": null
@@ -259,9 +220,6 @@ window.CRYPTIC_PUZZLES["indysunday-1828"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Clergyman's runs at some point stop (8)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "REVEREND",
    "annotation": null
@@ -276,9 +234,6 @@ window.CRYPTIC_PUZZLES["indysunday-1828"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "I peed next to doctor for convenience (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "EXPEDIENT",
    "annotation": null
@@ -293,9 +248,6 @@ window.CRYPTIC_PUZZLES["indysunday-1828"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Horrible king who succeeded Anne by scheming (6)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "GRISLY",
    "annotation": null
@@ -310,9 +262,6 @@ window.CRYPTIC_PUZZLES["indysunday-1828"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Cheap writer pockets 10p; that's life, you see (6)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "BIOPIC",
    "annotation": null
@@ -327,9 +276,6 @@ window.CRYPTIC_PUZZLES["indysunday-1828"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "50% chance most of heaven's white (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "CHABLIS",
    "annotation": null
@@ -344,9 +290,6 @@ window.CRYPTIC_PUZZLES["indysunday-1828"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Obvious one's last in line for extra pay (8)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "OVERTIME",
    "annotation": null
@@ -361,9 +304,6 @@ window.CRYPTIC_PUZZLES["indysunday-1828"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Big head - Caesarean, possibly (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "EMPEROR",
    "annotation": null
@@ -378,9 +318,6 @@ window.CRYPTIC_PUZZLES["indysunday-1828"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "First Lady unhappily married to Head of State? (5,7)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -399,9 +336,6 @@ window.CRYPTIC_PUZZLES["indysunday-1828"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Imminent threat's close hours before alarm sounds (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "NIGHT",
    "annotation": null
@@ -416,9 +350,6 @@ window.CRYPTIC_PUZZLES["indysunday-1828"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "One might look after the kids twice a year (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "PAPA",
    "annotation": null
@@ -433,9 +364,6 @@ window.CRYPTIC_PUZZLES["indysunday-1828"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Last defeat playing Real, two nil (8)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "WATERLOO",
    "annotation": null
@@ -450,9 +378,6 @@ window.CRYPTIC_PUZZLES["indysunday-1828"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Get back home after concerning case of gonorrhoea (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "REGAIN",
    "annotation": null
@@ -467,9 +392,6 @@ window.CRYPTIC_PUZZLES["indysunday-1828"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Spirit lives on after (6)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "PASTIS",
    "annotation": null
@@ -484,9 +406,6 @@ window.CRYPTIC_PUZZLES["indysunday-1828"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Wandering sheep interrupts general's planning (8)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "STRATEGY",
    "annotation": null

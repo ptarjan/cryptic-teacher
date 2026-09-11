@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1346"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Pain he’s displaced, looking fit? (2,5)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -46,9 +43,6 @@ window.CRYPTIC_PUZZLES["quiptic-1346"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Born failure prone to roam around house (2-5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     "-": [
      2
@@ -67,9 +61,6 @@ window.CRYPTIC_PUZZLES["quiptic-1346"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Hour with advantage in boundary of a field (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "HEDGE",
    "annotation": null
@@ -84,9 +75,6 @@ window.CRYPTIC_PUZZLES["quiptic-1346"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Appropriate opening for snooker or features of the game? (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "POCKETS",
    "annotation": null
@@ -101,9 +89,6 @@ window.CRYPTIC_PUZZLES["quiptic-1346"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Humble Charles in brief facing figure (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "CHASTEN",
    "annotation": null
@@ -118,9 +103,6 @@ window.CRYPTIC_PUZZLES["quiptic-1346"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Kindly chap found in shade (6)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "HUMANE",
    "annotation": null
@@ -135,9 +117,6 @@ window.CRYPTIC_PUZZLES["quiptic-1346"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Reduce movement in slow dance (5,4)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -156,9 +135,6 @@ window.CRYPTIC_PUZZLES["quiptic-1346"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Carry out piece of meat in old container for Elaine (7)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "EXECUTE",
    "annotation": null
@@ -173,9 +149,6 @@ window.CRYPTIC_PUZZLES["quiptic-1346"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Potential sort to alter place with pumps? (6,7)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -194,9 +167,6 @@ window.CRYPTIC_PUZZLES["quiptic-1346"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Place to store tools in posh edifice (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "SHED",
    "annotation": null
@@ -211,9 +181,6 @@ window.CRYPTIC_PUZZLES["quiptic-1346"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Possibly make scarce dessert items (5,5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -232,9 +199,6 @@ window.CRYPTIC_PUZZLES["quiptic-1346"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Area of activity is special in this place (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "SPHERE",
    "annotation": null
@@ -249,9 +213,6 @@ window.CRYPTIC_PUZZLES["quiptic-1346"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Junior in office ahead is one trailing winner (6-2)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {
     "-": [
      6
@@ -270,9 +231,6 @@ window.CRYPTIC_PUZZLES["quiptic-1346"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Relics, yep, for sorting out in an exact fashion (9)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "PRECISELY",
    "annotation": null
@@ -287,9 +245,6 @@ window.CRYPTIC_PUZZLES["quiptic-1346"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Amenable one in factory supporting committee (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "COMPLIANT",
    "annotation": null
@@ -304,9 +259,6 @@ window.CRYPTIC_PUZZLES["quiptic-1346"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Currently fashionable article in Marbella, site for tourists (5)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "HOTEL",
    "annotation": null
@@ -321,9 +273,6 @@ window.CRYPTIC_PUZZLES["quiptic-1346"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Crazy British group of soldiers (5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "BARMY",
    "annotation": null
@@ -338,9 +287,6 @@ window.CRYPTIC_PUZZLES["quiptic-1346"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "This tea is brewed for non-believer (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "ATHEIST",
    "annotation": null
@@ -355,9 +301,6 @@ window.CRYPTIC_PUZZLES["quiptic-1346"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Handle in a theatre? (5,4)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -376,9 +319,6 @@ window.CRYPTIC_PUZZLES["quiptic-1346"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Set to receive free gift shortly? Come off it! (3,4)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -397,9 +337,6 @@ window.CRYPTIC_PUZZLES["quiptic-1346"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Way of working by conservative monarch, given to derision? (7)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "MOCKING",
    "annotation": null
@@ -414,9 +351,6 @@ window.CRYPTIC_PUZZLES["quiptic-1346"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Photo cooking ending in pleasant stew (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "HOTPOT",
    "annotation": null
@@ -431,9 +365,6 @@ window.CRYPTIC_PUZZLES["quiptic-1346"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Spend first part of holiday in very popular event (5,3)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -452,9 +383,6 @@ window.CRYPTIC_PUZZLES["quiptic-1346"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Three in Italy start to notice champion in depression (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "TRENCH",
    "annotation": null
@@ -469,9 +397,6 @@ window.CRYPTIC_PUZZLES["quiptic-1346"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Avoid introduction lacking in publicity (5)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "ELUDE",
    "annotation": null
@@ -486,9 +411,6 @@ window.CRYPTIC_PUZZLES["quiptic-1346"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Regard unfavourably vapid prose requiring editing (10)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "DISAPPROVE",
    "annotation": null
@@ -503,9 +425,6 @@ window.CRYPTIC_PUZZLES["quiptic-1346"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Component in military squad (4)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "UNIT",
    "annotation": null
@@ -520,9 +439,6 @@ window.CRYPTIC_PUZZLES["quiptic-1346"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Decree with time accepted by David, say (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "STATUTE",
    "annotation": null
@@ -537,9 +453,6 @@ window.CRYPTIC_PUZZLES["quiptic-1346"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Friend embracing poor Reg showing hypersensitivity? (7)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "ALLERGY",
    "annotation": null

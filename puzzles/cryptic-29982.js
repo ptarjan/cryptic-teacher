@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29982"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Endless effect of gravity – time to leave white dwarf, say, for something denser (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "PULSAR",
    "annotation": {
@@ -76,9 +73,6 @@ window.CRYPTIC_PUZZLES["cryptic-29982"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Pleasure boats? Sod pleasure – not certain at sea (7)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "PEDALOS",
    "annotation": {
@@ -128,9 +122,6 @@ window.CRYPTIC_PUZZLES["cryptic-29982"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Rather drunk, though maintaining motorway’s maximum speed, perhaps (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "LIMIT",
    "annotation": {
@@ -180,9 +171,6 @@ window.CRYPTIC_PUZZLES["cryptic-29982"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Morning vapour surrounding road in European city (9)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "AMSTERDAM",
    "annotation": {
@@ -236,9 +224,6 @@ window.CRYPTIC_PUZZLES["cryptic-29982"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "A lot of delay blocking courthouse discharge (7)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "CATARRH",
    "annotation": {
@@ -291,9 +276,6 @@ window.CRYPTIC_PUZZLES["cryptic-29982"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Artists in request for more during economies (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "CUBISTS",
    "annotation": {
@@ -341,9 +323,6 @@ window.CRYPTIC_PUZZLES["cryptic-29982"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Venerated symbol, feature of racetrack, followed by millions (5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "TOTEM",
    "annotation": {
@@ -387,9 +366,6 @@ window.CRYPTIC_PUZZLES["cryptic-29982"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Imposition of socialism would mean this immediately? (5,4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -425,9 +401,6 @@ window.CRYPTIC_PUZZLES["cryptic-29982"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Hard working? Largely avoid Asian island (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "HONSHU",
    "annotation": {
@@ -477,9 +450,6 @@ window.CRYPTIC_PUZZLES["cryptic-29982"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Target working feature of control panel (6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "BUTTON",
    "annotation": {
@@ -518,9 +488,6 @@ window.CRYPTIC_PUZZLES["cryptic-29982"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Cephalopod fresh from the sea mostly branded at first a disappointment (4,5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -576,9 +543,6 @@ window.CRYPTIC_PUZZLES["cryptic-29982"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Leave in middle of stint, being cross (5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "TIGON",
    "annotation": {
@@ -628,9 +592,6 @@ window.CRYPTIC_PUZZLES["cryptic-29982"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Drink and dish uncovered (5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "LATTE",
    "annotation": {
@@ -671,9 +632,6 @@ window.CRYPTIC_PUZZLES["cryptic-29982"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Team backed tense striker for international (4,5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -736,9 +694,6 @@ window.CRYPTIC_PUZZLES["cryptic-29982"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Temporary appointment? Reputation no good (5-2)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -785,9 +740,6 @@ window.CRYPTIC_PUZZLES["cryptic-29982"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Capital, after editing, to include a note describing certain lenses (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "APLANATIC",
    "annotation": {
@@ -838,9 +790,6 @@ window.CRYPTIC_PUZZLES["cryptic-29982"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Sound of complaint seven days after crew loses diamonds (6)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "SQUAWK",
    "annotation": {
@@ -886,9 +835,6 @@ window.CRYPTIC_PUZZLES["cryptic-29982"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Roughly repair gun inclining to shoot high? (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "UPREARING",
    "annotation": {
@@ -926,9 +872,6 @@ window.CRYPTIC_PUZZLES["cryptic-29982"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Former student extracting iodine from metallic oxide (6)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "ALUMNA",
    "annotation": {
@@ -974,9 +917,6 @@ window.CRYPTIC_PUZZLES["cryptic-29982"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Articles with satirical humour, ousting leader of Jewish priesthood (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "AARONIC",
    "annotation": {
@@ -1023,9 +963,6 @@ window.CRYPTIC_PUZZLES["cryptic-29982"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Husband all set to consume spicy dish, dismissing starter – look lively (5,2)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -1081,9 +1018,6 @@ window.CRYPTIC_PUZZLES["cryptic-29982"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Chap’s imprisoning a good many slaves (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "HELOTS",
    "annotation": {
@@ -1128,9 +1062,6 @@ window.CRYPTIC_PUZZLES["cryptic-29982"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Part of gut grumbling softly, upset, having received nothing (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "PYLORUS",
    "annotation": {
@@ -1189,9 +1120,6 @@ window.CRYPTIC_PUZZLES["cryptic-29982"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Way of viewing a group regularly infiltrated by police constable (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "ASPECT",
    "annotation": {
@@ -1238,9 +1166,6 @@ window.CRYPTIC_PUZZLES["cryptic-29982"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Crime is a burden, one ignored on the Left? (9)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "SINISTRAL",
    "annotation": {
@@ -1290,9 +1215,6 @@ window.CRYPTIC_PUZZLES["cryptic-29982"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Spot injury to muscle, cancelling run (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "STAIN",
    "annotation": {
@@ -1335,9 +1257,6 @@ window.CRYPTIC_PUZZLES["cryptic-29982"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Attraction in avoiding source of electric shock (5)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "APPAL",
    "annotation": {
@@ -1385,9 +1304,6 @@ window.CRYPTIC_PUZZLES["cryptic-29982"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Acceptable to interrupt a jabber? (5)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "POKER",
    "annotation": {
@@ -1432,9 +1348,6 @@ window.CRYPTIC_PUZZLES["cryptic-29982"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Additional symbol of affection beginning to torment in time (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "EXTRA",
    "annotation": {
@@ -1487,9 +1400,6 @@ window.CRYPTIC_PUZZLES["cryptic-29982"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "One criticising UK currency, keeping it personal to begin with (9)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "NITPICKER",
    "annotation": {
@@ -1542,9 +1452,6 @@ window.CRYPTIC_PUZZLES["cryptic-29982"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Private eye capturing Chinese backing popular applied science (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "TECHNIC",
    "annotation": {
@@ -1603,9 +1510,6 @@ window.CRYPTIC_PUZZLES["cryptic-29982"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "A delightful time, welcoming soldiers in public areas (6)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "AGORAS",
    "annotation": {

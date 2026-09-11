@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4139"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Quickly go down aisle, tipsily grasping bride's head (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "ABSEIL",
    "annotation": {
@@ -78,9 +75,6 @@ window.CRYPTIC_PUZZLES["everyman-4139"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Music maker Franklin's sung of country? (8,7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -128,9 +122,6 @@ window.CRYPTIC_PUZZLES["everyman-4139"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Oriental festival, the start of Naadam (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "EASTERN",
    "annotation": {
@@ -173,9 +164,6 @@ window.CRYPTIC_PUZZLES["everyman-4139"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Oddly noiseless footballers (9)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "LIONESSES",
    "annotation": {
@@ -212,9 +200,6 @@ window.CRYPTIC_PUZZLES["everyman-4139"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Seem to be one that's noble on a podcast (6)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "APPEAR",
    "annotation": {
@@ -262,9 +247,6 @@ window.CRYPTIC_PUZZLES["everyman-4139"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Singular fellow, sales rep perhaps (5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "AGENT",
    "annotation": {
@@ -307,9 +289,6 @@ window.CRYPTIC_PUZZLES["everyman-4139"] = /*JSON-START*/ {
      6
     ]
    ],
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "PORSCHE",
    "annotation": {
@@ -346,9 +325,6 @@ window.CRYPTIC_PUZZLES["everyman-4139"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Frail Saint Kate: a wake's arranged (2,4,2,1,6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -392,9 +368,6 @@ window.CRYPTIC_PUZZLES["everyman-4139"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Number to etch, but use pencil to depict football result (2-5,4)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {
     "-": [
      2
@@ -447,9 +420,6 @@ window.CRYPTIC_PUZZLES["everyman-4139"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "What you may do to salmon in your home (4)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {},
    "solution": "GAFF",
    "annotation": {
@@ -484,9 +454,6 @@ window.CRYPTIC_PUZZLES["everyman-4139"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "NB: school's upwardly mobile (4)",
-   "group": [
-    "10-down"
-   ],
    "separatorLocations": {},
    "solution": "NOTE",
    "annotation": {
@@ -529,9 +496,6 @@ window.CRYPTIC_PUZZLES["everyman-4139"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "See Batman writhing in shame (9)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "ABASEMENT",
    "annotation": {
@@ -571,9 +535,6 @@ window.CRYPTIC_PUZZLES["everyman-4139"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Cigar: light and refined one, primarily! (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "CLARO",
    "annotation": {
@@ -619,9 +580,6 @@ window.CRYPTIC_PUZZLES["everyman-4139"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Runs into baddies in sitcom (7)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "FRIENDS",
    "annotation": {
@@ -669,9 +627,6 @@ window.CRYPTIC_PUZZLES["everyman-4139"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Look at bit of document that's a leak (7)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "SEEPAGE",
    "annotation": {
@@ -711,9 +666,6 @@ window.CRYPTIC_PUZZLES["everyman-4139"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "'Fish flipping so long' was suspicious (5,1,3)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      5,
@@ -768,9 +720,6 @@ window.CRYPTIC_PUZZLES["everyman-4139"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Term 'promises to pay' questionable (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "DUBIOUS",
    "annotation": {
@@ -807,9 +756,6 @@ window.CRYPTIC_PUZZLES["everyman-4139"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Puts on academics (4)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "DONS",
    "annotation": {
@@ -844,9 +790,6 @@ window.CRYPTIC_PUZZLES["everyman-4139"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Lear's daughter, beset by ducks, leaves (7)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "OREGANO",
    "annotation": {
@@ -891,9 +834,6 @@ window.CRYPTIC_PUZZLES["everyman-4139"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Preference: absence of piano in entrance (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "ENCHANT",
    "annotation": {
@@ -938,9 +878,6 @@ window.CRYPTIC_PUZZLES["everyman-4139"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Fit a device making sawdust (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "CHIPPER",
    "annotation": {
@@ -975,9 +912,6 @@ window.CRYPTIC_PUZZLES["everyman-4139"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Kicked warty amphibian that can be heard (4)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "TOED",
    "annotation": {
@@ -1012,9 +946,6 @@ window.CRYPTIC_PUZZLES["everyman-4139"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Starts to narrate anecdote - Everyman's simplistic (5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "NAIVE",
    "annotation": {
@@ -1057,9 +988,6 @@ window.CRYPTIC_PUZZLES["everyman-4139"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "In nice hot resort that's unsafe (2,4,3)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -1104,9 +1032,6 @@ window.CRYPTIC_PUZZLES["everyman-4139"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Loch Restil hiding brownish colour (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "OCHRE",
    "annotation": {
@@ -1140,9 +1065,6 @@ window.CRYPTIC_PUZZLES["everyman-4139"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Cheat, and pester horrid swot (8,3)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -1183,9 +1105,6 @@ window.CRYPTIC_PUZZLES["everyman-4139"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Call upon Juliet to replace Victor: not everyone gets it (2-4)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {
     "-": [
      2
@@ -1237,9 +1156,6 @@ window.CRYPTIC_PUZZLES["everyman-4139"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Time I governed a European capital (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "TIRANA",
    "annotation": {

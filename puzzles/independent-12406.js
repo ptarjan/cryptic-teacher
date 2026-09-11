@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12406"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Social pint I arranged for elected officials (11)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "POLITICIANS",
    "annotation": {
@@ -67,9 +64,6 @@ window.CRYPTIC_PUZZLES["independent-12406"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Where corps go for release hoping to break something? (5,10)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -105,9 +99,6 @@ window.CRYPTIC_PUZZLES["independent-12406"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Vietnam allegedly holding back source of wool (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "LLAMA",
    "annotation": {
@@ -143,9 +134,6 @@ window.CRYPTIC_PUZZLES["independent-12406"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Notes that repeat poolroom secrets regularly put up (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "TREMOLO",
    "annotation": {
@@ -190,9 +178,6 @@ window.CRYPTIC_PUZZLES["independent-12406"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Sudden surge by scoundrel breaking cover (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "CASCADE",
    "annotation": {
@@ -239,9 +224,6 @@ window.CRYPTIC_PUZZLES["independent-12406"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Historic family risks abandoning church before trial (8)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "ANCESTRY",
    "annotation": {
@@ -286,9 +268,6 @@ window.CRYPTIC_PUZZLES["independent-12406"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Misstep that could make shoe feel uncomfortable? (4,2,3,6)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -326,9 +305,6 @@ window.CRYPTIC_PUZZLES["independent-12406"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Fashion to benefit Rome at last (3,6,4)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -370,9 +346,6 @@ window.CRYPTIC_PUZZLES["independent-12406"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Certain merger stopped by crusade against Dutch bank (13)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "UNQUESTIONING",
    "annotation": {
@@ -424,9 +397,6 @@ window.CRYPTIC_PUZZLES["independent-12406"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Take page from religious leader facing class act (7)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "OPERATE",
    "annotation": {
@@ -476,9 +446,6 @@ window.CRYPTIC_PUZZLES["independent-12406"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Row with son over right way to bond (7)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "SUCTION",
    "annotation": {
@@ -526,9 +493,6 @@ window.CRYPTIC_PUZZLES["independent-12406"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Brazilian moves head with a radiant body exuding energy (5,4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -580,9 +544,6 @@ window.CRYPTIC_PUZZLES["independent-12406"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Almost roar consuming last drop of spicy sauce (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "SHOYU",
    "annotation": {
@@ -630,9 +591,6 @@ window.CRYPTIC_PUZZLES["independent-12406"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Funny man and straight man, one overshadowed by other at first (4)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "FOOL",
    "annotation": {
@@ -686,9 +644,6 @@ window.CRYPTIC_PUZZLES["independent-12406"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Harsh words hurt the most when blasted without hint of tenderness (4,6)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -738,9 +693,6 @@ window.CRYPTIC_PUZZLES["independent-12406"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "The king’s evil son abused our calf (8)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "SCROFULA",
    "annotation": {
@@ -789,9 +741,6 @@ window.CRYPTIC_PUZZLES["independent-12406"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Sporting official swore over nothing and concentrated again (10)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "REFOCUSSED",
    "annotation": {
@@ -843,9 +792,6 @@ window.CRYPTIC_PUZZLES["independent-12406"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Outspoken music producer is transparent has-been? (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "SPECTRE",
    "annotation": {
@@ -883,9 +829,6 @@ window.CRYPTIC_PUZZLES["independent-12406"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Local experimental cinema snubbed over regressive editor (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "ENDEMIC",
    "annotation": {
@@ -939,9 +882,6 @@ window.CRYPTIC_PUZZLES["independent-12406"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Still face of impassive mountain dweller (4)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "YETI",
    "annotation": {
@@ -984,9 +924,6 @@ window.CRYPTIC_PUZZLES["independent-12406"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Body temperature, roughly (5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "TORSO",
    "annotation": {
@@ -1024,9 +961,6 @@ window.CRYPTIC_PUZZLES["independent-12406"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Spread or widened out (9)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "EIDERDOWN",
    "annotation": {
@@ -1063,9 +997,6 @@ window.CRYPTIC_PUZZLES["independent-12406"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Public official almost set up shop (3,2)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -1115,9 +1046,6 @@ window.CRYPTIC_PUZZLES["independent-12406"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Student initially missing from crash joining staff in search (7)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "MANHUNT",
    "annotation": {
@@ -1172,9 +1100,6 @@ window.CRYPTIC_PUZZLES["independent-12406"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Waving gun at me? That could be dangerous (7)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "MUTAGEN",
    "annotation": {
@@ -1212,9 +1137,6 @@ window.CRYPTIC_PUZZLES["independent-12406"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "European vice-president takes in view when cycling for fleeting moment (11)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "EVANESCENCE",
    "annotation": {

@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4164"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Freely obtains seats (4)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "BUMS",
    "annotation": {
@@ -62,9 +59,6 @@ window.CRYPTIC_PUZZLES["everyman-4164"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Piqued, as edges of four sofa beds bashed up (7,3)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -115,9 +109,6 @@ window.CRYPTIC_PUZZLES["everyman-4164"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Spreads out arms and a medal (10)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "MARMALADES",
    "annotation": {
@@ -159,9 +150,6 @@ window.CRYPTIC_PUZZLES["everyman-4164"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Starting to crawl - and fall; our son's wobbly (2,3,5)",
-   "group": [
-    "3-across"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -206,9 +194,6 @@ window.CRYPTIC_PUZZLES["everyman-4164"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Found in northern EU (Trondheim), something small and free of charge (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "NEUTRON",
    "annotation": {
@@ -247,9 +232,6 @@ window.CRYPTIC_PUZZLES["everyman-4164"] = /*JSON-START*/ {
      26,
      5
     ]
-   ],
-   "group": [
-    "5-down"
    ],
    "separatorLocations": {},
    "solution": "LASAGNE",
@@ -299,9 +281,6 @@ window.CRYPTIC_PUZZLES["everyman-4164"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Help following mishaps if it's dark and it's stormy (5-3,4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -351,9 +330,6 @@ window.CRYPTIC_PUZZLES["everyman-4164"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Represented initially: Uranian fleet overhead, supposedly? (4)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "UFOS",
    "annotation": {
@@ -394,9 +370,6 @@ window.CRYPTIC_PUZZLES["everyman-4164"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Blonde perhaps going after small band (4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "SASH",
    "annotation": {
@@ -439,9 +412,6 @@ window.CRYPTIC_PUZZLES["everyman-4164"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "After starters of awfully creamy rissoles, Everyman's beginning to see a bit of a spread? (4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "ACRE",
    "annotation": {
@@ -491,9 +461,6 @@ window.CRYPTIC_PUZZLES["everyman-4164"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Having made alterations to some rugs where visitors sleep (5,5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -534,9 +501,6 @@ window.CRYPTIC_PUZZLES["everyman-4164"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Subordinate to assist with con (6,6)",
-   "group": [
-    "11-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -582,9 +546,6 @@ window.CRYPTIC_PUZZLES["everyman-4164"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Reluctance to having your part in something noticed? (5,6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -620,9 +581,6 @@ window.CRYPTIC_PUZZLES["everyman-4164"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Three-card trick seen on film in S American capital (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "MONTEVIDEO",
    "annotation": {
@@ -668,9 +626,6 @@ window.CRYPTIC_PUZZLES["everyman-4164"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Spooner tells us: Franklin's elevated item for service (6,4)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -719,9 +674,6 @@ window.CRYPTIC_PUZZLES["everyman-4164"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Coerce fierce type to accept love (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "DRAGOON",
    "annotation": {
@@ -771,9 +723,6 @@ window.CRYPTIC_PUZZLES["everyman-4164"] = /*JSON-START*/ {
      5
     ]
    ],
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "EPISODE",
    "annotation": {
@@ -819,9 +768,6 @@ window.CRYPTIC_PUZZLES["everyman-4164"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Loudly repulsed: tick on woodland creature in range (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "FREEDOM",
    "annotation": {
@@ -880,9 +826,6 @@ window.CRYPTIC_PUZZLES["everyman-4164"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Member of a family who may have performed many hits (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "MAFIOSO",
    "annotation": {
@@ -914,9 +857,6 @@ window.CRYPTIC_PUZZLES["everyman-4164"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Filming evidently proving problematic? Have a break (4,3)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -955,9 +895,6 @@ window.CRYPTIC_PUZZLES["everyman-4164"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Smaller around North, and higher pitched (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "TINNIER",
    "annotation": {
@@ -1004,9 +941,6 @@ window.CRYPTIC_PUZZLES["everyman-4164"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "To have and to hold? (11)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "INFINITIVES",
    "annotation": {
@@ -1042,9 +976,6 @@ window.CRYPTIC_PUZZLES["everyman-4164"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Region better ventilated, did you say? (4)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "AREA",
    "annotation": {
@@ -1079,9 +1010,6 @@ window.CRYPTIC_PUZZLES["everyman-4164"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Drink bouzoukist's drunk? (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "OUZO",
    "annotation": {
@@ -1115,9 +1043,6 @@ window.CRYPTIC_PUZZLES["everyman-4164"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Singer following multi-voice song in competition (5,5)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -1167,9 +1092,6 @@ window.CRYPTIC_PUZZLES["everyman-4164"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Plan in E End: hole up in this location (4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "IDEA",
    "annotation": {
@@ -1214,9 +1136,6 @@ window.CRYPTIC_PUZZLES["everyman-4164"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Legitimate position of chess player's hand (5,5)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -1255,9 +1174,6 @@ window.CRYPTIC_PUZZLES["everyman-4164"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Kitty to circle back (4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "POOL",
    "annotation": {

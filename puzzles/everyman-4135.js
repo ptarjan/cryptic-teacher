@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4135"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "In retrospect, ChatGPT etc destructive, vacuous at heart? There's a notion (4)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "IDEA",
    "annotation": {
@@ -84,9 +81,6 @@ window.CRYPTIC_PUZZLES["everyman-4135"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Food guru initiated reforms (9)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "DIETITIAN",
    "annotation": {
@@ -123,9 +117,6 @@ window.CRYPTIC_PUZZLES["everyman-4135"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Short time enthralled by wild iguana somewhere in W Indies (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "ANTIGUA",
    "annotation": {
@@ -177,9 +168,6 @@ window.CRYPTIC_PUZZLES["everyman-4135"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Strings of buckwheat, Asian primarily? (4)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "SOBA",
    "annotation": {
@@ -219,9 +207,6 @@ window.CRYPTIC_PUZZLES["everyman-4135"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Man alternately bites dog (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "STAFFIE",
    "annotation": {
@@ -264,9 +249,6 @@ window.CRYPTIC_PUZZLES["everyman-4135"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "What musician may take regularly: mike for musician (5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "BOWIE",
    "annotation": {
@@ -312,9 +294,6 @@ window.CRYPTIC_PUZZLES["everyman-4135"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Exchange whip (6)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "SWITCH",
    "annotation": {
@@ -348,9 +327,6 @@ window.CRYPTIC_PUZZLES["everyman-4135"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Rained heavily - wearing fur? (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "PELTED",
    "annotation": {
@@ -384,9 +360,6 @@ window.CRYPTIC_PUZZLES["everyman-4135"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "In the raw with the bananas - extremely chaste (6,4,5)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {
     ",": [
      6,
@@ -428,9 +401,6 @@ window.CRYPTIC_PUZZLES["everyman-4135"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Grim perm an entertainer hides in passing (11)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {},
    "solution": "IMPERMANENT",
    "annotation": {
@@ -464,9 +434,6 @@ window.CRYPTIC_PUZZLES["everyman-4135"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "I'm in favour of six heads of state issuing numbing generalisations departing from script (11)",
-   "group": [
-    "10-down"
-   ],
    "separatorLocations": {},
    "solution": "IMPROVISING",
    "annotation": {
@@ -521,9 +488,6 @@ window.CRYPTIC_PUZZLES["everyman-4135"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Knocking off chocolate sauce perhaps (7)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "TOPPING",
    "annotation": {
@@ -557,9 +521,6 @@ window.CRYPTIC_PUZZLES["everyman-4135"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Give gratuity to a little fellow over in seedy venue (7)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "FLEAPIT",
    "annotation": {
@@ -614,9 +575,6 @@ window.CRYPTIC_PUZZLES["everyman-4135"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Raunchier, but laughably so? That's a big blow (9)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "HURRICANE",
    "annotation": {
@@ -653,9 +611,6 @@ window.CRYPTIC_PUZZLES["everyman-4135"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Empty after having had nothing - like an egg? (5)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "OVOID",
    "annotation": {
@@ -701,9 +656,6 @@ window.CRYPTIC_PUZZLES["everyman-4135"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Proposers involved tormentor (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "OPPRESSOR",
    "annotation": {
@@ -740,9 +692,6 @@ window.CRYPTIC_PUZZLES["everyman-4135"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Unattractive lowland (5)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "PLAIN",
    "annotation": {
@@ -776,9 +725,6 @@ window.CRYPTIC_PUZZLES["everyman-4135"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Cool Prime Minister circumventing hot Member (6)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "PHLEGM",
    "annotation": {
@@ -828,9 +774,6 @@ window.CRYPTIC_PUZZLES["everyman-4135"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Merrily I open butts of French Pomerol to imbibe? (9)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "OENOPHILE",
    "annotation": {
@@ -874,9 +817,6 @@ window.CRYPTIC_PUZZLES["everyman-4135"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Riding, it seems, with son going up to the coast (7)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "ONSHORE",
    "annotation": {
@@ -925,9 +865,6 @@ window.CRYPTIC_PUZZLES["everyman-4135"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Journalistic chap seen in every direction: gee! (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "NEWSMAN",
    "annotation": {
@@ -967,9 +904,6 @@ window.CRYPTIC_PUZZLES["everyman-4135"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "In the E End, loathes rowers (6)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "EIGHTS",
    "annotation": {
@@ -1015,9 +949,6 @@ window.CRYPTIC_PUZZLES["everyman-4135"] = /*JSON-START*/ {
      6
     ]
    ],
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "LEECHES",
    "annotation": {
@@ -1059,9 +990,6 @@ window.CRYPTIC_PUZZLES["everyman-4135"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Time for you and me, did you say? (5)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "HOURS",
    "annotation": {
@@ -1097,9 +1025,6 @@ window.CRYPTIC_PUZZLES["everyman-4135"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Small, small sound: sound of sorrow (7)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "WEEPING",
    "annotation": {
@@ -1136,9 +1061,6 @@ window.CRYPTIC_PUZZLES["everyman-4135"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Avoid Everyman's daft appearance: begone! (3,3,2,2,5)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -1188,9 +1110,6 @@ window.CRYPTIC_PUZZLES["everyman-4135"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Geographical feature that is around small lake? The reverse! (4)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "ISLE",
    "annotation": {
@@ -1244,9 +1163,6 @@ window.CRYPTIC_PUZZLES["everyman-4135"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Tyrant, somewhat ungenerous (4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "NERO",
    "annotation": {

@@ -24,9 +24,6 @@ window.CRYPTIC_PUZZLES["cryptic-30045"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Dave made an alternative biblical origin story (4,3,3)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -69,9 +66,6 @@ window.CRYPTIC_PUZZLES["cryptic-30045"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Current measures while politician is inside (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "AMPS",
    "annotation": {
@@ -111,9 +105,6 @@ window.CRYPTIC_PUZZLES["cryptic-30045"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Queue said to follow these characters on the summit (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "ATOP",
    "annotation": {
@@ -147,9 +138,6 @@ window.CRYPTIC_PUZZLES["cryptic-30045"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Champion, before successful putt, reveals secret edge (3,2,3,4)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -199,9 +187,6 @@ window.CRYPTIC_PUZZLES["cryptic-30045"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Cover beginnings of debate regarding act prohibiting euthanasia (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "DRAPE",
    "annotation": {
@@ -238,9 +223,6 @@ window.CRYPTIC_PUZZLES["cryptic-30045"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Indirect service provider promises to pay (9)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "VICARIOUS",
    "annotation": {
@@ -277,9 +259,6 @@ window.CRYPTIC_PUZZLES["cryptic-30045"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Component of post-operative check (4)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "STOP",
    "annotation": {
@@ -309,9 +288,6 @@ window.CRYPTIC_PUZZLES["cryptic-30045"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Drama created by one stealing chips (3,7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -352,9 +328,6 @@ window.CRYPTIC_PUZZLES["cryptic-30045"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Difficult spot with picturesque route through mountains (6,4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -395,9 +368,6 @@ window.CRYPTIC_PUZZLES["cryptic-30045"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "History of article found in French region (10)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "PROVENANCE",
    "annotation": {
@@ -440,9 +410,6 @@ window.CRYPTIC_PUZZLES["cryptic-30045"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Widespread idea setter repeated (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "MEME",
    "annotation": {
@@ -481,9 +448,6 @@ window.CRYPTIC_PUZZLES["cryptic-30045"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "One has market in chaos? I can’t answer that (3,2,7)",
-   "group": [
-    "11-down"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -526,9 +490,6 @@ window.CRYPTIC_PUZZLES["cryptic-30045"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Restrict open representation during review (2,10)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -570,9 +531,6 @@ window.CRYPTIC_PUZZLES["cryptic-30045"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Lama unsure about guidance it provides (4,6)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -614,9 +572,6 @@ window.CRYPTIC_PUZZLES["cryptic-30045"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Actors’ share that ensures kids are excluded in future (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "CASTRATION",
    "annotation": {
@@ -653,9 +608,6 @@ window.CRYPTIC_PUZZLES["cryptic-30045"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Recreation area beside slum provides very small portion of pasta (9)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "SPAGHETTO",
    "annotation": {
@@ -697,9 +649,6 @@ window.CRYPTIC_PUZZLES["cryptic-30045"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Kidnapped but had disagreement (4,5)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -740,9 +689,6 @@ window.CRYPTIC_PUZZLES["cryptic-30045"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Do some research for facelift? (3,2)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -786,9 +732,6 @@ window.CRYPTIC_PUZZLES["cryptic-30045"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Almost vomit from contents of secret chamber (5)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "RETCH",
    "annotation": {
@@ -821,9 +764,6 @@ window.CRYPTIC_PUZZLES["cryptic-30045"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Blocks former pupil’s heartless challenges (9)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "OBSTACLES",
    "annotation": {
@@ -862,9 +802,6 @@ window.CRYPTIC_PUZZLES["cryptic-30045"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Limbo dancer’s record performance? It couldn’t be worse for some (2,3-4,3)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -906,9 +843,6 @@ window.CRYPTIC_PUZZLES["cryptic-30045"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Praise plasticity of latex? (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "EXALT",
    "annotation": {
@@ -946,9 +880,6 @@ window.CRYPTIC_PUZZLES["cryptic-30045"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Bird impersonator sounds lightweight to some (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "MYNA",
    "annotation": {
@@ -980,9 +911,6 @@ window.CRYPTIC_PUZZLES["cryptic-30045"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "It protects Americans caught in calamitous aftermath (4)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "USAF",
    "annotation": {
@@ -1012,9 +940,6 @@ window.CRYPTIC_PUZZLES["cryptic-30045"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Incompetent fellow quits squad (4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "UNIT",
    "annotation": {
@@ -1053,9 +978,6 @@ window.CRYPTIC_PUZZLES["cryptic-30045"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "I dismiss unclear vision articulated by soul pioneer (5,5)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -1099,9 +1021,6 @@ window.CRYPTIC_PUZZLES["cryptic-30045"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Advance! It’s part of command Nelson rejected (4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "LEND",
    "annotation": {
@@ -1141,9 +1060,6 @@ window.CRYPTIC_PUZZLES["cryptic-30045"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Spouse felt breath getting uneven (6,4)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     ",": [
      6

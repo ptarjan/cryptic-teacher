@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30008"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Tricksy unreal chap concealing a treasure, ultimately? (10)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "LEPRECHAUN",
    "annotation": {
@@ -79,9 +76,6 @@ window.CRYPTIC_PUZZLES["cryptic-30008"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Work for overseas employers? It supports Home Office functions (5-3)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -135,9 +129,6 @@ window.CRYPTIC_PUZZLES["cryptic-30008"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Broadcasting, say? Head of BBC upset about end of fine series (6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "GERUND",
    "annotation": {
@@ -198,9 +189,6 @@ window.CRYPTIC_PUZZLES["cryptic-30008"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Support rat-catcher not using a piano (4)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "PIER",
    "annotation": {
@@ -243,9 +231,6 @@ window.CRYPTIC_PUZZLES["cryptic-30008"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Cuts song penned by associate of Z Malik? (10)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "HAIRSTYLES",
    "annotation": {
@@ -290,9 +275,6 @@ window.CRYPTIC_PUZZLES["cryptic-30008"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Transport company, excellent in two directions, seen around outside (3,5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -354,9 +336,6 @@ window.CRYPTIC_PUZZLES["cryptic-30008"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Church welcoming British and French playwright in Germany (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "BRECHT",
    "annotation": {
@@ -407,9 +386,6 @@ window.CRYPTIC_PUZZLES["cryptic-30008"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Arab leader in revolutionary memoir I’m editing (4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "EMIR",
    "annotation": {
@@ -446,9 +422,6 @@ window.CRYPTIC_PUZZLES["cryptic-30008"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Mysterious stuff in complex eco-satire (9)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "ESOTERICA",
    "annotation": {
@@ -489,9 +462,6 @@ window.CRYPTIC_PUZZLES["cryptic-30008"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Fellows I backed to retain right against property (2,3)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -553,9 +523,6 @@ window.CRYPTIC_PUZZLES["cryptic-30008"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Liberator to regret grabbing key troublemaker finally (7)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "RESCUER",
    "annotation": {
@@ -608,9 +575,6 @@ window.CRYPTIC_PUZZLES["cryptic-30008"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Feel bad about blocking Bishop’s carriage in America (7)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "RAILCAR",
    "annotation": {
@@ -664,9 +628,6 @@ window.CRYPTIC_PUZZLES["cryptic-30008"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Assessed possibilities of legal action with daughter (5)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "CASED",
    "annotation": {
@@ -708,9 +669,6 @@ window.CRYPTIC_PUZZLES["cryptic-30008"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Insectivore swallowing head of dragonfly, not tail – head of drone came before (9)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "ANTEDATED",
    "annotation": {
@@ -770,9 +728,6 @@ window.CRYPTIC_PUZZLES["cryptic-30008"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "True, a ham is struggling, being this? (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "AMATEURISH",
    "annotation": {
@@ -810,9 +765,6 @@ window.CRYPTIC_PUZZLES["cryptic-30008"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Wife’s confused, not a right nag? (5,5)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -873,9 +825,6 @@ window.CRYPTIC_PUZZLES["cryptic-30008"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "A nasty altercation with MP about fine piece of legislation (3,2,10)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -937,9 +886,6 @@ window.CRYPTIC_PUZZLES["cryptic-30008"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Gets hot without rising draught in convents (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "FRIARIES",
    "annotation": {
@@ -995,9 +941,6 @@ window.CRYPTIC_PUZZLES["cryptic-30008"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Article about student in University course mostly taken up and expanded (8)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "ENLARGED",
    "annotation": {
@@ -1056,9 +999,6 @@ window.CRYPTIC_PUZZLES["cryptic-30008"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "New points accepted by fool in malice (9)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "NASTINESS",
    "annotation": {
@@ -1112,9 +1052,6 @@ window.CRYPTIC_PUZZLES["cryptic-30008"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Intervene, with second recording in the can (4,2)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -1172,9 +1109,6 @@ window.CRYPTIC_PUZZLES["cryptic-30008"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Still empty, going to pub, drinking unknown spirit (5)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "SYLPH",
    "annotation": {
@@ -1230,9 +1164,6 @@ window.CRYPTIC_PUZZLES["cryptic-30008"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Robust articles deleted during part of weekend (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "STURDY",
    "annotation": {
@@ -1277,9 +1208,6 @@ window.CRYPTIC_PUZZLES["cryptic-30008"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "College student erasing note offering greater comprehension (7)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "CLEARER",
    "annotation": {
@@ -1328,9 +1256,6 @@ window.CRYPTIC_PUZZLES["cryptic-30008"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Point succeeded in competition (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "CUSP",
    "annotation": {
@@ -1375,9 +1300,6 @@ window.CRYPTIC_PUZZLES["cryptic-30008"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Particle the source of trouble in part of nervous system (7)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "NEUTRON",
    "annotation": {
@@ -1424,9 +1346,6 @@ window.CRYPTIC_PUZZLES["cryptic-30008"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Christmas: last in cricket team still missing? (4)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "NOEL",
    "annotation": {
@@ -1470,9 +1389,6 @@ window.CRYPTIC_PUZZLES["cryptic-30008"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "The fifth bargain gets criticism? (5)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "SNIPE",
    "annotation": {
@@ -1513,9 +1429,6 @@ window.CRYPTIC_PUZZLES["cryptic-30008"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Veronica’s son went to source (9)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "SPEEDWELL",
    "annotation": {

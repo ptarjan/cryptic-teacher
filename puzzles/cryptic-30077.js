@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30077"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Brand accepts plan backing guarantee (4,4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -83,9 +80,6 @@ window.CRYPTIC_PUZZLES["cryptic-30077"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Start to watch broadband supplier’s strand (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "WISP",
    "annotation": {
@@ -131,9 +125,6 @@ window.CRYPTIC_PUZZLES["cryptic-30077"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Subsection of secret summons turned around rally (6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "MUSTER",
    "annotation": {
@@ -169,9 +160,6 @@ window.CRYPTIC_PUZZLES["cryptic-30077"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "One who keeps quiet before the Guardian’s outcry (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "CLAMOUR",
    "annotation": {
@@ -220,9 +208,6 @@ window.CRYPTIC_PUZZLES["cryptic-30077"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "A female or male tennis icon? (4)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "ASHE",
    "annotation": {
@@ -262,9 +247,6 @@ window.CRYPTIC_PUZZLES["cryptic-30077"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Chamber’s diet for those chosen (10)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "PARLIAMENT",
    "annotation": {
@@ -301,9 +283,6 @@ window.CRYPTIC_PUZZLES["cryptic-30077"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Late meeting of party in bishop’s office (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "SEANCE",
    "annotation": {
@@ -350,9 +329,6 @@ window.CRYPTIC_PUZZLES["cryptic-30077"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "It’s normal for holiday at Legoland at the outset to involve a little something for everyone (8)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {},
    "solution": "HABITUAL",
    "annotation": {
@@ -487,9 +463,6 @@ window.CRYPTIC_PUZZLES["cryptic-30077"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "I tremble in feverish place where the fuel runs out? (10)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "TIMBERLINE",
    "annotation": {
@@ -526,9 +499,6 @@ window.CRYPTIC_PUZZLES["cryptic-30077"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Relish killing (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "MURDER",
    "annotation": {
@@ -562,9 +532,6 @@ window.CRYPTIC_PUZZLES["cryptic-30077"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Thwart fickle rule in gear shift? (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "DERAILLEUR",
    "annotation": {
@@ -616,9 +583,6 @@ window.CRYPTIC_PUZZLES["cryptic-30077"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Open to the elements, caps missing, air processor burned (8)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "UNGLAZED",
    "annotation": {
@@ -661,9 +625,6 @@ window.CRYPTIC_PUZZLES["cryptic-30077"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Sport cut short leg (3)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "GAM",
    "annotation": {
@@ -700,9 +661,6 @@ window.CRYPTIC_PUZZLES["cryptic-30077"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Unravel slam point (7)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "DECRYPT",
    "annotation": {
@@ -739,9 +697,6 @@ window.CRYPTIC_PUZZLES["cryptic-30077"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Hope to God every third letter appears in books made to order (3)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "POD",
    "annotation": {
@@ -784,9 +739,6 @@ window.CRYPTIC_PUZZLES["cryptic-30077"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Mammoth setter’s crew stripped user (7)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "IMMENSE",
    "annotation": {
@@ -835,9 +787,6 @@ window.CRYPTIC_PUZZLES["cryptic-30077"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Smartening up University College in April and May (8)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "SPRUCING",
    "annotation": {
@@ -886,9 +835,6 @@ window.CRYPTIC_PUZZLES["cryptic-30077"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Offensive in the armed forces? (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "UNCIVIL",
    "annotation": {
@@ -923,9 +869,6 @@ window.CRYPTIC_PUZZLES["cryptic-30077"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Walked free in road house (8)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "STRIDDEN",
    "annotation": {
@@ -975,9 +918,6 @@ window.CRYPTIC_PUZZLES["cryptic-30077"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Some leaderless after god proving hard to please (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "THORNY",
    "annotation": {
@@ -1025,9 +965,6 @@ window.CRYPTIC_PUZZLES["cryptic-30077"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Sew up ruptured uterus (6)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "SUTURE",
    "annotation": {
@@ -1064,9 +1001,6 @@ window.CRYPTIC_PUZZLES["cryptic-30077"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Ask Einstein to include networks (6)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "SKEINS",
    "annotation": {
@@ -1149,9 +1083,6 @@ window.CRYPTIC_PUZZLES["cryptic-30077"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Whack the top guy and stay mum (4)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "COSH",
    "annotation": {
@@ -1191,9 +1122,6 @@ window.CRYPTIC_PUZZLES["cryptic-30077"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Begging your permission, tread carefully (4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "PACE",
    "annotation": {
@@ -1228,9 +1156,6 @@ window.CRYPTIC_PUZZLES["cryptic-30077"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Wild Bunch get ready to hit the road (4)",
-   "group": [
-    "26-down"
-   ],
    "separatorLocations": {},
    "solution": "PACK",
    "annotation": {
@@ -1286,9 +1211,6 @@ window.CRYPTIC_PUZZLES["cryptic-30077"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Local, having no cash, in the clear (8)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "INNOCENT",
    "annotation": {

@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12441"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "One boozer drinking like this is sign of pressure (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "ISOBAR",
    "annotation": {
@@ -79,9 +76,6 @@ window.CRYPTIC_PUZZLES["independent-12441"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Debtor's not raging about one wiping bill (4,3)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -119,9 +113,6 @@ window.CRYPTIC_PUZZLES["independent-12441"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Offer shop might have on crapper loaf regularly (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "BOGOF",
    "annotation": {
@@ -167,9 +158,6 @@ window.CRYPTIC_PUZZLES["independent-12441"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Help head to save outstanding sculptures (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "RELIEFS",
    "annotation": {
@@ -215,9 +203,6 @@ window.CRYPTIC_PUZZLES["independent-12441"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Time state reviewed hospital food outlets (8)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "TAVERNAS",
    "annotation": {
@@ -272,9 +257,6 @@ window.CRYPTIC_PUZZLES["independent-12441"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Old volunteers consuming ecstasy and grass (3)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "TEA",
    "annotation": {
@@ -321,9 +303,6 @@ window.CRYPTIC_PUZZLES["independent-12441"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "One can served up worker filled with Courage (7)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "VALIANT",
    "annotation": {
@@ -372,9 +351,6 @@ window.CRYPTIC_PUZZLES["independent-12441"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "It is people like your mother-in-law ... (9)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "RELATIONS",
    "annotation": {
@@ -410,9 +386,6 @@ window.CRYPTIC_PUZZLES["independent-12441"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "... Nanna upset about ultimately flat English dish? (7)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "ANTENNA",
    "annotation": {
@@ -463,9 +436,6 @@ window.CRYPTIC_PUZZLES["independent-12441"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "I moon gal travelling around foreign land (8)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "MONGOLIA",
    "annotation": {
@@ -502,9 +472,6 @@ window.CRYPTIC_PUZZLES["independent-12441"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Short lad steals old literary novel (6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "LOLITA",
    "annotation": {
@@ -556,9 +523,6 @@ window.CRYPTIC_PUZZLES["independent-12441"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Revive soldiers hard peasant knocked over (7)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "REFRESH",
    "annotation": {
@@ -613,9 +577,6 @@ window.CRYPTIC_PUZZLES["independent-12441"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Fury? That guy will coast on occasion! (7)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {},
    "solution": "HELLCAT",
    "annotation": {
@@ -658,9 +619,6 @@ window.CRYPTIC_PUZZLES["independent-12441"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Minister’s bill blocked by abstaining English knight (6)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "ATTEND",
    "annotation": {
@@ -719,9 +677,6 @@ window.CRYPTIC_PUZZLES["independent-12441"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Uniform infantryman stuffed with large fruit (4)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "UGLI",
    "annotation": {
@@ -771,9 +726,6 @@ window.CRYPTIC_PUZZLES["independent-12441"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Idiotic PM, I tell old head of state, creates irritability (3,6)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -822,9 +774,6 @@ window.CRYPTIC_PUZZLES["independent-12441"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Allusion to changes related to an answer? (10)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "SOLUTIONAL",
    "annotation": {
@@ -861,9 +810,6 @@ window.CRYPTIC_PUZZLES["independent-12441"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Criminal knocks sale for hosiery items (5,5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -907,9 +853,6 @@ window.CRYPTIC_PUZZLES["independent-12441"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "We might beat The Hammers in Linares, surprisingly (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "NAILERS",
    "annotation": {
@@ -949,9 +892,6 @@ window.CRYPTIC_PUZZLES["independent-12441"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Grease-covered slice of meat dons burnt on the outside (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "SMEARED",
    "annotation": {
@@ -995,9 +935,6 @@ window.CRYPTIC_PUZZLES["independent-12441"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Whip a person who causes great suffering (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "SCOURGE",
    "annotation": {
@@ -1032,9 +969,6 @@ window.CRYPTIC_PUZZLES["independent-12441"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Horse and colt beset by flipping flatus (4)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "SCAG",
    "annotation": {
@@ -1089,9 +1023,6 @@ window.CRYPTIC_PUZZLES["independent-12441"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "A quiet writer vacuous Duchess puts on? (7)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "APPENDS",
    "annotation": {
@@ -1146,9 +1077,6 @@ window.CRYPTIC_PUZZLES["independent-12441"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Cut grass over one trimmed part of garden (6)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "RIBEYE",
    "annotation": {
@@ -1200,9 +1128,6 @@ window.CRYPTIC_PUZZLES["independent-12441"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Tumble, being tackled by excellent hooker (7)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "TROLLOP",
    "annotation": {
@@ -1249,9 +1174,6 @@ window.CRYPTIC_PUZZLES["independent-12441"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Reason I will get into record by contralto (5)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "LOGIC",
    "annotation": {
@@ -1304,9 +1226,6 @@ window.CRYPTIC_PUZZLES["independent-12441"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Dutch goalie misses header further down pitch (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "DEEPER",
    "annotation": {
@@ -1349,9 +1268,6 @@ window.CRYPTIC_PUZZLES["independent-12441"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Pubs rung up to get shooters from America (4,4)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -1395,9 +1311,6 @@ window.CRYPTIC_PUZZLES["independent-12441"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Case of red, say, one put in case of brown (3)",
-   "group": [
-    "27-down"
-   ],
    "separatorLocations": {},
    "solution": "BIN",
    "annotation": {
@@ -1443,9 +1356,6 @@ window.CRYPTIC_PUZZLES["independent-12441"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "A way old academic will describe rare dinosaur (8)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "ASTRODON",
    "annotation": {
@@ -1506,9 +1416,6 @@ window.CRYPTIC_PUZZLES["independent-12441"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Surplus of clothing size to be picked up (6)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "EXCESS",
    "annotation": {

@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30092"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Maiden in reverse initially denting bumper? (5)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "FIRST",
    "annotation": {
@@ -73,9 +70,6 @@ window.CRYPTIC_PUZZLES["cryptic-30092"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Doing this, not going to multiply 24? (6,6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -110,9 +104,6 @@ window.CRYPTIC_PUZZLES["cryptic-30092"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Bird tough for Archer (5,4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -156,9 +147,6 @@ window.CRYPTIC_PUZZLES["cryptic-30092"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "One south of flipping green district of Rome (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "TREVI",
    "annotation": {
@@ -209,9 +197,6 @@ window.CRYPTIC_PUZZLES["cryptic-30092"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Italian food with taste of cheese a plebeian’s thrown about (3,5)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -260,9 +245,6 @@ window.CRYPTIC_PUZZLES["cryptic-30092"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "It’s rolled over, in something to kick – and pass (3,6)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -321,9 +303,6 @@ window.CRYPTIC_PUZZLES["cryptic-30092"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Opera, not entirely mirthful, ultimately uplifting (4)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "LULU",
    "annotation": {
@@ -365,9 +344,6 @@ window.CRYPTIC_PUZZLES["cryptic-30092"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Other toad in soup, here (2,3,4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -409,9 +385,6 @@ window.CRYPTIC_PUZZLES["cryptic-30092"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Fight to draw up, through case in scabbard – this? (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "SWORD",
    "annotation": {
@@ -465,9 +438,6 @@ window.CRYPTIC_PUZZLES["cryptic-30092"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Sticky stuff, something to fill squares alongside something to remove it? (6,8)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -514,9 +484,6 @@ window.CRYPTIC_PUZZLES["cryptic-30092"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Planet in stew, for troubled – don’t expect it to get better! (4,3,5)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -568,9 +535,6 @@ window.CRYPTIC_PUZZLES["cryptic-30092"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Elastic on equipment in racket pulled back (3-5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -632,9 +596,6 @@ window.CRYPTIC_PUZZLES["cryptic-30092"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Bait in hand? (6)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "NEEDLE",
    "annotation": {
@@ -666,9 +627,6 @@ window.CRYPTIC_PUZZLES["cryptic-30092"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Prize to catch shark detailed – one taking bets (9)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "BOOKMAKER",
    "annotation": {
@@ -714,9 +672,6 @@ window.CRYPTIC_PUZZLES["cryptic-30092"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Flash activated, faint shiner (9)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "MOONLIGHT",
    "annotation": {
@@ -759,9 +714,6 @@ window.CRYPTIC_PUZZLES["cryptic-30092"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Part played by Baltic capital investing millions in bureaucracy (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "RIGMAROLE",
    "annotation": {
@@ -814,9 +766,6 @@ window.CRYPTIC_PUZZLES["cryptic-30092"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Award unblemished? (5)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "OSCAR",
    "annotation": {
@@ -853,9 +802,6 @@ window.CRYPTIC_PUZZLES["cryptic-30092"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Tripped, breaking item of crockery – in little pieces? (7,2)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -903,9 +849,6 @@ window.CRYPTIC_PUZZLES["cryptic-30092"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Sound German wheels round (5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "AUDIO",
    "annotation": {
@@ -942,9 +885,6 @@ window.CRYPTIC_PUZZLES["cryptic-30092"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Old plane flying right to me (5,4)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -985,9 +925,6 @@ window.CRYPTIC_PUZZLES["cryptic-30092"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Empty lounge behind warm fire (6)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "KINDLE",
    "annotation": {
@@ -1032,9 +969,6 @@ window.CRYPTIC_PUZZLES["cryptic-30092"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Under orderly, hospital (5)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "NEATH",
    "annotation": {
@@ -1071,9 +1005,6 @@ window.CRYPTIC_PUZZLES["cryptic-30092"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Was sad about having caged a parrot? So get a perch (4,1,3)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -1133,9 +1064,6 @@ window.CRYPTIC_PUZZLES["cryptic-30092"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Little bit topped with last of chocolate, lay it on thick (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "EMOTE",
    "annotation": {
@@ -1180,9 +1108,6 @@ window.CRYPTIC_PUZZLES["cryptic-30092"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Elephant in bunk? (4)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "BULL",
    "annotation": {
@@ -1217,9 +1142,6 @@ window.CRYPTIC_PUZZLES["cryptic-30092"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Shot down, completely unacceptable (4,3,2,5)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -1262,9 +1184,6 @@ window.CRYPTIC_PUZZLES["cryptic-30092"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "With flexible back in exercise, stretch out – slight stretch? (5,3)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -1325,9 +1244,6 @@ window.CRYPTIC_PUZZLES["cryptic-30092"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "After returning, record filled in by unknown emigrant (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "EXPAT",
    "annotation": {

@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1860"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Help Conservative to hide billions, moving account (3,5)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -81,9 +78,6 @@ window.CRYPTIC_PUZZLES["indysunday-1860"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Species, cross including head of human and every other bit of lion (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "SPHINX",
    "annotation": {
@@ -142,9 +136,6 @@ window.CRYPTIC_PUZZLES["indysunday-1860"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Local worker saving money (9)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "BARTENDER",
    "annotation": {
@@ -182,9 +173,6 @@ window.CRYPTIC_PUZZLES["indysunday-1860"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Stick the rug down in Ilkley? (4)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "TWIG",
    "annotation": {
@@ -227,9 +215,6 @@ window.CRYPTIC_PUZZLES["indysunday-1860"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Try a lie to distort truth (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "REALITY",
    "annotation": {
@@ -269,9 +254,6 @@ window.CRYPTIC_PUZZLES["indysunday-1860"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Departure for one on ship (6)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "EGRESS",
    "annotation": {
@@ -315,9 +297,6 @@ window.CRYPTIC_PUZZLES["indysunday-1860"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Complain again, hearing that firing range after August 12th? (6,4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -365,9 +344,6 @@ window.CRYPTIC_PUZZLES["indysunday-1860"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Abandoned lover with skill climbing on top (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "EXTRA",
    "annotation": {
@@ -419,9 +395,6 @@ window.CRYPTIC_PUZZLES["indysunday-1860"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Quietly interrupting naval chief, talk (8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "SPEAKING",
    "annotation": {
@@ -466,9 +439,6 @@ window.CRYPTIC_PUZZLES["indysunday-1860"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Work over, what remains after term for professor? (6)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {},
    "solution": "REHASH",
    "annotation": {
@@ -519,9 +489,6 @@ window.CRYPTIC_PUZZLES["indysunday-1860"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Remote location for one affected their game (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "HERMITAGE",
    "annotation": {
@@ -558,9 +525,6 @@ window.CRYPTIC_PUZZLES["indysunday-1860"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Oddball dismissed seconds from predicted retirement (5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "OUTRE",
    "annotation": {
@@ -603,9 +567,6 @@ window.CRYPTIC_PUZZLES["indysunday-1860"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Carol never felt unlimited (4)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "NOEL",
    "annotation": {
@@ -648,9 +609,6 @@ window.CRYPTIC_PUZZLES["indysunday-1860"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Trace of life left in Sackville-West's grand garden? (5,5)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -704,9 +662,6 @@ window.CRYPTIC_PUZZLES["indysunday-1860"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Eurovision winner, upset country's losing lead, wails (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "ULULATIONS",
    "annotation": {
@@ -763,9 +718,6 @@ window.CRYPTIC_PUZZLES["indysunday-1860"] = /*JSON-START*/ {
      3
     ]
    ],
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -806,9 +758,6 @@ window.CRYPTIC_PUZZLES["indysunday-1860"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Constant force cracks nuts as stated (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "STEADFAST",
    "annotation": {
@@ -850,9 +799,6 @@ window.CRYPTIC_PUZZLES["indysunday-1860"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Spotty son managed to bag kiss (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "SPECKLED",
    "annotation": {
@@ -901,9 +847,6 @@ window.CRYPTIC_PUZZLES["indysunday-1860"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Builder's facing police officer, 100 mph in left lane (8,5)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -963,9 +906,6 @@ window.CRYPTIC_PUZZLES["indysunday-1860"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Land with many inlets, as if cut by river (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "NORWAY",
    "annotation": {
@@ -1009,9 +949,6 @@ window.CRYPTIC_PUZZLES["indysunday-1860"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Dock's our standard base behind seafront, mostly (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "SHORTEN",
    "annotation": {
@@ -1059,9 +996,6 @@ window.CRYPTIC_PUZZLES["indysunday-1860"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Mean person you'd be pleased to see go (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "PALTRY",
    "annotation": {
@@ -1099,9 +1033,6 @@ window.CRYPTIC_PUZZLES["indysunday-1860"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Prepare to deep-fry Mars bars for Spooner, whose utterances keep coming (10)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "CHATTERBOX",
    "annotation": {
@@ -1146,9 +1077,6 @@ window.CRYPTIC_PUZZLES["indysunday-1860"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "African dictator smuggling diamonds, mundane business (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "ADMIN",
    "annotation": {
@@ -1192,9 +1120,6 @@ window.CRYPTIC_PUZZLES["indysunday-1860"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Bride arranged the setting for fantasy (4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "IDEA",
    "annotation": {
@@ -1228,9 +1153,6 @@ window.CRYPTIC_PUZZLES["indysunday-1860"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Large item from IKEA perhaps unfinished until now (4)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "SOFA",
    "annotation": {
@@ -1267,9 +1189,6 @@ window.CRYPTIC_PUZZLES["indysunday-1860"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Book to be collected by car, where you're put on hold? (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "LIMBO",
    "annotation": {
@@ -1313,9 +1232,6 @@ window.CRYPTIC_PUZZLES["indysunday-1860"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Since fish nets unavailable, one loses weight on ship (9)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "ASTRONAUT",
    "annotation": {
@@ -1365,9 +1281,6 @@ window.CRYPTIC_PUZZLES["indysunday-1860"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Return wrong filling delivered for pastry (6)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "DANISH",
    "annotation": {
@@ -1422,9 +1335,6 @@ window.CRYPTIC_PUZZLES["indysunday-1860"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Foot part of insect eaten by cook (8)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "INFANTRY",
    "annotation": {

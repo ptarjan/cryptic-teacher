@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4113"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Northern Ireland party rejected supreme god (4)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "ODIN",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["everyman-4113"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Reduced what you did with iron? (9)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "DECREASED",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["everyman-4113"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Losing independence, foolishly electing to pass by (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "NEGLECT",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["everyman-4113"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Drinks part of eggnog in silence (4)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "GINS",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["everyman-4113"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "German spoke roughly - understood? (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "GRASPED",
    "annotation": null
@@ -110,9 +95,6 @@ window.CRYPTIC_PUZZLES["everyman-4113"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "What's primarily nethermost? Absolutely dreadful, irredeemably rotten? (5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "NADIR",
    "annotation": null
@@ -133,9 +115,6 @@ window.CRYPTIC_PUZZLES["everyman-4113"] = /*JSON-START*/ {
      12
     ]
    ],
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "AMUSED",
    "annotation": null
@@ -150,9 +129,6 @@ window.CRYPTIC_PUZZLES["everyman-4113"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Demands and obtains one-time performers (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "EXACTS",
    "annotation": null
@@ -167,9 +143,6 @@ window.CRYPTIC_PUZZLES["everyman-4113"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Racing damn poor, terribly cross in F1 event (6,5,4)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {
     ",": [
      6,
@@ -189,9 +162,6 @@ window.CRYPTIC_PUZZLES["everyman-4113"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Offering some illustration on spec, if I choose to be vague (3-8)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -210,9 +180,6 @@ window.CRYPTIC_PUZZLES["everyman-4113"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Communist angry before game that's seen in the garden (3-3,5)",
-   "group": [
-    "10-down"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -234,9 +201,6 @@ window.CRYPTIC_PUZZLES["everyman-4113"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Frank wants extracts of vitamins in cereals (7)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "SINCERE",
    "annotation": null
@@ -251,9 +215,6 @@ window.CRYPTIC_PUZZLES["everyman-4113"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Satirical Picador reprinted (7)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "PARODIC",
    "annotation": null
@@ -268,9 +229,6 @@ window.CRYPTIC_PUZZLES["everyman-4113"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Put out oddest pie (9)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "DEPOSITED",
    "annotation": null
@@ -285,9 +243,6 @@ window.CRYPTIC_PUZZLES["everyman-4113"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Subset of commies runs easily (5)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "TROTS",
    "annotation": null
@@ -302,9 +257,6 @@ window.CRYPTIC_PUZZLES["everyman-4113"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Tiniest bit drunk? Extremely so (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "TIDDLIEST",
    "annotation": null
@@ -319,9 +271,6 @@ window.CRYPTIC_PUZZLES["everyman-4113"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Displayed anxiety audibly by gum! (5)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "PACED",
    "annotation": null
@@ -336,9 +285,6 @@ window.CRYPTIC_PUZZLES["everyman-4113"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Gauges - that sounds like fruit? (6)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "PLUMBS",
    "annotation": null
@@ -353,9 +299,6 @@ window.CRYPTIC_PUZZLES["everyman-4113"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Ushered in by bears, postman refuses to change (6,3)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -374,9 +317,6 @@ window.CRYPTIC_PUZZLES["everyman-4113"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Shakespearean character's far-from-bold hair (7)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "SHYLOCK",
    "annotation": null
@@ -391,9 +331,6 @@ window.CRYPTIC_PUZZLES["everyman-4113"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Waking up, finding topless partying (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "AROUSAL",
    "annotation": null
@@ -408,9 +345,6 @@ window.CRYPTIC_PUZZLES["everyman-4113"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Raw currency (6)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "TENDER",
    "annotation": null
@@ -425,9 +359,6 @@ window.CRYPTIC_PUZZLES["everyman-4113"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Twice in France, fellow admitted, big city's no laughing matter (7)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "UNFUNNY",
    "annotation": null
@@ -442,9 +373,6 @@ window.CRYPTIC_PUZZLES["everyman-4113"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Relative regularly ignored indigencies (5)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "NIECE",
    "annotation": null
@@ -459,9 +387,6 @@ window.CRYPTIC_PUZZLES["everyman-4113"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Paintings with relations in wet-weather wear (7)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "OILSKIN",
    "annotation": null
@@ -476,9 +401,6 @@ window.CRYPTIC_PUZZLES["everyman-4113"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "A single man's part in a revolution that's mentioned in CV (9,6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     ",": [
      9
@@ -497,9 +419,6 @@ window.CRYPTIC_PUZZLES["everyman-4113"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Quietly, I'm scared to take a look (4)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "PEEK",
    "annotation": null
@@ -514,9 +433,6 @@ window.CRYPTIC_PUZZLES["everyman-4113"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "And the others? Flipping tardy! (4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "LATE",
    "annotation": null

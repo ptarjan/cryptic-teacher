@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29938"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Aussie native won, overthrowing leader in fight (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "WOMBAT",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["cryptic-29938"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Order brew in a drinking establishment (4,3)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -63,9 +57,6 @@ window.CRYPTIC_PUZZLES["cryptic-29938"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Biblical figure some condemned at foot of cross (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "MOSES",
    "annotation": null
@@ -80,9 +71,6 @@ window.CRYPTIC_PUZZLES["cryptic-29938"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Suggests tall dudes remove their hats (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "ALLUDES",
    "annotation": null
@@ -97,9 +85,6 @@ window.CRYPTIC_PUZZLES["cryptic-29938"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Very happy due to change in plan (4,2)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -118,9 +103,6 @@ window.CRYPTIC_PUZZLES["cryptic-29938"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Missing worker infected by animal disease (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "ABSENT",
    "annotation": null
@@ -135,9 +117,6 @@ window.CRYPTIC_PUZZLES["cryptic-29938"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Passing border in record time heading left (9)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "EPHEMERAL",
    "annotation": null
@@ -152,9 +131,6 @@ window.CRYPTIC_PUZZLES["cryptic-29938"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Advertisement boards trimmed and put on display (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "PARADED",
    "annotation": null
@@ -169,9 +145,6 @@ window.CRYPTIC_PUZZLES["cryptic-29938"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Doctor Dolittle with giant bird (4-6,3)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      10
@@ -193,9 +166,6 @@ window.CRYPTIC_PUZZLES["cryptic-29938"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Individuals in population estimates (4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "ONES",
    "annotation": null
@@ -210,9 +180,6 @@ window.CRYPTIC_PUZZLES["cryptic-29938"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Greatest part played in his role as one coming out (5,5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -231,9 +198,6 @@ window.CRYPTIC_PUZZLES["cryptic-29938"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Humiliated and embarrassed after husband leaves (6)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "ABASED",
    "annotation": null
@@ -248,9 +212,6 @@ window.CRYPTIC_PUZZLES["cryptic-29938"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Moon’s gravity may need to be adjusted (8)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "GANYMEDE",
    "annotation": null
@@ -265,9 +226,6 @@ window.CRYPTIC_PUZZLES["cryptic-29938"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Engineer and master mechanic? (9)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "TRADESMAN",
    "annotation": null
@@ -282,9 +240,6 @@ window.CRYPTIC_PUZZLES["cryptic-29938"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Boy turned right, fleeing alien, and spotted one with four legs (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "DALMATIAN",
    "annotation": null
@@ -299,9 +254,6 @@ window.CRYPTIC_PUZZLES["cryptic-29938"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Poke with end of sharp stick (4)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "PROD",
    "annotation": null
@@ -316,9 +268,6 @@ window.CRYPTIC_PUZZLES["cryptic-29938"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Just over 50 in US city (4)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "ONLY",
    "annotation": null
@@ -333,9 +282,6 @@ window.CRYPTIC_PUZZLES["cryptic-29938"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Nothing upsets snuggling love birds (7)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "ORIOLES",
    "annotation": null
@@ -350,9 +296,6 @@ window.CRYPTIC_PUZZLES["cryptic-29938"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Baby bird ran away at last clutching fish (9)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "FLEDGLING",
    "annotation": null
@@ -367,9 +310,6 @@ window.CRYPTIC_PUZZLES["cryptic-29938"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Tramp reflecting on unfinished clue for ‘swimmer’ (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "DOLPHIN",
    "annotation": null
@@ -384,9 +324,6 @@ window.CRYPTIC_PUZZLES["cryptic-29938"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Pasta with American beans (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "NOODLES",
    "annotation": null
@@ -401,9 +338,6 @@ window.CRYPTIC_PUZZLES["cryptic-29938"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Small lake in view (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "SLIGHT",
    "annotation": null
@@ -418,9 +352,6 @@ window.CRYPTIC_PUZZLES["cryptic-29938"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Cheated Harry involved in submitted lawsuit (8)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "FINAGLED",
    "annotation": null
@@ -435,9 +366,6 @@ window.CRYPTIC_PUZZLES["cryptic-29938"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Hide from source of loud beastly sound that is piercing (3,3)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -456,9 +384,6 @@ window.CRYPTIC_PUZZLES["cryptic-29938"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Top 40 on the radio (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "EXCEL",
    "annotation": null
@@ -473,9 +398,6 @@ window.CRYPTIC_PUZZLES["cryptic-29938"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Aloof second-in-command departs, relaxing aboard marine glider (6,4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -494,9 +416,6 @@ window.CRYPTIC_PUZZLES["cryptic-29938"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "It’s below the knee – a little lower (4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "CALF",
    "annotation": null
@@ -511,9 +430,6 @@ window.CRYPTIC_PUZZLES["cryptic-29938"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Soprano, working with a tenor and alto, produces music (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "SONATA",
    "annotation": null
@@ -528,9 +444,6 @@ window.CRYPTIC_PUZZLES["cryptic-29938"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Cryptic clues about new family members (6)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "UNCLES",
    "annotation": null

@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30096"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Professional adds up money (7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "PROFITS",
    "annotation": {
@@ -65,9 +62,6 @@ window.CRYPTIC_PUZZLES["cryptic-30096"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Good, cheap cigarette papers, ultimately they’re for smoking tobacco (5)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "PIPES",
    "annotation": {
@@ -111,9 +105,6 @@ window.CRYPTIC_PUZZLES["cryptic-30096"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Determined to put on exhaust (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "OUTWEAR",
    "annotation": {
@@ -153,9 +144,6 @@ window.CRYPTIC_PUZZLES["cryptic-30096"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Club batting, accepting run out (4)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "IRON",
    "annotation": {
@@ -199,9 +187,6 @@ window.CRYPTIC_PUZZLES["cryptic-30096"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "True American siren chasing pure son (8,7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -255,9 +240,6 @@ window.CRYPTIC_PUZZLES["cryptic-30096"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Model paper plane’s not one (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "EXAMPLE",
    "annotation": {
@@ -305,9 +287,6 @@ window.CRYPTIC_PUZZLES["cryptic-30096"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Forces show terrible drug being cut: heroin put into skin with needle (9, 6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      9
@@ -372,9 +351,6 @@ window.CRYPTIC_PUZZLES["cryptic-30096"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Writing this, hour wasted filling a puzzle at the beginning (10)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "AUTHORSHIP",
    "annotation": {
@@ -433,9 +409,6 @@ window.CRYPTIC_PUZZLES["cryptic-30096"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "One trying to flog something is a tosser (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "PITCHER",
    "annotation": {
@@ -472,9 +445,6 @@ window.CRYPTIC_PUZZLES["cryptic-30096"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Back horse with tip for the first from Haydock (7)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "ENDORSE",
    "annotation": {
@@ -522,9 +492,6 @@ window.CRYPTIC_PUZZLES["cryptic-30096"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Pocket tip and mostly split collection (9)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "POTPOURRI",
    "annotation": {
@@ -576,9 +543,6 @@ window.CRYPTIC_PUZZLES["cryptic-30096"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Did carry tons having ends of feet on either side (5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "TOTED",
    "annotation": {
@@ -622,9 +586,6 @@ window.CRYPTIC_PUZZLES["cryptic-30096"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Descendants to get diamonds (4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "SEED",
    "annotation": {
@@ -665,9 +626,6 @@ window.CRYPTIC_PUZZLES["cryptic-30096"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Ubiquitous leader is great alongside fellow union member (3,7)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -717,9 +675,6 @@ window.CRYPTIC_PUZZLES["cryptic-30096"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Thought before entering bet, card getting dealt (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "CEREBRATED",
    "annotation": {
@@ -771,9 +726,6 @@ window.CRYPTIC_PUZZLES["cryptic-30096"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Awkward delivery bowled here; front of crease is rough (6)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "BREECH",
    "annotation": {
@@ -822,9 +774,6 @@ window.CRYPTIC_PUZZLES["cryptic-30096"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Soldiers wait on order (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "RESERVE",
    "annotation": {
@@ -861,9 +810,6 @@ window.CRYPTIC_PUZZLES["cryptic-30096"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Conservative leader of yesteryear to hug tree (7)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "CYPRESS",
    "annotation": {
@@ -915,9 +861,6 @@ window.CRYPTIC_PUZZLES["cryptic-30096"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Vehicles over street with old wheels (7)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "CASTORS",
    "annotation": {
@@ -970,9 +913,6 @@ window.CRYPTIC_PUZZLES["cryptic-30096"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Common cold going round pub, endlessly (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "POPULAR",
    "annotation": {
@@ -1018,9 +958,6 @@ window.CRYPTIC_PUZZLES["cryptic-30096"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Perhaps one in stock here if wanting order (6)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "HEIFER",
    "annotation": {
@@ -1057,9 +994,6 @@ window.CRYPTIC_PUZZLES["cryptic-30096"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Summary in short, great book (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "EPITOME",
    "annotation": {
@@ -1102,9 +1036,6 @@ window.CRYPTIC_PUZZLES["cryptic-30096"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "She flies American back every week to country (10)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "SUPERWOMAN",
    "annotation": {
@@ -1168,9 +1099,6 @@ window.CRYPTIC_PUZZLES["cryptic-30096"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Bills squeezing current benefits (4)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "AIDS",
    "annotation": {
@@ -1214,9 +1142,6 @@ window.CRYPTIC_PUZZLES["cryptic-30096"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "‘90s band did rock on the radio (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "SUEDE",
    "annotation": {
@@ -1251,9 +1176,6 @@ window.CRYPTIC_PUZZLES["cryptic-30096"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Spot fine, put up charges (4)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "FEES",
    "annotation": {
@@ -1302,9 +1224,6 @@ window.CRYPTIC_PUZZLES["cryptic-30096"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Downed one water, drinking litre after round (5)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "OWLET",
    "annotation": {
@@ -1356,9 +1275,6 @@ window.CRYPTIC_PUZZLES["cryptic-30096"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Lead championship with Ronaldo’s header: that’s great for Real Madrid fans? (5,4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -1414,9 +1330,6 @@ window.CRYPTIC_PUZZLES["cryptic-30096"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "One steps over poo; shoe initially turned over (7)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "STRIDER",
    "annotation": {
@@ -1473,9 +1386,6 @@ window.CRYPTIC_PUZZLES["cryptic-30096"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Tramp without clothes, sight is disgusting (7)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "OBSCENE",
    "annotation": {

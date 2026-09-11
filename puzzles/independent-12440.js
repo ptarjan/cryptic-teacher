@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12440"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Limit kindness? No one turned away (7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "COMPASS",
    "annotation": {
@@ -77,9 +74,6 @@ window.CRYPTIC_PUZZLES["independent-12440"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Do well to study question, eliminating unknown component (7)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "CONQUER",
    "annotation": {
@@ -136,9 +130,6 @@ window.CRYPTIC_PUZZLES["independent-12440"] = /*JSON-START*/ {
      5
     ]
    ],
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "MIXED",
    "annotation": {
@@ -193,9 +184,6 @@ window.CRYPTIC_PUZZLES["independent-12440"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Civic dignitary possibly now alarmed (10)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "ALDERWOMAN",
    "annotation": {
@@ -232,9 +220,6 @@ window.CRYPTIC_PUZZLES["independent-12440"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Knight embracing Queen and maiden, making you feel uncomfortable (6)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "SQUIRM",
    "annotation": {
@@ -287,9 +272,6 @@ window.CRYPTIC_PUZZLES["independent-12440"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Little doctor’s pronouncement, taking temperature (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "MODICUM",
    "annotation": {
@@ -337,9 +319,6 @@ window.CRYPTIC_PUZZLES["independent-12440"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Landed area in muddy surroundings for the army (8)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "MILITARY",
    "annotation": {
@@ -389,9 +368,6 @@ window.CRYPTIC_PUZZLES["independent-12440"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Avoid coarse cotton, dear (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "DUCK",
    "annotation": {
@@ -420,9 +396,6 @@ window.CRYPTIC_PUZZLES["independent-12440"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Face elevated argument over last of steampunk machinery (9)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "CLOCKWORK",
    "annotation": {
@@ -481,9 +454,6 @@ window.CRYPTIC_PUZZLES["independent-12440"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "One starts to seem crazy, drilling section of yacht with the wrong part (7)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "MISCAST",
    "annotation": {
@@ -536,9 +506,6 @@ window.CRYPTIC_PUZZLES["independent-12440"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Cancel nine to begin with? Nine (3)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "NIX",
    "annotation": {
@@ -581,9 +548,6 @@ window.CRYPTIC_PUZZLES["independent-12440"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Cheat, repeating final letter of last answer? (6-5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     "-": [
      6
@@ -630,9 +594,6 @@ window.CRYPTIC_PUZZLES["independent-12440"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "What insurer may do, governed by legal document (European) (10)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "UNDERWRITE",
    "annotation": {
@@ -675,9 +636,6 @@ window.CRYPTIC_PUZZLES["independent-12440"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Seabird a European country’s repulsed (4)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "SKUA",
    "annotation": {
@@ -725,9 +683,6 @@ window.CRYPTIC_PUZZLES["independent-12440"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Describing pressure arising from wandering of erratic mob (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "BAROMETRIC",
    "annotation": {
@@ -767,9 +722,6 @@ window.CRYPTIC_PUZZLES["independent-12440"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Staff concealing a title for man, a strict disciplinarian (6)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "RAMROD",
    "annotation": {
@@ -819,9 +771,6 @@ window.CRYPTIC_PUZZLES["independent-12440"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "American mother keeping various curios in playing area (5,4)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -886,9 +835,6 @@ window.CRYPTIC_PUZZLES["independent-12440"] = /*JSON-START*/ {
      9
     ]
    ],
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -930,9 +876,6 @@ window.CRYPTIC_PUZZLES["independent-12440"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Storms penetrating sheltered zone? Here’s the small print on policy (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "LEGALESE",
    "annotation": {
@@ -979,9 +922,6 @@ window.CRYPTIC_PUZZLES["independent-12440"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "More than one report gets old after confusion (8)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "MESSAGES",
    "annotation": {
@@ -1024,9 +964,6 @@ window.CRYPTIC_PUZZLES["independent-12440"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Particle’s energy absorbed by quiet child (2,5)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -1079,9 +1016,6 @@ window.CRYPTIC_PUZZLES["independent-12440"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Under compulsion, Home Office initially agreed (6)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "HOOKED",
    "annotation": {
@@ -1124,9 +1058,6 @@ window.CRYPTIC_PUZZLES["independent-12440"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Famous lover's lust for one with husband - apartment overturned (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "DAPHNIS",
    "annotation": {
@@ -1183,9 +1114,6 @@ window.CRYPTIC_PUZZLES["independent-12440"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Pen, mostly attractive - digital pen? (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "STYLUS",
    "annotation": {
@@ -1233,9 +1161,6 @@ window.CRYPTIC_PUZZLES["independent-12440"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Spicy stuff: hint of masochism excellent (4)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "MACE",
    "annotation": {
@@ -1278,9 +1203,6 @@ window.CRYPTIC_PUZZLES["independent-12440"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Tablet’s revamped trendy element of pen-and-paper game (10)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "BATTLESHIP",
    "annotation": {
@@ -1329,9 +1251,6 @@ window.CRYPTIC_PUZZLES["independent-12440"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Lots of people taking road through garden (5)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "HORDE",
    "annotation": {
@@ -1378,9 +1297,6 @@ window.CRYPTIC_PUZZLES["independent-12440"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Song - again my heart will soar? Not entirely (4)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "HYMN",
    "annotation": {
@@ -1416,9 +1332,6 @@ window.CRYPTIC_PUZZLES["independent-12440"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Fabulist, believer in markets, perhaps, keeping right-winger tense (11)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "STORYTELLER",
    "annotation": {
@@ -1468,9 +1381,6 @@ window.CRYPTIC_PUZZLES["independent-12440"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "One avoiding loss in delivery round? (3)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "RUN",
    "annotation": {
@@ -1515,9 +1425,6 @@ window.CRYPTIC_PUZZLES["independent-12440"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Candidate: a lot of negative votes about my selection? (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "NOMINEE",
    "annotation": {
@@ -1568,9 +1475,6 @@ window.CRYPTIC_PUZZLES["independent-12440"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Religious groups gathering about things to be revealed? (7)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "SECRETS",
    "annotation": {

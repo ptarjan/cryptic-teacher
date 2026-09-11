@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1873"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Pet minds Sam leaving in the morning (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "CARESS",
    "annotation": {
@@ -75,9 +72,6 @@ window.CRYPTIC_PUZZLES["indysunday-1873"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Slope around hospital room (7)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "CHAMBER",
    "annotation": {
@@ -121,9 +115,6 @@ window.CRYPTIC_PUZZLES["indysunday-1873"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Fair features of women marrying with face hidden? (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "RIDES",
    "annotation": {
@@ -168,9 +159,6 @@ window.CRYPTIC_PUZZLES["indysunday-1873"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Almost half opposed to crosswords on vacation — language issues? (9)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "SEMANTICS",
    "annotation": {
@@ -221,9 +209,6 @@ window.CRYPTIC_PUZZLES["indysunday-1873"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Film creatures right inside eviscerated astronauts? (6)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "ALIENS",
    "annotation": {
@@ -269,9 +254,6 @@ window.CRYPTIC_PUZZLES["indysunday-1873"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Structure supporting weight beneath large tree (5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "LARCH",
    "annotation": {
@@ -314,9 +296,6 @@ window.CRYPTIC_PUZZLES["indysunday-1873"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Marx among others once mucked around with duck film (9)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "ECONOMIST",
    "annotation": {
@@ -374,9 +353,6 @@ window.CRYPTIC_PUZZLES["indysunday-1873"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Too much sport on waves, with cup match coming up (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "SURFEIT",
    "annotation": {
@@ -428,9 +404,6 @@ window.CRYPTIC_PUZZLES["indysunday-1873"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Creator of lottery managed by complete Scrooge (10)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {},
    "solution": "RANDOMISER",
    "annotation": {
@@ -476,9 +449,6 @@ window.CRYPTIC_PUZZLES["indysunday-1873"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Maybe leg breaks cast that accommodates leg bend (4,7)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -533,9 +503,6 @@ window.CRYPTIC_PUZZLES["indysunday-1873"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Giant boob at Wembley, possibly concerning (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "OGRE",
    "annotation": {
@@ -572,9 +539,6 @@ window.CRYPTIC_PUZZLES["indysunday-1873"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Dog willing to hump anyone in designer jeans? On the contrary (7)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "BASENJI",
    "annotation": {
@@ -628,9 +592,6 @@ window.CRYPTIC_PUZZLES["indysunday-1873"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "President's house knocked down (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "HOOVER",
    "annotation": {
@@ -670,9 +631,6 @@ window.CRYPTIC_PUZZLES["indysunday-1873"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Monarchy, British one, stuck with old German character (6)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "BRUNEI",
    "annotation": {
@@ -716,9 +674,6 @@ window.CRYPTIC_PUZZLES["indysunday-1873"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Having no hooter keeps one quiet (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "NOISELESS",
    "annotation": {
@@ -762,9 +717,6 @@ window.CRYPTIC_PUZZLES["indysunday-1873"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Tramp and horse meet (4,4)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -808,9 +760,6 @@ window.CRYPTIC_PUZZLES["indysunday-1873"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Spaniard crazy with anger, wouldn't you say? (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "MADRILENO",
    "annotation": {
@@ -856,9 +805,6 @@ window.CRYPTIC_PUZZLES["indysunday-1873"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Husband trapped by murderer noticed weapon in horror (8)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "CHAINSAW",
    "annotation": {
@@ -908,9 +854,6 @@ window.CRYPTIC_PUZZLES["indysunday-1873"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Did weed have a dance? (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "HOEDOWN",
    "annotation": {
@@ -950,9 +893,6 @@ window.CRYPTIC_PUZZLES["indysunday-1873"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Coming back through Lille today, really? (2,4)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -992,9 +932,6 @@ window.CRYPTIC_PUZZLES["indysunday-1873"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Pull fish up to one side of the boat (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "LEEWARD",
    "annotation": {
@@ -1046,9 +983,6 @@ window.CRYPTIC_PUZZLES["indysunday-1873"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Sean Bean stripped off playing Trojan hero (6)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "AENEAS",
    "annotation": {
@@ -1092,9 +1026,6 @@ window.CRYPTIC_PUZZLES["indysunday-1873"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Sudden burst of five entering hairdressers' wanting trim (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "SALVO",
    "annotation": {
@@ -1143,9 +1074,6 @@ window.CRYPTIC_PUZZLES["indysunday-1873"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Ape that is holding article in hand (7)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "IMITATE",
    "annotation": {
@@ -1198,9 +1126,6 @@ window.CRYPTIC_PUZZLES["indysunday-1873"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Case of delish locally certified bottles for the occasion (2,3)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -1250,9 +1175,6 @@ window.CRYPTIC_PUZZLES["indysunday-1873"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Agreed starting point for white queen? (4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "DONE",
    "annotation": {
@@ -1292,9 +1214,6 @@ window.CRYPTIC_PUZZLES["indysunday-1873"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Lake George had various species of turtle (10)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "LOGGERHEAD",
    "annotation": {
@@ -1343,9 +1262,6 @@ window.CRYPTIC_PUZZLES["indysunday-1873"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Today cops nearly used guns, booking waster (2-4)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     "-": [
      2
@@ -1395,9 +1311,6 @@ window.CRYPTIC_PUZZLES["indysunday-1873"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Given no option, monster punches 12's agent (6)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "FORCED",
    "annotation": {

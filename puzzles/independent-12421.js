@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12421"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Hold up, crossworders, the first of these is tough (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "ROBUST",
    "annotation": {
@@ -79,9 +76,6 @@ window.CRYPTIC_PUZZLES["independent-12421"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Savage without one book? (8)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "RUTHLESS",
    "annotation": {
@@ -118,9 +112,6 @@ window.CRYPTIC_PUZZLES["independent-12421"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Arranged rags in one music genre, and another (9)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "BLUEGRASS",
    "annotation": {
@@ -172,9 +163,6 @@ window.CRYPTIC_PUZZLES["independent-12421"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Key change (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "SHIFT",
    "annotation": {
@@ -208,9 +196,6 @@ window.CRYPTIC_PUZZLES["independent-12421"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Loaded footballers turned voluble (8)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "AFFLUENT",
    "annotation": {
@@ -259,9 +244,6 @@ window.CRYPTIC_PUZZLES["independent-12421"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Puck perhaps tacked on to make characters behave improperly (6,7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -314,9 +296,6 @@ window.CRYPTIC_PUZZLES["independent-12421"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Low on energy, pureed the garlic (9)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "LETHARGIC",
    "annotation": {
@@ -353,9 +332,6 @@ window.CRYPTIC_PUZZLES["independent-12421"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Go in, letting person cut in front (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "ENTER",
    "annotation": {
@@ -392,9 +368,6 @@ window.CRYPTIC_PUZZLES["independent-12421"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Singer starts to truly hate prog band (6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "THRUSH",
    "annotation": {
@@ -437,9 +410,6 @@ window.CRYPTIC_PUZZLES["independent-12421"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Travel business to ancient city is minute (7)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "TOURISM",
    "annotation": {
@@ -488,9 +458,6 @@ window.CRYPTIC_PUZZLES["independent-12421"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "In which data plotter probes gathered material like steel? (13)",
-   "group": [
-    "10-down"
-   ],
    "separatorLocations": {},
    "solution": "METALLOGRAPHY",
    "annotation": {
@@ -540,9 +507,6 @@ window.CRYPTIC_PUZZLES["independent-12421"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Rubbish art mixed up with old Turner (7)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "ROTATOR",
    "annotation": {
@@ -589,9 +553,6 @@ window.CRYPTIC_PUZZLES["independent-12421"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Weak understanding (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "LIGHT",
    "annotation": {
@@ -625,9 +586,6 @@ window.CRYPTIC_PUZZLES["independent-12421"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "So keeps bloke from Genesis at front of record book (9)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "THESAURUS",
    "annotation": {
@@ -685,9 +643,6 @@ window.CRYPTIC_PUZZLES["independent-12421"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Scrutinise modern gal spreading gossip (13)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "SCANDALMONGER",
    "annotation": {
@@ -736,9 +691,6 @@ window.CRYPTIC_PUZZLES["independent-12421"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Cleared up stretch with races on? (4,5)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -802,9 +754,6 @@ window.CRYPTIC_PUZZLES["independent-12421"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Regularly see defeat? (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "ROUTINELY",
    "annotation": {
@@ -841,9 +790,6 @@ window.CRYPTIC_PUZZLES["independent-12421"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Catching show's opening, pan range of talent (5,3)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -893,9 +839,6 @@ window.CRYPTIC_PUZZLES["independent-12421"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Disney toon to inspire about half of crooner's rock album (7,6)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -957,9 +900,6 @@ window.CRYPTIC_PUZZLES["independent-12421"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Cool doctor under retro dad look (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "APLOMB",
    "annotation": {
@@ -1016,9 +956,6 @@ window.CRYPTIC_PUZZLES["independent-12421"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Case favoured Pennsylvania city beyond its state (9)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "PAPETERIE",
    "annotation": {
@@ -1067,9 +1004,6 @@ window.CRYPTIC_PUZZLES["independent-12421"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Pasty and doughnut diet for Americans? (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "PALEO",
    "annotation": {
@@ -1106,9 +1040,6 @@ window.CRYPTIC_PUZZLES["independent-12421"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Material desire follows lust in the end (5)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "TWILL",
    "annotation": {
@@ -1153,9 +1084,6 @@ window.CRYPTIC_PUZZLES["independent-12421"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Absolute child verges on animal (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "TOTAL",
    "annotation": {
@@ -1198,9 +1126,6 @@ window.CRYPTIC_PUZZLES["independent-12421"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Light reflected through strip mall I operate (3,4)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -1240,9 +1165,6 @@ window.CRYPTIC_PUZZLES["independent-12421"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Fine to watch stripping with good health (7)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "FITNESS",
    "annotation": {
@@ -1290,9 +1212,6 @@ window.CRYPTIC_PUZZLES["independent-12421"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Bear left at backwards New York borough (8)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "BROOKLYN",
    "annotation": {
@@ -1350,9 +1269,6 @@ window.CRYPTIC_PUZZLES["independent-12421"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Casually try produce coated in bit of butter (4,2)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {
     ",": [
      4

@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1878"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Gallery's shadow pointing north and south (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "GODS",
    "annotation": {
@@ -80,9 +77,6 @@ window.CRYPTIC_PUZZLES["indysunday-1878"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "These sick people initially suspect bugs on lamb (5,5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -130,9 +124,6 @@ window.CRYPTIC_PUZZLES["indysunday-1878"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Painter entered secretly (2,6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -173,9 +164,6 @@ window.CRYPTIC_PUZZLES["indysunday-1878"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Compact bag the smallest article fills (4)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "NEAT",
    "annotation": {
@@ -219,9 +207,6 @@ window.CRYPTIC_PUZZLES["indysunday-1878"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Large cat cross about new delay (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "LINGER",
    "annotation": {
@@ -265,9 +250,6 @@ window.CRYPTIC_PUZZLES["indysunday-1878"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Picture fraudster's brief résumé? (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "ICON",
    "annotation": {
@@ -304,9 +286,6 @@ window.CRYPTIC_PUZZLES["indysunday-1878"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Part of Badenoch ancestry that you'll never see! (2,6)",
-   "group": [
-    "7-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -344,9 +323,6 @@ window.CRYPTIC_PUZZLES["indysunday-1878"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Old American lift regularly expected to drop a little lower (2-4)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {
     "-": [
      2
@@ -393,9 +369,6 @@ window.CRYPTIC_PUZZLES["indysunday-1878"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Stop seeing red card become yellow? (4,5)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -436,9 +409,6 @@ window.CRYPTIC_PUZZLES["indysunday-1878"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "E.g. Lewis given wrong information, obscuring case (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "ISLE",
    "annotation": {
@@ -480,9 +450,6 @@ window.CRYPTIC_PUZZLES["indysunday-1878"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Turn against one? (10)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "ANTAGONISE",
    "annotation": {
@@ -519,9 +486,6 @@ window.CRYPTIC_PUZZLES["indysunday-1878"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "In your ear, pain will go quickly (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "HURTLE",
    "annotation": {
@@ -561,9 +525,6 @@ window.CRYPTIC_PUZZLES["indysunday-1878"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "With dodges Shane runs clear of tackle (9)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "UNHARNESS",
    "annotation": {
@@ -603,9 +564,6 @@ window.CRYPTIC_PUZZLES["indysunday-1878"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "How lovely, toilet paper turned red in Spain (8)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "GARNACHA",
    "annotation": {
@@ -658,9 +616,6 @@ window.CRYPTIC_PUZZLES["indysunday-1878"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Step aboard to go places (3,2)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -699,9 +654,6 @@ window.CRYPTIC_PUZZLES["indysunday-1878"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Make similar sounds everyone repeats (10)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "ALLITERATE",
    "annotation": {
@@ -738,9 +690,6 @@ window.CRYPTIC_PUZZLES["indysunday-1878"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Easter's Catholic originally, one might safely venture (3,5,2,5)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -783,9 +732,6 @@ window.CRYPTIC_PUZZLES["indysunday-1878"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Separate pilot with superior skills boards jet (5,3)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -833,9 +779,6 @@ window.CRYPTIC_PUZZLES["indysunday-1878"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "New York garbage collector spots 100 leather jackets (8)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "TRASHCAN",
    "annotation": {
@@ -885,9 +828,6 @@ window.CRYPTIC_PUZZLES["indysunday-1878"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Stick with end of twisted line coming through? (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "CANDLE",
    "annotation": {
@@ -939,9 +879,6 @@ window.CRYPTIC_PUZZLES["indysunday-1878"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Clever like two thirds of private pupils (6)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "ASTUTE",
    "annotation": {
@@ -984,9 +921,6 @@ window.CRYPTIC_PUZZLES["indysunday-1878"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Marine against wearing fur appropriate for the time of year (10)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "SEASONABLE",
    "annotation": {
@@ -1036,9 +970,6 @@ window.CRYPTIC_PUZZLES["indysunday-1878"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Catch brother or sister pinching postman's bottom (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "SNIB",
    "annotation": {
@@ -1084,9 +1015,6 @@ window.CRYPTIC_PUZZLES["indysunday-1878"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Church musician sands down middle of pew (4)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "BACH",
    "annotation": {
@@ -1130,9 +1058,6 @@ window.CRYPTIC_PUZZLES["indysunday-1878"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Long hair round neck unshaven, you'd say (4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "RUFF",
    "annotation": {
@@ -1167,9 +1092,6 @@ window.CRYPTIC_PUZZLES["indysunday-1878"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Suddenly take off pound, cutting price (4)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "FLEE",
    "annotation": {
@@ -1213,9 +1135,6 @@ window.CRYPTIC_PUZZLES["indysunday-1878"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Notice doctor sip ale (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "ESPIAL",
    "annotation": {
@@ -1252,9 +1171,6 @@ window.CRYPTIC_PUZZLES["indysunday-1878"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Attendant first to confirm the level we're on? (8)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "COURTIER",
    "annotation": {

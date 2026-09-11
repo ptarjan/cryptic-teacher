@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1819"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Vineyard can be found close to the coast (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "CRUISE",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["indysunday-1819"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Make light of dropping Penny's cushion on the floor (8)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "UNDERLAY",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["indysunday-1819"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Queen carrying long stick flipped runner off (6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "ELOPER",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["indysunday-1819"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "European rocket chicks regularly brought up in chitchat (8)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "SCHMOOZE",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["indysunday-1819"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "English teacher missing end of term, for a festival (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "EASTER",
    "annotation": null
@@ -110,9 +95,6 @@ window.CRYPTIC_PUZZLES["indysunday-1819"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Tighten Geraint's wheels (8)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "ASTRINGE",
    "annotation": null
@@ -127,9 +109,6 @@ window.CRYPTIC_PUZZLES["indysunday-1819"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Slight difficulties if Romeo cracks shellfish (8)",
-   "group": [
-    "7-across"
-   ],
    "separatorLocations": {},
    "solution": "WRINKLES",
    "annotation": null
@@ -144,9 +123,6 @@ window.CRYPTIC_PUZZLES["indysunday-1819"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "England at that point during series toughening up (13)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "STRENGTHENING",
    "annotation": null
@@ -161,9 +137,6 @@ window.CRYPTIC_PUZZLES["indysunday-1819"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Long seat in church aisle needing length (6)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "CHAISE",
    "annotation": null
@@ -178,9 +151,6 @@ window.CRYPTIC_PUZZLES["indysunday-1819"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Rent more than it was reported (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "HIRE",
    "annotation": null
@@ -195,9 +165,6 @@ window.CRYPTIC_PUZZLES["indysunday-1819"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Bossy politician to the right behind Macron's dad (10)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "PEREMPTORY",
    "annotation": null
@@ -212,9 +179,6 @@ window.CRYPTIC_PUZZLES["indysunday-1819"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Old dog on film is one that howls (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "YELLER",
    "annotation": null
@@ -229,9 +193,6 @@ window.CRYPTIC_PUZZLES["indysunday-1819"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Rubber lips for notable work by Magritte, say (8)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "NEOPRENE",
    "annotation": null
@@ -246,9 +207,6 @@ window.CRYPTIC_PUZZLES["indysunday-1819"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Naughty ad by telephone not acceptable (6,3,4)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      6,
@@ -268,9 +226,6 @@ window.CRYPTIC_PUZZLES["indysunday-1819"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Extremely good-looking NI footballer keeps playing there (8)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "BONNIEST",
    "annotation": null
@@ -285,9 +240,6 @@ window.CRYPTIC_PUZZLES["indysunday-1819"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Carrying blade, wandering Genoa's dangerous neighbourhood (2-2,4)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {
     "-": [
      2
@@ -309,9 +261,6 @@ window.CRYPTIC_PUZZLES["indysunday-1819"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "A broken-hearted Wimbledon champion had to annul (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "ABROGATE",
    "annotation": null
@@ -326,9 +275,6 @@ window.CRYPTIC_PUZZLES["indysunday-1819"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Obsessive hiding front of fashion mag with hands (8)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "ANALOGUE",
    "annotation": null
@@ -343,9 +289,6 @@ window.CRYPTIC_PUZZLES["indysunday-1819"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Early forms of life are vital for evolution - it can be forgotten (6)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "LARVAE",
    "annotation": null
@@ -360,9 +303,6 @@ window.CRYPTIC_PUZZLES["indysunday-1819"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Criticise time taken by BT, getting back on line (6)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "BERATE",
    "annotation": null
@@ -377,9 +317,6 @@ window.CRYPTIC_PUZZLES["indysunday-1819"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "The Rock put up revolutionary toy tent (3,3)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -398,9 +335,6 @@ window.CRYPTIC_PUZZLES["indysunday-1819"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Woman driven off a cliff when steering mechanism breaks cheers (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "THELMA",
    "annotation": null
@@ -415,9 +349,6 @@ window.CRYPTIC_PUZZLES["indysunday-1819"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Boisterous Irish returned, supporting a band (3-7)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -436,9 +367,6 @@ window.CRYPTIC_PUZZLES["indysunday-1819"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Rose sounded triumphant, making a hundred grand (4)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "GREW",
    "annotation": null
@@ -453,9 +381,6 @@ window.CRYPTIC_PUZZLES["indysunday-1819"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Property found in toilet at Selfridges returned (6)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "ESTATE",
    "annotation": null
@@ -470,9 +395,6 @@ window.CRYPTIC_PUZZLES["indysunday-1819"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "'Up for it' dig MeToo rubbished (8)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "GOODTIME",
    "annotation": null

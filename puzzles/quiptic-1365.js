@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1365"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Most modest, I agree to get into bed (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "COYEST",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["quiptic-1365"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Miner’s dog runs (7)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "COLLIER",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["quiptic-1365"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "12 months with Braverman, ultimately, is long (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "YEARN",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["quiptic-1365"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "That woman will account for gramophone record (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "SHELLAC",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["quiptic-1365"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "One goes up for flowers (6)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "IRISES",
    "annotation": null
@@ -110,9 +95,6 @@ window.CRYPTIC_PUZZLES["quiptic-1365"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Resumption of relaxation with paintings, perhaps (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "RESTART",
    "annotation": null
@@ -127,9 +109,6 @@ window.CRYPTIC_PUZZLES["quiptic-1365"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Fish is rock singer with a low voice (5,4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -148,9 +127,6 @@ window.CRYPTIC_PUZZLES["quiptic-1365"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Respect supply staff (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "SCEPTRE",
    "annotation": null
@@ -165,9 +141,6 @@ window.CRYPTIC_PUZZLES["quiptic-1365"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Almost alongside (4,2)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -186,9 +159,6 @@ window.CRYPTIC_PUZZLES["quiptic-1365"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Senior don peels orange, I suspect (3-3,9)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -210,9 +180,6 @@ window.CRYPTIC_PUZZLES["quiptic-1365"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Intimate snuggling is generally nice after lunch, first of all (6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "SIGNAL",
    "annotation": null
@@ -227,9 +194,6 @@ window.CRYPTIC_PUZZLES["quiptic-1365"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Item of underwear found in drinks carrier, leading to mockery (8)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "TRAVESTY",
    "annotation": null
@@ -244,9 +208,6 @@ window.CRYPTIC_PUZZLES["quiptic-1365"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Wine professionals picked up reverberation (8)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "PROSECCO",
    "annotation": null
@@ -261,9 +222,6 @@ window.CRYPTIC_PUZZLES["quiptic-1365"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "A number observed around incident (9)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "SEVENTEEN",
    "annotation": null
@@ -278,9 +236,6 @@ window.CRYPTIC_PUZZLES["quiptic-1365"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Ragtime in China? (3,3)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -299,9 +254,6 @@ window.CRYPTIC_PUZZLES["quiptic-1365"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "There’s a hip joint near here where The King is on piano (6)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "PELVIS",
    "annotation": null
@@ -316,9 +268,6 @@ window.CRYPTIC_PUZZLES["quiptic-1365"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Describe former unit of currency (7)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "EXPOUND",
    "annotation": null
@@ -333,9 +282,6 @@ window.CRYPTIC_PUZZLES["quiptic-1365"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Boisterous chaps taking home vegetable (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "SPINACH",
    "annotation": null
@@ -350,9 +296,6 @@ window.CRYPTIC_PUZZLES["quiptic-1365"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Milk producer Ian is after chips (8)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "FRIESIAN",
    "annotation": null
@@ -367,9 +310,6 @@ window.CRYPTIC_PUZZLES["quiptic-1365"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Pals ignoring first of rebellious devils (6)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "FIENDS",
    "annotation": null
@@ -384,9 +324,6 @@ window.CRYPTIC_PUZZLES["quiptic-1365"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Free of inner hell (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "INFERNO",
    "annotation": null
@@ -401,9 +338,6 @@ window.CRYPTIC_PUZZLES["quiptic-1365"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Opposed to Oscar being supported by church in ancient city (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "ANTIOCH",
    "annotation": null
@@ -418,9 +352,6 @@ window.CRYPTIC_PUZZLES["quiptic-1365"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Start to attack feature of some old front rooms (4,4)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -439,9 +370,6 @@ window.CRYPTIC_PUZZLES["quiptic-1365"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Stuff in itemised boxes limited in nature (6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "FINITE",
    "annotation": null
@@ -456,9 +384,6 @@ window.CRYPTIC_PUZZLES["quiptic-1365"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Drunk announcement of relative’s specialism (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "NICHE",
    "annotation": null
@@ -473,9 +398,6 @@ window.CRYPTIC_PUZZLES["quiptic-1365"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "For certain, ruled out one working in the dead centre? (7,8)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -494,9 +416,6 @@ window.CRYPTIC_PUZZLES["quiptic-1365"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Hard to enter dark and depressing boat (6)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "DINGHY",
    "annotation": null
@@ -511,9 +430,6 @@ window.CRYPTIC_PUZZLES["quiptic-1365"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Record boring joke for credulous husband? (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "JOSEPH",
    "annotation": null

@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Cake and stiff drink fed to cold animal (7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "CRUMPET",
    "annotation": {
@@ -79,9 +76,6 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Male rugby player initially doubled in value? (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "COCK",
    "annotation": {
@@ -126,9 +120,6 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Expert breaking suspect exposed bursar's rackets (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "UPROARS",
    "annotation": {
@@ -182,9 +173,6 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Here we find Basil and Coot asleep occasionally, having retired (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "PESTO",
    "annotation": {
@@ -232,9 +220,6 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "City suffering torn parts excessively (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "TORONTO",
    "annotation": {
@@ -278,9 +263,6 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Oil producer's area of operation? Hour away east (3,4)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -335,9 +317,6 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "What one lacking drive might need to move forwards? (3,4)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -372,9 +351,6 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Discrimination - is blame misdirected? (7)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "ABLEISM",
    "annotation": {
@@ -411,9 +387,6 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "They take temporary charge of toilets (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "REGENTS",
    "annotation": {
@@ -450,9 +423,6 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Maybe hoovers furniture top to bottom (4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "EATS",
    "annotation": {
@@ -489,9 +459,6 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Irish city's workers take indirect route? (9)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "CORKSCREW",
    "annotation": {
@@ -534,9 +501,6 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Reasonable to run away (5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "LEGIT",
    "annotation": {
@@ -570,9 +534,6 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Monkey bars cut down, abuse received (6)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "BABOON",
    "annotation": {
@@ -618,9 +579,6 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Football team without wingers got grief and, ultimately, lost (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "ORIENT",
    "annotation": {
@@ -677,9 +635,6 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Conservative affected by wind when speaking (4)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "BLUE",
    "annotation": {
@@ -714,9 +669,6 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Leather eye protector (4)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "LASH",
    "annotation": {
@@ -750,9 +702,6 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "He wrote \"ladlecum\", \"enkoopia\", \"attery\" and \"runcible\" originally (4)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "LEAR",
    "annotation": {
@@ -810,9 +759,6 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Covers removed from that end for fast bowler? (3)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "HAT",
    "annotation": {
@@ -860,9 +806,6 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Some revolting eyesore that's attached to the ceiling (4)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "ROSE",
    "annotation": {
@@ -907,9 +850,6 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Sports equipment? Inside - ask Ingrid (3)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "SKI",
    "annotation": {
@@ -943,9 +883,6 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Writer left to tour huge wine region (5)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "MOSEL",
    "annotation": {
@@ -994,9 +931,6 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Solicitor covering face in public (3)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "OUT",
    "annotation": {
@@ -1033,9 +967,6 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Schedule has first couple returning on American vessel (5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "AORTA",
    "annotation": {
@@ -1091,9 +1022,6 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "District using country club for grand social gathering (7)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "REUNION",
    "annotation": {
@@ -1144,9 +1072,6 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Agitated international seaman recalling difficulty (7)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "AMNESIA",
    "annotation": {
@@ -1188,9 +1113,6 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Fresh drink supplier opening late (4)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "AIRY",
    "annotation": {
@@ -1227,9 +1149,6 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Revel topless, getting director excited (7)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "AROUSED",
    "annotation": {
@@ -1275,9 +1194,6 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Worried Barking is relatively rough (7)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "ROWDIER",
    "annotation": {
@@ -1314,9 +1230,6 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "You once learnt he 'entertains' nurses (4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "THEE",
    "annotation": {
@@ -1350,9 +1263,6 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Brief time in hospital by Texan mission, holding strong (4,1,2)",
-   "group": [
-    "26-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -1411,9 +1321,6 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "First half of specified number leave semi-public body (6)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "QUANGO",
    "annotation": {
@@ -1456,9 +1363,6 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Manipulate old laundry equipment, overturning the front (6)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "WANGLE",
    "annotation": {
@@ -1501,9 +1405,6 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "'Moneybags' Nick admits personal hygiene problem (5)",
-   "group": [
-    "29-down"
-   ],
    "separatorLocations": {},
    "solution": "NABOB",
    "annotation": {
@@ -1547,9 +1448,6 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Tip from Chris Ramsey for youngster (4)",
-   "group": [
-    "30-down"
-   ],
    "separatorLocations": {},
    "solution": "CALF",
    "annotation": {
@@ -1595,9 +1493,6 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Poems most peculiar, but not every 3rd (4)",
-   "group": [
-    "31-down"
-   ],
    "separatorLocations": {},
    "solution": "ODES",
    "annotation": {
@@ -1634,9 +1529,6 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Novelist's out of order (5)",
-   "group": [
-    "32-across"
-   ],
    "separatorLocations": {},
    "solution": "AMISS",
    "annotation": {
@@ -1673,9 +1565,6 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Rower adlibs desperately going around in unfamiliar craft? (9)",
-   "group": [
-    "33-across"
-   ],
    "separatorLocations": {},
    "solution": "SAILBOARD",
    "annotation": {
@@ -1730,9 +1619,6 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Space to tuck into pudding, the 3rd for Jodie Marsh (7)",
-   "group": [
-    "34-across"
-   ],
    "separatorLocations": {},
    "solution": "FENLAND",
    "annotation": {
@@ -1787,9 +1673,6 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Strips of meat, good French cuts (7)",
-   "group": [
-    "35-across"
-   ],
    "separatorLocations": {},
    "solution": "RIBBONS",
    "annotation": {

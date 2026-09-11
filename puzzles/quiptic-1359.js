@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1359"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Victor is one getting on, showing imagination (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "VISION",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["quiptic-1359"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Very bad period for small community (7)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "VILLAGE",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["quiptic-1359"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Gets rid of containers for grain? (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "SACKS",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["quiptic-1359"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Fellows in boat given a sermon surprisingly (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "OARSMEN",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["quiptic-1359"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Very beautiful young woman with police sergeant you spotted outside church (6)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "PSYCHE",
    "annotation": null
@@ -110,9 +95,6 @@ window.CRYPTIC_PUZZLES["quiptic-1359"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "18d and I wandering round old European region (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "SILESIA",
    "annotation": null
@@ -127,9 +109,6 @@ window.CRYPTIC_PUZZLES["quiptic-1359"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Cute salon refashioned as diplomatic building (9)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "CONSULATE",
    "annotation": null
@@ -144,9 +123,6 @@ window.CRYPTIC_PUZZLES["quiptic-1359"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Always starts to expect severe test in mountain (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "EVEREST",
    "annotation": null
@@ -161,9 +137,6 @@ window.CRYPTIC_PUZZLES["quiptic-1359"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "A combination of notes said to bring agreement (6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "ACCORD",
    "annotation": null
@@ -178,9 +151,6 @@ window.CRYPTIC_PUZZLES["quiptic-1359"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "You’d hope not to be shocked by this in the bedroom! (8,7)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -199,9 +169,6 @@ window.CRYPTIC_PUZZLES["quiptic-1359"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Carriage that sounds ‘appealing to the eye’ (6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "HANSOM",
    "annotation": null
@@ -216,9 +183,6 @@ window.CRYPTIC_PUZZLES["quiptic-1359"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Hidden old boy’s no longer ill (8)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "OBSCURED",
    "annotation": null
@@ -233,9 +197,6 @@ window.CRYPTIC_PUZZLES["quiptic-1359"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Doomed loony didn’t see (8)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "DESTINED",
    "annotation": null
@@ -250,9 +211,6 @@ window.CRYPTIC_PUZZLES["quiptic-1359"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Go wrong with modern technology in Conservative district (9)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "TERRITORY",
    "annotation": null
@@ -267,9 +225,6 @@ window.CRYPTIC_PUZZLES["quiptic-1359"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Expects adult was suppressing sex appeal (6)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "AWAITS",
    "annotation": null
@@ -284,9 +239,6 @@ window.CRYPTIC_PUZZLES["quiptic-1359"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Old city region Salvation Army goes round (6)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "SPARTA",
    "annotation": null
@@ -301,9 +253,6 @@ window.CRYPTIC_PUZZLES["quiptic-1359"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Herald left on border (7)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "PORTEND",
    "annotation": null
@@ -318,9 +267,6 @@ window.CRYPTIC_PUZZLES["quiptic-1359"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "River flooding a road makes one excited (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "AROUSED",
    "annotation": null
@@ -335,9 +281,6 @@ window.CRYPTIC_PUZZLES["quiptic-1359"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Knight with spear meeting fate (8)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "LANCELOT",
    "annotation": null
@@ -352,9 +295,6 @@ window.CRYPTIC_PUZZLES["quiptic-1359"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Girl’s story about a ship (6)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "LASSIE",
    "annotation": null
@@ -369,9 +309,6 @@ window.CRYPTIC_PUZZLES["quiptic-1359"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Closest home in which to house an army group (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "NEAREST",
    "annotation": null
@@ -386,9 +323,6 @@ window.CRYPTIC_PUZZLES["quiptic-1359"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "One catches wild animal in theatrical location (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "ONSTAGE",
    "annotation": null
@@ -403,9 +337,6 @@ window.CRYPTIC_PUZZLES["quiptic-1359"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Disloyal types having skill, about to start terrible riots (8)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "TRAITORS",
    "annotation": null
@@ -420,9 +351,6 @@ window.CRYPTIC_PUZZLES["quiptic-1359"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "In the morning one George or another is lying in wait (6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "AMBUSH",
    "annotation": null
@@ -437,9 +365,6 @@ window.CRYPTIC_PUZZLES["quiptic-1359"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Liberty – sadly it is denied female (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "BERYL",
    "annotation": null
@@ -454,9 +379,6 @@ window.CRYPTIC_PUZZLES["quiptic-1359"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Discover man here being excited by this local dairy product (10,5)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     ",": [
      10
@@ -475,9 +397,6 @@ window.CRYPTIC_PUZZLES["quiptic-1359"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Fathers admitting right yen for alluring females (6)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "DRYADS",
    "annotation": null
@@ -492,9 +411,6 @@ window.CRYPTIC_PUZZLES["quiptic-1359"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "PM keeping dry in a shelter (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "ATTLEE",
    "annotation": null

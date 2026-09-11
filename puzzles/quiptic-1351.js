@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1351"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Academic carrying so many papers? That won’t happen (5,2)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -46,9 +43,6 @@ window.CRYPTIC_PUZZLES["quiptic-1351"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Visit to fall through (4,2)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -67,9 +61,6 @@ window.CRYPTIC_PUZZLES["quiptic-1351"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Entice hospital department to take blame (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "ENTRAP",
    "annotation": null
@@ -84,9 +75,6 @@ window.CRYPTIC_PUZZLES["quiptic-1351"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Unusual shop near me promoting unsophisticated stuff for lads (10)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "MANOSPHERE",
    "annotation": null
@@ -101,9 +89,6 @@ window.CRYPTIC_PUZZLES["quiptic-1351"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Assassin employed by henchman in Japan (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "NINJA",
    "annotation": null
@@ -118,9 +103,6 @@ window.CRYPTIC_PUZZLES["quiptic-1351"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Boss put off at small transport hub (3,4)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -139,9 +121,6 @@ window.CRYPTIC_PUZZLES["quiptic-1351"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Threaten to boycott post? (9)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "BLACKMAIL",
    "annotation": null
@@ -156,9 +135,6 @@ window.CRYPTIC_PUZZLES["quiptic-1351"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Star Trek occasionally will meet expectations (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "SATE",
    "annotation": null
@@ -173,9 +149,6 @@ window.CRYPTIC_PUZZLES["quiptic-1351"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Display ambition to make weak king great (5,3)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -194,9 +167,6 @@ window.CRYPTIC_PUZZLES["quiptic-1351"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Main gaps teased out in naturalistic religion (8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "PAGANISM",
    "annotation": null
@@ -211,9 +181,6 @@ window.CRYPTIC_PUZZLES["quiptic-1351"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Work can provide way to participate (3,2)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -232,9 +199,6 @@ window.CRYPTIC_PUZZLES["quiptic-1351"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Pole making current safe – it was touch and go (4,5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -253,9 +217,6 @@ window.CRYPTIC_PUZZLES["quiptic-1351"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Underwear, piles of it, is fundamental stuff (5,5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -274,9 +235,6 @@ window.CRYPTIC_PUZZLES["quiptic-1351"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "It’s like being a family member (4)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "AKIN",
    "annotation": null
@@ -291,9 +249,6 @@ window.CRYPTIC_PUZZLES["quiptic-1351"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "There’s nothing more to read – and that’s that (3,2,5)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -313,9 +268,6 @@ window.CRYPTIC_PUZZLES["quiptic-1351"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Tough calls upset Sandra inside (4,2,5)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -335,9 +287,6 @@ window.CRYPTIC_PUZZLES["quiptic-1351"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Contact dealer in illegal stuff to isolate funds (4-5)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -356,9 +305,6 @@ window.CRYPTIC_PUZZLES["quiptic-1351"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Big pots made from sticks? (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "STOMACHS",
    "annotation": null
@@ -373,9 +319,6 @@ window.CRYPTIC_PUZZLES["quiptic-1351"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Tension in bad housing is never ending (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "IMMORTAL",
    "annotation": null
@@ -390,9 +333,6 @@ window.CRYPTIC_PUZZLES["quiptic-1351"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Plain merlot mixed up with another red (11)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "TEMPRANILLO",
    "annotation": null
@@ -407,9 +347,6 @@ window.CRYPTIC_PUZZLES["quiptic-1351"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Spill the beans on party matter (2,4)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -428,9 +365,6 @@ window.CRYPTIC_PUZZLES["quiptic-1351"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Lean place to stay in channel (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "SKINNY",
    "annotation": null
@@ -445,9 +379,6 @@ window.CRYPTIC_PUZZLES["quiptic-1351"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Expose rear of satellite? (4)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "MOON",
    "annotation": null
@@ -462,9 +393,6 @@ window.CRYPTIC_PUZZLES["quiptic-1351"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Dessert wine gets another shake (10)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "AFTERSHOCK",
    "annotation": null
@@ -479,9 +407,6 @@ window.CRYPTIC_PUZZLES["quiptic-1351"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Do well calling out extra large letters (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "EXCEL",
    "annotation": null
@@ -496,9 +421,6 @@ window.CRYPTIC_PUZZLES["quiptic-1351"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Surprise at temperature within star (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "STUN",
    "annotation": null
@@ -513,9 +435,6 @@ window.CRYPTIC_PUZZLES["quiptic-1351"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Unresponsive pet perhaps needs a pick-me-up (9)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "CATATONIC",
    "annotation": null
@@ -530,9 +449,6 @@ window.CRYPTIC_PUZZLES["quiptic-1351"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Poem about film theatre (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "ODEON",
    "annotation": null
@@ -547,9 +463,6 @@ window.CRYPTIC_PUZZLES["quiptic-1351"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Scottish extremists call quietly for it? (7)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "SILENCE",
    "annotation": null
@@ -564,9 +477,6 @@ window.CRYPTIC_PUZZLES["quiptic-1351"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Young Adult fiction collects money in a very reliable way (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "LOYALLY",
    "annotation": null

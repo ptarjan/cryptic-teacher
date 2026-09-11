@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1870"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Temporary vintage carrier bag for one girl (9)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "WINEGLASS",
    "annotation": {
@@ -70,9 +67,6 @@ window.CRYPTIC_PUZZLES["indysunday-1870"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Magnetism reversed like that very strongly repels (5,3)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -131,9 +125,6 @@ window.CRYPTIC_PUZZLES["indysunday-1870"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Agree offhand about Norway suiting vegans (3-5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -187,9 +178,6 @@ window.CRYPTIC_PUZZLES["indysunday-1870"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "English cricket side wearing grey refuse to use old bat (8,7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -249,9 +237,6 @@ window.CRYPTIC_PUZZLES["indysunday-1870"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Pest turned up every year then disappeared (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "APHID",
    "annotation": {
@@ -309,9 +294,6 @@ window.CRYPTIC_PUZZLES["indysunday-1870"] = /*JSON-START*/ {
      6
     ]
    ],
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "SYMPHONIC",
    "annotation": {
@@ -355,9 +337,6 @@ window.CRYPTIC_PUZZLES["indysunday-1870"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Handle fuse with electric current through it (5)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "WIELD",
    "annotation": {
@@ -401,9 +380,6 @@ window.CRYPTIC_PUZZLES["indysunday-1870"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Informally, jam makers turning more to chutney (7,8)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -456,9 +432,6 @@ window.CRYPTIC_PUZZLES["indysunday-1870"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Obelix irreversibly imbued with magic potion (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "ELIXIR",
    "annotation": {
@@ -492,9 +465,6 @@ window.CRYPTIC_PUZZLES["indysunday-1870"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Pass on joke you hear in summarised version (6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "DIGEST",
    "annotation": {
@@ -542,9 +512,6 @@ window.CRYPTIC_PUZZLES["indysunday-1870"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Movement Republican party guards against (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "RONDO",
    "annotation": {
@@ -593,9 +560,6 @@ window.CRYPTIC_PUZZLES["indysunday-1870"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Lame man's right to jog (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "HAMSTRING",
    "annotation": {
@@ -632,9 +596,6 @@ window.CRYPTIC_PUZZLES["indysunday-1870"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Mark US agent covered around his neck (7)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "SCARFED",
    "annotation": {
@@ -671,9 +632,6 @@ window.CRYPTIC_PUZZLES["indysunday-1870"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "These house torsos with head hidden (7)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "HOODIES",
    "annotation": {
@@ -716,9 +674,6 @@ window.CRYPTIC_PUZZLES["indysunday-1870"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Trademark on counterfeit jewel, back-to-front little flowers (6-2-4)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {
     "-": [
      6,
@@ -780,9 +735,6 @@ window.CRYPTIC_PUZZLES["indysunday-1870"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Fussy manager runs through ground then home (6,3)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -830,9 +782,6 @@ window.CRYPTIC_PUZZLES["indysunday-1870"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Graduate arranged air-con for penguin (8)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "MACARONI",
    "annotation": {
@@ -884,9 +833,6 @@ window.CRYPTIC_PUZZLES["indysunday-1870"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Message shortening tenancy brought over (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "TELEGRAM",
    "annotation": {
@@ -935,9 +881,6 @@ window.CRYPTIC_PUZZLES["indysunday-1870"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Old couple going round ruined castle hampered event (8,4)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -999,9 +942,6 @@ window.CRYPTIC_PUZZLES["indysunday-1870"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Roast beef out of this world (6)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "CARPET",
    "annotation": {
@@ -1038,9 +978,6 @@ window.CRYPTIC_PUZZLES["indysunday-1870"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Shelter for longer beneath palm tree (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "COCOON",
    "annotation": {
@@ -1083,9 +1020,6 @@ window.CRYPTIC_PUZZLES["indysunday-1870"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Dull Mondays regularly boring princess (7)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "ANODYNE",
    "annotation": {
@@ -1131,9 +1065,6 @@ window.CRYPTIC_PUZZLES["indysunday-1870"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "End of term decided on by start of last period (3,4)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -1169,9 +1100,6 @@ window.CRYPTIC_PUZZLES["indysunday-1870"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Drinker really after drop (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "DIPSO",
    "annotation": {
@@ -1214,9 +1142,6 @@ window.CRYPTIC_PUZZLES["indysunday-1870"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Doctor visually very attractive, swanky surgery admits (9)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "PHOTOSHOP",
    "annotation": {
@@ -1266,9 +1191,6 @@ window.CRYPTIC_PUZZLES["indysunday-1870"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Well-to-do urbanite keeps something to sniff (5)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "ODOUR",
    "annotation": {
@@ -1302,9 +1224,6 @@ window.CRYPTIC_PUZZLES["indysunday-1870"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Principle superficially true and clear (5)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "TENET",
    "annotation": {
@@ -1350,9 +1269,6 @@ window.CRYPTIC_PUZZLES["indysunday-1870"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Metal zip's inside covered by plastic dummy one (9)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "NEODYMIUM",
    "annotation": {

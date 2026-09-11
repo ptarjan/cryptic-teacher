@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1380"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Account with money? Grand, though not really in the post (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "ACTING",
    "annotation": {
@@ -75,9 +72,6 @@ window.CRYPTIC_PUZZLES["quiptic-1380"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Vandalised phone-box: one’s beginning to anticipate anti-foreigner sentiment (10)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "XENOPHOBIA",
    "annotation": {
@@ -127,9 +121,6 @@ window.CRYPTIC_PUZZLES["quiptic-1380"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Police vehicle: evidence of damage seen around one in four? (5,3)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -178,9 +169,6 @@ window.CRYPTIC_PUZZLES["quiptic-1380"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Damsel embracing another, ultimately a hard thing to bear (6)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "WRENCH",
    "annotation": {
@@ -227,9 +215,6 @@ window.CRYPTIC_PUZZLES["quiptic-1380"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Retract intelligence on origin of huge lottery (8)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "WITHDRAW",
    "annotation": {
@@ -282,9 +267,6 @@ window.CRYPTIC_PUZZLES["quiptic-1380"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Minor yet somehow a great crime (8)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "ENORMITY",
    "annotation": {
@@ -322,9 +304,6 @@ window.CRYPTIC_PUZZLES["quiptic-1380"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Teaching degree? Resign about student coverage at night (3-5)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -380,9 +359,6 @@ window.CRYPTIC_PUZZLES["quiptic-1380"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Flag of European country getting trimmed (4)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "IRIS",
    "annotation": {
@@ -425,9 +401,6 @@ window.CRYPTIC_PUZZLES["quiptic-1380"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Component of extravagant oyster trifles (4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "TOYS",
    "annotation": {
@@ -462,9 +435,6 @@ window.CRYPTIC_PUZZLES["quiptic-1380"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Discussion item admitting river forms line on map (6)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "TROPIC",
    "annotation": {
@@ -512,9 +482,6 @@ window.CRYPTIC_PUZZLES["quiptic-1380"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Pub and brewery finally introducing it in the area (8)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "LOCALITY",
    "annotation": {
@@ -569,9 +536,6 @@ window.CRYPTIC_PUZZLES["quiptic-1380"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Protest followed by explicit part of the population (11)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "DEMOGRAPHIC",
    "annotation": {
@@ -615,9 +579,6 @@ window.CRYPTIC_PUZZLES["quiptic-1380"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Run a diocese, at first followed by member of clergy (10)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {},
    "solution": "ADMINISTER",
    "annotation": {
@@ -669,9 +630,6 @@ window.CRYPTIC_PUZZLES["quiptic-1380"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Was home, excited to support good TV programme? (4,4)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -724,9 +682,6 @@ window.CRYPTIC_PUZZLES["quiptic-1380"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Popular time to go round a French swamp (8)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "INUNDATE",
    "annotation": {
@@ -776,9 +731,6 @@ window.CRYPTIC_PUZZLES["quiptic-1380"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Opposite of Caesar, J? (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "ANTONYM",
    "annotation": {
@@ -819,9 +771,6 @@ window.CRYPTIC_PUZZLES["quiptic-1380"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Decline instantly: one’s worried over dodgy bar (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "NOSEDIVE",
    "annotation": {
@@ -870,9 +819,6 @@ window.CRYPTIC_PUZZLES["quiptic-1380"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Reader initially gripped by book once more – it’s a good buy (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "BARGAIN",
    "annotation": {
@@ -928,9 +874,6 @@ window.CRYPTIC_PUZZLES["quiptic-1380"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Person again troubled resident of city-state (11)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "SINGAPOREAN",
    "annotation": {
@@ -968,9 +911,6 @@ window.CRYPTIC_PUZZLES["quiptic-1380"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Party, upsetting for us, stinks (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "ODOURS",
    "annotation": {
@@ -1020,9 +960,6 @@ window.CRYPTIC_PUZZLES["quiptic-1380"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Material to support attack in backgammon (4)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "AMMO",
    "annotation": {
@@ -1057,9 +994,6 @@ window.CRYPTIC_PUZZLES["quiptic-1380"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Limits to general use adhesive (4)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "GLUE",
    "annotation": {
@@ -1103,9 +1037,6 @@ window.CRYPTIC_PUZZLES["quiptic-1380"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Song-writer seldom getting confused with it (8)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "MELODIST",
    "annotation": {
@@ -1151,9 +1082,6 @@ window.CRYPTIC_PUZZLES["quiptic-1380"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Religious writer to ridicule leaders of Unitarian Adventists (6)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "JOSHUA",
    "annotation": {
@@ -1200,9 +1128,6 @@ window.CRYPTIC_PUZZLES["quiptic-1380"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Completed challenge with summary (8)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "OVERVIEW",
    "annotation": {
@@ -1246,9 +1171,6 @@ window.CRYPTIC_PUZZLES["quiptic-1380"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Items often furrowed before end of intense look over the shelves? (6)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "BROWSE",
    "annotation": {

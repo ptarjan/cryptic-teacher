@@ -69,9 +69,6 @@ window.CRYPTIC_PUZZLES["cryptic-29961"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "After start of play, suggest getting spots (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "PIMPLY",
    "annotation": null
@@ -86,9 +83,6 @@ window.CRYPTIC_PUZZLES["cryptic-29961"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Dismissed report from start to finish (10)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "THROUGHOUT",
    "annotation": null
@@ -103,9 +97,6 @@ window.CRYPTIC_PUZZLES["cryptic-29961"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Some terribly cramped cycling gear (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "LYCRA",
    "annotation": null
@@ -140,9 +131,6 @@ window.CRYPTIC_PUZZLES["cryptic-29961"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Their responsibility to send one back to France is being served (2,3,4)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -162,9 +150,6 @@ window.CRYPTIC_PUZZLES["cryptic-29961"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Overweight and eating lettuce? At last, an achievement! (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "FEAT",
    "annotation": null
@@ -179,9 +164,6 @@ window.CRYPTIC_PUZZLES["cryptic-29961"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Legal workers ignoring those born in March or April (8)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "NOTARIES",
    "annotation": null
@@ -196,9 +178,6 @@ window.CRYPTIC_PUZZLES["cryptic-29961"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Raise special case after hours (8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "ESCALATE",
    "annotation": null
@@ -213,9 +192,6 @@ window.CRYPTIC_PUZZLES["cryptic-29961"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Note musical entertainment role to begin with silent performer (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "MIMER",
    "annotation": null
@@ -230,9 +206,6 @@ window.CRYPTIC_PUZZLES["cryptic-29961"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Purging most of the Arctic a muddle (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "CATHARTIC",
    "annotation": null
@@ -247,9 +220,6 @@ window.CRYPTIC_PUZZLES["cryptic-29961"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Overwhelming majority expressed relief after everyone played tuba (3,3,1,3)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -270,9 +240,6 @@ window.CRYPTIC_PUZZLES["cryptic-29961"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Your fault every now and then, to get mouthy? (4)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "ORAL",
    "annotation": null
@@ -287,9 +254,6 @@ window.CRYPTIC_PUZZLES["cryptic-29961"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Like people around one, they can be cast (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "ASPERSIONS",
    "annotation": null
@@ -304,9 +268,6 @@ window.CRYPTIC_PUZZLES["cryptic-29961"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Straight coverage of outrageous rents in a difficult situation (7,4)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -325,9 +286,6 @@ window.CRYPTIC_PUZZLES["cryptic-29961"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Lying about wobbly bum is modern (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "RECUMBENT",
    "annotation": null
@@ -362,9 +320,6 @@ window.CRYPTIC_PUZZLES["cryptic-29961"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Total reversal on trainee making wine (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "MUSCADET",
    "annotation": null
@@ -379,9 +334,6 @@ window.CRYPTIC_PUZZLES["cryptic-29961"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Point in time when Juliet left after a prize for needlework (11)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "ACUPUNCTURE",
    "annotation": null
@@ -396,9 +348,6 @@ window.CRYPTIC_PUZZLES["cryptic-29961"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Articles about booze causing pain (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "ANGINA",
    "annotation": null
@@ -413,9 +362,6 @@ window.CRYPTIC_PUZZLES["cryptic-29961"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Value committee finally meets up (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "ESTEEM",
    "annotation": null
@@ -430,9 +376,6 @@ window.CRYPTIC_PUZZLES["cryptic-29961"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Desire to get some kitchenware (4)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "ITCH",
    "annotation": null
@@ -447,9 +390,6 @@ window.CRYPTIC_PUZZLES["cryptic-29961"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "They’re held by Bonnie & Clyde and Butch Cassidy & the Sundance Kid before noon, each case for sheriffs (10)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "AMPERSANDS",
    "annotation": null
@@ -464,9 +404,6 @@ window.CRYPTIC_PUZZLES["cryptic-29961"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Sandwich-like ahead of time? (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "EARLY",
    "annotation": null
@@ -481,9 +418,6 @@ window.CRYPTIC_PUZZLES["cryptic-29961"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Press club (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "IRON",
    "annotation": null
@@ -498,9 +432,6 @@ window.CRYPTIC_PUZZLES["cryptic-29961"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Like Bishop Auckland’s pants? (9)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "UNDERWEAR",
    "annotation": null
@@ -515,9 +446,6 @@ window.CRYPTIC_PUZZLES["cryptic-29961"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Surmise long after love (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "OPINE",
    "annotation": null
@@ -532,9 +460,6 @@ window.CRYPTIC_PUZZLES["cryptic-29961"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Put off deciding what to do with a chair (3,2,2)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -554,9 +479,6 @@ window.CRYPTIC_PUZZLES["cryptic-29961"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Same problem in root whatever you say (3,4)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {
     ",": [
      3

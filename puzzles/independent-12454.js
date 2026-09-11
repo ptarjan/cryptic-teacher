@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12454"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Lear's affliction created mostly by head (7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "MADNESS",
    "annotation": {
@@ -71,9 +68,6 @@ window.CRYPTIC_PUZZLES["independent-12454"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "I hear setter's hot beverage is strong (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "MIGHTY",
    "annotation": {
@@ -112,9 +106,6 @@ window.CRYPTIC_PUZZLES["independent-12454"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Party of America supplying dimwit (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "DOOFUS",
    "annotation": {
@@ -162,9 +153,6 @@ window.CRYPTIC_PUZZLES["independent-12454"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Driving out evil energy, replacing nothing troubling (10)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "EXERCISING",
    "annotation": {
@@ -212,9 +200,6 @@ window.CRYPTIC_PUZZLES["independent-12454"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Change key (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "SHIFT",
    "annotation": {
@@ -250,9 +235,6 @@ window.CRYPTIC_PUZZLES["independent-12454"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Flourish from magician, making ring disappear (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "PROSPER",
    "annotation": {
@@ -298,9 +280,6 @@ window.CRYPTIC_PUZZLES["independent-12454"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Remarkable things: a mixture of hope 'n' amen! (9)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "PHENOMENA",
    "annotation": {
@@ -343,9 +322,6 @@ window.CRYPTIC_PUZZLES["independent-12454"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Pledge made by prisoner of hero at Hyperborea (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "OATH",
    "annotation": {
@@ -383,9 +359,6 @@ window.CRYPTIC_PUZZLES["independent-12454"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Friend cradling decapitated Trojan close to chest (8)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "PECTORAL",
    "annotation": {
@@ -432,9 +405,6 @@ window.CRYPTIC_PUZZLES["independent-12454"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Freed soldier survived swallowing drug (8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "RELIEVED",
    "annotation": {
@@ -485,9 +455,6 @@ window.CRYPTIC_PUZZLES["independent-12454"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "The earth? Throw into empty grave (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "GLOBE",
    "annotation": {
@@ -585,9 +552,6 @@ window.CRYPTIC_PUZZLES["independent-12454"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Curtailment of holiday (3rd-8th) after travelling chest's end falls off (10)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "TRUNCATION",
    "annotation": {
@@ -636,9 +600,6 @@ window.CRYPTIC_PUZZLES["independent-12454"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Left because of almost nothing (4)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "LOVE",
    "annotation": {
@@ -682,9 +643,6 @@ window.CRYPTIC_PUZZLES["independent-12454"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Maybe branches hang on over generations (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "APPENDAGES",
    "annotation": {
@@ -728,9 +686,6 @@ window.CRYPTIC_PUZZLES["independent-12454"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Starter of soup, fish second, fruit compote finally for Anne's husband perhaps (11)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "SHAKESPEARE",
    "annotation": {
@@ -797,9 +752,6 @@ window.CRYPTIC_PUZZLES["independent-12454"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Writer reporting parliamentary assents gets permit (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "AUTHORISE",
    "annotation": {
@@ -847,9 +799,6 @@ window.CRYPTIC_PUZZLES["independent-12454"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Ugly stripe concealing alien's knick-knacks! (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "PRETTIES",
    "annotation": {
@@ -902,9 +851,6 @@ window.CRYPTIC_PUZZLES["independent-12454"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Boring piece I hone endlessly following morning drive (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "AMBITION",
    "annotation": {
@@ -962,9 +908,6 @@ window.CRYPTIC_PUZZLES["independent-12454"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Argue against Sartre and Monet in review (11)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "REMONSTRATE",
    "annotation": {
@@ -1007,9 +950,6 @@ window.CRYPTIC_PUZZLES["independent-12454"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Tranquil moon goddess changes sides (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "SERENE",
    "annotation": {
@@ -1052,9 +992,6 @@ window.CRYPTIC_PUZZLES["independent-12454"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Words spoken privately since ill-omened day (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "ASIDES",
    "annotation": {
@@ -1113,9 +1050,6 @@ window.CRYPTIC_PUZZLES["independent-12454"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Delivery of blade and nastily snide son lead to immoral actions (10)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "SORDIDNESS",
    "annotation": {
@@ -1178,9 +1112,6 @@ window.CRYPTIC_PUZZLES["independent-12454"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Fancy doctor exfoliates and moisturises initially (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "DREAM",
    "annotation": {
@@ -1224,9 +1155,6 @@ window.CRYPTIC_PUZZLES["independent-12454"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "14's pointless facial hair (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "BARD",
    "annotation": {
@@ -1272,9 +1200,6 @@ window.CRYPTIC_PUZZLES["independent-12454"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Fake current Lloyd Webber musical with brief interval making a comeback (9)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "IMITATIVE",
    "annotation": {
@@ -1331,9 +1256,6 @@ window.CRYPTIC_PUZZLES["independent-12454"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Consented to take top off, resulting in desire (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "GREED",
    "annotation": {
@@ -1379,9 +1301,6 @@ window.CRYPTIC_PUZZLES["independent-12454"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Trespass originally every day, in other words indefinitely (4,3)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -1435,9 +1354,6 @@ window.CRYPTIC_PUZZLES["independent-12454"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Gains power over turbulent streams (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "MASTERS",
    "annotation": {

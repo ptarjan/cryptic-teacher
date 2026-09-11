@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4128"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Those passing laws showing regrettable paternalism (11)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "PARLIAMENTS",
    "annotation": {
@@ -72,9 +69,6 @@ window.CRYPTIC_PUZZLES["everyman-4128"] = /*JSON-START*/ {
      26,
      4
     ]
-   ],
-   "group": [
-    "1-down"
    ],
    "separatorLocations": {},
    "solution": "PITHIER",
@@ -124,9 +118,6 @@ window.CRYPTIC_PUZZLES["everyman-4128"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Considers what a still lake does (8)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "REFLECTS",
    "annotation": {
@@ -161,9 +152,6 @@ window.CRYPTIC_PUZZLES["everyman-4128"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Greek character reading Riot Act (but not in full) (4)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "IOTA",
    "annotation": {
@@ -199,9 +187,6 @@ window.CRYPTIC_PUZZLES["everyman-4128"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "18 curtailed shipping commercial silver somewhere in Africa (10)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "MADAGASCAR",
    "annotation": {
@@ -253,9 +238,6 @@ window.CRYPTIC_PUZZLES["everyman-4128"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "The bravest trapeze artists perform with this group (5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "NONET",
    "annotation": {
@@ -293,9 +275,6 @@ window.CRYPTIC_PUZZLES["everyman-4128"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Boat's second crew with sign of uncertainty (7)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "STEAMER",
    "annotation": {
@@ -343,9 +322,6 @@ window.CRYPTIC_PUZZLES["everyman-4128"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Risky attempt, forced 'hello'; it wavers (4,2,3,4)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -388,9 +364,6 @@ window.CRYPTIC_PUZZLES["everyman-4128"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Expressed anger after abrupt halt: electric vehicle to freeze; it's the computer's memory (7,6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -455,9 +428,6 @@ window.CRYPTIC_PUZZLES["everyman-4128"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "No longer working in computing in La-La Land (3,2,2)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -500,9 +470,6 @@ window.CRYPTIC_PUZZLES["everyman-4128"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Doofus on backside in comfy room with TV, as thick as can be (7)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "DENSEST",
    "annotation": {
@@ -557,9 +524,6 @@ window.CRYPTIC_PUZZLES["everyman-4128"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "French banker investing nothing in Turkish capital (5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "LOIRE",
    "annotation": {
@@ -603,9 +567,6 @@ window.CRYPTIC_PUZZLES["everyman-4128"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Alarm triggered by poacher? (3,5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -641,9 +602,6 @@ window.CRYPTIC_PUZZLES["everyman-4128"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Sullen Everyman's going to drive across the countryside (3-7)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -696,9 +654,6 @@ window.CRYPTIC_PUZZLES["everyman-4128"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Terrific group taught after the register? (5-5)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -737,9 +692,6 @@ window.CRYPTIC_PUZZLES["everyman-4128"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Boast of fancy clothing you've sent back (4)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "BRAG",
    "annotation": {
@@ -785,9 +737,6 @@ window.CRYPTIC_PUZZLES["everyman-4128"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Feels the strain, so easing off (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "AGONISES",
    "annotation": {
@@ -824,9 +773,6 @@ window.CRYPTIC_PUZZLES["everyman-4128"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "That man's recited a song of praise (4)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "HYMN",
    "annotation": {
@@ -864,9 +810,6 @@ window.CRYPTIC_PUZZLES["everyman-4128"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Cosmetic with which, at first, my Aunt Agatha will conceal blemish (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "MASCARA",
    "annotation": {
@@ -915,9 +858,6 @@ window.CRYPTIC_PUZZLES["everyman-4128"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Finish up less serene and under threat (10)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "ENDANGERED",
    "annotation": {
@@ -958,9 +898,6 @@ window.CRYPTIC_PUZZLES["everyman-4128"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Period genre recreated with hints of cravats and yestermorns? (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "REGENCY",
    "annotation": {
@@ -1007,9 +944,6 @@ window.CRYPTIC_PUZZLES["everyman-4128"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Unattached: that's prudent, you say? (8)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "DISCRETE",
    "annotation": {
@@ -1047,9 +981,6 @@ window.CRYPTIC_PUZZLES["everyman-4128"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "After some resistance, Oscar sat up: there's work to be done (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "ROTAS",
    "annotation": {
@@ -1107,9 +1038,6 @@ window.CRYPTIC_PUZZLES["everyman-4128"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Renege - viciously, somewhat - and desert (5)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "NEGEV",
    "annotation": {
@@ -1146,9 +1074,6 @@ window.CRYPTIC_PUZZLES["everyman-4128"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Primarily insidious antagonist goading Othello? (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "IAGO",
    "annotation": {
@@ -1188,9 +1113,6 @@ window.CRYPTIC_PUZZLES["everyman-4128"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Part of society that moves the narrative along (7)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "CHAPTER",
    "annotation": {
@@ -1225,9 +1147,6 @@ window.CRYPTIC_PUZZLES["everyman-4128"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Races in to treat poison (7)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "ARSENIC",
    "annotation": {
@@ -1267,9 +1186,6 @@ window.CRYPTIC_PUZZLES["everyman-4128"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "After training, son, you'd sail around America in diligent manner (11)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "ASSIDUOUSLY",
    "annotation": {

@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4159"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Manage group in tennis gear (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "HEADBAND",
    "annotation": {
@@ -68,9 +65,6 @@ window.CRYPTIC_PUZZLES["everyman-4159"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Admonisher, after massage, is reconciled (10)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "HARMONISED",
    "annotation": {
@@ -110,9 +104,6 @@ window.CRYPTIC_PUZZLES["everyman-4159"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "We're known to be bent in the workplace and when we're not charged, you're in the dark (10,5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      10
@@ -150,9 +141,6 @@ window.CRYPTIC_PUZZLES["everyman-4159"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "I'll give you energy: like a pancake? (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "BATTERY",
    "annotation": {
@@ -191,9 +179,6 @@ window.CRYPTIC_PUZZLES["everyman-4159"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Chip's the ultimate in he-men, virile, topless (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "NACHO",
    "annotation": {
@@ -241,9 +226,6 @@ window.CRYPTIC_PUZZLES["everyman-4159"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Fighting a dermal disorder after cycling (2,3)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -290,9 +272,6 @@ window.CRYPTIC_PUZZLES["everyman-4159"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Country song about chess pieces (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "ARMENIA",
    "annotation": {
@@ -336,9 +315,6 @@ window.CRYPTIC_PUZZLES["everyman-4159"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "They're inclined to get you to leave (10,5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      10
@@ -376,9 +352,6 @@ window.CRYPTIC_PUZZLES["everyman-4159"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Looking up, I'll add: a glimpse of rank and file (4)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "RASP",
    "annotation": {
@@ -435,9 +408,6 @@ window.CRYPTIC_PUZZLES["everyman-4159"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Romantic German in school, increasingly unwell (8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "SCHILLER",
    "annotation": {
@@ -478,9 +448,6 @@ window.CRYPTIC_PUZZLES["everyman-4159"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Booked man of many words (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "ROGET",
    "annotation": {
@@ -516,9 +483,6 @@ window.CRYPTIC_PUZZLES["everyman-4159"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Before seconds, alternately crunch on brown salad components (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "CUCUMBERS",
    "annotation": {
@@ -578,9 +542,6 @@ window.CRYPTIC_PUZZLES["everyman-4159"] = /*JSON-START*/ {
      5
     ]
    ],
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -621,9 +582,6 @@ window.CRYPTIC_PUZZLES["everyman-4159"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Nicer day in resort: very hot (10)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {},
    "solution": "INCENDIARY",
    "annotation": {
@@ -660,9 +618,6 @@ window.CRYPTIC_PUZZLES["everyman-4159"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Tough guy finally getting subtle humour (5)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "IRONY",
    "annotation": {
@@ -708,9 +663,6 @@ window.CRYPTIC_PUZZLES["everyman-4159"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "What is unusual and concerning about a 50k race no-one runs? (9)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "WALKATHON",
    "annotation": {
@@ -772,9 +724,6 @@ window.CRYPTIC_PUZZLES["everyman-4159"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Some raw earth I neglected to grow ragged (4,4)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -815,9 +764,6 @@ window.CRYPTIC_PUZZLES["everyman-4159"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Laid-back committee head, one comfortably supporting you (4,5)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -859,9 +805,6 @@ window.CRYPTIC_PUZZLES["everyman-4159"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "In America, GI esteemed as 'most sly' (7)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "CAGIEST",
    "annotation": {
@@ -898,9 +841,6 @@ window.CRYPTIC_PUZZLES["everyman-4159"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Pull up fish escaping from trap (5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "RAISE",
    "annotation": {
@@ -935,9 +875,6 @@ window.CRYPTIC_PUZZLES["everyman-4159"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Most of greens, sadly, Everyman's eaten for diet (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "REGIMEN",
    "annotation": {
@@ -994,9 +931,6 @@ window.CRYPTIC_PUZZLES["everyman-4159"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Disorder persisted - Spooner's inclined to steal (5-8)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -1049,9 +983,6 @@ window.CRYPTIC_PUZZLES["everyman-4159"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Leading characters in Irish netball won gold? (5)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "INGOT",
    "annotation": {
@@ -1094,9 +1025,6 @@ window.CRYPTIC_PUZZLES["everyman-4159"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Estonian regularly ignored volcano (4)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "ETNA",
    "annotation": {
@@ -1136,9 +1064,6 @@ window.CRYPTIC_PUZZLES["everyman-4159"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Softening but hardening (9)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "TEMPERING",
    "annotation": {
@@ -1176,9 +1101,6 @@ window.CRYPTIC_PUZZLES["everyman-4159"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Primarily mouthy African menace biting avians? (5)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "MAMBA",
    "annotation": {
@@ -1219,9 +1141,6 @@ window.CRYPTIC_PUZZLES["everyman-4159"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Hound having chased away bishop: that's useful (5)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "ASSET",
    "annotation": {
@@ -1267,9 +1186,6 @@ window.CRYPTIC_PUZZLES["everyman-4159"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Supports - without doing anything? (6,2)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     ",": [
      6

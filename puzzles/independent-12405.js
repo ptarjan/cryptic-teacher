@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12405"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Lover in government leaving note - feeling the pressure (9)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "STRESSING",
    "annotation": {
@@ -81,9 +78,6 @@ window.CRYPTIC_PUZZLES["independent-12405"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Terminus open in Telford deserted surprisingly (3,5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -131,9 +125,6 @@ window.CRYPTIC_PUZZLES["independent-12405"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Teacher's wig sent up by third of students (4)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "GURU",
    "annotation": {
@@ -187,9 +178,6 @@ window.CRYPTIC_PUZZLES["independent-12405"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Charismatic female working with computers? (2,4)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -232,9 +220,6 @@ window.CRYPTIC_PUZZLES["independent-12405"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Can love tailless bird (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "TINAMOU",
    "annotation": {
@@ -277,9 +262,6 @@ window.CRYPTIC_PUZZLES["independent-12405"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Working times are reduced for distinguished practitioners (7)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "MAESTRI",
    "annotation": {
@@ -326,9 +308,6 @@ window.CRYPTIC_PUZZLES["independent-12405"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Count time mother's without (6)",
-   "group": [
-    "7-across"
-   ],
    "separatorLocations": {},
    "solution": "MATTER",
    "annotation": {
@@ -372,9 +351,6 @@ window.CRYPTIC_PUZZLES["independent-12405"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Comes across English baseball team outside (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "MEETS",
    "annotation": {
@@ -418,9 +394,6 @@ window.CRYPTIC_PUZZLES["independent-12405"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Horny African shaking rear in style (4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "ELAN",
    "annotation": {
@@ -465,9 +438,6 @@ window.CRYPTIC_PUZZLES["independent-12405"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Gather agent's hiding 10% from accountant (4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "REAP",
    "annotation": {
@@ -513,9 +483,6 @@ window.CRYPTIC_PUZZLES["independent-12405"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Clue (1ac) solved - people involved promoting co-operation (10)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "ECUMENICAL",
    "annotation": {
@@ -559,9 +526,6 @@ window.CRYPTIC_PUZZLES["independent-12405"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Dolly Parton's behind first benefit (6)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "ASSIST",
    "annotation": {
@@ -599,9 +563,6 @@ window.CRYPTIC_PUZZLES["independent-12405"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Rock chick shortly gets back in club (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "BASALT",
    "annotation": {
@@ -655,9 +616,6 @@ window.CRYPTIC_PUZZLES["independent-12405"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "One narrow-minded old priest, ultimately under grown-up (5)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {},
    "solution": "BIGOT",
    "annotation": {
@@ -761,9 +719,6 @@ window.CRYPTIC_PUZZLES["independent-12405"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Bones in state - one arm shattered (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "METATARSI",
    "annotation": {
@@ -813,9 +768,6 @@ window.CRYPTIC_PUZZLES["independent-12405"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Garment manufacturers designed kit with tennis legend (8,7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -884,9 +836,6 @@ window.CRYPTIC_PUZZLES["independent-12405"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Rene not swimming in canal (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "ENTERON",
    "annotation": {
@@ -931,9 +880,6 @@ window.CRYPTIC_PUZZLES["independent-12405"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Wife and husband European (8)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "DUTCHMAN",
    "annotation": {
@@ -974,9 +920,6 @@ window.CRYPTIC_PUZZLES["independent-12405"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Cope with success that's netted Bill a thousand (4,2)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -1034,9 +977,6 @@ window.CRYPTIC_PUZZLES["independent-12405"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Aftershave at first was effective round female? Not much (1,3,2)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {
     ",": [
      1,
@@ -1096,9 +1036,6 @@ window.CRYPTIC_PUZZLES["independent-12405"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Tory leader drops one point - neat (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "KEMPT",
    "annotation": {
@@ -1146,9 +1083,6 @@ window.CRYPTIC_PUZZLES["independent-12405"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Turkey meal comes round with dinners originally for four (6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "TETRAD",
    "annotation": {
@@ -1204,9 +1138,6 @@ window.CRYPTIC_PUZZLES["independent-12405"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Nothing you said that's wrong or not genuine (4)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "FAUX",
    "annotation": {
@@ -1259,9 +1190,6 @@ window.CRYPTIC_PUZZLES["independent-12405"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Wearing headphones, I stick around for late-starting Sky feature (5,5)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -1331,9 +1259,6 @@ window.CRYPTIC_PUZZLES["independent-12405"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Lift up ball on green (4)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "JACK",
    "annotation": {
@@ -1367,9 +1292,6 @@ window.CRYPTIC_PUZZLES["independent-12405"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Pick up from the armourer's (4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "HEAR",
    "annotation": {
@@ -1403,9 +1325,6 @@ window.CRYPTIC_PUZZLES["independent-12405"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "To demand money with threats no longer wrong (6)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "EXTORT",
    "annotation": {
@@ -1443,9 +1362,6 @@ window.CRYPTIC_PUZZLES["independent-12405"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "May very stupid person attempt to influence voters? (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "CANVASS",
    "annotation": {

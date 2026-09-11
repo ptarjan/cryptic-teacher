@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30088"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Crazy French soul, this woman (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "MADAME",
    "annotation": {
@@ -70,9 +67,6 @@ window.CRYPTIC_PUZZLES["cryptic-30088"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Ore obtained by worker underground, a trainee (7)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "MINERAL",
    "annotation": {
@@ -118,9 +112,6 @@ window.CRYPTIC_PUZZLES["cryptic-30088"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Green finger, perhaps, and what the gardener will do in bed (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "DIGIT",
    "annotation": {
@@ -160,9 +151,6 @@ window.CRYPTIC_PUZZLES["cryptic-30088"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Arranges party – with what’s available (5,2)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -204,9 +192,6 @@ window.CRYPTIC_PUZZLES["cryptic-30088"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Takes over present-day stop-over (6)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "ADOPTS",
    "annotation": {
@@ -258,9 +243,6 @@ window.CRYPTIC_PUZZLES["cryptic-30088"] = /*JSON-START*/ {
      8
     ]
    ],
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "DARING",
    "annotation": {
@@ -303,9 +285,6 @@ window.CRYPTIC_PUZZLES["cryptic-30088"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Action completely adopting inverted interior design (9)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "PROCEDURE",
    "annotation": {
@@ -357,9 +336,6 @@ window.CRYPTIC_PUZZLES["cryptic-30088"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Recommend guests get changed around midnight (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "SUGGEST",
    "annotation": {
@@ -411,9 +387,6 @@ window.CRYPTIC_PUZZLES["cryptic-30088"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Frantically text Posh about test result of where’s it at (1,5,3,4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      1,
@@ -474,9 +447,6 @@ window.CRYPTIC_PUZZLES["cryptic-30088"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Tin and silver catch (4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "SNAG",
    "annotation": {
@@ -516,9 +486,6 @@ window.CRYPTIC_PUZZLES["cryptic-30088"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Ill-advised Greek ‘humor’ showing Asian guerrilla movement (5,5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -562,9 +529,6 @@ window.CRYPTIC_PUZZLES["cryptic-30088"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Fixed time around rugged ridges (6)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "ARETES",
    "annotation": {
@@ -613,9 +577,6 @@ window.CRYPTIC_PUZZLES["cryptic-30088"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Got plastered? (8)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "RENDERED",
    "annotation": {
@@ -646,9 +607,6 @@ window.CRYPTIC_PUZZLES["cryptic-30088"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Saul’s home rebuilt as one for the poor (9)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "ALMSHOUSE",
    "annotation": {
@@ -688,9 +646,6 @@ window.CRYPTIC_PUZZLES["cryptic-30088"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Domestic flight (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "STAIRCASE",
    "annotation": {
@@ -721,9 +676,6 @@ window.CRYPTIC_PUZZLES["cryptic-30088"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Verse omitted from cover song (4)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "DUET",
    "annotation": {
@@ -765,9 +717,6 @@ window.CRYPTIC_PUZZLES["cryptic-30088"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "It’s seen amongst beta, lambda and others (2,2)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -805,9 +754,6 @@ window.CRYPTIC_PUZZLES["cryptic-30088"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Closely examine as I weep noisily (7)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "EYEBALL",
    "annotation": {
@@ -855,9 +801,6 @@ window.CRYPTIC_PUZZLES["cryptic-30088"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "With windows sealed, say, in hut (9)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "SHUTTERED",
    "annotation": {
@@ -901,9 +844,6 @@ window.CRYPTIC_PUZZLES["cryptic-30088"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Letter about impolite PM (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "TRUDEAU",
    "annotation": {
@@ -947,9 +887,6 @@ window.CRYPTIC_PUZZLES["cryptic-30088"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Most of team gathering at lift (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "ELEVATE",
    "annotation": {
@@ -995,9 +932,6 @@ window.CRYPTIC_PUZZLES["cryptic-30088"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Great effort making boot (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "WELLIE",
    "annotation": {
@@ -1034,9 +968,6 @@ window.CRYPTIC_PUZZLES["cryptic-30088"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Unrivalled, as the House of Lords in recess (8)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "PEERLESS",
    "annotation": {
@@ -1076,9 +1007,6 @@ window.CRYPTIC_PUZZLES["cryptic-30088"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Cost of maintenance all the way to fortification (6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "UPKEEP",
    "annotation": {
@@ -1118,9 +1046,6 @@ window.CRYPTIC_PUZZLES["cryptic-30088"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Tibetan priest leaves US city for instrument (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "KAZOO",
    "annotation": {
@@ -1165,9 +1090,6 @@ window.CRYPTIC_PUZZLES["cryptic-30088"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Dessert Azed rejects, served in a globe (10)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "ZABAGLIONE",
    "annotation": {
@@ -1211,9 +1133,6 @@ window.CRYPTIC_PUZZLES["cryptic-30088"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Enthusiasm at heart of Maoris’ home (4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "ZEAL",
    "annotation": {
@@ -1250,9 +1169,6 @@ window.CRYPTIC_PUZZLES["cryptic-30088"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Songs by Schubert suggested by violinist (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "LIEDER",
    "annotation": {
@@ -1287,9 +1203,6 @@ window.CRYPTIC_PUZZLES["cryptic-30088"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Old England, Peru – new continent (6)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "EUROPE",
    "annotation": {

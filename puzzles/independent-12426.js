@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Conceited American in Bordeaux? (4)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "VAIN",
    "annotation": {
@@ -71,9 +68,6 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Fifth and final poet returning to visit fine eastern city (11)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "VLADIVOSTOK",
    "annotation": {
@@ -137,9 +131,6 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Asian runner visiting Germany and America (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "INDUS",
    "annotation": {
@@ -182,9 +173,6 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Douglas here maintains svelte physique eating zero fat meals primarily (4,2,3)",
-   "group": [
-    "3-across"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -241,9 +229,6 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Discuss idle site to be repurposed after decentralisation, and related matters (4,6)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -299,9 +284,6 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Ireland's old monarch trending (4)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "ERIN",
    "annotation": {
@@ -341,9 +323,6 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Consequences of following a large thug (7)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "FALLOUT",
    "annotation": {
@@ -395,9 +374,6 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Film in musical venue (5,4)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -441,9 +417,6 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Bonus promotion almost over (3-2)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -490,9 +463,6 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "King abandons Lancelot for one dark period (5)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {},
    "solution": "NIGHT",
    "annotation": {
@@ -534,9 +504,6 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Practising dental work? (8)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "DRILLING",
    "annotation": {
@@ -570,9 +537,6 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Endless, asinine rubbish about Instagram symbol (8)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "INSIGNIA",
    "annotation": {
@@ -618,9 +582,6 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Very fast body of water (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "SOLENT",
    "annotation": {
@@ -657,9 +618,6 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Pyramid model done rather crudely (11)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "TETRAHEDRON",
    "annotation": {
@@ -701,9 +659,6 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Rally and unite to secure new victory (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "CONVALESCE",
    "annotation": {
@@ -756,9 +711,6 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Old bishop behind society for religious people (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "OBLATES",
    "annotation": {
@@ -810,9 +762,6 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Western actor playing evil men, including a Republican (3,6)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -865,9 +814,6 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Have more staying power than half-hearted social reject (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "OUTLAST",
    "annotation": {
@@ -911,9 +857,6 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "In secondary education? Rest and eat before start of exam (7)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "TEENAGE",
    "annotation": {
@@ -967,9 +910,6 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Language master's superseding bachelor's in another language (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "ARAMAIC",
    "annotation": {
@@ -1018,9 +958,6 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Pedestrian unlucky to meet a vehicle coming first (7)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "VANILLA",
    "annotation": {
@@ -1072,9 +1009,6 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Nine gross only? (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "NONET",
    "annotation": {
@@ -1111,9 +1045,6 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "End of combat that's unfortunate for indigenous Australians (6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "KOALAS",
    "annotation": {
@@ -1153,9 +1084,6 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Make extended remix of metal song principally lacking energy (8)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "ELONGATE",
    "annotation": {
@@ -1204,9 +1132,6 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Revolving set about to cause problems (3,2)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -1266,9 +1191,6 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Anonymous person taking small quantity of medication (4)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "DOSE",
    "annotation": {
@@ -1312,9 +1234,6 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Pilots' map readers ignoring leader - not good (8)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "AVIATORS",
    "annotation": {
@@ -1364,9 +1283,6 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Express disapproval over royal governess? (5)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "TUTOR",
    "annotation": {
@@ -1409,9 +1325,6 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "I'm not sure journalist's stalking ability is exhausted (9)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "KNACKERED",
    "annotation": {
@@ -1463,9 +1376,6 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Familiar with riding? (4)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "UPON",
    "annotation": {

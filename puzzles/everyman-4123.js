@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4123"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Embraces giving you headlice, according to Spooner (4,4)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -79,9 +76,6 @@ window.CRYPTIC_PUZZLES["everyman-4123"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Boy essaying amorous undertakings, primarily? (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "BEAU",
    "annotation": {
@@ -121,9 +115,6 @@ window.CRYPTIC_PUZZLES["everyman-4123"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "What teenagers are loth be seen spotted in? (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "ACNE",
    "annotation": {
@@ -155,9 +146,6 @@ window.CRYPTIC_PUZZLES["everyman-4123"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Yeah! Bush composed lullaby (4-1-3)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     "-": [
      4,
@@ -199,9 +187,6 @@ window.CRYPTIC_PUZZLES["everyman-4123"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Like some salad? I'm angry - not quite; I'm alarmed (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "GREEK",
    "annotation": {
@@ -244,9 +229,6 @@ window.CRYPTIC_PUZZLES["everyman-4123"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Sing happily as blue uniform's ditched following combat (6)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "WARBLE",
    "annotation": {
@@ -299,9 +281,6 @@ window.CRYPTIC_PUZZLES["everyman-4123"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Lammy is goof at regular intervals, pal (5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "AMIGO",
    "annotation": {
@@ -342,9 +321,6 @@ window.CRYPTIC_PUZZLES["everyman-4123"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Fat collections of actors in TV shows (10)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "BROADCASTS",
    "annotation": {
@@ -385,9 +361,6 @@ window.CRYPTIC_PUZZLES["everyman-4123"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Bloomer as 51 overwhelmed by wind (6,4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -438,9 +411,6 @@ window.CRYPTIC_PUZZLES["everyman-4123"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Prayer that's sung, unfortunately - bad idea all round (5,3)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -493,9 +463,6 @@ window.CRYPTIC_PUZZLES["everyman-4123"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Reactionaries: large (outsize); internally tense (6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "BIGOTS",
    "annotation": {
@@ -545,9 +512,6 @@ window.CRYPTIC_PUZZLES["everyman-4123"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Info on electric vehicle's acceleration in European city (6)",
-   "group": [
-    "11-down"
-   ],
    "separatorLocations": {},
    "solution": "GENEVA",
    "annotation": {
@@ -595,9 +559,6 @@ window.CRYPTIC_PUZZLES["everyman-4123"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Fancifully, one's drawn scribble portraying American icon (6-6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     "-": [
      6
@@ -647,9 +608,6 @@ window.CRYPTIC_PUZZLES["everyman-4123"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "None factor in disarray where waves break onto the shore (5-5)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -690,9 +648,6 @@ window.CRYPTIC_PUZZLES["everyman-4123"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Started a family, as seen in ghastly tape-record (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "PROCREATED",
    "annotation": {
@@ -732,9 +687,6 @@ window.CRYPTIC_PUZZLES["everyman-4123"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Questionable furry slice as may be served with burger (5,5)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -783,9 +735,6 @@ window.CRYPTIC_PUZZLES["everyman-4123"] = /*JSON-START*/ {
      41,
      8
     ]
-   ],
-   "group": [
-    "16-down"
    ],
    "separatorLocations": {},
    "solution": "RECIPE",
@@ -837,9 +786,6 @@ window.CRYPTIC_PUZZLES["everyman-4123"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Dance and sob audibly (4)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "BALL",
    "annotation": {
@@ -877,9 +823,6 @@ window.CRYPTIC_PUZZLES["everyman-4123"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Newspaper feature showing a duke enthralled by underwear (5,3)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -930,9 +873,6 @@ window.CRYPTIC_PUZZLES["everyman-4123"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Knowing what may mark a triumph (4)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "ARCH",
    "annotation": {
@@ -972,9 +912,6 @@ window.CRYPTIC_PUZZLES["everyman-4123"] = /*JSON-START*/ {
      43,
      12
     ]
-   ],
-   "group": [
-    "20-across"
    ],
    "separatorLocations": {
     ",": [
@@ -1042,9 +979,6 @@ window.CRYPTIC_PUZZLES["everyman-4123"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Preposterously: Force getting no help with dog, principally a dainty one (6,6)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -1092,9 +1026,6 @@ window.CRYPTIC_PUZZLES["everyman-4123"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Measure of Archimedes: ring a bell? (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "CHIME",
    "annotation": {
@@ -1128,9 +1059,6 @@ window.CRYPTIC_PUZZLES["everyman-4123"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Looking up: black ring that shines in the sky (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "ORION",
    "annotation": {
@@ -1179,9 +1107,6 @@ window.CRYPTIC_PUZZLES["everyman-4123"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Small child to lose grip (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "SKID",
    "annotation": {
@@ -1219,9 +1144,6 @@ window.CRYPTIC_PUZZLES["everyman-4123"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Pitt the Elder's last character to be overcome by evil? (4)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "BRAD",
    "annotation": {
@@ -1268,9 +1190,6 @@ window.CRYPTIC_PUZZLES["everyman-4123"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Firm clothing (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "OUTFIT",
    "annotation": {
@@ -1305,9 +1224,6 @@ window.CRYPTIC_PUZZLES["everyman-4123"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Greeting sailor with hesitant expression: perhaps a pirate? (8)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "HIJACKER",
    "annotation": {
@@ -1354,9 +1270,6 @@ window.CRYPTIC_PUZZLES["everyman-4123"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "In better order, more like 13? (6)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "TIDIER",
    "annotation": {
@@ -1391,9 +1304,6 @@ window.CRYPTIC_PUZZLES["everyman-4123"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Being pretentious, Everyman's identified as unbalanced (3-5)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {
     "-": [
      3

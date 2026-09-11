@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4126"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Reformists resolved blazing issues (10)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "FIRESTORMS",
    "annotation": {
@@ -64,9 +61,6 @@ window.CRYPTIC_PUZZLES["everyman-4126"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Cross off, or delete, removing most (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "FORD",
    "annotation": {
@@ -115,9 +109,6 @@ window.CRYPTIC_PUZZLES["everyman-4126"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Pram struggling in incline (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "RAMP",
    "annotation": {
@@ -157,9 +148,6 @@ window.CRYPTIC_PUZZLES["everyman-4126"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Miss Capable flourishing, very straightforward (6,2,3)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      6,
@@ -201,9 +189,6 @@ window.CRYPTIC_PUZZLES["everyman-4126"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Seed money M&S wasted unwisely with vision restricted (3-4)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -251,9 +236,6 @@ window.CRYPTIC_PUZZLES["everyman-4126"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Everyman with pretentious reference to self rambles vacuously in recollections (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "MEMOIRS",
    "annotation": {
@@ -306,9 +288,6 @@ window.CRYPTIC_PUZZLES["everyman-4126"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "One wading regularly in bliss (4)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "IBIS",
    "annotation": {
@@ -348,9 +327,6 @@ window.CRYPTIC_PUZZLES["everyman-4126"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Labour's account of why dam construction incomplete? (6,4)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -395,9 +371,6 @@ window.CRYPTIC_PUZZLES["everyman-4126"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "What some Shreddies and cheese slices will give you? (6,4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -432,9 +405,6 @@ window.CRYPTIC_PUZZLES["everyman-4126"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Humble representative, cycling: do I ring a bell? (8,2)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -482,9 +452,6 @@ window.CRYPTIC_PUZZLES["everyman-4126"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "What's originally displaying big Azerbaijani khanate urbanity? (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "BAKU",
    "annotation": {
@@ -524,9 +491,6 @@ window.CRYPTIC_PUZZLES["everyman-4126"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Tries to win at tag: mostly stands around yard and thinks on one's feet (5,2,2,3)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      5,
@@ -587,9 +551,6 @@ window.CRYPTIC_PUZZLES["everyman-4126"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Leader of blasted UK on safari touring African country (7,4)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -637,9 +598,6 @@ window.CRYPTIC_PUZZLES["everyman-4126"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Bad son, perhaps, that may get you sacked thrice? (5,5)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -677,9 +635,6 @@ window.CRYPTIC_PUZZLES["everyman-4126"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Local official also therapist, we're told (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "COUNCILLOR",
    "annotation": {
@@ -717,9 +672,6 @@ window.CRYPTIC_PUZZLES["everyman-4126"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Sign sailor's Dutch: tight-fitting clothing (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "LEOTARD",
    "annotation": {
@@ -765,9 +717,6 @@ window.CRYPTIC_PUZZLES["everyman-4126"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Scorn South African racism, wanting independence - and reform (7)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "SARCASM",
    "annotation": {
@@ -811,9 +760,6 @@ window.CRYPTIC_PUZZLES["everyman-4126"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "He's a bit of a nag (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "CENTAUR",
    "annotation": {
@@ -844,9 +790,6 @@ window.CRYPTIC_PUZZLES["everyman-4126"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "How the Cockney oarsman got to this doe-eyed creature? (3,4)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -885,9 +828,6 @@ window.CRYPTIC_PUZZLES["everyman-4126"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "The Greatest Pudding, one from Arabia that's a bit of a legend (3,4)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -928,9 +868,6 @@ window.CRYPTIC_PUZZLES["everyman-4126"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Hair product with a nice short casing: sweet! (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "ANGELIC",
    "annotation": {
@@ -979,9 +916,6 @@ window.CRYPTIC_PUZZLES["everyman-4126"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Changes approach and whips Kit (8,4)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -1025,9 +959,6 @@ window.CRYPTIC_PUZZLES["everyman-4126"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Uncapped perk? That's a liability (4)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "ONUS",
    "annotation": {
@@ -1067,9 +998,6 @@ window.CRYPTIC_PUZZLES["everyman-4126"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Victorian greeting, ultimately relaxed, welcoming ... carefree? The reverse (1'3)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {
     "'": [
      1
@@ -1121,9 +1049,6 @@ window.CRYPTIC_PUZZLES["everyman-4126"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Slippery types rest up (for the most part) (4)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "EELS",
    "annotation": {
@@ -1168,9 +1093,6 @@ window.CRYPTIC_PUZZLES["everyman-4126"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Justly deserved, like some oil? (4-6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -1208,9 +1130,6 @@ window.CRYPTIC_PUZZLES["everyman-4126"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Leave rôle (4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "PART",
    "annotation": {
@@ -1244,9 +1163,6 @@ window.CRYPTIC_PUZZLES["everyman-4126"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "I'm surprised to have exhausted Lady in elegant fashion (10)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "GRACIOUSLY",
    "annotation": {

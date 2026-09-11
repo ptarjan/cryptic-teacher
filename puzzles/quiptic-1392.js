@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1392"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Finn’s plot dividing the French and the German (9)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "LAPLANDER",
    "annotation": {
@@ -76,9 +73,6 @@ window.CRYPTIC_PUZZLES["quiptic-1392"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Mostly tongue it, that’s allowed (5)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "LICIT",
    "annotation": {
@@ -121,9 +115,6 @@ window.CRYPTIC_PUZZLES["quiptic-1392"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Rude GP, Jed, erroneously made assumptions without facts (9)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "PREJUDGED",
    "annotation": {
@@ -157,9 +148,6 @@ window.CRYPTIC_PUZZLES["quiptic-1392"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Oil up toast, dished out for robot drivers? (10)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "AUTOPILOTS",
    "annotation": {
@@ -196,9 +184,6 @@ window.CRYPTIC_PUZZLES["quiptic-1392"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Expert soft touch with hot Australian knight on date (3,4)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -258,9 +243,6 @@ window.CRYPTIC_PUZZLES["quiptic-1392"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Remains buried in structures I’d established (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "RESIDES",
    "annotation": {
@@ -291,9 +273,6 @@ window.CRYPTIC_PUZZLES["quiptic-1392"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Comedian fine being embraced by Jeremy, half-cut (5)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "JOKER",
    "annotation": {
@@ -335,9 +314,6 @@ window.CRYPTIC_PUZZLES["quiptic-1392"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Sailor’s a card! (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "JACK",
    "annotation": {
@@ -375,9 +351,6 @@ window.CRYPTIC_PUZZLES["quiptic-1392"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Church centre picked up rascal (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "KNAVE",
    "annotation": {
@@ -409,9 +382,6 @@ window.CRYPTIC_PUZZLES["quiptic-1392"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Get revenge when rump consumed by diner is thrown up (9)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "RETALIATE",
    "annotation": {
@@ -466,9 +436,6 @@ window.CRYPTIC_PUZZLES["quiptic-1392"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Unconventionally teach fraud (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "CHEAT",
    "annotation": {
@@ -502,9 +469,6 @@ window.CRYPTIC_PUZZLES["quiptic-1392"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Topiary techniques essential in rural Australia (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "BUSHCRAFT",
    "annotation": {
@@ -539,9 +503,6 @@ window.CRYPTIC_PUZZLES["quiptic-1392"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "President’s concealing scoundrel entertaining Royal (originally!) – they have an advantage (5,5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -594,9 +555,6 @@ window.CRYPTIC_PUZZLES["quiptic-1392"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Lay out banquet, perhaps, discounting a thousand – five hundred instead (4)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "DEAL",
    "annotation": {
@@ -642,9 +600,6 @@ window.CRYPTIC_PUZZLES["quiptic-1392"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "One asking questions in RoI quits after collapsing (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "INQUISITOR",
    "annotation": {
@@ -678,9 +633,6 @@ window.CRYPTIC_PUZZLES["quiptic-1392"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Posh Prada bag – cracking steal – one pound, finally negotiated bargain (7)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "HAGGLED",
    "annotation": {
@@ -721,9 +673,6 @@ window.CRYPTIC_PUZZLES["quiptic-1392"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Full of courage, he rented a ground (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "HEARTENED",
    "annotation": {
@@ -757,9 +706,6 @@ window.CRYPTIC_PUZZLES["quiptic-1392"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Soprano, endlessly irate, starts to inevitably abuse drink (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "SANGRIA",
    "annotation": {
@@ -807,9 +753,6 @@ window.CRYPTIC_PUZZLES["quiptic-1392"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Engineers: 40 patrols provided to increase security again (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "REFORTIFY",
    "annotation": {
@@ -859,9 +802,6 @@ window.CRYPTIC_PUZZLES["quiptic-1392"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Gold passed time inside, did examinations (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "AUDITED",
    "annotation": {
@@ -908,9 +848,6 @@ window.CRYPTIC_PUZZLES["quiptic-1392"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Lady-in-waiting hauled up over case of nicked jewel (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "DIAMOND",
    "annotation": {
@@ -963,9 +900,6 @@ window.CRYPTIC_PUZZLES["quiptic-1392"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Lazy movement of son borders on lacklustre after sulk (7)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "SHUFFLE",
    "annotation": {
@@ -1015,9 +949,6 @@ window.CRYPTIC_PUZZLES["quiptic-1392"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Work out, including cardio circuit exercise, principally achieving the goal (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "SUCCESS",
    "annotation": {
@@ -1059,9 +990,6 @@ window.CRYPTIC_PUZZLES["quiptic-1392"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Act tour Reno – what are the odds?! (4)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "TURN",
    "annotation": {
@@ -1098,9 +1026,6 @@ window.CRYPTIC_PUZZLES["quiptic-1392"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Run! Headless Egyptian corpse’s game (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "RUMMY",
    "annotation": {
@@ -1143,9 +1068,6 @@ window.CRYPTIC_PUZZLES["quiptic-1392"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Might this keep you to time? (10)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "WATCHSTRAP",
    "annotation": {
@@ -1177,9 +1099,6 @@ window.CRYPTIC_PUZZLES["quiptic-1392"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "One thrusting into stud? (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "POKER",
    "annotation": {
@@ -1217,9 +1136,6 @@ window.CRYPTIC_PUZZLES["quiptic-1392"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Got wind of missing Republican leader (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "HEAD",
    "annotation": {
@@ -1259,9 +1175,6 @@ window.CRYPTIC_PUZZLES["quiptic-1392"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Wee anaesthetist under the influence of drug (6,3)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -1309,9 +1222,6 @@ window.CRYPTIC_PUZZLES["quiptic-1392"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Evenly sliced turnip cake technique (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "TRICK",
    "annotation": {
@@ -1349,9 +1259,6 @@ window.CRYPTIC_PUZZLES["quiptic-1392"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Spirit without alcohol astonishingly delicious initially (5)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "DRYAD",
    "annotation": {
@@ -1391,9 +1298,6 @@ window.CRYPTIC_PUZZLES["quiptic-1392"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Warship does retry manoeuvring (9)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "DESTROYER",
    "annotation": {

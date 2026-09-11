@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30027"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Relaxing, interval nearly complete (7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "RESTFUL",
    "annotation": {
@@ -71,9 +68,6 @@ window.CRYPTIC_PUZZLES["cryptic-30027"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Strong or, when knocked over, broken (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "ROBUST",
    "annotation": {
@@ -123,9 +117,6 @@ window.CRYPTIC_PUZZLES["cryptic-30027"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Miss this musical (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "SAIGON",
    "annotation": {
@@ -160,9 +151,6 @@ window.CRYPTIC_PUZZLES["cryptic-30027"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Irregular force that may be out at night (5,5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -205,9 +193,6 @@ window.CRYPTIC_PUZZLES["cryptic-30027"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Piece of music popular gospeller introduces (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "LARGO",
    "annotation": {
@@ -242,9 +227,6 @@ window.CRYPTIC_PUZZLES["cryptic-30027"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Workman is good but not so hard-working (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "GLAZIER",
    "annotation": {
@@ -285,9 +267,6 @@ window.CRYPTIC_PUZZLES["cryptic-30027"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Greets day for moving and prepares (4,5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -333,9 +312,6 @@ window.CRYPTIC_PUZZLES["cryptic-30027"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "A sigh of relief heard, not many (1,3)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      1
@@ -384,9 +360,6 @@ window.CRYPTIC_PUZZLES["cryptic-30027"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Being so placed is nothing to your credit (2,3,3)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -426,9 +399,6 @@ window.CRYPTIC_PUZZLES["cryptic-30027"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Bad manners of English in undress, playing (8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "RUDENESS",
    "annotation": {
@@ -471,9 +441,6 @@ window.CRYPTIC_PUZZLES["cryptic-30027"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Fish kingfisher finally caught in beak (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "BRILL",
    "annotation": {
@@ -520,9 +487,6 @@ window.CRYPTIC_PUZZLES["cryptic-30027"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Shrank, offered another freebie? (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "RETREATED",
    "annotation": {
@@ -557,9 +521,6 @@ window.CRYPTIC_PUZZLES["cryptic-30027"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Here’s the state of play: having small heart, pig died (10)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "SCOREBOARD",
    "annotation": {
@@ -612,9 +573,6 @@ window.CRYPTIC_PUZZLES["cryptic-30027"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Incline to be thin (4)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "LEAN",
    "annotation": {
@@ -652,9 +610,6 @@ window.CRYPTIC_PUZZLES["cryptic-30027"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Towards end of evening, jig around gate (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "ATTENDANCE",
    "annotation": {
@@ -698,9 +653,6 @@ window.CRYPTIC_PUZZLES["cryptic-30027"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Free cabs sent out for patron (12)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "BENEFACTRESS",
    "annotation": {
@@ -741,9 +693,6 @@ window.CRYPTIC_PUZZLES["cryptic-30027"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Effusion from armies regularly upset people (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "EMANATION",
    "annotation": {
@@ -798,9 +747,6 @@ window.CRYPTIC_PUZZLES["cryptic-30027"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Taxi from Greece not realistic initially for computer obsessive (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "UBERGEEK",
    "annotation": {
@@ -854,9 +800,6 @@ window.CRYPTIC_PUZZLES["cryptic-30027"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Liking to write a melody (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "PENCHANT",
    "annotation": {
@@ -894,9 +837,6 @@ window.CRYPTIC_PUZZLES["cryptic-30027"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Device held by police, the barrel say trembling (12)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "BREATHALYSER",
    "annotation": {
@@ -934,9 +874,6 @@ window.CRYPTIC_PUZZLES["cryptic-30027"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Letter from prosecutor supporting one simply innocent (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "LAMBDA",
    "annotation": {
@@ -983,9 +920,6 @@ window.CRYPTIC_PUZZLES["cryptic-30027"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Definitely denied being replaced (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "INDEED",
    "annotation": {
@@ -1023,9 +957,6 @@ window.CRYPTIC_PUZZLES["cryptic-30027"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Mass of people in lorry, the first to leave (4)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "RUCK",
    "annotation": {
@@ -1071,9 +1002,6 @@ window.CRYPTIC_PUZZLES["cryptic-30027"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "One in line to become queen was accepted, with knight on hand (6,4)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -1130,9 +1058,6 @@ window.CRYPTIC_PUZZLES["cryptic-30027"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "An exercise for you – don’t go to bed (3-2)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -1174,9 +1099,6 @@ window.CRYPTIC_PUZZLES["cryptic-30027"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Balderdash, lies and hooey from the start (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "BLAH",
    "annotation": {
@@ -1232,9 +1154,6 @@ window.CRYPTIC_PUZZLES["cryptic-30027"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Time is all wrong for this marketing tool (5,4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -1279,9 +1198,6 @@ window.CRYPTIC_PUZZLES["cryptic-30027"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "For one, count boxing as such an art? (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "NOBLE",
    "annotation": {
@@ -1316,9 +1232,6 @@ window.CRYPTIC_PUZZLES["cryptic-30027"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Be keen to fetch range round, for here? (7)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "KITCHEN",
    "annotation": {
@@ -1367,9 +1280,6 @@ window.CRYPTIC_PUZZLES["cryptic-30027"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Horse meat baked in pastry, plain (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "PIEBALD",
    "annotation": {

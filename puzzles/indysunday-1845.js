@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1845"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Little steam engine in DC somebody uncoupled (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "DIVORCEE",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["indysunday-1845"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Motown changes first two notes for popular opening song (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "INTROIT",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["indysunday-1845"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "On bedding male friend's mother, complain to him? (9)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "OMBUDSMAN",
    "annotation": null
@@ -94,9 +85,6 @@ window.CRYPTIC_PUZZLES["indysunday-1845"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "English cuckoo up tree is inspiration for musician (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "EUTERPE",
    "annotation": null
@@ -111,9 +99,6 @@ window.CRYPTIC_PUZZLES["indysunday-1845"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Give away money you put down shaft (6)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "BETRAY",
    "annotation": null
@@ -128,9 +113,6 @@ window.CRYPTIC_PUZZLES["indysunday-1845"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Unhappy about cutting best work, display temper (4,4,3)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -168,9 +150,6 @@ window.CRYPTIC_PUZZLES["indysunday-1845"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Charge if aluminium boxes also sent to America (7)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "ACCUSAL",
    "annotation": null
@@ -203,9 +182,6 @@ window.CRYPTIC_PUZZLES["indysunday-1845"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Time mushroom picker retired, in hindsight (10)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "RETROSPECT",
    "annotation": null
@@ -220,9 +196,6 @@ window.CRYPTIC_PUZZLES["indysunday-1845"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "So-so hurdler running around yard behind house, not so fast (4,4,6)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -242,9 +215,6 @@ window.CRYPTIC_PUZZLES["indysunday-1845"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Public doshed out more than necessary (4,3,4)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -264,9 +234,6 @@ window.CRYPTIC_PUZZLES["indysunday-1845"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Rush from officially authorised drug (8)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "STAMPEDE",
    "annotation": null
@@ -281,9 +248,6 @@ window.CRYPTIC_PUZZLES["indysunday-1845"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Say, lie outrageously without anxiety (6)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "EASILY",
    "annotation": null
@@ -298,9 +262,6 @@ window.CRYPTIC_PUZZLES["indysunday-1845"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "That might be 26 sheep in odd places on farming land (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "SEPARABLE",
    "annotation": null
@@ -315,9 +276,6 @@ window.CRYPTIC_PUZZLES["indysunday-1845"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Hearing from Londoner, Bordeaux sweltering I suppose? (3,3)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -336,9 +294,6 @@ window.CRYPTIC_PUZZLES["indysunday-1845"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "American wit keeps papers in damp box (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "HUMIDOR",
    "annotation": null
@@ -353,9 +308,6 @@ window.CRYPTIC_PUZZLES["indysunday-1845"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Potty US billionaire stores Tesla upright at the end of the drive? (8)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "GATEPOST",
    "annotation": null
@@ -370,9 +322,6 @@ window.CRYPTIC_PUZZLES["indysunday-1845"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Some French people gossip about old pair in rubber (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "GASCONS",
    "annotation": null
@@ -387,9 +336,6 @@ window.CRYPTIC_PUZZLES["indysunday-1845"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Son given bottle, stifling a curse (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "SCOURGE",
    "annotation": null
@@ -404,9 +350,6 @@ window.CRYPTIC_PUZZLES["indysunday-1845"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Female leader, Tories rampant with her our PM (6,8)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -443,9 +386,6 @@ window.CRYPTIC_PUZZLES["indysunday-1845"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Dickensian fellow with unopened red and corkscrew cross (5,5)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -500,9 +440,6 @@ window.CRYPTIC_PUZZLES["indysunday-1845"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Puritanical types obscene in writing afterwards (6)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "PRUDES",
    "annotation": null
@@ -517,9 +454,6 @@ window.CRYPTIC_PUZZLES["indysunday-1845"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Split second subeditor's position? (8)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "SUNDERED",
    "annotation": null

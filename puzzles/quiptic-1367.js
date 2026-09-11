@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1367"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Remove dirt from winding lanes in borders of Cheshire (7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "CLEANSE",
    "annotation": {
@@ -79,9 +76,6 @@ window.CRYPTIC_PUZZLES["quiptic-1367"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "State of agitation about origin of exotic material made from skin (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "LEATHER",
    "annotation": {
@@ -128,9 +122,6 @@ window.CRYPTIC_PUZZLES["quiptic-1367"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Permit shown in general lowdown (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "ALLOW",
    "annotation": {
@@ -165,9 +156,6 @@ window.CRYPTIC_PUZZLES["quiptic-1367"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Celt almost on impulse is cause of great trouble (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "SCOURGE",
    "annotation": {
@@ -216,9 +204,6 @@ window.CRYPTIC_PUZZLES["quiptic-1367"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Son slowly moves illegible pieces of handwriting (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "SCRAWLS",
    "annotation": {
@@ -257,9 +242,6 @@ window.CRYPTIC_PUZZLES["quiptic-1367"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Best shop principally for ointments (6)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "CREAMS",
    "annotation": {
@@ -306,9 +288,6 @@ window.CRYPTIC_PUZZLES["quiptic-1367"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Rent again varying in Spanish-speaking country (9)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "ARGENTINA",
    "annotation": {
@@ -349,9 +328,6 @@ window.CRYPTIC_PUZZLES["quiptic-1367"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Was dishonest about US college of a narrow nature (7)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "LIMITED",
    "annotation": {
@@ -396,9 +372,6 @@ window.CRYPTIC_PUZZLES["quiptic-1367"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Barrier between properties beyond furnace needs rebuilding (8,5)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -440,9 +413,6 @@ window.CRYPTIC_PUZZLES["quiptic-1367"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Lack success following trouble (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "FAIL",
    "annotation": {
@@ -481,9 +451,6 @@ window.CRYPTIC_PUZZLES["quiptic-1367"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Cricket side with individual batters lately plucky and playing well (2,4,4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      2,
@@ -548,9 +515,6 @@ window.CRYPTIC_PUZZLES["quiptic-1367"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Group not up to much in brief fall of rain (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "SHOWER",
    "annotation": {
@@ -588,9 +552,6 @@ window.CRYPTIC_PUZZLES["quiptic-1367"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Put forward number in team possibly (8)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "NOMINATE",
    "annotation": {
@@ -637,9 +598,6 @@ window.CRYPTIC_PUZZLES["quiptic-1367"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Bid lawyer formulated to get track for riders (9)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "BRIDLEWAY",
    "annotation": {
@@ -680,9 +638,6 @@ window.CRYPTIC_PUZZLES["quiptic-1367"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Attractive bread is baked with glee essentially (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "DESIRABLE",
    "annotation": {
@@ -730,9 +685,6 @@ window.CRYPTIC_PUZZLES["quiptic-1367"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Secure day avoiding area affected by gusts? (5)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "WINDY",
    "annotation": {
@@ -776,9 +728,6 @@ window.CRYPTIC_PUZZLES["quiptic-1367"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Secret consignment put in chest as highlighted (5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "STASH",
    "annotation": {
@@ -813,9 +762,6 @@ window.CRYPTIC_PUZZLES["quiptic-1367"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "A first sign of visitor in nature walk in ordeal (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "TRAVAIL",
    "annotation": {
@@ -868,9 +814,6 @@ window.CRYPTIC_PUZZLES["quiptic-1367"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Dub a lefty misguided through lack of positive action? (2,7)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -912,9 +855,6 @@ window.CRYPTIC_PUZZLES["quiptic-1367"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Cover even stewed prune (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "ENVELOP",
    "annotation": {
@@ -961,9 +901,6 @@ window.CRYPTIC_PUZZLES["quiptic-1367"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Turn in more extensive comfortable chair (7)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "LOUNGER",
    "annotation": {
@@ -1008,9 +945,6 @@ window.CRYPTIC_PUZZLES["quiptic-1367"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Unnerve judge describing case for trial (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "RATTLE",
    "annotation": {
@@ -1057,9 +991,6 @@ window.CRYPTIC_PUZZLES["quiptic-1367"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "A grim era sadly for union (8)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "MARRIAGE",
    "annotation": {
@@ -1100,9 +1031,6 @@ window.CRYPTIC_PUZZLES["quiptic-1367"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Mist in Virginia – and rain (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "VAPOUR",
    "annotation": {
@@ -1145,9 +1073,6 @@ window.CRYPTIC_PUZZLES["quiptic-1367"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Old man leading name in charge produces alarm (5)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "PANIC",
    "annotation": {
@@ -1200,9 +1125,6 @@ window.CRYPTIC_PUZZLES["quiptic-1367"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Southern sailor, one in Baltic at work, has period of leave (10)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "SABBATICAL",
    "annotation": {
@@ -1258,9 +1180,6 @@ window.CRYPTIC_PUZZLES["quiptic-1367"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Badgers and horses in poor condition (4)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "NAGS",
    "annotation": {
@@ -1298,9 +1217,6 @@ window.CRYPTIC_PUZZLES["quiptic-1367"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "One covertly placed in overnight train (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "SLEEPER",
    "annotation": {
@@ -1338,9 +1254,6 @@ window.CRYPTIC_PUZZLES["quiptic-1367"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Special form of therapy to do with ghostly figure (7)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "SPECTRE",
    "annotation": {

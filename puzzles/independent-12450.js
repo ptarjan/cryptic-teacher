@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12450"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Notice boring dock procession (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "PARADE",
    "annotation": {
@@ -71,9 +68,6 @@ window.CRYPTIC_PUZZLES["independent-12450"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Two princes and an unknown in formation (7)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "PHALANX",
    "annotation": {
@@ -171,9 +165,6 @@ window.CRYPTIC_PUZZLES["independent-12450"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Six involved in endless caper by international artist (2,5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -232,9 +223,6 @@ window.CRYPTIC_PUZZLES["independent-12450"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Second half of Heston film follows technique of legendary Englishman (6)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "ARTHUR",
    "annotation": {
@@ -279,9 +267,6 @@ window.CRYPTIC_PUZZLES["independent-12450"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Free, free, free at heart, uplifted with joint (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "REEFER",
    "annotation": {
@@ -343,9 +328,6 @@ window.CRYPTIC_PUZZLES["independent-12450"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "The lady guarding a lake (the round one) is out of the woods? (9)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "HEALTHIER",
    "annotation": {
@@ -401,9 +383,6 @@ window.CRYPTIC_PUZZLES["independent-12450"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Bread with gin drunk by revolutionary (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "ROLLING",
    "annotation": {
@@ -456,9 +435,6 @@ window.CRYPTIC_PUZZLES["independent-12450"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Punishment for toddler concerning watch from ages ago (4,3,2,4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -507,9 +483,6 @@ window.CRYPTIC_PUZZLES["independent-12450"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Meat sauce for a gumbo's stuffing (4)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "RAGU",
    "annotation": {
@@ -543,9 +516,6 @@ window.CRYPTIC_PUZZLES["independent-12450"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Articulate men delivered sound messages (10)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "VOICEMAILS",
    "annotation": {
@@ -589,9 +559,6 @@ window.CRYPTIC_PUZZLES["independent-12450"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Virgin mother back from Bali hideaway (6)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "MAIDEN",
    "annotation": {
@@ -640,9 +607,6 @@ window.CRYPTIC_PUZZLES["independent-12450"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Charged in to vote for hoax, essentially (8)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "ELECTRIC",
    "annotation": {
@@ -688,9 +652,6 @@ window.CRYPTIC_PUZZLES["independent-12450"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Sword, axe, club and fire essentially deployed (9)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "EXCALIBUR",
    "annotation": {
@@ -734,9 +695,6 @@ window.CRYPTIC_PUZZLES["independent-12450"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Presenter of careless anachronism is missing (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "ANCHORMAN",
    "annotation": {
@@ -825,9 +783,6 @@ window.CRYPTIC_PUZZLES["independent-12450"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Chief swaggerer shown by sources of Chretien on chivalry? Kay (4)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "COCK",
    "annotation": {
@@ -870,9 +825,6 @@ window.CRYPTIC_PUZZLES["independent-12450"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Appeared before crowd in musical (7)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "CAMELOT",
    "annotation": {
@@ -918,9 +870,6 @@ window.CRYPTIC_PUZZLES["independent-12450"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Lady exhausted after beginning to hurdle over grand track for fabulous cup (4,5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -992,9 +941,6 @@ window.CRYPTIC_PUZZLES["independent-12450"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Petition for vote against stuck up Americans (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "YANKEES",
    "annotation": {
@@ -1047,9 +993,6 @@ window.CRYPTIC_PUZZLES["independent-12450"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "First name shortened (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "INITIAL",
    "annotation": {
@@ -1103,9 +1046,6 @@ window.CRYPTIC_PUZZLES["independent-12450"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Penguin could be leaving queen on island with hesitation for a big shop (8)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "EMPORIUM",
    "annotation": {
@@ -1163,9 +1103,6 @@ window.CRYPTIC_PUZZLES["independent-12450"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Discovered \"in it\" with donkey (6)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "NITWIT",
    "annotation": {
@@ -1219,9 +1156,6 @@ window.CRYPTIC_PUZZLES["independent-12450"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Cancels him after playing around? Not very likely (4,6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -1263,9 +1197,6 @@ window.CRYPTIC_PUZZLES["independent-12450"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "British idea evens out French wheel? (4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "BRIE",
    "annotation": {
@@ -1308,9 +1239,6 @@ window.CRYPTIC_PUZZLES["independent-12450"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Tough cockney fanatic turned around desolate region (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "TUNDRA",
    "annotation": {
@@ -1365,9 +1293,6 @@ window.CRYPTIC_PUZZLES["independent-12450"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "A fop to boot (2,4)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     ",": [
      2

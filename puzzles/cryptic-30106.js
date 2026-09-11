@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30106"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Out-of-control aircraft’s first to occupy landing zone (7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "RUNAWAY",
    "annotation": {
@@ -74,9 +71,6 @@ window.CRYPTIC_PUZZLES["cryptic-30106"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Runs over clown in theatrical style (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "ROCOCO",
    "annotation": {
@@ -123,9 +117,6 @@ window.CRYPTIC_PUZZLES["cryptic-30106"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "French person in Opera North (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "NORMAN",
    "annotation": {
@@ -166,9 +157,6 @@ window.CRYPTIC_PUZZLES["cryptic-30106"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Bad spelling of broomstick? (10)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "WITCHCRAFT",
    "annotation": {
@@ -209,9 +197,6 @@ window.CRYPTIC_PUZZLES["cryptic-30106"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "It’s disgusting, working in Canadian territory (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "YUKON",
    "annotation": {
@@ -252,9 +237,6 @@ window.CRYPTIC_PUZZLES["cryptic-30106"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Simple stunt with part of foot attached to bike regularly kicked out (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "WHEELIE",
    "annotation": {
@@ -306,9 +288,6 @@ window.CRYPTIC_PUZZLES["cryptic-30106"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Nearly married more severe American? (9)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "WESTERNER",
    "annotation": {
@@ -357,9 +336,6 @@ window.CRYPTIC_PUZZLES["cryptic-30106"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "On return, live in sin (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "EVIL",
    "annotation": {
@@ -406,9 +382,6 @@ window.CRYPTIC_PUZZLES["cryptic-30106"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Venison, perhaps, wrapped in cotton tissue (8)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "LIGAMENT",
    "annotation": {
@@ -453,9 +426,6 @@ window.CRYPTIC_PUZZLES["cryptic-30106"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Nobleman honours stud locations? (8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "EARLOBES",
    "annotation": {
@@ -493,9 +463,6 @@ window.CRYPTIC_PUZZLES["cryptic-30106"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Oscar attempts to hide measure of gold (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "CARAT",
    "annotation": {
@@ -530,9 +497,6 @@ window.CRYPTIC_PUZZLES["cryptic-30106"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Controversial US politician snogging that Cockney woman (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "KISSINGER",
    "annotation": {
@@ -576,9 +540,6 @@ window.CRYPTIC_PUZZLES["cryptic-30106"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Surprisingly, not a charge for item in wardrobe (4,6)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -623,9 +584,6 @@ window.CRYPTIC_PUZZLES["cryptic-30106"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "After revolution, commandant stores bullets etc (4)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "AMMO",
    "annotation": {
@@ -671,9 +629,6 @@ window.CRYPTIC_PUZZLES["cryptic-30106"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "President books inspiring wise man as promoter (5,5)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -730,9 +685,6 @@ window.CRYPTIC_PUZZLES["cryptic-30106"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "How far one can travel with a Tesla in place of Golf? (7,5)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -768,9 +720,6 @@ window.CRYPTIC_PUZZLES["cryptic-30106"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Cave with squid bemused investigative team (4,5)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -812,9 +761,6 @@ window.CRYPTIC_PUZZLES["cryptic-30106"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Deviant president, Republican, with tirade (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "ABERRANT",
    "annotation": {
@@ -861,9 +807,6 @@ window.CRYPTIC_PUZZLES["cryptic-30106"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Perhaps neon lit up Tangiers (5,3)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -905,9 +848,6 @@ window.CRYPTIC_PUZZLES["cryptic-30106"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Patron beats fencers off (12)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "BENEFACTRESS",
    "annotation": {
@@ -945,9 +885,6 @@ window.CRYPTIC_PUZZLES["cryptic-30106"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Arm private investigator, with many uprising (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "PISTOL",
    "annotation": {
@@ -1000,9 +937,6 @@ window.CRYPTIC_PUZZLES["cryptic-30106"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Refreshed Green party at last showing intensity (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "ENERGY",
    "annotation": {
@@ -1050,9 +984,6 @@ window.CRYPTIC_PUZZLES["cryptic-30106"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Two-thirds of Zimbabwean capital is unusual (4)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "RARE",
    "annotation": {
@@ -1098,9 +1029,6 @@ window.CRYPTIC_PUZZLES["cryptic-30106"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Eager desire of Parisian to corrupt (10)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "ASPIRATION",
    "annotation": {
@@ -1141,9 +1069,6 @@ window.CRYPTIC_PUZZLES["cryptic-30106"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Clubs abandoning cricket, perhaps? It should be seen as part of the bigger picture (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "INSET",
    "annotation": {
@@ -1186,9 +1111,6 @@ window.CRYPTIC_PUZZLES["cryptic-30106"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Handle screw-up (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "KNOB",
    "annotation": {
@@ -1232,9 +1154,6 @@ window.CRYPTIC_PUZZLES["cryptic-30106"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Angostura rum for heroic sailors (9)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "ARGONAUTS",
    "annotation": {
@@ -1275,9 +1194,6 @@ window.CRYPTIC_PUZZLES["cryptic-30106"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Go into middle of America with shaved head (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "ENTER",
    "annotation": {
@@ -1320,9 +1236,6 @@ window.CRYPTIC_PUZZLES["cryptic-30106"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "International match with live feed at last, a place to experiment (4,3)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -1379,9 +1292,6 @@ window.CRYPTIC_PUZZLES["cryptic-30106"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Shot colleague dead (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "TOTALLY",
    "annotation": {

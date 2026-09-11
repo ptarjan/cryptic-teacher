@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1353"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Trick nurse in debate (7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "CONTEND",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["quiptic-1353"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Embrace seal (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "CLINCH",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["quiptic-1353"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Peer into US city – almost (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "NEARLY",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["quiptic-1353"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Former lover on course with worker going beyond the usual limits (10)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "EXORBITANT",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["quiptic-1353"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Greek letter infidel taxman conceals (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "DELTA",
    "annotation": null
@@ -110,9 +95,6 @@ window.CRYPTIC_PUZZLES["quiptic-1353"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Walk back then jump into retail unit (3,4)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -131,9 +113,6 @@ window.CRYPTIC_PUZZLES["quiptic-1353"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "One travelling quietly with idiot, engineer and old Queen (9)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "PASSENGER",
    "annotation": null
@@ -148,9 +127,6 @@ window.CRYPTIC_PUZZLES["quiptic-1353"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Food from lorry missing second element (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "TUCK",
    "annotation": null
@@ -165,9 +141,6 @@ window.CRYPTIC_PUZZLES["quiptic-1353"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Run off after domestic pest (8)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "HOUSEFLY",
    "annotation": null
@@ -182,9 +155,6 @@ window.CRYPTIC_PUZZLES["quiptic-1353"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Rule out putting contralto in overture (8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "PRECLUDE",
    "annotation": null
@@ -199,9 +169,6 @@ window.CRYPTIC_PUZZLES["quiptic-1353"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "One possessed flipping love for state (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "IDAHO",
    "annotation": null
@@ -216,9 +183,6 @@ window.CRYPTIC_PUZZLES["quiptic-1353"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Mislaid reason for hopeless endeavour (4,5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -237,9 +201,6 @@ window.CRYPTIC_PUZZLES["quiptic-1353"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Feted rebel acted out (10)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "CELEBRATED",
    "annotation": null
@@ -254,9 +215,6 @@ window.CRYPTIC_PUZZLES["quiptic-1353"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Endlessly touches fish (3)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "EEL",
    "annotation": null
@@ -271,9 +229,6 @@ window.CRYPTIC_PUZZLES["quiptic-1353"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Savage crossing hill and winning (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "VICTORIOUS",
    "annotation": null
@@ -288,9 +243,6 @@ window.CRYPTIC_PUZZLES["quiptic-1353"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Resolute way Ron grimaced at first then left (6-6)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     "-": [
      6
@@ -309,9 +261,6 @@ window.CRYPTIC_PUZZLES["quiptic-1353"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Artist welcomed by poorest miserable machinists (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "OPERATORS",
    "annotation": null
@@ -326,9 +275,6 @@ window.CRYPTIC_PUZZLES["quiptic-1353"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Warn in notice – day is hot (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "ADMONISH",
    "annotation": null
@@ -343,9 +289,6 @@ window.CRYPTIC_PUZZLES["quiptic-1353"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Upsetting details about duck being detached (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "ISOLATED",
    "annotation": null
@@ -360,9 +303,6 @@ window.CRYPTIC_PUZZLES["quiptic-1353"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Strangely design attire to fall apart (12)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "DISINTEGRATE",
    "annotation": null
@@ -377,9 +317,6 @@ window.CRYPTIC_PUZZLES["quiptic-1353"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Cause harm to barrier over time (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "DAMAGE",
    "annotation": null
@@ -394,9 +331,6 @@ window.CRYPTIC_PUZZLES["quiptic-1353"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Hunted and restrained we hear (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "CHASED",
    "annotation": null
@@ -411,9 +345,6 @@ window.CRYPTIC_PUZZLES["quiptic-1353"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Bird not following predator (3)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "OWL",
    "annotation": null
@@ -428,9 +359,6 @@ window.CRYPTIC_PUZZLES["quiptic-1353"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Rubbish black tree and dead tree (10)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "BALDERDASH",
    "annotation": null
@@ -445,9 +373,6 @@ window.CRYPTIC_PUZZLES["quiptic-1353"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Force dropping uniform clothing (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "DRESS",
    "annotation": null
@@ -462,9 +387,6 @@ window.CRYPTIC_PUZZLES["quiptic-1353"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Group of players principally taking roles in operetta (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "TRIO",
    "annotation": null
@@ -479,9 +401,6 @@ window.CRYPTIC_PUZZLES["quiptic-1353"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Bury Post Office initially send everything to place inbetween (9)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "INTERPOSE",
    "annotation": null
@@ -496,9 +415,6 @@ window.CRYPTIC_PUZZLES["quiptic-1353"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Duck hit revolving stones (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "OPALS",
    "annotation": null
@@ -513,9 +429,6 @@ window.CRYPTIC_PUZZLES["quiptic-1353"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Revolting rogue regularly wearing animal skins (7)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "HIDEOUS",
    "annotation": null
@@ -530,9 +443,6 @@ window.CRYPTIC_PUZZLES["quiptic-1353"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Hold up pay out across America (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "SUSPEND",
    "annotation": null

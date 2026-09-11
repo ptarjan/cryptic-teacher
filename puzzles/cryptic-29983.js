@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29983"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Watch over third of Penelope Cruz covers (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "TEND",
    "annotation": {
@@ -74,9 +71,6 @@ window.CRYPTIC_PUZZLES["cryptic-29983"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Batter, work Frenchman over (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "OPENER",
    "annotation": {
@@ -126,9 +120,6 @@ window.CRYPTIC_PUZZLES["cryptic-29983"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Run out of tent seized by darn crazy hysteric (5,5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -184,9 +175,6 @@ window.CRYPTIC_PUZZLES["cryptic-29983"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Military standard unveiled by East Wing (6)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "ANNEXE",
    "annotation": {
@@ -236,9 +224,6 @@ window.CRYPTIC_PUZZLES["cryptic-29983"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "The Times: Oysters Turned Up Outside Sam’s Home (8)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "YOSEMITE",
    "annotation": {
@@ -281,9 +266,6 @@ window.CRYPTIC_PUZZLES["cryptic-29983"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "A congested city rises again (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "ANEW",
    "annotation": {
@@ -333,9 +315,6 @@ window.CRYPTIC_PUZZLES["cryptic-29983"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Judi exhausted, carried by terribly skinny chap in tights (8)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "NIJINSKY",
    "annotation": {
@@ -387,9 +366,6 @@ window.CRYPTIC_PUZZLES["cryptic-29983"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Welshman’s platform (4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "DAIS",
    "annotation": {
@@ -428,9 +404,6 @@ window.CRYPTIC_PUZZLES["cryptic-29983"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "2 sat wagging tongue (9)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "ESPERANTO",
    "annotation": {
@@ -473,9 +446,6 @@ window.CRYPTIC_PUZZLES["cryptic-29983"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "West African rhino has Unitarian retreating (5)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "NAIRA",
    "annotation": {
@@ -518,9 +488,6 @@ window.CRYPTIC_PUZZLES["cryptic-29983"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Material taken from ground from the east (5)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "DENIM",
    "annotation": {
@@ -564,9 +531,6 @@ window.CRYPTIC_PUZZLES["cryptic-29983"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "White flower displayed by Wise when playing with Leeds (9)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "EDELWEISS",
    "annotation": {
@@ -613,9 +577,6 @@ window.CRYPTIC_PUZZLES["cryptic-29983"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Extravagantly ornate vessel loaded with cargo at the back (7)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "BAROQUE",
    "annotation": {
@@ -662,9 +623,6 @@ window.CRYPTIC_PUZZLES["cryptic-29983"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Low character, Liberal, one probing British parliamentarian (5)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "BLIMP",
    "annotation": {
@@ -719,9 +677,6 @@ window.CRYPTIC_PUZZLES["cryptic-29983"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Popular sibling without hesitation beginning to suggest demands (7)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "INSISTS",
    "annotation": {
@@ -778,9 +733,6 @@ window.CRYPTIC_PUZZLES["cryptic-29983"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Vegas’s last crook gambler (10)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "SPECULATOR",
    "annotation": {
@@ -824,9 +776,6 @@ window.CRYPTIC_PUZZLES["cryptic-29983"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "French barman posed, tied, naked (5)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "SATIE",
    "annotation": {
@@ -870,9 +819,6 @@ window.CRYPTIC_PUZZLES["cryptic-29983"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Hat is miserable, lacking will ultimately to inspire (5)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "IMBUE",
    "annotation": {
@@ -926,9 +872,6 @@ window.CRYPTIC_PUZZLES["cryptic-29983"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Nick rolled over, rolled over topless in brothel (8)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "BORDELLO",
    "annotation": {
@@ -987,9 +930,6 @@ window.CRYPTIC_PUZZLES["cryptic-29983"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Regularly offered payment (3)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "FEE",
    "annotation": {
@@ -1029,9 +969,6 @@ window.CRYPTIC_PUZZLES["cryptic-29983"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Corporal perhaps put on fine, shiny material for dance (8)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "FLAMENCO",
    "annotation": {
@@ -1084,9 +1021,6 @@ window.CRYPTIC_PUZZLES["cryptic-29983"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Torture admitted by alien nation (5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "EGYPT",
    "annotation": {
@@ -1131,9 +1065,6 @@ window.CRYPTIC_PUZZLES["cryptic-29983"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Quiet country hotel, first-class fish (7)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "PIRANHA",
    "annotation": {
@@ -1184,9 +1115,6 @@ window.CRYPTIC_PUZZLES["cryptic-29983"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Last slice of Arctic roll for pud (7)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "CRUMBLE",
    "annotation": {
@@ -1233,9 +1161,6 @@ window.CRYPTIC_PUZZLES["cryptic-29983"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Republican supporting Tory Party high flier (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "CONDOR",
    "annotation": {
@@ -1285,9 +1210,6 @@ window.CRYPTIC_PUZZLES["cryptic-29983"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "£1 filled Chinese bun pintxos sold here (6)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "BILBAO",
    "annotation": {
@@ -1332,9 +1254,6 @@ window.CRYPTIC_PUZZLES["cryptic-29983"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Inexperienced head that’s likely to get chopped (5,4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -1377,9 +1296,6 @@ window.CRYPTIC_PUZZLES["cryptic-29983"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Stomach punched by second blow (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "GUST",
    "annotation": {
@@ -1424,9 +1340,6 @@ window.CRYPTIC_PUZZLES["cryptic-29983"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Average type, and not married (4)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "NORM",
    "annotation": {
@@ -1465,9 +1378,6 @@ window.CRYPTIC_PUZZLES["cryptic-29983"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Broad-shouldered bloke getting time off finally (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "ATLAS",
    "annotation": {
@@ -1513,9 +1423,6 @@ window.CRYPTIC_PUZZLES["cryptic-29983"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "For starters, some marinated eel with duck (4)",
-   "group": [
-    "27-down"
-   ],
    "separatorLocations": {},
    "solution": "SMEW",
    "annotation": {
@@ -1556,9 +1463,6 @@ window.CRYPTIC_PUZZLES["cryptic-29983"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Former garret, very large area, right? (5)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "SOLAR",
    "annotation": {
@@ -1609,9 +1513,6 @@ window.CRYPTIC_PUZZLES["cryptic-29983"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Teach cool new Topic? (9)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "CHOCOLATE",
    "annotation": {

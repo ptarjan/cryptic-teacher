@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4090"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "March curtailed, flipping study intensely (4)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "CRAM",
    "annotation": {
@@ -73,9 +70,6 @@ window.CRYPTIC_PUZZLES["everyman-4090"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Cold rough pods crushed for help when you’re down with something … (5,5)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -125,9 +119,6 @@ window.CRYPTIC_PUZZLES["everyman-4090"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "… or rapid deployment in some things coming down? (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "AIRDROP",
    "annotation": {
@@ -169,9 +160,6 @@ window.CRYPTIC_PUZZLES["everyman-4090"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Loud gale found smashing bay (4,2,4)",
-   "group": [
-    "3-across"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -219,9 +207,6 @@ window.CRYPTIC_PUZZLES["everyman-4090"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Complete state (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "UTTER",
    "annotation": {
@@ -255,9 +240,6 @@ window.CRYPTIC_PUZZLES["everyman-4090"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Cool: Eliot embracing ‘the East’ in freeform works (9)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "FANTASIAS",
    "annotation": {
@@ -311,9 +293,6 @@ window.CRYPTIC_PUZZLES["everyman-4090"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Dessert: tomato on a rusty nail? (5,8)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -358,9 +337,6 @@ window.CRYPTIC_PUZZLES["everyman-4090"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Removes antlers from deer, regularly cropped, first to last? (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "DEHORNS",
    "annotation": {
@@ -406,9 +382,6 @@ window.CRYPTIC_PUZZLES["everyman-4090"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Grub meaning peace won’t come? (4)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "NOSH",
    "annotation": {
@@ -449,9 +422,6 @@ window.CRYPTIC_PUZZLES["everyman-4090"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Primarily – unsurprisingly – this Randstad eco city has trams! (7)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "UTRECHT",
    "annotation": {
@@ -495,9 +465,6 @@ window.CRYPTIC_PUZZLES["everyman-4090"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Cut around nasty old icicle: it grips tightly (9,4)",
-   "group": [
-    "10-down"
-   ],
    "separatorLocations": {
     ",": [
      9
@@ -554,9 +521,6 @@ window.CRYPTIC_PUZZLES["everyman-4090"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Pair of characters from 2001 (7)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "NOUGHTS",
    "annotation": {
@@ -594,9 +558,6 @@ window.CRYPTIC_PUZZLES["everyman-4090"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Nurse schooner, perhaps port overseen by me (7,6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -645,9 +606,6 @@ window.CRYPTIC_PUZZLES["everyman-4090"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Charlatans’ trendier analyses heard (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "HYPOCRITES",
    "annotation": {
@@ -693,9 +651,6 @@ window.CRYPTIC_PUZZLES["everyman-4090"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Carbon copy, fireproof (a bit) (5)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "REPRO",
    "annotation": {
@@ -730,9 +685,6 @@ window.CRYPTIC_PUZZLES["everyman-4090"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "‘Mousy’ lion revived in alarming fashion (9)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "OMINOUSLY",
    "annotation": {
@@ -770,9 +722,6 @@ window.CRYPTIC_PUZZLES["everyman-4090"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Offers introductory music (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "OVERTURES",
    "annotation": {
@@ -808,9 +757,6 @@ window.CRYPTIC_PUZZLES["everyman-4090"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Poor, like a ‘Dreadful’ description of gruesome Victoriana? (9)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "PENNILESS",
    "annotation": {
@@ -848,9 +794,6 @@ window.CRYPTIC_PUZZLES["everyman-4090"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "One’s mixed with gin and drop of rosso (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "NEGRONI",
    "annotation": {
@@ -909,9 +852,6 @@ window.CRYPTIC_PUZZLES["everyman-4090"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Love to yak emptily going round city (5)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "KYOTO",
    "annotation": {
@@ -969,9 +909,6 @@ window.CRYPTIC_PUZZLES["everyman-4090"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Bad borscht; no starter; Everyman hiding: he avoids problems (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "OSTRICH",
    "annotation": {
@@ -1019,9 +956,6 @@ window.CRYPTIC_PUZZLES["everyman-4090"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Dancing, gather bottles and music-maker (6,7)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -1066,9 +1000,6 @@ window.CRYPTIC_PUZZLES["everyman-4090"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Philosopher’s preparin’ dish for Paul Hollywood, you say? (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "BACON",
    "annotation": {
@@ -1107,9 +1038,6 @@ window.CRYPTIC_PUZZLES["everyman-4090"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Biblical brother covered in Worcestershire sauce (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "ESAU",
    "annotation": {
@@ -1144,9 +1072,6 @@ window.CRYPTIC_PUZZLES["everyman-4090"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Aerodynamic device that might come with an alert (7)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "SPOILER",
    "annotation": {
@@ -1182,9 +1107,6 @@ window.CRYPTIC_PUZZLES["everyman-4090"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "One takes a bow before and after concert (7)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "CELLIST",
    "annotation": {
@@ -1222,9 +1144,6 @@ window.CRYPTIC_PUZZLES["everyman-4090"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "After university, Frenchman acting affectedly: not impressive (10)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "UNIMPOSING",
    "annotation": {
@@ -1274,9 +1193,6 @@ window.CRYPTIC_PUZZLES["everyman-4090"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Disrespectfully, Your Majesty, two or three are needed for a dance (4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "CHAS",
    "annotation": {

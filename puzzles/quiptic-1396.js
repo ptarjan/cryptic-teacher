@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["quiptic-1396"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Well-established desire to hug bear (4-8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -75,9 +72,6 @@ window.CRYPTIC_PUZZLES["quiptic-1396"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Engage in combat using bolt and car parts (4,5)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -121,9 +115,6 @@ window.CRYPTIC_PUZZLES["quiptic-1396"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Managed to rise and judge first of defendants chronicled (8)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "NARRATED",
    "annotation": {
@@ -183,9 +174,6 @@ window.CRYPTIC_PUZZLES["quiptic-1396"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Son caught in the morning with first of scarpering cons (5)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "SCAMS",
    "annotation": {
@@ -240,9 +228,6 @@ window.CRYPTIC_PUZZLES["quiptic-1396"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Tried allure during unusual date (9)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "ATTEMPTED",
    "annotation": {
@@ -294,9 +279,6 @@ window.CRYPTIC_PUZZLES["quiptic-1396"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Humble setter embraced by churchman (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "DEMEAN",
    "annotation": {
@@ -340,9 +322,6 @@ window.CRYPTIC_PUZZLES["quiptic-1396"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Celebrated journalist after negative time (5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "NOTED",
    "annotation": {
@@ -391,9 +370,6 @@ window.CRYPTIC_PUZZLES["quiptic-1396"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Try and go up for idle chat (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "GOSSIP",
    "annotation": {
@@ -445,9 +421,6 @@ window.CRYPTIC_PUZZLES["quiptic-1396"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Various reasons love left traps (6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "SNARES",
    "annotation": {
@@ -491,9 +464,6 @@ window.CRYPTIC_PUZZLES["quiptic-1396"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Love Mark getting award (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "OSCAR",
    "annotation": {
@@ -533,9 +503,6 @@ window.CRYPTIC_PUZZLES["quiptic-1396"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Fruit held by gold, new clockwork device (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "AUTOMATON",
    "annotation": {
@@ -584,9 +551,6 @@ window.CRYPTIC_PUZZLES["quiptic-1396"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Sleeps following second cold then hot drink (7)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "SCHNAPS",
    "annotation": {
@@ -644,9 +608,6 @@ window.CRYPTIC_PUZZLES["quiptic-1396"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Snake wrongly renamed (7)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "MEANDER",
    "annotation": {
@@ -683,9 +644,6 @@ window.CRYPTIC_PUZZLES["quiptic-1396"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Preserve and tea peer put out (10)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "PERPETUATE",
    "annotation": {
@@ -725,9 +683,6 @@ window.CRYPTIC_PUZZLES["quiptic-1396"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Simple doctor adored nun (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "UNADORNED",
    "annotation": {
@@ -764,9 +719,6 @@ window.CRYPTIC_PUZZLES["quiptic-1396"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Leaders of legal establishment start speechifying to a smaller degree (4)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "LESS",
    "annotation": {
@@ -806,9 +758,6 @@ window.CRYPTIC_PUZZLES["quiptic-1396"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Left Charlie out for line to be judged (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "EVALUATED",
    "annotation": {
@@ -857,9 +806,6 @@ window.CRYPTIC_PUZZLES["quiptic-1396"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Small cross is reformed as cutting instrument (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "SCISSORS",
    "annotation": {
@@ -905,9 +851,6 @@ window.CRYPTIC_PUZZLES["quiptic-1396"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Bishop to question lie (4)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "BASK",
    "annotation": {
@@ -947,9 +890,6 @@ window.CRYPTIC_PUZZLES["quiptic-1396"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Mate to obtain spending allowance (6)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "BUDGET",
    "annotation": {
@@ -989,9 +929,6 @@ window.CRYPTIC_PUZZLES["quiptic-1396"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Workmanship shown by worker in charge a lot (10)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "HANDICRAFT",
    "annotation": {
@@ -1037,9 +974,6 @@ window.CRYPTIC_PUZZLES["quiptic-1396"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Note clue number (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "TWENTY",
    "annotation": {
@@ -1073,9 +1007,6 @@ window.CRYPTIC_PUZZLES["quiptic-1396"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Crowd lie about phone (6)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "MOBILE",
    "annotation": {
@@ -1124,9 +1055,6 @@ window.CRYPTIC_PUZZLES["quiptic-1396"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Old boa I reshaped into circus prop (7)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "DIABOLO",
    "annotation": {
@@ -1166,9 +1094,6 @@ window.CRYPTIC_PUZZLES["quiptic-1396"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "A seed fruit (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "ACORN",
    "annotation": {
@@ -1205,9 +1130,6 @@ window.CRYPTIC_PUZZLES["quiptic-1396"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Meadow beyond river (7)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "PASTURE",
    "annotation": {
@@ -1244,9 +1166,6 @@ window.CRYPTIC_PUZZLES["quiptic-1396"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Beat bean? (5)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "PULSE",
    "annotation": {
@@ -1280,9 +1199,6 @@ window.CRYPTIC_PUZZLES["quiptic-1396"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Upset menial too sensitive (9)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "EMOTIONAL",
    "annotation": {
@@ -1319,9 +1235,6 @@ window.CRYPTIC_PUZZLES["quiptic-1396"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "College note in books for group (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "OCTET",
    "annotation": {
@@ -1374,9 +1287,6 @@ window.CRYPTIC_PUZZLES["quiptic-1396"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Renders dudes drunk and overly casual (12)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "UNDERDRESSED",
    "annotation": {

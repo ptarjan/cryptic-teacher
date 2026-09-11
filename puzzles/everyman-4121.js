@@ -35,9 +35,6 @@ window.CRYPTIC_PUZZLES["everyman-4121"] = /*JSON-START*/ {
      5
     ]
    ],
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "RHEA",
    "annotation": {
@@ -72,9 +69,6 @@ window.CRYPTIC_PUZZLES["everyman-4121"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Far-sighted? Not good: reckless, reckless (4-5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -122,9 +116,6 @@ window.CRYPTIC_PUZZLES["everyman-4121"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Wanting volume, navy seal overturned study (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "ANALYSE",
    "annotation": {
@@ -168,9 +159,6 @@ window.CRYPTIC_PUZZLES["everyman-4121"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Resistance units reported in East End residences (4)",
-   "group": [
-    "4-across"
-   ],
    "separatorLocations": {},
    "solution": "OHMS",
    "annotation": {
@@ -215,9 +203,6 @@ window.CRYPTIC_PUZZLES["everyman-4121"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Books a vehicle in Clapham (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "OMNIBUS",
    "annotation": {
@@ -253,9 +238,6 @@ window.CRYPTIC_PUZZLES["everyman-4121"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Car exam: providing figure (5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "MOTIF",
    "annotation": {
@@ -293,9 +275,6 @@ window.CRYPTIC_PUZZLES["everyman-4121"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "'Hullo, I see no weeding tool', you say? (4,2)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -339,9 +318,6 @@ window.CRYPTIC_PUZZLES["everyman-4121"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Excuse me, Doris - boom! (6)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "HEYDAY",
    "annotation": {
@@ -379,9 +355,6 @@ window.CRYPTIC_PUZZLES["everyman-4121"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Bob vs. his uncle, pray (4,7,4)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -430,9 +403,6 @@ window.CRYPTIC_PUZZLES["everyman-4121"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Spooner's report of rugby somewhere in Trinidad (4-2-5)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {
     "-": [
      4,
@@ -483,9 +453,6 @@ window.CRYPTIC_PUZZLES["everyman-4121"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Unaware of Victor - too bilious, seething (9,2)",
-   "group": [
-    "10-down"
-   ],
    "separatorLocations": {
     ",": [
      9
@@ -531,9 +498,6 @@ window.CRYPTIC_PUZZLES["everyman-4121"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "(60% of 3 + 80% of 50) ... careful! (7)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "THRIFTY",
    "annotation": {
@@ -578,9 +542,6 @@ window.CRYPTIC_PUZZLES["everyman-4121"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "After degree, fellow ran off, perplexed (7)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "BAFFLED",
    "annotation": {
@@ -629,9 +590,6 @@ window.CRYPTIC_PUZZLES["everyman-4121"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Not to be sniffed at? (9)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "ODOURLESS",
    "annotation": {
@@ -663,9 +621,6 @@ window.CRYPTIC_PUZZLES["everyman-4121"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Somewhat inconspicuous, a voyeur in hotel (5)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "SAVOY",
    "annotation": {
@@ -702,9 +657,6 @@ window.CRYPTIC_PUZZLES["everyman-4121"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Elks added to resort: run! (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "SKEDADDLE",
    "annotation": {
@@ -744,9 +696,6 @@ window.CRYPTIC_PUZZLES["everyman-4121"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Took another exam in Weaponry From The East (5)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "RESAT",
    "annotation": {
@@ -798,9 +747,6 @@ window.CRYPTIC_PUZZLES["everyman-4121"] = /*JSON-START*/ {
      6
     ]
    ],
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "RESUME",
    "annotation": {
@@ -835,9 +781,6 @@ window.CRYPTIC_PUZZLES["everyman-4121"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Nominates Liberal for Midwestern state (9)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "MINNESOTA",
    "annotation": {
@@ -877,9 +820,6 @@ window.CRYPTIC_PUZZLES["everyman-4121"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Hurt and depressed, English poet (7)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "MARLOWE",
    "annotation": {
@@ -923,9 +863,6 @@ window.CRYPTIC_PUZZLES["everyman-4121"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Drops of (not exclusively) gin, rosso, orange ... naturally, ice! (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "NEGRONI",
    "annotation": {
@@ -974,9 +911,6 @@ window.CRYPTIC_PUZZLES["everyman-4121"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Regularly panics elders, displaying divisions in Church (6)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "AISLES",
    "annotation": {
@@ -1022,9 +956,6 @@ window.CRYPTIC_PUZZLES["everyman-4121"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Relative, crazy; looking back, not so crazy (7)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "STABLER",
    "annotation": {
@@ -1072,9 +1003,6 @@ window.CRYPTIC_PUZZLES["everyman-4121"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Blanket for quail in nest? (5)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "LAYER",
    "annotation": {
@@ -1112,9 +1040,6 @@ window.CRYPTIC_PUZZLES["everyman-4121"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Rats in pasturage (7)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "GRASSES",
    "annotation": {
@@ -1152,9 +1077,6 @@ window.CRYPTIC_PUZZLES["everyman-4121"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Employer of Rod on break - getting paid while idle (5,3,3,4)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     ",": [
      5,
@@ -1197,9 +1119,6 @@ window.CRYPTIC_PUZZLES["everyman-4121"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Brother, that is mild cheese! (4)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "BRIE",
    "annotation": {
@@ -1242,9 +1161,6 @@ window.CRYPTIC_PUZZLES["everyman-4121"] = /*JSON-START*/ {
      40,
      8
     ]
-   ],
-   "group": [
-    "24-across"
    ],
    "separatorLocations": {},
    "solution": "IDEA",

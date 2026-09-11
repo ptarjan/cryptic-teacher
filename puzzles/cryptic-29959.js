@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29959"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Amino acid tipped for synthesis in volcanic island (8)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "DOMINICA",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["cryptic-29959"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Playing autoharp; regrettably a pro’s left it in a state (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "UTAH",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["cryptic-29959"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Using cunning, zip about No 4 in Second Eleven (6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "FOXILY",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["cryptic-29959"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Dance, as Marillion song on the radio (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "CEILIDH",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["cryptic-29959"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "A drowned valley that’s conveyed by piping (4)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "ARIA",
    "annotation": null
@@ -110,9 +95,6 @@ window.CRYPTIC_PUZZLES["cryptic-29959"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Deduce spoof largely concocted with AI instructions? (10)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "PSEUDOCODE",
    "annotation": null
@@ -127,9 +109,6 @@ window.CRYPTIC_PUZZLES["cryptic-29959"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Hopefully, with finale from tenor to replace bass, producing calm (2,4)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -148,9 +127,6 @@ window.CRYPTIC_PUZZLES["cryptic-29959"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Originally, baker oversupplied lightly – 13 – he often leaves éclair in safe place (4-4)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -169,9 +145,6 @@ window.CRYPTIC_PUZZLES["cryptic-29959"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Zero tolerance finally adopted during time off (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "RESET",
    "annotation": null
@@ -186,9 +159,6 @@ window.CRYPTIC_PUZZLES["cryptic-29959"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Slightly rotten greeting yelled (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "HIGH",
    "annotation": null
@@ -203,9 +173,6 @@ window.CRYPTIC_PUZZLES["cryptic-29959"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Intrude, all agitated and surly (3-7)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -224,9 +191,6 @@ window.CRYPTIC_PUZZLES["cryptic-29959"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "The reverse of ‘dark’ and ‘night’? (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "MIDDAY",
    "annotation": null
@@ -241,9 +205,6 @@ window.CRYPTIC_PUZZLES["cryptic-29959"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Was Spice Girl impersonating duck that’s low-pitched and resonant? (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "DIDGERIDOO",
    "annotation": null
@@ -264,9 +225,6 @@ window.CRYPTIC_PUZZLES["cryptic-29959"] = /*JSON-START*/ {
      8
     ]
    ],
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -285,9 +243,6 @@ window.CRYPTIC_PUZZLES["cryptic-29959"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Middle of Feb, day in early May, or one late in Dec? (3)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "EVE",
    "annotation": null
@@ -302,9 +257,6 @@ window.CRYPTIC_PUZZLES["cryptic-29959"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Gunman’s order delivered with difficulty, it’s implied (5,2)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -323,9 +275,6 @@ window.CRYPTIC_PUZZLES["cryptic-29959"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Sunhats: oddly ignored means of preserving life (3)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "UHT",
    "annotation": null
@@ -340,9 +289,6 @@ window.CRYPTIC_PUZZLES["cryptic-29959"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Excellent: room’s confining, at last, Bruno Mars (7)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "DEFORMS",
    "annotation": null
@@ -357,9 +303,6 @@ window.CRYPTIC_PUZZLES["cryptic-29959"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Composition part #2 (8)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "MOVEMENT",
    "annotation": null
@@ -374,9 +317,6 @@ window.CRYPTIC_PUZZLES["cryptic-29959"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Sicilians possibly expelling a Milanese, awkwardly (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "ISLEMEN",
    "annotation": null
@@ -391,9 +331,6 @@ window.CRYPTIC_PUZZLES["cryptic-29959"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Zoned out: this is ignoring the writer’s parts (8)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "DOZENTHS",
    "annotation": null
@@ -414,9 +351,6 @@ window.CRYPTIC_PUZZLES["cryptic-29959"] = /*JSON-START*/ {
      5
     ]
    ],
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "OBERON",
    "annotation": null
@@ -431,9 +365,6 @@ window.CRYPTIC_PUZZLES["cryptic-29959"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Figure set around mostly satisfactory constant (6)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "TWELVE",
    "annotation": null
@@ -448,9 +379,6 @@ window.CRYPTIC_PUZZLES["cryptic-29959"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Former student crowned by those people – wise guys (3,3)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -469,9 +397,6 @@ window.CRYPTIC_PUZZLES["cryptic-29959"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Border has shown up throttling power in world? Not half (10)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "HEMISPHERE",
    "annotation": null
@@ -492,9 +417,6 @@ window.CRYPTIC_PUZZLES["cryptic-29959"] = /*JSON-START*/ {
      9
     ]
    ],
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "PESO",
    "annotation": null
@@ -509,9 +431,6 @@ window.CRYPTIC_PUZZLES["cryptic-29959"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Relief: American sizes successively decreasing (4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "ALMS",
    "annotation": null
@@ -526,9 +445,6 @@ window.CRYPTIC_PUZZLES["cryptic-29959"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Miles – perhaps not 500 – in cars offered here (4)",
-   "group": [
-    "26-down"
-   ],
    "separatorLocations": {},
    "solution": "AVIS",
    "annotation": null
@@ -543,9 +459,6 @@ window.CRYPTIC_PUZZLES["cryptic-29959"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "I’m surprised by cellists’ kit that’s heard in woodwinds (5)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "OBOES",
    "annotation": null
@@ -565,9 +478,6 @@ window.CRYPTIC_PUZZLES["cryptic-29959"] = /*JSON-START*/ {
      34,
      25
     ]
-   ],
-   "group": [
-    "28-across"
    ],
    "separatorLocations": {},
    "solution": "EMOTIONS",

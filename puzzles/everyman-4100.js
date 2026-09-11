@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4100"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Small-timer mucked about in flowing water (4,6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -46,9 +43,6 @@ window.CRYPTIC_PUZZLES["everyman-4100"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Culinary paste that's semi-soft? In part (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "MISO",
    "annotation": null
@@ -63,9 +57,6 @@ window.CRYPTIC_PUZZLES["everyman-4100"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Section of allegory that amuses youngsters (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "LEGO",
    "annotation": null
@@ -86,9 +77,6 @@ window.CRYPTIC_PUZZLES["everyman-4100"] = /*JSON-START*/ {
      14
     ]
    ],
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -107,9 +95,6 @@ window.CRYPTIC_PUZZLES["everyman-4100"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Something like toughly? (7)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "ROUGHLY",
    "annotation": null
@@ -124,9 +109,6 @@ window.CRYPTIC_PUZZLES["everyman-4100"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Declared Cockney's claim to be aware? (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "AVERRED",
    "annotation": null
@@ -141,9 +123,6 @@ window.CRYPTIC_PUZZLES["everyman-4100"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Pronouncedly idle, Everyman's of inferior quality (2-2)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {
     "-": [
      2
@@ -162,9 +141,6 @@ window.CRYPTIC_PUZZLES["everyman-4100"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Around the bend, never starting to move for a century (3,7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -183,9 +159,6 @@ window.CRYPTIC_PUZZLES["everyman-4100"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Create moment of conception with permeating forms (10)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "IMPREGNATE",
    "annotation": null
@@ -200,9 +173,6 @@ window.CRYPTIC_PUZZLES["everyman-4100"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Sister inhaling midgie at riverside to gain approval more than once (10)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "SIGNATURES",
    "annotation": null
@@ -217,9 +187,6 @@ window.CRYPTIC_PUZZLES["everyman-4100"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Look back to see part of castle (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "KEEP",
    "annotation": null
@@ -234,9 +201,6 @@ window.CRYPTIC_PUZZLES["everyman-4100"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Maternal protector healed mature hornet (6,6)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -261,9 +225,6 @@ window.CRYPTIC_PUZZLES["everyman-4100"] = /*JSON-START*/ {
      7
     ]
    ],
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {
     ",": [
      1,
@@ -284,9 +245,6 @@ window.CRYPTIC_PUZZLES["everyman-4100"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Recovered from man-flu, go off scratching bottom somewhere in the Arabian Sea (4,2,4)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -306,9 +264,6 @@ window.CRYPTIC_PUZZLES["everyman-4100"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "You shouldn't have tucked into pudding: not nice, ultimately lingering tang (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "AFTERTASTE",
    "annotation": null
@@ -323,9 +278,6 @@ window.CRYPTIC_PUZZLES["everyman-4100"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Not bothered when fun's spoiled in American 'yard' (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "UNFUSSY",
    "annotation": null
@@ -340,9 +292,6 @@ window.CRYPTIC_PUZZLES["everyman-4100"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Doctor taking tablets (and joint) somewhere in eastern Germany (7)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "DRESDEN",
    "annotation": null
@@ -357,9 +306,6 @@ window.CRYPTIC_PUZZLES["everyman-4100"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Amazes with love falling for old flame showing some muscle? (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "FLEXORS",
    "annotation": null
@@ -374,9 +320,6 @@ window.CRYPTIC_PUZZLES["everyman-4100"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Spice Girl (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "SAFFRON",
    "annotation": null
@@ -391,9 +334,6 @@ window.CRYPTIC_PUZZLES["everyman-4100"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Throw out scheme (7)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "PROJECT",
    "annotation": null
@@ -408,9 +348,6 @@ window.CRYPTIC_PUZZLES["everyman-4100"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Model's not-half ugly and a little nasty on the inside: one's stuck-up (3-4)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -429,9 +366,6 @@ window.CRYPTIC_PUZZLES["everyman-4100"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Paternal personage's rotund shape entertaining that woman (6,6)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -450,9 +384,6 @@ window.CRYPTIC_PUZZLES["everyman-4100"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Usually vivid eyeball's attribute, primarily? (4)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "UVEA",
    "annotation": null
@@ -467,9 +398,6 @@ window.CRYPTIC_PUZZLES["everyman-4100"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Dinosaur leaving cross with kilometre to arduously walk (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "TREK",
    "annotation": null
@@ -484,9 +412,6 @@ window.CRYPTIC_PUZZLES["everyman-4100"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Ponder cat's noises when heard (4)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "MUSE",
    "annotation": null
@@ -501,9 +426,6 @@ window.CRYPTIC_PUZZLES["everyman-4100"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Licking his lips madly, Rod loves, or ___? (6,4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -522,9 +444,6 @@ window.CRYPTIC_PUZZLES["everyman-4100"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Christmas in Spanish province, kicking back (4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "NOEL",
    "annotation": null
@@ -539,9 +458,6 @@ window.CRYPTIC_PUZZLES["everyman-4100"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Financial backer, swindler, fishy type (5,5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {
     ",": [
      5

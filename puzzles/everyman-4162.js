@@ -31,9 +31,6 @@ window.CRYPTIC_PUZZLES["everyman-4162"] = /*JSON-START*/ {
      6
     ]
    ],
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -81,9 +78,6 @@ window.CRYPTIC_PUZZLES["everyman-4162"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Very big and very secure, but lacking function (4)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "VAST",
    "annotation": {
@@ -131,9 +125,6 @@ window.CRYPTIC_PUZZLES["everyman-4162"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Sour-tempered type, conservative, upset drinking establishment (4)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "CRAB",
    "annotation": {
@@ -182,9 +173,6 @@ window.CRYPTIC_PUZZLES["everyman-4162"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Actor veered off and got upset about nothing (4-7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -234,9 +222,6 @@ window.CRYPTIC_PUZZLES["everyman-4162"] = /*JSON-START*/ {
      1
     ]
    ],
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "HEARTEN",
    "annotation": {
@@ -277,9 +262,6 @@ window.CRYPTIC_PUZZLES["everyman-4162"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Exhortation to make a nag depart? (5-2)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -318,9 +300,6 @@ window.CRYPTIC_PUZZLES["everyman-4162"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Chooses, therefore, to go back to grasp point (4)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "OPTS",
    "annotation": {
@@ -372,9 +351,6 @@ window.CRYPTIC_PUZZLES["everyman-4162"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Red tea and ripe bananas in second home (4-1-5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     "-": [
      4,
@@ -425,9 +401,6 @@ window.CRYPTIC_PUZZLES["everyman-4162"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Bird sweeps up structure containing insects (7,3)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {
     ",": [
      7
@@ -468,9 +441,6 @@ window.CRYPTIC_PUZZLES["everyman-4162"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Agree to unnerve crew (5,5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -515,9 +485,6 @@ window.CRYPTIC_PUZZLES["everyman-4162"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Finally obtained some delightful salami - here? (4)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "DELI",
    "annotation": {
@@ -557,9 +524,6 @@ window.CRYPTIC_PUZZLES["everyman-4162"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Prepay and settle rent, prithee (6,6)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -608,9 +572,6 @@ window.CRYPTIC_PUZZLES["everyman-4162"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Players in starring roles the reader ennobled, we hear (5,6)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -659,9 +620,6 @@ window.CRYPTIC_PUZZLES["everyman-4162"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Flip over and unwisely flutter runt that's not strong (4,6)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -710,9 +668,6 @@ window.CRYPTIC_PUZZLES["everyman-4162"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "In announcement, manifest seams of ore as can be aerially transported (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "PLANELOADS",
    "annotation": {
@@ -754,9 +709,6 @@ window.CRYPTIC_PUZZLES["everyman-4162"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Completely forget number Lauren arranged (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "UNLEARN",
    "annotation": {
@@ -798,9 +750,6 @@ window.CRYPTIC_PUZZLES["everyman-4162"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Detectives who'll prepare potatoes? (7)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "PEELERS",
    "annotation": {
@@ -835,9 +784,6 @@ window.CRYPTIC_PUZZLES["everyman-4162"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Section of canon's to play on a loop (3-4)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -875,9 +821,6 @@ window.CRYPTIC_PUZZLES["everyman-4162"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Mischievous, like element of ice-hockey game? (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "PUCKISH",
    "annotation": {
@@ -915,9 +858,6 @@ window.CRYPTIC_PUZZLES["everyman-4162"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Old boy to wait at table and make remarks? (7)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "OBSERVE",
    "annotation": {
@@ -959,9 +899,6 @@ window.CRYPTIC_PUZZLES["everyman-4162"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Partially uncoils kinks in outerwear (7)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "OILSKIN",
    "annotation": {
@@ -998,9 +935,6 @@ window.CRYPTIC_PUZZLES["everyman-4162"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Subject of a swan song? (4,8)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -1036,9 +970,6 @@ window.CRYPTIC_PUZZLES["everyman-4162"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "General idea is tucking into G&T (4)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "GIST",
    "annotation": {
@@ -1082,9 +1013,6 @@ window.CRYPTIC_PUZZLES["everyman-4162"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Eager to wail (4)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "KEEN",
    "annotation": {
@@ -1119,9 +1047,6 @@ window.CRYPTIC_PUZZLES["everyman-4162"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Title socialists avidly revoked, primarily! (4)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "TSAR",
    "annotation": {
@@ -1161,9 +1086,6 @@ window.CRYPTIC_PUZZLES["everyman-4162"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "We come to work? Yes and no (6,4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -1199,9 +1121,6 @@ window.CRYPTIC_PUZZLES["everyman-4162"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Principally, Everyman, more than once, pronouncedly moderate (4)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "EASE",
    "annotation": {
@@ -1238,9 +1157,6 @@ window.CRYPTIC_PUZZLES["everyman-4162"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Made little effort: piano sharp (that's one element) (6,2,2)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {
     ",": [
      6,

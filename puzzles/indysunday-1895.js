@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1895"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Careful, Kelvin insists during climb (4-6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -81,9 +78,6 @@ window.CRYPTIC_PUZZLES["indysunday-1895"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Power in river helps where the current's strong (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "RAPIDS",
    "annotation": {
@@ -132,9 +126,6 @@ window.CRYPTIC_PUZZLES["indysunday-1895"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Brittle strands break up - it's the cooking binds it (9)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "SPAGHETTI",
    "annotation": {
@@ -189,9 +180,6 @@ window.CRYPTIC_PUZZLES["indysunday-1895"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "In riding position since start of that bike trip (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "ASTRIDE",
    "annotation": {
@@ -240,9 +228,6 @@ window.CRYPTIC_PUZZLES["indysunday-1895"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Still four at the back for football team? (4)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "EVEN",
    "annotation": {
@@ -279,9 +264,6 @@ window.CRYPTIC_PUZZLES["indysunday-1895"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Texan possibly freaks out her nervous hosts (10)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "SOUTHERNER",
    "annotation": {
@@ -315,9 +297,6 @@ window.CRYPTIC_PUZZLES["indysunday-1895"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Back massage ending in chap's rude emission (4)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "BURP",
    "annotation": {
@@ -368,9 +347,6 @@ window.CRYPTIC_PUZZLES["indysunday-1895"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Short measure of alcohol immediately after wedding (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "UNION",
    "annotation": {
@@ -413,9 +389,6 @@ window.CRYPTIC_PUZZLES["indysunday-1895"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Write a story about saint subject to punishment (8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "PENALISE",
    "annotation": {
@@ -471,9 +444,6 @@ window.CRYPTIC_PUZZLES["indysunday-1895"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Complete electricity, gas or water supply for territory? (6)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {},
    "solution": "DOMAIN",
    "annotation": {
@@ -513,9 +483,6 @@ window.CRYPTIC_PUZZLES["indysunday-1895"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Silly speech old PM curtailed on electoral system (7)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "PRATTLE",
    "annotation": {
@@ -560,9 +527,6 @@ window.CRYPTIC_PUZZLES["indysunday-1895"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Perfect work dons distributed at uni (7)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "UTOPIAN",
    "annotation": {
@@ -608,9 +572,6 @@ window.CRYPTIC_PUZZLES["indysunday-1895"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Garden plant had trouble, each part being twisted (6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "DAHLIA",
    "annotation": {
@@ -663,9 +624,6 @@ window.CRYPTIC_PUZZLES["indysunday-1895"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Her plans unexpectedly change (8)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "SHRAPNEL",
    "annotation": {
@@ -707,9 +665,6 @@ window.CRYPTIC_PUZZLES["indysunday-1895"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Son promises to get teacher's approval for concealed weapon (10)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "SWORDSTICK",
    "annotation": {
@@ -762,9 +717,6 @@ window.CRYPTIC_PUZZLES["indysunday-1895"] = /*JSON-START*/ {
      2
     ]
    ],
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -811,9 +763,6 @@ window.CRYPTIC_PUZZLES["indysunday-1895"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Home ground unfinished, left to train abroad? (9)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "INTERRAIL",
    "annotation": {
@@ -865,9 +814,6 @@ window.CRYPTIC_PUZZLES["indysunday-1895"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Etiquette for returning stolen goods fences start to consider (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "PROTOCOL",
    "annotation": {
@@ -927,9 +873,6 @@ window.CRYPTIC_PUZZLES["indysunday-1895"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "Glue on strap to provide extra strength (13)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "REINFORCEMENT",
    "annotation": {
@@ -978,9 +921,6 @@ window.CRYPTIC_PUZZLES["indysunday-1895"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Marines in future mount ritual (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "FORMAL",
    "annotation": {
@@ -1029,9 +969,6 @@ window.CRYPTIC_PUZZLES["indysunday-1895"] = /*JSON-START*/ {
      11,
      10
     ]
-   ],
-   "group": [
-    "20-down"
    ],
    "separatorLocations": {},
    "solution": "EMERALD",
@@ -1084,9 +1021,6 @@ window.CRYPTIC_PUZZLES["indysunday-1895"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "High-class warehouse filled with new flip-flops (3-3)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -1142,9 +1076,6 @@ window.CRYPTIC_PUZZLES["indysunday-1895"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Spice Girl shut up after it turned catty (8)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {},
    "solution": "TIGERISH",
    "annotation": {
@@ -1201,9 +1132,6 @@ window.CRYPTIC_PUZZLES["indysunday-1895"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Piece of cake swallowed by pig immediately (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "GIMME",
    "annotation": {
@@ -1237,9 +1165,6 @@ window.CRYPTIC_PUZZLES["indysunday-1895"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Eccentric party on wet embankment (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "WEIRDO",
    "annotation": {
@@ -1282,9 +1207,6 @@ window.CRYPTIC_PUZZLES["indysunday-1895"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Roofing material guide (4)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "LEAD",
    "annotation": {
@@ -1318,9 +1240,6 @@ window.CRYPTIC_PUZZLES["indysunday-1895"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Party with dry, mostly red booze (7)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "CAMPARI",
    "annotation": {
@@ -1366,9 +1285,6 @@ window.CRYPTIC_PUZZLES["indysunday-1895"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Issue from energy our species consumed (7)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "EMANATE",
    "annotation": {
@@ -1414,9 +1330,6 @@ window.CRYPTIC_PUZZLES["indysunday-1895"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Cap worn by European was not what it seemed (4)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "LIED",
    "annotation": {
@@ -1460,9 +1373,6 @@ window.CRYPTIC_PUZZLES["indysunday-1895"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Also note light on desk badly bolted (10)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "SKEDADDLED",
    "annotation": {

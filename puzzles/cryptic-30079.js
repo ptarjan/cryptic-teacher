@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-30079"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Advantage of computerised identikit picture when pursuing crook virtually (7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "BENEFIT",
    "annotation": {
@@ -71,9 +68,6 @@ window.CRYPTIC_PUZZLES["cryptic-30079"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "On vacation Bradley Walsh ultimately ignored resort’s in-house rules? (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "BYLAWS",
    "annotation": {
@@ -124,9 +118,6 @@ window.CRYPTIC_PUZZLES["cryptic-30079"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Finally – given you identified graffiti artist – Banksy’s in exposed state (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "NUDITY",
    "annotation": {
@@ -168,9 +159,6 @@ window.CRYPTIC_PUZZLES["cryptic-30079"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "In France and in Germany, shaver sounded 1 across? (4-6)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -222,9 +210,6 @@ window.CRYPTIC_PUZZLES["cryptic-30079"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Tax article without it (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "TITHE",
    "annotation": {
@@ -265,9 +250,6 @@ window.CRYPTIC_PUZZLES["cryptic-30079"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Spotted predator – shark is caught (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "CHEETAH",
    "annotation": {
@@ -302,9 +284,6 @@ window.CRYPTIC_PUZZLES["cryptic-30079"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "My friend entertains men with essentially new material (9)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "CORPOREAL",
    "annotation": {
@@ -360,9 +339,6 @@ window.CRYPTIC_PUZZLES["cryptic-30079"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Ages in prison’s manure shed (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "EONS",
    "annotation": {
@@ -404,9 +380,6 @@ window.CRYPTIC_PUZZLES["cryptic-30079"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "A film star cycles and waves (8)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "TSUNAMIS",
    "annotation": {
@@ -454,9 +427,6 @@ window.CRYPTIC_PUZZLES["cryptic-30079"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Pine nut’s beginning to be problem (8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "HEADACHE",
    "annotation": {
@@ -499,9 +469,6 @@ window.CRYPTIC_PUZZLES["cryptic-30079"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Young male nurse is loaded (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "LADEN",
    "annotation": {
@@ -541,9 +508,6 @@ window.CRYPTIC_PUZZLES["cryptic-30079"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Tea, cream – not full fat – oddly it’s a Cambodian delicacy (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "TARANTULA",
    "annotation": {
@@ -580,9 +544,6 @@ window.CRYPTIC_PUZZLES["cryptic-30079"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Call Musk with Washington opening that ought to bear fruit (10)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "WATERMELON",
    "annotation": {
@@ -632,9 +593,6 @@ window.CRYPTIC_PUZZLES["cryptic-30079"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Two Americans holding back on driving range (3)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "AGA",
    "annotation": {
@@ -676,9 +634,6 @@ window.CRYPTIC_PUZZLES["cryptic-30079"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "School paid to spin results in mock (10)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {},
    "solution": "DISAPPOINT",
    "annotation": {
@@ -715,9 +670,6 @@ window.CRYPTIC_PUZZLES["cryptic-30079"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Pop singer’s ill – lie about swallowing pill in trashed Ibis hotel (6,6)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {
     ",": [
      6
@@ -776,9 +728,6 @@ window.CRYPTIC_PUZZLES["cryptic-30079"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Conducted lessons in English, with students covering tenses – one might appear with a smile (5,4)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -832,9 +781,6 @@ window.CRYPTIC_PUZZLES["cryptic-30079"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Leaves power drills on the counter, securely fastened (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "STRAPPED",
    "annotation": {
@@ -880,9 +826,6 @@ window.CRYPTIC_PUZZLES["cryptic-30079"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Sedative not applicable on piercing in the middle of the ear (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "NARCOTIC",
    "annotation": {
@@ -929,9 +872,6 @@ window.CRYPTIC_PUZZLES["cryptic-30079"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "TV star barking cruelly at crew (6.6)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     ".": [
      6
@@ -974,9 +914,6 @@ window.CRYPTIC_PUZZLES["cryptic-30079"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Stock of wine merchant delivered (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "CELLAR",
    "annotation": {
@@ -1008,9 +945,6 @@ window.CRYPTIC_PUZZLES["cryptic-30079"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Gossipy magazine journalist is excited (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "HEATED",
    "annotation": {
@@ -1050,9 +984,6 @@ window.CRYPTIC_PUZZLES["cryptic-30079"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Bow and scrape while retreating to some extent (3)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "ARC",
    "annotation": {
@@ -1088,9 +1019,6 @@ window.CRYPTIC_PUZZLES["cryptic-30079"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Hunk needing reason to start op-ed? (5,5)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -1137,9 +1065,6 @@ window.CRYPTIC_PUZZLES["cryptic-30079"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Lowest point of brain drain with regular emigration climbing (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "NADIR",
    "annotation": {
@@ -1184,9 +1109,6 @@ window.CRYPTIC_PUZZLES["cryptic-30079"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Excellent, for example, to be Morocco-bound (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "MEGA",
    "annotation": {
@@ -1230,9 +1152,6 @@ window.CRYPTIC_PUZZLES["cryptic-30079"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Corrupt state maybe does if cutting back (9)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "PUTREFIED",
    "annotation": {
@@ -1285,9 +1204,6 @@ window.CRYPTIC_PUZZLES["cryptic-30079"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Initially in sonatas, Liszt enjoyed this minor key (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "ISLET",
    "annotation": {
@@ -1321,9 +1237,6 @@ window.CRYPTIC_PUZZLES["cryptic-30079"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Expensive – taking 150 Euros, say (7)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "DECLARE",
    "annotation": {
@@ -1370,9 +1283,6 @@ window.CRYPTIC_PUZZLES["cryptic-30079"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "In bed, weary, drinking wine – quite the opposite (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "RETIRED",
    "annotation": {

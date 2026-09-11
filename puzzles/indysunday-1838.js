@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1838"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Tennis champion Chris referring to team from another sport (7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "EVERTON",
    "annotation": null
@@ -42,9 +39,6 @@ window.CRYPTIC_PUZZLES["indysunday-1838"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Great desires, though not at first, for income (8)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "EARNINGS",
    "annotation": null
@@ -59,9 +53,6 @@ window.CRYPTIC_PUZZLES["indysunday-1838"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Mile End’s poetic evening (3)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "EEN",
    "annotation": null
@@ -76,9 +67,6 @@ window.CRYPTIC_PUZZLES["indysunday-1838"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Hearing about boredom, leaving university at regular intervals (9)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "TRIENNIAL",
    "annotation": null
@@ -93,9 +81,6 @@ window.CRYPTIC_PUZZLES["indysunday-1838"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Denial country’s welcoming for example (8)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "NEGATION",
    "annotation": null
@@ -110,9 +95,6 @@ window.CRYPTIC_PUZZLES["indysunday-1838"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Small amount I included in total for sports arena (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "STADIUM",
    "annotation": null
@@ -127,9 +109,6 @@ window.CRYPTIC_PUZZLES["indysunday-1838"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Low point, bad, see suffering (6)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "SEABED",
    "annotation": null
@@ -144,9 +123,6 @@ window.CRYPTIC_PUZZLES["indysunday-1838"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "A temptation, we hear, to diminish (5)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "ABATE",
    "annotation": null
@@ -161,9 +137,6 @@ window.CRYPTIC_PUZZLES["indysunday-1838"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Anger as country’s land taken away (3)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "IRE",
    "annotation": null
@@ -178,9 +151,6 @@ window.CRYPTIC_PUZZLES["indysunday-1838"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Confused situation in Timor, as shown (6)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "MORASS",
    "annotation": null
@@ -195,9 +165,6 @@ window.CRYPTIC_PUZZLES["indysunday-1838"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Called about family’s position on scale (7)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "RANKING",
    "annotation": null
@@ -212,9 +179,6 @@ window.CRYPTIC_PUZZLES["indysunday-1838"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "A friend, pure at heart, not seeking reward (7)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "AMATEUR",
    "annotation": null
@@ -229,9 +193,6 @@ window.CRYPTIC_PUZZLES["indysunday-1838"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Initially flippant, unpredictable, entering pub as a joke (2,3)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      2
@@ -250,9 +211,6 @@ window.CRYPTIC_PUZZLES["indysunday-1838"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Big fort redeveloped as a plant (7)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {},
    "solution": "FROGBIT",
    "annotation": null
@@ -267,9 +225,6 @@ window.CRYPTIC_PUZZLES["indysunday-1838"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Article by writer, lower in rank — not how to describe this puzzle! (9)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "THEMELESS",
    "annotation": null
@@ -284,9 +239,6 @@ window.CRYPTIC_PUZZLES["indysunday-1838"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "In from France half-heartedly interfere with honour (7)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "ENNOBLE",
    "annotation": null
@@ -301,9 +253,6 @@ window.CRYPTIC_PUZZLES["indysunday-1838"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Well-behaved child I hugged as home to be left for 1A/5D (8)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "GOODISON",
    "annotation": null
@@ -318,9 +267,6 @@ window.CRYPTIC_PUZZLES["indysunday-1838"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "“Dixie” - part of side, a natural (4)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {},
    "solution": "DEAN",
    "annotation": null
@@ -335,9 +281,6 @@ window.CRYPTIC_PUZZLES["indysunday-1838"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Official rearranged exams — nice (9)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "EXCISEMAN",
    "annotation": null
@@ -352,9 +295,6 @@ window.CRYPTIC_PUZZLES["indysunday-1838"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Something to help finding place — make reservation with Antony, say (8)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "BOOKMARK",
    "annotation": null
@@ -369,9 +309,6 @@ window.CRYPTIC_PUZZLES["indysunday-1838"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Friend welcoming media boss is in Paris giving support (8)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "PEDESTAL",
    "annotation": null
@@ -386,9 +323,6 @@ window.CRYPTIC_PUZZLES["indysunday-1838"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "1966 World Cup winner Alan’s essential for the game (4)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "BALL",
    "annotation": null
@@ -403,9 +337,6 @@ window.CRYPTIC_PUZZLES["indysunday-1838"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Unusually brief, cold, mostly convincing (8)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "FORCIBLE",
    "annotation": null
@@ -420,9 +351,6 @@ window.CRYPTIC_PUZZLES["indysunday-1838"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Describing acid quote upset Bill at first (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "ACETIC",
    "annotation": null
@@ -437,9 +365,6 @@ window.CRYPTIC_PUZZLES["indysunday-1838"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Fuel doesn’t last, hell inside! (6)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "DIESEL",
    "annotation": null
@@ -454,9 +379,6 @@ window.CRYPTIC_PUZZLES["indysunday-1838"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Yorkshire racecourse manager, Harry (9)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "CATTERICK",
    "annotation": null
@@ -471,9 +393,6 @@ window.CRYPTIC_PUZZLES["indysunday-1838"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "English opening contest (5)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "EVENT",
    "annotation": null
@@ -488,9 +407,6 @@ window.CRYPTIC_PUZZLES["indysunday-1838"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Part of play getting noticed reportedly (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "SCENE",
    "annotation": null
@@ -505,9 +421,6 @@ window.CRYPTIC_PUZZLES["indysunday-1838"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Time of charges for 1A, familiarly (7)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "TOFFEES",
    "annotation": null
@@ -522,9 +435,6 @@ window.CRYPTIC_PUZZLES["indysunday-1838"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "Young prison reformer (3)",
-   "group": [
-    "28-down"
-   ],
    "separatorLocations": {},
    "solution": "FRY",
    "annotation": null
@@ -539,9 +449,6 @@ window.CRYPTIC_PUZZLES["indysunday-1838"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "One of large group, many, at race, at the outset moving around (4,3)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -560,9 +467,6 @@ window.CRYPTIC_PUZZLES["indysunday-1838"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "I’m pleasantly surprised originally as help arrives (3)",
-   "group": [
-    "30-down"
-   ],
    "separatorLocations": {},
    "solution": "AHA",
    "annotation": null
@@ -577,9 +481,6 @@ window.CRYPTIC_PUZZLES["indysunday-1838"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "In front of Palace this could make rival of 1A? (7)",
-   "group": [
-    "31-across"
-   ],
    "separatorLocations": {},
    "solution": "CRYSTAL",
    "annotation": null
@@ -594,9 +495,6 @@ window.CRYPTIC_PUZZLES["indysunday-1838"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Howard’s trick — ultimately close everything (7)",
-   "group": [
-    "32-across"
-   ],
    "separatorLocations": {},
    "solution": "KENDALL",
    "annotation": null

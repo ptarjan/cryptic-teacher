@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1869"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Shout out for Hearts in matches, yelling \"Goal\" (8)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "PROCLAIM",
    "annotation": {
@@ -82,9 +79,6 @@ window.CRYPTIC_PUZZLES["indysunday-1869"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Become thinner? Order a fryer (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "RAREFY",
    "annotation": {
@@ -121,9 +115,6 @@ window.CRYPTIC_PUZZLES["indysunday-1869"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Chinese toilet you're in starts to test everything (9)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "CANTONESE",
    "annotation": {
@@ -180,9 +171,6 @@ window.CRYPTIC_PUZZLES["indysunday-1869"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Route through grandstand is covered with beer (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "AISLE",
    "annotation": {
@@ -226,9 +214,6 @@ window.CRYPTIC_PUZZLES["indysunday-1869"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Madonna covers numbers Rolling Stones worked on (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "MASONRY",
    "annotation": {
@@ -280,9 +265,6 @@ window.CRYPTIC_PUZZLES["indysunday-1869"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Army doctor shifted hips down a bit (6)",
-   "group": [
-    "6-across"
-   ],
    "separatorLocations": {},
    "solution": "MOPISH",
    "annotation": {
@@ -331,9 +313,6 @@ window.CRYPTIC_PUZZLES["indysunday-1869"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Travel writer back from Cairo cut old stuff up (5,4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -398,9 +377,6 @@ window.CRYPTIC_PUZZLES["indysunday-1869"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "E.g. stud to sleep with queen (5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "POKER",
    "annotation": {
@@ -437,9 +413,6 @@ window.CRYPTIC_PUZZLES["indysunday-1869"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Cooking nerd used clove (8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "SUNDERED",
    "annotation": {
@@ -476,9 +449,6 @@ window.CRYPTIC_PUZZLES["indysunday-1869"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "American backing Trump's third term in newspaper article - strange world (6)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "URANUS",
    "annotation": {
@@ -537,9 +507,6 @@ window.CRYPTIC_PUZZLES["indysunday-1869"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Half undressed man checked out (8)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "STRIKING",
    "annotation": {
@@ -582,9 +549,6 @@ window.CRYPTIC_PUZZLES["indysunday-1869"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Mop tea from cups (4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "AFRO",
    "annotation": {
@@ -618,9 +582,6 @@ window.CRYPTIC_PUZZLES["indysunday-1869"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Irish writer on a bender beginning to imagine novel (4,6)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -668,9 +629,6 @@ window.CRYPTIC_PUZZLES["indysunday-1869"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "English really get mushy about love at times (5,2,5)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {
     ",": [
      5,
@@ -731,9 +689,6 @@ window.CRYPTIC_PUZZLES["indysunday-1869"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Doctor came in GTi without an obvious explanation (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "ENIGMATIC",
    "annotation": {
@@ -770,9 +725,6 @@ window.CRYPTIC_PUZZLES["indysunday-1869"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Putting feathers on lady's head, going to get clips (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "FLETCHING",
    "annotation": {
@@ -816,9 +768,6 @@ window.CRYPTIC_PUZZLES["indysunday-1869"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Landscape painter introduced to father, or rather mother (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "PANORAMA",
    "annotation": {
@@ -873,9 +822,6 @@ window.CRYPTIC_PUZZLES["indysunday-1869"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "Greek character returned call in full pub (8,4)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -937,9 +883,6 @@ window.CRYPTIC_PUZZLES["indysunday-1869"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Dolphin swims up Margate's harbours on the ebb (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "GRAMPUS",
    "annotation": {
@@ -975,9 +918,6 @@ window.CRYPTIC_PUZZLES["indysunday-1869"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Trouble that you have to step across climbing ornate tower (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "PAGODA",
    "annotation": {
@@ -1025,9 +965,6 @@ window.CRYPTIC_PUZZLES["indysunday-1869"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Prisoners' tea mum arranged, complete with relations (10)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "CONSUMMATE",
    "annotation": {
@@ -1076,9 +1013,6 @@ window.CRYPTIC_PUZZLES["indysunday-1869"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Retailer's exchanges left in envelopes to be returned (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "SALES",
    "annotation": {
@@ -1122,9 +1056,6 @@ window.CRYPTIC_PUZZLES["indysunday-1869"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Half of fans in restaurant? More (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "EXTRA",
    "annotation": {
@@ -1161,9 +1092,6 @@ window.CRYPTIC_PUZZLES["indysunday-1869"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Duck after spies see you in Rome (4)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "CIAO",
    "annotation": {
@@ -1206,9 +1134,6 @@ window.CRYPTIC_PUZZLES["indysunday-1869"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Legless board work on drug dose (5,3)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -1255,9 +1180,6 @@ window.CRYPTIC_PUZZLES["indysunday-1869"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Fitter batters you'd expect to make fewer runs otherwise (6)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "TAILOR",
    "annotation": {
@@ -1294,9 +1216,6 @@ window.CRYPTIC_PUZZLES["indysunday-1869"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Parking behind college a considerable distance (6)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "PARSEC",
    "annotation": {
@@ -1339,9 +1258,6 @@ window.CRYPTIC_PUZZLES["indysunday-1869"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Forcibly make a sailor dangle aloft, caught on spar's tip (8)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "SHANGHAI",
    "annotation": {

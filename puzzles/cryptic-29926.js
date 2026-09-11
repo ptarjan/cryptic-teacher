@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["cryptic-29926"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Those working in very quiet store (3,4)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -46,9 +43,6 @@ window.CRYPTIC_PUZZLES["cryptic-29926"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Father’s attempt to make small cake (6)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "PASTRY",
    "annotation": null
@@ -63,9 +57,6 @@ window.CRYPTIC_PUZZLES["cryptic-29926"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Subjects of King leaving degrees of latitude (6)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "TOPICS",
    "annotation": null
@@ -80,9 +71,6 @@ window.CRYPTIC_PUZZLES["cryptic-29926"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Has Starmer mostly dithered over national aggravation? (10)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "HARASSMENT",
    "annotation": null
@@ -97,9 +85,6 @@ window.CRYPTIC_PUZZLES["cryptic-29926"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Precious thing given by queen, evenly wrapped by friend (5)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "PEARL",
    "annotation": null
@@ -114,9 +99,6 @@ window.CRYPTIC_PUZZLES["cryptic-29926"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Free jumble sale held by Greece occasionally (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "RELEASE",
    "annotation": null
@@ -131,9 +113,6 @@ window.CRYPTIC_PUZZLES["cryptic-29926"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Predatory rodent bites prince first during test (9)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "RAPTORIAL",
    "annotation": null
@@ -148,9 +127,6 @@ window.CRYPTIC_PUZZLES["cryptic-29926"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Woman removing clothing in den (4)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "LAIR",
    "annotation": null
@@ -165,9 +141,6 @@ window.CRYPTIC_PUZZLES["cryptic-29926"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Friend supports gold-plated court – really? (8)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "ACTUALLY",
    "annotation": null
@@ -182,9 +155,6 @@ window.CRYPTIC_PUZZLES["cryptic-29926"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Thrilling type of car (8)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "ELECTRIC",
    "annotation": null
@@ -199,9 +169,6 @@ window.CRYPTIC_PUZZLES["cryptic-29926"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Great leader (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "SUPER",
    "annotation": null
@@ -216,9 +183,6 @@ window.CRYPTIC_PUZZLES["cryptic-29926"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Program rejects Number 10 supporter being given job (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "APPOINTEE",
    "annotation": null
@@ -233,9 +197,6 @@ window.CRYPTIC_PUZZLES["cryptic-29926"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "‘Fish surprise’ special – nut and originally dairy-free (4,6)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -254,9 +215,6 @@ window.CRYPTIC_PUZZLES["cryptic-29926"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Dessert offered as part of starter? (4)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "TART",
    "annotation": null
@@ -271,9 +229,6 @@ window.CRYPTIC_PUZZLES["cryptic-29926"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Dismissed off the final ball? We’re done (4,3,3)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -293,9 +248,6 @@ window.CRYPTIC_PUZZLES["cryptic-29926"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Scheming politician to claim ‘I have contrived to kidnap Liberal’ (11)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "MACHIAVELLI",
    "annotation": null
@@ -310,9 +262,6 @@ window.CRYPTIC_PUZZLES["cryptic-29926"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Fish circling new island formed into a solid mass (9)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "CONCRETED",
    "annotation": null
@@ -327,9 +276,6 @@ window.CRYPTIC_PUZZLES["cryptic-29926"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Ship’s company breaks into capsized vessels – that’s some bottle (8)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "SCREWTOP",
    "annotation": null
@@ -344,9 +290,6 @@ window.CRYPTIC_PUZZLES["cryptic-29926"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Party ballot over European Commission where fliers can be found (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "DOVECOTE",
    "annotation": null
@@ -361,9 +304,6 @@ window.CRYPTIC_PUZZLES["cryptic-29926"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Monarch learnt about bony growth (5,6)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -382,9 +322,6 @@ window.CRYPTIC_PUZZLES["cryptic-29926"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "1 takes off 13 for the count (6)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "ASLEEP",
    "annotation": null
@@ -399,9 +336,6 @@ window.CRYPTIC_PUZZLES["cryptic-29926"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Imagined rogue trade pocketing millions (6)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "DREAMT",
    "annotation": null
@@ -416,9 +350,6 @@ window.CRYPTIC_PUZZLES["cryptic-29926"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Looks like they agree with judge’s conclusions (4)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "EYES",
    "annotation": null
@@ -433,9 +364,6 @@ window.CRYPTIC_PUZZLES["cryptic-29926"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Numbers covered up by one who has followed British sycophant (5-5)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     "-": [
      5
@@ -454,9 +382,6 @@ window.CRYPTIC_PUZZLES["cryptic-29926"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Arrow I’d thrown some distance (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "WIDTH",
    "annotation": null
@@ -471,9 +396,6 @@ window.CRYPTIC_PUZZLES["cryptic-29926"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Young men float soundly on sea’s surface (4)",
-   "group": [
-    "24-down"
-   ],
    "separatorLocations": {},
    "solution": "BOYS",
    "annotation": null
@@ -488,9 +410,6 @@ window.CRYPTIC_PUZZLES["cryptic-29926"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Description of skilled footballers and most people? (3-6)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -509,9 +428,6 @@ window.CRYPTIC_PUZZLES["cryptic-29926"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Oscar and Penny are returning to work (5)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "OPERA",
    "annotation": null
@@ -526,9 +442,6 @@ window.CRYPTIC_PUZZLES["cryptic-29926"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Happy about 19 + 500? (7)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "PLEASED",
    "annotation": null
@@ -543,9 +456,6 @@ window.CRYPTIC_PUZZLES["cryptic-29926"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Popular nightclub area with wifi (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "HOTSPOT",
    "annotation": null

@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Rules regarding language ultimately applying to crash damage (7)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "GRAMMAR",
    "annotation": {
@@ -81,9 +78,6 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Arrive without a ticket and go down after those attending (9)",
-   "group": [
-    "1-down"
-   ],
    "separatorLocations": {},
    "solution": "GATECRASH",
    "annotation": {
@@ -130,9 +124,6 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Post-match expense? Some will involve flash car (7)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "ALIMONY",
    "annotation": {
@@ -177,9 +168,6 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Whisky? Macallan, Ardbeg, Lagavulin, Talisker, for starters (4)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "MALT",
    "annotation": {
@@ -235,9 +223,6 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Acquire Ecstasy, mostly sloping around (4,2)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -288,9 +273,6 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Sound from police, perhaps, sealing off street in time (7)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "WHISTLE",
    "annotation": {
@@ -337,9 +319,6 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Old military group blocking entire interstellar transport option? (8)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "WORMHOLE",
    "annotation": {
@@ -389,9 +368,6 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Bizarre triangle involving former Queen before another ruler is named? (10)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "INTERREGAL",
    "annotation": {
@@ -436,9 +412,6 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "African city’s mistake over distribution of oil (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "TRIPOLI",
    "annotation": {
@@ -490,9 +463,6 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Nobles offering no Government access (5)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "ENTRY",
    "annotation": {
@@ -535,9 +505,6 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Manner adopted by officer backing court-martial? (5)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "TRIAL",
    "annotation": {
@@ -590,9 +557,6 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Chopper whirling at a strike (9)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "KARATEIST",
    "annotation": {
@@ -630,9 +594,6 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Nellie getting twice the love in bed (4)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "COOT",
    "annotation": {
@@ -680,9 +641,6 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Mains out of sync with hydro makes for conflict (10)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "DISHARMONY",
    "annotation": {
@@ -729,9 +687,6 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "An agreement over small car for the present time (4,6)",
-   "group": [
-    "13-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -789,9 +744,6 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "An old article about cricket side, no matter who’s involved? (6)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "ANYONE",
    "annotation": {
@@ -842,9 +794,6 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "One flies in America? Low offer’s about right (8)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "BLUEBIRD",
    "annotation": {
@@ -895,9 +844,6 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Hurry twice, in different directions, to reach interplanetary region (4,5)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -954,9 +900,6 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Tories gutted after politician among Right blares (8)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "TRUMPETS",
    "annotation": {
@@ -1011,9 +954,6 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "A good many brought in to hound prostitutes’ activity (8)",
-   "group": [
-    "18-across"
-   ],
    "separatorLocations": {},
    "solution": "HARLOTRY",
    "annotation": {
@@ -1061,9 +1001,6 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Come across dispute - wife leaving couple (3,4)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -1116,9 +1053,6 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Display cut including promotional item (6)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "PARADE",
    "annotation": {
@@ -1163,9 +1097,6 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Smart guy keeping IBM unsettled still (7)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "ALEMBIC",
    "annotation": {
@@ -1218,9 +1149,6 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Gloves picked up, going round area right now (6)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "STATIM",
    "annotation": {
@@ -1273,9 +1201,6 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Doing well in town, following the crowd (10)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "CONFORMITY",
    "annotation": {
@@ -1320,9 +1245,6 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Little time to support company function (5)",
-   "group": [
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "COSEC",
    "annotation": {
@@ -1366,9 +1288,6 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Eatery in Times Square (4)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "MESS",
    "annotation": {
@@ -1403,9 +1322,6 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Look hard, endlessly - glower? (4)",
-   "group": [
-    "25-down"
-   ],
    "separatorLocations": {},
    "solution": "STAR",
    "annotation": {
@@ -1443,9 +1359,6 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Living to accommodate mass emotion (9)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "SENTIMENT",
    "annotation": {
@@ -1493,9 +1406,6 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Bone somewhat twisted? I should probe that (5)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "TIBIA",
    "annotation": {
@@ -1548,9 +1458,6 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Military leader acceptable - that is, beginning to supply biscuits (7)",
-   "group": [
-    "28-across"
-   ],
    "separatorLocations": {},
    "solution": "COOKIES",
    "annotation": {
@@ -1606,9 +1513,6 @@ window.CRYPTIC_PUZZLES["independent-12386"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Group of motorists in the distance for amazing experience (7)",
-   "group": [
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "MIRACLE",
    "annotation": {

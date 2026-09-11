@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["everyman-4165"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "A day to get around the Continent (6)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "AFRICA",
    "annotation": {
@@ -74,9 +71,6 @@ window.CRYPTIC_PUZZLES["everyman-4165"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "Multiple sentences with no escaping e.g. penguins? (10,5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {
     ",": [
      10
@@ -124,9 +118,6 @@ window.CRYPTIC_PUZZLES["everyman-4165"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Some progress when visiting Greek island, reportedly (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "INROADS",
    "annotation": {
@@ -173,9 +164,6 @@ window.CRYPTIC_PUZZLES["everyman-4165"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Concession for entrance (9)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "ADMISSION",
    "annotation": {
@@ -213,9 +201,6 @@ window.CRYPTIC_PUZZLES["everyman-4165"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Slovenly type's got some neck! (6)",
-   "group": [
-    "5-across"
-   ],
    "separatorLocations": {},
    "solution": "SCRUFF",
    "annotation": {
@@ -253,9 +238,6 @@ window.CRYPTIC_PUZZLES["everyman-4165"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Rope material is brought into stable regularly (5)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "SISAL",
    "annotation": {
@@ -301,9 +283,6 @@ window.CRYPTIC_PUZZLES["everyman-4165"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Songwriter's payment: Taylor collected Japanese currency (7)",
-   "group": [
-    "6-down"
-   ],
    "separatorLocations": {},
    "solution": "ROYALTY",
    "annotation": {
@@ -345,9 +324,6 @@ window.CRYPTIC_PUZZLES["everyman-4165"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "'Term'; 'oath'; 'news'; 'chat'? (4-6,5)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {
     "-": [
      4
@@ -386,9 +362,6 @@ window.CRYPTIC_PUZZLES["everyman-4165"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Everyman has potential to improve, solver: honestly (1,7,3)",
-   "group": [
-    "8-across"
-   ],
    "separatorLocations": {
     ",": [
      1,
@@ -440,9 +413,6 @@ window.CRYPTIC_PUZZLES["everyman-4165"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Caught by fabled avian, one with dozens of teeth (4)",
-   "group": [
-    "9-down"
-   ],
    "separatorLocations": {},
    "solution": "CROC",
    "annotation": {
@@ -483,9 +453,6 @@ window.CRYPTIC_PUZZLES["everyman-4165"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Cake decorator's instructions returned with two cuts (4)",
-   "group": [
-    "10-down"
-   ],
    "separatorLocations": {},
    "solution": "ICER",
    "annotation": {
@@ -536,9 +503,6 @@ window.CRYPTIC_PUZZLES["everyman-4165"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Eyre hears a line that needs cutting in preparation for performance (9)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {},
    "solution": "REHEARSAL",
    "annotation": {
@@ -575,9 +539,6 @@ window.CRYPTIC_PUZZLES["everyman-4165"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Small athletic club in purple (5)",
-   "group": [
-    "12-across"
-   ],
    "separatorLocations": {},
    "solution": "LILAC",
    "annotation": {
@@ -618,9 +579,6 @@ window.CRYPTIC_PUZZLES["everyman-4165"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Company constructed silos: they're enormous (7)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {},
    "solution": "COLOSSI",
    "annotation": {
@@ -670,9 +628,6 @@ window.CRYPTIC_PUZZLES["everyman-4165"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Conman's retiring, wanting rest badly (7)",
-   "group": [
-    "14-across"
-   ],
    "separatorLocations": {},
    "solution": "SHYSTER",
    "annotation": {
@@ -725,9 +680,6 @@ window.CRYPTIC_PUZZLES["everyman-4165"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Wavy at the edges, building collapsed (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "SCALLOPED",
    "annotation": {
@@ -764,9 +716,6 @@ window.CRYPTIC_PUZZLES["everyman-4165"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "A little garland is dainty, getting scorn (7)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "DISDAIN",
    "annotation": {
@@ -803,9 +752,6 @@ window.CRYPTIC_PUZZLES["everyman-4165"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Ascertain age of potential partner (4)",
-   "group": [
-    "15-down"
-   ],
    "separatorLocations": {},
    "solution": "DATE",
    "annotation": {
@@ -840,9 +786,6 @@ window.CRYPTIC_PUZZLES["everyman-4165"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "A card game? Cut (7)",
-   "group": [
-    "16-down"
-   ],
    "separatorLocations": {},
    "solution": "ABRIDGE",
    "annotation": {
@@ -880,9 +823,6 @@ window.CRYPTIC_PUZZLES["everyman-4165"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Bin meat that's rotten all around (7)",
-   "group": [
-    "17-across"
-   ],
    "separatorLocations": {},
    "solution": "AMBIENT",
    "annotation": {
@@ -922,9 +862,6 @@ window.CRYPTIC_PUZZLES["everyman-4165"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Give evidence of risk: Barbie's boyfriend accepting love (7)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "BETOKEN",
    "annotation": {
@@ -973,9 +910,6 @@ window.CRYPTIC_PUZZLES["everyman-4165"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Right-winger offering two extremes in tyranny? (4)",
-   "group": [
-    "19-down"
-   ],
    "separatorLocations": {},
    "solution": "TORY",
    "annotation": {
@@ -1019,9 +953,6 @@ window.CRYPTIC_PUZZLES["everyman-4165"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Send back - drive back, perhaps, potato? (5)",
-   "group": [
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "TUBER",
    "annotation": {
@@ -1064,9 +995,6 @@ window.CRYPTIC_PUZZLES["everyman-4165"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Lofty structure from which it's announced: 'It's time for girdles' (4,5)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -1118,9 +1046,6 @@ window.CRYPTIC_PUZZLES["everyman-4165"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Author Dan is toast (5)",
-   "group": [
-    "21-down"
-   ],
    "separatorLocations": {},
    "solution": "BROWN",
    "annotation": {
@@ -1158,9 +1083,6 @@ window.CRYPTIC_PUZZLES["everyman-4165"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Re-do the pork: awkward bloomer (3-3,5)",
-   "group": [
-    "22-across"
-   ],
    "separatorLocations": {
     "-": [
      3
@@ -1204,9 +1126,6 @@ window.CRYPTIC_PUZZLES["everyman-4165"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "One authoritarian at back of boat (6)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "ASTERN",
    "annotation": {
@@ -1244,9 +1163,6 @@ window.CRYPTIC_PUZZLES["everyman-4165"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "One primarily dominant, yet nepotistically appointed, securing throne? (6)",
-   "group": [
-    "24-across"
-   ],
    "separatorLocations": {},
    "solution": "DYNAST",
    "annotation": {

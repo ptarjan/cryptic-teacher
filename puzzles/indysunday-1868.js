@@ -25,9 +25,6 @@ window.CRYPTIC_PUZZLES["indysunday-1868"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Bachelor travels on motorway to help girl taking train (10)",
-   "group": [
-    "1-across"
-   ],
    "separatorLocations": {},
    "solution": "BRIDESMAID",
    "annotation": {
@@ -80,9 +77,6 @@ window.CRYPTIC_PUZZLES["indysunday-1868"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "One piece of toast ample? (5)",
-   "group": [
-    "2-down"
-   ],
    "separatorLocations": {},
    "solution": "ROUND",
    "annotation": {
@@ -116,9 +110,6 @@ window.CRYPTIC_PUZZLES["indysunday-1868"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Revolt suits leaders of guerrillas desperate for reform (7)",
-   "group": [
-    "3-down"
-   ],
    "separatorLocations": {},
    "solution": "DISGUST",
    "annotation": {
@@ -162,9 +153,6 @@ window.CRYPTIC_PUZZLES["indysunday-1868"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Aren't ropes aboard ship very good quality? (11)",
-   "group": [
-    "4-down"
-   ],
    "separatorLocations": {},
    "solution": "SAINTLINESS",
    "annotation": {
@@ -214,9 +202,6 @@ window.CRYPTIC_PUZZLES["indysunday-1868"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "WWI battleground Nivelle evacuated with gas coming over (7)",
-   "group": [
-    "5-down"
-   ],
    "separatorLocations": {},
    "solution": "ARGONNE",
    "annotation": {
@@ -305,9 +290,6 @@ window.CRYPTIC_PUZZLES["indysunday-1868"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Thump boyfriend admitting condition (4)",
-   "group": [
-    "7-across"
-   ],
    "separatorLocations": {},
    "solution": "BIFF",
    "annotation": {
@@ -351,9 +333,6 @@ window.CRYPTIC_PUZZLES["indysunday-1868"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Remote controls, absolutely loads (7)",
-   "group": [
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "BUTTONS",
    "annotation": {
@@ -390,9 +369,6 @@ window.CRYPTIC_PUZZLES["indysunday-1868"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Kitty met an awful arse (9)",
-   "group": [
-    "8-down"
-   ],
    "separatorLocations": {},
    "solution": "FUNDAMENT",
    "annotation": {
@@ -441,9 +417,6 @@ window.CRYPTIC_PUZZLES["indysunday-1868"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Collaborator who French support when injured (8)",
-   "group": [
-    "9-across"
-   ],
    "separatorLocations": {},
    "solution": "QUISLING",
    "annotation": {
@@ -480,9 +453,6 @@ window.CRYPTIC_PUZZLES["indysunday-1868"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Mother curtailed baby's insubordination (6)",
-   "group": [
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "MUTINY",
    "annotation": {
@@ -528,9 +498,6 @@ window.CRYPTIC_PUZZLES["indysunday-1868"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Sceptic bishop feeds tailored version of God to humanist (8,6)",
-   "group": [
-    "11-across"
-   ],
    "separatorLocations": {
     ",": [
      8
@@ -578,9 +545,6 @@ window.CRYPTIC_PUZZLES["indysunday-1868"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "Florida city high-rise enjoys view across area (11)",
-   "group": [
-    "12-down"
-   ],
    "separatorLocations": {},
    "solution": "TALLAHASSEE",
    "annotation": {
@@ -635,9 +599,6 @@ window.CRYPTIC_PUZZLES["indysunday-1868"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Would it be OK if I said \"cocktail\"? (3,3)",
-   "group": [
-    "13-across"
-   ],
    "separatorLocations": {
     ",": [
      3
@@ -676,9 +637,6 @@ window.CRYPTIC_PUZZLES["indysunday-1868"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "American shot by Fritz, perhaps earlier (9)",
-   "group": [
-    "14-down"
-   ],
    "separatorLocations": {},
    "solution": "AFOREHAND",
    "annotation": {
@@ -715,9 +673,6 @@ window.CRYPTIC_PUZZLES["indysunday-1868"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Nurse leant on a roll (8)",
-   "group": [
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "ENLISTED",
    "annotation": {
@@ -754,9 +709,6 @@ window.CRYPTIC_PUZZLES["indysunday-1868"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Silence, a lack of records? (3,1,4)",
-   "group": [
-    "16-across"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -804,9 +756,6 @@ window.CRYPTIC_PUZZLES["indysunday-1868"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Recover gold crowns by listening (7)",
-   "group": [
-    "17-down"
-   ],
    "separatorLocations": {},
    "solution": "AURALLY",
    "annotation": {
@@ -849,9 +798,6 @@ window.CRYPTIC_PUZZLES["indysunday-1868"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Container of two halves, name seen in mine with lid flipped (4,3)",
-   "group": [
-    "18-down"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -916,9 +862,6 @@ window.CRYPTIC_PUZZLES["indysunday-1868"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Certainly, carrying knife one goes in for sharpness (6)",
-   "group": [
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "ACUITY",
    "annotation": {
@@ -974,9 +917,6 @@ window.CRYPTIC_PUZZLES["indysunday-1868"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Showing equality, further education to benefit millions (7)",
-   "group": [
-    "20-down"
-   ],
    "separatorLocations": {},
    "solution": "UNIFORM",
    "annotation": {
@@ -1019,9 +959,6 @@ window.CRYPTIC_PUZZLES["indysunday-1868"] = /*JSON-START*/ {
    },
    "length": 14,
    "clue": "Ambassador among others here at four dealing with English sandwiches (14)",
-   "group": [
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "REPRESENTATIVE",
    "annotation": {
@@ -1082,9 +1019,6 @@ window.CRYPTIC_PUZZLES["indysunday-1868"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Half chance rugby doesn't start (5)",
-   "group": [
-    "22-down"
-   ],
    "separatorLocations": {},
    "solution": "EVENS",
    "annotation": {
@@ -1127,9 +1061,6 @@ window.CRYPTIC_PUZZLES["indysunday-1868"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "One standing at the side of the room by work buffet (6)",
-   "group": [
-    "23-across"
-   ],
    "separatorLocations": {},
    "solution": "WALLOP",
    "annotation": {
@@ -1189,9 +1120,6 @@ window.CRYPTIC_PUZZLES["indysunday-1868"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Happy turning barge right, one managed easily (8)",
-   "group": [
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "PUSHOVER",
    "annotation": {
@@ -1246,9 +1174,6 @@ window.CRYPTIC_PUZZLES["indysunday-1868"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Neighbours' greeting, perhaps not straight across front of drive? (4)",
-   "group": [
-    "26-across"
-   ],
    "separatorLocations": {},
    "solution": "GDAY",
    "annotation": {
@@ -1294,9 +1219,6 @@ window.CRYPTIC_PUZZLES["indysunday-1868"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "Flask in bag right at the bottom (10)",
-   "group": [
-    "27-across"
-   ],
    "separatorLocations": {},
    "solution": "NETHERMOST",
    "annotation": {
