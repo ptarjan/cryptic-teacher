@@ -923,6 +923,21 @@ mark.link {
 @keyframes mark-in { from { background-color: transparent; color: inherit; box-shadow: none; } }
 @media (prefers-reduced-motion: reduce) { .hint-clue mark { animation: none; } }
 
+/* What solvers thought of it, under the ladder once the answer is out and under
+   the tally when the grid is finished. Quiet on purpose: it is the last line of
+   a panel somebody opened for help, and a bright call to action there reads as
+   being sold something at the end of a lesson. */
+.vote-row {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+  margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--line);
+  font-size: .9rem;
+}
+.vote-ask, .vote-mine { color: var(--fg); }
+.vote-said { color: var(--muted); font-size: .85rem; }
+/* The finish panel is centred prose, and its row belongs to that, not to the
+   ladder's left edge. */
+#celebrate .vote-row { justify-content: center; border-top: none; padding-top: 4px; }
+
 .legend { font-size: .75rem; color: var(--muted); margin-top: 2px; }
 /* why a definition may fairly disagree with the answer's number or part of speech */
 .def-note {

@@ -25,6 +25,18 @@ const MAX_EVENT = 32;           // the longest name on the list, with room to sp
 const MAX_REPORT = 2 * 1024;    // a sentence about a hint, with room for a long clue id
 const MAX_NOTE = 400;           // what fits in the one-line box on the page
 const REPORT_TTL = 60 * 60 * 24 * 365;
+// What a solver thought of a clue or a puzzle. A year, because the aggregate is
+// the point — a page that says "nobody has rated this" about a puzzle eleven
+// people rated last spring is worse than saying nothing.
+const VOTE_TTL = 60 * 60 * 24 * 365;
+const MAX_VOTE = 64;
+// c:<puzzle>:<clue> or p:<puzzle>, and nothing else can be voted on. The puzzle
+// id is the one the site publishes (series-number); the clue id is the one in
+// the puzzle file. Checked for shape rather than against the index, for the same
+// reason series names are: an id that matches nothing simply counts toward
+// nothing, and a second copy of the catalogue here is a copy that goes stale.
+const VOTE_TARGET_RE = /^(?:c:[a-z]{4,12}-\d{1,6}:\d{1,3}-(?:across|down)|p:[a-z]{4,12}-\d{1,6})$/;
+const VOTE_VERDICTS = ["up", "down"];
 
 const INDEX_URL = "https://cryptic.paultarjan.com/puzzles/index.json";
 const PUZZLE_URL = "https://cryptic.paultarjan.com/?p=";
@@ -133,6 +145,61 @@ export default {
       await env.SAVES.put(`e:${day}:${name}:${crypto.randomUUID()}`, "",
                           { expirationTtl: EVENT_TTL });
       return ok;
+    }
+
+    /* What solvers thought of a clue, and of the puzzle.
+
+       Same shape as the counting above and for the same reasons: THE KEY NAME
+       IS THE RECORD, the value is empty, and a tally is a `list` by prefix, so
+       two people rating the same clue in the same second cannot lose each
+       other's vote. A key carries what was rated, which way, and the day — and
+       nothing about who, which is why one device can be stopped from voting
+       twice only by that device remembering it already did. That is the trade:
+       a ballot box that cannot identify a voter cannot spot a second ballot.
+
+       GET answers with the tally for a whole puzzle in one request — every
+       clue, plus the puzzle itself — because the page needs all of it the
+       moment a grid opens and thirty requests for thirty clues is not a thing
+       to do to a phone.
+
+       POST always answers 204, whatever it thought of the body, for the same
+       reason /e does: there is a solver typing into the page that sent it. */
+    if (url.pathname === "/v") {
+      if (request.method === "POST") {
+        const ok = new Response(null, { status: 204, headers: cors(origin) });
+        if (Number(request.headers.get("content-length") || 0) > MAX_VOTE) return ok;
+        const [target, verdict] = (await request.text()).trim().split("|");
+        if (!VOTE_TARGET_RE.test(target || "")) return ok;
+        if (VOTE_VERDICTS.indexOf(verdict) < 0) return ok;
+        const day = new Date().toISOString().slice(0, 10);
+        await env.SAVES.put(`v:${target}:${verdict}:${day}:${crypto.randomUUID()}`, "",
+                            { expirationTtl: VOTE_TTL });
+        return ok;
+      }
+      if (request.method === "GET") {
+        const puzzle = url.searchParams.get("p") || "";
+        if (!/^[a-z]{4,12}-\d{1,6}$/.test(puzzle))
+          return json({ error: "p must be a puzzle id" }, 400, origin);
+        const tally = {};
+        for (const prefix of [`v:c:${puzzle}:`, `v:p:${puzzle}:`]) {
+          let cursor;
+          do {
+            const page = await env.SAVES.list({ prefix, cursor, limit: 1000 });
+            for (const k of page.keys) {
+              // v:<kind>:<puzzle>[:<clue>]:<verdict>:<day>:<uuid> — the verdict
+              // is always third from the end, so this does not care which kind
+              // of target it is reading.
+              const parts = k.name.split(":");
+              const verdict = parts[parts.length - 3];
+              if (VOTE_VERDICTS.indexOf(verdict) < 0) continue;
+              const target = parts.slice(1, parts.length - 3).join(":");
+              (tally[target] = tally[target] || { up: 0, down: 0 })[verdict]++;
+            }
+            cursor = page.list_complete ? null : page.cursor;
+          } while (cursor);
+        }
+        return json(tally, 200, origin);
+      }
     }
 
     /* A hint that is wrong, reported from the clue it is wrong on.
