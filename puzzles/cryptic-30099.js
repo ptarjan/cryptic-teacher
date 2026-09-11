@@ -203,8 +203,8 @@ window.CRYPTIC_PUZZLES["cryptic-30099"] = /*JSON-START*/ {
       "note": "break the word SOFA in two and you are holding SO and FA, two steps of the sol-fa scale singers learn"
      }
     ],
-    "walkthrough": "'Breaking up' looks like an anagram instruction with four letters to shuffle. What is broken up is the word itself, into two syllables a musician reads, and the question mark owns the whimsy.",
-    "definitionFit": "Records → NOTES: the jottings you make so a thing is not forgotten; the sofa half arrives at the other sense, the sounds a singer reads."
+    "walkthrough": "'Breaking up' looks like an anagram instruction with four letters to shuffle, but nothing is rearranged. SO and FA both belong to the sol-fa scale — doh, ray, me, fah, soh — so a sofa pulled apart really is holding notes, hence the question mark.",
+    "definitionFit": "Records → NOTES: the jottings you make so a thing is not forgotten; the sofa half lands on the other sense, the sung steps of the sol-fa scale."
    }
   },
   {
