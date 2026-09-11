@@ -843,12 +843,16 @@ for (let i = 0; i < openPuz.entries.length && !target; i++) {
 assert(target, "found an entry to type into");
 const answer = target.solution;
 const len = answer.length;
-answer.split("").forEach((ch) => kd(ev(ch)));
+// All but the last letter, so the entry is not CONFIRMED while the editing below
+// happens: a word the grid has confirmed is locked against being typed over or
+// deleted, so an edit test that finishes the answer first would be testing the
+// lock rather than the cursor. The last letter goes in at the end of the block.
+answer.slice(0, len - 1).split("").forEach((ch) => kd(ev(ch)));
 // the pattern strip is live: it now shows the typed letters, all in place
 {
   const boxes = patBoxes();
   assert(boxes.length === len, `pattern strip follows the ${len}-letter entry: ` + boxes.length);
-  assert(patHTML().includes(`${len} of ${len} letters in place`), "pattern counts typed letters: " + patHTML());
+  assert(patHTML().includes(`${len - 1} of ${len} letters in place`), "pattern counts typed letters: " + patHTML());
   assert(new RegExp(`data-i="${len - 1}"`).test(patHTML()), "boxes carry their index so they can be clicked: " + patHTML());
 }
 // --- clicking a pattern box moves the cursor; typing skips filled squares ---
@@ -897,15 +901,33 @@ answer.split("").forEach((ch) => kd(ev(ch)));
   clickBox(4);
   assert(curIndex() === 4, "clicking a pattern box moves the cursor there, got " + curIndex());
   kd(ev("Delete"));                       // punch a single gap at index 4
-  assert(patHTML().includes(`${len - 1} of ${len} letters in place`), "gap cleared: " + patHTML());
+  assert(patHTML().includes(`${len - 2} of ${len} letters in place`), "gap cleared: " + patHTML());
   clickBox(0);
   kd(ev(wrongLetter(answer[0])));         // overwrite index 0 ...
   assert(curIndex() === 4, "typing skips filled squares to the next gap, got " + curIndex());
-  kd(ev(bad));                            // ... and with no gap left it just steps on
-  assert(patHTML().includes(`${len} of ${len} letters in place`), "grid refilled: " + patHTML());
-  // leave the entry correct again: the solved count below expects it
+  kd(ev(bad));                            // ... and the gap at 4 takes it
+  assert(patHTML().includes(`${len - 1} of ${len} letters in place`), "grid refilled: " + patHTML());
+  // leave the entry correct and complete: the solved count below expects it
   clickBox(0); kd(ev(answer[0]));
   clickBox(4); kd(ev(answer[4]));
+  clickBox(len - 1); kd(ev(answer[len - 1]));
+  assert(patHTML().includes(`${len} of ${len} letters in place`),
+    "the entry finishes correct: " + patHTML());
+
+  // --- and now it is confirmed, it is not editable ---
+  // "Deleting a letter from a confirmed word shouldn't be possible. Or doing it
+  // from closing a crossing entry" (Paul, 2026-09-10). Every letter is right and
+  // the grid has said so, so a keystroke on one is an accident by definition.
+  clickBox(2);
+  kd(ev("Delete"));
+  assert(patHTML().includes(`${len} of ${len} letters in place`),
+    "Delete cannot empty a square of a confirmed word: " + patHTML());
+  kd(ev("Backspace"));
+  assert(patHTML().includes(`${len} of ${len} letters in place`),
+    "nor can Backspace, which is how a crossing entry reaches it: " + patHTML());
+  kd(ev(wrongLetter(answer[2])));
+  assert(patHTML().includes(`${len} of ${len} letters in place`),
+    "nor typing over it, which is a delete with a letter on the end: " + patHTML());
 }
 
 kd(ev("ArrowDown")); kd(ev("ArrowRight")); kd(ev("Backspace")); kd(ev("Enter"));
@@ -953,6 +975,15 @@ assert(registry["scorebar"].innerHTML.match(/Solved <strong>[1-9]/), "at least o
   // different word happened to be right for that one — so the check honestly
   // reported no errors and these three assertions failed nightly (2026-08-12).
   // Ask the app which entry the cursor is actually in.
+  // ...and into one that is still open. A full entry is a confirmed one, and a
+  // confirmed word refuses the wrong letter this check needs — correctly, which
+  // is what the lock above asserts. Tab walks the entries in order.
+  const entryFull = () => {
+    const m = patHTML().match(/(\d+) of (\d+) letters in place/);
+    return !!m && m[1] === m[2];
+  };
+  for (let i = 0; i < 60 && entryFull(); i++) kd(ev("Tab"));
+  assert(!entryFull(), "found an entry with a gap in it to put a wrong letter in: " + patHTML());
   const cur = currentEntry();
   assert(cur && cur.solution, "the cursor sits in an entry with a published solution");
   clickBox(0);

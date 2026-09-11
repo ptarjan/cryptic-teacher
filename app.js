@@ -1596,9 +1596,24 @@
   }
 
   // ---------- typing ----------
+  // A word this puzzle has confirmed is not yours to unmake. Every letter in it
+  // is right and the grid has said so, so there is nothing a keystroke on one
+  // can be except an accident — including the accident of backspacing through it
+  // from the crossing entry you are actually typing in, which is the same letter
+  // seen from the side ("deleting a letter from a confirmed word shouldn't be
+  // possible, or doing it from closing a crossing entry", Paul, 2026-09-10).
+  // Typing over a letter is a delete with a letter on the end of it, so it is
+  // refused in the same place. Clearing the whole puzzle still clears it: that
+  // is asked for, by name, and this is only ever about the accidents.
+  function cellConfirmed(c) {
+    if (!c || !c.letter) return false;
+    return entries.some((e) => isEntrySolved(e) && entryCells(e).indexOf(c) >= 0);
+  }
+
   function typeLetter(ch) {
     const c = cells[cur.y][cur.x];
     if (!c) return;
+    if (cellConfirmed(c)) { advanceToGap(); refreshAll(); return; }
     beacon("letter");
     c.letter = ch; c.wrong = false; c.revealed = false;
     checkSolvedEntries(true);
@@ -1606,10 +1621,15 @@
     refreshAll(); saveState();
   }
 
+  function clearCell(c) {
+    if (!c || cellConfirmed(c)) return;
+    c.letter = ""; c.wrong = false;
+  }
+
   function backspace() {
     const c = cells[cur.y][cur.x];
-    if (c && c.letter) { c.letter = ""; c.wrong = false; }
-    else { moveInEntry(-1); const c2 = cells[cur.y][cur.x]; if (c2) { c2.letter = ""; c2.wrong = false; } }
+    if (c && c.letter) clearCell(c);
+    else { moveInEntry(-1); clearCell(cells[cur.y][cur.x]); }
     refreshAll(); saveState();
   }
 
@@ -1618,7 +1638,7 @@
     const k = ev.key;
     if (/^[a-zA-Z]$/.test(k)) { typeLetter(k.toUpperCase()); ev.preventDefault(); }
     else if (k === "Backspace") { backspace(); ev.preventDefault(); }
-    else if (k === "Delete") { const c = cells[cur.y][cur.x]; if (c) { c.letter = ""; c.wrong = false; refreshAll(); saveState(); } ev.preventDefault(); }
+    else if (k === "Delete") { clearCell(cells[cur.y][cur.x]); refreshAll(); saveState(); ev.preventDefault(); }
     else if (k === "ArrowLeft") { moveSpatial(-1, 0); refreshAll(); ev.preventDefault(); }
     else if (k === "ArrowRight") { moveSpatial(1, 0); refreshAll(); ev.preventDefault(); }
     else if (k === "ArrowUp") { moveSpatial(0, -1); refreshAll(); ev.preventDefault(); }
