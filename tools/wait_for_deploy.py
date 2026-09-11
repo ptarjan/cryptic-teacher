@@ -32,6 +32,7 @@ import urllib.request
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 URL = "https://cryptic.paultarjan.com/"
+REPO = "ptarjan/cryptic-teacher"
 STAMP = re.compile(r'(app\.js|style\.css|puzzles/index\.js)\?v=([a-f0-9]+)')
 
 
@@ -50,20 +51,38 @@ def fetch():
         return r.read().decode("utf-8", "replace")
 
 
+def _gh(path):
+    """gh api <path> parsed, or None if gh cannot answer at all."""
+    out = subprocess.run(["gh", "api", path], capture_output=True, text=True,
+                         timeout=30, cwd=ROOT)
+    return json.loads(out.stdout) if out.returncode == 0 else None
+
+
 def built_commit():
     """The commit GitHub Pages is currently serving, or None if it cannot say.
 
-    Unreachable API, no gh, no auth: return None and let the stamps decide, so a
-    laptop without gh still gets the old check rather than a hard failure.
+    Read off the github-pages deployments, not /pages/builds/latest: that legacy
+    endpoint only describes Pages' own builder, so a site deployed by a workflow
+    (.github/workflows/pages.yml) leaves it frozen at whatever it built last, and
+    a check against it fails every deploy from then on.
+
+    "" means a deployment is in flight — newer than the last successful one, so
+    the caller should keep waiting. Unreachable API, no gh, no auth: return None
+    and let the stamps decide, so a laptop without gh still gets the old check
+    rather than a hard failure.
     """
     try:
-        out = subprocess.run(
-            ["gh", "api", "repos/ptarjan/cryptic-teacher/pages/builds/latest"],
-            capture_output=True, text=True, timeout=30, cwd=ROOT)
-        if out.returncode != 0:
+        deployments = _gh(f"repos/{REPO}/deployments"
+                          "?environment=github-pages&per_page=5")
+        if deployments is None:
             return None
-        b = json.loads(out.stdout)
-        return b.get("commit") if b.get("status") == "built" else ""
+        for dep in deployments:
+            states = _gh(f"repos/{REPO}/deployments/{dep['id']}/statuses?per_page=10")
+            if states is None:
+                return None
+            if any(st.get("state") == "success" for st in states):
+                return dep["sha"]
+        return ""
     except Exception:                                 # noqa: BLE001 - "cannot say"
         return None
 
