@@ -933,6 +933,20 @@ answer.slice(0, len - 1).split("").forEach((ch) => kd(ev(ch)));
   kd(ev(wrongLetter(answer[2])));
   assert(patHTML().includes(`${len} of ${len} letters in place`),
     "nor typing over it, which is a delete with a letter on the end: " + patHTML());
+
+  // --- and once it is out, you can say what you thought of it ---
+  // The question only makes sense after the answer: before it, "was that a good
+  // clue" is a question about how stuck you are. The row carries what is being
+  // rated and which way, and nothing else — see the privacy block further down,
+  // which is where what may leave the page is settled.
+  {
+    const body = registry["hint-body"].innerHTML;
+    const m = /data-vote="([^"|]+)\|up"/.exec(body);
+    assert(m, "a solved clue offers the vote row: " + body.slice(-400));
+    assert(/^c:[a-z]+-\d+:\d+-(across|down)$/.test(m[1]),
+      "and it names the puzzle and the clue, nothing about the solver: " + m[1]);
+    assert(/data-vote="[^"]+\|down"/.test(body), "both verdicts are offered: " + body.slice(-400));
+  }
 }
 
 kd(ev("ArrowDown")); kd(ev("ArrowRight")); kd(ev("Backspace")); kd(ev("Enter"));
@@ -2693,15 +2707,21 @@ registry["reset-puzzle"].onclick();
   // purpose about a bad hint, and a push subscription — an address, not a
   // crossword, and it only leaves when a paper is ticked.
   assert(fetches.every((f) => f.includes('"/s/"') || f.includes('"/r"')
-      || f.includes('"/n"')),
+      || f.includes('"/n"') || f.includes("/v?p=") || f.includes('"/v"')),
     "nothing else leaves the page: " + fetches.join(" | "));
   // The counter is the only other thing that reaches the network, and what it
   // can carry is one name from the shared list — no grid, no code, no id. Two
   // separate things go to the same Worker and only one of them is about you.
-  assert((src.match(/sendBeacon\(/g) || []).length === 1,
-    "there is exactly one place that reports an event");
+  assert((src.match(/sendBeacon\(/g) || []).length === 2,
+    "two things report to the Worker without being asked to: a milestone and a vote");
   assert(/sendBeacon\(\s*SYNC_ENDPOINT[^;]*new Blob\(\[name\]/.test(src),
-    "and the whole of what it sends is the event name");
+    "and the whole of what the counter sends is the event name");
+  // A vote is the other one, and what it carries is what was rated and which
+  // way — no grid, no code, no id, and nothing that says who. The Worker keeps
+  // it the same way (see /v there): the key name is the record.
+  assert(/const body = `\$\{target\}\|\$\{verdict\}`/.test(src) &&
+         /sendBeacon\(SYNC_ENDPOINT \+ "\/v", new Blob\(\[body\]/.test(src),
+    "and the whole of a vote is the thing rated and the verdict");
 
   // One VAPID pair, two runtimes. The page and the Worker cannot share a file,
   // so the public key is written in both; if the copies drift, every push is
