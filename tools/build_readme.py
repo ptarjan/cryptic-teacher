@@ -175,6 +175,7 @@ LAYOUT = [
     ("tables everything else reads", "tools/data/abbreviations.json", "the hand-built starter table of standard abbreviations"),
     ("tables everything else reads", "tools/data/unclueable.json", "words rejected as answers, with reasons; grid_fill.py vetoes them"),
     ("tables everything else reads", "tools/data/difficulty_baseline.json", "the frozen distribution difficulty.py normalises against"),
+    ("tables everything else reads", "tools/data/lexicon.tsv", "192,738 British-cryptic words by frequency rank; difficulty.py scores obscurity off it"),
     ("tables everything else reads", "tools/data/grading_rubric.md", "the five axes a blind judge scores a clue on"),
     ("tables everything else reads", "tools/data/sample_fill_11.json", "the worked 11x11 fill tools/AUTHORING.md walks through"),
     ("tables everything else reads", "tools/data/authored_A001_clues.json", "the hand-written clues for that fill"),

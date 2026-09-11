@@ -10,17 +10,18 @@ What is committed here, and what is fetched.
 | `unclueable.json` | Words a setter rejected as answers, with the reason. `tools/grid_fill.py` vetoes them. |
 | `sample_fill_11.json` | The worked 11x11 fill (see `tools/AUTHORING.md`). |
 | `annotate_attempts.json` | How many annotation runs each puzzle has lost, and the session the last one died in, so a failing puzzle is not re-annotated from scratch every night (`tools/annotate_attempts.py`). Written by the nightly job and committed by it — tracked rather than local like `.solve_attempts.json`, because that job runs in a throwaway worktree and only a tracked file survives its rebuild. |
+| `lexicon.tsv` | 192,738 British-cryptic words with a frequency rank, derived from the Lufz and Exet lexicons by `tools/build_lexicon.js` (MIT — see below). Committed, unlike the blobs it comes from, because `tools/difficulty.py` reads it for the obscurity component of every rating and those ratings are committed in `puzzles/index.json`: fetched, the score a puzzle got depended on whether the machine running `--reindex` happened to have the file. 4.9 MB. |
 
 ## Fetched, never committed
 
 `bash tools/fetch_lexicon.sh` downloads about 26 MB of JavaScript and derives
-the word list from it. All of it is gitignored.
+the word lists from it. These blobs are gitignored; `lexicon.tsv`, derived from
+them, is not — see above.
 
 | file | source | licence |
 | --- | --- | --- |
 | `lufz-en-lexicon.js`, `lufz-en-lexicon-stems.js` | [viresh-ratnakar/lufz](https://github.com/viresh-ratnakar/lufz) | MIT |
 | `exet-lexicon.js` | [viresh-ratnakar/exet](https://github.com/viresh-ratnakar/exet) | MIT |
-| `lexicon.tsv` | derived by `tools/build_lexicon.js` | derived from the above |
 | `clueability.tsv` | derived by `tools/clueability.py --build` | derived from the above |
 
 The Lufz lexicon is UKACD18 — J Ross Beresford's UK Advanced Cryptics
