@@ -767,7 +767,7 @@ while (leadRung() && clicks < 12) {
     const fam = (registry["hint-body"].innerHTML.split('<div class="hint-step')
       .find((sec) => sec.includes("What kind of clue is this?")) || "");
     if (fam) {
-    assert(/Definitions only|&amp;lit|&lit|Rearrangement|Sound|Charade|Alteration|Extraction/.test(fam),
+    assert(/Double or cryptic definition|&amp;lit|&lit|Anagram|Homophone|Charade|Container, reversal or deletion|Hidden/.test(fam),
       "the family rung names a clue family: " + fam);
     assert(!fam.includes("mechanism"), "the family rung withholds the precise mechanism: " + fam);
     }

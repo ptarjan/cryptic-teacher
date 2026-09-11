@@ -375,11 +375,11 @@ def check_no_answer(clue_html, prose_html, answer):
 # "said" and "inside" are ordinary English in an instruction — listing them would
 # flag "says to shuffle" and teach nobody anything.
 FAMILY_SIGNALS = {
-    "Sound": ("aloud", "out loud", "sounds like", "we hear", "reportedly",
+    "Homophone": ("aloud", "out loud", "sounds like", "we hear", "reportedly",
               "spoken", "pronounced", "homophone"),
-    "Rearrangement": ("anagram", "shuffle", "scrambled", "jumbled", "rearranged"),
-    "Extraction": ("hidden", "hiding", "buried", "concealed"),
-    "Alteration": ("reversed", "backwards", "turned around", "inserted"),
+    "Anagram": ("anagram", "shuffle", "scrambled", "jumbled", "rearranged"),
+    "Hidden": ("hidden", "hiding", "buried", "concealed"),
+    "Container, reversal or deletion": ("reversed", "backwards", "turned around", "inserted"),
 }
 
 
@@ -402,11 +402,11 @@ def check_prose_stays_in_family(prose_html, family, type_):
     Rung 3 on a hidden-word card read "<ind> says so out loud" from the day the
     cards shipped. "Out loud" was meant as "announces itself", but in a cryptic
     it means one thing only — the answer is a soundalike. So the same card said
-    Extraction on rung 1 and pointed at Sound on rung 3, about the same clue, to
+    Hidden on the type rung and pointed at Homophone later, about the same clue, to
     a reader who is there precisely because they don't yet know the difference.
 
     Only the card's OWN prose is scanned. The marks hold the setter's words and
-    the annotator's, and an Extraction clue is perfectly entitled to an indicator
+    the annotator's, and a Hidden clue is perfectly entitled to an indicator
     that reads like a homophone; that is the clue, not the card mis-teaching it.
 
     Not a SystemExit, unlike every other check here, because pick() treats that
