@@ -1200,7 +1200,22 @@ def check_cryptic_definition_cap(entries, errors, warnings=None, authored=False)
             f"yourself there is no wordplay in them")
 
 
-def check_every_clue_is_annotated(entries, errors, warnings):
+def blind_misses(pid):
+    """The entries a blind run got wrong, whose explanations the grader dropped.
+
+    Written by tools/blind_annotate.py after the run has ended, by comparing
+    what the model derived against the published key. The model never sees this
+    file and cannot write it, which is what makes it safe to soften the check
+    below: it is the one blank the annotator did not choose.
+    """
+    path = ROOT / "tools" / "data" / "blind_misses.json"
+    try:
+        return json.loads(path.read_text(encoding="utf-8")).get(pid, {})
+    except (OSError, ValueError):
+        return {}
+
+
+def check_every_clue_is_annotated(entries, errors, warnings, misses=()):
     """Once a puzzle is annotated at all, every clue in it must be annotated.
 
     A blank annotation is the one failure no other check can see: it claims
@@ -1215,11 +1230,25 @@ def check_every_clue_is_annotated(entries, errors, warnings):
     grid entry with no clue text, as in cryptic-30098 12A). That is detectable
     from the clue itself rather than from an allowlist: strip the enumeration
     and nothing is left.
+
+    The other is a blind run's miss, in `misses`. A blind night hides the key,
+    and the grader afterwards drops the explanation of every clue the model got
+    wrong, because an explanation built on a wrong answer is wrong from its
+    first line. That blank is the grader's, decided after the run ended and off
+    the published key, so it is not an escape hatch — the model cannot reach it.
+    Treating it as an error meant one wrong answer in 33 failed the whole
+    puzzle, and on 2026-09-11 took a second puzzle down with it.
     """
     for e in entries:
         if e.get("annotation"):
             continue
         tag = f"{e['number']}{'A' if e['direction'] == 'across' else 'D'}"
+        if e.get("id") in misses:
+            warnings.append(
+                f"{tag}: no annotation — the blind run answered "
+                f"{misses[e['id']]!r} wrongly and the grader dropped its "
+                f"explanation. It ships with auto hints until someone annotates it")
+            continue
         if not re.sub(r"\([\d,\-\s]+\)\s*$", "", e["clue"]).strip():
             warnings.append(f"{tag}: no annotation, and no clue to annotate — "
                             f"the setter left this entry blank on purpose")
@@ -1886,7 +1915,8 @@ def validate_puzzle(puzzle):
                 errors.append(f"{tag}: subReversal {sub['from']} reversed != {sub['to']}")
 
     if annotated:
-        check_every_clue_is_annotated(puzzle["entries"], errors, warnings)
+        check_every_clue_is_annotated(puzzle["entries"], errors, warnings,
+                                      blind_misses(puzzle["id"]))
         check_cryptic_definition_cap(puzzle["entries"], errors, warnings,
                                      authored=authored)
         check_definition_not_fodder(puzzle["entries"], errors, warnings)
