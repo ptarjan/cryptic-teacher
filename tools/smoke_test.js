@@ -1932,6 +1932,30 @@ registry["reset-puzzle"].onclick();
   assert(win.scrolls.length === 2,
     "with nothing left to correct the late look costs nothing: " + JSON.stringify(win.scrolls));
 
+  // And the correction is not a single allowance. Whichever viewport event fires
+  // first used to spend it — our own smooth scroll slides a phone's URL bar away
+  // long before a cold keyboard arrives — so the keys came up over the clue with
+  // nothing left to move it ("the keyboard still covers sometimes", Paul,
+  // 2026-09-10). What bounds it is the keyboard's own state: a band that moved
+  // for any other reason costs nothing, and every time the keys change their
+  // mind inside the watch window the panel is put back.
+  vv.height = 1000; vv.offsetTop = 0;
+  win.pageYOffset = 0; win.scrolls.length = 0;
+  clues[1].listeners.click[0]();
+  global.flushTimers(100);
+  assert(win.scrolls.length === 1, "placed on the tap: " + JSON.stringify(win.scrolls));
+  vv.panKeyboard(40);                    // a URL bar sliding away under our own scroll
+  global.flushTimers(500);
+  assert(win.scrolls.length === 1,
+    "a band that moved for anything but the keys costs nothing: " + JSON.stringify(win.scrolls));
+  vv.offsetTop = 0;
+  vv.raiseKeyboard(400);                 // and NOW the keys, with the look still available
+  global.flushTimers(500);
+  assert(win.scrolls.length === 2 && inBand(),
+    "the keys are still corrected for after it: " + JSON.stringify(win.scrolls) + " -> "
+      + JSON.stringify(panel.getBoundingClientRect()) + " band 0.." + vv.height);
+  drain();
+
   // --- but a keyboard that is GONE is not a keyboard that is coming ---
   // "Owed" used to be read off the input: focused, with no keys showing. That is
   // also exactly what an iPad looks like the moment you dismiss the keyboard with
