@@ -245,7 +245,7 @@ button:disabled:hover { border-color: var(--line); }
 .ana-disc.ana-focus { outline: 2px solid var(--accent); outline-offset: 6px; border-radius: 50%; }
 .ana-tile {
   position: absolute; transform: translate(-50%, -50%);
-  min-width: 1.9em; padding: 4px 6px; margin: 0;
+  min-width: 2.1em; padding: 6px 8px; margin: 0;
   font: inherit; font-weight: 700; line-height: 1.1; text-align: center;
   color: var(--fg); background: var(--card);
   border: 1px solid var(--line); border-radius: 7px; cursor: pointer;
@@ -912,6 +912,17 @@ mark.link {
   background: none; color: var(--muted); padding: 0 1px;
   text-decoration: line-through; text-decoration-color: var(--line);
 }
+/* A highlight fades in rather than snapping on. Taking a rung repaints the
+   clue, and the coloured span appearing at full strength — padding and all —
+   reads as the line jumping under the words being read ("when the definition
+   gets bigger animate it ... the clue I mean", Paul, 2026-09-10). The marks are
+   new elements every time the clue is rewritten, so this fires exactly when the
+   markup changed: setHTML() declines to write markup identical to what is
+   already there, which is what keeps an idle re-render from replaying it. */
+.hint-clue mark { animation: mark-in .32s ease-out both; }
+@keyframes mark-in { from { background-color: transparent; color: inherit; box-shadow: none; } }
+@media (prefers-reduced-motion: reduce) { .hint-clue mark { animation: none; } }
+
 .legend { font-size: .75rem; color: var(--muted); margin-top: 2px; }
 /* why a definition may fairly disagree with the answer's number or part of speech */
 .def-note {

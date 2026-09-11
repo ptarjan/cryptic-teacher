@@ -1943,7 +1943,7 @@
       // rung has nothing to ask and there are no blocks either. A blurb that
       // promises work the clue does not contain reads as a lie (Paul).
       // "nothing is shuffled" rather than "nothing is anagrammed", because this
-      // blurb is rung 1 and a rung before the walkthrough may not contain the
+      // blurb is an early rung and a rung before the walkthrough may not contain the
       // answer: 30103 28A is a cryptic definition whose answer is ANAGRAM, and
       // the generic sentence spelled it out before the solver had bought a
       // single hint. Family blurbs are shown on every clue in the family, so
@@ -2287,7 +2287,17 @@
     const n = ring.letters.length;
     // The ring grows with the fodder so the tiles never overlap; the disc is
     // sized off the same radius so the box is never taller than its contents.
-    const radius = Math.max(46, Math.round((n * 30) / (2 * Math.PI)));
+    // What has to clear is the straight line between two neighbouring tiles,
+    // not the arc through them: spacing the centres by arc length (n * pitch /
+    // 2PI) leaves a chord of 2R*sin(PI/n), which is shorter than the tile at
+    // every length and got worse the more letters there were — eight tiles sat
+    // 35px apart at 34px wide, and twelve overlapped outright ("the anagram
+    // circle is too small and cramped", Paul, 2026-09-10). Solving the chord for
+    // the pitch instead is the same sum done the right way round. Capped so a
+    // very long fodder cannot push the disc wider than a phone.
+    const PITCH = 42;
+    const radius = Math.max(56, Math.min(140,
+      Math.ceil(PITCH / (2 * Math.sin(Math.PI / n)))));
     const tiles = ring.order.map((idx, pos) => {
       const a = (pos / n) * 2 * Math.PI - Math.PI / 2;
       return `<button type="button" class="ana-tile${ring.struck[idx] ? " struck" : ""}"
@@ -2722,20 +2732,20 @@
         joke + `<p><b class="wt-part">The trick</b>${esc(ann.walkthrough)}</p>${fit}${note}` +
         `<p>Answer: <span class="gives">${esc(ann.answer)}</span></p>`
     });
-    // Presented in the order people actually solve, which is not the order the
-    // rungs are built in. You find the definition first because a fair clue
-    // splits in two and one half defines; then you look at what is left and find
-    // the indicator; and the indicator is what TELLS you the kind of clue. Asking
-    // the kind first made rung 1 a guess between seven families from a cold read,
-    // and got the reasoning backwards — "should the kind of clue be after you
-    // find the definition and indicators? how do people solve these" (Paul,
-    // 2026-09-06). It usually now arrives already spent (see spentBy), which is
-    // the honest outcome: a solver who has named the definition and the indicator
-    // has worked the family out, and should not be sold it.
+    // Ordered by how much each rung gives away, cheapest first — not by the
+    // order the rungs are built in, and not by the order people solve in.
+    // The indicator is the cheap one: it names the mechanism and leaves the
+    // definition to find, which is most of the skill. Naming the definition
+    // hands that half over, and with checkers in the grid it often hands over
+    // the answer with it, so it goes second. The kind of clue is not asked
+    // before either of them: from a cold read that is a guess between seven
+    // families, and it usually arrives already spent (see spentBy), which is
+    // the honest outcome — a solver who has named the indicator and the
+    // definition has worked the family out and should not be sold it.
     //
     // A sort, not a reordered set of pushes: the walkthrough's html asks whether
     // a blocks rung exists, so every rung has to be built before any is placed.
-    const RUNG_ORDER = ["definition", "indicators", "type", "blocks", "walkthrough"];
+    const RUNG_ORDER = ["indicators", "definition", "type", "blocks", "walkthrough"];
     steps.sort((a, b) => RUNG_ORDER.indexOf(a.key) - RUNG_ORDER.indexOf(b.key));
     return steps;
   }
@@ -2927,6 +2937,12 @@
       const b = blockAskAt(e, at);
       if (!b) return null;
       gives = b.gives;
+      // A piece whose word IS its letters cannot be asked about: "Which words
+      // give CIA?" with CIA printed in the clue is not a question, it is a tap
+      // (Paul, 2026-09-10). The question would be printing its own answer, so
+      // the piece is handed over like any other that has nothing to point at.
+      const bare = (t) => String(t || "").replace(/[^A-Za-z]/g, "").toUpperCase();
+      if (bare(b.clueFragment) && bare(b.clueFragment) === bare(gives)) return null;
       const n = blockPieces(e).length;
       const of = n > 1 ? ` <span class="muted">(${at + 1} of ${n})</span>` : "";
       prompt = `Which words give <span class="gives">${esc(gives)}</span>?${of}`;

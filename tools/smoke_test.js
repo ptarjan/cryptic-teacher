@@ -752,11 +752,11 @@ while (leadRung() && clicks < 12) {
   if (!isRung) continue;
   rungs++;
   if (rungs === 1) {
-    // Rung 1 is where the definition sits, because that is the first move a
-    // solver makes: a fair clue splits in two and one half defines. The family
-    // used to lead and was a cold guess between seven.
+    // Rung 1 is the indicators, because it is the rung that gives away least:
+    // it names the mechanism and leaves the definition — most of the skill —
+    // to find. The definition led until 2026-09-10 and the family before that.
     const first = registry["hint-body"].innerHTML;
-    assert(/Where is the definition\?/.test(first), "rung 1 asks where the definition is: " + first);
+    assert(/Spot the indicator words/.test(first), "rung 1 spots the indicator words: " + first);
   }
   // Wherever the family rung lands, it gives the FAMILY only — never the
   // precise (often compound) type, which is the blocks rung's to give.
@@ -1232,18 +1232,15 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
     const row = registry["clue-" + e.id];
     assert(row && row.listeners.click, `clue list shows ${e.number}${e.direction[0]}: ${e.clue}`);
     row.listeners.click[0]();
-    // Up to the definition rung, which is where linkWords and definitionNote
-    // hang. By NAME, not by taking the first two buttons: that pinned the
-    // ladder's order into a helper about something else, and when the order
-    // changed this helper silently took the indicators rung as well and then
-    // three later tests failed for asserting it was still on offer.
-    for (let i = 0; i < 4; i++) {
-      const btn = registry["hint-next"].children.find((b) => b.onclick && !b.disabled);
-      if (!btn) break;
-      const isDef = /definition/i.test(btn.textContent);
-      takeRung(btn);
-      if (isDef) break;
-    }
+    // The definition rung and NOTHING else, which is where linkWords and
+    // definitionNote hang. By name and on its own: climbing to it by taking
+    // whatever leads pins the ladder's order into a helper about something
+    // else, and swallows the indicators rung that three later tests assert is
+    // still on offer. It is tier 0, so it is reachable from cold whatever
+    // leads.
+    const defBtn = registry["hint-next"].children.find(
+      (b) => b.onclick && !b.disabled && /definition/i.test(b.textContent));
+    if (defBtn) takeRung(defBtn);
   };
 
   const linked = findClue("linkWords");
