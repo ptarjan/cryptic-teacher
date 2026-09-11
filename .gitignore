@@ -83,3 +83,19 @@ tools/_*
 # reason it is named here: those jobs `git add -A`, and an untracked symlink
 # pointing at somebody's home directory is not a thing to publish.
 .claude/
+
+# The crawlable half of the site, written by tools/build_seo_pages.py: one page
+# per puzzle, the archive hub, the lesson, the glossary and the sitemap. Every
+# one of them carries a content-hashed ?v= stamp, so an app.js or style.css
+# change rewrites all 1,059 — which made a one-line fix a four-figure commit
+# with a full rebuild in front of it. Built on a clean checkout and deployed
+# straight to Pages by .github/workflows/pages.yml instead.
+#
+# index.html is deliberately NOT here. The build patches one region of it, but
+# it is hand-written, and its own asset stamps are committed by
+# tools/stamp_assets.py so the source of the site is readable in the repo.
+/puzzles/*/index.html
+/puzzles/index.html
+/learn/index.html
+/abbreviations/index.html
+/sitemap.xml

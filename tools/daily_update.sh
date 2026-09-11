@@ -26,7 +26,9 @@
 #      the site the same night the report arrived.
 #   5. Validates, reindexes, rebuilds the static crawlable pages
 #      (tools/build_seo_pages.py — one per puzzle, plus the hub, the tutorial
-#      and the sitemap), and commits (and pushes, if a remote is set up).
+#      and the sitemap) so the checks have something to read, and commits (and
+#      pushes, if a remote is set up). The pages themselves are not committed:
+#      .github/workflows/pages.yml rebuilds and deploys them on every push.
 #
 # Install: a line in the bridge container's tools/crontab (household repo),
 # 06:15 local. That is the only schedule this job has, and a second one is not
@@ -821,6 +823,12 @@ bash tools/make_og.sh --all ||
 # the sitemap. After validation, deliberately — these pages publish the
 # annotations as plain text, so a run that produced a bad annotation should have
 # already bailed out above rather than putting it in front of a search engine.
+#
+# None of it is committed any more (.gitignore, and .github/workflows/pages.yml
+# builds and deploys the same files from a clean checkout on every push). It is
+# built here because the checks below read the pages — the stamp sweep and the
+# glossary test have nothing to look at otherwise — and because a generator that
+# has stopped working is worth finding out about tonight rather than at deploy.
 python3 tools/build_seo_pages.py
 
 # The solver's abbreviation glossary, republished from the clue-writer's copy.
