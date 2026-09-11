@@ -1907,33 +1907,29 @@ registry["reset-puzzle"].onclick();
       + vv.offsetTop + ".." + (vv.offsetTop + vv.height));
   vv.offsetTop = 0;
 
-  // --- a keyboard that has not started yet is not a viewport that has settled ---
-  // "Down then up a little" (Paul, iOS, 2026-08-21). Waiting for the band to hold
-  // still can only measure silence, and at the instant of the tap the band has
-  // been silent forever — so the placement went ahead against the whole screen
-  // and the late look below had to walk it back once the keys landed. Two moves,
-  // every time, on the commonest tap there is.
-  //
-  // Tapping the LETTER STRIP focuses the typing input, and on a touch device
-  // that raises a keyboard, so silence there means "nothing has happened yet",
-  // not "nothing will". The wait is for the thing that is owed. Picking a clue —
-  // off the list or out of the grid — owes nothing, because neither raises a
-  // keyboard, so the strip's mousedown is what starts this sequence.
+  // --- a keyboard is corrected for, never waited for ---
+  // A tap cannot know whether keys are coming: an iPad with a hardware keyboard,
+  // or one whose keyboard was dismissed with the chevron, looks exactly like a
+  // phone about to raise one. Waiting on that guess held the page still for a
+  // second on every device where the keys never came ("selecting a clue still
+  // delays before scrolling about a second", Paul, 2026-09-10). So the placement
+  // sets off on the settle whatever the tap did, and the keys — whenever they
+  // land — are what the one late look is for.
   drain();                               // drain the look left over from the tap above
   vv.height = 1000; vv.offsetTop = 0;
   win.pageYOffset = 0; win.scrolls.length = 0;
-  registry["hint-pattern"].listeners.mousedown[0]();
+  registry["hint-pattern"].listeners.mousedown[0]();   // the strip: this one does raise keys
   clues[0].listeners.click[0]();
   global.flushTimers(100);
-  assert(win.scrolls.length === 0,
-    "nothing is placed while a keyboard is still owed: " + JSON.stringify(win.scrolls));
+  assert(win.scrolls.length === 1,
+    "the tap sets off at once, keyboard or no keyboard: " + JSON.stringify(win.scrolls));
   vv.raiseKeyboard(400);                 // the keys, later than any settle would wait
-  global.flushTimers(100);
-  assert(win.scrolls.length === 1 && inBand(),
-    "and when they land it is ONE move, straight above them: "
+  global.flushTimers(500);
+  assert(win.scrolls.length === 2 && inBand(),
+    "and when they land the panel is put back above them: "
       + JSON.stringify(panel.getBoundingClientRect()) + " band 0.." + vv.height);
   drain();
-  assert(win.scrolls.length === 1,
+  assert(win.scrolls.length === 2,
     "with nothing left to correct the late look costs nothing: " + JSON.stringify(win.scrolls));
 
   // --- but a keyboard that is GONE is not a keyboard that is coming ---
