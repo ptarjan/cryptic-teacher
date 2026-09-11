@@ -388,7 +388,7 @@ that is not here, add it to the source table and rerun
 ### The controlled vocabulary for `type`
 
 Join parts with ` + ` and name EVERY mechanism the wordplay uses. Each part
-belongs to exactly one family; the family is what the app shows on rung 1, so a
+belongs to exactly one family; the family is what the app shows on the type rung, so a
 compound type's family is decided by the FIRST row below that matches it.
 
 **Definitions only** — No letter mechanics at all — nothing is shuffled, hidden or spelled out. Either two plain definitions sit side by side, or one sly one describes the answer the long way round.
