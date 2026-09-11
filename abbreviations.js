@@ -179,6 +179,10 @@ const ABBREVIATIONS = {
  "CR": [
   "credit"
  ],
+ "CU": [
+  "copper",
+  "cuba"
+ ],
  "CV": [
   "career record",
   "r\u00e9sum\u00e9"
@@ -590,6 +594,7 @@ const ABBREVIATIONS = {
   "name",
   "new",
   "newton",
+  "nitrogen",
   "noon",
   "norse",
   "north",
