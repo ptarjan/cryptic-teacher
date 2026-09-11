@@ -1918,7 +1918,7 @@
   // count a solver's odds actually run on. It orders the chips, not this array;
   // tools/smoke_test.js recounts the corpus and fails if a share has drifted.
   const FAMILIES = [
-    { label: "Definitions only", n: 805,
+    { label: "Double or cryptic definition", n: 805,
       // Says what the family IS and stops. It used to add that the work is
       // spotting which words define, which on a two-word double definition is a
       // claim the page then disproves: both words define, so the definition
@@ -1935,19 +1935,19 @@
     { label: "&lit", n: 160,
       blurb: "The whole clue does double duty: read it once as a definition, then read the very same words again as wordplay.",
       match: (t) => t.includes("&lit") },
-    { label: "Rearrangement", n: 2181,
+    { label: "Anagram", n: 2181,
       blurb: "Letters handed to you in the clue get shuffled into the answer. Find the fodder and count it against the enumeration.",
       match: (t) => t.includes("anagram") || t.includes("cycling") },
-    { label: "Sound", n: 475,
+    { label: "Homophone", n: 475,
       blurb: "The wordplay describes how the answer sounds rather than how it is spelled.",
       match: (t) => t.includes("homophone") || t.includes("spoonerism") },
     { label: "Charade", n: 4646,
       blurb: "The answer is built from pieces laid end to end, each clued separately — read the wordplay left to right.",
       match: (t) => t.includes("charade") },
-    { label: "Alteration", n: 4434,
+    { label: "Container, reversal or deletion", n: 4434,
       blurb: "A piece of the wordplay is changed rather than just joined on: put inside something, turned around, or trimmed.",
       match: (t) => t.includes("container") || t.includes("reversal") || t.includes("deletion") || t.includes("substitution") || t.includes("palindrome") },
-    { label: "Extraction", n: 2200,
+    { label: "Hidden", n: 2200,
       blurb: "The answer's letters are already sitting in the clue in order — the job is working out which ones to pick out.",
       match: (t) => t.includes("hidden") || t.includes("letter") }
   ];
@@ -2874,6 +2874,13 @@
     // there is no question, and the rung behaves exactly as it always did.
     const right = familiesOf(ann.type).map((f) => f.label);
     if (!right.length) return null;
+    // The families are named for the devices themselves, which means a chip can
+    // be a word that is somewhere an answer — 30103 28A is a cryptic definition
+    // whose answer is ANAGRAM. The rung must never print one, so a clue whose
+    // answer is the name of a family is told rather than asked, the same as any
+    // other clue with no question in it.
+    const bare = (t) => String(t || "").replace(/[^A-Za-z]/g, "").toUpperCase();
+    if (FAMILY_CHIPS.some((c) => bare(c) === bare(ann.answer))) return null;
     return { prompt: "Which of these is it?", choices: FAMILY_CHIPS,
              answer: right[0], answers: right, step: 0 };
   }
