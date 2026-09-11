@@ -1360,21 +1360,13 @@
   // can, because it does not have to know why the band moved. One placement on
   // the best information available, one correction once everything has stopped,
   // and then the page belongs to the reader again.
-  const HINT_WATCH_MS = 1800;
-  // A keyboard that has not started coming up yet looks exactly like a viewport
-  // that is never going to move: both are silence, and the settle above can only
-  // measure silence. At the instant of the tap the band has been quiet forever,
-  // so the placement goes ahead against the whole screen and the confirm has to
-  // walk it back once the keys land — down, then up a little (Paul, iOS,
-  // 2026-08-21). The confirm was doing its job; there was just no reason to have
-  // needed it.
-  //
-  // Silence only means settled when nothing is owed. Tapping a clue focuses the
-  // typing input, and on a touch device that raises a keyboard, so until the band
-  // shows one there is a change outstanding and nothing worth measuring. This is
-  // not a guess about how tall the keys are — that would be a number to get
-  // wrong. It is the difference between "nothing will happen" and "nothing has
-  // happened yet", which is knowable.
+  const HINT_WATCH_MS = 2600;
+  // How long the one correction stays available after the tap. A keyboard that
+  // has not started coming up yet looks exactly like a viewport that is never
+  // going to move — both are silence — so the placement goes ahead against the
+  // band as it is, and this window is the room the keys have to arrive in and be
+  // scrolled clear of. Long enough for a cold first keyboard, which is the slow
+  // one; past it the page belongs to the reader again.
   //
   // Taller than any URL bar, shorter than any soft keyboard: the two are an order
   // of magnitude apart, so nothing hinges on where in the gap this sits.
@@ -1384,28 +1376,21 @@
     const ih = window.innerHeight || 0;
     return !!(vv && vv.height && ih && ih - vv.height >= KEYBOARD_MIN_PX);
   }
-  // A keyboard is OWED only when a tap actually asked for one, which is focusKbd
-  // moving focus into the input on a touch device. This used to read "the input
-  // is focused and no keyboard is showing" — which is also exactly what an iPad
-  // looks like once you dismiss the keyboard with the chevron, or hinge on a
-  // hardware one. Every clue tap after that waited out the full cold-keyboard
-  // deadline for keys that were never coming, and the page sat still for over a
-  // second before it moved (Paul, iPad, 2026-08-28).
-  let kbdOwed = false;
-  function keyboardExpected() {
-    if (keyboardUp()) kbdOwed = false;
-    return kbdOwed;
-  }
-  // Longer than the ordinary deadline because a cold first keyboard is slow to
-  // build, and the wait only ever costs anything on a device that raises one at
-  // all. If the keys never come — a hardware keyboard on an iPad — the placement
-  // still happens here, and the confirm is still behind it.
-  const HINT_KEYBOARD_MS = 1200;
+  // Nothing is ever waited for. A tap CANNOT know whether a keyboard is coming:
+  // an iPad with a hardware keyboard, or one whose keyboard was dismissed with
+  // the chevron, looks exactly like a phone about to raise one, so every rule
+  // for guessing it has ended up holding the page still for a second on the
+  // devices where the keys were never coming ("selecting a clue still delays
+  // before scrolling about a second", Paul, 2026-09-10 — the second go at this).
+  // So: place on the settle, always, and if a keyboard does turn up it is a
+  // viewport change like any other and confirmHintPlacement re-places for it.
+  // A tap that guessed right costs one move; the phone that raises keys pays for
+  // the correction, which is the way round it should be.
   let settleTimer = null, settleBy = 0, confirmTimer = null, placedKeys = null,
       watchUntil = 0, confirmsLeft = 0;
   function scrollToHintPanel() {
     const now = Date.now();
-    settleBy = now + (keyboardExpected() ? HINT_KEYBOARD_MS : HINT_DEADLINE_MS);
+    settleBy = now + HINT_DEADLINE_MS;
     watchUntil = now + HINT_WATCH_MS;
     confirmsLeft = 1;
     if (confirmTimer) { clearTimeout(confirmTimer); confirmTimer = null; }
@@ -1413,16 +1398,14 @@
   }
   function armHintPlacement() {
     if (settleTimer) clearTimeout(settleTimer);
-    // While a keyboard is owed there is nothing worth measuring, so the wait runs
-    // all the way to the deadline rather than to the settle. The keys arriving is
-    // a resize, which comes back through here — and by then nothing is owed, so
-    // it takes the short wait and places almost at once. The deadline is only
-    // reached when the keyboard never comes at all.
+    // The settle, or what is left of the deadline if a resize has already eaten
+    // most of it: long enough for the layout this tap caused to flush, and short
+    // enough that the travel reads as the answer to the tap.
     const left = Math.max(0, settleBy - Date.now());
     settleTimer = setTimeout(() => {
       placeHintPanel();
       armConfirm(HINT_CONFIRM_MS);
-    }, keyboardExpected() ? left : Math.min(HINT_SETTLE_MS, left));
+    }, Math.min(HINT_SETTLE_MS, left));
   }
   // Re-arming only ever postpones the one confirm this tap is allowed; it never
   // buys another.
@@ -1444,17 +1427,24 @@
   // keyboard is not in the state it was in when we placed. A tap that measured
   // the truth costs exactly one move; the correction is left for the tap that
   // guessed.
+  // The allowance is spent on a MOVE, not on a look. Burning it here whatever we
+  // found meant the first thing to fire after the placement took it — our own
+  // smooth scroll sliding a phone's URL bar away is a resize, and it arrives
+  // well before a cold keyboard does — and then the keys came up over the clue
+  // with nothing left to correct them ("when the keyboard comes up it covers the
+  // clue and it should scroll", Paul, 2026-09-10). Looking and finding nothing
+  // changed costs nothing; the watch window is what bounds it.
   function confirmHintPlacement() {
     confirmTimer = null;
     if (placedKeys === null || !confirmsLeft) return;
-    confirmsLeft = 0;
     if (keyboardUp() === placedKeys) return;
+    confirmsLeft = 0;
     placeHintPanel();
   }
   // Only ever called off that timer, so layout has long since flushed and there
   // is nothing to measure a frame later for.
   function placeHintPanel() {
-    settleTimer = null; settleBy = 0; kbdOwed = false;
+    settleTimer = null; settleBy = 0;
     const p = $("hint-panel");
     if (!p || p.classList.contains("hidden") || !p.getBoundingClientRect) return;
     const r = p.getBoundingClientRect();
@@ -1475,10 +1465,9 @@
       : y + r.bottom - band.bottom + HINT_SCROLL_GAP;
     // Smooth: the travel is how the reader keeps their place, and "the smooth
     // scroll was nice" (Paul, iPad, 2026-08-28). What read as slow was never the
-    // animation, it was the wait in front of it — keyboardExpected above used to
-    // claim a keyboard was coming on taps that had asked for nothing, and the
-    // page held still for a second before setting off. Fix the wait, keep the
-    // travel. Reduced motion gets the jump instead, as it does everywhere else.
+    // animation, it was the wait in front of it: the panel used to be held back
+    // until a keyboard that was never coming had had its chance. Fix the wait,
+    // keep the travel. Reduced motion gets the jump instead, as everywhere else.
     const still = window.matchMedia &&
       matchMedia("(prefers-reduced-motion: reduce)").matches;
     // Ours, not the reader's — see markOwnScroll() below the keyboard rules, so
@@ -1644,13 +1633,6 @@
 
   function focusKbd() {
     const kbd = $("kbd");
-    // Only a focus that MOVES focus can raise a keyboard, and only a keyboard on
-    // its way in is worth waiting for. Re-focusing the input that is already
-    // focused — what the clue lists and the hint buttons do to keep a keyboard
-    // from leaving — changes nothing about the viewport, so it must not make the
-    // next tap wait for a change that is not coming.
-    if (document.activeElement !== kbd && !keyboardUp() &&
-        typeof navigator !== "undefined" && navigator.maxTouchPoints) kbdOwed = true;
     kbd.value = "";
     kbd.focus({ preventScroll: true });
   }
