@@ -341,6 +341,22 @@ Rules:
 - Do not guess: if a parsing doesn't produce the answer's letters exactly, it is wrong —
   rethink it. Consult the setter's usual tricks; check fifteensquared.net if reachable.
 
+## Order of work
+
+- **Write early, and keep writing.** Put what you have into `tools/_ann_<ID>.json` as soon
+  as a handful of clues are done, and add to it as you go. Only what is on disk survives
+  the run ending. A run that holds a whole puzzle in its head and dies spent everything and
+  bought nothing: on 2026-09-11 one spent 1.16M output tokens over four hours and never
+  wrote a file.
+- **Solve in the order the crossings unlock**, not clue order. A clue with three checked
+  letters is a different problem from the same clue with none.
+- **A clue that resists is a clue for later, not a clue to grind.** Leave it `null`, move on,
+  and come back once its crossings are filled. Thinking longer without new letters does not
+  produce new letters, and a null with an honest note is worth more than an hour of silence.
+- **There is no word list.** `/usr/share/dict/words` is outside the working directory and
+  this run cannot read it, and the other puzzles in `puzzles/` are not a dictionary.
+  Candidate-fill searches over the corpus are a dead end that has eaten whole runs.
+
 ## Verify (mandatory)
 
 Write `tools/_ann_<ID>.json`, then run ONE command:

@@ -418,6 +418,20 @@ fi
 # puzzles and then dying on the third with "you've hit your limit", which is a
 # quota being discovered by crashing into it rather than being budgeted.
 ANNOTATE_MAX_SESSION_PCT="${ANNOTATE_MAX_SESSION_PCT:-70}"
+# Turns are the wrong unit to bound a run by, because one turn is not one price.
+# A turn cut off for overrunning the output ceiling emits no tool call, so the
+# CLI keeps its --max-turns budget intact and simply tries again; the ceiling is
+# 128k output tokens and takes ~25 minutes to reach. independent-12456 did that
+# six times inside one run on 2026-09-11 — 36 turns, 1.16M output tokens, four
+# hours, and not one byte written to the puzzle. Nothing in this script could see
+# it: the retry below only fires when the CLI EXITS saying "output token
+# maximum", and a run that absorbs the overrun never exits at all.
+# So bound the wall clock as well. A puzzle that is going to be annotated is
+# annotated in well under an hour (23 and 68 minutes, the two that finished that
+# same night); one still going at ANNOTATE_MAX_MINUTES is not slow, it is lost,
+# and it is charged to the puzzle like any other failure — its session id is
+# kept, so tomorrow resumes the conversation rather than buying it again.
+ANNOTATE_MAX_MINUTES="${ANNOTATE_MAX_MINUTES:-90}"
 annotated_ok=0
 annotated_nums=""
 stop_reason=""
@@ -591,12 +605,33 @@ if [ -n "$pending" ]; then
       ann_sids="$ann_sids $num:$ann_sid"
       ann_ok=""
       ann_retried=0
+      # Unquoted on purpose: empty means no cap, and neither field can contain a
+      # space. `timeout` is GNU and the nightly runs in the Linux container; a
+      # by-hand run on the Mac says so rather than silently going uncapped.
+      ann_cap="timeout ${ANNOTATE_MAX_MINUTES}m"
+      if ! command -v timeout >/dev/null 2>&1; then
+        ann_cap=""
+        echo "  no timeout(1) here, so $num runs with no wall-clock cap"
+      fi
       while :; do
-        claude -p "$ann_prompt" "${ann_sess[@]}" \
+        # shellcheck disable=SC2086
+        $ann_cap claude -p "$ann_prompt" "${ann_sess[@]}" \
             --model "$ANNOTATE_MODEL" \
             --allowedTools "$ann_tools" \
-            --max-turns "$ann_turns" 2>&1 | tee "$run_log" && ann_ok=1
+            --max-turns "$ann_turns" 2>&1 | tee "$run_log"
+        ann_rc=$?
+        [ "$ann_rc" = 0 ] && ann_ok=1
         [ -n "$ann_ok" ] && break
+        # The cap fired. Say so here rather than below, because below reads the
+        # reason off the CLI's last line and a killed CLI never printed one —
+        # that is how this failure reached the ledger as "independent-12456
+        # failed:" with nothing after the colon.
+        if [ "$ann_rc" = 124 ]; then
+          stop_reason="$num ran past ${ANNOTATE_MAX_MINUTES}m without finishing and was stopped"
+          echo "  $stop_reason"
+          record_annotate_failure "$num" "$stop_reason" "$ann_sid"
+          break 2
+        fi
         # Exactly one failure earns another attempt, and it is the one that
         # costs the most: a turn killed for overrunning the output ceiling
         # emits no tool call, so everything the run spent buys nothing at all.
@@ -623,6 +658,11 @@ if [ -n "$pending" ]; then
         # alert is the difference between "go and read a 270k-line log" and
         # knowing whether this needs a /login or just needs tomorrow.
         stop_reason="$num failed: $(grep -v '^[[:space:]]*$' "$run_log" | tail -1 | cut -c1-200)"
+        # A CLI killed from outside never got to print that last line, and
+        # "independent-12456 failed:" with nothing after the colon tells whoever
+        # reads it nothing at all. The exit code is always there.
+        [ "$stop_reason" = "$num failed: " ] &&
+          stop_reason="$num failed: the CLI exited $ann_rc without printing a reason"
         # And write that down against the puzzle, because tomorrow's queue is
         # otherwise identical to tonight's: this puzzle is still un-annotated and
         # still the newest, so it comes back to the head of the list and is
@@ -757,26 +797,46 @@ python3 tools/fetch_puzzle.py --reindex
 # months ago discarded three clean puzzles and published nothing (2026-09-02).
 # A puzzle that is already live cannot be made good by throwing away a puzzle
 # that isn't.
-if [ -n "$annotated_nums" ] &&
-   ! python3 tools/validate_annotations.py $annotated_nums >/tmp/ct-validate.txt 2>&1; then
-  cat /tmp/ct-validate.txt
-  echo "VALIDATION FAILED — reverting today's puzzle-file changes"
-  git checkout -- puzzles/
-  # Tonight's annotation is gone and the inference that produced it is spent.
-  # This branch used to exit 1 in silence, which is the same shape of failure as
-  # the seven authentication days: the log knew, and nobody did.
-  alert "annotation validation failed on tonight's own puzzles ($annotated_nums), so the hints were thrown away and nothing published: $(grep ERROR /tmp/ct-validate.txt | head -3 | tr '\n' ' ')"
-  # Every one of those puzzles is now un-annotated again and will be back at the
-  # head of tomorrow's queue, so the run that was just discarded gets bought
-  # again — and a puzzle that trips the validator systematically would repeat
-  # that indefinitely. Charged to the puzzle, because it IS the puzzle: the
-  # validator read tonight's annotation of it and refused it.
-  for num in $annotated_nums; do
+# And one puzzle at a time, because the night is not the unit either. Validated
+# as a lump, one blank clue in cryptic-30109 threw away independent-12458 too on
+# 2026-09-11, which had just passed 29 of 29. A puzzle that is good is good on
+# its own, and nothing about the bad one makes it less so.
+ann_passed=""
+ann_failed=""
+for num in $annotated_nums; do
+  if python3 tools/validate_annotations.py "$num" >"/tmp/ct-validate-$num.txt" 2>&1; then
+    ann_passed="$ann_passed $num"
+  else
+    cat "/tmp/ct-validate-$num.txt"
+    ann_failed="$ann_failed $num"
+  fi
+done
+if [ -n "$ann_failed" ]; then
+  echo "VALIDATION FAILED on$ann_failed — reverting those puzzle files"
+  for num in $ann_failed; do
+    git checkout -- "puzzles/$num.js"
+    # That puzzle is un-annotated again and back at the head of tomorrow's queue,
+    # so the run just discarded gets bought again — and one that trips the
+    # validator systematically would repeat that indefinitely. Charged to the
+    # puzzle, because it IS the puzzle: the validator read tonight's annotation
+    # of it and refused it.
     record_annotate_failure "$num" \
-      "validation rejected tonight's annotation: $(grep -m1 ERROR /tmp/ct-validate.txt | cut -c1-160)" \
+      "validation rejected tonight's annotation: $(grep -m1 ERROR "/tmp/ct-validate-$num.txt" | cut -c1-160)" \
       "$(ann_session_of "$num")"
   done
+  # The index above was built over the files as they stood before that revert.
+  python3 tools/fetch_puzzle.py --reindex
+  # Tonight's annotation of those is gone and the inference that produced it is
+  # spent. This branch used to exit 1 in silence, which is the same shape of
+  # failure as the seven authentication days: the log knew, and nobody did.
+  alert "annotation validation failed on$ann_failed, so those hints were thrown away: $(for n in $ann_failed; do grep -m1 ERROR "/tmp/ct-validate-$n.txt"; done | head -3 | tr '\n' ' ')${ann_passed:+ — the rest of the night ($ann_passed ) validated and still publishes}"
   alert_newly_blocked
+fi
+rm -f /tmp/ct-validate-*.txt
+# Only what survived is tonight's work from here on: it is what gets committed,
+# and what the loop below clears from the failure ledger.
+annotated_nums="$ann_passed"
+if [ -n "$ann_failed" ] && [ -z "$annotated_nums" ]; then
   exit 1
 fi
 # Tonight's puzzles passed, so their history is spent and is not worth keeping —

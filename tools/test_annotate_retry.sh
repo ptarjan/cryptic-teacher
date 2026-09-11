@@ -34,6 +34,9 @@ printf '%s\n' "$*" >> "$CALLS/argv"
 if [ "$n" = 1 ] && [ -n "${MODE:-}" ]; then
   [ "$MODE" = overrun ] && echo "API Error: Claude's response exceeded the 128000 output token maximum."
   [ "$MODE" = limit ] && echo "Claude AI usage limit reached"
+  # What timeout(1) exits when it kills the run, and the CLI never got to print
+  # a reason — which is the whole point of the case that uses this.
+  [ "$MODE" = capped ] && exit 124
   exit 1
 fi
 echo "done"
@@ -50,12 +53,18 @@ run() {  # $1 = MODE ("" for a clean first run), $2 = a session the ledger holds
     "${2:+\"test-1\": {\"attempts\": 1, \"session\": \"$2\"}}" > "$ANNOTATE_ATTEMPTS_FILE"
   . tools/claude_session.sh
   local ANNOTATE_MODEL=opus ann_tools=Read ann_turns=80 num=test-1 run_log
-  local ann_sids="" ann_prior
+  local ANNOTATE_MAX_MINUTES=90
+  local ann_sids="" ann_prior ann_cap ann_rc
   local ann_task="Annotate." ann_sid ann_sess ann_prompt ann_ok ann_retried
   run_log=$(mktemp)
   # session_exists must say yes, since the fake CLI writes no transcript.
   session_exists() { [ -n "${1:-}" ]; }
-  eval "$block" >/dev/null 2>&1
+  capped=""
+  record_annotate_failure() { capped="$2"; }
+  # The block breaks 2 when the wall-clock cap fires, because in daily_update.sh
+  # it sits inside the loop over tonight's puzzles. Give it that loop, or the
+  # case below tests a `break` that cannot mean what it means in production.
+  for _ in 1; do eval "$block"; done >/dev/null 2>&1
   calls=$(cat "$CALLS/n"); argv=$(cat "$CALLS/argv"); ok="$ann_ok"
   rm -rf "$CALLS" "$run_log"
 }
@@ -79,6 +88,12 @@ sid=$(sed -n '1s/.*--session-id \([^ ]*\).*/\1/p' <<<"$argv")
 check "second call resumed the first's session" \
   "$(sed -n '2s/.*--resume \([^ ]*\).*/\1/p' <<<"$argv")" "$sid"
 check "and it did not start a new one" "$(sed -n 2p <<<"$argv" | grep -c -- --session-id)" "0"
+
+echo "a run that outlives the wall-clock cap is stopped, charged, and not retried"
+run capped
+check "calls" "$calls" "1"
+check "failed" "${ok:-no}" "no"
+check "charged to the puzzle" "$(grep -c 'ran past 90m' <<<"${capped:-}")" "1"
 
 echo "a puzzle that died last night resumes that night's session, not a fresh one"
 run "" last-nights-session

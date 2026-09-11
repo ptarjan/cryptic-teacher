@@ -77,6 +77,34 @@ def hide(arg):
     return 0
 
 
+def record_misses(pid, wrong):
+    """Write down which entries this pass blanked, for validate_annotations.py.
+
+    Its check_every_clue_is_annotated errors on a missing annotation, because a
+    blank is otherwise how an annotator escapes every other rule in the file.
+    The blanks made above are the one kind it cannot choose: they are decided
+    here, after its run has ended, by comparing what it derived against the
+    published key. Without this file one wrong answer in 33 fails the whole
+    puzzle — and on 2026-09-11 that took a second puzzle down with it, one that
+    had just passed 29 of 29.
+
+    Rewritten per puzzle rather than merged into, so a later pass that gets the
+    clue right clears the exemption instead of leaving it standing for ever.
+    """
+    path = ROOT / "tools" / "data" / "blind_misses.json"
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        data = {}
+    if wrong:
+        data[pid] = {eid: mine for eid, mine, _theirs in wrong}
+    else:
+        data.pop(pid, None)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(data, indent=1, sort_keys=True) + "\n",
+                    encoding="utf-8")
+
+
 def restore():
     """Put every stashed key back, grade what the model wrote against it.
 
@@ -124,6 +152,7 @@ def restore():
               f"correct without the key")
         for eid, mine, theirs in wrong:
             print(f"  miss {eid}: model said {mine}, answer is {theirs}")
+        record_misses(puzzle["id"], wrong)
         stash.unlink()
     return 0
 
