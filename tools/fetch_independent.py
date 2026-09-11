@@ -184,7 +184,13 @@ def parse(xml_bytes, ymd):
             # int("6.2") raised, and because one bad clue aborts the whole parse,
             # the Independent on Sunday No 1,858 was simply absent (2026-08-19).
             fmt = (clue.get("format") or "").replace(".", ",")
-            nums = [int(n) for n in clue.get("number", "").split("/") if n.strip()]
+            # A linked clue's number can carry a trailing A/D ("7/21A/11") when the
+            # bare number would collide with an unrelated clue elsewhere in the same
+            # grid — the compiler's own disambiguation, not data we need: direction
+            # is already read from grid geometry below. int("21A") raised and aborted
+            # the whole parse, which is how Independent on Sunday No 1,840 went
+            # missing (2026-09-10).
+            nums = [int(n.rstrip("ADad")) for n in clue.get("number", "").split("/") if n.strip()]
             segs = runs[clue.get("word")]
             if len(nums) != len(segs):
                 raise ValueError(f"clue {clue.get('number')}: {len(nums)} numbers "
