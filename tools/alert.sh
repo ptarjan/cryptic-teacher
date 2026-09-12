@@ -99,7 +99,12 @@ alert() {
   fi
   # Stamped only once it is out, so a failed send is retried by the next run
   # rather than suppressed as a duplicate of a message nobody ever saw.
-  if "$wake_sh" -c "$ALERT_CHANNEL" "⚠️ cryptic-teacher: $*"; then
+  # The icon is the triage signal in a channel of these, so it is not always a
+  # warning: a blind solve that graded clean is a result, and dressing a result
+  # as a problem is what costs the ⚠️ its meaning. A caller says so for one
+  # message — ALERT_ICON="✅" alert "..." — and it falls back to a warning on
+  # every call that does not, so nothing goes quiet by forgetting.
+  if "$wake_sh" -c "$ALERT_CHANNEL" "${ALERT_ICON:-⚠️} cryptic-teacher: $*"; then
     touch "$stamp" 2>/dev/null || true
   else
     echo "the alert could not be sent: wake.sh failed"

@@ -155,13 +155,30 @@ fi
 refreshed=$( { python3 tools/fetch_puzzle.py --refresh-unsolved
                python3 tools/fetch_observer.py --refresh-unsolved; } 2>&1 | tee /dev/stderr)
 graded=$(printf %s "$refreshed" | grep -E "^BLIND SOLVE GRADED|^  miss ")
-[ -n "$graded" ] && alert "a puzzle we solved ourselves has been graded against the
+# A clean sweep and a bad night are not the same message. Both are worth
+# sending — the grade is the whole measurement behind ANNOTATE_BLIND and it
+# happens on a night nobody knows in advance — but the miss trailer is a lie
+# when there are no misses, and 28/28 went out under a ⚠️ saying every miss
+# above had had its annotation dropped.
+if [ -n "$graded" ]; then
+  if printf %s "$graded" | grep -q "^  miss "; then
+    alert "a puzzle we solved ourselves has been graded against the
 paper's published answers:
 
 $graded
 
 Every miss listed above has had its annotation dropped, so those clues are back
 in tonight's queue and will be rewritten against the real answer."
+  else
+    ALERT_ICON="✅" alert "a puzzle we solved ourselves graded CLEAN against the
+paper's published answers:
+
+$graded
+
+Nothing was dropped and nothing is queued — every annotation on it was written
+off the right answer."
+  fi
+fi
 
 # --- 2b. refresh the Minute Cryptic reference corpus ---
 # Their hint ladder is the same shape as ours and better written, so we keep a
