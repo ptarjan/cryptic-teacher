@@ -286,6 +286,20 @@ const numberOf = (id) => (((global.CRYPTIC_INDEX || {}).puzzles || [])
   assert(/--gridspace:\s*calc\(100cqi/.test(css),
     "the grid's space comes from a container query unit");
 
+  // And the cap is asked of the same ruler. As a @media (max-width: 700px) rule
+  // it was a second one, and on a resume the two disagreed for a frame: the
+  // window read narrow, so the cap came off, while 100cqi already resolved
+  // against the full-width column — the grid drew at ~78px cells and snapped
+  // back to 56 (Paul, iPad, 2026-09-12). One ruler cannot disagree with itself.
+  {
+    const caps = [...all.matchAll(/--cellcap:\s*999px/g)];
+    assert(caps.length === 1,
+      `the grid is uncapped in exactly one place (found ${caps.length})`);
+    const before = all.slice(0, caps[0].index);
+    assert(/@container[^{]*\{[^{}]*#grid\s*\{\s*$/.test(before),
+      "and that place is a @container query, not a window width: " + before.slice(-140));
+  }
+
   // --- and how big things are is asked about the pointer, not the width ---
   // The two were one query, so an iPad shrank when you turned it to the WIDER
   // side: 820px portrait stacked and got 56px cells and tablet type, 1180px
