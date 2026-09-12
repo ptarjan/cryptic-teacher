@@ -2923,9 +2923,15 @@
     const pairs = blockPieces(e)
       .map((b) => ({ frag: b.clueFragment, gives: blockLetters(ann, b) }))
       .filter((p) => p.frag && p.gives && bare(p.frag) !== bare(p.gives));
-    // Two is the smallest set that can be got wrong. One pair is not a matching
-    // question; it is the answer with a step in front of it.
-    if (pairs.length < 2) return null;
+    // Three is the smallest set with a decision in it. The last pairing of any
+    // matching question is forced — one chunk, one row, nothing to choose — and
+    // with two pairs the FIRST one is also the last, so placing one chunk
+    // placed the other ("when I selected the first answer in a building block
+    // it automatically chose the next one for me to pair", Paul, iPad). Two
+    // pairs is 68% of the corpus, and all of it was one tap dressed as a
+    // puzzle. Those clues ask the paced one-piece-at-a-time question below
+    // instead, which is a real question about every piece it names.
+    if (pairs.length < 3) return null;
     // A fixed shuffle, not a random one: the panel is redrawn on every tap, and
     // chips that jumped between taps would be a memory test of the wrong thing.
     // Ordered by a hash of the chunk, so it holds still without holding state.
