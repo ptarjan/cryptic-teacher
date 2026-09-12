@@ -1141,12 +1141,14 @@
 
   function refreshGrid() {
     const e = currentEntry();
+    const done = confirmedCells();
     forEachCell((c) => {
       const el = c.el;
       if (!el) return;
       el.querySelector(".letter").textContent = c.letter;
       el.classList.toggle("wrong", !!c.wrong);
       el.classList.toggle("revealed", !!c.revealed);
+      el.classList.toggle("confirmed", done.has(c));
       const inEntry = e && ((e.direction === "across" && c.y === e.position.y && c.x >= e.position.x && c.x < e.position.x + e.length)
         || (e.direction === "down" && c.x === e.position.x && c.y >= e.position.y && c.y < e.position.y + e.length));
       el.classList.toggle("hl", !!inEntry && !(c.x === cur.x && c.y === cur.y));
@@ -1701,15 +1703,24 @@
   // Typing over a letter is a delete with a letter on the end of it, so it is
   // refused in the same place. Clearing the whole puzzle still clears it: that
   // is asked for, by name, and this is only ever about the accidents.
-  function cellConfirmed(c) {
-    if (!c || !c.letter) return false;
-    return entries.some((e) => isEntrySolved(e) && entryCells(e).indexOf(c) >= 0);
+  // A lock nobody can see is a keyboard that reads as broken, so the same rule
+  // paints the grid: confirmed squares carry `.confirmed` (refreshGrid) and a
+  // refused keystroke pulses the square it was refused on. One definition of
+  // the rule, three uses — the set below is what the grid draws and what the
+  // two refusals below ask.
+  function confirmedCells() {
+    const s = new Set();
+    entries.forEach((e) => {
+      if (isEntrySolved(e)) entryCells(e).forEach((c) => { if (c && c.letter) s.add(c); });
+    });
+    return s;
   }
+  function cellConfirmed(c) { return !!c && !!c.letter && confirmedCells().has(c); }
 
   function typeLetter(ch) {
     const c = cells[cur.y][cur.x];
     if (!c) return;
-    if (cellConfirmed(c)) { advanceToGap(); refreshAll(); return; }
+    if (cellConfirmed(c)) { pulseCells([c]); advanceToGap(); refreshAll(); return; }
     beacon("letter");
     c.letter = ch; c.wrong = false; c.revealed = false;
     checkSolvedEntries(true);
@@ -1718,7 +1729,8 @@
   }
 
   function clearCell(c) {
-    if (!c || cellConfirmed(c)) return;
+    if (!c) return;
+    if (cellConfirmed(c)) { pulseCells([c]); return; }
     c.letter = ""; c.wrong = false;
   }
 
