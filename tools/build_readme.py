@@ -180,6 +180,7 @@ LAYOUT = [
     ("tables everything else reads", "tools/data/sample_fill_11.json", "the worked 11x11 fill tools/AUTHORING.md walks through"),
     ("tables everything else reads", "tools/data/authored_A001_clues.json", "the hand-written clues for that fill"),
     ("tables everything else reads", "tools/data/annotate_attempts.json", "which puzzles have already had an annotation run spent on them and lost"),
+    ("tables everything else reads", "tools/data/blind_misses.json", "which entries the last blind annotate run got wrong, the one blank check_every_clue_is_annotated will not fail on"),
     ("tables everything else reads", "tools/data/favourite_grading/key.json", "which packet label is which pair, and which side of it was voted for: the only thing that un-blinds a packet"),
     ("tables everything else reads", "tools/data/favourite_grading/packets/", "one blind batch of clues per file, labels only"),
     ("tables everything else reads", "tools/data/favourite_grading/scores/", "the judge’s five scores per label, same batch numbering as the packets"),

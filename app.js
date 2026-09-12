@@ -3124,16 +3124,29 @@
       if (!at) { const m = matchAsk(e); if (m) return m; }
       const b = blockAskAt(e, at);
       if (!b) return null;
-      gives = b.gives;
-      // A piece whose word IS its letters cannot be asked about: "Which words
-      // give CIA?" with CIA printed in the clue is not a question, it is a tap
-      // (Paul, 2026-09-10). The question would be printing its own answer, so
-      // the piece is handed over like any other that has nothing to point at.
-      const bare = (t) => String(t || "").replace(/[^A-Za-z]/g, "").toUpperCase();
-      if (bare(b.clueFragment) && bare(b.clueFragment) === bare(gives)) return null;
       const n = blockPieces(e).length;
       const of = n > 1 ? ` <span class="muted">(${at + 1} of ${n})</span>` : "";
-      prompt = `Which words give <span class="gives">${esc(gives)}</span>?${of}`;
+      // What a piece may show is decided in ONE place, and the question in
+      // front of the rung is bound by it exactly as the rung's body is. A
+      // prompt that reads its letters straight off the annotation prints on the
+      // way in what the body was careful not to print once it was open, and on
+      // the clues where a piece IS the answer that prompt is the whole solve.
+      gives = blockLetters(annOf(e), b);
+      if (gives) {
+        prompt = `Which words give <span class="gives">${esc(gives)}</span>?${of}`;
+      } else if (wholeWord(b.gives) === wholeWord(ann.answer)) {
+        // Held back letters are not a missing question. Which words carry the
+        // whole answer is still a real thing to point at, and on a double
+        // definition or a hidden word it is the only question there is. Asked
+        // unnamed, it keeps the free way off a rung that would otherwise have to
+        // be bought.
+        prompt = `Which words give the answer?${of}`;
+      } else {
+        // A fragment that is its own letters has nothing to point at: "which
+        // words give CIA?" with CIA sitting in the clue is not a question but a
+        // tap. The rung is handed over like any other.
+        return null;
+      }
     }
     // Everything already named and not part of this answer: the tier-0 rungs
     // that are up, plus the pieces of this charade already placed.

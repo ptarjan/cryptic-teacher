@@ -1412,7 +1412,22 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
         const btn = registry["hint-next"].children[0];
         if (!CLIMBABLE(btn)) break;
         if (/walkthrough/i.test(btn.textContent)) break;
-        takeRung(btn);
+        // Opened by hand rather than through takeRung(), because the question
+        // stands BETWEEN the tap and the rung and takeRung answers it the
+        // instant it appears. A sweep that never reads that screen cannot see
+        // a leak that only happens on it: the rung's body suppressed a `gives`
+        // that was the whole answer while the question in front of it printed
+        // the same letters in its prompt — "Which words give APPLAUDED?", the
+        // solve handed over on the rung bought to avoid being handed it
+        // (quiptic-1398 17a, 2026-09-12). One rule about what a piece may
+        // show, two readers of it, and only one of them obeying.
+        btn.onclick();
+        if (isAsking(registry["hint-body"])) {
+          const asked = registry["hint-body"].innerHTML.match(/<span class="gives">([^<]*)<\/span>/g) || [];
+          assert(!asked.some((s) => bare(s.replace(/<[^>]*>/g, "")) === r.ans),
+            `${r.id} ${r.e.id} (${r.ans}): the question in front of the rung prints the answer — ${registry["hint-body"].innerHTML}`);
+          registry["guess-tell"].onclick();
+        }
         const spans = registry["hint-body"].innerHTML.match(/<span class="gives">([^<]*)<\/span>/g) || [];
         const spelled = spans.find((s) => bare(s.replace(/<[^>]*>/g, "")) === r.ans);
         assert(!spelled,
@@ -4244,6 +4259,7 @@ global.realSetTimeout(() => {
 // moot and gradeGuess has to accept either half of a DD, in either order.
 {
   const puzzles = global.window.CRYPTIC_PUZZLES;
+  const bare = (t) => String(t || "").replace(/[^A-Za-z]/g, "").toUpperCase();
   const tokensOf = (clue) => {
     const body = String(clue || "").replace(/\s*\([^()]*\)\s*$/, "");
     const out = [];
@@ -4280,6 +4296,13 @@ global.realSetTimeout(() => {
       const a = e.annotation;
       const bl = ((a && a.blocks) || []).filter((b) => b.clueFragment && b.gives);
       if (bl.length !== 2 || bl[0].gives !== bl[1].gives) continue;
+      // Both halves giving the same letters is not enough to be a DD: "Type of
+      // dieting you endlessly repeated" gives YO twice and is a charade, where
+      // the half not being asked for is a piece the solver has not reached yet
+      // and is rightly still pickable. A double definition is the case where
+      // each half gives the WHOLE answer, and only there has the definition
+      // rung already named both.
+      if (bare(bl[0].gives) !== bare(a.answer)) continue;
       const spans = bl.map((b) => spanTokens(e.clue, b.clueFragment));
       if (spans.some((s) => !s) || spans[0].some((n) => spans[1].indexOf(n) >= 0)) continue;
       tried++;
@@ -4310,6 +4333,12 @@ global.realSetTimeout(() => {
   assert(dd, `the corpus has a two-piece clue whose pieces give the same thing (tried ${tried})`);
 
   if (dd) {
+    // And it asks WITHOUT naming the letters, because on a DD they are the
+    // answer: a prompt that reads them off the annotation hands over the solve
+    // on the way in to the rung bought to avoid being handed it.
+    assert(!/class="gives"/.test(registry["hint-body"].innerHTML),
+      `${dd.id} ${dd.e.id}: the question names the letters it is asking for, and they are the answer — `
+        + registry["hint-body"].innerHTML);
     const first = pickable();
     assert(JSON.stringify(first) === JSON.stringify(dd.spans[0]),
       `${dd.id} ${dd.e.id}: "${dd.e.clue}" offers only the half it is asking for — `
