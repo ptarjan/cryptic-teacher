@@ -3386,7 +3386,8 @@
       <p>${ask.prompt}${inClue && !ask.choices && !ask.pairs
         ? ` <span class="tap-hint">Tap them in the clue above.</span>` : ""}</p>
       ${answer}
-      <p class="guess-actions">${check}<button id="guess-tell" class="ghost small">Just tell me</button></p></div>`;
+      <p class="guess-actions">${check}<button id="guess-tell" class="ghost small">Just tell me</button>
+      <button id="guess-later" class="ghost small">Not yet</button></p></div>`;
   }
 
   // Right or not, and which one you said — never what the right one was. The
@@ -4161,10 +4162,24 @@
     // Never a dead end. Asking to be told is a legitimate answer to "do you know
     // this yet?", and it costs what the rung has always cost. Every question has
     // one, whether it is answered by tapping words or by picking a family.
+    //
+    // And never a toll gate either. The tap that opens a question was a tap on
+    // the ladder — "show me this rung" — so a solver who reads the question and
+    // does not like their odds must be able to put it back down: a charade
+    // whose letters do not obviously belong to any one fragment is a coin
+    // flip, and "having a building block charge me with no way to get it free
+    // when the letter match doesn't feel good" (Paul, 2026-09-12) is that coin
+    // flip with the rung staked on it. Nothing was shown, so nothing is spent
+    // and nothing is earned; the rung goes back on the ladder and asks again.
     if (ask) {
       $("guess-tell").onclick = () => {
         const a = currentAsk();
         if (a) finishGuess(null, a);
+      };
+      $("guess-later").onclick = () => {
+        if (!currentAsk()) return;
+        guessing = null;
+        refreshAll();
       };
     }
 
