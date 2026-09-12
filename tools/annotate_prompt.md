@@ -404,10 +404,10 @@ that is not here, add it to the source table and rerun
 ### The controlled vocabulary for `type`
 
 Join parts with ` + ` and name EVERY mechanism the wordplay uses. Each part
-belongs to exactly one family; the family is what the app shows on the type rung, so a
+belongs to exactly one family; the family is what the app shows on rung 1, so a
 compound type's family is decided by the FIRST row below that matches it.
 
-**Definitions only** — No letter mechanics at all — nothing is shuffled, hidden or spelled out. Either two plain definitions sit side by side, or one sly one describes the answer the long way round.
+**Double or cryptic definition** — No letter mechanics at all — nothing is shuffled, hidden or spelled out. Either two plain definitions sit side by side, or one sly one describes the answer the long way round.
 
   `cryptic definition` `double definition`
 
@@ -415,11 +415,11 @@ compound type's family is decided by the FIRST row below that matches it.
 
   `&lit`
 
-**Rearrangement** — Letters handed to you in the clue get shuffled into the answer. Find the fodder and count it against the enumeration.
+**Anagram** — Letters handed to you in the clue get shuffled into the answer. Find the fodder and count it against the enumeration.
 
   `anagram` `cycling`
 
-**Sound** — The wordplay describes how the answer sounds rather than how it is spelled.
+**Homophone** — The wordplay describes how the answer sounds rather than how it is spelled.
 
   `homophone` `spoonerism`
 
@@ -427,11 +427,11 @@ compound type's family is decided by the FIRST row below that matches it.
 
   `charade`
 
-**Alteration** — A piece of the wordplay is changed rather than just joined on: put inside something, turned around, or trimmed.
+**Container, reversal or deletion** — A piece of the wordplay is changed rather than just joined on: put inside something, turned around, or trimmed.
 
   `container` `deletion` `palindrome` `reversal` `substitution`
 
-**Extraction** — The answer's letters are already sitting in the clue in order — the job is working out which ones to pick out.
+**Hidden** — The answer's letters are already sitting in the clue in order — the job is working out which ones to pick out.
 
   `alternate letters` `fifth letter` `fifth letters` `first letter` `first letters`
   `fourth letter` `fourth letters` `hidden word` `last letter` `last letters`
@@ -514,6 +514,10 @@ of the source. 75 of 128 annotation sessions were grepping
   them.
 - `check_conventions_are_in_the_glossary` — Every convention a clue leans on has to be
   in the solver's glossary.
+- `check_groups_agree` — A `group` is the entry ids whose solutions concatenate into
+  one answer. It is written only on clues that really are linked, and then on every
+  leg, with the same ids in the same order, including the leg itself. No group at all
+  is the ordinary case: the entry is its own answer.
 - `check_no_markup` — No HTML anywhere in a puzzle file. Every string here is
   displayed escaped, so a tag reaches the solver as a tag — which is exactly what the
   Independent's clues did (Paul, 2026-08-15): "<span>Film part of </span><i> Black
