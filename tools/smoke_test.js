@@ -1550,6 +1550,9 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
       const out = [];
       // The line starts with the entry's own tag ("12A"), which is not clue text.
       html = html.replace(/^\s*<span class="entry-tag">[\s\S]*?<\/span>/, "");
+      // The solved tick sits with the tag, not with the words: it is a mark
+      // ABOUT the clue, so it is stripped for the same reason the tag is.
+      html = html.replace(/^\s*<span class="clue-done[^"]*"[^>]*>[\s\S]*?<\/span>/, "");
       const re = /<mark class="([a-z0-9]+)">([\s\S]*?)<\/mark>|<[^>]*>|([^<]+)/g;
       let m;
       while ((m = re.exec(html)) !== null) {
@@ -3349,7 +3352,7 @@ global.realSetTimeout(() => {
     }
     return null;
   };
-  const pick = (idx) => idx.forEach((n) => registry["gw-" + n].onclick());
+  const bare = (t) => String(t || "").replace(/[^A-Za-z]/g, "").toUpperCase();
 
   let walked = null, tried = 0;
   for (const id of Object.keys(puzzles).sort()) {
@@ -3366,6 +3369,14 @@ global.realSetTimeout(() => {
       if (!bl[0].clueFragment || !bl[1].clueFragment) continue;
       const spans = bl.map((b) => b.clueFragment ? spanTokens(e.clue, b.clueFragment) : null);
       if (spans.slice(0, 2).some((s) => !s)) continue;
+      // The pieces the matching question is made of: the app leaves out any
+      // fragment that IS its own letters, because that chip pairs itself.
+      const pairs = bl.filter((b) => b.clueFragment && b.gives
+        && bare(b.clueFragment) !== bare(b.gives));
+      if (pairs.length < 2) continue;
+      // Two pieces giving the same chunk are graded right either way round, so
+      // "did this row get its own chip" is not a question about that clue.
+      if (pairs.filter((b, i) => pairs.findIndex((x) => x.gives === b.gives) !== i).length) continue;
       tried++;
       if (!openClue(id, e)) continue;
       const blocks = climbTo(/building blocks/i);
@@ -3376,77 +3387,62 @@ global.realSetTimeout(() => {
       const paid = registry["scorebar"].innerHTML;
       blocks.onclick();
       if (!asking()) continue;
-      pick(spans[0]);
-      registry["guess-check"].onclick();
-      if (asking()) continue;
-      walked = { id, e, bl, spans, paid };
+      walked = { id, e, bl, paid, pairs };
     }
     if (walked) break;
   }
-  assert(walked, "somewhere in the corpus the blocks rung has a second piece to pay out "
+  assert(walked, "somewhere in the corpus the blocks rung asks its matching question "
     + `(tried ${tried} clues with two or more locatable pieces)`);
-  if (!walked) throw new Error("blocks pacing is broken — see the FAIL above");
+  if (!walked) throw new Error("the blocks rung asks nothing — see the FAIL above");
 
-  // One piece bought, one piece on screen. This is the whole change: the rung
-  // used to spell out every piece the moment it was opened, which on a charade
-  // is the solve.
+  // One question about the whole charade, not one click per piece. Every
+  // fragment gets a row, every chunk a chip, and nothing is paired up for you.
+  // Pacing the pieces out a click each is what this replaced: by the last piece
+  // the question answered itself by elimination, and the note under it only
+  // printed a synonym.
   let html = panelHTML();
-  assert(html.includes(givesSpan(walked.bl[0].gives)),
-    "the piece just answered is handed over: " + html);
-  assert(!html.includes(givesSpan(walked.bl[1].gives)),
-    "and the next one is NOT — a rung is not the answer: " + html);
+  const idsIn = (re) => (html.match(re) || []).length;
+  assert(idsIn(/id="gm-slot-\d+"/g) === walked.pairs.length,
+    `a row per fragment (${walked.pairs.length}): ` + html);
+  assert(idsIn(/id="gm-chip-\d+"/g) === walked.pairs.length,
+    "and a chip per chunk, none of them spent yet: " + html);
+  walked.pairs.forEach((b) => assert(!html.includes(givesSpan(b.gives)),
+    `${b.gives} is on the strip to be placed, never placed for you: ` + html));
+  assert(/id="guess-check"[^>]*disabled/.test(html),
+    "and it cannot be checked while rows are still empty: " + html);
+
+  // Which chip is which, read off the markup rather than off the app's own
+  // ordering — a test that asked the app where it put things would agree with
+  // it however it was shuffled.
+  const chipAt = {};
+  String(html).replace(/id="gm-chip-(\d+)"[^>]*>([^<]*)</g,
+    (_, n, text) => { chipAt[text] = +n; return ""; });
+  assert(Object.keys(chipAt).length === walked.pairs.length,
+    "every chunk is legible on the strip: " + JSON.stringify(chipAt));
+  assert(walked.pairs.map((b) => chipAt[b.gives]).join() !== walked.pairs.map((_, i) => i).join(),
+    "the chunks are shuffled — in clue order the question is answered by reading "
+      + "straight down the rows: " + JSON.stringify(chipAt));
+
+  // Answer it, right, by pairing every row with its own chunk.
+  walked.pairs.forEach((b, i) => {
+    registry["gm-chip-" + chipAt[b.gives]].onclick();
+    registry["gm-slot-" + i].onclick();
+  });
+  assert(!/id="guess-check"[^>]*disabled/.test(panelHTML()),
+    "a full board can be checked: " + panelHTML());
+  registry["guess-check"].onclick();
+
+  html = panelHTML();
+  assert(!asking(), "answering it ends the question: " + html);
+  // The question covered every piece, so answering it settles every piece.
+  // Anything still paced here would be the make-work this replaced.
+  walked.pairs.forEach((b) => assert(html.includes(givesSpan(b.gives)),
+    `${b.gives} is handed over with the rest of the split: ` + html));
+  assert(!rung(/next piece/i),
+    "and no piece is left to buy: " + registry["hint-next"].innerHTML);
   assert(registry["scorebar"].innerHTML === walked.paid,
-    "and nothing has been bought — the question was answered right: "
+    "nothing was bought — the question was answered right: "
       + registry["scorebar"].innerHTML);
-
-  // The rest of the rung is offered, and it leads: finishing what you started is
-  // the recommended move, not buying the next rung.
-  const more = rung(/next piece/i);
-  assert(more, "the rest of the rung is offered: " + registry["hint-next"].innerHTML);
-  assert(/2 of /.test(more.textContent), "and says which piece is next: " + more.textContent);
-  assert(rungs()[0] === more, "ahead of the rungs you have not bought: "
-    + registry["hint-next"].innerHTML);
-  // And the way out of the clue stands NEXT TO it, not on top of it. The fill
-  // button used to be written into the row with innerHTML while the other
-  // buttons were appended, and an innerHTML write throws away the children
-  // already there — so answering piece 1 left "Fill in answer" alone on screen
-  // and every remaining piece arrived unasked (Paul, 2026-09-06).
-  assert(registry["hint-next"].children.some((b) => b.id === "hx-entry")
-    && registry["hint-next"].children.indexOf(more) >= 0,
-    "the escape hatch is offered beside the next piece, not instead of it: "
-      + registry["hint-next"].children.map((b) => b.textContent).join(" | "));
-  more.onclick();
-  assert(asking(), "and asks before it tells, like every other step: " + panelHTML());
-
-  // Settled means settled in the clue, which is where the words are pointed at:
-  // no longer a button, and visibly already spoken for.
-  const clue = registry["hint-clue"].innerHTML;
-  walked.spans[0].forEach((n) => assert(!clue.includes(`id="gw-${n}"`),
-    `word ${n} was this solver's answer a moment ago and is not offered again: ` + clue));
-  assert((clue.match(/class="gw known"/g) || []).length >= walked.spans[0].length,
-    "the piece already placed is settled scaffolding for the next question: " + clue);
-
-  // Walk the rest of it. Every piece answered right leaves the rung earned
-  // rather than bought, however many pieces that took.
-  for (let n = 1; n < walked.bl.length; n++) {
-    if (!asking()) {
-      const next = rung(/next piece/i);
-      if (!next) break;
-      next.onclick();
-    }
-    if (!asking()) continue;
-    const span = walked.spans[n] || spanTokens(walked.e.clue, walked.bl[n].clueFragment);
-    if (!span || span.some((i) => !panelHTML().includes(`id="gw-${i}"`))) {
-      registry["guess-tell"].onclick();
-      break;
-    }
-    pick(span);
-    registry["guess-check"].onclick();
-  }
-  html = registry["hint-body"].innerHTML;
-  assert(!asking(), "the rung runs out of pieces: " + html);
-  assert(!rung(/next piece/i), "and stops offering more once the last one is out: "
-    + registry["hint-next"].innerHTML);
 
   // --- the panel only ever grows ---
   // A graded verdict on one rung, then a different rung asked for. Both the
