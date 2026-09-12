@@ -56,5 +56,23 @@ check "a claimed traceback does not silence an unrelated failure" \
 
 $traceback" "VALIDATION FAILED")" "1"
 
+# --- the icon says which kind of message this is ---
+# Everything alert.sh sends used to wear a ⚠️, so a blind solve that graded 28/28
+# arrived as a warning (Paul's channel, 2026-09-12). A caller may say otherwise
+# for one message, and must fall back to the warning the moment it does not —
+# a result that quietly stops looking like a problem is the worse failure.
+icon() {  # icon <ALERT_ICON-or-empty> -> the leading token wake.sh was handed
+  rm -rf "$tmp/state"; mkdir -p "$tmp/state"
+  printf '#!/bin/sh\nprintf "%%s\\n" "$3" > "%s/sent"\n' "$tmp" \
+    > "$tmp/household/tools/wake.sh"
+  chmod +x "$tmp/household/tools/wake.sh"
+  ALERT_ENV_FILE="$tmp/household/.env" ALERT_STATE_DIR="$tmp/state" ALERT_ICON="$1" \
+    bash -c '. "$1"; alert "something happened"' _ "$ROOT/tools/alert.sh" >/dev/null 2>&1
+  cut -d" " -f1 < "$tmp/sent"
+}
+
+check "an alert with nothing said about it is a warning" "$(icon "")" "⚠️"
+check "and a caller may send a result as a result" "$(icon "✅")" "✅"
+
 [ "$fails" = 0 ] && echo "ALERT CLAIMED PASSED" || echo "$fails check(s) failed"
 exit $((fails > 0))
