@@ -1080,6 +1080,22 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
   .clue-list ol { font-size: 1.14rem; }
 }
 
+/* Phone: no cap at all, the grid takes the column. 999px is "uncapped" — min()
+   has no identity value and --cellcap has to stay a length.
+
+   Asked of the CONTAINER, not the window, because the cap and --gridspace have
+   to be decided by the same ruler. As a @media (max-width: 700px) rule it was a
+   second ruler, and on a resume the two disagreed for a frame: iOS reported the
+   window narrow while 100cqi already resolved against the full-width column, so
+   the grid drew uncapped at ~78px cells and then snapped back to 56 ("the grid
+   is huge then shrinks to right size" — Paul, iPad, switching back to the
+   home-screen app). One ruler cannot disagree with itself. Still gated on a
+   coarse pointer: a desktop .left-col is 640px, narrower than this, and its
+   40px cap is deliberate. */
+@media (pointer: coarse) {
+  @container (max-width: 700px) { #grid { --cellcap: 999px; } }
+}
+
 /* Two columns, but on a touch screen. .left-col does not grow on the desktop —
    640px holds a 15x40px grid exactly and the spare width is better spent on the
    clue list. With touch-sized cells that stops being true: an iPad in landscape
@@ -1092,9 +1108,6 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
 
 @media (max-width: 700px) {
   body { padding: 0 8px 40px; }
-  /* Phone: no cap at all, the grid takes the column. 999px is "uncapped" —
-     min() has no identity value and --cellcap has to stay a length. */
-  #grid { --cellcap: 999px; }
   /* Six touch-sized buttons do not fit one phone line, and once the row wraps
      there is no slack left to push anything into: `margin-left: auto` would
      only strand the divider at the end of whichever line it landed on. Back to
