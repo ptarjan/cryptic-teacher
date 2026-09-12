@@ -568,6 +568,16 @@ button:disabled:hover { border-color: var(--line); }
   .cell.solved-flash { animation: none; box-shadow: inset 0 0 0 3px var(--solve-tint, var(--ok)); }
 }
 
+/* The tick beside a clue that is out. Same entrance the verdict pill uses, then
+   it stays put: a mark, not a flash, because the flash on the cells is the one
+   you miss when your eyes were on the clue. Gold when nothing was bought for it,
+   matching .cell.solved-flash.clean. */
+.clue-done { display: inline-block; margin-right: 4px; font-weight: 700; color: var(--ok); }
+.clue-done.clean { color: var(--sel); }
+@media (prefers-reduced-motion: no-preference) {
+  .clue-done { animation: gv-right .45s ease-out; }
+}
+
 /* ---------- hint panel ---------- */
 #hint-panel {
   border: 1px solid var(--line); border-left: 4px solid var(--accent);
@@ -806,6 +816,23 @@ button.gw { border-style: dashed; border-color: var(--pick-fg); }
    side padding is seven pixels off the row. */
 @media (pointer: coarse) { .gc { padding: 10px 9px; } }
 
+/* The matching question: one row per fragment of the clue, each with an empty
+   slot, and the letter chunks on the strip below. A chunk is picked up, then
+   dropped on a row; tapping a filled row puts it back. Both halves are real
+   buttons, so both are reachable by keyboard and both carry a touch target. */
+.gm-rows { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 4px; }
+.gm-slot {
+  width: 100%; text-align: left; padding: 8px 10px;
+  background: var(--card); border: 1px solid var(--line); border-radius: 8px;
+}
+/* An empty slot is where the work is, so it is the one that looks unfinished;
+   a filled one settles down and stops asking. */
+.gm-slot:not(.on) .gives { color: var(--muted); }
+.gm-slot.on { border-color: var(--accent); }
+/* The chunk in hand. It is the only state on the strip, and the only thing the
+   eye has to carry from the first tap to the second. */
+.gc.on { border-color: var(--accent); background: var(--accent-soft); }
+
 /* Grading, worn by the words. A count in a sentence cannot say WHICH words, and
    which words is the whole lesson — so the ones that were right keep the colour
    they were picked in, the spares strike through and step back, and the ones
@@ -870,9 +897,14 @@ button.primary:disabled { background: transparent; color: var(--muted); border-c
    the gap above it and the gap below it were different sizes for no reason the
    page could show you (Paul, 2026-09-06). A block has no line box and no
    baseline to answer to, and fit-content keeps it the width of the sentence. */
+/* The radius is one line tall, not 999px. A pill's radius is half its height,
+   so on the two-line verdicts — a compound clue's "yes, and it is also this" is
+   two sentences — a 999px corner curved in far enough to sit under the words
+   (Paul, 2026-09-12). 1em curves the ends of a single line exactly as before and
+   stops growing when the sentence wraps. */
 .guess-verdict.right {
-  width: fit-content; color: var(--def-fg); font-weight: 700;
-  background: var(--def-bg); padding: 4px 10px; border-radius: 999px;
+  width: fit-content; color: var(--def-fg); font-weight: 700; line-height: 1.4;
+  background: var(--def-bg); padding: 6px 12px; border-radius: 1em;
 }
 /* A miss stays plain and stays quiet: it is a step in the lesson, not an error
    state, and it must never be the loudest thing in the panel. */
