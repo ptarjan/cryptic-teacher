@@ -1345,11 +1345,5 @@ window.CRYPTIC_PUZZLES["cryptic-30104"] = /*JSON-START*/ {
     "walkthrough": "Bury is a town in Greater Manchester, which is what the capital letter wants you to see; the verb hiding under it is the one about laying explosives."
    }
   }
- ],
- "solutionSource": {
-  "kind": "model",
-  "model": "opus",
-  "date": "2026-09-07",
-  "check": "28 entries, 60 crossings, 0 conflicts"
- }
+ ]
 } /*JSON-END*/;
