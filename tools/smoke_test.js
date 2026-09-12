@@ -2787,6 +2787,24 @@ registry["reset-puzzle"].onclick();
   delete storage["ct:notify"];
   delete storage["ct:notify-after"];
 
+  // One slot, one panel. All three are drawn in the same corner at the same
+  // z-index (see .panel), so a second one opened behind the first is simply
+  // invisible and its button reads as dead — which is what pressing Sync with
+  // the picker up did. Asserted on the set of visible panels rather than on the
+  // one being opened, because the failure was never about that one.
+  const PANELS = ["sync-panel", "notify-panel", "picker-panel"];
+  const openPanels = () => PANELS.filter((id) => !registry[id].classList.contains("hidden"));
+  registry["btn-picker"].onclick();
+  assert(openPanels().join() === "picker-panel", "the picker opens on its own: " + openPanels());
+  registry["btn-sync"].onclick();
+  assert(openPanels().join() === "sync-panel",
+    "opening sync closes the picker instead of hiding behind it: " + openPanels());
+  registry["btn-notify"].onclick();
+  assert(openPanels().join() === "notify-panel",
+    "and notifications close sync the same way: " + openPanels());
+  registry["btn-notify-close"].onclick();
+  assert(openPanels().length === 0, "closing the last one leaves none open: " + openPanels());
+
   registry["btn-sync"].onclick();
   assert(!registry["sync-panel"].classList.contains("hidden"), "the sync panel opens");
   assert(registry["sync-off"] && !registry["sync-off"].classList.contains("hidden"),
