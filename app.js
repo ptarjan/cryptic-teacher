@@ -2893,6 +2893,52 @@
     return b && b.clueFragment && b.gives ? b : null;
   }
 
+  // The whole charade at once, instead of a piece at a time.
+  //
+  // Handing pieces over one click each never asked anything. By the time the
+  // last one comes round the others are already placed, so "which words give
+  // H?" is answered by whatever words are left, and the note underneath then
+  // prints the synonym: "it isn't making me think or teaching me anything, it
+  // just gives me synonyms" (Paul, 2026-09-12). Allocating every fragment to
+  // every chunk in one go is the move the solver actually has to make, and it
+  // cannot be done by elimination until the very last pair.
+  function matchAsk(e) {
+    const ann = annOf(e);
+    const bare = (t) => String(t || "").replace(/[^A-Za-z]/g, "").toUpperCase();
+    // The same exclusion the single-piece question makes: a fragment that IS
+    // its own letters is not a pairing, it is a chip with its answer written on
+    // it, and it would pair itself on sight.
+    const pairs = blockPieces(e)
+      .map((b) => ({ frag: b.clueFragment, gives: blockLetters(ann, b) }))
+      .filter((p) => p.frag && p.gives && bare(p.frag) !== bare(p.gives));
+    // Two is the smallest set that can be got wrong. One pair is not a matching
+    // question; it is the answer with a step in front of it.
+    if (pairs.length < 2) return null;
+    // A fixed shuffle, not a random one: the panel is redrawn on every tap, and
+    // chips that jumped between taps would be a memory test of the wrong thing.
+    // Ordered by a hash of the chunk, so it holds still without holding state.
+    const h = (str) => { let n = 0; for (let i = 0; i < str.length; i++) n = (n * 31 + str.charCodeAt(i)) % 99991; return n; };
+    const chips = pairs.map((p) => p.gives).sort((a, b) => h(a) - h(b) || (a < b ? -1 : 1));
+    // One order in a hundred-odd comes back out in clue order, which reads as a
+    // puzzle that forgot to shuffle and can be answered straight down the list.
+    if (chips.join("|") === pairs.map((p) => p.gives).join("|")) {
+      const swap = chips[0]; chips[0] = chips[1]; chips[1] = swap;
+    }
+    return { prompt: "Which piece of the clue gives which letters?",
+             pairs, chips, step: 0 };
+  }
+
+  // Right or wrong per pairing, and a count — never which one was misplaced.
+  // The rung opens underneath with the whole split named, so saying it here as
+  // well is the page telling you twice.
+  function gradeMatch(ask, slots) {
+    const got = ask.pairs.filter((p, i) => slots[i] >= 0 && ask.chips[slots[i]] === p.gives).length;
+    const n = ask.pairs.length;
+    if (got === n) return { right: true, said: "Yes — every piece where it belongs." };
+    if (!got) return { right: false, said: "None of those pair up. Here is how it splits." };
+    return { right: false, said: `${got} of the ${n} in the right place — here is the whole split.` };
+  }
+
   // Which words of the clue a rung names. Kept apart from guessAsk because a
   // rung can be unaskable and still have named its words — an &lit's definition
   // is the whole clue, so there is no question in it, and every word of it is
@@ -3039,6 +3085,10 @@
     } else if (rung === "indicators") {
       prompt = "Which words tell you what to do to the rest?";
     } else if (rung === "blocks") {
+      // The matching question covers the rung entire, so it is only ever the
+      // first thing asked. A puzzle resumed part-way through the old paced
+      // sequence still finishes it a piece at a time.
+      if (!at) { const m = matchAsk(e); if (m) return m; }
       const b = blockAskAt(e, at);
       if (!b) return null;
       gives = b.gives;
@@ -3266,15 +3316,38 @@
   // of its own down here: the prompt, and the two buttons that end it. The seven
   // families have nowhere else to live and keep their chips, and so does a linked
   // clue, whose own words are not the ones on display — see renderHintPanel.
+  // A chunk goes in the slot you last picked it up for. Two taps, both of them
+  // reversible: tapping a filled slot puts its chunk back on the strip, so
+  // nothing you try costs you anything until Check.
+  function guessMatchHTML(ask) {
+    const slots = guessing.slots || [];
+    const rows = ask.pairs.map((p, i) => {
+      const at = slots[i];
+      const has = at >= 0;
+      return `<li><button type="button" id="gm-slot-${i}" class="gm-slot${has ? " on" : ""}">“${
+        esc(p.frag)}” → <span class="gives">${has ? esc(ask.chips[at]) : "?"}</span></button></li>`;
+    }).join("");
+    const chips = ask.chips.map((c, i) => slots.indexOf(i) >= 0 ? ""
+      : `<button type="button" id="gm-chip-${i}" class="gc${
+          guessing.held === i ? " on" : ""}">${esc(c)}</button>`).join("");
+    const chars = ask.chips.reduce((n, c) => n + c.length, 0);
+    return `<ul class="gm-rows">${rows}</ul><p class="guess-choices" style="--n:${
+      ask.chips.length};--c:${chars}">${chips}</p>`;
+  }
+
   function guessHTML(ask, position, label, inClue) {
     const answer = ask.choices
       ? guessChoicesHTML(ask)
+      : ask.pairs ? guessMatchHTML(ask)
       : inClue ? ""
       : guessWordsHTML(ask.tokens, null, guessing.picked, ask.known, guessing.rung);
+    const ready = ask.pairs
+      ? (guessing.slots || []).every((n) => n >= 0)
+      : guessing.picked.length;
     const check = ask.choices ? "" : `<button id="guess-check" class="primary"${
-      guessing.picked.length ? "" : " disabled"}>Check my answer</button> `;
+      ready ? "" : " disabled"}>Check my answer</button> `;
     return `<div class="hint-step guess"><span class="step-label">${position} · ${esc(label)}</span>
-      <p>${ask.prompt}${inClue && !ask.choices
+      <p>${ask.prompt}${inClue && !ask.choices && !ask.pairs
         ? ` <span class="tap-hint">Tap them in the clue above.</span>` : ""}</p>
       ${answer}
       <p class="guess-actions">${check}<button id="guess-tell" class="ghost small">Just tell me</button></p></div>`;
@@ -3416,7 +3489,12 @@
     // handed over a charade entire — see blocksAt. Whether to go on to the next
     // piece is now the solver's call, and the rung is theirs either way: a
     // question is never a dead end.
-    if (guessing.rung === "blocks") revealPiece(e, guessing.step);
+    // A matching question was asked about every piece at once, so every piece
+    // is settled by answering it — pacing what the question already covered
+    // would be the make-work this replaced.
+    if (guessing.rung === "blocks") {
+      revealPiece(e, ask.pairs ? blockPieces(e).length - 1 : guessing.step);
+    }
     showHint(e, guessing.rung);
     guessing = null;
     refreshAll();
@@ -3601,8 +3679,10 @@
         // one, and only its "next piece" button sets it; everything else asks
         // its single question at step 0.
         const at = b.step || 0;
-        if (GUESSABLE[b.rung] && !isEntrySolved(on) && guessAsk(on, b.rung, at)) {
-          guessing = { key: entryKey(on), rung: b.rung, step: at, picked: [] };
+        const asked = GUESSABLE[b.rung] && !isEntrySolved(on) && guessAsk(on, b.rung, at);
+        if (asked) {
+          guessing = { key: entryKey(on), rung: b.rung, step: at, picked: [],
+                       slots: (asked.pairs || []).map(() => -1), held: -1 };
         } else {
           showHint(on, b.rung);
           // A piece with no question in it — no fragment to point at, or no
@@ -3716,11 +3796,23 @@
     const key = entryKey(e);
     const level = shownRungs(e).filter((r) => r !== ANSWER_RUNG).length;
 
+    const solved = isEntrySolved(e);
+    // The nod lands beside the clue as well as on the grid. celebrateSolve tints
+    // the cells for 450ms, which is a thing you miss entirely if you were reading
+    // the clue while you typed the last letter into it ("I don't see any
+    // excitement next to the clue when you're typing it out when you solve it" —
+    // Paul, 2026-09-12). So this one does not expire: it is a standing mark that
+    // the clue is out, and arriving late still finds it. Gold for a clue solved
+    // with nothing bought, the same two tiers the cells already use.
     let clueLine = `<span class="entry-tag">${tag(e)}</span>`;
+    if (solved) {
+      const clean = noHintsSolve(e);
+      clueLine += `<span class="clue-done${clean ? " clean" : ""}" title="${
+        clean ? "Solved with no hints at all" : "Solved"}">✓</span>`;
+    }
     if (holder !== e) clueLine += `<span class="muted">(linked with ${tag(holder)}) </span>`;
     setHTML($("hint-pattern"), patternHTML(e));
 
-    const solved = isEntrySolved(e);
     // A report is about the clue it was started on, and moving on abandons it —
     // the same rule the guess follows, for the same reason.
     if (report && report.key !== key) report = null;
@@ -3798,7 +3890,7 @@
       // buttons, and that is only knowable from the question being asked now.
       ask = guessing ? guessAsk(e, guessing.rung, guessing.step) : null;
       if (guessing && !ask) guessing = null;
-      const tapping = !!(ask && !ask.choices && guessing && holder === e);
+      const tapping = !!(ask && !ask.choices && !ask.pairs && guessing && holder === e);
       // The blocks rung as much of it as has been handed over. A solved clue
       // gets the lot: its score is settled, and the rest of the ladder is free
       // from that moment, so there is nothing left for the pacing to protect.
@@ -3918,7 +4010,7 @@
     // question ended up being asked. A linked clue is the exception and keeps the
     // second copy: the words being asked about are this entry's own clue, and the
     // one on display belongs to the entry it is linked with.
-    clueLine += (ask && !ask.choices && guessing && holder === e)
+    clueLine += (ask && !ask.choices && !ask.pairs && guessing && holder === e)
       ? pickableClueHTML(e, ask, guessing.picked, guessing.rung)
       : clueHTML(holder);
     const clueWrote = setHTML($("hint-clue"), clueLine);
@@ -3956,6 +4048,30 @@
           if (a && a.choices) finishGuess(gradeChoice(a, c), a);
         };
       });
+    } else if (ask && ask.pairs) {
+      ask.chips.forEach((c, i) => {
+        const el = $("gm-chip-" + i);
+        if (el) el.onclick = () => {
+          if (!currentAsk()) return;
+          guessing.held = guessing.held === i ? -1 : i;
+          renderHintPanel();
+        };
+      });
+      ask.pairs.forEach((p, i) => {
+        $("gm-slot-" + i).onclick = () => {
+          if (!currentAsk()) return;
+          // A slot with something in it gives it back; the pick-up is the
+          // undo, so there is no separate clear button to find.
+          if (guessing.slots[i] >= 0) { guessing.held = guessing.slots[i]; guessing.slots[i] = -1; }
+          else if (guessing.held >= 0) { guessing.slots[i] = guessing.held; guessing.held = -1; }
+          renderHintPanel();
+        };
+      });
+      $("guess-check").onclick = () => {
+        const a = currentAsk();
+        if (!a || !a.pairs || !guessing.slots.every((n) => n >= 0)) return;
+        finishGuess(gradeMatch(a, guessing.slots), a);
+      };
     } else if (ask) {
       // Only the words in play have a button to bind: a settled one is a span.
       ask.tokens.forEach((t, i) => {
@@ -4880,7 +4996,14 @@
     // click handler's focus() ran, the box that was tapped had been thrown away
     // with the rest of the strip's innerHTML, the tap had nothing left to belong
     // to, and you got a moved cursor and no keyboard (Paul, iPad, 2026-08-09).
-    $("hint-pattern").addEventListener("mousedown", () => focusKbd());
+    //
+    // Summoning a keyboard is a viewport change like any other, and what it
+    // covers is the clue sitting directly above the strip that was tapped ("the
+    // keyboard covers the clue but it should scroll into view", Paul,
+    // 2026-09-12). placeHintPanel already corrects for a keyboard that arrives
+    // a beat late — its watch window exists for exactly that — so this tap only
+    // ever needed to arm it, the way picking a square does.
+    $("hint-pattern").addEventListener("mousedown", () => { focusKbd(); scrollToHintPanel(); });
 
     // Everything else keeps a keyboard and never raises one. The grid used to
     // raise it — tapping a square was read as a decision to type — but picking a
