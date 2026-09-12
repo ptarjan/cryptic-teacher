@@ -3423,6 +3423,21 @@ global.realSetTimeout(() => {
     "the chunks are shuffled — in clue order the question is answered by reading "
       + "straight down the rows: " + JSON.stringify(chipAt));
 
+  // Either order pairs. A row tapped with nothing in hand arms itself and waits
+  // for a chunk — the tap that used to do nothing whatever ("can I touch the
+  // pairing in any order", Paul, 2026-09-12).
+  registry["gm-slot-0"].onclick();
+  assert(/id="gm-slot-0" class="gm-slot armed"/.test(panelHTML()),
+    "a row tapped first arms itself: " + panelHTML());
+  registry["gm-chip-" + chipAt[walked.pairs[0].gives]].onclick();
+  assert(/id="gm-slot-0" class="gm-slot on"/.test(panelHTML()),
+    "and the next chunk tapped lands in it: " + panelHTML());
+  // Hand it back, so the walk below starts from the empty board it expects.
+  registry["gm-slot-0"].onclick();
+  registry["gm-chip-" + chipAt[walked.pairs[0].gives]].onclick();
+  assert(/id="gm-slot-0" class="gm-slot"/.test(panelHTML()),
+    "and tapping a filled row empties it again: " + panelHTML());
+
   // Answer it, right, by pairing every row with its own chunk.
   walked.pairs.forEach((b, i) => {
     registry["gm-chip-" + chipAt[b.gives]].onclick();
@@ -3794,23 +3809,22 @@ global.realSetTimeout(() => {
   open();
   let html = registry["hint-body"].innerHTML;
   assert(html.includes("guess-choices"), "the type rung asks before it tells: " + html);
-  // The strip holds one row by sizing its type off its own width, and the clamp
-  // that does it needs to know how many chips and how many characters. Both are
-  // measured from the labels here, so a renamed or added family re-sizes the
-  // strip; a missing or stale pair is the strip silently wrapping to two lines
-  // again, which is the thing Paul has now reported three times.
+  // The strip is a grid of equal columns, not a row the type has to be shrunk
+  // to fit. An odd number of chips would leave the last one alone in column
+  // one, which is exactly what Paul reported four times about "&lit", so the
+  // last-of-an-odd-count rule that spans it is load-bearing and is checked
+  // here rather than left to the eye.
   {
-    const labels = [...choices().keys()];
-    const vars = /class="guess-choices" style="--n:(\d+);--c:(\d+)"/.exec(html);
-    assert(vars, "the family strip carries --n and --c for the fit clamp: " + html);
-    assert(Number(vars[1]) === labels.length,
-      `--n is ${vars[1]} but there are ${labels.length} chips`);
-    // Unescaped first: --c counts the characters a reader sees, and "&lit" is
-    // four of them however many bytes the entity takes.
-    const chars = labels.reduce((n, l) =>
-      n + l.replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">")
-           .replace(/&quot;/g, '"').replace(/&#39;/g, "'").length, 0);
-    assert(Number(vars[2]) === chars, `--c is ${vars[2]} but the labels are ${chars} characters`);
+    const bare = fs.readFileSync(path.join(ROOT, "style.css"), "utf8")
+      .replace(/\/\*[\s\S]*?\*\//g, "");
+    assert(/\.guess-choices\s*\{[^}]*grid-template-columns:\s*1fr 1fr/.test(bare),
+      "the family strip is two equal columns, not one squeezed row");
+    assert(/\.guess-choices \.gc:last-child:nth-child\(odd\)\s*\{[^}]*grid-column:\s*1 \/ -1/.test(bare),
+      "and an odd last chip spans both columns instead of orphaning");
+    assert(!/class="guess-choices"[^>]*style=/.test(html),
+      "the strip no longer sizes itself off its own width: " + html);
+    assert(choices().size % 2 === 1,
+      `the span rule only fires on an odd count and there are ${choices().size} families`);
   }
   assert(!html.includes('id="guess-check"'),
     "and one of seven is a tap, not a tap and then a confirm: " + html);
