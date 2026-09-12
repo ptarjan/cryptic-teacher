@@ -4444,10 +4444,35 @@
       ul.appendChild(li);
     });
   }
+  // The panels all live in one slot — same corner, same z-index, see .panel in
+  // style.css — so two open at once is two panels drawn on top of each other,
+  // and the DOM order decides which one you see. The picker is last in
+  // index.html, so pressing Sync with the picker up opened the sync panel
+  // underneath it: the button did exactly what it says and looked broken.
+  //
+  // Opening one therefore closes the others, and every opener goes through
+  // here, so a fourth panel cannot bring the overlap back by forgetting to.
+  const PANELS = ["sync-panel", "notify-panel", "picker-panel"];
+  function closePanel(id) {
+    // Whatever the panel was doing to the outside world stops when it goes
+    // away. The scanner holds the camera, so a panel closed by another one
+    // opening has to release it just as the ✕ does.
+    if (id === "sync-panel") stopScan();
+    $(id).classList.add("hidden");
+  }
+  // Returns whether the panel ended up open, which is the caller's cue to fill
+  // it in — rendering a panel nobody can see is the other half of this bug.
+  function showPanel(id, show) {
+    const want = (show === undefined) ? $(id).classList.contains("hidden") : show;
+    if (!want) { closePanel(id); return false; }
+    PANELS.forEach((other) => { if (other !== id) closePanel(other); });
+    $(id).classList.remove("hidden");
+    return true;
+  }
+
   function togglePicker(show) {
     const el = $("picker-panel");
-    const want = (show === undefined) ? el.classList.contains("hidden") : show;
-    el.classList.toggle("hidden", !want);
+    const want = showPanel("picker-panel", show);
     // Opening always starts from a clean list. A filter left over from last time
     // would look like puzzles had gone missing.
     const box = $("picker-search");
@@ -4682,12 +4707,9 @@
     // that explains it cannot work is worse than no control.
     if (!SYNC_ENDPOINT) $("btn-sync").classList.add("hidden");
     $("btn-sync").onclick = () => {
-      const el = $("sync-panel");
-      const want = el.classList.contains("hidden");
-      el.classList.toggle("hidden", !want);
-      if (want) { renderSyncPanel(); if (syncOn()) syncPull(); } else stopScan();
+      if (showPanel("sync-panel")) { renderSyncPanel(); if (syncOn()) syncPull(); }
     };
-    $("btn-sync-close").onclick = () => { stopScan(); $("sync-panel").classList.add("hidden"); };
+    $("btn-sync-close").onclick = () => showPanel("sync-panel", false);
 
     /* Arriving from a scan. The code is filled in and the panel opened, but
        joining is still a press: a link is a thing anyone can send you, and a
@@ -4702,7 +4724,7 @@
       if (window.history && window.history.replaceState) {
         window.history.replaceState(null, "", location.pathname + (rest ? "?" + rest : ""));
       }
-      $("sync-panel").classList.remove("hidden");
+      showPanel("sync-panel", true);
       const already = store.get("ct:sync", null) === scanned;
       if (!already) $("sync-join-code").value = scanned;
       renderSyncPanel();
@@ -4713,12 +4735,9 @@
     // ---- notifications ----
     if (!notifyAvailable()) $("btn-notify").classList.add("hidden");
     $("btn-notify").onclick = () => {
-      const el = $("notify-panel");
-      const want = el.classList.contains("hidden");
-      el.classList.toggle("hidden", !want);
-      if (want) { renderNotifyPanel(); notifyNote(""); }
+      if (showPanel("notify-panel")) { renderNotifyPanel(); notifyNote(""); }
     };
-    $("btn-notify-close").onclick = () => $("notify-panel").classList.add("hidden");
+    $("btn-notify-close").onclick = () => showPanel("notify-panel", false);
     // Bound to the list and not to the boxes, because renderNotifyPanel() throws
     // the boxes away and builds new ones after every save.
     $("notify-list").addEventListener("change", (ev) => {
