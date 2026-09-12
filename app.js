@@ -3302,12 +3302,7 @@
   // confirm step would only ask for it twice. Pointing at words keeps its check
   // button because a run of words is assembled before it is offered.
   function guessChoicesHTML(ask) {
-    // How many chips and how many characters they add up to, handed to the CSS
-    // so the strip can size its own type to hold one row. Measured off the
-    // labels rather than written down, because a written-down 65 is a number
-    // that goes stale the first time a family is renamed.
-    const chars = ask.choices.reduce((n, c) => n + c.length, 0);
-    return `<p class="guess-choices" style="--n:${ask.choices.length};--c:${chars}">${
+    return `<p class="guess-choices">${
       ask.choices.map((c, i) =>
         `<button type="button" id="gc-${i}" class="gc">${esc(c)}</button>`).join("")}</p>`;
   }
@@ -3324,15 +3319,15 @@
     const rows = ask.pairs.map((p, i) => {
       const at = slots[i];
       const has = at >= 0;
-      return `<li><button type="button" id="gm-slot-${i}" class="gm-slot${has ? " on" : ""}">“${
+      const armed = !has && guessing.heldSlot === i;
+      return `<li><button type="button" id="gm-slot-${i}" class="gm-slot${
+        has ? " on" : ""}${armed ? " armed" : ""}">“${
         esc(p.frag)}” → <span class="gives">${has ? esc(ask.chips[at]) : "?"}</span></button></li>`;
     }).join("");
     const chips = ask.chips.map((c, i) => slots.indexOf(i) >= 0 ? ""
       : `<button type="button" id="gm-chip-${i}" class="gc${
           guessing.held === i ? " on" : ""}">${esc(c)}</button>`).join("");
-    const chars = ask.chips.reduce((n, c) => n + c.length, 0);
-    return `<ul class="gm-rows">${rows}</ul><p class="guess-choices" style="--n:${
-      ask.chips.length};--c:${chars}">${chips}</p>`;
+    return `<ul class="gm-rows">${rows}</ul><p class="gm-chips">${chips}</p>`;
   }
 
   function guessHTML(ask, position, label, inClue) {
@@ -3682,7 +3677,7 @@
         const asked = GUESSABLE[b.rung] && !isEntrySolved(on) && guessAsk(on, b.rung, at);
         if (asked) {
           guessing = { key: entryKey(on), rung: b.rung, step: at, picked: [],
-                       slots: (asked.pairs || []).map(() => -1), held: -1 };
+                       slots: (asked.pairs || []).map(() => -1), held: -1, heldSlot: -1 };
         } else {
           showHint(on, b.rung);
           // A piece with no question in it — no fragment to point at, or no
@@ -4049,11 +4044,21 @@
         };
       });
     } else if (ask && ask.pairs) {
+      // Either half may be tapped first. A chunk then a row, or a row then a
+      // chunk: both are one pairing, and a tap that only ever worked in one
+      // order is a dead tap in the other ("can I touch the pairing in any
+      // order" — Paul). Whichever is tapped first is the one held.
       ask.chips.forEach((c, i) => {
         const el = $("gm-chip-" + i);
         if (el) el.onclick = () => {
           if (!currentAsk()) return;
-          guessing.held = guessing.held === i ? -1 : i;
+          if (guessing.heldSlot >= 0) {
+            guessing.slots[guessing.heldSlot] = i;
+            guessing.heldSlot = -1; guessing.held = -1;
+          } else {
+            guessing.held = guessing.held === i ? -1 : i;
+            guessing.heldSlot = -1;
+          }
           renderHintPanel();
         };
       });
@@ -4062,8 +4067,13 @@
           if (!currentAsk()) return;
           // A slot with something in it gives it back; the pick-up is the
           // undo, so there is no separate clear button to find.
-          if (guessing.slots[i] >= 0) { guessing.held = guessing.slots[i]; guessing.slots[i] = -1; }
-          else if (guessing.held >= 0) { guessing.slots[i] = guessing.held; guessing.held = -1; }
+          if (guessing.slots[i] >= 0) {
+            guessing.held = guessing.slots[i]; guessing.slots[i] = -1; guessing.heldSlot = -1;
+          } else if (guessing.held >= 0) {
+            guessing.slots[i] = guessing.held; guessing.held = -1; guessing.heldSlot = -1;
+          } else {
+            guessing.heldSlot = guessing.heldSlot === i ? -1 : i;
+          }
           renderHintPanel();
         };
       });
@@ -5003,7 +5013,17 @@
     // 2026-09-12). placeHintPanel already corrects for a keyboard that arrives
     // a beat late — its watch window exists for exactly that — so this tap only
     // ever needed to arm it, the way picking a square does.
-    $("hint-pattern").addEventListener("mousedown", () => { focusKbd(); scrollToHintPanel(); });
+    //
+    // Only on the tap that RAISES the keyboard. The strip is also how you steer,
+    // and re-placing the panel under every steer moved the clue on each box you
+    // touched ("with the keyboard up clicking different letters in the clue is
+    // moving it around", Paul, iPad). Nothing is newly covered by a keyboard
+    // that was already up, so there is nothing to correct for.
+    $("hint-pattern").addEventListener("mousedown", () => {
+      const up = document.activeElement === $("kbd");
+      focusKbd();
+      if (!up) scrollToHintPanel();
+    });
 
     // Everything else keeps a keyboard and never raises one. The grid used to
     // raise it — tapping a square was read as a decision to type — but picking a
