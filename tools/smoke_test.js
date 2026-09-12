@@ -3376,6 +3376,39 @@ global.realSetTimeout(() => {
     return null;
   };
   const bare = (t) => String(t || "").replace(/[^A-Za-z]/g, "").toUpperCase();
+  // The pieces the matching question would be made of: every block that names
+  // words in the clue and gives letters that are neither those same words nor
+  // the whole answer (both of those pair themselves on sight).
+  const pairsOf = (e) => {
+    const a = e.annotation;
+    return ((a && a.blocks) || []).filter((b) => b.clueFragment && b.gives
+      && bare(b.gives) !== bare((a && a.answer) || e.solution)
+      && bare(b.clueFragment) !== bare(b.gives));
+  };
+
+  // Two pairs is not a matching question: the last pairing is forced in any of
+  // them, and with two the first one IS the last, so placing one chunk placed
+  // the other. Those clues get the paced question instead. Asserted before the
+  // walk below so it opens its own clue and leaves no state behind.
+  {
+    let two = null;
+    for (const id of Object.keys(puzzles).sort()) {
+      for (const e of puzzles[id].entries || []) {
+        if (pairsOf(e).length !== 2) continue;
+        if (!openClue(id, e)) continue;
+        const b = climbTo(/building blocks/i);
+        if (!b) continue;
+        b.onclick();
+        two = { id, e, html: registry["hint-body"].innerHTML };
+        break;
+      }
+      if (two) break;
+    }
+    assert(two, "the corpus has a two-piece clue to check the floor against");
+    assert(two && !/id="gm-slot-\d+"/.test(two.html),
+      `a two-piece clue is asked a piece at a time, not matched (${two && two.id} ${
+        two && two.e.id}): ` + (two && two.html.slice(0, 300)));
+  }
 
   let walked = null, tried = 0;
   for (const id of Object.keys(puzzles).sort()) {
@@ -3394,9 +3427,8 @@ global.realSetTimeout(() => {
       if (spans.slice(0, 2).some((s) => !s)) continue;
       // The pieces the matching question is made of: the app leaves out any
       // fragment that IS its own letters, because that chip pairs itself.
-      const pairs = bl.filter((b) => b.clueFragment && b.gives
-        && bare(b.clueFragment) !== bare(b.gives));
-      if (pairs.length < 2) continue;
+      const pairs = pairsOf(e);
+      if (pairs.length < 3) continue;
       // Two pieces giving the same chunk are graded right either way round, so
       // "did this row get its own chip" is not a question about that clue.
       if (pairs.filter((b, i) => pairs.findIndex((x) => x.gives === b.gives) !== i).length) continue;
