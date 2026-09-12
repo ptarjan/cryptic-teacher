@@ -1486,7 +1486,14 @@
   // the correction, which is the way round it should be.
   let settleTimer = null, settleBy = 0, confirmTimer = null, placedKeys = null,
       watchUntil = 0;
-  function scrollToHintPanel() {
+  // What this tap is bringing into view. The panel itself for a new clue; the
+  // rung that just opened for a tap on the ladder, because a panel taller than
+  // the screen is placed by its TOP and the new rung is at the bottom, so
+  // "scroll the panel into view" shows a solver everything except the thing
+  // they just asked for.
+  let placeTargetId = "hint-panel";
+  function scrollToHintPanel(targetId) {
+    placeTargetId = targetId || "hint-panel";
     const now = Date.now();
     settleBy = now + HINT_DEADLINE_MS;
     watchUntil = now + HINT_WATCH_MS;
@@ -1543,9 +1550,14 @@
   // is nothing to measure a frame later for.
   function placeHintPanel() {
     settleTimer = null; settleBy = 0;
-    const p = $("hint-panel");
-    if (!p || p.classList.contains("hidden") || !p.getBoundingClientRect) return;
-    const r = p.getBoundingClientRect();
+    const panel = $("hint-panel");
+    if (!panel || panel.classList.contains("hidden")) return;
+    // Falls back to the whole panel whenever the target is not on screen — a
+    // rung that this clue does not have, or a render that dropped it.
+    let p = (placeTargetId !== "hint-panel" && $(placeTargetId)) || panel;
+    if (!p.getBoundingClientRect) return;
+    let r = p.getBoundingClientRect();
+    if (!r.height && p !== panel) { p = panel; r = panel.getBoundingClientRect(); }
     const band = visibleBand();
     const vh = band.bottom - band.top;
     if (vh <= 0 || !r.height) return;
@@ -1622,11 +1634,13 @@
     // the screen buries it (Paul, 2026-08-29). The letter strip under the clue
     // is where typing starts now, and it is the only thing that summons one.
     keepKbd();
+    hintFocus = null;
     refreshAll();
     if (currentEntry()) scrollToHintPanel();
   }
 
   function selectEntry(e, jumpToStart) {
+    hintFocus = null;
     cur.dir = e.direction;
     if (jumpToStart || !cellInEntry(cur.x, cur.y, e)) {
       // jump to first empty cell of the entry, else its start
@@ -1960,6 +1974,7 @@
   function fillAnswer() {
     const e = currentEntry();
     if (!e || !canCheck()) return;
+    focusHint(ANSWER_RUNG);
     showHint(e, ANSWER_RUNG);
     entryCells(e).forEach(revealCell);
     checkSolvedEntries(); refreshAll(); saveState();
@@ -3139,6 +3154,14 @@
   // that changed the score. A half-made guess is not progress.
   let guessing = null;   // { key, rung, step, picked: [] }
   let lastGuess = null;  // { key, rung, tokens, known, mk: <verdict> }
+  // Which block of the panel the last tap on the ladder produced: a rung key
+  // for a rung that opened, "guess" for a question that was asked. The panel
+  // only ever grows, so what a tap made is always at the bottom and is the one
+  // thing that has to be in front of you afterwards ("when I choose a hint
+  // rung should it scroll into view", Paul, iPad). Marked in the body as
+  // #hint-focus and handed to scrollToHintPanel as the thing to place.
+  let hintFocus = null;
+  function focusHint(key) { hintFocus = key; scrollToHintPanel("hint-focus"); }
   // A single clue coming out gets no announcement of its own: the grid fills a
   // square at a time and 28 celebrations is 28 interruptions. The whole grid is
   // the finish, and that one does celebrate — see celebrate().
@@ -3508,6 +3531,7 @@
     if (guessing.rung === "blocks") {
       revealPiece(e, ask.pairs ? blockPieces(e).length - 1 : guessing.step);
     }
+    focusHint(guessing.rung);
     showHint(e, guessing.rung);
     guessing = null;
     refreshAll();
@@ -3696,7 +3720,9 @@
         if (asked) {
           guessing = { key: entryKey(on), rung: b.rung, step: at, picked: [],
                        slots: (asked.pairs || []).map(() => -1), held: -1, heldSlot: -1 };
+          focusHint("guess");
         } else {
+          focusHint(b.rung);
           showHint(on, b.rung);
           // A piece with no question in it — no fragment to point at, or no
           // letters to point at it with — is simply handed over. The rung still
@@ -3919,8 +3945,12 @@
         // were right, and then you are told, in that order. It keeps the marked
         // clue with it, so what you pointed at and what was actually there can
         // be read side by side against the explanation, for as long as you like.
-        if (lastGuess && lastGuess.rung === s.key) bodyHTML += verdictHTML(lastGuess, tapping);
-        bodyHTML += hintStepHTML(paced(s), i + 1, earnedRungs(e).indexOf(s.key) >= 0);
+        let chunk = "";
+        if (lastGuess && lastGuess.rung === s.key) chunk += verdictHTML(lastGuess, tapping);
+        chunk += hintStepHTML(paced(s), i + 1, earnedRungs(e).indexOf(s.key) >= 0);
+        // The verdict travels with the rung it judged, so the anchor goes round
+        // both: you were told whether you were right, and then told why.
+        bodyHTML += hintFocus === s.key ? `<div id="hint-focus">${chunk}</div>` : chunk;
       });
       // The legend is built from what is actually highlighted, for the same
       // reason clueHTML is: it was keyed off the definition rung, so taking the
@@ -3943,7 +3973,8 @@
       // thing to do has always been.
       if (ask) {
         const at = steps.map((s) => s.key).indexOf(guessing.rung);
-        bodyHTML += guessHTML(ask, at + 1, steps[at].label, holder === e);
+        const q = guessHTML(ask, at + 1, steps[at].label, holder === e);
+        bodyHTML += hintFocus === "guess" ? `<div id="hint-focus">${q}</div>` : q;
       }
 
       // And once the answer is out, what did you make of it? Under the ladder,

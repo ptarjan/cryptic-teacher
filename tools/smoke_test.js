@@ -1928,6 +1928,48 @@ registry["reset-puzzle"].onclick();
   assert(panel.getBoundingClientRect().top >= 0 && panel.getBoundingClientRect().top < 20,
     "and that place is its top, just under the top of the screen");
 
+  // --- and taking a rung brings THE RUNG into view, not the top of the panel ---
+  // The panel only ever grows, so what a tap on the ladder produced is always
+  // at the bottom of it. A panel taller than the screen is placed by its top,
+  // which shows a solver everything except the thing they just asked for
+  // ("when I choose a hint rung should it scroll into view", Paul, iPad).
+  {
+    panel.layout(1200, 4000);
+    win.pageYOffset = 0; win.scrolls.length = 0;
+    tap(clues[0]);
+    const nextRung = () => registry["hint-next"].children.find((x) => !x.disabled);
+    const b = nextRung();
+    assert(b, "the ladder offers a rung to take");
+    b.onclick();
+    assert(registry["hint-body"].innerHTML.includes('id="hint-focus"'),
+      "the block that tap produced is anchored for the scroll: "
+        + registry["hint-body"].innerHTML.slice(0, 200));
+    const focus = global.document.getElementById("hint-focus");
+    focus.layout(4900, 200);            // the newest block, at the foot of the panel
+    drain();
+    const fr = focus.getBoundingClientRect();
+    assert(fr.top >= 0 && fr.bottom <= win.innerHeight,
+      `the rung just taken is on screen (top ${fr.top}, bottom ${fr.bottom}, `
+        + `viewport ${win.innerHeight})`);
+
+    // An anchor that measures nothing falls back to placing the panel rather
+    // than cancelling the scroll: a tap that moves nothing is the bug this
+    // replaced, and it must not come back through a render that dropped the id.
+    focus.layout(0, 0);
+    win.pageYOffset = 3000; win.scrolls.length = 0;
+    // Whatever the next tap on the ladder is — the first one may have opened a
+    // question rather than a rung, and declining it is the same journey.
+    const again = (registry["guess-tell"] && registry["guess-tell"].onclick)
+      ? registry["guess-tell"] : nextRung();
+    assert(again, "there is another tap on the ladder to make");
+    again.onclick();
+    drain();
+    const pr = panel.getBoundingClientRect();
+    assert(pr.top >= 0 && pr.top < 20,
+      "an anchor with no box falls back to placing the panel: " + JSON.stringify(pr));
+  }
+
+
   // --- and it lands above the keyboard, not behind it (Paul, iPad, 2026-08-16) ---
   // Tapping a clue also raises the soft keyboard, and iOS does not shrink
   // innerHeight for it — the keys are drawn over the bottom of a viewport that
