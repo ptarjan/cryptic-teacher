@@ -955,6 +955,10 @@ answer.slice(0, len - 1).split("").forEach((ch) => kd(ev(ch)));
   kd(ev(wrongLetter(answer[2])));
   assert(patHTML().includes(`${len} of ${len} letters in place`),
     "nor typing over it, which is a delete with a letter on the end: " + patHTML());
+  // A refusal you cannot see is a key that reads as dead, so each of the three
+  // above answers on the square it was refused on.
+  assert(lightCells.some((c) => c.classList.contains("pulse")),
+    "a refused keystroke pulses the square it was refused on");
 
   // --- and once it is out, you can say what you thought of it ---
   // The question only makes sense after the answer: before it, "was that a good
@@ -3065,6 +3069,11 @@ global.realSetTimeout(() => {
   // not a leftover of the animation — it must still be there with no flash.
   assert(registry["clue-" + cleanE.id].classList.contains("no-hints"),
     "the no-hints marker outlives the flash");
+  // Same for the squares: the flash is the moment, `.confirmed` is the standing
+  // fact that these letters are locked, and it is what makes the lock legible
+  // before a finger finds it.
+  assert(cells.every((c) => c.classList.contains("confirmed")),
+    "the solved entry's squares keep the locked tint after the flash is over");
 
   // --- fires once: a later re-render of the board must not replay it ---
   select(otherE);
