@@ -664,9 +664,9 @@ button:disabled:hover { border-color: var(--line); }
 /* A flex item is squeezed before the strip wraps, so the longest label breaks
    across two lines inside its own box while the box beside it keeps its room —
    "What kind of clue is this?" read as two lines on an iPad. A button is the
-   width of its words: the strip wraps instead. Same rule for the family chips,
-   whose labels are the same kind of length. */
-#hint-next button, .guess-choices .gc { flex: 0 0 auto; }
+   width of its words: the strip wraps instead. Same rule for the letter chunks
+   of the matching question, which are a fixed width each. */
+#hint-next button, .gm-chips .gc { flex: 0 0 auto; }
 /* Once the clue is solved the rest of the ladder costs nothing. The decision to
    open one is made at the button, so the button has to be the thing that says
    so — the meter line above it was already saying it and was still being missed. */
@@ -781,40 +781,30 @@ button.gw { border-style: dashed; border-color: var(--pick-fg); }
 /* The seven families, offered whole and in ladder order under every clue that
    asks: the list IS the vocabulary the site teaches, so it is the same list
    every time and never narrowed to the plausible ones. The tap is the answer,
-   so they are targets before they are anything else. */
-.guess-choices {
-  display: flex; flex-wrap: wrap; gap: 4px; margin: 8px 0 0;
-  container-type: inline-size;
-}
-/* The name of a family is a name: it wraps between chips, never inside one.
-   flex: 0 0 auto above stops a chip being SQUEEZED narrower than its words, but
-   a chip that is genuinely wider than the strip would still break its own label
-   in half, which is what reads as two lines (Paul, iPad). */
-.gc { white-space: nowrap; padding: 7px 9px; }
-/* Seven chips at a fixed size do not fit one row, and they never did — the strip
-   wrapped, and a wrapped strip reads as two lines however tidy the wrap is
-   (Paul, three times: iPad 2026-08-27, again 2026-08-29). Holding them to one
-   row means the type has to come from the width, so it does: the same
-   container-query clamp .pat-box already uses for the letter strip, which has
-   the same problem of a fixed count that has to fit whatever it is given.
+   so they are targets before they are anything else.
 
-   --n is the chip count and --c the total characters across all seven labels;
-   app.js sets both from FAMILIES, so adding a family or renaming one re-sizes
-   the strip instead of quietly wrapping it. 0.56em is a conservative average
-   advance for the system sans — conservative on purpose, since guessing high
-   costs a point of type and guessing low costs the row. The floor is what
-   stops a phone shrinking these into nothing: 7 word-chips cannot fit 330px,
-   so there the strip wraps as before and the clamp does not pretend otherwise.
-   flex-wrap stays for exactly that case — no width may push a chip off the
-   edge. */
-.gc {
-  font-size: clamp(.7rem,
-    calc((100cqw - var(--n, 7) * 20px - (var(--n, 7) - 1) * 4px) / var(--c, 65) / 0.56),
-    .9rem);
-}
+   Two columns, not one row. The seven labels come to 92 characters and two of
+   them run past 28, so one row needs roughly 740px of strip — wider than any
+   panel this site draws. Sizing the type off the width could not win that: it
+   bottomed out at its .7rem floor AND wrapped anyway, leaving "&lit" alone on a
+   line of its own (Paul, iPad). A grid cannot orphan a chip, because the cells
+   are equal and aligned whatever is in them, and an odd last chip takes the
+   whole width instead of sitting by itself in column one. The type is a plain
+   readable size now that no layout depends on it. */
+.guess-choices { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin: 8px 0 0; }
+.guess-choices .gc:last-child:nth-child(odd) { grid-column: 1 / -1; }
+/* A long label breaks inside its own cell, which is what the equal columns buy:
+   a broken label no longer costs the chip beside it any room. */
+.gc { padding: 8px 10px; font-size: .95rem; line-height: 1.25; }
 /* Vertical only. The touch target has to stay ~38px tall, but every pixel of
-   side padding is seven pixels off the row. */
-@media (pointer: coarse) { .gc { padding: 10px 9px; } }
+   side padding is two off the column. */
+@media (pointer: coarse) { .gc { padding: 10px 10px; } }
+
+/* The chunks of the matching question are three or four uppercase letters, not
+   sentences, so they keep the wrapping strip: a two-column grid would give "F"
+   half the panel. */
+.gm-chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 0; }
+.gm-chips .gc { white-space: nowrap; font-weight: 600; letter-spacing: .04em; }
 
 /* The matching question: one row per fragment of the clue, each with an empty
    slot, and the letter chunks on the strip below. A chunk is picked up, then
@@ -829,6 +819,9 @@ button.gw { border-style: dashed; border-color: var(--pick-fg); }
    a filled one settles down and stops asking. */
 .gm-slot:not(.on) .gives { color: var(--muted); }
 .gm-slot.on { border-color: var(--accent); }
+/* A row tapped first is holding its place until a chunk arrives — the same
+   picked-up look the chunk itself wears, because it is the same held state. */
+.gm-slot.armed { border-color: var(--accent); background: var(--accent-soft); }
 /* The chunk in hand. It is the only state on the strip, and the only thing the
    eye has to carry from the first tap to the second. */
 .gc.on { border-color: var(--accent); background: var(--accent-soft); }
