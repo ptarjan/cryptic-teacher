@@ -23,7 +23,21 @@ check() { if [ "$2" = "$3" ]; then echo "  ok: $1"; else
 
 pick=$(awk '/^annotate_blocked=/,/^)$/' tools/daily_update.sh)
 charge=$(awk '/^record_annotate_failure\(\)/,/^}$/' tools/daily_update.sh)
-settle=$(awk '/^for num in \$annotated_nums; do$/,/^done$/' tools/daily_update.sh)
+# Per-puzzle validation (added 2026-09-11) wraps its own
+# `for num in $annotated_nums; do ... done` ahead of this one, so a plain range
+# anchor now grabs that loop instead — same shape, unbound $ann_failed, no
+# ledger writes at all. The clear/record calls only happen in the loop that
+# settles the ledger, so match on that rather than on position.
+settle=$(awk '
+  /^for num in \$annotated_nums; do$/ { capturing=1; buf=$0 "\n"; next }
+  capturing {
+    buf = buf $0 "\n"
+    if ($0 ~ /^done$/) {
+      if (buf ~ /annotate_attempts\.py clear/) { printf "%s", buf; exit }
+      capturing=0; buf=""
+    }
+  }
+' tools/daily_update.sh)
 for block in pick charge settle; do
   [ -n "${!block}" ] ||
     { echo "FAIL: the $block block is no longer where this test reads it from"; exit 1; }
