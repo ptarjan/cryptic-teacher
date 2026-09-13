@@ -5,20 +5,16 @@
     python3 tools/build_annotate_prompt.py --check    # non-zero if stale
 
 The prompt is hand-written prose except for one block between REFERENCE-START and
-REFERENCE-END, which is the controlled vocabulary and the validator's hard limits.
+REFERENCE-END: the controlled `type` vocabulary and the validator's hard limits.
 Those live in code — `TYPE_PARTS` in validate_annotations.py, `FAMILIES` in app.js
-— and the run used to go and read them: app.js was opened by 9 of 22 annotation
-sessions and validate_annotations.py by 12 of 22, at three reads a session, to
-grep out `FAMILIES`, `TYPE_BLURBS`, `FILLER_WORDS`, `UNBALANCED_TYPES` and the
-`MAX_` thresholds. A rule the run has to go and find is a rule the prompt did not
-state.
+— and a hand-kept copy drifts, so the block is generated from the code on every
+nightly run and committed with whatever else the run changed. Edit the tables,
+not the prose.
 
-Transcribing them into the markdown by hand would just move the problem: this
-repo already had four hand-kept copies of app.js's family table and one of them
-sat wrong for weeks. So the block is generated from the code on every nightly run
-and committed with whatever else the run changed. Edit the tables, not the prose.
+The block is deliberately small. A rule the validator reports by name at run time
+does not need restating here; the run finds it in seconds with `annotate_check.py`
+and reads the source with `validate_annotations.py --explain <check>`.
 """
-import ast
 import sys
 from pathlib import Path
 
@@ -46,29 +42,9 @@ def wrap(items, width=86, indent="  "):
     return "\n".join(lines)
 
 
-def checks():
-    """Every `check_*` in the validator, with its docstring's first sentence.
-
-    Read out of the source with `ast` rather than imported and introspected: the
-    point is that the list cannot drift from the file, and a name added to the
-    module is on this list the next time the prompt is built.
-    """
-    tree = ast.parse((TOOLS / "validate_annotations.py").read_text(encoding="utf-8"))
-    out = []
-    for node in tree.body:
-        if not (isinstance(node, ast.FunctionDef) and node.name.startswith("check_")):
-            continue
-        doc = ast.get_docstring(node)
-        if not doc:
-            # Nothing to say about it is worse than not listing it: a check the
-            # prompt names but cannot explain sends the reader to the source,
-            # which is the whole thing this table exists to prevent.
-            raise SystemExit(f"{node.name} has no docstring — the annotate prompt "
-                             f"generates its check list from them, so give it a "
-                             f"one-line summary")
-        summary = " ".join(doc.strip().split("\n\n")[0].split())
-        out.append((node.name, summary))
-    return out
+def bullet(text):
+    """A markdown bullet, wrapped at 86 cols with its continuations indented."""
+    return "- " + wrap(text.split(), indent="  ").lstrip()
 
 
 def section():
@@ -77,23 +53,20 @@ def section():
     out = [START, "",
            "## Reference",
            "",
-           "Generated from the code that enforces it — do not edit by hand, and do not go",
-           "and read app.js or the validator to check any of it. If a clue needs something",
-           "that is not here, add it to the source table and rerun",
-           "`python3 tools/build_annotate_prompt.py`.",
+           "Generated from the code that enforces it — do not edit by hand, and do not",
+           "read app.js or the validator to check it.",
            "",
            "### The controlled vocabulary for `type`",
            "",
-           "Join parts with ` + ` and name EVERY mechanism the wordplay uses. Each part",
-           "belongs to exactly one family; the family is what the app shows on rung 1, so a",
-           "compound type's family is decided by the FIRST row below that matches it.",
+           "Join parts with ` + `. Each part belongs to one family, shown on rung 1; a",
+           "compound type's family is the FIRST row below that matches it.",
            ""]
 
     claimed = set()
-    for label, blurb, keys in fams:
+    for label, _blurb, keys in fams:
         mine = sorted(p for p in parts if any(k in p for k in keys))
         claimed |= set(mine)
-        out.append(f"**{label}** — {blurb}")
+        out.append(f"**{label}**")
         out.append("")
         out.append(wrap([f"`{p}`" for p in mine] or ["_(no type part matches)_"]))
         out.append("")
@@ -107,52 +80,28 @@ def section():
         out.append(wrap([f"`{p}`" for p in orphans]))
         out.append("")
 
-    def bullet(text):
-        """A markdown bullet, wrapped at 86 cols with its continuations indented."""
-        return "- " + wrap(text.split(), indent="  ").lstrip()
-
     limits = [
         f"More than **{V.MAX_CRYPTIC_DEFINITIONS}** `cryptic definition` clues in one "
-        f"puzzle is an ERROR; the second one already warns.",
-        f"A `walkthrough` over **{V.WALKTHROUGH_HARD_MAX}** words is an ERROR, over "
-        f"**{V.MAX_WALKTHROUGH_WORDS}** a warning (authored puzzles).",
-        "**Any** clue whose blocks hand over letters that are not the answer's. "
-        "Exempt, because their blocks claim no letters or give them away: "
+        f"puzzle; the second one already warns.",
+        f"A `walkthrough` over **{V.WALKTHROUGH_HARD_MAX}** words (over "
+        f"**{V.MAX_WALKTHROUGH_WORDS}** warns).",
+        "Blocks whose letters are not the answer's, blocks that hand the answer over "
+        "in one lump where `pieces` takes it apart, and blocks out of answer order. "
+        "Exempt from the letter count, because their blocks claim no letters: "
         + ", ".join(f"`{t}`" for t in V.UNBALANCED_TYPES)
-        + " — which is exactly what makes reaching for one of those types the easy "
-          "way out of a clue you have not parsed.",
-        "**Any** clue whose blocks hand over the whole answer in one lump instead of "
-        "taking it apart the way `pieces` does.",
-        "**Any** clue whose blocks are not in answer order.",
+        + " — which is what makes those types the easy way out of a clue you have "
+          "not parsed.",
         f"The same word used as a definition in more than **{V.MAX_DEFINITION_REUSE}** "
         f"clues in one puzzle (exempt: "
         + ", ".join(f"`{t}`" for t in V.DEFINITION_REUSE_EXEMPT) + ").",
+        "In `walkthrough`, `definitionFit` or a block `note` — hedges: "
+        + " ".join(f"`{w}`" for w in sorted(V.HEDGES))
+        + "; working-out left in: "
+        + " ".join(f"`{w}`" for w in sorted(V.BACKTRACKS)) + ".",
     ]
     out += ["### What the validator rejects", ""]
     out += [bullet(t) for t in limits]
-    out += ["",
-            "### Every check it runs",
-            "",
-            "The whole list, generated from the function names and their docstrings, so",
-            "an ERROR naming a check can be read straight off this table instead of out",
-            "of the source. 75 of 128 annotation sessions were grepping",
-            "`validate_annotations.py` for exactly this.",
-            ""]
-    out += [bullet(f"`{name}` — {summary}") for name, summary in checks()]
-    out += ["",
-            "Words that are an ERROR anywhere a learner reads — `walkthrough`,",
-            "`definitionFit`, block `note`:",
-            "",
-            "- hedges:",
-            wrap([f"`{w}`" for w in sorted(V.HEDGES)], indent="    "),
-            "- working-out left in:",
-            wrap([f"`{w}`" for w in sorted(V.BACKTRACKS)], indent="    "),
-            "",
-            "Filler an `indicatorNotes` entry may not be made of on its own:",
-            "",
-            wrap([f"`{w}`" for w in sorted(V.FILLER_WORDS)]),
-            "",
-            END]
+    out += ["", END]
     return "\n".join(out) + "\n"
 
 
