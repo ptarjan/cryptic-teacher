@@ -54,18 +54,22 @@ run() {  # $1 = MODE ("" for a clean first run), $2 = a session the ledger holds
   . tools/claude_session.sh
   local ANNOTATE_MODEL=opus ann_tools=Read ann_turns=80 num=test-1 run_log
   local ANNOTATE_MAX_MINUTES=90
-  local ann_sids="" ann_prior ann_cap ann_rc
+  local ann_sids="" ann_prior ann_cap ann_rc ann_timeout lost_ids=""
+  # The variable that ends the night. The cap firing must not set it.
+  local stop_reason=""
   local ann_task="Annotate." ann_sid ann_sess ann_prompt ann_ok ann_retried
   run_log=$(mktemp)
   # session_exists must say yes, since the fake CLI writes no transcript.
   session_exists() { [ -n "${1:-}" ]; }
   capped=""
   record_annotate_failure() { capped="$2"; }
-  # The block breaks 2 when the wall-clock cap fires, because in daily_update.sh
-  # it sits inside the loop over tonight's puzzles. Give it that loop, or the
-  # case below tests a `break` that cannot mean what it means in production.
+  # The block breaks out of its retry loop when the wall-clock cap fires, and
+  # in daily_update.sh that block sits inside the loop over tonight's puzzles.
+  # Give it that loop, or the case below tests a `break` that cannot mean what
+  # it means in production.
   for _ in 1; do eval "$block"; done >/dev/null 2>&1
   calls=$(cat "$CALLS/n"); argv=$(cat "$CALLS/argv"); ok="$ann_ok"
+  timed_out="${ann_timeout:-}"; stopped="$stop_reason"
   rm -rf "$CALLS" "$run_log"
 }
 
@@ -94,6 +98,15 @@ run capped
 check "calls" "$calls" "1"
 check "failed" "${ok:-no}" "no"
 check "charged to the puzzle" "$(grep -c 'ran past 90m' <<<"${capped:-}")" "1"
+
+# The cap is evidence about THIS grid and nothing else, and the queue behind it
+# has puzzles nobody has tried. On 2026-09-12 the cap fired on independent-12459
+# and ended the run, so cryptic-30109 shipped with no hints for a reason that
+# had nothing to do with it. The night ends on $stop_reason; the cap must set
+# $ann_timeout instead, which is what tells the puzzle loop to move on.
+echo "and the cap does not end the night — it names the puzzle, not a stop"
+check "named the lost puzzle" "$(grep -c 'ran past 90m' <<<"$timed_out")" "1"
+check "left the night's stop reason unset" "${stopped:-unset}" "unset"
 
 echo "a puzzle that died last night resumes that night's session, not a fresh one"
 run "" last-nights-session

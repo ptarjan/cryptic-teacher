@@ -14,7 +14,9 @@
 #      (default 70), re-read between puzzles. The Guardian publishes six puzzles
 #      a week, so one per run never drains a backlog; it barely keeps up. Stops
 #      early if a run fails rather than burning the rest of the quota on doomed
-#      attempts. A puzzle that fails, or whose annotation the validator throws
+#      attempts — except when the wall-clock cap kills it, which says this grid
+#      is lost and nothing about the next one, so the queue carries on.
+#      A puzzle that fails, or whose annotation the validator throws
 #      away, is written down (tools/annotate_attempts.py): the next night
 #      resumes the session it died in rather than starting over, and after
 #      ANNOTATE_MAX_ATTEMPTS of them it leaves the queue and a person is told,
@@ -452,6 +454,9 @@ ANNOTATE_MAX_MINUTES="${ANNOTATE_MAX_MINUTES:-90}"
 annotated_ok=0
 annotated_nums=""
 stop_reason=""
+# Puzzles the wall-clock cap killed. Not a reason to stop the run — see the
+# `ann_rc = 124` branch — but the night still has to say it happened.
+lost_ids=""
 # id:session for every annotate call this run makes, so a failure noticed after
 # the loop — the validator throwing tonight's work away — can still say which
 # conversation held it. A "$num:$ann_sid" list rather than an associative array:
@@ -622,6 +627,7 @@ if [ -n "$pending" ]; then
       ann_sids="$ann_sids $num:$ann_sid"
       ann_ok=""
       ann_retried=0
+      ann_timeout=""
       # Unquoted on purpose: empty means no cap, and neither field can contain a
       # space. `timeout` is GNU and the nightly runs in the Linux container; a
       # by-hand run on the Mac says so rather than silently going uncapped.
@@ -643,11 +649,19 @@ if [ -n "$pending" ]; then
         # reason off the CLI's last line and a killed CLI never printed one —
         # that is how this failure reached the ledger as "independent-12456
         # failed:" with nothing after the colon.
+        # This puzzle is lost; the night is not. The cap firing says the model
+        # is stuck on THIS grid — it says nothing about the next one, and the
+        # loop re-reads the five-hour window at the top of every iteration, so
+        # carrying on cannot outspend the gate. It used to `break 2` here, and
+        # that is why 2026-09-12 published one puzzle instead of three:
+        # independent-12459 ran out the clock and took cryptic-30109, which
+        # nothing had tried yet, down with it.
         if [ "$ann_rc" = 124 ]; then
-          stop_reason="$num ran past ${ANNOTATE_MAX_MINUTES}m without finishing and was stopped"
-          echo "  $stop_reason"
-          record_annotate_failure "$num" "$stop_reason" "$ann_sid"
-          break 2
+          ann_timeout="$num ran past ${ANNOTATE_MAX_MINUTES}m without finishing and was stopped"
+          echo "  $ann_timeout"
+          record_annotate_failure "$num" "$ann_timeout" "$ann_sid"
+          lost_ids="$lost_ids $num"
+          break
         fi
         # Exactly one failure earns another attempt, and it is the one that
         # costs the most: a turn killed for overrunning the output ceiling
@@ -669,6 +683,10 @@ if [ -n "$pending" ]; then
       if [ -n "$ann_ok" ]; then
         annotated_ok=$((annotated_ok + 1))
         annotated_nums="$annotated_nums $num"
+      elif [ -n "$ann_timeout" ]; then
+        # Already said and already written down. Go on to the next puzzle
+        # rather than reading a reason off a log the killed CLI never wrote to.
+        continue
       else
         # The CLI says why it stopped on its last line — a spend limit, an
         # expired login, a network failure. Carrying that sentence into the
@@ -720,6 +738,15 @@ fi
 # annotates none has silently stalled, which is this repo's signature failure —
 # it shipped that three times (no PATH to claude, oldest-first ordering, a gate
 # reading a blanked keychain entry) and each time the log knew and nobody did.
+if [ -n "$lost_ids" ]; then
+  echo "gave up on$lost_ids after ${ANNOTATE_MAX_MINUTES}m each and carried on with the rest of the queue"
+  # A night where every attempt ran out the clock annotated nothing, and the
+  # alert below only fires on a stop_reason. Give it one.
+  if [ "$annotated_ok" -eq 0 ] && [ -z "$stop_reason" ]; then
+    stop_reason="every puzzle tried ran past ${ANNOTATE_MAX_MINUTES}m:$lost_ids"
+  fi
+fi
+
 if [ -n "$stop_reason" ]; then
   if [ "$annotated_ok" -eq 0 ]; then
     alert "no puzzle got hints today — $stop_reason. If that mentions authentication the CLI needs a fresh /login; see the CLAUDE_CONFIG_DIR note in daily_update.sh. Full output: .update.log."
