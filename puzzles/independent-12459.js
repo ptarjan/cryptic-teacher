@@ -27,7 +27,31 @@ window.CRYPTIC_PUZZLES["independent-12459"] = /*JSON-START*/ {
    "clue": "Song that induces sleep (6)",
    "separatorLocations": {},
    "solution": "NUMBER",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "NUMBER",
+    "definition": "Song",
+    "definition2": "that induces sleep",
+    "blocks": [
+     {
+      "clueFragment": "Song",
+      "note": "the word a band uses for one item in the set list"
+     },
+     {
+      "clueFragment": "that induces sleep",
+      "note": "read as a comparative — a thing that leaves you more numb than you were, deadened towards sleep"
+     }
+    ],
+    "surface": "A song so soporific that it sends the listener off.",
+    "walkthrough": "The two readings are spelled the same and said differently, one with the b silent and one with it sounded. Spelling is the only thing a setter has to match.",
+    "definitionFit": "Song → NUMBER: one item in a show's running order; that induces sleep → NUMBER: the comparative of numb, so a thing that leaves you number than before.",
+    "features": {
+     "misdirectedWord": null,
+     "joke": "pun",
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "2-down",
@@ -41,7 +65,42 @@ window.CRYPTIC_PUZZLES["independent-12459"] = /*JSON-START*/ {
    "clue": "Metal bird without wings attached (4)",
    "separatorLocations": {},
    "solution": "IRON",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "IRON",
+    "definition": "Metal",
+    "indicators": [
+     "without wings"
+    ],
+    "indicatorNotes": {
+     "without wings": "A bird's wings are at its two sides, so a word without wings loses the letter at each end."
+    },
+    "pieces": [
+     "IR",
+     "ON"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bird without wings",
+      "gives": "IR",
+      "note": "BIRD stripped of the B and the D at its edges"
+     },
+     {
+      "clueFragment": "attached",
+      "gives": "ON",
+      "note": "a button or a switch that is attached is on"
+     }
+    ],
+    "surface": "A metal bird that has had its wings fixed back on.",
+    "walkthrough": "'Bird' is not a synonym to look up but the four letters themselves, waiting to be clipped. Wings for the outer letters of a word is standard setter's vocabulary.",
+    "definitionFit": "Metal → IRON: a plain synonym, the grey metal of gates, girders and fire grates.",
+    "features": {
+     "misdirectedWord": "bird",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "3-down",
@@ -55,7 +114,51 @@ window.CRYPTIC_PUZZLES["independent-12459"] = /*JSON-START*/ {
    "clue": "Cricket equipment with bad smell relations rejected (5)",
    "separatorLocations": {},
    "solution": "BOXES",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "BOXES",
+    "definition": "Cricket equipment",
+    "linkWords": [
+     "with"
+    ],
+    "indicators": [
+     "rejected"
+    ],
+    "indicatorNotes": {
+     "rejected": "Something rejected is sent back the way it came, so these letters are written in the other direction."
+    },
+    "pieces": [
+     "BO",
+     "XES"
+    ],
+    "subReversals": [
+     {
+      "from": "SEX",
+      "to": "XES"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bad smell",
+      "gives": "BO",
+      "note": "BO is body odour, the initials every British playground knows"
+     },
+     {
+      "clueFragment": "relations rejected",
+      "gives": "XES",
+      "note": "relations in the carnal sense is SEX, turned round"
+     }
+    ],
+    "surface": "Cricket kit that reeks, sent back by the relatives who were given it.",
+    "walkthrough": "'Relations' reads as family in the surface and means the other kind in the parse. A box is the hard cup a batsman wears inside his trousers, which is what ties the equipment to the smell.",
+    "definitionFit": "Cricket equipment → BOXES: the rigid groin guards batsmen wear, standard kit in every cricket bag.",
+    "features": {
+     "misdirectedWord": "relations",
+     "joke": "pun",
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "4-down",
@@ -69,7 +172,56 @@ window.CRYPTIC_PUZZLES["independent-12459"] = /*JSON-START*/ {
    "clue": "Is a top from Lidl keeping cycling old lady at a constant temperature? (10)",
    "separatorLocations": {},
    "solution": "ISOTHERMAL",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container + cycling",
+    "answer": "ISOTHERMAL",
+    "definition": "at a constant temperature",
+    "indicators": [
+     "keeping",
+     "cycling"
+    ],
+    "indicatorNotes": {
+     "keeping": "To keep hold of something is to have it about you, so what is kept goes inside.",
+     "cycling": "Letters that cycle travel round like a bicycle chain: the one at the front runs to the back and the rest keep their order."
+    },
+    "pieces": [
+     "IS",
+     "OTHERM",
+     "A",
+     "L"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Is",
+      "gives": "IS",
+      "note": "the clue's own word, taken at face value"
+     },
+     {
+      "clueFragment": "cycling old lady",
+      "gives": "OTHERM",
+      "note": "MOTHER is the old lady, with her M sent round to the back"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the clue's own letter, taken at face value"
+     },
+     {
+      "clueFragment": "top from Lidl",
+      "gives": "L",
+      "note": "the top letter of Lidl, the German discount supermarket found on British high streets"
+     }
+    ],
+    "surface": "A cheap supermarket top keeping an old lady on her bicycle at an even temperature.",
+    "walkthrough": "Cycling scrambles nothing: the letters keep their order and one end runs round to the other, which is why it is so much harder to spot than an anagram. The old lady on her bike is the surface's own joke.",
+    "definitionFit": "at a constant temperature → ISOTHERMAL: the physics adjective for a process, or a line on a chart, along which the temperature never varies.",
+    "features": {
+     "misdirectedWord": "cycling",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "5-down",
@@ -83,7 +235,43 @@ window.CRYPTIC_PUZZLES["independent-12459"] = /*JSON-START*/ {
    "clue": "1 2 3 4 (4)",
    "separatorLocations": {},
    "solution": "FIVE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "FIVE",
+    "definition": "1",
+    "indicators": [
+     "3"
+    ],
+    "indicatorNotes": {
+     "3": "The answer to 3 is a verb as well as a noun — to box something is to shut it in — so it tells you one piece goes inside another."
+    },
+    "pieces": [
+     "F",
+     "IV",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "2",
+      "gives": "FE",
+      "note": "the answer to 2 is a metal, and Fe is its symbol on the periodic table"
+     },
+     {
+      "clueFragment": "4",
+      "gives": "IV",
+      "note": "four in Roman numerals, this digit read straight rather than as a cross-reference"
+     }
+    ],
+    "surface": "A plain count: one, two, three, four.",
+    "walkthrough": "Every digit points somewhere: 1, 2 and 3 send you to those clues, while 4 stays the numeral it looks like. The row invites you to write the next number along, which is right for entirely the wrong reason.",
+    "definitionFit": "1 → FIVE: the answer at 1 is NUMBER, and five is a number — the definition arrives by cross-reference instead of in words.",
+    "features": {
+     "misdirectedWord": "3",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "6-down",
@@ -97,7 +285,48 @@ window.CRYPTIC_PUZZLES["independent-12459"] = /*JSON-START*/ {
    "clue": "Change the police force's core mode of transport (10)",
    "separatorLocations": {},
    "solution": "HELICOPTER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + middle letter",
+    "answer": "HELICOPTER",
+    "definition": "mode of transport",
+    "indicators": [
+     "Change",
+     "core"
+    ],
+    "indicatorNotes": {
+     "Change": "To change a thing is to make it other than it was, and letters made other than they were come out in a new order.",
+     "core": "A core is the bit at the very centre, so it takes the middle letter of the word beside it."
+    },
+    "anagram": {
+     "fodder": "THE POLICE R"
+    },
+    "blocks": [
+     {
+      "clueFragment": "the police",
+      "gives": "THEPOLICE",
+      "note": "nine letters of fodder"
+     },
+     {
+      "clueFragment": "force's core",
+      "gives": "R",
+      "note": "the middle letter of foRce"
+     },
+     {
+      "clueFragment": "Change",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "The police force changing how it gets about.",
+    "walkthrough": "'The police force' is one phrase in the surface and two separate pieces in the parse, which is how ten letters of fodder hide in plain sight. Police helicopters make the surface honest into the bargain.",
+    "definitionFit": "mode of transport → HELICOPTER: definition by example, one particular flying machine standing for the whole category, which the vagueness of 'mode' licenses.",
+    "features": {
+     "misdirectedWord": "Change",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "7-down",
@@ -111,7 +340,58 @@ window.CRYPTIC_PUZZLES["independent-12459"] = /*JSON-START*/ {
    "clue": "Yankee steamship features in poem with American protagonist (8)",
    "separatorLocations": {},
    "solution": "ODYSSEUS",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "ODYSSEUS",
+    "definition": "protagonist",
+    "indicators": [
+     "features in"
+    ],
+    "indicatorNotes": {
+     "features in": "To feature in something is to appear inside it, which is where the letters named go."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "OD",
+     "Y",
+     "SS",
+     "E",
+     "US"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "poem",
+      "gives": "ODE",
+      "note": "the ode is the crossword's poem of choice, and it opens after two letters"
+     },
+     {
+      "clueFragment": "Yankee",
+      "gives": "Y",
+      "note": "Y is Yankee in the NATO alphabet"
+     },
+     {
+      "clueFragment": "steamship",
+      "gives": "SS",
+      "note": "SS is the prefix on a steamship's name, as in SS Great Britain"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "the standard two letters for American"
+     }
+    ],
+    "surface": "A steamship named Yankee turning up in a poem about an American hero.",
+    "walkthrough": "'American protagonist' looks like one phrase, and the nationality belongs to the wordplay — which leaves 'protagonist' alone to define a Greek. The poem the letters come from is three letters long, not an epic.",
+    "definitionFit": "protagonist → ODYSSEUS: definition by example, the hero of Homer's Odyssey standing in for the general idea of a story's leading man.",
+    "features": {
+     "misdirectedWord": "American",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "8-across",
@@ -125,7 +405,48 @@ window.CRYPTIC_PUZZLES["independent-12459"] = /*JSON-START*/ {
    "clue": "Troops in disarray after Ukraine's leader pulls out completely (7)",
    "separatorLocations": {},
    "solution": "UPROOTS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + first letter",
+    "answer": "UPROOTS",
+    "definition": "pulls out completely",
+    "indicators": [
+     "in disarray",
+     "after"
+    ],
+    "indicatorNotes": {
+     "in disarray": "Troops in disarray have broken ranks, and letters in disarray have left the order they were given.",
+     "after": "After puts what comes before it behind, so the shuffled letters follow the single one."
+    },
+    "anagram": {
+     "fodder": "U TROOPS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Ukraine's leader",
+      "gives": "U",
+      "note": "the leading letter of Ukraine"
+     },
+     {
+      "clueFragment": "Troops",
+      "gives": "TROOPS",
+      "note": "six letters of fodder"
+     },
+     {
+      "clueFragment": "in disarray",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "A war report: routed troops and the Ukrainian president.",
+    "walkthrough": "'Ukraine's leader' reads as a head of state and asks only for the letter at the front of the word. 'Pulls out' alone would do for a retreat, and 'completely' is what makes it the gardener's action instead of the army's.",
+    "definitionFit": "pulls out completely → UPROOTS: pulling a plant up with its roots leaves nothing in the ground, which is the thoroughness the adverb insists on.",
+    "features": {
+     "misdirectedWord": "leader",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "9-across",
@@ -139,7 +460,36 @@ window.CRYPTIC_PUZZLES["independent-12459"] = /*JSON-START*/ {
    "clue": "Rather stained pants (7)",
    "separatorLocations": {},
    "solution": "INSTEAD",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "INSTEAD",
+    "definition": "Rather",
+    "indicators": [
+     "pants"
+    ],
+    "indicatorNotes": {
+     "pants": "Pants is British slang for rubbish, and a word called rubbish has been left in no fit state."
+    },
+    "anagram": {
+     "fodder": "STAINED"
+    },
+    "blocks": [
+     {
+      "clueFragment": "stained",
+      "gives": "STAINED",
+      "note": "seven letters of fodder"
+     }
+    ],
+    "surface": "A verdict on some badly marked underwear.",
+    "walkthrough": "'Rather stained' reads as 'quite stained', which buries the definition inside what looks like an intensifier. Both of the other words then belong to the wordplay.",
+    "definitionFit": "Rather → INSTEAD: in the sense of in preference to that — 'he walked rather' and 'he walked instead' say the same thing.",
+    "features": {
+     "misdirectedWord": "Rather",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "10-down",
@@ -153,7 +503,43 @@ window.CRYPTIC_PUZZLES["independent-12459"] = /*JSON-START*/ {
    "clue": "Shoes drinkers left inside (8)",
    "separatorLocations": {},
    "solution": "SLIPPERS",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "SLIPPERS",
+    "definition": "Shoes",
+    "indicators": [
+     "inside"
+    ],
+    "indicatorNotes": {
+     "inside": "Inside says where the piece goes: within the word beside it, not before or after it."
+    },
+    "pieces": [
+     "S",
+     "L",
+     "IPPERS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drinkers",
+      "gives": "SIPPERS",
+      "note": "people who sip are sippers, and they do the containing"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "l = left, the letter printed inside a shoe"
+     }
+    ],
+    "surface": "Shoes that some drinkers left behind them.",
+    "walkthrough": "'Left' reads as a verb in the surface — footwear abandoned somewhere — and is a single letter in the parse. Sippers is a word almost nobody says, which is what makes the container so hard to see.",
+    "definitionFit": "Shoes → SLIPPERS: definition by example, the soft indoor sort still being shoes, so the general word covers them.",
+    "features": {
+     "misdirectedWord": "left",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "11-across",
@@ -167,7 +553,45 @@ window.CRYPTIC_PUZZLES["independent-12459"] = /*JSON-START*/ {
    "clue": "Outlaw's backside shot in heist situation? (3)",
    "separatorLocations": {},
    "solution": "BAN",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "BAN",
+    "definition": "Outlaw",
+    "linkWords": [
+     "'s",
+     "in"
+    ],
+    "indicators": [
+     "backside shot"
+    ],
+    "indicatorNotes": {
+     "backside shot": "A backside is the rear end, and shooting it off takes away the last letter."
+    },
+    "pieces": [
+     "BAN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "heist situation",
+      "gives": "BANK",
+      "note": "the place a heist happens, and the word the deletion works on"
+     },
+     {
+      "clueFragment": "backside shot",
+      "gives": "",
+      "note": "the K at the rear is shot away"
+     }
+    ],
+    "surface": "A robber shot in the backside during a bank job.",
+    "walkthrough": "'Outlaw' is the verb, not the man with the gun the surface puts in the doorway. The question mark admits a heist could happen anywhere, and that a bank is only the likeliest place.",
+    "definitionFit": "Outlaw → BAN: to outlaw a thing is to forbid it, and to ban it is the same act in one syllable — both transitive verbs.",
+    "features": {
+     "misdirectedWord": "Outlaw's",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "12-across",
@@ -181,7 +605,60 @@ window.CRYPTIC_PUZZLES["independent-12459"] = /*JSON-START*/ {
    "clue": "Retired army engineers beside university wearing ties and tails? (11)",
    "separatorLocations": {},
    "solution": "EXTREMITIES",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "EXTREMITIES",
+    "definition": "tails",
+    "linkWords": [
+     "and"
+    ],
+    "indicators": [
+     "beside",
+     "wearing"
+    ],
+    "indicatorNotes": {
+     "beside": "Beside sets two pieces side by side, in the order the clue names them.",
+     "wearing": "The wearer goes inside the garment, so whatever wears the ties sits within them."
+    },
+    "pieces": [
+     "EX",
+     "T",
+     "RE",
+     "MIT",
+     "IES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Retired",
+      "gives": "EX",
+      "note": "an ex-anything is retired from it"
+     },
+     {
+      "clueFragment": "ties",
+      "gives": "TIES",
+      "note": "the garment does the containing, opening after its first letter"
+     },
+     {
+      "clueFragment": "army engineers",
+      "gives": "RE",
+      "note": "the Royal Engineers, the British Army's engineering corps, are RE on any parade list"
+     },
+     {
+      "clueFragment": "university",
+      "gives": "MIT",
+      "note": "the Massachusetts Institute of Technology"
+     }
+    ],
+    "surface": "Retired army engineers standing next to a university in full evening dress.",
+    "walkthrough": "The university wanted is MIT, one American institute standing in for the general word — the sort of substitution a solver has to be ready to make. 'Ties and tails' looks like one item of evening dress and splits into wordplay and definition.",
+    "definitionFit": "tails → EXTREMITIES: a tail is the far end of a thing, and the extremities are exactly those far ends — hands, feet and tips.",
+    "features": {
+     "misdirectedWord": "university",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "13-across",
@@ -195,7 +672,41 @@ window.CRYPTIC_PUZZLES["independent-12459"] = /*JSON-START*/ {
    "clue": "Crack habit fellow's lost (4)",
    "separatorLocations": {},
    "solution": "ROCK",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "ROCK",
+    "definition": "Crack",
+    "indicators": [
+     "lost"
+    ],
+    "indicatorNotes": {
+     "lost": "What is lost is gone for good, so the letter it names never reaches the answer."
+    },
+    "pieces": [
+     "ROCK"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "habit",
+      "gives": "FROCK",
+      "note": "a monk's habit is a frock"
+     },
+     {
+      "clueFragment": "fellow's",
+      "gives": "",
+      "note": "f is the standard abbreviation for fellow, and that is the letter dropped"
+     }
+    ],
+    "surface": "A chap who has kicked his drug habit.",
+    "walkthrough": "The surface tells one story, a man off the drugs, and the parse lifts 'crack' out of it to serve as the definition. A habit was a monk's frock centuries before it was an addiction.",
+    "definitionFit": "Crack → ROCK: crack cocaine is sold in hard lumps, and rock is the street name for the drug in that form.",
+    "features": {
+     "misdirectedWord": "habit",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "14-down",
@@ -213,7 +724,34 @@ window.CRYPTIC_PUZZLES["independent-12459"] = /*JSON-START*/ {
     ]
    },
    "solution": "CHILDSPLAY",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "CHILD'S PLAY",
+    "definition": "A piece of cake",
+    "definition2": "presented at kid's party",
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A piece of cake",
+      "note": "the idiom for a task that costs no effort whatever"
+     },
+     {
+      "clueFragment": "presented at kid's party",
+      "note": "read literally — a short entertainment staged for children, and whose it would be"
+     }
+    ],
+    "surface": "Cake being handed round at a children's birthday party.",
+    "walkthrough": "Only the question mark warns that the second reading is the setter's invention rather than a dictionary sense. The first is a dead idiom: a piece of cake and a walk in the park are the same thought in different scenery.",
+    "definitionFit": "A piece of cake → CHILD'S PLAY: two idioms for something needing no effort; and read straight, a play put on at a kid's party is a child's play.",
+    "features": {
+     "misdirectedWord": "cake",
+     "joke": "pun",
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "15-across",
@@ -227,7 +765,51 @@ window.CRYPTIC_PUZZLES["independent-12459"] = /*JSON-START*/ {
    "clue": "Mythical character with a strange, exhausted call (10)",
    "separatorLocations": {},
    "solution": "PERSEPHONE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters",
+    "answer": "PERSEPHONE",
+    "definition": "Mythical character",
+    "linkWords": [
+     "with"
+    ],
+    "indicators": [
+     "exhausted"
+    ],
+    "indicatorNotes": {
+     "exhausted": "Something exhausted has had everything inside it used up, so only the outside of the word survives."
+    },
+    "pieces": [
+     "PER",
+     "SE",
+     "PHONE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "PER",
+      "note": "per means a, as in sixty miles per hour"
+     },
+     {
+      "clueFragment": "strange",
+      "gives": "SE",
+      "note": "the first and last letters of StrangE, all that is left once the middle is used up"
+     },
+     {
+      "clueFragment": "call",
+      "gives": "PHONE",
+      "note": "to call someone is to phone them"
+     }
+    ],
+    "surface": "A weird, worn-out call from somebody out of legend.",
+    "walkthrough": "The comma makes 'strange' and 'exhausted' read as two adjectives for the same call, when the second is an instruction aimed at the first. 'A' for PER is the swap worth banking: a pound a pint is a pound per pint.",
+    "definitionFit": "Mythical character → PERSEPHONE: definition by example, the Greek goddess carried off to the underworld standing for any figure out of myth.",
+    "features": {
+     "misdirectedWord": "exhausted",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "16-down",
@@ -241,7 +823,50 @@ window.CRYPTIC_PUZZLES["independent-12459"] = /*JSON-START*/ {
    "clue": "Smooth, enchanting women wasting time making lunch at work? (10)",
    "separatorLocations": {},
    "solution": "SANDWICHES",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "SANDWICHES",
+    "definition": "lunch at work",
+    "linkWords": [
+     "making"
+    ],
+    "indicators": [
+     "wasting"
+    ],
+    "indicatorNotes": {
+     "wasting": "To waste a thing is to let it dwindle away to nothing, and what dwindles here is the letter named beside it."
+    },
+    "pieces": [
+     "SAND",
+     "WICHES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Smooth",
+      "gives": "SAND",
+      "note": "to sand a surface is to smooth it"
+     },
+     {
+      "clueFragment": "enchanting women",
+      "gives": "WITCHES",
+      "note": "women who work enchantments"
+     },
+     {
+      "clueFragment": "wasting time",
+      "gives": "",
+      "note": "t = time, and it is the letter lost"
+     }
+    ],
+    "surface": "Charming women frittering the morning away instead of getting the lunch ready.",
+    "walkthrough": "'Smooth' opens as an adjective describing the women and is a verb in the parse — what you do to wood with sandpaper. The question mark covers a definition that names an example of lunch rather than lunch itself.",
+    "definitionFit": "lunch at work → SANDWICHES: the packed midday meal a desk worker unwraps, so the answer is one particular form that lunch takes.",
+    "features": {
+     "misdirectedWord": "Smooth",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "17-down",
@@ -261,7 +886,48 @@ window.CRYPTIC_PUZZLES["independent-12459"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RESEARCH",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + last letter",
+    "answer": "RESEARCH",
+    "definition": "Review",
+    "indicators": [
+     "the latest part of",
+     "'rubbish'"
+    ],
+    "indicatorNotes": {
+     "the latest part of": "The latest part of a word is the bit that comes last, which is one letter.",
+     "'rubbish'": "Rubbish is what you call a thing badly put together, and letters badly put together are out of their proper order."
+    },
+    "anagram": {
+     "fodder": "E ARCHERS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "the latest part of The",
+      "gives": "E",
+      "note": "the closing letter of thE"
+     },
+     {
+      "clueFragment": "Archers",
+      "gives": "ARCHERS",
+      "note": "seven letters of fodder"
+     },
+     {
+      "clueFragment": "'rubbish'",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "A withering verdict on the newest episode of The Archers.",
+    "walkthrough": "The Archers is BBC Radio 4's farming serial, running since 1951, and the italics are there to make the two words a title. The parse reads straight past that and treats them separately.",
+    "definitionFit": "Review → RESEARCH: both mean going back over the material — a literature review is research, and to research a subject is to review what is already known.",
+    "features": {
+     "misdirectedWord": "'rubbish'",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "18-across",
@@ -275,7 +941,42 @@ window.CRYPTIC_PUZZLES["independent-12459"] = /*JSON-START*/ {
    "clue": "Heartless, ill-equipped English joiners do this (5)",
    "separatorLocations": {},
    "solution": "UNITE",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + charade",
+    "answer": "UNITE",
+    "definition": "joiners do this",
+    "indicators": [
+     "Heartless"
+    ],
+    "indicatorNotes": {
+     "Heartless": "A word's heart is the letter at its centre, and heartless leaves that letter out."
+    },
+    "pieces": [
+     "UNIT",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Heartless, ill-equipped",
+      "gives": "UNIT",
+      "note": "UNFIT is ill-equipped, with the F at its centre taken out"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "e = English, the standard abbreviation"
+     }
+    ],
+    "surface": "Badly kitted-out English joiners with no heart for the job.",
+    "walkthrough": "'Joiners do this' points at an action, so the answer is a verb and not the tradesmen. Unite is also the name of Britain's largest trade union, which is where the surface is really aiming.",
+    "definitionFit": "joiners do this → UNITE: to join two things is to unite them, the definition naming the doer and leaving the answer to supply the verb.",
+    "features": {
+     "misdirectedWord": "joiners",
+     "joke": "pun",
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "18-down",
@@ -289,7 +990,65 @@ window.CRYPTIC_PUZZLES["independent-12459"] = /*JSON-START*/ {
    "clue": "Cover of avant-garde album about river eels, oddly (8)",
    "separatorLocations": {},
    "solution": "UMBRELLA",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container + alternate letters",
+    "answer": "UMBRELLA",
+    "definition": "Cover",
+    "linkWords": [
+     "of"
+    ],
+    "indicators": [
+     "avant-garde",
+     "about",
+     "oddly"
+    ],
+    "indicatorNotes": {
+     "avant-garde": "Avant-garde work breaks with the arrangement everyone expects, and so do these letters.",
+     "about": "About means round the outside, so the letters just shuffled go around what comes next.",
+     "oddly": "Oddly takes the letters in the odd positions — first and third — and drops the even ones."
+    },
+    "anagram": {
+     "fodder": "ALBUM R EL"
+    },
+    "subAnagrams": [
+     {
+      "fodder": "ALBUM",
+      "gives": "UMBLA"
+     }
+    ],
+    "pieces": [
+     "UMB",
+     "R",
+     "EL",
+     "LA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "album",
+      "gives": "UMBLA",
+      "note": "the five letters of ALBUM in a new order, opening up to take the insertion"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "r = river on any map"
+     },
+     {
+      "clueFragment": "eels, oddly",
+      "gives": "EL",
+      "note": "the first and third letters of EeLs"
+     }
+    ],
+    "surface": "The sleeve of an experimental album, with river eels on the front.",
+    "walkthrough": "'Cover' is a record sleeve in the surface and the thing you put up in the rain in the answer. The shuffled letters have to be split open to let the river and the eels in, which is why counting an eight-letter anagram never works here.",
+    "definitionFit": "Cover → UMBRELLA: the thing held over your head to keep the rain off is cover in the plainest sense, shelter you carry with you.",
+    "features": {
+     "misdirectedWord": "Cover",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "19-across",
@@ -303,7 +1062,41 @@ window.CRYPTIC_PUZZLES["independent-12459"] = /*JSON-START*/ {
    "clue": "One ignored by unkind older boys (3)",
    "separatorLocations": {},
    "solution": "MEN",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "MEN",
+    "definition": "older boys",
+    "indicators": [
+     "ignored by"
+    ],
+    "indicatorNotes": {
+     "ignored by": "To be ignored by something is to be left out of it, so the letter named goes missing from the word."
+    },
+    "pieces": [
+     "MEN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unkind",
+      "gives": "MEAN",
+      "note": "mean = unkind, the playground sense"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "",
+      "note": "a = one, and it is the letter left out"
+     }
+    ],
+    "surface": "A small boy being frozen out by the bigger ones.",
+    "walkthrough": "A playground snub on the surface, a single letter dropped in the parse. The definition is cheeky rather than exact: grow boys up far enough and the word for them changes.",
+    "definitionFit": "older boys → MEN: boys grown up, so the definition works by age alone — the same people, later.",
+    "features": {
+     "misdirectedWord": "One",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "20-across",
@@ -317,7 +1110,45 @@ window.CRYPTIC_PUZZLES["independent-12459"] = /*JSON-START*/ {
    "clue": "Informers probed by the first of eight judges (5)",
    "separatorLocations": {},
    "solution": "RATES",
-   "annotation": null
+   "annotation": {
+    "type": "container + first letter",
+    "answer": "RATES",
+    "definition": "judges",
+    "indicators": [
+     "probed by",
+     "the first of"
+    ],
+    "indicatorNotes": {
+     "probed by": "To probe a thing is to push into it, so whatever does the probing ends up inside.",
+     "the first of": "The first of a word is the letter it opens with."
+    },
+    "pieces": [
+     "RAT",
+     "E",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Informers",
+      "gives": "RATS",
+      "note": "a rat is someone who informs on his own side"
+     },
+     {
+      "clueFragment": "the first of eight",
+      "gives": "E",
+      "note": "the opening letter of Eight"
+     }
+    ],
+    "surface": "Police informers being questioned by the first of a bench of eight judges.",
+    "walkthrough": "'Judges' is the definition and a verb, which the row of eight judges in the surface works hard to disguise. To rate a thing is to judge it, the way a critic rates a film.",
+    "definitionFit": "judges → RATES: to rate something is to judge its quality and put a value on it, the verb a reviewer uses.",
+    "features": {
+     "misdirectedWord": "judges",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "21-across",
@@ -331,7 +1162,57 @@ window.CRYPTIC_PUZZLES["independent-12459"] = /*JSON-START*/ {
    "clue": "3 containing nuts feed 50 people working alongside one another (10)",
    "separatorLocations": {},
    "solution": "BEDFELLOWS",
-   "annotation": null
+   "annotation": {
+    "type": "container + anagram",
+    "answer": "BEDFELLOWS",
+    "definition": "people working alongside one another",
+    "indicators": [
+     "containing",
+     "nuts"
+    ],
+    "indicatorNotes": {
+     "containing": "What contains a thing wraps round it, so the piece named next goes inside.",
+     "nuts": "Nuts means out of one's mind, and letters out of their mind will not stay in the order they were given."
+    },
+    "subAnagrams": [
+     {
+      "fodder": "FEED",
+      "gives": "EDFE"
+     }
+    ],
+    "pieces": [
+     "B",
+     "EDFE",
+     "L",
+     "LOWS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "3",
+      "gives": "BLOWS",
+      "note": "the answer to 3 also means punches, and punches are blows"
+     },
+     {
+      "clueFragment": "feed",
+      "gives": "EDFE",
+      "note": "the four letters of FEED in a new order"
+     },
+     {
+      "clueFragment": "50",
+      "gives": "L",
+      "note": "fifty in Roman numerals"
+     }
+    ],
+    "surface": "Boxes of nuts, enough to feed fifty workmates.",
+    "walkthrough": "The cross-reference does not hand over the word at 3 but a synonym of it: the sense wanted is punches, not the cricket kit its own clue defines. That extra step is what buries the container.",
+    "definitionFit": "people working alongside one another → BEDFELLOWS: from sharing a bed with a stranger at an old inn, the word now means associates thrown together, as in 'strange bedfellows'.",
+    "features": {
+     "misdirectedWord": "nuts",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "22-across",
@@ -345,7 +1226,39 @@ window.CRYPTIC_PUZZLES["independent-12459"] = /*JSON-START*/ {
    "clue": "American conglomerate transferring money for weapons (4)",
    "separatorLocations": {},
    "solution": "ARMS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ARMS",
+    "definition": "weapons",
+    "linkWords": [
+     "for"
+    ],
+    "indicators": [
+     "transferring money"
+    ],
+    "indicatorNotes": {
+     "transferring money": "Transferring means carrying a thing somewhere else, and what is carried here is the M of money, set down further along the word."
+    },
+    "anagram": {
+     "fodder": "MARS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "American conglomerate",
+      "gives": "MARS",
+      "note": "Mars is the American family firm behind the chocolate bars and the pet food"
+     }
+    ],
+    "surface": "An American conglomerate moving its money into the weapons trade.",
+    "walkthrough": "Only one letter actually travels: the M of money leaves the front and settles further in, the other three staying put. Naming the letter to be shifted is a gentler instruction than a full shuffle.",
+    "definitionFit": "weapons → ARMS: the collective noun for weapons, the one in 'bear arms' and 'arms trade'.",
+    "features": {
+     "misdirectedWord": "money",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "23-down",
@@ -359,7 +1272,36 @@ window.CRYPTIC_PUZZLES["independent-12459"] = /*JSON-START*/ {
    "clue": "In theory, one should put this on the second lock (6)",
    "separatorLocations": {},
    "solution": "STRESS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "STRESS",
+    "definition": "In theory, one should put this on the",
+    "pieces": [
+     "S",
+     "TRESS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "s is the abbreviation for second on any stopwatch"
+     },
+     {
+      "clueFragment": "lock",
+      "gives": "TRESS",
+      "note": "a tress is a lock of hair"
+     }
+    ],
+    "surface": "Advice that this is the thing to fit to the second of two locks.",
+    "walkthrough": "'In theory' is not a hedge but a word being pronounced: say it aloud and the emphasis lands on its opening syllable, THE. The definition therefore runs right up to 'the', and only the last two words are wordplay.",
+    "definitionFit": "In theory, one should put this on the → STRESS: the emphasis in 'theory' falls on its first syllable, so what one puts on 'the' is the stress.",
+    "features": {
+     "misdirectedWord": "lock",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "24-down",
@@ -373,7 +1315,46 @@ window.CRYPTIC_PUZZLES["independent-12459"] = /*JSON-START*/ {
    "clue": "Skilled acrobat's beginning atop branch shortly (5)",
    "separatorLocations": {},
    "solution": "ADEPT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "ADEPT",
+    "definition": "Skilled",
+    "indicators": [
+     "beginning",
+     "atop",
+     "shortly"
+    ],
+    "indicatorNotes": {
+     "beginning": "The beginning of a word is the letter it starts with.",
+     "atop": "Atop puts one piece on top of another, which in a down entry means ahead of it.",
+     "shortly": "Shortly asks for the shortened form of the word, the one you would write on a form."
+    },
+    "pieces": [
+     "A",
+     "DEPT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "acrobat's beginning",
+      "gives": "A",
+      "note": "the first letter of Acrobat"
+     },
+     {
+      "clueFragment": "branch shortly",
+      "gives": "DEPT",
+      "note": "a department is a branch of a firm, and dept is how it is abbreviated"
+     }
+    ],
+    "surface": "A skilled acrobat starting out on top of a branch.",
+    "walkthrough": "'Branch' is the office kind, not the tree the acrobat is balancing on, and 'shortly' asks for its abbreviation rather than its timing. Both readings sit in one sentence without a seam.",
+    "definitionFit": "Skilled → ADEPT: the adjective for somebody thoroughly practised at a thing, a direct swap for skilled.",
+    "features": {
+     "misdirectedWord": "branch",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "25-across",
@@ -387,7 +1368,56 @@ window.CRYPTIC_PUZZLES["independent-12459"] = /*JSON-START*/ {
    "clue": "Old plastic pierced the skin of nectarine and went through (11)",
    "separatorLocations": {},
    "solution": "EXPERIENCED",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + outer letters",
+    "answer": "EXPERIENCED",
+    "definition": "went through",
+    "linkWords": [
+     "and"
+    ],
+    "indicators": [
+     "plastic",
+     "the skin of"
+    ],
+    "indicatorNotes": {
+     "plastic": "Plastic means able to be moulded into any shape at all, and letters that can be moulded will not hold theirs.",
+     "the skin of": "A skin is the outside of a thing, so this takes the outer letters and leaves the flesh behind."
+    },
+    "anagram": {
+     "fodder": "EX PIERCED NE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Old",
+      "gives": "EX",
+      "note": "an ex is the old one — old flame, old boss"
+     },
+     {
+      "clueFragment": "pierced",
+      "gives": "PIERCED",
+      "note": "seven letters of fodder"
+     },
+     {
+      "clueFragment": "the skin of nectarine",
+      "gives": "NE",
+      "note": "the outside letters of Nectarine"
+     },
+     {
+      "clueFragment": "plastic",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "An old plastic knife going through the skin of a nectarine.",
+    "walkthrough": "'Pierced' looks like the main verb of the sentence and is really seven letters of fodder, leaving the last two words alone to define. 'Old' stays put at the front while everything after it is shuffled.",
+    "definitionFit": "went through → EXPERIENCED: what you have been through you have experienced, the past tense of living through something.",
+    "features": {
+     "misdirectedWord": "pierced",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "26-down",
@@ -401,7 +1431,39 @@ window.CRYPTIC_PUZZLES["independent-12459"] = /*JSON-START*/ {
    "clue": "Lift base of seat in which hammers are found (4)",
    "separatorLocations": {},
    "solution": "EARS",
-   "annotation": null
+   "annotation": {
+    "type": "cycling",
+    "answer": "EARS",
+    "definition": "in which hammers are found",
+    "indicators": [
+     "Lift",
+     "base of"
+    ],
+    "indicatorNotes": {
+     "Lift": "Lifting carries a letter to the top of a down entry, and the others close up behind it.",
+     "base of": "The base of a word written downwards is the letter at the bottom, its last."
+    },
+    "pieces": [
+     "E",
+     "ARS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seat",
+      "gives": "ARSE",
+      "note": "seat is the polite word for the part of you that sits down"
+     }
+    ],
+    "surface": "Lifting the bottom off a seat and finding hammers stored inside.",
+    "walkthrough": "'Seat' is the anatomical sense, the one a school report means by a smack on the seat. Carrying its bottom letter to the top is a cycle rather than a reversal: the other three keep their order.",
+    "definitionFit": "in which hammers are found → EARS: the hammer, or malleus, is one of the three tiny bones of the middle ear that pass sound along.",
+    "features": {
+     "misdirectedWord": "seat",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "27-across",
@@ -415,7 +1477,42 @@ window.CRYPTIC_PUZZLES["independent-12459"] = /*JSON-START*/ {
    "clue": "The return of bloody conflict (3)",
    "separatorLocations": {},
    "solution": "WAR",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "WAR",
+    "definition": "conflict",
+    "indicators": [
+     "The return of"
+    ],
+    "indicatorNotes": {
+     "The return of": "A return sends a thing back the way it came, so the letters are read from the far end."
+    },
+    "pieces": [
+     "WAR"
+    ],
+    "subReversals": [
+     {
+      "from": "RAW",
+      "to": "WAR"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bloody",
+      "gives": "RAW",
+      "note": "meat still bloody is raw"
+     }
+    ],
+    "surface": "A headline announcing that vicious fighting has started up again.",
+    "walkthrough": "'Bloody' is the British swear word in the surface and a description of undercooked meat in the parse. The whole clue works as a headline, which is what makes the turn so easy to walk past.",
+    "definitionFit": "conflict → WAR: armed conflict between states is the plainest sense of the word, and the two swap freely in most sentences.",
+    "features": {
+     "misdirectedWord": "bloody",
+     "joke": "pun",
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "27-down",
@@ -429,7 +1526,34 @@ window.CRYPTIC_PUZZLES["independent-12459"] = /*JSON-START*/ {
    "clue": "Something pulled out and went (4)",
    "separatorLocations": {},
    "solution": "WEED",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "WEED",
+    "definition": "Something pulled out",
+    "definition2": "went",
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Something pulled out",
+      "note": "what the gardener grips at the root and hauls out of the bed"
+     },
+     {
+      "clueFragment": "went",
+      "note": "the nursery euphemism for having been to the lavatory, in the past tense"
+     }
+    ],
+    "surface": "A thing that was yanked out and then left.",
+    "walkthrough": "'Went' is the small word children are given for going to the lavatory, and the past tense of 'wee' is spelt to match. The first definition is the ordinary garden noun.",
+    "definitionFit": "Something pulled out → WEED: the plant a gardener pulls up; and went → WEED: the past tense of 'wee', the nursery word for having a pee.",
+    "features": {
+     "misdirectedWord": "went",
+     "joke": "pun",
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "28-across",
@@ -443,7 +1567,49 @@ window.CRYPTIC_PUZZLES["independent-12459"] = /*JSON-START*/ {
    "clue": "Permit this girl to carry a whip (7)",
    "separatorLocations": {},
    "solution": "LEATHER",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "LEATHER",
+    "definition": "whip",
+    "indicators": [
+     "to carry"
+    ],
+    "indicatorNotes": {
+     "to carry": "To carry a thing is to have it about you, so the letters named go within."
+    },
+    "pieces": [
+     "LE",
+     "A",
+     "T",
+     "HER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Permit",
+      "gives": "LET",
+      "note": "to permit is to let, and this is the word that opens up"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the clue's own letter, carried inside"
+     },
+     {
+      "clueFragment": "this girl",
+      "gives": "HER",
+      "note": "the pronoun for the girl in question"
+     }
+    ],
+    "surface": "Letting a girl take a whip with her.",
+    "walkthrough": "'Permit this girl' looks like the start of a sentence granting permission, and every word of it is wordplay. To leather somebody is British for thrashing them, so the definition is a verb.",
+    "definitionFit": "whip → LEATHER: to leather someone is to beat them, the verb made from the strap the beating was done with.",
+    "features": {
+     "misdirectedWord": "whip",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "29-across",
@@ -463,7 +1629,31 @@ window.CRYPTIC_PUZZLES["independent-12459"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EXPRESS",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "EXPRESS",
+    "definition": "Fast",
+    "definition2": "Show",
+    "blocks": [
+     {
+      "clueFragment": "Fast",
+      "note": "the word on the front of a train that does not stop at every station"
+     },
+     {
+      "clueFragment": "Show",
+      "note": "the verb for letting a feeling out where other people can see it"
+     }
+    ],
+    "surface": "A mention of The Fast Show, the BBC sketch comedy.",
+    "walkthrough": "The italics turn two words into a television title, which is the entire disguise: they are two definitions standing side by side. The Fast Show ran on BBC Two from 1994.",
+    "definitionFit": "Fast → EXPRESS: an express train or delivery is the fast one; Show → EXPRESS: to express a feeling is to show it.",
+    "features": {
+     "misdirectedWord": "Show",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 } /*JSON-END*/;
