@@ -1,0 +1,59 @@
+# pages.yml builds and deploys the site. It only exercises four of this
+# repo's test scripts — test_alert_claimed.sh, test_prereset_paths.sh,
+# test_notify_race.js and test_push_hold.js — and only because
+# tools/smoke_test.js happens to shell out to them, and only on a push to
+# master, never on a pull request. The rest (the daily-job tests and
+# test_webpush.js) are wired to nothing at all: tools/test_annotate_attempts.sh
+# broke on 2026-09-11 and nobody noticed until 2026-09-13, because nothing ran
+# it.
+#
+# This runs every test entry point in tools/ directly, on every push and pull
+# request, and reports ALL failures rather than stopping at the first — a
+# workflow that stops at the first red script is a workflow that hides the
+# second one.
+#
+# A separate workflow from pages.yml on purpose: a broken test must never block
+# a site deploy, and this needs no site build to run.
+#
+# Left out, deliberately: nothing here calls the real `claude` CLI, needs an
+# API key, or touches the network — the daily-job tests read the block under
+# test out of tools/daily_update.sh and drive it against a stub, and
+# test_push_conflict.sh clones this repo with --local. Anything that needed a
+# model call or a credential would not belong in CI and is not here.
+name: Run the test scripts
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Run every test script
+        run: |
+          fails=()
+          for t in tools/test_alert_claimed.sh tools/test_annotate_attempts.sh \
+                   tools/test_annotate_postmortem.sh tools/test_annotate_retry.sh \
+                   tools/test_prereset_paths.sh tools/test_push_conflict.sh; do
+            echo "::group::bash $t"
+            bash "$t" || fails+=("$t")
+            echo "::endgroup::"
+          done
+          for t in tools/test_notify_race.js tools/test_push_hold.js tools/test_webpush.js; do
+            echo "::group::node $t"
+            node "$t" || fails+=("$t")
+            echo "::endgroup::"
+          done
+          if [ "${#fails[@]}" -gt 0 ]; then
+            echo "FAILED: ${fails[*]}"
+            exit 1
+          fi
+          echo "all test scripts passed"
