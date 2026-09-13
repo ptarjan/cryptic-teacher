@@ -69,21 +69,30 @@ cd "$REPO" || exit 1
 # and non-obvious, and this way it survives being run by hand too.
 export CLAUDE_CONFIG_DIR="${CLAUDE_CONFIG_DIR:-$HOME/.claude}"
 
-# Two limits, and the gap between them is the point. The thinking budget is what
-# actually bounds spend: thinking bills as output, and a turn that reasons past
-# the output ceiling emits no tool call, makes no progress, and is retried
-# verbatim until the run dies — so an uncapped one can spend a whole puzzle's
-# budget on nothing. The ceiling above it is a safety net that a healthy turn
-# never touches; keeping it well clear means a long, productive turn finishes
-# instead of being killed for overrunning.
+# The failure both of these were written for: thinking bills as output, and a
+# turn that reasons past the output ceiling emits no tool call, makes no
+# progress, and is retried verbatim until the run dies — so it can spend a whole
+# puzzle's budget on nothing, and --max-turns never sees it, because a turn that
+# calls no tool is not a turn as far as that limit is concerned.
 # Measured over 10,823 turns (2026-08-23..09-06), grouped by the API's message
 # id: 554 turns spent 8k-32k output tokens and every one of them ended in a tool
-# call, and of the 101 above 32k, 91 did too. Big turns are working turns. The
-# other 10 are the shape these two limits exist for — output_tokens exactly
-# 64,000, stop_reason max_tokens, no text and no visible thinking: thinking ate
-# the entire ceiling and the turn was truncated before it could act. A cap below
-# the ceiling makes that unreachable. Count by message id, not by line: the CLI
-# writes one line per content block and stamps each with the whole turn's usage.
+# call, and of the 101 above 32k, 91 did too. Big turns are working turns. Count
+# by message id, not by line: the CLI writes one line per content block and
+# stamps each with the whole turn's usage.
+#
+# MAX_THINKING_TOKENS DOES NOT CAP ANYTHING ON THIS MODEL. The CLI checks the
+# model's adaptive_thinking capability before it reads this variable, and for
+# claude-opus-5 it sends {type:"adaptive"} with no budget_tokens at all. The
+# number here is ignored; only the value 0 still does something, and that turns
+# thinking off entirely. Measured on the two Independent runs that died on
+# 2026-09-11 and 09-12: usage.output_tokens_details.thinking_tokens reached
+# 127,997-128,000 on nine separate turns while this said 31,999. It is left set
+# because a future model without that capability would honour it, and because
+# unsetting it reads as a decision that thinking need not be bounded.
+# What actually bounds a runaway here is the wall clock — ANNOTATE_MAX_MINUTES,
+# below — and what explains one afterwards is tools/annotate_postmortem.py,
+# which the failure branches send to the channel.
+#
 # Defaults live here, not in the scheduler's environment: a value only the
 # scheduler knows is a value the script cannot be run by hand with, and both of
 # these are unset on this machine.
@@ -454,6 +463,24 @@ ANNOTATE_MAX_MINUTES="${ANNOTATE_MAX_MINUTES:-90}"
 annotated_ok=0
 annotated_nums=""
 stop_reason=""
+# Set when a dead puzzle has already been reported WITH its post-mortem, so the
+# run-level summary below does not say the same failure again as a headline.
+stop_alerted=""
+
+# A dead annotation, reported where a person will see it and carrying the
+# evidence rather than a pointer to it. "independent-12459 ran past 90m" tells
+# its reader to go and open a 270k-line log on a machine they are not sitting
+# at, which is the same as telling them nothing; the post-mortem says how many
+# turns died at the output ceiling, what the run was doing, and where the
+# transcript is. Every failure inside it is a no-op — see its docstring — so
+# this cannot turn one bad night into two.
+annotate_alert() {  # $1 = puzzle, $2 = what happened, $3 = session id
+  local forensics msg
+  forensics="$(python3 tools/annotate_postmortem.py "$3" --puzzle "$1" 2>&1)"
+  msg=$(printf '%s\n```\n%s\n```' "$2" "$forensics")
+  stop_alerted=1
+  alert "$msg"
+}
 # Puzzles the wall-clock cap killed. Not a reason to stop the run — see the
 # `ann_rc = 124` branch — but the night still has to say it happened.
 lost_ids=""
@@ -660,6 +687,7 @@ if [ -n "$pending" ]; then
           ann_timeout="$num ran past ${ANNOTATE_MAX_MINUTES}m without finishing and was stopped"
           echo "  $ann_timeout"
           record_annotate_failure "$num" "$ann_timeout" "$ann_sid"
+          annotate_alert "$num" "$ann_timeout" "$ann_sid"
           lost_ids="$lost_ids $num"
           break
         fi
@@ -705,6 +733,11 @@ if [ -n "$pending" ]; then
         # indysunday-1906 after 2026-09-06, and it escaped a second full run only
         # because a person annotated it by hand.
         record_annotate_failure "$num" "$stop_reason" "$ann_sid"
+        # Every dead puzzle is reported, not only a night that annotated none.
+        # A run that got two and lost one used to say so with `echo` and wake
+        # nobody, so 2026-09-10 and 09-12 each lost a puzzle in silence and the
+        # first anyone knew was the site being a day short.
+        annotate_alert "$num" "$stop_reason" "$ann_sid"
         break
       fi
     done
@@ -748,9 +781,16 @@ if [ -n "$lost_ids" ]; then
 fi
 
 if [ -n "$stop_reason" ]; then
-  if [ "$annotated_ok" -eq 0 ]; then
+  if [ -n "$stop_alerted" ]; then
+    # Already sent, with the transcript's own post-mortem attached. Repeating it
+    # here as a headline is the same failure twice in a channel with one reader.
+    echo "annotated $annotated_ok puzzle(s); the failure above went out with its post-mortem"
+  elif [ "$annotated_ok" -eq 0 ]; then
     alert "no puzzle got hints today — $stop_reason. If that mentions authentication the CLI needs a fresh /login; see the CLAUDE_CONFIG_DIR note in daily_update.sh. Full output: .update.log."
   else
+    # Reached when the run stopped on purpose rather than on a failure — the
+    # five-hour window filling up is a budget decision, not something to wake
+    # anybody for.
     echo "annotated $annotated_ok puzzle(s), then stopped: $stop_reason"
   fi
 fi
