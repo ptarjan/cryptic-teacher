@@ -2,13 +2,11 @@
 
 You are annotating a broadsheet cryptic crossword for the Cryptic Teacher app in this
 repository — a Guardian daily or Quiptic, the Observer's Everyman, or the Independent's
-daily. The puzzle file's `series` and the tools/series.py table say which; the house
-styles differ a little but the annotation schema below is identical for all of them.
-The target puzzle file is `puzzles/<ID>.js`, where the ID is the series and the
-number together — `cryptic-30089`, `everyman-4165`, `quiptic-1395`,
-`independent-12438`, `indysunday-1903`. Every paper numbers from its own 1, so the number alone
-does not name a puzzle. The caller names the file to annotate; that file is the
-target and picking a different one is never right.
+daily. The target file is `puzzles/<ID>.js`, where the ID is the series and the number
+together (`cryptic-30089`, `everyman-4165`, `quiptic-1395`, `independent-12438`,
+`indysunday-1903`); every paper numbers from its own 1, so the number alone names
+nothing. The caller names the file to annotate; that file is the target and picking a
+different one is never right.
 
 ## What to produce
 
@@ -18,29 +16,42 @@ One JSON file, `tools/_ann_<ID>.json`, holding a single object keyed by entry id
 {"1-across": { ...annotation... }, "5-across": { ...annotation... }, "12-across": null}
 ```
 
-Then apply and check it, which is one command and the only one you need:
+Every entry needs a key. `null` means you could not solve that clue, which is allowed;
+a MISSING key is an error, because the file cannot tell a forgotten clue from an
+abandoned one.
+
+Do not write a script to do this. The annotations are the work; write only those.
+
+Each entry's `"solution"` field is ground truth: your parsing must produce exactly
+those letters. If it does not, the parse is wrong — rethink it, do not stretch it.
+
+Then apply and check with one command, and repeat until it reports `clean`:
 
 ```
 python3 tools/annotate_check.py <ID>
 ```
 
-That reads the file, checks the ids against the puzzle, writes the annotations into
-`puzzles/<ID>.js`, and reports everything wrong with them at once — see **Verify**
-below, which is the whole loop. Every entry needs a key. A key set to `null`
-says you could not solve that clue, which the rules below allow; leaving a key out is an
-error, because forgetting a clue and giving up on one are not the same thing and the
-file cannot tell them apart on its own.
+## Order of work
 
-Do not write a script to do this. Annotation runs used to hand-roll a throwaway Python
-file per puzzle — five hundred lines of dict wrapped in forty of scaffolding, re-typed
-every night, and the scaffolding is where the mistakes were: hand-copied JSON markers,
-hardcoded paths, a provenance stamp naming a module the script never imported. The
-annotations are the work. Write only those.
+- **Write early, and keep writing.** Put what you have into `tools/_ann_<ID>.json` as
+  soon as a handful of clues are done and add to it as you go. Only what is on disk
+  survives the run ending.
+- **Solve in the order the crossings unlock**, not clue order.
+- **A clue that resists is a clue for later, not a clue to grind.** Leave it `null`,
+  move on, and come back once its crossings are filled. Thinking longer without new
+  letters does not produce new letters.
+- **There is no word list.** `/usr/share/dict/words` is outside the working directory
+  and this run cannot read it, and the other puzzles in `puzzles/` are not a
+  dictionary. Do not search the corpus for candidate fills.
+- **Look it up before you settle for `null`**, but only once a clue has beaten you.
+  Guardian and Independent puzzles are blogged clue by clue at fifteensquared.net
+  (`WebSearch` for `fifteensquared <paper> <number>`; the comments often carry what the
+  blogger missed). Take only the mechanism: the blocks, walkthrough and definitionFit
+  are written from scratch, in this file's voice.
 
-The published solution is already in each entry's `"solution"` field — use it as ground
-truth, and make sure your parsing actually produces those letters.
+## Schema
 
-Annotation schema (see `puzzles/cryptic-30066.js` for 28 worked examples):
+`puzzles/cryptic-30066.js` is a fully worked example.
 
 ```json
 {
@@ -48,7 +59,7 @@ Annotation schema (see `puzzles/cryptic-30066.js` for 28 worked examples):
   "answer": "DISPLAY FORM (spaces/apostrophes/hyphens ok; letters must equal the solution)",
   "definition": "exact substring of the clue text",
   "definition2": "second definition, only for double definitions",
-  "definitionNote": "only when the definition genuinely disagrees with the answer in number or part of speech: a sentence explaining why the setter is allowed it",
+  "definitionNote": "only when the definition disagrees with the answer in number or part of speech: a sentence saying why the setter is allowed it",
   "indicators": ["exact substring", "..."],
   "indicatorNotes": {"exact substring from indicators": "REQUIRED, one sentence: why THIS word means that instruction"},
   "linkWords": ["exact substring joining definition to wordplay, e.g. 'to locate'"],
@@ -60,7 +71,7 @@ Annotation schema (see `puzzles/cryptic-30066.js` for 28 worked examples):
   "walkthrough": "1-2 sentences, 45 words max: what the blocks CANNOT show. Friendly teaching tone.",
   "definitionFit": "REQUIRED. One sentence, 30 words max: why the ANSWER means the DEFINITION.",
   "features": {
-    "misdirectedWord": "REQUIRED. The one word of the clue whose surface sense is furthest from the job it really does, exactly as the setter spelt it — or null if nothing misleads.",
+    "misdirectedWord": "REQUIRED. The one word of the clue whose surface sense is furthest from its real job, exactly as the setter spelt it — or null if nothing misleads.",
     "joke": "REQUIRED. \"pun\" if the humour is in a word's second sense or its sound, \"absurd\" if the surface is silly on purpose, null if there is no joke.",
     "answerInScene": "REQUIRED true/false. Does the SOLUTION belong in the picture the surface paints?",
     "aptDefinition": "REQUIRED true/false. Is the definition a fresh or witty way to say the answer, rather than a dictionary synonym?"
@@ -73,365 +84,182 @@ Annotation schema (see `puzzles/cryptic-30066.js` for 28 worked examples):
 }
 ```
 
-Rules:
-- `features` is data, not teaching: none of it is ever shown to a solver. It exists to
-  be counted against the clues solvers name as favourites on fifteensquared, where the
-  reasons they give are, in order, the surface, the joke, the misdirection and a witty
-  definition. Record what IS there. Four honest nulls and falses are a usable row; one
-  guessed `joke` is a poisoned one, and a `misdirectedWord` the setter never wrote is
-  rejected. Report, never judge: `joke` asks whether a joke is present, not whether it
-  is funny, and `answerInScene` asks where the solution sits, not whether that is clever.
-- FIRST read `STYLE.md` at the repo root and follow every rule in it. It is the
-  accumulated product feedback; it overrides habit. In particular, `type` must
-  honestly name EVERY mechanism used, joined with " + " (e.g.
-  `charade + alternate letters`), using only the controlled vocabulary in the
-  Reference section at the end of this file. That section is generated from the
-  code that enforces it, so it is current and you do not need to open `app.js` or
-  the validator to check it. If a clue truly needs a new type part, add it to
-  `TYPE_PARTS` in the validator, to STYLE.md, and to `TYPE_BLURBS` and a family in
-  `FAMILIES` in `app.js` together, then rerun
-  `python3 tools/build_annotate_prompt.py` — the smoke test fails a part with no
-  family.
-- `cryptic definition` is capped at TWO per puzzle and the validator ERRORS above that
-  (`MAX_CRYPTIC_DEFINITIONS`). It is the only type with no checkable wordplay, so a third
-  one almost always means you gave up on a clue: go back and find the charade, hidden word
-  or container it is hiding. Treat the SECOND one the same way — the validator now warns
-  at exactly two, because it is the type you can reach for without solving anything, which
-  makes reaching for it twice a measure of how much you gave up rather than a property of
-  the puzzle. Before you type a clue `cryptic definition`, spend one more pass hunting for
-  a container: "Periods on horseback where British king into himself?" looks like a whole-
-  clue definition of CHUKKAS and is really CHAS (the king himself) around UK + K. Writing
-  the whole clue into `definition` and the whole answer into one block is not an
-  annotation, it is a note saying you could not do it — and it is invisible to every other
-  check, since a cryptic definition claims no letters and so can contradict nothing. If
-  you truly cannot solve the clue, leave it `null` and say so. That is honest and someone
-  will finish it; a cryptic definition that isn't one is a wrong answer nobody can find.
-  Before you settle for `null`, though, look it up — you have `WebSearch` and `WebFetch`,
-  and Guardian and Independent puzzles are blogged clue by clue at fifteensquared.net
-  (search `fifteensquared <paper> <number>`; the comments often carry the parsing the
-  blogger missed). Two rules bound this. Reach for it only once a clue has actually beaten
-  you, because reading the blog first turns annotating into transcription and you will
-  stop seeing the mechanisms. And take only the mechanism: the blocks, walkthrough and
-  definitionFit are written from scratch, in this file's voice, teaching in rungs — the
-  blog's prose is someone else's and it explains to a solver who already knows the answer. If you are WRITING clues rather than annotating them (see
-  `tools/AUTHORING.md`), the same cap is the rule that keeps a funny sentence from
-  replacing the mechanism — a clue needs both, and a funny sentence is much easier to find
-  than a funny mechanism. Related: an indicator that reads as a visible instruction
-  (`a bit of`, `in front`, `turned`, `rebuilt`) is a mechanism narrated, not hidden.
-- When a clue genuinely IS a cryptic definition, its `blocks` still have to teach something,
-  and the validator now ERRORS if they do not. **No block may carry `gives`** — a cryptic
-  definition yields no letters from any fragment, so a `gives` is always the whole answer
-  wearing a block's clothes, and the blocks rung is shown before the walkthrough. **At least
-  two blocks** — one block spanning the whole clue only restates the clue. What a cryptic
-  definition splits into is not letters but readings: one block for the sense the surface
-  pushes you towards, one for the sense the setter meant. 1392 22A "Might this keep you to
-  time?" (WATCHSTRAP) had a single block reading the whole clue → WATCHSTRAP, so hint 3 of 4
-  charged a learner a hint and handed them the answer, one rung after hint 2 had told them
-  there was no wordplay to find (Paul, 2026-08-10). Written properly it is "keep you to time"
-  = not "make you punctual" but holding something against you, plus "Might this" = the answer
-  is the object itself. Same shape as the good ones already in the corpus: 1389 26A NUDISM,
-  30039 10A VANITY, 30039 21A NINETEENTH.
-- `definition`, `definition2` and every string in `indicators` MUST occur verbatim in the
-  clue (match the exact characters — Guardian clues use curly apostrophes `’` and en
-  dashes `–`, Independent clues use straight `'` and hyphens, so copy from the file
-  rather than retyping). Independent clues may also contain `<i>` tags around a title
-  or a foreign word; that markup is part of the clue string, so a definition that
-  spans it has to include it.
-- Do not point at the surface picture with a definite noun phrase you never drew.
-  "The impromptu band keeps both looking innocent" was the closing sentence of a
-  walkthrough that had never mentioned a band, and "both" was two instructions a
-  sentence and a half earlier ("this doesn't sound natural", 4096 14D IRRITANTS,
-  2026-08-17). The reader is holding the clue, not your image of it: name the
-  picture out of the clue's own words — "a sitar and a tin whistle sound like a
-  band" — and say what it does. Every "the X" in a walkthrough must be an X the
-  reader can already see.
-- Every indicator needs an `indicatorNotes` entry, keyed by the identical string.
-  The app already says what an anagram indicator DOES — that sentence is the same on
-  every anagram in the corpus and it is not worth a hint. The note is the part that
-  is only true here: which sense of the word carries the instruction. "'stable? No'
-  means unstable, and something unstable will not stay in the order it is given"
-  (4096 20A RENOVATOR), not "'stable? No' is the anagram indicator". A note made
-  only of words already in the indicator is rejected, as is one under 25 characters.
-  It renders on rung 3, before the answer, so it must not name the answer.
-  Note every indicator or none: once all of them are noted the app drops its generic
-  wording and the notes ARE rung 3, so a clue one note short keeps the filler.
-- Provide `pieces` for charades/containers/deletions (the final letter chunks in answer
-  order) or `anagram.fodder` for anagrams (including any extra letters joined in). Use
+## Rules
+
+`STYLE.md` at the repo root is the product feedback these rules distil; where the two
+disagree, it wins.
+
+- `type` names EVERY mechanism the wordplay uses, joined with ` + ` (`charade +
+  alternate letters`), from the controlled vocabulary in the Reference at the end of
+  this file. If a clue truly needs a new part, add it to `TYPE_PARTS` in the validator,
+  to STYLE.md, and to `TYPE_BLURBS` plus a family in `FAMILIES` in `app.js`, then rerun
+  `python3 tools/build_annotate_prompt.py`.
+- `cryptic definition` is capped at two per puzzle, and the second already warns. It is
+  the only type with no checkable wordplay, so reaching for it is usually giving up:
+  spend one more pass hunting for the container or charade it hides ("Periods on
+  horseback where British king into himself?" looks like a whole-clue definition of
+  CHUKKAS and is CHAS around UK + K). If you cannot solve the clue, `null` is honest and
+  someone will finish it; a cryptic definition that isn't one is a wrong answer nobody
+  can find. When a clue genuinely is one, its blocks split the clue into READINGS, not
+  letters — at least two, one for the sense the surface pushes and one for the sense
+  the setter meant — and no block carries `gives`.
+- `definition`, `definition2` and every string in `indicators` must occur verbatim in
+  the clue. Copy from the file rather than retyping: Guardian clues use curly `’` and
+  en dashes `–`, Independent clues use straight `'` and hyphens, and an Independent
+  `<i>` tag is part of the clue string.
+- The `definition` must be substitutable for the answer: same part of speech, same
+  inflection. Say the swap out loud. This is the single most common mistake.
+- If the definition genuinely does not agree with the answer ("Lousy payment" =
+  PEANUTS), add a `definitionNote` — a real sentence — saying why the setter is allowed
+  it. Do not stretch it and do not ignore it.
+- `definitionFit` says why the ANSWER means the DEFINITION, the non-mechanical half of
+  the clue. Name the relation — a plain synonym, a definition by example, a sense that
+  survives mainly in crosswords, a regional use, an idiom — never the definition read
+  backwards: `army ants move in a crawling column, and 'crawler' also carries the
+  grovelling sense the surface points at`, not `an army ant is a crawler`. Cover both
+  senses of a double definition; for `&lit`, say why the whole clue reads straight.
+- Every indicator needs an `indicatorNotes` entry keyed by the identical string, saying
+  which sense of THIS word carries the instruction: `'stable? No' means unstable, and
+  something unstable will not stay in the order it is given`, not `'stable? No' is the
+  anagram indicator`. It renders before the answer, so it must not name the answer.
+  Note every indicator or none: one short keeps the app's generic wording.
+- Account for EVERY content word of the clue: each sits in the definition, an
+  indicator, `linkWords`, or a block's `clueFragment`. A leftover word is a missed piece
+  of wordplay, and it is one of four things: a link word (`to locate` — no letters), an
+  indicator you overlooked (`facing`), a letter you never named (a deletion needs a
+  block for the letter removed, `hard` = H, not just the word it left), or genuine
+  surface padding — a block with an empty `gives` and a note saying so. That fourth
+  option is only for published clues; in a puzzle you are writing
+  (`tools/AUTHORING.md`) it is an ERROR, so rewrite the clue without the word.
+- The definition's words are not wordplay. A block whose `clueFragment` repeats a word
+  the `definition` claimed says the answer is the answer. If you cannot see the
+  wordplay, the clue is unsolved — leave it `null`.
+- The blocks are the parse. Their letters must add up to exactly the answer's
+  (deletions and substitutions excepted); if `pieces` takes the answer apart, the blocks
+  take it apart the same way rather than handing it over in one lump; and every block
+  that claims letters carries a `note` saying why those words give those letters.
+- List the blocks in the order the ANSWER reads, not the clue: "Peas ... sweet" for
+  SWEET PEAS gets SWEET then PEAS, each `clueFragment` still pointing at its own words.
+  Where a container, reversal or rotation is in the mix, the order the blocks are
+  assembled before that step is the right one.
+- Provide `pieces` for charades, containers and deletions (the final chunks in answer
+  order) or `anagram.fodder` for anagrams (including any extra letters joined in), and
   `subAnagrams`/`subReversals` for embedded steps. Double definitions, homophones and
-  hidden words need neither (hidden answers are checked against the clue letters).
-- A homophone or spoonerism MUST name the word you say aloud, in a `soundsLike` field
-  on the block that does the sounding. The validator errors without one, and errors if
-  `soundsLike` has the same letters as `gives` (that is a spelling, not a sound). The
-  sounded word is the entire mechanism, so a block that jumps a fragment straight to
-  the answer has taught nothing: "Cockney mob loudly" → OARED is `soundsLike: "’ORDE",
-  gives: "OARED"`, with the note carrying the step BEFORE the sound — a mob is a HORDE
-  and a Cockney drops the aitch. Where another mechanism feeds the homophone, give it
-  its own earlier block; do not smuggle two operations into one arrow.
-- For linked entries (a `group` with several ids, e.g. "1-across"/"9-across" where one
-  clue reads "See 1"), put the full annotation on the FIRST entry of the group with
-  `"coversGroup": true`, and give the other entries `{"linkedTo": "<first-id>"}`.
-  A `linkedTo` entry holds that key and nothing else — every other check skips it, so
-  a `type` or a `walkthrough` beside it is dead weight that will never be read. On the
-  `coversGroup` entry, `answer` is the group's solutions run together with no spaces,
-  in group order, and the blocks must account for all of those letters at once.
-- The `definition` must be SUBSTITUTABLE for the answer: same part of speech, same
-  inflection. Say the swap out loud before you settle on it — a plural answer needs a
-  plural definition, an `-ing` answer an `-ing` definition, a verb a verb. This is the
-  single most common annotation mistake; the validator warns on the mechanical cases.
-- Account for EVERY content word of the clue. Each one must sit inside the definition,
-  inside an indicator, inside `linkWords`, or inside a block's `clueFragment`. A leftover
-  word means you have missed a piece of wordplay (30067 13A dropped `state` = CAL and
-  nobody noticed). It is always one of four things, so decide which: a **link word**
-  ("indicating", "to locate" — no letters, put it in `linkWords`); an **indicator** you
-  overlooked (anything saying where a piece goes, e.g. "facing"); a **letter you never
-  named** (a deletion needs a block for the letter removed — "hard" = H — not just for the
-  word it came out of); or **genuine surface padding**, which still gets a block with an
-  empty `gives` and a note saying it is surface only. That fourth option exists only when
-  you are ANNOTATING a published clue. If you are WRITING one (`tools/AUTHORING.md`), it
-  is forbidden: "a good cryptic clue doesn't have anything superfluous which isn't
-  directly part of the wordplay — it should be exactly two pieces, definition, optional
-  joinery and wordplay". An empty `gives` in an authored puzzle is a validator ERROR
-  (`check_two_pieces`), so rewrite the clue without the word, or work out which of the
-  other three jobs it is really doing — a word can be an indicator hiding in plain
-  description ("There's a mole in" = something is concealed inside) or joinery that only
-  holds the sentence up ("There's").
-- List the BLOCKS in the order the ANSWER reads, not the order the clue reads. The app
-  renders them top to bottom, so they are the build a learner follows. A charade clued
-  "Peas ... sweet" for SWEET PEAS gets blocks SWEET then PEAS, each `clueFragment` still
-  pointing back at wherever its words sit in the clue. Same letters in the wrong order
-  passes every multiset check and still makes the learner do the reassembly the
-  annotation exists to show; `check_blocks_in_answer_order` now ERRORS on it. This
-  applies to pure charades — where a container, reversal or rotation is in the mix, the
-  blocks are assembled before the positional step and that order is the right one.
-- The `walkthrough` is short, because the blocks already did the work: "when you
-  basically give the whole answer in the building blocks you don't need to have the full
-  walkthrough". Do not re-narrate fragment → letters. Write only what the blocks cannot
-  show — why the surface misleads, a convention the solver may
-  not know (`ER` = Queen, `worker` = ANT), or why a definition is fair. One or two
-  sentences is normal; over 45 words the validator warns (authored puzzles). It must
-  never be empty: the app always renders the walkthrough rung.
-  **Open with the thing itself, never with an appraisal of it.** The app prints this
-  paragraph under the label "The trick", so the first words a learner reads should be
-  the trick. `A lovely match of surface and answer: Sartre was the philosopher of
-  Paris cafe society` spends its opening clause admiring the clue; `Sartre was the
-  philosopher of Paris cafe society, and he is sitting inside 'Paris art revolution'`
-  says the same thing and starts with the joke. Same for counting the mechanism before
-  describing it — `Two instructions stacked: take part of the text, then reverse it`
-  is a table of contents for a sentence one line long. Cut the preamble and keep the
-  content: no `A lovely/neat/classic/simple ...`, no `As simple as X comes`, no
-  `Two/Three instructions ...`, no `This is a ...`. The learner asked what the clue is
-  doing, not how it rates.
-  **End on a fact, never on a verdict about the sentence you just wrote.** `That switch
-  is the whole difficulty`, `That is the whole trap`, `Both readings send you straight
-  past the letters` all say the same nothing: the trick you have just described is the
-  trick. The reader worked that out from the first sentence. If the second sentence has
-  nothing new, write one sentence. If there is room, spend it on what the surface is
-  actually saying — `Kind of article mentioned` reads as a sort of article somebody
-  brought up — because the surface joke is the one thing no other rung shows.
-  **What the clue pretends to be about goes in `surface`, not in here.** A solver
-  reported `Behaved antisocially and gave birth` as a hint that "doesn't talk about the
-  surface", because the walkthrough went straight to the two senses of LITTERED and never
-  said the clue reads as one person's bad week. The mechanism is in the blocks; the
-  picture the setter painted is nowhere else on the ladder. The app labels the two
-  separately — **The joke** over `surface`, **The trick** over `walkthrough` — so a
-  sentence in the wrong field is published under the wrong heading. Omit `surface` only
-  when the clue paints no picture apart from its mechanism; that is a question about the
-  clue, not about its type.
-  Naming a letter chunk is not automatically re-narration — the test is what the
-  sentence is FOR. `OCT is the calendar abbreviation and OPUS the composer's 'work'`
-  teaches two conventions the solver keeps forever, and needs the capitals. `The
-  official is a sports referee, tucked inside a stately walk: P(REF)ACE` draws, in
-  words, the picture the blocks already drew an inch higher. Teach a convention, name a
-  joke, explain why a definition is fair — but never spend the walkthrough narrating
-  which piece goes inside which. `python3 tools/find_renarration.py` lists the current
-  candidates, worst first; it deliberately does not gate, because no lexical rule
-  separates those two sentences and every version that tried was wrong half the time.
-- Every puzzle here is from a British paper and a large share of the readers are not
-  British. When a clue turns on knowledge a British solver absorbs from the street and
-  nobody else does — a county, a motorway, a bank holiday, a soap opera, a cricket
-  position, a coin that stopped circulating, a supermarket, a public-school word, a
-  regiment, a Cockney or rhyming-slang sense — say what the thing IS in the block `note`
-  or `definitionFit` that needs it. One clause: `THE OVAL is a London cricket ground`,
-  `a BOB was a shilling`. This is not the same as a crossword convention (`ER` = Queen,
-  `worker` = ANT), which the app teaches in its own right; this is general knowledge that
-  only looks general from inside Britain. Do not gloss what a dictionary reader anywhere
-  already has — "London", "the Thames", "Shakespeare" need nothing.
-- A block handing over one to three capitals for a word they abbreviate is read as
-  leaning on a standing convention, and warns if `tools/data/abbreviations.json` has
-  no row for it. The `note` settles which fix applies: if the letters came from an
-  OPERATION the clue asked for — a first or last letter, outer or odd letters, a
-  deletion, a reversal, a sound — say so in the note and it stops being a convention,
-  because nothing was looked up. If it really is one the solver should own forever,
-  add the row and run `python3 tools/build_abbreviations.py`.
-- Show the trap, not just the exit. The obvious wrong reading is the thing the solver
-  actually has in their head when they reach for a hint, and a walkthrough that goes
-  straight to the right parse never meets them there. Where a clue has one dominant false
-  path — a word that looks like an anagram indicator and isn't, a definition that looks
-  like it ends three words earlier, a surface that reads as a container when it is a
-  charade — name it and say what kills it: `"Flowers" wants to be the definition; it is
-  the river.` Two conditions. It must be the reading a competent solver would genuinely
-  take first, not a strawman. And it must be a settled sentence about the CLUE — never
-  your own working-out about your own parse. `BACKTRACKS` in the validator ERRORS on
-  "no wait", "actually:", "let me reconsider" and the rest, and that stands: the false
-  start you show is the solver's, written down once and already resolved, not a
-  transcript of yours. Only where such a path exists — most clues have none, and
-  inventing one is worse than omitting it.
-- `surface` is one sentence saying what the clue pretends to be about, and it is the
-  first thing the walkthrough rung shows, under **The joke**. Write the picture, not a
-  paraphrase of the words: `Behaved antisocially and gave birth` is one person having a
-  bad week; `Kind of article mentioned` is a sort of article somebody brought up. 25
-  words, no mechanics in it — the letters, the fodder and the containers all belong to
-  the blocks and to `walkthrough`. Omit the field entirely where the clue paints no
-  picture apart from its mechanism — `Flat (4)` says nothing beyond its two senses — and
-  the rung then reads exactly as it always has. The test is the picture, NOT the type:
-  the clue this field was written for, `Behaved antisocially and gave birth`, is a double
-  definition that paints one, and a solver reported the hint for skipping it.
-- `definitionFit` is REQUIRED on every clue: one sentence saying why the ANSWER means the
-  DEFINITION. This is the half of a cryptic that isn't mechanical. The blocks spell the
-  answer out of the wordplay and the definition rung points at the words, but nothing
-  else ever joins the two ends, and that link is where the vocabulary of cryptics
-  actually lives. Name the RELATION, don't just restate: a plain synonym, a definition by
-  example ("Alsatian" defines a DOG only as an instance of one), a sense of the word that
-  survives mainly in crosswords, a technical or regional use, a whole-phrase idiom. Good:
-  `"a crawler → ARMY ANT: army ants move in a crawling column, and 'crawler' also carries
-  the sense of a grovelling flatterer the surface is pointing at."` Bad: `"an army ant is
-  a crawler"` — that is the definition read backwards, and teaches nothing. For a double
-  definition, cover BOTH senses; for `&lit`, say why the whole clue reads straight. If the
-  honest answer is "it's an everyday synonym", say which sense and why it isn't the first
-  one that comes to mind. It is separate from `definitionNote`: the note justifies a
-  definition that DISAGREES with the answer grammatically (number, part of speech);
-  `definitionFit` explains the meaning, and every clue has one. Over 30 words the
-  validator warns.
-- If the definition genuinely does NOT agree with the answer ("Lousy payment" = PEANUTS,
-  "hearing aid" = EARPHONES), do not stretch it and do not ignore it: add a
-  `definitionNote` explaining the mismatch to the learner. The validator requires a real
-  sentence, and the note is shown in the app under the definition rung.
-- Never hedge in a `walkthrough`. Words like "jokingly", "somehow", "if you squint" are a
-  validator ERROR: if the explanation needs a fudge, the parse is wrong. Go back and
-  find the parse that needs no excuse.
-- Never leave your working-out in a `walkthrough`, `definitionFit` or block `note`. Those
-  fields are what the learner reads; they are the finished explanation, not the thinking
-  that produced it. "No wait—", "Still wrong.", "Actually:", "Correct parse:" and a
-  walkthrough over `WALKTHROUGH_HARD_MAX` words are validator ERRORS. Work the clue out
-  for as long as you need, then write the settled sentence. If you cannot settle it,
-  leave the clue unannotated and say so — that is better than publishing an argument.
-- Never borrow another mechanism's signal words to explain this one. "Aloud", "out loud",
-  "sounds like", "reportedly", "spoken" mean homophone; "shuffle", "anagram", "jumbled"
-  mean rearrangement; "hidden", "buried" mean extraction; "reversed", "backwards" mean
-  turnaround. Used loosely — "found in says so out loud", meaning *announces itself* —
-  they name a device this clue does not use, to the one reader who cannot yet tell the
-  difference. The prose is fine English and wrong anyway. Say what the clue actually does.
-- The BLOCKS are the parse, not a sketch of one. They are what the app renders, so three
-  things are checked and all three are things a wrong parse gets wrong: their letters must
-  add up to exactly the answer's letters (`check_blocks_account_for_answer` — deletions and
-  substitutions excepted, since they name letters that go away); if `pieces` takes the
-  answer apart into chunks, the blocks must take it apart the same way rather than handing
-  the whole answer over in one lump (`check_blocks_decompose` — "Two types of earth" >
-  SODDEN names the charade without doing it); and every block that claims letters needs a
-  `note` saying why those words give those letters (`check_blocks_carry_notes`). That note
-  is the teaching, and skipping it is how an invented block hides.
-- The definition's words are NOT available as wordplay. A block whose `clueFragment`
-  repeats a word the `definition` already claimed is the annotation eating its own tail,
-  and its worst form passes every other check: `definition: "Hard rock"` with a block
-  `"Hard rock" > HORSE` says the answer is the answer. If you cannot see the wordplay,
-  the clue is unsolved — leave it `null` and say so, which the instructions above already
-  allow. Do not describe the clue and call it a parse. `check_definition_not_fodder`
-  warns per clue (a setter occasionally reuses the word on purpose: "Nobody drunk now
-  nobody drinks!") and ERRORS once several clues in one puzzle do it.
-- Do not guess: if a parsing doesn't produce the answer's letters exactly, it is wrong —
-  rethink it. Consult the setter's usual tricks; check fifteensquared.net if reachable.
+  hidden words need neither.
+- A homophone or spoonerism names the word you say aloud in `soundsLike` on the block
+  that does the sounding, and its letters must differ from `gives` or it is a spelling,
+  not a sound. The note carries the step before the sound: "Cockney mob loudly" →
+  OARED is `soundsLike: "’ORDE", gives: "OARED"`, the note saying a mob is a HORDE and
+  a Cockney drops the aitch. A mechanism feeding the homophone gets its own earlier
+  block.
+- A block handing over one to three capitals for a word they abbreviate leans on a
+  convention, and warns if `tools/data/abbreviations.json` has no row for it. If the
+  letters came from an operation the clue asked for (a first letter, outer letters, a
+  deletion, a sound), say so in the note and it is no longer a convention. If it is one
+  the solver should own forever, add the row and run
+  `python3 tools/build_abbreviations.py`.
+- Linked entries (a `group` of several ids, "See 1"): the full annotation goes on the
+  FIRST entry with `"coversGroup": true`; each other entry is `{"linkedTo": "<first-id>"}`
+  and nothing else. On the covering entry, `answer` is the group's solutions run
+  together with no spaces, in group order, and the blocks account for all of it.
+- `surface` is one sentence saying what the clue pretends to be about — the picture,
+  not a paraphrase: `Behaved antisocially and gave birth` is one person's bad week. No
+  mechanics in it. It is shown under **The joke**; omit it only when the clue paints no
+  picture apart from its mechanism (`Flat (4)`). That is a question about the clue,
+  not its type — the double definition above paints one.
+- `walkthrough` is short, because the blocks did the work. Never re-narrate fragment →
+  letters; write only what the blocks cannot show — why the surface misleads, a
+  convention the solver may not know (`ER` = Queen, `worker` = ANT), why a definition is
+  fair. Naming a chunk is fine when the sentence teaches (`OCT is the calendar
+  abbreviation and OPUS the composer's 'work'`) and re-narration when it redraws the
+  blocks (`the referee tucked inside a stately walk: P(REF)ACE`). It is shown under
+  **The trick** and must never be empty.
+  **Open with the thing itself, never an appraisal of it**: no `A lovely/neat/classic
+  ...`, no `Two instructions stacked: ...`, no `This is a ...`.
+  **End on a fact, never a verdict on the sentence before**: `That switch is the whole
+  difficulty` says nothing. If the second sentence has nothing new, write one.
+  **Show the trap, not just the exit.** Where a clue has one dominant false path a
+  competent solver genuinely takes first, name it and say what kills it: `"Flowers"
+  wants to be the definition; it is the river.` A settled sentence about the clue,
+  never your own working-out. Most clues have none; inventing one is worse than
+  omitting it.
+  **Name the picture out of the clue's own words.** Every "the X" in a walkthrough must
+  be an X the reader can already see in the clue, not one that exists only in your
+  image of it.
+- Every puzzle is from a British paper and many readers are not British. Where a clue
+  turns on knowledge absorbed from the street in Britain — a county, a motorway, a soap,
+  a cricket position, a dead coin, a supermarket, a regiment, rhyming slang — say what
+  the thing IS in the block `note` or `definitionFit` that needs it, in one clause:
+  `THE OVAL is a London cricket ground`. Not for crossword conventions, which the app
+  teaches itself, and not for what any dictionary reader already has ("the Thames").
+- Never hedge, and never leave working-out in `walkthrough`, `definitionFit` or a block
+  `note`. Those fields are the finished explanation. If it needs "somehow" or "no wait",
+  the parse is wrong: find the one that needs no excuse, or leave the clue `null`.
+- Never borrow another mechanism's signal words. "Aloud", "sounds like", "reportedly"
+  mean homophone; "shuffle", "jumbled" mean anagram; "hidden" means extraction;
+  "reversed" means turnaround. Used loosely they name a device this clue does not use,
+  to the one reader who cannot yet tell the difference.
+- `features` is data, not teaching; none of it is shown to a solver. Record what IS
+  there: four honest nulls and falses are a usable row, one guessed `joke` is a poisoned
+  one, and a `misdirectedWord` the setter never wrote is rejected. Report, never judge —
+  `joke` asks whether a joke is present, not whether it is funny.
 
-## Order of work
+## Verify
 
-- **Write early, and keep writing.** Put what you have into `tools/_ann_<ID>.json` as soon
-  as a handful of clues are done, and add to it as you go. Only what is on disk survives
-  the run ending. A run that holds a whole puzzle in its head and dies spent everything and
-  bought nothing: on 2026-09-11 one spent 1.16M output tokens over four hours and never
-  wrote a file.
-- **Solve in the order the crossings unlock**, not clue order. A clue with three checked
-  letters is a different problem from the same clue with none.
-- **A clue that resists is a clue for later, not a clue to grind.** Leave it `null`, move on,
-  and come back once its crossings are filled. Thinking longer without new letters does not
-  produce new letters, and a null with an honest note is worth more than an hour of silence.
-- **There is no word list.** `/usr/share/dict/words` is outside the working directory and
-  this run cannot read it, and the other puzzles in `puzzles/` are not a dictionary.
-  Candidate-fill searches over the corpus are a dead end that has eaten whole runs.
+`python3 tools/annotate_check.py <ID>` applies the file, validates it, audits it for
+answer leaks and re-narrated walkthroughs, syntax-checks the puzzle and refreshes the
+index, and prints everything wrong in one report. Repeat edit → run until `clean`.
 
-## Verify (mandatory)
-
-Write `tools/_ann_<ID>.json`, then run ONE command:
-
-```
-python3 tools/annotate_check.py <ID>
-```
-
-It applies the file, validates it, audits it for answer leaks and re-narrated
-walkthroughs, syntax-checks the puzzle and refreshes the index, and prints
-everything wrong in one report. Repeat edit → run until it says `clean`.
-
-- **One run, one edit pass.** The report already lists every problem. Fix them all in
-  one edit, then run it again. Re-running to confirm a single fix costs a whole turn
-  and tells you nothing the last run did not.
-- **Run it on its own.** No `&&`, no `;`, no `rm` in front, no piping into
-  `grep`/`tail`. A compound command needs an approval this run cannot give, so it
-  aborts having run nothing.
-- **Never open `validate_annotations.py`.** For any line you cannot act on:
-
-  ```
-  python3 tools/validate_annotations.py --explain <check-name>
-  ```
-
-  which prints that check's own source and the comment above it. Names come from the
-  Reference below, or from `--explain` with no argument. It answers for constants and
-  helpers too — `OPERATION_RE`, `convention_used`, `TYPE_PARTS`. One call beats ten
-  greps, and paging through the file is the single most expensive habit these runs
-  have.
+- **One run, one edit pass.** Fix everything the report lists, then run again.
+- **Run it on its own.** No `&&`, `;`, `rm` or piping — a compound command needs an
+  approval this run cannot give and aborts having run nothing.
+- **Never open `validate_annotations.py`.** For any line you cannot act on,
+  `python3 tools/validate_annotations.py --explain <check-name>` prints that check's
+  source and the comment above it; with no argument it lists the names. It answers for
+  constants and helpers too.
 
 ## Do not commit
 
-The calling script commits, and composes its own message. `git` is not in the
-tools this run is given, so trying is a wasted turn.
+The calling script commits and composes its own message. `git` is not among the tools
+this run is given.
 
 <!-- REFERENCE-START — generated by tools/build_annotate_prompt.py -->
 
 ## Reference
 
-Generated from the code that enforces it — do not edit by hand, and do not go
-and read app.js or the validator to check any of it. If a clue needs something
-that is not here, add it to the source table and rerun
-`python3 tools/build_annotate_prompt.py`.
+Generated from the code that enforces it — do not edit by hand, and do not
+read app.js or the validator to check it.
 
 ### The controlled vocabulary for `type`
 
-Join parts with ` + ` and name EVERY mechanism the wordplay uses. Each part
-belongs to exactly one family; the family is what the app shows on rung 1, so a
-compound type's family is decided by the FIRST row below that matches it.
+Join parts with ` + `. Each part belongs to one family, shown on rung 1; a
+compound type's family is the FIRST row below that matches it.
 
-**Double or cryptic definition** — No letter mechanics at all — nothing is shuffled, hidden or spelled out. Either two plain definitions sit side by side, or one sly one describes the answer the long way round.
+**Double or cryptic definition**
 
   `cryptic definition` `double definition`
 
-**&lit** — The whole clue does double duty: read it once as a definition, then read the very same words again as wordplay.
+**&lit**
 
   `&lit`
 
-**Anagram** — Letters handed to you in the clue get shuffled into the answer. Find the fodder and count it against the enumeration.
+**Anagram**
 
   `anagram` `cycling`
 
-**Homophone** — The wordplay describes how the answer sounds rather than how it is spelled.
+**Homophone**
 
   `homophone` `spoonerism`
 
-**Charade** — The answer is built from pieces laid end to end, each clued separately — read the wordplay left to right.
+**Charade**
 
   `charade`
 
-**Container, reversal or deletion** — A piece of the wordplay is changed rather than just joined on: put inside something, turned around, or trimmed.
+**Container, reversal or deletion**
 
   `container` `deletion` `palindrome` `reversal` `substitution`
 
-**Hidden** — The answer's letters are already sitting in the clue in order — the job is working out which ones to pick out.
+**Hidden**
 
   `alternate letters` `fifth letter` `fifth letters` `first letter` `first letters`
   `fourth letter` `fourth letters` `hidden word` `last letter` `last letters`
@@ -440,109 +268,21 @@ compound type's family is decided by the FIRST row below that matches it.
 
 ### What the validator rejects
 
-- More than **2** `cryptic definition` clues in one puzzle is an ERROR; the second one
-  already warns.
-- A `walkthrough` over **60** words is an ERROR, over **45** a warning (authored
-  puzzles).
-- **Any** clue whose blocks hand over letters that are not the answer's. Exempt,
-  because their blocks claim no letters or give them away: `deletion`, `substitution`,
+- More than **2** `cryptic definition` clues in one puzzle; the second one already
+  warns.
+- A `walkthrough` over **60** words (over **45** warns).
+- Blocks whose letters are not the answer's, blocks that hand the answer over in one
+  lump where `pieces` takes it apart, and blocks out of answer order. Exempt from the
+  letter count, because their blocks claim no letters: `deletion`, `substitution`,
   `cryptic definition`, `double definition`, `homophone`, `spoonerism`, `&lit` — which
-  is exactly what makes reaching for one of those types the easy way out of a clue you
-  have not parsed.
-- **Any** clue whose blocks hand over the whole answer in one lump instead of taking
-  it apart the way `pieces` does.
-- **Any** clue whose blocks are not in answer order.
+  is what makes those types the easy way out of a clue you have not parsed.
 - The same word used as a definition in more than **3** clues in one puzzle (exempt:
   `&lit`, `double definition`, `cryptic definition`).
-
-### Every check it runs
-
-The whole list, generated from the function names and their docstrings, so
-an ERROR naming a check can be read straight off this table instead of out
-of the source. 75 of 128 annotation sessions were grepping
-`validate_annotations.py` for exactly this.
-
-- `check_two_pieces` — Every word of a clue we wrote must be doing one of three jobs.
-- `check_walkthrough_opener` — The walkthrough opens with the trick, not with an
-  appraisal of the trick.
-- `check_walkthrough_closer` — The last sentence carries a fact, not a verdict on the
-  sentence before it.
-- `check_walkthrough_budget` — When the blocks already spell the answer out, the
-  walkthrough is short.
-- `check_link_words_are_equivalences` — A link word has to stand in for an equals sign
-  (feedback 2026-07-30).
-- `check_indicator_adjacency` — An anagram indicator has to be next to the fodder it
-  operates on.
-- `check_indicator_outside_fodder` — An anagram indicator cannot be made of letters
-  the anagram eats.
-- `check_reversal_direction` — A reversal indicator must point the way the entry runs.
-- `check_definition_fit` — Why the answer MEANS the definition — the non-mechanical
-  half of a clue.
-- `check_no_answer_in_early_rungs` — No field shown before the building blocks may
-  spell out the answer.
-- `check_block_notes_dont_name_the_answer` — The building blocks are a rung early too
-  — the walkthrough is the reveal.
-- `check_indicator_notes` — Why THIS word is the indicator — one sentence per
-  indicator.
-- `check_sound_names_its_source` — A homophone must name the word you say aloud, as a
-  field, not as prose.
-- `check_sound_is_not_a_letter_swap` — A spoonerism trades SOUNDS. A soundsLike made
-  by trading letters is a fake.
-- `check_coverage` — Every content word of the clue must be claimed by the parse.
-- `check_features` — The `features` block is data, not teaching, and is checked like
-  data.
-- `check_part_of_speech` — The definition must be substitutable for the answer, which
-  means their inflections agree: a plural answer needs a plural definition, an -ing
-  answer an -ing definition (feedback 2026-07-29 — "the part of speech needs to be
-  right"). Only the mechanical, unambiguous endings are checked here; the judgement
-  call lives in STYLE.md and tools/annotate_prompt.md.
-- `check_cryptic_definition_cap` — A puzzle may not lean on cryptic definitions (see
-  MAX_CRYPTIC_DEFINITIONS).
-- `check_every_clue_is_annotated` — Once a puzzle is annotated at all, every clue in
-  it must be annotated.
-- `check_cryptic_definition_blocks` — A cryptic definition's blocks must split the
-  clue, and may not spell the answer.
-- `check_definition_not_fodder` — The definition's words may not also be the
-  wordplay's letters.
-- `check_blocks_account_for_answer` — The letters the blocks hand over have to be the
-  answer's letters.
-- `check_blocks_decompose` — If `pieces` takes the answer apart, the blocks must take
-  it apart too.
-- `check_blocks_in_answer_order` — A charade's blocks have to be listed in the order
-  the answer reads.
-- `check_blocks_carry_notes` — A block that claims letters has to say why it gets
-  them.
-- `check_conventions_are_in_the_glossary` — Every convention a clue leans on has to be
-  in the solver's glossary.
-- `check_groups_agree` — A `group` is the entry ids whose solutions concatenate into
-  one answer. It is written only on clues that really are linked, and then on every
-  leg, with the same ids in the same order, including the leg itself. No group at all
-  is the ordinary case: the entry is its own answer.
-- `check_no_markup` — No HTML anywhere in a puzzle file. Every string here is
-  displayed escaped, so a tag reaches the solver as a tag — which is exactly what the
-  Independent's clues did (Paul, 2026-08-15): "<span>Film part of </span><i> Black
-  Narcissus</i>?" on the page, verbatim. Both papers ship clues as HTML and
-  tools/fetch_puzzle.plain_text flattens them on the way in; this is the guard that
-  says so out loud if a third source, or a hand edit, ever puts one back.
-
-Words that are an ERROR anywhere a learner reads — `walkthrough`,
-`definitionFit`, block `note`:
-
-- hedges:
-    `close enough` `don't ask` `for some reason` `hand-wave` `handwave`
-    `if you squint` `jokingly` `somehow`
-- working-out left in:
-    `actually:` `correct parse` `hold on` `ignore that` `let me reconsider`
-    `let me try` `no wait` `no, wait` `not it either` `on second thought` `re-examine`
-    `scratch that` `still wrong` `that is not it` `that's not it` `wait --` `wait—`
-
-Filler an `indicatorNotes` entry may not be made of on its own:
-
-  `a` `about` `after` `all` `an` `and` `are` `as` `at` `be` `been` `before` `being`
-  `but` `by` `can` `did` `do` `does` `for` `from` `get` `gets` `give` `gives` `go`
-  `goes` `got` `had` `has` `have` `having` `he` `her` `him` `his` `i` `if` `in` `into`
-  `is` `it` `its` `made` `make` `makes` `may` `me` `might` `must` `no` `not` `of`
-  `off` `on` `one` `or` `out` `over` `s` `she` `so` `some` `that` `the` `their` `them`
-  `they` `this` `to` `up` `us` `was` `we` `were` `when` `will` `with` `would` `you`
+- In `walkthrough`, `definitionFit` or a block `note` — hedges: `close enough` `don't
+  ask` `for some reason` `hand-wave` `handwave` `if you squint` `jokingly` `somehow`;
+  working-out left in: `actually:` `correct parse` `hold on` `ignore that` `let me
+  reconsider` `let me try` `no wait` `no, wait` `not it either` `on second thought`
+  `re-examine` `scratch that` `still wrong` `that is not it` `that's not it` `wait --`
+  `wait—`.
 
 <!-- REFERENCE-END -->
