@@ -44,6 +44,12 @@ one is only honoured for six hours as a *number* and says so on stderr — but i
 never stops being a lower bound, because usage inside a window only goes up, and
 gate() spends that fact where usage_pct() has to give up.
 
+There is a second, free source of the same number: the bridge samples it every
+five minutes into /data/usage-history.csv, stamped with the window it belongs
+to, needing no credential and making no request. Every fallback here reads the
+newer of that and the cache, per field. It is a container path — where it is
+absent this behaves exactly as it did before, on the cache alone.
+
 We report the worst window in the requested group, not just the headline one.
 The API returns an all-models weekly limit alongside per-model scoped ones
 (Fable has its own), and hitting a scoped limit stops annotation just as dead as
@@ -84,6 +90,12 @@ CACHE_PATH = os.path.join(
     ".usage_cache.json")
 # How stale a cached percentage may be before it is a guess rather than a fact.
 PCT_MAX_AGE_HOURS = 6
+# The bridge samples this same number every five minutes and appends it here as
+# `ts,kind,pct,resets_at`, whether or not anything in this repo runs. It needs
+# no credential and makes no request, which is exactly why the gate reads it: a
+# throttled or lapsed HTTP read is when a reading is wanted most. The kind
+# column carries the API's own window names, so LEGACY_FIELD maps to it too.
+SAMPLE_CSV_PATH = os.environ.get("USAGE_HISTORY_CSV", "/data/usage-history.csv")
 
 READ_ERRORS = (OSError, urllib.error.URLError, ValueError, KeyError, IndexError,
                RuntimeError, subprocess.SubprocessError)
@@ -140,6 +152,72 @@ def _cache_write(key, value):
         os.replace(tmp, CACHE_PATH)
     except OSError as exc:
         print(f"note: cannot write {CACHE_PATH}: {exc}", file=sys.stderr)
+
+
+def _sampled_reading(group):
+    """The newest sampled reading for `group`, or None if there is no sampler.
+
+    Read from the end: the file holds a week of five-minute rows and only the
+    last one is a reading of now.
+    """
+    kind = LEGACY_FIELD.get(group)
+    try:
+        with open(SAMPLE_CSV_PATH) as fh:
+            rows = fh.readlines()
+    except OSError:
+        return None
+    for line in reversed(rows):
+        parts = line.strip().split(",")
+        if len(parts) != 4 or parts[1] != kind:
+            continue
+        try:
+            at, pct, resets = int(parts[0]), float(parts[2]), float(parts[3])
+        except ValueError:
+            continue
+        stamp = lambda t: datetime.datetime.fromtimestamp(
+            t, datetime.timezone.utc).isoformat()
+        return {"value": pct, "at": stamp(at), "resets_at": stamp(resets),
+                "stamped_at": stamp(at)}
+    return None
+
+
+def _fallback_reading(group):
+    """The best reading available without a request, or None.
+
+    Two places say where the window last stood: this script's own cache, written
+    whenever a live read succeeds here, and the sampler's file, written every
+    five minutes regardless. They are the same number from the same API, so the
+    only question is which is newer, and it is almost always the sampler's — on
+    2026-09-13 a 429 skipped a night of annotation against a 22h-old cache while
+    a reading from forty seconds earlier sat on disk unread.
+
+    Every row is stamped with the window it belongs to, which is what lets a
+    reading be used as a floor: see gate().
+    """
+    cache = _cache_read()
+    pct, resets = cache.get(f"{group}.percent"), cache.get(f"{group}.resets_at")
+    cached = (pct or resets) and {
+        "value": float(pct["value"]) if pct else None,
+        "at": pct["at"] if pct else None,
+        "resets_at": resets["value"] if resets else None,
+        "stamped_at": resets["at"] if resets else None}
+    readings = [r for r in (cached, _sampled_reading(group)) if r]
+    if not readings:
+        return None
+    # Per field, with each field judged by when THAT field was read. The cache
+    # writes the percentage and the reset stamp at different moments, so a cache
+    # holding a minute-old percentage next to a week-old reset stamp would
+    # otherwise carry the dead stamp in on the live number's timestamp — which
+    # is how a fresh sampled reset lost to a stamp from the previous window.
+    def newest(field, when):
+        return max((r for r in readings if r[field] is not None), default=None,
+                   key=lambda r: datetime.datetime.fromisoformat(r[when]))
+    valued, stamped = newest("value", "at"), newest("resets_at", "stamped_at")
+    if not valued and not stamped:
+        return None
+    return {"value": valued["value"] if valued else None,
+            "at": valued["at"] if valued else stamped["stamped_at"],
+            "resets_at": stamped["resets_at"] if stamped else None}
 
 
 def keychain_services():
@@ -313,8 +391,8 @@ def usage_pct(group="weekly"):
     try:
         pct = _live_usage_pct(group)
     except READ_ERRORS as exc:
-        cached = _cache_read().get(f"{group}.percent")
-        if not cached:
+        cached = _fallback_reading(group)
+        if not cached or cached["value"] is None:
             raise
         age = (_now() - datetime.datetime.fromisoformat(cached["at"]))
         age_h = age.total_seconds() / 3600.0
@@ -384,17 +462,16 @@ def gate(limit, group="weekly"):
     # concrete evidence of being over the limit (the cached-floor branches
     # below), the answer is "proceed", never "unknown".
     unreadable_by_design = isinstance(live_error, QuotaUnreadable)
-    cache = _cache_read()
-    cached, resets = cache.get(f"{group}.percent"), cache.get(f"{group}.resets_at")
-    if not cached or not resets:
+    cached = _fallback_reading(group)
+    if not cached or cached["value"] is None or not cached["resets_at"]:
         if unreadable_by_design:
-            print(f"{live_error}, and no cached reading to bound it",
+            print(f"{live_error}, and no recent reading to bound it",
                   file=sys.stderr)
             return "spend"
-        print(f"cannot read {group} usage and no cached reading to bound it: "
+        print(f"cannot read {group} usage and no recent reading to bound it: "
               f"{live_error}", file=sys.stderr)
         return "unknown"
-    if datetime.datetime.fromisoformat(resets["value"]) <= _now():
+    if datetime.datetime.fromisoformat(cached["resets_at"]) <= _now():
         if unreadable_by_design:
             print(f"{live_error}; the cached reading is from a window that "
                   "has since reset, so it bounds nothing", file=sys.stderr)
@@ -459,25 +536,25 @@ def resets_in_hours(group="weekly"):
     try:
         soonest = _live_resets_at(group)
     except READ_ERRORS as exc:
-        cached = _cache_read().get(f"{group}.resets_at")
-        if not cached:
+        cached = _fallback_reading(group)
+        if not cached or not cached["resets_at"]:
             raise
-        soonest = datetime.datetime.fromisoformat(cached["value"])
+        soonest = datetime.datetime.fromisoformat(cached["resets_at"])
         if soonest <= _now():
             period = datetime.timedelta(hours=WINDOW_LENGTH_HOURS[group])
             rolled = soonest + period
             if rolled <= _now():
                 raise RuntimeError(
-                    f"{exc}; the cached {group} reset "
+                    f"{exc}; the last known {group} reset "
                     f"({soonest.astimezone():%b %d %H:%M}) is more than one "
                     f"window old, so even the next one it implies has passed "
                     "and there is no telling where the window stands") from exc
-            print(f"note: {exc}; the cached {group} reset "
+            print(f"note: {exc}; the last known {group} reset "
                   f"({soonest.astimezone():%b %d %H:%M}) has passed, so the "
                   f"window turned over then and the next is no sooner than "
                   f"{rolled.astimezone():%b %d %H:%M}", file=sys.stderr)
             return (rolled - _now()).total_seconds() / 3600.0, True
-        print(f"note: {exc}; using the cached {group} reset "
+        print(f"note: {exc}; using the last known {group} reset "
               f"{soonest.astimezone():%b %d %H:%M}", file=sys.stderr)
     else:
         _cache_write(f"{group}.resets_at", soonest.isoformat())
@@ -512,8 +589,9 @@ def self_test():
     it trusts a verdict. No fixtures on disk: the point is that the reasoning
     holds, not that a file parses.
     """
-    global _live_usage_pct, _cache_read
+    global _live_usage_pct, _cache_read, _sampled_reading
     live, read, err = _live_usage_pct, _cache_read, sys.stderr
+    sample = _sampled_reading
     now = _now()
     hours = datetime.timedelta(hours=1)
     cases = [
@@ -532,6 +610,9 @@ def self_test():
         def unreachable(_group):
             raise RuntimeError("HTTP Error 429: Too Many Requests")
         _live_usage_pct = unreachable
+        # These cases are about the cache, so the machine's real sampler file —
+        # which outranks it whenever it is fresher — is taken off the table.
+        _sampled_reading = lambda _group: None
         # The cases deliberately simulate an unreadable quota, and gate()
         # narrates that on stderr. Left unmuzzled it writes four "cannot read
         # weekly usage" lines into .update.log every night — the exact sentence
@@ -549,6 +630,7 @@ def self_test():
                 failures.append(f"{label}: got {got!r}, want {want!r}")
     finally:
         _live_usage_pct, _cache_read, sys.stderr = live, read, err
+        _sampled_reading = sample
     for f in failures:
         print(f"SELF-TEST FAILED — {f}", file=sys.stderr)
     return 1 if failures else 0
@@ -563,8 +645,9 @@ def reset_self_test():
     cache. The three cases below are the three shapes that exist, and the third
     is the one that must never become "spend".
     """
-    global _live_resets_at, _cache_read
+    global _live_resets_at, _cache_read, _sampled_reading
     live, read, err = _live_resets_at, _cache_read, sys.stderr
+    sample = _sampled_reading
     now = _now()
     h = datetime.timedelta(hours=1)
     week = WINDOW_LENGTH_HOURS["weekly"]
@@ -581,6 +664,7 @@ def reset_self_test():
         def unreachable(_group):
             raise RuntimeError("no weekly resets_at in response: ['limits']")
         _live_resets_at = unreachable
+        _sampled_reading = lambda _group: None
         sys.stderr = io.StringIO()
         for label, offset, want in cases:
             def _mock_cache(o=offset):
@@ -599,6 +683,7 @@ def reset_self_test():
                 failures.append(f"{label}: got {got!r}, want {want!r}")
     finally:
         _live_resets_at, _cache_read, sys.stderr = live, read, err
+        _sampled_reading = sample
     for f in failures:
         print(f"SELF-TEST FAILED — {f}", file=sys.stderr)
     return 1 if failures else 0
@@ -615,9 +700,9 @@ def fallback_self_test():
     exactly the failure this file exists to prevent. See QuotaUnreadable.
     """
     global _keychain_lookup, _credentials_file_lookup, _fallback_token
-    global _live_usage_pct, _cache_read
+    global _live_usage_pct, _cache_read, _sampled_reading
     orig = (_keychain_lookup, _credentials_file_lookup, _fallback_token,
-            _live_usage_pct, _cache_read)
+            _live_usage_pct, _cache_read, _sampled_reading)
     err = sys.stderr
     failures = []
     try:
@@ -645,6 +730,7 @@ def fallback_self_test():
         def _mock_cache():
             return {}
         _cache_read = _mock_cache
+        _sampled_reading = lambda _group: None
         got = gate(50)
         if got != "spend":
             failures.append(
@@ -652,7 +738,7 @@ def fallback_self_test():
                 f"got {got!r}, want 'spend'")
     finally:
         (_keychain_lookup, _credentials_file_lookup, _fallback_token,
-         _live_usage_pct, _cache_read) = orig
+         _live_usage_pct, _cache_read, _sampled_reading) = orig
         sys.stderr = err
     for f in failures:
         print(f"SELF-TEST FAILED — {f}", file=sys.stderr)
@@ -763,6 +849,99 @@ def retry_self_test():
     return 1 if failures else 0
 
 
+def sampler_self_test():
+    """Prove an unreadable API still gets an answer out of the sampler's file.
+
+    On 2026-09-13 a 429 on both retries left the gate holding a 22-hour-old
+    cached reading whose window had since reset, so it returned "unknown" and
+    the night's annotation was skipped — while a reading taken forty seconds
+    earlier sat in /data/usage-history.csv, stamped with the window it belonged
+    to. The four cases pin that the file is read, parsed, and subject to exactly
+    the same rules as the cache: fresh enough is a number, too old is only a
+    floor, a window that has turned over is neither, and whichever source is
+    newer wins.
+    """
+    global _live_usage_pct, _live_resets_at, _cache_read, SAMPLE_CSV_PATH
+    live, read, path, err = (_live_usage_pct, _cache_read, SAMPLE_CSV_PATH,
+                             sys.stderr)
+    resets = _live_resets_at
+    now, hours = _now(), datetime.timedelta(hours=1)
+    tmp = tempfile.mkdtemp()
+    cases = [
+        # label, sampled (%, age, reset in), cached (%, age, reset in), verdict
+        ("a fresh sample is read where the cache has gone stale",
+         (70.0, 0.02 * hours, 96 * hours), (20.0, 22 * hours, -1 * hours),
+         "skip"),
+        ("a fresh sample under the limit is a reading, not a floor",
+         (20.0, 0.02 * hours, 96 * hours), (75.0, 22 * hours, -1 * hours),
+         "spend"),
+        ("a sample from a window that has since reset is not a floor either",
+         (70.0, 8 * hours, -1 * hours), None, "unknown"),
+        ("the newer of the two sources decides",
+         (20.0, 5 * hours, 96 * hours), (75.0, 1 * hours, 96 * hours), "skip"),
+    ]
+    failures = []
+    try:
+        def unreachable(_group):
+            raise RuntimeError("HTTP Error 429: Too Many Requests")
+        _live_usage_pct = unreachable
+        sys.stderr = io.StringIO()
+        for i, (label, sampled, cached, want) in enumerate(cases):
+            pct, age, until = sampled
+            SAMPLE_CSV_PATH = os.path.join(tmp, f"usage-{i}.csv")
+            with open(SAMPLE_CSV_PATH, "w") as fh:
+                # A five-hour row first, so the kind column has to be honoured
+                # rather than the last line taken on trust.
+                fh.write(f"{int((now - age).timestamp())},five_hour,99.0,"
+                         f"{int((now + until).timestamp())}\n")
+                fh.write(f"{int((now - age).timestamp())},seven_day,{pct},"
+                         f"{int((now + until).timestamp())}\n")
+            if cached:
+                c_pct, c_age, c_until = cached
+                _cache_read = lambda p=c_pct, a=c_age, u=c_until: {
+                    "weekly.percent": {"value": p, "at": (now - a).isoformat()},
+                    "weekly.resets_at": {"value": (now + u).isoformat(),
+                                         "at": (now - a).isoformat()}}
+            else:
+                _cache_read = lambda: {}
+            got = gate(50)
+            if got != want:
+                failures.append(f"{label}: got {got!r}, want {want!r}")
+
+        # And the reset stamp is chosen by when the STAMP was read, not by when
+        # the percentage beside it was. The cache writes the two at different
+        # moments, so a minute-old percentage next to a dead stamp from the
+        # previous window used to drag that stamp in ahead of a fresh sampled
+        # one, and resets_in_hours() answered with a rolled-forward guess while
+        # holding the real answer.
+        _live_resets_at = unreachable
+        SAMPLE_CSV_PATH = os.path.join(tmp, "stamp.csv")
+        with open(SAMPLE_CSV_PATH, "w") as fh:
+            fh.write(f"{int((now - 5 * hours / 60).timestamp())},seven_day,20.0,"
+                     f"{int((now + 96 * hours).timestamp())}\n")
+        _cache_read = lambda: {
+            "weekly.percent": {"value": 20.0, "at": now.isoformat()},
+            "weekly.resets_at": {"value": (now - 1 * hours).isoformat(),
+                                 "at": (now - 22 * hours).isoformat()}}
+        try:
+            hours_left, derived = resets_in_hours()
+            got = (round(hours_left), derived)
+        except READ_ERRORS:
+            got = None
+        if got != (96, False):
+            failures.append("a sampled reset stamp beats a stale cached one "
+                            f"even under a fresher cached percentage: got {got!r}"
+                            ", want (96, False)")
+    finally:
+        _live_usage_pct, _cache_read, SAMPLE_CSV_PATH = live, read, path
+        _live_resets_at = resets
+        sys.stderr = err
+        shutil.rmtree(tmp, ignore_errors=True)
+    for f in failures:
+        print(f"SELF-TEST FAILED — {f}", file=sys.stderr)
+    return 1 if failures else 0
+
+
 def main():
     group = "weekly"
     if "--group" in sys.argv:
@@ -773,7 +952,8 @@ def main():
             return 2
     if "--self-test" in sys.argv:
         ok = (self_test() or reset_self_test() or fallback_self_test()
-              or credentials_file_self_test() or retry_self_test())
+              or credentials_file_self_test() or retry_self_test()
+              or sampler_self_test())
         print("gate self-test: all cases pass" if ok == 0
               else "gate self-test FAILED")
         return ok
