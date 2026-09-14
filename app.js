@@ -2377,13 +2377,22 @@
   // Deal an order that is neither the fodder as written nor the answer as
   // spelled. Landing on either would make a shuffle look broken, and landing on
   // the answer would hand over the solve by luck a rung early.
-  function dealRing(letters, forbidden) {
+  //
+  // `from` and `spots` are how a re-shuffle keeps the settled letters where they
+  // are: only the ring POSITIONS in `spots` trade places, everything else is
+  // carried through untouched. Omit both and it deals the whole ring, which is
+  // the opening deal.
+  function dealRing(letters, forbidden, from, spots) {
     const bad = forbidden.map((w) => (w || "").toUpperCase().replace(/[^A-Z]/g, ""));
-    let order = letters.map((_, i) => i);
+    const base = from || letters.map((_, i) => i);
+    const free = spots || base.map((_, pos) => pos);
+    let order = base;
     for (let attempt = 0; attempt < 20; attempt++) {
-      for (let i = order.length - 1; i > 0; i--) {
+      order = base.slice();
+      for (let i = free.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
-        [order[i], order[j]] = [order[j], order[i]];
+        const a = free[i], b = free[j];
+        [order[a], order[b]] = [order[b], order[a]];
       }
       if (bad.indexOf(order.map((i) => letters[i]).join("")) < 0) return order;
     }
@@ -4250,9 +4259,17 @@
     const shuffle = document.getElementById("ana-shuffle");
     // Struck letters survive a shuffle: they are the ones already on the grid,
     // and dealing again is a fresh look at what is LEFT.
+    //
+    // Surviving means staying WHERE THEY ARE, not merely staying crossed out.
+    // Re-dealing every position moved them too, so a solver who had placed three
+    // letters watched their own three answers scatter along with the question
+    // ("when you have fixed letters they should stay put in the anagram ring",
+    // Paul, 2026-09-14). Only the positions still in play trade places.
     if (shuffle && ring) shuffle.onclick = () => {
       const prevRects = ringTileRects();
-      ring.order = dealRing(ring.letters, ring.forbidden);
+      const free = [];
+      ring.order.forEach((idx, pos) => { if (!ring.struck[idx]) free.push(pos); });
+      ring.order = dealRing(ring.letters, ring.forbidden, ring.order, free);
       renderHintPanel();
       playRingFlip(prevRects);
     };
