@@ -3809,12 +3809,18 @@ global.realSetTimeout(() => {
 // opposite on both counts, which is what the dropdown is for. A suggestion that
 // returns an empty list would be worse than none, so each one is typed in.
 //
-// And it stays SHUT until two letters are in. iOS opens a datalist the moment
-// the field is focused and draws it over everything, so a list offered up front
-// hides the puzzles it is there to search (Paul, iPhone, 2026-08-27).
+// And it stays SHUT until two letters are in. A list offered up front hides the
+// puzzles it is there to search (Paul, iPhone, 2026-08-27).
+//
+// Read off the chips in the panel, not off a datalist: the input carried
+// list="picker-terms" until 2026-09-14, and a datalist popup is native UI the
+// page cannot place — on iPad it opened nowhere near the box. Asserting on
+// chips is also the only way a test can see WHERE the suggestions are, which is
+// the thing that was wrong.
 {
   const suggestions = () =>
-    [...registry["picker-terms"].innerHTML.matchAll(/value="([^"]*)"/g)].map((m) => m[1]);
+    [...registry["picker-filters"].innerHTML.matchAll(/class="badge term"[^>]*>([^<]*)</g)]
+      .map((m) => m[1]);
   registry["btn-picker"].onclick();
   assert(suggestions().length === 0,
     "focusing the search offers nothing, so nothing is drawn over the list: "
