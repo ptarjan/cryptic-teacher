@@ -3335,7 +3335,22 @@
       swallowClick = moved;
       if (moved) renderHintPanel();
     });
-    document.addEventListener("pointercancel", () => { drag = null; });
+    // A cancelled pointer is the browser taking the gesture away to scroll with
+    // — .gw is touch-action: pan-y, so a vertical pan on a word is a page scroll
+    // that has already fired a few pointermoves. Whatever those picked was never
+    // meant, so it goes back, and the click flag is cleared with it: a scroll
+    // that ends anywhere but on a word never delivers the click that would have
+    // cleared it, and it sat there latched, eating the next real tap ("if you
+    // start a scroll then you can't select words", Paul, iPad, 2026-09-14).
+    document.addEventListener("pointercancel", () => {
+      if (!drag) return;
+      if (guessing && drag.moved) {
+        guessing.picked = drag.base.slice();
+        paintPicked(drag.ask);
+      }
+      drag = null;
+      swallowClick = false;
+    });
   }
 
   // The verdict and the marked-up clue, standing above the rung they earned.
@@ -4203,6 +4218,11 @@
         };
         if (el.addEventListener) {
           el.addEventListener("pointerdown", () => {
+            // A new gesture starts clean. swallowClick is set on pointerup and
+            // read by the click that follows it, and a drag whose finger lifts
+            // off the words sends no click at all — so without this it stayed
+            // set until the next tap, which it then ate.
+            swallowClick = false;
             const a = currentAsk();
             if (a) drag = { base: guessing.picked.slice(), from: i, moved: false, ask: a };
           });
