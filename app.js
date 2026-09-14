@@ -3847,6 +3847,9 @@
     }
   }
 
+  // The marks the clue line was last drawn with — see the entrance animation in
+  // renderHintPanel.
+  let lastMarkSig = null;
   function renderHintPanel() {
     const e = currentEntry();
     const panel = $("hint-panel");
@@ -4000,10 +4003,6 @@
         bodyHTML += hintFocus === "guess" ? `<div id="hint-focus">${q}</div>` : q;
       }
 
-      // And once the answer is out, what did you make of it? Under the ladder,
-      // because it is the thing you do when you have finished reading rather
-      // than a step in the reading.
-      if (solved) bodyHTML += voteRowHTML(voteTarget(e), "Good clue?", "Yes", "Not really");
 
       // How the ladder works, said once and then never again: it stops the
       // moment a rung is worked out anywhere in this puzzle, because at that
@@ -4080,6 +4079,20 @@
     clueLine += (ask && !ask.choices && !ask.pairs && guessing && holder === e)
       ? pickableClueHTML(e, ask, guessing.picked, guessing.rung)
       : clueHTML(holder);
+    // The marks fade in, which is an arrival: it must play when a mark arrives
+    // and at no other time. Picking words rewrites the clue too — the picked
+    // word's class is in the markup — so every <mark> came back as a new element
+    // on every tap and replayed the fade, which read as the link words
+    // flickering grey (Paul, iPad, 2026-09-14). setHTML's markup comparison
+    // cannot tell those apart, because the markup really did change.
+    //
+    // So the animation is gated on a class, like .picking below, and the class
+    // is decided by the MARKS. Set before the write, not after: the elements
+    // that animate are created by that write, and a class arriving afterwards
+    // would start a fade and then cancel it.
+    const markSig = holder.clue + "\n" + JSON.stringify(clueMarks(holder));
+    $("hint-clue").classList.toggle("marks-new", markSig !== lastMarkSig);
+    lastMarkSig = markSig;
     const clueWrote = setHTML($("hint-clue"), clueLine);
     // Only for the reveal flash (see .hint-clue.picking in style.css) — the
     // clue's own size is fixed regardless of which form is in it, so this
@@ -4092,6 +4105,17 @@
 
     const bodyWrote = setHTML(body, bodyHTML);
     setButtons(next, nextSpec);
+
+    // And once the answer is out, what did you make of it? Its own slot at the
+    // foot of the panel, not the end of #hint-body: appended to the body it sat
+    // wherever the body happened to end, so a clue solved cold — nothing bought,
+    // nothing in the body — put the question directly under the clue, and the
+    // same clue with four rungs taken put it a screen further down. "It seems to
+    // appear in two different spots depending on if you took hints" (Paul,
+    // 2026-09-14). The thing you do when you have finished is last in the panel,
+    // and last is a place that does not move.
+    const voteWrote = setHTML($("hint-vote"),
+      solved && ann ? voteRowHTML(voteTarget(e), "Good clue?", "Yes", "Not really") : "");
 
     // The escape hatch lives outside the ladder: available at any level.
     // No "(counts against your score)" rider. The scorebar already reports
@@ -4106,7 +4130,7 @@
       bindReport();
     }
 
-    if (!bodyWrote && !clueWrote) return;
+    if (!bodyWrote && !clueWrote && !voteWrote) return;
 
     if (ask && ask.choices) {
       ask.choices.forEach((c, i) => {
