@@ -435,7 +435,40 @@ def grade_model_fill(puzzle, guessed):
     for e in puzzle["entries"]:
         if e["id"] in missed:
             e["annotation"] = None
+    record_misses(puzzle["id"], wrong)
     return wrong
+
+
+def record_misses(pid, wrong):
+    """Write down which entries a grader blanked, for validate_annotations.py.
+
+    Its check_every_clue_is_annotated errors on a missing annotation, because a
+    blank is otherwise how an annotator escapes every other rule in the file.
+    The blanks the graders make are the one kind it cannot choose: they are
+    decided after the annotation run has ended, by comparing what the model
+    derived against the published key.
+
+    Lives here, beside grade_model_fill, because the blanking and the writing
+    down of it have to happen together or the alert is a lie. They did not:
+    blind_annotate.py recorded its blanks and the blind-solve grader did not, so
+    everyman-4168 15A was dropped on 2026-09-14 for the intended reason and then
+    reported as an unexplained blank in a published puzzle.
+
+    Rewritten per puzzle rather than merged into, so a later pass that gets the
+    clue right clears the exemption instead of leaving it standing for ever.
+    """
+    path = ROOT / "tools" / "data" / "blind_misses.json"
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        data = {}
+    if wrong:
+        data[pid] = {eid: mine for eid, mine, _theirs in wrong}
+    else:
+        data.pop(pid, None)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(data, indent=1, sort_keys=True) + "\n",
+                    encoding="utf-8")
 
 
 def print_grade(puzzle, graded):
