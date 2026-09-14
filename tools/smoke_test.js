@@ -3950,6 +3950,37 @@ global.realSetTimeout(() => {
   registry["btn-picker-close"].onclick();
 }
 
+// --- and the bands say what they mean (Paul, 2026-09-14) ---
+// "Are the difficulties explained anywhere to the user?" In the app they were
+// not: difficultyBadge() puts the percentile and the basis in a title=, which
+// needs a pointer to hover, and this is solved on an iPad. The archive hub says
+// it in standing prose and the app cannot — a blurb between the filters and the
+// list wraps and pushes the puzzles down (Paul, 2026-08-28) — so it is behind a
+// ? that costs no height until it is tapped.
+{
+  registry["btn-picker"].onclick();
+  const note = () => registry["picker-diff-note"].innerHTML || "";
+  assert(!note(), "the explanation takes no room until it is asked for: " + note());
+  registry["pf-diff-help"].onclick();
+  const open = note();
+  assert(/against the others here/.test(open), "the ? says what a band is measured against: " + open);
+  assert(/no solving times/.test(open), "and what is not in it: " + open);
+  // The shares are read off the collection, never written down: one pasted into
+  // prose is true on the day it is pasted, and this one moves with every puzzle.
+  const bands = {};
+  (window.CRYPTIC_INDEX.puzzles || []).forEach((p) => {
+    const b = p.difficulty && p.difficulty.band;
+    if (b) bands[b.toLowerCase()] = (bands[b.toLowerCase()] || 0) + 1;
+  });
+  Object.keys(bands).forEach((b) => {
+    assert(new RegExp(">" + b + "</span> " + bands[b] + "\\b").test(open),
+      `it counts the ${b} puzzles as ${bands[b]}: ` + open);
+  });
+  registry["pf-diff-help"].onclick();
+  assert(!note(), "and the same tap puts it away: " + note());
+  registry["btn-picker-close"].onclick();
+}
+
 // --- the type rung asks too, and its answer is a family (Paul, 2026-08-27) ---
 // Every other part of a clue is something you can be asked to point at. This one
 // is a choice among the seven the site teaches — and a ladder that asks about

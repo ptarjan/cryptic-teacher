@@ -4587,6 +4587,32 @@
   // Bands run easiest first off the percentiles rather than being listed here,
   // so a band that gets added or renamed in tools/difficulty.py cannot land in
   // the wrong place or go missing.
+  // The badges carry a title= with all of this in it, which needs a pointer to
+  // hover and so has never once been read on the iPad this gets solved on
+  // (Paul, 2026-09-14). Said in words instead, behind the ? beside the chips.
+  //
+  // The counts are read off the collection every time rather than written down:
+  // a share stated in prose is true on the day it is pasted, and this one moves
+  // with every puzzle that arrives. Bands come from pickerBandList(), so one
+  // added or renamed in tools/difficulty.py appears here on its own.
+  let diffNoteOpen = false;
+  function difficultyNoteHTML() {
+    const n = {};
+    INDEX.puzzles.forEach((p) => {
+      const b = p.difficulty && p.difficulty.band;
+      if (b) n[b.toLowerCase()] = (n[b.toLowerCase()] || 0) + 1;
+    });
+    const counts = pickerBandList().filter((b) => n[b])
+      .map((b) => `<span class="badge diff diff-${esc(b)}">${esc(b)}</span> ${n[b]}`)
+      .join(" · ");
+    return "A band ranks a puzzle against the others here, not against crosswords "
+      + "in general: nobody publishes a rating for these papers, and no solving "
+      + "times go into it. What does: how many of the grid\u2019s letters cross "
+      + "another answer, how rare the answers are as words, and how much "
+      + "confirmation the clue types give you back. "
+      + (counts ? "Right now " + counts + "." : "");
+  }
+
   let pickerBands = null;
   function pickerBandList() {
     if (pickerBands) return pickerBands;
@@ -4689,14 +4715,14 @@
     // Each row numbers its own buttons, so the standing rows keep the same ids
     // whether or not a completion row is above them.
     const seq = {};
-    const group = (label, words, cls, prefix, min) => words.length < (min || 2) ? "" :
+    const group = (label, words, cls, prefix, min, extra) => words.length < (min || 2) ? "" :
       `<span class="picker-group"><span class="muted small-note">${label}</span>`
       + words.map((w) => {
         const id = prefix + ((seq[prefix] = (seq[prefix] || 0) + 1) - 1);
         chips.push([id, w]);
         return `<button type="button" id="${id}" class="badge ${cls(w)}" aria-pressed="${
           isOn(w)}">${esc(w)}</button>`;
-      }).join("") + "</span>";
+      }).join("") + (extra || "") + "</span>";
     // The completions the two standing rows cannot give: setters, weekdays and
     // the two status words. First, because it is about the letters going in
     // right now.
@@ -4712,7 +4738,12 @@
       group("Matching", suggest, () => "term", "ps-", 1)
         + group("Papers", pickerPaperList(),
                 (w) => "series series-" + esc(seriesKeyForLabel(w)), "pf-")
-        + group("Difficulty", pickerBandList(), (b) => "diff diff-" + esc(b), "pf-"));
+        + group("Difficulty", pickerBandList(), (b) => "diff diff-" + esc(b), "pf-", 2,
+                `<button type="button" id="pf-diff-help" class="badge help" aria-expanded="${
+                  diffNoteOpen}" aria-label="What the difficulty bands mean">?</button>`));
+    setHTML($("picker-diff-note"), diffNoteOpen ? difficultyNoteHTML() : "");
+    const help = $("pf-diff-help");
+    if (help) help.onclick = () => { diffNoteOpen = !diffNoteOpen; renderPicker(); };
     chips.forEach(([id, w]) => {
       const el = $(id);
       if (!el) return;

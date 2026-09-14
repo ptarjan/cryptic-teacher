@@ -427,7 +427,13 @@ def puzzle_page(puz, meta, prev_p, next_p):
     if diff.get("band"):
         pct = diff.get("percentile")
         extra = f" (harder than {pct}% of the puzzles here)" if pct is not None else ""
-        facts.append(f'Difficulty: <strong class="diff-{esc(diff["band"].lower())}">'
+        # A band is a word this site made up the meaning of, and a puzzle page is
+        # where most people meet it first — arrived at from a search, having
+        # never seen the archive index that explains it. So the label is the
+        # link to that explanation rather than leaving "Brutal" to read as a
+        # fact about the crossword.
+        facts.append(f'<a href="{BASE}/puzzles/#difficulty">Difficulty</a>: '
+                     f'<strong class="diff-{esc(diff["band"].lower())}">'
                      f'{esc(diff["band"])}</strong>{esc(extra)}')
     facts.append(f'Grid: <strong>{puz["dimensions"]["cols"]}&times;'
                  f'{puz["dimensions"]["rows"]}</strong>')
@@ -558,7 +564,7 @@ def hub_page(idx):
         "every clue hand-annotated: the clue family, where the definition hides, and the "
         "wordplay taken apart step by step. An <strong>answers only</strong> puzzle has the "
         "solutions but is still waiting for its annotations.</p>",
-        "<p class=\"muted small-note\">Difficulty is judged against the other puzzles here, "
+        "<p class=\"muted small-note\" id=\"difficulty\">Difficulty is judged against the other puzzles here, "
         "not in the abstract — it combines how many letters the grid leaves unchecked, how "
         "rare the answers are, and which wordplay devices the setter leaned on. "
         f'<a href="{BASE}/learn/">Start with how cryptic clues work</a> if any of that is new.</p>',
