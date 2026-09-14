@@ -35,7 +35,7 @@
  "author":{"@type":"Person","name":"Paul Tarjan","url":"https://paultarjan.com/"}}
 </script>
 
-<link rel="stylesheet" href="style.css?v=067cb87f">
+<link rel="stylesheet" href="style.css?v=188e3eca">
 <!-- Not deferred: app.js reports its milestones through gtag, and a deferred
      script runs after the parser-blocking one at the end of the body, so the
      first events of a session would find no gtag to call. -->
@@ -144,6 +144,13 @@
   <!-- The papers and the bands: the part of the search's vocabulary a solver
        cannot arrive at on their own. app.js fills it. -->
   <p id="picker-filters" class="picker-filters"></p>
+  <!-- What the bands mean, and empty until asked. The archive hub explains
+       difficulty in standing prose; the app cannot, because a blurb here wraps
+       to two lines and pushes the puzzles down (see below). So the explanation
+       is behind the ? beside the band chips: no height until it is wanted, and
+       no hover, which is the whole reason the title= on the badges never
+       reached anyone on an iPad (Paul, 2026-09-14). -->
+  <p id="picker-diff-note" class="muted small-note"></p>
   <!-- No blurb between the filters and the list. "Every puzzle listed here is
        hand-annotated: each clue has the 6-level teaching ladder" wrapped to two
        lines and pushed the puzzles down (Paul, 2026-08-28). It was a sales line
@@ -256,7 +263,7 @@
 <!-- Only the sync panel draws one, and only once it is opened, so this sits with
      app.js at the end rather than blocking the first paint. -->
 <script src="qr.js?v=b795920c"></script>
-<script src="app.js?v=59d67932"></script>
+<script src="app.js?v=049b0e49"></script>
 <script>
 // Reload once when the page in the cache is older than the page on the server.
 //
