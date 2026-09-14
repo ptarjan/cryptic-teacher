@@ -35,7 +35,7 @@
  "author":{"@type":"Person","name":"Paul Tarjan","url":"https://paultarjan.com/"}}
 </script>
 
-<link rel="stylesheet" href="style.css?v=6e3e8981">
+<link rel="stylesheet" href="style.css?v=067cb87f">
 <!-- Not deferred: app.js reports its milestones through gtag, and a deferred
      script runs after the parser-blocking one at the end of the body, so the
      first events of a session would find no gtag to call. -->
@@ -212,6 +212,10 @@
                aria-label="Type a letter to add it to the anagram ring, Backspace to remove the last">
         <div id="hint-next"></div>
         <div id="hint-escape"></div>
+        <!-- "Good clue?", once the answer is out. Its own slot rather than the
+             tail of #hint-body, so where it sits does not depend on how much
+             ladder was bought above it. app.js fills it; empty otherwise. -->
+        <div id="hint-vote"></div>
       </div>
     </div>
 
@@ -252,7 +256,7 @@
 <!-- Only the sync panel draws one, and only once it is opened, so this sits with
      app.js at the end rather than blocking the first paint. -->
 <script src="qr.js?v=b795920c"></script>
-<script src="app.js?v=668b5eca"></script>
+<script src="app.js?v=2cf62647"></script>
 <script>
 // Reload once when the page in the cache is older than the page on the server.
 //

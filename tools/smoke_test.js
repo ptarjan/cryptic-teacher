@@ -972,13 +972,22 @@ answer.slice(0, len - 1).split("").forEach((ch) => kd(ev(ch)));
   // clue" is a question about how stuck you are. The row carries what is being
   // rated and which way, and nothing else — see the privacy block further down,
   // which is where what may leave the page is settled.
+  //
+  // In #hint-vote and never in #hint-body. Appended to the body it landed
+  // wherever the body happened to end, so the question moved up or down the
+  // panel with how many rungs had been bought (Paul, iPad, 2026-09-14) — a
+  // fixed slot at the foot of the panel is the only thing that holds it still.
   {
     const body = registry["hint-body"].innerHTML;
-    const m = /data-vote="([^"|]+)\|up"/.exec(body);
-    assert(m, "a solved clue offers the vote row: " + body.slice(-400));
+    const row = registry["hint-vote"].innerHTML;
+    const m = /data-vote="([^"|]+)\|up"/.exec(row);
+    assert(m, "a solved clue offers the vote row: " + row.slice(-400));
     assert(/^c:[a-z]+-\d+:\d+-(across|down)$/.test(m[1]),
       "and it names the puzzle and the clue, nothing about the solver: " + m[1]);
-    assert(/data-vote="[^"]+\|down"/.test(body), "both verdicts are offered: " + body.slice(-400));
+    assert(/data-vote="[^"]+\|down"/.test(row), "both verdicts are offered: " + row.slice(-400));
+    assert(!/data-vote=/.test(body),
+      "and it is not in the body, where its place would depend on the ladder above it: "
+        + body.slice(-400));
   }
 }
 
