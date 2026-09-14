@@ -952,6 +952,13 @@ answer.slice(0, len - 1).split("").forEach((ch) => kd(ev(ch)));
   kd(ev("Backspace"));
   assert(patHTML().includes(`${len} of ${len} letters in place`),
     "nor can Backspace, which is how a crossing entry reaches it: " + patHTML());
+  // Refusing the delete is not the same as doing nothing: the cursor still goes
+  // where the key was pointing it, one square back, or Backspace reads as dead
+  // on a finished word ("if I backspace over a locked letter it should just move
+  // the cursor to the previous one", Paul, 2026-09-13).
+  assert(curIndex() === 1,
+    "a refused Backspace still steps the cursor back one, got " + curIndex());
+  clickBox(2);
   kd(ev(wrongLetter(answer[2])));
   assert(patHTML().includes(`${len} of ${len} letters in place`),
     "nor typing over it, which is a delete with a letter on the end: " + patHTML());
@@ -3126,11 +3133,13 @@ global.realSetTimeout(() => {
   // not a leftover of the animation — it must still be there with no flash.
   assert(registry["clue-" + cleanE.id].classList.contains("no-hints"),
     "the no-hints marker outlives the flash");
-  // Same for the squares: the flash is the moment, `.confirmed` is the standing
-  // fact that these letters are locked, and it is what makes the lock legible
-  // before a finger finds it.
-  assert(cells.every((c) => c.classList.contains("confirmed")),
-    "the solved entry's squares keep the locked tint after the flash is over");
+  // The squares are the other way round: the flash is the whole of it, and a
+  // finished word leaves no standing tint behind ("you don't have to add the
+  // green to locked in letters on the grid, it is a bit gross", Paul,
+  // 2026-09-13). The lock announces itself when it is bumped into — a pulse and
+  // a cursor that moves — not by colouring a filling grid.
+  assert(!cells.some((c) => c.classList.contains("confirmed")),
+    "a solved entry's squares carry no standing tint once the flash is over");
 
   // --- fires once: a later re-render of the board must not replay it ---
   select(otherE);
