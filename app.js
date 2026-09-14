@@ -4457,7 +4457,7 @@
       series, (SERIES_BADGE[series] || [""])[0], p.difficulty ? p.difficulty.band : "",
       st.done ? "solved done" : st.filled ? "started unfinished" : ""].join(" ").toLowerCase();
   }
-  // What the browser offers as you type. Only the terms a solver could not be
+  // What the panel offers as you type. Only the terms a solver could not be
   // expected to have spelled right from memory — the setters above all, then
   // series, band and day — plus the two status filters. Numbers are deliberately
   // absent: 226 of them would bury every word in the list, and a number you can
@@ -4466,15 +4466,20 @@
   // Built from the index rather than listed, so a setter cannot appear in the
   // suggestions without appearing in the rows, or the other way round.
   //
-  // Nothing is offered until two letters are in. iOS opens the whole list the
-  // instant the field is focused, so a datalist filled up front buries the
-  // panel it is there to search (Paul, iPhone, 2026-08-27). Two letters cuts
-  // seventy terms to a handful, and by then the suggestion is about a word
-  // already being spelled — which is when a completion is worth anything.
+  // Nothing is offered until two letters are in. The whole list on an empty box
+  // buries the panel it is there to search (Paul, iPhone, 2026-08-27). Two
+  // letters cuts seventy terms to a handful, and by then the suggestion is
+  // about a word already being spelled — which is when a completion is worth
+  // anything.
+  //
+  // Offered as chips, not through the input's list= attribute. A datalist popup
+  // is native UI the page cannot place: on iPad it opened nowhere near the box
+  // (Paul, 2026-09-14), and no CSS can move it. A chip row is laid out by the
+  // panel, so where it appears is decided here and is the same everywhere.
   const PICKER_SUGGEST_MIN = 2;
   let pickerTerms = null;
-  function pickerTermsHTML(q) {
-    if (q.length < PICKER_SUGGEST_MIN) return "";
+  function pickerSuggestTerms(q) {
+    if (q.length < PICKER_SUGGEST_MIN) return [];
     if (pickerTerms === null) {
       const seen = { solved: 1, unfinished: 1 };
       INDEX.puzzles.forEach((p) => {
@@ -4484,8 +4489,7 @@
       });
       pickerTerms = Object.keys(seen).sort((a, b) => a.localeCompare(b));
     }
-    return pickerTerms.filter((t) => t.toLowerCase().includes(q))
-      .map((t) => `<option value="${esc(t)}"></option>`).join("");
+    return pickerTerms.filter((t) => t.toLowerCase().includes(q));
   }
 
   // The two vocabularies the search accepts and nothing else teaches: the bands
@@ -4568,7 +4572,6 @@
     const ul = $("picker-list");
     ul.innerHTML = "";
     const q = (($("picker-search") || {}).value || "").trim().toLowerCase();
-    setHTML($("picker-terms"), pickerTermsHTML(q));
     // Tapping one ADDS its word to the search; tapping it again takes it out, so
     // the legend is a way back out as well as in. What is selected is shown by
     // the search box filling with the words — which is also the lesson, because
@@ -4592,20 +4595,41 @@
     // list of terms that all have to match, so a chip is ON when every word of it
     // is in the box and toggling it puts in or takes out exactly those words.
     const picked = q.split(/\s+/).filter(Boolean);
-    const wordsOf = (w) => w.split(/\s+/).filter(Boolean);
+    // Lower-cased on the way in, because a chip's label need not be: a setter is
+    // offered as "Arachne" and the box is a lower-case query. Compare the two as
+    // written and the chip never reads as on, so tapping it a second time adds
+    // it again instead of taking it out.
+    const wordsOf = (w) => w.toLowerCase().split(/\s+/).filter(Boolean);
     const isOn = (w) => wordsOf(w).every((x) => picked.indexOf(x) >= 0);
-    const group = (label, words, cls) => words.length < 2 ? "" :
+    // Each row numbers its own buttons, so the standing rows keep the same ids
+    // whether or not a completion row is above them.
+    const seq = {};
+    const group = (label, words, cls, prefix, min) => words.length < (min || 2) ? "" :
       `<span class="picker-group"><span class="muted small-note">${label}</span>`
       + words.map((w) => {
-        const i = chips.push(w) - 1;
-        return `<button type="button" id="pf-${i}" class="badge ${cls(w)}" aria-pressed="${
+        const id = prefix + ((seq[prefix] = (seq[prefix] || 0) + 1) - 1);
+        chips.push([id, w]);
+        return `<button type="button" id="${id}" class="badge ${cls(w)}" aria-pressed="${
           isOn(w)}">${esc(w)}</button>`;
       }).join("") + "</span>";
+    // The completions the two standing rows cannot give: setters, weekdays and
+    // the two status words. First, because it is about the letters going in
+    // right now.
+    //
+    // A term already in the box stays, marked on like any other chip — a setter
+    // can be short enough to BE what you have typed ("Ix"), and dropping it at
+    // that moment takes away the one tap that undoes it.
+    const standing = {};
+    pickerPaperList().concat(pickerBandList())
+      .forEach((w) => { standing[w.toLowerCase()] = 1; });
+    const suggest = pickerSuggestTerms(q).filter((t) => !standing[t.toLowerCase()]);
     setHTML($("picker-filters"),
-      group("Papers", pickerPaperList(), (w) => "series series-" + esc(seriesKeyForLabel(w)))
-        + group("Difficulty", pickerBandList(), (b) => "diff diff-" + esc(b)));
-    chips.forEach((w, i) => {
-      const el = $("pf-" + i);
+      group("Matching", suggest, () => "term", "ps-", 1)
+        + group("Papers", pickerPaperList(),
+                (w) => "series series-" + esc(seriesKeyForLabel(w)), "pf-")
+        + group("Difficulty", pickerBandList(), (b) => "diff diff-" + esc(b), "pf-"));
+    chips.forEach(([id, w]) => {
+      const el = $(id);
       if (!el) return;
       el.onclick = () => {
         const mine = wordsOf(w);
