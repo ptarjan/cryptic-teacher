@@ -1203,8 +1203,9 @@ def check_cryptic_definition_cap(entries, errors, warnings=None, authored=False)
 def blind_misses(pid):
     """The entries a blind run got wrong, whose explanations the grader dropped.
 
-    Written by tools/blind_annotate.py after the run has ended, by comparing
-    what the model derived against the published key. The model never sees this
+    Written by tools/fetch_puzzle.py's record_misses after the run has ended,
+    by comparing what the model derived against the published key — from the
+    blind-annotate grader and the blind-solve one alike. The model never sees this
     file and cannot write it, which is what makes it safe to soften the check
     below: it is the one blank the annotator did not choose.
     """
