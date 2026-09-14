@@ -301,6 +301,11 @@ button:disabled:hover { border-color: var(--line); }
 .picker-filters { display: flex; flex-direction: column; gap: 6px; margin: 8px 0 0; }
 .picker-group { display: flex; flex-wrap: wrap; gap: 6px; align-items: baseline; }
 .picker-filters .badge.diff, .picker-filters .badge.series { min-width: 0; }
+/* The completions, which used to be the browser's own dropdown. Neutral, because
+   a setter's name carries no colour the rows could teach it by — the paper and
+   band chips are coloured to match the badge you have been seeing, and dressing
+   a setter up the same way would claim a connection that isn't there. */
+.badge.term { background: none; border: 1px solid var(--line); color: inherit; }
 @media (pointer: coarse) { .picker-filters button.badge { padding: 5px 10px; } }
 
 /* ---------- layout ---------- */
