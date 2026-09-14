@@ -10,8 +10,8 @@
 # The lesson is not "check the log": nobody reads a log that is fine 99 days out
 # of 100. A failure that only lands in a file nobody opens is a silent failure.
 #
-# So: anything that stops this job doing the one thing it exists to do gets a
-# Discord message. It reuses the bridge bot's token rather than owning a
+# So: anything that stops this job doing the one thing it exists to do wakes the
+# room. It reuses the bridge bot's token rather than owning a
 # credential of its own, and every failure mode here is a no-op — an alert that
 # can't be sent must never take the run down with it.
 #
@@ -19,8 +19,16 @@
 # hourly, so on 2026-08-07 one lapsed access token produced the same paragraph
 # four times in a row, and a channel that cries wolf on the hour trains its one
 # reader to scroll past it — which is the silent failure again, wearing the
-# opposite mask. The log still records every occurrence; only Discord is spared.
-ALERT_CHANNEL="${ALERT_CHANNEL:-1530815234019692624}"   # #cryptic-crosswords
+# opposite mask. The log still records every occurrence; only the channel is
+# spared.
+#
+# The room is a NAME, never an id. An id names one front, so a hard-coded one
+# kept posting every alert this job raised into Discord after the rest of the
+# bridge had moved to Telegram — the channel was right, the service was not, and
+# nothing about a delivered message says it went to the room nobody reads.
+# wake.sh resolves the name against both fronts and DEFAULT_FRONT decides, so
+# this follows the bridge wherever it goes.
+ALERT_CHANNEL="${ALERT_CHANNEL:-cryptic-crosswords}"
 # The bridge checkout sits beside the MAIN checkout of this repo, so derive it
 # from the repository rather than from this file or from $HOME. Not $HOME: it is
 # the checkout's parent on the Mac and a different directory in the container.
