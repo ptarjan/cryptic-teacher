@@ -1528,6 +1528,16 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
     const before = tilesOf();
     assert(before.length >= 4, "ring sample has tiles before any typing: " + before.join(""));
 
+    // Not checked here: a struck tile keeping its POSITION across a shuffle
+    // (Paul, 2026-09-14 — "when you have fixed letters they should stay put in
+    // the anagram ring"). The tiles and the Shuffle button are written as
+    // markup, and fake_dom stores innerHTML as a string without parsing it, so
+    // neither #ana-shuffle nor any button.ana-tile is ever a node this harness
+    // can click — the handlers in app.js that own that behaviour are not
+    // reachable from here at all. Same reason the FLIP animation above is
+    // exercised by hand. Typing is testable precisely because #ana-kbd is a
+    // real element in index.html.
+
     const kd = registry["ana-kbd"].listeners.keydown[0];
     assert(kd, "#ana-kbd keydown handler wired");
     const keyEv = (k) => ({ key: k, preventDefault() {} });
