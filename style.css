@@ -954,9 +954,9 @@ mark.link {
    new elements every time the clue is rewritten, so this fires exactly when the
    markup changed: setHTML() declines to write markup identical to what is
    already there, which is what keeps an idle re-render from replaying it. */
-.hint-clue mark { animation: mark-in .32s ease-out both; }
+.hint-clue.marks-new mark { animation: mark-in .32s ease-out both; }
 @keyframes mark-in { from { background-color: transparent; color: inherit; box-shadow: none; } }
-@media (prefers-reduced-motion: reduce) { .hint-clue mark { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .hint-clue.marks-new mark { animation: none; } }
 
 /* What solvers thought of it, under the ladder once the answer is out and under
    the tally when the grid is finished. Quiet on purpose: it is the last line of
