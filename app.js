@@ -2017,7 +2017,15 @@
         // the rung buttons stop quizzing once a clue is solved. So hand the
         // rung over instead of dropping the guess on the floor: you were owed
         // an explanation and the score is settled anyway, so it is free.
+        // Marked WORKED OUT, not merely handed over. The score was already
+        // settled a line above and the rung is genuinely free either way, but
+        // the panel says which rungs were earned and which were bought, and
+        // this one arrived looking bought: "the step never said worked out ·
+        // free" (Paul, 2026-09-14). Solving the clue is a better answer to
+        // "which words define it" than pointing at the words, so it is scored
+        // as one.
         if (guessing && guessing.key === entryKey(e)) {
+          if (earnedRungs(e).indexOf(guessing.rung) < 0) earnedRungs(e).push(guessing.rung);
           showHint(e, guessing.rung);
           guessing = null;
         }
@@ -3324,7 +3332,20 @@
 
   if (document.addEventListener) {
     document.addEventListener("pointermove", (ev) => {
-      if (drag && guessing) dragOver(wordAt(ev.clientX, ev.clientY));
+      if (!drag || !guessing) return;
+      // Until the finger has committed to going ACROSS the words, a move that is
+      // mostly DOWN the page is the page scrolling: .gw is touch-action: pan-y,
+      // so the browser will take that gesture, and it fires pointermoves for a
+      // while first. Painting on those lit up every word the finger passed over
+      // and then handed the gesture away — "scrolling the clue seems to
+      // highlight what my finger is on but isn't doing anything" (Paul, iPad,
+      // 2026-09-14). Once a drag is really under way the axis stops mattering; a
+      // run of words wraps, and following it round the wrap is legitimate.
+      if (!drag.moved) {
+        const dx = Math.abs(ev.clientX - drag.x), dy = Math.abs(ev.clientY - drag.y);
+        if (dy > 8 && dy > dx) { drag = null; swallowClick = false; return; }
+      }
+      dragOver(wordAt(ev.clientX, ev.clientY));
     });
     document.addEventListener("pointerup", () => {
       if (!drag) return;
@@ -4217,14 +4238,17 @@
           renderHintPanel();
         };
         if (el.addEventListener) {
-          el.addEventListener("pointerdown", () => {
+          el.addEventListener("pointerdown", (ev) => {
             // A new gesture starts clean. swallowClick is set on pointerup and
             // read by the click that follows it, and a drag whose finger lifts
             // off the words sends no click at all — so without this it stayed
             // set until the next tap, which it then ate.
             swallowClick = false;
             const a = currentAsk();
-            if (a) drag = { base: guessing.picked.slice(), from: i, moved: false, ask: a };
+            if (a) {
+              drag = { base: guessing.picked.slice(), from: i, moved: false, ask: a,
+                       x: (ev && ev.clientX) || 0, y: (ev && ev.clientY) || 0 };
+            }
           });
         }
       });

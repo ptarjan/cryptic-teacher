@@ -4883,3 +4883,40 @@ global.realSetTimeout(() => {
     }
   }
 }
+
+// --- solving a clue while a rung is quizzing you earns that rung ---
+// The score was already settled the moment the clue went in, so the rung costs
+// nothing either way — but the panel says which rungs were EARNED and which
+// were bought, and a rung handed over at that moment arrived looking bought:
+// "the step never said worked out · free" (Paul, iPad, 2026-09-14, quiptic-1396
+// 16D). Solving the clue is a better answer to "which words give which letters"
+// than pointing at the words, so it is scored as one.
+{
+  const d = require("./fake_dom.js").boot({ query: "?p=quiptic-1396" });
+  const reg = d.registry;
+  const kd = d.docListeners["keydown"][0];
+  const key = (k) => ({ key: k, preventDefault() {}, shiftKey: false, target: reg["kbd"] });
+  const body = () => reg["hint-body"].innerHTML;
+  const climbable = (b) => !!(b && b.onclick && !b.disabled && /^\d+ · /.test(b.textContent || ""));
+
+  reg["clue-16-down"].listeners.click[0]();
+  for (let i = 0; i < 8; i++) {
+    const btns = reg["hint-next"].children;
+    const blocks = btns.find((b) => climbable(b) && /building blocks/i.test(b.textContent));
+    if (blocks) { blocks.onclick(); break; }
+    const next = btns.find(climbable);
+    if (!next) break;
+    next.onclick();
+    if (body().includes('class="hint-step guess"')) reg["guess-tell"].onclick();
+  }
+  assert(body().includes("gm-slot-"), "16D's blocks rung asks the matching question: " + body().slice(0, 300));
+  assert(!body().includes("worked out · free"), "and it is unanswered until something answers it");
+
+  "EVALUATED".split("").forEach((c) => kd(key(c)));
+  assert(body().includes("worked out · free"),
+    "solving the clue answers the question it was asking: " + body().slice(0, 600));
+  assert(/Solved <strong>1\/30<\/strong>/.test(reg["scorebar"].innerHTML),
+    "the clue is solved: " + reg["scorebar"].innerHTML);
+  assert(/<strong>2<\/strong> hint levels used/.test(reg["scorebar"].innerHTML),
+    "and only the two rungs actually bought are charged: " + reg["scorebar"].innerHTML);
+}
