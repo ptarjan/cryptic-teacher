@@ -2994,6 +2994,10 @@ global.realSetTimeout(() => {
   // Filled square by square, the way a solver does it, so the moment of
   // completion is the moment the LAST light square gets its letter — which is
   // somewhere in the middle of an entry, not at the end of a loop.
+  // Laid out below the grid and off the bottom of the screen, which is where it
+  // really is on a phone: the finish has to bring the page to it.
+  registry["celebrate"].layout(1800, 120);
+  global.window.pageYOffset = 0; global.window.scrolls.length = 0;
   const filled = new Set();
   let fired = 0;
   for (const e of puz.entries) {
@@ -3013,6 +3017,23 @@ global.realSetTimeout(() => {
   assert(fired === 1, "and celebrated once, not on every keystroke after: " + fired);
   assert(/\d+<\/strong> clues/.test(box.innerHTML) && /hint/.test(box.innerHTML),
     "and it says what was achieved, not just that something was: " + box.innerHTML);
+  // Fireworks, and every spark carrying the vector it flies along: a burst whose
+  // sparks all share one angle is a dribble, and that is only visible by eye.
+  assert(/class="fireworks"/.test(box.innerHTML) && (box.innerHTML.match(/--dx:/g) || []).length > 20,
+    "finishing sets off fireworks, each spark with its own vector: " + box.innerHTML);
+  // And the page goes to it. The box is below the grid and the keyboard is up —
+  // the last letter of the puzzle was just typed — so a finish nobody scrolls to
+  // is fireworks off-screen and a vote never asked for.
+  global.flushTimers(10000);
+  assert(global.window.scrolls.length === 1,
+    "finishing moves the page once, to the finish box: "
+    + JSON.stringify(global.window.scrolls));
+  {
+    const r = registry["celebrate"].getBoundingClientRect();
+    assert(r.top >= 0 && r.bottom <= global.window.innerHeight,
+      `and the whole box is on screen after it (top ${r.top}, bottom ${r.bottom}, `
+      + `viewport ${global.window.innerHeight})`);
+  }
   // Nothing to dismiss, and nothing that can dismiss it: the scoreline is a
   // fact about the puzzle, not a notification (Paul, 2026-09-06). It has to
   // survive the renders that follow, which is what a stray keystroke causes.
