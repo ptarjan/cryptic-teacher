@@ -1141,14 +1141,12 @@
 
   function refreshGrid() {
     const e = currentEntry();
-    const done = confirmedCells();
     forEachCell((c) => {
       const el = c.el;
       if (!el) return;
       el.querySelector(".letter").textContent = c.letter;
       el.classList.toggle("wrong", !!c.wrong);
       el.classList.toggle("revealed", !!c.revealed);
-      el.classList.toggle("confirmed", done.has(c));
       const inEntry = e && ((e.direction === "across" && c.y === e.position.y && c.x >= e.position.x && c.x < e.position.x + e.length)
         || (e.direction === "down" && c.x === e.position.x && c.y >= e.position.y && c.y < e.position.y + e.length));
       el.classList.toggle("hl", !!inEntry && !(c.x === cur.x && c.y === cur.y));
@@ -1717,11 +1715,10 @@
   // Typing over a letter is a delete with a letter on the end of it, so it is
   // refused in the same place. Clearing the whole puzzle still clears it: that
   // is asked for, by name, and this is only ever about the accidents.
-  // A lock nobody can see is a keyboard that reads as broken, so the same rule
-  // paints the grid: confirmed squares carry `.confirmed` (refreshGrid) and a
-  // refused keystroke pulses the square it was refused on. One definition of
-  // the rule, three uses — the set below is what the grid draws and what the
-  // two refusals below ask.
+  // A lock nobody can see is a keyboard that reads as broken, so every refusal
+  // answers on the square it was refused on: the letter pulses, and the cursor
+  // moves the way the keystroke was asking it to. The grid itself stays unpainted
+  // — a standing tint on finished words is noise across a filling grid.
   function confirmedCells() {
     const s = new Set();
     entries.forEach((e) => {
@@ -1748,8 +1745,14 @@
     c.letter = ""; c.wrong = false;
   }
 
+  // A locked letter is not yours to delete, but Backspace on one still has to
+  // move: the square before it is the one that was being reached for, and a
+  // cursor that stays put reads as a dead key. It moves one square per press,
+  // the mirror of typing's advance, and deletes nothing on the way — the letter
+  // behind the lock was not the one under the cursor.
   function backspace() {
     const c = cells[cur.y][cur.x];
+    if (cellConfirmed(c)) { pulseCells([c]); moveInEntry(-1); refreshAll(); return; }
     if (c && c.letter) clearCell(c);
     else { moveInEntry(-1); clearCell(cells[cur.y][cur.x]); }
     refreshAll(); saveState();
