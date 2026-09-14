@@ -318,38 +318,43 @@ button:disabled:hover { border-color: var(--line); }
 
 /* Finishing the grid used to move one number in the scorebar from 27 to 28
    ("there should be some celebration when you complete", Paul, 2026-08-17).
-   The sentence is the celebration; the paper is trim. Anyone who has asked
+   The sentence is the celebration; the fireworks are trim. Anyone who has asked
    their browser for less motion still gets the sentence, and gets it without
-   two dozen things falling past it. */
+   three dozen things flying past it. */
 #celebrate {
-  position: relative; overflow: hidden; margin: 6px 0 14px; padding: 14px 16px;
+  position: relative; overflow: hidden; margin: 6px 0 14px; padding: 18px 16px;
   border: 1px solid var(--ind-bg); border-radius: 10px;
   background: var(--card); max-width: 62ch;
 }
 /* No dismiss button. The scoreline is a fact about the puzzle, so it stays as
-   long as the grid is full and comes back when you reopen it; the paper is the
-   part that only falls once. A "Thanks" that hides your own result is asking
+   long as the grid is full and comes back when you reopen it; the fireworks are
+   the part that only go off once. A "Thanks" that hides your own result is asking
    you to clear away the thing you earned (Paul, 2026-09-06). */
 #celebrate .shout { margin: 0 0 4px; font-size: 1.05rem; font-weight: 600; }
 #celebrate .tally { margin: 0; font-size: .85rem; color: var(--muted); }
 #celebrate .tally strong { color: var(--fg); }
 
-/* Scoped to the finish box, because the finish is the only thing that throws
-   paper: a single clue coming out is a square at a time, and 28 of these is 28
-   interruptions (Paul, 2026-09-06). */
-#celebrate .paper { position: absolute; inset: 0; pointer-events: none; }
-#celebrate .bit {
-  position: absolute; top: -12px; width: 7px; height: 11px; border-radius: 1px;
-  background: var(--ind-bg); opacity: 0; animation: ct-fall 2.4s linear forwards;
+/* Scoped to the finish box, because the finish is the only thing worth a
+   firework: a single clue coming out is a square at a time, and 28 of these is
+   28 interruptions (Paul, 2026-09-06). Three shells, going off once, behind the
+   scoreline rather than over it — the sentence is still the celebration.
+   Each spark is flown by --dx/--dy, set per spark in fireworksHTML(). */
+#celebrate .fireworks { position: absolute; inset: 0; pointer-events: none; }
+#celebrate .shell { position: absolute; width: 0; height: 0; }
+#celebrate .spark {
+  position: absolute; width: 4px; height: 4px; border-radius: 50%;
+  background: var(--ind-bg); opacity: 0;
+  animation: ct-burst 1.1s cubic-bezier(.15, .7, .3, 1) forwards;
 }
-#celebrate .bit:nth-child(3n) { background: var(--def-bg); }
-#celebrate .bit:nth-child(3n + 1) { background: var(--accent-soft); }
-@keyframes ct-fall {
-  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-  100% { transform: translateY(180px) rotate(540deg); opacity: 0; }
+#celebrate .shell:nth-child(2) .spark { background: var(--def-bg); }
+#celebrate .shell:nth-child(3) .spark { background: var(--accent-soft); }
+@keyframes ct-burst {
+  0% { transform: translate(0, 0) scale(.5); opacity: 0; }
+  12% { opacity: 1; }
+  100% { transform: translate(var(--dx), var(--dy)) scale(1); opacity: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
-  #celebrate .paper { display: none; }
+  #celebrate .fireworks { display: none; }
 }
 
 .layout { display: flex; gap: 26px; flex-wrap: wrap; align-items: flex-start; }
@@ -542,7 +547,7 @@ button:disabled:hover { border-color: var(--line); }
 @media (prefers-reduced-motion: reduce) { .cell.pulse { animation: none; } }
 
 /* A clue's own solve gets a quiet tint that settles away — smaller than the
-   whole-puzzle #celebrate above, on purpose: that one throws paper because the
+   whole-puzzle #celebrate above, on purpose: that one fires fireworks because the
    grid finishing IS the finish, and a single clue coming out is not (see the
    note on #celebrate). Green (--ok) rather than the check pulse's --accent, so
    the two reads never blur into each other. Fires once, from the moment

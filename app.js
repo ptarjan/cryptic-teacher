@@ -1489,9 +1489,15 @@
   // the screen is placed by its TOP and the new rung is at the bottom, so
   // "scroll the panel into view" shows a solver everything except the thing
   // they just asked for.
-  let placeTargetId = "hint-panel";
-  function scrollToHintPanel(targetId) {
+  // And the panel it belongs to: the thing that has to be on the page for any of
+  // this to mean anything, and what the target falls back to. Defaulting both to
+  // the hint panel keeps every existing caller saying what it said; the finish
+  // box passes its own, because the viewport rules here are the VIEWPORT'S —
+  // a keyboard covers a scoreline exactly the way it covers a hint.
+  let placeTargetId = "hint-panel", placeOwnerId = "hint-panel";
+  function scrollToHintPanel(targetId, ownerId) {
     placeTargetId = targetId || "hint-panel";
+    placeOwnerId = ownerId || "hint-panel";
     const now = Date.now();
     settleBy = now + HINT_DEADLINE_MS;
     watchUntil = now + HINT_WATCH_MS;
@@ -1548,11 +1554,11 @@
   // is nothing to measure a frame later for.
   function placeHintPanel() {
     settleTimer = null; settleBy = 0;
-    const panel = $("hint-panel");
+    const panel = $(placeOwnerId);
     if (!panel || panel.classList.contains("hidden")) return;
     // Falls back to the whole panel whenever the target is not on screen — a
     // rung that this clue does not have, or a render that dropped it.
-    let p = (placeTargetId !== "hint-panel" && $(placeTargetId)) || panel;
+    let p = (placeTargetId !== placeOwnerId && $(placeTargetId)) || panel;
     if (!p.getBoundingClientRect) return;
     let r = p.getBoundingClientRect();
     if (!r.height && p !== panel) { p = panel; r = panel.getBoundingClientRect(); }
@@ -4807,8 +4813,8 @@
   // ("there should be some celebration when you complete", Paul, 2026-08-17).
   // Two rules keep it from becoming noise: it fires on the TRANSITION only, in
   // the session that earned it — reopening a finished puzzle is not an
-  // achievement and must not throw paper at you — and the paper is not the
-  // point, the scoreline is. Somebody who solved 28 clues, 9 of them cold, in
+  // achievement and must not set off fireworks at you — and the fireworks are
+  // not the point, the scoreline is. Somebody who solved 28 clues, 9 of them cold, in
   // 41 minutes is owed those three numbers in one sentence.
   let wasComplete = null;      // null = not measured yet on this puzzle
   function checkComplete() {
@@ -4823,7 +4829,7 @@
   // puzzle, not an event, and there is nothing to dismiss ("why are the stats
   // dismissed with thanks? Can they just be on the one line when you finish",
   // Paul, 2026-09-06). Written once per completion rather than on every render:
-  // the minutes would otherwise tick over mid-fall and wipe the confetti.
+  // the minutes would otherwise tick over mid-burst and wipe the fireworks.
   let tallyDrawn = false;
   function celebrate(complete, earned) {
     const box = $("celebrate");
@@ -4849,21 +4855,41 @@
     bits.push(levels ? `<strong>${levels}</strong> hint${levels === 1 ? "" : "s"} spent`
                      : "not one hint spent");
     if (mins) bits.push(`<strong>${mins}</strong> minute${mins === 1 ? "" : "s"} at it`);
-    box.innerHTML = (earned ? confettiHTML(24) : "")
+    box.innerHTML = (earned ? fireworksHTML() : "")
       + `<p class="shout">Finished — the whole grid.</p>`
       + `<p class="tally">${bits.join(" · ")}</p>`
       + voteRowHTML(voteTarget(null), "How was the puzzle?", "Enjoyed it", "Not really");
     wireVotes(box, () => celebrate(true, false));
+    // The box is below the grid, so on a phone the fireworks go off off-screen
+    // and the question at the bottom of them is never seen ("I want fireworks
+    // when I solve a puzzle and scroll to vote on it", Paul, 2026-09-13). Placed
+    // by the same machinery as the hint panel, which is the code that knows the
+    // keyboard is still up: the last letter of a puzzle is typed, so the keys
+    // are over the bottom third of the screen at exactly this moment.
+    // Only on the transition. Reopening a finished puzzle must not yank the page
+    // around, for the same reason it does not throw fireworks.
+    if (earned) scrollToHintPanel("celebrate", "celebrate");
   }
 
-  // Spans with per-piece delays, falling once. prefers-reduced-motion turns the
-  // animation off in style.css and leaves the sentence, which is the part that
-  // was actually missing.
-  function confettiHTML(n) {
-    const bows = Array.from({ length: n }, (_, i) =>
-      `<span class="bit" style="left:${((i * 4.1 + (i % 5) * 2) % 100).toFixed(1)}%;` +
-      `animation-delay:${(i % 8) * 0.12}s"></span>`).join("");
-    return `<div class="paper">${bows}</div>`;
+  // Bursts that go off once, staggered across the box. Each spark carries the
+  // vector it flies along as custom properties and one keyframe in style.css
+  // flies all of them: the angles are computed here so the spread is even,
+  // which is the difference between a firework and a handful of dots.
+  // prefers-reduced-motion turns the whole thing off and leaves the sentence,
+  // which is the part that was actually missing.
+  const SHELLS = [{ x: 20, y: 30 }, { x: 52, y: 62 }, { x: 80, y: 26 }];
+  function fireworksHTML(sparks = 14) {
+    const shells = SHELLS.map((sh, b) => {
+      const bits = Array.from({ length: sparks }, (_, i) => {
+        const a = (i / sparks) * Math.PI * 2;
+        const r = 30 + (i % 3) * 9;
+        return `<span class="spark" style="--dx:${(Math.cos(a) * r).toFixed(1)}px;` +
+          `--dy:${(Math.sin(a) * r).toFixed(1)}px;` +
+          `animation-delay:${(b * 0.32).toFixed(2)}s"></span>`;
+      }).join("");
+      return `<span class="shell" style="left:${sh.x}%;top:${sh.y}%">${bits}</span>`;
+    }).join("");
+    return `<div class="fireworks">${shells}</div>`;
   }
 
   function refreshAll() {
