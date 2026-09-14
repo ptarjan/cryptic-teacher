@@ -74,5 +74,25 @@ icon() {  # icon <ALERT_ICON-or-empty> -> the leading token wake.sh was handed
 check "an alert with nothing said about it is a warning" "$(icon "")" "⚠️"
 check "and a caller may send a result as a result" "$(icon "✅")" "✅"
 
+# --- the room is a name, so it follows the bridge between fronts ---
+# ALERT_CHANNEL was a bare Discord channel id until 2026-09-14, so every alert
+# this job raised went on landing in Discord long after the bridge itself had
+# moved to Telegram. An id names one service and cannot be re-pointed; a name is
+# resolved by wake.sh against both fronts, and DEFAULT_FRONT decides.
+room() {  # -> the channel wake.sh was handed
+  rm -rf "$tmp/state"; mkdir -p "$tmp/state"
+  printf '#!/bin/sh\nprintf "%%s\\n" "$2" > "%s/sent"\n' "$tmp" \
+    > "$tmp/household/tools/wake.sh"
+  chmod +x "$tmp/household/tools/wake.sh"
+  ALERT_ENV_FILE="$tmp/household/.env" ALERT_STATE_DIR="$tmp/state" \
+    bash -c '. "$1"; alert "something happened"' _ "$ROOT/tools/alert.sh" >/dev/null 2>&1
+  cat "$tmp/sent"
+}
+
+r="$(room)"
+check "the default room is a name, not one service's id" \
+  "$(case "$r" in ''|*[!0-9]*) echo name ;; *) echo "an id: $r" ;; esac)" "name"
+check "and it is this repo's room" "$r" "cryptic-crosswords"
+
 [ "$fails" = 0 ] && echo "ALERT CLAIMED PASSED" || echo "$fails check(s) failed"
 exit $((fails > 0))
