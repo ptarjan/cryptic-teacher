@@ -5106,7 +5106,30 @@
     // are over the bottom third of the screen at exactly this moment.
     // Only on the transition. Reopening a finished puzzle must not yank the page
     // around, for the same reason it does not throw fireworks.
-    if (earned) scrollToHintPanel("celebrate", "celebrate");
+    if (earned) { startFireworksWhenSeen(box); scrollToHintPanel("celebrate", "celebrate"); }
+  }
+
+  // A firework nobody was looking at is not a firework. The sparks used to start
+  // the instant the markup was written, while the page was still travelling down
+  // to the box — three shells last 1.7s and the scroll can eat most of that, so
+  // on a phone you caught the tail and in the installed app, where the box is
+  // furthest below the fold, nothing at all (Paul, iOS, 2026-09-14).
+  //
+  // So they are paused until the box is on screen. The backstop matters as much
+  // as the observer: a box that is never looked at must end up burnt out rather
+  // than frozen mid-burst, waiting to go off under someone who scrolls past it
+  // ten minutes later.
+  function startFireworksWhenSeen(box) {
+    const fw = box.querySelector(".fireworks");
+    if (!fw) return;
+    fw.classList.add("hold");
+    const go = () => fw.classList.remove("hold");
+    if (typeof IntersectionObserver !== "function") return go();
+    const io = new IntersectionObserver((rows) => {
+      if (rows.some((r) => r.isIntersecting)) { io.disconnect(); go(); }
+    }, { threshold: 0.4 });
+    io.observe(fw);
+    setTimeout(() => { io.disconnect(); go(); }, 4000);
   }
 
   // Bursts that go off once, staggered across the box. Each spark carries the
