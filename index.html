@@ -256,6 +256,20 @@
   <p class="muted">Puzzles © their original publishers, reproduced here for personal study.
   Annotations and hints are original to this project.
   <a href="https://github.com/ptarjan/cryptic-teacher">Source</a>.</p>
+  <!-- Feedback about the SITE rather than about one clue's hints. Same box and
+       same endpoint as "Report a bad hint", filed with no clue attached, so
+       tools/reports.py stays the single queue: two inboxes would mean one of
+       them goes unread. It lives in the footer because the thing being
+       complained about may be the page itself, and the page is always here. -->
+  <div id="fb">
+    <button type="button" id="fb-open" class="ghost small">Send feedback</button>
+    <div id="fb-form" class="hidden">
+      <textarea id="fb-note" class="rp-note" rows="2" maxlength="400"
+        placeholder="What would make this better?"></textarea>
+      <button type="button" id="fb-send" class="ghost small">Send</button>
+      <span id="fb-msg" class="muted"></span>
+    </div>
+  </div>
 </footer>
 
 <script src="puzzles/index.js?v=34538524"></script>
@@ -263,7 +277,7 @@
 <!-- Only the sync panel draws one, and only once it is opened, so this sits with
      app.js at the end rather than blocking the first paint. -->
 <script src="qr.js?v=b795920c"></script>
-<script src="app.js?v=4a3fbff5"></script>
+<script src="app.js?v=d340c743"></script>
 <script>
 // Reload once when the page in the cache is older than the page on the server.
 //

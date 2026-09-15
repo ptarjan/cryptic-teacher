@@ -5165,7 +5165,43 @@
 
   // ---------- boot ----------
 
+  // Feedback about the site itself, filed down the same pipe as a bad-hint
+  // report with no clue attached and rung "site" — tools/reports.py is the queue
+  // for both, and one queue is exactly why this does not get a route of its own.
+  // Wired once at boot, not per render: it lives in the footer, which nothing
+  // redraws, and it has to be reachable when the complaint IS the page.
+  function bindFeedback() {
+    const open = $("fb-open"), form = $("fb-form"), note = $("fb-note"), msg = $("fb-msg");
+    if (!open || !form || !note) return;
+    open.onclick = () => {
+      form.classList.toggle("hidden");
+      if (!form.classList.contains("hidden")) note.focus();
+    };
+    const send = () => {
+      const text = (note.value || "").trim();
+      if (!text) return;
+      msg.textContent = "Sending…";
+      fetch(SYNC_ENDPOINT.replace(/\/$/, "") + "/r", {
+        method: "POST", headers: { "content-type": "application/json" },
+        body: JSON.stringify({ puzzle: P && P.id, clue: "", rung: "site", note: text }),
+      }).then((r) => {
+        if (!r.ok) throw new Error("HTTP " + r.status);
+        note.value = "";
+        msg.textContent = "Thank you — that goes somewhere it gets read.";
+      }).catch((err) => {
+        // The error itself, never "see the log": this box is the only place the
+        // sender will ever hear anything back about it.
+        msg.textContent = "Didn't send: " + ((err && err.message) || String(err));
+      });
+    };
+    $("fb-send").onclick = send;
+    note.addEventListener("keydown", (ev) => {
+      if (ev.key === "Enter" && (ev.metaKey || ev.ctrlKey)) send();
+    });
+  }
+
   function boot() {
+    bindFeedback();
     // The lesson is /learn/ — a page, reached by a plain link in the header.
     // It is a document you read end to end, and it outgrew the collapsible
     // section it used to live in on this page (Paul, 2026-08-27).
