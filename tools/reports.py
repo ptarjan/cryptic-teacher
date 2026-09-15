@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Read the bad-hint reports people have sent from the site.
+"""Read what people have sent from the site — bad hints, and feedback on the site.
 
   python3 tools/reports.py                 # everything, newest first
   python3 tools/reports.py --since 7       # the last week
@@ -69,8 +69,14 @@ def main():
 
     for key in sorted(keys, reverse=True):
         r = json.loads(kv.get_key(key))
-        where = " ".join(x for x in (r.get("puzzle"), r.get("clue"),
-                                     f"({r['rung']})" if r.get("rung") else "") if x)
+        # rung "site" and no clue is the footer's feedback box, not a bad hint:
+        # it is about the page, so there is no clue to go and look at and the
+        # line has to say so rather than printing a puzzle id on its own.
+        if r.get("rung") == "site" and not r.get("clue"):
+            where = " ".join(x for x in ("ABOUT THE SITE", r.get("puzzle")) if x)
+        else:
+            where = " ".join(x for x in (r.get("puzzle"), r.get("clue"),
+                                         f"({r['rung']})" if r.get("rung") else "") if x)
         print(f"\n{r.get('day', '?')}  {where}\n  {r.get('note', '')}\n  {key}")
     print(f"\n{len(keys)} report(s). Fix one, then: python3 tools/reports.py --done <key>")
     return 0
