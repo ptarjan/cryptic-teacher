@@ -370,6 +370,12 @@ button:disabled:hover { border-color: var(--line); }
   12% { opacity: 1; }
   100% { transform: translate(var(--dx), var(--dy)) scale(1); opacity: 0; }
 }
+/* Held until the box is actually on screen — see startFireworksWhenSeen() in
+   app.js. Finishing scrolls the page down to the scoreline, and the scroll
+   takes longer than a firework lasts, so the burst was over before it arrived:
+   "I did not see fireworks on the installed app" (Paul, iOS, 2026-09-14), where
+   the box sits furthest below the fold. */
+#celebrate .fireworks.hold .spark { animation-play-state: paused; }
 @media (prefers-reduced-motion: reduce) {
   #celebrate .fireworks { display: none; }
 }
@@ -611,7 +617,11 @@ button:disabled:hover { border-color: var(--line); }
    or the panel reflows out from under the solver at the moment they begin
    (Paul, 2026-09-07: "it is jarring when I go to select parts of the clue
    that it moves"). */
-.hint-clue { font-size: 1.15rem; line-height: 2.1; margin-bottom: 4px; }
+/* One size, everywhere. The clue used to read a step smaller on a wide screen
+   than on a tablet, and the big one is the right one on both: it is the thing
+   being read ("render the clue as big as when it's selected, all the time" —
+   Paul, 2026-09-14). Stated once so the two cannot drift apart again. */
+.hint-clue { font-size: 1.3rem; line-height: 2.1; margin-bottom: 6px; }
 .hint-clue .entry-tag { font-weight: 700; font-family: -apple-system, Helvetica, sans-serif; margin-right: 6px; }
 #hint-meter { font-size: .8rem; margin-bottom: 8px; }
 
@@ -1090,7 +1100,6 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
   .pat-word.brk-space { margin-right: 13px; }
   .pat-sep { font-size: 1.35rem; }
   #hint-panel { padding: 14px 18px; }
-  .hint-clue { font-size: 1.3rem; line-height: 2.1; margin-bottom: 6px; }
   #hint-meter { font-size: .85rem; }
   /* The clue itself wants every pixel — it is one line and it is the thing being
      read. The walkthrough prose does not: stacked on a landscape tablet the panel
