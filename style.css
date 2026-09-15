@@ -254,6 +254,10 @@ button:disabled:hover { border-color: var(--line); }
 /* Struck, not removed: what you have placed is still part of the count, and a
    tile that vanished would leave a gap the eye reads as a missing letter. */
 .ana-tile.struck { opacity: .38; text-decoration: line-through; font-weight: 400; }
+/* Pinned: this letter is in the grid already, so the ring is showing WHERE it
+   goes rather than offering it to be moved. It has to read as settled at a
+   glance, including when it is struck as well. */
+.ana-tile.fixed { border-color: var(--accent); color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
 /* A deleted tile's stand-in while it fades — see ghostRingTile() in app.js.
    Fixed and pointer-events:none so it can never be mistaken for a live tile. */
 .ana-ghost { position: fixed; display: flex; align-items: center; justify-content: center; z-index: 50; }

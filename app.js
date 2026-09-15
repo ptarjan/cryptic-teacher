@@ -2007,9 +2007,25 @@
   // revealLetter and fillAnswer call this too, to keep solvedWith/scoring
   // exactly as it was, but must not trigger celebrateSolve() — revealing the
   // rest of an answer is not the moment being celebrated.
+  // Solving the clue with the building blocks open is the blocks rung having
+  // done its job rather than given the answer away. It hands over the PIECES —
+  // fodder, a container, a hidden word's carrier — and putting them together is
+  // the work it deliberately leaves to the solver; doing that work and arriving
+  // at the answer is not a hint bought, so the rung is WORKED OUT, the same deal
+  // a right answer to a rung's question already gets. ("Any building blocks
+  // should be free if you solve while it is open", Paul, 2026-09-14.)
+  //
+  // Before solvedWith is frozen, not after: unlike the pending-guess case below,
+  // this rung is already up and already inside the count being taken.
+  function creditOpenBlocks(e) {
+    if (shownRungs(e).indexOf("blocks") < 0) return;
+    if (earnedRungs(e).indexOf("blocks") < 0) earnedRungs(e).push("blocks");
+  }
+
   function checkSolvedEntries(viaType) {
     entries.forEach((e) => {
       if (isEntrySolved(e) && solvedWith[e.id] === undefined) {
+        creditOpenBlocks(e);
         solvedWith[e.id] = Math.max(0, shownRungs(e).length - earnedRungs(e).length);
         // You were being quizzed on a rung of this clue and then you solved it
         // from the grid. Leaving the question up asks you to go on hunting for
@@ -2416,13 +2432,67 @@
     return !!(document.activeElement && document.activeElement.id === "ana-kbd");
   }
 
+  // Keyed off the annotation rather than the clue id: ladderSteps() is a pure
+  // function of the annotation and is called for counting as well as drawing,
+  // and threading a grid coordinate through it to remember a shuffle would put
+  // board state into the thing that describes a clue.
+  function ringKey(ann) {
+    return (ann.answer || "") + "|" + ringFodder(ann);
+  }
+
+  function ringFodder(ann) {
+    return (((ann || {}).anagram || {}).fodder || "").toUpperCase().replace(/[^A-Z]/g, "");
+  }
+
+  // A letter already in the grid is not part of the anagram any more: it has a
+  // POSITION, and the ring is the one place that position can be shown. So it
+  // pins its tile to the matching spot — the tile at the top is letter 1 of the
+  // answer, and each step clockwise is the next letter — and every deal works
+  // round the pins. ("If I have e_o__ the top letter in the ring should always
+  // be e and then the second one clockwise should be o", Paul, 2026-09-14. The
+  // first pass at this only held STRUCK tiles still, which is not the same
+  // thing as putting a letter where it goes.)
+  //
+  // Only when the fodder is the whole answer: an anagram of one piece of a
+  // charade has no letter i of the answer to be pinned to, and comparing the
+  // two letter sets is the cheapest way to tell those apart. It also switches
+  // the pins off the moment the solver types into the ring, which is right —
+  // an edited set of letters is no longer the one the grid is spelling.
+  function ringPins(letters, key) {
+    const pins = {};
+    const e = currentEntry();
+    if (!e || !e.solution) return pins;
+    const ann = annOf(e);
+    if (!ann || ringKey(ann) !== key) return pins;
+    const sol = String(e.solution).toUpperCase().replace(/[^A-Z]/g, "");
+    if (sol.split("").sort().join("") !== letters.slice().sort().join("")) return pins;
+    const taken = {};
+    entryCells(e).forEach((c, i) => {
+      if (!c || !c.letter || c.wrong) return;
+      for (let j = 0; j < letters.length; j++) {
+        if (taken[j] || letters[j] !== c.letter) continue;
+        taken[j] = true;
+        pins[i] = j;
+        return;
+      }
+    });
+    return pins;
+  }
+
+  // Rebuild the draw order with each pinned letter at its own position and
+  // everything else falling into what is left, in the order it was already in.
+  // Placing a letter therefore slides one tile aside instead of re-dealing the
+  // ring under the solver.
+  function applyRingPins(order, pins) {
+    const pinned = {};
+    Object.keys(pins).forEach((p) => { pinned[pins[p]] = true; });
+    const rest = order.filter((idx) => !pinned[idx]);
+    return order.map((_, pos) => (pins[pos] === undefined ? rest.shift() : pins[pos]));
+  }
+
   function ringHTML(ann) {
-    const fodder = ((ann.anagram || {}).fodder || "").toUpperCase().replace(/[^A-Z]/g, "");
-    // Keyed off the annotation rather than the clue id: ladderSteps() is a pure
-    // function of the annotation and is called for counting as well as drawing,
-    // and threading a grid coordinate through it to remember a shuffle would
-    // put board state into the thing that describes a clue.
-    const key = (ann.answer || "") + "|" + fodder;
+    const fodder = ringFodder(ann);
+    const key = ringKey(ann);
     // Three letters have six arrangements and you can see all of them at once,
     // so a ring is furniture rather than help.
     if (fodder.length < 4) return "";
@@ -2435,6 +2505,15 @@
     // fodder split above: typing into the ring (addRingLetter/removeLastRingLetter)
     // edits `ring.letters` directly, and a re-render must draw what is there now,
     // not re-deal the clue's original fodder out from under an edit in progress.
+    //
+    // The pins are recomputed on EVERY render rather than kept on `ring`,
+    // because the thing they are read off — the letters in the grid — changes
+    // under the ring while it is open. Typing a crossing letter has to move its
+    // tile to where it belongs without being told.
+    ring.pins = ringPins(ring.letters, key);
+    ring.order = applyRingPins(ring.order, ring.pins);
+    const pinnedTile = {};
+    Object.keys(ring.pins).forEach((p) => { pinnedTile[ring.pins[p]] = true; });
     const n = ring.letters.length;
     // The ring grows with the fodder so the tiles never overlap; the disc is
     // sized off the same radius so the box is never taller than its contents.
@@ -2451,8 +2530,10 @@
       Math.ceil(PITCH / (2 * Math.sin(Math.PI / n)))));
     const tiles = ring.order.map((idx, pos) => {
       const a = (pos / n) * 2 * Math.PI - Math.PI / 2;
-      return `<button type="button" class="ana-tile${ring.struck[idx] ? " struck" : ""}"
+      return `<button type="button" class="ana-tile${ring.struck[idx] ? " struck" : ""}${
+          pinnedTile[idx] ? " fixed" : ""}"
         data-ana="${idx}" aria-pressed="${ring.struck[idx] ? "true" : "false"}"
+        title="${pinnedTile[idx] ? "Already in the grid — pinned where it goes" : "Cross off once used"}"
         style="left:calc(50% + ${Math.round(Math.cos(a) * radius)}px);
                top:calc(50% + ${Math.round(Math.sin(a) * radius)}px)">${ring.letters[idx]}</button>`;
     }).join("");
@@ -2464,7 +2545,8 @@
     // fresh on every render is what makes the ring survive its own redraws.
     return `<div class="anagram-ring">
       <div class="ana-disc${ringKbdFocused() ? " ana-focus" : ""}" style="width:${d}px;height:${d}px">${tiles}</div>
-      <p class="muted">Tap a letter to cross it off once you've used it. Click the ring and type
+      <p class="muted">Letters already in the grid are pinned where they go, reading clockwise from
+        the top. Tap a letter to cross it off once you've used it. Click the ring and type
         to add a letter, Backspace to remove the last. Shuffle for a fresh arrangement.</p>
       <button type="button" id="ana-shuffle" class="ghost small">Shuffle</button>
     </div>`;
@@ -4286,7 +4368,19 @@
 
     // The anagram ring. Both handlers only ever touch `ring`, so a redraw is
     // the whole update — the tiles are where the letters are, not what they are.
+    //
+    // A TILE MUST NOT TAKE FOCUS. #ana-kbd's blur handler redraws the ring (so
+    // the focus outline goes away), and a tap that steals focus therefore
+    // destroys the very button it is a tap on before the click can be
+    // dispatched: the keyboard dropped and the letter was never crossed off
+    // ("clicking a letter in the ring makes the keyboard hide and doesn't
+    // remove the letter", Paul, 2026-09-14, iPad). Refusing the default
+    // mousedown — the synthesised one iOS sends before click — is what keeps
+    // the focus, and the tile, where they were. Shuffle needs it for the same
+    // reason.
+    const keepFocus = (ev) => ev.preventDefault();
     panel.querySelectorAll("button.ana-tile").forEach((b) => {
+      b.onmousedown = keepFocus;
       b.onclick = () => {
         const i = b.getAttribute("data-ana");
         if (ring) {
@@ -4308,11 +4402,15 @@
     // Re-dealing every position moved them too, so a solver who had placed three
     // letters watched their own three answers scatter along with the question
     // ("when you have fixed letters they should stay put in the anagram ring",
-    // Paul, 2026-09-14). Only the positions still in play trade places.
+    // Paul, 2026-09-14). Only the positions still in play trade places — struck
+    // ones, and the pinned ones ringPins() holds at their answer position.
+    if (shuffle) shuffle.onmousedown = keepFocus;
     if (shuffle && ring) shuffle.onclick = () => {
       const prevRects = ringTileRects();
       const free = [];
-      ring.order.forEach((idx, pos) => { if (!ring.struck[idx]) free.push(pos); });
+      ring.order.forEach((idx, pos) => {
+        if (!ring.struck[idx] && (ring.pins || {})[pos] === undefined) free.push(pos);
+      });
       ring.order = dealRing(ring.letters, ring.forbidden, ring.order, free);
       renderHintPanel();
       playRingFlip(prevRects);
