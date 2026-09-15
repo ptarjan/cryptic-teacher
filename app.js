@@ -4902,7 +4902,7 @@
   //
   // Opening one therefore closes the others, and every opener goes through
   // here, so a fourth panel cannot bring the overlap back by forgetting to.
-  const PANELS = ["sync-panel", "notify-panel", "picker-panel"];
+  const PANELS = ["sync-panel", "notify-panel", "picker-panel", "fb-panel"];
   function closePanel(id) {
     // Whatever the panel was doing to the outside world stops when it goes
     // away. The scanner holds the camera, so a panel closed by another one
@@ -5191,15 +5191,14 @@
   // Feedback about the site itself, filed down the same pipe as a bad-hint
   // report with no clue attached and rung "site" — tools/reports.py is the queue
   // for both, and one queue is exactly why this does not get a route of its own.
-  // Wired once at boot, not per render: it lives in the footer, which nothing
-  // redraws, and it has to be reachable when the complaint IS the page.
+  // Wired once at boot, not per render: it is a header panel like sync and
+  // notify, nothing redraws it, and it has to be reachable when the complaint IS
+  // the page.
   function bindFeedback() {
-    const open = $("fb-open"), form = $("fb-form"), note = $("fb-note"), msg = $("fb-msg");
-    if (!open || !form || !note) return;
-    open.onclick = () => {
-      form.classList.toggle("hidden");
-      if (!form.classList.contains("hidden")) note.focus();
-    };
+    const note = $("fb-note"), msg = $("fb-msg");
+    if (!note) return;
+    $("btn-feedback").onclick = () => { if (showPanel("fb-panel")) note.focus(); };
+    $("btn-feedback-close").onclick = () => showPanel("fb-panel", false);
     const send = () => {
       const text = (note.value || "").trim();
       if (!text) return;

@@ -58,6 +58,7 @@
     <a class="ghost" href="learn/" aria-label="How cryptic clues work">Learn</a>
     <button id="btn-sync" class="ghost" title="Carry your progress to another device">Sync ▾</button>
     <button id="btn-notify" class="ghost" title="Be told when a new puzzle is ready">Notify ▾</button>
+    <button id="btn-feedback" class="ghost" title="Tell me what is wrong with this site">Feedback ▾</button>
   </div>
 </header>
 
@@ -128,6 +129,25 @@
   <p class="muted small-note">This device only, in this device's own time zone. There is no account
      here, so ticking a paper on your phone does nothing to your laptop.</p>
   <p class="muted small-note" id="notify-status" role="status" aria-live="polite"></p>
+</div>
+
+<!-- Feedback about the SITE rather than about one clue's hints. Same endpoint as
+     "Report a bad hint" in the hint panel, filed with no clue attached, so
+     tools/reports.py stays the single queue: two inboxes would mean one of them
+     goes unread. Up here with the other controls because the thing being
+     complained about may be the page itself, and the header is always there
+     ("feedback in with all the top buttons", Paul, 2026-09-14). -->
+<div id="fb-panel" class="panel hidden" role="dialog" aria-label="Send feedback">
+  <div class="panel-head">
+    <strong>Send feedback</strong>
+    <button class="ghost small" id="btn-feedback-close">✕</button>
+  </div>
+  <p class="muted small-note">Anything about the site — what is confusing, what is missing, what
+     is broken. A bad hint on one clue has its own button under that clue.</p>
+  <textarea id="fb-note" class="rp-note" rows="3" maxlength="400"
+    placeholder="What would make this better?"></textarea>
+  <p><button type="button" id="fb-send" class="tool">Send</button>
+     <span id="fb-msg" class="muted small-note" role="status" aria-live="polite"></span></p>
 </div>
 
 <div id="picker-panel" class="panel hidden" role="dialog" aria-label="Choose a puzzle">
@@ -256,20 +276,6 @@
   <p class="muted">Puzzles © their original publishers, reproduced here for personal study.
   Annotations and hints are original to this project.
   <a href="https://github.com/ptarjan/cryptic-teacher">Source</a>.</p>
-  <!-- Feedback about the SITE rather than about one clue's hints. Same box and
-       same endpoint as "Report a bad hint", filed with no clue attached, so
-       tools/reports.py stays the single queue: two inboxes would mean one of
-       them goes unread. It lives in the footer because the thing being
-       complained about may be the page itself, and the page is always here. -->
-  <div id="fb">
-    <button type="button" id="fb-open" class="ghost small">Send feedback</button>
-    <div id="fb-form" class="hidden">
-      <textarea id="fb-note" class="rp-note" rows="2" maxlength="400"
-        placeholder="What would make this better?"></textarea>
-      <button type="button" id="fb-send" class="ghost small">Send</button>
-      <span id="fb-msg" class="muted"></span>
-    </div>
-  </div>
 </footer>
 
 <script src="puzzles/index.js?v=34538524"></script>
@@ -277,7 +283,7 @@
 <!-- Only the sync panel draws one, and only once it is opened, so this sits with
      app.js at the end rather than blocking the first paint. -->
 <script src="qr.js?v=b795920c"></script>
-<script src="app.js?v=6cac27fe"></script>
+<script src="app.js?v=7331dec8"></script>
 <script>
 // Reload once when the page in the cache is older than the page on the server.
 //
