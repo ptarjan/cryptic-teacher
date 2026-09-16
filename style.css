@@ -34,6 +34,23 @@
   --paper-indysunday-fg: #1f5c56;
   --paper-everyman-bg: #f0e0cf;
   --paper-everyman-fg: #7a4a24;
+  /* One motion language for the hint panel. Everything in there is an entrance —
+     a mark arriving on the clue, a verdict arriving under it, the graded clue
+     travelling up to the rung it judged — and an entrance is one duration and
+     one curve or it is several panels pretending to be one. Five durations
+     between .32s and .45s and two different curves said nothing that one of
+     each does not (Paul, 2026-09-16: "use animation consistently in the hint
+     part, have one visual language"). The beat is the ONLY stagger: a thing
+     that must be read second waits exactly one, never some other fraction. */
+  --mo-in: .36s;
+  --mo-beat: .14s;
+  --mo-ease: cubic-bezier(.2, .7, .3, 1);
+  /* The one thing in the panel that is not an entrance: a flash that says a line
+     has become tappable. Longer than an entrance because nothing arrived and
+     there is nothing to read — it has to be caught out of the corner of an eye
+     that is looking somewhere else — but on the same curve, so it belongs to
+     the same panel. Two words in the vocabulary, not seven loose numbers. */
+  --mo-pulse: .9s;
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -615,7 +632,7 @@ button:disabled:hover { border-color: var(--line); }
 .clue-done { display: inline-block; margin-right: 4px; font-weight: 700; color: var(--ok); }
 .clue-done.clean { color: var(--sel); }
 @media (prefers-reduced-motion: no-preference) {
-  .clue-done { animation: gv-right .45s ease-out; }
+  .clue-done { animation: gv-right var(--mo-in) var(--mo-ease); }
 }
 
 /* ---------- hint panel ---------- */
@@ -769,7 +786,7 @@ button:disabled:hover { border-color: var(--line); }
    element rather than into the markup setHTML rewrites, so a re-render mid-guess
    does not restart it. */
 .hint-clue.picking {
-  border-radius: 6px; animation: clue-live .9s ease-out 1;
+  border-radius: 6px; animation: clue-live var(--mo-pulse) var(--mo-ease) 1;
 }
 @keyframes clue-live {
   0%   { box-shadow: 0 0 0 0 var(--accent-soft); }
@@ -880,10 +897,10 @@ button.gw { border-style: dashed; border-color: var(--pick-fg); }
    selection, and an entrance that replays on each one is a fidget, not an
    entrance. */
 .gw.hit { background: var(--pick-bg); border-color: var(--pick-fg); color: var(--pick-fg); }
-.guess-result.fresh .gw.hit { animation: gw-hit .4s ease-out; }
+.guess-result.fresh .gw.hit { animation: gw-hit var(--mo-in) var(--mo-ease); }
 .gw.spare { opacity: .45; text-decoration: line-through; }
 .gw.missed { border-color: var(--pick-fg); border-style: dashed; color: var(--pick-fg); }
-.guess-result.fresh .gw.missed { animation: gw-missed .45s ease-out .18s both; }
+.guess-result.fresh .gw.missed { animation: gw-missed var(--mo-in) var(--mo-ease) var(--mo-beat) both; }
 @keyframes gw-hit {
   from { transform: scale(1); }
   45%  { transform: scale(1.14); }
@@ -946,8 +963,8 @@ button.primary:disabled { background: transparent; color: var(--muted); border-c
 /* A miss stays plain and stays quiet: it is a step in the lesson, not an error
    state, and it must never be the loudest thing in the panel. */
 .guess-verdict.miss { color: var(--muted); font-size: .95rem; }
-.guess-result.fresh .guess-verdict.right { animation: gv-right .45s ease-out; }
-.guess-result.fresh .guess-verdict.miss { animation: gv-miss .4s ease-out; }
+.guess-result.fresh .guess-verdict.right { animation: gv-right var(--mo-in) var(--mo-ease); }
+.guess-result.fresh .guess-verdict.miss { animation: gv-miss var(--mo-in) var(--mo-ease); }
 @keyframes gv-right {
   from { opacity: 0; transform: translateY(6px) scale(.96); }
   60%  { opacity: 1; transform: translateY(0) scale(1.05); }
@@ -961,7 +978,7 @@ button.primary:disabled { background: transparent; color: var(--muted); border-c
 }
 /* The words you picked that weren't in it: they step back rather than being
    found already stepped back, so the eye can see which ones went. */
-.guess-result.fresh .gw.spare { animation: gw-spare .35s ease-out both; }
+.guess-result.fresh .gw.spare { animation: gw-spare var(--mo-in) var(--mo-ease) both; }
 @keyframes gw-spare { from { opacity: 1; } to { opacity: .45; } }
 @media (prefers-reduced-motion: reduce) {
   .guess-result.fresh .guess-verdict.right, .guess-result.fresh .guess-verdict.miss,
@@ -988,7 +1005,7 @@ mark.link {
    new elements every time the clue is rewritten, so this fires exactly when the
    markup changed: setHTML() declines to write markup identical to what is
    already there, which is what keeps an idle re-render from replaying it. */
-.hint-clue.marks-new mark { animation: mark-in .32s ease-out both; }
+.hint-clue.marks-new mark { animation: mark-in var(--mo-in) var(--mo-ease) both; }
 @keyframes mark-in { from { background-color: transparent; color: inherit; box-shadow: none; } }
 @media (prefers-reduced-motion: reduce) { .hint-clue.marks-new mark { animation: none; } }
 
