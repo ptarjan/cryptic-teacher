@@ -15,9 +15,17 @@ a cache you have to out-name. So every static file whose URL is written into a
 page is stamped, and `--check` sweeps the generated pages too: an unstamped
 reference is a fix that will not reach anyone who has already seen the old one.
 
+Stamping happens at build time, not in the repository. The committed
+index.html carries bare `app.js` / `style.css` references: a hash written into a
+tracked file changes on every commit that touches an asset, which is pure churn
+and the one thing the nightly job's rebase conflicts in. The deploy workflow
+runs this script on its own checkout, so what ships is stamped and what is
+stored is not. `--unstamp` puts a working tree back to the stored form.
+
 Usage:
   python3 tools/stamp_assets.py           # rewrite index.html
   python3 tools/stamp_assets.py --check   # exit 1 if any stamp is stale
+  python3 tools/stamp_assets.py --unstamp # strip stamps, for what gets committed
 """
 
 import hashlib
@@ -60,6 +68,13 @@ def stamp(text):
     return text
 
 
+def unstamp(text):
+    """The inverse of stamp(): the form index.html is stored in."""
+    for rel in ASSETS:
+        text = ref(rel).sub(lambda m: f'{m.group(1)}{m.group(2)}{rel}{m.group(1)}', text)
+    return text
+
+
 def unstamped(path):
     """Asset references on a page that carry no ?v= — i.e. URLs that will go on
     serving whatever a cache already holds, however often the bytes change."""
@@ -77,6 +92,14 @@ def pages():
 
 def main():
     original = INDEX_HTML.read_text(encoding="utf-8")
+    if "--unstamp" in sys.argv:
+        bare = unstamp(original)
+        if bare != original:
+            INDEX_HTML.write_text(bare, encoding="utf-8")
+            print("unstamped index.html")
+        else:
+            print("index.html carries no stamps")
+        return 0
     stamped = stamp(original)
     if "--check" in sys.argv:
         if stamped != original:
