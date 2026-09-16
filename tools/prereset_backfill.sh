@@ -925,6 +925,11 @@ fi
 # reason daily_update.sh sweeps them: ignored is not the same as cleaned up.
 rm -f "$REPO/tools/_ann_"*.json
 
+# The stamps come back off before staging, for the reason daily_update.sh gives
+# at its own --unstamp: a ?v= hash in a tracked file is churn, and the deploy
+# workflow stamps its own checkout.
+python3 tools/stamp_assets.py --unstamp
+
 if [ -n "$(git status --porcelain)" ]; then
   # Everything, for the reason daily_update.sh gives at its own `add -A`: this
   # is a worktree of the job's own, and a named list is both incomplete and

@@ -19,8 +19,8 @@ const { registry, document, storage, docListeners, canonicalLink, FakeEl, appSrc
 const EVENTS = require("../sync/events.js");
 // A guess is asked of the clue at the top of the panel and answered in the body
 // under it, so "what the panel is showing" spans both elements. Tests that care
-// which of the two still name the element; the rest ask the panel. Before
-// 2026-09-03 the question printed a second copy of the clue in the body and
+// which of the two still name the element; the rest ask the panel. The
+// question used to print a second copy of the clue in the body and
 // every one of these read hint-body alone.
 const panelHTML = () => registry["hint-clue"].innerHTML + registry["hint-body"].innerHTML;
 // What the page reported since a mark, in order. Sliced rather than read whole:
@@ -100,11 +100,17 @@ const numberOf = (id) => (((global.CRYPTIC_INDEX || {}).puzzles || [])
     .map((s) => s.slice(1, -1));
   assert(stamped.includes("app.js") && stamped.includes("sync/merge.js"),
     "the stamped-asset list still covers the app and the sync merge rules");
+  // The reference has to be there; the stamp does not. Stamping is a build
+  // step, so index.html is stored bare and the deploy workflow rewrites it on
+  // its own checkout — a hash committed into a tracked file is churn on every
+  // asset change and the thing the nightly rebase collides in. What this
+  // catches is an asset renamed or dropped out of the page; the sweep below is
+  // what catches a stamp that has gone stale.
+  let stampedHere = 0;
   stamped.filter((rel) => rel.endsWith(".js") || rel.endsWith(".css")).forEach((rel) => {
-    const want = crypto.createHash("md5")
-      .update(fs.readFileSync(path.join(ROOT, rel))).digest("hex").slice(0, 8);
-    assert(html.includes(`${rel}?v=${want}`),
-      `index.html has a current ?v= stamp for ${rel} (run tools/stamp_assets.py)`);
+    assert(html.includes(`${rel}?v=`) || html.includes(`${rel}"`),
+      `index.html still references ${rel}, which tools/stamp_assets.py stamps`);
+    if (html.includes(`${rel}?v=`)) stampedHere++;
   });
 
   // The same hazard one level down: app.js appends index.js's per-puzzle `v` to
@@ -164,11 +170,12 @@ const numberOf = (id) => (((global.CRYPTIC_INDEX || {}).puzzles || [])
   });
   assert(stampedPages.some((f) => path.relative(ROOT, f) === "index.html"),
     "the app's own page is in the sweep: " + stampedPages.length + " tracked page(s)");
-  // Every stamped SCRIPT and STYLESHEET, which is what the sweep's regex can
-  // see; the images on the list are stamped in markup it does not read.
-  const stampedCode = stamped.filter((rel) => /\.(js|css)$/.test(rel)).length;
-  assert(stampsChecked >= stampedCode,
-    `every stamped asset resolved back to a real file: ${stampsChecked} of ${stampedCode}`);
+  // Every stamp the sweep's regex can see was resolved back to a real file
+  // rather than skipped. Counted against what index.html actually carries, not
+  // against the asset list: on a stored checkout that is zero, and after a
+  // build it is every script and stylesheet on the list.
+  assert(stampsChecked >= stampedHere,
+    `every stamp resolved back to a real file: ${stampsChecked} of ${stampedHere}`);
 }
 
 // --- the solver's abbreviation glossary is the clue-writer's, not a copy ---
@@ -190,17 +197,17 @@ const numberOf = (id) => (((global.CRYPTIC_INDEX || {}).puzzles || [])
 
   // And the glossary the solver can READ is the same table again. It used to be
   // a hand-picked "starter set" of two dozen pairs, which is how the blocks rung
-  // could say CH was check while the tutorial had never heard of it (Paul,
-  // 2026-08-22). Generated now, so a new convention reaches the page the solver
+  // could say CH was check while the tutorial had never heard of it.
+  // Generated now, so a new convention reaches the page the solver
   // is sent to as well as the one the hint quotes from.
   const senses = new Set();
   Object.values(json).forEach((words) => words.forEach((w) => senses.add(w)));
 
   // Each row has its own id, because a hint links to the one convention it just
-  // named rather than to the top of four hundred rows (Paul, 2026-08-22: "it
-  // should link right to that clue"). The slug is computed here the same way
-  // app.js and build_abbreviations.py compute it, so a rule that drifts in one
-  // of the three fails rather than silently producing dead links.
+  // named rather than to the top of four hundred rows. The slug is computed
+  // here the same way app.js and build_abbreviations.py compute it, so a rule
+  // that drifts in one of the three fails rather than silently producing dead
+  // links.
   const anchor = (w) => "abbr-" + w.toLowerCase().replace(/[^a-z0-9]+/g, "-")
     .replace(/^-|-$/g, "");
   const page = fs.readFileSync(path.join(ROOT, "abbreviations/index.html"), "utf8");
@@ -221,7 +228,7 @@ const numberOf = (id) => (((global.CRYPTIC_INDEX || {}).puzzles || [])
 
   // The hint's link has to land on that page, not on an anchor in a page that
   // no longer carries the table: the lesson moved out to /learn/ and the
-  // glossary stayed behind on its own URL (Paul, 2026-08-27).
+  // glossary stayed behind on its own URL.
   const appSrcGloss = fs.readFileSync(path.join(ROOT, "app.js"), "utf8");
   assert(appSrcGloss.includes('"abbreviations/#abbr-"'),
     "a hint's glossary link points at the /abbreviations/ page");
@@ -264,8 +271,8 @@ const numberOf = (id) => (((global.CRYPTIC_INDEX || {}).puzzles || [])
 // --- the grid measures its container, never the window ---
 // Sizing cells off `100vw` ignores body's max-width and the flex column, and on
 // iOS Safari resolves against a viewport that is still moving while the toolbar
-// collapses: the grid drew small and jumped bigger at the first scroll (Paul,
-// iPad, 2026-08-09). --cellsize must be declared once, off --gridspace, and no
+// collapses: the grid drew small and jumped bigger at the first scroll.
+// --cellsize must be declared once, off --gridspace, and no
 // #grid rule may reach for a viewport unit again — the breakpoints tune
 // --cellcap. Asserted here because it is invisible in a headless DOM and the
 // only place it shows up is on a real tablet.
@@ -290,7 +297,7 @@ const numberOf = (id) => (((global.CRYPTIC_INDEX || {}).puzzles || [])
   // it was a second one, and on a resume the two disagreed for a frame: the
   // window read narrow, so the cap came off, while 100cqi already resolved
   // against the full-width column — the grid drew at ~78px cells and snapped
-  // back to 56 (Paul, iPad, 2026-09-12). One ruler cannot disagree with itself.
+  // back to 56. One ruler cannot disagree with itself.
   {
     const caps = [...all.matchAll(/--cellcap:\s*999px/g)];
     assert(caps.length === 1,
@@ -304,7 +311,7 @@ const numberOf = (id) => (((global.CRYPTIC_INDEX || {}).puzzles || [])
   // The two were one query, so an iPad shrank when you turned it to the WIDER
   // side: 820px portrait stacked and got 56px cells and tablet type, 1180px
   // landscape fell through to the desktop rules and got 40px cells at desktop
-  // type (Paul, 2026-08-27). Splitting them is only worth anything if they stay
+  // type. Splitting them is only worth anything if they stay
   // split, and nothing else on the page would notice if they were merged back.
   const media = [...all.matchAll(/@media([^{]+)\{((?:[^{}]|\{[^{}]*\})*)\}/g)]
     .map((m) => ({ q: m[1].trim(), body: m[2] }));
@@ -331,8 +338,8 @@ assert(!registry["app"].classList.contains("hidden"), "app visible after boot");
 // --- boot fetches the puzzle it opens, and not the other 229 ---
 // It used to fetch every puzzle in the index and wait for the last of them
 // before painting anything: 230 requests and about 1.4 MB to put one crossword
-// on screen, which was most of what a cold open cost on a phone (Paul,
-// 2026-08-28). A puzzle file may only be fetched because something needs its
+// on screen, which was most of what a cold open cost on a phone. A puzzle
+// file may only be fetched because something needs its
 // contents — the puzzle being opened, or one with letters saved, which the
 // picker holds against the solutions. This run starts with an empty store, so
 // the count is exactly one, and any number above it is the regression.
@@ -362,7 +369,7 @@ const openTitle = registry["puzzle-title"].innerHTML;
 assert(/No [\d,]+/.test(openTitle), "a Guardian cryptic opened: " + openTitle);
 // The title shows the NUMBER — that is what a solver reads — so the id comes
 // back out of the index rather than off the screen. They stopped being the
-// same string on 2026-08-19, when ids grew their series.
+// same string when ids grew their series.
 const openNumber = (openTitle.match(/No ([\d,]+)/) || [, ""])[1].replace(/,/g, "");
 const openId = ((global.CRYPTIC_INDEX.puzzles || [])
   .find((p) => String(p.number) === openNumber) || {}).id;
@@ -371,7 +378,7 @@ assert(openPuz, "the opened puzzle's data is loaded: " + openId);
 // A ?p= URL hands its indexing credit to the static write-up, not to the
 // homepage. It shipped canonicalling to the site root, so every link to a
 // specific puzzle credited the front page and Search Console filed the puzzle
-// under "alternate page with proper canonical tag" (2026-08-07). With no ?p the
+// under "alternate page with proper canonical tag". With no ?p the
 // URL really is the homepage, and so is the canonical.
 {
   const home = "https://cryptic.paultarjan.com/";
@@ -392,8 +399,7 @@ assert(openPuz, "the opened puzzle's data is loaded: " + openId);
     "title badge disagrees with the index for " + openId + ": badged=" + badged);
 }
 
-// No difficulty band without having solved the puzzle first (Paul, 2026-08-02:
-// "if you can't grade without solving just leave it unknown until you solve").
+// No difficulty band without having solved the puzzle first.
 // tools/difficulty.py enforces this by requiring its wordplay component, which
 // only exists once a puzzle is annotated — but that is one `if` guarding a rule
 // that matters, and the failure is silent and plausible-looking: the Guardian's
@@ -447,7 +453,7 @@ const patBoxes = () => (patHTML().match(/class="pat-box [^"]*"/g) || []);
   assert(patHTML().includes("checked"), "pattern summary mentions checking: " + patHTML());
 }
 
-// --- the current-clue box is the clue, not a status report (Paul, 2026-08-09) ---
+// --- the current-clue box is the clue, not a status report ---
 // The pattern strip used to print its aria-label next to the boxes: twenty words
 // restating what the boxes already show, sitting between the clue and the reader.
 // The summary stays for screen readers, which cannot see the boxes; it must never
@@ -889,15 +895,14 @@ answer.slice(0, len - 1).split("").forEach((ch) => kd(ev(ch)));
   // Moving the cursor is only half of it — on a tablet you then need somewhere to
   // type. iOS raises the soft keyboard only for a focus() inside the gesture, and
   // the click handler re-renders this strip out from under the tapped button, so
-  // the focus has to be hooked on mousedown like the grid's (Paul, iPad,
-  // 2026-08-09). Both cursor controls, asserted together: a new one that forgets
-  // this is a box you can tap and then cannot type into.
+  // the focus has to be hooked on mousedown like the grid's. Both cursor
+  // controls, asserted together: a new one that forgets this is a box you can
+  // tap and then cannot type into.
   // The hint buttons are the other half: they don't move the cursor, but tapping
   // anything that isn't the input blurs it, the keyboard leaving is a viewport
   // change, and the page reflows just as the new rung lands — so the hint reads
-  // as flashing open and shut ("clicking hints sometimes triggers them quickly
-  // open then closed", Paul, iPhone, 2026-08-16). Listed with the cursor
-  // controls so a new tappable thing in the panel cannot forget it.
+  // as flashing open and shut. Listed with the cursor controls so a new
+  // tappable thing in the panel cannot forget it.
   ["grid", "hint-pattern", "hint-next", "hint-escape",
    "clues-across", "clues-down"].forEach((id) =>
     assert(registry[id].listeners.mousedown,
@@ -942,8 +947,8 @@ answer.slice(0, len - 1).split("").forEach((ch) => kd(ev(ch)));
     "the entry finishes correct: " + patHTML());
 
   // --- and now it is confirmed, it is not editable ---
-  // "Deleting a letter from a confirmed word shouldn't be possible. Or doing it
-  // from closing a crossing entry" (Paul, 2026-09-10). Every letter is right and
+  // Deleting a letter from a confirmed word should not be possible, nor should
+  // closing a crossing entry be able to do it either. Every letter is right and
   // the grid has said so, so a keystroke on one is an accident by definition.
   clickBox(2);
   kd(ev("Delete"));
@@ -954,8 +959,7 @@ answer.slice(0, len - 1).split("").forEach((ch) => kd(ev(ch)));
     "nor can Backspace, which is how a crossing entry reaches it: " + patHTML());
   // Refusing the delete is not the same as doing nothing: the cursor still goes
   // where the key was pointing it, one square back, or Backspace reads as dead
-  // on a finished word ("if I backspace over a locked letter it should just move
-  // the cursor to the previous one", Paul, 2026-09-13).
+  // on a finished word.
   assert(curIndex() === 1,
     "a refused Backspace still steps the cursor back one, got " + curIndex());
   clickBox(2);
@@ -975,8 +979,8 @@ answer.slice(0, len - 1).split("").forEach((ch) => kd(ev(ch)));
   //
   // In #hint-vote and never in #hint-body. Appended to the body it landed
   // wherever the body happened to end, so the question moved up or down the
-  // panel with how many rungs had been bought (Paul, iPad, 2026-09-14) — a
-  // fixed slot at the foot of the panel is the only thing that holds it still.
+  // panel with how many rungs had been bought — a fixed slot at the foot of
+  // the panel is the only thing that holds it still.
   {
     const body = registry["hint-body"].innerHTML;
     const row = registry["hint-vote"].innerHTML;
@@ -995,7 +999,7 @@ kd(ev("ArrowDown")); kd(ev("ArrowRight")); kd(ev("Backspace")); kd(ev("Enter"));
 assert(registry["scorebar"].innerHTML.includes("Solved"), "scorebar renders: " + registry["scorebar"].innerHTML);
 assert(registry["scorebar"].innerHTML.match(/Solved <strong>[1-9]/), "at least one clue solved after reveal+typing");
 
-// --- checking letters in the clue list (Paul, 2026-08-09) ---
+// --- checking letters in the clue list ---
 // One dot per crossing square, filled once that square has a letter, so you can
 // see from the list which clue the grid has already half-given you. Having just
 // solved an entry, every clue it crosses must show at least one filled dot, and
@@ -1015,7 +1019,7 @@ assert(registry["scorebar"].innerHTML.match(/Solved <strong>[1-9]/), "at least o
     "a solved clue shows no crossing-letter dots: " + dots(r)));
 }
 
-// --- check buttons: a check must ALWAYS report a result (feedback 2026-07-29) ---
+// --- check buttons: a check must ALWAYS report a result ---
 // A check that silently does nothing when the letters are right reads as a broken
 // button; every check writes a sentence into #check-result and pulses the squares.
 {
@@ -1034,7 +1038,7 @@ assert(registry["scorebar"].innerHTML.match(/Solved <strong>[1-9]/), "at least o
   // moved to. When the boot puzzle became 1394 the cursor landed in a 14-letter
   // entry holding one crossing letter, and a letter picked to be wrong for a
   // different word happened to be right for that one — so the check honestly
-  // reported no errors and these three assertions failed nightly (2026-08-12).
+  // reported no errors and these three assertions failed nightly.
   // Ask the app which entry the cursor is actually in.
   // ...and into one that is still open. A full entry is a confirmed one, and a
   // confirmed word refuses the wrong letter this check needs — correctly, which
@@ -1068,10 +1072,10 @@ assert(registry["scorebar"].innerHTML.match(/Solved <strong>[1-9]/), "at least o
 }
 
 // --- picker: taught puzzles by default, everything by search ---
-// The rule is two-sided and both sides are feedback (2026-08-01, "we only want
-// to only show ones that have full annotations", plus "hard to navigate as we
-// get more puzzles"). Default list = what can actually teach you. Search = the
-// whole collection, so nothing is unreachable and a number you know still works.
+// The rule is two-sided: only show puzzles that have full annotations, and
+// stay navigable as more puzzles get added. Default list = what can actually
+// teach you. Search = the whole collection, so nothing is unreachable and a
+// number you know still works.
 const allPuzzles = global.CRYPTIC_INDEX.puzzles || [];
 const pickerRows = () => registry["picker-list"].children;
 const pickerHTMLNow = () => pickerRows().map((li) => li.children[0].innerHTML).join("");
@@ -1082,12 +1086,12 @@ const typeInPicker = (q) => {
 registry["btn-picker"].onclick();
 assert(pickerRows().length >= 5, "picker lists the annotated puzzles: " + pickerRows().length);
 assert(registry["picker-search"].value === "", "the filter box starts empty on open");
-// --- every row says which day of the week it is (Paul, 2026-08-16) ---
+// --- every row says which day of the week it is ---
 // A Guardian week has a shape — Monday gentle, the Saturday prize hard — so the
 // weekday is a difficulty cue, not trim. Two things have to hold and neither is
 // checkable by eye across 85 rows: the day must AGREE with the date next to it
 // (it is derived, so a timezone slip is the way it goes wrong, and a row reading
-// "Sat 2026-08-16" when that was a Sunday is worse than no day at all), and
+// "Sat" for a date that was actually a Sunday is worse than no day at all), and
 // typing the day's name must find those rows, or the label is a filter that
 // lies about being one.
 {
@@ -1119,9 +1123,9 @@ assert(registry["picker-search"].value === "", "the filter box starts empty on o
   // default list has to have earned its place.
   const others = pickerRows().filter((li) => !/current/.test(li.className || ""));
   const html = others.map((li) => li.children[0].innerHTML).join("");
-  // No full-hints badge anywhere (feedback 2026-08-01: "since it only lists full
-  // hints we don't have to show it"). A label every row carries distinguishes
-  // nothing; the badge marks the exception now, not the norm.
+  // No full-hints badge anywhere: since it only lists full hints there is no
+  // need to show it. A label every row carries distinguishes nothing; the
+  // badge marks the exception now, not the norm.
   assert(!pickerHTMLNow().includes("full hints"),
     "picker rows carry a full-hints badge that says the same thing about every row");
   // Structural rather than textual, so deleting the badge can't quietly turn
@@ -1139,8 +1143,8 @@ assert(registry["picker-search"].value === "", "the filter box starts empty on o
   assert(/archive|search/i.test(registry["picker-more"].innerHTML),
     "the hidden ones are still signposted: " + registry["picker-more"].innerHTML);
   // And it is a shortlist, not the catalogue. Every taught puzzle used to be
-  // listed, which at 226 of them is a scroll, not an answer to "what next"
-  // (Paul, 2026-08-27). Rows the solver has touched are exempt and don't count.
+  // listed, which at 226 of them is a scroll, not an answer to "what next".
+  // Rows the solver has touched are exempt and don't count.
   const untouched = others.filter((li) => !/letters in|solved ✓/.test(li.children[0].innerHTML));
   assert(untouched.length <= 12,
     "the default list is a shortlist, not the archive: " + untouched.length + " untouched rows");
@@ -1209,7 +1213,7 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
     `canonical should follow the opened puzzle to ${want}, got ${canonicalLink.href}`);
   // And the front door stays the front door. Booting on the remembered puzzle is
   // not a choice anybody made, so a bare site root must not rewrite
-  // itself — a homepage declaring a puzzle as its canonical is the 2026-08-07
+  // itself — a homepage declaring a puzzle as its canonical is the
   // de-indexing bug pointed the other way.
   if (!new URLSearchParams(global.location.search).get("p")) {
     assert(urls.length && urls.every((u) => u !== ""),
@@ -1251,7 +1255,7 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
   }
 }
 
-// --- the picker says which puzzles you have finished (Paul, 2026-08-13) ---
+// --- the picker says which puzzles you have finished ---
 // With 78 rows listed, "have I done this one?" is the first question the list
 // has to answer. It is derived, not stored — from the saved letters against the
 // loaded solutions — so a change to either side can silently break it without
@@ -1293,7 +1297,7 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
   if (kept === undefined) delete storage[key]; else storage[key] = kept;
 }
 
-// --- link words and definition notes reach the screen (feedback 2026-07-29) ---
+// --- link words and definition notes reach the screen ---
 // Both fields exist to answer a learner's question — "what does this word do?"
 // and "why doesn't the definition match the answer?" — so data that never
 // renders is worse than no data. Drive the real UI to a clue that has each.
@@ -1345,7 +1349,7 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
 
   // A definitionNote explains why the definition does not agree with the ANSWER,
   // so it is written about the answer and routinely names it — 16 in the corpus
-  // did, and one of them handed TRUMP CARDS over on rung 2 (Paul, 2026-08-09).
+  // did, and one of them handed TRUMP CARDS over on rung 2.
   // It belongs beside definitionFit on the walkthrough, not on the definition
   // rung. Assert BOTH ends: absent early, present late. Only checking that it is
   // shown somewhere is what let it sit on the wrong rung for months.
@@ -1367,8 +1371,8 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
   // The type has no wordplay, so the only "block" available is the whole clue
   // giving the whole answer — and that is what four of the nine in the corpus
   // had. Rendered, hint 3 of 4 read “Might this keep you to time?” → WATCHSTRAP,
-  // one rung after hint 2 had said there was nothing to take apart (Paul, 1392
-  // 22-across, 2026-08-10). The validator now rejects that annotation and app.js
+  // one rung after hint 2 had said there was nothing to take apart
+  // (1392 22-across). The validator now rejects that annotation and app.js
   // suppresses `gives` for the type; this drives the real ladder to prove it, on
   // every cryptic definition there is rather than the one that was reported.
   {
@@ -1435,7 +1439,7 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
         // that was the whole answer while the question in front of it printed
         // the same letters in its prompt — "Which words give APPLAUDED?", the
         // solve handed over on the rung bought to avoid being handed it
-        // (quiptic-1398 17a, 2026-09-12). One rule about what a piece may
+        // (quiptic-1398 17a). One rule about what a piece may
         // show, two readers of it, and only one of them obeying.
         btn.onclick();
         if (isAsking(registry["hint-body"])) {
@@ -1504,7 +1508,7 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
   // The ring reads clockwise from the top as position 1 of the answer onwards,
   // so a pinned letter says WHERE it goes — and in one unbroken circle of
   // thirteen for "KNIGHTS ERRANT" that is a position in a word the solver
-  // cannot see the end of (Paul, 2026-09-16). One ring still, because the
+  // cannot see the end of. One ring still, because the
   // letters are one jumble; the answer's shape is drawn through them as gaps.
   // Taken only when the words account for exactly the letters on the ring.
   {
@@ -1554,9 +1558,9 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
   // last one, anything else does nothing ---
   //
   // The ring used to only ever show the clue's own fodder, dealt by dealRing()
-  // and re-shuffled by the ana-shuffle button. Paul asked to add and delete
-  // letters by typing ("I should be able to delete and add by typing them"),
-  // which app.js implements as addRingLetter()/removeLastRingLetter() editing
+  // and re-shuffled by the ana-shuffle button. The ring also supports adding
+  // and deleting letters by typing, which app.js implements as
+  // addRingLetter()/removeLastRingLetter() editing
   // `ring.letters`/`ring.order` directly, wired to #ana-kbd's keydown handler.
   // That is pure state and is exactly what this block checks. The FLIP
   // animation wired alongside it (playRingFlip in app.js) is not checkable
@@ -1578,9 +1582,8 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
     const before = tilesOf();
     assert(before.length >= 4, "ring sample has tiles before any typing: " + before.join(""));
 
-    // Not checked here: a struck tile keeping its POSITION across a shuffle
-    // (Paul, 2026-09-14 — "when you have fixed letters they should stay put in
-    // the anagram ring"). The tiles and the Shuffle button are written as
+    // Not checked here: a struck tile keeping its POSITION across a shuffle.
+    // The tiles and the Shuffle button are written as
     // markup, and fake_dom stores innerHTML as a string without parsing it, so
     // neither #ana-shuffle nor any button.ana-tile is ever a node this harness
     // can click — the handlers in app.js that own that behaviour are not
@@ -1620,8 +1623,7 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
   // that is how you choose one. So a name that varies with the clue type is a
   // free hint: the &lit definition rung was called "How can the whole clue be
   // the definition?", and on a semi-&lit hidden word that button, unbought,
-  // was the entire solve ("21d gives away the whole thing just by the name of
-  // the hint before I reveal it" — Paul, 4096 21d, VSIGN, 2026-08-17). Same
+  // was the entire solve (4096 21d, VSIGN). Same
   // for "Where does the clue split?", "What is the clue really describing?",
   // "What each half means", and the singular/plural indicator label, which
   // handed over how many indicators there were.
@@ -1638,9 +1640,9 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
     // Riding along on the same sweep: once every rung is bought, every fragment
     // the annotation named must be VISIBLY marked in the clue, on whole words.
     // Both halves were broken and reported as one thing — a highlight that had
-    // been paid for not being there ("I think it might always be the indicator
-    // clue which is disappearing after click", and then on the walkthrough too,
-    // Paul, 2026-08-17). The cause was indexOf(): 'in' matched inside
+    // been paid for not being there — the indicator highlight, disappearing
+    // right after it was clicked, and then again on the walkthrough. The
+    // cause was indexOf(): 'in' matched inside
     // "Conclud(in)g", "island", "confusion" on 18 clues, and on 15 the wrong
     // position landed under the definition, where the old overlap rule deleted
     // whichever mark came second — always the indicator, since indicators were
@@ -1760,8 +1762,8 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
   }
 
   // --- the indicator rung says why THAT word indicates ---
-  // "The indicator didn't explain why stable no was an indicator" (Paul, 4096
-  // 20a RENOVATOR, 2026-08-17) — the rung named the words and then gave the
+  // The indicator rung didn't explain why the indicator word actually
+  // indicated (4096 20a RENOVATOR) — it named the words and then gave the
   // sentence it gives every anagram in the corpus. `indicatorNotes` is the part
   // that is only true of this clue, so it has to be on the screen the moment it
   // exists in the file; a field that is written and never rendered is worse than
@@ -1790,9 +1792,9 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
       }
       // And when every indicator is explained, the explanations are the whole
       // rung. Structural rather than a list of banned phrases, so a new piece of
-      // generic wording cannot slip past by not being on the list: "this is just
-      // context free, never just put out text for the sake of filling space"
-      // (Paul, 2026-08-17). Anything the clue type alone could have written is
+      // generic wording cannot slip past by not being on the list — the
+      // explanation has to be specific to this clue's context, never just text
+      // filling space. Anything the clue type alone could have written is
       // filler beside a sentence about this clue.
       const inds = (s.e.annotation.indicators || []);
       if (inds.length && inds.every((i) => s.n[i])) {
@@ -1809,9 +1811,7 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
   }
 
   // --- a homophone must show you the word you say aloud ---
-  // "24d in 4096 doesn't explain that the original word is hoard but it is a
-  // homophone and you drop the h to it. Don't just fix one clue extrapolate"
-  // (Paul, 2026-08-17). The blocks rung read “Cockney mob” → OARED and stopped:
+  // In 4096 24d, the blocks rung read “Cockney mob” → OARED and stopped:
   // HORDE, the dropped aitch and the sound itself all happened off-screen, and
   // 18 of the corpus's 48 sound clues did the same. The sounded form is now a
   // tracked field rather than a sentence somebody might remember to write, so
@@ -1863,9 +1863,9 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
   // A piece with no fragment to point at, or no letters to ask for, has no
   // question in it: clicking for it gives it to you the instant the click lands.
   // Pacing the rung is meant to make it ask before it tells, so a step that can
-  // only tell is a tap charged for nothing ("don't make me click next on
-  // building blocks if you're just going to give me the blocks for free" — Paul,
-  // 2026-09-16). Those pieces now ride out with the piece before them, which is
+  // only tell is a tap charged for nothing — clicking "Next piece" on building
+  // blocks should not simply hand the blocks over for free. Those pieces now
+  // ride out with the piece before them, which is
   // invisible in the count and visible only here: drive every clue that has one
   // and check that every "Next piece" still offered opens a question.
   {
@@ -1895,8 +1895,8 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
   }
 
   // --- a rung highlights its own words, on its own ---
-  // Feedback 2026-08-01: "if I choose just the indicator clue now it doesn't
-  // highlight the parts of clue". All clue markup used to be gated on the
+  // Choosing just the indicator clue didn't highlight the parts of the clue.
+  // All clue markup used to be gated on the
   // definition rung, which was invisible while the ladder was strictly ordered
   // and broke the day tier 0 allowed any order — so the legitimate route
   // (indicators first, work the definition out yourself) spent a hint and lit
@@ -1933,8 +1933,8 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
     "the legend must name exactly the marks that were drawn: " + legend);
 
   // --- the walkthrough joins the definition to the answer ---
-  // Feedback 2026-08-01: "in the full walkthrough explain why the answer matches
-  // the definition". The blocks spell the answer out of the wordplay, but nothing
+  // The full walkthrough used to not explain why the answer matches the
+  // definition. The blocks spell the answer out of the wordplay, but nothing
   // used to say why those words MEAN it. This tests the render path only — the
   // sentence is written by the annotator and policed by
   // check_definition_fit in tools/validate_annotations.py, so the field is
@@ -1965,7 +1965,7 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
 
 // --- the lesson is a page, not a panel ---
 // It is a document you read end to end and it outgrew the collapsible section
-// it used to live in (Paul, 2026-08-27). So the header carries a link and the
+// it used to live in. So the header carries a link and the
 // app carries no copy of the lesson at all.
 {
   const home = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
@@ -1990,8 +1990,8 @@ registry["reset-puzzle"].onclick();
 // --- picking a clue scrolls once, and lands in the same place every time ---
 // On an iPad in portrait the grid and the hint panel cannot both be on screen,
 // so picking a clue has to bring the panel to you. scrollIntoView("nearest")
-// did it in two goes: one tap moved a little and the next moved the rest (Paul,
-// 2026-08-16), because it measured before the panel had relaid out and because
+// did it in two goes: one tap moved a little and the next moved the rest,
+// because it measured before the panel had relaid out and because
 // "least you can move from here" makes the same tap land somewhere different
 // depending on where you were. The fix is an absolute target, so the property to
 // hold is idempotence: after one tap the panel is fully on screen, and tapping
@@ -2057,8 +2057,8 @@ registry["reset-puzzle"].onclick();
   // --- and taking a rung brings THE RUNG into view, not the top of the panel ---
   // The panel only ever grows, so what a tap on the ladder produced is always
   // at the bottom of it. A panel taller than the screen is placed by its top,
-  // which shows a solver everything except the thing they just asked for
-  // ("when I choose a hint rung should it scroll into view", Paul, iPad).
+  // which shows a solver everything except the thing they just asked for.
+  // Choosing a hint rung should scroll it into view.
   {
     panel.layout(1200, 4000);
     win.pageYOffset = 0; win.scrolls.length = 0;
@@ -2096,7 +2096,7 @@ registry["reset-puzzle"].onclick();
   }
 
 
-  // --- and it lands above the keyboard, not behind it (Paul, iPad, 2026-08-16) ---
+  // --- and it lands above the keyboard, not behind it ---
   // Tapping a clue also raises the soft keyboard, and iOS does not shrink
   // innerHeight for it — the keys are drawn over the bottom of a viewport that
   // still claims to be full height. So "fully in view" has to mean the visual
@@ -2116,7 +2116,7 @@ registry["reset-puzzle"].onclick();
   assert(inBand(), "with the keyboard up the panel lands above it, not behind it: "
     + JSON.stringify(panel.getBoundingClientRect()) + " band 0.." + vv.height);
 
-  // --- and it gets there in one move, not three (Paul, iPhone, 2026-08-16) ---
+  // --- and it gets there in one move, not three ---
   // The real sequence: the tap is handled while the keyboard is still sliding up,
   // so a placement made then is measured against a screen that is about to lose
   // its bottom third. Placing anyway and correcting on every resize is what
@@ -2158,10 +2158,10 @@ registry["reset-puzzle"].onclick();
   // A tap cannot know whether keys are coming: an iPad with a hardware keyboard,
   // or one whose keyboard was dismissed with the chevron, looks exactly like a
   // phone about to raise one. Waiting on that guess held the page still for a
-  // second on every device where the keys never came ("selecting a clue still
-  // delays before scrolling about a second", Paul, 2026-09-10). So the placement
-  // sets off on the settle whatever the tap did, and the keys — whenever they
-  // land — are what the one late look is for.
+  // second on every device where the keys never came, delaying the scroll by about
+  // that long even when nothing was going to raise a keyboard. So the placement
+  // sets off on the settle whatever the tap did, and the keys — whenever they land
+  // — are what the one late look is for.
   drain();                               // drain the look left over from the tap above
   vv.height = 1000; vv.offsetTop = 0;
   win.pageYOffset = 0; win.scrolls.length = 0;
@@ -2182,8 +2182,8 @@ registry["reset-puzzle"].onclick();
   // And the correction is not a single allowance. Whichever viewport event fires
   // first used to spend it — our own smooth scroll slides a phone's URL bar away
   // long before a cold keyboard arrives — so the keys came up over the clue with
-  // nothing left to move it ("the keyboard still covers sometimes", Paul,
-  // 2026-09-10). What bounds it is the keyboard's own state: a band that moved
+  // nothing left to move it, leaving the keyboard covering the clue sometimes.
+  // What bounds it is the keyboard's own state: a band that moved
   // for any other reason costs nothing, and every time the keys change their
   // mind inside the watch window the panel is put back.
   vv.height = 1000; vv.offsetTop = 0;
@@ -2209,7 +2209,7 @@ registry["reset-puzzle"].onclick();
   // the chevron, or dock it to a hardware one — the input keeps focus and nothing
   // is on its way in. Every clue tap after that waited out the whole cold-keyboard
   // deadline for keys that were never coming, and the page sat still for over a
-  // second before it set off (Paul, iPad, 2026-08-28). Only a focus that MOVES
+  // second before it set off. Only a focus that MOVES
   // focus can raise a keyboard, so only that is worth waiting for.
   assert(document.activeElement === registry["kbd"],
     "the typing input is still focused, as it is after typing or dismissing the keys");
@@ -2219,7 +2219,7 @@ registry["reset-puzzle"].onclick();
   // Focused-with-no-keys is the chevron-dismissed iPad, and re-focusing a focused
   // input inside a touch gesture is how iOS is asked to put the keyboard BACK —
   // which it did, on every clue tap after a dismissal, in the home-screen app
-  // (Paul, 2026-09-01). activeElement cannot see this: it reads the same before
+  // activeElement cannot see this: it reads the same before
   // and after, which is why the harness counts the calls.
   registry["kbd"].focusCalls = 0;
   registry["clues-down"].listeners.mousedown[0]();   // keeps the focus, summons nothing
@@ -2263,8 +2263,8 @@ registry["reset-puzzle"].onclick();
   vv.height = 1000;
 
   // --- and our own scroll must not be able to buy another one ---
-  // "Clicking 3d with all the hints open scrolls down then up then down then up
-  // then down" (Paul, iPad, 2026-08-17). The late look above had been allowed to
+  // Clicking 3d with all the hints open used to scroll down then up then down
+  // then up then down. The late look above had been allowed to
   // re-arm after it fired, on the reasoning that a keyboard arriving in stages
   // moves the band twice. It does — but so does our own smooth scroll, because
   // iOS pans the visual viewport under it and fires the same event, and nothing
@@ -2302,7 +2302,7 @@ registry["reset-puzzle"].onclick();
   assert(win.scrolls.length === 0 && win.pageYOffset === 3000,
     `a viewport change with no tap behind it must leave the page alone: 3000 -> ${win.pageYOffset}`);
 
-  // --- a tap on the clue you are already on is still a tap (Paul, 2026-08-20) ---
+  // --- a tap on the clue you are already on is still a tap ---
   // 1-across is selected before the solver has touched anything, so the very first
   // tap of a puzzle lands on the entry that is already current — and while this
   // fired only when the SELECTED ENTRY CHANGED, that one tap did nothing at all:
@@ -3355,8 +3355,11 @@ global.realSetTimeout(() => {
   // this file exists to prevent, so no event name may appear in it as a literal.
   assert(EVENTS.every((n) => !worker.includes(`"${n}"`)),
     "and the Worker holds no second copy of the names");
-  assert(/<script src="sync\/events\.js\?v=/.test(page),
-    "the page loads the list, stamped like every other asset");
+  // Stamped or bare: the stamp is added by the build, not stored (see the
+  // cache-busting block above). What matters here is that the page loads the
+  // one list rather than carrying its own copy of the names.
+  assert(/<script src="sync\/events\.js(\?v=[0-9a-f]+)?"/.test(page),
+    "the page loads the list, the same file the Worker validates against");
 }
 
 // --- point at the words before the rung names them ---
