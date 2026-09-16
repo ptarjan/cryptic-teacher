@@ -290,7 +290,8 @@ window.CRYPTIC_PUZZLES["everyman-4168"] = /*JSON-START*/ {
    "annotation": {
     "type": "anagram",
     "answer": "NEVER YOU MIND",
-    "definition": "I've not saying",
+    "definition": "not saying",
+    "definitionNote": "The definition describes the stance where the answer is the retort that takes it, and the clue prints 'I've not saying', which reads as a slip for 'I'm not saying'.",
     "indicators": [
      "after workout"
     ],
@@ -302,13 +303,18 @@ window.CRYPTIC_PUZZLES["everyman-4168"] = /*JSON-START*/ {
     },
     "blocks": [
      {
+      "clueFragment": "I've",
+      "gives": "",
+      "note": "the pronoun the printed clue puts in front of the definition, where the phrase wants 'I'm'; it hands over no letters"
+     },
+     {
       "clueFragment": "I've done my run",
       "gives": "NEVER YOU MIND",
       "note": "twelve letters in that boast, exactly the twelve the three words of the entry need"
      }
     ],
     "surface": "A gym-goer insisting, a little defensively, that the run is already done.",
-    "walkthrough": "The clue says 'I've' twice and only the second one is fodder; the first belongs to the definition. 'Workout' is the sort of everyday noun a setter can bury an instruction in, and nothing in the sentence points at it.",
+    "walkthrough": "'Workout' is the sort of everyday noun a setter can bury an instruction in, and nothing in the sentence points at it. The clue says 'I've' twice, and only the second one is raw material.",
     "definitionFit": "'Never you mind' is the phrase you use to shut a question down, which is what somebody who is not saying is doing."
    }
   },
@@ -677,7 +683,41 @@ window.CRYPTIC_PUZZLES["everyman-4168"] = /*JSON-START*/ {
    "clue": "At midpoint of entrance area, having change of heart (7)",
    "separatorLocations": {},
    "solution": "HALFWAY",
-   "annotation": null
+   "annotation": {
+    "type": "substitution",
+    "answer": "HALFWAY",
+    "definition": "At midpoint",
+    "indicators": [
+     "having change of heart"
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "indicatorNotes": {
+     "having change of heart": "Somebody who has a change of heart swaps what sits at their centre for something else, and the heart of a seven-letter word is the letter in the middle of it."
+    },
+    "pieces": [
+     "HAL",
+     "F",
+     "WAY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "entrance area",
+      "gives": "HALLWAY",
+      "note": "a hallway is the strip of floor you step onto from the front door, the area the entrance opens into"
+     }
+    ],
+    "surface": "Somebody stops in the middle of the hall, thinks better of it and turns back.",
+    "walkthrough": "Nothing here says which letter arrives: the heart of the entrance area is an L, and the crossings tell you an F replaces it. On the surface 'change of heart' is somebody relenting, not a middle letter being swapped.",
+    "definitionFit": "Halfway is where you stand when half the distance is behind you and half in front, which is the midpoint of anything you can travel along.",
+    "features": {
+     "misdirectedWord": "heart",
+     "joke": "pun",
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "16-across",
