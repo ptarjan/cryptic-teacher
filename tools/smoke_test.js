@@ -3878,6 +3878,32 @@ global.realSetTimeout(() => {
   registry["btn-picker-close"].onclick();
 }
 
+// --- "popular" is a standing tag, and it means what the index says it means ---
+// The third question the chips answer, after which paper and how hard: which of
+// these did anyone think was worth talking about. It is a chip rather than a
+// sort because sorting would hide the other two (Paul, 2026-09-16).
+//
+// Asserted against puzzles/index.json's own buzz percentiles, so the tag cannot
+// drift from the data — a cut written down here as a number would pass while the
+// site tagged a different set.
+{
+  registry["btn-picker"].onclick();
+  const tags = () => [...registry["picker-filters"].innerHTML.matchAll(
+    /id="pb-\d+"[^>]*>([^<]+)</g)].map((m) => m[1]);
+  assert(tags().join(" ") === "popular",
+    "the tag row offers exactly one word, up front: " + tags().join(" "));
+
+  const want = (window.CRYPTIC_INDEX.puzzles || [])
+    .filter((p) => p.buzz && p.buzz.percentile >= 75);
+  assert(want.length > 10, "the index has popular puzzles to find: " + want.length);
+  typeInPicker("popular");
+  const rows = registry["picker-list"].children
+    .filter((li) => li.children[0] && li.children[0].innerHTML.includes("№ "));
+  assert(rows.length === want.length,
+    `the word finds them all and nothing else: ${rows.length} rows vs ${want.length} popular`);
+  typeInPicker("");
+}
+
 // --- the papers and the bands are named, not left to be guessed at ---
 // The search takes "brutal" and "everyman" and the rows wear both badges, but
 // neither tells you the words exist: a completion cannot complete a word you
