@@ -68,6 +68,7 @@ LAYOUT = [
     ("fetching", "tools/extend_archive.py", "walks the archives backwards to keep the annotation queue deeper than the job's best week"),
     ("fetching", "tools/fetch_minutecryptic.js", "Minute Cryptic’s daily hints, as a corpus to be measured against"),
     ("fetching", "tools/recover_minutecryptic.py", "refills days that capture missed from Minute Cryptic’s own video titles, dated by clue number because the upload date lags"),
+    ("fetching", "tools/build_buzz.py", "counts the comments on each puzzle’s fifteensquared thread into a committed table, because CI builds with no blog cache"),
     ("fetching", "tools/fetch_fifteensquared.py", "caches the blog that covers all five series, and its comments — fetched once each, at their 20-second crawl delay"),
     ("fetching", "tools/fetch_lexicon.sh", "downloads the Lufz/Exet lexicon the grid filler needs"),
 
@@ -176,6 +177,7 @@ LAYOUT = [
     ("tables everything else reads", "tools/data/README.md", "what in tools/data is committed, what is fetched, and under what licence"),
     ("tables everything else reads", "tools/data/abbreviations.json", "the hand-built starter table of standard abbreviations"),
     ("tables everything else reads", "tools/data/unclueable.json", "words rejected as answers, with reasons; grid_fill.py vetoes them"),
+    ("tables everything else reads", "tools/data/fifteensquared_buzz.json", "how many comments each puzzle’s blog thread drew; fetch_puzzle.py ranks it within a series into the picker’s “popular” tag"),
     ("tables everything else reads", "tools/data/difficulty_baseline.json", "the frozen distribution difficulty.py normalises against"),
     ("tables everything else reads", "tools/data/lexicon.tsv", "192,738 British-cryptic words by frequency rank; difficulty.py scores obscurity off it"),
     ("tables everything else reads", "tools/data/grading_rubric.md", "the five axes a blind judge scores a clue on"),
