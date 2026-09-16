@@ -41,6 +41,16 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
+      # puzzles/index.* and the ?v= stamp index.html points at them with are
+      # generated from the puzzle files, so the build regenerates them here
+      # rather than trusting whatever was committed. The pre-reset backfill
+      # commits ONE puzzle per push on purpose, without the index, and rebuilds
+      # it only in its republish step at the end of the night — so every commit
+      # in between carries an index that does not describe the tree, and the
+      # smoke test failed the deploy for it (2026-09-15, everyman-4168). Before
+      # the pages and the stamps, both of which read what this writes.
+      - name: Reindex the puzzles
+        run: python3 tools/fetch_puzzle.py --reindex
       # The cards are 24MB of PNGs that change one file a night, so they are
       # neither committed nor redrawn from scratch: the cache carries them and
       # their manifest between runs, and make_og.sh draws only the ones whose
