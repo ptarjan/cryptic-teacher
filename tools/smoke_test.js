@@ -1231,8 +1231,8 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
     typeInPicker(String(unofficial.number));
     const row = pickerRows().find((li) => li.children[0]
       && li.children[0].innerHTML.includes("№ " + unofficial.number));
-    assert(row && row.children[0].innerHTML.includes("our answers"),
-      `the picker badges No ${unofficial.number} as our own answers`);
+    assert(row && row.children[0].innerHTML.includes("unverified answers"),
+      `the picker badges No ${unofficial.number} as unverified`);
     row.children[0].onclick();
     const note = registry["unofficial-note"];
     assert(note && !note.classList.contains("hidden"),

@@ -4544,7 +4544,7 @@
   // colour rule in style.css is one colour per axis, not per badge.
   function sourceBadge(p) {
     return p.solutionsUnofficial
-      ? `<span class="badge auto" title="The paper hasn't published this one's answers yet — these are ours">our answers</span>`
+      ? `<span class="badge auto" title="The paper hasn't published this one's answers yet, so these are ours and nothing has checked them">unverified answers</span>`
       : "";
   }
 

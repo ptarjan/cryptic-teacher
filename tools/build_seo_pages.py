@@ -539,7 +539,7 @@ def hub_page(idx):
                  else '<span class="badge auto">answers only</span>')
         # Same coverage axis as the hints badge, same neutral colour — see
         # sourceBadge() in app.js.
-        ours = ('<span class="badge auto">our answers</span>'
+        ours = ('<span class="badge auto">unverified answers</span>'
                 if p.get("solutionsUnofficial") else "")
         # Every row is badged, because the numbers alone ("No 1,393" among the
         # 30,000s) don't explain themselves and an unbadged row reads as one we
