@@ -1809,6 +1809,41 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
     }
   }
 
+  // --- "Next piece" is never a click that only hands a piece over ---
+  // A piece with no fragment to point at, or no letters to ask for, has no
+  // question in it: clicking for it gives it to you the instant the click lands.
+  // Pacing the rung is meant to make it ask before it tells, so a step that can
+  // only tell is a tap charged for nothing ("don't make me click next on
+  // building blocks if you're just going to give me the blocks for free" — Paul,
+  // 2026-09-16). Those pieces now ride out with the piece before them, which is
+  // invisible in the count and visible only here: drive every clue that has one
+  // and check that every "Next piece" still offered opens a question.
+  {
+    const quiet = [];
+    for (const id of Object.keys(puzzles).sort()) {
+      for (const e of puzzles[id].entries || []) {
+        const blocks = (e.annotation || {}).blocks || [];
+        if (blocks.length > 1 && blocks.some((b) => !(b.clueFragment && b.gives))) {
+          quiet.push({ id, e });
+        }
+      }
+    }
+    assert(quiet.length > 5, "the corpus still has question-less pieces to pace: " + quiet.length);
+    for (const s of quiet.slice(0, 60)) {
+      openClue(s);
+      for (let i = 0; i < 10; i++) {
+        const btn = registry["hint-next"].children[0];
+        if (!CLIMBABLE(btn)) break;
+        const label = btn.textContent;
+        btn.onclick();
+        const asking = isAsking(registry["hint-body"]);
+        assert(asking || !/^Next piece · /.test(label),
+          `${s.id} ${s.e.id}: "${label}" handed a piece over without asking anything`);
+        if (asking) registry["guess-tell"].onclick();
+      }
+    }
+  }
+
   // --- a rung highlights its own words, on its own ---
   // Feedback 2026-08-01: "if I choose just the indicator clue now it doesn't
   // highlight the parts of clue". All clue markup used to be gated on the
