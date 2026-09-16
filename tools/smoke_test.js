@@ -2350,7 +2350,7 @@ registry["reset-puzzle"].onclick();
   panel.layout(0, 0);   // back to unlaid-out, so nothing below here scrolls
   win.pageYOffset = 0; win.scrolls.length = 0;
 
-  // --- and nothing else is allowed to scroll instead of us (Paul, iPhone) ---
+  // --- and nothing else is allowed to scroll instead of us ---
   // Everything above is wasted if the browser scrolls somewhere else afterwards,
   // and it will: iOS brings the focused element into view when the keyboard
   // opens, and the app focuses a 1px invisible input to raise it. Parked in the
@@ -2368,15 +2368,15 @@ registry["reset-puzzle"].onclick();
   assert(/#kbd\s*\{[^}]*position:\s*fixed/.test(css),
     "#kbd is fixed, so iOS has nowhere to scroll it into view from");
 
-  // --- and reading a hint must not change the keyboard either way (Paul, iPad) ---
+  // --- and reading a hint must not change the keyboard either way ---
   // A keyboard arriving is as big a viewport change as a keyboard leaving, and
   // both of them reflow the page under the rung that has just appeared. The first
   // half of this was fixed by focusing the hidden input on mousedown so a tap
   // could not dismiss the keyboard ("clicking hints sometimes triggers them
-  // quickly open then closed", iPhone, 2026-08-16) — which then SUMMONED one for
+  // quickly open then closed") — which then SUMMONED one for
   // anyone whose keyboard was down, and produced the identical symptom from the
   // other direction: "I just clicked a hint once on my iPad and it opened then
-  // quickly closed" (iPad, 2026-08-17).
+  // quickly closed".
   //
   // So the property is steadiness, not focus: whatever the keyboard was doing
   // when the finger landed, it is still doing after. Asserted in both states,
@@ -2386,7 +2386,7 @@ registry["reset-puzzle"].onclick();
   // as well, on the reading that tapping a square is a decision to type — but a
   // square is how you pick a CLUE, and the ladder's first move on a new clue is
   // a question you answer by tapping, which a keyboard over the bottom half of
-  // the screen buries (Paul, 2026-08-27, and of the grid itself 2026-08-29).
+  // the screen buries.
   // Tapping the boxes you are about to fill in is the one tap that means typing.
   //
   // Every tappable thing in the app is listed, and asserted by tapping rather
@@ -2412,7 +2412,7 @@ registry["reset-puzzle"].onclick();
   document.activeElement = null;
 }
 
-// --- a real scroll drops the keyboard; our own scroll must not (Paul, 2026-09-08) ---
+// --- a real scroll drops the keyboard; our own scroll must not ---
 // On a phone the keys eat half the screen while an input is focused, and scrolling
 // is what a reader does to get out from under them — to read the clue, the ladder or
 // the grid. But placeHintPanel()'s own window.scrollTo() above must never cost the
@@ -2487,7 +2487,7 @@ registry["reset-puzzle"].onclick();
   document.activeElement = null;
 }
 
-// --- solving a clue opens its whole ladder, for free (Paul, 2026-08-16) ---
+// --- solving a clue opens its whole ladder, for free ---
 // The tiers exist to stop a walkthrough being taken cold. Once the answer is in
 // the grid there is nothing left to give away, so every rung opens — and opening
 // them must not cost anything, or the unlock is a trap that quietly turns
@@ -2581,8 +2581,8 @@ registry["reset-puzzle"].onclick();
          mergeSaves(gue, rev).puzzles["1"].letters["0,0"] === "R!",
     "a revealed letter takes a tied square, from either direction");
 
-  // Rubbing a letter out has to reach the other device. This is the bug Paul
-  // hit on 2026-08-10: absence used to mean only "I never filled this in", so a
+  // Rubbing a letter out has to reach the other device. This is the bug where
+  // absence used to mean only "I never filled this in", so a
   // deletion could not win an argument it was not allowed to enter, and the
   // other device handed the letters back on every single pull.
   const had = { v: 1, puzzles: { 1: {
@@ -2643,8 +2643,8 @@ registry["reset-puzzle"].onclick();
   // reads "rung shown, no count for it" as a save from before pacing existed,
   // and hands over every piece the count would have held back — so a merge
   // that drops the field un-paces the rung on the very next sync, which is
-  // what happened to Paul mid-clue: "I just did the first one and then the
-  // second solved without my input" (2026-09-07).
+  // what happens: solving one clue would silently solve the next one too,
+  // with no input from the solver.
   const pacedFar = { v: 1, puzzles: { 30079: {
     hintsShown: { "1a": ["blocks"] }, blocksAt: { "1a": 2 }, updated: 100 } } };
   const pacedNear = { v: 1, puzzles: { 30079: {
@@ -2703,8 +2703,8 @@ registry["reset-puzzle"].onclick();
 // out and keeps the italics as [start, length] ranges, because the clue string
 // itself has to stay plain: every annotation fragment is located in it by
 // indexOf and highlighted by character offset. Structural, not a spot-check —
-// the failure mode is a tag rendering as a tag, which is what Paul saw on the
-// Independent, and it comes back the moment someone escapes a clue directly.
+// the failure mode is a tag rendering as a tag, seen on the Independent, and
+// it comes back the moment someone escapes a clue directly.
 {
   const src = fs.readFileSync(path.join(ROOT, "app.js"), "utf8");
   assert(!/esc\(\s*e\.clue\s*\)/.test(src),
@@ -2737,8 +2737,7 @@ registry["reset-puzzle"].onclick();
 // in the JSON, blank on the accessible page, blank in its own print PDF. Nothing
 // downstream could tell that from a hard clue, so the puzzle stayed
 // `annotated: false`, the nightly backfill bought a whole annotation run on it
-// every night to re-solve the same 28 clues, and alerted about the 29th
-// (2026-09-01). The flag is written by the fetchers off ONE definition of
+// every night to re-solve the same 28 clues, and alerted about the 29th one. The flag is written by the fetchers off ONE definition of
 // wordless (fetch_puzzle.has_words) so the app never re-derives it.
 {
   const src = fs.readFileSync(path.join(ROOT, "app.js"), "utf8");
@@ -2809,7 +2808,7 @@ registry["reset-puzzle"].onclick();
 
 // --- the letter strip shows where the words break ---
 // The enumeration is the solver's best structural clue and the grid cannot show
-// it, so the strip does (Paul, 2026-08-16). A gap in the wrong place is worse
+// it, so the strip does. A gap in the wrong place is worse
 // than no gap at all, so the parser is exercised directly and then checked
 // against every answer in the corpus: wherever it claims a division, the answer
 // really does break there.
@@ -2859,7 +2858,7 @@ registry["reset-puzzle"].onclick();
   // --- and it shrinks to fit rather than stacking one word per line ---
   // Fourteen boxes at full size are wider than a phone, and flexbox moves a whole
   // word to the next line rather than shrinking anything, so (3,8,3) came out as
-  // three almost-empty rows (Paul, iPhone, 2026-08-16). CSS cannot count letters,
+  // three almost-empty rows on a phone screen. CSS cannot count letters,
   // so the strip publishes its own shape and the stylesheet does the arithmetic.
   // Both halves are pinned here because either alone is silently useless: markup
   // with nothing reading it, or a rule sizing off a variable nobody sets.
@@ -3045,7 +3044,7 @@ registry["reset-puzzle"].onclick();
 global.realSetTimeout(() => {
   // Keyed on the puzzle actually open, not on "ct:3" — that prefix assumed the
   // boot puzzle would always be a 30xxx Guardian daily, and it stopped being one
-  // the night the reindex made 1394 the newest (2026-08-12). A test that only
+  // the night the reindex made 1394 the newest. A test that only
   // passes for one range of puzzle numbers is asserting the wrong thing.
   assert(storage["ct:" + openId], `progress persisted to localStorage under ct:${openId}, got ` +
     JSON.stringify(Object.keys(storage)));
@@ -3059,7 +3058,7 @@ global.realSetTimeout(() => {
   process.exit(failures ? 1 : 0);
 }, 400);
 
-// --- finishing the grid is an event, not a number going up (Paul, 2026-08-17) ---
+// --- finishing the grid is an event, not a number going up ---
 // "There should be some celebration when you complete." Two properties, and the
 // second is what keeps it from being noise: it fires on the TRANSITION, in the
 // session that earned it, so re-opening a puzzle you finished last week throws
@@ -3139,7 +3138,7 @@ global.realSetTimeout(() => {
       + `viewport ${global.window.innerHeight})`);
   }
   // Nothing to dismiss, and nothing that can dismiss it: the scoreline is a
-  // fact about the puzzle, not a notification (Paul, 2026-09-06). It has to
+  // fact about the puzzle, not a notification. It has to
   // survive the renders that follow, which is what a stray keystroke causes.
   assert(!registry["celebrate-done"], "and there is no Thanks button to clear it away");
   const settled = box.innerHTML;
@@ -3190,7 +3189,7 @@ global.realSetTimeout(() => {
 }
 
 // --- a single clue's own solve gets a gentle nod, once, only when typed ---
-// "Celebrate gently when a clue is solved" (Paul, 2026-09-08), refined the same
+// "Celebrate gently when a clue is solved," refined the same
 // day into two tiers: any solve settles a tint on its cells, and a solve with
 // no hints taken and no letters revealed also earns a small gold marker that
 // STAYS on the clue row after the flash fades — the thing worth highlighting
@@ -3260,8 +3259,8 @@ global.realSetTimeout(() => {
     "the no-hints marker outlives the flash");
   // The squares are the other way round: the flash is the whole of it, and a
   // finished word leaves no standing tint behind ("you don't have to add the
-  // green to locked in letters on the grid, it is a bit gross", Paul,
-  // 2026-09-13). The lock announces itself when it is bumped into — a pulse and
+  // green to locked in letters on the grid, it is a bit gross"). The lock
+  // announces itself when it is bumped into — a pulse and
   // a cursor that moves — not by colouring a filling grid.
   assert(!cells.some((c) => c.classList.contains("confirmed")),
     "a solved entry's squares carry no standing tint once the flash is over");
@@ -3413,8 +3412,8 @@ global.realSetTimeout(() => {
     "the rung is not handed over while the question is still open: " + html);
   // One clue on the screen, and it is the real one. The question used to print a
   // second copy of the clue in the body and ask the solver to point at that,
-  // leaving them to work out which of the two sentences was the live one
-  // (Paul, 2026-09-03). The words are targets where they are read.
+  // leaving them to work out which of the two sentences was the live one.
+  // The words are targets where they are read.
   assert(/id="gw-\d+"/.test(registry["hint-clue"].innerHTML),
     "the clue's own words are the targets: " + registry["hint-clue"].innerHTML);
   assert(!/id="gw-\d+"/.test(registry["hint-body"].innerHTML),
@@ -3438,7 +3437,7 @@ global.realSetTimeout(() => {
     "and nothing is marked wrong: " + html);
   // The marked clue is not an animation, and the rung is not on a delay. Both
   // arrive on the tap and both are still there afterwards: "it flashes too fast
-  // for me to read" (Paul, 2026-08-21) was a reading deadline nobody asked for.
+  // for me to read" was a reading deadline nobody asked for.
   assert(html.includes("hint-step"), "the rung opens on the same tap: " + html);
   assert(!/id="gw-\d+"/.test(html),
     "and the graded words stop being buttons rather than stopping taps: " + html);
@@ -3484,7 +3483,7 @@ global.realSetTimeout(() => {
   // And the other way out: you stop hunting for the definition because you have
   // just written the answer into the grid. Leaving the question up would be the
   // site quizzing you on a clue you had already beaten, so the rung is handed
-  // over — free, the score being settled (Paul, 2026-09-06). Quietly: one clue
+  // over — free, the score being settled. Quietly: one clue
   // coming out gets no announcement, only the finished grid does.
   openIt();
   defBtn().onclick();
@@ -3674,7 +3673,7 @@ global.realSetTimeout(() => {
 
   // Either order pairs. A row tapped with nothing in hand arms itself and waits
   // for a chunk — the tap that used to do nothing whatever ("can I touch the
-  // pairing in any order", Paul, 2026-09-12).
+  // pairing in any order").
   registry["gm-slot-0"].onclick();
   assert(/id="gm-slot-0" class="gm-slot armed"/.test(panelHTML()),
     "a row tapped first arms itself: " + panelHTML());
@@ -3742,7 +3741,7 @@ global.realSetTimeout(() => {
   // disabled, so that a guess could not be walked around by buying a different
   // hint — and that cornered a solver who had simply picked the wrong rung
   // ("when you're in the middle of a hint you can't switch to a different
-  // hint", Paul, 2026-09-16). Switching abandons the question; it never answers
+  // hint"). Switching abandons the question; it never answers
   // it, so nothing is earned by leaving.
   assert(rungs().some((b) => !b.disabled),
     "and another rung can still be taken while the question stands: "
@@ -3768,8 +3767,8 @@ global.realSetTimeout(() => {
   // The tap that opened it meant "show me this rung", and a solver who reads
   // the question and cannot honestly answer it must not be cornered into
   // buying the rung to escape ("having a building block charge me with no way
-  // to get it free when the letter match doesn't feel good", Paul,
-  // 2026-09-12). Nothing was shown, so the price is unchanged and the rung
+  // to get it free when the letter match doesn't feel good"). Nothing was
+  // shown, so the price is unchanged and the rung
   // goes back on the ladder, still willing to ask.
   const paidBefore = registry["scorebar"].innerHTML;
   const bodyBefore = registry["hint-body"].innerHTML;
@@ -3838,7 +3837,7 @@ global.realSetTimeout(() => {
 }
 
 // --- a run of words is one gesture, and a settled word is not a choice ---
-// Two things Paul asked for on the same screen. Dragging across the words picks
+// Two things asked for on the same screen. Dragging across the words picks
 // the run under the finger, because a definition IS a run and four taps is four
 // chances to be interrupted. And a word an earlier rung already named cannot be
 // offered as an answer to the next one: it is on the screen as fact, so letting
@@ -3939,10 +3938,10 @@ global.realSetTimeout(() => {
 // returns an empty list would be worse than none, so each one is typed in.
 //
 // And it stays SHUT until two letters are in. A list offered up front hides the
-// puzzles it is there to search (Paul, iPhone, 2026-08-27).
+// puzzles it is there to search.
 //
-// Read off the chips in the panel, not off a datalist: the input carried
-// list="picker-terms" until 2026-09-14, and a datalist popup is native UI the
+// Read off the chips in the panel, not off a datalist: the input used to carry
+// list="picker-terms", and a datalist popup is native UI the
 // page cannot place — on iPad it opened nowhere near the box. Asserting on
 // chips is also the only way a test can see WHERE the suggestions are, which is
 // the thing that was wrong.
@@ -3993,7 +3992,7 @@ global.realSetTimeout(() => {
 // neither tells you the words exist: a completion cannot complete a word you
 // have never seen, and the default list is the newest dozen — one puzzle in the
 // collection is Gentle, and Everyman, the biggest series of the five, starts
-// twenty-three rows down (Paul, 2026-08-27). So EVERY band and EVERY paper is
+// twenty-three rows down. So EVERY band and EVERY paper is
 // named next to the box, bands easiest first and papers biggest first.
 {
   registry["btn-picker"].onclick();
@@ -4034,7 +4033,7 @@ global.realSetTimeout(() => {
       `and tapping "${w}" again is the way back out: ` + registry["picker-search"].value);
   });
 
-  // --- and they combine (Paul, 2026-08-28) ---
+  // --- and they combine ---
   // "I can choose Everyman brutal". A tap used to REPLACE the box, so the paper
   // and the difficulty were mutually exclusive by accident — while the TYPED
   // search had been intersecting its terms all along. The chips are how you spell
@@ -4060,12 +4059,12 @@ global.realSetTimeout(() => {
   registry["btn-picker-close"].onclick();
 }
 
-// --- and the bands say what they mean (Paul, 2026-09-14) ---
+// --- and the bands say what they mean ---
 // "Are the difficulties explained anywhere to the user?" In the app they were
 // not: difficultyBadge() puts the percentile and the basis in a title=, which
 // needs a pointer to hover, and this is solved on an iPad. The archive hub says
 // it in standing prose and the app cannot — a blurb between the filters and the
-// list wraps and pushes the puzzles down (Paul, 2026-08-28) — so it is behind a
+// list wraps and pushes the puzzles down — so it is behind a
 // ? that costs no height until it is tapped.
 {
   registry["btn-picker"].onclick();
@@ -4091,7 +4090,7 @@ global.realSetTimeout(() => {
   registry["btn-picker-close"].onclick();
 }
 
-// --- the type rung asks too, and its answer is a family (Paul, 2026-08-27) ---
+// --- the type rung asks too, and its answer is a family ---
 // Every other part of a clue is something you can be asked to point at. This one
 // is a choice among the seven the site teaches — and a ladder that asks about
 // every part except the first is a ladder that answers its own first question.
@@ -4141,7 +4140,7 @@ global.realSetTimeout(() => {
   assert(html.includes("guess-choices"), "the type rung asks before it tells: " + html);
   // The strip is a grid of equal columns, not a row the type has to be shrunk
   // to fit. An odd number of chips would leave the last one alone in column
-  // one, which is exactly what Paul reported four times about "&lit", so the
+  // one, which is what happens with an odd-count family like "&lit", so the
   // last-of-an-odd-count rule that spans it is load-bearing and is checked
   // here rather than left to the eye.
   {
@@ -4191,7 +4190,7 @@ global.realSetTimeout(() => {
   // The entrance is spent on the draw that first shows the verdict. The panel is
   // rewritten on every keystroke and every selection, so an animation left on it
   // replays while the solver is doing something else entirely — "the old 'yes
-  // that's the one' is animating as I'm picking a new clue" (Paul, 2026-08-28).
+  // that's the one' is animating as I'm picking a new clue".
   assert(html.includes("guess-result fresh"), "the verdict arrives with an entrance: " + html);
   registry["clue-" + found.e.id].listeners.click[0]();
   assert(!/guess-result fresh/.test(registry["hint-body"].innerHTML),
@@ -4205,7 +4204,7 @@ global.realSetTimeout(() => {
   // How the ladder works is said once and then stops. It is a line about the
   // whole ladder, so once a rung has been worked out it has been demonstrated,
   // and a solver who has done it does not need telling again on every clue they
-  // open after (Paul, 2026-08-27).
+  // open after.
   assert(/asks before it tells/.test(cold), "a cold clue says what the ladder is: " + cold);
   const other = (puzzles[found.id].entries || []).find(
     (x) => x.id !== found.e.id && x.annotation && x.annotation.type);
@@ -4215,7 +4214,7 @@ global.realSetTimeout(() => {
     "and stops saying it once a rung has been worked out: " + registry["hint-body"].innerHTML);
 }
 
-// --- a clue that is two things at once has two right answers (Paul, 2026-08-28) ---
+// --- a clue that is two things at once has two right answers ---
 // "There was a regularly indicator but I said it was a charade." Both were true:
 // the type was compound and the rung graded against whichever family its table
 // happened to reach first. Two of every five annotated clues in the collection
@@ -4282,7 +4281,7 @@ global.realSetTimeout(() => {
   }
 }
 
-// --- nothing is charged for without being offered first (Paul, 2026-08-28) ---
+// --- nothing is charged for without being offered first ---
 // A rung used to skip its question whenever what was left to point at WAS the
 // answer, on the grounds that the answer would then be elimination. On a
 // two-word double definition — "County flags (5)" — that is every rung the clue
@@ -4328,7 +4327,7 @@ global.realSetTimeout(() => {
 }
 
 // --- every ladder names its precise type, including the two that used to be
-// exempt (2026-09-06) ---
+// exempt ---
 // Double and cryptic definitions skipped the `.mechanism` line because their
 // family label was held to have said it already. Their family is "Definitions
 // only", whose blurb offers BOTH arms and picks neither, so those two types were
@@ -4379,9 +4378,9 @@ global.realSetTimeout(() => {
   }
 }
 
-// --- where a definition ENDS is a judgement call (Paul, 2026-08-30) ---
-// "Communication made meaningless by this" (SCRAMBLER): Paul picked
-// "Communication made meaningless" and was marked wrong for leaving off the two
+// --- where a definition ENDS is a judgement call ---
+// Take "Communication made meaningless by this" (SCRAMBLER): picking just
+// "Communication made meaningless" was marked wrong for leaving off the two
 // words that point back at the answer instead of defining it. 46 definitions in
 // the corpus end in a word like that, and a solver who stops one short of the
 // line the annotation drew has still named the definition. Leaving off a word
@@ -4443,7 +4442,7 @@ global.realSetTimeout(() => {
     "but dropping a word that carries the meaning is still wrong on " + found.e.clue);
 }
 
-// --- a double definition never asks which half comes first (Paul, 2026-08-30) ---
+// --- a double definition never asks which half comes first ---
 // Both halves of a DD are asked for in the same words — "which words give
 // SCRAMBLER?", twice — so if both were pickable at once, which one the annotation
 // happens to list first would be a thing the solver has to guess. They are not:
@@ -4560,7 +4559,7 @@ global.realSetTimeout(() => {
   }
 }
 
-// --- the spotting rungs spend the type rung (Paul, 2026-08-21) ---
+// --- the spotting rungs spend the type rung ---
 // Once the definition and the indicator are both on screen, "what kind of clue
 // is this?" has nothing left to tell anyone, so it must stop gating the assembly
 // rung. BY EITHER ROUTE: this ran on earnedRungs first, which is only written by
@@ -4594,7 +4593,7 @@ global.realSetTimeout(() => {
   };
   const rung = (re) => registry["hint-next"].children.find((b) => re.test(b.textContent || ""));
   // Ladder positions rather than labels: every rung button is "<n> · <label>",
-  // and n is the rung's place in this clue's ladder. It is the number Paul reads
+  // and n is the rung's place in this clue's ladder. It is the number read
   // off the screen, and it means the test never has to know what the assembly
   // rung is called.
   const at = (pred) => registry["hint-next"].children.filter(pred)
@@ -4624,8 +4623,8 @@ global.realSetTimeout(() => {
     "the clue can pose both spotting questions: " + JSON.stringify(want));
 
   // --- and each rung's words are picked in that part's own colour ---
-  // "Use the same colour for my selection as we use for indicator" (Paul,
-  // 2026-08-28). The page has exactly two highlight colours — green for a
+  // "Use the same colour for my selection as we use for indicator." The page
+  // has exactly two highlight colours — green for a
   // definition, pink for an indicator and the fragments it works on — and
   // picking used to have a third, neutral one of its own. That taught one colour
   // for "I chose this" and a different one for the thing just correctly chosen.
@@ -4757,7 +4756,7 @@ global.realSetTimeout(() => {
 // as long as a round trip takes. It used to be written into localStorage as the
 // truth, so anything done during that second — the letter typed, the rung opened
 // — was deleted in front of the solver: "I clicked full walkthrough, it appeared
-// then disappeared" (Paul, 2026-08-24). The reply is merged in now.
+// then disappeared". The reply is merged in now.
 //
 // The stub resolves synchronously, on purpose. A real promise lands after this
 // file has finished, and worse, an assertion thrown inside one is caught by the
@@ -4846,7 +4845,7 @@ global.realSetTimeout(() => {
     "an unknown clue ref falls back to the first clue rather than erroring");
 }
 
-// --- a bad hint can be reported from the clue it is bad on (Paul, 2026-08-28) ---
+// --- a bad hint can be reported from the clue it is bad on ---
 // Two taps and a sentence, in the strip the reveal button already lives in. No
 // page, no form, no address to find: a reader who has just been taught something
 // false will say so if it costs them nothing, and will not if it costs them a
@@ -4868,7 +4867,7 @@ global.realSetTimeout(() => {
     assert(/id="rp-note"/.test(registry["hint-escape"].innerHTML),
       "and opening it gives you the line to write on: " + registry["hint-escape"].innerHTML);
     // Something you can read your own sentence back in. It accepts 400
-    // characters and used to offer one 280px line for them (Paul, 2026-09-06).
+    // characters and used to offer one 280px line for them.
     // More than one line at rest, and it grows with the typing; the ceiling is
     // CSS's, because the other end of this was "too big" the same day.
     assert(/<textarea id="rp-note"[^>]*rows="[2-9]"/.test(registry["hint-escape"].innerHTML),
@@ -4932,7 +4931,7 @@ global.realSetTimeout(() => {
 
 // --- an indicator is a phrase, and its linking words are not the lesson ---
 // "If the indicator has linking words it doesn't feel fair to lose. Like for
-// spooner if I just choose spooner I should get it" (Paul, 2026-09-06). A third
+// spooner if I just choose spooner I should get it." A third
 // of the corpus's indicators are more than one word — "starts to", "end of",
 // "according to Spooner" — and demanding the exact span marked a solver wrong
 // for finding the thing and drawing its edge one word in. Finding every
@@ -5029,7 +5028,7 @@ global.realSetTimeout(() => {
 // The score was already settled the moment the clue went in, so the rung costs
 // nothing either way — but the panel says which rungs were EARNED and which
 // were bought, and a rung handed over at that moment arrived looking bought:
-// "the step never said worked out · free" (Paul, iPad, 2026-09-14, quiptic-1396
+// "the step never said worked out · free" (quiptic-1396
 // 16D). Solving the clue is a better answer to "which words give which letters"
 // than pointing at the words, so it is scored as one.
 {
