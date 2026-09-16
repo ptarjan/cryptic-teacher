@@ -254,18 +254,9 @@ button:disabled:hover { border-color: var(--line); }
 .anagram-ring p { margin: 2px 0 6px; text-align: center; max-width: 34em; }
 /* cursor:text is the only hint that clicking empty space here does something —
    it focuses #ana-kbd (see app.js), which is how typing gets in. */
-/* One disc per word of the answer, side by side and wrapping on a narrow phone.
-   A single-word answer puts exactly one disc in here, so this row is the layout
-   for both cases rather than a special one for the long answers. */
-.ana-discs { display: flex; flex-wrap: wrap; justify-content: center;
-             align-items: center; gap: 4px 28px; }
-/* A rule between the rings, in the gap rather than around them: two circles
-   side by side with nothing between them read as one scattered set of letters,
-   and a border drawn ROUND a disc would touch the tiles, which sit exactly on
-   the edge of their box. Only ever between — the first disc has nothing to its
-   left to be separated from. */
-.ana-disc + .ana-disc { border-left: 1px solid var(--line); padding-left: 28px;
-                        margin-left: -14px; }
+/* Centres the disc. One disc always — a multi-word answer breaks the circle
+   rather than adding a second one; see ringHTML. */
+.ana-discs { display: flex; justify-content: center; align-items: center; }
 .ana-disc { position: relative; cursor: text; }
 /* The visible focus ring the letters area needs to feel like a text field.
    Not :focus-within — #ana-kbd is not a DOM descendant of the disc (see its

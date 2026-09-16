@@ -1500,12 +1500,13 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
     assert(drawn > 300, "anagram rings drawn across the corpus: " + drawn);
   }
 
-  // --- a multi-word answer gets a ring per word ---
+  // --- a multi-word answer breaks the ring where its words end ---
   // The ring reads clockwise from the top as position 1 of the answer onwards,
-  // so a pinned letter says WHERE it goes — and in one circle of thirteen for
-  // "KNIGHTS ERRANT" that is a position in a word the solver cannot see the end
-  // of (Paul, 2026-09-16). The cut is the answer's own words, and it is only
-  // taken when they account for exactly the letters on the ring.
+  // so a pinned letter says WHERE it goes — and in one unbroken circle of
+  // thirteen for "KNIGHTS ERRANT" that is a position in a word the solver
+  // cannot see the end of (Paul, 2026-09-16). One ring still, because the
+  // letters are one jumble; the answer's shape is drawn through them as gaps.
+  // Taken only when the words account for exactly the letters on the ring.
   {
     const multi = [];
     for (const id of Object.keys(puzzles).sort()) {
@@ -1530,18 +1531,23 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
         if (html.includes("anagram-ring")) break;
       }
       if (!html.includes("anagram-ring")) continue;   // no blocks rung on this clue
-      // The wrapper is .ana-discs — match the discs themselves, not their row.
+      // One ring, whatever the answer's shape.
       const discs = (html.match(/class="ana-disc[ "]/g) || []).length;
-      assert(discs === m.words.length,
-        `${m.id} ${m.e.id}: ${m.words.join(" ")} drew ${discs} rings, not ${m.words.length}`);
-      // Every letter is still on the ring: the cut moves tiles between discs,
-      // it must never drop one.
+      assert(discs === 1,
+        `${m.id} ${m.e.id}: ${m.words.join(" ")} drew ${discs} rings, not 1`);
+      // Every letter is still on it, and each one knows which word it belongs
+      // to — that mapping is what puts the gaps in the right places.
       const tiles = (html.match(/data-ana="\d+"/g) || []).length;
       assert(tiles === m.words.join("").length,
-        `${m.id} ${m.e.id}: ${tiles} tiles across the rings, answer has ${m.words.join("").length}`);
+        `${m.id} ${m.e.id}: ${tiles} tiles on the ring, answer has ${m.words.join("").length}`);
+      m.words.forEach((w, i) => {
+        const inWord = (html.match(new RegExp(`data-word="${i}"`, "g")) || []).length;
+        assert(inWord === w.length,
+          `${m.id} ${m.e.id}: ${inWord} tiles before break ${i}, ${w} is ${w.length}`);
+      });
       split++;
     }
-    assert(split > 5, "multi-word rings actually drawn: " + split);
+    assert(split > 5, "broken rings actually drawn: " + split);
   }
 
   // --- typing edits the ring: a letter adds a tile, Backspace removes the
