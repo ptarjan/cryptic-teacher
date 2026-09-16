@@ -4782,9 +4782,11 @@
     ul.innerHTML = "";
     const q = (($("picker-search") || {}).value || "").trim().toLowerCase();
     // Tapping one ADDS its word to the search; tapping it again takes it out, so
-    // the legend is a way back out as well as in. What is selected is shown by
-    // the search box filling with the words — which is also the lesson, because
-    // typing them yourself does exactly the same thing.
+    // the legend is a way back out as well as in. The words landing in the search
+    // box is the lesson — typing them yourself does exactly the same thing — but
+    // it is not the only mark: a chip whose word is in the box carries
+    // aria-pressed, and style.css rings it, so what is on is legible on the chip
+    // you tapped and not only in the box above it.
     //
     // They combine, because the question is nearly always two things at once:
     // "I can choose Everyman brutal" (Paul, 2026-08-28). A tap used to REPLACE
