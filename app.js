@@ -2582,19 +2582,18 @@
     const lens = ringWords(ann).map((w) => w.length);
     const cuts = (lens.length > 1 && lens.reduce((a, b) => a + b, 0) === n) ? lens : [n];
     let from = 0;
-    // Every disc in a set is boxed to the height of the biggest, so the rings sit
-    // on one line and read as one row of objects rather than a stack of circles
-    // at different heights (Paul, 2026-09-16). The CIRCLES stay their own sizes:
-    // the pitch between tiles is what makes them look like the same kind of
-    // thing, and forcing a short word onto a big circle spaces its letters out
-    // until it no longer does.
+    // One size for every ring in a set. Sized for the longest word, so the
+    // tiles of a shorter one sit further apart around the same circle: a four
+    // drawn beside a five at its own size read as two unrelated objects, and
+    // which ring was which word was a thing you worked out from counting rather
+    // than saw (Paul, 2026-09-16). The pitch is a floor, not a fixed step.
     const radiusOf = (len) => Math.max(56, Math.min(140,
       Math.ceil(PITCH / (2 * Math.sin(Math.PI / Math.max(3, len))))));
-    const boxH = Math.max.apply(null, cuts.map((len) => radiusOf(len) * 2 + 34));
+    const radius = radiusOf(Math.max.apply(null, cuts));
+    const d = radius * 2 + 34;
     const discs = cuts.map((len) => {
       const slice = ring.order.slice(from, from + len);
       from += len;
-      const radius = radiusOf(len);
       const tiles = slice.map((idx, pos) => {
         const a = (pos / len) * 2 * Math.PI - Math.PI / 2;
         return `<button type="button" class="ana-tile${ring.struck[idx] ? " struck" : ""}${
@@ -2604,9 +2603,8 @@
           style="left:calc(50% + ${Math.round(Math.cos(a) * radius)}px);
                  top:calc(50% + ${Math.round(Math.sin(a) * radius)}px)">${ring.letters[idx]}</button>`;
       }).join("");
-      const d = radius * 2 + 34;
       return `<div class="ana-disc${ringKbdFocused() ? " ana-focus" : ""}" style="width:${
-        d}px;height:${boxH}px">${tiles}</div>`;
+        d}px;height:${d}px">${tiles}</div>`;
     }).join("");
     // ana-focus is a plain function of activeElement at render time, not of a
     // focus/blur listener toggling a class: the disc is thrown away and rebuilt
