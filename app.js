@@ -4709,7 +4709,10 @@
   // a share stated in prose is true on the day it is pasted, and this one moves
   // with every puzzle that arrives. Bands come from pickerBandList(), so one
   // added or renamed in tools/difficulty.py appears here on its own.
-  let diffNoteOpen = false;
+  // Which row's ? is open, or null. One at a time and one paragraph below both
+  // rows, because the note is a thing that costs height: two open at once pushes
+  // the puzzles down, which is the reason the prose went behind a ? at all.
+  let pickerNote = null;
   function difficultyNoteHTML() {
     const n = {};
     INDEX.puzzles.forEach((p) => {
@@ -4725,6 +4728,18 @@
       + "another answer, how rare the answers are as words, and how much "
       + "confirmation the clue types give you back. "
       + (counts ? "Right now " + counts + "." : "");
+  }
+
+  function buzzNoteHTML() {
+    const n = (INDEX.puzzles || []).filter(isPopular).length;
+    return "Not our opinion, and not a quality score \u2014 we tried to build one and "
+      + "it did not predict which clues solvers named as favourites. This is how "
+      + "many comments a puzzle drew on fifteensquared, the blog that covers all "
+      + "five papers, ranked against the other puzzles from its OWN paper: a "
+      + "Guardian thread runs several times an Independent one whatever the puzzle "
+      + "was like. The busiest quarter of each paper is tagged"
+      + (n ? ", " + n + " puzzles right now" : "")
+      + ". A puzzle the blog never covered is left untagged rather than called quiet.";
   }
 
   let pickerBands = null;
@@ -4856,16 +4871,23 @@
                 (w) => "series series-" + esc(seriesKeyForLabel(w)), "pf-")
         + group("Difficulty", pickerBandList(), (b) => "diff diff-" + esc(b), "pf-", 2,
                 `<button type="button" id="pf-diff-help" class="badge help" aria-expanded="${
-                  diffNoteOpen}" aria-label="What the difficulty bands mean">?</button>`)
-        // One chip, so min 1 — and its meaning said outright beside it rather
-        // than behind a ? the way the bands are. A band is a word that explains
-        // itself once you know it is a band; "popular" is a word this site has
-        // to say whose opinion it is quoting, and it is not ours.
+                  pickerNote === "diff"}" aria-label="What the difficulty bands mean">?</button>`)
+        // One chip, so min 1. "popular" needs more saying than a band does — this
+        // site has to name whose opinion it is quoting, and it is not ours — and
+        // it says it behind the same ? for the same reason: standing prose beside
+        // the chip wraps on a phone and pushes the puzzles down the screen.
         + group("Talked about", ["popular"], () => "tag", "pb-", 1,
-                `<span class="muted small-note">busiest fifteensquared threads, paper by paper</span>`));
-    setHTML($("picker-diff-note"), diffNoteOpen ? difficultyNoteHTML() : "");
-    const help = $("pf-diff-help");
-    if (help) help.onclick = () => { diffNoteOpen = !diffNoteOpen; renderPicker(); };
+                `<button type="button" id="pb-help" class="badge help" aria-expanded="${
+                  pickerNote === "buzz"}" aria-label="What popular means">?</button>`));
+    setHTML($("picker-note"), pickerNote === "diff" ? difficultyNoteHTML()
+      : pickerNote === "buzz" ? buzzNoteHTML() : "");
+    [["pf-diff-help", "diff"], ["pb-help", "buzz"]].forEach((pair) => {
+      const b = $(pair[0]);
+      if (b) b.onclick = () => {
+        pickerNote = pickerNote === pair[1] ? null : pair[1];
+        renderPicker();
+      };
+    });
     chips.forEach(([id, w]) => {
       const el = $(id);
       if (!el) return;

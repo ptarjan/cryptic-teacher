@@ -3902,6 +3902,27 @@ global.realSetTimeout(() => {
   assert(rows.length === want.length,
     `the word finds them all and nothing else: ${rows.length} rows vs ${want.length} popular`);
   typeInPicker("");
+
+  // Behind a ?, like the bands, and for the same reason: prose standing beside
+  // the chip wraps on a phone and pushes the list down. It has more to say than
+  // a band does — whose opinion this is, and that it is read within one paper —
+  // so it is exactly the thing that must not be standing there.
+  const note = () => registry["picker-note"].innerHTML || "";
+  assert(!note(), "the tag explains itself only when asked: " + note());
+  registry["pb-help"].onclick();
+  const open = note();
+  assert(/fifteensquared/.test(open), "the ? names whose threads these are: " + open);
+  assert(/own paper/i.test(open), "and that the ranking is inside one paper: " + open);
+  assert(new RegExp("\\b" + want.length + " puzzles\\b").test(open),
+    `it counts the tagged puzzles as ${want.length}: ` + open);
+  // One paragraph, one note: opening the other ? replaces it rather than
+  // stacking a second block of prose above the puzzles.
+  registry["pf-diff-help"].onclick();
+  assert(/against the others here/.test(note()) && !/fifteensquared/.test(note()),
+    "the other ? takes the place of this one: " + note());
+  registry["pf-diff-help"].onclick();
+  assert(!note(), "and the same tap puts it away: " + note());
+  registry["btn-picker-close"].onclick();
 }
 
 // --- the papers and the bands are named, not left to be guessed at ---
@@ -3985,7 +4006,7 @@ global.realSetTimeout(() => {
 // ? that costs no height until it is tapped.
 {
   registry["btn-picker"].onclick();
-  const note = () => registry["picker-diff-note"].innerHTML || "";
+  const note = () => registry["picker-note"].innerHTML || "";
   assert(!note(), "the explanation takes no room until it is asked for: " + note());
   registry["pf-diff-help"].onclick();
   const open = note();
