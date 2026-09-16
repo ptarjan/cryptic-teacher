@@ -232,7 +232,7 @@
   // ---------- ids ----------
   // A puzzle's id is its series and its number ("cryptic-30089"), because every
   // paper numbers from its own 1 and the ranges only look far apart until a new
-  // paper arrives in one of them. Until 2026-08-19 the id WAS the number, so
+  // paper arrives in one of them. The id used to be the number, so
   // puzzles/<n>.js was the whole namespace and the second paper to reach a
   // number would have shared the first one's file.
   //
@@ -280,7 +280,7 @@
   // Booting used to inject a <script> for EVERY puzzle in the index and wait for
   // the last of them to land before painting anything: 230 requests and about
   // 1.4 MB to put one crossword on the screen, which is most of the "little
-  // while" a phone spends on a cold open (Paul, 2026-08-28). Two things need a
+  // while" a phone spends on a cold open. Two things need a
   // puzzle's contents — openPuzzle, and pickerStatus for a puzzle you have
   // already put letters in — and both of them now ask for it.
   //
@@ -360,7 +360,7 @@
   // for the 78% of clues built from more than one piece that is not a hint, it
   // is the answer. A charade's assembly is "read them in order", so the letters
   // ARE the solve; an anagram's is not, which is why the same rung felt like
-  // work on one clue and like cheating on the next (Paul, 2026-09-06).
+  // work on one clue and like cheating on the next.
   let blocksAt = {};
   let revealsUsed = {};  // entryKey -> number of letters revealed (escape hatch)
   let solvedWith = {};   // entryKey -> how many rungs were up when first solved
@@ -415,7 +415,7 @@
     // and re-stamped only where something actually moved. Rubbing a letter
     // out leaves no letter behind, so without this the merge cannot tell a
     // square you cleared from one you never filled in — and it put the
-    // letters straight back (Paul, 2026-08-10). A stamp with no letter is
+    // letters straight back. A stamp with no letter is
     // how a deletion gets to the other device.
     const letterAt = Object.assign({}, prev.letterAt);
     forEachCell((c) => {
@@ -467,7 +467,7 @@
      No account, no password: the eight-character code IS the identity. There is
      nothing here worth protecting with a login — it is which squares of a
      newspaper crossword you have filled in — and a password would only add a
-     thing to forget, a reset flow to maintain, and an email address of Paul's
+     thing to forget, a reset flow to maintain, and an email address
      to store. Lose the code and nothing is lost either: the save still sits in
      localStorage on every machine you have used, so you mint a fresh code from
      one of them.
@@ -518,8 +518,8 @@
   // letter typed, or the rung opened, while it was in flight, and a request is
   // in flight for as long as a round trip takes. Writing it in as the truth
   // therefore deletes whatever the solver did during that second, in front of
-  // them: "I clicked full walkthrough, it appeared then disappeared" (Paul,
-  // 2026-08-24). Merging is not a precaution here, it is the only correct
+  // them: full walkthrough could appear and then disappear. Merging is not
+  // a precaution here, it is the only correct
   // reading of the reply, and merge.js is commutative and idempotent precisely
   // so that this side can do it without knowing what order anything happened in.
   function applyEnvelope(env) {
@@ -843,7 +843,7 @@
      the papers and sent with them.
 
      Seven in the morning by default, because the annotation run finishes in the
-     small hours and the first notification Paul ever got out of this arrived in
+     small hours and the first notification this ever sent arrived in
      the middle of the night. A device that never opens the panel still gets the
      default: refreshNotify() re-asserts on every load, so the hold arrives with
      the next page view rather than waiting for someone to go looking for it. */
@@ -982,7 +982,7 @@
   // The second tick is QUEUED, never dropped. Dropping it lost the tick, and
   // then the first save's redraw repainted that box from the store and unticked
   // it — so on a slow connection one paper came back unticked and the others
-  // did not (Paul, Windows Chrome, 2026-09-08).
+  // did not, as seen in Windows Chrome.
   //
   // notifyWant is what the panel has been ASKED for; the store is what the
   // Worker has agreed to. Between a tick and its answer the two differ, and a
@@ -1189,7 +1189,7 @@
         // second click then lands on whatever row has slid into that spot, which
         // is the clue that was selected a moment ago ("clicking a clue with a
         // crossing clue sometimes double clicks and reselects the first selected
-        // clue", Paul, iPad, 2026-09-16). Nobody picks two clues a third of a
+        // clue", on an iPad). Nobody picks two clues a third of a
         // second apart on purpose, so the second one is the accident.
         li.addEventListener("click", () => {
           if (clueTapIsAnAccident()) return;
@@ -1209,9 +1209,9 @@
   // broke the moment tier 0 let you take the rungs in any order — ask for the
   // indicators first, which is a legitimate route because working out where the
   // definition sits is most of the skill, and the clue stayed completely
-  // unmarked, so the one hint you spent showed you nothing (feedback
-  // 2026-08-01: "if I choose just the indicator clue now it doesn't highlight
-  // the parts of clue"). Rule: highlight exactly what has been revealed, and
+  // unmarked, so the one hint you spent showed you nothing (choosing just
+  // the indicator rung could leave the parts of the clue unhighlighted).
+  // Rule: highlight exactly what has been revealed, and
   // never anything that hasn't.
   // The setter's italics and the solver's highlights are two independent lists
   // of ranges over the same plain string (tools/fetch_puzzle.flatten_clue keeps
@@ -1245,7 +1245,7 @@
     // first substring that matches and two things went wrong with that, both
     // reported as the same thing — a highlight you had paid for not being there
     // ("I think it might always be the indicator clue which is disappearing
-    // after click", Paul, 2026-08-17).
+    // after click").
     //
     //   mid-word  the indicator 'in' matched inside "Conclud(in)g", "island",
     //             "confusion" — 18 clues in the corpus were marking a syllable
@@ -1389,8 +1389,7 @@
   // so it reads as the top of something rather than as a cut-off.
   const HINT_SCROLL_GAP = 8;
   // scrollIntoView({block:"nearest"}) did this job and did it in two goes on an
-  // iPad in portrait: one tap moved a little, the next moved the rest (Paul,
-  // 2026-08-16). Two causes, both fixed here.
+  // iPad in portrait: one tap moved a little, the next moved the rest. Two causes, both fixed here.
   //
   // It measured too early. refreshAll() has just rewritten the panel and a
   // different clue is a different height — fewer rungs up, a longer clue, a
@@ -1408,7 +1407,7 @@
   // And it measured the wrong screen. iOS does NOT shrink window.innerHeight when
   // the soft keyboard comes up: the layout viewport stays its full height and the
   // keys sit on top of the bottom third of it, so a panel this code called "fully
-  // in view" was parked behind them (Paul, iPad, 2026-08-16). visualViewport is
+  // in view" was parked behind them, on an iPad. visualViewport is
   // the part still showing — and since tapping a clue also raises the keyboard,
   // this is the ordinary case, not an edge one.
   //
@@ -1427,7 +1426,7 @@
   // One tap, one move. This used to scroll the moment the tap was handled and
   // then re-place on every visualViewport resize for the next 1.2 seconds, which
   // on an iPhone is a fight it cannot win — "scrolls down then back up a bit then
-  // wiggles before stopping" (Paul, iPhone, 2026-08-16). Three things were going
+  // wiggles before stopping", on an iPhone. Three things were going
   // wrong at once, and all three are the same mistake: SCROLLING BEFORE THE
   // VIEWPORT HAS STOPPED MOVING.
   //
@@ -1451,8 +1450,8 @@
   // And one more look afterwards, because the deadline can fire while the
   // keyboard is STILL coming in — a cold keyboard, a predictive bar, a slow
   // first tap — and then we have measured a band that is about to shrink and we
-  // never look again. That is "worked for some but not others" (Paul, iPhone,
-  // 2026-08-16): identical code, and whether it lands depends on whether the
+  // never look again. That reads as "worked for some but not others" on an
+  // iPhone: identical code, and whether it lands depends on whether the
   // keyboard beat the deadline.
   //
   // The trigger is deliberately NOT "does the panel look wrong now" — the smooth
@@ -1466,7 +1465,7 @@
   // The first tap of a session is the slow one: the keyboard has never been
   // raised, so iOS builds it cold — keys, then the predictive bar — and the
   // resize can land well past deadline + one confirm, which is "the first click
-  // which brings up the word seems to not scroll" (Paul, iPad, 2026-08-17).
+  // which brings up the word seems to not scroll", on an iPad).
   // Every later tap finds the keyboard already up, resizes nothing, and lands on
   // the first placement, which is why only the first one misses.
   //
@@ -1476,8 +1475,8 @@
   //
   // A TAP MOVES THE PAGE AT MOST TWICE, and that budget is the load-bearing part.
   // Letting the confirm re-arm itself after it fired was "clicking 3d with all
-  // the hints open scrolls down then up then down then up then down" (Paul, iPad,
-  // 2026-08-17): our own smooth scroll moves the visual viewport, which fires the
+  // the hints open scrolls down then up then down then up then down", on an
+  // iPad: our own smooth scroll moves the visual viewport, which fires the
   // same events the keyboard does, so a confirm that can re-place and then watch
   // again is a loop feeding on its own output, and nothing in the measurement can
   // tell the two apart — a pan and a keyboard both just move the band. The budget
@@ -1505,7 +1504,7 @@
   // the chevron, looks exactly like a phone about to raise one, so every rule
   // for guessing it has ended up holding the page still for a second on the
   // devices where the keys were never coming ("selecting a clue still delays
-  // before scrolling about a second", Paul, 2026-09-10 — the second go at this).
+  // before scrolling about a second" — the second go at this).
   // So: place on the settle, always, and if a keyboard does turn up it is a
   // viewport change like any other and confirmHintPlacement re-places for it.
   // A tap that guessed right costs one move; the phone that raises keys pays for
@@ -1553,7 +1552,7 @@
   // since we committed to it" sounds like the miss and isn't: OUR OWN SMOOTH
   // SCROLL moves it, because iOS pans the visual viewport under a scroll and
   // slides the URL bar away as well, so every well-placed panel then bought
-  // itself a second move — down, then up a little (Paul, iOS, 2026-08-21). The
+  // itself a second move — down, then up a little, on iOS. The
   // band cannot say who moved it.
   //
   // The keyboard can. It is the one thing we were unsure about when we measured,
@@ -1568,7 +1567,7 @@
   // feed the wiggle — none of them changes whether a keyboard is up. A counted
   // allowance could not tell those apart: whichever event fired first spent it,
   // and the keys then came up over the clue with nothing left to move it ("the
-  // keyboard still covers sometimes", Paul, 2026-09-10, after one allowance was
+  // keyboard still covers sometimes", after one allowance was
   // not enough). Every transition inside the watch window is corrected for —
   // keys up and keys away, however many times either happens — and once the
   // window is past the page belongs to the reader again.
@@ -1606,7 +1605,7 @@
       ? y + r.top - band.top - HINT_SCROLL_GAP
       : y + r.bottom - band.bottom + HINT_SCROLL_GAP;
     // Smooth: the travel is how the reader keeps their place, and "the smooth
-    // scroll was nice" (Paul, iPad, 2026-08-28). What read as slow was never the
+    // scroll was nice", on an iPad. What read as slow was never the
     // animation, it was the wait in front of it: the panel used to be held back
     // until a keyboard that was never coming had had its chance. Fix the wait,
     // keep the travel. Reduced motion gets the jump instead, as everywhere else.
@@ -1644,7 +1643,7 @@
   // which made the one tap nobody can avoid the one that did nothing: 1-across
   // is selected before you touch anything, so starting the puzzle by tapping its
   // first square left the clue off the bottom of the screen and the keyboard
-  // over where it would have been (Paul, 2026-08-20).
+  // over where it would have been.
   //
   // The guard was never what stopped the page moving under a reader — typing and
   // the arrow keys do not come through here, and placeHintPanel already does
@@ -1663,7 +1662,7 @@
     // the reading that tapping a square is a decision to type — but the first
     // thing the ladder does with a clue you have just picked is ask you a
     // question you answer by tapping, and a keyboard over the bottom half of
-    // the screen buries it (Paul, 2026-08-29). The letter strip under the clue
+    // the screen buries it. The letter strip under the clue
     // is where typing starts now, and it is the only thing that summons one.
     keepKbd();
     hintFocus = null;
@@ -1745,7 +1744,7 @@
   // can be except an accident — including the accident of backspacing through it
   // from the crossing entry you are actually typing in, which is the same letter
   // seen from the side ("deleting a letter from a confirmed word shouldn't be
-  // possible, or doing it from closing a crossing entry", Paul, 2026-09-10).
+  // possible, or doing it from closing a crossing entry").
   // Typing over a letter is a delete with a letter on the end of it, so it is
   // refused in the same place. Clearing the whole puzzle still clears it: that
   // is asked for, by name, and this is only ever about the accidents.
@@ -1830,7 +1829,7 @@
   // keyboard on screen. Re-focusing a focused input is a no-op on a desktop, but
   // inside a touch gesture iOS reads it as a fresh request and puts the keyboard
   // BACK — so on that one state this function summoned the very thing it exists
-  // to avoid summoning (Paul, iPad home-screen app, 2026-09-01). There is nothing
+  // to avoid summoning, on an iPad home-screen app. There is nothing
   // to keep when nothing is up, so keep nothing.
   //
   // Losing the focus costs no typing: the document-level keydown handler feeds
@@ -1845,7 +1844,7 @@
 
   // A real scroll should put the soft keyboard away. On a phone it eats half the
   // screen while any input is focused, and scrolling is exactly what you do to
-  // read the clue, the ladder or the grid out from under it (Paul, 2026-09-08).
+  // read the clue, the ladder or the grid out from under it.
   //
   // Every focusable text field is covered, not just the grid's #kbd — the picker
   // search box and the sync join-code field raise the same keyboard and deserve
@@ -1901,8 +1900,8 @@
   // ---------- checking / revealing ----------
   function canCheck() { return hasSolutions(); }
 
-  // A check must ALWAYS visibly answer (feedback 2026-07-29: checking a correct
-  // entry changed nothing on screen, so the button read as broken). Two signals:
+  // A check must ALWAYS visibly answer (checking a correct entry used to
+  // change nothing on screen, so the button read as broken). Two signals:
   // a sentence in #check-result saying what was found, and a brief pulse on the
   // squares that were examined, so you can see WHICH squares the check covered.
   function checkCells(list, scope) {
@@ -1951,15 +1950,14 @@
   }
 
   // A tint that settles away on the cells you just finished — the small nod a
-  // silent lock-in was missing ("celebrate gently when a clue is solved", Paul,
-  // 2026-09-08). Only typeLetter's call into checkSolvedEntries passes viaType,
+  // silent lock-in was missing: celebrate gently when a clue is solved. Only
+  // typeLetter's call into checkSolvedEntries passes viaType,
   // so this never fires from revealLetter or fillAnswer: a revealed answer is
   // not a solve. class add/remove, same shape as pulseCells above, so a
   // reduced-motion visitor still gets the held tint the CSS falls back to.
   //
   // Solved with no hints and no letter reveals gets the gold ("clean") tier
-  // instead of the green one — same duration, same easing, colour only (Paul,
-  // 2026-09-08). noHintsSolve() reads solvedWith/revealsUsed, both of which
+  // instead of the green one — same duration, same easing, colour only. noHintsSolve() reads solvedWith/revealsUsed, both of which
   // were already persisted for scoring before this existed, so the distinction
   // needs no new storage and survives a reload the same way the score does.
   function celebrateSolve(e) {
@@ -2041,7 +2039,7 @@
   // the work it deliberately leaves to the solver; doing that work and arriving
   // at the answer is not a hint bought, so the rung is WORKED OUT, the same deal
   // a right answer to a rung's question already gets. ("Any building blocks
-  // should be free if you solve while it is open", Paul, 2026-09-14.)
+  // should be free if you solve while it is open".)
   //
   // Before solvedWith is frozen, not after: unlike the pending-guess case below,
   // this rung is already up and already inside the count being taken.
@@ -2065,7 +2063,7 @@
         // settled a line above and the rung is genuinely free either way, but
         // the panel says which rungs were earned and which were bought, and
         // this one arrived looking bought: "the step never said worked out ·
-        // free" (Paul, 2026-09-14). Solving the clue is a better answer to
+        // free". Solving the clue is a better answer to
         // "which words define it" than pointing at the words, so it is scored
         // as one.
         if (guessing && guessing.key === entryKey(e)) {
@@ -2127,7 +2125,7 @@
       // spotting which words define, which on a two-word double definition is a
       // claim the page then disproves: both words define, so the definition
       // rung has nothing to ask and there are no blocks either. A blurb that
-      // promises work the clue does not contain reads as a lie (Paul).
+      // promises work the clue does not contain reads as a lie.
       // "nothing is shuffled" rather than "nothing is anagrammed", because this
       // blurb is an early rung and a rung before the walkthrough may not contain the
       // answer: 30103 28A is a cryptic definition whose answer is ANAGRAM, and
@@ -2158,12 +2156,12 @@
 
   // Every family a compound type actually uses, dominant one first. A clue can be
   // more than one thing at once — "there was a regularly indicator but I said it
-  // was a charade" (Paul, 2026-08-28) — and on a type like "charade with
+  // was a charade" — and on a type like "charade with
   // alternate letters" both answers are the truth. The ladder still NAMES one,
   // because a headline has to pick, but marking the others wrong teaches the
   // solver that a clue has exactly one mechanism, which is the opposite of what
   // this rung is for.
-  // The chips the type rung offers, commonest first (Paul, 2026-09-09). The
+  // The chips the type rung offers, commonest first. The
   // array above is a precedence order — first match wins — so it cannot also be
   // the order a solver reads, and read as one it opened with the two rarest
   // families, putting "Definitions only" and "&lit" in front of every solver on
@@ -2192,8 +2190,7 @@
   // the whole answer, because that is the only "block" a cryptic definition can
   // have, so hint 3 of 4 read “Might this keep you to time?” → WATCHSTRAP: the
   // solver paid for a rung and was handed the solve, one rung after rung 2 had
-  // told them there was no separable wordplay here (Paul, 1392 22-across,
-  // 2026-08-10). The validator now refuses a `gives` on a cryptic definition and
+  // told them there was no separable wordplay here (1392 22-across). The validator now refuses a `gives` on a cryptic definition and
   // demands the clue be split, so this suppression is belt to that braces.
   //
   // A block whose letters ARE the whole answer hands over the solve on the rung
@@ -2319,7 +2316,7 @@
   // before it tells, and a piece that cannot ask has nothing to hold back: the
   // click that fetches it hands it over the instant it lands, which is a tap
   // charged for nothing ("don't make me click next on building blocks if you're
-  // just going to give me the blocks for free" — Paul, 2026-09-16). So those
+  // just going to give me the blocks for free"). So those
   // ride out with the piece before them, and "Next piece" is only ever offered
   // for one that is going to ask something.
   function revealPiece(e, at) {
@@ -2335,7 +2332,7 @@
   // contains the earlier ones' answers — the building blocks name the
   // definition and the indicators on the way to spelling out the wordplay, and
   // the walkthrough hands over everything. Unrestricted choice (the first cut
-  // of this, 2026-08-01) put "skip to the walkthrough" one click from cold,
+  // of this) put "skip to the walkthrough" one click from cold,
   // which isn't a ladder at all. So: pick freely among the things the clue
   // asks you to SPOT, then assemble, then be told.
   const RUNG_TIER = { type: 0, definition: 0, indicators: 0, blocks: 1, walkthrough: 2 };
@@ -2349,8 +2346,7 @@
   // blocks rung, and a rung that doesn't exist must never be a lock nobody can
   // open.
   function rungAvailable(e, steps, key) {
-    // Solved: nothing left to protect, so the whole ladder opens (Paul,
-    // 2026-08-16). The tiers exist so the walkthrough can't be taken before the
+    // Solved: nothing left to protect, so the whole ladder opens. The tiers exist so the walkthrough can't be taken before the
     // clue has been fought with; once the answer is in the grid the lock stands
     // between a solver and the explanation of a clue they already got, which is
     // the one thing this site is for. Reading it afterwards is free — see
@@ -2486,7 +2482,7 @@
   // The answer's words, one ring each. A ring reads clockwise from the top as
   // position 1 of the answer onwards, and that only says anything if you can see
   // where a word of it ends: "KNIGHTS ERRANT" drawn as one circle of thirteen
-  // pins the K somewhere and tells you nothing further (Paul, 2026-09-16). Cut
+  // pins the K somewhere and tells you nothing further. Cut
   // into a seven and a six, the same pin says which word the letter is in and
   // where. A one-word answer has exactly one ring, which is the ring this has
   // always drawn.
@@ -2498,7 +2494,7 @@
   // pins its tile to the matching spot — the tile at the top is letter 1 of the
   // answer, and each step clockwise is the next letter — and every deal works
   // round the pins. ("If I have e_o__ the top letter in the ring should always
-  // be e and then the second one clockwise should be o", Paul, 2026-09-14. The
+  // be e and then the second one clockwise should be o". The
   // first pass at this only held STRUCK tiles still, which is not the same
   // thing as putting a letter where it goes.)
   //
@@ -2570,8 +2566,8 @@
     // not the arc through them: spacing the centres by arc length (n * pitch /
     // 2PI) leaves a chord of 2R*sin(PI/n), which is shorter than the tile at
     // every length and got worse the more letters there were — eight tiles sat
-    // 35px apart at 34px wide, and twelve overlapped outright ("the anagram
-    // circle is too small and cramped", Paul, 2026-09-10). Solving the chord for
+    // 35px apart at 34px wide, and twelve overlapped outright — the anagram
+    // circle was too small and cramped. Solving the chord for
     // the pitch instead is the same sum done the right way round. Capped so a
     // very long fodder cannot push the disc wider than a phone.
     const PITCH = 42;
@@ -2585,8 +2581,7 @@
     // ONE ring, with a gap in it where each word of the answer ends. Two rings
     // side by side were two objects to compare — which was the four and which
     // the five had to be counted rather than seen, and equalising their size
-    // only traded that for two circles at different spacings (Paul,
-    // 2026-09-16). A break in a single circle is the same fact told once: the
+    // only traded that for two circles at different spacings. A break in a single circle is the same fact told once: the
     // letters are still one jumble, which is what an anagram is, and the shape
     // of the answer is drawn through them rather than beside them.
     //
@@ -2760,8 +2755,8 @@
     // to be called "How can the whole clue be the definition?", so the button
     // for a hint nobody had paid for announced that the clue was an &lit, which
     // on a semi-&lit hidden word is the entire solve ("21d gives away the whole
-    // thing just by the name of the hint before I reveal it" — Paul, 4096 21d,
-    // VSIGN, 2026-08-17). The same was true of "Where does the clue split?",
+    // thing just by the name of the hint before I reveal it" — 4096 21d,
+    // VSIGN). The same was true of "Where does the clue split?",
     // "What is the clue really describing?" and "What each half means", each of
     // which named its type, and of the singular/plural indicator label, which
     // handed over the count.
@@ -2801,7 +2796,7 @@
     // family that needs the type named is the one family that never named it, and
     // a solver who had read the whole ladder of 30103 10A came away thinking the
     // site had mis-typed the clue: "this feels like a double definition not a
-    // definition only" (2026-09-06). They get the NAME, which is the missing
+    // definition only". They get the NAME, which is the missing
     // word; they do not get the generic blurb, which on these two types would
     // only re-say the definition rung ("no separable wordplay" twice over) and no
     // rung may restate an earlier one.
@@ -2876,7 +2871,7 @@
       // N things. `indicatorNotes` is the part that is only true of THIS clue,
       // and where it covers every indicator the rung is those notes and nothing
       // else — "this is just context free, never just put out text for the sake
-      // of filling space" (Paul, 2026-08-17, on "this clue does two things, and
+      // of filling space" — on "this clue does two things, and
       // the indicators are what tell them apart"). The generic wording is not a
       // frame worth keeping around a real answer; it is what gets said when
       // there is no real answer, and it survives only for the puzzles that
@@ -2902,7 +2897,7 @@
         // the honest move, and pairing them up is exactly the work of this rung.
         // Counted off the list rather than written into the sentence: it said
         // "two things" and then printed three for `container + charade +
-        // middle letters + reversal` (Paul, 4096 16d, 2026-08-17). A number in
+        // middle letters + reversal` (clue 4096 16d). A number in
         // prose beside a list it is supposed to describe will go wrong the
         // first time a clue does something the sentence never imagined.
         const HOWMANY = ["no", "one", "two", "three", "four", "five", "six"];
@@ -2941,8 +2936,8 @@
       // The letters themselves carry that, and nothing else does: a linked AB
       // is one the glossary can explain, an unlinked one was worked out here.
       // It used to be a sentence underneath repeating the same pairs, which is
-      // a second reading of something already on the screen (Paul, 2026-08-22:
-      // "you still added a sentence", "just linkify the abbreviation itself").
+      // a second reading of something already on the screen — the fix was to
+      // linkify the abbreviation itself rather than add a sentence.
       const glossaryHref = (b) => {
         const letters = (b.gives || "").toUpperCase();
         const meanings = typeof ABBREVIATIONS === "undefined" ? null : ABBREVIATIONS[letters];
@@ -2967,7 +2962,7 @@
         if (b.clueFragment) s += `“${esc(b.clueFragment)}”`;
         // A homophone's whole mechanism is the word you say aloud, and it used
         // to be nowhere: “Cockney mob” → OARED, with HORDE and the dropped
-        // aitch left entirely to the reader (Paul, 4096 24d, 2026-08-17). So
+        // aitch left entirely to the reader (clue 4096 24d). So
         // the sounded form gets its own arrow, ahead of the letters it turns
         // into, and the validator now refuses a sound clue that has none.
         if (b.soundsLike) s += ` → <span class="gives">${esc(b.soundsLike)}</span> <span class="muted">said aloud</span>`;
@@ -3005,8 +3000,8 @@
     //
     // The blocks spell the answer OUT of the wordplay and the definition rung
     // points at the words, but until now nothing ever joined the two ends:
-    // why do those words mean this answer? (Feedback 2026-08-01: "in the full
-    // walkthrough explain why the answer matches the definition".) That link is
+    // why do those words mean this answer? (The full walkthrough needed to
+    // explain why the answer matches the definition.) That link is
     // where the actual vocabulary of cryptics lives — a definition by synonym,
     // by example, by a sense of the word nobody uses outside crosswords — and
     // it is exactly what a solver is missing when they have the right letters
@@ -3027,7 +3022,7 @@
     // sentence about the surface reads as a mislabel, and "The surface" over a
     // convention ("Rivers are the crossword's favourite three-letter filler")
     // would be a lie. Which is present is a fact about the annotation, not a
-    // guess about its prose — a 2026-09-06 scan of all 6,403 walkthroughs
+    // guess about its prose — a scan of all 6,403 walkthroughs
     // established that no phrase list can tell a surface sentence from a
     // mechanical one — so `surface` is its own field and the labels follow it.
     // Clues with no surface apart from their mechanism (double definitions,
@@ -3080,7 +3075,7 @@
   // not words in the clue, so it asks by offering the seven. It belongs here all
   // the same — it is the one thing you can be asked before reading a word of the
   // wordplay, and a ladder that asks about every other part and hands this one
-  // over is a ladder that answers its own first question (Paul, 2026-08-27).
+  // over is a ladder that answers its own first question.
   const GUESSABLE = { type: 1, definition: 1, indicators: 1, blocks: 1 };
 
   // The clue split into things you can put a finger on. Whitespace-delimited, so
@@ -3111,7 +3106,7 @@
   // last one comes round the others are already placed, so "which words give
   // H?" is answered by whatever words are left, and the note underneath then
   // prints the synonym: "it isn't making me think or teaching me anything, it
-  // just gives me synonyms" (Paul, 2026-09-12). Allocating every fragment to
+  // just gives me synonyms". Allocating every fragment to
   // every chunk in one go is the move the solver actually has to make, and it
   // cannot be done by elimination until the very last pair.
   function matchAsk(e) {
@@ -3127,7 +3122,7 @@
     // matching question is forced — one chunk, one row, nothing to choose — and
     // with two pairs the FIRST one is also the last, so placing one chunk
     // placed the other ("when I selected the first answer in a building block
-    // it automatically chose the next one for me to pair", Paul, iPad). Two
+    // it automatically chose the next one for me to pair", on an iPad). Two
     // pairs is 68% of the corpus, and all of it was one tap dressed as a
     // puzzle. Those clues ask the paced one-piece-at-a-time question below
     // instead, which is a real question about every piece it names.
@@ -3206,7 +3201,7 @@
   // about the same answer; one leaves in the pointer back at it. A solver who
   // draws that line one word short of where the annotation drew it has named the
   // definition, and telling them they are wrong teaches them nothing except that
-  // the app is fussy (Paul, 2026-08-30).
+  // the app is fussy.
   //
   // Only at the ENDS of a span, and only for a DEFINITION. In wordplay every
   // word is either letters or an instruction — "a" is a letter of the fodder —
@@ -3273,18 +3268,18 @@
   //
   // A word an earlier rung already named is not a choice. Leaving it tappable
   // invites a solver who has the definition to offer it back as the indicator,
-  // and marks them wrong for a thing the screen had already told them (Paul).
+  // and marks them wrong for a thing the screen had already told them.
   // They are shown, greyed and inert: the scaffolding is the point, since
   // knowing where the definition ends is most of knowing where the wordplay
   // starts.
   //
   // Nothing is charged for without being offered first: if a rung has anything
-  // to point at, it asks, even when what is left to point at IS the whole answer
-  // (Paul, 2026-08-28). An easy question is a free rung; a rung handed over
+  // to point at, it asks, even when what is left to point at IS the whole answer.
+  // An easy question is a free rung; a rung handed over
   // unasked is a rung the solver paid for and was never given the chance to
   // win. The only rung that cannot ask is one with nothing to point at at all.
   // A charade has more than one piece, and "it isn't knowing it is a charade
-  // that is hard, it is DOING the charade" (Paul) — so the blocks rung asks for
+  // that is hard, it is DOING the charade" — so the blocks rung asks for
   // each piece in turn rather than one and done. step says which piece; a piece
   // already placed is settled scaffolding for the next question, by the same
   // rule that settles the definition when the indicators are asked for.
@@ -3356,7 +3351,7 @@
   // for a rung that opened, "guess" for a question that was asked. The panel
   // only ever grows, so what a tap made is always at the bottom and is the one
   // thing that has to be in front of you afterwards ("when I choose a hint
-  // rung should it scroll into view", Paul, iPad). Marked in the body as
+  // rung should it scroll into view", on an iPad). Marked in the body as
   // #hint-focus and handed to scrollToHintPanel as the thing to place.
   let hintFocus = null;
   function focusHint(key) { hintFocus = key; scrollToHintPanel("hint-focus"); }
@@ -3371,7 +3366,7 @@
   //
   // It used to be shown for a beat and then thrown away when the rung opened,
   // which put a reading deadline on the one part of this that teaches anything:
-  // "it flashes too fast for me to read" (Paul, 2026-08-21). Nothing here is on
+  // "it flashes too fast for me to read". Nothing here is on
   // a timer now. The animations are entrances — they say a thing has arrived,
   // they do not say how long you have with it.
   function guessWordsHTML(tokens, mk, picked, known, rung) {
@@ -3395,7 +3390,7 @@
     //
     // The rung rides along because the colour of a picked word is the colour that
     // KIND of word wears everywhere else on the site: green for a definition,
-    // pink for an indicator (Paul, 2026-08-28). Picking used to be its own
+    // pink for an indicator. Picking used to be its own
     // neutral accent, which made the solver learn one colour for "I chose this"
     // and a different one for the thing they had just correctly chosen.
     return `<p class="guess-clue ${mk ? "mk" : "ask"} pick-${rung || "indicators"}">${
@@ -3404,7 +3399,7 @@
 
   // The question, asked of the clue itself. It used to print a second copy of the
   // clue below the panel's own and ask the solver to point at that one — "can we
-  // select from the original clue instead of duplicating it?" (Paul, 2026-09-03).
+  // select from the original clue instead of duplicating it?".
   // Two copies of the same sentence, one lit and unpickable and one pickable and
   // unlit, is the reader deciding which is the clue before they can start.
   //
@@ -3439,7 +3434,7 @@
   // ---------- dragging a run of words ----------
   //
   // A definition is a RUN of words, and pointing at a run is one gesture rather
-  // than four taps (Paul). A drag ADDS its run to whatever was picked already, so
+  // than four taps. A drag ADDS its run to whatever was picked already, so
   // the indicators rung — often two separate runs — is still answerable by
   // dragging each of them, and so a drag can never silently throw away a pick.
   //
@@ -3497,8 +3492,7 @@
       // so the browser will take that gesture, and it fires pointermoves for a
       // while first. Painting on those lit up every word the finger passed over
       // and then handed the gesture away — "scrolling the clue seems to
-      // highlight what my finger is on but isn't doing anything" (Paul, iPad,
-      // 2026-09-14). Once a drag is really under way the axis stops mattering; a
+      // highlight what my finger is on but isn't doing anything", on an iPad). Once a drag is really under way the axis stops mattering; a
       // run of words wraps, and following it round the wrap is legitimate.
       if (!drag.moved) {
         const dx = Math.abs(ev.clientX - drag.x), dy = Math.abs(ev.clientY - drag.y);
@@ -3521,7 +3515,7 @@
     // meant, so it goes back, and the click flag is cleared with it: a scroll
     // that ends anywhere but on a word never delivers the click that would have
     // cleared it, and it sat there latched, eating the next real tap ("if you
-    // start a scroll then you can't select words", Paul, iPad, 2026-09-14).
+    // start a scroll then you can't select words", on an iPad).
     document.addEventListener("pointercancel", () => {
       if (!drag) return;
       if (guessing && drag.moved) {
@@ -3543,14 +3537,13 @@
   // Everything in here animates on the way in, and the panel is redrawn on every
   // keystroke and every selection — so the entrance is spent the first time it is
   // drawn and never again. Without that, "yes that's the one" pops afresh while
-  // you are picking your next clue (Paul, 2026-08-28): an entrance that replays
+  // you are picking your next clue: an entrance that replays
   // is not an entrance, it is a fidget.
   // `quiet` drops the marked words and keeps the sentence, for when the clue line
   // above has become the tapping surface for the NEXT question. Otherwise the
   // panel holds two copies of the same clue — the live one at the top and this
   // graded one further down — and the solver is being told to tap words while
-  // looking at a set of identical words that do not answer to a tap (Paul,
-  // 2026-09-06). The count and the verdict survive; only the duplicate goes.
+  // looking at a set of identical words that do not answer to a tap. The count and the verdict survive; only the duplicate goes.
   function verdictHTML(g, quiet) {
     const fresh = g.fresh ? " fresh" : "";
     g.fresh = false;
@@ -3627,7 +3620,7 @@
   // "one of them" against "the one" is the whole of that, in one line either way:
   // a family label can be three words long ("container, reversal or deletion"),
   // and a verdict that quotes it back and then explains itself ran to three lines
-  // on a phone (Paul, 2026-09-16) to say what the solver had just tapped.
+  // on a phone to say what the solver had just tapped.
   function gradeChoice(ask, picked) {
     const right = ask.answers || [ask.answer];
     if (picked === right[0]) return { choice: picked, right: true, said: "Yes — that’s the one." };
@@ -3665,7 +3658,7 @@
     // An indicator is a phrase, and which of its words carry the instruction is
     // not the lesson: "according to Spooner", "for Spooner" and "Spooner" all
     // point at the same thing, and marking a solver down for the linking words
-    // teaches them nothing except that the app is fussy (Paul, 2026-09-06).
+    // teaches them nothing except that the app is fussy.
     // Finding every indicator and pointing at nothing else is the whole of what
     // the rung asks, so that is what it marks, and then says the phrase in full.
     // Every span still needs a word of its own: 216 clues in the corpus have
@@ -3686,8 +3679,7 @@
     if (hit.length) {
       // "Close" only when it is close. It used to be the verdict on any overlap
       // at all, so picking two words of a four-word definition — half of it, and
-      // therefore the wrong split — came back as encouragement (Paul,
-      // 2026-09-06). A teacher who calls everything close is not marking
+      // therefore the wrong split — came back as encouragement. A teacher who calls everything close is not marking
       // anything, and the solver reads praise for an answer that was wrong.
       const near = !spare.length && missed.length === 1;
       return { ...v, right: false, said: `${near ? "So close" : "Not quite"} — ${
@@ -3701,7 +3693,7 @@
   // the bottom of the panel, under everything already bought; the verdict belongs
   // beside the rung it judged, which is wherever that rung falls in the ladder.
   // Re-rendering puts it there instantly, and the whole panel reads as a lurch —
-  // "the words all move and it is jarring" (Paul).
+  // "the words all move and it is jarring".
   //
   // FLIP: measure where it was, let the render happen, put it back with a
   // transform and then let it travel. The eye follows the one thing that did not
@@ -3777,7 +3769,7 @@
   // than bought. The verdict banner says so at the moment it happens and is then
   // gone — it is deliberately not persisted — so without this the ladder reads
   // identically whether you earned five rungs or paid for five, and the one
-  // number the site is for disappears as soon as you scroll (Paul, 2026-09-06).
+  // number the site is for disappears as soon as you scroll.
   function hintStepHTML(step, position, won) {
     return `<div class="hint-step${won ? " won" : ""}"><span class="step-label">${
       position} · ${esc(step.label)}${
@@ -3788,7 +3780,7 @@
   // enumeration: (3,6) is three boxes, a gap, then six. The grid cannot show
   // this — its squares run on regardless — so the strip is the only place a
   // solver can see that they are looking for two words rather than a nine-letter
-  // one, which rules out most of what they were considering (Paul, 2026-08-16).
+  // one, which rules out most of what they were considering.
   //
   // Trusted only when the digits add up to the squares THIS entry has. A linked
   // clue prints the whole group's enumeration on its first leg, so applying it
@@ -3863,7 +3855,7 @@
     // The note is for screen readers only. Printed next to the boxes it restated
     // what the boxes already show — which squares have letters, and which are
     // dashed — in twenty words of prose sitting directly under the clue you are
-    // trying to read (Paul, 2026-08-09). The clue is what the box is for; every
+    // trying to read. The clue is what the box is for; every
     // line that is not the clue pushes it further from being read.
     // How many boxes and how many word breaks, so the strip can size itself down
     // to fit the panel instead of stacking one word per line. CSS cannot count
@@ -3938,7 +3930,7 @@
         // The previous rung's verdict stays where it is. Clearing it deleted a
         // block from the middle of the panel at the exact moment a new one
         // appeared at the bottom, so the whole thing slid under the solver's
-        // eyes: "it jumps and switches to something else" (Paul). Nothing the
+        // eyes, jumping and switching to something else. Nothing the
         // panel has said is ever taken back; it only ever grows.
         const on = currentEntry();
         if (!on) return;
@@ -3996,7 +3988,7 @@
     // A box you can see what you wrote in. The 400 characters this accepts were
     // being typed into one line of a 280px slot, so the start of your own
     // sentence scrolled out of sight while you finished it ("comically small
-    // when typing", Paul, 2026-09-06). It opens at three lines and grows with
+    // when typing"). It opens at three lines and grows with
     // the text; Send is the button, because in a box this shape Enter is a
     // paragraph break and not a submit.
     return `<textarea id="rp-note" class="rp-note" rows="2" maxlength="400"`
@@ -4076,8 +4068,8 @@
     // The nod lands beside the clue as well as on the grid. celebrateSolve tints
     // the cells for 450ms, which is a thing you miss entirely if you were reading
     // the clue while you typed the last letter into it ("I don't see any
-    // excitement next to the clue when you're typing it out when you solve it" —
-    // Paul, 2026-09-12). So this one does not expire: it is a standing mark that
+    // excitement next to the clue when you're typing it out when you solve it").
+    // So this one does not expire: it is a standing mark that
     // the clue is out, and arriving late still finds it. Gold for a clue solved
     // with nothing bought, the same two tiers the cells already use.
     let clueLine = `<span class="entry-tag">${tag(e)}</span>`;
@@ -4113,7 +4105,7 @@
     // steps are known: a solved clue's score is settled, so the rest of the
     // ladder costs nothing — and the only place that had ever been said was a
     // comment in this file. "It's not clear when a hint is free after I
-    // finished" (Paul, 2026-08-28). The explanation of a clue you have already
+    // finished". The explanation of a clue you have already
     // got is the one thing this site is for; the reader has to be told they can
     // have it.
     let freeRest = false;
@@ -4238,8 +4230,7 @@
       // the rungs are not a quiz, they are a ladder you are standing on, and a
       // solver who wants a different step is not cheating their way past this
       // one — they have decided this is not the question they needed ("when
-      // you're in the middle of a hint you can't switch to a different hint",
-      // Paul, 2026-09-16). Taking another rung abandons the guess and charges
+      // you're in the middle of a hint you can't switch to a different hint"). Taking another rung abandons the guess and charges
       // for the rung, which is what it would have cost anyway; the abandoned
       // question was never answered, so nothing is earned by walking away from
       // it.
@@ -4260,14 +4251,14 @@
         // Every rung reads as its own question and nothing else. The lead one
         // used to say "Show hint 5 · …", which sold the ladder as a shelf of
         // answers you buy — and it hasn't been that since the rungs started
-        // asking you first (Paul, 2026-08-27). What it is recommending is still
+        // asking you first. What it is recommending is still
         // visible: the lead is the plain button and the sideways moves are
         // ghosts, which is where that has always been said.
         // "Free" rides on the button, not only in the meter above it. Once the
         // clue is solved its score is settled and the rest of the ladder is
         // free, but the decision to open one is made at the button, and a button
         // that reads the same as it did when it charged is not telling you
-        // (Paul, 2026-09-06 — the meter line alone was not enough).
+        // (the meter line alone was not enough).
         nextSpec.push({ rung: s.key, cls: (j || left ? "ghost small" : "") + (solved ? " free" : ""),
           text: `${n} · ${s.label}${solved ? " · free" : ""}` });
       });
@@ -4279,7 +4270,7 @@
       // Offered once the building blocks are up, not only once the whole ladder
       // is: the blocks spell the answer out piece by piece, so a solver who has
       // just assembled it is being made to copy their own work into the grid
-      // square by square (Paul, 2026-08-28). Still offered last, under the rungs,
+      // square by square. Still offered last, under the rungs,
       // because it is the way out of the clue rather than a step in it.
       if (!guessing && canCheck() && !solved && (!togo.length || isShown(e, "blocks"))) {
         nextSpec.push({ fill: true, text: FILL_LABEL });
@@ -4296,7 +4287,7 @@
     // and at no other time. Picking words rewrites the clue too — the picked
     // word's class is in the markup — so every <mark> came back as a new element
     // on every tap and replayed the fade, which read as the link words
-    // flickering grey (Paul, iPad, 2026-09-14). setHTML's markup comparison
+    // flickering grey, on an iPad. setHTML's markup comparison
     // cannot tell those apart, because the markup really did change.
     //
     // So the animation is gated on a class, like .picking below, and the class
@@ -4324,8 +4315,8 @@
     // wherever the body happened to end, so a clue solved cold — nothing bought,
     // nothing in the body — put the question directly under the clue, and the
     // same clue with four rungs taken put it a screen further down. "It seems to
-    // appear in two different spots depending on if you took hints" (Paul,
-    // 2026-09-14). The thing you do when you have finished is last in the panel,
+    // appear in two different spots depending on if you took hints". The thing
+    // you do when you have finished is last in the panel,
     // and last is a place that does not move.
     const voteWrote = setHTML($("hint-vote"),
       solved && ann ? voteRowHTML(voteTarget(e), "Good clue?", "Yes", "Not really") : "");
@@ -4356,7 +4347,7 @@
       // Either half may be tapped first. A chunk then a row, or a row then a
       // chunk: both are one pairing, and a tap that only ever worked in one
       // order is a dead tap in the other ("can I touch the pairing in any
-      // order" — Paul). Whichever is tapped first is the one held.
+      // order?"). Whichever is tapped first is the one held.
       ask.chips.forEach((c, i) => {
         const el = $("gm-chip-" + i);
         if (el) el.onclick = () => {
@@ -4435,7 +4426,7 @@
     // does not like their odds must be able to put it back down: a charade
     // whose letters do not obviously belong to any one fragment is a coin
     // flip, and "having a building block charge me with no way to get it free
-    // when the letter match doesn't feel good" (Paul, 2026-09-12) is that coin
+    // when the letter match doesn't feel good" is that coin
     // flip with the rung staked on it. Nothing was shown, so nothing is spent
     // and nothing is earned; the rung goes back on the ladder and asks again.
     if (ask) {
@@ -4460,7 +4451,7 @@
     // destroys the very button it is a tap on before the click can be
     // dispatched: the keyboard dropped and the letter was never crossed off
     // ("clicking a letter in the ring makes the keyboard hide and doesn't
-    // remove the letter", Paul, 2026-09-14, iPad). Refusing the default
+    // remove the letter", on an iPad). Refusing the default
     // mousedown — the synthesised one iOS sends before click — is what keeps
     // the focus, and the tile, where they were. Shuffle needs it for the same
     // reason.
@@ -4487,8 +4478,7 @@
     // Surviving means staying WHERE THEY ARE, not merely staying crossed out.
     // Re-dealing every position moved them too, so a solver who had placed three
     // letters watched their own three answers scatter along with the question
-    // ("when you have fixed letters they should stay put in the anagram ring",
-    // Paul, 2026-09-14). Only the positions still in play trade places — struck
+    // ("when you have fixed letters they should stay put in the anagram ring"). Only the positions still in play trade places — struck
     // ones, and the pinned ones ringPins() holds at their answer position.
     if (shuffle) shuffle.onmousedown = keepFocus;
     if (shuffle && ring) shuffle.onclick = () => {
@@ -4567,7 +4557,7 @@
     )}">${esc(d.band.toLowerCase())}</span>`;
   }
 
-  // Badge the exception, never the norm (feedback 2026-08-01: "since it only
+  // Badge the exception, never the norm ("since it only
   // lists full hints we don't have to show it"). Once the picker stopped
   // listing un-annotated puzzles, a "full hints" badge on every row said the
   // same thing about every row, which is the same as saying nothing while
@@ -4636,7 +4626,7 @@
   //
   // This is a teaching site, so a puzzle with no hand-written annotations can't
   // do the thing the site is for: you can type letters into it and check them,
-  // and that's all. Listing those alongside the taught ones (2026-08-01: "we
+  // and that's all. Listing those alongside the taught ones ("we
   // only want to only show ones that have full annotations") made the one dialog
   // whose job is "what should I do next" answer mostly with things that won't
   // teach you anything — 22 of 36 rows, and the ratio gets worse every night,
@@ -4644,7 +4634,7 @@
   //
   // Nor is it everything that IS annotated. The dialog answers "what should I
   // do next", and at 226 taught puzzles the answer had become a catalogue you
-  // scroll (Paul, 2026-08-27). So the default is the newest RECENT_ROWS, plus
+  // scroll. So the default is the newest RECENT_ROWS, plus
   // whatever the solver has open or has left unfinished.
   //
   // Hidden is not gone. A query searches EVERY puzzle, annotated or not, so
@@ -4696,7 +4686,7 @@
   // The date and the day it fell on. A weekday is not decoration on a cryptic:
   // the Guardian's week has a shape — Monday gentle, Friday and Saturday's prize
   // hard — so "what day is this from" is a difficulty cue people read before
-  // they start (Paul, 2026-08-16). Always COMPUTED from the timestamp, never
+  // they start. Always COMPUTED from the timestamp, never
   // stored: a saved weekday is a second copy of the date, and second copies
   // disagree. getUTCDay to match the UTC the ISO string is sliced out of, or a
   // solver west of Greenwich gets a day that contradicts the date beside it.
@@ -4736,14 +4726,13 @@
   // suggestions without appearing in the rows, or the other way round.
   //
   // Nothing is offered until two letters are in. The whole list on an empty box
-  // buries the panel it is there to search (Paul, iPhone, 2026-08-27). Two
+  // buries the panel it is there to search, on an iPhone. Two
   // letters cuts seventy terms to a handful, and by then the suggestion is
   // about a word already being spelled — which is when a completion is worth
   // anything.
   //
   // Offered as chips, not through the input's list= attribute. A datalist popup
-  // is native UI the page cannot place: on iPad it opened nowhere near the box
-  // (Paul, 2026-09-14), and no CSS can move it. A chip row is laid out by the
+  // is native UI the page cannot place: on iPad it opened nowhere near the box, and no CSS can move it. A chip row is laid out by the
   // panel, so where it appears is decided here and is the same everywhere.
   const PICKER_SUGGEST_MIN = 2;
   let pickerTerms = null;
@@ -4765,15 +4754,14 @@
   // and the papers. A completion cannot offer a word you have never seen, and
   // the rows only wear what the visible dozen happen to be — one puzzle in the
   // whole collection is Gentle, and Everyman, the biggest series of the five,
-  // starts twenty-three rows down. Scrolling would not turn either up (Paul,
-  // 2026-08-27). So both are named outright, in full, next to the box.
+  // starts twenty-three rows down. Scrolling would not turn either up. So both are named outright, in full, next to the box.
   //
   // Bands run easiest first off the percentiles rather than being listed here,
   // so a band that gets added or renamed in tools/difficulty.py cannot land in
   // the wrong place or go missing.
   // The badges carry a title= with all of this in it, which needs a pointer to
-  // hover and so has never once been read on the iPad this gets solved on
-  // (Paul, 2026-09-14). Said in words instead, behind the ? beside the chips.
+  // hover and so has never once been read on the iPad this gets solved on.
+  // Said in words instead, behind the ? beside the chips.
   //
   // The counts are read off the collection every time rather than written down:
   // a share stated in prose is true on the day it is pasted, and this one moves
@@ -4878,13 +4866,13 @@
     // you tapped and not only in the box above it.
     //
     // They combine, because the question is nearly always two things at once:
-    // "I can choose Everyman brutal" (Paul, 2026-08-28). A tap used to REPLACE
+    // "I can choose Everyman brutal". A tap used to REPLACE
     // whatever was in the box, so the paper and the difficulty were mutually
     // exclusive by accident — while the typed search had combined terms all
     // along. The chips are a way to spell the query without knowing the words;
     // they must not be able to express less than the box they fill in.
     //
-    // A row each, papers then difficulty (Paul, 2026-08-28: "the difficulty
+    // A row each, papers then difficulty ("the difficulty
     // could be on its own line"). They shared one wrapping strip to save a line,
     // and the saving was imaginary — nine chips wrap to two rows on a phone
     // anyway, and where the wrap falls is up to the width, so "Difficulty" and
@@ -5046,7 +5034,7 @@
   // Only when the reader CHOSE this puzzle, though. Booting on the remembered
   // one is not a choice, and a bare site root that rewrites itself
   // would leave the homepage declaring a puzzle as its canonical — which is the
-  // 2026-08-07 de-indexing bug again, pointed the other way. The front door
+  // de-indexing bug again, pointed the other way. The front door
   // stays the front door until somebody picks.
   let canonicalHome = null;
   function pointUrlAtPuzzle(id) {
@@ -5057,7 +5045,7 @@
     // ?p=30054 is one app URL among thousands, and it shipped declaring the
     // homepage as its canonical — so Google folded every share and every link to
     // a specific puzzle into the site root, and Search Console listed the puzzle
-    // as "alternate page with proper canonical tag" (2026-08-07). The page that
+    // as "alternate page with proper canonical tag". The page that
     // deserves that credit is the write-up at /puzzles/30054/, which says the same
     // things without needing JavaScript. Point at it, but only when it exists:
     // an unannotated puzzle has no static page, and the homepage is then honest.
@@ -5142,7 +5130,7 @@
   }
 
   // Finishing a puzzle used to change one number in the scorebar from 27 to 28
-  // ("there should be some celebration when you complete", Paul, 2026-08-17).
+  // ("there should be some celebration when you complete").
   // Two rules keep it from becoming noise: it fires on the TRANSITION only, in
   // the session that earned it — reopening a finished puzzle is not an
   // achievement and must not set off fireworks at you — and the fireworks are
@@ -5159,8 +5147,7 @@
   // `earned` is only the paper. The sentence shows whenever the grid is full,
   // including on a finished puzzle reopened next week — it is a fact about the
   // puzzle, not an event, and there is nothing to dismiss ("why are the stats
-  // dismissed with thanks? Can they just be on the one line when you finish",
-  // Paul, 2026-09-06). Written once per completion rather than on every render:
+  // dismissed with thanks? Can they just be on the one line when you finish"). Written once per completion rather than on every render:
   // the minutes would otherwise tick over mid-burst and wipe the fireworks.
   let tallyDrawn = false;
   function celebrate(complete, earned) {
@@ -5194,7 +5181,7 @@
     wireVotes(box, () => celebrate(true, false));
     // The box is below the grid, so on a phone the fireworks go off off-screen
     // and the question at the bottom of them is never seen ("I want fireworks
-    // when I solve a puzzle and scroll to vote on it", Paul, 2026-09-13). Placed
+    // when I solve a puzzle and scroll to vote on it"). Placed
     // by the same machinery as the hint panel, which is the code that knows the
     // keyboard is still up: the last letter of a puzzle is typed, so the keys
     // are over the bottom third of the screen at exactly this moment.
@@ -5207,7 +5194,7 @@
   // the instant the markup was written, while the page was still travelling down
   // to the box — three shells last 1.7s and the scroll can eat most of that, so
   // on a phone you caught the tail and in the installed app, where the box is
-  // furthest below the fold, nothing at all (Paul, iOS, 2026-09-14).
+  // furthest below the fold, nothing at all, on iOS.
   //
   // So they are paused until the box is on screen. The backstop matters as much
   // as the observer: a box that is never looked at must end up burnt out rather
@@ -5320,7 +5307,7 @@
     bindFeedback();
     // The lesson is /learn/ — a page, reached by a plain link in the header.
     // It is a document you read end to end, and it outgrew the collapsible
-    // section it used to live in on this page (Paul, 2026-08-27).
+    // section it used to live in on this page.
     $("btn-picker").onclick = () => togglePicker();
     $("btn-picker-close").onclick = () => togglePicker(false);
 
@@ -5501,19 +5488,18 @@
     // gesture and this strip re-renders itself on the way through: by the time a
     // click handler's focus() ran, the box that was tapped had been thrown away
     // with the rest of the strip's innerHTML, the tap had nothing left to belong
-    // to, and you got a moved cursor and no keyboard (Paul, iPad, 2026-08-09).
+    // to, and you got a moved cursor and no keyboard, on an iPad.
     //
     // Summoning a keyboard is a viewport change like any other, and what it
     // covers is the clue sitting directly above the strip that was tapped ("the
-    // keyboard covers the clue but it should scroll into view", Paul,
-    // 2026-09-12). placeHintPanel already corrects for a keyboard that arrives
+    // keyboard covers the clue but it should scroll into view"). placeHintPanel already corrects for a keyboard that arrives
     // a beat late — its watch window exists for exactly that — so this tap only
     // ever needed to arm it, the way picking a square does.
     //
     // Only on the tap that RAISES the keyboard. The strip is also how you steer,
     // and re-placing the panel under every steer moved the clue on each box you
     // touched ("with the keyboard up clicking different letters in the clue is
-    // moving it around", Paul, iPad). Nothing is newly covered by a keyboard
+    // moving it around", on an iPad). Nothing is newly covered by a keyboard
     // that was already up, so there is nothing to correct for.
     $("hint-pattern").addEventListener("mousedown", () => {
       const up = document.activeElement === $("kbd");
@@ -5524,7 +5510,7 @@
     // Everything else keeps a keyboard and never raises one. The grid used to
     // raise it — tapping a square was read as a decision to type — but picking a
     // square is how you pick a CLUE, and the ladder answers a new clue with a
-    // question you answer by tapping (Paul, 2026-08-27, again 2026-08-29). The
+    // question you answer by tapping. The
     // hint buttons and the clue lists were already on this rule; the grid joins
     // them, so the strip is the only exception and the strip is where typing
     // starts.
@@ -5565,7 +5551,7 @@
     // ?p=30072 wins over the remembered puzzle: the static answer pages under
     // /puzzles/<n>/ link in that way, and dropping someone on last night's
     // puzzle instead of the one they clicked would be baffling.
-    // Every link shared before 2026-08-19 says ?p=30080, and they must keep
+    // Every link shared before the ids changed says ?p=30080, and they must keep
     // opening the puzzle they named.
     migrateSavedIds();
     const askedRaw = new URLSearchParams(location.search).get("p");

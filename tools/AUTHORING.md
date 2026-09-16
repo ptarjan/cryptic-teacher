@@ -289,7 +289,7 @@ them: the first fires on nearly half of all published Times clues, and the third
 has never fired on one of ours. Verblessness is not the disease and strange
 phrasing is not the disease. Both tests above are still judgements, made aloud.
 
-## The standard is a pub joke, not a rubric score (feedback 2026-07-29)
+## The standard is a pub joke, not a rubric score
 
 Everything above was written from the blind-grading round, and the round-two
 rewrites were judged against it and passed. Then a human read the five clues that
@@ -319,7 +319,7 @@ and note that PATELLA is a plain charade, so "no furniture" does not mean "no
 mechanism". It means `one on each knee` is simultaneously the assembly
 instruction and the picture.
 
-MOTHER (added 2026-07-30) is the same lesson for a hidden word, and it is the
+MOTHER is the same lesson for a hidden word, and it is the
 sharpest example of Rule 1 below — **exactly two pieces, nothing superfluous**:
 
     Bergamot herbal   wordplay fodder — berga|MOT HER|bal
@@ -340,7 +340,7 @@ Test a candidate against this one before shipping it: can you write the
 four-line table above for your clue, with every word of the surface landing in
 exactly one row?
 
-The rules that follow, applied to all twenty A001 clues in the 2026-07-29 pass:
+The rules that follow, applied to all twenty A001 clues in that pass:
 
 1. **A complete English utterance.** Subject and finite verb, or an idiom a
    person actually says. Imperatives are fine (`Die of cold`).
@@ -362,7 +362,7 @@ published standard. If a future pass can find Patella-class charades for those
 six, it should — but a sound mechanism is not a reason to keep a clue nobody
 enjoys reading. That pass happened; the next section is what it found.
 
-## The sentence AND the wordplay (feedback 2026-07-29, same day)
+## The sentence AND the wordplay
 
 The twenty rewritten clues were read back and the verdict was one sentence:
 
@@ -433,7 +433,7 @@ weapon`, `under arms`), so no clue can define it tightly enough to be worth the
 machinery. That is the honest test for spending one of your two: **not "is this
 funny" but "is the mechanism I would swap it for actually worse than nothing".**
 
-## Exactly two pieces (feedback 2026-07-29, same day again)
+## Exactly two pieces
 
 The twenty clues above were read back once more, and the verdict was about the
 words that are not the clue:
@@ -471,15 +471,15 @@ There is one fault none of this catches, and it is worth knowing the shape of it
 so nobody spends another afternoon trying. A `cryptic definition` claims no
 letters, so it contradicts nothing and no consistency check can reach it — which
 makes it the one type an annotator can reach for without solving anything. Four
-candidate rules were measured against this corpus on 2026-08-08 and all four were
+candidate rules were measured against this corpus and all four were
 thrown away for lighting up honest work: a block handing over the whole answer
 fires on 4 of the 9 existing cryptic definitions, a `definition` spanning the
 whole clue on 8 of 9, a known indicator word appearing in the clue on 3 of 9, and
 "blocks concatenate to the right letters in the wrong order with no mechanism
 named" on 11 of 175 charades (all of them correct — the blocks are simply listed
 in clue order, as in PEAS + SWEET for SWEET PEAS). Three of those four are still
-dead. **The fourth was misjudged and is now `check_blocks_in_answer_order`**
-(2026-08-09): "all of them correct" was wrong — the letters are correct and the
+dead. **The fourth was misjudged and is now `check_blocks_in_answer_order`:**
+"all of them correct" was wrong — the letters are correct and the
 ORDER is the teaching, and PEAS before SWEET makes the learner reassemble what
 the annotation exists to show. What made it look like noise was scope. Narrowed
 to `type == "charade"` exactly, it is 10 of 127 with no false positives, because
@@ -494,7 +494,7 @@ cryptic definition in the puzzle, and a human reads them. That is the whole of t
 defence, and it is deliberate: the check that would catch the remaining case does
 not exist, because every version of it is wrong more often than it is right.
 
-The cap went through the same scoping lesson on 2026-09-08, in the other
+The cap went through the same scoping lesson in the other
 direction. It was a hard error on every puzzle, and quiptic-1372 (Harpo) turned
 out to have five genuine cryptic definitions — so the annotator solved all five
 and then shipped three of them with `annotation: null` to get under the ceiling.
@@ -579,7 +579,7 @@ statue. It was not applied because it is a bare noun phrase, which trades the
 missing mechanism for a hard-rule-1 failure. If the two CDs ever have to go, that
 is the clue to start from.
 
-## When the blocks already told them (feedback 2026-07-29)
+## When the blocks already told them
 
 > **When you basically give the whole answer in the building blocks you don't
 > need to have the full walkthrough.**
@@ -618,7 +618,7 @@ Two things to know before touching this:
   means reusing the clue's own words. Don't rebuild it without new evidence; the
   judgement half of this rule is procedure, not machinery.
 
-## The joints: link words, adjacency, direction (feedback 2026-07-30)
+## The joints: link words, adjacency, direction
 
 The clue offered as the best of the pass was rejected, and the two objections
 were both structural. Here is what was offered, with its annotation:
