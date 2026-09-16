@@ -2582,30 +2582,37 @@
     const lens = ringWords(ann).map((w) => w.length);
     const cuts = (lens.length > 1 && lens.reduce((a, b) => a + b, 0) === n) ? lens : [n];
     let from = 0;
-    // One size for every ring in a set. Sized for the longest word, so the
-    // tiles of a shorter one sit further apart around the same circle: a four
-    // drawn beside a five at its own size read as two unrelated objects, and
-    // which ring was which word was a thing you worked out from counting rather
-    // than saw (Paul, 2026-09-16). The pitch is a floor, not a fixed step.
-    const radiusOf = (len) => Math.max(56, Math.min(140,
-      Math.ceil(PITCH / (2 * Math.sin(Math.PI / Math.max(3, len))))));
-    const radius = radiusOf(Math.max.apply(null, cuts));
+    // ONE ring, with a gap in it where each word of the answer ends. Two rings
+    // side by side were two objects to compare — which was the four and which
+    // the five had to be counted rather than seen, and equalising their size
+    // only traded that for two circles at different spacings (Paul,
+    // 2026-09-16). A break in a single circle is the same fact told once: the
+    // letters are still one jumble, which is what an anagram is, and the shape
+    // of the answer is drawn through them rather than beside them.
+    //
+    // A break costs one tile's worth of arc, so the circle is sized for the
+    // letters plus the gaps and the pitch between neighbours holds either side
+    // of one.
+    const slots = n + (cuts.length - 1);
+    const radius = Math.max(56, Math.min(140,
+      Math.ceil(PITCH / (2 * Math.sin(Math.PI / Math.max(3, slots))))));
     const d = radius * 2 + 34;
-    const discs = cuts.map((len) => {
+    const tiles = cuts.map((len, w) => {
       const slice = ring.order.slice(from, from + len);
+      const before = from + w;   // letters already placed, plus one arc per break
       from += len;
-      const tiles = slice.map((idx, pos) => {
-        const a = (pos / len) * 2 * Math.PI - Math.PI / 2;
+      return slice.map((idx, pos) => {
+        const a = ((before + pos) / slots) * 2 * Math.PI - Math.PI / 2;
         return `<button type="button" class="ana-tile${ring.struck[idx] ? " struck" : ""}${
             pinnedTile[idx] ? " fixed" : ""}"
-          data-ana="${idx}" aria-pressed="${ring.struck[idx] ? "true" : "false"}"
+          data-ana="${idx}" data-word="${w}" aria-pressed="${ring.struck[idx] ? "true" : "false"}"
           title="${pinnedTile[idx] ? "Already in the grid — pinned where it goes" : "Cross off once used"}"
           style="left:calc(50% + ${Math.round(Math.cos(a) * radius)}px);
                  top:calc(50% + ${Math.round(Math.sin(a) * radius)}px)">${ring.letters[idx]}</button>`;
       }).join("");
-      return `<div class="ana-disc${ringKbdFocused() ? " ana-focus" : ""}" style="width:${
-        d}px;height:${d}px">${tiles}</div>`;
     }).join("");
+    const discs = `<div class="ana-disc${ringKbdFocused() ? " ana-focus" : ""}" style="width:${
+      d}px;height:${d}px">${tiles}</div>`;
     // ana-focus is a plain function of activeElement at render time, not of a
     // focus/blur listener toggling a class: the disc is thrown away and rebuilt
     // on every keystroke (a new tile has to be drawn), so anything the DOM
@@ -2614,7 +2621,7 @@
     return `<div class="anagram-ring">
       <div class="ana-discs">${discs}</div>
       <p class="muted">${cuts.length > 1
-        ? `One ring per word of the answer, ${cuts.join(" then ")} letters. Letters`
+        ? `The gaps are where the answer's words end, ${cuts.join(" then ")} letters. Letters`
         : "Letters"} already in the grid are pinned where they go, reading clockwise from
         the top. Tap a letter to cross it off once you've used it. Click the ring and type
         to add a letter, Backspace to remove the last. Shuffle for a fresh arrangement.</p>
