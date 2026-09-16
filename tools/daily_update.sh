@@ -824,11 +824,9 @@ if bad_hints=$(python3 tools/reports.py --since 14 2>&1); then
       else
         fixlog="${TMPDIR:-/tmp}/cryptic-reports.log"
         echo "fixing $(printf '%s' "$bad_hints" | grep -c '^  r:') reported hint(s) with Claude Code... (session ${session:-unknown}%)"
-        claude -p "Solvers of this crossword site reported these hints as wrong or unhelpful. Fix them.
+        claude -p "Read tools/report_fix_prompt.md and follow it exactly. These are the reports it is about:
 
-$bad_hints
-
-For each report: read that clue's annotation in its puzzles/<id>.js, decide whether the complaint is about this one clue or about a shape the site repeats, and fix it at the level it belongs to — the annotation, the rendering in app.js, or a rule in tools/validate_annotations.py. A complaint you disagree with is still evidence the page reads wrong; say what you concluded either way. Then run 'python3 tools/validate_annotations.py' and 'node tools/smoke_test.js' and leave both passing. Finally run 'python3 tools/reports.py --done <key>' for each report you actually fixed, using the r: key printed under it, and leave in the queue anything you could not fix. Do not commit — the calling script commits." \
+$bad_hints" \
           --model "$ANNOTATE_MODEL" \
           --allowedTools "Read,Write,Edit,Bash(python3 *),Bash(node *)" \
           --max-turns 120 >"$fixlog" 2>&1
