@@ -30,7 +30,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "independent-12460",
@@ -53,7 +54,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "indysunday-1907",
@@ -76,7 +78,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "quiptic-1399",
@@ -99,7 +102,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "everyman-4169",
@@ -113,7 +117,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": false,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "cryptic-30110",
@@ -136,7 +141,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "independent-12459",
@@ -159,7 +165,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "cryptic-30109",
@@ -182,7 +189,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "independent-12458",
@@ -205,7 +213,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "cryptic-30108",
@@ -228,7 +237,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "independent-12457",
@@ -251,7 +261,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "cryptic-30107",
@@ -265,7 +276,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 42,
+    "percentile": 7
+   }
   },
   {
    "id": "independent-12456",
@@ -288,6 +303,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 17,
+    "percentile": 94
    }
   },
   {
@@ -311,6 +330,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 35,
+    "percentile": 4
    }
   },
   {
@@ -334,6 +357,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 15,
+    "percentile": 90
    }
   },
   {
@@ -357,7 +384,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "independent-12454",
@@ -380,6 +408,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 9,
+    "percentile": 34
    }
   },
   {
@@ -403,6 +435,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 8,
+    "percentile": 18
    }
   },
   {
@@ -426,6 +462,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 31,
+    "percentile": 29
    }
   },
   {
@@ -449,7 +489,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "cryptic-30104",
@@ -472,7 +513,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "independent-12453",
@@ -495,6 +537,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 8,
+    "percentile": 20
    }
   },
   {
@@ -518,7 +564,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "independent-12452",
@@ -541,6 +588,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 7,
+    "percentile": 10
    }
   },
   {
@@ -564,6 +615,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 71,
+    "percentile": 60
    }
   },
   {
@@ -587,6 +642,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 9,
+    "percentile": 34
    }
   },
   {
@@ -610,7 +669,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "independent-12450",
@@ -633,6 +693,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 8,
+    "percentile": 20
    }
   },
   {
@@ -656,7 +720,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "independent-12449",
@@ -679,6 +744,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 17,
+    "percentile": 94
    }
   },
   {
@@ -702,6 +771,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 91,
+    "percentile": 86
    }
   },
   {
@@ -725,6 +798,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 14,
+    "percentile": 84
    }
   },
   {
@@ -748,6 +825,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 16,
+    "percentile": 89
    }
   },
   {
@@ -771,6 +852,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 40,
+    "percentile": 67
    }
   },
   {
@@ -794,6 +879,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 7,
+    "percentile": 0
    }
   },
   {
@@ -817,6 +906,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 47,
+    "percentile": 11
    }
   },
   {
@@ -840,6 +933,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 17,
+    "percentile": 94
    }
   },
   {
@@ -863,6 +960,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 108,
+    "percentile": 95
    }
   },
   {
@@ -886,6 +987,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 8,
+    "percentile": 20
    }
   },
   {
@@ -909,7 +1014,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "independent-12445",
@@ -932,6 +1038,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 14,
+    "percentile": 84
    }
   },
   {
@@ -955,6 +1065,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 73,
+    "percentile": 64
    }
   },
   {
@@ -978,6 +1092,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 12,
+    "percentile": 69
    }
   },
   {
@@ -1001,7 +1119,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "independent-12443",
@@ -1024,6 +1143,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 10,
+    "percentile": 47
    }
   },
   {
@@ -1047,6 +1170,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 79,
+    "percentile": 75
    }
   },
   {
@@ -1070,6 +1197,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 8,
+    "percentile": 20
    }
   },
   {
@@ -1093,6 +1224,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 13,
+    "percentile": 68
    }
   },
   {
@@ -1116,6 +1251,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 22,
+    "percentile": 4
    }
   },
   {
@@ -1139,6 +1278,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 19,
+    "percentile": 15
    }
   },
   {
@@ -1162,6 +1305,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 50,
+    "percentile": 14
    }
   },
   {
@@ -1185,6 +1332,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 9,
+    "percentile": 34
    }
   },
   {
@@ -1208,6 +1359,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 61,
+    "percentile": 41
    }
   },
   {
@@ -1231,6 +1386,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 11,
+    "percentile": 59
    }
   },
   {
@@ -1254,6 +1413,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 67,
+    "percentile": 54
    }
   },
   {
@@ -1277,6 +1440,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 10,
+    "percentile": 47
    }
   },
   {
@@ -1300,7 +1467,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "independent-12438",
@@ -1323,6 +1491,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 11,
+    "percentile": 59
    }
   },
   {
@@ -1346,6 +1518,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 98,
+    "percentile": 91
    }
   },
   {
@@ -1369,6 +1545,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 20,
+    "percentile": 98
    }
   },
   {
@@ -1392,7 +1572,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "independent-12436",
@@ -1415,6 +1596,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 11,
+    "percentile": 59
    }
   },
   {
@@ -1438,6 +1623,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 14,
+    "percentile": 78
    }
   },
   {
@@ -1461,6 +1650,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 42,
+    "percentile": 74
    }
   },
   {
@@ -1484,6 +1677,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 13,
+    "percentile": 3
    }
   },
   {
@@ -1507,7 +1704,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "independent-12435",
@@ -1530,6 +1728,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 9,
+    "percentile": 34
    }
   },
   {
@@ -1553,7 +1755,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "independent-12434",
@@ -1576,6 +1779,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 13,
+    "percentile": 76
    }
   },
   {
@@ -1599,6 +1806,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 70,
+    "percentile": 56
    }
   },
   {
@@ -1622,6 +1833,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 10,
+    "percentile": 47
    }
   },
   {
@@ -1645,7 +1860,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "independent-12432",
@@ -1668,6 +1884,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 10,
+    "percentile": 47
    }
   },
   {
@@ -1691,7 +1911,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "independent-12431",
@@ -1714,6 +1935,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 9,
+    "percentile": 34
    }
   },
   {
@@ -1737,7 +1962,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "independent-12430",
@@ -1760,6 +1986,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 8,
+    "percentile": 20
    }
   },
   {
@@ -1783,6 +2013,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 20,
+    "percentile": 99
    }
   },
   {
@@ -1806,6 +2040,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 23,
+    "percentile": 7
    }
   },
   {
@@ -1829,6 +2067,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 16,
+    "percentile": 8
    }
   },
   {
@@ -1852,7 +2094,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "independent-12429",
@@ -1875,6 +2118,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 13,
+    "percentile": 76
    }
   },
   {
@@ -1898,6 +2145,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 78,
+    "percentile": 73
    }
   },
   {
@@ -1921,6 +2172,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 14,
+    "percentile": 84
    }
   },
   {
@@ -1944,7 +2199,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "independent-12427",
@@ -1967,6 +2223,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 15,
+    "percentile": 90
    }
   },
   {
@@ -1990,6 +2250,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 106,
+    "percentile": 93
    }
   },
   {
@@ -2013,6 +2277,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 8,
+    "percentile": 20
    }
   },
   {
@@ -2036,7 +2304,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "independent-12425",
@@ -2059,6 +2328,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 11,
+    "percentile": 59
    }
   },
   {
@@ -2082,7 +2355,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "independent-12424",
@@ -2105,6 +2379,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 14,
+    "percentile": 84
    }
   },
   {
@@ -2128,6 +2406,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 13,
+    "percentile": 68
    }
   },
   {
@@ -2151,6 +2433,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 27,
+    "percentile": 15
    }
   },
   {
@@ -2174,6 +2460,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 9,
+    "percentile": 1
    }
   },
   {
@@ -2197,6 +2487,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 51,
+    "percentile": 18
    }
   },
   {
@@ -2220,6 +2514,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 11,
+    "percentile": 59
    }
   },
   {
@@ -2243,7 +2541,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "independent-12422",
@@ -2266,6 +2565,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 9,
+    "percentile": 34
    }
   },
   {
@@ -2289,6 +2592,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 111,
+    "percentile": 98
    }
   },
   {
@@ -2312,6 +2619,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 7,
+    "percentile": 10
    }
   },
   {
@@ -2335,7 +2646,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "independent-12420",
@@ -2358,6 +2670,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 11,
+    "percentile": 59
    }
   },
   {
@@ -2381,6 +2697,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 70,
+    "percentile": 56
    }
   },
   {
@@ -2404,6 +2724,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 10,
+    "percentile": 47
    }
   },
   {
@@ -2427,7 +2751,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "independent-12418",
@@ -2450,6 +2775,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 5,
+    "percentile": 1
    }
   },
   {
@@ -2473,6 +2802,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 9,
+    "percentile": 30
    }
   },
   {
@@ -2496,6 +2829,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 22,
+    "percentile": 4
    }
   },
   {
@@ -2519,6 +2856,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 19,
+    "percentile": 15
    }
   },
   {
@@ -2542,7 +2883,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "independent-12417",
@@ -2565,6 +2907,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 5,
+    "percentile": 1
    }
   },
   {
@@ -2588,6 +2934,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 59,
+    "percentile": 35
    }
   },
   {
@@ -2611,6 +2961,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 9,
+    "percentile": 34
    }
   },
   {
@@ -2634,7 +2988,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "independent-12415",
@@ -2657,6 +3012,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 11,
+    "percentile": 59
    }
   },
   {
@@ -2680,6 +3039,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 80,
+    "percentile": 77
    }
   },
   {
@@ -2703,6 +3066,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 14,
+    "percentile": 84
    }
   },
   {
@@ -2726,7 +3093,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "independent-12413",
@@ -2749,6 +3117,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 13,
+    "percentile": 76
    }
   },
   {
@@ -2772,6 +3144,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 64,
+    "percentile": 50
    }
   },
   {
@@ -2795,6 +3171,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 9,
+    "percentile": 34
    }
   },
   {
@@ -2818,6 +3198,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 11,
+    "percentile": 51
    }
   },
   {
@@ -2841,6 +3225,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 29,
+    "percentile": 22
    }
   },
   {
@@ -2864,6 +3252,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 21,
+    "percentile": 19
    }
   },
   {
@@ -2887,7 +3279,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "independent-12411",
@@ -2910,6 +3303,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 20,
+    "percentile": 98
    }
   },
   {
@@ -2933,6 +3330,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 60,
+    "percentile": 39
    }
   },
   {
@@ -2956,6 +3357,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 10,
+    "percentile": 47
    }
   },
   {
@@ -2979,7 +3384,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "independent-12409",
@@ -3002,6 +3408,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 9,
+    "percentile": 34
    }
   },
   {
@@ -3025,7 +3435,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "independent-12408",
@@ -3048,6 +3459,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 10,
+    "percentile": 47
    }
   },
   {
@@ -3071,6 +3486,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 95,
+    "percentile": 89
    }
   },
   {
@@ -3094,6 +3513,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 21,
+    "percentile": 100
    }
   },
   {
@@ -3117,7 +3540,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "independent-12406",
@@ -3140,6 +3564,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 14,
+    "percentile": 84
    }
   },
   {
@@ -3163,6 +3591,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 10,
+    "percentile": 41
    }
   },
   {
@@ -3186,6 +3618,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 26,
+    "percentile": 11
    }
   },
   {
@@ -3209,6 +3645,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 25,
+    "percentile": 40
    }
   },
   {
@@ -3232,7 +3672,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "independent-12405",
@@ -3255,6 +3696,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 10,
+    "percentile": 47
    }
   },
   {
@@ -3278,7 +3723,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "independent-12404",
@@ -3301,6 +3747,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 7,
+    "percentile": 10
    }
   },
   {
@@ -3324,6 +3774,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 82,
+    "percentile": 79
    }
   },
   {
@@ -3347,6 +3801,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 6,
+    "percentile": 5
    }
   },
   {
@@ -3370,7 +3828,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "independent-12402",
@@ -3393,6 +3852,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 5,
+    "percentile": 1
    }
   },
   {
@@ -3416,7 +3879,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "independent-12401",
@@ -3439,6 +3903,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 11,
+    "percentile": 59
    }
   },
   {
@@ -3462,6 +3930,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 74,
+    "percentile": 65
    }
   },
   {
@@ -3485,6 +3957,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 13,
+    "percentile": 76
    }
   },
   {
@@ -3508,6 +3984,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 9,
+    "percentile": 30
    }
   },
   {
@@ -3531,6 +4011,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 29,
+    "percentile": 22
    }
   },
   {
@@ -3554,6 +4038,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 21,
+    "percentile": 19
    }
   },
   {
@@ -3577,6 +4065,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 51,
+    "percentile": 18
    }
   },
   {
@@ -3600,6 +4092,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 14,
+    "percentile": 84
    }
   },
   {
@@ -3623,6 +4119,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 55,
+    "percentile": 23
    }
   },
   {
@@ -3646,6 +4146,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 7,
+    "percentile": 10
    }
   },
   {
@@ -3669,7 +4173,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "independent-12397",
@@ -3692,6 +4197,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 8,
+    "percentile": 20
    }
   },
   {
@@ -3715,6 +4224,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 59,
+    "percentile": 35
    }
   },
   {
@@ -3738,6 +4251,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 8,
+    "percentile": 20
    }
   },
   {
@@ -3761,7 +4278,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "independent-12395",
@@ -3784,6 +4302,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 12,
+    "percentile": 69
    }
   },
   {
@@ -3807,7 +4329,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "independent-12394",
@@ -3830,6 +4353,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 6,
+    "percentile": 5
    }
   },
   {
@@ -3853,6 +4380,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 5,
+    "percentile": 0
    }
   },
   {
@@ -3876,6 +4407,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 22,
+    "percentile": 4
    }
   },
   {
@@ -3899,6 +4434,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 15,
+    "percentile": 7
    }
   },
   {
@@ -3922,6 +4461,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 32,
+    "percentile": 1
    }
   },
   {
@@ -3945,6 +4488,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 8,
+    "percentile": 20
    }
   },
   {
@@ -3968,7 +4515,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "independent-12392",
@@ -3991,6 +4539,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 11,
+    "percentile": 59
    }
   },
   {
@@ -4014,6 +4566,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 78,
+    "percentile": 73
    }
   },
   {
@@ -4037,6 +4593,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 8,
+    "percentile": 20
    }
   },
   {
@@ -4060,7 +4620,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "independent-12390",
@@ -4083,6 +4644,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 7,
+    "percentile": 10
    }
   },
   {
@@ -4106,6 +4671,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 46,
+    "percentile": 9
    }
   },
   {
@@ -4129,6 +4698,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 13,
+    "percentile": 76
    }
   },
   {
@@ -4152,7 +4725,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "independent-12388",
@@ -4175,6 +4749,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 9,
+    "percentile": 34
    }
   },
   {
@@ -4198,6 +4776,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 11,
+    "percentile": 51
    }
   },
   {
@@ -4221,6 +4803,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 36,
+    "percentile": 44
    }
   },
   {
@@ -4244,6 +4830,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 14,
+    "percentile": 5
    }
   },
   {
@@ -4267,7 +4857,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "independent-12387",
@@ -4290,6 +4881,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 13,
+    "percentile": 76
    }
   },
   {
@@ -4313,6 +4908,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 60,
+    "percentile": 39
    }
   },
   {
@@ -4336,6 +4935,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 12,
+    "percentile": 69
    }
   },
   {
@@ -4359,7 +4962,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "independent-12385",
@@ -4382,6 +4986,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 9,
+    "percentile": 34
    }
   },
   {
@@ -4405,6 +5013,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 63,
+    "percentile": 47
    }
   },
   {
@@ -4419,7 +5031,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 9,
+    "percentile": 34
+   }
   },
   {
    "id": "cryptic-30034",
@@ -4442,7 +5058,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "independent-12383",
@@ -4456,7 +5073,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 12,
+    "percentile": 69
+   }
   },
   {
    "id": "cryptic-30033",
@@ -4479,6 +5100,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 102,
+    "percentile": 92
    }
   },
   {
@@ -4493,7 +5118,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 11,
+    "percentile": 59
+   }
   },
   {
    "id": "indysunday-1894",
@@ -4516,6 +5145,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 10,
+    "percentile": 41
    }
   },
   {
@@ -4539,6 +5172,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 24,
+    "percentile": 9
    }
   },
   {
@@ -4562,6 +5199,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 24,
+    "percentile": 35
    }
   },
   {
@@ -4585,7 +5226,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "independent-12381",
@@ -4599,7 +5241,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 19,
+    "percentile": 96
+   }
   },
   {
    "id": "cryptic-30031",
@@ -4622,6 +5268,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 110,
+    "percentile": 97
    }
   },
   {
@@ -4636,7 +5286,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 6,
+    "percentile": 5
+   }
   },
   {
    "id": "cryptic-30030",
@@ -4659,6 +5313,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 63,
+    "percentile": 47
    }
   },
   {
@@ -4673,7 +5331,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 12,
+    "percentile": 69
+   }
   },
   {
    "id": "cryptic-30029",
@@ -4696,7 +5358,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "cryptic-30028",
@@ -4719,6 +5382,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 72,
+    "percentile": 63
    }
   },
   {
@@ -4742,7 +5409,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "indysunday-1893",
@@ -4765,6 +5433,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 11,
+    "percentile": 51
    }
   },
   {
@@ -4788,6 +5460,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 40,
+    "percentile": 67
    }
   },
   {
@@ -4811,6 +5487,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 22,
+    "percentile": 24
    }
   },
   {
@@ -4834,6 +5514,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 56,
+    "percentile": 26
    }
   },
   {
@@ -4857,7 +5541,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "cryptic-30024",
@@ -4880,6 +5565,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 71,
+    "percentile": 60
    }
   },
   {
@@ -4903,7 +5592,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "cryptic-30022",
@@ -4926,7 +5616,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "cryptic-30021",
@@ -4949,6 +5640,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 62,
+    "percentile": 44
    }
   },
   {
@@ -4972,6 +5667,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 6,
+    "percentile": 4
    }
   },
   {
@@ -4995,6 +5694,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 30,
+    "percentile": 26
    }
   },
   {
@@ -5018,6 +5721,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 29,
+    "percentile": 61
    }
   },
   {
@@ -5041,7 +5748,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "cryptic-30019",
@@ -5064,6 +5772,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 85,
+    "percentile": 80
    }
   },
   {
@@ -5087,7 +5799,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "cryptic-30017",
@@ -5110,6 +5823,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 54,
+    "percentile": 21
    }
   },
   {
@@ -5133,7 +5850,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "cryptic-30015",
@@ -5156,7 +5874,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "indysunday-1891",
@@ -5179,6 +5898,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 9,
+    "percentile": 30
    }
   },
   {
@@ -5202,6 +5925,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 21,
+    "percentile": 1
    }
   },
   {
@@ -5225,6 +5952,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 30,
+    "percentile": 67
    }
   },
   {
@@ -5248,7 +5979,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "cryptic-30013",
@@ -5271,7 +6003,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "cryptic-30012",
@@ -5294,6 +6027,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 107,
+    "percentile": 94
    }
   },
   {
@@ -5317,7 +6054,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "cryptic-30010",
@@ -5340,6 +6078,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 77,
+    "percentile": 70
    }
   },
   {
@@ -5363,7 +6105,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "indysunday-1890",
@@ -5386,6 +6129,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 6,
+    "percentile": 4
    }
   },
   {
@@ -5409,6 +6156,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 28,
+    "percentile": 19
    }
   },
   {
@@ -5432,6 +6183,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 28,
+    "percentile": 54
    }
   },
   {
@@ -5455,7 +6210,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "cryptic-30007",
@@ -5478,6 +6234,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 50,
+    "percentile": 14
    }
   },
   {
@@ -5501,7 +6261,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "cryptic-30005",
@@ -5524,6 +6285,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 57,
+    "percentile": 29
    }
   },
   {
@@ -5547,7 +6312,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "cryptic-30003",
@@ -5570,6 +6336,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 43,
+    "percentile": 8
    }
   },
   {
@@ -5593,6 +6363,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 19,
+    "percentile": 96
    }
   },
   {
@@ -5616,6 +6390,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 37,
+    "percentile": 51
    }
   },
   {
@@ -5639,6 +6417,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 21,
+    "percentile": 19
    }
   },
   {
@@ -5662,6 +6444,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 33,
+    "percentile": 2
    }
   },
   {
@@ -5685,6 +6471,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 57,
+    "percentile": 29
    }
   },
   {
@@ -5708,6 +6498,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 157,
+    "percentile": 100
    }
   },
   {
@@ -5731,7 +6525,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "cryptic-29998",
@@ -5754,6 +6549,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 59,
+    "percentile": 35
    }
   },
   {
@@ -5777,7 +6576,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "indysunday-1888",
@@ -5800,6 +6600,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 13,
+    "percentile": 68
    }
   },
   {
@@ -5823,6 +6627,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 42,
+    "percentile": 74
    }
   },
   {
@@ -5846,6 +6654,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 28,
+    "percentile": 54
    }
   },
   {
@@ -5869,6 +6681,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 32,
+    "percentile": 1
    }
   },
   {
@@ -5892,7 +6708,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "cryptic-29994",
@@ -5915,6 +6732,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 71,
+    "percentile": 60
    }
   },
   {
@@ -5938,7 +6759,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "cryptic-29992",
@@ -5961,7 +6783,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "cryptic-29991",
@@ -5984,6 +6807,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 75,
+    "percentile": 68
    }
   },
   {
@@ -6007,6 +6834,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 13,
+    "percentile": 68
    }
   },
   {
@@ -6030,6 +6861,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 36,
+    "percentile": 44
    }
   },
   {
@@ -6053,7 +6888,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "cryptic-29990",
@@ -6076,7 +6912,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "cryptic-29989",
@@ -6099,6 +6936,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 82,
+    "percentile": 79
    }
   },
   {
@@ -6122,7 +6963,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "cryptic-29987",
@@ -6145,6 +6987,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 77,
+    "percentile": 70
    }
   },
   {
@@ -6168,7 +7014,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "cryptic-29985",
@@ -6191,7 +7038,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "indysunday-1886",
@@ -6214,6 +7062,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 16,
+    "percentile": 89
    }
   },
   {
@@ -6237,6 +7089,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 42,
+    "percentile": 74
    }
   },
   {
@@ -6260,6 +7116,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 26,
+    "percentile": 46
    }
   },
   {
@@ -6283,7 +7143,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "cryptic-29983",
@@ -6306,7 +7167,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "cryptic-29982",
@@ -6329,6 +7191,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 51,
+    "percentile": 18
    }
   },
   {
@@ -6352,7 +7218,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "cryptic-29980",
@@ -6375,6 +7242,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 62,
+    "percentile": 44
    }
   },
   {
@@ -6398,7 +7269,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "indysunday-1885",
@@ -6421,6 +7293,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 11,
+    "percentile": 51
    }
   },
   {
@@ -6444,6 +7320,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 22,
+    "percentile": 4
    }
   },
   {
@@ -6467,6 +7347,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 30,
+    "percentile": 67
    }
   },
   {
@@ -6490,6 +7374,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 56,
+    "percentile": 26
    }
   },
   {
@@ -6513,6 +7401,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 42,
+    "percentile": 7
    }
   },
   {
@@ -6536,7 +7428,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "cryptic-29975",
@@ -6559,6 +7452,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 56,
+    "percentile": 26
    }
   },
   {
@@ -6582,7 +7479,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "cryptic-29973",
@@ -6605,6 +7503,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 63,
+    "percentile": 47
    }
   },
   {
@@ -6628,6 +7530,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 8,
+    "percentile": 18
    }
   },
   {
@@ -6651,6 +7557,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 48,
+    "percentile": 90
    }
   },
   {
@@ -6674,6 +7584,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 34,
+    "percentile": 81
    }
   },
   {
@@ -6697,7 +7611,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "cryptic-29971",
@@ -6720,6 +7635,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 55,
+    "percentile": 23
    }
   },
   {
@@ -6743,6 +7662,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 56,
+    "percentile": 26
    }
   },
   {
@@ -6766,7 +7689,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "cryptic-29968",
@@ -6789,6 +7713,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 92,
+    "percentile": 87
    }
   },
   {
@@ -6803,7 +7731,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "everyman-4145",
@@ -6826,7 +7755,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "indysunday-1883",
@@ -6849,6 +7779,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 6,
+    "percentile": 4
    }
   },
   {
@@ -6872,6 +7806,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 39,
+    "percentile": 63
    }
   },
   {
@@ -6886,7 +7824,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "cryptic-29965",
@@ -6900,7 +7839,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "cryptic-29964",
@@ -6914,7 +7854,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 50,
+    "percentile": 14
+   }
   },
   {
    "id": "cryptic-29963",
@@ -6928,7 +7872,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "cryptic-29962",
@@ -6942,7 +7887,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "cryptic-29961",
@@ -6956,7 +7902,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 59,
+    "percentile": 35
+   }
   },
   {
    "id": "everyman-4144",
@@ -6979,6 +7929,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 23,
+    "percentile": 29
    }
   },
   {
@@ -7002,6 +7956,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 11,
+    "percentile": 51
    }
   },
   {
@@ -7025,6 +7983,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 39,
+    "percentile": 63
    }
   },
   {
@@ -7039,7 +8001,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "cryptic-29959",
@@ -7053,7 +8016,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 93,
+    "percentile": 88
+   }
   },
   {
    "id": "cryptic-29958",
@@ -7067,7 +8034,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "cryptic-29957",
@@ -7081,7 +8049,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 58,
+    "percentile": 31
+   }
   },
   {
    "id": "cryptic-29956",
@@ -7095,7 +8067,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "cryptic-29955",
@@ -7109,7 +8082,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 62,
+    "percentile": 44
+   }
   },
   {
    "id": "everyman-4143",
@@ -7132,6 +8109,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 30,
+    "percentile": 67
    }
   },
   {
@@ -7155,6 +8136,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 9,
+    "percentile": 30
    }
   },
   {
@@ -7178,6 +8163,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 46,
+    "percentile": 85
    }
   },
   {
@@ -7192,7 +8181,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 41,
+    "percentile": 5
+   }
   },
   {
    "id": "cryptic-29953",
@@ -7206,7 +8199,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "cryptic-29952",
@@ -7220,7 +8214,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 90,
+    "percentile": 84
+   }
   },
   {
    "id": "cryptic-29951",
@@ -7234,7 +8232,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "cryptic-29950",
@@ -7248,7 +8247,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 117,
+    "percentile": 99
+   }
   },
   {
    "id": "cryptic-29949",
@@ -7262,7 +8265,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "everyman-4142",
@@ -7285,6 +8289,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 26,
+    "percentile": 46
    }
   },
   {
@@ -7308,6 +8316,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 14,
+    "percentile": 78
    }
   },
   {
@@ -7331,6 +8343,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 39,
+    "percentile": 63
    }
   },
   {
@@ -7345,7 +8361,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 47,
+    "percentile": 11
+   }
   },
   {
    "id": "cryptic-29947",
@@ -7359,7 +8379,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 64,
+    "percentile": 50
+   }
   },
   {
    "id": "cryptic-29946",
@@ -7373,7 +8397,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "cryptic-29945",
@@ -7387,7 +8412,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 97,
+    "percentile": 90
+   }
   },
   {
    "id": "cryptic-29944",
@@ -7401,7 +8430,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "cryptic-29943",
@@ -7415,7 +8445,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 89,
+    "percentile": 82
+   }
   },
   {
    "id": "everyman-4141",
@@ -7438,7 +8472,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "indysunday-1879",
@@ -7461,6 +8496,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 8,
+    "percentile": 18
    }
   },
   {
@@ -7484,6 +8523,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 42,
+    "percentile": 74
    }
   },
   {
@@ -7498,7 +8541,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "cryptic-29941",
@@ -7512,7 +8556,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 67,
+    "percentile": 54
+   }
   },
   {
    "id": "cryptic-29940",
@@ -7526,7 +8574,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "cryptic-29939",
@@ -7540,7 +8589,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "cryptic-29938",
@@ -7554,7 +8604,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 71,
+    "percentile": 60
+   }
   },
   {
    "id": "cryptic-29937",
@@ -7568,7 +8622,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "everyman-4140",
@@ -7591,6 +8646,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 25,
+    "percentile": 40
    }
   },
   {
@@ -7614,6 +8673,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 9,
+    "percentile": 30
    }
   },
   {
@@ -7637,6 +8700,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 27,
+    "percentile": 15
    }
   },
   {
@@ -7651,7 +8718,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "cryptic-29935",
@@ -7665,7 +8733,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "cryptic-29934",
@@ -7679,7 +8748,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 90,
+    "percentile": 84
+   }
   },
   {
    "id": "cryptic-29933",
@@ -7693,7 +8766,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "cryptic-29932",
@@ -7707,7 +8781,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "cryptic-29931",
@@ -7721,7 +8796,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "everyman-4139",
@@ -7744,6 +8820,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 27,
+    "percentile": 50
    }
   },
   {
@@ -7767,6 +8847,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 8,
+    "percentile": 18
    }
   },
   {
@@ -7790,6 +8874,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 64,
+    "percentile": 99
    }
   },
   {
@@ -7804,7 +8892,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "cryptic-29929",
@@ -7818,7 +8907,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 74,
+    "percentile": 65
+   }
   },
   {
    "id": "cryptic-29928",
@@ -7832,7 +8925,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "cryptic-29927",
@@ -7846,7 +8940,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 66,
+    "percentile": 52
+   }
   },
   {
    "id": "cryptic-29926",
@@ -7860,7 +8958,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "cryptic-29925",
@@ -7874,7 +8973,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "everyman-4138",
@@ -7897,6 +8997,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 71,
+    "percentile": 100
    }
   },
   {
@@ -7920,6 +9024,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 11,
+    "percentile": 51
    }
   },
   {
@@ -7943,6 +9051,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 55,
+    "percentile": 98
    }
   },
   {
@@ -7957,7 +9069,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "cryptic-29923",
@@ -7971,7 +9084,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "cryptic-29922",
@@ -7985,7 +9099,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "cryptic-29921",
@@ -7999,7 +9114,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "cryptic-29920",
@@ -8013,7 +9129,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 80,
+    "percentile": 77
+   }
   },
   {
    "id": "cryptic-29919",
@@ -8027,7 +9147,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "everyman-4137",
@@ -8050,6 +9171,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 20,
+    "percentile": 17
    }
   },
   {
@@ -8073,6 +9198,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 6,
+    "percentile": 4
    }
   },
   {
@@ -8096,6 +9225,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 38,
+    "percentile": 57
    }
   },
   {
@@ -8110,7 +9243,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "cryptic-29917",
@@ -8124,7 +9258,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "cryptic-29916",
@@ -8138,7 +9273,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "cryptic-29915",
@@ -8152,7 +9288,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "cryptic-29914",
@@ -8166,7 +9303,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "cryptic-29913",
@@ -8180,7 +9318,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 109,
+    "percentile": 96
+   }
   },
   {
    "id": "everyman-4136",
@@ -8203,6 +9345,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 22,
+    "percentile": 24
    }
   },
   {
@@ -8226,6 +9372,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 16,
+    "percentile": 89
    }
   },
   {
@@ -8249,6 +9399,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 27,
+    "percentile": 15
    }
   },
   {
@@ -8263,7 +9417,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "cryptic-29911",
@@ -8277,7 +9432,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 88,
+    "percentile": 81
+   }
   },
   {
    "id": "cryptic-29910",
@@ -8291,7 +9450,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "cryptic-29909",
@@ -8305,7 +9465,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "cryptic-29908",
@@ -8319,7 +9480,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 79,
+    "percentile": 75
+   }
   },
   {
    "id": "cryptic-29907",
@@ -8333,7 +9498,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "everyman-4135",
@@ -8356,6 +9522,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 18,
+    "percentile": 12
    }
   },
   {
@@ -8379,6 +9549,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 12,
+    "percentile": 60
    }
   },
   {
@@ -8393,7 +9567,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 51,
+    "percentile": 93
+   }
   },
   {
    "id": "cryptic-29906",
@@ -8407,7 +9585,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "cryptic-29905",
@@ -8421,7 +9600,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "cryptic-29904",
@@ -8435,7 +9615,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 60,
+    "percentile": 39
+   }
   },
   {
    "id": "cryptic-29903",
@@ -8449,7 +9633,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "cryptic-29902",
@@ -8463,7 +9648,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "cryptic-29901",
@@ -8477,7 +9663,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "everyman-4134",
@@ -8500,6 +9687,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 26,
+    "percentile": 46
    }
   },
   {
@@ -8523,6 +9714,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 8,
+    "percentile": 18
    }
   },
   {
@@ -8537,7 +9732,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 41,
+    "percentile": 70
+   }
   },
   {
    "id": "cryptic-29900",
@@ -8551,7 +9750,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "cryptic-29899",
@@ -8565,7 +9765,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 62,
+    "percentile": 44
+   }
   },
   {
    "id": "cryptic-29898",
@@ -8579,7 +9783,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "cryptic-29897",
@@ -8593,7 +9798,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 60,
+    "percentile": 39
+   }
   },
   {
    "id": "cryptic-29896",
@@ -8607,7 +9816,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "cryptic-29895",
@@ -8621,7 +9831,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "everyman-4133",
@@ -8644,6 +9855,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 29,
+    "percentile": 61
    }
   },
   {
@@ -8667,6 +9882,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 10,
+    "percentile": 41
    }
   },
   {
@@ -8681,7 +9900,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 52,
+    "percentile": 94
+   }
   },
   {
    "id": "cryptic-29894",
@@ -8695,7 +9918,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "cryptic-29893",
@@ -8709,7 +9933,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "cryptic-29892",
@@ -8723,7 +9948,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 77,
+    "percentile": 70
+   }
   },
   {
    "id": "cryptic-29891",
@@ -8737,7 +9966,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "cryptic-29890",
@@ -8751,7 +9981,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 75,
+    "percentile": 68
+   }
   },
   {
    "id": "cryptic-29889",
@@ -8765,7 +9999,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "everyman-4132",
@@ -8788,6 +10023,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 39,
+    "percentile": 90
    }
   },
   {
@@ -8811,6 +10050,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 13,
+    "percentile": 68
    }
   },
   {
@@ -8825,7 +10068,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 29,
+    "percentile": 22
+   }
   },
   {
    "id": "cryptic-29888",
@@ -8839,7 +10086,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "cryptic-29887",
@@ -8853,7 +10101,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "cryptic-29886",
@@ -8867,7 +10116,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 58,
+    "percentile": 31
+   }
   },
   {
    "id": "cryptic-29885",
@@ -8881,7 +10134,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "cryptic-29884",
@@ -8895,7 +10149,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 53,
+    "percentile": 20
+   }
   },
   {
    "id": "everyman-4131",
@@ -8918,6 +10176,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 18,
+    "percentile": 12
    }
   },
   {
@@ -8941,6 +10203,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 12,
+    "percentile": 60
    }
   },
   {
@@ -8955,7 +10221,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 53,
+    "percentile": 96
+   }
   },
   {
    "id": "cryptic-29883",
@@ -8969,7 +10239,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 35,
+    "percentile": 4
+   }
   },
   {
    "id": "cryptic-29882",
@@ -8983,7 +10257,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 71,
+    "percentile": 60
+   }
   },
   {
    "id": "cryptic-29881",
@@ -8997,7 +10275,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 66,
+    "percentile": 52
+   }
   },
   {
    "id": "cryptic-29880",
@@ -9011,7 +10293,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "cryptic-29879",
@@ -9025,7 +10308,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 55,
+    "percentile": 23
+   }
   },
   {
    "id": "cryptic-29878",
@@ -9039,7 +10326,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "everyman-4130",
@@ -9062,6 +10350,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 28,
+    "percentile": 54
    }
   },
   {
@@ -9085,6 +10377,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 9,
+    "percentile": 30
    }
   },
   {
@@ -9099,7 +10395,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 32,
+    "percentile": 33
+   }
   },
   {
    "id": "cryptic-29877",
@@ -9113,7 +10413,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "cryptic-29876",
@@ -9127,7 +10428,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "cryptic-29875",
@@ -9141,7 +10443,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 48,
+    "percentile": 12
+   }
   },
   {
    "id": "cryptic-29874",
@@ -9155,7 +10461,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "everyman-4129",
@@ -9178,6 +10485,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 24,
+    "percentile": 35
    }
   },
   {
@@ -9201,6 +10512,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 14,
+    "percentile": 78
    }
   },
   {
@@ -9215,7 +10530,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 29,
+    "percentile": 22
+   }
   },
   {
    "id": "everyman-4128",
@@ -9238,6 +10557,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 36,
+    "percentile": 85
    }
   },
   {
@@ -9261,6 +10584,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 6,
+    "percentile": 4
    }
   },
   {
@@ -9275,7 +10602,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 28,
+    "percentile": 19
+   }
   },
   {
    "id": "everyman-4127",
@@ -9298,6 +10629,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 26,
+    "percentile": 46
    }
   },
   {
@@ -9321,6 +10656,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 10,
+    "percentile": 41
    }
   },
   {
@@ -9335,7 +10674,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "everyman-4126",
@@ -9358,6 +10698,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 29,
+    "percentile": 61
    }
   },
   {
@@ -9381,6 +10725,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 8,
+    "percentile": 18
    }
   },
   {
@@ -9395,7 +10743,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 38,
+    "percentile": 57
+   }
   },
   {
    "id": "everyman-4125",
@@ -9418,6 +10770,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 38,
+    "percentile": 88
    }
   },
   {
@@ -9441,6 +10797,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 11,
+    "percentile": 51
    }
   },
   {
@@ -9455,7 +10815,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 37,
+    "percentile": 51
+   }
   },
   {
    "id": "everyman-4124",
@@ -9478,6 +10842,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 53,
+    "percentile": 97
    }
   },
   {
@@ -9501,6 +10869,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 7,
+    "percentile": 11
    }
   },
   {
@@ -9515,7 +10887,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 26,
+    "percentile": 11
+   }
   },
   {
    "id": "indysunday-1861",
@@ -9538,6 +10914,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 10,
+    "percentile": 41
    }
   },
   {
@@ -9552,7 +10932,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 26,
+    "percentile": 11
+   }
   },
   {
    "id": "everyman-4123",
@@ -9575,6 +10959,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 28,
+    "percentile": 54
    }
   },
   {
@@ -9598,6 +10986,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 9,
+    "percentile": 30
    }
   },
   {
@@ -9612,7 +11004,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 31,
+    "percentile": 29
+   }
   },
   {
    "id": "everyman-4122",
@@ -9635,6 +11031,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 23,
+    "percentile": 29
    }
   },
   {
@@ -9658,6 +11058,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 9,
+    "percentile": 30
    }
   },
   {
@@ -9672,7 +11076,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 48,
+    "percentile": 90
+   }
   },
   {
    "id": "everyman-4121",
@@ -9695,6 +11103,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 17,
+    "percentile": 10
    }
   },
   {
@@ -9718,6 +11130,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 9,
+    "percentile": 30
    }
   },
   {
@@ -9732,7 +11148,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 26,
+    "percentile": 11
+   }
   },
   {
    "id": "everyman-4120",
@@ -9755,6 +11175,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 32,
+    "percentile": 77
    }
   },
   {
@@ -9778,6 +11202,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 19,
+    "percentile": 96
    }
   },
   {
@@ -9792,7 +11220,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 38,
+    "percentile": 57
+   }
   },
   {
    "id": "everyman-4119",
@@ -9815,6 +11247,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 28,
+    "percentile": 54
    }
   },
   {
@@ -9838,6 +11274,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 16,
+    "percentile": 89
    }
   },
   {
@@ -9852,7 +11292,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 38,
+    "percentile": 57
+   }
   },
   {
    "id": "everyman-4118",
@@ -9866,7 +11310,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 14,
+    "percentile": 5
+   }
   },
   {
    "id": "indysunday-1855",
@@ -9889,6 +11337,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 14,
+    "percentile": 78
    }
   },
   {
@@ -9903,7 +11355,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 40,
+    "percentile": 67
+   }
   },
   {
    "id": "everyman-4117",
@@ -9917,7 +11373,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 24,
+    "percentile": 35
+   }
   },
   {
    "id": "indysunday-1854",
@@ -9940,6 +11400,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 10,
+    "percentile": 41
    }
   },
   {
@@ -9954,7 +11418,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 19,
+    "percentile": 0
+   }
   },
   {
    "id": "everyman-4116",
@@ -9968,7 +11436,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 33,
+    "percentile": 79
+   }
   },
   {
    "id": "indysunday-1853",
@@ -9991,6 +11463,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 7,
+    "percentile": 11
    }
   },
   {
@@ -10005,7 +11481,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 36,
+    "percentile": 44
+   }
   },
   {
    "id": "everyman-4115",
@@ -10019,7 +11499,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 47,
+    "percentile": 94
+   }
   },
   {
    "id": "indysunday-1852",
@@ -10042,6 +11526,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 6,
+    "percentile": 4
    }
   },
   {
@@ -10056,7 +11544,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 52,
+    "percentile": 94
+   }
   },
   {
    "id": "everyman-4114",
@@ -10070,7 +11562,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 32,
+    "percentile": 77
+   }
   },
   {
    "id": "indysunday-1851",
@@ -10093,6 +11589,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 11,
+    "percentile": 51
    }
   },
   {
@@ -10107,7 +11607,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 37,
+    "percentile": 51
+   }
   },
   {
    "id": "everyman-4113",
@@ -10121,7 +11625,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 23,
+    "percentile": 29
+   }
   },
   {
    "id": "indysunday-1850",
@@ -10144,6 +11652,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 15,
+    "percentile": 84
    }
   },
   {
@@ -10158,7 +11670,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 35,
+    "percentile": 38
+   }
   },
   {
    "id": "everyman-4112",
@@ -10172,7 +11688,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 25,
+    "percentile": 40
+   }
   },
   {
    "id": "indysunday-1849",
@@ -10195,6 +11715,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 13,
+    "percentile": 68
    }
   },
   {
@@ -10209,7 +11733,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 37,
+    "percentile": 51
+   }
   },
   {
    "id": "everyman-4111",
@@ -10223,7 +11751,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 29,
+    "percentile": 61
+   }
   },
   {
    "id": "indysunday-1848",
@@ -10246,6 +11778,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 7,
+    "percentile": 11
    }
   },
   {
@@ -10260,7 +11796,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 46,
+    "percentile": 85
+   }
   },
   {
    "id": "everyman-4110",
@@ -10274,7 +11814,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 31,
+    "percentile": 72
+   }
   },
   {
    "id": "indysunday-1847",
@@ -10288,7 +11832,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 11,
+    "percentile": 51
+   }
   },
   {
    "id": "quiptic-1339",
@@ -10302,7 +11850,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 35,
+    "percentile": 38
+   }
   },
   {
    "id": "everyman-4109",
@@ -10316,7 +11868,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 40,
+    "percentile": 92
+   }
   },
   {
    "id": "indysunday-1846",
@@ -10330,7 +11886,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 13,
+    "percentile": 68
+   }
   },
   {
    "id": "quiptic-1338",
@@ -10344,7 +11904,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 48,
+    "percentile": 90
+   }
   },
   {
    "id": "everyman-4108",
@@ -10358,7 +11922,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 31,
+    "percentile": 72
+   }
   },
   {
    "id": "indysunday-1845",
@@ -10372,7 +11940,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 14,
+    "percentile": 78
+   }
   },
   {
    "id": "quiptic-1337",
@@ -10386,7 +11958,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 31,
+    "percentile": 29
+   }
   },
   {
    "id": "everyman-4107",
@@ -10409,6 +11985,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 31,
+    "percentile": 72
    }
   },
   {
@@ -10423,7 +12003,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 9,
+    "percentile": 30
+   }
   },
   {
    "id": "quiptic-1336",
@@ -10437,7 +12021,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 44,
+    "percentile": 80
+   }
   },
   {
    "id": "everyman-4106",
@@ -10451,7 +12039,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 24,
+    "percentile": 35
+   }
   },
   {
    "id": "indysunday-1843",
@@ -10465,7 +12057,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 7,
+    "percentile": 11
+   }
   },
   {
    "id": "quiptic-1335",
@@ -10479,7 +12075,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 30,
+    "percentile": 26
+   }
   },
   {
    "id": "everyman-4105",
@@ -10493,7 +12093,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 26,
+    "percentile": 46
+   }
   },
   {
    "id": "indysunday-1842",
@@ -10507,7 +12111,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 9,
+    "percentile": 30
+   }
   },
   {
    "id": "quiptic-1334",
@@ -10521,7 +12129,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 30,
+    "percentile": 26
+   }
   },
   {
    "id": "everyman-4104",
@@ -10535,7 +12147,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 38,
+    "percentile": 88
+   }
   },
   {
    "id": "indysunday-1841",
@@ -10549,7 +12165,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 19,
+    "percentile": 96
+   }
   },
   {
    "id": "quiptic-1333",
@@ -10563,7 +12183,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "everyman-4103",
@@ -10586,6 +12207,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 22,
+    "percentile": 24
    }
   },
   {
@@ -10600,7 +12225,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 17,
+    "percentile": 93
+   }
   },
   {
    "id": "quiptic-1332",
@@ -10614,7 +12243,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 42,
+    "percentile": 74
+   }
   },
   {
    "id": "indysunday-1839",
@@ -10628,7 +12261,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 17,
+    "percentile": 93
+   }
   },
   {
    "id": "quiptic-1331",
@@ -10642,7 +12279,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 37,
+    "percentile": 51
+   }
   },
   {
    "id": "everyman-4101",
@@ -10656,7 +12297,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 35,
+    "percentile": 83
+   }
   },
   {
    "id": "indysunday-1838",
@@ -10670,7 +12315,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 13,
+    "percentile": 68
+   }
   },
   {
    "id": "quiptic-1330",
@@ -10684,7 +12333,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 48,
+    "percentile": 90
+   }
   },
   {
    "id": "everyman-4100",
@@ -10698,7 +12351,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 22,
+    "percentile": 24
+   }
   },
   {
    "id": "indysunday-1837",
@@ -10712,7 +12369,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 15,
+    "percentile": 84
+   }
   },
   {
    "id": "quiptic-1329",
@@ -10726,7 +12387,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 45,
+    "percentile": 82
+   }
   },
   {
    "id": "everyman-4099",
@@ -10740,7 +12405,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 24,
+    "percentile": 35
+   }
   },
   {
    "id": "indysunday-1836",
@@ -10754,7 +12423,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 12,
+    "percentile": 60
+   }
   },
   {
    "id": "quiptic-1328",
@@ -10768,7 +12441,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 34,
+    "percentile": 36
+   }
   },
   {
    "id": "everyman-4098",
@@ -10782,7 +12459,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 29,
+    "percentile": 61
+   }
   },
   {
    "id": "indysunday-1835",
@@ -10796,7 +12477,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 21,
+    "percentile": 100
+   }
   },
   {
    "id": "quiptic-1327",
@@ -10810,7 +12495,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 36,
+    "percentile": 44
+   }
   },
   {
    "id": "everyman-4097",
@@ -10824,7 +12513,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 64,
+    "percentile": 99
+   }
   },
   {
    "id": "everyman-4096",
@@ -10847,7 +12540,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "indysunday-1834",
@@ -10861,7 +12555,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 16,
+    "percentile": 89
+   }
   },
   {
    "id": "quiptic-1326",
@@ -10875,7 +12573,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 27,
+    "percentile": 15
+   }
   },
   {
    "id": "everyman-4095",
@@ -10898,7 +12600,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
-   }
+   },
+   "buzz": null
   },
   {
    "id": "indysunday-1833",
@@ -10912,7 +12615,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 14,
+    "percentile": 78
+   }
   },
   {
    "id": "quiptic-1325",
@@ -10926,7 +12633,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 32,
+    "percentile": 33
+   }
   },
   {
    "id": "everyman-4094",
@@ -10949,6 +12660,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 46,
+    "percentile": 93
    }
   },
   {
@@ -10963,7 +12678,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "quiptic-1324",
@@ -10977,7 +12693,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 42,
+    "percentile": 74
+   }
   },
   {
    "id": "everyman-4093",
@@ -11000,6 +12720,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 35,
+    "percentile": 83
    }
   },
   {
@@ -11014,7 +12738,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 8,
+    "percentile": 18
+   }
   },
   {
    "id": "quiptic-1323",
@@ -11028,7 +12756,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 35,
+    "percentile": 38
+   }
   },
   {
    "id": "everyman-4092",
@@ -11051,6 +12783,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 31,
+    "percentile": 72
    }
   },
   {
@@ -11065,7 +12801,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 7,
+    "percentile": 11
+   }
   },
   {
    "id": "quiptic-1322",
@@ -11079,7 +12819,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 45,
+    "percentile": 82
+   }
   },
   {
    "id": "everyman-4091",
@@ -11102,6 +12846,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 31,
+    "percentile": 72
    }
   },
   {
@@ -11116,7 +12864,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 9,
+    "percentile": 30
+   }
   },
   {
    "id": "quiptic-1321",
@@ -11130,7 +12882,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 31,
+    "percentile": 29
+   }
   },
   {
    "id": "everyman-4090",
@@ -11153,6 +12909,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 49,
+    "percentile": 96
    }
   },
   {
@@ -11167,7 +12927,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 13,
+    "percentile": 68
+   }
   },
   {
    "id": "quiptic-1320",
@@ -11181,7 +12945,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 44,
+    "percentile": 80
+   }
   },
   {
    "id": "everyman-4089",
@@ -11204,6 +12972,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "device",
      "obscurity"
     ]
+   },
+   "buzz": {
+    "comments": 36,
+    "percentile": 85
    }
   },
   {
@@ -11218,7 +12990,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 14,
+    "percentile": 78
+   }
   },
   {
    "id": "quiptic-1319",
@@ -11232,7 +13008,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 53,
+    "percentile": 96
+   }
   },
   {
    "id": "indysunday-1826",
@@ -11246,7 +13026,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 12,
+    "percentile": 60
+   }
   },
   {
    "id": "quiptic-1318",
@@ -11260,7 +13044,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 37,
+    "percentile": 51
+   }
   },
   {
    "id": "indysunday-1825",
@@ -11274,7 +13062,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 15,
+    "percentile": 84
+   }
   },
   {
    "id": "quiptic-1317",
@@ -11288,7 +13080,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 38,
+    "percentile": 57
+   }
   },
   {
    "id": "indysunday-1824",
@@ -11302,7 +13098,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 13,
+    "percentile": 68
+   }
   },
   {
    "id": "quiptic-1316",
@@ -11316,7 +13116,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 32,
+    "percentile": 33
+   }
   },
   {
    "id": "indysunday-1823",
@@ -11330,7 +13134,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 11,
+    "percentile": 51
+   }
   },
   {
    "id": "quiptic-1315",
@@ -11344,7 +13152,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 39,
+    "percentile": 63
+   }
   },
   {
    "id": "indysunday-1822",
@@ -11358,7 +13170,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 10,
+    "percentile": 41
+   }
   },
   {
    "id": "quiptic-1314",
@@ -11372,7 +13188,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 23,
+    "percentile": 7
+   }
   },
   {
    "id": "indysunday-1821",
@@ -11386,7 +13206,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "quiptic-1313",
@@ -11400,7 +13221,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 38,
+    "percentile": 57
+   }
   },
   {
    "id": "indysunday-1820",
@@ -11414,7 +13239,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "quiptic-1312",
@@ -11428,7 +13254,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 42,
+    "percentile": 74
+   }
   },
   {
    "id": "indysunday-1819",
@@ -11442,7 +13272,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "quiptic-1311",
@@ -11456,7 +13287,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 41,
+    "percentile": 70
+   }
   },
   {
    "id": "indysunday-1818",
@@ -11470,7 +13305,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "quiptic-1310",
@@ -11484,7 +13320,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 33,
+    "percentile": 35
+   }
   },
   {
    "id": "indysunday-1817",
@@ -11498,7 +13338,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "quiptic-1309",
@@ -11512,7 +13353,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 36,
+    "percentile": 44
+   }
   },
   {
    "id": "indysunday-1816",
@@ -11526,7 +13371,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "quiptic-1308",
@@ -11540,7 +13386,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 38,
+    "percentile": 57
+   }
   },
   {
    "id": "indysunday-1815",
@@ -11554,7 +13404,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "quiptic-1307",
@@ -11568,7 +13419,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 43,
+    "percentile": 79
+   }
   },
   {
    "id": "indysunday-1814",
@@ -11582,7 +13437,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "quiptic-1306",
@@ -11596,7 +13452,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 36,
+    "percentile": 44
+   }
   },
   {
    "id": "indysunday-1813",
@@ -11610,7 +13470,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "quiptic-1305",
@@ -11624,7 +13485,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 88,
+    "percentile": 100
+   }
   },
   {
    "id": "independent-11812",
@@ -11638,7 +13503,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "quiptic-1304",
@@ -11652,7 +13518,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 36,
+    "percentile": 44
+   }
   },
   {
    "id": "indysunday-1811",
@@ -11666,7 +13536,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "quiptic-1303",
@@ -11680,7 +13551,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 47,
+    "percentile": 87
+   }
   },
   {
    "id": "indysunday-1810",
@@ -11694,7 +13569,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": null
   },
   {
    "id": "quiptic-1302",
@@ -11708,7 +13584,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": null,
+   "buzz": {
+    "comments": 46,
+    "percentile": 85
+   }
   }
  ]
 } /*JSON-END*/;
