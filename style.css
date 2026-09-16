@@ -305,6 +305,14 @@ button:disabled:hover { border-color: var(--line); }
 .picker-filters { display: flex; flex-direction: column; gap: 6px; margin: 8px 0 0; }
 .picker-group { display: flex; flex-wrap: wrap; gap: 6px; align-items: baseline; }
 .picker-filters .badge.diff, .picker-filters .badge.series { min-width: 0; }
+/* A chip whose word is in the box. app.js already writes aria-pressed on every
+   chip it makes, so the mark is one rule for a paper, a band and a completion
+   rather than three that drift apart — and a ring reads as chosen on a filled
+   paper badge and an outlined band badge alike, which filling it would not:
+   the bands ARE their colour, so a filled band chip just looks like a band. */
+.picker-filters .badge[aria-pressed="true"] {
+  opacity: 1; outline: 2px solid var(--fg); outline-offset: 1px;
+}
 /* The completions, which used to be the browser's own dropdown. Neutral, because
    a setter's name carries no colour the rows could teach it by — the paper and
    band chips are coloured to match the badge you have been seeing, and dressing
