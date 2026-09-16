@@ -270,6 +270,10 @@ const ABBREVIATIONS = {
   "printer's measure",
   "space"
  ],
+ "ENG": [
+  "england",
+  "english"
+ ],
  "EP": [
   "epistle",
   "letter",
@@ -428,6 +432,7 @@ const ABBREVIATIONS = {
   "international"
  ],
  "IR": [
+  "inland revenue",
   "irish"
  ],
  "IS": [
