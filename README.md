@@ -99,9 +99,6 @@ tools/fetch_minutecryptic.js                 Minute Cryptic’s daily hints, as 
 tools/recover_minutecryptic.py               refills days that capture missed from Minute
                                              Cryptic’s own video titles, dated by clue number
                                              because the upload date lags
-tools/build_buzz.py                          counts the comments on each puzzle’s
-                                             fifteensquared thread into a committed table,
-                                             because CI builds with no blog cache
 tools/fetch_fifteensquared.py                caches the blog that covers all five series, and
                                              its comments — fetched once each, at their
                                              20-second crawl delay
@@ -327,9 +324,6 @@ tools/data/abbreviations.json                the hand-built starter table of sta
                                              abbreviations
 tools/data/unclueable.json                   words rejected as answers, with reasons;
                                              grid_fill.py vetoes them
-tools/data/fifteensquared_buzz.json          how many comments each puzzle’s blog thread drew;
-                                             fetch_puzzle.py ranks it within a series into the
-                                             picker’s “popular” tag
 tools/data/difficulty_baseline.json          the frozen distribution difficulty.py normalises
                                              against
 tools/data/lexicon.tsv                       192,738 British-cryptic words by frequency rank;

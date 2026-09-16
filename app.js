@@ -4660,21 +4660,6 @@
     const day = WEEKDAYS[dt.getUTCDay()] || "";
     return { iso: dt.toISOString().slice(0, 10), day, short: day.slice(0, 3) };
   }
-  // "Which one is worth doing" has no answer the clues themselves can give: a
-  // quality score built from them ranked 551 favourite-clue votes at rho -0.116,
-  // and at -0.007 once the size of the blog thread was held constant — the
-  // thread size was the whole of it, at +0.833. So this offers the thing that
-  // measured as real, named for what it actually is. tools/build_buzz.py and
-  // tools/fetch_puzzle.py carry the rest of that reasoning.
-  //
-  // The cut is the top quarter of a puzzle's OWN paper, because the percentile
-  // behind it already is: a Guardian thread runs six times an Independent one
-  // whatever the puzzle was like.
-  const BUZZ_POPULAR = 75;
-  function isPopular(p) {
-    return !!(p.buzz && p.buzz.percentile >= BUZZ_POPULAR);
-  }
-
   function pickerHaystack(p) {
     const dd = puzzleDate(p);
     const d = dd.iso;
@@ -4692,7 +4677,6 @@
     const series = p.series || "cryptic";
     return [p.number, String(p.number).replace(/(\d)(\d{3})$/, "$1,$2"), p.setter, d, dd.day,
       series, (SERIES_BADGE[series] || [""])[0], p.difficulty ? p.difficulty.band : "",
-      isPopular(p) ? "popular" : "",
       st.done ? "solved done" : st.filled ? "started unfinished" : ""].join(" ").toLowerCase();
   }
   // What the panel offers as you type. Only the terms a solver could not be
@@ -4719,7 +4703,7 @@
   function pickerSuggestTerms(q) {
     if (q.length < PICKER_SUGGEST_MIN) return [];
     if (pickerTerms === null) {
-      const seen = { solved: 1, unfinished: 1, popular: 1 };
+      const seen = { solved: 1, unfinished: 1 };
       INDEX.puzzles.forEach((p) => {
         [p.setter, (SERIES_BADGE[p.series || "cryptic"] || [""])[0],
          p.difficulty ? p.difficulty.band : "",
@@ -4748,9 +4732,9 @@
   // a share stated in prose is true on the day it is pasted, and this one moves
   // with every puzzle that arrives. Bands come from pickerBandList(), so one
   // added or renamed in tools/difficulty.py appears here on its own.
-  // Which row's ? is open, or null. One at a time and one paragraph below both
-  // rows, because the note is a thing that costs height: two open at once pushes
-  // the puzzles down, which is the reason the prose went behind a ? at all.
+  // Which row's ? is open, or null. One paragraph below the rows, because the
+  // note is a thing that costs height — which is the reason the prose went
+  // behind a ? at all.
   let pickerNote = null;
   function difficultyNoteHTML() {
     const n = {};
@@ -4767,18 +4751,6 @@
       + "another answer, how rare the answers are as words, and how much "
       + "confirmation the clue types give you back. "
       + (counts ? "Right now " + counts + "." : "");
-  }
-
-  function buzzNoteHTML() {
-    const n = (INDEX.puzzles || []).filter(isPopular).length;
-    return "Not our opinion, and not a quality score \u2014 we tried to build one and "
-      + "it did not predict which clues solvers named as favourites. This is how "
-      + "many comments a puzzle drew on fifteensquared, the blog that covers all "
-      + "five papers, ranked against the other puzzles from its OWN paper: a "
-      + "Guardian thread runs several times an Independent one whatever the puzzle "
-      + "was like. The busiest quarter of each paper is tagged"
-      + (n ? ", " + n + " puzzles right now" : "")
-      + ". A puzzle the blog never covered is left untagged rather than called quiet.";
   }
 
   let pickerBands = null;
@@ -4901,7 +4873,7 @@
     // can be short enough to BE what you have typed ("Ix"), and dropping it at
     // that moment takes away the one tap that undoes it.
     const standing = {};
-    pickerPaperList().concat(pickerBandList()).concat(["popular"])
+    pickerPaperList().concat(pickerBandList())
       .forEach((w) => { standing[w.toLowerCase()] = 1; });
     const suggest = pickerSuggestTerms(q).filter((t) => !standing[t.toLowerCase()]);
     setHTML($("picker-filters"),
@@ -4910,23 +4882,13 @@
                 (w) => "series series-" + esc(seriesKeyForLabel(w)), "pf-")
         + group("Difficulty", pickerBandList(), (b) => "diff diff-" + esc(b), "pf-", 2,
                 `<button type="button" id="pf-diff-help" class="badge help" aria-expanded="${
-                  pickerNote === "diff"}" aria-label="What the difficulty bands mean">?</button>`)
-        // One chip, so min 1. "popular" needs more saying than a band does — this
-        // site has to name whose opinion it is quoting, and it is not ours — and
-        // it says it behind the same ? for the same reason: standing prose beside
-        // the chip wraps on a phone and pushes the puzzles down the screen.
-        + group("Talked about", ["popular"], () => "tag", "pb-", 1,
-                `<button type="button" id="pb-help" class="badge help" aria-expanded="${
-                  pickerNote === "buzz"}" aria-label="What popular means">?</button>`));
-    setHTML($("picker-note"), pickerNote === "diff" ? difficultyNoteHTML()
-      : pickerNote === "buzz" ? buzzNoteHTML() : "");
-    [["pf-diff-help", "diff"], ["pb-help", "buzz"]].forEach((pair) => {
-      const b = $(pair[0]);
-      if (b) b.onclick = () => {
-        pickerNote = pickerNote === pair[1] ? null : pair[1];
-        renderPicker();
-      };
-    });
+                  pickerNote === "diff"}" aria-label="What the difficulty bands mean">?</button>`));
+    setHTML($("picker-note"), pickerNote === "diff" ? difficultyNoteHTML() : "");
+    const help = $("pf-diff-help");
+    if (help) help.onclick = () => {
+      pickerNote = pickerNote === "diff" ? null : "diff";
+      renderPicker();
+    };
     chips.forEach(([id, w]) => {
       const el = $(id);
       if (!el) return;
