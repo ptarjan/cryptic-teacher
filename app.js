@@ -1155,6 +1155,21 @@
   }
 
   // ---------- clue lists ----------
+  // The guard is on the LIST, not on a row: the two clicks land on different
+  // rows, which is the whole symptom. See the click handler below.
+  const CLUE_TAP_GUARD_MS = 350;
+  let lastClueTap = 0;
+  // Touches only. The stray second click is something a touchscreen does — iOS
+  // synthesises a click for a finger that came down before the list moved and
+  // went up after it — and a mouse cannot produce it at all, so a pointer user
+  // keeps every click they make. It also keeps this off the test harness, which
+  // calls the click handlers directly and would otherwise lose every selection
+  // it makes inside one millisecond.
+  let clueTouchAt = 0;
+  const clueTapIsAnAccident = () => {
+    const now = Date.now();
+    return now - clueTouchAt < CLUE_TAP_GUARD_MS && now - lastClueTap < CLUE_TAP_GUARD_MS;
+  };
   function renderClues() {
     ["across", "down"].forEach((dir) => {
       const ol = $(dir === "across" ? "clues-across" : "clues-down");
@@ -1167,7 +1182,20 @@
         // No focusKbd: picking a clue off the list is not a decision to type,
         // so it must not raise a keyboard over half the screen. See the
         // mousedown handler on these lists for the other half of that rule.
-        li.addEventListener("click", () => selectEntry(e, true));
+        //
+        // One tap can only choose one clue. Choosing one rewrites the hint panel
+        // and scrolls it into view, so the list moves under the finger between
+        // the touch going down and the click coming out — and on an iPad a
+        // second click then lands on whatever row has slid into that spot, which
+        // is the clue that was selected a moment ago ("clicking a clue with a
+        // crossing clue sometimes double clicks and reselects the first selected
+        // clue", Paul, iPad, 2026-09-16). Nobody picks two clues a third of a
+        // second apart on purpose, so the second one is the accident.
+        li.addEventListener("click", () => {
+          if (clueTapIsAnAccident()) return;
+          lastClueTap = Date.now();
+          selectEntry(e, true);
+        });
         ol.appendChild(li);
       });
     });
@@ -5494,6 +5522,13 @@
     // whether the keyboard was up when the finger landed.
     ["grid", "clues-across", "clues-down", "hint-next", "hint-escape"].forEach((id) =>
       $(id).addEventListener("mousedown", keepKbd));
+
+    // Bound here for the same reason, and to the list rather than to a row: the
+    // rows are rebuilt with every puzzle, and the second click of the double-tap
+    // accident lands on a different row from the first — see clueTapIsAnAccident.
+    ["clues-across", "clues-down"].forEach((id) =>
+      $(id).addEventListener("touchstart", () => { clueTouchAt = Date.now(); },
+                             { passive: true }));
 
     // The letter strip is also how you steer: tap a box to put the cursor on
     // that square of the current entry.
