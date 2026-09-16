@@ -322,14 +322,14 @@ button:disabled:hover { border-color: var(--line); }
    because it is the same kind of thing — a term you can type — but it is its
    own class so a test can tell a fixed chip from one the box just suggested. */
 .badge.tag { background: none; border: 1px solid var(--line); color: inherit; }
-/* The ? that opens #picker-diff-note. Round and unfilled so it does not read as
+/* The ? that opens #picker-note, on the difficulty row and the tag row. Round and unfilled so it does not read as
    a fifth band you could filter by — it is the only chip in the row that is not
    a word you can put in the box. */
 .badge.help { background: none; border: 1px solid var(--line); color: var(--muted);
               border-radius: 999px; padding: 1px 7px; }
 .badge.help[aria-expanded="true"] { color: inherit; border-color: currentColor; }
-#picker-diff-note:empty { display: none; }
-#picker-diff-note .badge.diff { min-width: 0; }
+#picker-note:empty { display: none; }
+#picker-note .badge.diff { min-width: 0; }
 @media (pointer: coarse) { .picker-filters button.badge { padding: 5px 10px; } }
 
 /* ---------- layout ---------- */
