@@ -27,7 +27,48 @@ window.CRYPTIC_PUZZLES["independent-12456"] = /*JSON-START*/ {
    "clue": "Superdrug’s counter accepted turnover (6)",
    "separatorLocations": {},
    "solution": "SAMOSA",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + charade",
+    "answer": "SAMOSA",
+    "definition": "turnover",
+    "indicators": [
+     "counter"
+    ],
+    "indicatorNotes": {
+     "counter": "To counter is to go against, so the letters in front of it are taken against the order they are written in."
+    },
+    "pieces": [
+     "SAMOS",
+     "A"
+    ],
+    "subReversals": [
+     {
+      "from": "SOMAS",
+      "to": "SAMOS"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Superdrug’s",
+      "gives": "SAMOS",
+      "note": "soma is the happiness drug everyone is issued with in Brave New World, which makes it a super drug; SOMA'S is then read backwards"
+     },
+     {
+      "clueFragment": "accepted",
+      "gives": "A",
+      "note": "a is the standing abbreviation for accepted"
+     }
+    ],
+    "surface": "The till at a high-street chemist and the takings rung up on it.",
+    "walkthrough": "Superdrug is a chemist's shop on most British high streets, and the capital letter is there to keep you in it rather than in Huxley's novel. 'Turnover' promises a shop's takings and delivers a pastry.",
+    "definitionFit": "A turnover is a pastry whose filling is sealed under a folded-over flap, which is how this spiced Indian snack is built.",
+    "features": {
+     "misdirectedWord": "Superdrug",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "2-down",
@@ -41,7 +82,33 @@ window.CRYPTIC_PUZZLES["independent-12456"] = /*JSON-START*/ {
    "clue": "Celebration in Acrosses carries today’s (4)",
    "separatorLocations": {},
    "solution": "NINA",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + hidden word",
+    "answer": "NINA",
+    "definition": "Celebration in Acrosses carries today’s",
+    "indicators": [
+     "carries"
+    ],
+    "indicatorNotes": {
+     "carries": "What a word carries it has inside it, so the letters are already sitting in order and only need lifting out."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Celebration in Acrosses",
+      "gives": "NINA",
+      "note": "four consecutive letters run from the end of the first word, through the whole of the second, into the start of the third"
+     }
+    ],
+    "surface": "The setter's aside about what today's across answers are hiding.",
+    "walkthrough": "A nina is a message built into a grid and never clued, named after the daughter the cartoonist Al Hirschfeld hid in his drawings. Today's runs through the across entries in pairs, and it is Star Trek, sixty years after the first broadcast.",
+    "definitionFit": "Read straight, the whole clue says what the answer is: the hidden thing today's across entries carry between them.",
+    "features": {
+     "misdirectedWord": "Celebration",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "3-down",
@@ -55,7 +122,43 @@ window.CRYPTIC_PUZZLES["independent-12456"] = /*JSON-START*/ {
    "clue": "Long suffering, it’s implied, on the Strand? (7)",
    "separatorLocations": {},
    "solution": "BEACHED",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "BEACHED",
+    "definition": "on the Strand?",
+    "indicators": [
+     "it’s implied"
+    ],
+    "indicatorNotes": {
+     "it’s implied": "The container is never written down: 'implied' tells you to supply the word the clue only hints at and to drop the other piece inside it."
+    },
+    "pieces": [
+     "BE",
+     "ACHE",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "suffering",
+      "gives": "BED",
+      "note": "a sufferer is laid up in one, and the clue leaves the word itself for the solver to supply"
+     },
+     {
+      "clueFragment": "Long",
+      "gives": "ACHE",
+      "note": "to long for something is to ache for it"
+     }
+    ],
+    "surface": "Someone putting up with a great deal, out on a London street.",
+    "walkthrough": "The Strand is a street running from Trafalgar Square to Fleet Street, which is what the capital letter sells; a strand with a small s is a shore. Nothing in the clue names the word that does the containing.",
+    "definitionFit": "A boat left high on the strand is beached, the same sense of shoreline that survives in 'stranded'.",
+    "features": {
+     "misdirectedWord": "Strand",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "4-down",
@@ -73,7 +176,46 @@ window.CRYPTIC_PUZZLES["independent-12456"] = /*JSON-START*/ {
     ]
    },
    "solution": "FORTYTWO",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "FORTY-TWO",
+    "definition": "Number",
+    "indicators": [
+     "elaborate"
+    ],
+    "indicatorNotes": {
+     "elaborate": "To elaborate is to work something up into a fuller form, and these letters are worked up into a new arrangement."
+    },
+    "anagram": {
+     "fodder": "OF W TRY TO"
+    },
+    "blocks": [
+     {
+      "clueFragment": "of",
+      "gives": "OF",
+      "note": "the preposition goes into the mix as it stands"
+     },
+     {
+      "clueFragment": "women?",
+      "gives": "W",
+      "note": "w = women, the letter on the lavatory door"
+     },
+     {
+      "clueFragment": "Try to",
+      "gives": "TRYTO",
+      "note": "five more letters for the mix, with the grammar of the sentence doing nothing but hiding them"
+     }
+    ],
+    "surface": "Asking how many women there are, then asking for more detail.",
+    "walkthrough": "Forty-two is Douglas Adams's answer to life, the universe and everything, which is why one bare word of definition is enough of a joke for the setter. The small words carry letters: 'of' and 'to' are both fodder.",
+    "definitionFit": "Forty-two is a number and nothing more — the flatness of the definition is what hides eight letters behind six.",
+    "features": {
+     "misdirectedWord": "women",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "5-down",
@@ -92,7 +234,37 @@ window.CRYPTIC_PUZZLES["independent-12456"] = /*JSON-START*/ {
     ]
    },
    "solution": "HITTHESACK",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "HIT THE SACK",
+    "definition": "went into retirement?",
+    "indicators": [],
+    "pieces": [
+     "HIT",
+     "THESACK"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Met with",
+      "gives": "HIT",
+      "note": "to hit trouble is to meet with it"
+     },
+     {
+      "clueFragment": "dismissal",
+      "gives": "THESACK",
+      "note": "being given the sack is being dismissed from a job"
+     }
+    ],
+    "surface": "Someone who lost their job and then stopped working for good.",
+    "walkthrough": "'Retirement' is the going-to-bed sort rather than the pensioned-off sort, and the question mark is the setter owning the stretch. The whole sentence reads as one person being fired, which is what stops you splitting it.",
+    "definitionFit": "To hit the sack is to go to bed, and retiring is the formal word for turning in for the night.",
+    "features": {
+     "misdirectedWord": "dismissal",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "6-down",
@@ -110,7 +282,48 @@ window.CRYPTIC_PUZZLES["independent-12456"] = /*JSON-START*/ {
     ]
    },
    "solution": "GEORGEVI",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "GEORGE VI",
+    "definition": "King",
+    "indicators": [
+     "in a state",
+     "having received no"
+    ],
+    "indicatorNotes": {
+     "in a state": "Something in a state is in disorder, and letters in disorder do not come out in the order they went in.",
+     "having received no": "Having received none of a thing means it is simply not there, so whatever is named next is missing from the letters."
+    },
+    "anagram": {
+     "fodder": "E GOVERIG"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Earl",
+      "gives": "E",
+      "note": "e = earl, the abbreviation used in lists of peers"
+     },
+     {
+      "clueFragment": "governing",
+      "gives": "GOVERNING",
+      "note": "nine letters, two of which are about to go"
+     },
+     {
+      "clueFragment": "news",
+      "gives": "NN",
+      "note": "news is the plural of the letter N, and this word holds exactly two of them"
+     }
+    ],
+    "surface": "An earl running a country, kept in the dark about his monarch.",
+    "walkthrough": "'News' is the plural of a letter, not information — the same trick as clueing a pair of esses with 'excess'. George VI came to the throne in 1936 when his brother abdicated, and reigned until 1952.",
+    "definitionFit": "George VI was King of the United Kingdom through the Second World War, so the definition names the answer by his job.",
+    "features": {
+     "misdirectedWord": "news",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "7-across",
@@ -124,7 +337,43 @@ window.CRYPTIC_PUZZLES["independent-12456"] = /*JSON-START*/ {
    "clue": "Just transfixed by grand worker of wonders (5)",
    "separatorLocations": {},
    "solution": "FAKIR",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "FAKIR",
+    "definition": "worker of wonders",
+    "indicators": [
+     "transfixed by"
+    ],
+    "indicatorNotes": {
+     "transfixed by": "To transfix is to run something clean through, so the letter named next is driven into the middle of the word in front."
+    },
+    "pieces": [
+     "FA",
+     "K",
+     "IR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Just",
+      "gives": "FAIR",
+      "note": "a fair hearing is a just one"
+     },
+     {
+      "clueFragment": "grand",
+      "gives": "K",
+      "note": "a grand is a thousand, and K is how a thousand is written on a salary or a price"
+     }
+    ],
+    "surface": "A spectator simply spellbound by a great miracle-worker.",
+    "walkthrough": "'Just' is merely in the surface and even-handed in the wordplay, while 'transfixed' slides from spellbound to skewered. Both shifts happen inside the first three words, before a single crossing letter is available.",
+    "definitionFit": "A fakir is a Hindu or Muslim ascetic who lives by apparent miracles — the rope trick, the bed of nails — so wonders are his trade.",
+    "features": {
+     "misdirectedWord": "Just",
+     "joke": "pun",
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "8-across",
@@ -138,7 +387,59 @@ window.CRYPTIC_PUZZLES["independent-12456"] = /*JSON-START*/ {
    "clue": "In retirement try to accept modification of iron’s compounds (9)",
    "separatorLocations": {},
    "solution": "KEROSINES",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + container + anagram",
+    "answer": "KEROSINES",
+    "definition": "compounds",
+    "indicators": [
+     "In retirement",
+     "to accept",
+     "modification of"
+    ],
+    "indicatorNotes": {
+     "In retirement": "Something in retirement has withdrawn the way it came, so those letters are read from the end back to the start.",
+     "to accept": "To accept is to take in, so the letters just made open up and admit the next piece.",
+     "modification of": "A modification alters the arrangement without adding anything, so the same letters come out in a different order."
+    },
+    "pieces": [
+     "KE",
+     "ROSIN",
+     "ES"
+    ],
+    "subReversals": [
+     {
+      "from": "SEEK",
+      "to": "KEES"
+     }
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "IRONS",
+      "gives": "ROSIN"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "try",
+      "gives": "KEES",
+      "note": "to try for a thing is to seek it, and those four letters are then written backwards"
+     },
+     {
+      "clueFragment": "iron’s",
+      "gives": "ROSIN",
+      "note": "the five letters of IRON'S rearranged into the sticky block a violinist rubs on a bow"
+     }
+    ],
+    "surface": "Someone retired being asked to put up with changes to the ironwork.",
+    "walkthrough": "Kerosine is the older spelling of kerosene, and the plural is the chemist's: the fuel is a mixture of hydrocarbons rather than one substance. The surface glues 'iron's compounds' together and the parse splits them, one word into wordplay and one into the definition.",
+    "definitionFit": "Kerosines are the hydrocarbon compounds distilled off crude oil between petrol and diesel, so the plural noun names them by their chemistry.",
+    "features": {
+     "misdirectedWord": "compounds",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "9-down",
@@ -152,7 +453,31 @@ window.CRYPTIC_PUZZLES["independent-12456"] = /*JSON-START*/ {
    "clue": "Great game (4)",
    "separatorLocations": {},
    "solution": "MAIN",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "MAIN",
+    "definition": "Great",
+    "definition2": "game",
+    "blocks": [
+     {
+      "clueFragment": "Great",
+      "note": "the sense is chief or principal — the great road, the great part of the work"
+     },
+     {
+      "clueFragment": "game",
+      "note": "an old word for a match or contest, the one the cockfighting pit used"
+     }
+    ],
+    "surface": "A splendid match.",
+    "walkthrough": "A main was a match between fighting cocks, and before that a throw at the dice game of hazard — the sense survives almost nowhere else. The other half is everyday: the main road, the main reason.",
+    "definitionFit": "Main means chief or principal, as in the main road, and a main is the old name for a bout or match, the word used of a cockfight.",
+    "features": {
+     "misdirectedWord": null,
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "10-across",
@@ -170,7 +495,48 @@ window.CRYPTIC_PUZZLES["independent-12456"] = /*JSON-START*/ {
     ]
    },
    "solution": "ROYALASCOT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ROYAL ASCOT",
+    "definition": "Race Meeting",
+    "indicators": [
+     "follows"
+    ],
+    "indicatorNotes": {
+     "follows": "What follows comes after, so the pieces named in front of the word are written behind the one named after it."
+    },
+    "pieces": [
+     "ROY",
+     "ALAS",
+     "COT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Melchester’s",
+      "gives": "ROY",
+      "note": "Roy Race was the striker for Melchester Rovers in Roy of the Rovers, the football strip British boys read for fifty years"
+     },
+     {
+      "clueFragment": "Regrettably",
+      "gives": "ALAS",
+      "note": "the word for saying that something is a pity"
+     },
+     {
+      "clueFragment": "Function",
+      "gives": "COT",
+      "note": "cot is the trigonometric function cotangent, cut short the way sin and tan are"
+     }
+    ],
+    "surface": "An unwelcome formal do scheduled straight after the local race meeting.",
+    "walkthrough": "The capital F on 'Function' is doing surface work — it reads as a black-tie do and means the mathematician's cotangent. Melchester is the fictional town the comic-strip club played for, so the surname in the clue is a wink rather than wordplay.",
+    "definitionFit": "Royal Ascot is the five-day flat-racing meeting held at Ascot in Berkshire each June, so the answer is one particular race meeting.",
+    "features": {
+     "misdirectedWord": "Function",
+     "joke": "pun",
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "11-across",
@@ -184,7 +550,38 @@ window.CRYPTIC_PUZZLES["independent-12456"] = /*JSON-START*/ {
    "clue": "Novice storyteller is holding back (4)",
    "separatorLocations": {},
    "solution": "TYRO",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "TYRO",
+    "definition": "Novice",
+    "indicators": [
+     "holding",
+     "back"
+    ],
+    "indicatorNotes": {
+     "holding": "A word holding something keeps it inside, so the letters sit unbroken within the word named.",
+     "back": "Back means the letters run the other way, right to left along the row."
+    },
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "storyteller",
+      "gives": "TYRO",
+      "note": "four consecutive letters inside the word, read from right to left"
+     }
+    ],
+    "surface": "A beginner at spinning yarns, keeping something to himself.",
+    "walkthrough": "'Holding back' is one idiom in the surface — being reticent — and two separate instructions in the wordplay, one for the concealment and one for the direction. A tyro is a raw recruit, from the Latin for a young soldier.",
+    "definitionFit": "A tyro is someone doing a thing for the first time, which is exactly what a novice is; the two nouns swap straight over.",
+    "features": {
+     "misdirectedWord": "holding",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "12-across",
@@ -198,7 +595,43 @@ window.CRYPTIC_PUZZLES["independent-12456"] = /*JSON-START*/ {
    "clue": "Turn #2, almost #6 on the table (6)",
    "separatorLocations": {},
    "solution": "CARBON",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + deletion",
+    "answer": "CARBON",
+    "definition": "#6 on the table",
+    "indicators": [
+     "Turn",
+     "almost"
+    ],
+    "indicatorNotes": {
+     "Turn": "A turn is an about-face, so everything named after it is written back to front.",
+     "almost": "Almost means not quite all of it, so the last letter never gets written down."
+    },
+    "pieces": [
+     "CARBON"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "#",
+      "gives": "NO",
+      "note": "the hash in front of a figure is read aloud as 'number', which is written No."
+     },
+     {
+      "clueFragment": "2",
+      "gives": "BRACE",
+      "note": "a brace is two of anything, as in a brace of pheasants, and the final letter of it is the one left off"
+     }
+    ],
+    "surface": "Turns taken in order round a table, numbered as they come.",
+    "walkthrough": "The two hashes do different jobs: the first is spelt out as a word and pressed into the wordplay, the second stays a numeral and belongs to the definition. Carbon is element six in the periodic table.",
+    "definitionFit": "Carbon sits at atomic number six in the periodic table, so the definition picks it out by its place in the grid of elements.",
+    "features": {
+     "misdirectedWord": "table",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "13-down",
@@ -218,7 +651,44 @@ window.CRYPTIC_PUZZLES["independent-12456"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BROADSHEET",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "BROADSHEET",
+    "definition": "Telegraph",
+    "indicators": [
+     "disgruntled"
+    ],
+    "indicatorNotes": {
+     "disgruntled": "People who are disgruntled are put out and no longer in good order, and neither are these letters."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "anagram": {
+     "fodder": "ARE BODS THE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Are bods",
+      "gives": "AREBODS",
+      "note": "seven letters of fodder, 'bods' being the informal word for people"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "the article is fodder too, and the three letters it brings make ten"
+     }
+    ],
+    "surface": "Wondering whether readers are fed up with their newspaper.",
+    "walkthrough": "The Daily Telegraph is one of the British papers still printed at the full page size, which is what the question mark licenses — an example standing in for the class. The italics mark it as a title, and the definition is that one word.",
+    "definitionFit": "The Telegraph is printed on the large sheets that give the class of newspaper its name, so it is one instance of the thing defined.",
+    "features": {
+     "misdirectedWord": "bods",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "14-across",
@@ -232,7 +702,35 @@ window.CRYPTIC_PUZZLES["independent-12456"] = /*JSON-START*/ {
    "clue": "Well-respected Wade meets Evert over drinks (8)",
    "separatorLocations": {},
    "solution": "ESTEEMED",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "ESTEEMED",
+    "definition": "Well-respected",
+    "indicators": [
+     "drinks",
+     "over"
+    ],
+    "indicatorNotes": {
+     "drinks": "To drink something in is to take it right in, so the letters are swallowed inside the words named.",
+     "over": "Turned over, the letters are read the other way along the row, right to left."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Wade meets Evert",
+      "gives": "ESTEEMED",
+      "note": "eight consecutive letters spanning all three words, taken from right to left"
+     }
+    ],
+    "surface": "Two tennis champions catching up over a drink.",
+    "walkthrough": "Virginia Wade and Chris Evert were the Wimbledon rivals of the 1970s, which is all the surface needs them for. The definition is the first word, standing alone in front of a scene it has nothing to do with.",
+    "definitionFit": "Someone esteemed is held in high regard by others, which is what being well respected is; both are past participles used as adjectives.",
+    "features": {
+     "misdirectedWord": "drinks",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "15-across",
@@ -246,7 +744,43 @@ window.CRYPTIC_PUZZLES["independent-12456"] = /*JSON-START*/ {
    "clue": "Sign Murray’s impatient, wanting to tuck into cheese roll (7)",
    "separatorLocations": {},
    "solution": "BRIOCHE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "BRIOCHE",
+    "definition": "roll",
+    "indicators": [
+     "wanting to tuck into"
+    ],
+    "indicatorNotes": {
+     "wanting to tuck into": "To tuck into food is to get inside it, so the piece named in front goes into the middle of the word named after."
+    },
+    "pieces": [
+     "BRI",
+     "OCH",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cheese",
+      "gives": "BRIE",
+      "note": "the soft French cheese setters reach for whenever four letters are wanted"
+     },
+     {
+      "clueFragment": "Sign Murray’s impatient",
+      "gives": "OCH",
+      "note": "och is the Scottish exclamation, and Andy Murray, being Scottish, would show impatience in exactly that syllable"
+     }
+    ],
+    "surface": "Andy Murray fidgeting while he waits for his lunch.",
+    "walkthrough": "'Sign' is a noun — the thing that shows how Murray feels — and not the autograph the surface offers. 'Cheese roll' looks like one item on a menu and is two separate jobs, one word wordplay and the other the definition.",
+    "definitionFit": "A brioche is the soft, eggy French bread baked as a small roll, so the plain noun names the kind of thing it is.",
+    "features": {
+     "misdirectedWord": "Sign",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "16-down",
@@ -260,7 +794,43 @@ window.CRYPTIC_PUZZLES["independent-12456"] = /*JSON-START*/ {
    "clue": "Getting to arena to welcome a person (8)",
    "separatorLocations": {},
    "solution": "REACHING",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "REACHING",
+    "definition": "Getting to",
+    "indicators": [
+     "to welcome"
+    ],
+    "indicatorNotes": {
+     "to welcome": "A host welcomes a guest into the house, so the word doing the welcoming closes round the piece named next."
+    },
+    "pieces": [
+     "R",
+     "EACH",
+     "ING"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "arena",
+      "gives": "RING",
+      "note": "the roped square a boxing match happens in, and the sawdust circle of a circus"
+     },
+     {
+      "clueFragment": "a person",
+      "gives": "EACH",
+      "note": "'five pounds each' means five pounds for every person there"
+     }
+    ],
+    "surface": "An arena laying on a welcome for somebody.",
+    "walkthrough": "'Getting to' has to be heard as arriving at, not as the irritation in 'that gets to me', and the participle is what fixes the ending of the answer. Both pieces are ordinary words hiding behind ordinary words.",
+    "definitionFit": "Reaching a place is getting to it, and the two present participles can be swapped in a sentence without changing anything.",
+    "features": {
+     "misdirectedWord": "Getting",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "17-down",
@@ -274,7 +844,43 @@ window.CRYPTIC_PUZZLES["independent-12456"] = /*JSON-START*/ {
    "clue": "Good day doing exercises, breaks in the routine? (8)",
    "separatorLocations": {},
    "solution": "HIATUSES",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "HIATUSES",
+    "definition": "breaks in the routine?",
+    "indicators": [],
+    "pieces": [
+     "HI",
+     "AT",
+     "USES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Good day",
+      "gives": "HI",
+      "note": "the greeting offered instead of 'good day'"
+     },
+     {
+      "clueFragment": "doing",
+      "gives": "AT",
+      "note": "someone at their work is doing it"
+     },
+     {
+      "clueFragment": "exercises",
+      "gives": "USES",
+      "note": "to exercise a right or an option is to use it"
+     }
+    ],
+    "surface": "A pleasant morning spent in the gym.",
+    "walkthrough": "'Exercises' is the verb meaning uses — exercising a right, exercising restraint — rather than the press-ups the surface sells. Nothing in the clue flags a join: three swaps laid end to end is all there is.",
+    "definitionFit": "A hiatus is a gap where something should have carried on, so a routine's interruptions are exactly what the plural names.",
+    "features": {
+     "misdirectedWord": "exercises",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "18-across",
@@ -288,7 +894,57 @@ window.CRYPTIC_PUZZLES["independent-12456"] = /*JSON-START*/ {
    "clue": "Quick break after kick-off involves Croatia’s top international – him? (7)",
    "separatorLocations": {},
    "solution": "KOVACIC",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "KOVACIC",
+    "definition": "him?",
+    "definitionNote": "The definition is a bare pronoun: the setter points at the man the rest of the sentence has just described rather than defining him, which is why the clue ends on a dash and a question mark.",
+    "indicators": [
+     "after",
+     "involves"
+    ],
+    "indicatorNotes": {
+     "after": "After puts the piece named in front of the word behind the one named following it.",
+     "involves": "To involve something is to draw it into the business in hand, and it says nothing about where — so the two single letters land in the opposite order to the one the clue names them in."
+    },
+    "pieces": [
+     "KO",
+     "VAC",
+     "I",
+     "C"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "kick-off",
+      "gives": "KO",
+      "note": "KO is how a kick-off time is printed in a fixture list"
+     },
+     {
+      "clueFragment": "Quick break",
+      "gives": "VAC",
+      "note": "the vac is the university vacation, and 'quick' asks for the short form of it"
+     },
+     {
+      "clueFragment": "international",
+      "gives": "I",
+      "note": "i = international, as on a form or a fixture list"
+     },
+     {
+      "clueFragment": "Croatia’s top",
+      "gives": "C",
+      "note": "the letter at the top of Croatia, which is to say the first one"
+     }
+    ],
+    "surface": "A swift counter-attack just after the whistle, with Croatia's best player in it.",
+    "walkthrough": "Mateo Kovacic is the Croatia midfielder who has played for Real Madrid, Chelsea and Manchester City, and 'break' in the surface is the football sense, a fast counter-attack. The definition is one word long and leans on the sentence in front of it.",
+    "definitionFit": "'Him' points back at the man the surface has just described — Croatia's leading international, the midfielder Mateo Kovacic.",
+    "features": {
+     "misdirectedWord": "break",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "19-down",
@@ -306,7 +962,37 @@ window.CRYPTIC_PUZZLES["independent-12456"] = /*JSON-START*/ {
     ]
    },
    "solution": "LPLATES",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "L-PLATES",
+    "definition": "Pre-test indicators",
+    "indicators": [],
+    "pieces": [
+     "LP",
+     "LATES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "record",
+      "gives": "LP",
+      "note": "an LP is the twelve-inch long-playing record"
+     },
+     {
+      "clueFragment": "unpopular shifts",
+      "gives": "LATES",
+      "note": "the late shift is the one nobody volunteers for, and lates is what a rota calls them"
+     }
+    ],
+    "surface": "Instruments taken before a test, logging some unwelcome changes.",
+    "walkthrough": "A British learner driver must show a red L on a white square front and back until the day they pass. The hyphen in the answer falls in a different place from the join in the wordplay, which is what buries the record.",
+    "definitionFit": "L-plates stay on the car until the driving test is passed, so they are the sign that the test has not been taken yet.",
+    "features": {
+     "misdirectedWord": "shifts",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "20-across",
@@ -324,7 +1010,44 @@ window.CRYPTIC_PUZZLES["independent-12456"] = /*JSON-START*/ {
     ]
    },
    "solution": "SANDWASP",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "SAND WASP",
+    "definition": "Solitary digger",
+    "indicators": [
+     "caught between"
+    ],
+    "indicatorNotes": {
+     "caught between": "Something caught between two things has one either side of it, so the word named in front goes inside the pair named after."
+    },
+    "pieces": [
+     "S",
+     "AND",
+     "WAS",
+     "P"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a couple of spademen",
+      "gives": "SANDP",
+      "note": "a couple takes the first two letters of 'spademen', and naming them one at a time as S and P writes the joining word into the letters as well"
+     },
+     {
+      "clueFragment": "was",
+      "gives": "WAS",
+      "note": "the word itself, dropped in whole"
+     }
+    ],
+    "surface": "A lone gravedigger wedged between two men with spades.",
+    "walkthrough": "Naming two letters separately drags the word 'and' into the answer with them, which is the whole trick and the reason the count comes out at eight. Sand wasps burrow into sandy ground alone instead of building the paper nests social wasps share.",
+    "definitionFit": "A sand wasp digs its own burrow and lives on its own account, so both halves of the definition are entomology rather than metaphor.",
+    "features": {
+     "misdirectedWord": "spademen",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "21-across",
@@ -338,7 +1061,43 @@ window.CRYPTIC_PUZZLES["independent-12456"] = /*JSON-START*/ {
    "clue": "Razor user lopped recycled pork cut (6)",
    "separatorLocations": {},
    "solution": "OCKHAM",
-   "annotation": null
+   "annotation": {
+    "type": "cycling + deletion",
+    "answer": "OCKHAM",
+    "definition": "Razor user",
+    "indicators": [
+     "lopped",
+     "recycled"
+    ],
+    "indicatorNotes": {
+     "recycled": "Recycled letters go round again: the chunk at the front travels to the back with its own order untouched.",
+     "lopped": "To lop is to cut off what sticks out at the top, so the leading letter comes away."
+    },
+    "pieces": [
+     "OCKHAM"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pork cut",
+      "gives": "HAMHOCK",
+      "note": "a ham hock is the joint just above the pig's foot, a cheap cut sold for stews and soup"
+     },
+     {
+      "clueFragment": "lopped",
+      "gives": "H",
+      "note": "the letter standing at the front once the two halves have changed places"
+     }
+    ],
+    "surface": "Somebody with a razor trimming a reheated joint of pork.",
+    "walkthrough": "William of Ockham was the fourteenth-century friar whose razor keeps the simplest explanation and cuts away the rest, so 'razor user' is a joke about a man who shaved nothing but arguments. He came from a Surrey village still spelt that way.",
+    "definitionFit": "Ockham's razor is the principle that the fewest assumptions win, and it carries the name of the philosopher who wielded it.",
+    "features": {
+     "misdirectedWord": "razor",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "21-down",
@@ -352,7 +1111,41 @@ window.CRYPTIC_PUZZLES["independent-12456"] = /*JSON-START*/ {
    "clue": "Right to miss start of mock exam (4)",
    "separatorLocations": {},
    "solution": "ORAL",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "ORAL",
+    "definition": "exam",
+    "indicators": [
+     "to miss"
+    ],
+    "indicatorNotes": {
+     "to miss": "To miss a thing is to be without it, so the letter named next never appears in the word in front."
+    },
+    "pieces": [
+     "ORAL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Right",
+      "gives": "MORAL",
+      "note": "what is right in the sense of principled rather than correct"
+     },
+     {
+      "clueFragment": "start of mock",
+      "gives": "M",
+      "note": "the letter the word starts with, and the one that goes"
+     }
+    ],
+    "surface": "A student skipping the first part of a practice exam.",
+    "walkthrough": "'Right' is the ethical kind, not the direction or the political wing, and a clue full of exam vocabulary is designed to keep you looking at the wrong sense. An oral is the spoken paper, the one sat face to face.",
+    "definitionFit": "An oral is the examination conducted by speaking, as in a language test, so the noun names one kind of exam.",
+    "features": {
+     "misdirectedWord": "Right",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "22-down",
@@ -366,7 +1159,48 @@ window.CRYPTIC_PUZZLES["independent-12456"] = /*JSON-START*/ {
    "clue": "Birdcage Walk, say, being overlaid with a track (6)",
    "separatorLocations": {},
    "solution": "AVIARY",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "AVIARY",
+    "definition": "Birdcage",
+    "indicators": [
+     "being overlaid with"
+    ],
+    "indicatorNotes": {
+     "being overlaid with": "To overlay is to lay one thing across another and cover it, so the letters doing the covering close round the ones underneath."
+    },
+    "pieces": [
+     "A",
+     "VIA",
+     "RY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article, taken as the letter it is"
+     },
+     {
+      "clueFragment": "Walk, say",
+      "gives": "VIA",
+      "note": "via is the Latin for a road or way, and 'say' offers a walk as one example of one"
+     },
+     {
+      "clueFragment": "track",
+      "gives": "RY",
+      "note": "ry is the abbreviation for railway printed on maps"
+     }
+    ],
+    "surface": "A London street with a railway line laid over the top of it.",
+    "walkthrough": "Birdcage Walk runs along the south side of St James's Park in Westminster and is named after the royal birds Charles II kept there, so the street and the answer share a history. 'Say' belongs to the walk, not to the cage.",
+    "definitionFit": "An aviary is an enclosure large enough to keep birds in, which is what a birdcage is on a bigger scale.",
+    "features": {
+     "misdirectedWord": "Walk",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "23-across",
@@ -384,7 +1218,44 @@ window.CRYPTIC_PUZZLES["independent-12456"] = /*JSON-START*/ {
     ]
    },
    "solution": "UHUH",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "UH-UH",
+    "definition": "No",
+    "indicators": [
+     "will get involved with"
+    ],
+    "indicatorNotes": {
+     "will get involved with": "Getting involved with people is getting in among them, so the letters named first are slotted in between the ones named next."
+    },
+    "pieces": [
+     "U",
+     "H",
+     "U",
+     "H"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "us",
+      "gives": "UU",
+      "note": "the plural of the letter U, so a pair of them"
+     },
+     {
+      "clueFragment": "two husbands",
+      "gives": "HH",
+      "note": "h = husband on a form or a family tree, and the clue asks for a pair"
+     }
+    ],
+    "surface": "A flat refusal to let a couple of husbands join in.",
+    "walkthrough": "'Us' is not the pronoun it looks like: it is the plural of a letter, the step that takes longest to see. The answer is the two-syllable grunt that means no, as against uh-huh, which means yes.",
+    "definitionFit": "Uh-uh is what English speakers actually say for no when they cannot be bothered with the word, spelt as it sounds.",
+    "features": {
+     "misdirectedWord": "us",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "24-across",
@@ -402,7 +1273,49 @@ window.CRYPTIC_PUZZLES["independent-12456"] = /*JSON-START*/ {
     ]
    },
    "solution": "URALALTAIC",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "URAL-ALTAIC",
+    "definition": "tongues",
+    "definitionNote": "Ural-Altaic is properly an adjective describing a family of languages; setters let it stand as the name of the languages themselves, the way Romance or Bantu is used.",
+    "indicators": [
+     "dancing",
+     "piercing"
+    ],
+    "indicatorNotes": {
+     "dancing": "Letters that are dancing will not stand still in the order they were handed over in.",
+     "piercing": "To pierce is to go right into a thing, so the piece named next is driven inside the letters just made."
+    },
+    "anagram": {
+     "fodder": "RITUAL C ALA"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Ritual",
+      "gives": "RITUAL",
+      "note": "six letters of fodder"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "C",
+      "note": "c stands for circa, the 'about' written in front of an uncertain date"
+     },
+     {
+      "clueFragment": "after",
+      "gives": "ALA",
+      "note": "a la is French for after the manner of, as in a la carte"
+     }
+    ],
+    "surface": "People dancing about after having their tongues pierced.",
+    "walkthrough": "Ural-Altaic is the old grouping that filed Finnish and Hungarian with Turkish and Mongolian, a family few linguists now accept. 'Tongues' is languages, and the pierced tongue of the surface is the setter enjoying himself.",
+    "definitionFit": "Ural-Altaic names a proposed family of languages, and tongues is the old word for languages, kept alive in 'speaking in tongues'.",
+    "features": {
+     "misdirectedWord": "piercing",
+     "joke": "absurd",
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "25-down",
@@ -416,7 +1329,31 @@ window.CRYPTIC_PUZZLES["independent-12456"] = /*JSON-START*/ {
    "clue": "Up to work? (4)",
    "separatorLocations": {},
    "solution": "TILL",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "TILL",
+    "definition": "Up to",
+    "definition2": "work",
+    "blocks": [
+     {
+      "clueFragment": "Up to",
+      "note": "the preposition meaning as far as, as in a shop open from nine until six"
+     },
+     {
+      "clueFragment": "work",
+      "note": "the farmer's verb for working ground into a state fit for sowing"
+     }
+    ],
+    "surface": "Asking someone whether they feel able to go in to the office.",
+    "walkthrough": "The same four letters serve a preposition and a verb with nothing in common — the one meaning until is unrelated to working a field. The question mark warns that the sentence the two make between them is not to be trusted.",
+    "definitionFit": "Till means until, as far as a point in time; and to till is to plough and work land ready for a crop.",
+    "features": {
+     "misdirectedWord": "up",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "26-across",
@@ -430,7 +1367,43 @@ window.CRYPTIC_PUZZLES["independent-12456"] = /*JSON-START*/ {
    "clue": "Is prior to religious establishment panicking East End ministers? (9)",
    "separatorLocations": {},
    "solution": "ANTECEDES",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "ANTECEDES",
+    "definition": "Is prior to",
+    "indicators": [
+     "panicking",
+     "ministers"
+    ],
+    "indicatorNotes": {
+     "panicking": "People panicking scatter in every direction at once, and so do these letters.",
+     "ministers": "'Ministers' is a verb here — to minister is to attend on somebody — and the attending letters gather round the one they wait on, which is a loose way of saying they go outside it."
+    },
+    "anagram": {
+     "fodder": "EAST END CE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "East End",
+      "gives": "EASTEND",
+      "note": "the working-class districts east of the City of London, wanted here only for their seven letters"
+     },
+     {
+      "clueFragment": "religious establishment",
+      "gives": "CE",
+      "note": "the Church of England is the established church, and C of E is how it is written short"
+     }
+    ],
+    "surface": "The church hierarchy putting the wind up its East End clergy.",
+    "walkthrough": "'Establishment' does two jobs at once: the Church of England is the established church, so the phrase describes it and abbreviates it in the same breath. 'Ministers' is the verb, not the clergymen the surface hands you.",
+    "definitionFit": "To antecede something is to come before it in time, which is what being prior to it means; both are third-person verbs.",
+    "features": {
+     "misdirectedWord": "ministers",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "27-across",
@@ -444,7 +1417,40 @@ window.CRYPTIC_PUZZLES["independent-12456"] = /*JSON-START*/ {
    "clue": "Sacred mass put all our art out in the open? (5)",
    "separatorLocations": {},
    "solution": "ULURU",
-   "annotation": null
+   "annotation": {
+    "type": "middle letters",
+    "answer": "ULURU",
+    "definition": "Sacred mass",
+    "indicators": [
+     "in the open"
+    ],
+    "indicatorNotes": {
+     "in the open": "Each word is opened up and its covering letters stripped away, leaving what was inside standing in the open."
+    },
+    "pieces": [
+     "U",
+     "L",
+     "U",
+     "R",
+     "U"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "put all our art out",
+      "gives": "ULURU",
+      "note": "five three-letter words in a row, each giving up the letter at its middle"
+     }
+    ],
+    "surface": "Putting a whole collection of artwork on public display.",
+    "walkthrough": "Uluru is the sandstone monolith in central Australia once called Ayers Rock, sacred to the Anangu people who own it. Five three-letter words in a row is the signal — no ordinary sentence lines them up like that by accident.",
+    "definitionFit": "Uluru is a single vast mass of sandstone and a sacred site to the Anangu, so both words of the definition are literal.",
+    "features": {
+     "misdirectedWord": "mass",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   }
  ]
 } /*JSON-END*/;
