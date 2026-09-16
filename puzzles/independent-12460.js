@@ -27,7 +27,31 @@ window.CRYPTIC_PUZZLES["independent-12460"] = /*JSON-START*/ {
    "clue": "Joint head of primate protection (5)",
    "separatorLocations": {},
    "solution": "MITRE",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "MITRE",
+    "definition": "Joint",
+    "definition2": "head of primate protection",
+    "blocks": [
+     {
+      "clueFragment": "Joint",
+      "note": "the angled corner a carpenter cuts so two lengths of moulding meet at forty-five degrees"
+     },
+     {
+      "clueFragment": "head of primate protection",
+      "note": "in church English a primate is an archbishop, and what protects his head in procession is the tall cleft hat"
+     }
+    ],
+    "surface": "The person in charge of an organisation that protects apes.",
+    "walkthrough": "'Primate' offers the ape first, and the wildlife charity the rest of the sentence conjures; the churchman is the sense wanted. A joint here is carpentry rather than anatomy, two pieces butted on the diagonal.",
+    "definitionFit": "Two lengths cut at forty-five degrees and butted together make this joint, and the same word names the cleft ceremonial hat worn by an archbishop, who is a primate.",
+    "features": {
+     "misdirectedWord": "primate",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "1-down",
@@ -41,7 +65,36 @@ window.CRYPTIC_PUZZLES["independent-12460"] = /*JSON-START*/ {
    "clue": "Cheerless cheapskate at liberty (9)",
    "separatorLocations": {},
    "solution": "MISERABLE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MISERABLE",
+    "definition": "Cheerless",
+    "pieces": [
+     "MISER",
+     "ABLE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cheapskate",
+      "gives": "MISER",
+      "note": "a cheapskate hoards money and parts with none of it"
+     },
+     {
+      "clueFragment": "at liberty",
+      "gives": "ABLE",
+      "note": "someone at liberty to do a thing is permitted, and so able, to do it"
+     }
+    ],
+    "surface": "A joyless skinflint who has been let out.",
+    "walkthrough": "'At liberty' reads as out of prison, and the phrase the setter wants is 'at liberty to' — free to, permitted, able. Nothing in the clue says the two pieces sit end to end; you have to try it.",
+    "definitionFit": "A miserable person shows no cheer at all, so the adjective is a plain synonym in the same form.",
+    "features": {
+     "misdirectedWord": "liberty",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "2-down",
@@ -55,7 +108,36 @@ window.CRYPTIC_PUZZLES["independent-12460"] = /*JSON-START*/ {
    "clue": "Look of contrary primeval warthog (5)",
    "separatorLocations": {},
    "solution": "TRAWL",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "TRAWL",
+    "definition": "Look",
+    "indicators": [
+     "contrary"
+    ],
+    "indicatorNotes": {
+     "contrary": "Contrary means running against, so the letters are read against the direction of the clue; nothing flags that they are also buried in the words, which is left for the solver to spot."
+    },
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "primeval warthog",
+      "gives": "TRAWL",
+      "note": "five consecutive letters straddle the gap between the two words and are read from right to left"
+     }
+    ],
+    "surface": "The expression on the face of a prehistoric pig.",
+    "walkthrough": "Two long words side by side with an odd adjective is the standard shape of a concealment, and 'primeval' is there to make the pairing sound deliberate. The definition is a verb: to search through something at length.",
+    "definitionFit": "To trawl is to drag a net slowly through the water, and the transferred sense is to look through files or records the same patient way.",
+    "features": {
+     "misdirectedWord": "warthog",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "3-down",
@@ -69,7 +151,51 @@ window.CRYPTIC_PUZZLES["independent-12460"] = /*JSON-START*/ {
    "clue": "Liverpool district school hosting minister from the south (7)",
    "separatorLocations": {},
    "solution": "EVERTON",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "EVERTON",
+    "definition": "Liverpool district",
+    "indicators": [
+     "hosting",
+     "from the south"
+    ],
+    "indicatorNotes": {
+     "hosting": "A host takes a visitor into their house, so the word doing the hosting closes round the letters named next.",
+     "from the south": "This is a down entry, so a piece arriving from the south is travelling upwards and its letters are written in the opposite order."
+    },
+    "pieces": [
+     "E",
+     "VER",
+     "TON"
+    ],
+    "subReversals": [
+     {
+      "from": "REV",
+      "to": "VER"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "school",
+      "gives": "ETON",
+      "note": "Eton is the English public school setters reach for whenever four letters are needed"
+     },
+     {
+      "clueFragment": "minister",
+      "gives": "VER",
+      "note": "a minister of religion is a Rev, and here he climbs the grid"
+     }
+    ],
+    "surface": "A school putting up a visiting churchman who has travelled up from the south.",
+    "walkthrough": "The football club took its name from the district rather than the other way round, so the definition is geography and the surface's northern journey is the decoy. On a vertical entry, south to north means bottom to top.",
+    "definitionFit": "Everton is a real district of north Liverpool, the hillside neighbourhood the football club was named after.",
+    "features": {
+     "misdirectedWord": "minister",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "4-across",
@@ -83,7 +209,36 @@ window.CRYPTIC_PUZZLES["independent-12460"] = /*JSON-START*/ {
    "clue": "Unduly analyse wasted kilos (9)",
    "separatorLocations": {},
    "solution": "OVERTHINK",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "OVERTHINK",
+    "definition": "Unduly analyse",
+    "pieces": [
+     "OVERTHIN",
+     "K"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wasted",
+      "gives": "OVERTHIN",
+      "note": "a body wasted by illness has gone thin past the point of health"
+     },
+     {
+      "clueFragment": "kilos",
+      "gives": "K",
+      "note": "k is the letter printed after a weight on any bag of flour"
+     }
+    ],
+    "surface": "Someone fretting over the kilos they have lost.",
+    "walkthrough": "'Wasted' pulls towards squandered — kilos thrown away like money — when the sense needed is a frame shrunk by illness. The definition is the whole of the first two words, excess and activity together.",
+    "definitionFit": "To overthink something is to analyse it well past the point the matter deserves, so 'unduly' supplies the excess and 'analyse' the activity.",
+    "features": {
+     "misdirectedWord": "wasted",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "4-down",
@@ -97,7 +252,53 @@ window.CRYPTIC_PUZZLES["independent-12460"] = /*JSON-START*/ {
    "clue": "Aromas coming from barbecue perhaps up where we live (6)",
    "separatorLocations": {},
    "solution": "ODOURS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "ODOURS",
+    "definition": "Aromas",
+    "indicators": [
+     "perhaps",
+     "up"
+    ],
+    "indicatorNotes": {
+     "perhaps": "Perhaps marks the word in front of it as one example of something broader, so the general word for the occasion is wanted rather than the food.",
+     "up": "In a down entry the only way a piece can go up is backwards, so those letters are written in the reverse order."
+    },
+    "linkWords": [
+     "coming from"
+    ],
+    "pieces": [
+     "OD",
+     "OURS"
+    ],
+    "subReversals": [
+     {
+      "from": "DO",
+      "to": "OD"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "barbecue",
+      "gives": "OD",
+      "note": "a do is British for a party or function, and a barbecue is one; here it climbs the grid"
+     },
+     {
+      "clueFragment": "where we live",
+      "gives": "OURS",
+      "note": "the place belonging to us is ours"
+     }
+    ],
+    "surface": "Smells drifting up from a neighbour's barbecue into the flat above.",
+    "walkthrough": "A do is any social occasion in British usage — a works do, a birthday do — and 'perhaps' is the signal that the barbecue is only one example. The smells go up in the surface and the letters go up in the grid.",
+    "definitionFit": "Odours are the smells themselves, plural like 'aromas', though odours lean sour where aromas lean appetising.",
+    "features": {
+     "misdirectedWord": "up",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "5-down",
@@ -111,7 +312,53 @@ window.CRYPTIC_PUZZLES["independent-12460"] = /*JSON-START*/ {
    "clue": "Firmly establish arch Conservative there with new name individually assigned (8)",
    "separatorLocations": {},
    "solution": "ENTRENCH",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "ENTRENCH",
+    "definition": "Firmly establish",
+    "indicators": [
+     "arch",
+     "individually assigned"
+    ],
+    "indicatorNotes": {
+     "arch": "To arch a thing is to bend it out of its straight line, and letters bent out of line no longer stay in the order they were given.",
+     "individually assigned": "Assigned individually means the two letters are placed one at a time, at separate points, rather than arriving together as a pair."
+    },
+    "anagram": {
+     "fodder": "THERE C N N"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "C is how British election results abbreviate the party"
+     },
+     {
+      "clueFragment": "there",
+      "gives": "THERE",
+      "note": "five of the letters the shuffle works on"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "n is the standard abbreviation for new"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "n is equally the standard abbreviation for name"
+     }
+    ],
+    "surface": "A staunch Tory over there being given a new title of his own.",
+    "walkthrough": "'Arch' looks like the adjective for a die-hard party man and is the verb, to bend. The two Ns come from 'new' and 'name', both single-letter abbreviations, and the clue is careful to say they go in separately.",
+    "definitionFit": "Digging a position into a trench makes it impossible to shift, and the verb carries that straight over to a habit or an interest that has been firmly established.",
+    "features": {
+     "misdirectedWord": "arch",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "6-down",
@@ -125,7 +372,48 @@ window.CRYPTIC_PUZZLES["independent-12460"] = /*JSON-START*/ {
    "clue": "Best returned shot has this? (7)",
    "separatorLocations": {},
    "solution": "TOPSPIN",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + charade + reversal",
+    "answer": "TOPSPIN",
+    "definition": "Best returned shot has this?",
+    "indicators": [
+     "returned"
+    ],
+    "indicatorNotes": {
+     "returned": "Something returned comes back the way it went, so the three letters named next are written in the opposite order."
+    },
+    "pieces": [
+     "TOPS",
+     "PIN"
+    ],
+    "subReversals": [
+     {
+      "from": "NIP",
+      "to": "PIN"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Best",
+      "gives": "TOPS",
+      "note": "something that is the tops is the best there is"
+     },
+     {
+      "clueFragment": "shot",
+      "gives": "PIN",
+      "note": "a nip is a small shot of spirits, and it is turned round"
+     }
+    ],
+    "surface": "A rally in which the best return carries something extra on it.",
+    "walkthrough": "'Shot' is the measure of whisky, not the stroke the tennis surface sells, and 'returned' turns it round rather than sending it back over the net. Read straight, the same seven words say what a well-struck return carries.",
+    "definitionFit": "Read straight, the clue asks what a good tennis return carries: the forward rotation a player puts on the ball to make it dip and kick.",
+    "features": {
+     "misdirectedWord": "shot",
+     "joke": "pun",
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "7-down",
@@ -139,7 +427,48 @@ window.CRYPTIC_PUZZLES["independent-12460"] = /*JSON-START*/ {
    "clue": "Directly confronts one who shops a girlfriend (9)",
    "separatorLocations": {},
    "solution": "INAMORATA",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "INAMORATA",
+    "definition": "girlfriend",
+    "indicators": [
+     "confronts"
+    ],
+    "indicatorNotes": {
+     "confronts": "Two things that confront each other stand face to face, so the pieces are written hard up against one another."
+    },
+    "pieces": [
+     "INAMO",
+     "RAT",
+     "A"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Directly",
+      "gives": "INAMO",
+      "note": "'in a mo' is British for in a moment, which is what directly means when it means soon"
+     },
+     {
+      "clueFragment": "one who shops",
+      "gives": "RAT",
+      "note": "to shop somebody is British slang for informing on them to the police, and the informer is a rat"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "used literally"
+     }
+    ],
+    "surface": "Squaring up to the informer who betrayed a girlfriend.",
+    "walkthrough": "'Directly' is the British 'I'll be with you directly' — in a mo — not the sense of meeting something head on, which is what the opening words pretend to be about. The Italian loan word is the definition, and it names a woman.",
+    "definitionFit": "An inamorata is the woman a man is in love with, taken whole from Italian, so 'girlfriend' is the everyday English for the same person.",
+    "features": {
+     "misdirectedWord": "shops",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "8-down",
@@ -153,7 +482,45 @@ window.CRYPTIC_PUZZLES["independent-12460"] = /*JSON-START*/ {
    "clue": "Raptors, eagles principally, getting stuck into young animals (5)",
    "separatorLocations": {},
    "solution": "KITES",
-   "annotation": null
+   "annotation": {
+    "type": "container + first letter",
+    "answer": "KITES",
+    "definition": "Raptors",
+    "indicators": [
+     "principally",
+     "getting stuck into"
+    ],
+    "indicatorNotes": {
+     "principally": "The principal letter of a word is the one at its head, so that first letter is taken and the rest dropped.",
+     "getting stuck into": "Anything stuck into a thing finishes up inside it, so the letter goes in among the others rather than beside them."
+    },
+    "pieces": [
+     "KIT",
+     "E",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "young animals",
+      "gives": "KITS",
+      "note": "a kit is a young rabbit, ferret or fox"
+     },
+     {
+      "clueFragment": "eagles",
+      "gives": "E",
+      "note": "the letter eagles begins with"
+     }
+    ],
+    "surface": "Birds of prey, eagles above all, tearing into young animals.",
+    "walkthrough": "'Eagles principally' reads as more of the definition — another sort of raptor — and it is a single letter. Getting stuck into a meal is exactly what the surface wants you to picture while the word does its other job.",
+    "definitionFit": "Kites are the fork-tailed hawks that wheel over British farmland, birds of prey and so raptors, and the plural matches.",
+    "features": {
+     "misdirectedWord": "principally",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "9-across",
@@ -167,7 +534,48 @@ window.CRYPTIC_PUZZLES["independent-12460"] = /*JSON-START*/ {
    "clue": "Extremely sadistic parrot set upon blameless victim (9)",
    "separatorLocations": {},
    "solution": "SCAPEGOAT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters",
+    "answer": "SCAPEGOAT",
+    "definition": "blameless victim",
+    "indicators": [
+     "Extremely"
+    ],
+    "indicatorNotes": {
+     "Extremely": "Extremely points at the extremes of the word it governs, the letter at each end with everything between them discarded."
+    },
+    "pieces": [
+     "SC",
+     "APE",
+     "GOAT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sadistic",
+      "gives": "SC",
+      "note": "the letters at the two ends of sadistic"
+     },
+     {
+      "clueFragment": "parrot",
+      "gives": "APE",
+      "note": "to parrot a phrase is to ape it, repeating it without thought"
+     },
+     {
+      "clueFragment": "set upon",
+      "gives": "GOAT",
+      "note": "to go at somebody is to set upon them, and the two words run together"
+     }
+    ],
+    "surface": "A vicious parrot attacking something that had done nothing to deserve it.",
+    "walkthrough": "'Parrot' is the verb, to ape, and 'set upon' is the phrasal verb 'go at' with the gap closed up. Neither shows itself as wordplay while the bird is still in the picture.",
+    "definitionFit": "The word names someone made to carry blame for what others did, from the goat driven into the wilderness bearing Israel's sins.",
+    "features": {
+     "misdirectedWord": "parrot",
+     "joke": "absurd",
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "10-across",
@@ -181,7 +589,31 @@ window.CRYPTIC_PUZZLES["independent-12460"] = /*JSON-START*/ {
    "clue": "Maybe a sleeper that's put in bed? (5)",
    "separatorLocations": {},
    "solution": "PLANT",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "PLANT",
+    "definition": "Maybe a sleeper",
+    "definition2": "that's put in bed",
+    "blocks": [
+     {
+      "clueFragment": "Maybe a sleeper",
+      "note": "a sleeper is an agent placed inside an organisation years early and left dormant, and 'maybe' marks it as one kind of placed person"
+     },
+     {
+      "clueFragment": "that's put in bed",
+      "note": "the bed is the strip of soil in a garden, and what goes into it is put there to grow"
+     }
+    ],
+    "surface": "Someone asleep being tucked into bed.",
+    "walkthrough": "Both halves turn on senses the surface hides: the spy who lies dormant for years, and the garden bed rather than the bedroom. 'Maybe' is the setter's warning that a sleeper is one example of the first sense, not the whole of it.",
+    "definitionFit": "A sleeper agent is one sort of person planted inside an organisation, and a gardener's bed is filled with the growing kind — the same noun covers both.",
+    "features": {
+     "misdirectedWord": "sleeper",
+     "joke": "pun",
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "11-across",
@@ -195,7 +627,57 @@ window.CRYPTIC_PUZZLES["independent-12460"] = /*JSON-START*/ {
    "clue": "One tells story going round admitted by King and Queen (7)",
    "separatorLocations": {},
    "solution": "RELATER",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "RELATER",
+    "definition": "One tells",
+    "definitionNote": "The answer is a noun and 'One tells' is a clause; British setters routinely define an agent noun this way, leaving the solver to read it as 'one who tells'.",
+    "indicators": [
+     "going round",
+     "admitted by"
+    ],
+    "indicatorNotes": {
+     "going round": "A thing that goes round comes back the way it came, so the letters it governs are written in the opposite order.",
+     "admitted by": "To admit a caller is to let them in, so the piece goes inside the letters named after it."
+    },
+    "pieces": [
+     "R",
+     "ELAT",
+     "ER"
+    ],
+    "subReversals": [
+     {
+      "from": "TALE",
+      "to": "ELAT"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "King",
+      "gives": "R",
+      "note": "R for Rex, the Latin king stamped on British coins"
+     },
+     {
+      "clueFragment": "and Queen",
+      "gives": "ER",
+      "note": "ER for Elizabeth Regina, the cipher on postboxes"
+     },
+     {
+      "clueFragment": "story",
+      "gives": "ELAT",
+      "note": "a story is a tale, and it is turned round"
+     }
+    ],
+    "surface": "A storyteller doing the rounds and being received at court.",
+    "walkthrough": "R for Rex and ER for Elizabeth Regina are the two crowns setters reach for first, and here they sit either side of the gap. The story the surface has him telling is the four letters that get turned round.",
+    "definitionFit": "Someone who relates an event is one who tells it, and the -er ending makes the person doing the telling rather than the telling itself.",
+    "features": {
+     "misdirectedWord": "round",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "12-across",
@@ -209,7 +691,45 @@ window.CRYPTIC_PUZZLES["independent-12460"] = /*JSON-START*/ {
    "clue": "Draws on subterfuges introduced by so-called spymaster (7)",
    "separatorLocations": {},
    "solution": "EMPLOYS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + homophone",
+    "answer": "EMPLOYS",
+    "definition": "Draws on",
+    "indicators": [
+     "introduced by",
+     "so-called"
+    ],
+    "indicatorNotes": {
+     "introduced by": "Whoever introduces comes in ahead of what follows, so the piece named after it is written at the front.",
+     "so-called": "So-called asks for what the thing is called rather than the thing itself, which for a single letter means the way that letter is said."
+    },
+    "pieces": [
+     "EM",
+     "PLOYS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spymaster",
+      "soundsLike": "M",
+      "gives": "EM",
+      "note": "M runs the Secret Service in the Bond films, and the name of that letter spoken aloud is written with two"
+     },
+     {
+      "clueFragment": "subterfuges",
+      "gives": "PLOYS",
+      "note": "a ploy is a subterfuge, a move made to gain an advantage"
+     }
+    ],
+    "surface": "Tricks brought into the room by the man everyone calls the spymaster.",
+    "walkthrough": "'Draws on' is resources put to use, not a pencil, and it is the definition rather than part of the spy story. Bond's chief is a single letter until 'so-called' asks you to write down how it sounds.",
+    "definitionFit": "To employ a method is to draw on it, to put it to use, and both are third-person present to match 'draws'.",
+    "features": {
+     "misdirectedWord": "so-called",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "13-across",
@@ -223,7 +743,34 @@ window.CRYPTIC_PUZZLES["independent-12460"] = /*JSON-START*/ {
    "clue": "Cross this to be in touch with compiler credited here (6)",
    "separatorLocations": {},
    "solution": "BYLINE",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "BYLINE",
+    "definition": "Cross this to be in touch",
+    "definition2": "compiler credited here",
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cross this to be in touch",
+      "note": "footballers call the stretch of paint between the corner flag and the goalpost by this name, and the ball that crosses it is out of play"
+     },
+     {
+      "clueFragment": "compiler credited here",
+      "note": "the compiler is the person who set the crossword, and a paper prints its author's name on its own line under the headline"
+     }
+    ],
+    "surface": "Getting hold of the person who set the puzzle.",
+    "walkthrough": "Both senses are lines: the one a football crosses to leave the pitch, and the one a newspaper gives the writer's name. 'Cross' looks like an instruction to the solver and is part of the football picture.",
+    "definitionFit": "A paper prints its author's name on the line beneath the headline, and football gives the same name to the line running from corner flag to goalpost.",
+    "features": {
+     "misdirectedWord": "Cross",
+     "joke": "pun",
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "14-down",
@@ -237,7 +784,49 @@ window.CRYPTIC_PUZZLES["independent-12460"] = /*JSON-START*/ {
    "clue": "Judges bull an alpha after grooming in capital (9)",
    "separatorLocations": {},
    "solution": "LJUBLJANA",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "LJUBLJANA",
+    "definition": "capital",
+    "indicators": [
+     "after grooming"
+    ],
+    "indicatorNotes": {
+     "after grooming": "Grooming combs a coat into a different lie, so what has been groomed comes out arranged another way."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "anagram": {
+     "fodder": "JJ BULL AN A"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Judges",
+      "gives": "JJ",
+      "note": "J is how a law report shortens Judge, and the plural doubles it"
+     },
+     {
+      "clueFragment": "bull an",
+      "gives": "BULLAN",
+      "note": "six more letters for the mix, used just as they stand"
+     },
+     {
+      "clueFragment": "alpha",
+      "gives": "A",
+      "note": "alpha is the first letter of the Greek alphabet and answers to our A"
+     }
+    ],
+    "surface": "Judges giving top marks to a bull that has been groomed for the show ring.",
+    "walkthrough": "Doubling a letter for a plural — JJ for two judges — is a legal convention and the piece that makes this fill possible. The capital wanted is Slovenia's, in the north of the Balkans.",
+    "definitionFit": "It is the capital and largest city of Slovenia, which is why the fodder has to supply that unlikely run of Js and Ls.",
+    "features": {
+     "misdirectedWord": "grooming",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "15-across",
@@ -251,7 +840,43 @@ window.CRYPTIC_PUZZLES["independent-12460"] = /*JSON-START*/ {
    "clue": "Shocking reports about wearing hippy footwear (8)",
    "separatorLocations": {},
    "solution": "SCANDALS",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "SCANDALS",
+    "definition": "Shocking reports",
+    "indicators": [
+     "wearing"
+    ],
+    "indicatorNotes": {
+     "wearing": "What you wear goes round you, so the letter named before it slips inside the garment word that follows."
+    },
+    "pieces": [
+     "S",
+     "C",
+     "ANDALS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hippy footwear",
+      "gives": "SANDALS",
+      "note": "open leather footwear, which 'hippy' is there to date rather than to change"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "C",
+      "note": "c for circa, the Latin about put in front of an uncertain date"
+     }
+    ],
+    "surface": "Outraged newspaper coverage of people going about in hippy footwear.",
+    "walkthrough": "'About' looks like the preposition joining reports to their subject and is the circa abbreviation, the single letter the whole clue turns on. The definition is the noun: the stories themselves.",
+    "definitionFit": "The word names public outrages of the sort a paper breaks — shocking reports of misbehaviour — and it is plural to match.",
+    "features": {
+     "misdirectedWord": "about",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "16-down",
@@ -269,7 +894,48 @@ window.CRYPTIC_PUZZLES["independent-12460"] = /*JSON-START*/ {
     ]
    },
    "solution": "SEEINGFIT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "SEEING FIT",
+    "definition": "thinking it's ok",
+    "indicators": [
+     "finally"
+    ],
+    "indicatorNotes": {
+     "finally": "Finally reduces the word it governs to the letter it finishes on, the one that comes last of all."
+    },
+    "pieces": [
+     "SEEING",
+     "FI",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Witnessing",
+      "gives": "SEEING",
+      "note": "to witness something is to see it happen, and both words are in the -ing"
+     },
+     {
+      "clueFragment": "motor racing",
+      "gives": "FI",
+      "note": "Formula One is the top motor racing series, written F1, and crosswords write that one as the letter I"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "T",
+      "note": "the letter left ends on"
+     }
+    ],
+    "surface": "Watching the motor racing, then leaving at the end, happy enough with it.",
+    "walkthrough": "Motor racing is Formula One, and the numeral is read as the letter I — two letters out of an entire sport. 'Left' looks like the direction that so often gives an L, and it is the past tense of leaving.",
+    "definitionFit": "To see fit is to judge a course acceptable and go ahead with it, which is 'thinking it's ok' put as an idiom.",
+    "features": {
+     "misdirectedWord": "left",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "17-down",
@@ -283,7 +949,45 @@ window.CRYPTIC_PUZZLES["independent-12460"] = /*JSON-START*/ {
    "clue": "Organised congress in Yorkshire capturing Angela’s heart (8)",
    "separatorLocations": {},
    "solution": "TOGETHER",
-   "annotation": null
+   "annotation": {
+    "type": "container + middle letters",
+    "answer": "TOGETHER",
+    "definition": "Organised",
+    "indicators": [
+     "capturing",
+     "heart"
+    ],
+    "indicatorNotes": {
+     "capturing": "To capture something is to take it and hold it, so the letters named next are held inside the word doing the capturing.",
+     "heart": "The heart of a word is its centre, so the letters in the middle are the ones taken."
+    },
+    "pieces": [
+     "TO",
+     "GE",
+     "THER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "congress in Yorkshire",
+      "gives": "TOTHER",
+      "note": "'a bit of the other' is British for sex, which is the congress meant, and Yorkshire speech clips 'the' down to a t'"
+     },
+     {
+      "clueFragment": "Angela’s",
+      "gives": "GE",
+      "note": "the two letters at the centre of Angela"
+     }
+    ],
+    "surface": "A well-run conference in Yorkshire winning Angela over.",
+    "walkthrough": "'Congress' is the euphemism buried in the phrase 'a bit of the other', and Yorkshire speech shortens 'the' to t' — that is how the outer word arrives. The definition is the adjective used of a person who is calm and on top of things.",
+    "definitionFit": "Said of a person, 'organised' means composed and in control of their life, which is exactly the informal adjective in 'she's very ...'.",
+    "features": {
+     "misdirectedWord": "congress",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "18-across",
@@ -297,7 +1001,50 @@ window.CRYPTIC_PUZZLES["independent-12460"] = /*JSON-START*/ {
    "clue": "Tricky question  - a student initially omitted balanced formula (8)",
    "separatorLocations": {},
    "solution": "EQUATION",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion + first letter",
+    "answer": "EQUATION",
+    "definition": "balanced formula",
+    "indicators": [
+     "Tricky",
+     "initially",
+     "omitted"
+    ],
+    "indicatorNotes": {
+     "Tricky": "Something tricky will not behave as it was handed to you, and letters that will not behave come out in another order.",
+     "initially": "Initially points at the letter a word starts with, before any of the rest of it.",
+     "omitted": "What is omitted is left out altogether, so that letter never reaches the mix."
+    },
+    "anagram": {
+     "fodder": "A QUETION"
+    },
+    "blocks": [
+     {
+      "clueFragment": "question",
+      "gives": "QUESTION",
+      "note": "the eight letters the wordplay starts from"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "used literally, added to the mix"
+     },
+     {
+      "clueFragment": "student",
+      "gives": "S",
+      "note": "the letter student opens with, and the one that is dropped"
+     }
+    ],
+    "surface": "A hard exam question with a line left out by one candidate.",
+    "walkthrough": "'Initially' does not mean the student got there first: it picks out the letter that then leaves, and 'omitted' is the word that removes it. The A joins the mix on its own.",
+    "definitionFit": "An equation states that the two sides of it are equal, so it is a formula held in balance — the balance is what makes it one.",
+    "features": {
+     "misdirectedWord": "initially",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "19-down",
@@ -311,7 +1058,33 @@ window.CRYPTIC_PUZZLES["independent-12460"] = /*JSON-START*/ {
    "clue": "A bit of decent rest leaders support (7)",
    "separatorLocations": {},
    "solution": "TRESTLE",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "TRESTLE",
+    "definition": "support",
+    "indicators": [
+     "A bit of"
+    ],
+    "indicatorNotes": {
+     "A bit of": "A bit of something is a piece taken out of it, so the answer is sitting inside the words that follow rather than being described by them."
+    },
+    "blocks": [
+     {
+      "clueFragment": "decent rest leaders",
+      "gives": "TRESTLE",
+      "note": "seven consecutive letters run straight across all three words, beginning near the end of the first"
+     }
+    ],
+    "surface": "A short break that the people in charge are happy to allow.",
+    "walkthrough": "'Leaders' looks like an instruction to take first letters, which is the false trail, and it is simply a word to hide in. The support wanted is the braced A-frame a plank or a table top sits on.",
+    "definitionFit": "A trestle is the splayed pair of legs a plank or table top rests on, which makes it a support in the most literal sense.",
+    "features": {
+     "misdirectedWord": "leaders",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "20-across",
@@ -325,7 +1098,57 @@ window.CRYPTIC_PUZZLES["independent-12460"] = /*JSON-START*/ {
    "clue": "Report raised by daughter at opening of enquiry (6)",
    "separatorLocations": {},
    "solution": "UPDATE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "UPDATE",
+    "definition": "Report",
+    "indicators": [
+     "opening of"
+    ],
+    "indicatorNotes": {
+     "opening of": "The opening of a word is where it begins, so its first letter is the one wanted."
+    },
+    "linkWords": [
+     "by"
+    ],
+    "pieces": [
+     "UP",
+     "D",
+     "AT",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "raised",
+      "gives": "UP",
+      "note": "anything raised has been put up"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "d is the standard abbreviation for daughter on a family tree"
+     },
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "used literally"
+     },
+     {
+      "clueFragment": "enquiry",
+      "gives": "E",
+      "note": "the first letter of enquiry"
+     }
+    ],
+    "surface": "A matter a daughter brought up when the enquiry began.",
+    "walkthrough": "Four pieces for six letters, and the longest of them is a two-letter word sitting in plain sight doing nothing but being itself. 'Report' is the noun — a piece of news, not a bang.",
+    "definitionFit": "An update is a short report on how a matter now stands, so the noun is a plain synonym in the singular.",
+    "features": {
+     "misdirectedWord": "raised",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "21-down",
@@ -343,7 +1166,49 @@ window.CRYPTIC_PUZZLES["independent-12460"] = /*JSON-START*/ {
     ]
    },
    "solution": "PIPESUP",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "PIPES UP",
+    "definition": "speaks out",
+    "indicators": [
+     "besetting"
+    ],
+    "indicatorNotes": {
+     "besetting": "To beset is to crowd round on every side, so the word it governs closes round the letters named next."
+    },
+    "pieces": [
+     "PI",
+     "P",
+     "ES",
+     "UP"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sanctimonious",
+      "gives": "PI",
+      "note": "pi is old school slang for pious, the word cut down to two letters"
+     },
+     {
+      "clueFragment": "youth",
+      "gives": "PUP",
+      "note": "a pup is a cheeky young lad as well as a young dog"
+     },
+     {
+      "clueFragment": "opponents",
+      "gives": "ES",
+      "note": "East and South sit either side of you at a bridge table, so they are the opposition"
+     }
+    ],
+    "surface": "A holier-than-thou youngster crowding the other side and sounding off.",
+    "walkthrough": "Two conventions in one clue: pi for pious, which comes out of Victorian school slang, and the bridge table, where players are named by their compass seats. 'Speaks out' here is starting to speak, not taking a stand.",
+    "definitionFit": "To pipe up is to break a silence with something said, which is what speaking out amounts to, and both are third-person present.",
+    "features": {
+     "misdirectedWord": "opponents",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "22-down",
@@ -357,7 +1222,46 @@ window.CRYPTIC_PUZZLES["independent-12460"] = /*JSON-START*/ {
    "clue": "Smirked suggestively before getting taken outside (6)",
    "separatorLocations": {},
    "solution": "LEERED",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "LEERED",
+    "definition": "Smirked suggestively",
+    "indicators": [
+     "outside"
+    ],
+    "indicatorNotes": {
+     "outside": "What is outside surrounds what is inside, so the word it governs wraps itself round the letters named before it."
+    },
+    "linkWords": [
+     "getting"
+    ],
+    "pieces": [
+     "LE",
+     "ERE",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "taken",
+      "gives": "LED",
+      "note": "someone taken to a place has been led there"
+     },
+     {
+      "clueFragment": "before",
+      "gives": "ERE",
+      "note": "ere is the poet's word for before, three letters crosswords keep alive"
+     }
+    ],
+    "surface": "A man grinning lewdly just before he is escorted off the premises.",
+    "walkthrough": "'Taken outside' is a bouncer on the surface, and the two words are doing separate jobs — one supplies letters, the other says where they go. 'Before' is not telling you the order of events; it is the old word itself.",
+    "definitionFit": "To leer is to look at somebody with open sexual suggestion, so the past tense covers both halves of 'smirked suggestively'.",
+    "features": {
+     "misdirectedWord": "taken",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "23-across",
@@ -371,7 +1275,50 @@ window.CRYPTIC_PUZZLES["independent-12460"] = /*JSON-START*/ {
    "clue": "Free Republican First Lady imprisoned by old Judge? The opposite! (7)",
    "separatorLocations": {},
    "solution": "RELIEVE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "RELIEVE",
+    "definition": "Free",
+    "indicators": [
+     "imprisoned by",
+     "The opposite!"
+    ],
+    "indicatorNotes": {
+     "imprisoned by": "A prisoner is shut inside, so on the face of it the letters named first go within the ones named next.",
+     "The opposite!": "It cancels the instruction just given, so container and contained change places and the inner piece becomes the outer one."
+    },
+    "pieces": [
+     "R",
+     "ELI",
+     "EVE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the standard letter for the American party"
+     },
+     {
+      "clueFragment": "First Lady",
+      "gives": "EVE",
+      "note": "the first lady of all, in the Book of Genesis, rather than a president's wife"
+     },
+     {
+      "clueFragment": "old Judge",
+      "gives": "ELI",
+      "note": "Eli is the judge and priest of Israel who raised the boy Samuel, and 'old' points at the Old Testament"
+     }
+    ],
+    "surface": "An elderly judge locking up a Republican president's wife.",
+    "walkthrough": "Two biblical figures hide behind American politics, and 'old' is what tells you which testament to look in. The final two words undo the arrangement the clue has just spent six words describing.",
+    "definitionFit": "To relieve somebody is to free them of a burden, a duty or a pain, and both words are verbs in the infinitive.",
+    "features": {
+     "misdirectedWord": "Judge",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "23-down",
@@ -385,7 +1332,43 @@ window.CRYPTIC_PUZZLES["independent-12460"] = /*JSON-START*/ {
    "clue": "Frenzied bee engaged in attack … (5)",
    "separatorLocations": {},
    "solution": "RABID",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "RABID",
+    "definition": "Frenzied",
+    "indicators": [
+     "engaged in"
+    ],
+    "indicatorNotes": {
+     "engaged in": "To be engaged in something is to be occupied inside it, so the letter goes within the word that follows."
+    },
+    "pieces": [
+     "RA",
+     "B",
+     "ID"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "attack",
+      "gives": "RAID",
+      "note": "a raid is a sudden attack"
+     },
+     {
+      "clueFragment": "bee",
+      "gives": "B",
+      "note": "the insect is how the letter B is written out in full"
+     }
+    ],
+    "surface": "A furious bee joining in an attack.",
+    "walkthrough": "The insect exists only to spell out a letter, which is why the shortest word in the clue is the one that does the work. The ellipsis hands the sentence on to 25 down, where it finishes.",
+    "definitionFit": "A rabid animal is frenzied with disease, and the word keeps that wild, uncontrolled sense when it is turned on people and their opinions.",
+    "features": {
+     "misdirectedWord": "bee",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "24-across",
@@ -399,7 +1382,50 @@ window.CRYPTIC_PUZZLES["independent-12460"] = /*JSON-START*/ {
    "clue": "Account for cleric having former partner for tea (7)",
    "separatorLocations": {},
    "solution": "EXPLAIN",
-   "annotation": null
+   "annotation": {
+    "type": "substitution",
+    "answer": "EXPLAIN",
+    "definition": "Account for",
+    "indicators": [
+     "for tea"
+    ],
+    "indicatorNotes": {
+     "for tea": "'X for Y' is the swap instruction: what follows 'for' is the piece that leaves, and the piece named before it moves into the gap."
+    },
+    "linkWords": [
+     "having"
+    ],
+    "pieces": [
+     "EX",
+     "PLAIN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cleric",
+      "gives": "CHAPLAIN",
+      "note": "a chaplain is the cleric attached to a regiment, a hospital or a school"
+     },
+     {
+      "clueFragment": "tea",
+      "gives": "CHA",
+      "note": "cha is British for tea, from the Chinese, and these are the letters that leave"
+     },
+     {
+      "clueFragment": "former partner",
+      "gives": "EX",
+      "note": "an ex is a former husband, wife or partner"
+     }
+    ],
+    "surface": "A vicar giving up his old partner in exchange for a cup of tea.",
+    "walkthrough": "Cha is British for tea — the same word as the char in 'a nice cup of char' — and it happens to sit at the front of the churchman's title. Swapping in the ex leaves an everyday word behind.",
+    "definitionFit": "To account for something is to explain it, to say why it is as it is, and both are verbs taking the same kind of object.",
+    "features": {
+     "misdirectedWord": "tea",
+     "joke": "absurd",
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "25-down",
@@ -413,7 +1439,37 @@ window.CRYPTIC_PUZZLES["independent-12460"] = /*JSON-START*/ {
    "clue": "… as you're on the phone finding shade (5)",
    "separatorLocations": {},
    "solution": "AZURE",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "AZURE",
+    "definition": "shade",
+    "indicators": [
+     "on the phone"
+    ],
+    "indicatorNotes": {
+     "on the phone": "Down a telephone line you hear the words and never see them spelt, so only the sound of them counts."
+    },
+    "linkWords": [
+     "finding"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "as you're",
+      "soundsLike": "AS YOU'RE",
+      "gives": "AZURE",
+      "note": "said at speed the two words run into one another, and what you hear is the name of a colour"
+     }
+    ],
+    "surface": "A bee going for you while you are on the phone.",
+    "walkthrough": "The sentence carries on from 23 down, so the picture is the attack happening mid-call. 'Shade' is a colour rather than shelter from the sun, which is the step that takes longest.",
+    "definitionFit": "Azure is the clear blue of a cloudless sky, one named shade among many, and the noun matches.",
+    "features": {
+     "misdirectedWord": "shade",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "26-across",
@@ -427,7 +1483,44 @@ window.CRYPTIC_PUZZLES["independent-12460"] = /*JSON-START*/ {
    "clue": "Talk big as vessels succeeded moving towards the front (5)",
    "separatorLocations": {},
    "solution": "BOAST",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "BOAST",
+    "definition": "Talk big",
+    "indicators": [
+     "moving towards the front"
+    ],
+    "indicatorNotes": {
+     "moving towards the front": "It tells one named letter to shift forward through the word it is in, the letters it passes closing up behind it."
+    },
+    "linkWords": [
+     "as"
+    ],
+    "anagram": {
+     "fodder": "BOATS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "vessels",
+      "gives": "BOATS",
+      "note": "boats are vessels, and these five letters are all that is in play"
+     },
+     {
+      "clueFragment": "succeeded",
+      "gives": "",
+      "note": "s is the standard abbreviation for succeeded, naming which letter of the previous word is the one to move"
+     }
+    ],
+    "surface": "Bragging, as ships that have worked their way to the front are entitled to.",
+    "walkthrough": "Only one letter moves, and the clue names it by its abbreviation — the s of family trees and lists of monarchs. Everything else stays exactly where it was.",
+    "definitionFit": "To talk big is to brag about yourself, which is the whole of the verb's meaning, and both are in the infinitive.",
+    "features": {
+     "misdirectedWord": "succeeded",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "27-across",
@@ -445,7 +1538,30 @@ window.CRYPTIC_PUZZLES["independent-12460"] = /*JSON-START*/ {
     ]
    },
    "solution": "HARDSTUFF",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "HARD STUFF",
+    "definition": "It's almost unbreakable spirit?",
+    "blocks": [
+     {
+      "clueFragment": "It's almost unbreakable",
+      "note": "the surface offers a material so tough that very little will break it"
+     },
+     {
+      "clueFragment": "spirit",
+      "note": "the setter means the drink: whisky, gin, rum, the bottles a bar keeps apart from the beer"
+     }
+    ],
+    "surface": "Some material that takes an enormous amount of breaking.",
+    "walkthrough": "Two senses of hardness meet in one phrase — the toughness of a material, and the strength of a drink. The question mark is the setter admitting the first reading is the joke, not the definition.",
+    "definitionFit": "Drinkers use the phrase for spirits as against beer or wine, while the same two words read literally describe matter that takes some breaking.",
+    "features": {
+     "misdirectedWord": "unbreakable",
+     "joke": "pun",
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "28-across",
@@ -463,7 +1579,44 @@ window.CRYPTIC_PUZZLES["independent-12460"] = /*JSON-START*/ {
     ]
    },
    "solution": "DEAFEARED",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "DEAF-EARED",
+    "definition": "unresponsive",
+    "indicators": [
+     "Half",
+     "age-old"
+    ],
+    "indicatorNotes": {
+     "Half": "Half of a word is one of its two equal parts, and the half you read first is the front one.",
+     "age-old": "Age-old asks for the form the word had centuries ago rather than the spelling in use now."
+    },
+    "pieces": [
+     "DE",
+     "AFEARED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dead",
+      "gives": "DE",
+      "note": "the front half of its four letters"
+     },
+     {
+      "clueFragment": "chicken",
+      "gives": "AFEARED",
+      "note": "chicken is the playground word for frightened, and 'afeared' is the archaic form of afraid"
+     }
+    ],
+    "surface": "An ancient hen, half dead and not reacting to anything.",
+    "walkthrough": "Nothing here is about a bird: 'chicken' is the state of mind, and 'afeared' is how Shakespeare's characters say afraid, which is what 'age-old' licenses. 'Dead' is four letters to be cut in two rather than a condition.",
+    "definitionFit": "Someone who turns a deaf ear to what he is told does not respond to it, and the adjective made from that idiom means exactly unresponsive.",
+    "features": {
+     "misdirectedWord": "chicken",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "29-across",
@@ -477,7 +1630,45 @@ window.CRYPTIC_PUZZLES["independent-12460"] = /*JSON-START*/ {
    "clue": "Gather claim's coming to court at last (5)",
    "separatorLocations": {},
    "solution": "PLEAT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "PLEAT",
+    "definition": "Gather",
+    "indicators": [
+     "at last"
+    ],
+    "indicatorNotes": {
+     "at last": "At last points to the very end of the word in front of it, the letter it finishes on."
+    },
+    "linkWords": [
+     "'s coming to"
+    ],
+    "pieces": [
+     "PLEA",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "claim",
+      "gives": "PLEA",
+      "note": "a plea is a claim entered before a court"
+     },
+     {
+      "clueFragment": "court",
+      "gives": "T",
+      "note": "the letter court ends on"
+     }
+    ],
+    "surface": "A legal claim that is finally reaching court.",
+    "walkthrough": "'Gather' is the dressmaker's word, a fold worked into cloth, not people assembling as the courtroom surface suggests. Claim and court belong to the same picture, which is what makes the join between them invisible.",
+    "definitionFit": "In dressmaking a gather is a fold doubled into the fabric and stitched down, and to gather cloth is to put those folds in.",
+    "features": {
+     "misdirectedWord": "Gather",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   }
  ]
 } /*JSON-END*/;
