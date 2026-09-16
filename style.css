@@ -39,8 +39,8 @@
      travelling up to the rung it judged — and an entrance is one duration and
      one curve or it is several panels pretending to be one. Five durations
      between .32s and .45s and two different curves said nothing that one of
-     each does not (Paul, 2026-09-16: "use animation consistently in the hint
-     part, have one visual language"). The beat is the ONLY stagger: a thing
+     each does not — animation should read as one consistent language across the
+     hint panel. The beat is the ONLY stagger: a thing
      that must be read second waits exactly one, never some other fraction. */
   --mo-in: .36s;
   --mo-beat: .14s;
@@ -361,8 +361,8 @@ button:disabled:hover { border-color: var(--line); }
 #scorebar { font-size: .85rem; color: var(--muted); }
 #scorebar strong { color: var(--fg); }
 
-/* Finishing the grid used to move one number in the scorebar from 27 to 28
-   ("there should be some celebration when you complete", Paul, 2026-08-17).
+/* Finishing the grid used to move one number in the scorebar from 27 to 28 —
+   completing the grid deserves some celebration.
    The sentence is the celebration; the fireworks are trim. Anyone who has asked
    their browser for less motion still gets the sentence, and gets it without
    three dozen things flying past it. */
@@ -374,14 +374,14 @@ button:disabled:hover { border-color: var(--line); }
 /* No dismiss button. The scoreline is a fact about the puzzle, so it stays as
    long as the grid is full and comes back when you reopen it; the fireworks are
    the part that only go off once. A "Thanks" that hides your own result is asking
-   you to clear away the thing you earned (Paul, 2026-09-06). */
+   you to clear away the thing you earned. */
 #celebrate .shout { margin: 0 0 4px; font-size: 1.05rem; font-weight: 600; }
 #celebrate .tally { margin: 0; font-size: .85rem; color: var(--muted); }
 #celebrate .tally strong { color: var(--fg); }
 
 /* Scoped to the finish box, because the finish is the only thing worth a
    firework: a single clue coming out is a square at a time, and 28 of these is
-   28 interruptions (Paul, 2026-09-06). Three shells, going off once, behind the
+   28 interruptions. Three shells, going off once, behind the
    scoreline rather than over it — the sentence is still the celebration.
    Each spark is flown by --dx/--dy, set per spark in fireworksHTML(). */
 #celebrate .fireworks { position: absolute; inset: 0; pointer-events: none; }
@@ -401,7 +401,7 @@ button:disabled:hover { border-color: var(--line); }
 /* Held until the box is actually on screen — see startFireworksWhenSeen() in
    app.js. Finishing scrolls the page down to the scoreline, and the scroll
    takes longer than a firework lasts, so the burst was over before it arrived:
-   "I did not see fireworks on the installed app" (Paul, iOS, 2026-09-14), where
+   so the burst was over before it arrived on the installed app, where
    the box sits furthest below the fold. */
 #celebrate .fireworks.hold .spark { animation-play-state: paused; }
 @media (prefers-reduced-motion: reduce) {
@@ -417,8 +417,8 @@ button:disabled:hover { border-color: var(--line); }
   border-bottom: 1px solid var(--line); padding-bottom: 3px;
 }
 /* The clue list is not a table of contents you glance at, it is the text you
-   read for minutes at a time while you think — .92rem was sized like chrome
-   (Paul, 2026-08-09). Body-copy size and a real line-height instead; the list
+   read for minutes at a time while you think — .92rem was sized like chrome.
+   Body-copy size and a real line-height instead; the list
    gets taller, which costs nothing, the column scrolls anyway. */
 .clue-list ol { list-style: none; margin: 0; padding: 0; font-size: 1.02rem; line-height: 1.45; }
 .clue-list li { padding: 5px 6px; border-radius: 5px; cursor: pointer; display: flex; gap: 7px; }
@@ -460,7 +460,7 @@ button:disabled:hover { border-color: var(--line); }
    length on the page that moves with the browser chrome — Safari resolved it
    before the toolbar had settled, drew undersized cells, and only recomputed at
    the first scroll-triggered relayout, so the grid started small and jumped
-   bigger the moment you scrolled (Paul, iPad, 2026-08-09). A container query
+   bigger the moment you scrolled. A container query
    unit is resolved against #grid-wrap at layout time, so it cannot be stale and
    cannot disagree with the column the grid has to fit inside. The breakpoints
    below tune --cellcap only; nobody should be writing viewport maths again. */
@@ -566,8 +566,8 @@ button:disabled:hover { border-color: var(--line); }
    grouped. It is a real division (checking vs destroying), so it is drawn as
    one.
 
-   `margin-left: auto` sends everything after the rule to the far end of the row
-   (Paul, 2026-08-09). The two groups are not peers: the check buttons are what
+   `margin-left: auto` sends everything after the rule to the far end of the row.
+   The two groups are not peers: the check buttons are what
    you reach for constantly, the clear/reset pair is what you must not hit by
    accident, and putting the whole row's slack between them says that with
    distance instead of with a hairline. The right edge is a real edge to align
@@ -580,7 +580,7 @@ button:disabled:hover { border-color: var(--line); }
 }
 
 /* A check must always report what it found — a silent check reads as a dead
-   button (feedback 2026-07-29). See announceCheck()/pulseCells() in app.js. */
+   button. See announceCheck()/pulseCells() in app.js. */
 .check-result {
   margin: -8px 0 14px; padding: 3px 0 3px 9px; font-size: .8rem; line-height: 1.4;
   color: var(--muted); border-left: 3px solid var(--line);
@@ -609,8 +609,7 @@ button:disabled:hover { border-color: var(--line); }
    Solving with no hints and no letter reveals gets the same shape, same
    duration, in gold (--sel, the letter-strip's "this one" colour) instead of
    green — a second tier distinguished by which colour it is, never by being
-   longer or louder (Paul, 2026-09-08: "still gentle... distinct by kind rather
-   than by being louder or longer"). `.clean` only sets which colour the shared
+   longer or louder. `.clean` only sets which colour the shared
    keyframe reads. */
 @keyframes cell-solve {
   from { box-shadow: inset 0 0 0 3px var(--solve-tint, var(--ok)); }
@@ -642,13 +641,11 @@ button:disabled:hover { border-color: var(--line); }
 /* Set at the width the bordered picking words need (see .guess-clue below),
    not the width a plain sentence would want on its own — the clue is read in
    both forms and starting picking must not change this element's own metrics,
-   or the panel reflows out from under the solver at the moment they begin
-   (Paul, 2026-09-07: "it is jarring when I go to select parts of the clue
-   that it moves"). */
+   or the panel reflows out from under the solver at the moment they begin. */
 /* One size, everywhere. The clue used to read a step smaller on a wide screen
    than on a tablet, and the big one is the right one on both: it is the thing
-   being read ("render the clue as big as when it's selected, all the time" —
-   Paul, 2026-09-14). Stated once so the two cannot drift apart again. */
+   being read — render the clue as big as when it's selected, all the time.
+   Stated once so the two cannot drift apart again. */
 .hint-clue { font-size: 1.3rem; line-height: 2.1; margin-bottom: 6px; }
 .hint-clue .entry-tag { font-weight: 700; font-family: -apple-system, Helvetica, sans-serif; margin-right: 6px; }
 #hint-meter { font-size: .8rem; margin-bottom: 8px; }
@@ -658,7 +655,7 @@ button:disabled:hover { border-color: var(--line); }
    ones a crossing clue can confirm — get a solid accent-underlined box; the
    unchecked ones are dashed, because nothing will ever cross them. */
 /* A long answer used to come out as one word per line — (3,8,3) was three
-   almost-empty rows on a phone (Paul, 2026-08-16) — because flexbox moves a
+   almost-empty rows on a phone — because flexbox moves a
    whole word to the next line rather than shrinking anything to make it fit, and
    at full size fourteen boxes are wider than a phone. The strip sizes itself
    down instead: patternHTML() reports --n boxes and --w word breaks, and the
@@ -678,7 +675,7 @@ button:disabled:hover { border-color: var(--line); }
 /* These are not decoration, they are the control you tap to say which square you
    are typing into, and you read the letters in them while you do it. At .82rem
    they were ~20x23px — under a fingertip and under the 44px iOS minimum, and the
-   letters too small to check at a glance (Paul, 2026-08-09). Sized in em off the
+   letters too small to check at a glance. Sized in em off the
    box's own font-size, so the one number below moves the letter and the target
    together and the breakpoint only has to raise the font. */
 .pat-box {
@@ -781,7 +778,7 @@ button:disabled:hover { border-color: var(--line); }
 /* The question appears in the panel BELOW while the thing to tap is the clue
    ABOVE it, so nothing on screen moves at the place the solver has to act. One
    flash when picking begins, sending the eye up to the line that just became
-   interactive (Paul, 2026-09-06). It fires once because the class goes on the
+   interactive. It fires once because the class goes on the
    element rather than into the markup setHTML rewrites, so a re-render mid-guess
    does not restart it. */
 .hint-clue.picking {
@@ -796,7 +793,7 @@ button:disabled:hover { border-color: var(--line); }
 /* A word you point at wears the colour of the thing you are pointing it out AS:
    green on the definition rung because a definition is green everywhere else on
    the page, pink on the others because that is what an indicator and a wordplay
-   fragment wear (Paul, 2026-08-28). Picking used to have its own neutral accent,
+   fragment wear. Picking used to have its own neutral accent,
    which taught one colour for "I chose this" and a different one for the thing
    just correctly chosen. The site has exactly these two highlight colours; the
    picker must not invent a third. */
@@ -847,7 +844,7 @@ button.gw { border-style: dashed; border-color: var(--pick-fg); }
    them run past 28, so one row needs roughly 740px of strip — wider than any
    panel this site draws. Sizing the type off the width could not win that: it
    bottomed out at its .7rem floor AND wrapped anyway, leaving "&lit" alone on a
-   line of its own (Paul, iPad). A grid cannot orphan a chip, because the cells
+   line of its own. A grid cannot orphan a chip, because the cells
    are equal and aligned whatever is in them, and an odd last chip takes the
    whole width instead of sitting by itself in column one. The type is a plain
    readable size now that no layout depends on it. */
@@ -938,8 +935,8 @@ button.primary:disabled { background: transparent; color: var(--muted); border-c
    arrives, and a miss shakes its head. A miss still isn't coloured; the motion
    says it instead. */
 /* And it has to be FOUND before it can be read. It was .9rem — smaller than the
-   body text it was announcing a result to — so "my eye isn't drawn to Yes, that's
-   exactly it, when it appears" (Paul, 2026-09-03). The answer is not another
+   body text it was announcing a result to — so the eye was not drawn to the
+   right verdict when it appeared. The answer is not another
    animation: the marked clue is travelling at that moment and motion beside
    motion is a race. It is size and a shape — the right verdict is an object on
    the page, in the definition's own tint, not a coloured line of small print. */
@@ -948,12 +945,12 @@ button.primary:disabled { background: transparent; color: var(--muted); border-c
    a line box, so it was aligned on a baseline it did not share with anything and
    carried a strip of leading under it that belonged to text that was not there —
    the gap above it and the gap below it were different sizes for no reason the
-   page could show you (Paul, 2026-09-06). A block has no line box and no
+   page could show you. A block has no line box and no
    baseline to answer to, and fit-content keeps it the width of the sentence. */
 /* The radius is one line tall, not 999px. A pill's radius is half its height,
    so on the two-line verdicts — a compound clue's "yes, and it is also this" is
-   two sentences — a 999px corner curved in far enough to sit under the words
-   (Paul, 2026-09-12). 1em curves the ends of a single line exactly as before and
+   two sentences — a 999px corner curved in far enough to sit under the words.
+   1em curves the ends of a single line exactly as before and
    stops growing when the sentence wraps. */
 .guess-verdict.right {
   width: fit-content; color: var(--def-fg); font-weight: 700; line-height: 1.4;
@@ -999,8 +996,8 @@ mark.link {
 }
 /* A highlight fades in rather than snapping on. Taking a rung repaints the
    clue, and the coloured span appearing at full strength — padding and all —
-   reads as the line jumping under the words being read ("when the definition
-   gets bigger animate it ... the clue I mean", Paul, 2026-09-10). The marks are
+   reads as the line jumping under the words being read — when the definition
+   gets bigger, animate it, not just the mark. The marks are
    new elements every time the clue is rewritten, so this fires exactly when the
    markup changed: setHTML() declines to write markup identical to what is
    already there, which is what keeps an idle re-render from replaying it. */
@@ -1098,7 +1095,7 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
    to the wider side: portrait is 820px so it stacked and got 56px cells and
    tablet type, landscape is 1180px so it fell through to the desktop rules and
    drew 40px cells at desktop type — the grid and the clue both got smaller on
-   the bigger screen (Paul, iPad, 2026-08-27).
+   the bigger screen.
    Columns are a width question and stay above. Size is a question about the
    hand holding the device, so it asks about the pointer instead, and a touch
    screen keeps touch sizing at every width and in both orientations. */
@@ -1146,9 +1143,9 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
    to be decided by the same ruler. As a @media (max-width: 700px) rule it was a
    second ruler, and on a resume the two disagreed for a frame: iOS reported the
    window narrow while 100cqi already resolved against the full-width column, so
-   the grid drew uncapped at ~78px cells and then snapped back to 56 ("the grid
-   is huge then shrinks to right size" — Paul, iPad, switching back to the
-   home-screen app). One ruler cannot disagree with itself. Still gated on a
+   the grid drew uncapped at ~78px cells and then snapped back to 56 — huge,
+   then shrinking to the right size, when switching back to the installed
+   app from the home screen. One ruler cannot disagree with itself. Still gated on a
    coarse pointer: a desktop .left-col is 640px, narrower than this, and its
    40px cap is deliberate. */
 @media (pointer: coarse) {
@@ -1200,7 +1197,7 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
 /* An accent slab with near-black text is a light-mode button, and in a dark page
    it reads as one — the brightest thing on the screen, and foreign to it. Tinted
    instead, in the palette's own colours, so it is still plainly the thing to
-   press (Paul, 2026-08-27). */
+   press. */
 @media (prefers-color-scheme: dark) {
   .cta { background: var(--accent-soft); color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
 }
