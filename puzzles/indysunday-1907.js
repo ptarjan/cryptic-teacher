@@ -31,7 +31,57 @@ window.CRYPTIC_PUZZLES["indysunday-1907"] = /*JSON-START*/ {
     ]
    },
    "solution": "THESPECTATOR",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container + reversal",
+    "answer": "THE SPECTATOR",
+    "definition": "weekly to the right",
+    "indicators": [
+     "in",
+     "turned"
+    ],
+    "indicatorNotes": {
+     "in": "Something put in a thing sits within it, so the letter just clued drops inside the word that follows.",
+     "turned": "A wheel that is turned comes round the other way, so the word for what it does is written from its far end."
+    },
+    "pieces": [
+     "THESP",
+     "E",
+     "C",
+     "TATOR"
+    ],
+    "subReversals": [
+     {
+      "from": "ROTATE",
+      "to": "ETATOR"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Actor",
+      "gives": "THESP",
+      "note": "thesp is the everyday clipping of thespian, a person who treads the boards"
+     },
+     {
+      "clueFragment": "wheel turned",
+      "gives": "ETATOR",
+      "note": "to wheel is to rotate, and that word is entered backwards"
+     },
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "c is caught on a cricket scorecard, and it goes in after the first letter above"
+     }
+    ],
+    "surface": "An actor trapped in a wheel that is given a turn to the right once a week.",
+    "walkthrough": "'Weekly to the right' is the whole definition, schedule and politics in four words, which is why it reads as part of the wheel. THESP is the crossword's standard actor and worth banking.",
+    "definitionFit": "The Spectator is a British current-affairs magazine published every week with a firmly Conservative editorial line.",
+    "features": {
+     "misdirectedWord": "wheel",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "2-down",
@@ -45,7 +95,37 @@ window.CRYPTIC_PUZZLES["indysunday-1907"] = /*JSON-START*/ {
    "clue": "MPs collectively stop benefit (5)",
    "separatorLocations": {},
    "solution": "HOUSE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "HOUSE",
+    "definition": "MPs collectively",
+    "indicators": [],
+    "pieces": [
+     "HO",
+     "USE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stop",
+      "gives": "HO",
+      "note": "ho is the old call to halt, the word buried inside whoa"
+     },
+     {
+      "clueFragment": "benefit",
+      "gives": "USE",
+      "note": "the use of a thing is the good it does you, as in 'no use to anyone'"
+     }
+    ],
+    "surface": "Parliament voting as one body to halt a welfare payment.",
+    "walkthrough": "Benefit is placed to mean a state payment and means plain usefulness. HO for stop is archaic outside crosswords, where it survives as a reliable two letters.",
+    "definitionFit": "The Commons is the MPs taken as one body, and Parliament and the press both call them the House.",
+    "features": {
+     "misdirectedWord": "benefit",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "3-down",
@@ -59,7 +139,32 @@ window.CRYPTIC_PUZZLES["indysunday-1907"] = /*JSON-START*/ {
    "clue": "Sailor who tries to avoid looping rope (7)",
    "separatorLocations": {},
    "solution": "SKIPPER",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "SKIPPER",
+    "definition": "Sailor",
+    "definition2": "who tries to avoid looping rope",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Sailor",
+      "note": "the nautical reading: the one in charge of a boat, the rank the surface wants"
+     },
+     {
+      "clueFragment": "who tries to avoid looping rope",
+      "note": "the playground reading: to skip is both to duck out of something and to jump a turning rope"
+     }
+    ],
+    "surface": "A seaman ducking away from a lasso thrown at him.",
+    "walkthrough": "Both halves lean on the same verb, to skip, in its two unrelated senses. The setter makes the second do double duty: avoiding is one sense, the rope looping over is the other.",
+    "definitionFit": "A skipper captains a boat, and a skipper is also anyone doing the skipping — the rope turning overhead, or the duty dodged.",
+    "features": {
+     "misdirectedWord": "looping",
+     "joke": "pun",
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "4-down",
@@ -73,7 +178,44 @@ window.CRYPTIC_PUZZLES["indysunday-1907"] = /*JSON-START*/ {
    "clue": "Good parts possibly which the curate had? (3)",
    "separatorLocations": {},
    "solution": "EGG",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "EGG",
+    "definition": "which the curate had",
+    "definitionNote": "The definition is a relative clause rather than a noun: it names the thing by its most famous anecdote, and the question mark admits the indirection.",
+    "indicators": [
+     "parts"
+    ],
+    "indicatorNotes": {
+     "parts": "To part something is to split it open, so the two letters just clued separate to make room for what goes between them."
+    },
+    "pieces": [
+     "E",
+     "G",
+     "G"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "possibly",
+      "gives": "EG",
+      "note": "eg is short for exempli gratia, the tag that introduces a possible example"
+     },
+     {
+      "clueFragment": "Good",
+      "gives": "G",
+      "note": "g = good, the mark on a school report, and it lands in the split"
+     }
+    ],
+    "surface": "A curate being tactful about food he has been served.",
+    "walkthrough": "The curate's egg comes from an 1895 Punch cartoon: a nervous young clergyman, given a bad egg at his bishop's table, insists parts of it are excellent. 'Parts' is an instruction to split, not a noun.",
+    "definitionFit": "In the cartoon the curate is served a rotten egg and says parts of it are excellent, so what he had is exactly this.",
+    "features": {
+     "misdirectedWord": "parts",
+     "joke": "pun",
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "5-down",
@@ -87,7 +229,41 @@ window.CRYPTIC_PUZZLES["indysunday-1907"] = /*JSON-START*/ {
    "clue": "Reform one bad lot appealing to baser instincts (7)",
    "separatorLocations": {},
    "solution": "TABLOID",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "TABLOID",
+    "definition": "appealing to baser instincts",
+    "indicators": [
+     "Reform"
+    ],
+    "indicatorNotes": {
+     "Reform": "To reform is to form again in a new shape, and letters formed again come out in a different order."
+    },
+    "anagram": {
+     "fodder": "I BAD LOT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one, joining the fodder rather than standing beside it"
+     },
+     {
+      "clueFragment": "bad lot",
+      "gives": "BADLOT",
+      "note": "anagram fodder, six letters"
+     }
+    ],
+    "surface": "Setting about the rehabilitation of a disreputable character.",
+    "walkthrough": "A bad lot is a person of poor character, which keeps the surface about reforming someone rather than rearranging anything. The I has to be absorbed into the shuffle, which is what hides seven letters in plain sight.",
+    "definitionFit": "Tabloid journalism trades in scandal and sensation, so the word describes anything pitched at the reader's baser instincts.",
+    "features": {
+     "misdirectedWord": "Reform",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "6-down",
@@ -106,7 +282,53 @@ window.CRYPTIC_PUZZLES["indysunday-1907"] = /*JSON-START*/ {
     ]
    },
    "solution": "THATSTORNIT",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + container + deletion",
+    "answer": "THAT'S TORN IT",
+    "definition": "oops",
+    "indicators": [
+     "put up",
+     "outside",
+     "missing base"
+    ],
+    "indicatorNotes": {
+     "put up": "In a down clue putting something up enters it from the bottom, so the word just clued goes in backwards.",
+     "outside": "What is outside goes round the outside, so those letters open up and the next lot sit in the middle.",
+     "missing base": "The base of a down entry is its bottom, so the word loses the letter at its end."
+    },
+    "pieces": [
+     "T",
+     "HATSTOR",
+     "NIT"
+    ],
+    "subReversals": [
+     {
+      "from": "TINT",
+      "to": "TNIT"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shade put up",
+      "gives": "TNIT",
+      "note": "a shade of colour is a tint, written upwards"
+     },
+     {
+      "clueFragment": "milliner's shop missing base",
+      "gives": "HATSTOR",
+      "note": "a milliner sells hats, so the shop is a hat store, and it gives up its final E"
+     }
+    ],
+    "surface": "A blind going up outside a hat shop that has lost its bottom step.",
+    "walkthrough": "'Base' does two jobs: the foot of the shop in the surface, the last letter of a down entry in the parse. A milliner makes and sells hats, which is the step the wordplay needs before anything can be shortened.",
+    "definitionFit": "'That's torn it' is the British groan for a plan just ruined, doing the same work as a rueful oops.",
+    "features": {
+     "misdirectedWord": "base",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "7-down",
@@ -120,7 +342,49 @@ window.CRYPTIC_PUZZLES["indysunday-1907"] = /*JSON-START*/ {
    "clue": "Drained Tyson Fury got up on the throne (7)",
    "separatorLocations": {},
    "solution": "REGNANT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal + outer letters",
+    "answer": "REGNANT",
+    "definition": "on the throne",
+    "indicators": [
+     "Drained",
+     "got up"
+    ],
+    "indicatorNotes": {
+     "Drained": "Drain a word and its middle runs out, leaving only the letters at each end.",
+     "got up": "In a down clue getting up is a climb from the bottom, so everything assembled is read back from its last letter."
+    },
+    "pieces": [
+     "REGNANT"
+    ],
+    "subReversals": [
+     {
+      "from": "TNANGER",
+      "to": "REGNANT"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drained Tyson",
+      "gives": "TN",
+      "note": "Tyson Fury is the British heavyweight boxing champion; empty his first name and its outer letters remain"
+     },
+     {
+      "clueFragment": "Fury",
+      "gives": "ANGER",
+      "note": "fury in the plain sense of rage"
+     }
+    ],
+    "surface": "An exhausted Tyson Fury climbing off the canvas to reclaim his title.",
+    "walkthrough": "The boxer's surname doubles as ordinary rage, and his nickname is the Gypsy King, which is what makes the throne feel like part of the same picture. The whole assembly is then read upwards.",
+    "definitionFit": "A monarch regnant is the one actually reigning rather than a consort, which is precisely being on the throne.",
+    "features": {
+     "misdirectedWord": "Fury",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "8-down",
@@ -134,7 +398,36 @@ window.CRYPTIC_PUZZLES["indysunday-1907"] = /*JSON-START*/ {
    "clue": "Dealer beating our price (8)",
    "separatorLocations": {},
    "solution": "CROUPIER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "CROUPIER",
+    "definition": "Dealer",
+    "indicators": [
+     "beating"
+    ],
+    "indicatorNotes": {
+     "beating": "Beat something — eggs, a rug — and it comes apart and settles in a different arrangement."
+    },
+    "anagram": {
+     "fodder": "OUR PRICE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "our price",
+      "gives": "OURPRICE",
+      "note": "anagram fodder, eight letters"
+     }
+    ],
+    "surface": "A trader undercutting what we charge.",
+    "walkthrough": "'Dealer' sits next to 'price' so it reads as a trader, and it means the one who deals the cards. 'Beating' earns its keep in the surface too: to beat a price is to undercut it.",
+    "definitionFit": "The croupier is the casino employee who deals the cards and runs the table, the gaming sense of dealer rather than the commercial one.",
+    "features": {
+     "misdirectedWord": "Dealer",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "9-across",
@@ -148,7 +441,40 @@ window.CRYPTIC_PUZZLES["indysunday-1907"] = /*JSON-START*/ {
    "clue": "Cross from a certain Manchu dynasty (6)",
    "separatorLocations": {},
    "solution": "FUMING",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "FUMING",
+    "definition": "Cross",
+    "indicators": [],
+    "linkWords": [
+     "from"
+    ],
+    "pieces": [
+     "FU",
+     "MING"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a certain Manchu",
+      "gives": "FU",
+      "note": "Fu Manchu, the moustachioed villain of Sax Rohmer's novels"
+     },
+     {
+      "clueFragment": "dynasty",
+      "gives": "MING",
+      "note": "the Ming ruled China from 1368 to 1644 and gave their name to the vases"
+     }
+    ],
+    "surface": "A crucifix brought back from one of the Chinese dynasties.",
+    "walkthrough": "One invented Chinese name and one real dynasty are welded together, which is the joke. 'Cross' is the definition and means angry, not a crucifix.",
+    "definitionFit": "Someone fuming is visibly angry, and cross is the mild British word for exactly that temper.",
+    "features": {
+     "misdirectedWord": "Cross",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "10-across",
@@ -162,7 +488,50 @@ window.CRYPTIC_PUZZLES["indysunday-1907"] = /*JSON-START*/ {
    "clue": "Loudmouth going on vacation packs lingerie pictures (8)",
    "separatorLocations": {},
    "solution": "BRAGGART",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container + outer letters",
+    "answer": "BRAGGART",
+    "definition": "Loudmouth",
+    "indicators": [
+     "on vacation",
+     "packs"
+    ],
+    "indicatorNotes": {
+     "on vacation": "A word on vacation is emptied out, leaving the letters at its two ends and nothing between them.",
+     "packs": "To pack a space is to fill it, so the pair just clued goes into the gap in what follows."
+    },
+    "pieces": [
+     "BRA",
+     "GG",
+     "ART"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lingerie",
+      "gives": "BRA",
+      "note": "the bra is the crossword's standard item of lingerie"
+     },
+     {
+      "clueFragment": "going on vacation",
+      "gives": "GG",
+      "note": "empty 'going' of its middle and the two Gs at its ends are left"
+     },
+     {
+      "clueFragment": "pictures",
+      "gives": "ART",
+      "note": "pictures taken collectively are art"
+     }
+    ],
+    "surface": "A big talker heading off on holiday with underwear and photographs in the case.",
+    "walkthrough": "'Going on vacation' does two jobs at once, the holiday in the surface and the emptying-out in the parse, and 'packs' then reads as suitcase packing while telling you where the pair goes.",
+    "definitionFit": "A braggart is someone who will not stop boasting, which is what a loudmouth is in the pub or the office.",
+    "features": {
+     "misdirectedWord": "vacation",
+     "joke": "pun",
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "11-across",
@@ -180,7 +549,49 @@ window.CRYPTIC_PUZZLES["indysunday-1907"] = /*JSON-START*/ {
     ]
    },
    "solution": "SEXPISTOLS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "SEX PISTOLS",
+    "definition": "Band",
+    "indicators": [
+     "full of"
+    ],
+    "indicatorNotes": {
+     "full of": "Something full of a thing has it inside, so those letters sit in the middle of the word just clued."
+    },
+    "pieces": [
+     "S",
+     "EX",
+     "PIS",
+     "TOLS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "s is the genealogist's short form for son"
+     },
+     {
+      "clueFragment": "speaks highly of",
+      "gives": "EXTOLS",
+      "note": "to extol is to praise in the loftiest terms"
+     },
+     {
+      "clueFragment": "dicks",
+      "gives": "PIS",
+      "note": "a dick is a private eye, PI is the standard short form, and here it is plural"
+     }
+    ],
+    "surface": "A son singing the praises of a group he knows to be full of unpleasant people.",
+    "walkthrough": "'Dicks' is coarse on the surface and technical in the parse — it has meant private investigators since the pulp novels. The Sex Pistols were the loudest of the 1976 London punk bands.",
+    "definitionFit": "The Sex Pistols were a punk group, so band is the plain category the name belongs to.",
+    "features": {
+     "misdirectedWord": "dicks",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "12-down",
@@ -198,7 +609,43 @@ window.CRYPTIC_PUZZLES["indysunday-1907"] = /*JSON-START*/ {
     ]
    },
    "solution": "SAUSAGEROLL",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "SAUSAGE ROLL",
+    "definition": "greasy morsel",
+    "indicators": [
+     "off",
+     "dropping"
+    ],
+    "indicatorNotes": {
+     "off": "Milk goes off and is no longer what it was, so letters described as off do not stay in the order given.",
+     "dropping": "What is dropped is let go of, so the letter named next is taken out before anything is shuffled."
+    },
+    "anagram": {
+     "fodder": "SEAGULL SOAR"
+    },
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "s = small, the clothing size, and it is the letter dropped"
+     },
+     {
+      "clueFragment": "Seagull soars",
+      "gives": "SEAGULLSOAR",
+      "note": "twelve letters in the clue, one dropped, eleven left as fodder"
+     }
+    ],
+    "surface": "A gull lifting off the pavement with someone's snack.",
+    "walkthrough": "The bird and the bakery belong to the same seaside picture, which is why nothing in the surface asks to be taken apart. Deleting before shuffling is the order the indicators set.",
+    "definitionFit": "A sausage roll is meat baked in flaky pastry, sold warm and eaten in the hand — greasy and small enough to be a morsel.",
+    "features": {
+     "misdirectedWord": "off",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "13-across",
@@ -212,7 +659,42 @@ window.CRYPTIC_PUZZLES["indysunday-1907"] = /*JSON-START*/ {
    "clue": "Touch horn when reversing (4)",
    "separatorLocations": {},
    "solution": "ABUT",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "ABUT",
+    "definition": "Touch",
+    "indicators": [
+     "when reversing"
+    ],
+    "indicatorNotes": {
+     "when reversing": "A thing reversing goes back the way it came, so the word is read from its last letter to its first."
+    },
+    "pieces": [
+     "ABUT"
+    ],
+    "subReversals": [
+     {
+      "from": "TUBA",
+      "to": "ABUT"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "horn",
+      "gives": "TUBA",
+      "note": "the horn here is the brass one, the deep four-letter member of the section"
+     }
+    ],
+    "surface": "Sounding the horn while backing out of a space.",
+    "walkthrough": "The surface is a car park and the parse is an orchestra: 'horn' has to be the brass instrument for the letters to work. Abut is what two things do when their edges meet.",
+    "definitionFit": "To abut is to touch along an edge — fields, buildings and plots of land meeting with no gap between.",
+    "features": {
+     "misdirectedWord": "horn",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "14-across",
@@ -230,7 +712,43 @@ window.CRYPTIC_PUZZLES["indysunday-1907"] = /*JSON-START*/ {
     ]
    },
    "solution": "GETROUND",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "GET ROUND",
+    "definition": "Persuade",
+    "indicators": [
+     "to visit"
+    ],
+    "indicatorNotes": {
+     "to visit": "A visitor goes inside the place visited, so these letters sit within the word that follows."
+    },
+    "pieces": [
+     "G",
+     "ET",
+     "ROUND"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Earth",
+      "gives": "GROUND",
+      "note": "the earth under your feet is the ground"
+     },
+     {
+      "clueFragment": "alien",
+      "gives": "ET",
+      "note": "ET is the crossword's alien, from Spielberg's 1982 film, and it goes in after the first letter above"
+     }
+    ],
+    "surface": "Talking a passing extraterrestrial into dropping down to Earth.",
+    "walkthrough": "'Persuade' and the wordplay share one picture, an alien being talked into something, which is what stops the definition standing out. Note the capital E on Earth doing surface work only.",
+    "definitionFit": "To get round someone is to win them over by charm or persistence, which is persuading them.",
+    "features": {
+     "misdirectedWord": "visit",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "15-down",
@@ -244,7 +762,41 @@ window.CRYPTIC_PUZZLES["indysunday-1907"] = /*JSON-START*/ {
    "clue": "Building changes hands, when the 2D gets new occupants (8)",
    "separatorLocations": {},
    "solution": "ELECTION",
-   "annotation": null
+   "annotation": {
+    "type": "substitution",
+    "answer": "ELECTION",
+    "definition": "when the 2D gets new occupants",
+    "indicators": [
+     "changes"
+    ],
+    "indicatorNotes": {
+     "changes": "A change here is a swap rather than an addition: one letter steps out of the word already built and another takes its place."
+    },
+    "pieces": [
+     "ELECTION"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Building",
+      "gives": "ERECTION",
+      "note": "a building is an erection, the thing that has been put up"
+     },
+     {
+      "clueFragment": "hands",
+      "gives": "L",
+      "note": "your two hands are right and left, so R walks out and L walks in"
+     }
+    ],
+    "surface": "A property changing owners and new people moving in.",
+    "walkthrough": "The definition is handed over by cross-reference, so 2 down has to be solved first: the building that gets new occupants is the Commons. 'Changes hands' reads as a sale and means R for L.",
+    "definitionFit": "An election is the moment the Commons is refilled, sending a new set of MPs into the seats the last lot held.",
+    "features": {
+     "misdirectedWord": "Building",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "16-across",
@@ -258,7 +810,49 @@ window.CRYPTIC_PUZZLES["indysunday-1907"] = /*JSON-START*/ {
    "clue": "Old book you shouldn't have belonging to cop (6)",
    "separatorLocations": {},
    "solution": "OBTAIN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "OBTAIN",
+    "definition": "cop",
+    "indicators": [],
+    "pieces": [
+     "O",
+     "B",
+     "TA",
+     "IN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old",
+      "gives": "O",
+      "note": "o is the standard short form for old"
+     },
+     {
+      "clueFragment": "book",
+      "gives": "B",
+      "note": "b = book, the librarian's short form"
+     },
+     {
+      "clueFragment": "you shouldn't have",
+      "gives": "TA",
+      "note": "the polite protest on being handed a present, which is ta, the British thanks"
+     },
+     {
+      "clueFragment": "belonging to",
+      "gives": "IN",
+      "note": "someone who belongs is in — in with the crowd, in the club"
+     }
+    ],
+    "surface": "An old book you were never entitled to, now in a policeman's hands.",
+    "walkthrough": "'Cop' is the definition and it is a verb: to cop something is to come by it, the way you cop an earful. The policeman is the surface's, not the parse's.",
+    "definitionFit": "To cop something in British slang is to catch or come by it — you cop a fine, you cop the blame — which is obtaining it.",
+    "features": {
+     "misdirectedWord": "cop",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "17-across",
@@ -272,7 +866,35 @@ window.CRYPTIC_PUZZLES["indysunday-1907"] = /*JSON-START*/ {
    "clue": "Group in general are keen about Indian Ocean destination (6)",
    "separatorLocations": {},
    "solution": "KERALA",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "KERALA",
+    "definition": "Indian Ocean destination",
+    "indicators": [
+     "Group in",
+     "about"
+    ],
+    "indicatorNotes": {
+     "Group in": "A group stands together, so the letters wanted are one unbroken run inside the words that follow.",
+     "about": "Turned about means facing the other way, so that run is read from its far end."
+    },
+    "blocks": [
+     {
+      "clueFragment": "general are keen",
+      "gives": "KERALA",
+      "note": "six consecutive letters straddle all three words, and they are read backwards"
+     }
+    ],
+    "surface": "Soldiers under a general who are eager for a warm posting.",
+    "walkthrough": "Kerala is the Indian state along the south-west coast, all palm backwaters and spice ports. A hidden run read backwards is the extra step 'about' is asking for.",
+    "definitionFit": "Kerala sits on the Arabian Sea, part of the Indian Ocean, and is a long-haul holiday destination rather than a port of call.",
+    "features": {
+     "misdirectedWord": "general",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "18-down",
@@ -286,7 +908,35 @@ window.CRYPTIC_PUZZLES["indysunday-1907"] = /*JSON-START*/ {
    "clue": "Long John Silver maybe hoisted mainsheet up, managing clips (7)",
    "separatorLocations": {},
    "solution": "AMPUTEE",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "AMPUTEE",
+    "definition": "Long John Silver maybe",
+    "indicators": [
+     "hoisted",
+     "clips"
+    ],
+    "indicatorNotes": {
+     "hoisted": "Hoisting hauls a thing upwards, and in a down clue that means the letters are read from the bottom of the run to the top.",
+     "clips": "To clip is to hold something fast, so the words named are keeping the letters wanted inside them."
+    },
+    "blocks": [
+     {
+      "clueFragment": "mainsheet up, managing",
+      "gives": "AMPUTEE",
+      "note": "seven consecutive letters span these words, and they are read from the end backwards"
+     }
+    ],
+    "surface": "A pirate hauling the mainsheet in and coping with the fittings.",
+    "walkthrough": "Long John Silver, the one-legged pirate of Treasure Island, is an example rather than a synonym, which is what 'maybe' signals. The mainsheet is the rope that trims a sail, so the surface stays at sea throughout.",
+    "definitionFit": "An amputee is someone who has lost a limb, and Silver's missing leg makes him the best-known fictional one.",
+    "features": {
+     "misdirectedWord": "clips",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "19-across",
@@ -300,7 +950,36 @@ window.CRYPTIC_PUZZLES["indysunday-1907"] = /*JSON-START*/ {
    "clue": "Maybe using bleach turned air nasty (8)",
    "separatorLocations": {},
    "solution": "SANITARY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "SANITARY",
+    "definition": "Maybe using bleach",
+    "indicators": [
+     "turned"
+    ],
+    "indicatorNotes": {
+     "turned": "Turned is what milk does when it goes bad: the thing is no longer as it was handed over, and neither are its letters."
+    },
+    "anagram": {
+     "fodder": "AIR NASTY"
+    },
+    "blocks": [
+     {
+      "clueFragment": "air nasty",
+      "gives": "AIRNASTY",
+      "note": "anagram fodder, eight letters"
+     }
+    ],
+    "surface": "Bleach fumes making the air in a room unpleasant.",
+    "walkthrough": "'Turned' is doing anagram duty here, in the sense milk turns, though beside 'air' it looks like an instruction to reverse. Bleach is one instance of the definition's field, which the 'maybe' flags.",
+    "definitionFit": "Bleach is one way of making a place hygienic, so the phrase defines by example: the answer covers any measure taken for cleanliness.",
+    "features": {
+     "misdirectedWord": "turned",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "19-down",
@@ -318,7 +997,31 @@ window.CRYPTIC_PUZZLES["indysunday-1907"] = /*JSON-START*/ {
     ]
    },
    "solution": "SLEEPIN",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "SLEEP IN",
+    "definition": "Stay out later?",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Stay out",
+      "note": "the surface reading is the one about not coming home — remaining outdoors, still on the town"
+     },
+     {
+      "clueFragment": "later",
+      "note": "the setter's reading takes out as out cold, so what is being extended is the unconsciousness"
+     }
+    ],
+    "surface": "A question about not coming home until well past the usual hour.",
+    "walkthrough": "'Out' is the pivot: out on the town in the surface, out cold in the reading that works. The question mark is the setter admitting the definition is a joke rather than a synonym.",
+    "definitionFit": "Someone asleep is out, so staying out later than usual is staying asleep past the hour you meant to rise — which is a sleep-in.",
+    "features": {
+     "misdirectedWord": "out",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "20-down",
@@ -336,7 +1039,51 @@ window.CRYPTIC_PUZZLES["indysunday-1907"] = /*JSON-START*/ {
     ]
    },
    "solution": "TEAROOM",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "TEAROOM",
+    "definition": "Cafe",
+    "indicators": [
+     "rising"
+    ],
+    "indicatorNotes": {
+     "rising": "A down entry reads from the bottom up, so anything rising in it is written in backwards."
+    },
+    "linkWords": [
+     "'s"
+    ],
+    "pieces": [
+     "TEAR",
+     "OOM"
+    ],
+    "subReversals": [
+     {
+      "from": "MOO",
+      "to": "OOM"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rent",
+      "gives": "TEAR",
+      "note": "a rent in a fabric is a tear, the noun rather than the verb"
+     },
+     {
+      "clueFragment": "low but rising",
+      "gives": "OOM",
+      "note": "to low is what cattle do, and that noise goes in upwards"
+     }
+    ],
+    "surface": "A cafe whose rent is cheap for now but on the way up.",
+    "walkthrough": "'Rent' is the trap: the surface is all overheads, and the parse wants the noun for a tear in cloth. 'Low' belongs to the cow rather than to the money.",
+    "definitionFit": "A tearoom is the British cafe that serves pots of tea and cake, so cafe is the general word for the same establishment.",
+    "features": {
+     "misdirectedWord": "rent",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "21-across",
@@ -350,7 +1097,37 @@ window.CRYPTIC_PUZZLES["indysunday-1907"] = /*JSON-START*/ {
    "clue": "Second best place for lighting (4)",
    "separatorLocations": {},
    "solution": "STOP",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "STOP",
+    "definition": "place for lighting",
+    "indicators": [],
+    "pieces": [
+     "S",
+     "TOP"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Second",
+      "gives": "S",
+      "note": "s = second, the unit on a stopwatch"
+     },
+     {
+      "clueFragment": "best",
+      "gives": "TOP",
+      "note": "the top one is the best one"
+     }
+    ],
+    "surface": "The runner-up spot for putting a lamp.",
+    "walkthrough": "'Lighting' is the old verb: to light from a horse or a coach is to get down from it, and it survives in 'alight here for the museum'. 'Second best' is one idea in the surface and two pieces in the parse.",
+    "definitionFit": "A stop is where a bus or train sets passengers down, and to light — the older form of alight — is to step off.",
+    "features": {
+     "misdirectedWord": "lighting",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "22-across",
@@ -364,7 +1141,49 @@ window.CRYPTIC_PUZZLES["indysunday-1907"] = /*JSON-START*/ {
    "clue": "Tied score entered by university in due course (10)",
    "separatorLocations": {},
    "solution": "EVENTUALLY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "EVENTUALLY",
+    "definition": "in due course",
+    "indicators": [
+     "entered by"
+    ],
+    "indicatorNotes": {
+     "entered by": "What enters a thing goes inside it, so the letter named lands within the word before it."
+    },
+    "pieces": [
+     "EVEN",
+     "T",
+     "U",
+     "ALLY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tied",
+      "gives": "EVEN",
+      "note": "scores that are level are even"
+     },
+     {
+      "clueFragment": "score",
+      "gives": "TALLY",
+      "note": "a tally is a running score, the count kept in strokes"
+     },
+     {
+      "clueFragment": "university",
+      "gives": "U",
+      "note": "u is the standard short form for university, and it goes in after the first letter above"
+     }
+    ],
+    "surface": "A level score being reached at a university as the term wears on.",
+    "walkthrough": "'Score' means the tally rather than twenty or the music. 'In due course' is the definition and sits at the end, where a solver is still expecting wordplay.",
+    "definitionFit": "Eventually means at the end of the process, when everything has run its course, which is what happens in due course.",
+    "features": {
+     "misdirectedWord": "score",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "23-down",
@@ -378,7 +1197,50 @@ window.CRYPTIC_PUZZLES["indysunday-1907"] = /*JSON-START*/ {
    "clue": "Except for a thousand, fortune I had is all there (5)",
    "separatorLocations": {},
    "solution": "LUCID",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + charade",
+    "answer": "LUCID",
+    "definition": "all there",
+    "indicators": [
+     "Except for"
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "indicatorNotes": {
+     "Except for": "Except for names what is left out, so the letters it points at come away from the word that follows."
+    },
+    "pieces": [
+     "LUC",
+     "ID"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fortune",
+      "gives": "LUCK",
+      "note": "fortune in the sense of luck, the kind that runs good or bad"
+     },
+     {
+      "clueFragment": "a thousand",
+      "gives": "K",
+      "note": "k is a thousand, as in a salary quoted at 40K, and it is the letter taken off"
+     },
+     {
+      "clueFragment": "I had",
+      "gives": "ID",
+      "note": "I had contracts to I'd, and the apostrophe is not entered"
+     }
+    ],
+    "surface": "A legacy counted up, a thousand short, and found to be complete.",
+    "walkthrough": "'All there' is the British idiom for being of sound mind, usually heard in the negative about someone who is not. K for a thousand comes from kilo, and it is what the deletion removes.",
+    "definitionFit": "Lucid means clear-headed and in full possession of your wits, which is what calling someone all there means.",
+    "features": {
+     "misdirectedWord": "fortune",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "24-across",
@@ -396,7 +1258,41 @@ window.CRYPTIC_PUZZLES["indysunday-1907"] = /*JSON-START*/ {
     ]
    },
    "solution": "SOFTSOAP",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "SOFT-SOAP",
+    "definition": "butter up",
+    "indicators": [
+     "rolled"
+    ],
+    "indicatorNotes": {
+     "rolled": "Rolled letters have been tumbled over each other and come to rest in a new order."
+    },
+    "anagram": {
+     "fodder": "SO PATS OF"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Staff officer",
+      "gives": "SO",
+      "note": "SO is the army's short form for a staff officer"
+     },
+     {
+      "clueFragment": "pats of",
+      "gives": "PATSOF",
+      "note": "anagram fodder, six letters, with 'of' pulled into the shuffle"
+     }
+    ],
+    "surface": "An officer on the staff rolling pats of butter into shape.",
+    "walkthrough": "The definition is 'butter up' and the surface's butter is the same word, which is why the pats look like scenery. The little word 'of' has to join the fodder for the count to come out.",
+    "definitionFit": "To soft-soap someone is to flatter them into agreeing, which is exactly what buttering them up means.",
+    "features": {
+     "misdirectedWord": "pats",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "25-across",
@@ -410,7 +1306,46 @@ window.CRYPTIC_PUZZLES["indysunday-1907"] = /*JSON-START*/ {
    "clue": "Speyside business making side of that river dry up (6)",
    "separatorLocations": {},
    "solution": "SCORCH",
-   "annotation": null
+   "annotation": {
+    "type": "substitution",
+    "answer": "SCORCH",
+    "definition": "dry up",
+    "indicators": [
+     "making"
+    ],
+    "indicatorNotes": {
+     "making": "Making one thing into another is a swap: the letter named next takes the place the other one gives up."
+    },
+    "pieces": [
+     "SCORCH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Speyside business",
+      "gives": "SCOTCH",
+      "note": "Speyside is the Highland region on the river Spey where most malt whisky is distilled"
+     },
+     {
+      "clueFragment": "side of that",
+      "gives": "T",
+      "note": "the letter at either side of 'that' is T, and it is the one displaced"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "r is the map-maker's short form for river, and it fills the vacated slot"
+     }
+    ],
+    "surface": "A Speyside distillery drinking the river beside it dry.",
+    "walkthrough": "The Spey, the distilleries and the water they take belong to one picture, so the river reads as scenery rather than as a single letter. 'Side of that' is a word's edge, and both edges of that word are the same letter.",
+    "definitionFit": "To scorch is to burn something dry — grass scorched brown by the sun — so drying it up is the effect the word names.",
+    "features": {
+     "misdirectedWord": "business",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "25-down",
@@ -424,7 +1359,38 @@ window.CRYPTIC_PUZZLES["indysunday-1907"] = /*JSON-START*/ {
    "clue": "Tick whatever's left of school exams carelessly (3)",
    "separatorLocations": {},
    "solution": "SEC",
-   "annotation": null
+   "annotation": {
+    "type": "first letters",
+    "answer": "SEC",
+    "definition": "Tick",
+    "indicators": [
+     "whatever's left of"
+    ],
+    "indicatorNotes": {
+     "whatever's left of": "The left of a written word is where it starts, so each word gives up only its opening letter."
+    },
+    "pieces": [
+     "S",
+     "E",
+     "C"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "school exams carelessly",
+      "gives": "SEC",
+      "note": "three words, the first letter of each, in the order written"
+     }
+    ],
+    "surface": "Marking school papers in a slapdash way and ticking what survives.",
+    "walkthrough": "'Left' looks like what remains after the marking and means the starting end of a word. Both the definition and the answer are informal British shorthand for a moment.",
+    "definitionFit": "In a tick and in a sec are the same promise, two informal British ways of saying in a moment.",
+    "features": {
+     "misdirectedWord": "left",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "26-across",
@@ -448,7 +1414,39 @@ window.CRYPTIC_PUZZLES["indysunday-1907"] = /*JSON-START*/ {
     ]
    },
    "solution": "EALINGCOMEDY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "EALING COMEDY",
+    "definition": "The Ladykillers",
+    "indicators": [
+     "Bungling"
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "Bungling": "A bungled job is done clumsily and out of order, and letters handled that way do not stay as they were given."
+    },
+    "anagram": {
+     "fodder": "MEN GO ICE LADY"
+    },
+    "blocks": [
+     {
+      "clueFragment": "men go and ice lady",
+      "gives": "MENGOICELADY",
+      "note": "twelve letters of fodder once the joining 'and' is set aside; to ice someone is to kill them"
+     }
+    ],
+    "surface": "Incompetent crooks setting out to murder an old woman.",
+    "walkthrough": "The fodder is the film's plot in six words, which is why it reads as a sentence rather than a bag of letters. Ealing Studios made The Ladykillers in 1955, and the question mark marks it as an example.",
+    "definitionFit": "The Ladykillers came out of Ealing Studios, so the film is one instance of the genre the answer names rather than a synonym for it.",
+    "features": {
+     "misdirectedWord": "ice",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   }
  ]
 } /*JSON-END*/;
