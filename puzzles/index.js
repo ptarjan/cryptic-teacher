@@ -17,11 +17,20 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Brummie",
    "date": 1789344000000,
    "file": "cryptic-30111.js",
-   "v": "8a9c96f7",
-   "annotated": false,
+   "v": "10e98f56",
+   "annotated": true,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": {
+    "band": "Brutal",
+    "index": 0.452,
+    "percentile": 90,
+    "basis": [
+     "checking",
+     "device",
+     "obscurity"
+    ]
+   }
   },
   {
    "id": "independent-12460",
@@ -31,11 +40,20 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Jeemz",
    "date": 1789344000000,
    "file": "independent-12460.js",
-   "v": "a9383503",
-   "annotated": false,
+   "v": "7aaf62c3",
+   "annotated": true,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": {
+    "band": "Moderate",
+    "index": -0.334,
+    "percentile": 35,
+    "basis": [
+     "checking",
+     "device",
+     "obscurity"
+    ]
+   }
   },
   {
    "id": "indysunday-1907",
@@ -45,11 +63,20 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Filbert",
    "date": 1789257600000,
    "file": "indysunday-1907.js",
-   "v": "d972aff1",
-   "annotated": false,
+   "v": "629dde07",
+   "annotated": true,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": {
+    "band": "Moderate",
+    "index": -0.418,
+    "percentile": 28,
+    "basis": [
+     "checking",
+     "device",
+     "obscurity"
+    ]
+   }
   },
   {
    "id": "quiptic-1399",
@@ -59,11 +86,20 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Anto",
    "date": 1789257600000,
    "file": "quiptic-1399.js",
-   "v": "81778139",
-   "annotated": false,
+   "v": "9faf5611",
+   "annotated": true,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": {
+    "band": "Moderate",
+    "index": -0.328,
+    "percentile": 36,
+    "basis": [
+     "checking",
+     "device",
+     "obscurity"
+    ]
+   }
   },
   {
    "id": "everyman-4169",
@@ -133,11 +169,20 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Kite",
    "date": 1789084800000,
    "file": "cryptic-30109.js",
-   "v": "c8709f1c",
-   "annotated": false,
+   "v": "129c6ca5",
+   "annotated": true,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": {
+    "band": "Gentle",
+    "index": -0.657,
+    "percentile": 13,
+    "basis": [
+     "checking",
+     "device",
+     "obscurity"
+    ]
+   }
   },
   {
    "id": "independent-12458",
@@ -154,7 +199,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Brutal",
     "index": 0.37,
-    "percentile": 86,
+    "percentile": 85,
     "basis": [
      "checking",
      "device",
@@ -177,7 +222,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Moderate",
     "index": -0.243,
-    "percentile": 41,
+    "percentile": 42,
     "basis": [
      "checking",
      "device",
@@ -230,11 +275,20 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Nimrod",
    "date": 1788912000000,
    "file": "independent-12456.js",
-   "v": "8d463184",
-   "annotated": false,
+   "v": "2a90b256",
+   "annotated": true,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": {
+    "band": "Brutal",
+    "index": 1.272,
+    "percentile": 99,
+    "basis": [
+     "checking",
+     "device",
+     "obscurity"
+    ]
+   }
   },
   {
    "id": "cryptic-30106",
@@ -297,7 +351,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": -0.144,
-    "percentile": 49,
+    "percentile": 50,
     "basis": [
      "checking",
      "device",
@@ -320,7 +374,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": -0.232,
-    "percentile": 42,
+    "percentile": 43,
     "basis": [
      "checking",
      "device",
@@ -366,7 +420,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Moderate",
     "index": -0.482,
-    "percentile": 22,
+    "percentile": 23,
     "basis": [
      "checking",
      "device",
@@ -458,7 +512,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Brutal",
     "index": 1.055,
-    "percentile": 99,
+    "percentile": 98,
     "basis": [
      "checking",
      "device",
@@ -573,7 +627,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": 0.025,
-    "percentile": 61,
+    "percentile": 62,
     "basis": [
      "checking",
      "device",
@@ -734,7 +788,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Moderate",
     "index": -0.515,
-    "percentile": 21,
+    "percentile": 22,
     "basis": [
      "checking",
      "device",
@@ -872,7 +926,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": -0.206,
-    "percentile": 44,
+    "percentile": 45,
     "basis": [
      "checking",
      "device",
@@ -918,7 +972,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Gentle",
     "index": -0.93,
-    "percentile": 2,
+    "percentile": 3,
     "basis": [
      "checking",
      "device",
@@ -941,7 +995,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Moderate",
     "index": -0.308,
-    "percentile": 36,
+    "percentile": 37,
     "basis": [
      "checking",
      "device",
@@ -1056,7 +1110,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Gentle",
     "index": -0.641,
-    "percentile": 13,
+    "percentile": 14,
     "basis": [
      "checking",
      "device",
@@ -1102,7 +1156,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Gentle",
     "index": -0.564,
-    "percentile": 18,
+    "percentile": 19,
     "basis": [
      "checking",
      "device",
@@ -1194,7 +1248,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Gentle",
     "index": -0.631,
-    "percentile": 14,
+    "percentile": 15,
     "basis": [
      "checking",
      "device",
@@ -1286,7 +1340,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": 0.129,
-    "percentile": 69,
+    "percentile": 70,
     "basis": [
      "checking",
      "device",
@@ -1309,7 +1363,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Moderate",
     "index": -0.293,
-    "percentile": 37,
+    "percentile": 38,
     "basis": [
      "checking",
      "device",
@@ -1332,7 +1386,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Gentle",
     "index": -0.625,
-    "percentile": 15,
+    "percentile": 16,
     "basis": [
      "checking",
      "device",
@@ -1424,7 +1478,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Moderate",
     "index": -0.397,
-    "percentile": 29,
+    "percentile": 30,
     "basis": [
      "checking",
      "device",
@@ -1447,7 +1501,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Brutal",
     "index": 0.934,
-    "percentile": 98,
+    "percentile": 97,
     "basis": [
      "checking",
      "device",
@@ -1792,7 +1846,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Moderate",
     "index": -0.25,
-    "percentile": 40,
+    "percentile": 41,
     "basis": [
      "checking",
      "device",
@@ -1930,7 +1984,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": 0.107,
-    "percentile": 68,
+    "percentile": 69,
     "basis": [
      "checking",
      "device",
@@ -2022,7 +2076,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Gentle",
     "index": -0.582,
-    "percentile": 17,
+    "percentile": 18,
     "basis": [
      "checking",
      "device",
@@ -2206,7 +2260,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Moderate",
     "index": -0.273,
-    "percentile": 39,
+    "percentile": 40,
     "basis": [
      "checking",
      "device",
@@ -2229,7 +2283,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Gentle",
     "index": -0.558,
-    "percentile": 18,
+    "percentile": 19,
     "basis": [
      "checking",
      "device",
@@ -2298,7 +2352,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Moderate",
     "index": -0.287,
-    "percentile": 37,
+    "percentile": 38,
     "basis": [
      "checking",
      "device",
@@ -2321,7 +2375,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Moderate",
     "index": -0.367,
-    "percentile": 32,
+    "percentile": 33,
     "basis": [
      "checking",
      "device",
@@ -2344,7 +2398,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Brutal",
     "index": 0.23,
-    "percentile": 79,
+    "percentile": 78,
     "basis": [
      "checking",
      "device",
@@ -2390,7 +2444,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Brutal",
     "index": 0.806,
-    "percentile": 96,
+    "percentile": 95,
     "basis": [
      "checking",
      "device",
@@ -2620,7 +2674,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": -0.072,
-    "percentile": 53,
+    "percentile": 54,
     "basis": [
      "checking",
      "device",
@@ -2712,7 +2766,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Moderate",
     "index": -0.314,
-    "percentile": 36,
+    "percentile": 37,
     "basis": [
      "checking",
      "device",
@@ -2758,7 +2812,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": -0.107,
-    "percentile": 50,
+    "percentile": 51,
     "basis": [
      "checking",
      "device",
@@ -3103,7 +3157,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Moderate",
     "index": -0.325,
-    "percentile": 35,
+    "percentile": 36,
     "basis": [
      "checking",
      "device",
@@ -3172,7 +3226,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": -0.207,
-    "percentile": 44,
+    "percentile": 45,
     "basis": [
      "checking",
      "device",
@@ -3195,7 +3249,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": -0.122,
-    "percentile": 50,
+    "percentile": 51,
     "basis": [
      "checking",
      "device",
@@ -3218,7 +3272,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Brutal",
     "index": 0.352,
-    "percentile": 85,
+    "percentile": 84,
     "basis": [
      "checking",
      "device",
@@ -3241,7 +3295,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Brutal",
     "index": 0.376,
-    "percentile": 87,
+    "percentile": 86,
     "basis": [
      "checking",
      "device",
@@ -3356,7 +3410,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Moderate",
     "index": -0.387,
-    "percentile": 31,
+    "percentile": 32,
     "basis": [
      "checking",
      "device",
@@ -3425,7 +3479,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": -0.156,
-    "percentile": 48,
+    "percentile": 49,
     "basis": [
      "checking",
      "device",
@@ -3494,7 +3548,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Moderate",
     "index": -0.312,
-    "percentile": 36,
+    "percentile": 37,
     "basis": [
      "checking",
      "device",
@@ -3517,7 +3571,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": -0.191,
-    "percentile": 45,
+    "percentile": 46,
     "basis": [
      "checking",
      "device",
@@ -3540,7 +3594,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Gentle",
     "index": -0.631,
-    "percentile": 14,
+    "percentile": 15,
     "basis": [
      "checking",
      "device",
@@ -3770,7 +3824,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": -0.164,
-    "percentile": 47,
+    "percentile": 48,
     "basis": [
      "checking",
      "device",
@@ -3839,7 +3893,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Moderate",
     "index": -0.29,
-    "percentile": 37,
+    "percentile": 38,
     "basis": [
      "checking",
      "device",
@@ -3862,7 +3916,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": -0.18,
-    "percentile": 46,
+    "percentile": 47,
     "basis": [
      "checking",
      "device",
@@ -3977,7 +4031,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Brutal",
     "index": 0.393,
-    "percentile": 88,
+    "percentile": 87,
     "basis": [
      "checking",
      "device",
@@ -4092,7 +4146,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": -0.107,
-    "percentile": 50,
+    "percentile": 51,
     "basis": [
      "checking",
      "device",
@@ -4115,7 +4169,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Moderate",
     "index": -0.525,
-    "percentile": 20,
+    "percentile": 21,
     "basis": [
      "checking",
      "device",
@@ -4253,7 +4307,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Moderate",
     "index": -0.265,
-    "percentile": 39,
+    "percentile": 40,
     "basis": [
      "checking",
      "device",
@@ -4276,7 +4330,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": -0.038,
-    "percentile": 56,
+    "percentile": 57,
     "basis": [
      "checking",
      "device",
@@ -4345,7 +4399,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Brutal",
     "index": 0.417,
-    "percentile": 89,
+    "percentile": 88,
     "basis": [
      "checking",
      "device",
@@ -4682,7 +4736,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Moderate",
     "index": -0.276,
-    "percentile": 38,
+    "percentile": 39,
     "basis": [
      "checking",
      "device",
@@ -4751,7 +4805,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Gentle",
     "index": -0.631,
-    "percentile": 14,
+    "percentile": 15,
     "basis": [
      "checking",
      "device",
@@ -4820,7 +4874,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": -0.224,
-    "percentile": 43,
+    "percentile": 44,
     "basis": [
      "checking",
      "device",
@@ -4843,7 +4897,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": -0.062,
-    "percentile": 54,
+    "percentile": 55,
     "basis": [
      "checking",
      "device",
@@ -4866,7 +4920,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": -0.164,
-    "percentile": 47,
+    "percentile": 48,
     "basis": [
      "checking",
      "device",
@@ -5027,7 +5081,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Gentle",
     "index": -1.046,
-    "percentile": 1,
+    "percentile": 2,
     "basis": [
      "checking",
      "device",
@@ -5096,7 +5150,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": -0.158,
-    "percentile": 48,
+    "percentile": 49,
     "basis": [
      "checking",
      "device",
@@ -5487,7 +5541,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": -0.175,
-    "percentile": 46,
+    "percentile": 47,
     "basis": [
      "checking",
      "device",
@@ -5579,7 +5633,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": -0.002,
-    "percentile": 58,
+    "percentile": 59,
     "basis": [
      "checking",
      "device",
@@ -5832,7 +5886,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Moderate",
     "index": -0.245,
-    "percentile": 41,
+    "percentile": 42,
     "basis": [
      "checking",
      "device",
@@ -6039,7 +6093,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Moderate",
     "index": -0.263,
-    "percentile": 39,
+    "percentile": 40,
     "basis": [
      "checking",
      "device",
@@ -6085,7 +6139,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Moderate",
     "index": -0.441,
-    "percentile": 26,
+    "percentile": 27,
     "basis": [
      "checking",
      "device",
@@ -6545,7 +6599,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": -0.101,
-    "percentile": 51,
+    "percentile": 52,
     "basis": [
      "checking",
      "device",
@@ -6919,7 +6973,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Moderate",
     "index": -0.399,
-    "percentile": 29,
+    "percentile": 30,
     "basis": [
      "checking",
      "device",
@@ -7118,7 +7172,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Moderate",
     "index": -0.502,
-    "percentile": 21,
+    "percentile": 22,
     "basis": [
      "checking",
      "device",
@@ -7248,7 +7302,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": -0.197,
-    "percentile": 45,
+    "percentile": 46,
     "basis": [
      "checking",
      "device",
@@ -7531,7 +7585,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Moderate",
     "index": -0.251,
-    "percentile": 40,
+    "percentile": 41,
     "basis": [
      "checking",
      "device",
@@ -7554,7 +7608,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Brutal",
     "index": 0.277,
-    "percentile": 82,
+    "percentile": 81,
     "basis": [
      "checking",
      "device",
@@ -7707,7 +7761,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": 0.129,
-    "percentile": 69,
+    "percentile": 70,
     "basis": [
      "checking",
      "device",
@@ -8115,6 +8169,20 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": null
   },
   {
+   "id": "cryptic-29913",
+   "number": 29913,
+   "series": "cryptic",
+   "name": "Cryptic crossword No 29,913",
+   "setter": "Philistine",
+   "date": 1769385600000,
+   "file": "cryptic-29913.js",
+   "v": "aa2347c6",
+   "annotated": false,
+   "hasSolutions": true,
+   "solutionsUnofficial": false,
+   "difficulty": null
+  },
+  {
    "id": "everyman-4136",
    "number": 4136,
    "series": "everyman",
@@ -8129,7 +8197,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Moderate",
     "index": -0.34,
-    "percentile": 34,
+    "percentile": 35,
     "basis": [
      "checking",
      "device",
@@ -8168,7 +8236,100 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Pangakupu",
    "date": 1769299200000,
    "file": "quiptic-1366.js",
-   "v": "4f8f027f",
+   "v": "36fcce39",
+   "annotated": true,
+   "hasSolutions": true,
+   "solutionsUnofficial": false,
+   "difficulty": {
+    "band": "Tough",
+    "index": 0.102,
+    "percentile": 68,
+    "basis": [
+     "checking",
+     "device",
+     "obscurity"
+    ]
+   }
+  },
+  {
+   "id": "cryptic-29912",
+   "number": 29912,
+   "series": "cryptic",
+   "name": "Prize crossword No 29,912",
+   "setter": "Brockwell",
+   "date": 1769212800000,
+   "file": "cryptic-29912.js",
+   "v": "f47e438c",
+   "annotated": false,
+   "hasSolutions": true,
+   "solutionsUnofficial": false,
+   "difficulty": null
+  },
+  {
+   "id": "cryptic-29911",
+   "number": 29911,
+   "series": "cryptic",
+   "name": "Cryptic crossword No 29,911",
+   "setter": "Omnibus",
+   "date": 1769126400000,
+   "file": "cryptic-29911.js",
+   "v": "0fcb0ac5",
+   "annotated": false,
+   "hasSolutions": true,
+   "solutionsUnofficial": false,
+   "difficulty": null
+  },
+  {
+   "id": "cryptic-29910",
+   "number": 29910,
+   "series": "cryptic",
+   "name": "Cryptic crossword No 29,910",
+   "setter": "Pangakupu",
+   "date": 1769040000000,
+   "file": "cryptic-29910.js",
+   "v": "80b1c47a",
+   "annotated": false,
+   "hasSolutions": true,
+   "solutionsUnofficial": false,
+   "difficulty": null
+  },
+  {
+   "id": "cryptic-29909",
+   "number": 29909,
+   "series": "cryptic",
+   "name": "Cryptic crossword No 29,909",
+   "setter": "Paul",
+   "date": 1768953600000,
+   "file": "cryptic-29909.js",
+   "v": "0535650a",
+   "annotated": false,
+   "hasSolutions": true,
+   "solutionsUnofficial": false,
+   "difficulty": null
+  },
+  {
+   "id": "cryptic-29908",
+   "number": 29908,
+   "series": "cryptic",
+   "name": "Cryptic crossword No 29,908",
+   "setter": "Brendan",
+   "date": 1768867200000,
+   "file": "cryptic-29908.js",
+   "v": "07151841",
+   "annotated": false,
+   "hasSolutions": true,
+   "solutionsUnofficial": false,
+   "difficulty": null
+  },
+  {
+   "id": "cryptic-29907",
+   "number": 29907,
+   "series": "cryptic",
+   "name": "Cryptic crossword No 29,907",
+   "setter": "Vulcan",
+   "date": 1768780800000,
+   "file": "cryptic-29907.js",
+   "v": "7c90d605",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
@@ -8189,7 +8350,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Moderate",
     "index": -0.452,
-    "percentile": 25,
+    "percentile": 26,
     "basis": [
      "checking",
      "device",
@@ -8235,6 +8396,90 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": null
   },
   {
+   "id": "cryptic-29906",
+   "number": 29906,
+   "series": "cryptic",
+   "name": "Prize crossword No 29,906",
+   "setter": "Imogen",
+   "date": 1768608000000,
+   "file": "cryptic-29906.js",
+   "v": "799c2183",
+   "annotated": false,
+   "hasSolutions": true,
+   "solutionsUnofficial": false,
+   "difficulty": null
+  },
+  {
+   "id": "cryptic-29905",
+   "number": 29905,
+   "series": "cryptic",
+   "name": "Cryptic crossword No 29,905",
+   "setter": "Enigmatist",
+   "date": 1768521600000,
+   "file": "cryptic-29905.js",
+   "v": "7f93f4a3",
+   "annotated": false,
+   "hasSolutions": true,
+   "solutionsUnofficial": false,
+   "difficulty": null
+  },
+  {
+   "id": "cryptic-29904",
+   "number": 29904,
+   "series": "cryptic",
+   "name": "Cryptic crossword No 29,904",
+   "setter": "Paul",
+   "date": 1768435200000,
+   "file": "cryptic-29904.js",
+   "v": "4a2f7526",
+   "annotated": false,
+   "hasSolutions": true,
+   "solutionsUnofficial": false,
+   "difficulty": null
+  },
+  {
+   "id": "cryptic-29903",
+   "number": 29903,
+   "series": "cryptic",
+   "name": "Cryptic crossword No 29,903",
+   "setter": "Fed",
+   "date": 1768348800000,
+   "file": "cryptic-29903.js",
+   "v": "65f0c753",
+   "annotated": false,
+   "hasSolutions": true,
+   "solutionsUnofficial": false,
+   "difficulty": null
+  },
+  {
+   "id": "cryptic-29902",
+   "number": 29902,
+   "series": "cryptic",
+   "name": "Cryptic crossword No 29,902",
+   "setter": "Brummie",
+   "date": 1768262400000,
+   "file": "cryptic-29902.js",
+   "v": "24325a98",
+   "annotated": false,
+   "hasSolutions": true,
+   "solutionsUnofficial": false,
+   "difficulty": null
+  },
+  {
+   "id": "cryptic-29901",
+   "number": 29901,
+   "series": "cryptic",
+   "name": "Cryptic crossword No 29,901",
+   "setter": "Qaos",
+   "date": 1768176000000,
+   "file": "cryptic-29901.js",
+   "v": "e6517d44",
+   "annotated": false,
+   "hasSolutions": true,
+   "solutionsUnofficial": false,
+   "difficulty": null
+  },
+  {
    "id": "everyman-4134",
    "number": 4134,
    "series": "everyman",
@@ -8272,7 +8517,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Brutal",
     "index": 0.594,
-    "percentile": 93,
+    "percentile": 92,
     "basis": [
      "checking",
      "device",
@@ -8289,6 +8534,90 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "date": 1768089600000,
    "file": "quiptic-1364.js",
    "v": "3182f9ef",
+   "annotated": false,
+   "hasSolutions": true,
+   "solutionsUnofficial": false,
+   "difficulty": null
+  },
+  {
+   "id": "cryptic-29900",
+   "number": 29900,
+   "series": "cryptic",
+   "name": "Prize crossword No 29,900",
+   "setter": "Paul",
+   "date": 1768003200000,
+   "file": "cryptic-29900.js",
+   "v": "904d88ce",
+   "annotated": false,
+   "hasSolutions": true,
+   "solutionsUnofficial": false,
+   "difficulty": null
+  },
+  {
+   "id": "cryptic-29899",
+   "number": 29899,
+   "series": "cryptic",
+   "name": "Cryptic crossword No 29,899",
+   "setter": "Brendan",
+   "date": 1767916800000,
+   "file": "cryptic-29899.js",
+   "v": "54efcabc",
+   "annotated": false,
+   "hasSolutions": true,
+   "solutionsUnofficial": false,
+   "difficulty": null
+  },
+  {
+   "id": "cryptic-29898",
+   "number": 29898,
+   "series": "cryptic",
+   "name": "Cryptic crossword No 29,898",
+   "setter": "Pasquale",
+   "date": 1767830400000,
+   "file": "cryptic-29898.js",
+   "v": "2f74ef76",
+   "annotated": false,
+   "hasSolutions": true,
+   "solutionsUnofficial": false,
+   "difficulty": null
+  },
+  {
+   "id": "cryptic-29897",
+   "number": 29897,
+   "series": "cryptic",
+   "name": "Cryptic crossword No 29,897",
+   "setter": "Philistine",
+   "date": 1767744000000,
+   "file": "cryptic-29897.js",
+   "v": "d257f230",
+   "annotated": false,
+   "hasSolutions": true,
+   "solutionsUnofficial": false,
+   "difficulty": null
+  },
+  {
+   "id": "cryptic-29896",
+   "number": 29896,
+   "series": "cryptic",
+   "name": "Cryptic crossword No 29,896",
+   "setter": "Alia",
+   "date": 1767657600000,
+   "file": "cryptic-29896.js",
+   "v": "8860bcd4",
+   "annotated": false,
+   "hasSolutions": true,
+   "solutionsUnofficial": false,
+   "difficulty": null
+  },
+  {
+   "id": "cryptic-29895",
+   "number": 29895,
+   "series": "cryptic",
+   "name": "Cryptic crossword No 29,895",
+   "setter": "Vulcan",
+   "date": 1767571200000,
+   "file": "cryptic-29895.js",
+   "v": "aed877ef",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
@@ -8349,6 +8678,20 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "date": 1767484800000,
    "file": "quiptic-1363.js",
    "v": "c1251bc0",
+   "annotated": false,
+   "hasSolutions": true,
+   "solutionsUnofficial": false,
+   "difficulty": null
+  },
+  {
+   "id": "cryptic-29894",
+   "number": 29894,
+   "series": "cryptic",
+   "name": "Prize crossword No 29,894",
+   "setter": "Brockwell",
+   "date": 1767398400000,
+   "file": "cryptic-29894.js",
+   "v": "07f36d92",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
@@ -8609,7 +8952,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": -0.226,
-    "percentile": 43,
+    "percentile": 44,
     "basis": [
      "checking",
      "device",
@@ -8849,7 +9192,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": 0.072,
-    "percentile": 64,
+    "percentile": 65,
     "basis": [
      "checking",
      "device",
@@ -9029,7 +9372,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": -0.024,
-    "percentile": 57,
+    "percentile": 58,
     "basis": [
      "checking",
      "device",
@@ -9089,7 +9432,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": -0.05,
-    "percentile": 55,
+    "percentile": 56,
     "basis": [
      "checking",
      "device",
@@ -9179,11 +9522,20 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1759014000000,
    "file": "everyman-4119.js",
-   "v": "cc62e0cd",
-   "annotated": false,
+   "v": "fbc3549e",
+   "annotated": true,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": {
+    "band": "Gentle",
+    "index": -1.072,
+    "percentile": 1,
+    "basis": [
+     "checking",
+     "device",
+     "obscurity"
+    ]
+   }
   },
   {
    "id": "indysunday-1856",
@@ -9200,7 +9552,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Moderate",
     "index": -0.282,
-    "percentile": 38,
+    "percentile": 39,
     "basis": [
      "checking",
      "device",
@@ -9404,7 +9756,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Moderate",
     "index": -0.41,
-    "percentile": 28,
+    "percentile": 29,
     "basis": [
      "checking",
      "device",
@@ -9557,7 +9909,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": -0.235,
-    "percentile": 42,
+    "percentile": 43,
     "basis": [
      "checking",
      "device",
@@ -9601,11 +9953,20 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Major",
    "date": 1753574400000,
    "file": "indysunday-1848.js",
-   "v": "31a303f5",
-   "annotated": false,
+   "v": "2714e15c",
+   "annotated": true,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null
+   "difficulty": {
+    "band": "Gentle",
+    "index": -0.601,
+    "percentile": 17,
+    "basis": [
+     "checking",
+     "device",
+     "obscurity"
+    ]
+   }
   },
   {
    "id": "quiptic-1340",
@@ -10478,6 +10839,20 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": null
   },
   {
+   "id": "quiptic-1321",
+   "number": 1321,
+   "series": "quiptic",
+   "name": "Quiptic crossword No 1,321",
+   "setter": "Pasquale",
+   "date": 1742083200000,
+   "file": "quiptic-1321.js",
+   "v": "a9ffb5d9",
+   "annotated": false,
+   "hasSolutions": true,
+   "solutionsUnofficial": false,
+   "difficulty": null
+  },
+  {
    "id": "everyman-4090",
    "number": 4090,
    "series": "everyman",
@@ -10509,6 +10884,20 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "date": 1741478400000,
    "file": "indysunday-1828.js",
    "v": "8eb9eab1",
+   "annotated": false,
+   "hasSolutions": true,
+   "solutionsUnofficial": false,
+   "difficulty": null
+  },
+  {
+   "id": "quiptic-1320",
+   "number": 1320,
+   "series": "quiptic",
+   "name": "Quiptic crossword No 1,320",
+   "setter": "Hectence",
+   "date": 1741478400000,
+   "file": "quiptic-1320.js",
+   "v": "83ef9cdb",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
@@ -10552,6 +10941,20 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": null
   },
   {
+   "id": "quiptic-1319",
+   "number": 1319,
+   "series": "quiptic",
+   "name": "Quiptic crossword No 1,319",
+   "setter": "Anto",
+   "date": 1740873600000,
+   "file": "quiptic-1319.js",
+   "v": "2246c3d9",
+   "annotated": false,
+   "hasSolutions": true,
+   "solutionsUnofficial": false,
+   "difficulty": null
+  },
+  {
    "id": "indysunday-1826",
    "number": 1826,
    "series": "indysunday",
@@ -10560,6 +10963,20 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "date": 1740268800000,
    "file": "indysunday-1826.js",
    "v": "963aaceb",
+   "annotated": false,
+   "hasSolutions": true,
+   "solutionsUnofficial": false,
+   "difficulty": null
+  },
+  {
+   "id": "quiptic-1318",
+   "number": 1318,
+   "series": "quiptic",
+   "name": "Quiptic crossword No 1,318",
+   "setter": "Harpo",
+   "date": 1740268800000,
+   "file": "quiptic-1318.js",
+   "v": "238ce19c",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
@@ -10580,6 +10997,20 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": null
   },
   {
+   "id": "quiptic-1317",
+   "number": 1317,
+   "series": "quiptic",
+   "name": "Quiptic crossword No 1,317",
+   "setter": "Carpathian",
+   "date": 1739664000000,
+   "file": "quiptic-1317.js",
+   "v": "e1986cb6",
+   "annotated": false,
+   "hasSolutions": true,
+   "solutionsUnofficial": false,
+   "difficulty": null
+  },
+  {
    "id": "indysunday-1824",
    "number": 1824,
    "series": "indysunday",
@@ -10588,6 +11019,20 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "date": 1739059200000,
    "file": "indysunday-1824.js",
    "v": "81beb659",
+   "annotated": false,
+   "hasSolutions": true,
+   "solutionsUnofficial": false,
+   "difficulty": null
+  },
+  {
+   "id": "quiptic-1316",
+   "number": 1316,
+   "series": "quiptic",
+   "name": "Quiptic crossword No 1,316",
+   "setter": "Chandler",
+   "date": 1739059200000,
+   "file": "quiptic-1316.js",
+   "v": "ef2b28ba",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
@@ -10608,6 +11053,20 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": null
   },
   {
+   "id": "quiptic-1315",
+   "number": 1315,
+   "series": "quiptic",
+   "name": "Quiptic crossword No 1,315",
+   "setter": "Pasquale",
+   "date": 1738454400000,
+   "file": "quiptic-1315.js",
+   "v": "9b0e2bef",
+   "annotated": false,
+   "hasSolutions": true,
+   "solutionsUnofficial": false,
+   "difficulty": null
+  },
+  {
    "id": "indysunday-1822",
    "number": 1822,
    "series": "indysunday",
@@ -10616,6 +11075,20 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "date": 1737849600000,
    "file": "indysunday-1822.js",
    "v": "7dfca5ed",
+   "annotated": false,
+   "hasSolutions": true,
+   "solutionsUnofficial": false,
+   "difficulty": null
+  },
+  {
+   "id": "quiptic-1314",
+   "number": 1314,
+   "series": "quiptic",
+   "name": "Quiptic crossword No 1,314",
+   "setter": "Carpathian",
+   "date": 1737849600000,
+   "file": "quiptic-1314.js",
+   "v": "98aabb14",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
@@ -10636,6 +11109,20 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": null
   },
   {
+   "id": "quiptic-1313",
+   "number": 1313,
+   "series": "quiptic",
+   "name": "Quiptic crossword No 1,313",
+   "setter": "Chandler",
+   "date": 1737244800000,
+   "file": "quiptic-1313.js",
+   "v": "395ecb1e",
+   "annotated": false,
+   "hasSolutions": true,
+   "solutionsUnofficial": false,
+   "difficulty": null
+  },
+  {
    "id": "indysunday-1820",
    "number": 1820,
    "series": "indysunday",
@@ -10644,6 +11131,20 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "date": 1736640000000,
    "file": "indysunday-1820.js",
    "v": "4ea227c4",
+   "annotated": false,
+   "hasSolutions": true,
+   "solutionsUnofficial": false,
+   "difficulty": null
+  },
+  {
+   "id": "quiptic-1312",
+   "number": 1312,
+   "series": "quiptic",
+   "name": "Quiptic crossword No 1,312",
+   "setter": "Anto",
+   "date": 1736640000000,
+   "file": "quiptic-1312.js",
+   "v": "66a1b089",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
@@ -10664,6 +11165,20 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": null
   },
   {
+   "id": "quiptic-1311",
+   "number": 1311,
+   "series": "quiptic",
+   "name": "Quiptic crossword No 1,311",
+   "setter": "Picaroon",
+   "date": 1736035200000,
+   "file": "quiptic-1311.js",
+   "v": "1fae680e",
+   "annotated": false,
+   "hasSolutions": true,
+   "solutionsUnofficial": false,
+   "difficulty": null
+  },
+  {
    "id": "indysunday-1818",
    "number": 1818,
    "series": "indysunday",
@@ -10672,6 +11187,20 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "date": 1735430400000,
    "file": "indysunday-1818.js",
    "v": "e9615076",
+   "annotated": false,
+   "hasSolutions": true,
+   "solutionsUnofficial": false,
+   "difficulty": null
+  },
+  {
+   "id": "quiptic-1310",
+   "number": 1310,
+   "series": "quiptic",
+   "name": "Quiptic crossword No 1,310",
+   "setter": "Anto",
+   "date": 1735430400000,
+   "file": "quiptic-1310.js",
+   "v": "4726816f",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
@@ -10692,6 +11221,20 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": null
   },
   {
+   "id": "quiptic-1309",
+   "number": 1309,
+   "series": "quiptic",
+   "name": "Quiptic crossword No 1,309",
+   "setter": "Picaroon",
+   "date": 1734825600000,
+   "file": "quiptic-1309.js",
+   "v": "7db1d9d3",
+   "annotated": false,
+   "hasSolutions": true,
+   "solutionsUnofficial": false,
+   "difficulty": null
+  },
+  {
    "id": "indysunday-1816",
    "number": 1816,
    "series": "indysunday",
@@ -10700,6 +11243,20 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "date": 1734220800000,
    "file": "indysunday-1816.js",
    "v": "506249d3",
+   "annotated": false,
+   "hasSolutions": true,
+   "solutionsUnofficial": false,
+   "difficulty": null
+  },
+  {
+   "id": "quiptic-1308",
+   "number": 1308,
+   "series": "quiptic",
+   "name": "Quiptic crossword No 1,308",
+   "setter": "Carpathian",
+   "date": 1734220800000,
+   "file": "quiptic-1308.js",
+   "v": "cb721113",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
@@ -10720,6 +11277,20 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": null
   },
   {
+   "id": "quiptic-1307",
+   "number": 1307,
+   "series": "quiptic",
+   "name": "Quiptic crossword No 1,307",
+   "setter": "Picaroon",
+   "date": 1733616000000,
+   "file": "quiptic-1307.js",
+   "v": "732ca3a5",
+   "annotated": false,
+   "hasSolutions": true,
+   "solutionsUnofficial": false,
+   "difficulty": null
+  },
+  {
    "id": "indysunday-1814",
    "number": 1814,
    "series": "indysunday",
@@ -10728,6 +11299,20 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "date": 1733011200000,
    "file": "indysunday-1814.js",
    "v": "15e784f0",
+   "annotated": false,
+   "hasSolutions": true,
+   "solutionsUnofficial": false,
+   "difficulty": null
+  },
+  {
+   "id": "quiptic-1306",
+   "number": 1306,
+   "series": "quiptic",
+   "name": "Quiptic crossword No 1,306",
+   "setter": "Anto",
+   "date": 1733011200000,
+   "file": "quiptic-1306.js",
+   "v": "ff847f79",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
@@ -10748,6 +11333,20 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": null
   },
   {
+   "id": "quiptic-1305",
+   "number": 1305,
+   "series": "quiptic",
+   "name": "Quiptic crossword No 1,305",
+   "setter": "Hectence",
+   "date": 1732406400000,
+   "file": "quiptic-1305.js",
+   "v": "0c297d33",
+   "annotated": false,
+   "hasSolutions": true,
+   "solutionsUnofficial": false,
+   "difficulty": null
+  },
+  {
    "id": "independent-11812",
    "number": 11812,
    "series": "independent",
@@ -10756,6 +11355,20 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "date": 1731801600000,
    "file": "independent-11812.js",
    "v": "4384ae93",
+   "annotated": false,
+   "hasSolutions": true,
+   "solutionsUnofficial": false,
+   "difficulty": null
+  },
+  {
+   "id": "quiptic-1304",
+   "number": 1304,
+   "series": "quiptic",
+   "name": "Quiptic crossword No 1,304",
+   "setter": "Picaroon",
+   "date": 1731801600000,
+   "file": "quiptic-1304.js",
+   "v": "a0e6347e",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
@@ -10776,6 +11389,20 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": null
   },
   {
+   "id": "quiptic-1303",
+   "number": 1303,
+   "series": "quiptic",
+   "name": "Quiptic crossword No 1,303",
+   "setter": "Chandler",
+   "date": 1731196800000,
+   "file": "quiptic-1303.js",
+   "v": "bc8cf904",
+   "annotated": false,
+   "hasSolutions": true,
+   "solutionsUnofficial": false,
+   "difficulty": null
+  },
+  {
    "id": "indysunday-1810",
    "number": 1810,
    "series": "indysunday",
@@ -10784,6 +11411,20 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "date": 1730592000000,
    "file": "indysunday-1810.js",
    "v": "85fa6297",
+   "annotated": false,
+   "hasSolutions": true,
+   "solutionsUnofficial": false,
+   "difficulty": null
+  },
+  {
+   "id": "quiptic-1302",
+   "number": 1302,
+   "series": "quiptic",
+   "name": "Quiptic crossword No 1,302",
+   "setter": "Anto",
+   "date": 1730592000000,
+   "file": "quiptic-1302.js",
+   "v": "a108522d",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,

@@ -10,6 +10,7 @@ const ABBREVIATIONS = {
   "academician",
   "academy",
   "acceleration",
+  "accepted",
   "ace",
   "active",
   "adult",
@@ -85,6 +86,7 @@ const ABBREVIATIONS = {
  "B": [
   "bachelor",
   "bass",
+  "bee",
   "belgium",
   "billion",
   "billions",
@@ -453,7 +455,9 @@ const ABBREVIATIONS = {
  ],
  "K": [
   "kelvin",
+  "kilo",
   "kilometres",
+  "kilos",
   "king",
   "potassium",
   "thousand"
@@ -464,6 +468,7 @@ const ABBREVIATIONS = {
  ],
  "KO": [
   "flatten",
+  "kick off",
   "knockout"
  ],
  "L": [
@@ -541,6 +546,9 @@ const ABBREVIATIONS = {
   "degree",
   "graduate",
   "master"
+ ],
+ "MAG": [
+  "magazine"
  ],
  "MC": [
   "compere",
@@ -633,6 +641,9 @@ const ABBREVIATIONS = {
   "national theatre",
   "national trust",
   "new testament"
+ ],
+ "NUM": [
+  "number"
  ],
  "NW": [
   "northwest"
@@ -905,6 +916,7 @@ const ABBREVIATIONS = {
  ],
  "SO": [
   "note",
+  "staff officer",
   "therefore",
   "very"
  ],
