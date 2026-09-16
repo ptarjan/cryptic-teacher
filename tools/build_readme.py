@@ -351,8 +351,54 @@ def build_knobs(k):
     )
 
 
+# What each rung is FOR. The name beside it is not written here: app.js owns the
+# labels, because they are what the buttons say, and a README that renamed them
+# in prose would be describing a site that does not exist — which is what it was
+# doing (Paul, 2026-09-16). A rung added to app.js with no line here fails this
+# script rather than quietly going undescribed.
+RUNG_NOTES = {
+    "type": "anagram? charade? container? hidden word? …",
+    "definition": "the definition part of the clue is highlighted",
+    "indicators": "the anagram, container, reversal and homophone signal words "
+                  "are highlighted",
+    "blocks": "the fodder and the synonym breakdown, a piece at a time "
+              "(\u201chost = ARMY; part of TV duo = ANT\u201d)",
+    "walkthrough": "the whole assembly, step by step",
+}
+
+
+def build_ladder():
+    """The ladder, named with app.js's own button labels and in its own order."""
+    app = (REPO / "app.js").read_text(encoding="utf-8")
+    block = re.search(r"const LABELS = \{(.*?)\n    \};", app, re.S)
+    if not block:
+        fail("app.js has no `const LABELS = { … };` map, which is where the rung "
+             "names live. If it moved, point this function at the new one.")
+    labels = re.findall(r'(\w+):\s*"([^"]+)"', block.group(1))
+    missing = [k for k, _ in labels if k not in RUNG_NOTES]
+    if missing:
+        fail("these rungs are in app.js but have no line in RUNG_NOTES in this "
+             "script, so the README would not say what they teach: "
+             + ", ".join(missing))
+    fill = re.search(r'const FILL_LABEL = "([^"]+)"', app)
+    if not fill:
+        fail("app.js has no `const FILL_LABEL`, which names the way out of a clue.")
+    # No full stop after a note that already ends in one — "hidden word? \u2026."
+    # is what writing a sentence in two places looks like.
+    lines = [f"{i}. **{name}** \u2014 {RUNG_NOTES[key]}"
+             + ("" if RUNG_NOTES[key][-1] in ".?\u2026" else ".")
+             for i, (key, name) in enumerate(labels, 1)]
+    lines.append("")
+    lines.append(f"**{fill.group(1)}** writes the solution into the grid. It is the "
+                 "way out of a clue rather than a step in it, so it is offered "
+                 "alongside the rungs once the building blocks are up, and it is "
+                 "not counted as one.")
+    return "\n".join(lines)
+
+
 REGIONS = {
     "CORPUS": build_corpus,
+    "LADDER": build_ladder,
     "LAYOUT": build_layout,
 }
 
