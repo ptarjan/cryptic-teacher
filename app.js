@@ -3662,7 +3662,7 @@
     el.style.transition = "none";
     el.style.transform = `translate(${dx}px, ${dy}px)`;
     requestAnimationFrame(() => {
-      el.style.transition = "transform .34s cubic-bezier(.2,.7,.3,1)";
+      el.style.transition = "transform var(--mo-in) var(--mo-ease)";
       el.style.transform = "";
     });
   }
