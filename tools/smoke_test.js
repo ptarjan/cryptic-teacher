@@ -3729,9 +3729,31 @@ global.realSetTimeout(() => {
     "asking for a new hint does not delete the verdict you were reading: " + after);
   assert(after.length >= before.length,
     "the panel only ever grows: " + before.length + " -> " + after.length);
-  assert(rungs().length > 0 && rungs().every((b) => b.disabled),
-    "and the ladder keeps its shape while the question stands, disabled rather than gone: "
+  // The ladder stays reachable while a question stands. It used to go all-
+  // disabled, so that a guess could not be walked around by buying a different
+  // hint — and that cornered a solver who had simply picked the wrong rung
+  // ("when you're in the middle of a hint you can't switch to a different
+  // hint", Paul, 2026-09-16). Switching abandons the question; it never answers
+  // it, so nothing is earned by leaving.
+  assert(rungs().some((b) => !b.disabled),
+    "and another rung can still be taken while the question stands: "
       + registry["hint-next"].innerHTML);
+  {
+    const other = rungs().find((b) => !b.disabled);
+    const label = other.textContent;
+    const before2 = registry["hint-body"].innerHTML;
+    const grew = before2.length;
+    other.onclick();
+    const after2 = registry["hint-body"].innerHTML;
+    assert(after2.length >= grew, "the panel still only grows across a switch: " + label);
+    // The rung the solver walked away from was never answered, so nothing new
+    // may be marked as worked out on the way past.
+    const won = (h) => (h.match(/hint-step won/g) || []).length;
+    assert(won(after2) === won(before2),
+      `an abandoned question earns nothing: ${won(before2)} -> ${won(after2)} on ${label}`);
+    assert(registry["hint-next"].children.length > 0,
+      "and the ladder row is still there after the switch");
+  }
 
   // --- putting a question back down costs nothing ---
   // The tap that opened it meant "show me this rung", and a solver who reads

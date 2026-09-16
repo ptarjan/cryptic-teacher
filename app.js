@@ -3911,6 +3911,10 @@
                        slots: (asked.pairs || []).map(() => -1), held: -1, heldSlot: -1 };
           focusHint("guess");
         } else {
+          // Whatever was being asked is off the table: this button is the
+          // solver saying they want this rung instead, and a question left
+          // hanging under the rung they just took would be answered by it.
+          guessing = null;
           focusHint(b.rung);
           showHint(on, b.rung);
           // A piece with no question in it — no fragment to point at, or no
@@ -4188,20 +4192,24 @@
       // costs one obvious click and a sideways move costs one deliberate one.
       // Rungs from a later tier are shown but disabled rather than hidden — the
       // ladder has a shape and the solver should be able to see it coming.
-      // While a guess is on the table the other rungs are not offered: the
-      // question is answerable by buying a different hint, and a quiz you can
-      // walk around is not one. Not offered, but still THERE — emptying the row
-      // collapsed the panel at the moment the question appeared below it, and
-      // the page slid out from under the words the solver was being asked to
-      // read (Paul). Disabled says the same thing and occupies the same room.
+      // A question on the table does not close the row. It used to: a guess you
+      // could walk around by buying a different hint is not much of a quiz. But
+      // the rungs are not a quiz, they are a ladder you are standing on, and a
+      // solver who wants a different step is not cheating their way past this
+      // one — they have decided this is not the question they needed ("when
+      // you're in the middle of a hint you can't switch to a different hint",
+      // Paul, 2026-09-16). Taking another rung abandons the guess and charges
+      // for the rung, which is what it would have cost anyway; the abandoned
+      // question was never answered, so nothing is earned by walking away from
+      // it.
       const togo = steps.map((s, i) => ({ s, n: i + 1 })).filter(({ s }) => !isShown(e, s.key));
-      const open = guessing ? [] : togo.filter(({ s }) => rungAvailable(e, steps, s.key));
+      const open = togo.filter(({ s }) => rungAvailable(e, steps, s.key));
       // The rest of a rung already open, and it leads: finishing what you
       // started is the recommended move, ahead of buying the next rung. It is
       // not a new rung and does not cost one — the price was paid when the rung
       // was taken. Gone once the last piece is out, and never offered on a
       // solved clue, whose whole ladder is already open and free.
-      const left = !guessing && !solved && isShown(e, "blocks") ? piecesLeft(e) : 0;
+      const left = !solved && isShown(e, "blocks") ? piecesLeft(e) : 0;
       if (left) {
         const total = blockPieces(e).length;
         nextSpec.push({ rung: "blocks", step: total - left,
@@ -4224,9 +4232,7 @@
       });
       togo.filter((t) => open.indexOf(t) < 0).forEach(({ s, n }) => {
         nextSpec.push({ cls: "ghost small locked", disabled: true, text: `${n} · ${s.label}`,
-          title: guessing
-            ? "Answer the question below first"
-            : "Take the hints above first — this one gives them away" });
+          title: "Take the hints above first — this one gives them away" });
       });
       freeRest = solved && togo.length > 0;
       // Offered once the building blocks are up, not only once the whole ladder
