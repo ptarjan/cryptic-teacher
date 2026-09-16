@@ -3547,12 +3547,15 @@
   // answer. The one the rung goes on to name is the dominant one, so a solver who
   // named a different true one is told that theirs is in there too — otherwise
   // the paragraph underneath reads as a correction of an answer that was correct.
+  // "one of them" against "the one" is the whole of that, in one line either way:
+  // a family label can be three words long ("container, reversal or deletion"),
+  // and a verdict that quotes it back and then explains itself ran to three lines
+  // on a phone (Paul, 2026-09-16) to say what the solver had just tapped.
   function gradeChoice(ask, picked) {
     const right = ask.answers || [ask.answer];
     if (picked === right[0]) return { choice: picked, right: true, said: "Yes — that’s the one." };
     if (right.indexOf(picked) >= 0) {
-      return { choice: picked, right: true,
-               said: `Yes — ${picked.toLowerCase()} is part of it. This clue is more than one thing at once.` };
+      return { choice: picked, right: true, said: "Yes — that\u2019s one of them." };
     }
     return { choice: picked, right: false,
              said: `Not ${picked.toLowerCase()} — here’s what it actually is.` };
