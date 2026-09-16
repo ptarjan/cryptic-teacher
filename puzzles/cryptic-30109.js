@@ -27,7 +27,36 @@ window.CRYPTIC_PUZZLES["cryptic-30109"] = /*JSON-START*/ {
    "clue": "Cross edge of field? (4)",
    "separatorLocations": {},
    "solution": "FORD",
-   "annotation": null
+   "annotation": {
+    "type": "outer letters",
+    "answer": "FORD",
+    "definition": "Cross",
+    "indicators": [
+     "edge of"
+    ],
+    "indicatorNotes": {
+     "edge of": "an edge of a word is a letter at one of its two ends, and the singular declines to say which end is meant"
+    },
+    "pieces": [
+     "FORD"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "field?",
+      "gives": "FORD",
+      "note": "the two edges of that word are its F and its D, and because the clue never settles which, the wordplay writes the undecided choice out in full"
+     }
+    ],
+    "surface": "A walker at the boundary of a field, wondering whether to step over it.",
+    "walkthrough": "Cross as a noun invites ROOD, which is even an old measure of land. The definition is the verb, and the wordplay answers its own question with the two ends of field and the word between them: F or D.",
+    "definitionFit": "To ford a river is to cross it by wading where it runs shallow, so the verb swaps straight in.",
+    "features": {
+     "misdirectedWord": "edge",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "2-down",
