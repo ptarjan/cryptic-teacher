@@ -1500,6 +1500,50 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
     assert(drawn > 300, "anagram rings drawn across the corpus: " + drawn);
   }
 
+  // --- a multi-word answer gets a ring per word ---
+  // The ring reads clockwise from the top as position 1 of the answer onwards,
+  // so a pinned letter says WHERE it goes — and in one circle of thirteen for
+  // "KNIGHTS ERRANT" that is a position in a word the solver cannot see the end
+  // of (Paul, 2026-09-16). The cut is the answer's own words, and it is only
+  // taken when they account for exactly the letters on the ring.
+  {
+    const multi = [];
+    for (const id of Object.keys(puzzles).sort()) {
+      for (const e of puzzles[id].entries || []) {
+        const a = e.annotation || {};
+        const fod = ((a.anagram || {}).fodder || "").toUpperCase().replace(/[^A-Z]/g, "");
+        const words = String(a.answer || "").toUpperCase().split(/[^A-Z]+/).filter(Boolean);
+        if (fod.length >= 4 && words.length > 1
+            && words.join("").length === fod.length) multi.push({ id, e, words });
+      }
+    }
+    assert(multi.length > 50, "the corpus has multi-word anagram answers: " + multi.length);
+    let split = 0;
+    for (const m of multi.slice(0, 40)) {
+      openClue(m);
+      let html = "";
+      for (let i = 0; i < 8; i++) {
+        const btn = registry["hint-next"].children[0];
+        if (!CLIMBABLE(btn)) break;
+        takeRung(btn);
+        html = registry["hint-body"].innerHTML;
+        if (html.includes("anagram-ring")) break;
+      }
+      if (!html.includes("anagram-ring")) continue;   // no blocks rung on this clue
+      // The wrapper is .ana-discs — match the discs themselves, not their row.
+      const discs = (html.match(/class="ana-disc[ "]/g) || []).length;
+      assert(discs === m.words.length,
+        `${m.id} ${m.e.id}: ${m.words.join(" ")} drew ${discs} rings, not ${m.words.length}`);
+      // Every letter is still on the ring: the cut moves tiles between discs,
+      // it must never drop one.
+      const tiles = (html.match(/data-ana="\d+"/g) || []).length;
+      assert(tiles === m.words.join("").length,
+        `${m.id} ${m.e.id}: ${tiles} tiles across the rings, answer has ${m.words.join("").length}`);
+      split++;
+    }
+    assert(split > 5, "multi-word rings actually drawn: " + split);
+  }
+
   // --- typing edits the ring: a letter adds a tile, Backspace removes the
   // last one, anything else does nothing ---
   //

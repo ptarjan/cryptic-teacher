@@ -2455,6 +2455,16 @@
     return (((ann || {}).anagram || {}).fodder || "").toUpperCase().replace(/[^A-Z]/g, "");
   }
 
+  // The answer's words, one ring each. A ring reads clockwise from the top as
+  // position 1 of the answer onwards, and that only says anything if you can see
+  // where a word of it ends: "KNIGHTS ERRANT" drawn as one circle of thirteen
+  // pins the K somewhere and tells you nothing further (Paul, 2026-09-16). Cut
+  // into a seven and a six, the same pin says which word the letter is in and
+  // where. A one-word answer has exactly one ring, which is the ring this has
+  // always drawn.
+  const ringWords = (ann) =>
+    String((ann || {}).answer || "").toUpperCase().split(/[^A-Z]+/).filter(Boolean);
+
   // A letter already in the grid is not part of the anagram any more: it has a
   // POSITION, and the ring is the one place that position can be shown. So it
   // pins its tile to the matching spot — the tile at the top is letter 1 of the
@@ -2537,26 +2547,41 @@
     // the pitch instead is the same sum done the right way round. Capped so a
     // very long fodder cannot push the disc wider than a phone.
     const PITCH = 42;
-    const radius = Math.max(56, Math.min(140,
-      Math.ceil(PITCH / (2 * Math.sin(Math.PI / n)))));
-    const tiles = ring.order.map((idx, pos) => {
-      const a = (pos / n) * 2 * Math.PI - Math.PI / 2;
-      return `<button type="button" class="ana-tile${ring.struck[idx] ? " struck" : ""}${
-          pinnedTile[idx] ? " fixed" : ""}"
-        data-ana="${idx}" aria-pressed="${ring.struck[idx] ? "true" : "false"}"
-        title="${pinnedTile[idx] ? "Already in the grid — pinned where it goes" : "Cross off once used"}"
-        style="left:calc(50% + ${Math.round(Math.cos(a) * radius)}px);
-               top:calc(50% + ${Math.round(Math.sin(a) * radius)}px)">${ring.letters[idx]}</button>`;
+    // One ring per word of the answer, in order, as long as the words account
+    // for exactly the letters in hand: typing into the ring makes a set that is
+    // no longer the answer's, and a cut that does not add up would put a word
+    // boundary at a letter that is not one.
+    const lens = ringWords(ann).map((w) => w.length);
+    const cuts = (lens.length > 1 && lens.reduce((a, b) => a + b, 0) === n) ? lens : [n];
+    let from = 0;
+    const discs = cuts.map((len) => {
+      const slice = ring.order.slice(from, from + len);
+      from += len;
+      const radius = Math.max(56, Math.min(140,
+        Math.ceil(PITCH / (2 * Math.sin(Math.PI / Math.max(3, len))))));
+      const tiles = slice.map((idx, pos) => {
+        const a = (pos / len) * 2 * Math.PI - Math.PI / 2;
+        return `<button type="button" class="ana-tile${ring.struck[idx] ? " struck" : ""}${
+            pinnedTile[idx] ? " fixed" : ""}"
+          data-ana="${idx}" aria-pressed="${ring.struck[idx] ? "true" : "false"}"
+          title="${pinnedTile[idx] ? "Already in the grid — pinned where it goes" : "Cross off once used"}"
+          style="left:calc(50% + ${Math.round(Math.cos(a) * radius)}px);
+                 top:calc(50% + ${Math.round(Math.sin(a) * radius)}px)">${ring.letters[idx]}</button>`;
+      }).join("");
+      const d = radius * 2 + 34;
+      return `<div class="ana-disc${ringKbdFocused() ? " ana-focus" : ""}" style="width:${
+        d}px;height:${d}px">${tiles}</div>`;
     }).join("");
-    const d = radius * 2 + 34;
     // ana-focus is a plain function of activeElement at render time, not of a
     // focus/blur listener toggling a class: the disc is thrown away and rebuilt
     // on every keystroke (a new tile has to be drawn), so anything the DOM
     // itself would have set on the old disc is gone with it. Deriving the class
     // fresh on every render is what makes the ring survive its own redraws.
     return `<div class="anagram-ring">
-      <div class="ana-disc${ringKbdFocused() ? " ana-focus" : ""}" style="width:${d}px;height:${d}px">${tiles}</div>
-      <p class="muted">Letters already in the grid are pinned where they go, reading clockwise from
+      <div class="ana-discs">${discs}</div>
+      <p class="muted">${cuts.length > 1
+        ? `One ring per word of the answer, ${cuts.join(" then ")} letters. Letters`
+        : "Letters"} already in the grid are pinned where they go, reading clockwise from
         the top. Tap a letter to cross it off once you've used it. Click the ring and type
         to add a letter, Backspace to remove the last. Shuffle for a fresh arrangement.</p>
       <button type="button" id="ana-shuffle" class="ghost small">Shuffle</button>
@@ -2602,7 +2627,7 @@
         b.style.transform = `translate(calc(-50% + ${dx}px), calc(-50% + ${dy}px))`;
         b.getBoundingClientRect();  // force layout so the jump above is not itself animated
         requestAnimationFrame(() => {
-          b.style.transition = "transform .22s ease-out";
+          b.style.transition = "transform var(--mo-in) var(--mo-ease)";
           b.style.transform = "translate(-50%, -50%)";
         });
       } else {
@@ -2612,7 +2637,7 @@
         b.style.transform = "translate(-50%, -50%) scale(.3)";
         b.getBoundingClientRect();
         requestAnimationFrame(() => {
-          b.style.transition = "transform .22s ease-out, opacity .22s ease-out";
+          b.style.transition = "transform var(--mo-in) var(--mo-ease), opacity var(--mo-in) var(--mo-ease)";
           b.style.opacity = "1";
           b.style.transform = "translate(-50%, -50%) scale(1)";
         });
@@ -2639,7 +2664,7 @@
     ghost.style.pointerEvents = "none";
     document.body.appendChild(ghost);
     requestAnimationFrame(() => {
-      ghost.style.transition = "transform .2s ease-in, opacity .2s ease-in";
+      ghost.style.transition = "transform var(--mo-in) var(--mo-ease), opacity var(--mo-in) var(--mo-ease)";
       ghost.style.transform = "translateY(-8px) scale(.5)";
       ghost.style.opacity = "0";
     });
