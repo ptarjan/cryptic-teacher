@@ -23,7 +23,7 @@ learn/                                       the “How cryptic clues work” le
 abbreviations/                               the glossary of standard abbreviations the blocks
                                              rung links into — generated, not committed
 og/                                          one 1200x630 social card per puzzle, drawn from
-                                             one of its clues
+                                             one of its clues — generated, not committed
 puzzles/index.json                           manifest: one row per puzzle (latest first)
 puzzles/index.js                             the same manifest as a script (so file:// works)
 puzzles/<series>-<n>.js                      one puzzle per file, JSON between /*JSON-START*/ …
