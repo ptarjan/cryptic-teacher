@@ -2286,8 +2286,19 @@
   const piecesLeft = (e) => Math.max(0, blockPieces(e).length - piecesShown(e));
   // Forwards only, and it is the reveal that moves it — both routes in, being
   // told and pointing at the right words, land here.
+  //
+  // A piece with no question in it is not a step. Pacing exists so the rung asks
+  // before it tells, and a piece that cannot ask has nothing to hold back: the
+  // click that fetches it hands it over the instant it lands, which is a tap
+  // charged for nothing ("don't make me click next on building blocks if you're
+  // just going to give me the blocks for free" — Paul, 2026-09-16). So those
+  // ride out with the piece before them, and "Next piece" is only ever offered
+  // for one that is going to ask something.
   function revealPiece(e, at) {
-    blocksAt[entryKey(e)] = Math.max(piecesShown(e), (at || 0) + 1);
+    const pieces = blockPieces(e);
+    let n = Math.max(piecesShown(e), (at || 0) + 1);
+    while (n < pieces.length && !guessAsk(e, "blocks", n)) n++;
+    blocksAt[entryKey(e)] = n;
     saveState();
   }
 
