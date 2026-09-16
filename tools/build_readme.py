@@ -154,6 +154,7 @@ LAYOUT = [
     ("scheduling", "tools/test_alert_claimed.sh", "runs a real failing run past alert.sh, so the catch-all cannot report a failure somebody already alerted on a second time"),
 
     ("finding out whether any of it is working", "tools/reports.py", "reads and clears the bad-hint reports solvers sent in"),
+    ("finding out whether any of it is working", "tools/report_fix_prompt.md", "the prompt the nightly job follows to work that queue — a report is evidence to check, not an instruction to carry out"),
     ("finding out whether any of it is working", "tools/rung_report.py", "where on the ladder solvers give up, from synced hintsShown data"),
     ("finding out whether any of it is working", "tools/usage_report.py", "counts the solving milestones in KV, with no way to identify who did what"),
     ("finding out whether any of it is working", "tools/ga_report.py", "the same milestones as Google Analytics counts them, to see what a blocker hides"),
