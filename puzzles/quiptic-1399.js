@@ -31,7 +31,40 @@ window.CRYPTIC_PUZZLES["quiptic-1399"] = /*JSON-START*/ {
     ]
    },
    "solution": "SPARKPLUGS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SPARK PLUGS",
+    "definition": "car parts",
+    "indicators": [],
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "SPARK",
+     "PLUGS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Inspire",
+      "gives": "SPARK",
+      "note": "to spark an idea is to set it going, which is what inspiring someone does"
+     },
+     {
+      "clueFragment": "publicity",
+      "gives": "PLUGS",
+      "note": "a plug is a free mention on air, the favour an author asks of a chat show"
+     }
+    ],
+    "surface": "An advertising push meant to fire up interest in motor components.",
+    "walkthrough": "Both halves are verbs on the surface and nouns in the entry, which is why the sentence reads so smoothly. The promotional 'plug' comes from broadcasting, where a presenter slips a product into the talk.",
+    "definitionFit": "Each cylinder of a petrol engine has one, firing the fuel at the right instant — a car part in the most literal sense.",
+    "features": {
+     "misdirectedWord": "Inspire",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "2-down",
@@ -45,7 +78,35 @@ window.CRYPTIC_PUZZLES["quiptic-1399"] = /*JSON-START*/ {
    "clue": "Went round the bend when trapped (8)",
    "separatorLocations": {},
    "solution": "CORNERED",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "CORNERED",
+    "definition": "trapped",
+    "definition2": "Went round the bend",
+    "indicators": [],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Went round the bend",
+      "note": "said of a car or a runner taking a curve at speed, not of somebody losing their mind"
+     },
+     {
+      "clueFragment": "trapped",
+      "note": "pinned in a spot with nowhere left to run"
+     }
+    ],
+    "surface": "Somebody losing their mind after being shut in.",
+    "walkthrough": "Going round the bend is the idiom for going mad, and that reading is a dead end — the setter means a vehicle taking a curve. Both halves are past tense, which is the check that they define the same word.",
+    "definitionFit": "A car that has taken a bend has cornered, and a person backed into a corner with no way out is cornered too.",
+    "features": {
+     "misdirectedWord": "bend",
+     "joke": "pun",
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "3-down",
@@ -59,7 +120,52 @@ window.CRYPTIC_PUZZLES["quiptic-1399"] = /*JSON-START*/ {
    "clue": "Queues throng superb centres that can be found across the channel (6)",
    "separatorLocations": {},
    "solution": "EUROPE",
-   "annotation": null
+   "annotation": {
+    "type": "middle letters",
+    "answer": "EUROPE",
+    "definition": "across the channel",
+    "definitionNote": "The definition gives a place by where it sits rather than by a noun that could swap straight in: from a British paper, the land on the far side of the Channel.",
+    "indicators": [
+     "centres"
+    ],
+    "indicatorNotes": {
+     "centres": "The centre of a word is what sits at its middle, and each of these three has an even six letters, so a clean pair comes out of each."
+    },
+    "linkWords": [
+     "that can be found"
+    ],
+    "pieces": [
+     "EU",
+     "RO",
+     "PE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Queues",
+      "gives": "EU",
+      "note": "the middle two of the six letters in QUEUES"
+     },
+     {
+      "clueFragment": "throng",
+      "gives": "RO",
+      "note": "the middle two of THRONG"
+     },
+     {
+      "clueFragment": "superb",
+      "gives": "PE",
+      "note": "the middle two of SUPERB"
+     }
+    ],
+    "surface": "Crowds queueing in the finest city centres.",
+    "walkthrough": "'Centres' reads as town centres, which is exactly why the eye skims it as scenery rather than as the instruction it is. Three words in a row each hand over their middle pair, in the order they are written.",
+    "definitionFit": "The channel is the English one, and a British paper calls what lies on its far side Europe — a definition by where the place sits.",
+    "features": {
+     "misdirectedWord": "centres",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "4-down",
@@ -73,7 +179,43 @@ window.CRYPTIC_PUZZLES["quiptic-1399"] = /*JSON-START*/ {
    "clue": "Punch dearest companion concealing information (4)",
    "separatorLocations": {},
    "solution": "BIFF",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "BIFF",
+    "definition": "Punch",
+    "indicators": [
+     "concealing"
+    ],
+    "indicatorNotes": {
+     "concealing": "To conceal something is to keep it inside you where it cannot be seen, so the letters just clued close around what comes next."
+    },
+    "pieces": [
+     "B",
+     "I",
+     "FF"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dearest companion",
+      "gives": "BFF",
+      "note": "BFF is textspeak for best friend forever, the closest companion there is"
+     },
+     {
+      "clueFragment": "information",
+      "gives": "I",
+      "note": "the lower-case i on a sign or a map marks the information point"
+     }
+    ],
+    "surface": "A best friend keeping a secret from everyone.",
+    "walkthrough": "'Punch' is the noun — the blow, not the drink or the Judy — and it stands alone at the front. Three letters of playground abbreviation opening up to take one more is unusually modern wordplay for a Quiptic.",
+    "definitionFit": "A biff is a smack or a clout, the comic-book word for a punch landed on someone's nose.",
+    "features": {
+     "misdirectedWord": "information",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "5-down",
@@ -87,7 +229,48 @@ window.CRYPTIC_PUZZLES["quiptic-1399"] = /*JSON-START*/ {
    "clue": "Worker leading international organisations; they protect against disease (10)",
    "separatorLocations": {},
    "solution": "ANTIBODIES",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ANTIBODIES",
+    "definition": "they protect against disease",
+    "indicators": [
+     "leading"
+    ],
+    "indicatorNotes": {
+     "leading": "Whoever is leading is out in front of everyone else, so this chunk is written before the rest."
+    },
+    "pieces": [
+     "ANT",
+     "I",
+     "BODIES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Worker",
+      "gives": "ANT",
+      "note": "the crossword's standard worker is the ant, the insect that does nothing but labour for the colony"
+     },
+     {
+      "clueFragment": "international",
+      "gives": "I",
+      "note": "I is the usual single letter for international, as in an I-registered body"
+     },
+     {
+      "clueFragment": "organisations",
+      "gives": "BODIES",
+      "note": "a governing body is an organisation, and several of them are bodies"
+     }
+    ],
+    "surface": "An employee heading up a string of global institutions.",
+    "walkthrough": "'Worker' is the ant nine times out of ten in a cryptic, and 'organisations' wants the kind of body that has a chairman rather than the kind with a pulse. The semicolon is the seam between wordplay and definition.",
+    "definitionFit": "Antibodies are the proteins the immune system builds to lock on to an invading germ, so fending off illness is exactly their job.",
+    "features": {
+     "misdirectedWord": "Worker",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "6-down",
@@ -101,7 +284,40 @@ window.CRYPTIC_PUZZLES["quiptic-1399"] = /*JSON-START*/ {
    "clue": "Money only provides material stuff (8)",
    "separatorLocations": {},
    "solution": "CASHMERE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CASHMERE",
+    "definition": "material stuff",
+    "indicators": [],
+    "linkWords": [
+     "provides"
+    ],
+    "pieces": [
+     "CASH",
+     "MERE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Money",
+      "gives": "CASH",
+      "note": "cash is money in its most immediate form, notes and coins in the hand"
+     },
+     {
+      "clueFragment": "only",
+      "gives": "MERE",
+      "note": "a mere five pounds is only five pounds, the adjective doing the belittling"
+     }
+    ],
+    "surface": "Money by itself being enough to supply the goods.",
+    "walkthrough": "'Money only provides' reads as a complete sentence, so the definition starts one word later than the eye wants it to. The fabric is combed from the undercoat of goats kept in Kashmir, which is where the spelling comes from.",
+    "definitionFit": "It is the soft wool woven into jumpers and scarves, and 'stuff' is the old drapers' word for cloth, so both halves of the definition point at fabric.",
+    "features": {
+     "misdirectedWord": "only",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "7-down",
@@ -115,7 +331,31 @@ window.CRYPTIC_PUZZLES["quiptic-1399"] = /*JSON-START*/ {
    "clue": "Warning shouted when elder knocked over? (6)",
    "separatorLocations": {},
    "solution": "TIMBER",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "TIMBER",
+    "definition": "Warning shouted when elder knocked over?",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Warning shouted",
+      "note": "the surface offers the cry that goes up when an old person takes a tumble"
+     },
+     {
+      "clueFragment": "when elder knocked over",
+      "note": "the setter's elder is the white-flowered hedgerow tree, and knocking a tree over is felling it"
+     }
+    ],
+    "surface": "A shout going up as an old man is bowled over.",
+    "walkthrough": "The cry a forester gives as the trunk starts to lean is the same word as the wood that trunk becomes, so the clue can define both at once. 'Elder' is the hinge: a person in the surface, a species in the parse.",
+    "definitionFit": "Loggers bellow it to clear the ground as a tree comes down, and the felled wood itself goes by the same name — and an elder is a tree.",
+    "features": {
+     "misdirectedWord": "elder",
+     "joke": "pun",
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "8-down",
@@ -129,7 +369,37 @@ window.CRYPTIC_PUZZLES["quiptic-1399"] = /*JSON-START*/ {
    "clue": "Call for attention when sounding drunk? (4)",
    "separatorLocations": {},
    "solution": "PSST",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "PSST",
+    "definition": "Call for attention",
+    "indicators": [
+     "sounding"
+    ],
+    "indicatorNotes": {
+     "sounding": "Sounding asks for what the ear catches rather than what the page shows, so write down the noise and not the spelling."
+    },
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drunk",
+      "soundsLike": "PISSED",
+      "gives": "PSST",
+      "note": "pissed is British slang for drunk, and the same noise squeezed down to a hiss is what lands on the page"
+     }
+    ],
+    "surface": "Someone slurring an appeal for attention after a few too many.",
+    "walkthrough": "The vowels fall out of the word on the way from the mouth to the grid, which is the whole joke. British 'pissed' means drunk, not angry — the American sense would sink the clue.",
+    "definitionFit": "It is the hiss you make to catch one person's eye without the rest of the room hearing, a call for attention in a single breath.",
+    "features": {
+     "misdirectedWord": "sounding",
+     "joke": "pun",
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "9-across",
@@ -143,7 +413,37 @@ window.CRYPTIC_PUZZLES["quiptic-1399"] = /*JSON-START*/ {
    "clue": "Plenty supporting merger (9)",
    "separatorLocations": {},
    "solution": "PROFUSION",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PROFUSION",
+    "definition": "Plenty",
+    "indicators": [],
+    "pieces": [
+     "PRO",
+     "FUSION"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "supporting",
+      "gives": "PRO",
+      "note": "pro is the side that is for the motion rather than against it"
+     },
+     {
+      "clueFragment": "merger",
+      "gives": "FUSION",
+      "note": "a fusion of two firms is the two of them run together into one"
+     }
+    ],
+    "surface": "A shareholder backing a corporate takeover.",
+    "walkthrough": "'Supporting' looks like the sort of word that tells you where to put a chunk, and here it simply hands over three letters. 'Plenty' has to be read as a noun — plenty of something — to match what it defines.",
+    "definitionFit": "Plenty in its noun sense is an abundance, and a profusion is exactly that: more of something spilling out than anyone needs.",
+    "features": {
+     "misdirectedWord": "supporting",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "10-across",
@@ -157,7 +457,45 @@ window.CRYPTIC_PUZZLES["quiptic-1399"] = /*JSON-START*/ {
    "clue": "Extremely advanced operating system is so long (5)",
    "separatorLocations": {},
    "solution": "ADIOS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters",
+    "answer": "ADIOS",
+    "definition": "so long",
+    "indicators": [
+     "Extremely"
+    ],
+    "indicatorNotes": {
+     "Extremely": "The extremes of a word are its two far ends, so only the opening and closing letters of the word beside it survive."
+    },
+    "linkWords": [
+     "is"
+    ],
+    "pieces": [
+     "AD",
+     "IOS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Extremely advanced",
+      "gives": "AD",
+      "note": "the first and last letters of ADVANCED, the middle six discarded"
+     },
+     {
+      "clueFragment": "operating system",
+      "gives": "IOS",
+      "note": "iOS is the software that runs an iPhone, now the setter's shortest operating system"
+     }
+    ],
+    "surface": "A cutting-edge computer system taking its leave.",
+    "walkthrough": "'So long' sits at the end looking like a measurement trailing the sentence, and it is the casual goodbye. Read the clue's first two words as an instruction rather than as praise and the rest falls out.",
+    "definitionFit": "Adios is the Spanish farewell, borrowed into English for exactly the offhand parting that 'so long' covers.",
+    "features": {
+     "misdirectedWord": "long",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "11-across",
@@ -175,7 +513,41 @@ window.CRYPTIC_PUZZLES["quiptic-1399"] = /*JSON-START*/ {
     ]
    },
    "solution": "RINGOFF",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "RING OFF",
+    "definition": "hang up",
+    "indicators": [
+     "shaking off"
+    ],
+    "indicatorNotes": {
+     "shaking off": "To shake something off is to be rid of it, so the letter named next drops out of the phrase in front."
+    },
+    "pieces": [
+     "RINGOFF"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Succeed in",
+      "gives": "BRINGOFF",
+      "note": "to bring something off is to succeed in doing it, as in bringing off a difficult deal"
+     },
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "B is the standard short form of British, the letter that goes"
+     }
+    ],
+    "surface": "Finally getting past a very British inhibition.",
+    "walkthrough": "A hang-up on the surface is a neurosis, and in the parse the two words are the telephone verb. 'Succeed in' has to be taken as one phrase — the 'in' belongs to it and is not joinery.",
+    "definitionFit": "To ring off is to end a call by putting the receiver down, which is what hanging up on someone means.",
+    "features": {
+     "misdirectedWord": "hang",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "12-across",
@@ -189,7 +561,40 @@ window.CRYPTIC_PUZZLES["quiptic-1399"] = /*JSON-START*/ {
    "clue": "Settle at home with familiar routine (7)",
    "separatorLocations": {},
    "solution": "INHABIT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "INHABIT",
+    "definition": "Settle",
+    "indicators": [],
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "IN",
+     "HABIT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "at home",
+      "gives": "IN",
+      "note": "somebody at home is in, the answer to 'is she in?'"
+     },
+     {
+      "clueFragment": "familiar routine",
+      "gives": "HABIT",
+      "note": "a habit is the routine you fall into without deciding to"
+     }
+    ],
+    "surface": "Moving in somewhere and keeping to the usual domestic routine.",
+    "walkthrough": "'Settle' carries a dozen senses — a bill, an argument, dust — and the one wanted is the oldest, to take up residence. The rest of the clue stays in the same cosy scene, which hides the seam after the first word.",
+    "definitionFit": "To inhabit a place is to live in it, and settlers are people who settle somewhere in exactly that sense.",
+    "features": {
+     "misdirectedWord": "Settle",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "13-across",
@@ -207,7 +612,33 @@ window.CRYPTIC_PUZZLES["quiptic-1399"] = /*JSON-START*/ {
     ]
    },
    "solution": "PERSE",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "PER SE",
+    "definition": "Essentially",
+    "indicators": [
+     "somewhat"
+    ],
+    "indicatorNotes": {
+     "somewhat": "Somewhat means partly, so only a part of what follows is wanted — and a part taken as it stands, without rearranging."
+    },
+    "blocks": [
+     {
+      "clueFragment": "hypersensitive",
+      "gives": "PERSE",
+      "note": "five consecutive letters sit in the middle of the word, straddling the join between its two halves"
+     }
+    ],
+    "surface": "Calling something basically a bit oversensitive.",
+    "walkthrough": "'Essentially' looks like the adverb that opens a remark and is the definition, while the modest-sounding 'somewhat' is the word doing the work. A two-word answer hidden inside one long word is the hardest place to look.",
+    "definitionFit": "Per se is the Latin for 'by itself', used of a thing taken in its own right — which is the job 'essentially' does in English.",
+    "features": {
+     "misdirectedWord": "somewhat",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "14-across",
@@ -225,7 +656,37 @@ window.CRYPTIC_PUZZLES["quiptic-1399"] = /*JSON-START*/ {
     ]
    },
    "solution": "SCOREDRAW",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SCORE DRAW",
+    "definition": "outcome of game",
+    "indicators": [],
+    "pieces": [
+     "SCORED",
+     "RAW"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Orchestrated",
+      "gives": "SCORED",
+      "note": "to score a piece of music is to write it out for the players, which is what orchestrating it means"
+     },
+     {
+      "clueFragment": "bloody",
+      "gives": "RAW",
+      "note": "raw meat is red and bloody, straight from the butcher"
+     }
+    ],
+    "surface": "A violent end to a match.",
+    "walkthrough": "'Bloody' is the British swear word on the surface and plain red in the parse. The two chunks do not break where the entry does — the join falls one letter inside the second word, which is what makes the clue hard to see.",
+    "definitionFit": "In British football results a score draw is one where both sides found the net and still finished level, as against a goalless draw.",
+    "features": {
+     "misdirectedWord": "bloody",
+     "joke": "pun",
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "14-down",
@@ -243,7 +704,51 @@ window.CRYPTIC_PUZZLES["quiptic-1399"] = /*JSON-START*/ {
     ]
    },
    "solution": "SADDLESORE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SADDLE SORE",
+    "definition": "how jockeys may feel",
+    "indicators": [
+     "after"
+    ],
+    "indicatorNotes": {
+     "after": "After is plain sequence: whatever comes after something else is written down later, so this chunk lands at the end."
+    },
+    "linkWords": [
+     "It’s"
+    ],
+    "pieces": [
+     "S",
+     "ADDLE",
+     "SORE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "s is the clock's short form for a second"
+     },
+     {
+      "clueFragment": "mix-up",
+      "gives": "ADDLE",
+      "note": "to addle something is to muddle it, the way an addled brain is a confused one"
+     },
+     {
+      "clueFragment": "Angry",
+      "gives": "SORE",
+      "note": "sore for angry is chiefly American — a sore loser is one who takes defeat badly"
+     }
+    ],
+    "surface": "Losing your temper over yet another blunder.",
+    "walkthrough": "'Mix-up' looks like an instruction to shuffle letters and is a plain synonym instead, which is the trap. The question mark covers the definition: it is how a jockey may feel, not how one must.",
+    "definitionFit": "Hours in the saddle chafe a rider raw, and saddle sore is the horseman's own word for the state he climbs down in.",
+    "features": {
+     "misdirectedWord": "mix-up",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "15-down",
@@ -261,7 +766,39 @@ window.CRYPTIC_PUZZLES["quiptic-1399"] = /*JSON-START*/ {
     ]
    },
    "solution": "WETBLANKET",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "WET BLANKET",
+    "definition": "Killjoy",
+    "indicators": [
+     "doctored"
+    ],
+    "indicatorNotes": {
+     "doctored": "A doctored photograph has been tampered with and its parts moved around, and letters get the same treatment."
+    },
+    "linkWords": [
+     "is"
+    ],
+    "anagram": {
+     "fodder": "KNEW TABLET"
+    },
+    "blocks": [
+     {
+      "clueFragment": "knew tablet",
+      "gives": "KNEWTABLET",
+      "note": "anagram fodder, ten letters"
+     }
+    ],
+    "surface": "Spotting that a pill has been tampered with.",
+    "walkthrough": "'Tablet' is medicine on the surface, which is what makes 'doctored' read as part of the story rather than as the instruction. The definition is the single word at the front, and everything after it shuffles.",
+    "definitionFit": "A wet blanket is what you smother a fire with, and the person who does the same to everyone else's fun is a killjoy.",
+    "features": {
+     "misdirectedWord": "doctored",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "16-across",
@@ -279,7 +816,39 @@ window.CRYPTIC_PUZZLES["quiptic-1399"] = /*JSON-START*/ {
     ]
    },
    "solution": "UNDERADVISEMENT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "UNDER ADVISEMENT",
+    "definition": "being considered",
+    "indicators": [
+     "at sea"
+    ],
+    "indicatorNotes": {
+     "at sea": "Something at sea is adrift with no bearings, so these letters float out of the order they were handed over in."
+    },
+    "linkWords": [
+     "It’s"
+    ],
+    "anagram": {
+     "fodder": "END MISADVENTURE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "End misadventure",
+      "gives": "ENDMISADVENTURE",
+      "note": "anagram fodder, fifteen letters — the full width of the grid"
+     }
+    ],
+    "surface": "Putting a stop to a disaster out on the water.",
+    "walkthrough": "'End' looks like an instruction to take a last letter and is fodder; the letter count settles it, fifteen for a fifteen-square row. The phrase is what a court or a minister says while a decision is still pending.",
+    "definitionFit": "To take a matter under advisement is to hold it for thought rather than rule on it now, so the matter is being considered.",
+    "features": {
+     "misdirectedWord": "End",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "17-down",
@@ -293,7 +862,39 @@ window.CRYPTIC_PUZZLES["quiptic-1399"] = /*JSON-START*/ {
    "clue": "Court’s in disarray because of such disputes? (8)",
    "separatorLocations": {},
    "solution": "RUCTIONS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "RUCTIONS",
+    "definition": "such disputes",
+    "indicators": [
+     "disarray"
+    ],
+    "indicatorNotes": {
+     "disarray": "Disarray is the state of things knocked out of their proper arrangement, which is what has happened to these letters."
+    },
+    "linkWords": [
+     "because of"
+    ],
+    "anagram": {
+     "fodder": "COURTS IN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Court’s in",
+      "gives": "COURTSIN",
+      "note": "the apostrophe-s throws in a letter of its own: eight in all"
+     }
+    ],
+    "surface": "A courtroom thrown into chaos by the rows it is there to settle.",
+    "walkthrough": "'Court's in' reads as an announcement that the judge has sat down, and it is eight letters of fodder with the apostrophe-s counted in. The question mark admits the definition points back at the clue rather than standing alone.",
+    "definitionFit": "Ructions are noisy rows and uproar — the word, Irish in flavour, for a dispute that has stopped being quiet.",
+    "features": {
+     "misdirectedWord": "Court",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "18-down",
@@ -307,7 +908,55 @@ window.CRYPTIC_PUZZLES["quiptic-1399"] = /*JSON-START*/ {
    "clue": "Outburst sees heartless Timon supporting virtuous uprising (8)",
    "separatorLocations": {},
    "solution": "ERUPTION",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal + deletion",
+    "answer": "ERUPTION",
+    "definition": "Outburst",
+    "indicators": [
+     "heartless",
+     "uprising",
+     "supporting"
+    ],
+    "indicatorNotes": {
+     "heartless": "A heartless word has lost what sits at its very centre, the letter with equal numbers either side of it.",
+     "uprising": "In a down clue an uprising climbs the grid, so those letters are written bottom to top.",
+     "supporting": "A support sits underneath whatever it holds up, so this chunk goes below the other in the column."
+    },
+    "linkWords": [
+     "sees"
+    ],
+    "pieces": [
+     "ERUP",
+     "TION"
+    ],
+    "subReversals": [
+     {
+      "from": "PURE",
+      "to": "ERUP"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "virtuous uprising",
+      "gives": "ERUP",
+      "note": "the virtuous word is PURE, climbing the column instead of running down it"
+     },
+     {
+      "clueFragment": "heartless Timon",
+      "gives": "TION",
+      "note": "TIMON with the M at its centre taken out"
+     }
+    ],
+    "surface": "A cold-hearted Timon throwing his weight behind a righteous revolt.",
+    "walkthrough": "Timon is Shakespeare's Athenian misanthrope, so 'heartless' reads as a note on his character rather than as an instruction to gut the word. In a down clue 'supporting' is about position, not sympathy.",
+    "definitionFit": "An eruption is what bursts out when pressure finally wins — a volcano's, or a temper's — so either way it is an outburst.",
+    "features": {
+     "misdirectedWord": "heartless",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "19-across",
@@ -325,7 +974,37 @@ window.CRYPTIC_PUZZLES["quiptic-1399"] = /*JSON-START*/ {
     ]
    },
    "solution": "STEMCELLS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "STEM CELLS",
+    "definition": "that could become anything",
+    "indicators": [],
+    "pieces": [
+     "STEM",
+     "CELLS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stalk",
+      "gives": "STEM",
+      "note": "the stalk a flower stands on is its stem"
+     },
+     {
+      "clueFragment": "groups",
+      "gives": "CELLS",
+      "note": "a cell is the smallest unit of a party or a resistance movement, a group of a few"
+     }
+    ],
+    "surface": "Trailing shadowy groups that might turn into anything.",
+    "walkthrough": "'Stalk' reads as the verb that makes the clue an act of following, and it is a noun in the parse — the part of a plant, not a pursuit.",
+    "definitionFit": "Stem cells are the unspecialised ones the body can turn into any tissue it needs, so 'could become anything' is their whole medical interest.",
+    "features": {
+     "misdirectedWord": "Stalk",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "20-down",
@@ -339,7 +1018,40 @@ window.CRYPTIC_PUZZLES["quiptic-1399"] = /*JSON-START*/ {
    "clue": "Elevation – moving top to bottom – is 12.5% (6)",
    "separatorLocations": {},
    "solution": "EIGHTH",
-   "annotation": null
+   "annotation": {
+    "type": "cycling",
+    "answer": "EIGHTH",
+    "definition": "12.5%",
+    "indicators": [
+     "moving top to bottom"
+    ],
+    "indicatorNotes": {
+     "moving top to bottom": "It names the move exactly: the letter standing at the top of the column goes to the bottom, the rest keeping their order and shuffling up."
+    },
+    "linkWords": [
+     "is"
+    ],
+    "pieces": [
+     "EIGHT",
+     "H"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Elevation",
+      "gives": "HEIGHT",
+      "note": "elevation above sea level is height, and all six letters stay in that order once the front one has moved"
+     }
+    ],
+    "surface": "A road sign giving a hill's steepness as a percentage.",
+    "walkthrough": "The dashes fence off the instruction, and it is unusually literal: in a down entry the top letter really does travel to the bottom. The definition is a figure rather than a word, which is what makes it easy to skip over.",
+    "definitionFit": "One part in eight is 12.5 per cent, so the fraction and the percentage are two ways of writing the same share.",
+    "features": {
+     "misdirectedWord": null,
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "21-across",
@@ -353,7 +1065,36 @@ window.CRYPTIC_PUZZLES["quiptic-1399"] = /*JSON-START*/ {
    "clue": "Beadle urged to hold back such poor food (5)",
    "separatorLocations": {},
    "solution": "GRUEL",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "GRUEL",
+    "definition": "such poor food",
+    "indicators": [
+     "hold back"
+    ],
+    "indicatorNotes": {
+     "hold back": "To hold something back is both to keep it inside and to stop it going forward, so the letters sit within these words and run the other way."
+    },
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Beadle urged",
+      "gives": "GRUEL",
+      "note": "five consecutive letters straddle the gap between the two words and are read from right to left"
+     }
+    ],
+    "surface": "A workhouse official being urged to withhold the thin stuff he serves.",
+    "walkthrough": "The beadle is Dickens's Mr Bumble, the workhouse officer Oliver Twist asks for more from, so the surface and the answer come from the same scene. 'Hold back' is doing two jobs at once: conceal, and turn round.",
+    "definitionFit": "Gruel is oatmeal boiled thin in water, the workhouse dish that stands for food at its meanest.",
+    "features": {
+     "misdirectedWord": "hold",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "21-down",
@@ -371,7 +1112,47 @@ window.CRYPTIC_PUZZLES["quiptic-1399"] = /*JSON-START*/ {
     ]
    },
    "solution": "GALPAL",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "GAL PAL",
+    "definition": "Female friend",
+    "indicators": [
+     "recruiting"
+    ],
+    "indicatorNotes": {
+     "recruiting": "To recruit somebody is to take them into your own ranks, so the word just clued opens up and holds the next one inside."
+    },
+    "linkWords": [
+     "shows",
+     "when"
+    ],
+    "pieces": [
+     "GAL",
+     "PA",
+     "L"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "audacity",
+      "gives": "GALL",
+      "note": "gall is brass-necked nerve — he had the gall to ask"
+     },
+     {
+      "clueFragment": "assistant",
+      "gives": "PA",
+      "note": "a PA is the personal assistant who keeps the boss's diary"
+     }
+    ],
+    "surface": "A woman's friend showing some nerve by signing up a helper.",
+    "walkthrough": "'Female friend' is both the definition and the subject of the sentence, so the clue offers no visible seam and only the enumeration gives it away. The insertion splits a doubled letter, which is why the two halves come out uneven.",
+    "definitionFit": "Gal pal is the tabloids' phrase for a woman's female friend, wheeled out whenever a paper wants to stop short of saying girlfriend.",
+    "features": {
+     "misdirectedWord": "recruiting",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "22-across",
@@ -385,7 +1166,46 @@ window.CRYPTIC_PUZZLES["quiptic-1399"] = /*JSON-START*/ {
    "clue": "Fool lost third of goods in robberies (7)",
    "separatorLocations": {},
    "solution": "MUGGINS",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "MUGGINS",
+    "definition": "Fool",
+    "indicators": [
+     "lost",
+     "third of"
+    ],
+    "indicatorNotes": {
+     "lost": "What you have lost you no longer have, so the thing named next is simply gone from the word it sat in.",
+     "third of": "Third of a set picks the one that comes third in reading order, counting only the things it names and ignoring everything between them."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "MUGGINS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "robberies",
+      "gives": "MUGGINGS",
+      "note": "muggings are robberies carried out in the street"
+     },
+     {
+      "clueFragment": "third of goods",
+      "gives": "G",
+      "note": "G stands for good on a school report, so the goods are the three Gs in the word above and the last of the three drops out"
+     }
+    ],
+    "surface": "An idiot who mislaid part of the haul during a run of street robberies.",
+    "walkthrough": "'Third of goods' sounds like a share of the loot and is counting letters instead — the Gs standing in the word the clue has just handed over.",
+    "definitionFit": "Muggins is British slang for the sap everyone takes advantage of, usually said of oneself: muggins here paid for lunch.",
+    "features": {
+     "misdirectedWord": "goods",
+     "joke": "pun",
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "22-down",
@@ -399,7 +1219,37 @@ window.CRYPTIC_PUZZLES["quiptic-1399"] = /*JSON-START*/ {
    "clue": "Exploit married type (4)",
    "separatorLocations": {},
    "solution": "MILK",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MILK",
+    "definition": "Exploit",
+    "indicators": [],
+    "pieces": [
+     "M",
+     "ILK"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "married",
+      "gives": "M",
+      "note": "M is the form-filler's mark for married, next to S for single"
+     },
+     {
+      "clueFragment": "type",
+      "gives": "ILK",
+      "note": "your ilk is your sort — people of that ilk"
+     }
+    ],
+    "surface": "Taking advantage of a certain kind of married person.",
+    "walkthrough": "'Exploit' has a noun sense, a daring deed, and a verb sense, to squeeze a thing for all it is worth; only the verb is wanted. 'Ilk' is Scots in origin and survives almost nowhere outside the phrase 'of that ilk'.",
+    "definitionFit": "To milk a situation is to draw every last advantage out of it, which is exploiting it in the verb's plainest sense.",
+    "features": {
+     "misdirectedWord": "Exploit",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "23-across",
@@ -413,7 +1263,46 @@ window.CRYPTIC_PUZZLES["quiptic-1399"] = /*JSON-START*/ {
    "clue": "Training group operating with bunch of cyclists (7)",
    "separatorLocations": {},
    "solution": "PELOTON",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PELOTON",
+    "definition": "bunch of cyclists",
+    "indicators": [],
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "PE",
+     "LOT",
+     "ON"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Training",
+      "gives": "PE",
+      "note": "PE is physical education, the gym lesson on a British school timetable"
+     },
+     {
+      "clueFragment": "group",
+      "gives": "LOT",
+      "note": "a lot is a group taken together — the whole lot of them"
+     },
+     {
+      "clueFragment": "operating",
+      "gives": "ON",
+      "note": "a machine that is operating is switched on"
+     }
+    ],
+    "surface": "A fitness class in session.",
+    "walkthrough": "Three short chunks in the order they are clued, with nothing telling you where to put them. The only real difficulty is seeing that 'Training group' is two jobs and not one phrase.",
+    "definitionFit": "The peloton is the main pack in a road race, the bunch that rides in a clump to share the work against the wind.",
+    "features": {
+     "misdirectedWord": "group",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "23-down",
@@ -427,7 +1316,42 @@ window.CRYPTIC_PUZZLES["quiptic-1399"] = /*JSON-START*/ {
    "clue": "Personnel in ground staff initially are those unable to fly (4)",
    "separatorLocations": {},
    "solution": "PIGS",
-   "annotation": null
+   "annotation": {
+    "type": "first letters",
+    "answer": "PIGS",
+    "definition": "those unable to fly",
+    "indicators": [
+     "initially"
+    ],
+    "indicatorNotes": {
+     "initially": "Initially means at the very start, so only the opening letter of each word it governs is taken."
+    },
+    "linkWords": [
+     "are"
+    ],
+    "pieces": [
+     "P",
+     "I",
+     "G",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Personnel in ground staff",
+      "gives": "PIGS",
+      "note": "four words, each surrendering the letter it begins with, in the order written"
+     }
+    ],
+    "surface": "Airfield crew who never leave the tarmac.",
+    "walkthrough": "'Ground staff' keeps the surface in an aerodrome, where the people who do not fly are simply the ones who stay by the hangar. The definition leans on the old saying about the impossible finally happening.",
+    "definitionFit": "'Pigs might fly' is the English way of saying something will never happen, which makes the pig the standing example of an animal stuck on the ground.",
+    "features": {
+     "misdirectedWord": "ground",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "24-across",
@@ -445,7 +1369,43 @@ window.CRYPTIC_PUZZLES["quiptic-1399"] = /*JSON-START*/ {
     ]
    },
    "solution": "LETON",
-   "annotation": null
+   "annotation": {
+    "type": "alternate letters",
+    "answer": "LET ON",
+    "definition": "Reveal",
+    "indicators": [
+     "oddly lacking"
+    ],
+    "indicatorNotes": {
+     "oddly lacking": "The odd letters are the first, third, fifth and so on; lacking those leaves the even ones, still in order."
+    },
+    "linkWords": [
+     "is"
+    ],
+    "pieces": [
+     "L",
+     "E",
+     "T",
+     "O",
+     "N"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "eldest born",
+      "gives": "LETON",
+      "note": "ten letters across the two words, and every second one survives, counting from the second letter"
+     }
+    ],
+    "surface": "Admitting that the firstborn is a little bit wanting.",
+    "walkthrough": "'Oddly' is the usual flag for taking every second letter, and 'lacking' flips which half survives — without it the letters collected would be the other five.",
+    "definitionFit": "To let on is to give away what you know — don't let on I told you — so it is revealing what you were meant to keep quiet.",
+    "features": {
+     "misdirectedWord": "oddly",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "25-across",
@@ -459,7 +1419,39 @@ window.CRYPTIC_PUZZLES["quiptic-1399"] = /*JSON-START*/ {
    "clue": "Complicated procedure creating large Miro reproduction (9)",
    "separatorLocations": {},
    "solution": "RIGMAROLE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "RIGMAROLE",
+    "definition": "Complicated procedure",
+    "indicators": [
+     "reproduction"
+    ],
+    "indicatorNotes": {
+     "reproduction": "A reproduction is a copy built again out of the same parts, and these parts come back in a different arrangement."
+    },
+    "linkWords": [
+     "creating"
+    ],
+    "anagram": {
+     "fodder": "LARGE MIRO"
+    },
+    "blocks": [
+     {
+      "clueFragment": "large Miro",
+      "gives": "LARGEMIRO",
+      "note": "anagram fodder, nine letters"
+     }
+    ],
+    "surface": "Running off a big copy of a Miró canvas.",
+    "walkthrough": "Joan Miró is the Catalan painter, so the last three words read as a poster of one of his pictures and the shuffling word hides among them. The definition is the two words at the front.",
+    "definitionFit": "A rigmarole is a long-winded palaver of steps you have to go through, which is a complicated procedure with the exasperation left in.",
+    "features": {
+     "misdirectedWord": "reproduction",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 } /*JSON-END*/;
