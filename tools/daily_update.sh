@@ -1023,6 +1023,13 @@ fi
 # replaced were gitignored too, and they piled up one per puzzle for months.
 rm -f "$REPO/tools/_ann_"*.json
 
+# Stamping is a build step, so the stamps come back off before anything is
+# staged. A ?v= hash committed into index.html changes on every asset edit and
+# on every reindex (puzzles/index.js is stamped too), which is churn in a
+# tracked file and the thing this job's rebase collides in night after night.
+# The deploy workflow stamps its own checkout, so what ships is stamped anyway.
+python3 tools/stamp_assets.py --unstamp
+
 if [ -n "$(git status --porcelain)" ]; then
   # Everything, because this tree contains nothing else: the run started at
   # origin/master in a worktree of its own, so whatever is modified or new here
