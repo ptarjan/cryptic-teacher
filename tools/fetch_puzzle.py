@@ -501,6 +501,46 @@ def puzzle_is_annotated(puzzle):
                or e.get("clueCorrupt") for e in puzzle["entries"])
 
 
+# How much fifteensquared's readers talked about each puzzle, as a percentile
+# against the OTHER PUZZLES IN ITS OWN SERIES. Never the raw count: a Guardian
+# cryptic thread runs a median of 64 comments against 10 for an Independent, so
+# ranking the collection on the number would sort the papers and nothing else.
+# Same posture as difficulty — a position among peers, not an absolute.
+#
+# Ties share the average of the places they cover, so twenty puzzles on 11
+# comments do not hand the last of them a rank the first did not earn.
+#
+# tools/build_buzz.py writes the counts, from a comment cache that lives outside
+# the repo; this reads only the committed file, because the site is built in CI
+# where that cache does not exist.
+def buzz_percentiles(puzzles):
+    path = Path(__file__).resolve().parent / "data" / "fifteensquared_buzz.json"
+    try:
+        counts = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError) as err:
+        print(f"buzz ranking skipped: {err}")
+        return {}
+    by_series = {}
+    for p in puzzles:
+        n = counts.get(p["id"])
+        if n is not None:
+            by_series.setdefault(p["series"], []).append((n, p["id"]))
+    out = {}
+    for rows in by_series.values():
+        rows.sort()
+        i = 0
+        while i < len(rows):
+            j = i
+            while j + 1 < len(rows) and rows[j + 1][0] == rows[i][0]:
+                j += 1
+            place = (i + j) / 2.0
+            pct = round(100.0 * place / (len(rows) - 1)) if len(rows) > 1 else 50
+            for n, pid in rows[i:j + 1]:
+                out[pid] = {"comments": n, "percentile": pct}
+            i = j + 1
+    return out
+
+
 def reindex():
     # Difficulty needs every puzzle at once (each rating is relative to the
     # others), so it is scored in one pass here rather than per-file. It stays
@@ -547,6 +587,12 @@ def reindex():
                 "basis": rating["basis"],
             },
         })
+    # After the loop, because a place in a ranking needs the whole field.
+    # Absent for a puzzle the blog never covered — the site tags nothing it has
+    # no number for, rather than reading silence as a quiet reception.
+    buzz = buzz_percentiles(puzzles)
+    for p in puzzles:
+        p["buzz"] = buzz.get(p["id"])
     # Newest first BY DATE, not by number. With one series those agreed; with
     # three they don't — quiptic 1,393 and cryptic 30,073 came out the same week,
     # and sorting on the number would bury every quiptic below every cryptic

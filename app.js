@@ -4621,6 +4621,21 @@
     const day = WEEKDAYS[dt.getUTCDay()] || "";
     return { iso: dt.toISOString().slice(0, 10), day, short: day.slice(0, 3) };
   }
+  // "Which one is worth doing" has no answer the clues themselves can give: a
+  // quality score built from them ranked 551 favourite-clue votes at rho -0.116,
+  // and at -0.007 once the size of the blog thread was held constant — the
+  // thread size was the whole of it, at +0.833. So this offers the thing that
+  // measured as real, named for what it actually is. tools/build_buzz.py and
+  // tools/fetch_puzzle.py carry the rest of that reasoning.
+  //
+  // The cut is the top quarter of a puzzle's OWN paper, because the percentile
+  // behind it already is: a Guardian thread runs six times an Independent one
+  // whatever the puzzle was like.
+  const BUZZ_POPULAR = 75;
+  function isPopular(p) {
+    return !!(p.buzz && p.buzz.percentile >= BUZZ_POPULAR);
+  }
+
   function pickerHaystack(p) {
     const dd = puzzleDate(p);
     const d = dd.iso;
@@ -4638,6 +4653,7 @@
     const series = p.series || "cryptic";
     return [p.number, String(p.number).replace(/(\d)(\d{3})$/, "$1,$2"), p.setter, d, dd.day,
       series, (SERIES_BADGE[series] || [""])[0], p.difficulty ? p.difficulty.band : "",
+      isPopular(p) ? "popular" : "",
       st.done ? "solved done" : st.filled ? "started unfinished" : ""].join(" ").toLowerCase();
   }
   // What the panel offers as you type. Only the terms a solver could not be
@@ -4664,7 +4680,7 @@
   function pickerSuggestTerms(q) {
     if (q.length < PICKER_SUGGEST_MIN) return [];
     if (pickerTerms === null) {
-      const seen = { solved: 1, unfinished: 1 };
+      const seen = { solved: 1, unfinished: 1, popular: 1 };
       INDEX.puzzles.forEach((p) => {
         [p.setter, (SERIES_BADGE[p.series || "cryptic"] || [""])[0],
          p.difficulty ? p.difficulty.band : "",
@@ -4831,7 +4847,7 @@
     // can be short enough to BE what you have typed ("Ix"), and dropping it at
     // that moment takes away the one tap that undoes it.
     const standing = {};
-    pickerPaperList().concat(pickerBandList())
+    pickerPaperList().concat(pickerBandList()).concat(["popular"])
       .forEach((w) => { standing[w.toLowerCase()] = 1; });
     const suggest = pickerSuggestTerms(q).filter((t) => !standing[t.toLowerCase()]);
     setHTML($("picker-filters"),
@@ -4840,7 +4856,13 @@
                 (w) => "series series-" + esc(seriesKeyForLabel(w)), "pf-")
         + group("Difficulty", pickerBandList(), (b) => "diff diff-" + esc(b), "pf-", 2,
                 `<button type="button" id="pf-diff-help" class="badge help" aria-expanded="${
-                  diffNoteOpen}" aria-label="What the difficulty bands mean">?</button>`));
+                  diffNoteOpen}" aria-label="What the difficulty bands mean">?</button>`)
+        // One chip, so min 1 — and its meaning said outright beside it rather
+        // than behind a ? the way the bands are. A band is a word that explains
+        // itself once you know it is a band; "popular" is a word this site has
+        // to say whose opinion it is quoting, and it is not ours.
+        + group("Talked about", ["popular"], () => "tag", "pb-", 1,
+                `<span class="muted small-note">busiest fifteensquared threads, paper by paper</span>`));
     setHTML($("picker-diff-note"), diffNoteOpen ? difficultyNoteHTML() : "");
     const help = $("pf-diff-help");
     if (help) help.onclick = () => { diffNoteOpen = !diffNoteOpen; renderPicker(); };
