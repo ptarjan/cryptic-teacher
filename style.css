@@ -258,7 +258,14 @@ button:disabled:hover { border-color: var(--line); }
    A single-word answer puts exactly one disc in here, so this row is the layout
    for both cases rather than a special one for the long answers. */
 .ana-discs { display: flex; flex-wrap: wrap; justify-content: center;
-             align-items: center; gap: 4px 12px; }
+             align-items: center; gap: 4px 28px; }
+/* A rule between the rings, in the gap rather than around them: two circles
+   side by side with nothing between them read as one scattered set of letters,
+   and a border drawn ROUND a disc would touch the tiles, which sit exactly on
+   the edge of their box. Only ever between — the first disc has nothing to its
+   left to be separated from. */
+.ana-disc + .ana-disc { border-left: 1px solid var(--line); padding-left: 28px;
+                        margin-left: -14px; }
 .ana-disc { position: relative; cursor: text; }
 /* The visible focus ring the letters area needs to feel like a text field.
    Not :focus-within — #ana-kbd is not a DOM descendant of the disc (see its
