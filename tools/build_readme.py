@@ -70,6 +70,7 @@ LAYOUT = [
     ("fetching", "tools/fetch_globeandmail.py", "the Globe and Mail’s cryptic, a Times of London syndication, decoded from its Amuse Labs player"),
     ("fetching", "tools/fetch_privateeye.py", "Private Eye’s Cyclops — the grid from the paper, the answers joined from fifteensquared, which is the only place they are published"),
     ("fetching", "tools/fetch_metro.py", "the Metro’s cryptic; today’s only, because the paper keeps no archive"),
+    ("fetching", "tools/coverage_report.py", "counts what we hold of every series and names the ones that have gone quiet, were never backfilled, or are full of holes"),
     ("fetching", "tools/extend_archive.py", "walks the archives backwards to keep the annotation queue deeper than the job's best week"),
     ("fetching", "tools/fetch_minutecryptic.js", "Minute Cryptic’s daily hints, as a corpus to be measured against"),
     ("fetching", "tools/recover_minutecryptic.py", "refills days that capture missed from Minute Cryptic’s own video titles, dated by clue number because the upload date lags"),
