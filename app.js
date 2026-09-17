@@ -4608,6 +4608,10 @@
       Saturday. About as hard as the Guardian, with a regular cast of setters —
       Phi, Quince, Eccles, Hippogryph — so their habits are worth learning if you
       like one of them.`],
+    globeandmail: ["globe & mail", `The Globe and Mail's daily cryptic — syndicated
+      from the Times of London, and 13x13 rather than the Times' own 15x15, so it
+      is the short, crisp end of that house style: tight surfaces, no obscurity,
+      and a solve you can finish on a coffee.`],
     indysunday: ["indy sunday", `The Independent on Sunday's cryptic — its own
       weekly numbering, near 1,900 while the daily is past 12,400. Same stable of
       setters as the daily, and pitched about the same.`],
