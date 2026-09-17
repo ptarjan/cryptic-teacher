@@ -1549,6 +1549,32 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
         assert(inWord === w.length,
           `${m.id} ${m.e.id}: ${inWord} tiles before break ${i}, ${w} is ${w.length}`);
       });
+      // Every word is broken from its neighbour, INCLUDING the last from the
+      // first. A circle has no end, so a gap only between words leaves the last
+      // word running straight into the first and the shape unreadable at
+      // exactly the place it wraps. Measured off the tiles' own coordinates
+      // rather than recomputing the layout formula here: the step between two
+      // letters inside a word is one pitch, and across a break it is two.
+      const pos = [...html.matchAll(
+        /left:calc\(50% \+ (-?\d+)px\);\s*\n?\s*top:calc\(50% \+ (-?\d+)px\)/g)]
+        .map((p2) => Math.atan2(Number(p2[2]), Number(p2[1])));
+      assert(pos.length === tiles,
+        `${m.id} ${m.e.id}: read ${pos.length} tile positions off ${tiles} tiles`);
+      const TAU = 2 * Math.PI;
+      const steps = pos.map((a, i) => ((pos[(i + 1) % pos.length] - a) % TAU + TAU) % TAU);
+      const unit = Math.min(...steps);
+      // A tile's index in DOM order is its index in ring order, so the step
+      // AFTER the last letter of word i is the break that follows it.
+      let at = -1;
+      m.words.forEach((w, i) => {
+        at += w.length;
+        assert(steps[at] > unit * 1.5,
+          `${m.id} ${m.e.id}: no gap after ${w}` +
+          (i === m.words.length - 1 ? " — the ring wraps straight into the first word" : ""));
+      });
+      assert(steps.filter((x) => x > unit * 1.5).length === m.words.length,
+        `${m.id} ${m.e.id}: ${steps.filter((x) => x > unit * 1.5).length} gaps for ` +
+        `${m.words.length} words — a gap sits somewhere that is not a word end`);
       split++;
     }
     assert(split > 5, "broken rings actually drawn: " + split);
