@@ -81,6 +81,10 @@ window.CRYPTIC_PUZZLES["cyclops-461"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "(& 28dn.) Doubly unlikely from a prevaricating, openly gay politician? (8)",
+   "group": [
+    "5-down",
+    "28-down"
+   ],
    "separatorLocations": {},
    "solution": "STRAIGHT",
    "annotation": null
@@ -123,6 +127,10 @@ window.CRYPTIC_PUZZLES["cyclops-461"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 13ac. (7)",
+   "group": [
+    "13-across",
+    "8-down"
+   ],
    "separatorLocations": {},
    "solution": "MOUTHED",
    "annotation": null
@@ -193,6 +201,10 @@ window.CRYPTIC_PUZZLES["cyclops-461"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 8dn.) Talking dirty: \"nuts articulated soundlessly\" (5)",
+   "group": [
+    "13-across",
+    "8-down"
+   ],
    "separatorLocations": {},
    "solution": "POTTY",
    "annotation": null
@@ -347,6 +359,10 @@ window.CRYPTIC_PUZZLES["cyclops-461"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 25ac.) £51 meal: the boozy hack's daily indulgence? (6)",
+   "group": [
+    "24-down",
+    "25-across"
+   ],
    "separatorLocations": {},
    "solution": "LIQUID",
    "annotation": null
@@ -361,6 +377,10 @@ window.CRYPTIC_PUZZLES["cyclops-461"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 24dn. (5)",
+   "group": [
+    "24-down",
+    "25-across"
+   ],
    "separatorLocations": {},
    "solution": "LUNCH",
    "annotation": null
@@ -403,6 +423,10 @@ window.CRYPTIC_PUZZLES["cyclops-461"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 5dn. (4)",
+   "group": [
+    "5-down",
+    "28-down"
+   ],
    "separatorLocations": {},
    "solution": "TALK",
    "annotation": null

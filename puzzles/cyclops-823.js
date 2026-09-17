@@ -25,6 +25,10 @@ window.CRYPTIC_PUZZLES["cyclops-823"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "(& 6ac.) As Trump aims to do in Venezuela? Infantile creature into one military exercise after another (5,4)",
+   "group": [
+    "1-across",
+    "6-across"
+   ],
    "separatorLocations": {},
    "solution": "DRILLBABY",
    "annotation": null
@@ -95,6 +99,10 @@ window.CRYPTIC_PUZZLES["cyclops-823"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 1ac.",
+   "group": [
+    "1-across",
+    "6-across"
+   ],
    "separatorLocations": {},
    "solution": "DRILL",
    "annotation": null
@@ -193,6 +201,10 @@ window.CRYPTIC_PUZZLES["cyclops-823"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 20dn.) Genitals? Hell! (6)",
+   "group": [
+    "13-across",
+    "20-down"
+   ],
    "separatorLocations": {},
    "solution": "NETHER",
    "annotation": null
@@ -305,6 +317,10 @@ window.CRYPTIC_PUZZLES["cyclops-823"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "se 13ac.",
+   "group": [
+    "13-across",
+    "20-down"
+   ],
    "separatorLocations": {},
    "solution": "REGIONS",
    "annotation": null

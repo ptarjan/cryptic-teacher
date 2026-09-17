@@ -165,6 +165,10 @@ window.CRYPTIC_PUZZLES["cyclops-798"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(&21dn.) Living provided by Mail? Second-class, awfully dear (5)",
+   "group": [
+    "9-across",
+    "21-down"
+   ],
    "separatorLocations": {},
    "solution": "DAILY",
    "annotation": null
@@ -389,6 +393,10 @@ window.CRYPTIC_PUZZLES["cyclops-798"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 9ac. (5)",
+   "group": [
+    "9-across",
+    "21-down"
+   ],
    "separatorLocations": {},
    "solution": "BREAD",
    "annotation": null

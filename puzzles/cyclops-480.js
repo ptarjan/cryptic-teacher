@@ -39,6 +39,10 @@ window.CRYPTIC_PUZZLES["cyclops-480"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 9dn.) Staff working on sod all: make over needed, as you'd expect from McDonald's (4)",
+   "group": [
+    "2-down",
+    "9-down"
+   ],
    "separatorLocations": {},
    "solution": "FAST",
    "annotation": null
@@ -123,6 +127,10 @@ window.CRYPTIC_PUZZLES["cyclops-480"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 20dn. (4)",
+   "group": [
+    "20-down",
+    "8-down"
+   ],
    "separatorLocations": {},
    "solution": "EGGS",
    "annotation": null
@@ -137,6 +145,10 @@ window.CRYPTIC_PUZZLES["cyclops-480"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 2dn. (4)",
+   "group": [
+    "2-down",
+    "9-down"
+   ],
    "separatorLocations": {},
    "solution": "FOOD",
    "annotation": null
@@ -277,6 +289,10 @@ window.CRYPTIC_PUZZLES["cyclops-480"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 24dn. (4)",
+   "group": [
+    "24-down",
+    "18-down"
+   ],
    "separatorLocations": {},
    "solution": "ROCK",
    "annotation": null
@@ -319,6 +335,10 @@ window.CRYPTIC_PUZZLES["cyclops-480"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 8dn.) Personal funds, say, put into disgraceful 'Gents', son (4)",
+   "group": [
+    "20-down",
+    "8-down"
+   ],
    "separatorLocations": {},
    "solution": "NEST",
    "annotation": null
@@ -375,6 +395,10 @@ window.CRYPTIC_PUZZLES["cyclops-480"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 18dn.) Do crack liberally laced with iodine to produce such a drug-inspired sound? (4)",
+   "group": [
+    "24-down",
+    "18-down"
+   ],
    "separatorLocations": {},
    "solution": "ACID",
    "annotation": null

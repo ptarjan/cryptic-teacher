@@ -7,28 +7,14 @@ window.CRYPTIC_PUZZLES["independent-9134"] = /*JSON-START*/ {
  "number": 9134,
  "series": "independent",
  "name": "Independent cryptic crossword No 9,134",
- "setter": "Anax",
- "date": 1454112000000,
+ "setter": "Tyrus",
+ "date": 1453507200000,
  "dimensions": {
   "cols": 15,
   "rows": 15
  },
  "sourceUrl": "https://puzzles.independent.co.uk/games/cryptic-crossword-independent/",
  "entries": [
-  {
-   "id": "1-across",
-   "number": 1,
-   "direction": "across",
-   "position": {
-    "x": 0,
-    "y": 0
-   },
-   "length": 4,
-   "clue": "Doctor X, musician (4)",
-   "separatorLocations": {},
-   "solution": "MOBY",
-   "annotation": null
-  },
   {
    "id": "1-down",
    "number": 1,
@@ -37,10 +23,15 @@ window.CRYPTIC_PUZZLES["independent-9134"] = /*JSON-START*/ {
     "x": 0,
     "y": 0
    },
-   "length": 7,
-   "clue": "Police car keeps circling home (7)",
-   "separatorLocations": {},
-   "solution": "MONITOR",
+   "length": 10,
+   "clue": "Bad social network site abroad - and that's definite (3,2,5)",
+   "separatorLocations": {
+    ",": [
+     3,
+     5
+    ]
+   },
+   "solution": "ILLBEBOUND",
    "annotation": null
   },
   {
@@ -51,28 +42,28 @@ window.CRYPTIC_PUZZLES["independent-9134"] = /*JSON-START*/ {
     "x": 2,
     "y": 0
    },
-   "length": 9,
-   "clue": "After chest cold, handle manoeuvre (3,6)",
+   "length": 8,
+   "clue": "Joke about African runner upset Phil's wife (3-5)",
    "separatorLocations": {
-    ",": [
+    "-": [
      3
     ]
    },
-   "solution": "BOXCLEVER",
+   "solution": "ONELINER",
    "annotation": null
   },
   {
-   "id": "3-across",
+   "id": "3-down",
    "number": 3,
-   "direction": "across",
+   "direction": "down",
    "position": {
-    "x": 5,
+    "x": 4,
     "y": 0
    },
-   "length": 10,
-   "clue": "See increase (10)",
+   "length": 4,
+   "clue": "Bank being extremely heartless (4)",
    "separatorLocations": {},
-   "solution": "APPRECIATE",
+   "solution": "RELY",
    "annotation": null
   },
   {
@@ -83,10 +74,10 @@ window.CRYPTIC_PUZZLES["independent-9134"] = /*JSON-START*/ {
     "x": 6,
     "y": 0
    },
-   "length": 9,
-   "clue": "Deluded old man with raincoat, mostly drunk (9)",
+   "length": 8,
+   "clue": "Certain characters somehow having time to socialise (8)",
    "separatorLocations": {},
-   "solution": "PARANOIAC",
+   "solution": "INTERACT",
    "annotation": null
   },
   {
@@ -97,10 +88,10 @@ window.CRYPTIC_PUZZLES["independent-9134"] = /*JSON-START*/ {
     "x": 8,
     "y": 0
    },
-   "length": 5,
-   "clue": "Hills to cross, head off (5)",
+   "length": 6,
+   "clue": "Film host in boudoir? Maybe (6)",
    "separatorLocations": {},
-   "solution": "RIDGE",
+   "solution": "ROMCOM",
    "annotation": null
   },
   {
@@ -111,16 +102,10 @@ window.CRYPTIC_PUZZLES["independent-9134"] = /*JSON-START*/ {
     "x": 10,
     "y": 0
    },
-   "length": 13,
-   "clue": "Money doesn't work - I'm single (4,3,2,4)",
-   "separatorLocations": {
-    ",": [
-     4,
-     7,
-     9
-    ]
-   },
-   "solution": "CANTBUYMELOVE",
+   "length": 10,
+   "clue": "Modest musician scented shameful U-turn by insiders (10)",
+   "separatorLocations": {},
+   "solution": "MUSSORGSKY",
    "annotation": null
   },
   {
@@ -131,10 +116,10 @@ window.CRYPTIC_PUZZLES["independent-9134"] = /*JSON-START*/ {
     "x": 12,
     "y": 0
    },
-   "length": 5,
-   "clue": "The face of sharia law (5)",
+   "length": 6,
+   "clue": "Benefit from learning about computers etc with academic (6)",
    "separatorLocations": {},
-   "solution": "ARIAL",
+   "solution": "PROFIT",
    "annotation": null
   },
   {
@@ -145,10 +130,10 @@ window.CRYPTIC_PUZZLES["independent-9134"] = /*JSON-START*/ {
     "x": 14,
     "y": 0
    },
-   "length": 7,
-   "clue": "Lamb's tendency to get left in the middle (7)",
+   "length": 4,
+   "clue": "Government-appointed 'expert' gets a right stuffing (4)",
    "separatorLocations": {},
-   "solution": "EANLING",
+   "solution": "TSAR",
    "annotation": null
   },
   {
@@ -157,30 +142,26 @@ window.CRYPTIC_PUZZLES["independent-9134"] = /*JSON-START*/ {
    "direction": "across",
    "position": {
     "x": 0,
-    "y": 2
+    "y": 1
    },
-   "length": 5,
-   "clue": "New and old American series (5)",
+   "length": 7,
+   "clue": "Light left on before service (7)",
    "separatorLocations": {},
-   "solution": "NEXUS",
+   "solution": "LANTERN",
    "annotation": null
   },
   {
-   "id": "10-down",
+   "id": "10-across",
    "number": 10,
-   "direction": "down",
+   "direction": "across",
    "position": {
-    "x": 4,
-    "y": 2
+    "x": 8,
+    "y": 1
    },
-   "length": 13,
-   "clue": "Reason for strong medical preparation? (9,4)",
-   "separatorLocations": {
-    ",": [
-     9
-    ]
-   },
-   "solution": "STREAMINGCOLD",
+   "length": 7,
+   "clue": "Overuse unfamiliar works (7)",
+   "separatorLocations": {},
+   "solution": "OEUVRES",
    "annotation": null
   },
   {
@@ -188,17 +169,13 @@ window.CRYPTIC_PUZZLES["independent-9134"] = /*JSON-START*/ {
    "number": 11,
    "direction": "across",
    "position": {
-    "x": 6,
-    "y": 2
+    "x": 0,
+    "y": 3
    },
-   "length": 9,
-   "clue": "Update about new flag (3,6)",
-   "separatorLocations": {
-    ",": [
-     3
-    ]
-   },
-   "solution": "REDENSIGN",
+   "length": 5,
+   "clue": "Blooming brave but pointless (5)",
+   "separatorLocations": {},
+   "solution": "BALLY",
    "annotation": null
   },
   {
@@ -206,13 +183,17 @@ window.CRYPTIC_PUZZLES["independent-9134"] = /*JSON-START*/ {
    "number": 12,
    "direction": "across",
    "position": {
-    "x": 0,
-    "y": 4
+    "x": 6,
+    "y": 3
    },
    "length": 9,
-   "clue": "Give a cheer in rapture (9)",
-   "separatorLocations": {},
-   "solution": "TOLERANCE",
+   "clue": "Poor example of 10,4 using Word - see a bit of criticism flying round (6,3)",
+   "separatorLocations": {
+    ",": [
+     6
+    ]
+   },
+   "solution": "EXCUSEFOR",
    "annotation": null
   },
   {
@@ -220,55 +201,45 @@ window.CRYPTIC_PUZZLES["independent-9134"] = /*JSON-START*/ {
    "number": 13,
    "direction": "across",
    "position": {
-    "x": 10,
-    "y": 4
-   },
-   "length": 5,
-   "clue": "Swinging pots key for this sort of cookery (5)",
-   "separatorLocations": {},
-   "solution": "BALTI",
-   "annotation": null
-  },
-  {
-   "id": "14-across",
-   "number": 14,
-   "direction": "across",
-   "position": {
     "x": 0,
-    "y": 6
+    "y": 5
    },
    "length": 11,
-   "clue": "Gary Neville wants training, so showing off? (11)",
+   "clue": "He may not get on with ladies' man on the surface, but partner's very forward (11)",
    "separatorLocations": {},
-   "solution": "REVEALINGLY",
+   "solution": "BENCHWARMER",
    "annotation": null
   },
   {
-   "id": "15-down",
-   "number": 15,
+   "id": "14-down",
+   "number": 14,
    "direction": "down",
    "position": {
-    "x": 8,
-    "y": 6
+    "x": 4,
+    "y": 5
    },
-   "length": 9,
-   "clue": "Doubles as artist in abstract stage (9)",
-   "separatorLocations": {},
-   "solution": "GEMINATES",
+   "length": 10,
+   "clue": "Run off under the influence in Bristol - trouble (8,2)",
+   "separatorLocations": {
+    ",": [
+     8
+    ]
+   },
+   "solution": "HIGHTAILIT",
    "annotation": null
   },
   {
-   "id": "16-across",
-   "number": 16,
+   "id": "15-across",
+   "number": 15,
    "direction": "across",
    "position": {
     "x": 12,
-    "y": 6
+    "y": 5
    },
    "length": 3,
-   "clue": "Soldier first to get job (3)",
+   "clue": "Little amphibian's not old (3)",
    "separatorLocations": {},
-   "solution": "GIG",
+   "solution": "TAD",
    "annotation": null
   },
   {
@@ -276,13 +247,17 @@ window.CRYPTIC_PUZZLES["independent-9134"] = /*JSON-START*/ {
    "number": 16,
    "direction": "down",
    "position": {
-    "x": 12,
-    "y": 6
+    "x": 14,
+    "y": 5
    },
-   "length": 9,
-   "clue": "Odd bits of garden attract fruit (9)",
-   "separatorLocations": {},
-   "solution": "GREENGAGE",
+   "length": 10,
+   "clue": "Political work with Democrat - question a mate about it (3,7)",
+   "separatorLocations": {
+    ",": [
+     3
+    ]
+   },
+   "solution": "DASKAPITAL",
    "annotation": null
   },
   {
@@ -291,40 +266,26 @@ window.CRYPTIC_PUZZLES["independent-9134"] = /*JSON-START*/ {
    "direction": "across",
    "position": {
     "x": 0,
-    "y": 8
+    "y": 7
    },
-   "length": 3,
-   "clue": "My band on the radio (3)",
+   "length": 15,
+   "clue": "Bombed insurgent's house - it's immoral (15)",
    "separatorLocations": {},
-   "solution": "COR",
+   "solution": "UNRIGHTEOUSNESS",
    "annotation": null
   },
   {
-   "id": "17-down",
-   "number": 17,
+   "id": "18-down",
+   "number": 18,
    "direction": "down",
    "position": {
-    "x": 0,
-    "y": 8
+    "x": 8,
+    "y": 7
    },
-   "length": 7,
-   "clue": "Steel of high quality, but not initially slicing (7)",
+   "length": 8,
+   "clue": "Big boss's girlfriend getting head down? No way! (8)",
    "separatorLocations": {},
-   "solution": "CUTLASS",
-   "annotation": null
-  },
-  {
-   "id": "18-across",
-   "number": 18,
-   "direction": "across",
-   "position": {
-    "x": 4,
-    "y": 8
-   },
-   "length": 11,
-   "clue": "Rival in tavern finally shot cowboy (11)",
-   "separatorLocations": {},
-   "solution": "INCOMPETENT",
+   "solution": "OVERLORD",
    "annotation": null
   },
   {
@@ -332,13 +293,13 @@ window.CRYPTIC_PUZZLES["independent-9134"] = /*JSON-START*/ {
    "number": 19,
    "direction": "down",
    "position": {
-    "x": 14,
-    "y": 8
+    "x": 12,
+    "y": 7
    },
-   "length": 7,
-   "clue": "People entering wrong hell? (7)",
+   "length": 8,
+   "clue": "Marks on back of one dress suspicious (8)",
    "separatorLocations": {},
-   "solution": "TORMENT",
+   "solution": "ENDORSES",
    "annotation": null
   },
   {
@@ -347,12 +308,12 @@ window.CRYPTIC_PUZZLES["independent-9134"] = /*JSON-START*/ {
    "direction": "across",
    "position": {
     "x": 0,
-    "y": 10
+    "y": 9
    },
-   "length": 5,
-   "clue": "John Thomas on the northern accent (5)",
+   "length": 3,
+   "clue": "Call friend over (3)",
    "separatorLocations": {},
-   "solution": "TWANG",
+   "solution": "DUB",
    "annotation": null
   },
   {
@@ -361,12 +322,12 @@ window.CRYPTIC_PUZZLES["independent-9134"] = /*JSON-START*/ {
    "direction": "down",
    "position": {
     "x": 2,
-    "y": 10
+    "y": 9
    },
-   "length": 5,
-   "clue": "Came to wonder about fine (5)",
+   "length": 6,
+   "clue": "Attachment to Football League team (6)",
    "separatorLocations": {},
-   "solution": "AWOKE",
+   "solution": "BOLTON",
    "annotation": null
   },
   {
@@ -374,41 +335,32 @@ window.CRYPTIC_PUZZLES["independent-9134"] = /*JSON-START*/ {
    "number": 22,
    "direction": "across",
    "position": {
-    "x": 6,
-    "y": 10
+    "x": 4,
+    "y": 9
    },
-   "length": 9,
-   "clue": "Separate bottles to hold drink (9)",
-   "separatorLocations": {},
-   "solution": "SUNDOWNER",
+   "length": 11,
+   "clue": "Hated bonking each one when engaged? I don't think so! (3,4,4)",
+   "separatorLocations": {
+    ",": [
+     3,
+     7
+    ]
+   },
+   "solution": "THEVERYIDEA",
    "annotation": null
   },
   {
-   "id": "22-down",
-   "number": 22,
+   "id": "23-down",
+   "number": 23,
    "direction": "down",
    "position": {
     "x": 6,
-    "y": 10
+    "y": 9
    },
-   "length": 5,
-   "clue": "Classy soprano's aspiration (5)",
+   "length": 6,
+   "clue": "Change to green at last - surely that means go (6)",
    "separatorLocations": {},
-   "solution": "SWISH",
-   "annotation": null
-  },
-  {
-   "id": "23-across",
-   "number": 23,
-   "direction": "across",
-   "position": {
-    "x": 0,
-    "y": 12
-   },
-   "length": 9,
-   "clue": "A sport's meaning for defender (9)",
-   "separatorLocations": {},
-   "solution": "APOLOGIST",
+   "solution": "ENERGY",
    "annotation": null
   },
   {
@@ -416,13 +368,32 @@ window.CRYPTIC_PUZZLES["independent-9134"] = /*JSON-START*/ {
    "number": 24,
    "direction": "across",
    "position": {
-    "x": 10,
-    "y": 12
+    "x": 0,
+    "y": 11
    },
-   "length": 5,
-   "clue": "Notice boards still unfinished, duck (5)",
+   "length": 9,
+   "clue": "OK to hold current rise over? NO! (4,1,4)",
+   "separatorLocations": {
+    ",": [
+     4,
+     5
+    ]
+   },
+   "solution": "WILLIHELL",
+   "annotation": null
+  },
+  {
+   "id": "24-down",
+   "number": 24,
+   "direction": "down",
+   "position": {
+    "x": 0,
+    "y": 11
+   },
+   "length": 4,
+   "clue": "Understanding reasons for report (4)",
    "separatorLocations": {},
-   "solution": "EVADE",
+   "solution": "WISE",
    "annotation": null
   },
   {
@@ -430,17 +401,27 @@ window.CRYPTIC_PUZZLES["independent-9134"] = /*JSON-START*/ {
    "number": 25,
    "direction": "across",
    "position": {
-    "x": 0,
-    "y": 14
+    "x": 10,
+    "y": 11
    },
-   "length": 10,
-   "clue": "Short game? (5,5)",
-   "separatorLocations": {
-    ",": [
-     5
-    ]
+   "length": 5,
+   "clue": "Hurt when doing the same thing with nothing on - language! (5)",
+   "separatorLocations": {},
+   "solution": "FARSI",
+   "annotation": null
+  },
+  {
+   "id": "25-down",
+   "number": 25,
+   "direction": "down",
+   "position": {
+    "x": 10,
+    "y": 11
    },
-   "solution": "SPEEDCHESS",
+   "length": 4,
+   "clue": "Most liked 'wild beast' except for you (4)",
+   "separatorLocations": {},
+   "solution": "FAVE",
    "annotation": null
   },
   {
@@ -448,13 +429,27 @@ window.CRYPTIC_PUZZLES["independent-9134"] = /*JSON-START*/ {
    "number": 26,
    "direction": "across",
    "position": {
-    "x": 11,
-    "y": 14
+    "x": 0,
+    "y": 13
    },
-   "length": 4,
-   "clue": "Cocky, for a time (4)",
+   "length": 7,
+   "clue": "Talk to police about who vandalised display (7)",
    "separatorLocations": {},
-   "solution": "PERT",
+   "solution": "SHOWING",
+   "annotation": null
+  },
+  {
+   "id": "27-across",
+   "number": 27,
+   "direction": "across",
+   "position": {
+    "x": 8,
+    "y": 13
+   },
+   "length": 7,
+   "clue": "Struggle to take in atmosphere round holiday hotspot (7)",
+   "separatorLocations": {},
+   "solution": "RIVIERA",
    "annotation": null
   }
  ]

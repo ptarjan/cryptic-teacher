@@ -7,8 +7,8 @@ window.CRYPTIC_PUZZLES["independent-9152"] = /*JSON-START*/ {
  "number": 9152,
  "series": "independent",
  "name": "Independent cryptic crossword No 9,152",
- "setter": "Klingsor",
- "date": 1455926400000,
+ "setter": "Hob",
+ "date": 1455321600000,
  "dimensions": {
   "cols": 15,
   "rows": 15
@@ -16,35 +16,17 @@ window.CRYPTIC_PUZZLES["independent-9152"] = /*JSON-START*/ {
  "sourceUrl": "https://puzzles.independent.co.uk/games/cryptic-crossword-independent/",
  "entries": [
   {
-   "id": "1-across",
-   "number": 1,
-   "direction": "across",
-   "position": {
-    "x": 0,
-    "y": 0
-   },
-   "length": 8,
-   "clue": "Raving tirade, one containing bitterness principally? (8)",
-   "separatorLocations": {},
-   "solution": "DIATRIBE",
-   "annotation": null
-  },
-  {
    "id": "1-down",
    "number": 1,
    "direction": "down",
    "position": {
-    "x": 0,
+    "x": 1,
     "y": 0
    },
    "length": 6,
-   "clue": "Belittle cook's daughter, getting personal (2,4)",
-   "separatorLocations": {
-    ",": [
-     2
-    ]
-   },
-   "solution": "DODOWN",
+   "clue": "Musical act in Barnet (6)",
+   "separatorLocations": {},
+   "solution": "HAIRDO",
    "annotation": null
   },
   {
@@ -52,13 +34,13 @@ window.CRYPTIC_PUZZLES["independent-9152"] = /*JSON-START*/ {
    "number": 2,
    "direction": "down",
    "position": {
-    "x": 2,
+    "x": 3,
     "y": 0
    },
-   "length": 7,
-   "clue": "Artiste, for a time active dancing? (7)",
+   "length": 8,
+   "clue": "One pestering that woman's a right idiot essentially (8)",
    "separatorLocations": {},
-   "solution": "ASTAIRE",
+   "solution": "HARASSER",
    "annotation": null
   },
   {
@@ -66,13 +48,13 @@ window.CRYPTIC_PUZZLES["independent-9152"] = /*JSON-START*/ {
    "number": 3,
    "direction": "down",
    "position": {
-    "x": 4,
+    "x": 5,
     "y": 0
    },
-   "length": 10,
-   "clue": "Helping to keep order – that's endless fun (10)",
+   "length": 6,
+   "clue": "Rocky Raccoon's no firm Republican (6)",
    "separatorLocations": {},
-   "solution": "RECREATION",
+   "solution": "CARSON",
    "annotation": null
   },
   {
@@ -80,31 +62,27 @@ window.CRYPTIC_PUZZLES["independent-9152"] = /*JSON-START*/ {
    "number": 4,
    "direction": "down",
    "position": {
-    "x": 6,
+    "x": 7,
     "y": 0
    },
-   "length": 13,
-   "clue": "Battle of wits bolder husband fights (8,5)",
-   "separatorLocations": {
-    ",": [
-     8
-    ]
-   },
-   "solution": "BOSWORTHFIELD",
+   "length": 7,
+   "clue": "Salami with East 17? A sort of sickness ensues (7)",
+   "separatorLocations": {},
+   "solution": "MALAISE",
    "annotation": null
   },
   {
-   "id": "5-across",
+   "id": "5-down",
    "number": 5,
-   "direction": "across",
+   "direction": "down",
    "position": {
-    "x": 9,
+    "x": 11,
     "y": 0
    },
    "length": 6,
-   "clue": "Look for 'em, reportedly showing some guts (6)",
+   "clue": "Driver leaving vehicle in hooded coat reportedly (6)",
    "separatorLocations": {},
-   "solution": "CAECUM",
+   "solution": "PARKER",
    "annotation": null
   },
   {
@@ -112,41 +90,45 @@ window.CRYPTIC_PUZZLES["independent-9152"] = /*JSON-START*/ {
    "number": 6,
    "direction": "down",
    "position": {
-    "x": 10,
-    "y": 0
-   },
-   "length": 4,
-   "clue": "Unfortunately dish is served up incomplete (4)",
-   "separatorLocations": {},
-   "solution": "ALAS",
-   "annotation": null
-  },
-  {
-   "id": "7-down",
-   "number": 7,
-   "direction": "down",
-   "position": {
-    "x": 12,
-    "y": 0
-   },
-   "length": 7,
-   "clue": "Stylish fellow's a wimp (7)",
-   "separatorLocations": {},
-   "solution": "CHICKEN",
-   "annotation": null
-  },
-  {
-   "id": "8-down",
-   "number": 8,
-   "direction": "down",
-   "position": {
-    "x": 14,
+    "x": 13,
     "y": 0
    },
    "length": 8,
-   "clue": "I can be found in church (8)",
+   "clue": "Those undesirable periods of dishonour, if father and mother affected (4-4)",
+   "separatorLocations": {
+    "-": [
+     4
+    ]
+   },
+   "solution": "RIFFRAFF",
+   "annotation": null
+  },
+  {
+   "id": "7-across",
+   "number": 7,
+   "direction": "across",
+   "position": {
+    "x": 0,
+    "y": 1
+   },
+   "length": 9,
+   "clue": "Prince seen back in hotel, having a drink with an actor (9)",
    "separatorLocations": {},
-   "solution": "MINISTER",
+   "solution": "MAHARAJAH",
+   "annotation": null
+  },
+  {
+   "id": "8-across",
+   "number": 8,
+   "direction": "across",
+   "position": {
+    "x": 10,
+    "y": 1
+   },
+   "length": 5,
+   "clue": "Crude language (5)",
+   "separatorLocations": {},
+   "solution": "BASIC",
    "annotation": null
   },
   {
@@ -155,12 +137,16 @@ window.CRYPTIC_PUZZLES["independent-9152"] = /*JSON-START*/ {
    "direction": "across",
    "position": {
     "x": 0,
-    "y": 2
+    "y": 3
    },
-   "length": 3,
-   "clue": "Caught, oddly, around cover point (3)",
-   "separatorLocations": {},
-   "solution": "DOT",
+   "length": 9,
+   "clue": "An impression of authority from this absurdly large seat (5,4)",
+   "separatorLocations": {
+    ",": [
+     5
+    ]
+   },
+   "solution": "GREATSEAL",
    "annotation": null
   },
   {
@@ -168,19 +154,13 @@ window.CRYPTIC_PUZZLES["independent-9152"] = /*JSON-START*/ {
    "number": 10,
    "direction": "across",
    "position": {
-    "x": 4,
-    "y": 2
+    "x": 10,
+    "y": 3
    },
-   "length": 11,
-   "clue": "One's charged a Top Gear character coming in for severe criticism (11)",
-   "clueItalics": [
-    [
-     16,
-     9
-    ]
-   ],
+   "length": 5,
+   "clue": "Runner following boat (5)",
    "separatorLocations": {},
-   "solution": "CASTIGATION",
+   "solution": "SKIFF",
    "annotation": null
   },
   {
@@ -188,13 +168,13 @@ window.CRYPTIC_PUZZLES["independent-9152"] = /*JSON-START*/ {
    "number": 11,
    "direction": "down",
    "position": {
-    "x": 8,
-    "y": 2
+    "x": 9,
+    "y": 4
    },
-   "length": 13,
-   "clue": "Never tiring of being a fat, idle drunk (13)",
+   "length": 4,
+   "clue": "Censor apoplectic at offensive content (4)",
    "separatorLocations": {},
-   "solution": "INDEFATIGABLE",
+   "solution": "CATO",
    "annotation": null
   },
   {
@@ -203,16 +183,12 @@ window.CRYPTIC_PUZZLES["independent-9152"] = /*JSON-START*/ {
    "direction": "across",
    "position": {
     "x": 0,
-    "y": 4
+    "y": 5
    },
-   "length": 10,
-   "clue": "8 arranged cracking deals, perhaps, for kitchen equipment (5,5)",
-   "separatorLocations": {
-    ",": [
-     5
-    ]
-   },
-   "solution": "WHITEGOODS",
+   "length": 6,
+   "clue": "I'm working - I've no real choice (6)",
+   "separatorLocations": {},
+   "solution": "HOBSON",
    "annotation": null
   },
   {
@@ -220,93 +196,87 @@ window.CRYPTIC_PUZZLES["independent-9152"] = /*JSON-START*/ {
    "number": 13,
    "direction": "across",
    "position": {
-    "x": 11,
-    "y": 4
-   },
-   "length": 4,
-   "clue": "Hides, avoiding National's runners (4)",
-   "separatorLocations": {},
-   "solution": "SKIS",
-   "annotation": null
-  },
-  {
-   "id": "14-down",
-   "number": 14,
-   "direction": "down",
-   "position": {
-    "x": 10,
+    "x": 7,
     "y": 5
    },
-   "length": 10,
-   "clue": "Prohibited group of rebels? (10)",
+   "length": 8,
+   "clue": "Take flight here, having broken a wrist? Yes (8)",
    "separatorLocations": {},
-   "solution": "CONTRABAND",
+   "solution": "STAIRWAY",
    "annotation": null
   },
   {
-   "id": "15-across",
-   "number": 15,
+   "id": "14-across",
+   "number": 14,
    "direction": "across",
-   "position": {
-    "x": 1,
-    "y": 6
-   },
-   "length": 6,
-   "clue": "Music group's Let it Be embodying old record (6)",
-   "clueItalics": [
-    [
-     14,
-     10
-    ]
-   ],
-   "separatorLocations": {},
-   "solution": "SEPTET",
-   "annotation": null
-  },
-  {
-   "id": "16-across",
-   "number": 16,
-   "direction": "across",
-   "position": {
-    "x": 8,
-    "y": 6
-   },
-   "length": 7,
-   "clue": "Dejected, kicking out at cat to show annoyance (7)",
-   "separatorLocations": {},
-   "solution": "FLOUNCE",
-   "annotation": null
-  },
-  {
-   "id": "17-down",
-   "number": 17,
-   "direction": "down",
    "position": {
     "x": 0,
     "y": 7
    },
-   "length": 8,
-   "clue": "Inactive sort to gulp and puff going uphill (8)",
+   "length": 7,
+   "clue": "For one such as Gazza, bruised ego leads to really drunken, ill-advised episodes (7)",
    "separatorLocations": {},
-   "solution": "SLUGGARD",
+   "solution": "GEORDIE",
    "annotation": null
   },
   {
-   "id": "18-across",
-   "number": 18,
+   "id": "15-down",
+   "number": 15,
+   "direction": "down",
+   "position": {
+    "x": 1,
+    "y": 7
+   },
+   "length": 8,
+   "clue": "One record after another beginning to exasperate, turn over for religious programme (8)",
+   "separatorLocations": {},
+   "solution": "EPILOGUE",
+   "annotation": null
+  },
+  {
+   "id": "16-down",
+   "number": 16,
+   "direction": "down",
+   "position": {
+    "x": 5,
+    "y": 7
+   },
+   "length": 4,
+   "clue": "Prince makes setter blush? No - Ed. (4)",
+   "separatorLocations": {},
+   "solution": "IGOR",
+   "annotation": null
+  },
+  {
+   "id": "17-across",
+   "number": 17,
    "direction": "across",
    "position": {
-    "x": 0,
-    "y": 8
+    "x": 8,
+    "y": 7
    },
    "length": 7,
-   "clue": "Start trouble among the French forces (4,3)",
+   "clue": "Quits or is fired and explodes (4,3)",
    "separatorLocations": {
     ",": [
      4
     ]
    },
-   "solution": "LEADOFF",
+   "solution": "GOESOFF",
+   "annotation": null
+  },
+  {
+   "id": "18-down",
+   "number": 18,
+   "direction": "down",
+   "position": {
+    "x": 11,
+    "y": 7
+   },
+   "length": 8,
+   "clue": "Locates upsetting quotes: \"ET autistic?\" \"Somewhat\" (8)",
+   "separatorLocations": {},
+   "solution": "SITUATES",
    "annotation": null
   },
   {
@@ -314,13 +284,13 @@ window.CRYPTIC_PUZZLES["independent-9152"] = /*JSON-START*/ {
    "number": 19,
    "direction": "down",
    "position": {
-    "x": 2,
+    "x": 7,
     "y": 8
    },
    "length": 7,
-   "clue": "Her vet Betsy is one of the very best (7)",
+   "clue": "Ring Yahoo about the Hilton's page? (7)",
    "separatorLocations": {},
-   "solution": "ANAGRAM",
+   "solution": "BELLBOY",
    "annotation": null
   },
   {
@@ -328,13 +298,13 @@ window.CRYPTIC_PUZZLES["independent-9152"] = /*JSON-START*/ {
    "number": 20,
    "direction": "across",
    "position": {
-    "x": 8,
-    "y": 8
+    "x": 0,
+    "y": 9
    },
-   "length": 6,
-   "clue": "Do needlework? Make lace as well (6)",
+   "length": 8,
+   "clue": "Deny seeing second tart in seedy bar? (8)",
    "separatorLocations": {},
-   "solution": "TATTOO",
+   "solution": "DISPROVE",
    "annotation": null
   },
   {
@@ -342,13 +312,27 @@ window.CRYPTIC_PUZZLES["independent-9152"] = /*JSON-START*/ {
    "number": 21,
    "direction": "down",
    "position": {
-    "x": 12,
-    "y": 8
+    "x": 3,
+    "y": 9
    },
-   "length": 7,
-   "clue": "Play a game (7)",
+   "length": 6,
+   "clue": "One following friend's football team, commonly (6)",
    "separatorLocations": {},
-   "solution": "OTHELLO",
+   "solution": "PALACE",
+   "annotation": null
+  },
+  {
+   "id": "22-across",
+   "number": 22,
+   "direction": "across",
+   "position": {
+    "x": 9,
+    "y": 9
+   },
+   "length": 6,
+   "clue": "Man in trouble, with no love lost (6)",
+   "separatorLocations": {},
+   "solution": "BUTLER",
    "annotation": null
   },
   {
@@ -356,27 +340,33 @@ window.CRYPTIC_PUZZLES["independent-9152"] = /*JSON-START*/ {
    "number": 22,
    "direction": "down",
    "position": {
-    "x": 14,
+    "x": 9,
     "y": 9
    },
    "length": 6,
-   "clue": "Rex, impressed by piece, is complimentary (6)",
+   "clue": "Remove schoolboy from production of Hair, right after half-term (6)",
+   "clueItalics": [
+    [
+     36,
+     4
+    ]
+   ],
    "separatorLocations": {},
-   "solution": "GRATIS",
+   "solution": "BUNTER",
    "annotation": null
   },
   {
-   "id": "23-across",
+   "id": "23-down",
    "number": 23,
-   "direction": "across",
+   "direction": "down",
    "position": {
-    "x": 0,
-    "y": 10
+    "x": 13,
+    "y": 9
    },
-   "length": 4,
-   "clue": "Kit that's good for women in sport (4)",
+   "length": 6,
+   "clue": "Go green, being indisposed to say why (6)",
    "separatorLocations": {},
-   "solution": "GEAR",
+   "solution": "ENERGY",
    "annotation": null
   },
   {
@@ -384,27 +374,27 @@ window.CRYPTIC_PUZZLES["independent-9152"] = /*JSON-START*/ {
    "number": 24,
    "direction": "across",
    "position": {
-    "x": 5,
-    "y": 10
+    "x": 0,
+    "y": 11
    },
-   "length": 10,
-   "clue": "Ptolemy, say, composed page or sheet regularly in Greek (10)",
+   "length": 5,
+   "clue": "Bathing place at European resort (5)",
    "separatorLocations": {},
-   "solution": "GEOGRAPHER",
+   "solution": "POOLE",
    "annotation": null
   },
   {
-   "id": "25-down",
+   "id": "25-across",
    "number": 25,
-   "direction": "down",
+   "direction": "across",
    "position": {
-    "x": 4,
+    "x": 6,
     "y": 11
    },
-   "length": 4,
-   "clue": "Gas bill's first to hurt (4)",
+   "length": 9,
+   "clue": "Criminal ignores fine - put under curfew, or given a stretch? (9)",
    "separatorLocations": {},
-   "solution": "ACHE",
+   "solution": "ELONGATED",
    "annotation": null
   },
   {
@@ -413,12 +403,12 @@ window.CRYPTIC_PUZZLES["independent-9152"] = /*JSON-START*/ {
    "direction": "across",
    "position": {
     "x": 0,
-    "y": 12
+    "y": 13
    },
-   "length": 11,
-   "clue": "One supports imprisoning a villain it's said for a spell (11)",
+   "length": 5,
+   "clue": "Stagger through meal after losing name for recipe (5)",
    "separatorLocations": {},
-   "solution": "ABRACADABRA",
+   "solution": "LURCH",
    "annotation": null
   },
   {
@@ -426,45 +416,13 @@ window.CRYPTIC_PUZZLES["independent-9152"] = /*JSON-START*/ {
    "number": 27,
    "direction": "across",
    "position": {
-    "x": 12,
-    "y": 12
+    "x": 6,
+    "y": 13
    },
-   "length": 3,
-   "clue": "Bad service left expat gutted (3)",
+   "length": 9,
+   "clue": "Monarch governs badly around quarter to one (9)",
    "separatorLocations": {},
-   "solution": "LET",
-   "annotation": null
-  },
-  {
-   "id": "28-across",
-   "number": 28,
-   "direction": "across",
-   "position": {
-    "x": 0,
-    "y": 14
-   },
-   "length": 6,
-   "clue": "Dye's original pigment is less bright (6)",
-   "separatorLocations": {},
-   "solution": "DUMBER",
-   "annotation": null
-  },
-  {
-   "id": "29-across",
-   "number": 29,
-   "direction": "across",
-   "position": {
-    "x": 7,
-    "y": 14
-   },
-   "length": 8,
-   "clue": "Be first to sleep with leaders in trade? A useless venture (4,4)",
-   "separatorLocations": {
-    ",": [
-     4
-    ]
-   },
-   "solution": "DEADLOSS",
+   "solution": "SOVEREIGN",
    "annotation": null
   }
  ]

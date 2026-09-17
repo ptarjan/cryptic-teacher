@@ -39,6 +39,10 @@ window.CRYPTIC_PUZZLES["cyclops-450"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 11ac.) Sweet in drag, Joanna's top half (large bra cup) (4)",
+   "group": [
+    "2-down",
+    "11-across"
+   ],
    "separatorLocations": {},
    "solution": "PLUM",
    "annotation": null
@@ -151,6 +155,10 @@ window.CRYPTIC_PUZZLES["cyclops-450"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "(& 23dn.) Subject: nabbing rich, proud bastard protecting those coarse people in disgraced organisation (3,7)",
+   "group": [
+    "10-across",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "THEMURDOCH",
    "annotation": null
@@ -165,6 +173,10 @@ window.CRYPTIC_PUZZLES["cyclops-450"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 2dn. (4)",
+   "group": [
+    "2-down",
+    "11-across"
+   ],
    "separatorLocations": {},
    "solution": "DUFF",
    "annotation": null
@@ -333,6 +345,10 @@ window.CRYPTIC_PUZZLES["cyclops-450"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 10ac. (6)",
+   "group": [
+    "10-across",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "EMPIRE",
    "annotation": null
@@ -347,6 +363,10 @@ window.CRYPTIC_PUZZLES["cyclops-450"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 26dn. (4)",
+   "group": [
+    "26-down",
+    "24-across"
+   ],
    "separatorLocations": {},
    "solution": "STAR",
    "annotation": null
@@ -375,6 +395,10 @@ window.CRYPTIC_PUZZLES["cyclops-450"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 24ac.) Cliff arses around for Mercury? (4)",
+   "group": [
+    "26-down",
+    "24-across"
+   ],
    "separatorLocations": {},
    "solution": "ROCK",
    "annotation": null

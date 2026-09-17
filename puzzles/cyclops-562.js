@@ -67,6 +67,11 @@ window.CRYPTIC_PUZZLES["cyclops-562"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 24/26dn.) Blowing a fuse, Corby ditching bishop outside shelter  \"Cut the cackle!\" (4)",
+   "group": [
+    "4-down",
+    "24-down",
+    "26-down"
+   ],
    "separatorLocations": {},
    "solution": "SHUT",
    "annotation": null
@@ -81,6 +86,10 @@ window.CRYPTIC_PUZZLES["cyclops-562"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 13dn. (7)",
+   "group": [
+    "13-down",
+    "5-down"
+   ],
    "separatorLocations": {},
    "solution": "DANCING",
    "annotation": null
@@ -165,6 +174,10 @@ window.CRYPTIC_PUZZLES["cyclops-562"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(&23ac.) Be a consumer, or cut back? k off! (4)",
+   "group": [
+    "11-across",
+    "23-across"
+   ],
    "separatorLocations": {},
    "solution": "TUCK",
    "annotation": null
@@ -193,6 +206,10 @@ window.CRYPTIC_PUZZLES["cyclops-562"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "(& 5dn.) Strip club activity of pal, as Cyclops might clue it (3)",
+   "group": [
+    "13-down",
+    "5-down"
+   ],
    "separatorLocations": {},
    "solution": "LAP",
    "annotation": null
@@ -235,6 +252,10 @@ window.CRYPTIC_PUZZLES["cyclops-562"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "(&17dn.) Pot strain avoided as much as possible by multinationals (11)",
+   "group": [
+    "16-across",
+    "17-down"
+   ],
    "separatorLocations": {},
    "solution": "CORPORATION",
    "annotation": null
@@ -249,6 +270,10 @@ window.CRYPTIC_PUZZLES["cyclops-562"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "see 16ac. (3)",
+   "group": [
+    "16-across",
+    "17-down"
+   ],
    "separatorLocations": {},
    "solution": "TAX",
    "annotation": null
@@ -333,6 +358,10 @@ window.CRYPTIC_PUZZLES["cyclops-562"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 11ac. (4)",
+   "group": [
+    "11-across",
+    "23-across"
+   ],
    "separatorLocations": {},
    "solution": "AWAY",
    "annotation": null
@@ -347,6 +376,11 @@ window.CRYPTIC_PUZZLES["cyclops-562"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 4dn. (4)",
+   "group": [
+    "4-down",
+    "24-down",
+    "26-down"
+   ],
    "separatorLocations": {},
    "solution": "YOUR",
    "annotation": null
@@ -375,6 +409,11 @@ window.CRYPTIC_PUZZLES["cyclops-562"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 4dn. (4)",
+   "group": [
+    "4-down",
+    "24-down",
+    "26-down"
+   ],
    "separatorLocations": {},
    "solution": "FACE",
    "annotation": null

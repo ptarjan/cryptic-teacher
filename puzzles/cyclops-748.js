@@ -123,6 +123,10 @@ window.CRYPTIC_PUZZLES["cyclops-748"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "(& 15dn.) Tax avoiders putting hearts into surprising compassion  for fee! (8)",
+   "group": [
+    "8-down",
+    "15-down"
+   ],
    "separatorLocations": {},
    "solution": "OFFSHORE",
    "annotation": null
@@ -151,6 +155,10 @@ window.CRYPTIC_PUZZLES["cyclops-748"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 27ac. (4)",
+   "group": [
+    "27-across",
+    "10-across"
+   ],
    "separatorLocations": {},
    "solution": "HAIR",
    "annotation": null
@@ -221,6 +229,10 @@ window.CRYPTIC_PUZZLES["cyclops-748"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "see 8dn. (9)",
+   "group": [
+    "8-down",
+    "15-down"
+   ],
    "separatorLocations": {},
    "solution": "COMPANIES",
    "annotation": null
@@ -403,6 +415,10 @@ window.CRYPTIC_PUZZLES["cyclops-748"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 10ac.) Ex-PM with hard look, a visible sign of ageing (4)",
+   "group": [
+    "27-across",
+    "10-across"
+   ],
    "separatorLocations": {},
    "solution": "GREY",
    "annotation": null

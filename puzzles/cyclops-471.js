@@ -53,6 +53,10 @@ window.CRYPTIC_PUZZLES["cyclops-471"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 4dn. (4)",
+   "group": [
+    "4-down",
+    "3-down"
+   ],
    "separatorLocations": {},
    "solution": "ENDS",
    "annotation": null
@@ -67,6 +71,10 @@ window.CRYPTIC_PUZZLES["cyclops-471"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 3dn.) Numb butts not welcomed by go-ahead types (4)",
+   "group": [
+    "4-down",
+    "3-down"
+   ],
    "separatorLocations": {},
    "solution": "DEAD",
    "annotation": null
@@ -361,6 +369,10 @@ window.CRYPTIC_PUZZLES["cyclops-471"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 25ac.) Tray misused as a windbreaker, Brian Sewell fashion? (4)",
+   "group": [
+    "23-down",
+    "25-across"
+   ],
    "separatorLocations": {},
    "solution": "ARTY",
    "annotation": null
@@ -389,6 +401,10 @@ window.CRYPTIC_PUZZLES["cyclops-471"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 23dn. (5)",
+   "group": [
+    "23-down",
+    "25-across"
+   ],
    "separatorLocations": {},
    "solution": "FARTY",
    "annotation": null

@@ -319,6 +319,10 @@ window.CRYPTIC_PUZZLES["cyclops-824"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 26dn.",
+   "group": [
+    "26-down",
+    "21-down"
+   ],
    "separatorLocations": {},
    "solution": "CARNEY",
    "annotation": null
@@ -389,6 +393,10 @@ window.CRYPTIC_PUZZLES["cyclops-824"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 21ac.) Nick, coach has itch to back a leader on Trump's hate list (4)",
+   "group": [
+    "26-down",
+    "21-down"
+   ],
    "separatorLocations": {},
    "solution": "MARK",
    "annotation": null

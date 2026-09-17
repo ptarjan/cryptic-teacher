@@ -221,6 +221,11 @@ window.CRYPTIC_PUZZLES["cyclops-725"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 19ac./14ac.) Dodgy convenience food of Tory leader? It could be the end of him (4)",
+   "group": [
+    "13-across",
+    "19-across",
+    "14-across"
+   ],
    "separatorLocations": {},
    "solution": "VOTE",
    "annotation": null
@@ -249,6 +254,10 @@ window.CRYPTIC_PUZZLES["cyclops-725"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "see 13ac. (10)",
+   "group": [
+    "14-across",
+    "19-across"
+   ],
    "separatorLocations": {},
    "solution": "CONFIDENCE",
    "annotation": null
@@ -319,6 +328,10 @@ window.CRYPTIC_PUZZLES["cyclops-725"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 14ac. (4)",
+   "group": [
+    "14-across",
+    "19-across"
+   ],
    "separatorLocations": {},
    "solution": "OFNO",
    "annotation": null

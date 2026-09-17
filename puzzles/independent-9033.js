@@ -7,8 +7,8 @@ window.CRYPTIC_PUZZLES["independent-9033"] = /*JSON-START*/ {
  "number": 9033,
  "series": "independent",
  "name": "Independent cryptic crossword No 9,033",
- "setter": "Klingsor",
- "date": 1443830400000,
+ "setter": "Donk",
+ "date": 1443225600000,
  "dimensions": {
   "cols": 15,
   "rows": 15
@@ -23,10 +23,14 @@ window.CRYPTIC_PUZZLES["independent-9033"] = /*JSON-START*/ {
     "x": 0,
     "y": 0
    },
-   "length": 5,
-   "clue": "Money is smuggled into Liverpool perhaps (5)",
-   "separatorLocations": {},
-   "solution": "FRANC",
+   "length": 8,
+   "clue": "Pinched rubbish behind cover (3,5)",
+   "separatorLocations": {
+    ",": [
+     3
+    ]
+   },
+   "solution": "HOTPANTS",
    "annotation": null
   },
   {
@@ -37,10 +41,10 @@ window.CRYPTIC_PUZZLES["independent-9033"] = /*JSON-START*/ {
     "x": 0,
     "y": 0
    },
-   "length": 8,
-   "clue": "Ill-dressed bum wearing mullet? (8)",
+   "length": 6,
+   "clue": "Goods sound entertaining - get the best price for them! (6)",
    "separatorLocations": {},
-   "solution": "FRUMPISH",
+   "solution": "HAGGLE",
    "annotation": null
   },
   {
@@ -51,10 +55,10 @@ window.CRYPTIC_PUZZLES["independent-9033"] = /*JSON-START*/ {
     "x": 2,
     "y": 0
    },
-   "length": 8,
-   "clue": "Acting upset still about rent for legal adviser (8)",
+   "length": 6,
+   "clue": "Yank's one short of a baseball team in \"pitching\" (6)",
    "separatorLocations": {},
-   "solution": "ATTORNEY",
+   "solution": "TUNING",
    "annotation": null
   },
   {
@@ -65,24 +69,10 @@ window.CRYPTIC_PUZZLES["independent-9033"] = /*JSON-START*/ {
     "x": 4,
     "y": 0
    },
-   "length": 15,
-   "clue": "Ravel tune? No, a composer of the same period (15)",
-   "separatorLocations": {},
-   "solution": "CONTEMPORANEOUS",
-   "annotation": null
-  },
-  {
-   "id": "4-across",
-   "number": 4,
-   "direction": "across",
-   "position": {
-    "x": 6,
-    "y": 0
-   },
    "length": 9,
-   "clue": "Look for one turning to deception, mostly of old folk (9)",
+   "clue": "Stars in a cracking modern ad (9)",
    "separatorLocations": {},
-   "solution": "GERIATRIC",
+   "solution": "ANDROMEDA",
    "annotation": null
   },
   {
@@ -93,28 +83,32 @@ window.CRYPTIC_PUZZLES["independent-9033"] = /*JSON-START*/ {
     "x": 6,
     "y": 0
    },
-   "length": 4,
-   "clue": "One wet, marshy area? Contrariwise! (4)",
+   "length": 13,
+   "clue": "Evens it'll get a radical preacher on box (13)",
    "separatorLocations": {},
-   "solution": "GOBI",
+   "solution": "TELEVANGELIST",
    "annotation": null
   },
   {
-   "id": "5-down",
+   "id": "5-across",
    "number": 5,
-   "direction": "down",
+   "direction": "across",
    "position": {
-    "x": 8,
+    "x": 9,
     "y": 0
    },
-   "length": 10,
-   "clue": "Drum part, initially omitted, is being chosen again (2-8)",
+   "length": 6,
+   "clue": "Let noisy drunk, full of wine, point to 10d? (6,6)",
+   "group": [
+    "5-across",
+    "18-down"
+   ],
    "separatorLocations": {
-    "-": [
-     2
+    ",": [
+     6
     ]
    },
-   "solution": "REELECTION",
+   "solution": "TONSIL",
    "annotation": null
   },
   {
@@ -125,16 +119,10 @@ window.CRYPTIC_PUZZLES["independent-9033"] = /*JSON-START*/ {
     "x": 10,
     "y": 0
    },
-   "length": 15,
-   "clue": "Anonymous fellow hounds my son at work for ages (1,5,2,7)",
-   "separatorLocations": {
-    ",": [
-     1,
-     6,
-     8
-    ]
-   },
-   "solution": "AMONTHOFSUNDAYS",
+   "length": 5,
+   "clue": "Tubby ex-pupils' language? (5)",
+   "separatorLocations": {},
+   "solution": "OBESE",
    "annotation": null
   },
   {
@@ -145,10 +133,10 @@ window.CRYPTIC_PUZZLES["independent-9033"] = /*JSON-START*/ {
     "x": 12,
     "y": 0
    },
-   "length": 6,
-   "clue": "Supply aid – outstanding work (6)",
+   "length": 8,
+   "clue": "School's whisky and fizz finally brings out sentimentality (8)",
    "separatorLocations": {},
-   "solution": "RELIEF",
+   "solution": "SCHMALTZ",
    "annotation": null
   },
   {
@@ -159,10 +147,10 @@ window.CRYPTIC_PUZZLES["independent-9033"] = /*JSON-START*/ {
     "x": 14,
     "y": 0
    },
-   "length": 6,
-   "clue": "Prosecute stalker? Essentially that's most appealing (6)",
+   "length": 8,
+   "clue": "Letter tips off Liberal Democrat to acquire gold (8)",
    "separatorLocations": {},
-   "solution": "CUTEST",
+   "solution": "LANDLORD",
    "annotation": null
   },
   {
@@ -173,10 +161,10 @@ window.CRYPTIC_PUZZLES["independent-9033"] = /*JSON-START*/ {
     "x": 0,
     "y": 2
    },
-   "length": 9,
-   "clue": "Locally one's beaten, left disfigured – that can't be justified (9)",
+   "length": 7,
+   "clue": "Tennis player's encouragement of balls (7)",
    "separatorLocations": {},
-   "solution": "UNTENABLE",
+   "solution": "GONADAL",
    "annotation": null
   },
   {
@@ -184,13 +172,32 @@ window.CRYPTIC_PUZZLES["independent-9033"] = /*JSON-START*/ {
    "number": 10,
    "direction": "across",
    "position": {
-    "x": 10,
+    "x": 8,
     "y": 2
    },
-   "length": 5,
-   "clue": "Oscar's allowed to go around with a small hooter (5)",
+   "length": 7,
+   "clue": "Bloke's bird, from previous marriage? (7)",
    "separatorLocations": {},
-   "solution": "OWLET",
+   "solution": "STEPHEN",
+   "annotation": null
+  },
+  {
+   "id": "10-down",
+   "number": 10,
+   "direction": "down",
+   "position": {
+    "x": 8,
+    "y": 2
+   },
+   "length": 13,
+   "clue": "She describes beer guts for fun at party (4-3-6)",
+   "separatorLocations": {
+    "-": [
+     4,
+     7
+    ]
+   },
+   "solution": "SPINTHEBOTTLE",
    "annotation": null
   },
   {
@@ -201,10 +208,10 @@ window.CRYPTIC_PUZZLES["independent-9033"] = /*JSON-START*/ {
     "x": 0,
     "y": 4
    },
-   "length": 6,
-   "clue": "Package tour's last chance for vacation in China (6)",
+   "length": 5,
+   "clue": "This outsider struggles with ball in golf bags (5)",
    "separatorLocations": {},
-   "solution": "PARCEL",
+   "solution": "LINGO",
    "annotation": null
   },
   {
@@ -212,45 +219,54 @@ window.CRYPTIC_PUZZLES["independent-9033"] = /*JSON-START*/ {
    "number": 12,
    "direction": "across",
    "position": {
-    "x": 7,
+    "x": 6,
     "y": 4
    },
-   "length": 8,
-   "clue": "Lacking support, snooker player is so impatient (8)",
+   "length": 9,
+   "clue": "Without ending, claim movie's rubbish in message (9)",
    "separatorLocations": {},
-   "solution": "RESTLESS",
+   "solution": "VOICEMAIL",
    "annotation": null
   },
   {
-   "id": "13-down",
+   "id": "13-across",
    "number": 13,
-   "direction": "down",
-   "position": {
-    "x": 6,
-    "y": 5
-   },
-   "length": 10,
-   "clue": "Promoting Republican, agitate Royal noticeably (10)",
-   "separatorLocations": {},
-   "solution": "STRIKINGLY",
-   "annotation": null
-  },
-  {
-   "id": "14-across",
-   "number": 14,
    "direction": "across",
    "position": {
-    "x": 0,
+    "x": 3,
     "y": 6
    },
    "length": 12,
-   "clue": "Where in Victoria perhaps, man's keeping ewe and tup finally? (5,7)",
+   "clue": "Club keeps live fish within it on the counter, spread (6,6)",
    "separatorLocations": {
     ",": [
+     6
+    ]
+   },
+   "solution": "PEANUTBUTTER",
+   "annotation": null
+  },
+  {
+   "id": "14-down",
+   "number": 14,
+   "direction": "down",
+   "position": {
+    "x": 10,
+    "y": 6
+   },
+   "length": 9,
+   "clue": "See 15",
+   "group": [
+    "15-down",
+    "14-down"
+   ],
+   "separatorLocations": {
+    ",": [
+     2,
      5
     ]
    },
-   "solution": "SHEEPSTATION",
+   "solution": "UPTHEREAR",
    "annotation": null
   },
   {
@@ -258,13 +274,21 @@ window.CRYPTIC_PUZZLES["independent-9033"] = /*JSON-START*/ {
    "number": 15,
    "direction": "down",
    "position": {
-    "x": 12,
+    "x": 0,
     "y": 7
    },
    "length": 8,
-   "clue": "Primary area involving Rome's the church (8)",
-   "separatorLocations": {},
-   "solution": "BASILICA",
+   "clue": "Preparing to twerk after rest (8,2,3,4)",
+   "group": [
+    "15-down",
+    "14-down"
+   ],
+   "separatorLocations": {
+    ",": [
+     8
+    ]
+   },
+   "solution": "BRINGING",
    "annotation": null
   },
   {
@@ -272,13 +296,17 @@ window.CRYPTIC_PUZZLES["independent-9033"] = /*JSON-START*/ {
    "number": 16,
    "direction": "down",
    "position": {
-    "x": 14,
+    "x": 2,
     "y": 7
    },
    "length": 8,
-   "clue": "English NCO hides in tree, getting dirty (8)",
-   "separatorLocations": {},
-   "solution": "BESMIRCH",
+   "clue": "Quivering, we stop US jets (5,3)",
+   "separatorLocations": {
+    ",": [
+     5
+    ]
+   },
+   "solution": "SPEWSOUT",
    "annotation": null
   },
   {
@@ -286,17 +314,13 @@ window.CRYPTIC_PUZZLES["independent-9033"] = /*JSON-START*/ {
    "number": 17,
    "direction": "across",
    "position": {
-    "x": 3,
+    "x": 0,
     "y": 8
    },
    "length": 12,
-   "clue": "Riot dispersed with tear gas around the northern entrance to the Tower (8,4)",
-   "separatorLocations": {
-    ",": [
-     8
-    ]
-   },
-   "solution": "TRAITORSGATE",
+   "clue": "Those succeeding in Central Park primarily seem confused (12)",
+   "separatorLocations": {},
+   "solution": "REPLACEMENTS",
    "annotation": null
   },
   {
@@ -304,13 +328,17 @@ window.CRYPTIC_PUZZLES["independent-9033"] = /*JSON-START*/ {
    "number": 18,
    "direction": "down",
    "position": {
-    "x": 0,
+    "x": 12,
     "y": 9
    },
    "length": 6,
-   "clue": "In retreat, hermit possibly conceals identity of a poet (6)",
+   "clue": "See 5",
+   "group": [
+    "5-across",
+    "18-down"
+   ],
    "separatorLocations": {},
-   "solution": "BARDIC",
+   "solution": "HOCKEY",
    "annotation": null
   },
   {
@@ -318,13 +346,13 @@ window.CRYPTIC_PUZZLES["independent-9033"] = /*JSON-START*/ {
    "number": 19,
    "direction": "down",
    "position": {
-    "x": 2,
+    "x": 14,
     "y": 9
    },
    "length": 6,
-   "clue": "Fate of dimwit accompanied by some laughter (6)",
+   "clue": "A lot wanted by this one inside job I'd derailed (6)",
    "separatorLocations": {},
-   "solution": "CLOTHO",
+   "solution": "BIDDER",
    "annotation": null
   },
   {
@@ -335,38 +363,46 @@ window.CRYPTIC_PUZZLES["independent-9033"] = /*JSON-START*/ {
     "x": 0,
     "y": 10
    },
-   "length": 8,
-   "clue": "Continent, oddly not one seen in map collection (8)",
-   "separatorLocations": {},
-   "solution": "ATLANTIS",
-   "annotation": null
-  },
-  {
-   "id": "21-across",
-   "number": 21,
-   "direction": "across",
-   "position": {
-    "x": 9,
-    "y": 10
+   "length": 9,
+   "clue": "State inmate's arrested, briefly (3,6)",
+   "separatorLocations": {
+    ",": [
+     3
+    ]
    },
-   "length": 6,
-   "clue": "Advise having institute for old and frail (6)",
-   "separatorLocations": {},
-   "solution": "INFIRM",
+   "solution": "NEWMEXICO",
    "annotation": null
   },
   {
-   "id": "22-down",
-   "number": 22,
+   "id": "21-down",
+   "number": 21,
    "direction": "down",
    "position": {
-    "x": 8,
-    "y": 11
+    "x": 4,
+    "y": 10
    },
-   "length": 4,
-   "clue": "Drop one in it! (4)",
+   "length": 5,
+   "clue": "Give in to passion, taking off top outside (5)",
    "separatorLocations": {},
-   "solution": "BEAD",
+   "solution": "EMOTE",
+   "annotation": null
+  },
+  {
+   "id": "22-across",
+   "number": 22,
+   "direction": "across",
+   "position": {
+    "x": 10,
+    "y": 10
+   },
+   "length": 5,
+   "clue": "Green light significantly shortened is cause of complaint (1,4)",
+   "separatorLocations": {
+    ",": [
+     1
+    ]
+   },
+   "solution": "ECOLI",
    "annotation": null
   },
   {
@@ -377,10 +413,14 @@ window.CRYPTIC_PUZZLES["independent-9033"] = /*JSON-START*/ {
     "x": 0,
     "y": 12
    },
-   "length": 5,
-   "clue": "I show disapproval, but no university dons do likewise (5)",
-   "separatorLocations": {},
-   "solution": "DITTO",
+   "length": 7,
+   "clue": "Ready to approach level (4,3)",
+   "separatorLocations": {
+    ",": [
+     4
+    ]
+   },
+   "solution": "IRONOUT",
    "annotation": null
   },
   {
@@ -388,13 +428,13 @@ window.CRYPTIC_PUZZLES["independent-9033"] = /*JSON-START*/ {
    "number": 24,
    "direction": "across",
    "position": {
-    "x": 6,
+    "x": 8,
     "y": 12
    },
-   "length": 9,
-   "clue": "Soldier wants a bit of work on retirement, loved one said (9)",
+   "length": 7,
+   "clue": "We'd take in pieces, subject to alteration (7)",
    "separatorLocations": {},
-   "solution": "GRENADIER",
+   "solution": "TWEAKED",
    "annotation": null
   },
   {
@@ -405,14 +445,10 @@ window.CRYPTIC_PUZZLES["independent-9033"] = /*JSON-START*/ {
     "x": 0,
     "y": 14
    },
-   "length": 9,
-   "clue": "Yes, decor's awful, not looking right? (5-4)",
-   "separatorLocations": {
-    "-": [
-     5
-    ]
-   },
-   "solution": "CROSSEYED",
+   "length": 6,
+   "clue": "Bowler's edging closer to leg, say (6)",
+   "separatorLocations": {},
+   "solution": "GUTTER",
    "annotation": null
   },
   {
@@ -420,13 +456,13 @@ window.CRYPTIC_PUZZLES["independent-9033"] = /*JSON-START*/ {
    "number": 26,
    "direction": "across",
    "position": {
-    "x": 10,
+    "x": 7,
     "y": 14
    },
-   "length": 5,
-   "clue": "Do number one cut (5)",
+   "length": 8,
+   "clue": "One giving up carrier covered in booze (8)",
    "separatorLocations": {},
-   "solution": "SLASH",
+   "solution": "BETRAYER",
    "annotation": null
   }
  ]

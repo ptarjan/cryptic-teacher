@@ -95,6 +95,10 @@ window.CRYPTIC_PUZZLES["cyclops-764"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 23dn. (4)",
+   "group": [
+    "23-down",
+    "6-down"
+   ],
    "separatorLocations": {},
    "solution": "RAGE",
    "annotation": null
@@ -347,6 +351,10 @@ window.CRYPTIC_PUZZLES["cyclops-764"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 6dn.) A rare dog doctored  violent argument on the way (4)",
+   "group": [
+    "23-down",
+    "6-down"
+   ],
    "separatorLocations": {},
    "solution": "ROAD",
    "annotation": null

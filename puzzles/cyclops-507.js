@@ -39,6 +39,10 @@ window.CRYPTIC_PUZZLES["cyclops-507"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 20dn.) Each emerging fiasco that Obama says he's not aiming for in the Middle East (6)",
+   "group": [
+    "2-down",
+    "20-down"
+   ],
    "separatorLocations": {},
    "solution": "REGIME",
    "annotation": null
@@ -137,6 +141,10 @@ window.CRYPTIC_PUZZLES["cyclops-507"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 13ac.) Spin tip: go back on yourself (4)",
+   "group": [
+    "8-down",
+    "13-across"
+   ],
    "separatorLocations": {},
    "solution": "TURN",
    "annotation": null
@@ -179,6 +187,10 @@ window.CRYPTIC_PUZZLES["cyclops-507"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "(& 22dn.) A nation's aspirational vision - to bomb the 'bad guys'? (8)",
+   "group": [
+    "11-across",
+    "22-down"
+   ],
    "separatorLocations": {},
    "solution": "AMERICAN",
    "annotation": null
@@ -207,6 +219,10 @@ window.CRYPTIC_PUZZLES["cyclops-507"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 8dn. (4)",
+   "group": [
+    "8-down",
+    "13-across"
+   ],
    "separatorLocations": {},
    "solution": "TAIL",
    "annotation": null
@@ -235,6 +251,11 @@ window.CRYPTIC_PUZZLES["cyclops-507"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "see 25ac. (3)",
+   "group": [
+    "25-across",
+    "14-down",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "FOR",
    "annotation": null
@@ -333,6 +354,10 @@ window.CRYPTIC_PUZZLES["cyclops-507"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 2dn. (6)",
+   "group": [
+    "2-down",
+    "20-down"
+   ],
    "separatorLocations": {},
    "solution": "CHANGE",
    "annotation": null
@@ -361,6 +386,10 @@ window.CRYPTIC_PUZZLES["cyclops-507"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 11ac. (5)",
+   "group": [
+    "11-across",
+    "22-down"
+   ],
    "separatorLocations": {},
    "solution": "DREAM",
    "annotation": null
@@ -389,6 +418,11 @@ window.CRYPTIC_PUZZLES["cyclops-507"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 25ac. (4)",
+   "group": [
+    "25-across",
+    "14-down",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "GOOD",
    "annotation": null
@@ -417,6 +451,11 @@ window.CRYPTIC_PUZZLES["cyclops-507"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 14dn/23dn.) Spent, hapless president full of slush  don't expect a comeback (4)",
+   "group": [
+    "25-across",
+    "14-down",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "GONE",
    "annotation": null

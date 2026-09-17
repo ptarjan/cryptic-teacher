@@ -179,6 +179,10 @@ window.CRYPTIC_PUZZLES["cyclops-792"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 24dn.",
+   "group": [
+    "24-down",
+    "11-across"
+   ],
    "separatorLocations": {},
    "solution": "BACK",
    "annotation": null
@@ -375,6 +379,10 @@ window.CRYPTIC_PUZZLES["cyclops-792"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 11ac.) Scrap retreat and counter-attack (5)",
+   "group": [
+    "24-down",
+    "11-across"
+   ],
    "separatorLocations": {},
    "solution": "FIGHT",
    "annotation": null

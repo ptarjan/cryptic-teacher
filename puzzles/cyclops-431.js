@@ -67,6 +67,10 @@ window.CRYPTIC_PUZZLES["cyclops-431"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 5dn.) Smacker getting tongues wagging (6)",
+   "group": [
+    "4-down",
+    "5-down"
+   ],
    "separatorLocations": {},
    "solution": "FRENCH",
    "annotation": null
@@ -81,6 +85,10 @@ window.CRYPTIC_PUZZLES["cyclops-431"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 4dn. (4)",
+   "group": [
+    "4-down",
+    "5-down"
+   ],
    "separatorLocations": {},
    "solution": "KISS",
    "annotation": null
@@ -137,6 +145,10 @@ window.CRYPTIC_PUZZLES["cyclops-431"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 24dn.) Miserable sort of tart, Fanny fails to climax (4)",
+   "group": [
+    "9-down",
+    "24-down"
+   ],
    "separatorLocations": {},
    "solution": "SOUR",
    "annotation": null
@@ -319,6 +331,10 @@ window.CRYPTIC_PUZZLES["cyclops-431"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 23dn. (4)",
+   "group": [
+    "23-down",
+    "21-down"
+   ],
    "separatorLocations": {},
    "solution": "MARX",
    "annotation": null
@@ -347,6 +363,10 @@ window.CRYPTIC_PUZZLES["cyclops-431"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 21dn.) After drunken lark maybe Thatcher's said to be a revolutionary thinker (4)",
+   "group": [
+    "23-down",
+    "21-down"
+   ],
    "separatorLocations": {},
    "solution": "KARL",
    "annotation": null
@@ -361,6 +381,10 @@ window.CRYPTIC_PUZZLES["cyclops-431"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 9dn. (4)",
+   "group": [
+    "9-down",
+    "24-down"
+   ],
    "separatorLocations": {},
    "solution": "PUSS",
    "annotation": null

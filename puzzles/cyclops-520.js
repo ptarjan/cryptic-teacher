@@ -81,6 +81,10 @@ window.CRYPTIC_PUZZLES["cyclops-520"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 22dn. (6)",
+   "group": [
+    "22-down",
+    "5-down"
+   ],
    "separatorLocations": {},
    "solution": "THELAD",
    "annotation": null
@@ -151,6 +155,10 @@ window.CRYPTIC_PUZZLES["cyclops-520"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 22ac.) Prevent Boris from reproducing \"Literary giant\"? (6)",
+   "group": [
+    "10-across",
+    "22-across"
+   ],
    "separatorLocations": {},
    "solution": "DOCTOR",
    "annotation": null
@@ -319,6 +327,10 @@ window.CRYPTIC_PUZZLES["cyclops-520"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 10ac. (7)",
+   "group": [
+    "10-across",
+    "22-across"
+   ],
    "separatorLocations": {},
    "solution": "JOHNSON",
    "annotation": null
@@ -333,6 +345,10 @@ window.CRYPTIC_PUZZLES["cyclops-520"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 5dn.) Cocky sort takes Jordan's top off  chalked \"Ta\" (4)",
+   "group": [
+    "22-down",
+    "5-down"
+   ],
    "separatorLocations": {},
    "solution": "JACK",
    "annotation": null

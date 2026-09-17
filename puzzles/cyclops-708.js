@@ -109,6 +109,10 @@ window.CRYPTIC_PUZZLES["cyclops-708"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "(& 25ac.) Essential Chic  US version that put a dampener on 1 ac. (9)",
+   "group": [
+    "6-down",
+    "25-across"
+   ],
    "separatorLocations": {},
    "solution": "TECHNICAL",
    "annotation": null
@@ -389,6 +393,10 @@ window.CRYPTIC_PUZZLES["cyclops-708"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 6dn. (6)",
+   "group": [
+    "6-down",
+    "25-across"
+   ],
    "separatorLocations": {},
    "solution": "ISSUES",
    "annotation": null

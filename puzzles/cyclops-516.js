@@ -81,6 +81,10 @@ window.CRYPTIC_PUZZLES["cyclops-516"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 9dn. (4)",
+   "group": [
+    "9-down",
+    "5-down"
+   ],
    "separatorLocations": {},
    "solution": "SEAL",
    "annotation": null
@@ -95,6 +99,10 @@ window.CRYPTIC_PUZZLES["cyclops-516"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "(& 7ac.) Nick, as an ordinary member of the public, to perform one big table surprise for Tony (8)",
+   "group": [
+    "6-across",
+    "7-across"
+   ],
    "separatorLocations": {},
    "solution": "CITIZENS",
    "annotation": null
@@ -123,6 +131,10 @@ window.CRYPTIC_PUZZLES["cyclops-516"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 6ac. (6)",
+   "group": [
+    "6-across",
+    "7-across"
+   ],
    "separatorLocations": {},
    "solution": "ARREST",
    "annotation": null
@@ -151,6 +163,10 @@ window.CRYPTIC_PUZZLES["cyclops-516"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 5dn.) By which a monarch approved of lavatory water creature (5)",
+   "group": [
+    "9-down",
+    "5-down"
+   ],
    "separatorLocations": {},
    "solution": "PRIVY",
    "annotation": null
@@ -235,6 +251,10 @@ window.CRYPTIC_PUZZLES["cyclops-516"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "(& 19ac.) Blair loses direction turning back 'oaf'  his partner is maturer (3)",
+   "group": [
+    "15-across",
+    "19-across"
+   ],
    "separatorLocations": {},
    "solution": "TOY",
    "annotation": null
@@ -277,6 +297,10 @@ window.CRYPTIC_PUZZLES["cyclops-516"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 26dn. (6)",
+   "group": [
+    "26-down",
+    "17-across"
+   ],
    "separatorLocations": {},
    "solution": "BROWNS",
    "annotation": null
@@ -305,6 +329,10 @@ window.CRYPTIC_PUZZLES["cyclops-516"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "see 15ac. (3)",
+   "group": [
+    "15-across",
+    "19-across"
+   ],
    "separatorLocations": {},
    "solution": "BOY",
    "annotation": null
@@ -417,6 +445,10 @@ window.CRYPTIC_PUZZLES["cyclops-516"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 17ac.) A right mess, Gordon's? Dish (4)",
+   "group": [
+    "26-down",
+    "17-across"
+   ],
    "separatorLocations": {},
    "solution": "HASH",
    "annotation": null

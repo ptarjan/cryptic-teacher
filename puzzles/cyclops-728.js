@@ -193,6 +193,10 @@ window.CRYPTIC_PUZZLES["cyclops-728"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "(&14) An odious aspect of you, your partner might wake up to? (7)",
+   "group": [
+    "13-across",
+    "14-across"
+   ],
    "separatorLocations": {},
    "solution": "MORNING",
    "annotation": null
@@ -207,6 +211,10 @@ window.CRYPTIC_PUZZLES["cyclops-728"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 13ac (6)",
+   "group": [
+    "13-across",
+    "14-across"
+   ],
    "separatorLocations": {},
    "solution": "BREATH",
    "annotation": null

@@ -67,6 +67,10 @@ window.CRYPTIC_PUZZLES["cyclops-429"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 26dn.) I say \"good\" after Barbarian's splendidly tackled (4)",
+   "group": [
+    "4-down",
+    "26-down"
+   ],
    "separatorLocations": {},
    "solution": "WELL",
    "annotation": null
@@ -123,6 +127,10 @@ window.CRYPTIC_PUZZLES["cyclops-429"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "(& 16ac.) Being unable to get hard currency I don't feel it's right to go out (8)",
+   "group": [
+    "8-across",
+    "16-across"
+   ],
    "separatorLocations": {},
    "solution": "ERECTILE",
    "annotation": null
@@ -235,6 +243,10 @@ window.CRYPTIC_PUZZLES["cyclops-429"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "see 8ac. (11)",
+   "group": [
+    "8-across",
+    "16-across"
+   ],
    "separatorLocations": {},
    "solution": "DYSFUNCTION",
    "annotation": null
@@ -375,6 +387,10 @@ window.CRYPTIC_PUZZLES["cyclops-429"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 4dn. (4)",
+   "group": [
+    "4-down",
+    "26-down"
+   ],
    "separatorLocations": {},
    "solution": "HUNG",
    "annotation": null

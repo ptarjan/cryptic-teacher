@@ -67,6 +67,10 @@ window.CRYPTIC_PUZZLES["cyclops-676"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 14ac. (7)",
+   "group": [
+    "14-across",
+    "4-down"
+   ],
    "separatorLocations": {},
    "solution": "STARMER",
    "annotation": null
@@ -207,6 +211,10 @@ window.CRYPTIC_PUZZLES["cyclops-676"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 4dn.) \"Strike off member!\"  Brenda (Corbyn follower) (4)",
+   "group": [
+    "14-across",
+    "4-down"
+   ],
    "separatorLocations": {},
    "solution": "KEIR",
    "annotation": null
@@ -305,6 +313,10 @@ window.CRYPTIC_PUZZLES["cyclops-676"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 22ac. (4)",
+   "group": [
+    "22-across",
+    "21-across"
+   ],
    "separatorLocations": {},
    "solution": "DEBT",
    "annotation": null
@@ -319,6 +331,10 @@ window.CRYPTIC_PUZZLES["cyclops-676"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 21ac.) Abandoned BBC led up it  the nation's burden (6)",
+   "group": [
+    "22-across",
+    "21-across"
+   ],
    "separatorLocations": {},
    "solution": "PUBLIC",
    "annotation": null

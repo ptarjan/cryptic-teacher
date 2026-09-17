@@ -165,6 +165,10 @@ window.CRYPTIC_PUZZLES["cyclops-628"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "see 17ac. (11)",
+   "group": [
+    "17-across",
+    "11-across"
+   ],
    "separatorLocations": {},
    "solution": "ENVIRONMENT",
    "annotation": null
@@ -179,6 +183,11 @@ window.CRYPTIC_PUZZLES["cyclops-628"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "see 24ac. (3)",
+   "group": [
+    "24-across",
+    "12-across",
+    "15-across"
+   ],
    "separatorLocations": {},
    "solution": "AND",
    "annotation": null
@@ -221,6 +230,11 @@ window.CRYPTIC_PUZZLES["cyclops-628"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 24ac. (7)",
+   "group": [
+    "24-across",
+    "12-across",
+    "15-across"
+   ],
    "separatorLocations": {},
    "solution": "SCEPTRE",
    "annotation": null
@@ -263,6 +277,10 @@ window.CRYPTIC_PUZZLES["cyclops-628"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "(& 11ac.) The moon, say, is what Theresa May presented to certain immigrants (7)",
+   "group": [
+    "17-across",
+    "11-across"
+   ],
    "separatorLocations": {},
    "solution": "HOSTILE",
    "annotation": null
@@ -389,6 +407,11 @@ window.CRYPTIC_PUZZLES["cyclops-628"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "(& 12ac./15ac.) \"One's part bred, prepared to seize crown initially\"  Brenda's pompous combination (3)",
+   "group": [
+    "24-across",
+    "12-across",
+    "15-across"
+   ],
    "separatorLocations": {},
    "solution": "ORB",
    "annotation": null

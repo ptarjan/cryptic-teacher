@@ -39,6 +39,11 @@ window.CRYPTIC_PUZZLES["cyclops-638"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 12ac./27dn.) Merely want Trump's inauguration top wear to show \"Blow me\" (4)",
+   "group": [
+    "2-down",
+    "12-across",
+    "27-down"
+   ],
    "separatorLocations": {},
    "solution": "JUST",
    "annotation": null
@@ -151,6 +156,10 @@ window.CRYPTIC_PUZZLES["cyclops-638"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "(& 23ac.) Political party talker for volatile type not keen on power sharing (7)",
+   "group": [
+    "10-across",
+    "23-across"
+   ],
    "separatorLocations": {},
    "solution": "CONTROL",
    "annotation": null
@@ -179,6 +188,11 @@ window.CRYPTIC_PUZZLES["cyclops-638"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 2dn. (5)",
+   "group": [
+    "2-down",
+    "12-across",
+    "27-down"
+   ],
    "separatorLocations": {},
    "solution": "FANCY",
    "annotation": null
@@ -193,6 +207,10 @@ window.CRYPTIC_PUZZLES["cyclops-638"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 22dn. (5)",
+   "group": [
+    "22-down",
+    "13-across"
+   ],
    "separatorLocations": {},
    "solution": "LUCRE",
    "annotation": null
@@ -333,6 +351,10 @@ window.CRYPTIC_PUZZLES["cyclops-638"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 13ac.) As Cyclops might clue cruel, sordid profit (6)",
+   "group": [
+    "22-down",
+    "13-across"
+   ],
    "separatorLocations": {},
    "solution": "FILTHY",
    "annotation": null
@@ -347,6 +369,10 @@ window.CRYPTIC_PUZZLES["cyclops-638"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 10ac. (5)",
+   "group": [
+    "10-across",
+    "23-across"
+   ],
    "separatorLocations": {},
    "solution": "FREAK",
    "annotation": null
@@ -403,6 +429,11 @@ window.CRYPTIC_PUZZLES["cyclops-638"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 2dn. (4)",
+   "group": [
+    "2-down",
+    "12-across",
+    "27-down"
+   ],
    "separatorLocations": {},
    "solution": "THAT",
    "annotation": null

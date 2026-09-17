@@ -39,6 +39,10 @@ window.CRYPTIC_PUZZLES["cyclops-604"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 26ac. (7)",
+   "group": [
+    "26-across",
+    "2-down"
+   ],
    "separatorLocations": {},
    "solution": "OFPEACE",
    "annotation": null
@@ -165,6 +169,10 @@ window.CRYPTIC_PUZZLES["cyclops-604"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 14ac. (6)",
+   "group": [
+    "14-across",
+    "11-across"
+   ],
    "separatorLocations": {},
    "solution": "CORBYN",
    "annotation": null
@@ -179,6 +187,10 @@ window.CRYPTIC_PUZZLES["cyclops-604"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 24dn.) Wally and wife spiking father's piss (4)",
+   "group": [
+    "12-across",
+    "24-down"
+   ],
    "separatorLocations": {},
    "solution": "PASS",
    "annotation": null
@@ -207,6 +219,10 @@ window.CRYPTIC_PUZZLES["cyclops-604"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 11ac.) Chump almost snapped \"Be my crony, 'PM in waiting'\" (6)",
+   "group": [
+    "14-across",
+    "11-across"
+   ],
    "separatorLocations": {},
    "solution": "JEREMY",
    "annotation": null
@@ -347,6 +363,10 @@ window.CRYPTIC_PUZZLES["cyclops-604"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 12ac. (5)",
+   "group": [
+    "12-across",
+    "24-down"
+   ],
    "separatorLocations": {},
    "solution": "WATER",
    "annotation": null
@@ -375,6 +395,10 @@ window.CRYPTIC_PUZZLES["cyclops-604"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 2dn.) Eve faced poo spattering  not Trump's kind of bird (4)",
+   "group": [
+    "26-across",
+    "2-down"
+   ],
    "separatorLocations": {},
    "solution": "DOVE",
    "annotation": null

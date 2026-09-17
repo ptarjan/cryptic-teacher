@@ -39,6 +39,10 @@ window.CRYPTIC_PUZZLES["cyclops-726"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 11ac.) Reportedly, bare 'melons', say, are a success eventually (4)",
+   "group": [
+    "1-down",
+    "11-across"
+   ],
    "separatorLocations": {},
    "solution": "BEAR",
    "annotation": null
@@ -193,6 +197,10 @@ window.CRYPTIC_PUZZLES["cyclops-726"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 1dn. (5)",
+   "group": [
+    "1-down",
+    "11-across"
+   ],
    "separatorLocations": {},
    "solution": "FRUIT",
    "annotation": null

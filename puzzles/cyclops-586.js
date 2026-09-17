@@ -109,6 +109,10 @@ window.CRYPTIC_PUZZLES["cyclops-586"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 28ac.) Conservative old bat  hard cure for 'the hots'? (4)",
+   "group": [
+    "7-across",
+    "28-across"
+   ],
    "separatorLocations": {},
    "solution": "COLD",
    "annotation": null
@@ -207,6 +211,10 @@ window.CRYPTIC_PUZZLES["cyclops-586"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "(& 15ac.) Labour executors after Ming art reproduction  the bugbear of Brexiteers? (7)",
+   "group": [
+    "13-across",
+    "15-across"
+   ],
    "separatorLocations": {},
    "solution": "MIGRANT",
    "annotation": null
@@ -235,6 +243,10 @@ window.CRYPTIC_PUZZLES["cyclops-586"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 13ac. (7)",
+   "group": [
+    "13-across",
+    "15-across"
+   ],
    "separatorLocations": {},
    "solution": "WORKERS",
    "annotation": null
@@ -417,6 +429,10 @@ window.CRYPTIC_PUZZLES["cyclops-586"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 7ac. (4)",
+   "group": [
+    "7-across",
+    "28-across"
+   ],
    "separatorLocations": {},
    "solution": "BATH",
    "annotation": null

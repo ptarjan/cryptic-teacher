@@ -53,6 +53,10 @@ window.CRYPTIC_PUZZLES["cyclops-591"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "(& 25dn.) \"Balls' comeback urgent\"  dope reveals what we don't want to hear (10)",
+   "group": [
+    "3-down",
+    "25-down"
+   ],
    "separatorLocations": {},
    "solution": "DEPRESSING",
    "annotation": null
@@ -67,6 +71,10 @@ window.CRYPTIC_PUZZLES["cyclops-591"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 13dn.) Sun exposure led to this cutting short of PM with the anxious trembling? (4)",
+   "group": [
+    "4-down",
+    "13-down"
+   ],
    "separatorLocations": {},
    "solution": "HEAT",
    "annotation": null
@@ -95,6 +103,10 @@ window.CRYPTIC_PUZZLES["cyclops-591"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "(& 16ac.) Big Brother sort of thing  crap sort here's no different (8)",
+   "group": [
+    "6-across",
+    "16-across"
+   ],
    "separatorLocations": {},
    "solution": "SNOOPERS",
    "annotation": null
@@ -151,6 +163,10 @@ window.CRYPTIC_PUZZLES["cyclops-591"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 26ac. (4)",
+   "group": [
+    "26-across",
+    "10-across"
+   ],
    "separatorLocations": {},
    "solution": "WORK",
    "annotation": null
@@ -193,6 +209,10 @@ window.CRYPTIC_PUZZLES["cyclops-591"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "see 18dn. (3)",
+   "group": [
+    "18-down",
+    "12-down"
+   ],
    "separatorLocations": {},
    "solution": "ANT",
    "annotation": null
@@ -221,6 +241,10 @@ window.CRYPTIC_PUZZLES["cyclops-591"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "see 4dn. (10)",
+   "group": [
+    "4-down",
+    "13-down"
+   ],
    "separatorLocations": {},
    "solution": "EXHAUSTION",
    "annotation": null
@@ -263,6 +287,10 @@ window.CRYPTIC_PUZZLES["cyclops-591"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 6ac. (7)",
+   "group": [
+    "6-across",
+    "16-across"
+   ],
    "separatorLocations": {},
    "solution": "CHARTER",
    "annotation": null
@@ -291,6 +319,10 @@ window.CRYPTIC_PUZZLES["cyclops-591"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "(& 12dn.) 'Community member' row buries Miliband (3)",
+   "group": [
+    "18-down",
+    "12-down"
+   ],
    "separatorLocations": {},
    "solution": "RED",
    "annotation": null
@@ -389,6 +421,10 @@ window.CRYPTIC_PUZZLES["cyclops-591"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 3dn. (4)",
+   "group": [
+    "3-down",
+    "25-down"
+   ],
    "separatorLocations": {},
    "solution": "NEWS",
    "annotation": null
@@ -403,6 +439,10 @@ window.CRYPTIC_PUZZLES["cyclops-591"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 10ac.) Abstain together with Labour, by which you soon achieve your goal (4)",
+   "group": [
+    "26-across",
+    "10-across"
+   ],
    "separatorLocations": {},
    "solution": "FAST",
    "annotation": null

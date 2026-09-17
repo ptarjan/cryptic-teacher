@@ -179,6 +179,10 @@ window.CRYPTIC_PUZZLES["cyclops-565"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 21dn.) Side with utter sexist leader, Trump's country (6)",
+   "group": [
+    "12-across",
+    "21-down"
+   ],
    "separatorLocations": {},
    "solution": "UNITED",
    "annotation": null
@@ -193,6 +197,10 @@ window.CRYPTIC_PUZZLES["cyclops-565"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "(& 24ac.) What Charles has to stand for, though not necessarily sharing its sentiment? (3,4)",
+   "group": [
+    "13-across",
+    "24-across"
+   ],
    "separatorLocations": {},
    "solution": "GODSAVE",
    "annotation": null
@@ -305,6 +313,10 @@ window.CRYPTIC_PUZZLES["cyclops-565"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 12ac. (6)",
+   "group": [
+    "12-across",
+    "21-down"
+   ],
    "separatorLocations": {},
    "solution": "STATES",
    "annotation": null
@@ -347,6 +359,10 @@ window.CRYPTIC_PUZZLES["cyclops-565"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "see 13ac. (3,5)",
+   "group": [
+    "13-across",
+    "24-across"
+   ],
    "separatorLocations": {},
    "solution": "THEQUEEN",
    "annotation": null

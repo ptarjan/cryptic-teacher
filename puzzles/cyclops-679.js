@@ -81,6 +81,10 @@ window.CRYPTIC_PUZZLES["cyclops-679"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 23dn.) Last and worst arrangement made by UK and US governments in response to coronavirus threat? (4)",
+   "group": [
+    "5-down",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "SLOW",
    "annotation": null
@@ -333,6 +337,10 @@ window.CRYPTIC_PUZZLES["cyclops-679"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 5dn. (5)",
+   "group": [
+    "5-down",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "START",
    "annotation": null
@@ -361,6 +369,10 @@ window.CRYPTIC_PUZZLES["cyclops-679"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 26ac. (4)",
+   "group": [
+    "26-across",
+    "25-down"
+   ],
    "separatorLocations": {},
    "solution": "WING",
    "annotation": null
@@ -375,6 +387,10 @@ window.CRYPTIC_PUZZLES["cyclops-679"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 25dn.) Part of pitch of Rees-Mogg and his party cronies? (5)",
+   "group": [
+    "26-across",
+    "25-down"
+   ],
    "separatorLocations": {},
    "solution": "RIGHT",
    "annotation": null

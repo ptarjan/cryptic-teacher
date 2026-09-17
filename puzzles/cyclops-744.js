@@ -193,6 +193,10 @@ window.CRYPTIC_PUZZLES["cyclops-744"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 23 ac. (5)",
+   "group": [
+    "23-across",
+    "13-across"
+   ],
    "separatorLocations": {},
    "solution": "YACHT",
    "annotation": null
@@ -347,6 +351,10 @@ window.CRYPTIC_PUZZLES["cyclops-744"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(+13 ac.) Oligarch might have been relieved of this terrible Cyprus heat (5)",
+   "group": [
+    "23-across",
+    "13-across"
+   ],
    "separatorLocations": {},
    "solution": "SUPER",
    "annotation": null

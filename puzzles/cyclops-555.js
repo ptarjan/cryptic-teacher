@@ -109,6 +109,10 @@ window.CRYPTIC_PUZZLES["cyclops-555"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 27ac.) Yes, Dave, \"rien\" negotiated  keep going! (5)",
+   "group": [
+    "6-down",
+    "27-across"
+   ],
    "separatorLocations": {},
    "solution": "NEVER",
    "annotation": null
@@ -151,6 +155,10 @@ window.CRYPTIC_PUZZLES["cyclops-555"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "(& 21ac.) Honour presenter who ballsed up pie-in-the-sky future for Manchester etc (8)",
+   "group": [
+    "9-across",
+    "21-across"
+   ],
    "separatorLocations": {},
    "solution": "NORTHERN",
    "annotation": null
@@ -179,6 +187,10 @@ window.CRYPTIC_PUZZLES["cyclops-555"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 14dn.) Formal response by HSBC, say, to misconduct allegations? This reveals all the ins and outs (4)",
+   "group": [
+    "11-across",
+    "14-down"
+   ],
    "separatorLocations": {},
    "solution": "BANK",
    "annotation": null
@@ -193,6 +205,10 @@ window.CRYPTIC_PUZZLES["cyclops-555"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "(&23ac.) Cabinet minister with armed service crew and Tory chief support, which Boris apparently lacks (10)",
+   "group": [
+    "12-across",
+    "23-across"
+   ],
    "separatorLocations": {},
    "solution": "GOVERNMENT",
    "annotation": null
@@ -221,6 +237,10 @@ window.CRYPTIC_PUZZLES["cyclops-555"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "see 11ac. (9)",
+   "group": [
+    "11-across",
+    "14-down"
+   ],
    "separatorLocations": {},
    "solution": "STATEMENT",
    "annotation": null
@@ -333,6 +353,10 @@ window.CRYPTIC_PUZZLES["cyclops-555"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "see 9ac. (10)",
+   "group": [
+    "9-across",
+    "21-across"
+   ],
    "separatorLocations": {},
    "solution": "POWERHOUSE",
    "annotation": null
@@ -361,6 +385,10 @@ window.CRYPTIC_PUZZLES["cyclops-555"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 12ac. (4)",
+   "group": [
+    "12-across",
+    "23-across"
+   ],
    "separatorLocations": {},
    "solution": "POST",
    "annotation": null
@@ -431,6 +459,10 @@ window.CRYPTIC_PUZZLES["cyclops-555"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 6dn. (6)",
+   "group": [
+    "6-down",
+    "27-across"
+   ],
    "separatorLocations": {},
    "solution": "SAYDIE",
    "annotation": null

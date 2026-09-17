@@ -193,6 +193,10 @@ window.CRYPTIC_PUZZLES["cyclops-825"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "see 22ac.",
+   "group": [
+    "22-across",
+    "13-across"
+   ],
    "separatorLocations": {},
    "solution": "CAT",
    "annotation": null
@@ -333,6 +337,10 @@ window.CRYPTIC_PUZZLES["cyclops-825"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "(13ac.) Kind-hearted whip or man-eater? (3)",
+   "group": [
+    "22-across",
+    "13-across"
+   ],
    "separatorLocations": {},
    "solution": "BIG",
    "annotation": null
@@ -361,6 +369,10 @@ window.CRYPTIC_PUZZLES["cyclops-825"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "(& 29ac.) Tories regret fitness fiasco  it reveals MPs' involvements outside parliament (8,2)",
+   "group": [
+    "24-across",
+    "29-across"
+   ],
    "separatorLocations": {},
    "solution": "REGISTEROF",
    "annotation": null
@@ -431,6 +443,10 @@ window.CRYPTIC_PUZZLES["cyclops-825"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "see 24ac.",
+   "group": [
+    "24-across",
+    "29-across"
+   ],
    "separatorLocations": {},
    "solution": "INTERESTS",
    "annotation": null

@@ -179,6 +179,10 @@ window.CRYPTIC_PUZZLES["cyclops-622"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 18dn. (4)",
+   "group": [
+    "18-down",
+    "12-across"
+   ],
    "separatorLocations": {},
    "solution": "SHOT",
    "annotation": null
@@ -277,6 +281,10 @@ window.CRYPTIC_PUZZLES["cyclops-622"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "(& 12ac.) Hairstyle feature's very fashionable  the last word? (7)",
+   "group": [
+    "18-down",
+    "12-across"
+   ],
    "separatorLocations": {},
    "solution": "PARTING",
    "annotation": null
@@ -347,6 +355,10 @@ window.CRYPTIC_PUZZLES["cyclops-622"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 23ac.) Pants he brandished, interrupting sex earlier (2,3)",
+   "group": [
+    "22-down",
+    "23-across"
+   ],
    "separatorLocations": {},
    "solution": "INTHE",
    "annotation": null
@@ -361,6 +373,10 @@ window.CRYPTIC_PUZZLES["cyclops-622"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 22dn. (4)",
+   "group": [
+    "22-down",
+    "23-across"
+   ],
    "separatorLocations": {},
    "solution": "PAST",
    "annotation": null

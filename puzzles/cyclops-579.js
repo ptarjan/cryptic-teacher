@@ -67,6 +67,10 @@ window.CRYPTIC_PUZZLES["cyclops-579"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 22ac. (4)",
+   "group": [
+    "22-across",
+    "4-down"
+   ],
    "separatorLocations": {},
    "solution": "MESS",
    "annotation": null
@@ -207,6 +211,10 @@ window.CRYPTIC_PUZZLES["cyclops-579"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 21dn. (5)",
+   "group": [
+    "21-down",
+    "13-across"
+   ],
    "separatorLocations": {},
    "solution": "TORSO",
    "annotation": null
@@ -361,6 +369,10 @@ window.CRYPTIC_PUZZLES["cyclops-579"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 13ac.) Vocal symbol of Russia, balls up  therefore often flaunted by Putin (4)",
+   "group": [
+    "21-down",
+    "13-across"
+   ],
    "separatorLocations": {},
    "solution": "BARE",
    "annotation": null
@@ -375,6 +387,10 @@ window.CRYPTIC_PUZZLES["cyclops-579"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 4dn.) Amnesty deflected by Nazi force's shit (5)",
+   "group": [
+    "22-across",
+    "4-down"
+   ],
    "separatorLocations": {},
    "solution": "NASTY",
    "annotation": null

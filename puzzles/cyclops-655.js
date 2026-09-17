@@ -53,6 +53,10 @@ window.CRYPTIC_PUZZLES["cyclops-655"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 16ac.) Smooth liberal party with moderate leader, which Trump would like to curb? (5)",
+   "group": [
+    "2-down",
+    "16-across"
+   ],
    "separatorLocations": {},
    "solution": "PRESS",
    "annotation": null
@@ -123,6 +127,10 @@ window.CRYPTIC_PUZZLES["cyclops-655"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "see 14ac. (9)",
+   "group": [
+    "14-across",
+    "7-down"
+   ],
    "separatorLocations": {},
    "solution": "ENGLANDER",
    "annotation": null
@@ -221,6 +229,10 @@ window.CRYPTIC_PUZZLES["cyclops-655"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 7dn.) Presumably a Brexiter's entangled, with 'tiller' needing replacement? (6)",
+   "group": [
+    "14-across",
+    "7-down"
+   ],
    "separatorLocations": {},
    "solution": "LITTLE",
    "annotation": null
@@ -249,6 +261,10 @@ window.CRYPTIC_PUZZLES["cyclops-655"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 2dn.",
+   "group": [
+    "2-down",
+    "16-across"
+   ],
    "separatorLocations": {},
    "solution": "FREEDOM",
    "annotation": null

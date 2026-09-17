@@ -25,6 +25,11 @@ window.CRYPTIC_PUZZLES["cyclops-534"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 14ac. (6)",
+   "group": [
+    "14-across",
+    "1-down",
+    "3-down"
+   ],
    "separatorLocations": {},
    "solution": "KINDLY",
    "annotation": null
@@ -53,6 +58,11 @@ window.CRYPTIC_PUZZLES["cyclops-534"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 14ac. (4)",
+   "group": [
+    "14-across",
+    "1-down",
+    "3-down"
+   ],
    "separatorLocations": {},
    "solution": "UPON",
    "annotation": null
@@ -207,6 +217,11 @@ window.CRYPTIC_PUZZLES["cyclops-534"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 1dn./3dn.) Take a benevolent view of Ukip, OK? Only 2/3rds of London is done for (4)",
+   "group": [
+    "14-across",
+    "1-down",
+    "3-down"
+   ],
    "separatorLocations": {},
    "solution": "LOOK",
    "annotation": null
@@ -291,6 +306,10 @@ window.CRYPTIC_PUZZLES["cyclops-534"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 25ac.) Salmond's first to bear outcome  it's part of the healing process (4)",
+   "group": [
+    "20-across",
+    "25-across"
+   ],
    "separatorLocations": {},
    "solution": "SCAR",
    "annotation": null
@@ -361,6 +380,10 @@ window.CRYPTIC_PUZZLES["cyclops-534"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 20ac. (6)",
+   "group": [
+    "20-across",
+    "25-across"
+   ],
    "separatorLocations": {},
    "solution": "TISSUE",
    "annotation": null

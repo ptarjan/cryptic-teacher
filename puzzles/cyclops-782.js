@@ -95,6 +95,10 @@ window.CRYPTIC_PUZZLES["cyclops-782"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 21ac.) Still a glow from this pathetic erection, however restrained? (5)",
+   "group": [
+    "6-down",
+    "21-across"
+   ],
    "separatorLocations": {},
    "solution": "CIGAR",
    "annotation": null
@@ -277,6 +281,10 @@ window.CRYPTIC_PUZZLES["cyclops-782"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 25ac.) Maybe David Cameron's attempt to hide nothing look (4)",
+   "group": [
+    "18-across",
+    "25-across"
+   ],
    "separatorLocations": {},
    "solution": "TORY",
    "annotation": null
@@ -319,6 +327,10 @@ window.CRYPTIC_PUZZLES["cyclops-782"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 6dn.",
+   "group": [
+    "6-down",
+    "21-across"
+   ],
    "separatorLocations": {},
    "solution": "BUTT",
    "annotation": null
@@ -389,6 +401,10 @@ window.CRYPTIC_PUZZLES["cyclops-782"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 18ac.",
+   "group": [
+    "18-across",
+    "25-across"
+   ],
    "separatorLocations": {},
    "solution": "PEER",
    "annotation": null

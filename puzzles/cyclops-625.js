@@ -53,6 +53,10 @@ window.CRYPTIC_PUZZLES["cyclops-625"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 18dn. (6)",
+   "group": [
+    "18-down",
+    "3-down"
+   ],
    "separatorLocations": {},
    "solution": "STRAWS",
    "annotation": null
@@ -277,6 +281,10 @@ window.CRYPTIC_PUZZLES["cyclops-625"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "(& 3dn.) Act desperately, grab ex-Labour minister by balls, finally (6,2)",
+   "group": [
+    "18-down",
+    "3-down"
+   ],
    "separatorLocations": {},
    "solution": "CLUTCHAT",
    "annotation": null

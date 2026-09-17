@@ -81,6 +81,11 @@ window.CRYPTIC_PUZZLES["cyclops-430"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 22ac./18ac.) Frottage exponent's trousers quicker than average to show this? (4)",
+   "group": [
+    "5-down",
+    "22-across",
+    "18-across"
+   ],
    "separatorLocations": {},
    "solution": "WEAR",
    "annotation": null
@@ -137,6 +142,10 @@ window.CRYPTIC_PUZZLES["cyclops-430"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "see 21dn. (3)",
+   "group": [
+    "21-down",
+    "9-across"
+   ],
    "separatorLocations": {},
    "solution": "CUT",
    "annotation": null
@@ -277,6 +286,11 @@ window.CRYPTIC_PUZZLES["cyclops-430"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 5dn. (4)",
+   "group": [
+    "5-down",
+    "22-across",
+    "18-across"
+   ],
    "separatorLocations": {},
    "solution": "TEAR",
    "annotation": null
@@ -333,6 +347,10 @@ window.CRYPTIC_PUZZLES["cyclops-430"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 9ac.) Small glass of beer dropped when pissed (4)",
+   "group": [
+    "21-down",
+    "9-across"
+   ],
    "separatorLocations": {},
    "solution": "HALF",
    "annotation": null
@@ -347,6 +365,11 @@ window.CRYPTIC_PUZZLES["cyclops-430"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "see5dn. (3)",
+   "group": [
+    "5-down",
+    "22-across",
+    "18-across"
+   ],
    "separatorLocations": {},
    "solution": "AND",
    "annotation": null

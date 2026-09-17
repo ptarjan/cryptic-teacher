@@ -123,6 +123,10 @@ window.CRYPTIC_PUZZLES["cyclops-756"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "(& 12ac.) Choice show-ring? Empty promises no doubt (8)",
+   "group": [
+    "8-down",
+    "12-across"
+   ],
    "separatorLocations": {},
    "solution": "ELECTION",
    "annotation": null
@@ -179,6 +183,10 @@ window.CRYPTIC_PUZZLES["cyclops-756"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "see 8dn. (9)",
+   "group": [
+    "8-down",
+    "12-across"
+   ],
    "separatorLocations": {},
    "solution": "MANIFESTO",
    "annotation": null

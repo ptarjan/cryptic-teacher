@@ -39,6 +39,10 @@ window.CRYPTIC_PUZZLES["cyclops-716"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 27ac. (6)",
+   "group": [
+    "27-across",
+    "2-down"
+   ],
    "separatorLocations": {},
    "solution": "CHANGE",
    "annotation": null
@@ -151,6 +155,10 @@ window.CRYPTIC_PUZZLES["cyclops-716"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 18ac.) A firm control of groin stimulation by hack (4)",
+   "group": [
+    "10-across",
+    "18-across"
+   ],
    "separatorLocations": {},
    "solution": "IRON",
    "annotation": null
@@ -207,6 +215,10 @@ window.CRYPTIC_PUZZLES["cyclops-716"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 25ac. (4)",
+   "group": [
+    "25-across",
+    "14-across"
+   ],
    "separatorLocations": {},
    "solution": "STAR",
    "annotation": null
@@ -263,6 +275,10 @@ window.CRYPTIC_PUZZLES["cyclops-716"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 10ac. (4)",
+   "group": [
+    "10-across",
+    "18-across"
+   ],
    "separatorLocations": {},
    "solution": "GRIP",
    "annotation": null
@@ -375,6 +391,10 @@ window.CRYPTIC_PUZZLES["cyclops-716"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 14ac.) Mercury, say, is unstable next to black stuff (4)",
+   "group": [
+    "25-across",
+    "14-across"
+   ],
    "separatorLocations": {},
    "solution": "ROCK",
    "annotation": null
@@ -403,6 +423,10 @@ window.CRYPTIC_PUZZLES["cyclops-716"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "(& 2dn.) Toxic chemical agent that's a threat to the world (7)",
+   "group": [
+    "27-across",
+    "2-down"
+   ],
    "separatorLocations": {},
    "solution": "CLIMATE",
    "annotation": null

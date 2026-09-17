@@ -95,6 +95,10 @@ window.CRYPTIC_PUZZLES["cyclops-538"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 19ac.) Who's got the better of Cameron in eager flag waving? (5)",
+   "group": [
+    "6-down",
+    "19-across"
+   ],
    "separatorLocations": {},
    "solution": "NIGEL",
    "annotation": null
@@ -123,6 +127,10 @@ window.CRYPTIC_PUZZLES["cyclops-538"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "(& 23dn.) Challenge Brenda with legal action  \"One's an injured party\" (9)",
+   "group": [
+    "8-down",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "STRETCHER",
    "annotation": null
@@ -291,6 +299,10 @@ window.CRYPTIC_PUZZLES["cyclops-538"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 6dn. (6)",
+   "group": [
+    "6-down",
+    "19-across"
+   ],
    "separatorLocations": {},
    "solution": "FARAGE",
    "annotation": null
@@ -347,6 +359,10 @@ window.CRYPTIC_PUZZLES["cyclops-538"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 8dn. (4)",
+   "group": [
+    "8-down",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "CASE",
    "annotation": null

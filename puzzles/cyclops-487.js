@@ -25,6 +25,10 @@ window.CRYPTIC_PUZZLES["cyclops-487"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(&4ac.) What a politician can expect from treacherous colleague mad about our feature exposing corruption, etc? (4)",
+   "group": [
+    "1-across",
+    "4-across"
+   ],
    "separatorLocations": {},
    "solution": "STAB",
    "annotation": null
@@ -67,6 +71,10 @@ window.CRYPTIC_PUZZLES["cyclops-487"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "see 1ac (2,3,4)",
+   "group": [
+    "1-across",
+    "4-across"
+   ],
    "separatorLocations": {},
    "solution": "INTHEBACK",
    "annotation": null
@@ -375,6 +383,10 @@ window.CRYPTIC_PUZZLES["cyclops-487"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 29ac. (5)",
+   "group": [
+    "29-across",
+    "25-down"
+   ],
    "separatorLocations": {},
    "solution": "CLEGG",
    "annotation": null
@@ -431,6 +443,10 @@ window.CRYPTIC_PUZZLES["cyclops-487"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 25dn.) Lift needed by member carrying little weight (Coalition member) (4)",
+   "group": [
+    "29-across",
+    "25-down"
+   ],
    "separatorLocations": {},
    "solution": "NICK",
    "annotation": null

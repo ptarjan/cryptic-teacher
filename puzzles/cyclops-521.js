@@ -53,6 +53,10 @@ window.CRYPTIC_PUZZLES["cyclops-521"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 27ac. (4)",
+   "group": [
+    "27-across",
+    "3-down"
+   ],
    "separatorLocations": {},
    "solution": "MAIL",
    "annotation": null
@@ -193,6 +197,10 @@ window.CRYPTIC_PUZZLES["cyclops-521"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "see 26dn. (10)",
+   "group": [
+    "26-down",
+    "13-down"
+   ],
    "separatorLocations": {},
    "solution": "UNDERBELLY",
    "annotation": null
@@ -221,6 +229,10 @@ window.CRYPTIC_PUZZLES["cyclops-521"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 16ac.) Stiff tips which thwart advances (4)",
+   "group": [
+    "15-across",
+    "16-across"
+   ],
    "separatorLocations": {},
    "solution": "DEAD",
    "annotation": null
@@ -235,6 +247,10 @@ window.CRYPTIC_PUZZLES["cyclops-521"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 15ac. (4)",
+   "group": [
+    "15-across",
+    "16-across"
+   ],
    "separatorLocations": {},
    "solution": "ENDS",
    "annotation": null
@@ -375,6 +391,10 @@ window.CRYPTIC_PUZZLES["cyclops-521"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 13dn.) Blustered on, fly undone, revealing a rather susceptible body part (4)",
+   "group": [
+    "26-down",
+    "13-down"
+   ],
    "separatorLocations": {},
    "solution": "SOFT",
    "annotation": null
@@ -389,6 +409,10 @@ window.CRYPTIC_PUZZLES["cyclops-521"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 3dn.) Maybe George said it wasn't valued highly enough (5)",
+   "group": [
+    "27-across",
+    "3-down"
+   ],
    "separatorLocations": {},
    "solution": "ROYAL",
    "annotation": null

@@ -137,6 +137,11 @@ window.CRYPTIC_PUZZLES["cyclops-525"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "see 24dn. (3)",
+   "group": [
+    "24-down",
+    "22-across",
+    "9-down"
+   ],
    "separatorLocations": {},
    "solution": "TIE",
    "annotation": null
@@ -151,6 +156,10 @@ window.CRYPTIC_PUZZLES["cyclops-525"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "(&11ac.) Our press revelations the reprehensible way (8)",
+   "group": [
+    "10-across",
+    "11-across"
+   ],
    "separatorLocations": {},
    "solution": "STREETOF",
    "annotation": null
@@ -165,6 +174,10 @@ window.CRYPTIC_PUZZLES["cyclops-525"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 10ac. (5)",
+   "group": [
+    "10-across",
+    "11-across"
+   ],
    "separatorLocations": {},
    "solution": "SHAME",
    "annotation": null
@@ -319,6 +332,11 @@ window.CRYPTIC_PUZZLES["cyclops-525"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 24dn. (6)",
+   "group": [
+    "24-down",
+    "22-across",
+    "9-down"
+   ],
    "separatorLocations": {},
    "solution": "SCHOOL",
    "annotation": null
@@ -361,6 +379,11 @@ window.CRYPTIC_PUZZLES["cyclops-525"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "(&22ac.+ 9dn.)Habit that Cameron and chums have in common, so too chilled out? (3)",
+   "group": [
+    "24-down",
+    "22-across",
+    "9-down"
+   ],
    "separatorLocations": {},
    "solution": "OLD",
    "annotation": null

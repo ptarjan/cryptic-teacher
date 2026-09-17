@@ -151,6 +151,10 @@ window.CRYPTIC_PUZZLES["cyclops-416"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 24dn. (4)",
+   "group": [
+    "24-down",
+    "10-down"
+   ],
    "separatorLocations": {},
    "solution": "TEST",
    "annotation": null
@@ -347,6 +351,10 @@ window.CRYPTIC_PUZZLES["cyclops-416"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 10dn.) Searching examination makes one drunk cite \"DTs\" (4)",
+   "group": [
+    "24-down",
+    "10-down"
+   ],
    "separatorLocations": {},
    "solution": "ACID",
    "annotation": null

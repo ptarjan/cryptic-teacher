@@ -179,6 +179,11 @@ window.CRYPTIC_PUZZLES["cyclops-443"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 13/14) Two Houses divided by Darling? There's nothing like it (4)",
+   "group": [
+    "12-across",
+    "13-across",
+    "14-across"
+   ],
    "separatorLocations": {},
    "solution": "HOME",
    "annotation": null
@@ -193,6 +198,11 @@ window.CRYPTIC_PUZZLES["cyclops-443"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 12ac. (5)",
+   "group": [
+    "12-across",
+    "13-across",
+    "14-across"
+   ],
    "separatorLocations": {},
    "solution": "SWEET",
    "annotation": null
@@ -207,6 +217,11 @@ window.CRYPTIC_PUZZLES["cyclops-443"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 12ac. (4)",
+   "group": [
+    "12-across",
+    "13-across",
+    "14-across"
+   ],
    "separatorLocations": {},
    "solution": "HOME",
    "annotation": null
@@ -235,6 +250,10 @@ window.CRYPTIC_PUZZLES["cyclops-443"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 25dn.) Grabbing love handles, say, being partial? (6)",
+   "group": [
+    "16-across",
+    "25-down"
+   ],
    "separatorLocations": {},
    "solution": "TAKING",
    "annotation": null
@@ -347,6 +366,10 @@ window.CRYPTIC_PUZZLES["cyclops-443"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 27ac. (4)",
+   "group": [
+    "27-across",
+    "24-across"
+   ],
    "separatorLocations": {},
    "solution": "EYES",
    "annotation": null
@@ -361,6 +384,10 @@ window.CRYPTIC_PUZZLES["cyclops-443"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 16ac. (5)",
+   "group": [
+    "16-across",
+    "25-down"
+   ],
    "separatorLocations": {},
    "solution": "SIDES",
    "annotation": null
@@ -389,6 +416,10 @@ window.CRYPTIC_PUZZLES["cyclops-443"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 24ac.) One who has troubled vision of two months' worth of Cyclops, etc.? (4)",
+   "group": [
+    "27-across",
+    "24-across"
+   ],
    "separatorLocations": {},
    "solution": "FOUR",
    "annotation": null

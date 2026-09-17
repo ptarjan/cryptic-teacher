@@ -25,6 +25,10 @@ window.CRYPTIC_PUZZLES["cyclops-646"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 27ac.) Trump's denial of this, merely a matter of degree? (6)",
+   "group": [
+    "1-down",
+    "27-across"
+   ],
    "separatorLocations": {},
    "solution": "GLOBAL",
    "annotation": null
@@ -95,6 +99,11 @@ window.CRYPTIC_PUZZLES["cyclops-646"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 26dn. (4)",
+   "group": [
+    "26-down",
+    "28-down",
+    "6-down"
+   ],
    "separatorLocations": {},
    "solution": "VIEW",
    "annotation": null
@@ -375,6 +384,11 @@ window.CRYPTIC_PUZZLES["cyclops-646"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 28dn./6dn.) Appear to have an orgasm on getting elected with fixed WI vote (4)",
+   "group": [
+    "26-down",
+    "28-down",
+    "6-down"
+   ],
    "separatorLocations": {},
    "solution": "COME",
    "annotation": null
@@ -389,6 +403,10 @@ window.CRYPTIC_PUZZLES["cyclops-646"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 1dn. (7)",
+   "group": [
+    "1-down",
+    "27-across"
+   ],
    "separatorLocations": {},
    "solution": "WARMING",
    "annotation": null
@@ -403,6 +421,11 @@ window.CRYPTIC_PUZZLES["cyclops-646"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 26dn. (4)",
+   "group": [
+    "26-down",
+    "28-down",
+    "6-down"
+   ],
    "separatorLocations": {},
    "solution": "INTO",
    "annotation": null

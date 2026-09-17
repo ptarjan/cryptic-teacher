@@ -193,6 +193,10 @@ window.CRYPTIC_PUZZLES["cyclops-814"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "(& 24dn.) Nick Love would be scrapped by Reform UK (3)",
+   "group": [
+    "12-across",
+    "24-down"
+   ],
    "separatorLocations": {},
    "solution": "NET",
    "annotation": null
@@ -375,6 +379,10 @@ window.CRYPTIC_PUZZLES["cyclops-814"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 12ac.",
+   "group": [
+    "12-across",
+    "24-down"
+   ],
    "separatorLocations": {},
    "solution": "ZERO",
    "annotation": null

@@ -137,6 +137,11 @@ window.CRYPTIC_PUZZLES["cyclops-813"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 15dn/22dn.) IT bumf I circulated with far right, like a good boss? (4)",
+   "group": [
+    "8-down",
+    "15-down",
+    "22-down"
+   ],
    "separatorLocations": {},
    "solution": "FIRM",
    "annotation": null
@@ -249,6 +254,11 @@ window.CRYPTIC_PUZZLES["cyclops-813"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "see 8dn.",
+   "group": [
+    "8-down",
+    "15-down",
+    "22-down"
+   ],
    "separatorLocations": {},
    "solution": "BUT",
    "annotation": null
@@ -347,6 +357,10 @@ window.CRYPTIC_PUZZLES["cyclops-813"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "(& 24dn.) Press revelations: \"The Eye's reprehensible way!\" (6,2)",
+   "group": [
+    "21-across",
+    "24-down"
+   ],
    "separatorLocations": {},
    "solution": "STREETOF",
    "annotation": null
@@ -361,6 +375,11 @@ window.CRYPTIC_PUZZLES["cyclops-813"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 8dn.",
+   "group": [
+    "8-down",
+    "15-down",
+    "22-down"
+   ],
    "separatorLocations": {},
    "solution": "FAIR",
    "annotation": null
@@ -389,6 +408,10 @@ window.CRYPTIC_PUZZLES["cyclops-813"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 21ac.",
+   "group": [
+    "21-across",
+    "24-down"
+   ],
    "separatorLocations": {},
    "solution": "SHAME",
    "annotation": null

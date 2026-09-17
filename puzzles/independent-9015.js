@@ -7,8 +7,8 @@ window.CRYPTIC_PUZZLES["independent-9015"] = /*JSON-START*/ {
  "number": 9015,
  "series": "independent",
  "name": "Independent cryptic crossword No 9,015",
- "setter": "Scorpion",
- "date": 1442016000000,
+ "setter": "Nimrod",
+ "date": 1441411200000,
  "dimensions": {
   "cols": 15,
   "rows": 15
@@ -24,13 +24,9 @@ window.CRYPTIC_PUZZLES["independent-9015"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 8,
-   "clue": "Heading off criticism by community, old cleaner's using lots of water (4,4)",
-   "separatorLocations": {
-    ",": [
-     4
-    ]
-   },
-   "solution": "LAKECOMO",
+   "clue": "G&S production line, on which 10's written articles (8)",
+   "separatorLocations": {},
+   "solution": "IOLANTHE",
    "annotation": null
   },
   {
@@ -41,10 +37,10 @@ window.CRYPTIC_PUZZLES["independent-9015"] = /*JSON-START*/ {
     "x": 3,
     "y": 0
    },
-   "length": 6,
-   "clue": "Captain may bear this mark in red, leaving scene (6)",
+   "length": 8,
+   "clue": "Perhaps Maudling and Hill forgetting to say Linda's worried (8)",
    "separatorLocations": {},
-   "solution": "ARMLET",
+   "solution": "REGINALD",
    "annotation": null
   },
   {
@@ -55,14 +51,10 @@ window.CRYPTIC_PUZZLES["independent-9015"] = /*JSON-START*/ {
     "x": 5,
     "y": 0
    },
-   "length": 8,
-   "clue": "Underwear that's hot or cold on cobblers (3,5)",
-   "separatorLocations": {
-    ",": [
-     3
-    ]
-   },
-   "solution": "TAPPANTS",
+   "length": 6,
+   "clue": "\"It's good-night from me ...\", settling up in The Inn, Orpington (6)",
+   "separatorLocations": {},
+   "solution": "RONNIE",
    "annotation": null
   },
   {
@@ -73,10 +65,10 @@ window.CRYPTIC_PUZZLES["independent-9015"] = /*JSON-START*/ {
     "x": 7,
     "y": 0
    },
-   "length": 4,
-   "clue": "Gamble on a version being tested (4)",
+   "length": 7,
+   "clue": "Refuse some luggage found in French station (7)",
    "separatorLocations": {},
-   "solution": "BETA",
+   "solution": "GARBAGE",
    "annotation": null
   },
   {
@@ -87,10 +79,14 @@ window.CRYPTIC_PUZZLES["independent-9015"] = /*JSON-START*/ {
     "x": 9,
     "y": 0
    },
-   "length": 6,
-   "clue": "Hostile peak disrupts extremists in cartography (6)",
+   "length": 8,
+   "clue": "See 20",
+   "group": [
+    "20-down",
+    "5-down"
+   ],
    "separatorLocations": {},
-   "solution": "CHILLY",
+   "solution": "ROSSITER",
    "annotation": null
   },
   {
@@ -102,9 +98,9 @@ window.CRYPTIC_PUZZLES["independent-9015"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 6,
-   "clue": "Female politician and king visit lake, then another (6)",
+   "clue": "Those embarking on routine eleven irritating minutes late getting up to end of line (covered with more leaves) (6)",
    "separatorLocations": {},
-   "solution": "MERKEL",
+   "solution": "ELMIER",
    "annotation": null
   },
   {
@@ -115,10 +111,16 @@ window.CRYPTIC_PUZZLES["independent-9015"] = /*JSON-START*/ {
     "x": 0,
     "y": 1
    },
-   "length": 8,
-   "clue": "A tie made in 8 or 10? Some days one is in fashion (8)",
+   "length": 4,
+   "clue": "Pointless infection from Cupid's Dart? (4)",
+   "clueItalics": [
+    [
+     25,
+     12
+    ]
+   ],
    "separatorLocations": {},
-   "solution": "MARRIAGE",
+   "solution": "LOVE",
    "annotation": null
   },
   {
@@ -126,13 +128,36 @@ window.CRYPTIC_PUZZLES["independent-9015"] = /*JSON-START*/ {
    "number": 8,
    "direction": "across",
    "position": {
-    "x": 9,
+    "x": 5,
     "y": 1
    },
-   "length": 6,
-   "clue": "Woman describes hail in the sky (6)",
+   "length": 5,
+   "clue": "See 11",
+   "group": [
+    "11-across",
+    "8-across"
+   ],
+   "separatorLocations": {
+    ",": [
+     2,
+     3
+    ]
+   },
+   "solution": "OFADO",
+   "annotation": null
+  },
+  {
+   "id": "9-across",
+   "number": 9,
+   "direction": "across",
+   "position": {
+    "x": 11,
+    "y": 1
+   },
+   "length": 4,
+   "clue": "Decline to retire a little ill-affected (4)",
    "separatorLocations": {},
-   "solution": "HEAVEN",
+   "solution": "FALL",
    "annotation": null
   },
   {
@@ -143,10 +168,10 @@ window.CRYPTIC_PUZZLES["independent-9015"] = /*JSON-START*/ {
     "x": 11,
     "y": 1
    },
-   "length": 7,
-   "clue": "Small rodents earlier destroying odd bits of curtains (7)",
+   "length": 5,
+   "clue": "Shine a Light, following sweep (5)",
    "separatorLocations": {},
-   "solution": "AGOUTIS",
+   "solution": "FLASH",
    "annotation": null
   },
   {
@@ -157,10 +182,20 @@ window.CRYPTIC_PUZZLES["independent-9015"] = /*JSON-START*/ {
     "x": 0,
     "y": 3
    },
-   "length": 4,
-   "clue": "Governor taking sides in local underworld (4)",
-   "separatorLocations": {},
-   "solution": "HELL",
+   "length": 10,
+   "clue": "Domino's topping ratings, introducing comeback of Thunderball theme (5,5)",
+   "clueItalics": [
+    [
+     50,
+     12
+    ]
+   ],
+   "separatorLocations": {
+    ",": [
+     5
+    ]
+   },
+   "solution": "DAVIDNOBBS",
    "annotation": null
   },
   {
@@ -168,13 +203,22 @@ window.CRYPTIC_PUZZLES["independent-9015"] = /*JSON-START*/ {
    "number": 11,
    "direction": "across",
    "position": {
-    "x": 5,
+    "x": 11,
     "y": 3
    },
-   "length": 5,
-   "clue": "Pulse taken with both hands - a perfect example (5)",
-   "separatorLocations": {},
-   "solution": "PEARL",
+   "length": 4,
+   "clue": "Party area? Too bad if nuts around (1,3,2,1,2)",
+   "group": [
+    "11-across",
+    "8-across"
+   ],
+   "separatorLocations": {
+    ",": [
+     1,
+     4
+    ]
+   },
+   "solution": "ABIT",
    "annotation": null
   },
   {
@@ -182,13 +226,13 @@ window.CRYPTIC_PUZZLES["independent-9015"] = /*JSON-START*/ {
    "number": 12,
    "direction": "across",
    "position": {
-    "x": 11,
-    "y": 3
+    "x": 0,
+    "y": 5
    },
-   "length": 3,
-   "clue": "Wood of all kinds initially seen (3)",
+   "length": 6,
+   "clue": "Rapid firing from above when reclining in office \"fart-seats\" (6)",
    "separatorLocations": {},
-   "solution": "OAK",
+   "solution": "STRAFE",
    "annotation": null
   },
   {
@@ -196,27 +240,23 @@ window.CRYPTIC_PUZZLES["independent-9015"] = /*JSON-START*/ {
    "number": 13,
    "direction": "across",
    "position": {
-    "x": 0,
-    "y": 5
-   },
-   "length": 6,
-   "clue": "Old golfer ridiculous wearing fleece (6)",
-   "separatorLocations": {},
-   "solution": "COTTON",
-   "annotation": null
-  },
-  {
-   "id": "14-across",
-   "number": 14,
-   "direction": "across",
-   "position": {
     "x": 7,
     "y": 5
    },
-   "length": 7,
-   "clue": "It's very clear blubber adversely affected back muscles? (7)",
-   "separatorLocations": {},
-   "solution": "CRYSTAL",
+   "length": 8,
+   "clue": "See 24",
+   "group": [
+    "24-down",
+    "13-across",
+    "18-down"
+   ],
+   "separatorLocations": {
+    ",": [
+     3,
+     8
+    ]
+   },
+   "solution": "GETWHERE",
    "annotation": null
   },
   {
@@ -224,13 +264,13 @@ window.CRYPTIC_PUZZLES["independent-9015"] = /*JSON-START*/ {
    "number": 14,
    "direction": "down",
    "position": {
-    "x": 7,
+    "x": 14,
     "y": 5
    },
-   "length": 5,
-   "clue": "Convicted druggies primarily, given a long time inside, are this? (5)",
+   "length": 3,
+   "clue": "Top journos' send-offs for one 10 (3)",
    "separatorLocations": {},
-   "solution": "CAGED",
+   "solution": "EDS",
    "annotation": null
   },
   {
@@ -241,10 +281,24 @@ window.CRYPTIC_PUZZLES["independent-9015"] = /*JSON-START*/ {
     "x": 0,
     "y": 7
    },
-   "length": 4,
-   "clue": "Lord concealing lost riches (4)",
+   "length": 7,
+   "clue": "There can be no number determined to reverse direction (7)",
    "separatorLocations": {},
-   "solution": "GOLD",
+   "solution": "DEADEST",
+   "annotation": null
+  },
+  {
+   "id": "15-down",
+   "number": 15,
+   "direction": "down",
+   "position": {
+    "x": 0,
+    "y": 7
+   },
+   "length": 3,
+   "clue": "They could be fair pushing up the turf, as the old fellow's doing (3)",
+   "separatorLocations": {},
+   "solution": "DOS",
    "annotation": null
   },
   {
@@ -252,17 +306,13 @@ window.CRYPTIC_PUZZLES["independent-9015"] = /*JSON-START*/ {
    "number": 16,
    "direction": "down",
    "position": {
-    "x": 3,
+    "x": 5,
     "y": 7
    },
-   "length": 7,
-   "clue": "Composed play with words rejected by director, being crude (5,2)",
-   "separatorLocations": {
-    ",": [
-     5
-    ]
-   },
-   "solution": "DRAWNUP",
+   "length": 8,
+   "clue": "Good weather to avoid without heading initially for a 9ac... (8)",
+   "separatorLocations": {},
+   "solution": "SUNSHINE",
    "annotation": null
   },
   {
@@ -270,13 +320,13 @@ window.CRYPTIC_PUZZLES["independent-9015"] = /*JSON-START*/ {
    "number": 17,
    "direction": "across",
    "position": {
-    "x": 5,
+    "x": 8,
     "y": 7
    },
-   "length": 5,
-   "clue": "Entrepreneur's Italian sauces withdrawn (5)",
+   "length": 7,
+   "clue": "Skirting artillery, snipe perhaps appears above ground (7)",
    "separatorLocations": {},
-   "solution": "SUGAR",
+   "solution": "BRAIRDS",
    "annotation": null
   },
   {
@@ -284,31 +334,37 @@ window.CRYPTIC_PUZZLES["independent-9015"] = /*JSON-START*/ {
    "number": 18,
    "direction": "down",
    "position": {
-    "x": 9,
-    "y": 7
-   },
-   "length": 8,
-   "clue": "Part of plant, taken from Home Counties meadow, up for grabs (4,4)",
-   "separatorLocations": {
-    ",": [
-     4
-    ]
-   },
-   "solution": "ROSELEAF",
-   "annotation": null
-  },
-  {
-   "id": "19-across",
-   "number": 19,
-   "direction": "across",
-   "position": {
     "x": 11,
     "y": 7
    },
-   "length": 4,
-   "clue": "Cook perhaps seasoning (4)",
+   "length": 8,
+   "clue": "See 24",
+   "group": [
+    "24-down",
+    "13-across",
+    "18-down"
+   ],
+   "separatorLocations": {
+    ",": [
+     1,
+     3
+    ]
+   },
+   "solution": "IAMTODAY",
+   "annotation": null
+  },
+  {
+   "id": "19-down",
+   "number": 19,
+   "direction": "down",
+   "position": {
+    "x": 13,
+    "y": 7
+   },
+   "length": 8,
+   "clue": "... to be fair, they're just under great pressure to get a 27 (8)",
    "separatorLocations": {},
-   "solution": "SALT",
+   "solution": "DESSERTS",
    "annotation": null
   },
   {
@@ -316,17 +372,21 @@ window.CRYPTIC_PUZZLES["independent-9015"] = /*JSON-START*/ {
    "number": 20,
    "direction": "down",
    "position": {
-    "x": 13,
-    "y": 7
+    "x": 7,
+    "y": 8
    },
-   "length": 8,
-   "clue": "Lounge party hosted that is public (3,5)",
+   "length": 7,
+   "clue": "Actor reprising De Niro's star role? (7,8)",
+   "group": [
+    "20-down",
+    "5-down"
+   ],
    "separatorLocations": {
     ",": [
-     3
+     7
     ]
    },
-   "solution": "LIEABOUT",
+   "solution": "LEONARD",
    "annotation": null
   },
   {
@@ -334,31 +394,17 @@ window.CRYPTIC_PUZZLES["independent-9015"] = /*JSON-START*/ {
    "number": 21,
    "direction": "across",
    "position": {
-    "x": 1,
+    "x": 0,
     "y": 9
    },
-   "length": 7,
-   "clue": "Acted outside in the morning with acceptable suit (7)",
+   "length": 8,
+   "clue": "See 29",
+   "group": [
+    "29-across",
+    "21-across"
+   ],
    "separatorLocations": {},
-   "solution": "DIAMOND",
-   "annotation": null
-  },
-  {
-   "id": "21-down",
-   "number": 21,
-   "direction": "down",
-   "position": {
-    "x": 1,
-    "y": 9
-   },
-   "length": 6,
-   "clue": "Type of business lifting atmosphere around Connecticut (3-3)",
-   "separatorLocations": {
-    "-": [
-     3
-    ]
-   },
-   "solution": "DOTCOM",
+   "solution": "SPUMANTE",
    "annotation": null
   },
   {
@@ -366,27 +412,47 @@ window.CRYPTIC_PUZZLES["independent-9015"] = /*JSON-START*/ {
    "number": 22,
    "direction": "down",
    "position": {
-    "x": 5,
+    "x": 1,
     "y": 9
    },
    "length": 6,
-   "clue": "With constant skill, perhaps steer agricultural vehicle (6)",
+   "clue": "French physicist's patron initially bein' human? (6)",
    "separatorLocations": {},
-   "solution": "OXCART",
+   "solution": "PERRIN",
    "annotation": null
   },
   {
-   "id": "23-across",
+   "id": "23-down",
    "number": 23,
+   "direction": "down",
+   "position": {
+    "x": 3,
+    "y": 9
+   },
+   "length": 5,
+   "clue": "Pratt finally seen immersed in pure and simple poetry (5)",
+   "separatorLocations": {},
+   "solution": "METRE",
+   "annotation": null
+  },
+  {
+   "id": "24-across",
+   "number": 24,
    "direction": "across",
    "position": {
     "x": 9,
     "y": 9
    },
    "length": 6,
-   "clue": "Scrap with a couple about money (6)",
+   "clue": "Extremely Secret Army avoiding ransom? It's irregular (6)",
+   "clueItalics": [
+    [
+     0,
+     9
+    ]
+   ],
    "separatorLocations": {},
-   "solution": "SILVER",
+   "solution": "INMOST",
    "annotation": null
   },
   {
@@ -394,13 +460,29 @@ window.CRYPTIC_PUZZLES["independent-9015"] = /*JSON-START*/ {
    "number": 24,
    "direction": "down",
    "position": {
-    "x": 11,
+    "x": 9,
     "y": 9
    },
    "length": 6,
-   "clue": "Linesman perhaps havin' a game (6)",
-   "separatorLocations": {},
-   "solution": "LARKIN",
+   "clue": "Tired Now, I'm Dead at Eighty - alternative title? (1,5,3,5,1,2,5)",
+   "clueItalics": [
+    [
+     0,
+     30
+    ]
+   ],
+   "group": [
+    "24-down",
+    "13-across",
+    "18-down"
+   ],
+   "separatorLocations": {
+    ",": [
+     1,
+     6
+    ]
+   },
+   "solution": "IDIDNT",
    "annotation": null
   },
   {
@@ -408,13 +490,13 @@ window.CRYPTIC_PUZZLES["independent-9015"] = /*JSON-START*/ {
    "number": 25,
    "direction": "across",
    "position": {
-    "x": 1,
+    "x": 0,
     "y": 11
    },
-   "length": 3,
-   "clue": "Storage unit young louse turned over (3)",
+   "length": 4,
+   "clue": "Principally 4, rubbish or tat (4)",
    "separatorLocations": {},
-   "solution": "TIN",
+   "solution": "GROT",
    "annotation": null
   },
   {
@@ -425,24 +507,29 @@ window.CRYPTIC_PUZZLES["independent-9015"] = /*JSON-START*/ {
     "x": 5,
     "y": 11
    },
-   "length": 5,
-   "clue": "Colour runs out of pen (5)",
-   "separatorLocations": {},
-   "solution": "CORAL",
+   "length": 10,
+   "clue": "Gimme that I don't unfortunately have right to accept (4,2,4)",
+   "separatorLocations": {
+    ",": [
+     4,
+     6
+    ]
+   },
+   "solution": "HANDITOVER",
    "annotation": null
   },
   {
-   "id": "27-down",
+   "id": "27-across",
    "number": 27,
-   "direction": "down",
+   "direction": "across",
    "position": {
-    "x": 7,
-    "y": 11
+    "x": 0,
+    "y": 13
    },
    "length": 4,
-   "clue": "Provider of seed beginning to relate to parrot (4)",
+   "clue": "Difficult times: getting out of Civil Service, come back to life (4)",
    "separatorLocations": {},
-   "solution": "RAPE",
+   "solution": "RISE",
    "annotation": null
   },
   {
@@ -450,13 +537,13 @@ window.CRYPTIC_PUZZLES["independent-9015"] = /*JSON-START*/ {
    "number": 28,
    "direction": "across",
    "position": {
-    "x": 11,
-    "y": 11
+    "x": 5,
+    "y": 13
    },
-   "length": 4,
-   "clue": "Woman's the latest in infirmary after stroke (4)",
+   "length": 5,
+   "clue": "Asian river followed a course westward? Yes and no (5)",
    "separatorLocations": {},
-   "solution": "RUBY",
+   "solution": "NARYN",
    "annotation": null
   },
   {
@@ -464,27 +551,21 @@ window.CRYPTIC_PUZZLES["independent-9015"] = /*JSON-START*/ {
    "number": 29,
    "direction": "across",
    "position": {
-    "x": 0,
+    "x": 11,
     "y": 13
    },
-   "length": 6,
-   "clue": "Officer needs hat, with temperature being cold (6)",
-   "separatorLocations": {},
-   "solution": "COPPER",
-   "annotation": null
-  },
-  {
-   "id": "30-across",
-   "number": 30,
-   "direction": "across",
-   "position": {
-    "x": 7,
-    "y": 13
+   "length": 4,
+   "clue": "For refreshing main taste, sup ___ _______ (4,8)",
+   "group": [
+    "29-across",
+    "21-across"
+   ],
+   "separatorLocations": {
+    ",": [
+     4
+    ]
    },
-   "length": 8,
-   "clue": "Short quiz contains language element (8)",
-   "separatorLocations": {},
-   "solution": "PLATINUM",
+   "solution": "ASTI",
    "annotation": null
   }
  ]

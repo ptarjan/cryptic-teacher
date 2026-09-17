@@ -81,6 +81,10 @@ window.CRYPTIC_PUZZLES["cyclops-419"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 20ac.) Spring tip and ring joined makes you hung like a horse? (4)",
+   "group": [
+    "5-down",
+    "20-across"
+   ],
    "separatorLocations": {},
    "solution": "WELL",
    "annotation": null
@@ -193,6 +197,11 @@ window.CRYPTIC_PUZZLES["cyclops-419"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 14ac./21dn.) Question from self-important type pissed off by apparent lack of recognition? (2,3)",
+   "group": [
+    "13-across",
+    "14-across",
+    "21-down"
+   ],
    "separatorLocations": {},
    "solution": "DOYOU",
    "annotation": null
@@ -207,6 +216,11 @@ window.CRYPTIC_PUZZLES["cyclops-419"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 13ac. (7)",
+   "group": [
+    "13-across",
+    "14-across",
+    "21-down"
+   ],
    "separatorLocations": {},
    "solution": "REALISE",
    "annotation": null
@@ -305,6 +319,10 @@ window.CRYPTIC_PUZZLES["cyclops-419"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 5dn. (7)",
+   "group": [
+    "5-down",
+    "20-across"
+   ],
    "separatorLocations": {},
    "solution": "ENDOWED",
    "annotation": null
@@ -319,6 +337,11 @@ window.CRYPTIC_PUZZLES["cyclops-419"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 13ac. (3,1,2)",
+   "group": [
+    "13-across",
+    "14-across",
+    "21-down"
+   ],
    "separatorLocations": {},
    "solution": "WHOIAM",
    "annotation": null

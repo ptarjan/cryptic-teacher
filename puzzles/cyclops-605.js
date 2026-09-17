@@ -179,6 +179,10 @@ window.CRYPTIC_PUZZLES["cyclops-605"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "(& 15dn.) After hot sex article, lose nerve and get pissed (3)",
+   "group": [
+    "11-across",
+    "15-down"
+   ],
    "separatorLocations": {},
    "solution": "HIT",
    "annotation": null
@@ -235,6 +239,10 @@ window.CRYPTIC_PUZZLES["cyclops-605"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "see 11ac. (3,6)",
+   "group": [
+    "11-across",
+    "15-down"
+   ],
    "separatorLocations": {},
    "solution": "THEBOTTLE",
    "annotation": null
@@ -249,6 +257,10 @@ window.CRYPTIC_PUZZLES["cyclops-605"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 27ac.) Some frivolity from boffin at university getting screwed (1,3,2)",
+   "group": [
+    "16-across",
+    "27-across"
+   ],
    "separatorLocations": {},
    "solution": "ABITOF",
    "annotation": null
@@ -417,6 +429,10 @@ window.CRYPTIC_PUZZLES["cyclops-605"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "see 16ac. (3)",
+   "group": [
+    "16-across",
+    "27-across"
+   ],
    "separatorLocations": {},
    "solution": "FUN",
    "annotation": null

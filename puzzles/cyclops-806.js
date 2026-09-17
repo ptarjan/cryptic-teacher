@@ -81,6 +81,10 @@ window.CRYPTIC_PUZZLES["cyclops-806"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 26ac.",
+   "group": [
+    "26-across",
+    "4-down"
+   ],
    "separatorLocations": {},
    "solution": "RATINGS",
    "annotation": null
@@ -193,6 +197,10 @@ window.CRYPTIC_PUZZLES["cyclops-806"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 22ac.) Admission of promiscuous couple grabbing president's butt in Oval Office location (4)",
+   "group": [
+    "12-across",
+    "22-across"
+   ],
    "separatorLocations": {},
    "solution": "WEST",
    "annotation": null
@@ -333,6 +341,10 @@ window.CRYPTIC_PUZZLES["cyclops-806"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 12ac.",
+   "group": [
+    "12-across",
+    "22-across"
+   ],
    "separatorLocations": {},
    "solution": "WING",
    "annotation": null
@@ -403,6 +415,10 @@ window.CRYPTIC_PUZZLES["cyclops-806"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "(& 4dn.) Month going without pee (vital organs affected): Starmer's pretty low at present (8)",
+   "group": [
+    "26-across",
+    "4-down"
+   ],
    "separatorLocations": {},
    "solution": "APPROVAL",
    "annotation": null

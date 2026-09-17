@@ -95,6 +95,10 @@ window.CRYPTIC_PUZZLES["cyclops-601"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 13ac. (4)",
+   "group": [
+    "13-across",
+    "6-across"
+   ],
    "separatorLocations": {},
    "solution": "AWAY",
    "annotation": null
@@ -193,6 +197,10 @@ window.CRYPTIC_PUZZLES["cyclops-601"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 6ac.) Dreaming of emails hacked with style (5)",
+   "group": [
+    "13-across",
+    "6-across"
+   ],
    "separatorLocations": {},
    "solution": "MILES",
    "annotation": null
@@ -291,6 +299,10 @@ window.CRYPTIC_PUZZLES["cyclops-601"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "(& 21dn.) Election slogan; \"After numerous sand shifts, put forward legislation\" (6,3)",
+   "group": [
+    "18-across",
+    "21-down"
+   ],
    "separatorLocations": {},
    "solution": "STRONGAND",
    "annotation": null
@@ -333,6 +345,10 @@ window.CRYPTIC_PUZZLES["cyclops-601"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 18ac. (6)",
+   "group": [
+    "18-across",
+    "21-down"
+   ],
    "separatorLocations": {},
    "solution": "STABLE",
    "annotation": null
@@ -375,6 +391,10 @@ window.CRYPTIC_PUZZLES["cyclops-601"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 25ac.) Conservative getting on with Corbyn at first  everything that you'd rather not be on the end of? (4)",
+   "group": [
+    "23-down",
+    "25-across"
+   ],
    "separatorLocations": {},
    "solution": "COLD",
    "annotation": null
@@ -403,6 +423,10 @@ window.CRYPTIC_PUZZLES["cyclops-601"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 23dn. (4)",
+   "group": [
+    "23-down",
+    "25-across"
+   ],
    "separatorLocations": {},
    "solution": "CALL",
    "annotation": null

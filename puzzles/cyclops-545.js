@@ -137,6 +137,10 @@ window.CRYPTIC_PUZZLES["cyclops-545"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "(& 19dn.) Title coveted by our Brian, 'Horrible Old Thatcher's Heir', when nothing's left? (7,3)",
+   "group": [
+    "9-across",
+    "19-down"
+   ],
    "separatorLocations": {},
    "solution": "CHARLESTHE",
    "annotation": null
@@ -277,6 +281,10 @@ window.CRYPTIC_PUZZLES["cyclops-545"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 9ac. (5)",
+   "group": [
+    "9-across",
+    "19-down"
+   ],
    "separatorLocations": {},
    "solution": "THIRD",
    "annotation": null

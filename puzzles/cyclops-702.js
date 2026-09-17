@@ -179,6 +179,10 @@ window.CRYPTIC_PUZZLES["cyclops-702"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "see 27ac. (3)",
+   "group": [
+    "27-across",
+    "11-across"
+   ],
    "separatorLocations": {},
    "solution": "LOT",
    "annotation": null
@@ -417,6 +421,10 @@ window.CRYPTIC_PUZZLES["cyclops-702"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "(& 11ac.) Everything is fiery torment almost  taking refuge in drink (3)",
+   "group": [
+    "27-across",
+    "11-across"
+   ],
    "separatorLocations": {},
    "solution": "THE",
    "annotation": null

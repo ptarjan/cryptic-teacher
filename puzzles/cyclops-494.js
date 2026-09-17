@@ -53,6 +53,10 @@ window.CRYPTIC_PUZZLES["cyclops-494"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 17dn.) Eye's exposé before 'Yobs': Balls has Cameron's number  personal stink (6)",
+   "group": [
+    "3-down",
+    "17-down"
+   ],
    "separatorLocations": {},
    "solution": "ROTTEN",
    "annotation": null
@@ -95,6 +99,10 @@ window.CRYPTIC_PUZZLES["cyclops-494"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 25dn.) One with DTs etc. (drunk) welcomes independent rigorous examination (4)",
+   "group": [
+    "6-down",
+    "25-down"
+   ],
    "separatorLocations": {},
    "solution": "ACID",
    "annotation": null
@@ -249,6 +257,10 @@ window.CRYPTIC_PUZZLES["cyclops-494"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "see 3dn. (8)",
+   "group": [
+    "3-down",
+    "17-down"
+   ],
    "separatorLocations": {},
    "solution": "BOROUGHS",
    "annotation": null
@@ -277,6 +289,10 @@ window.CRYPTIC_PUZZLES["cyclops-494"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "see 21ac. (8)",
+   "group": [
+    "21-across",
+    "18-down"
+   ],
    "separatorLocations": {},
    "solution": "CAMPAIGN",
    "annotation": null
@@ -319,6 +335,10 @@ window.CRYPTIC_PUZZLES["cyclops-494"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 18dn.) Lot of money invested in America (involved with an MP's dirty tricks operation) (5)",
+   "group": [
+    "21-across",
+    "18-down"
+   ],
    "separatorLocations": {},
    "solution": "SMEAR",
    "annotation": null
@@ -389,6 +409,10 @@ window.CRYPTIC_PUZZLES["cyclops-494"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 6dn. (4)",
+   "group": [
+    "6-down",
+    "25-down"
+   ],
    "separatorLocations": {},
    "solution": "TEST",
    "annotation": null

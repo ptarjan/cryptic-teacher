@@ -380,7 +380,7 @@ window.CRYPTIC_PUZZLES["independent-9000"] = /*JSON-START*/ {
     "y": 9
    },
    "length": 6,
-   "clue": "Plant maiden found under wood (5)",
+   "clue": "Plant maiden found under wood (6)",
    "separatorLocations": {},
    "solution": "BALSAM",
    "annotation": null

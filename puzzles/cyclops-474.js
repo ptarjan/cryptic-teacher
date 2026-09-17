@@ -25,6 +25,11 @@ window.CRYPTIC_PUZZLES["cyclops-474"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 13ac. (6)",
+   "group": [
+    "13-across",
+    "1-across",
+    "24-across"
+   ],
    "separatorLocations": {},
    "solution": "HIGHER",
    "annotation": null
@@ -95,6 +100,11 @@ window.CRYPTIC_PUZZLES["cyclops-474"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 22ac. (4)",
+   "group": [
+    "15-across",
+    "22-across",
+    "5-down"
+   ],
    "separatorLocations": {},
    "solution": "PART",
    "annotation": null
@@ -207,6 +217,11 @@ window.CRYPTIC_PUZZLES["cyclops-474"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 1ac. /24ac.) Motto for shagging athletes to shout in the Olympic Village? (6)",
+   "group": [
+    "13-across",
+    "1-across",
+    "24-across"
+   ],
    "separatorLocations": {},
    "solution": "FASTER",
    "annotation": null
@@ -235,6 +250,11 @@ window.CRYPTIC_PUZZLES["cyclops-474"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "(& 22ac./ 5dn.) Having a bash, though without necessarily being on top: a cynical claim by most Olympic entrants? (3,2,3,3)",
+   "group": [
+    "15-across",
+    "22-across",
+    "5-down"
+   ],
    "separatorLocations": {},
    "solution": "NOTTOWINBUT",
    "annotation": null
@@ -333,6 +353,11 @@ window.CRYPTIC_PUZZLES["cyclops-474"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 15ac. (2,4)",
+   "group": [
+    "15-across",
+    "22-across",
+    "5-down"
+   ],
    "separatorLocations": {},
    "solution": "TOTAKE",
    "annotation": null
@@ -361,6 +386,11 @@ window.CRYPTIC_PUZZLES["cyclops-474"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "see 13ac. (8)",
+   "group": [
+    "13-across",
+    "1-across",
+    "24-across"
+   ],
    "separatorLocations": {},
    "solution": "STRONGER",
    "annotation": null

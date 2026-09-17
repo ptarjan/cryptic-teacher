@@ -109,6 +109,10 @@ window.CRYPTIC_PUZZLES["cyclops-729"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 28ac. (4)",
+   "group": [
+    "28-across",
+    "7-across"
+   ],
    "separatorLocations": {},
    "solution": "SIDE",
    "annotation": null
@@ -417,6 +421,10 @@ window.CRYPTIC_PUZZLES["cyclops-729"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 7ac.) Evil aspect of Democrat party, confining biblical craft (4)",
+   "group": [
+    "28-across",
+    "7-across"
+   ],
    "separatorLocations": {},
    "solution": "DARK",
    "annotation": null

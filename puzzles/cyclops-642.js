@@ -39,6 +39,12 @@ window.CRYPTIC_PUZZLES["cyclops-642"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 23dn/25/5dn.) Dicky buttonholed Harry  \"Do have a blow\" (4)",
+   "group": [
+    "2-down",
+    "23-down",
+    "25-down",
+    "5-down"
+   ],
    "separatorLocations": {},
    "solution": "DONT",
    "annotation": null
@@ -81,6 +87,12 @@ window.CRYPTIC_PUZZLES["cyclops-642"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 2dn. (6)",
+   "group": [
+    "2-down",
+    "23-down",
+    "25-down",
+    "5-down"
+   ],
    "separatorLocations": {},
    "solution": "BREATH",
    "annotation": null
@@ -95,6 +107,10 @@ window.CRYPTIC_PUZZLES["cyclops-642"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 11ac.) Soap's less effective with this sort of raw hatred (4)",
+   "group": [
+    "6-down",
+    "11-across"
+   ],
    "separatorLocations": {},
    "solution": "HARD",
    "annotation": null
@@ -165,6 +181,10 @@ window.CRYPTIC_PUZZLES["cyclops-642"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 6dn. (5)",
+   "group": [
+    "6-down",
+    "11-across"
+   ],
    "separatorLocations": {},
    "solution": "WATER",
    "annotation": null
@@ -249,6 +269,11 @@ window.CRYPTIC_PUZZLES["cyclops-642"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(&18ac./19ac.) Offensively inferior, ecstasy-taking bloke confused Sandy with Ant (5)",
+   "group": [
+    "17-across",
+    "18-across",
+    "19-across"
+   ],
    "separatorLocations": {},
    "solution": "CHEAP",
    "annotation": null
@@ -263,6 +288,11 @@ window.CRYPTIC_PUZZLES["cyclops-642"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "see 17ac. (3)",
+   "group": [
+    "17-across",
+    "18-across",
+    "19-across"
+   ],
    "separatorLocations": {},
    "solution": "AND",
    "annotation": null
@@ -291,6 +321,11 @@ window.CRYPTIC_PUZZLES["cyclops-642"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 17ac. (5)",
+   "group": [
+    "17-across",
+    "18-across",
+    "19-across"
+   ],
    "separatorLocations": {},
    "solution": "NASTY",
    "annotation": null
@@ -389,6 +424,12 @@ window.CRYPTIC_PUZZLES["cyclops-642"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 2dn. (4)",
+   "group": [
+    "2-down",
+    "23-down",
+    "25-down",
+    "5-down"
+   ],
    "separatorLocations": {},
    "solution": "HOLD",
    "annotation": null
@@ -417,6 +458,12 @@ window.CRYPTIC_PUZZLES["cyclops-642"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 2dn. (4)",
+   "group": [
+    "2-down",
+    "23-down",
+    "25-down",
+    "5-down"
+   ],
    "separatorLocations": {},
    "solution": "YOUR",
    "annotation": null

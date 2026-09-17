@@ -53,6 +53,10 @@ window.CRYPTIC_PUZZLES["cyclops-512"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 11ac.) Unfathomable mug has shag  pisspoor farce (5)",
+   "group": [
+    "3-down",
+    "11-across"
+   ],
    "separatorLocations": {},
    "solution": "POKER",
    "annotation": null
@@ -151,6 +155,10 @@ window.CRYPTIC_PUZZLES["cyclops-512"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "(& 25ac.) Those whom Salmond would set apart and pressure to screw  a tragedy, to put it discreetly (3,8)",
+   "group": [
+    "10-down",
+    "25-across"
+   ],
    "separatorLocations": {},
    "solution": "THESCOTTISH",
    "annotation": null
@@ -165,6 +173,10 @@ window.CRYPTIC_PUZZLES["cyclops-512"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 3dn. (4)",
+   "group": [
+    "3-down",
+    "11-across"
+   ],
    "separatorLocations": {},
    "solution": "FACE",
    "annotation": null
@@ -375,6 +387,10 @@ window.CRYPTIC_PUZZLES["cyclops-512"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 10dn. (4)",
+   "group": [
+    "10-down",
+    "25-across"
+   ],
    "separatorLocations": {},
    "solution": "PLAY",
    "annotation": null

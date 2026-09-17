@@ -39,6 +39,10 @@ window.CRYPTIC_PUZZLES["cyclops-575"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 11ac. (5)",
+   "group": [
+    "11-across",
+    "1-down"
+   ],
    "separatorLocations": {},
    "solution": "CLEAN",
    "annotation": null
@@ -193,6 +197,10 @@ window.CRYPTIC_PUZZLES["cyclops-575"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 1dn.) 'Reveal all' orgasm's on celeb's top list (4)",
+   "group": [
+    "11-across",
+    "1-down"
+   ],
    "separatorLocations": {},
    "solution": "CAME",
    "annotation": null
@@ -333,6 +341,10 @@ window.CRYPTIC_PUZZLES["cyclops-575"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 24dn. (4)",
+   "group": [
+    "24-down",
+    "21-across"
+   ],
    "separatorLocations": {},
    "solution": "CARD",
    "annotation": null
@@ -375,6 +387,10 @@ window.CRYPTIC_PUZZLES["cyclops-575"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 21ac.) Democrat underneath high-profile Republican vehicle, which is an advantage (5)",
+   "group": [
+    "24-down",
+    "21-across"
+   ],
    "separatorLocations": {},
    "solution": "TRUMP",
    "annotation": null

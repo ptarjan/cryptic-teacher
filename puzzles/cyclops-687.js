@@ -193,6 +193,10 @@ window.CRYPTIC_PUZZLES["cyclops-687"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 27ac.) New: A Life as a Painter  Hitler's Lot (4)",
+   "group": [
+    "13-across",
+    "27-across"
+   ],
    "separatorLocations": {},
    "solution": "NAZI",
    "annotation": null
@@ -235,6 +239,10 @@ window.CRYPTIC_PUZZLES["cyclops-687"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "see 23ac. (8)",
+   "group": [
+    "23-across",
+    "16-across"
+   ],
    "separatorLocations": {},
    "solution": "CHECKING",
    "annotation": null
@@ -333,6 +341,10 @@ window.CRYPTIC_PUZZLES["cyclops-687"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 16ac.) Teaching KFC about suppressing carbon a  full-time job these days? (4)",
+   "group": [
+    "23-across",
+    "16-across"
+   ],
    "separatorLocations": {},
    "solution": "FACT",
    "annotation": null
@@ -389,6 +401,10 @@ window.CRYPTIC_PUZZLES["cyclops-687"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 13ac. (5)",
+   "group": [
+    "13-across",
+    "27-across"
+   ],
    "separatorLocations": {},
    "solution": "PARTY",
    "annotation": null

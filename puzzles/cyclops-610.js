@@ -25,6 +25,10 @@ window.CRYPTIC_PUZZLES["cyclops-610"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "see 25dn. (8)",
+   "group": [
+    "25-down",
+    "1-down"
+   ],
    "separatorLocations": {},
    "solution": "LANGUAGE",
    "annotation": null
@@ -67,6 +71,10 @@ window.CRYPTIC_PUZZLES["cyclops-610"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "(& 23dn.) Victory line, maybe, such as May's shelved grammar school plan? (8)",
+   "group": [
+    "4-down",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "FLAGSHIP",
    "annotation": null
@@ -137,6 +145,10 @@ window.CRYPTIC_PUZZLES["cyclops-610"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 27ac. (4)",
+   "group": [
+    "27-across",
+    "9-across"
+   ],
    "separatorLocations": {},
    "solution": "CERT",
    "annotation": null
@@ -179,6 +191,11 @@ window.CRYPTIC_PUZZLES["cyclops-610"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "(&13/15) All the Conservatives in a frenzy about hot replacement for shaky leader? Not very  it's in perpetual crisis (8)",
+   "group": [
+    "12-across",
+    "13-across",
+    "15-across"
+   ],
    "separatorLocations": {},
    "solution": "NATIONAL",
    "annotation": null
@@ -193,6 +210,11 @@ window.CRYPTIC_PUZZLES["cyclops-610"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 12ac. (6)",
+   "group": [
+    "12-across",
+    "13-across",
+    "15-across"
+   ],
    "separatorLocations": {},
    "solution": "HEALTH",
    "annotation": null
@@ -221,6 +243,11 @@ window.CRYPTIC_PUZZLES["cyclops-610"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 12ac. (7)",
+   "group": [
+    "12-across",
+    "13-across",
+    "15-across"
+   ],
    "separatorLocations": {},
    "solution": "SERVICE",
    "annotation": null
@@ -333,6 +360,10 @@ window.CRYPTIC_PUZZLES["cyclops-610"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 4dn. (6)",
+   "group": [
+    "4-down",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "POLICY",
    "annotation": null
@@ -361,6 +392,10 @@ window.CRYPTIC_PUZZLES["cyclops-610"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 1dn.) One into bondage, ugly sort, may show your words to be false (4)",
+   "group": [
+    "25-down",
+    "1-down"
+   ],
    "separatorLocations": {},
    "solution": "BODY",
    "annotation": null
@@ -389,6 +424,10 @@ window.CRYPTIC_PUZZLES["cyclops-610"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 9ac.) Obsolete Conservative needs, er, time? Sure thing (4)",
+   "group": [
+    "27-across",
+    "9-across"
+   ],
    "separatorLocations": {},
    "solution": "DEAD",
    "annotation": null

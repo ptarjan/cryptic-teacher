@@ -123,6 +123,10 @@ window.CRYPTIC_PUZZLES["cyclops-810"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "(&15ac.) How a young impressionable Lewinsky saw Clinton's Trumpian piece of legislation? (3)",
+   "group": [
+    "7-down",
+    "15-across"
+   ],
    "separatorLocations": {},
    "solution": "BIG",
    "annotation": null
@@ -235,6 +239,10 @@ window.CRYPTIC_PUZZLES["cyclops-810"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "see 7dn.",
+   "group": [
+    "7-down",
+    "15-across"
+   ],
    "separatorLocations": {},
    "solution": "BEAUTIFULBILL",
    "annotation": null

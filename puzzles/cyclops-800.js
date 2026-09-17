@@ -137,6 +137,10 @@ window.CRYPTIC_PUZZLES["cyclops-800"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "see 15dn. (3)",
+   "group": [
+    "15-down",
+    "7-down"
+   ],
    "separatorLocations": {},
    "solution": "YET",
    "annotation": null
@@ -165,6 +169,10 @@ window.CRYPTIC_PUZZLES["cyclops-800"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 28dn.",
+   "group": [
+    "28-down",
+    "9-across"
+   ],
    "separatorLocations": {},
    "solution": "NOTE",
    "annotation": null
@@ -249,6 +257,10 @@ window.CRYPTIC_PUZZLES["cyclops-800"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "(& 7dn.) Tony's lost the plot finally? So far, no (3)",
+   "group": [
+    "15-down",
+    "7-down"
+   ],
    "separatorLocations": {},
    "solution": "NOT",
    "annotation": null
@@ -431,6 +443,10 @@ window.CRYPTIC_PUZZLES["cyclops-800"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "(& 9dn.) New 'tool'  sadly on which the finish is disappointing (3)",
+   "group": [
+    "28-down",
+    "9-across"
+   ],
    "separatorLocations": {},
    "solution": "LOW",
    "annotation": null

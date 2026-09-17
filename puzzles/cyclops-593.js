@@ -39,6 +39,10 @@ window.CRYPTIC_PUZZLES["cyclops-593"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 24dn. (5)",
+   "group": [
+    "24-down",
+    "2-down"
+   ],
    "separatorLocations": {},
    "solution": "TRUMP",
    "annotation": null
@@ -95,6 +99,10 @@ window.CRYPTIC_PUZZLES["cyclops-593"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "see 10ac. (8)",
+   "group": [
+    "10-across",
+    "6-down"
+   ],
    "separatorLocations": {},
    "solution": "DOWNTURN",
    "annotation": null
@@ -151,6 +159,10 @@ window.CRYPTIC_PUZZLES["cyclops-593"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "(& 6dn.) In document row about political party's gloomy prediction for UK? (8)",
+   "group": [
+    "10-across",
+    "6-down"
+   ],
    "separatorLocations": {},
    "solution": "ECONOMIC",
    "annotation": null
@@ -179,6 +191,11 @@ window.CRYPTIC_PUZZLES["cyclops-593"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 27ac/22ac.) Britain's leader, short of sordid shit on Commons, possibly produces a sentimental song (5)",
+   "group": [
+    "12-across",
+    "27-across",
+    "22-across"
+   ],
    "separatorLocations": {},
    "solution": "BLESS",
    "annotation": null
@@ -319,6 +336,11 @@ window.CRYPTIC_PUZZLES["cyclops-593"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 12ac. (5)",
+   "group": [
+    "12-across",
+    "27-across",
+    "22-across"
+   ],
    "separatorLocations": {},
    "solution": "HOUSE",
    "annotation": null
@@ -347,6 +369,10 @@ window.CRYPTIC_PUZZLES["cyclops-593"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 2dn.) Donald's first Putin arm-twisting, rounding up a victory (5)",
+   "group": [
+    "24-down",
+    "2-down"
+   ],
    "separatorLocations": {},
    "solution": "IVANA",
    "annotation": null
@@ -389,6 +415,11 @@ window.CRYPTIC_PUZZLES["cyclops-593"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 12ac. (4)",
+   "group": [
+    "12-across",
+    "27-across",
+    "22-across"
+   ],
    "separatorLocations": {},
    "solution": "THIS",
    "annotation": null

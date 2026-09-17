@@ -39,6 +39,10 @@ window.CRYPTIC_PUZZLES["cyclops-658"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 15ac.) Description of Prince Archie? Might get a hammering by player (4)",
+   "group": [
+    "2-down",
+    "15-across"
+   ],
    "separatorLocations": {},
    "solution": "BABY",
    "annotation": null
@@ -221,6 +225,10 @@ window.CRYPTIC_PUZZLES["cyclops-658"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 2dn. (5)",
+   "group": [
+    "2-down",
+    "15-across"
+   ],
    "separatorLocations": {},
    "solution": "GRAND",
    "annotation": null
@@ -333,6 +341,10 @@ window.CRYPTIC_PUZZLES["cyclops-658"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 28dn.) Ooze over couch (blue), presented to appeal to simple minds (6)",
+   "group": [
+    "23-down",
+    "28-down"
+   ],
    "separatorLocations": {},
    "solution": "DUMBED",
    "annotation": null
@@ -403,6 +415,10 @@ window.CRYPTIC_PUZZLES["cyclops-658"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 23dn. (4)",
+   "group": [
+    "23-down",
+    "28-down"
+   ],
    "separatorLocations": {},
    "solution": "DOWN",
    "annotation": null

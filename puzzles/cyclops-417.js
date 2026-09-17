@@ -25,6 +25,10 @@ window.CRYPTIC_PUZZLES["cyclops-417"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 19ac. (4)",
+   "group": [
+    "19-across",
+    "1-across"
+   ],
    "separatorLocations": {},
    "solution": "SHIT",
    "annotation": null
@@ -109,6 +113,10 @@ window.CRYPTIC_PUZZLES["cyclops-417"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 29ac. (5)",
+   "group": [
+    "29-across",
+    "6-down"
+   ],
    "separatorLocations": {},
    "solution": "BLOOD",
    "annotation": null
@@ -221,6 +229,11 @@ window.CRYPTIC_PUZZLES["cyclops-417"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "(& 17ac./21dn.) Electorate's delivered its verdict  tabloid has to own: \"Disgraceful sop given to Clarke\" (3,6)",
+   "group": [
+    "14-across",
+    "17-across",
+    "21-down"
+   ],
    "separatorLocations": {},
    "solution": "THEPEOPLE",
    "annotation": null
@@ -263,6 +276,11 @@ window.CRYPTIC_PUZZLES["cyclops-417"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 14ac. (4)",
+   "group": [
+    "14-across",
+    "17-across",
+    "21-down"
+   ],
    "separatorLocations": {},
    "solution": "HAVE",
    "annotation": null
@@ -305,6 +323,10 @@ window.CRYPTIC_PUZZLES["cyclops-417"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 1ac.) Archer's struck gold with laughable story? (4)",
+   "group": [
+    "19-across",
+    "1-across"
+   ],
    "separatorLocations": {},
    "solution": "BULL",
    "annotation": null
@@ -333,6 +355,11 @@ window.CRYPTIC_PUZZLES["cyclops-417"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 14ac. (6)",
+   "group": [
+    "14-across",
+    "17-across",
+    "21-down"
+   ],
    "separatorLocations": {},
    "solution": "SPOKEN",
    "annotation": null
@@ -459,6 +486,10 @@ window.CRYPTIC_PUZZLES["cyclops-417"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 6dn.) What it takes to make royal clots? (4)",
+   "group": [
+    "29-across",
+    "6-down"
+   ],
    "separatorLocations": {},
    "solution": "BLUE",
    "annotation": null

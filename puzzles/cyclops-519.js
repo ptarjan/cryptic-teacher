@@ -53,6 +53,10 @@ window.CRYPTIC_PUZZLES["cyclops-519"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 20ac. (5)",
+   "group": [
+    "20-across",
+    "3-down"
+   ],
    "separatorLocations": {},
    "solution": "TIMES",
    "annotation": null
@@ -165,6 +169,11 @@ window.CRYPTIC_PUZZLES["cyclops-519"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 14ac. (4)",
+   "group": [
+    "14-across",
+    "11-across",
+    "26-across"
+   ],
    "separatorLocations": {},
    "solution": "YOUR",
    "annotation": null
@@ -207,6 +216,11 @@ window.CRYPTIC_PUZZLES["cyclops-519"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 11/26) Spread our pages, readers, and accept how bad things really are! (4)",
+   "group": [
+    "14-across",
+    "11-across",
+    "26-across"
+   ],
    "separatorLocations": {},
    "solution": "OPEN",
    "annotation": null
@@ -291,6 +305,10 @@ window.CRYPTIC_PUZZLES["cyclops-519"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 3dn.) Sentimentality associated with Democrat 'X' is what Osborne would love to promise (4)",
+   "group": [
+    "20-across",
+    "3-down"
+   ],
    "separatorLocations": {},
    "solution": "GOOD",
    "annotation": null
@@ -375,6 +393,11 @@ window.CRYPTIC_PUZZLES["cyclops-519"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 14ac. (4)",
+   "group": [
+    "14-across",
+    "11-across",
+    "26-across"
+   ],
    "separatorLocations": {},
    "solution": "EYES",
    "annotation": null

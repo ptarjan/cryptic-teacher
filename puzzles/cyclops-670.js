@@ -25,6 +25,10 @@ window.CRYPTIC_PUZZLES["cyclops-670"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "(& 15ac.) Exotic fan dance in decline  pine for an alternative to living off the British taxpayer? (9)",
+   "group": [
+    "1-across",
+    "15-across"
+   ],
    "separatorLocations": {},
    "solution": "FINANCIAL",
    "annotation": null
@@ -53,6 +57,11 @@ window.CRYPTIC_PUZZLES["cyclops-670"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "see 6dn. (3)",
+   "group": [
+    "6-across",
+    "3-down",
+    "22-down"
+   ],
    "separatorLocations": {},
    "solution": "AND",
    "annotation": null
@@ -95,6 +104,11 @@ window.CRYPTIC_PUZZLES["cyclops-670"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 3dn./22dn.)Arguments on both sides for Boris's ultimate 'plus' with party members (4)",
+   "group": [
+    "6-across",
+    "3-down",
+    "22-down"
+   ],
    "separatorLocations": {},
    "solution": "PROS",
    "annotation": null
@@ -137,6 +151,10 @@ window.CRYPTIC_PUZZLES["cyclops-670"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 25ac. (4)",
+   "group": [
+    "25-across",
+    "9-down"
+   ],
    "separatorLocations": {},
    "solution": "BACK",
    "annotation": null
@@ -221,6 +239,10 @@ window.CRYPTIC_PUZZLES["cyclops-670"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "see 1ac. (12)",
+   "group": [
+    "1-across",
+    "15-across"
+   ],
    "separatorLocations": {},
    "solution": "INDEPENDENCE",
    "annotation": null
@@ -319,6 +341,11 @@ window.CRYPTIC_PUZZLES["cyclops-670"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 6dn. (4)",
+   "group": [
+    "6-across",
+    "3-down",
+    "22-down"
+   ],
    "separatorLocations": {},
    "solution": "CONS",
    "annotation": null
@@ -361,6 +388,10 @@ window.CRYPTIC_PUZZLES["cyclops-670"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "(& 9dn.) Action of pissed off royals? A way to get Essex town \"tail\" (8)",
+   "group": [
+    "25-across",
+    "9-down"
+   ],
    "separatorLocations": {},
    "solution": "STEPPING",
    "annotation": null
@@ -375,6 +406,10 @@ window.CRYPTIC_PUZZLES["cyclops-670"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "(& 27ac.) Exercise and start to produce gas  it's supposed to be arousing (3)",
+   "group": [
+    "26-down",
+    "27-across"
+   ],
    "separatorLocations": {},
    "solution": "PEP",
    "annotation": null
@@ -389,6 +424,10 @@ window.CRYPTIC_PUZZLES["cyclops-670"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 26dn. (4)",
+   "group": [
+    "26-down",
+    "27-across"
+   ],
    "separatorLocations": {},
    "solution": "TALK",
    "annotation": null

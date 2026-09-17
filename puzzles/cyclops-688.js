@@ -165,6 +165,11 @@ window.CRYPTIC_PUZZLES["cyclops-688"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 24ac. (4)",
+   "group": [
+    "24-across",
+    "23-down",
+    "11-across"
+   ],
    "separatorLocations": {},
    "solution": "SIDE",
    "annotation": null
@@ -207,6 +212,10 @@ window.CRYPTIC_PUZZLES["cyclops-688"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "(& 18ac.) Trump's recent political choice? Unstable eurosceptic (he met just four) ... (7,2,3)",
+   "group": [
+    "14-across",
+    "18-across"
+   ],
    "separatorLocations": {},
    "solution": "JUSTICEOFTHE",
    "annotation": null
@@ -263,6 +272,10 @@ window.CRYPTIC_PUZZLES["cyclops-688"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "see 14ac. (7,5)",
+   "group": [
+    "14-across",
+    "18-across"
+   ],
    "separatorLocations": {},
    "solution": "SUPREMECOURT",
    "annotation": null
@@ -333,6 +346,11 @@ window.CRYPTIC_PUZZLES["cyclops-688"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 24ac. (2,3)",
+   "group": [
+    "24-across",
+    "23-down",
+    "11-across"
+   ],
    "separatorLocations": {},
    "solution": "ONTHE",
    "annotation": null
@@ -347,6 +365,11 @@ window.CRYPTIC_PUZZLES["cyclops-688"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 23dn/ 11ac.) Short time away from the centre of things, taken by many an unfaithful politician? (1,3)",
+   "group": [
+    "24-across",
+    "23-down",
+    "11-across"
+   ],
    "separatorLocations": {},
    "solution": "ABIT",
    "annotation": null

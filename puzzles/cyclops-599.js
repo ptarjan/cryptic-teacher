@@ -137,6 +137,10 @@ window.CRYPTIC_PUZZLES["cyclops-599"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "see 24dn. (3)",
+   "group": [
+    "24-down",
+    "9-down"
+   ],
    "separatorLocations": {},
    "solution": "LOT",
    "annotation": null
@@ -151,6 +155,10 @@ window.CRYPTIC_PUZZLES["cyclops-599"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "(& 25ac.) Dope on sources of the Economic Reform Bill, put to great use by Trump (7)",
+   "group": [
+    "10-across",
+    "25-across"
+   ],
    "separatorLocations": {},
    "solution": "TWITTER",
    "annotation": null
@@ -305,6 +313,10 @@ window.CRYPTIC_PUZZLES["cyclops-599"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 26ac. (6)",
+   "group": [
+    "26-across",
+    "21-down"
+   ],
    "separatorLocations": {},
    "solution": "THREAT",
    "annotation": null
@@ -361,6 +373,10 @@ window.CRYPTIC_PUZZLES["cyclops-599"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "(& 9dn.) Unsavoury bunch of banker types starts importing dodgy load (3)",
+   "group": [
+    "24-down",
+    "9-down"
+   ],
    "separatorLocations": {},
    "solution": "BAD",
    "annotation": null
@@ -375,6 +391,10 @@ window.CRYPTIC_PUZZLES["cyclops-599"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 10ac. (7)",
+   "group": [
+    "10-across",
+    "25-across"
+   ],
    "separatorLocations": {},
    "solution": "ACCOUNT",
    "annotation": null
@@ -389,6 +409,10 @@ window.CRYPTIC_PUZZLES["cyclops-599"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 21dn.) Boris-style warning? \"One gets rattled,\" he snapped (4)",
+   "group": [
+    "26-across",
+    "21-down"
+   ],
    "separatorLocations": {},
    "solution": "IDLE",
    "annotation": null

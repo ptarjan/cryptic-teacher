@@ -39,6 +39,10 @@ window.CRYPTIC_PUZZLES["cyclops-703"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "(& 27ac.) Irate Eye reader's demand: \"Cut Cyclops's contribution!\" (6,2)",
+   "group": [
+    "2-down",
+    "27-across"
+   ],
    "separatorLocations": {},
    "solution": "CANCELMY",
    "annotation": null
@@ -403,6 +407,10 @@ window.CRYPTIC_PUZZLES["cyclops-703"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "see 2 dn. (12)",
+   "group": [
+    "2-down",
+    "27-across"
+   ],
    "separatorLocations": {},
    "solution": "SUBSCRIPTION",
    "annotation": null

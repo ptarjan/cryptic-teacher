@@ -39,6 +39,10 @@ window.CRYPTIC_PUZZLES["cyclops-413"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "(& 4dn.) For those who want to learn how to gas dinner party intellectuals? (10)",
+   "group": [
+    "2-down",
+    "4-down"
+   ],
    "separatorLocations": {},
    "solution": "CHATTERING",
    "annotation": null
@@ -53,6 +57,10 @@ window.CRYPTIC_PUZZLES["cyclops-413"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 7dn.) A quick shag, no lying! (4)",
+   "group": [
+    "3-down",
+    "7-down"
+   ],
    "separatorLocations": {},
    "solution": "KNEE",
    "annotation": null
@@ -67,6 +75,10 @@ window.CRYPTIC_PUZZLES["cyclops-413"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 2dn. (7)",
+   "group": [
+    "2-down",
+    "4-down"
+   ],
    "separatorLocations": {},
    "solution": "CLASSES",
    "annotation": null
@@ -109,6 +121,10 @@ window.CRYPTIC_PUZZLES["cyclops-413"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "see 3dn. (8)",
+   "group": [
+    "3-down",
+    "7-down"
+   ],
    "separatorLocations": {},
    "solution": "TREMBLER",
    "annotation": null
@@ -235,6 +251,10 @@ window.CRYPTIC_PUZZLES["cyclops-413"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "(& 18ac.) Harry quiet in QI broadcast: this didn't seem to bother Tony much (7)",
+   "group": [
+    "16-across",
+    "18-across"
+   ],
    "separatorLocations": {},
    "solution": "THEIRAQ",
    "annotation": null
@@ -263,6 +283,10 @@ window.CRYPTIC_PUZZLES["cyclops-413"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 16ac. (7)",
+   "group": [
+    "16-across",
+    "18-across"
+   ],
    "separatorLocations": {},
    "solution": "INQUIRY",
    "annotation": null
@@ -347,6 +371,10 @@ window.CRYPTIC_PUZZLES["cyclops-413"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 25dn.) Unwanted post: Head of Anti-prejudice involved with the Tory rag (4)",
+   "group": [
+    "24-down",
+    "25-down"
+   ],
    "separatorLocations": {},
    "solution": "HATE",
    "annotation": null
@@ -375,6 +403,10 @@ window.CRYPTIC_PUZZLES["cyclops-413"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 24dn. (4)",
+   "group": [
+    "24-down",
+    "25-down"
+   ],
    "separatorLocations": {},
    "solution": "MAIL",
    "annotation": null

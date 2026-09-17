@@ -53,6 +53,10 @@ window.CRYPTIC_PUZZLES["cyclops-482"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 24dn.) Not a thing to be put up addict on trip (4)",
+   "group": [
+    "3-down",
+    "24-down"
+   ],
    "separatorLocations": {},
    "solution": "NAFF",
    "annotation": null
@@ -249,6 +253,10 @@ window.CRYPTIC_PUZZLES["cyclops-482"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "see 18dn. (6,7)",
+   "group": [
+    "18-down",
+    "17-across"
+   ],
    "separatorLocations": {},
    "solution": "SAMUELJOHNSON",
    "annotation": null
@@ -263,6 +271,10 @@ window.CRYPTIC_PUZZLES["cyclops-482"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 17ac.) \"Foul Females I Jiggered\", Boris's literary tour de force? (4,2)",
+   "group": [
+    "18-down",
+    "17-across"
+   ],
    "separatorLocations": {},
    "solution": "LIFEOF",
    "annotation": null
@@ -361,6 +373,10 @@ window.CRYPTIC_PUZZLES["cyclops-482"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "see 3dn. (3)",
+   "group": [
+    "3-down",
+    "24-down"
+   ],
    "separatorLocations": {},
    "solution": "ALL",
    "annotation": null

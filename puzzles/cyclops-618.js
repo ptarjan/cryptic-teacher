@@ -25,6 +25,10 @@ window.CRYPTIC_PUZZLES["cyclops-618"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "see 20dn. (3,5)",
+   "group": [
+    "20-down",
+    "1-down"
+   ],
    "separatorLocations": {},
    "solution": "THETRUTH",
    "annotation": null
@@ -291,6 +295,10 @@ window.CRYPTIC_PUZZLES["cyclops-618"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 1dn.) Archer article fact? Be honest! (4)",
+   "group": [
+    "20-down",
+    "1-down"
+   ],
    "separatorLocations": {},
    "solution": "TELL",
    "annotation": null

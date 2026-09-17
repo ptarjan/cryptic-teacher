@@ -25,6 +25,10 @@ window.CRYPTIC_PUZZLES["cyclops-633"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "(& 19dn.) \"Dollar gets one questionable champagne (about a litre) for one's haunt\" (10)",
+   "group": [
+    "1-across",
+    "19-down"
+   ],
    "separatorLocations": {},
    "solution": "BUCKINGHAM",
    "annotation": null
@@ -67,6 +71,10 @@ window.CRYPTIC_PUZZLES["cyclops-633"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "(& 28ac.) Result of rigged elections? Loot (7)",
+   "group": [
+    "3-down",
+    "28-across"
+   ],
    "separatorLocations": {},
    "solution": "ILLICIT",
    "annotation": null
@@ -109,6 +117,10 @@ window.CRYPTIC_PUZZLES["cyclops-633"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 26dn.) Nick has a copy of Private Eye? Protest! (4)",
+   "group": [
+    "6-across",
+    "26-down"
+   ],
    "separatorLocations": {},
    "solution": "TAKE",
    "annotation": null
@@ -305,6 +317,10 @@ window.CRYPTIC_PUZZLES["cyclops-633"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 1ac. (6)",
+   "group": [
+    "1-across",
+    "19-down"
+   ],
    "separatorLocations": {},
    "solution": "PALACE",
    "annotation": null
@@ -403,6 +419,10 @@ window.CRYPTIC_PUZZLES["cyclops-633"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 6ac. (5)",
+   "group": [
+    "6-across",
+    "26-down"
+   ],
    "separatorLocations": {},
    "solution": "ISSUE",
    "annotation": null
@@ -431,6 +451,10 @@ window.CRYPTIC_PUZZLES["cyclops-633"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 3dn. (5)",
+   "group": [
+    "3-down",
+    "28-across"
+   ],
    "separatorLocations": {},
    "solution": "GAINS",
    "annotation": null

@@ -25,6 +25,10 @@ window.CRYPTIC_PUZZLES["cyclops-566"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "(& 24dn.) Aged reporters faffing over Times leader, which is degenerative (10)",
+   "group": [
+    "1-down",
+    "24-down"
+   ],
    "separatorLocations": {},
    "solution": "RETROGRADE",
    "annotation": null
@@ -81,6 +85,10 @@ window.CRYPTIC_PUZZLES["cyclops-566"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 14dn.) Leak article about end of Nige (no other!)  switch your full attention to this (4)",
+   "group": [
+    "5-down",
+    "14-down"
+   ],
    "separatorLocations": {},
    "solution": "DROP",
    "annotation": null
@@ -221,6 +229,10 @@ window.CRYPTIC_PUZZLES["cyclops-566"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "see 5dn. (10)",
+   "group": [
+    "5-down",
+    "14-down"
+   ],
    "separatorLocations": {},
    "solution": "EVERYTHING",
    "annotation": null
@@ -389,6 +401,10 @@ window.CRYPTIC_PUZZLES["cyclops-566"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 1dn. (4)",
+   "group": [
+    "1-down",
+    "24-down"
+   ],
    "separatorLocations": {},
    "solution": "STEP",
    "annotation": null

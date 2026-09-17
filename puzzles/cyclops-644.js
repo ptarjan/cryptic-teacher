@@ -67,6 +67,10 @@ window.CRYPTIC_PUZZLES["cyclops-644"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 24dn. (4)",
+   "group": [
+    "24-down",
+    "4-down"
+   ],
    "separatorLocations": {},
    "solution": "ARMS",
    "annotation": null
@@ -375,6 +379,10 @@ window.CRYPTIC_PUZZLES["cyclops-644"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 4dn.)Americans claim to have a right to display members (4)",
+   "group": [
+    "24-down",
+    "4-down"
+   ],
    "separatorLocations": {},
    "solution": "BEAR",
    "annotation": null

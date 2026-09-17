@@ -193,6 +193,11 @@ window.CRYPTIC_PUZZLES["cyclops-837"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(&15/17) Yet forecast starts off with \"fire Burnham's close colleague!\" (5)",
+   "group": [
+    "13-across",
+    "15-across",
+    "17-across"
+   ],
    "separatorLocations": {},
    "solution": "FIRST",
    "annotation": null
@@ -235,6 +240,11 @@ window.CRYPTIC_PUZZLES["cyclops-837"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "see 13ac. (9)",
+   "group": [
+    "13-across",
+    "15-across",
+    "17-across"
+   ],
    "separatorLocations": {},
    "solution": "SECRETARY",
    "annotation": null
@@ -263,6 +273,11 @@ window.CRYPTIC_PUZZLES["cyclops-837"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 13ac. (2,5)",
+   "group": [
+    "13-across",
+    "15-across",
+    "17-across"
+   ],
    "separatorLocations": {},
    "solution": "OFSTATE",
    "annotation": null

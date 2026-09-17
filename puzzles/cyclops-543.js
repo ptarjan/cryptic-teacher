@@ -25,6 +25,10 @@ window.CRYPTIC_PUZZLES["cyclops-543"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 22dn. (6)",
+   "group": [
+    "22-down",
+    "1-down"
+   ],
    "separatorLocations": {},
    "solution": "BUSTER",
    "annotation": null
@@ -333,6 +337,10 @@ window.CRYPTIC_PUZZLES["cyclops-543"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 1dn.) Dance break with Brenda, unmanner of men (4)",
+   "group": [
+    "22-down",
+    "1-down"
+   ],
    "separatorLocations": {},
    "solution": "BALL",
    "annotation": null

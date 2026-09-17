@@ -221,6 +221,10 @@ window.CRYPTIC_PUZZLES["cyclops-758"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "(& 24ac.) Latest advice bound to restrict Times and Independent (3)",
+   "group": [
+    "14-across",
+    "24-across"
+   ],
    "separatorLocations": {},
    "solution": "HOT",
    "annotation": null
@@ -375,6 +379,10 @@ window.CRYPTIC_PUZZLES["cyclops-758"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "see 14ac. (3)",
+   "group": [
+    "14-across",
+    "24-across"
+   ],
    "separatorLocations": {},
    "solution": "TIP",
    "annotation": null

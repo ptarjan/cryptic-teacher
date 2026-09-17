@@ -7,8 +7,8 @@ window.CRYPTIC_PUZZLES["independent-9039"] = /*JSON-START*/ {
  "number": 9039,
  "series": "independent",
  "name": "Independent cryptic crossword No 9,039",
- "setter": "Nimrod",
- "date": 1444435200000,
+ "setter": "Klingsor",
+ "date": 1443830400000,
  "dimensions": {
   "cols": 15,
   "rows": 15
@@ -16,17 +16,31 @@ window.CRYPTIC_PUZZLES["independent-9039"] = /*JSON-START*/ {
  "sourceUrl": "https://puzzles.independent.co.uk/games/cryptic-crossword-independent/",
  "entries": [
   {
+   "id": "1-across",
+   "number": 1,
+   "direction": "across",
+   "position": {
+    "x": 0,
+    "y": 0
+   },
+   "length": 5,
+   "clue": "Money is smuggled into Liverpool perhaps (5)",
+   "separatorLocations": {},
+   "solution": "FRANC",
+   "annotation": null
+  },
+  {
    "id": "1-down",
    "number": 1,
    "direction": "down",
    "position": {
-    "x": 3,
+    "x": 0,
     "y": 0
    },
-   "length": 4,
-   "clue": "11A's tip on National horse going around band of miscreants (4)",
+   "length": 8,
+   "clue": "Ill-dressed bum wearing mullet? (8)",
    "separatorLocations": {},
-   "solution": "GANG",
+   "solution": "FRUMPISH",
    "annotation": null
   },
   {
@@ -34,13 +48,13 @@ window.CRYPTIC_PUZZLES["independent-9039"] = /*JSON-START*/ {
    "number": 2,
    "direction": "down",
    "position": {
-    "x": 7,
+    "x": 2,
     "y": 0
    },
-   "length": 7,
-   "clue": "Support helping jockey to move radius fully (7)",
+   "length": 8,
+   "clue": "Acting upset still about rent for legal adviser (8)",
    "separatorLocations": {},
-   "solution": "STIRRUP",
+   "solution": "ATTORNEY",
    "annotation": null
   },
   {
@@ -48,13 +62,27 @@ window.CRYPTIC_PUZZLES["independent-9039"] = /*JSON-START*/ {
    "number": 3,
    "direction": "down",
    "position": {
-    "x": 9,
+    "x": 4,
     "y": 0
    },
-   "length": 5,
-   "clue": "Scrooge, latest part for Alastair Sim, incorporating 10 finally growing up? (5)",
+   "length": 15,
+   "clue": "Ravel tune? No, a composer of the same period (15)",
    "separatorLocations": {},
-   "solution": "MISER",
+   "solution": "CONTEMPORANEOUS",
+   "annotation": null
+  },
+  {
+   "id": "4-across",
+   "number": 4,
+   "direction": "across",
+   "position": {
+    "x": 6,
+    "y": 0
+   },
+   "length": 9,
+   "clue": "Look for one turning to deception, mostly of old folk (9)",
+   "separatorLocations": {},
+   "solution": "GERIATRIC",
    "annotation": null
   },
   {
@@ -62,13 +90,13 @@ window.CRYPTIC_PUZZLES["independent-9039"] = /*JSON-START*/ {
    "number": 4,
    "direction": "down",
    "position": {
-    "x": 11,
+    "x": 6,
     "y": 0
    },
-   "length": 10,
-   "clue": "Arm 6's women residents? (10)",
+   "length": 4,
+   "clue": "One wet, marshy area? Contrariwise! (4)",
    "separatorLocations": {},
-   "solution": "WINCHESTER",
+   "solution": "GOBI",
    "annotation": null
   },
   {
@@ -76,37 +104,37 @@ window.CRYPTIC_PUZZLES["independent-9039"] = /*JSON-START*/ {
    "number": 5,
    "direction": "down",
    "position": {
-    "x": 13,
+    "x": 8,
     "y": 0
    },
-   "length": 9,
-   "clue": "Not being watchful, model Renault left on back of lorry (9)",
-   "clueItalics": [
-    [
-     34,
-     4
-    ],
-    [
-     39,
-     3
+   "length": 10,
+   "clue": "Drum part, initially omitted, is being chosen again (2-8)",
+   "separatorLocations": {
+    "-": [
+     2
     ]
-   ],
-   "separatorLocations": {},
-   "solution": "UNALERTLY",
+   },
+   "solution": "REELECTION",
    "annotation": null
   },
   {
-   "id": "6-across",
+   "id": "6-down",
    "number": 6,
-   "direction": "across",
+   "direction": "down",
    "position": {
-    "x": 0,
-    "y": 1
+    "x": 10,
+    "y": 0
    },
-   "length": 4,
-   "clue": "Good spirit in \"home-made\" VAT Dave's mixed (4)",
-   "separatorLocations": {},
-   "solution": "DEVA",
+   "length": 15,
+   "clue": "Anonymous fellow hounds my son at work for ages (1,5,2,7)",
+   "separatorLocations": {
+    ",": [
+     1,
+     6,
+     8
+    ]
+   },
+   "solution": "AMONTHOFSUNDAYS",
    "annotation": null
   },
   {
@@ -114,31 +142,13 @@ window.CRYPTIC_PUZZLES["independent-9039"] = /*JSON-START*/ {
    "number": 7,
    "direction": "down",
    "position": {
-    "x": 1,
-    "y": 1
+    "x": 12,
+    "y": 0
    },
-   "length": 4,
-   "clue": "The World that was St Patrick's Lobster, innovatively serialised? (4)",
+   "length": 6,
+   "clue": "Supply aid – outstanding work (6)",
    "separatorLocations": {},
-   "solution": "ERIN",
-   "annotation": null
-  },
-  {
-   "id": "8-across",
-   "number": 8,
-   "direction": "across",
-   "position": {
-    "x": 5,
-    "y": 1
-   },
-   "length": 10,
-   "clue": "Here there's instant suffering involving tormented Sir (2,8)",
-   "separatorLocations": {
-    ",": [
-     2
-    ]
-   },
-   "solution": "STTRINIANS",
+   "solution": "RELIEF",
    "annotation": null
   },
   {
@@ -146,17 +156,13 @@ window.CRYPTIC_PUZZLES["independent-9039"] = /*JSON-START*/ {
    "number": 8,
    "direction": "down",
    "position": {
-    "x": 5,
-    "y": 1
+    "x": 14,
+    "y": 0
    },
-   "length": 7,
-   "clue": "Got clean carried away (5,2)",
-   "separatorLocations": {
-    ",": [
-     5
-    ]
-   },
-   "solution": "SWEPTUP",
+   "length": 6,
+   "clue": "Prosecute stalker? Essentially that's most appealing (6)",
+   "separatorLocations": {},
+   "solution": "CUTEST",
    "annotation": null
   },
   {
@@ -165,16 +171,12 @@ window.CRYPTIC_PUZZLES["independent-9039"] = /*JSON-START*/ {
    "direction": "across",
    "position": {
     "x": 0,
-    "y": 3
+    "y": 2
    },
-   "length": 10,
-   "clue": "Chase stock car, finally stopping self-drive on Westway? (4,6)",
-   "separatorLocations": {
-    ",": [
-     4
-    ]
-   },
-   "solution": "KINGGEORGE",
+   "length": 9,
+   "clue": "Locally one's beaten, left disfigured – that can't be justified (9)",
+   "separatorLocations": {},
+   "solution": "UNTENABLE",
    "annotation": null
   },
   {
@@ -182,13 +184,13 @@ window.CRYPTIC_PUZZLES["independent-9039"] = /*JSON-START*/ {
    "number": 10,
    "direction": "across",
    "position": {
-    "x": 11,
-    "y": 3
+    "x": 10,
+    "y": 2
    },
-   "length": 4,
-   "clue": "An item that's cutting up cabbage (4)",
+   "length": 5,
+   "clue": "Oscar's allowed to go around with a small hooter (5)",
    "separatorLocations": {},
-   "solution": "COLE",
+   "solution": "OWLET",
    "annotation": null
   },
   {
@@ -196,27 +198,13 @@ window.CRYPTIC_PUZZLES["independent-9039"] = /*JSON-START*/ {
    "number": 11,
    "direction": "across",
    "position": {
-    "x": 3,
-    "y": 5
+    "x": 0,
+    "y": 4
    },
    "length": 6,
-   "clue": "Old King Henry the Fifth of England right to advance on old city (6)",
+   "clue": "Package tour's last chance for vacation in China (6)",
    "separatorLocations": {},
-   "solution": "ARTHUR",
-   "annotation": null
-  },
-  {
-   "id": "11-down",
-   "number": 11,
-   "direction": "down",
-   "position": {
-    "x": 3,
-    "y": 5
-   },
-   "length": 10,
-   "clue": "Extended action with smasher after a week's a bit hard to deal with (10)",
-   "separatorLocations": {},
-   "solution": "AWKWARDISH",
+   "solution": "PARCEL",
    "annotation": null
   },
   {
@@ -224,13 +212,13 @@ window.CRYPTIC_PUZZLES["independent-9039"] = /*JSON-START*/ {
    "number": 12,
    "direction": "across",
    "position": {
-    "x": 10,
-    "y": 5
+    "x": 7,
+    "y": 4
    },
-   "length": 5,
-   "clue": "Shakespearean actress makes effort to take in bestower of OBEs (5)",
+   "length": 8,
+   "clue": "Lacking support, snooker player is so impatient (8)",
    "separatorLocations": {},
-   "solution": "TERRY",
+   "solution": "RESTLESS",
    "annotation": null
   },
   {
@@ -238,17 +226,13 @@ window.CRYPTIC_PUZZLES["independent-9039"] = /*JSON-START*/ {
    "number": 13,
    "direction": "down",
    "position": {
-    "x": 1,
-    "y": 6
+    "x": 6,
+    "y": 5
    },
-   "length": 9,
-   "clue": "New wives carried over them, making Bliss drool horribly (bachelor no more!) (4-5)",
-   "separatorLocations": {
-    "-": [
-     4
-    ]
-   },
-   "solution": "DOORSILLS",
+   "length": 10,
+   "clue": "Promoting Republican, agitate Royal noticeably (10)",
+   "separatorLocations": {},
+   "solution": "STRIKINGLY",
    "annotation": null
   },
   {
@@ -257,30 +241,16 @@ window.CRYPTIC_PUZZLES["independent-9039"] = /*JSON-START*/ {
    "direction": "across",
    "position": {
     "x": 0,
-    "y": 7
+    "y": 6
    },
-   "length": 6,
-   "clue": "Secure with Penny, the country 10 nearly backed (4,2)",
+   "length": 12,
+   "clue": "Where in Victoria perhaps, man's keeping ewe and tup finally? (5,7)",
    "separatorLocations": {
     ",": [
-     4
+     5
     ]
    },
-   "solution": "LOCKUP",
-   "annotation": null
-  },
-  {
-   "id": "15-across",
-   "number": 15,
-   "direction": "across",
-   "position": {
-    "x": 9,
-    "y": 7
-   },
-   "length": 6,
-   "clue": "Mini's label initially switched after pound sign (6)",
-   "separatorLocations": {},
-   "solution": "LITTLE",
+   "solution": "SHEEPSTATION",
    "annotation": null
   },
   {
@@ -288,13 +258,13 @@ window.CRYPTIC_PUZZLES["independent-9039"] = /*JSON-START*/ {
    "number": 15,
    "direction": "down",
    "position": {
-    "x": 9,
+    "x": 12,
     "y": 7
    },
-   "length": 7,
-   "clue": "It's not brief handling hot crook gently (7)",
+   "length": 8,
+   "clue": "Primary area involving Rome's the church (8)",
    "separatorLocations": {},
-   "solution": "LENGTHY",
+   "solution": "BASILICA",
    "annotation": null
   },
   {
@@ -302,13 +272,13 @@ window.CRYPTIC_PUZZLES["independent-9039"] = /*JSON-START*/ {
    "number": 16,
    "direction": "down",
    "position": {
-    "x": 7,
-    "y": 8
+    "x": 14,
+    "y": 7
    },
-   "length": 7,
-   "clue": "Stock-in-trade of used-car salesman causing fireworks (7)",
+   "length": 8,
+   "clue": "English NCO hides in tree, getting dirty (8)",
    "separatorLocations": {},
-   "solution": "BANGERS",
+   "solution": "BESMIRCH",
    "annotation": null
   },
   {
@@ -316,27 +286,31 @@ window.CRYPTIC_PUZZLES["independent-9039"] = /*JSON-START*/ {
    "number": 17,
    "direction": "across",
    "position": {
-    "x": 0,
-    "y": 9
+    "x": 3,
+    "y": 8
    },
-   "length": 5,
-   "clue": "Line crossed by Comrade Dad centrally following \"Advance\" order (5)",
-   "separatorLocations": {},
-   "solution": "ARRAY",
+   "length": 12,
+   "clue": "Riot dispersed with tear gas around the northern entrance to the Tower (8,4)",
+   "separatorLocations": {
+    ",": [
+     8
+    ]
+   },
+   "solution": "TRAITORSGATE",
    "annotation": null
   },
   {
-   "id": "18-across",
+   "id": "18-down",
    "number": 18,
-   "direction": "across",
+   "direction": "down",
    "position": {
-    "x": 6,
+    "x": 0,
     "y": 9
    },
    "length": 6,
-   "clue": "He's paid attention in the end to departing expert (6)",
+   "clue": "In retreat, hermit possibly conceals identity of a poet (6)",
    "separatorLocations": {},
-   "solution": "EARNER",
+   "solution": "BARDIC",
    "annotation": null
   },
   {
@@ -344,27 +318,27 @@ window.CRYPTIC_PUZZLES["independent-9039"] = /*JSON-START*/ {
    "number": 19,
    "direction": "down",
    "position": {
-    "x": 5,
-    "y": 10
+    "x": 2,
+    "y": 9
    },
-   "length": 5,
-   "clue": "The Bill on the case of his undrinkable spirits (5)",
+   "length": 6,
+   "clue": "Fate of dimwit accompanied by some laughter (6)",
    "separatorLocations": {},
-   "solution": "METHS",
+   "solution": "CLOTHO",
    "annotation": null
   },
   {
-   "id": "20-down",
+   "id": "20-across",
    "number": 20,
-   "direction": "down",
+   "direction": "across",
    "position": {
-    "x": 13,
+    "x": 0,
     "y": 10
    },
-   "length": 4,
-   "clue": "The wife's endless deceit (4)",
+   "length": 8,
+   "clue": "Continent, oddly not one seen in map collection (8)",
    "separatorLocations": {},
-   "solution": "FRAU",
+   "solution": "ATLANTIS",
    "annotation": null
   },
   {
@@ -372,41 +346,41 @@ window.CRYPTIC_PUZZLES["independent-9039"] = /*JSON-START*/ {
    "number": 21,
    "direction": "across",
    "position": {
-    "x": 0,
-    "y": 11
+    "x": 9,
+    "y": 10
    },
-   "length": 4,
-   "clue": "Sanity of Chisholm in doubt (4)",
+   "length": 6,
+   "clue": "Advise having institute for old and frail (6)",
    "separatorLocations": {},
-   "solution": "MIND",
+   "solution": "INFIRM",
    "annotation": null
   },
   {
-   "id": "22-across",
+   "id": "22-down",
    "number": 22,
-   "direction": "across",
-   "position": {
-    "x": 5,
-    "y": 11
-   },
-   "length": 10,
-   "clue": "They look like workers getting busy to arrange set (10)",
-   "separatorLocations": {},
-   "solution": "ERGATANERS",
-   "annotation": null
-  },
-  {
-   "id": "23-down",
-   "number": 23,
    "direction": "down",
    "position": {
-    "x": 11,
+    "x": 8,
     "y": 11
    },
    "length": 4,
-   "clue": "One tip or the other from Waterman: \"I could be so good for you\" (4)",
+   "clue": "Drop one in it! (4)",
    "separatorLocations": {},
-   "solution": "NICE",
+   "solution": "BEAD",
+   "annotation": null
+  },
+  {
+   "id": "23-across",
+   "number": 23,
+   "direction": "across",
+   "position": {
+    "x": 0,
+    "y": 12
+   },
+   "length": 5,
+   "clue": "I show disapproval, but no university dons do likewise (5)",
+   "separatorLocations": {},
+   "solution": "DITTO",
    "annotation": null
   },
   {
@@ -414,17 +388,13 @@ window.CRYPTIC_PUZZLES["independent-9039"] = /*JSON-START*/ {
    "number": 24,
    "direction": "across",
    "position": {
-    "x": 0,
-    "y": 13
+    "x": 6,
+    "y": 12
    },
-   "length": 10,
-   "clue": "Spiv, young, holding whip hand? Half right (5,5)",
-   "separatorLocations": {
-    ",": [
-     5
-    ]
-   },
-   "solution": "FLASHHARRY",
+   "length": 9,
+   "clue": "Soldier wants a bit of work on retirement, loved one said (9)",
+   "separatorLocations": {},
+   "solution": "GRENADIER",
    "annotation": null
   },
   {
@@ -432,13 +402,31 @@ window.CRYPTIC_PUZZLES["independent-9039"] = /*JSON-START*/ {
    "number": 25,
    "direction": "across",
    "position": {
-    "x": 11,
-    "y": 13
+    "x": 0,
+    "y": 14
    },
-   "length": 4,
-   "clue": "Throw into confusion the seeds of campaign (Lynchwood underestimating Blott!) (4)",
+   "length": 9,
+   "clue": "Yes, decor's awful, not looking right? (5-4)",
+   "separatorLocations": {
+    "-": [
+     5
+    ]
+   },
+   "solution": "CROSSEYED",
+   "annotation": null
+  },
+  {
+   "id": "26-across",
+   "number": 26,
+   "direction": "across",
+   "position": {
+    "x": 10,
+    "y": 14
+   },
+   "length": 5,
+   "clue": "Do number one cut (5)",
    "separatorLocations": {},
-   "solution": "CLUB",
+   "solution": "SLASH",
    "annotation": null
   }
  ]

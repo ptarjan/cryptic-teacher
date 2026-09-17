@@ -193,6 +193,10 @@ window.CRYPTIC_PUZZLES["cyclops-712"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 21ac.) Slump, unlike Dolly Parton, and fail miserably (4)",
+   "group": [
+    "12-across",
+    "21-across"
+   ],
    "separatorLocations": {},
    "solution": "FALL",
    "annotation": null
@@ -319,6 +323,10 @@ window.CRYPTIC_PUZZLES["cyclops-712"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 12ac. (4)",
+   "group": [
+    "12-across",
+    "21-across"
+   ],
    "separatorLocations": {},
    "solution": "FLAT",
    "annotation": null

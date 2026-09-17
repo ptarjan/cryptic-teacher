@@ -67,6 +67,10 @@ window.CRYPTIC_PUZZLES["cyclops-465"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 25dn. (5)",
+   "group": [
+    "25-down",
+    "4-down"
+   ],
    "separatorLocations": {},
    "solution": "CLEGG",
    "annotation": null
@@ -375,6 +379,10 @@ window.CRYPTIC_PUZZLES["cyclops-465"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 4dn.) Catch member putting weight about  pain in the arse for Cameron? (4,5)",
+   "group": [
+    "25-down",
+    "4-down"
+   ],
    "separatorLocations": {},
    "solution": "NICK",
    "annotation": null

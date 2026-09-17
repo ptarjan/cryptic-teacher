@@ -137,6 +137,10 @@ window.CRYPTIC_PUZZLES["cyclops-629"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 19dn.) Belated \"Nix!\" or other possible consequence of Leave vote? (2-4)",
+   "group": [
+    "8-down",
+    "19-down"
+   ],
    "separatorLocations": {},
    "solution": "NODEAL",
    "annotation": null
@@ -151,6 +155,12 @@ window.CRYPTIC_PUZZLES["cyclops-629"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 12/21/26ac.) Pay heed, readers  don't fold back your organs (4)",
+   "group": [
+    "9-across",
+    "12-across",
+    "21-across",
+    "26-across"
+   ],
    "separatorLocations": {},
    "solution": "KEEP",
    "annotation": null
@@ -193,6 +203,12 @@ window.CRYPTIC_PUZZLES["cyclops-629"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 9ac. (4)",
+   "group": [
+    "9-across",
+    "12-across",
+    "21-across",
+    "26-across"
+   ],
    "separatorLocations": {},
    "solution": "YOUR",
    "annotation": null
@@ -305,6 +321,10 @@ window.CRYPTIC_PUZZLES["cyclops-629"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 8dn. (6)",
+   "group": [
+    "8-down",
+    "19-down"
+   ],
    "separatorLocations": {},
    "solution": "BREXIT",
    "annotation": null
@@ -333,6 +353,12 @@ window.CRYPTIC_PUZZLES["cyclops-629"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 9ac. (4)",
+   "group": [
+    "9-across",
+    "12-across",
+    "21-across",
+    "26-across"
+   ],
    "separatorLocations": {},
    "solution": "EYES",
    "annotation": null
@@ -403,6 +429,12 @@ window.CRYPTIC_PUZZLES["cyclops-629"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 9ac. (4)",
+   "group": [
+    "9-across",
+    "12-across",
+    "21-across",
+    "26-across"
+   ],
    "separatorLocations": {},
    "solution": "OPEN",
    "annotation": null

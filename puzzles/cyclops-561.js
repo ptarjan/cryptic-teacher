@@ -67,6 +67,10 @@ window.CRYPTIC_PUZZLES["cyclops-561"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 23ac. (4,3)",
+   "group": [
+    "23-across",
+    "4-down"
+   ],
    "separatorLocations": {},
    "solution": "HAIRDAY",
    "annotation": null
@@ -207,6 +211,10 @@ window.CRYPTIC_PUZZLES["cyclops-561"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 28ac.) Aspects of a literary body minded to be contrary (6)",
+   "group": [
+    "14-across",
+    "28-across"
+   ],
    "separatorLocations": {},
    "solution": "JEKYLL",
    "annotation": null
@@ -333,6 +341,10 @@ window.CRYPTIC_PUZZLES["cyclops-561"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "(& 4dn.) When things just get worse and worse  24/7 in 11's case? (3)",
+   "group": [
+    "23-across",
+    "4-down"
+   ],
    "separatorLocations": {},
    "solution": "BAD",
    "annotation": null
@@ -403,6 +415,10 @@ window.CRYPTIC_PUZZLES["cyclops-561"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 14ac. (3,4)",
+   "group": [
+    "14-across",
+    "28-across"
+   ],
    "separatorLocations": {},
    "solution": "ANDHYDE",
    "annotation": null

@@ -137,6 +137,10 @@ window.CRYPTIC_PUZZLES["cyclops-432"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "(& 19dn.) MPs as a whole honest? Unlikely when protecting company millions (3)",
+   "group": [
+    "9-down",
+    "19-down"
+   ],
    "separatorLocations": {},
    "solution": "THE",
    "annotation": null
@@ -151,6 +155,10 @@ window.CRYPTIC_PUZZLES["cyclops-432"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(+ 22dn.) Lackey's boxers possibly getting stiff (4)",
+   "group": [
+    "10-down",
+    "22-down"
+   ],
    "separatorLocations": {},
    "solution": "DOGS",
    "annotation": null
@@ -193,6 +201,10 @@ window.CRYPTIC_PUZZLES["cyclops-432"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "(& 17dn.) Archer and Aitken, once? Counsel's tip is to reform (they were hardly Thatcher's style) (9)",
+   "group": [
+    "13-across",
+    "17-down"
+   ],
    "separatorLocations": {},
    "solution": "CONSENSUS",
    "annotation": null
@@ -207,6 +219,10 @@ window.CRYPTIC_PUZZLES["cyclops-432"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 25dn. (5)",
+   "group": [
+    "25-down",
+    "14-across"
+   ],
    "separatorLocations": {},
    "solution": "ARSED",
    "annotation": null
@@ -249,6 +265,10 @@ window.CRYPTIC_PUZZLES["cyclops-432"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "see 13ac. (8)",
+   "group": [
+    "13-across",
+    "17-down"
+   ],
    "separatorLocations": {},
    "solution": "POLITICS",
    "annotation": null
@@ -291,6 +311,10 @@ window.CRYPTIC_PUZZLES["cyclops-432"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 9dn. (7)",
+   "group": [
+    "9-down",
+    "19-down"
+   ],
    "separatorLocations": {},
    "solution": "COMMONS",
    "annotation": null
@@ -347,6 +371,10 @@ window.CRYPTIC_PUZZLES["cyclops-432"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 10dn. (4)",
+   "group": [
+    "10-down",
+    "22-down"
+   ],
    "separatorLocations": {},
    "solution": "BODY",
    "annotation": null
@@ -389,6 +417,10 @@ window.CRYPTIC_PUZZLES["cyclops-432"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "(& 14ac.) Bum on bum, dead tight (3)",
+   "group": [
+    "25-down",
+    "14-across"
+   ],
    "separatorLocations": {},
    "solution": "RAT",
    "annotation": null

@@ -123,6 +123,10 @@ window.CRYPTIC_PUZZLES["cyclops-639"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 23dn.) Given old money, former pop star becomes budding Saudi dictator? (5)",
+   "group": [
+    "7-down",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "CROWN",
    "annotation": null
@@ -277,6 +281,10 @@ window.CRYPTIC_PUZZLES["cyclops-639"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "(& 21dn.) Sad Trump lie: \"OK, 'til I ...\" (sorry, it's that or nothing) (4,2,2)",
+   "group": [
+    "18-down",
+    "21-down"
+   ],
    "separatorLocations": {},
    "solution": "LIKEITOR",
    "annotation": null
@@ -319,6 +327,10 @@ window.CRYPTIC_PUZZLES["cyclops-639"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 18dn. (4,2)",
+   "group": [
+    "18-down",
+    "21-down"
+   ],
    "separatorLocations": {},
    "solution": "LUMPIT",
    "annotation": null
@@ -347,6 +359,10 @@ window.CRYPTIC_PUZZLES["cyclops-639"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 7dn. (6)",
+   "group": [
+    "7-down",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "PRINCE",
    "annotation": null

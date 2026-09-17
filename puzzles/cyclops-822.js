@@ -25,6 +25,10 @@ window.CRYPTIC_PUZZLES["cyclops-822"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "see 14dn. (8)",
+   "group": [
+    "14-down",
+    "1-down"
+   ],
    "separatorLocations": {},
    "solution": "POLITICS",
    "annotation": null
@@ -39,6 +43,10 @@ window.CRYPTIC_PUZZLES["cyclops-822"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 26dn.) Be prepared to shoot said exposed members! (4)",
+   "group": [
+    "2-down",
+    "26-down"
+   ],
    "separatorLocations": {},
    "solution": "BEAR",
    "annotation": null
@@ -221,6 +229,10 @@ window.CRYPTIC_PUZZLES["cyclops-822"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "(& 1dn.) \"Collapsing? Pity,\" I snapped, being a devious minister? (7)",
+   "group": [
+    "14-down",
+    "1-down"
+   ],
    "separatorLocations": {},
    "solution": "PLAYING",
    "annotation": null
@@ -403,6 +415,10 @@ window.CRYPTIC_PUZZLES["cyclops-822"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 2dn.",
+   "group": [
+    "2-down",
+    "26-down"
+   ],
    "separatorLocations": {},
    "solution": "ARMS",
    "annotation": null

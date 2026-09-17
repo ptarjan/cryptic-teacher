@@ -81,6 +81,10 @@ window.CRYPTIC_PUZZLES["cyclops-479"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 22dn.) Yesmen 'yo' a dodgy fatcat's bonus, say (4)",
+   "group": [
+    "5-down",
+    "22-down"
+   ],
    "separatorLocations": {},
    "solution": "EASY",
    "annotation": null
@@ -151,6 +155,11 @@ window.CRYPTIC_PUZZLES["cyclops-479"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 19/27) Perhaps Met. officers' hint about pornographic bit of verse (4)",
+   "group": [
+    "9-across",
+    "19-across",
+    "27-across"
+   ],
    "separatorLocations": {},
    "solution": "THIN",
    "annotation": null
@@ -207,6 +216,10 @@ window.CRYPTIC_PUZZLES["cyclops-479"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 15ac.)  Candidate needing hand, right, with suspect money? (4)",
+   "group": [
+    "13-across",
+    "15-across"
+   ],
    "separatorLocations": {},
    "solution": "MITT",
    "annotation": null
@@ -235,6 +248,10 @@ window.CRYPTIC_PUZZLES["cyclops-479"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 13ac. (6)",
+   "group": [
+    "13-across",
+    "15-across"
+   ],
    "separatorLocations": {},
    "solution": "ROMNEY",
    "annotation": null
@@ -291,6 +308,11 @@ window.CRYPTIC_PUZZLES["cyclops-479"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 9ac. (4)",
+   "group": [
+    "9-across",
+    "19-across",
+    "27-across"
+   ],
    "separatorLocations": {},
    "solution": "BLUE",
    "annotation": null
@@ -333,6 +355,10 @@ window.CRYPTIC_PUZZLES["cyclops-479"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 5dn. (5)",
+   "group": [
+    "5-down",
+    "22-down"
+   ],
    "separatorLocations": {},
    "solution": "MONEY",
    "annotation": null
@@ -375,6 +401,10 @@ window.CRYPTIC_PUZZLES["cyclops-479"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 28ac. (4)",
+   "group": [
+    "28-across",
+    "25-down"
+   ],
    "separatorLocations": {},
    "solution": "DICK",
    "annotation": null
@@ -403,6 +433,11 @@ window.CRYPTIC_PUZZLES["cyclops-479"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 9ac. (4)",
+   "group": [
+    "9-across",
+    "19-across",
+    "27-across"
+   ],
    "separatorLocations": {},
    "solution": "LINE",
    "annotation": null
@@ -417,6 +452,10 @@ window.CRYPTIC_PUZZLES["cyclops-479"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 25dn.) Band on end of tiny penis? That's novel (4)",
+   "group": [
+    "28-across",
+    "25-down"
+   ],
    "separatorLocations": {},
    "solution": "MOBY",
    "annotation": null

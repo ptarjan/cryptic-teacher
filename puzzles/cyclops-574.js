@@ -25,6 +25,10 @@ window.CRYPTIC_PUZZLES["cyclops-574"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 25ac.) Catchy, so composition leads to easy intercourse (4)",
+   "group": [
+    "1-across",
+    "25-across"
+   ],
    "separatorLocations": {},
    "solution": "COSY",
    "annotation": null
@@ -165,6 +169,10 @@ window.CRYPTIC_PUZZLES["cyclops-574"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 22ac. (4)",
+   "group": [
+    "22-across",
+    "9-across"
+   ],
    "separatorLocations": {},
    "solution": "TIME",
    "annotation": null
@@ -375,6 +383,10 @@ window.CRYPTIC_PUZZLES["cyclops-574"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 9ac.) Happy hour? Not a moment to spare (4)",
+   "group": [
+    "22-across",
+    "9-across"
+   ],
    "separatorLocations": {},
    "solution": "HIGH",
    "annotation": null
@@ -417,6 +429,10 @@ window.CRYPTIC_PUZZLES["cyclops-574"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 1ac. (4)",
+   "group": [
+    "1-across",
+    "25-across"
+   ],
    "separatorLocations": {},
    "solution": "CHAT",
    "annotation": null

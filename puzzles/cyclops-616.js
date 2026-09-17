@@ -151,6 +151,10 @@ window.CRYPTIC_PUZZLES["cyclops-616"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "(& 15dn.) Elected, fit  response to stimulus is e.g. unwelcome \"pussy-grabbing\" (13)",
+   "group": [
+    "9-across",
+    "15-down"
+   ],
    "separatorLocations": {},
    "solution": "INAPPROPRIATE",
    "annotation": null
@@ -235,6 +239,10 @@ window.CRYPTIC_PUZZLES["cyclops-616"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "see 9ac. (9)",
+   "group": [
+    "9-across",
+    "15-down"
+   ],
    "separatorLocations": {},
    "solution": "BEHAVIOUR",
    "annotation": null
@@ -305,6 +313,10 @@ window.CRYPTIC_PUZZLES["cyclops-616"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 23ac.) Underwear row  Sun skewers old soldier (6)",
+   "group": [
+    "20-down",
+    "23-across"
+   ],
    "separatorLocations": {},
    "solution": "STRING",
    "annotation": null
@@ -347,6 +359,10 @@ window.CRYPTIC_PUZZLES["cyclops-616"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 20dn. (4)",
+   "group": [
+    "20-down",
+    "23-across"
+   ],
    "separatorLocations": {},
    "solution": "VEST",
    "annotation": null

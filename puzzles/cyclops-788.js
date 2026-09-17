@@ -207,6 +207,10 @@ window.CRYPTIC_PUZZLES["cyclops-788"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "(& 24ac.) Latest broadcast: politician's pretentious talk? (3)",
+   "group": [
+    "13-across",
+    "24-across"
+   ],
    "separatorLocations": {},
    "solution": "HOT",
    "annotation": null
@@ -361,6 +365,10 @@ window.CRYPTIC_PUZZLES["cyclops-788"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "see 13ac. (3)",
+   "group": [
+    "13-across",
+    "24-across"
+   ],
    "separatorLocations": {},
    "solution": "AIR",
    "annotation": null

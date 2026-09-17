@@ -67,6 +67,10 @@ window.CRYPTIC_PUZZLES["cyclops-495"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 11ac. (5)",
+   "group": [
+    "11-across",
+    "4-down"
+   ],
    "separatorLocations": {},
    "solution": "PARTY",
    "annotation": null
@@ -165,6 +169,10 @@ window.CRYPTIC_PUZZLES["cyclops-495"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 4dn.) Harry's not begun to get involved with potty Boris's lot (4)",
+   "group": [
+    "11-across",
+    "4-down"
+   ],
    "separatorLocations": {},
    "solution": "TORY",
    "annotation": null
@@ -179,6 +187,10 @@ window.CRYPTIC_PUZZLES["cyclops-495"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "(& 13ac.) Fairytale ending missing, sadly, with homely Brenda's lot? (3,5)",
+   "group": [
+    "12-across",
+    "13-across"
+   ],
    "separatorLocations": {},
    "solution": "THEROYAL",
    "annotation": null
@@ -193,6 +205,10 @@ window.CRYPTIC_PUZZLES["cyclops-495"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 12ac. (6)",
+   "group": [
+    "12-across",
+    "13-across"
+   ],
    "separatorLocations": {},
    "solution": "FAMILY",
    "annotation": null
@@ -361,6 +377,10 @@ window.CRYPTIC_PUZZLES["cyclops-495"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 27ac.) How you have to take a bitter pill? (Police numbers cut) (5)",
+   "group": [
+    "25-down",
+    "27-across"
+   ],
    "separatorLocations": {},
    "solution": "FORCE",
    "annotation": null
@@ -389,6 +409,10 @@ window.CRYPTIC_PUZZLES["cyclops-495"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 25dn. (4)",
+   "group": [
+    "25-down",
+    "27-across"
+   ],
    "separatorLocations": {},
    "solution": "DOWN",
    "annotation": null

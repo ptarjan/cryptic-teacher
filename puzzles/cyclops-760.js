@@ -109,6 +109,10 @@ window.CRYPTIC_PUZZLES["cyclops-760"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "see 26dn. (3)",
+   "group": [
+    "26-down",
+    "7-down"
+   ],
    "separatorLocations": {},
    "solution": "BAD",
    "annotation": null
@@ -179,6 +183,10 @@ window.CRYPTIC_PUZZLES["cyclops-760"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 27ac. (4)",
+   "group": [
+    "27-across",
+    "12-across"
+   ],
    "separatorLocations": {},
    "solution": "NEWS",
    "annotation": null
@@ -389,6 +397,10 @@ window.CRYPTIC_PUZZLES["cyclops-760"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "(& 7dn.) Kickback taken by a Democrat? Deplorable (3)",
+   "group": [
+    "26-down",
+    "7-down"
+   ],
    "separatorLocations": {},
    "solution": "TOO",
    "annotation": null
@@ -403,6 +415,10 @@ window.CRYPTIC_PUZZLES["cyclops-760"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "(& 12ac.) Way to dance with teensy dress and old hat (10)",
+   "group": [
+    "27-across",
+    "12-across"
+   ],
    "separatorLocations": {},
    "solution": "YESTERDAYS",
    "annotation": null

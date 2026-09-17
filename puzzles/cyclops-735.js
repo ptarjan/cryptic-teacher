@@ -53,6 +53,10 @@ window.CRYPTIC_PUZZLES["cyclops-735"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 27dn. (4,4)",
+   "group": [
+    "27-down",
+    "3-down"
+   ],
    "separatorLocations": {},
    "solution": "AWAY",
    "annotation": null
@@ -235,6 +239,10 @@ window.CRYPTIC_PUZZLES["cyclops-735"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "(& 23dn.) Daft search engine tips about love, given by an unapologetic Boris (11)",
+   "group": [
+    "16-across",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "RESIGNATION",
    "annotation": null
@@ -333,6 +341,10 @@ window.CRYPTIC_PUZZLES["cyclops-735"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 16ac. (6)",
+   "group": [
+    "16-across",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "SPEECH",
    "annotation": null
@@ -389,6 +401,10 @@ window.CRYPTIC_PUZZLES["cyclops-735"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 3dn.) Pop off and defile a street (4)",
+   "group": [
+    "27-down",
+    "3-down"
+   ],
    "separatorLocations": {},
    "solution": "PASS",
    "annotation": null

@@ -151,6 +151,10 @@ window.CRYPTIC_PUZZLES["cyclops-567"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 20dn.) Lucky miss's narrow whatsit (5)",
+   "group": [
+    "10-down",
+    "20-down"
+   ],
    "separatorLocations": {},
    "solution": "CLOSE",
    "annotation": null
@@ -305,6 +309,10 @@ window.CRYPTIC_PUZZLES["cyclops-567"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 10dn. (5)",
+   "group": [
+    "10-down",
+    "20-down"
+   ],
    "separatorLocations": {},
    "solution": "THING",
    "annotation": null

@@ -95,6 +95,10 @@ window.CRYPTIC_PUZZLES["cyclops-680"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "(& 14ac.) Not Trump's favourite daily Sousa march (3,10)",
+   "group": [
+    "5-down",
+    "14-across"
+   ],
    "separatorLocations": {},
    "solution": "THEWASHINGTON",
    "annotation": null
@@ -221,6 +225,10 @@ window.CRYPTIC_PUZZLES["cyclops-680"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 5dn. (4)",
+   "group": [
+    "5-down",
+    "14-across"
+   ],
    "separatorLocations": {},
    "solution": "POST",
    "annotation": null

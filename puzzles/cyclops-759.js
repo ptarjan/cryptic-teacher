@@ -123,6 +123,10 @@ window.CRYPTIC_PUZZLES["cyclops-759"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "see 26dn. (9)",
+   "group": [
+    "26-down",
+    "8-down"
+   ],
    "separatorLocations": {},
    "solution": "OFCONDUCT",
    "annotation": null
@@ -151,6 +155,10 @@ window.CRYPTIC_PUZZLES["cyclops-759"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "(& 12ac.) \"Private Eye corrupt  sue 'em!\" snapped conservative-biased government institution (2,7)",
+   "group": [
+    "10-across",
+    "12-across"
+   ],
    "separatorLocations": {},
    "solution": "USSUPREME",
    "annotation": null
@@ -179,6 +187,10 @@ window.CRYPTIC_PUZZLES["cyclops-759"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 10ac. (5)",
+   "group": [
+    "10-across",
+    "12-across"
+   ],
    "separatorLocations": {},
    "solution": "COURT",
    "annotation": null
@@ -403,6 +415,10 @@ window.CRYPTIC_PUZZLES["cyclops-759"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "& 8dn.) House rules often ignored  \"poorly concocted, found to lack precision, ultimately\" (4)",
+   "group": [
+    "26-down",
+    "8-down"
+   ],
    "separatorLocations": {},
    "solution": "CODE",
    "annotation": null

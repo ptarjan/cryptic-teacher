@@ -25,6 +25,10 @@ window.CRYPTIC_PUZZLES["cyclops-422"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 20dn.) Barely disguised lust and joy when penis centrally inserted (4)",
+   "group": [
+    "1-down",
+    "20-down"
+   ],
    "separatorLocations": {},
    "solution": "ONLY",
    "annotation": null
@@ -305,6 +309,10 @@ window.CRYPTIC_PUZZLES["cyclops-422"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 1dn. (4)",
+   "group": [
+    "1-down",
+    "20-down"
+   ],
    "separatorLocations": {},
    "solution": "JUST",
    "annotation": null

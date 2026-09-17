@@ -165,6 +165,10 @@ window.CRYPTIC_PUZZLES["cyclops-769"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "(& 22dn.) So I elect, chiefly, to adjust to homelessness? (9)",
+   "group": [
+    "9-across",
+    "22-down"
+   ],
    "separatorLocations": {},
    "solution": "LIFESTYLE",
    "annotation": null
@@ -347,6 +351,10 @@ window.CRYPTIC_PUZZLES["cyclops-769"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 9ac. (6)",
+   "group": [
+    "9-across",
+    "22-down"
+   ],
    "separatorLocations": {},
    "solution": "CHOICE",
    "annotation": null
@@ -389,6 +397,10 @@ window.CRYPTIC_PUZZLES["cyclops-769"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "(& 27ac.) Palace to put monarch out! (7)",
+   "group": [
+    "25-across",
+    "27-across"
+   ],
    "separatorLocations": {},
    "solution": "HAMPTON",
    "annotation": null
@@ -417,6 +429,10 @@ window.CRYPTIC_PUZZLES["cyclops-769"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 25ac, (5)",
+   "group": [
+    "25-across",
+    "27-across"
+   ],
    "separatorLocations": {},
    "solution": "COURT",
    "annotation": null

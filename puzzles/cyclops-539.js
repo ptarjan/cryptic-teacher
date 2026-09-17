@@ -277,6 +277,10 @@ window.CRYPTIC_PUZZLES["cyclops-539"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 20ac.) Conservative whacko, say, snaps final order before getting high (6)",
+   "group": [
+    "19-down",
+    "20-across"
+   ],
    "separatorLocations": {},
    "solution": "CHOCKS",
    "annotation": null
@@ -291,6 +295,10 @@ window.CRYPTIC_PUZZLES["cyclops-539"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 19dn. (4)",
+   "group": [
+    "19-down",
+    "20-across"
+   ],
    "separatorLocations": {},
    "solution": "AWAY",
    "annotation": null

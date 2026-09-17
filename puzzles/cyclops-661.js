@@ -53,6 +53,10 @@ window.CRYPTIC_PUZZLES["cyclops-661"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 19dn.) Trump's hardly a fan of this liberal crowd (4)",
+   "group": [
+    "3-down",
+    "19-down"
+   ],
    "separatorLocations": {},
    "solution": "FREE",
    "annotation": null
@@ -151,6 +155,10 @@ window.CRYPTIC_PUZZLES["cyclops-661"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 27dn.) Flak  Oppostion gets sack (5)",
+   "group": [
+    "10-down",
+    "27-down"
+   ],
    "separatorLocations": {},
    "solution": "ENEMY",
    "annotation": null
@@ -249,6 +257,10 @@ window.CRYPTIC_PUZZLES["cyclops-661"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "see 23ac. (8)",
+   "group": [
+    "23-across",
+    "16-down"
+   ],
    "separatorLocations": {},
    "solution": "POLITICS",
    "annotation": null
@@ -291,6 +303,10 @@ window.CRYPTIC_PUZZLES["cyclops-661"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 3dn. (5)",
+   "group": [
+    "3-down",
+    "19-down"
+   ],
    "separatorLocations": {},
    "solution": "PRESS",
    "annotation": null
@@ -347,6 +363,10 @@ window.CRYPTIC_PUZZLES["cyclops-661"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "(& 16dn.) Putting party's interests before the electorate and collapsing  pity I snapped (7)",
+   "group": [
+    "23-across",
+    "16-down"
+   ],
    "separatorLocations": {},
    "solution": "PLAYING",
    "annotation": null
@@ -403,6 +423,10 @@ window.CRYPTIC_PUZZLES["cyclops-661"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 10dn. (4)",
+   "group": [
+    "10-down",
+    "27-down"
+   ],
    "separatorLocations": {},
    "solution": "FIRE",
    "annotation": null

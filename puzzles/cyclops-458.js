@@ -151,6 +151,10 @@ window.CRYPTIC_PUZZLES["cyclops-458"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "(& 17dn.) Indeed, what boobs daughter got out and wobbled for family entertainment (5,2)",
+   "group": [
+    "9-down",
+    "17-down"
+   ],
    "separatorLocations": {},
    "solution": "BABESIN",
    "annotation": null
@@ -249,6 +253,10 @@ window.CRYPTIC_PUZZLES["cyclops-458"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "see 24dn. (11)",
+   "group": [
+    "24-down",
+    "16-across"
+   ],
    "separatorLocations": {},
    "solution": "WHITTINGTON",
    "annotation": null
@@ -263,6 +271,10 @@ window.CRYPTIC_PUZZLES["cyclops-458"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 9dn. (3,4)",
+   "group": [
+    "9-down",
+    "17-down"
+   ],
    "separatorLocations": {},
    "solution": "THEWOOD",
    "annotation": null
@@ -389,6 +401,10 @@ window.CRYPTIC_PUZZLES["cyclops-458"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 16ac.) Private Eye bashing in-town pisspoor London figurehead (4)",
+   "group": [
+    "24-down",
+    "16-across"
+   ],
    "separatorLocations": {},
    "solution": "DICK",
    "annotation": null

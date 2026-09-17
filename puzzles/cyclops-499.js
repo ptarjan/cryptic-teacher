@@ -39,6 +39,11 @@ window.CRYPTIC_PUZZLES["cyclops-499"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 12ac. (4)",
+   "group": [
+    "12-across",
+    "2-down",
+    "25-across"
+   ],
    "separatorLocations": {},
    "solution": "HAIR",
    "annotation": null
@@ -179,6 +184,11 @@ window.CRYPTIC_PUZZLES["cyclops-499"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "(&2dn/25ac.) When everything goes wrong, crap and shock Doris? (3)",
+   "group": [
+    "12-across",
+    "2-down",
+    "25-across"
+   ],
    "separatorLocations": {},
    "solution": "BAD",
    "annotation": null
@@ -375,6 +385,11 @@ window.CRYPTIC_PUZZLES["cyclops-499"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "see 12ac. (3)",
+   "group": [
+    "12-across",
+    "2-down",
+    "25-across"
+   ],
    "separatorLocations": {},
    "solution": "DAY",
    "annotation": null

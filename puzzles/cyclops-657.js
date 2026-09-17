@@ -95,6 +95,10 @@ window.CRYPTIC_PUZZLES["cyclops-657"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "see 20ac. (8)",
+   "group": [
+    "20-across",
+    "6-down"
+   ],
    "separatorLocations": {},
    "solution": "MINISTER",
    "annotation": null
@@ -109,6 +113,10 @@ window.CRYPTIC_PUZZLES["cyclops-657"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 25dn,) Dismissed by Brenda, Gap amounts to \"alien territory!\" (5)",
+   "group": [
+    "7-down",
+    "25-down"
+   ],
    "separatorLocations": {},
    "solution": "OUTER",
    "annotation": null
@@ -151,6 +159,11 @@ window.CRYPTIC_PUZZLES["cyclops-657"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 23dn. (4)",
+   "group": [
+    "23-down",
+    "27-across",
+    "10-across"
+   ],
    "separatorLocations": {},
    "solution": "EVER",
    "annotation": null
@@ -291,6 +304,10 @@ window.CRYPTIC_PUZZLES["cyclops-657"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 6dn.) Boris needs to prepare to fire cabinet colleague (5)",
+   "group": [
+    "20-across",
+    "6-down"
+   ],
    "separatorLocations": {},
    "solution": "PRIME",
    "annotation": null
@@ -333,6 +350,11 @@ window.CRYPTIC_PUZZLES["cyclops-657"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 27ac./10ac.) Never had it so bad over here  wants to relocate (5)",
+   "group": [
+    "23-down",
+    "27-across",
+    "10-across"
+   ],
    "separatorLocations": {},
    "solution": "WORSE",
    "annotation": null
@@ -361,6 +383,10 @@ window.CRYPTIC_PUZZLES["cyclops-657"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 7dn. (5)",
+   "group": [
+    "7-down",
+    "25-down"
+   ],
    "separatorLocations": {},
    "solution": "SPACE",
    "annotation": null
@@ -389,6 +415,11 @@ window.CRYPTIC_PUZZLES["cyclops-657"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 23dn. (4)",
+   "group": [
+    "23-down",
+    "27-across",
+    "10-across"
+   ],
    "separatorLocations": {},
    "solution": "THAN",
    "annotation": null

@@ -39,6 +39,10 @@ window.CRYPTIC_PUZZLES["cyclops-553"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(&11ac.) Liberal advocate would abandon one for right system of proportional representation (4)",
+   "group": [
+    "2-down",
+    "11-across"
+   ],
    "separatorLocations": {},
    "solution": "CARD",
    "annotation": null
@@ -67,6 +71,10 @@ window.CRYPTIC_PUZZLES["cyclops-553"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 9ac. (7)",
+   "group": [
+    "9-across",
+    "4-down"
+   ],
    "separatorLocations": {},
    "solution": "CONTEST",
    "annotation": null
@@ -137,6 +145,10 @@ window.CRYPTIC_PUZZLES["cyclops-553"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "(& 4dn.) Maybe Bush and Blair, fronting joint swindle, try a desperate charade to revive Labour? (10)",
+   "group": [
+    "9-across",
+    "4-down"
+   ],
    "separatorLocations": {},
    "solution": "LEADERSHIP",
    "annotation": null
@@ -165,6 +177,10 @@ window.CRYPTIC_PUZZLES["cyclops-553"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 2dn. (4)",
+   "group": [
+    "2-down",
+    "11-across"
+   ],
    "separatorLocations": {},
    "solution": "VOTE",
    "annotation": null
@@ -277,6 +293,10 @@ window.CRYPTIC_PUZZLES["cyclops-553"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 24dn. (5)",
+   "group": [
+    "24-down",
+    "19-across"
+   ],
    "separatorLocations": {},
    "solution": "SQUIB",
    "annotation": null
@@ -347,6 +367,10 @@ window.CRYPTIC_PUZZLES["cyclops-553"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(&19ac.) PM quids ahead initially, rashly taking Boris's lead, which doesn't go off well (4)",
+   "group": [
+    "24-down",
+    "19-across"
+   ],
    "separatorLocations": {},
    "solution": "DAMP",
    "annotation": null

@@ -67,6 +67,10 @@ window.CRYPTIC_PUZZLES["cyclops-427"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 23dn.) What the Coalition needs to succeed is part-time nuts (4)",
+   "group": [
+    "4-down",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "TEAM",
    "annotation": null
@@ -305,6 +309,10 @@ window.CRYPTIC_PUZZLES["cyclops-427"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 26ac.) Labour seat-loser, Jim, quits (falsified holding account)  hard (6)",
+   "group": [
+    "20-down",
+    "26-across"
+   ],
    "separatorLocations": {},
    "solution": "JACQUI",
    "annotation": null
@@ -347,6 +355,10 @@ window.CRYPTIC_PUZZLES["cyclops-427"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 4dn. (6)",
+   "group": [
+    "4-down",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "SPIRIT",
    "annotation": null
@@ -389,6 +401,10 @@ window.CRYPTIC_PUZZLES["cyclops-427"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 20dn. (5)",
+   "group": [
+    "20-down",
+    "26-across"
+   ],
    "separatorLocations": {},
    "solution": "SMITH",
    "annotation": null

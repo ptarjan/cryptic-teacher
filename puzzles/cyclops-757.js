@@ -207,6 +207,10 @@ window.CRYPTIC_PUZZLES["cyclops-757"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "see 23ac. (3)",
+   "group": [
+    "23-across",
+    "13-across"
+   ],
    "separatorLocations": {},
    "solution": "BOY",
    "annotation": null
@@ -361,6 +365,10 @@ window.CRYPTIC_PUZZLES["cyclops-757"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "(& 13ac.) Bold moves round edge of party  Boris, or one of his chums? (3)",
+   "group": [
+    "23-across",
+    "13-across"
+   ],
    "separatorLocations": {},
    "solution": "OLD",
    "annotation": null

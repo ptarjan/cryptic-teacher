@@ -81,6 +81,12 @@ window.CRYPTIC_PUZZLES["cyclops-634"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "(& 25dn. /26ac/11ac.) AA poked about everywhere, casually giving advice to potential debtor? (4,4)",
+   "group": [
+    "5-down",
+    "25-down",
+    "26-across",
+    "11-across"
+   ],
    "separatorLocations": {},
    "solution": "KEEPYOUR",
    "annotation": null
@@ -95,6 +101,10 @@ window.CRYPTIC_PUZZLES["cyclops-634"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 21ac. (4)",
+   "group": [
+    "21-across",
+    "6-down"
+   ],
    "separatorLocations": {},
    "solution": "BLUE",
    "annotation": null
@@ -165,6 +175,12 @@ window.CRYPTIC_PUZZLES["cyclops-634"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 5dn. (5)",
+   "group": [
+    "5-down",
+    "25-down",
+    "26-across",
+    "11-across"
+   ],
    "separatorLocations": {},
    "solution": "WATER",
    "annotation": null
@@ -235,6 +251,10 @@ window.CRYPTIC_PUZZLES["cyclops-634"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(&18ac.) \"Mercy! Yer on!\" (Boris Johnson openers)  the making of party leader? (6)",
+   "group": [
+    "16-across",
+    "18-across"
+   ],
    "separatorLocations": {},
    "solution": "JEREMY",
    "annotation": null
@@ -263,6 +283,10 @@ window.CRYPTIC_PUZZLES["cyclops-634"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 16ac. (6)",
+   "group": [
+    "16-across",
+    "18-across"
+   ],
    "separatorLocations": {},
    "solution": "CORBYN",
    "annotation": null
@@ -319,6 +343,10 @@ window.CRYPTIC_PUZZLES["cyclops-634"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 6dn.) Colour gets Prince Philip down? (5)",
+   "group": [
+    "21-across",
+    "6-down"
+   ],
    "separatorLocations": {},
    "solution": "ROYAL",
    "annotation": null
@@ -389,6 +417,12 @@ window.CRYPTIC_PUZZLES["cyclops-634"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 5dn. (4)",
+   "group": [
+    "5-down",
+    "25-down",
+    "26-across",
+    "11-across"
+   ],
    "separatorLocations": {},
    "solution": "HEAD",
    "annotation": null
@@ -403,6 +437,12 @@ window.CRYPTIC_PUZZLES["cyclops-634"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 5dn. (5)",
+   "group": [
+    "5-down",
+    "25-down",
+    "26-across",
+    "11-across"
+   ],
    "separatorLocations": {},
    "solution": "ABOVE",
    "annotation": null

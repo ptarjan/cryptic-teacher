@@ -25,6 +25,10 @@ window.CRYPTIC_PUZZLES["cyclops-401"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 26dn. (3,3)",
+   "group": [
+    "26-down",
+    "1-down"
+   ],
    "separatorLocations": {},
    "solution": "FORTAT",
    "annotation": null
@@ -39,6 +43,10 @@ window.CRYPTIC_PUZZLES["cyclops-401"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "(& 22dn.) Mechanic possibly gets pornographic 'choker' operative (4-6)",
+   "group": [
+    "2-down",
+    "22-down"
+   ],
    "separatorLocations": {},
    "solution": "BLUECOLLAR",
    "annotation": null
@@ -67,6 +75,10 @@ window.CRYPTIC_PUZZLES["cyclops-401"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 11dn. (4)",
+   "group": [
+    "11-down",
+    "4-down"
+   ],
    "separatorLocations": {},
    "solution": "SHIT",
    "annotation": null
@@ -207,6 +219,10 @@ window.CRYPTIC_PUZZLES["cyclops-401"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 4dn.) Mounts Pat with force, displaying bollocks (5)",
+   "group": [
+    "11-down",
+    "4-down"
+   ],
    "separatorLocations": {},
    "solution": "HORSE",
    "annotation": null
@@ -263,6 +279,10 @@ window.CRYPTIC_PUZZLES["cyclops-401"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 23ac. (6)",
+   "group": [
+    "23-across",
+    "15-across"
+   ],
    "separatorLocations": {},
    "solution": "RIDDLE",
    "annotation": null
@@ -291,6 +311,10 @@ window.CRYPTIC_PUZZLES["cyclops-401"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 23dn. (6)",
+   "group": [
+    "23-down",
+    "17-across"
+   ],
    "separatorLocations": {},
    "solution": "THOMAS",
    "annotation": null
@@ -361,6 +385,10 @@ window.CRYPTIC_PUZZLES["cyclops-401"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 2dn. (6)",
+   "group": [
+    "2-down",
+    "22-down"
+   ],
    "separatorLocations": {},
    "solution": "WORKER",
    "annotation": null
@@ -375,6 +403,10 @@ window.CRYPTIC_PUZZLES["cyclops-401"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 15ac.) Wee Scots form of address: \"Poser!\" (5)",
+   "group": [
+    "23-across",
+    "15-across"
+   ],
    "separatorLocations": {},
    "solution": "JIMMY",
    "annotation": null
@@ -389,6 +421,10 @@ window.CRYPTIC_PUZZLES["cyclops-401"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 17ac.) Knob of jam cooked with hot nosh (4)",
+   "group": [
+    "23-down",
+    "17-across"
+   ],
    "separatorLocations": {},
    "solution": "JOHN",
    "annotation": null
@@ -431,6 +467,10 @@ window.CRYPTIC_PUZZLES["cyclops-401"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "(& 1dn.) Bristol garrison needs a time for reciprocal action (3)",
+   "group": [
+    "26-down",
+    "1-down"
+   ],
    "separatorLocations": {},
    "solution": "TIT",
    "annotation": null

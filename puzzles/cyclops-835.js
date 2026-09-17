@@ -151,6 +151,10 @@ window.CRYPTIC_PUZZLES["cyclops-835"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 10ac.) Parisian's \"Hear! Hear!\" for Mae West's forte (6)",
+   "group": [
+    "9-across",
+    "10-across"
+   ],
    "separatorLocations": {},
    "solution": "DOUBLE",
    "annotation": null
@@ -165,6 +169,10 @@ window.CRYPTIC_PUZZLES["cyclops-835"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "see 9ac.",
+   "group": [
+    "9-across",
+    "10-across"
+   ],
    "separatorLocations": {},
    "solution": "ENTENDRE",
    "annotation": null
@@ -389,6 +397,10 @@ window.CRYPTIC_PUZZLES["cyclops-835"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "(& 27ac.) Choice person's first step that's soon abandoned by incoming government? (8)",
+   "group": [
+    "26-across",
+    "27-across"
+   ],
    "separatorLocations": {},
    "solution": "ELECTION",
    "annotation": null
@@ -403,6 +415,10 @@ window.CRYPTIC_PUZZLES["cyclops-835"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 26ac.",
+   "group": [
+    "26-across",
+    "27-across"
+   ],
    "separatorLocations": {},
    "solution": "PLEDGE",
    "annotation": null

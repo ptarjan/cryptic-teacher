@@ -53,6 +53,11 @@ window.CRYPTIC_PUZZLES["cyclops-681"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(11ac./27ac.) Pence, able to shake booty, accepts ring as prestigious award (5)",
+   "group": [
+    "2-down",
+    "11-across",
+    "27-across"
+   ],
    "separatorLocations": {},
    "solution": "NOBEL",
    "annotation": null
@@ -179,6 +184,11 @@ window.CRYPTIC_PUZZLES["cyclops-681"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 2dn. (5)",
+   "group": [
+    "2-down",
+    "11-across",
+    "27-across"
+   ],
    "separatorLocations": {},
    "solution": "PEACE",
    "annotation": null
@@ -221,6 +231,10 @@ window.CRYPTIC_PUZZLES["cyclops-681"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 21dn. (6)",
+   "group": [
+    "21-down",
+    "14-across"
+   ],
    "separatorLocations": {},
    "solution": "LABOUR",
    "annotation": null
@@ -333,6 +347,10 @@ window.CRYPTIC_PUZZLES["cyclops-681"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 14ac.) Hard work, getting party to follow instructions (6)",
+   "group": [
+    "21-down",
+    "14-across"
+   ],
    "separatorLocations": {},
    "solution": "MANUAL",
    "annotation": null
@@ -417,6 +435,11 @@ window.CRYPTIC_PUZZLES["cyclops-681"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 2dn. (5)",
+   "group": [
+    "2-down",
+    "11-across",
+    "27-across"
+   ],
    "separatorLocations": {},
    "solution": "PRIZE",
    "annotation": null

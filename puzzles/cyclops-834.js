@@ -179,6 +179,10 @@ window.CRYPTIC_PUZZLES["cyclops-834"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 11ac.) Old fart, one who pulls president's erection (5)",
+   "group": [
+    "10-across",
+    "11-across"
+   ],
    "separatorLocations": {},
    "solution": "TRUMP",
    "annotation": null
@@ -193,6 +197,10 @@ window.CRYPTIC_PUZZLES["cyclops-834"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 10ac. (5)",
+   "group": [
+    "10-across",
+    "11-across"
+   ],
    "separatorLocations": {},
    "solution": "TOWER",
    "annotation": null
@@ -263,6 +271,10 @@ window.CRYPTIC_PUZZLES["cyclops-834"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "(& 27ac.) Overexcited, rue going bananas for Trump-style legislation (9)",
+   "group": [
+    "16-down",
+    "27-across"
+   ],
    "separatorLocations": {},
    "solution": "EXECUTIVE",
    "annotation": null
@@ -417,6 +429,10 @@ window.CRYPTIC_PUZZLES["cyclops-834"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 16dn.",
+   "group": [
+    "16-down",
+    "27-across"
+   ],
    "separatorLocations": {},
    "solution": "ORDER",
    "annotation": null

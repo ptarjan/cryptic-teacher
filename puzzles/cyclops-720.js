@@ -39,6 +39,10 @@ window.CRYPTIC_PUZZLES["cyclops-720"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 22dn.) Feign ignorance about 'lady bump' (4)",
+   "group": [
+    "2-down",
+    "22-down"
+   ],
    "separatorLocations": {},
    "solution": "PLAY",
    "annotation": null
@@ -221,6 +225,10 @@ window.CRYPTIC_PUZZLES["cyclops-720"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 24dn.) Beastly hunk, Pablo, messed around with rear (5)",
+   "group": [
+    "14-across",
+    "24-down"
+   ],
    "separatorLocations": {},
    "solution": "POLAR",
    "annotation": null
@@ -361,6 +369,10 @@ window.CRYPTIC_PUZZLES["cyclops-720"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 2dn. (4)",
+   "group": [
+    "2-down",
+    "22-down"
+   ],
    "separatorLocations": {},
    "solution": "DUMB",
    "annotation": null
@@ -389,6 +401,10 @@ window.CRYPTIC_PUZZLES["cyclops-720"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 14ac. (4)",
+   "group": [
+    "14-across",
+    "24-down"
+   ],
    "separatorLocations": {},
    "solution": "BEAR",
    "annotation": null

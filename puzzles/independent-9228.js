@@ -345,7 +345,7 @@ window.CRYPTIC_PUZZLES["independent-9228"] = /*JSON-START*/ {
     "y": 10
    },
    "length": 5,
-   "clue": "Britons wanting borders sabotaged opening (7)",
+   "clue": "Britons wanting borders sabotaged opening (5)",
    "separatorLocations": {},
    "solution": "INTRO",
    "annotation": null
@@ -405,7 +405,7 @@ window.CRYPTIC_PUZZLES["independent-9228"] = /*JSON-START*/ {
     "y": 12
    },
    "length": 3,
-   "clue": "Travel over slush (5)",
+   "clue": "Travel over slush (3)",
    "separatorLocations": {},
    "solution": "GOO",
    "annotation": null

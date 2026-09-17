@@ -151,6 +151,11 @@ window.CRYPTIC_PUZZLES["cyclops-470"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 10ac. (4)",
+   "group": [
+    "10-across",
+    "9-down",
+    "19-across"
+   ],
    "separatorLocations": {},
    "solution": "WILL",
    "annotation": null
@@ -165,6 +170,11 @@ window.CRYPTIC_PUZZLES["cyclops-470"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 9/19) Kitchen waste stuffed inside loaf, bun  bastards responsible are going to suffer! (5)",
+   "group": [
+    "10-across",
+    "9-down",
+    "19-across"
+   ],
    "separatorLocations": {},
    "solution": "HEADS",
    "annotation": null
@@ -221,6 +231,10 @@ window.CRYPTIC_PUZZLES["cyclops-470"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "(& 22dn.) Cabinet ministers quite aloof from this sort of reception (odious with one initially divisive row)? (5,4)",
+   "group": [
+    "14-across",
+    "22-down"
+   ],
    "separatorLocations": {},
    "solution": "PARTYRANK",
    "annotation": null
@@ -263,6 +277,10 @@ window.CRYPTIC_PUZZLES["cyclops-470"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 28ac.) There's a bigger problem than this party copy of Private Eye? (4)",
+   "group": [
+    "17-across",
+    "28-across"
+   ],
    "separatorLocations": {},
    "solution": "SIDE",
    "annotation": null
@@ -291,6 +309,11 @@ window.CRYPTIC_PUZZLES["cyclops-470"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 10ac. (4)",
+   "group": [
+    "10-across",
+    "9-down",
+    "19-across"
+   ],
    "separatorLocations": {},
    "solution": "ROLL",
    "annotation": null
@@ -333,6 +356,10 @@ window.CRYPTIC_PUZZLES["cyclops-470"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 14ac. (3,4)",
+   "group": [
+    "14-across",
+    "22-down"
+   ],
    "separatorLocations": {},
    "solution": "ANDFILE",
    "annotation": null
@@ -431,6 +458,10 @@ window.CRYPTIC_PUZZLES["cyclops-470"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 17ac. (5)",
+   "group": [
+    "17-across",
+    "28-across"
+   ],
    "separatorLocations": {},
    "solution": "ISSUE",
    "annotation": null

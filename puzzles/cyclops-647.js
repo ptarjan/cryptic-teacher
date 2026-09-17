@@ -67,6 +67,10 @@ window.CRYPTIC_PUZZLES["cyclops-647"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 18dn.) 'Fund Labour organisation'  heartless cheek! Hardly welcomed by punters (3,2)",
+   "group": [
+    "4-down",
+    "18-down"
+   ],
    "separatorLocations": {},
    "solution": "RUNOF",
    "annotation": null
@@ -151,6 +155,12 @@ window.CRYPTIC_PUZZLES["cyclops-647"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 26ac. (2,2)",
+   "group": [
+    "26-across",
+    "9-across",
+    "21-across",
+    "23-across"
+   ],
    "separatorLocations": {},
    "solution": "ITON",
    "annotation": null
@@ -179,6 +189,10 @@ window.CRYPTIC_PUZZLES["cyclops-647"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "(& 12ac.) A close shave for a blatant purveyor of fake news? (9)",
+   "group": [
+    "11-across",
+    "12-across"
+   ],
    "separatorLocations": {},
    "solution": "BAREFACED",
    "annotation": null
@@ -193,6 +207,10 @@ window.CRYPTIC_PUZZLES["cyclops-647"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 11ac. (4)",
+   "group": [
+    "11-across",
+    "12-across"
+   ],
    "separatorLocations": {},
    "solution": "LIAR",
    "annotation": null
@@ -277,6 +295,10 @@ window.CRYPTIC_PUZZLES["cyclops-647"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 4dn. (3,4)",
+   "group": [
+    "4-down",
+    "18-down"
+   ],
    "separatorLocations": {},
    "solution": "BADLUCK",
    "annotation": null
@@ -319,6 +341,12 @@ window.CRYPTIC_PUZZLES["cyclops-647"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 26ac. (4)",
+   "group": [
+    "26-across",
+    "9-across",
+    "21-across",
+    "23-across"
+   ],
    "separatorLocations": {},
    "solution": "GOOD",
    "annotation": null
@@ -347,6 +375,12 @@ window.CRYPTIC_PUZZLES["cyclops-647"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "see 26ac. (9)",
+   "group": [
+    "26-across",
+    "9-across",
+    "21-across",
+    "23-across"
+   ],
    "separatorLocations": {},
    "solution": "AUTHORITY",
    "annotation": null
@@ -389,6 +423,12 @@ window.CRYPTIC_PUZZLES["cyclops-647"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 9/21/23ac.) Hear from very reliable source: \"Enjoy sex, working with proficient, powerful body\" (4)",
+   "group": [
+    "26-across",
+    "9-across",
+    "21-across",
+    "23-across"
+   ],
    "separatorLocations": {},
    "solution": "HAVE",
    "annotation": null

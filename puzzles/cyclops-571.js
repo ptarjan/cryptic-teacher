@@ -151,6 +151,10 @@ window.CRYPTIC_PUZZLES["cyclops-571"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 20ac.) Great performer makes rounded arses roll (4)",
+   "group": [
+    "9-across",
+    "20-across"
+   ],
    "separatorLocations": {},
    "solution": "STAR",
    "annotation": null
@@ -193,6 +197,10 @@ window.CRYPTIC_PUZZLES["cyclops-571"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(&14dn.) Got the hang of it? Wow, thanks  thaw out (4)",
+   "group": [
+    "12-across",
+    "14-down"
+   ],
    "separatorLocations": {},
    "solution": "KNOW",
    "annotation": null
@@ -235,6 +243,10 @@ window.CRYPTIC_PUZZLES["cyclops-571"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "see 12ac. (5,4)",
+   "group": [
+    "12-across",
+    "14-down"
+   ],
    "separatorLocations": {},
    "solution": "WHATSWHAT",
    "annotation": null
@@ -319,6 +331,10 @@ window.CRYPTIC_PUZZLES["cyclops-571"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 9ac. (4)",
+   "group": [
+    "9-across",
+    "20-across"
+   ],
    "separatorLocations": {},
    "solution": "TURN",
    "annotation": null

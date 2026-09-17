@@ -179,6 +179,11 @@ window.CRYPTIC_PUZZLES["cyclops-452"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "(& 30ac./29ac.) As a number of coed pupils, say, might undergo analysis just like Keith Richards? (6,4)",
+   "group": [
+    "12-across",
+    "30-across",
+    "29-across"
+   ],
    "separatorLocations": {},
    "solution": "BROKENDOWN",
    "annotation": null
@@ -193,6 +198,10 @@ window.CRYPTIC_PUZZLES["cyclops-452"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 23ac.) Duke and Labour politician getting end away  foul! (4)",
+   "group": [
+    "13-across",
+    "23-across"
+   ],
    "separatorLocations": {},
    "solution": "HAND",
    "annotation": null
@@ -235,6 +244,10 @@ window.CRYPTIC_PUZZLES["cyclops-452"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "(& 20dn.) When boxer has to take a bite of another boxer that really is competitive? (3)",
+   "group": [
+    "16-down",
+    "20-down"
+   ],
    "separatorLocations": {},
    "solution": "DOG",
    "annotation": null
@@ -291,6 +304,10 @@ window.CRYPTIC_PUZZLES["cyclops-452"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 16dn. (3,3)",
+   "group": [
+    "16-down",
+    "20-down"
+   ],
    "separatorLocations": {},
    "solution": "EATDOG",
    "annotation": null
@@ -333,6 +350,10 @@ window.CRYPTIC_PUZZLES["cyclops-452"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 13ac. (4)",
+   "group": [
+    "13-across",
+    "23-across"
+   ],
    "separatorLocations": {},
    "solution": "BALL",
    "annotation": null
@@ -417,6 +438,11 @@ window.CRYPTIC_PUZZLES["cyclops-452"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 12ac. (3,3)",
+   "group": [
+    "12-across",
+    "30-across",
+    "29-across"
+   ],
    "separatorLocations": {},
    "solution": "ANDSEX",
    "annotation": null
@@ -431,6 +457,11 @@ window.CRYPTIC_PUZZLES["cyclops-452"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 12ac. (2,3)",
+   "group": [
+    "12-across",
+    "30-across",
+    "29-across"
+   ],
    "separatorLocations": {},
    "solution": "BYAGE",
    "annotation": null

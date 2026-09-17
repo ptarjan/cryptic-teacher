@@ -95,6 +95,10 @@ window.CRYPTIC_PUZZLES["cyclops-740"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 11ac.) Easy-going supporter: \"City's losing it for nothing\" (5)",
+   "group": [
+    "6-down",
+    "11-across"
+   ],
    "separatorLocations": {},
    "solution": "FANCY",
    "annotation": null
@@ -165,6 +169,10 @@ window.CRYPTIC_PUZZLES["cyclops-740"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 6dn. (4)",
+   "group": [
+    "6-down",
+    "11-across"
+   ],
    "separatorLocations": {},
    "solution": "FREE",
    "annotation": null

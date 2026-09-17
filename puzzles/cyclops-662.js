@@ -165,6 +165,10 @@ window.CRYPTIC_PUZZLES["cyclops-662"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 19ac. (4)",
+   "group": [
+    "19-across",
+    "10-across"
+   ],
    "separatorLocations": {},
    "solution": "CALL",
    "annotation": null
@@ -179,6 +183,10 @@ window.CRYPTIC_PUZZLES["cyclops-662"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 25ac.) Abroad, working with a member to reveal UK's situation after no-deal Brexit? (3,2,1)",
+   "group": [
+    "11-across",
+    "25-across"
+   ],
    "separatorLocations": {},
    "solution": "OUTONA",
    "annotation": null
@@ -291,6 +299,10 @@ window.CRYPTIC_PUZZLES["cyclops-662"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 10ac.) Timely warning of Alabama member visit (5)",
+   "group": [
+    "19-across",
+    "10-across"
+   ],
    "separatorLocations": {},
    "solution": "ALARM",
    "annotation": null
@@ -375,6 +387,10 @@ window.CRYPTIC_PUZZLES["cyclops-662"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 11ac. (4)",
+   "group": [
+    "11-across",
+    "25-across"
+   ],
    "separatorLocations": {},
    "solution": "LIMB",
    "annotation": null

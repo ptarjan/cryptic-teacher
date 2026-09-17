@@ -25,6 +25,10 @@ window.CRYPTIC_PUZZLES["cyclops-737"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 18ac.) Vlog's fiction? Unfortunately, it's become a real threat to many people's material wellbeing (4)",
+   "group": [
+    "1-across",
+    "18-across"
+   ],
    "separatorLocations": {},
    "solution": "COST",
    "annotation": null
@@ -291,6 +295,10 @@ window.CRYPTIC_PUZZLES["cyclops-737"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "see 1ac. (8)",
+   "group": [
+    "1-across",
+    "18-across"
+   ],
    "separatorLocations": {},
    "solution": "OFLIVING",
    "annotation": null

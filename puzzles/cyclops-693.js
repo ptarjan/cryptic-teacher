@@ -25,6 +25,10 @@ window.CRYPTIC_PUZZLES["cyclops-693"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "(& 24dn.) Accepted victory has gone over Donald's head  a likely blow for a particular region (10)",
+   "group": [
+    "1-down",
+    "24-down"
+   ],
    "separatorLocations": {},
    "solution": "PREVAILING",
    "annotation": null
@@ -109,6 +113,10 @@ window.CRYPTIC_PUZZLES["cyclops-693"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 26dn. (4)",
+   "group": [
+    "26-down",
+    "7-down"
+   ],
    "separatorLocations": {},
    "solution": "SORT",
    "annotation": null
@@ -347,6 +355,10 @@ window.CRYPTIC_PUZZLES["cyclops-693"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 1dn. (4)",
+   "group": [
+    "1-down",
+    "24-down"
+   ],
    "separatorLocations": {},
    "solution": "WIND",
    "annotation": null
@@ -375,6 +387,10 @@ window.CRYPTIC_PUZZLES["cyclops-693"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 7dn.) Person who's quite acceptable to dogs or bats (4)",
+   "group": [
+    "26-down",
+    "7-down"
+   ],
    "separatorLocations": {},
    "solution": "GOOD",
    "annotation": null

@@ -39,6 +39,10 @@ window.CRYPTIC_PUZZLES["cyclops-523"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 25dn. (4)",
+   "group": [
+    "25-down",
+    "2-down"
+   ],
    "separatorLocations": {},
    "solution": "POOR",
    "annotation": null
@@ -67,6 +71,10 @@ window.CRYPTIC_PUZZLES["cyclops-523"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 17ac. (4)",
+   "group": [
+    "17-across",
+    "4-down"
+   ],
    "separatorLocations": {},
    "solution": "SUIT",
    "annotation": null
@@ -249,6 +257,10 @@ window.CRYPTIC_PUZZLES["cyclops-523"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "(& 4dn.) Which is as useless as Richard Branson kitted up for a flight in his Virgin Galactic craft? (1,4,2,1,5)",
+   "group": [
+    "17-across",
+    "4-down"
+   ],
    "separatorLocations": {},
    "solution": "AFARTINASPACE",
    "annotation": null
@@ -361,6 +373,10 @@ window.CRYPTIC_PUZZLES["cyclops-523"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 2dn.) Nos. 1 and 2: right bloody useless (4)",
+   "group": [
+    "25-down",
+    "2-down"
+   ],
    "separatorLocations": {},
    "solution": "PISS",
    "annotation": null

@@ -95,6 +95,12 @@ window.CRYPTIC_PUZZLES["cyclops-672"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 22dn. (4)",
+   "group": [
+    "22-down",
+    "25-down",
+    "26-down",
+    "6-down"
+   ],
    "separatorLocations": {},
    "solution": "LIMB",
    "annotation": null
@@ -137,6 +143,10 @@ window.CRYPTIC_PUZZLES["cyclops-672"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 17ac.) Clarification gone haywire  new technology for Big Brother's use? (6)",
+   "group": [
+    "9-across",
+    "17-across"
+   ],
    "separatorLocations": {},
    "solution": "FACIAL",
    "annotation": null
@@ -249,6 +259,10 @@ window.CRYPTIC_PUZZLES["cyclops-672"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "see 9ac. (11)",
+   "group": [
+    "9-across",
+    "17-across"
+   ],
    "separatorLocations": {},
    "solution": "RECOGNITION",
    "annotation": null
@@ -319,6 +333,12 @@ window.CRYPTIC_PUZZLES["cyclops-672"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 25/26/6dn.) Use extreme violence to forcibly separate two members (4)",
+   "group": [
+    "22-down",
+    "25-down",
+    "26-down",
+    "6-down"
+   ],
    "separatorLocations": {},
    "solution": "TEAR",
    "annotation": null
@@ -361,6 +381,12 @@ window.CRYPTIC_PUZZLES["cyclops-672"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 22dn. (4)",
+   "group": [
+    "22-down",
+    "25-down",
+    "26-down",
+    "6-down"
+   ],
    "separatorLocations": {},
    "solution": "LIMB",
    "annotation": null
@@ -389,6 +415,12 @@ window.CRYPTIC_PUZZLES["cyclops-672"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 22dn. (4)",
+   "group": [
+    "22-down",
+    "25-down",
+    "26-down",
+    "6-down"
+   ],
    "separatorLocations": {},
    "solution": "FROM",
    "annotation": null

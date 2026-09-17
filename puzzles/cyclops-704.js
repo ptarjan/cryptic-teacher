@@ -123,6 +123,10 @@ window.CRYPTIC_PUZZLES["cyclops-704"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 22ac. (5)",
+   "group": [
+    "22-across",
+    "7-down"
+   ],
    "separatorLocations": {},
    "solution": "LINES",
    "annotation": null
@@ -347,6 +351,10 @@ window.CRYPTIC_PUZZLES["cyclops-704"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 7dn.) What an actor learns after having an erection: \"Too bad\" (4)",
+   "group": [
+    "22-across",
+    "7-down"
+   ],
    "separatorLocations": {},
    "solution": "HARD",
    "annotation": null

@@ -137,6 +137,10 @@ window.CRYPTIC_PUZZLES["cyclops-513"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 10ac.) Good-time Johnny, Labour's 'Beast of Bolsover'? (5)",
+   "group": [
+    "9-across",
+    "10-across"
+   ],
    "separatorLocations": {},
    "solution": "PARTY",
    "annotation": null
@@ -151,6 +155,10 @@ window.CRYPTIC_PUZZLES["cyclops-513"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 9ac. (6)",
+   "group": [
+    "9-across",
+    "10-across"
+   ],
    "separatorLocations": {},
    "solution": "ANIMAL",
    "annotation": null
@@ -235,6 +243,10 @@ window.CRYPTIC_PUZZLES["cyclops-513"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "(& 27ac.) What Clegg hopes the coalition will give him? Iodine-impregnated fancy lilac top and sock combination (9)",
+   "group": [
+    "16-across",
+    "27-across"
+   ],
    "separatorLocations": {},
    "solution": "POLITICAL",
    "annotation": null
@@ -389,6 +401,10 @@ window.CRYPTIC_PUZZLES["cyclops-513"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 16ac. (5)",
+   "group": [
+    "16-across",
+    "27-across"
+   ],
    "separatorLocations": {},
    "solution": "CLOUT",
    "annotation": null

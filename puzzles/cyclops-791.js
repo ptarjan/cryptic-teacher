@@ -53,6 +53,10 @@ window.CRYPTIC_PUZZLES["cyclops-791"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 29ac.) Condition added to butter by overprotective government (5)",
+   "group": [
+    "2-down",
+    "29-across"
+   ],
    "separatorLocations": {},
    "solution": "NANNY",
    "annotation": null
@@ -431,6 +435,10 @@ window.CRYPTIC_PUZZLES["cyclops-791"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 2dn.",
+   "group": [
+    "2-down",
+    "29-across"
+   ],
    "separatorLocations": {},
    "solution": "STATE",
    "annotation": null

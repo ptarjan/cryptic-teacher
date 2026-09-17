@@ -7,8 +7,8 @@ window.CRYPTIC_PUZZLES["independent-9075"] = /*JSON-START*/ {
  "number": 9075,
  "series": "independent",
  "name": "Independent cryptic crossword No 9,075",
- "setter": "Nestor",
- "date": 1448064000000,
+ "setter": "Anax",
+ "date": 1447459200000,
  "dimensions": {
   "cols": 15,
   "rows": 15
@@ -16,17 +16,35 @@ window.CRYPTIC_PUZZLES["independent-9075"] = /*JSON-START*/ {
  "sourceUrl": "https://puzzles.independent.co.uk/games/cryptic-crossword-independent/",
  "entries": [
   {
+   "id": "1-across",
+   "number": 1,
+   "direction": "across",
+   "position": {
+    "x": 0,
+    "y": 0
+   },
+   "length": 5,
+   "clue": "In dialect, spoken literature doesn't follow (5)",
+   "separatorLocations": {},
+   "solution": "BUCKS",
+   "annotation": null
+  },
+  {
    "id": "1-down",
    "number": 1,
    "direction": "down",
    "position": {
-    "x": 1,
+    "x": 0,
     "y": 0
    },
    "length": 8,
-   "clue": "Amount of electricity reduced base volume in equipment (8)",
-   "separatorLocations": {},
-   "solution": "KILOVOLT",
+   "clue": "No leads chewed, tie up (3,5)",
+   "separatorLocations": {
+    ",": [
+     3
+    ]
+   },
+   "solution": "BITPARTS",
    "annotation": null
   },
   {
@@ -34,13 +52,13 @@ window.CRYPTIC_PUZZLES["independent-9075"] = /*JSON-START*/ {
    "number": 2,
    "direction": "down",
    "position": {
-    "x": 5,
+    "x": 2,
     "y": 0
    },
-   "length": 10,
-   "clue": "Still disappointed with scam, only taken in and in Berlin (10)",
+   "length": 5,
+   "clue": "Escape cold and warm up (5)",
    "separatorLocations": {},
-   "solution": "UNCONSOLED",
+   "solution": "CHEAT",
    "annotation": null
   },
   {
@@ -48,13 +66,31 @@ window.CRYPTIC_PUZZLES["independent-9075"] = /*JSON-START*/ {
    "number": 3,
    "direction": "down",
    "position": {
-    "x": 9,
+    "x": 4,
     "y": 0
    },
-   "length": 4,
-   "clue": "Scottish bank turned around in near bankruptcy (4)",
+   "length": 15,
+   "clue": "Highly personal reality TV script re-written (8,7)",
+   "separatorLocations": {
+    ",": [
+     8
+    ]
+   },
+   "solution": "STRICTLYPRIVATE",
+   "annotation": null
+  },
+  {
+   "id": "4-across",
+   "number": 4,
+   "direction": "across",
+   "position": {
+    "x": 6,
+    "y": 0
+   },
+   "length": 9,
+   "clue": "Modest about power and Tory protection (9)",
    "separatorLocations": {},
-   "solution": "BRAE",
+   "solution": "COPYRIGHT",
    "annotation": null
   },
   {
@@ -62,17 +98,17 @@ window.CRYPTIC_PUZZLES["independent-9075"] = /*JSON-START*/ {
    "number": 4,
    "direction": "down",
    "position": {
-    "x": 11,
+    "x": 6,
     "y": 0
    },
-   "length": 14,
-   "clue": "Disillusioned youth suffered a failure in power? (4,10)",
+   "length": 10,
+   "clue": "Motorcade struggles to keep parking alongside (8,2)",
    "separatorLocations": {
     ",": [
-     4
+     8
     ]
    },
-   "solution": "LOSTGENERATION",
+   "solution": "COMPAREDTO",
    "annotation": null
   },
   {
@@ -80,27 +116,31 @@ window.CRYPTIC_PUZZLES["independent-9075"] = /*JSON-START*/ {
    "number": 5,
    "direction": "down",
    "position": {
-    "x": 13,
+    "x": 8,
     "y": 0
    },
-   "length": 6,
-   "clue": "Thread filling megabytes is up still (6)",
+   "length": 4,
+   "clue": "When a duke's packing, I should add notebooks (4)",
    "separatorLocations": {},
-   "solution": "BECALM",
+   "solution": "PADS",
    "annotation": null
   },
   {
-   "id": "6-across",
+   "id": "6-down",
    "number": 6,
-   "direction": "across",
+   "direction": "down",
    "position": {
-    "x": 0,
-    "y": 1
+    "x": 10,
+    "y": 0
    },
-   "length": 8,
-   "clue": "Maybe Mexican greetings cause alarm (8)",
-   "separatorLocations": {},
-   "solution": "HISPANIC",
+   "length": 15,
+   "clue": "After he's upset? (7,8)",
+   "separatorLocations": {
+    ",": [
+     7
+    ]
+   },
+   "solution": "RUFFLEDFEATHERS",
    "annotation": null
   },
   {
@@ -108,17 +148,13 @@ window.CRYPTIC_PUZZLES["independent-9075"] = /*JSON-START*/ {
    "number": 7,
    "direction": "down",
    "position": {
-    "x": 3,
-    "y": 1
+    "x": 12,
+    "y": 0
    },
-   "length": 14,
-   "clue": "Apostle follower changes insult to hype during bad management explanation (5,9)",
-   "separatorLocations": {
-    ",": [
-     5
-    ]
-   },
-   "solution": "PETERPRINCIPLE",
+   "length": 9,
+   "clue": "Travel across lake and promise to shorten travel (9)",
+   "separatorLocations": {},
+   "solution": "GLOBETROT",
    "annotation": null
   },
   {
@@ -126,13 +162,13 @@ window.CRYPTIC_PUZZLES["independent-9075"] = /*JSON-START*/ {
    "number": 8,
    "direction": "down",
    "position": {
-    "x": 7,
-    "y": 1
+    "x": 14,
+    "y": 0
    },
    "length": 6,
-   "clue": "Arnica treated headcases (6)",
+   "clue": "Able to stand, cheers the greatest (6)",
    "separatorLocations": {},
-   "solution": "CRANIA",
+   "solution": "TAKING",
    "annotation": null
   },
   {
@@ -140,13 +176,13 @@ window.CRYPTIC_PUZZLES["independent-9075"] = /*JSON-START*/ {
    "number": 9,
    "direction": "across",
    "position": {
-    "x": 9,
-    "y": 1
+    "x": 0,
+    "y": 2
    },
-   "length": 6,
-   "clue": "E.g. Keane gets round individual footballer (6)",
+   "length": 7,
+   "clue": "Sleep on Kojak's idea (7)",
    "separatorLocations": {},
-   "solution": "ROONEY",
+   "solution": "THEOREM",
    "annotation": null
   },
   {
@@ -154,17 +190,13 @@ window.CRYPTIC_PUZZLES["independent-9075"] = /*JSON-START*/ {
    "number": 10,
    "direction": "across",
    "position": {
-    "x": 1,
-    "y": 3
+    "x": 8,
+    "y": 2
    },
-   "length": 14,
-   "clue": "Extended package features non-binding future with Ferguson, possibly endless rubbish (8,6)",
-   "separatorLocations": {
-    ",": [
-     8
-    ]
-   },
-   "solution": "OPTIONALEXTRAS",
+   "length": 7,
+   "clue": "Ornament from slices cut from cloth (7)",
+   "separatorLocations": {},
+   "solution": "DEFROCK",
    "annotation": null
   },
   {
@@ -173,44 +205,54 @@ window.CRYPTIC_PUZZLES["independent-9075"] = /*JSON-START*/ {
    "direction": "across",
    "position": {
     "x": 0,
-    "y": 5
+    "y": 4
    },
-   "length": 10,
-   "clue": "Having a bite, eating mashed peeled fruit as healthy food (10)",
-   "separatorLocations": {},
-   "solution": "NOURISHING",
-   "annotation": null
-  },
-  {
-   "id": "12-down",
-   "number": 12,
-   "direction": "down",
-   "position": {
-    "x": 9,
-    "y": 5
-   },
-   "length": 10,
-   "clue": "Who'd have role in alternative energy? (5,5)",
+   "length": 8,
+   "clue": "Not For Tea - unknown Huxley novel (5,3)",
+   "clueItalics": [
+    [
+     0,
+     11
+    ]
+   ],
    "separatorLocations": {
     ",": [
      5
     ]
    },
-   "solution": "GREENPARTY",
+   "solution": "ANTICHAY",
    "annotation": null
   },
   {
-   "id": "13-across",
-   "number": 13,
+   "id": "12-across",
+   "number": 12,
    "direction": "across",
    "position": {
-    "x": 11,
+    "x": 9,
+    "y": 4
+   },
+   "length": 6,
+   "clue": "Tell wicked uncle about one (4,2)",
+   "separatorLocations": {
+    ",": [
+     4
+    ]
+   },
+   "solution": "CLUEIN",
+   "annotation": null
+  },
+  {
+   "id": "13-down",
+   "number": 13,
+   "direction": "down",
+   "position": {
+    "x": 8,
     "y": 5
    },
-   "length": 4,
-   "clue": "Judge barred from prize award (4)",
+   "length": 10,
+   "clue": "One is given if 17 starts (10)",
    "separatorLocations": {},
-   "solution": "EMMY",
+   "solution": "GOALKEEPER",
    "annotation": null
   },
   {
@@ -218,27 +260,36 @@ window.CRYPTIC_PUZZLES["independent-9075"] = /*JSON-START*/ {
    "number": 14,
    "direction": "across",
    "position": {
-    "x": 1,
-    "y": 7
+    "x": 0,
+    "y": 6
    },
-   "length": 6,
-   "clue": "Personnel breaking cash register tremble (6)",
-   "separatorLocations": {},
-   "solution": "THRILL",
+   "length": 13,
+   "clue": "They'd lure one travelling around British territory far away (3,4,6)",
+   "separatorLocations": {
+    ",": [
+     3,
+     7
+    ]
+   },
+   "solution": "THEBLUEYONDER",
    "annotation": null
   },
   {
-   "id": "15-across",
+   "id": "15-down",
    "number": 15,
-   "direction": "across",
+   "direction": "down",
    "position": {
-    "x": 8,
-    "y": 7
+    "x": 2,
+    "y": 6
    },
-   "length": 6,
-   "clue": "Interval of rash behaviour getting centre half dismissed (6)",
-   "separatorLocations": {},
-   "solution": "RECESS",
+   "length": 9,
+   "clue": "One had 20 x 2 parts to chuck out (2-7)",
+   "separatorLocations": {
+    "-": [
+     2
+    ]
+   },
+   "solution": "EXCONVICT",
    "annotation": null
   },
   {
@@ -246,55 +297,59 @@ window.CRYPTIC_PUZZLES["independent-9075"] = /*JSON-START*/ {
    "number": 16,
    "direction": "down",
    "position": {
-    "x": 13,
+    "x": 14,
     "y": 7
    },
    "length": 8,
-   "clue": "First of spacemen alone docking moon lander with dignity (8)",
+   "clue": "Old individual in hire car from China, say? (8)",
    "separatorLocations": {},
-   "solution": "SOLEMNLY",
+   "solution": "ORIENTAL",
    "annotation": null
   },
   {
-   "id": "17-down",
+   "id": "17-across",
    "number": 17,
-   "direction": "down",
+   "direction": "across",
    "position": {
-    "x": 7,
+    "x": 2,
     "y": 8
    },
-   "length": 6,
-   "clue": "Plant needing second cull (6)",
-   "separatorLocations": {},
-   "solution": "SPURGE",
+   "length": 13,
+   "clue": "London landlord's introduction to 20 (7,6)",
+   "separatorLocations": {
+    ",": [
+     7
+    ]
+   },
+   "solution": "CAPITALLETTER",
    "annotation": null
   },
   {
-   "id": "18-across",
+   "id": "18-down",
    "number": 18,
-   "direction": "across",
+   "direction": "down",
    "position": {
     "x": 0,
     "y": 9
    },
-   "length": 4,
-   "clue": "Courage mostly presented favourably (4)",
+   "length": 6,
+   "clue": "Be in opposition's goal (6)",
    "separatorLocations": {},
-   "solution": "SPUN",
+   "solution": "OBJECT",
    "annotation": null
   },
   {
-   "id": "19-down",
+   "id": "19-across",
    "number": 19,
-   "direction": "down",
+   "direction": "across",
    "position": {
-    "x": 1,
-    "y": 9
+    "x": 0,
+    "y": 10
    },
    "length": 6,
-   "clue": "Phlegmatic Conservative kept in check (6)",
+   "clue": "RAF target 1D? (6)",
    "separatorLocations": {},
-   "solution": "PLACID",
+   "solution": "BANDIT",
    "annotation": null
   },
   {
@@ -302,31 +357,27 @@ window.CRYPTIC_PUZZLES["independent-9075"] = /*JSON-START*/ {
    "number": 20,
    "direction": "across",
    "position": {
-    "x": 5,
-    "y": 9
+    "x": 7,
+    "y": 10
    },
-   "length": 10,
-   "clue": "Sure to make shallow experience more profound, without any duplicity? (10)",
+   "length": 8,
+   "clue": "Time? Or period following it? (8)",
    "separatorLocations": {},
-   "solution": "DEPENDABLE",
+   "solution": "SENTENCE",
    "annotation": null
   },
   {
-   "id": "21-across",
+   "id": "21-down",
    "number": 21,
-   "direction": "across",
+   "direction": "down",
    "position": {
-    "x": 0,
-    "y": 11
+    "x": 12,
+    "y": 10
    },
-   "length": 14,
-   "clue": "Version of Alice à la Grimm's supernatural style? (7,7)",
-   "separatorLocations": {
-    ",": [
-     7
-    ]
-   },
-   "solution": "MAGICALREALISM",
+   "length": 5,
+   "clue": "Bottle still raised, runs in (5)",
+   "separatorLocations": {},
+   "solution": "NERVE",
    "annotation": null
   },
   {
@@ -334,13 +385,13 @@ window.CRYPTIC_PUZZLES["independent-9075"] = /*JSON-START*/ {
    "number": 22,
    "direction": "down",
    "position": {
-    "x": 5,
+    "x": 6,
     "y": 11
    },
    "length": 4,
-   "clue": "Mounted soldiers note unrestrained style (4)",
+   "clue": "Reported leak that's thrilling (4)",
    "separatorLocations": {},
-   "solution": "AFRO",
+   "solution": "WHEE",
    "annotation": null
   },
   {
@@ -349,12 +400,12 @@ window.CRYPTIC_PUZZLES["independent-9075"] = /*JSON-START*/ {
    "direction": "across",
    "position": {
     "x": 0,
-    "y": 13
+    "y": 12
    },
-   "length": 6,
-   "clue": "Upright member, a Republican, behind tiresome person (6)",
+   "length": 7,
+   "clue": "What about \"very good knock\" as a memorial? (7)",
    "separatorLocations": {},
-   "solution": "PILLAR",
+   "solution": "EPITAPH",
    "annotation": null
   },
   {
@@ -362,13 +413,46 @@ window.CRYPTIC_PUZZLES["independent-9075"] = /*JSON-START*/ {
    "number": 24,
    "direction": "across",
    "position": {
-    "x": 7,
-    "y": 13
+    "x": 8,
+    "y": 12
    },
-   "length": 8,
-   "clue": "Confuse powerless mystic symbol (8)",
+   "length": 7,
+   "clue": "Clown both upright and corrupt (7)",
    "separatorLocations": {},
-   "solution": "ENTANGLE",
+   "solution": "PIERROT",
+   "annotation": null
+  },
+  {
+   "id": "25-across",
+   "number": 25,
+   "direction": "across",
+   "position": {
+    "x": 0,
+    "y": 14
+   },
+   "length": 9,
+   "clue": "What other earnings will keep behind (2,3,4)",
+   "separatorLocations": {
+    ",": [
+     2,
+     5
+    ]
+   },
+   "solution": "TOTHEREAR",
+   "annotation": null
+  },
+  {
+   "id": "26-across",
+   "number": 26,
+   "direction": "across",
+   "position": {
+    "x": 10,
+    "y": 14
+   },
+   "length": 5,
+   "clue": "It should be great for surfing, dude (5)",
+   "separatorLocations": {},
+   "solution": "SWELL",
    "annotation": null
   }
  ]

@@ -165,6 +165,10 @@ window.CRYPTIC_PUZZLES["cyclops-535"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 24ac. (4)",
+   "group": [
+    "24-across",
+    "11-across"
+   ],
    "separatorLocations": {},
    "solution": "PUMP",
    "annotation": null
@@ -179,6 +183,10 @@ window.CRYPTIC_PUZZLES["cyclops-535"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 23ac. (4)",
+   "group": [
+    "23-across",
+    "12-across"
+   ],
    "separatorLocations": {},
    "solution": "SKIN",
    "annotation": null
@@ -347,6 +355,10 @@ window.CRYPTIC_PUZZLES["cyclops-535"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(&12ac.) Banker is loaded  much in evidence at a Miley performance (4)",
+   "group": [
+    "23-across",
+    "12-across"
+   ],
    "separatorLocations": {},
    "solution": "BARE",
    "annotation": null
@@ -375,6 +387,10 @@ window.CRYPTIC_PUZZLES["cyclops-535"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 11ac.) Which helps publican piss on untrendy shoe (4)",
+   "group": [
+    "24-across",
+    "11-across"
+   ],
    "separatorLocations": {},
    "solution": "BEER",
    "annotation": null

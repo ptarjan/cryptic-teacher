@@ -151,6 +151,10 @@ window.CRYPTIC_PUZZLES["cyclops-686"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 13ac.) Finally, Kate Middleton's about to tuck into very good Russian speciality (4)",
+   "group": [
+    "10-across",
+    "13-across"
+   ],
    "separatorLocations": {},
    "solution": "VOTE",
    "annotation": null
@@ -193,6 +197,10 @@ window.CRYPTIC_PUZZLES["cyclops-686"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "see 10ac. (8)",
+   "group": [
+    "10-across",
+    "13-across"
+   ],
    "separatorLocations": {},
    "solution": "MEDDLING",
    "annotation": null
@@ -361,6 +369,10 @@ window.CRYPTIC_PUZZLES["cyclops-686"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 26ac.) Some ponce on Lycra: \"Never again!\" (4)",
+   "group": [
+    "25-down",
+    "26-across"
+   ],
    "separatorLocations": {},
    "solution": "ONCE",
    "annotation": null
@@ -375,6 +387,10 @@ window.CRYPTIC_PUZZLES["cyclops-686"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 25dn. (4)",
+   "group": [
+    "25-down",
+    "26-across"
+   ],
    "separatorLocations": {},
    "solution": "ONLY",
    "annotation": null

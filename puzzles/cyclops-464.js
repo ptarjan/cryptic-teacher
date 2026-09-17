@@ -109,6 +109,10 @@ window.CRYPTIC_PUZZLES["cyclops-464"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 25dn.) Sulphur in crap drug sample (5)",
+   "group": [
+    "25-down",
+    "7-across"
+   ],
    "separatorLocations": {},
    "solution": "TASTE",
    "annotation": null
@@ -165,6 +169,10 @@ window.CRYPTIC_PUZZLES["cyclops-464"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "(& 26ac.) Uncomfortable experience for tabloid chiefs, i.e. in nervously, deviously, circumventing question (7)",
+   "group": [
+    "11-across",
+    "26-across"
+   ],
    "separatorLocations": {},
    "solution": "LEVESON",
    "annotation": null
@@ -375,6 +383,10 @@ window.CRYPTIC_PUZZLES["cyclops-464"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 7ac.) Shit Blair finally ruined state  lack of appreciation of social niceties (4)",
+   "group": [
+    "25-down",
+    "7-across"
+   ],
    "separatorLocations": {},
    "solution": "POOR",
    "annotation": null
@@ -389,6 +401,10 @@ window.CRYPTIC_PUZZLES["cyclops-464"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 11ac. (7)",
+   "group": [
+    "11-across",
+    "26-across"
+   ],
    "separatorLocations": {},
    "solution": "INQUIRY",
    "annotation": null

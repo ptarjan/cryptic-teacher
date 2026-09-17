@@ -67,6 +67,10 @@ window.CRYPTIC_PUZZLES["cyclops-785"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 18ac.",
+   "group": [
+    "18-across",
+    "4-down"
+   ],
    "separatorLocations": {},
    "solution": "HARRIS",
    "annotation": null
@@ -277,6 +281,10 @@ window.CRYPTIC_PUZZLES["cyclops-785"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 4dn.) Deputy leader of Alaska turned on crooked air marshal (6)",
+   "group": [
+    "18-across",
+    "4-down"
+   ],
    "separatorLocations": {},
    "solution": "KAMALA",
    "annotation": null

@@ -193,6 +193,10 @@ window.CRYPTIC_PUZZLES["cyclops-715"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 21ac. (4)",
+   "group": [
+    "21-across",
+    "12-across"
+   ],
    "separatorLocations": {},
    "solution": "SHIT",
    "annotation": null
@@ -319,6 +323,10 @@ window.CRYPTIC_PUZZLES["cyclops-715"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 12ac.) Revered silence before sex that's amazing (4)",
+   "group": [
+    "21-across",
+    "12-across"
+   ],
    "separatorLocations": {},
    "solution": "HOLY",
    "annotation": null

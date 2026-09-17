@@ -39,6 +39,10 @@ window.CRYPTIC_PUZZLES["cyclops-560"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 3dn.) Filthy rich old fart, so one is outed as would-be betrayer of Cameron (4)",
+   "group": [
+    "2-down",
+    "3-down"
+   ],
    "separatorLocations": {},
    "solution": "LORD",
    "annotation": null
@@ -53,6 +57,10 @@ window.CRYPTIC_PUZZLES["cyclops-560"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "see 2dn. (8)",
+   "group": [
+    "2-down",
+    "3-down"
+   ],
    "separatorLocations": {},
    "solution": "ASHCROFT",
    "annotation": null
@@ -123,6 +131,11 @@ window.CRYPTIC_PUZZLES["cyclops-560"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 27dn. (2,4)",
+   "group": [
+    "27-down",
+    "8-across",
+    "17-down"
+   ],
    "separatorLocations": {},
    "solution": "INONES",
    "annotation": null
@@ -249,6 +262,11 @@ window.CRYPTIC_PUZZLES["cyclops-560"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 27dn. (6)",
+   "group": [
+    "27-down",
+    "8-across",
+    "17-down"
+   ],
    "separatorLocations": {},
    "solution": "NOTICE",
    "annotation": null
@@ -389,6 +407,11 @@ window.CRYPTIC_PUZZLES["cyclops-560"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 8ac./17dn.) Working on Chinese nation to accept democratic leader? Resign! (4)",
+   "group": [
+    "27-down",
+    "8-across",
+    "17-down"
+   ],
    "separatorLocations": {},
    "solution": "HAND",
    "annotation": null

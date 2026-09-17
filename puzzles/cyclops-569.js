@@ -39,6 +39,11 @@ window.CRYPTIC_PUZZLES["cyclops-569"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 23dn. (5)",
+   "group": [
+    "23-down",
+    "1-down",
+    "21-across"
+   ],
    "separatorLocations": {},
    "solution": "SOUTH",
    "annotation": null
@@ -319,6 +324,11 @@ window.CRYPTIC_PUZZLES["cyclops-569"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 23dn. (6)",
+   "group": [
+    "23-down",
+    "1-down",
+    "21-across"
+   ],
    "separatorLocations": {},
    "solution": "DIVIDE",
    "annotation": null
@@ -347,6 +357,11 @@ window.CRYPTIC_PUZZLES["cyclops-569"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(&1dn. /21ac.) Hire out shit DVD on dancing that sets Brits apart (5)",
+   "group": [
+    "23-down",
+    "1-down",
+    "21-across"
+   ],
    "separatorLocations": {},
    "solution": "NORTH",
    "annotation": null

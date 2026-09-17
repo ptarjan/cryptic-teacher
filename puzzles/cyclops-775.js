@@ -179,6 +179,10 @@ window.CRYPTIC_PUZZLES["cyclops-775"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 22ac.) Useless wanker is late meeting court date (4)",
+   "group": [
+    "12-across",
+    "22-across"
+   ],
    "separatorLocations": {},
    "solution": "DEAD",
    "annotation": null
@@ -319,6 +323,10 @@ window.CRYPTIC_PUZZLES["cyclops-775"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 12ac. (4)",
+   "group": [
+    "12-across",
+    "22-across"
+   ],
    "separatorLocations": {},
    "solution": "WOOD",
    "annotation": null

@@ -137,6 +137,10 @@ window.CRYPTIC_PUZZLES["cyclops-770"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 22dn.) Ms Gunnell missing out on a medal, reportedly? Go on! (5)",
+   "group": [
+    "7-down",
+    "22-down"
+   ],
    "separatorLocations": {},
    "solution": "SALLY",
    "annotation": null
@@ -151,6 +155,10 @@ window.CRYPTIC_PUZZLES["cyclops-770"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(&23dn.) Pissed about with a knight clad in iron  a threat to democracy? (4)",
+   "group": [
+    "8-down",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "DEEP",
    "annotation": null
@@ -361,6 +369,10 @@ window.CRYPTIC_PUZZLES["cyclops-770"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 7dn. (5)",
+   "group": [
+    "7-down",
+    "22-down"
+   ],
    "separatorLocations": {},
    "solution": "FORTH",
    "annotation": null
@@ -389,6 +401,10 @@ window.CRYPTIC_PUZZLES["cyclops-770"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 8dn. (4)",
+   "group": [
+    "8-down",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "FAKE",
    "annotation": null

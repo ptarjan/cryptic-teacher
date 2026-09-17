@@ -95,6 +95,11 @@ window.CRYPTIC_PUZZLES["cyclops-803"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 14ac.",
+   "group": [
+    "14-across",
+    "6-down",
+    "22-down"
+   ],
    "separatorLocations": {},
    "solution": "DEAD",
    "annotation": null
@@ -151,6 +156,10 @@ window.CRYPTIC_PUZZLES["cyclops-803"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 18dn.) Demonic Bake-off host, at first a staunch right-winger (4)",
+   "group": [
+    "9-down",
+    "18-down"
+   ],
    "separatorLocations": {},
    "solution": "KEMI",
    "annotation": null
@@ -221,6 +230,11 @@ window.CRYPTIC_PUZZLES["cyclops-803"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 6dn./22dn.) Shroud to go here? Never! (4,2)",
+   "group": [
+    "14-across",
+    "6-down",
+    "22-down"
+   ],
    "separatorLocations": {},
    "solution": "OVERMY",
    "annotation": null
@@ -291,6 +305,10 @@ window.CRYPTIC_PUZZLES["cyclops-803"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "See 9dn.",
+   "group": [
+    "9-down",
+    "18-down"
+   ],
    "separatorLocations": {},
    "solution": "BADENOCH",
    "annotation": null
@@ -375,6 +393,11 @@ window.CRYPTIC_PUZZLES["cyclops-803"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "See 14ac.",
+   "group": [
+    "14-across",
+    "6-down",
+    "22-down"
+   ],
    "separatorLocations": {},
    "solution": "BODY",
    "annotation": null

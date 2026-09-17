@@ -81,6 +81,10 @@ window.CRYPTIC_PUZZLES["cyclops-441"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 26dn.) Unthinking blow to the balls? (4)",
+   "group": [
+    "5-down",
+    "26-down"
+   ],
    "separatorLocations": {},
    "solution": "KNEE",
    "annotation": null
@@ -179,6 +183,10 @@ window.CRYPTIC_PUZZLES["cyclops-441"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 12ac.) Heeding the call as a tabloid press reporter? (5)",
+   "group": [
+    "11-across",
+    "12-across"
+   ],
    "separatorLocations": {},
    "solution": "PHONE",
    "annotation": null
@@ -193,6 +201,10 @@ window.CRYPTIC_PUZZLES["cyclops-441"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 11ac. (7)",
+   "group": [
+    "11-across",
+    "12-across"
+   ],
    "separatorLocations": {},
    "solution": "HACKING",
    "annotation": null
@@ -249,6 +261,10 @@ window.CRYPTIC_PUZZLES["cyclops-441"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "(& 25dn.) \"Bonkers: bawdiness is to go!\" is not what you want to hear (3)",
+   "group": [
+    "16-down",
+    "25-down"
+   ],
    "separatorLocations": {},
    "solution": "BAD",
    "annotation": null
@@ -375,6 +391,10 @@ window.CRYPTIC_PUZZLES["cyclops-441"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 16dn. (4)",
+   "group": [
+    "16-down",
+    "25-down"
+   ],
    "separatorLocations": {},
    "solution": "NEWS",
    "annotation": null
@@ -389,6 +409,10 @@ window.CRYPTIC_PUZZLES["cyclops-441"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 5dn. (4)",
+   "group": [
+    "5-down",
+    "26-down"
+   ],
    "separatorLocations": {},
    "solution": "JERK",
    "annotation": null

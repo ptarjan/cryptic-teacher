@@ -151,6 +151,10 @@ window.CRYPTIC_PUZZLES["cyclops-767"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 26ac.) Bonus clue: all part of the equation? (4)",
+   "group": [
+    "10-across",
+    "26-across"
+   ],
    "separatorLocations": {},
    "solution": "PLUS",
    "annotation": null
@@ -403,6 +407,10 @@ window.CRYPTIC_PUZZLES["cyclops-767"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 10ac. (4)",
+   "group": [
+    "10-across",
+    "26-across"
+   ],
    "separatorLocations": {},
    "solution": "SIGN",
    "annotation": null

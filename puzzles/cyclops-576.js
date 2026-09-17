@@ -67,6 +67,10 @@ window.CRYPTIC_PUZZLES["cyclops-576"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 23dn. (4)",
+   "group": [
+    "23-down",
+    "4-down"
+   ],
    "separatorLocations": {},
    "solution": "HEAP",
    "annotation": null
@@ -109,6 +113,10 @@ window.CRYPTIC_PUZZLES["cyclops-576"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "(& 11ac.) Illegal highs amassed by some campaigning parties? (8)",
+   "group": [
+    "7-across",
+    "11-across"
+   ],
    "separatorLocations": {},
    "solution": "ELECTION",
    "annotation": null
@@ -123,6 +131,10 @@ window.CRYPTIC_PUZZLES["cyclops-576"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 21ac.) Conservative lot's heated, unfair dig (5)",
+   "group": [
+    "8-down",
+    "21-across"
+   ],
    "separatorLocations": {},
    "solution": "CHEAP",
    "annotation": null
@@ -165,6 +177,10 @@ window.CRYPTIC_PUZZLES["cyclops-576"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "see 7ac. (8)",
+   "group": [
+    "7-across",
+    "11-across"
+   ],
    "separatorLocations": {},
    "solution": "EXPENSES",
    "annotation": null
@@ -179,6 +195,10 @@ window.CRYPTIC_PUZZLES["cyclops-576"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 19dn.) Sex frolic, loveless, exhaustive  get it over with smartish (4)",
+   "group": [
+    "12-across",
+    "19-down"
+   ],
    "separatorLocations": {},
    "solution": "ROMP",
    "annotation": null
@@ -221,6 +241,10 @@ window.CRYPTIC_PUZZLES["cyclops-576"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 21dn. (7)",
+   "group": [
+    "21-down",
+    "15-across"
+   ],
    "separatorLocations": {},
    "solution": "HELPING",
    "annotation": null
@@ -277,6 +301,10 @@ window.CRYPTIC_PUZZLES["cyclops-576"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 12ac. (7)",
+   "group": [
+    "12-across",
+    "19-down"
+   ],
    "separatorLocations": {},
    "solution": "THROUGH",
    "annotation": null
@@ -319,6 +347,10 @@ window.CRYPTIC_PUZZLES["cyclops-576"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 8dn. (4)",
+   "group": [
+    "8-down",
+    "21-across"
+   ],
    "separatorLocations": {},
    "solution": "SHOT",
    "annotation": null
@@ -333,6 +365,10 @@ window.CRYPTIC_PUZZLES["cyclops-576"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 15ac.) Broadcast sampling? Hell, that wouldn't have appealed to Cyril's appetite (5)",
+   "group": [
+    "21-down",
+    "15-across"
+   ],
    "separatorLocations": {},
    "solution": "SMALL",
    "annotation": null
@@ -361,6 +397,10 @@ window.CRYPTIC_PUZZLES["cyclops-576"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 4dn.) Sexist insult by male (a Trump, ultimately?)  \"Blot on the landscape!\" (4)",
+   "group": [
+    "23-down",
+    "4-down"
+   ],
    "separatorLocations": {},
    "solution": "SLAG",
    "annotation": null

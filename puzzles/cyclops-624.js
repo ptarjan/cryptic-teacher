@@ -95,6 +95,10 @@ window.CRYPTIC_PUZZLES["cyclops-624"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 25ac.) Ejaculation from bloke expecting oral sex, being taken by surprise? (3,2)",
+   "group": [
+    "6-down",
+    "25-across"
+   ],
    "separatorLocations": {},
    "solution": "ILLBE",
    "annotation": null
@@ -123,6 +127,10 @@ window.CRYPTIC_PUZZLES["cyclops-624"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 20dn.) Resulting in no conception of Le Pen-style communication? (6)",
+   "group": [
+    "8-down",
+    "20-down"
+   ],
    "separatorLocations": {},
    "solution": "FRENCH",
    "annotation": null
@@ -319,6 +327,10 @@ window.CRYPTIC_PUZZLES["cyclops-624"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 8dn. (6)",
+   "group": [
+    "8-down",
+    "20-down"
+   ],
    "separatorLocations": {},
    "solution": "LETTER",
    "annotation": null
@@ -403,6 +415,10 @@ window.CRYPTIC_PUZZLES["cyclops-624"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 6dn. (6)",
+   "group": [
+    "6-down",
+    "25-across"
+   ],
    "separatorLocations": {},
    "solution": "BLOWED",
    "annotation": null

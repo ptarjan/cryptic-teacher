@@ -109,6 +109,10 @@ window.CRYPTIC_PUZZLES["cyclops-711"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 10ac.) 'Hidden drawers' pun is recycled (5)",
+   "group": [
+    "6-down",
+    "10-across"
+   ],
    "separatorLocations": {},
    "solution": "UNDER",
    "annotation": null
@@ -165,6 +169,10 @@ window.CRYPTIC_PUZZLES["cyclops-711"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 6dn. (5)",
+   "group": [
+    "6-down",
+    "10-across"
+   ],
    "separatorLocations": {},
    "solution": "WRAPS",
    "annotation": null
@@ -207,6 +215,10 @@ window.CRYPTIC_PUZZLES["cyclops-711"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 23ac. (5)",
+   "group": [
+    "23-across",
+    "13-across"
+   ],
    "separatorLocations": {},
    "solution": "REACH",
    "annotation": null
@@ -361,6 +373,10 @@ window.CRYPTIC_PUZZLES["cyclops-711"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 13ac.) Afro cut executed with hoe? That's beyond me (3,2)",
+   "group": [
+    "23-across",
+    "13-across"
+   ],
    "separatorLocations": {},
    "solution": "OUTOF",
    "annotation": null

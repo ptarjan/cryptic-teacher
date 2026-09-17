@@ -137,6 +137,10 @@ window.CRYPTIC_PUZZLES["cyclops-685"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "see 12ac. (5,8)",
+   "group": [
+    "12-across",
+    "9-down"
+   ],
    "separatorLocations": {},
    "solution": "BLOODPRESSURE",
    "annotation": null
@@ -179,6 +183,10 @@ window.CRYPTIC_PUZZLES["cyclops-685"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 9dn.) Pissed with Gore, newspapers possibly rue the result of too much stress? (4)",
+   "group": [
+    "12-across",
+    "9-down"
+   ],
    "separatorLocations": {},
    "solution": "HIGH",
    "annotation": null

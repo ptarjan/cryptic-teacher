@@ -151,6 +151,10 @@ window.CRYPTIC_PUZZLES["cyclops-766"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 12ac. (4)",
+   "group": [
+    "12-across",
+    "8-down"
+   ],
    "separatorLocations": {},
    "solution": "DOWN",
    "annotation": null
@@ -207,6 +211,10 @@ window.CRYPTIC_PUZZLES["cyclops-766"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "(& 8dn.) At a loss for words with elected government head and wretched diluting of intellectual content (7)",
+   "group": [
+    "12-across",
+    "8-down"
+   ],
    "separatorLocations": {},
    "solution": "DUMBING",
    "annotation": null
@@ -263,6 +271,10 @@ window.CRYPTIC_PUZZLES["cyclops-766"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 24dn. (4)",
+   "group": [
+    "24-down",
+    "16-across"
+   ],
    "separatorLocations": {},
    "solution": "SHIT",
    "annotation": null
@@ -291,6 +303,10 @@ window.CRYPTIC_PUZZLES["cyclops-766"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 23ac.) Remark tires out follower of Corbyn (4)",
+   "group": [
+    "18-across",
+    "23-across"
+   ],
    "separatorLocations": {},
    "solution": "KEIR",
    "annotation": null
@@ -361,6 +377,10 @@ window.CRYPTIC_PUZZLES["cyclops-766"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 18ac. (7)",
+   "group": [
+    "18-across",
+    "23-across"
+   ],
    "separatorLocations": {},
    "solution": "STARMER",
    "annotation": null
@@ -389,6 +409,10 @@ window.CRYPTIC_PUZZLES["cyclops-766"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 16ac.) Nothing produced by white balls? Slap! (4)",
+   "group": [
+    "24-down",
+    "16-across"
+   ],
    "separatorLocations": {},
    "solution": "JACK",
    "annotation": null

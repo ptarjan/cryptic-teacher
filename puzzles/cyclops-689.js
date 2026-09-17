@@ -109,6 +109,10 @@ window.CRYPTIC_PUZZLES["cyclops-689"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 26dn. (6)",
+   "group": [
+    "26-down",
+    "7-down"
+   ],
    "separatorLocations": {},
    "solution": "ENOUGH",
    "annotation": null
@@ -235,6 +239,11 @@ window.CRYPTIC_PUZZLES["cyclops-689"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 17ac./22dn.) Conrad, possibly, is even more dull creating a social movement (5)",
+   "group": [
+    "16-across",
+    "17-across",
+    "22-down"
+   ],
    "separatorLocations": {},
    "solution": "BLACK",
    "annotation": null
@@ -263,6 +272,11 @@ window.CRYPTIC_PUZZLES["cyclops-689"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 16ac. (5)",
+   "group": [
+    "16-across",
+    "17-across",
+    "22-down"
+   ],
    "separatorLocations": {},
    "solution": "LIVES",
    "annotation": null
@@ -333,6 +347,11 @@ window.CRYPTIC_PUZZLES["cyclops-689"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 16ac. (6)",
+   "group": [
+    "16-across",
+    "17-across",
+    "22-down"
+   ],
    "separatorLocations": {},
    "solution": "MATTER",
    "annotation": null
@@ -403,6 +422,10 @@ window.CRYPTIC_PUZZLES["cyclops-689"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 7dn.) New member stitched on Brian? Yuk, that'll do! (4)",
+   "group": [
+    "26-down",
+    "7-down"
+   ],
    "separatorLocations": {},
    "solution": "NEAR",
    "annotation": null

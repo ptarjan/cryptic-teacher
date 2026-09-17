@@ -67,6 +67,10 @@ window.CRYPTIC_PUZZLES["cyclops-804"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 7dn.) Pull out hindquarters fluff (4)",
+   "group": [
+    "4-down",
+    "7-down"
+   ],
    "separatorLocations": {},
    "solution": "BACK",
    "annotation": null
@@ -123,6 +127,10 @@ window.CRYPTIC_PUZZLES["cyclops-804"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 4dn.",
+   "group": [
+    "4-down",
+    "7-down"
+   ],
    "separatorLocations": {},
    "solution": "DOWN",
    "annotation": null
@@ -249,6 +257,11 @@ window.CRYPTIC_PUZZLES["cyclops-804"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 17ac./18ac.) Family member  he'd nod off almost, playing with balls (5)",
+   "group": [
+    "16-across",
+    "17-across",
+    "18-across"
+   ],
    "separatorLocations": {},
    "solution": "FLESH",
    "annotation": null
@@ -263,6 +276,11 @@ window.CRYPTIC_PUZZLES["cyclops-804"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "see 16ac.",
+   "group": [
+    "16-across",
+    "17-across",
+    "18-across"
+   ],
    "separatorLocations": {},
    "solution": "AND",
    "annotation": null
@@ -291,6 +309,11 @@ window.CRYPTIC_PUZZLES["cyclops-804"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 16ac.",
+   "group": [
+    "16-across",
+    "17-across",
+    "18-across"
+   ],
    "separatorLocations": {},
    "solution": "BLOOD",
    "annotation": null

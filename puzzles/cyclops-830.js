@@ -179,6 +179,10 @@ window.CRYPTIC_PUZZLES["cyclops-830"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(&13ac.) What Trump apparently failed to do before bombing Iran, leading to absurd stark messiness (4)",
+   "group": [
+    "12-across",
+    "13-across"
+   ],
    "separatorLocations": {},
    "solution": "RISK",
    "annotation": null
@@ -193,6 +197,10 @@ window.CRYPTIC_PUZZLES["cyclops-830"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "see 12ac.",
+   "group": [
+    "12-across",
+    "13-across"
+   ],
    "separatorLocations": {},
    "solution": "ASSESSMENT",
    "annotation": null

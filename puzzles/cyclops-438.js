@@ -39,6 +39,10 @@ window.CRYPTIC_PUZZLES["cyclops-438"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 24dn.) Thought for the future consequences, taken by Sarah Palin only through a telescopic gun-sight? (4)",
+   "group": [
+    "2-down",
+    "24-down"
+   ],
    "separatorLocations": {},
    "solution": "LONG",
    "annotation": null
@@ -123,6 +127,10 @@ window.CRYPTIC_PUZZLES["cyclops-438"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 22dn.) Holding in rippling torso, Depp's getting end away, causing a stoop (4)",
+   "group": [
+    "7-down",
+    "22-down"
+   ],
    "separatorLocations": {},
    "solution": "DOOR",
    "annotation": null
@@ -249,6 +257,10 @@ window.CRYPTIC_PUZZLES["cyclops-438"] = /*JSON-START*/ {
    },
    "length": 15,
    "clue": "(& 21dn.) Expression of over-the-top gratitude when fingering a coveted male model? (5,10)",
+   "group": [
+    "16-across",
+    "21-down"
+   ],
    "separatorLocations": {},
    "solution": "OSCARACCEPTANCE",
    "annotation": null
@@ -333,6 +345,10 @@ window.CRYPTIC_PUZZLES["cyclops-438"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 16ac. (6)",
+   "group": [
+    "16-across",
+    "21-down"
+   ],
    "separatorLocations": {},
    "solution": "SPEECH",
    "annotation": null
@@ -347,6 +363,10 @@ window.CRYPTIC_PUZZLES["cyclops-438"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 7dn. (4)",
+   "group": [
+    "7-down",
+    "22-down"
+   ],
    "separatorLocations": {},
    "solution": "STEP",
    "annotation": null
@@ -389,6 +409,10 @@ window.CRYPTIC_PUZZLES["cyclops-438"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 2dn. (4)",
+   "group": [
+    "2-down",
+    "24-down"
+   ],
    "separatorLocations": {},
    "solution": "VIEW",
    "annotation": null

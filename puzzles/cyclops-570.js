@@ -25,6 +25,10 @@ window.CRYPTIC_PUZZLES["cyclops-570"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 21dn. (4)",
+   "group": [
+    "21-down",
+    "1-down"
+   ],
    "separatorLocations": {},
    "solution": "LAST",
    "annotation": null
@@ -123,6 +127,10 @@ window.CRYPTIC_PUZZLES["cyclops-570"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 18dn. (4)",
+   "group": [
+    "18-down",
+    "8-down"
+   ],
    "separatorLocations": {},
    "solution": "BELT",
    "annotation": null
@@ -165,6 +173,10 @@ window.CRYPTIC_PUZZLES["cyclops-570"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 24dn.) Groped all over, pull out as fast you can (4)",
+   "group": [
+    "11-across",
+    "24-down"
+   ],
    "separatorLocations": {},
    "solution": "FULL",
    "annotation": null
@@ -193,6 +205,10 @@ window.CRYPTIC_PUZZLES["cyclops-570"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "(& 22ac.) Tutor smitten with 'Free World' shit, say (4,6)",
+   "group": [
+    "13-down",
+    "22-across"
+   ],
    "separatorLocations": {},
    "solution": "FOURLETTER",
    "annotation": null
@@ -263,6 +279,10 @@ window.CRYPTIC_PUZZLES["cyclops-570"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 8dn.) Where there's a fervent belief in the USA (5)",
+   "group": [
+    "18-down",
+    "8-down"
+   ],
    "separatorLocations": {},
    "solution": "BIBLE",
    "annotation": null
@@ -305,6 +325,10 @@ window.CRYPTIC_PUZZLES["cyclops-570"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 1dn.) Climax and keep going? No medal if you do (4)",
+   "group": [
+    "21-down",
+    "1-down"
+   ],
    "separatorLocations": {},
    "solution": "COME",
    "annotation": null
@@ -319,6 +343,10 @@ window.CRYPTIC_PUZZLES["cyclops-570"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 13dn. (4)",
+   "group": [
+    "13-down",
+    "22-across"
+   ],
    "separatorLocations": {},
    "solution": "WORD",
    "annotation": null
@@ -347,6 +375,10 @@ window.CRYPTIC_PUZZLES["cyclops-570"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 11ac. (4)",
+   "group": [
+    "11-across",
+    "24-down"
+   ],
    "separatorLocations": {},
    "solution": "PELT",
    "annotation": null

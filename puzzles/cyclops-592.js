@@ -95,6 +95,10 @@ window.CRYPTIC_PUZZLES["cyclops-592"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 26dn.) Donald Trump was reportedly carried by Fatty (4)",
+   "group": [
+    "6-down",
+    "26-down"
+   ],
    "separatorLocations": {},
    "solution": "BORN",
    "annotation": null
@@ -179,6 +183,10 @@ window.CRYPTIC_PUZZLES["cyclops-592"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 20dn. (4)",
+   "group": [
+    "20-down",
+    "12-down"
+   ],
    "separatorLocations": {},
    "solution": "LEGS",
    "annotation": null
@@ -193,6 +201,10 @@ window.CRYPTIC_PUZZLES["cyclops-592"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "(& 14ac.) Ordering Volvos to be scrapped, by which exiting government members gain immediate employment? (9)",
+   "group": [
+    "13-across",
+    "14-across"
+   ],
    "separatorLocations": {},
    "solution": "REVOLVING",
    "annotation": null
@@ -207,6 +219,10 @@ window.CRYPTIC_PUZZLES["cyclops-592"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 13ac. (5)",
+   "group": [
+    "13-across",
+    "14-across"
+   ],
    "separatorLocations": {},
    "solution": "DOORS",
    "annotation": null
@@ -291,6 +307,10 @@ window.CRYPTIC_PUZZLES["cyclops-592"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 12dn.) Endure members on which collapse is imminent (4)",
+   "group": [
+    "20-down",
+    "12-down"
+   ],
    "separatorLocations": {},
    "solution": "LAST",
    "annotation": null
@@ -389,6 +409,10 @@ window.CRYPTIC_PUZZLES["cyclops-592"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 6dn. (4)",
+   "group": [
+    "6-down",
+    "26-down"
+   ],
    "separatorLocations": {},
    "solution": "RICH",
    "annotation": null

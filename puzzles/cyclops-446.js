@@ -25,6 +25,10 @@ window.CRYPTIC_PUZZLES["cyclops-446"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 26dn. (4)",
+   "group": [
+    "26-down",
+    "1-down"
+   ],
    "separatorLocations": {},
    "solution": "DOWN",
    "annotation": null
@@ -137,6 +141,11 @@ window.CRYPTIC_PUZZLES["cyclops-446"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 9/22dn.) Figure linked with row, best way of dealing with e.g. rebel Lib Dem MP voters? (5)",
+   "group": [
+    "8-down",
+    "9-down",
+    "22-down"
+   ],
    "separatorLocations": {},
    "solution": "THREE",
    "annotation": null
@@ -151,6 +160,11 @@ window.CRYPTIC_PUZZLES["cyclops-446"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 8dn. (4)",
+   "group": [
+    "8-down",
+    "9-down",
+    "22-down"
+   ],
    "separatorLocations": {},
    "solution": "LINE",
    "annotation": null
@@ -235,6 +249,10 @@ window.CRYPTIC_PUZZLES["cyclops-446"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "(& 25ac.) Really imaginative pre-PR fiddling by which some members hope to dodge prosecution (13)",
+   "group": [
+    "15-across",
+    "25-across"
+   ],
    "separatorLocations": {},
    "solution": "PARLIAMENTARY",
    "annotation": null
@@ -333,6 +351,11 @@ window.CRYPTIC_PUZZLES["cyclops-446"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 8dn (4)",
+   "group": [
+    "8-down",
+    "9-down",
+    "22-down"
+   ],
    "separatorLocations": {},
    "solution": "WHIP",
    "annotation": null
@@ -375,6 +398,10 @@ window.CRYPTIC_PUZZLES["cyclops-446"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "see 15ac. (9)",
+   "group": [
+    "15-across",
+    "25-across"
+   ],
    "separatorLocations": {},
    "solution": "PRIVILEGE",
    "annotation": null
@@ -389,6 +416,10 @@ window.CRYPTIC_PUZZLES["cyclops-446"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 1dn.) Cyclops' organ's fluffy stuff, as the game caller says (4)",
+   "group": [
+    "26-down",
+    "1-down"
+   ],
    "separatorLocations": {},
    "solution": "EYES",
    "annotation": null

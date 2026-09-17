@@ -53,6 +53,10 @@ window.CRYPTIC_PUZZLES["cyclops-501"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 20dn. (5)",
+   "group": [
+    "20-down",
+    "3-down"
+   ],
    "separatorLocations": {},
    "solution": "ORDER",
    "annotation": null
@@ -95,6 +99,10 @@ window.CRYPTIC_PUZZLES["cyclops-501"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 14dn. (4)",
+   "group": [
+    "14-down",
+    "6-across"
+   ],
    "separatorLocations": {},
    "solution": "SUIT",
    "annotation": null
@@ -221,6 +229,10 @@ window.CRYPTIC_PUZZLES["cyclops-501"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "(& 6ac.) Action started some time after a bit of how's your father (9)",
+   "group": [
+    "14-down",
+    "6-across"
+   ],
    "separatorLocations": {},
    "solution": "PATERNITY",
    "annotation": null
@@ -319,6 +331,10 @@ window.CRYPTIC_PUZZLES["cyclops-501"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "(& 26ac.) Just pricks to be found in such an area? (7)",
+   "group": [
+    "19-down",
+    "26-across"
+   ],
    "separatorLocations": {},
    "solution": "MEMBERS",
    "annotation": null
@@ -333,6 +349,10 @@ window.CRYPTIC_PUZZLES["cyclops-501"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "(& 3dn.) \"Tell me a joke!\" - like the attempt to shut up Private Eye, etc (7)",
+   "group": [
+    "20-down",
+    "3-down"
+   ],
    "separatorLocations": {},
    "solution": "GAGGING",
    "annotation": null
@@ -431,6 +451,10 @@ window.CRYPTIC_PUZZLES["cyclops-501"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 19dn. (4)",
+   "group": [
+    "19-down",
+    "26-across"
+   ],
    "separatorLocations": {},
    "solution": "ONLY",
    "annotation": null

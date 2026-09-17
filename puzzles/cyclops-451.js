@@ -25,6 +25,10 @@ window.CRYPTIC_PUZZLES["cyclops-451"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 19dn.) Miliband & co. ban \"the sad cow\" converting to embrace independence (6)",
+   "group": [
+    "1-across",
+    "19-down"
+   ],
    "separatorLocations": {},
    "solution": "SHADOW",
    "annotation": null
@@ -165,6 +169,11 @@ window.CRYPTIC_PUZZLES["cyclops-451"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "(& 13, 12) Throne: new head? \"Foolhardy\" at present time (3)",
+   "group": [
+    "10-across",
+    "13-across",
+    "12-across"
+   ],
    "separatorLocations": {},
    "solution": "THE",
    "annotation": null
@@ -193,6 +202,11 @@ window.CRYPTIC_PUZZLES["cyclops-451"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 10ac. (3,3)",
+   "group": [
+    "10-across",
+    "13-across",
+    "12-across"
+   ],
    "separatorLocations": {},
    "solution": "ANDNOW",
    "annotation": null
@@ -207,6 +221,11 @@ window.CRYPTIC_PUZZLES["cyclops-451"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 10ac. (4)",
+   "group": [
+    "10-across",
+    "13-across",
+    "12-across"
+   ],
    "separatorLocations": {},
    "solution": "HERE",
    "annotation": null
@@ -305,6 +324,10 @@ window.CRYPTIC_PUZZLES["cyclops-451"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 1ac. (7)",
+   "group": [
+    "1-across",
+    "19-down"
+   ],
    "separatorLocations": {},
    "solution": "CABINET",
    "annotation": null

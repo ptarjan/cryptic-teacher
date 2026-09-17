@@ -39,6 +39,10 @@ window.CRYPTIC_PUZZLES["cyclops-410"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 24dn. (4)",
+   "group": [
+    "24-down",
+    "2-down"
+   ],
    "separatorLocations": {},
    "solution": "HEAD",
    "annotation": null
@@ -165,6 +169,10 @@ window.CRYPTIC_PUZZLES["cyclops-410"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "& 25ac. Sun quite lacking and Times not exactly remembered for cultural advancement! (4,4)",
+   "group": [
+    "10-across",
+    "25-across"
+   ],
    "separatorLocations": {},
    "solution": "DARK",
    "annotation": null
@@ -361,6 +369,10 @@ window.CRYPTIC_PUZZLES["cyclops-410"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 2dn.) Charlie calls for \"Private Eye chief\" (4)",
+   "group": [
+    "24-down",
+    "2-down"
+   ],
    "separatorLocations": {},
    "solution": "DICK",
    "annotation": null
@@ -375,6 +387,10 @@ window.CRYPTIC_PUZZLES["cyclops-410"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 10ac. (4)",
+   "group": [
+    "10-across",
+    "25-across"
+   ],
    "separatorLocations": {},
    "solution": "AGES",
    "annotation": null

@@ -137,6 +137,10 @@ window.CRYPTIC_PUZZLES["cyclops-475"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 28ac (4)",
+   "group": [
+    "28-across",
+    "9-down"
+   ],
    "separatorLocations": {},
    "solution": "TIME",
    "annotation": null
@@ -207,6 +211,10 @@ window.CRYPTIC_PUZZLES["cyclops-475"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 23ac. (6)",
+   "group": [
+    "23-across",
+    "14-across"
+   ],
    "separatorLocations": {},
    "solution": "REVIEW",
    "annotation": null
@@ -235,6 +243,11 @@ window.CRYPTIC_PUZZLES["cyclops-475"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 18/19ac.) Act like campaigning politician, producing part of media article on 'one's family'? (5)",
+   "group": [
+    "16-across",
+    "18-across",
+    "19-across"
+   ],
    "separatorLocations": {},
    "solution": "PRESS",
    "annotation": null
@@ -263,6 +276,11 @@ window.CRYPTIC_PUZZLES["cyclops-475"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "see 16ac. (3)",
+   "group": [
+    "16-across",
+    "18-across",
+    "19-across"
+   ],
    "separatorLocations": {},
    "solution": "THE",
    "annotation": null
@@ -277,6 +295,11 @@ window.CRYPTIC_PUZZLES["cyclops-475"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 16ac. (5)",
+   "group": [
+    "16-across",
+    "18-across",
+    "19-across"
+   ],
    "separatorLocations": {},
    "solution": "FLESH",
    "annotation": null
@@ -361,6 +384,10 @@ window.CRYPTIC_PUZZLES["cyclops-475"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "(& 14ac.) Rival writer pissed with Eye and our volume assessment (8)",
+   "group": [
+    "23-across",
+    "14-across"
+   ],
    "separatorLocations": {},
    "solution": "LITERARY",
    "annotation": null
@@ -431,6 +458,10 @@ window.CRYPTIC_PUZZLES["cyclops-475"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 9dn.) Topless shagging treat arranged  I'm in and game to carry on for another half hour! (5)",
+   "group": [
+    "28-across",
+    "9-down"
+   ],
    "separatorLocations": {},
    "solution": "EXTRA",
    "annotation": null

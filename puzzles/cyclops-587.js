@@ -39,6 +39,11 @@ window.CRYPTIC_PUZZLES["cyclops-587"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 24dn. (4)",
+   "group": [
+    "24-down",
+    "4-down",
+    "2-down"
+   ],
    "separatorLocations": {},
    "solution": "TELL",
    "annotation": null
@@ -67,6 +72,11 @@ window.CRYPTIC_PUZZLES["cyclops-587"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 24dn. (4)",
+   "group": [
+    "24-down",
+    "4-down",
+    "2-down"
+   ],
    "separatorLocations": {},
    "solution": "WILL",
    "annotation": null
@@ -109,6 +119,10 @@ window.CRYPTIC_PUZZLES["cyclops-587"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 20ac.) \"Situation just fine,\" as Trump and Pence agreed? (5)",
+   "group": [
+    "6-down",
+    "20-across"
+   ],
    "separatorLocations": {},
    "solution": "THATS",
    "annotation": null
@@ -291,6 +305,10 @@ window.CRYPTIC_PUZZLES["cyclops-587"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 23dn.) They make millions, just like Brenda & co  sweet (5)",
+   "group": [
+    "18-across",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "ROYAL",
    "annotation": null
@@ -319,6 +337,10 @@ window.CRYPTIC_PUZZLES["cyclops-587"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "see 6dn. (3,6)",
+   "group": [
+    "6-down",
+    "20-across"
+   ],
    "separatorLocations": {},
    "solution": "THETICKET",
    "annotation": null
@@ -361,6 +383,10 @@ window.CRYPTIC_PUZZLES["cyclops-587"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 18ac. (4)",
+   "group": [
+    "18-across",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "MINT",
    "annotation": null
@@ -375,6 +401,11 @@ window.CRYPTIC_PUZZLES["cyclops-587"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 4dn./2dn.) Wait and see? Well, little will change when one's installed (4)",
+   "group": [
+    "24-down",
+    "4-down",
+    "2-down"
+   ],
    "separatorLocations": {},
    "solution": "TIME",
    "annotation": null

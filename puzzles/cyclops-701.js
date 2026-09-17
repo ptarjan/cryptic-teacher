@@ -151,6 +151,11 @@ window.CRYPTIC_PUZZLES["cyclops-701"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 25/20ac.) One reversal unduly mismanaged  poor handler of vaccine acquisition (6)",
+   "group": [
+    "10-across",
+    "25-across",
+    "20-across"
+   ],
    "separatorLocations": {},
    "solution": "URSULA",
    "annotation": null
@@ -165,6 +170,10 @@ window.CRYPTIC_PUZZLES["cyclops-701"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "(& 13ac.) Joey to make love? It won't do anyone justice (8)",
+   "group": [
+    "11-across",
+    "13-across"
+   ],
    "separatorLocations": {},
    "solution": "KANGAROO",
    "annotation": null
@@ -193,6 +202,10 @@ window.CRYPTIC_PUZZLES["cyclops-701"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 11ac. (5)",
+   "group": [
+    "11-across",
+    "13-across"
+   ],
    "separatorLocations": {},
    "solution": "COURT",
    "annotation": null
@@ -291,6 +304,11 @@ window.CRYPTIC_PUZZLES["cyclops-701"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 10ac. (5)",
+   "group": [
+    "10-across",
+    "25-across",
+    "20-across"
+   ],
    "separatorLocations": {},
    "solution": "LEYEN",
    "annotation": null
@@ -375,6 +393,11 @@ window.CRYPTIC_PUZZLES["cyclops-701"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 10ac. (3,3)",
+   "group": [
+    "10-across",
+    "25-across",
+    "20-across"
+   ],
    "separatorLocations": {},
    "solution": "VONDER",
    "annotation": null

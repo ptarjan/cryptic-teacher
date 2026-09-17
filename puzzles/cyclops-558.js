@@ -123,6 +123,10 @@ window.CRYPTIC_PUZZLES["cyclops-558"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 21dn. (6)",
+   "group": [
+    "21-down",
+    "8-down"
+   ],
    "separatorLocations": {},
    "solution": "CORBYN",
    "annotation": null
@@ -165,6 +169,10 @@ window.CRYPTIC_PUZZLES["cyclops-558"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 25dn. (4)",
+   "group": [
+    "25-down",
+    "11-across"
+   ],
    "separatorLocations": {},
    "solution": "FIRE",
    "annotation": null
@@ -207,6 +215,10 @@ window.CRYPTIC_PUZZLES["cyclops-558"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 26ac.) \"The Honourable\" jailbird taking piss (4)",
+   "group": [
+    "14-across",
+    "26-across"
+   ],
    "separatorLocations": {},
    "solution": "LIFE",
    "annotation": null
@@ -221,6 +233,10 @@ window.CRYPTIC_PUZZLES["cyclops-558"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "(& 20ac.) List of those allowed to make crosses  21,8 has been on one, you might say (9)",
+   "group": [
+    "15-down",
+    "20-across"
+   ],
    "separatorLocations": {},
    "solution": "ELECTORAL",
    "annotation": null
@@ -291,6 +307,10 @@ window.CRYPTIC_PUZZLES["cyclops-558"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 15dn. (4)",
+   "group": [
+    "15-down",
+    "20-across"
+   ],
    "separatorLocations": {},
    "solution": "ROLL",
    "annotation": null
@@ -305,6 +325,10 @@ window.CRYPTIC_PUZZLES["cyclops-558"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 8dn.) Jumped up politician responsible for leaders from Boris Johnson: \"Cry Enemy!\" or \"Revolting!\" (6)",
+   "group": [
+    "21-down",
+    "8-down"
+   ],
    "separatorLocations": {},
    "solution": "JEREMY",
    "annotation": null
@@ -361,6 +385,10 @@ window.CRYPTIC_PUZZLES["cyclops-558"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 11ac.) Conservative leader: \"Archer fit to be restored\" Not right  become inflamed (5)",
+   "group": [
+    "25-down",
+    "11-across"
+   ],
    "separatorLocations": {},
    "solution": "CATCH",
    "annotation": null
@@ -375,6 +403,10 @@ window.CRYPTIC_PUZZLES["cyclops-558"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 14ac. (4)",
+   "group": [
+    "14-across",
+    "26-across"
+   ],
    "separatorLocations": {},
    "solution": "PEER",
    "annotation": null

@@ -151,6 +151,10 @@ window.CRYPTIC_PUZZLES["cyclops-449"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 26ac. (4)",
+   "group": [
+    "26-across",
+    "10-down"
+   ],
    "separatorLocations": {},
    "solution": "STAR",
    "annotation": null
@@ -235,6 +239,10 @@ window.CRYPTIC_PUZZLES["cyclops-449"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "(& 21dn.) Victoria certainly wasn't given the old trout treatment by gay? (7)",
+   "group": [
+    "15-down",
+    "21-down"
+   ],
    "separatorLocations": {},
    "solution": "TICKLED",
    "annotation": null
@@ -319,6 +327,10 @@ window.CRYPTIC_PUZZLES["cyclops-449"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 15dn. (4)",
+   "group": [
+    "15-down",
+    "21-down"
+   ],
    "separatorLocations": {},
    "solution": "PINK",
    "annotation": null
@@ -389,6 +401,10 @@ window.CRYPTIC_PUZZLES["cyclops-449"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 10dn.) Cheap rag makes a cleaner energy source (5)",
+   "group": [
+    "26-across",
+    "10-down"
+   ],
    "separatorLocations": {},
    "solution": "DAILY",
    "annotation": null

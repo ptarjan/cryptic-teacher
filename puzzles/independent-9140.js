@@ -7,8 +7,8 @@ window.CRYPTIC_PUZZLES["independent-9140"] = /*JSON-START*/ {
  "number": 9140,
  "series": "independent",
  "name": "Independent cryptic crossword No 9,140",
- "setter": "Anglio",
- "date": 1454716800000,
+ "setter": "Anax",
+ "date": 1454112000000,
  "dimensions": {
   "cols": 15,
   "rows": 15
@@ -23,10 +23,24 @@ window.CRYPTIC_PUZZLES["independent-9140"] = /*JSON-START*/ {
     "x": 0,
     "y": 0
    },
-   "length": 8,
-   "clue": "Consumed by panic, Ross Barkley might hit it (8)",
+   "length": 4,
+   "clue": "Doctor X, musician (4)",
    "separatorLocations": {},
-   "solution": "CROSSBAR",
+   "solution": "MOBY",
+   "annotation": null
+  },
+  {
+   "id": "1-down",
+   "number": 1,
+   "direction": "down",
+   "position": {
+    "x": 0,
+    "y": 0
+   },
+   "length": 7,
+   "clue": "Police car keeps circling home (7)",
+   "separatorLocations": {},
+   "solution": "MONITOR",
    "annotation": null
   },
   {
@@ -34,31 +48,31 @@ window.CRYPTIC_PUZZLES["independent-9140"] = /*JSON-START*/ {
    "number": 2,
    "direction": "down",
    "position": {
-    "x": 1,
+    "x": 2,
     "y": 0
    },
    "length": 9,
-   "clue": "Greedy rancher's final meeting with Native American - he's ejected, being given vague promises of settlement (9)",
-   "separatorLocations": {},
-   "solution": "RAPACIOUS",
+   "clue": "After chest cold, handle manoeuvre (3,6)",
+   "separatorLocations": {
+    ",": [
+     3
+    ]
+   },
+   "solution": "BOXCLEVER",
    "annotation": null
   },
   {
-   "id": "3-down",
+   "id": "3-across",
    "number": 3,
-   "direction": "down",
+   "direction": "across",
    "position": {
-    "x": 3,
+    "x": 5,
     "y": 0
    },
-   "length": 15,
-   "clue": "Coe must wear this for the 1500 metres? (8,7)",
-   "separatorLocations": {
-    ",": [
-     8
-    ]
-   },
-   "solution": "SWIMMINGCOSTUME",
+   "length": 10,
+   "clue": "See increase (10)",
+   "separatorLocations": {},
+   "solution": "APPRECIATE",
    "annotation": null
   },
   {
@@ -66,13 +80,13 @@ window.CRYPTIC_PUZZLES["independent-9140"] = /*JSON-START*/ {
    "number": 4,
    "direction": "down",
    "position": {
-    "x": 5,
+    "x": 6,
     "y": 0
    },
-   "length": 5,
-   "clue": "Joan Baez's first hit features bluegrass stalwart (5)",
+   "length": 9,
+   "clue": "Deluded old man with raincoat, mostly drunk (9)",
    "separatorLocations": {},
-   "solution": "BANJO",
+   "solution": "PARANOIAC",
    "annotation": null
   },
   {
@@ -80,31 +94,13 @@ window.CRYPTIC_PUZZLES["independent-9140"] = /*JSON-START*/ {
    "number": 5,
    "direction": "down",
    "position": {
-    "x": 7,
+    "x": 8,
     "y": 0
    },
-   "length": 7,
-   "clue": "Beginning to regret everyone handling mangy dog's toy (3,4)",
-   "separatorLocations": {
-    ",": [
-     3
-    ]
-   },
-   "solution": "RAGDOLL",
-   "annotation": null
-  },
-  {
-   "id": "6-across",
-   "number": 6,
-   "direction": "across",
-   "position": {
-    "x": 9,
-    "y": 0
-   },
-   "length": 6,
-   "clue": "Variety of pewter dish (6)",
+   "length": 5,
+   "clue": "Hills to cross, head off (5)",
    "separatorLocations": {},
-   "solution": "TRIFLE",
+   "solution": "RIDGE",
    "annotation": null
   },
   {
@@ -112,13 +108,19 @@ window.CRYPTIC_PUZZLES["independent-9140"] = /*JSON-START*/ {
    "number": 6,
    "direction": "down",
    "position": {
-    "x": 9,
+    "x": 10,
     "y": 0
    },
-   "length": 9,
-   "clue": "Gadget comprising short flexible joint inside bay window (9)",
-   "separatorLocations": {},
-   "solution": "THINGUMMY",
+   "length": 13,
+   "clue": "Money doesn't work - I'm single (4,3,2,4)",
+   "separatorLocations": {
+    ",": [
+     4,
+     7,
+     9
+    ]
+   },
+   "solution": "CANTBUYMELOVE",
    "annotation": null
   },
   {
@@ -126,17 +128,13 @@ window.CRYPTIC_PUZZLES["independent-9140"] = /*JSON-START*/ {
    "number": 7,
    "direction": "down",
    "position": {
-    "x": 11,
+    "x": 12,
     "y": 0
    },
-   "length": 15,
-   "clue": "One might oversee pay-out when bank's in error - cue controversy (9,6)",
-   "separatorLocations": {
-    ",": [
-     9
-    ]
-   },
-   "solution": "INSURANCEBROKER",
+   "length": 5,
+   "clue": "The face of sharia law (5)",
+   "separatorLocations": {},
+   "solution": "ARIAL",
    "annotation": null
   },
   {
@@ -144,13 +142,13 @@ window.CRYPTIC_PUZZLES["independent-9140"] = /*JSON-START*/ {
    "number": 8,
    "direction": "down",
    "position": {
-    "x": 13,
+    "x": 14,
     "y": 0
    },
-   "length": 5,
-   "clue": "In the north, one's appointed to transport lobby (5)",
+   "length": 7,
+   "clue": "Lamb's tendency to get left in the middle (7)",
    "separatorLocations": {},
-   "solution": "LADLE",
+   "solution": "EANLING",
    "annotation": null
   },
   {
@@ -161,24 +159,28 @@ window.CRYPTIC_PUZZLES["independent-9140"] = /*JSON-START*/ {
     "x": 0,
     "y": 2
    },
-   "length": 6,
-   "clue": "Working across part of garden without a pick (6)",
+   "length": 5,
+   "clue": "New and old American series (5)",
    "separatorLocations": {},
-   "solution": "OPTION",
+   "solution": "NEXUS",
    "annotation": null
   },
   {
-   "id": "10-across",
+   "id": "10-down",
    "number": 10,
-   "direction": "across",
+   "direction": "down",
    "position": {
-    "x": 7,
+    "x": 4,
     "y": 2
    },
-   "length": 8,
-   "clue": "Girl, gutted, feels down at the end of unfortunate dance step (8)",
-   "separatorLocations": {},
-   "solution": "GLISSADE",
+   "length": 13,
+   "clue": "Reason for strong medical preparation? (9,4)",
+   "separatorLocations": {
+    ",": [
+     9
+    ]
+   },
+   "solution": "STREAMINGCOLD",
    "annotation": null
   },
   {
@@ -186,18 +188,17 @@ window.CRYPTIC_PUZZLES["independent-9140"] = /*JSON-START*/ {
    "number": 11,
    "direction": "across",
    "position": {
-    "x": 1,
-    "y": 4
+    "x": 6,
+    "y": 2
    },
-   "length": 14,
-   "clue": "Base with central sports ground tended to become familiar (6,2,6)",
+   "length": 9,
+   "clue": "Update about new flag (3,6)",
    "separatorLocations": {
     ",": [
-     6,
-     8
+     3
     ]
    },
-   "solution": "COMMONORGARDEN",
+   "solution": "REDENSIGN",
    "annotation": null
   },
   {
@@ -206,12 +207,12 @@ window.CRYPTIC_PUZZLES["independent-9140"] = /*JSON-START*/ {
    "direction": "across",
    "position": {
     "x": 0,
-    "y": 6
+    "y": 4
    },
-   "length": 4,
-   "clue": "Not at one - finishing earlier (4)",
+   "length": 9,
+   "clue": "Give a cheer in rapture (9)",
    "separatorLocations": {},
-   "solution": "NOON",
+   "solution": "TOLERANCE",
    "annotation": null
   },
   {
@@ -219,59 +220,55 @@ window.CRYPTIC_PUZZLES["independent-9140"] = /*JSON-START*/ {
    "number": 13,
    "direction": "across",
    "position": {
-    "x": 5,
-    "y": 6
+    "x": 10,
+    "y": 4
    },
-   "length": 10,
-   "clue": "In a minute I'll find switch for light (10)",
+   "length": 5,
+   "clue": "Swinging pots key for this sort of cookery (5)",
    "separatorLocations": {},
-   "solution": "ILLUMINATE",
+   "solution": "BALTI",
    "annotation": null
   },
   {
-   "id": "13-down",
-   "number": 13,
-   "direction": "down",
-   "position": {
-    "x": 5,
-    "y": 6
-   },
-   "length": 9,
-   "clue": "Corrected - decreased even? (6,3)",
-   "separatorLocations": {
-    ",": [
-     6
-    ]
-   },
-   "solution": "IRONEDOUT",
-   "annotation": null
-  },
-  {
-   "id": "14-down",
+   "id": "14-across",
    "number": 14,
-   "direction": "down",
-   "position": {
-    "x": 13,
-    "y": 6
-   },
-   "length": 9,
-   "clue": "First pair of trousers man's torn on truck - change into something else (9)",
-   "separatorLocations": {},
-   "solution": "TRANSMUTE",
-   "annotation": null
-  },
-  {
-   "id": "15-across",
-   "number": 15,
    "direction": "across",
    "position": {
     "x": 0,
-    "y": 8
+    "y": 6
    },
-   "length": 10,
-   "clue": "Leading Axis spy travels to Switzerland - nothing's on record in behavioural study (10)",
+   "length": 11,
+   "clue": "Gary Neville wants training, so showing off? (11)",
    "separatorLocations": {},
-   "solution": "PSYCHOLOGY",
+   "solution": "REVEALINGLY",
+   "annotation": null
+  },
+  {
+   "id": "15-down",
+   "number": 15,
+   "direction": "down",
+   "position": {
+    "x": 8,
+    "y": 6
+   },
+   "length": 9,
+   "clue": "Doubles as artist in abstract stage (9)",
+   "separatorLocations": {},
+   "solution": "GEMINATES",
+   "annotation": null
+  },
+  {
+   "id": "16-across",
+   "number": 16,
+   "direction": "across",
+   "position": {
+    "x": 12,
+    "y": 6
+   },
+   "length": 3,
+   "clue": "Soldier first to get job (3)",
+   "separatorLocations": {},
+   "solution": "GIG",
    "annotation": null
   },
   {
@@ -279,13 +276,13 @@ window.CRYPTIC_PUZZLES["independent-9140"] = /*JSON-START*/ {
    "number": 16,
    "direction": "down",
    "position": {
-    "x": 7,
-    "y": 8
+    "x": 12,
+    "y": 6
    },
-   "length": 7,
-   "clue": "After work, almost wrestling with large animal (7)",
+   "length": 9,
+   "clue": "Odd bits of garden attract fruit (9)",
    "separatorLocations": {},
-   "solution": "OPOSSUM",
+   "solution": "GREENGAGE",
    "annotation": null
   },
   {
@@ -293,13 +290,27 @@ window.CRYPTIC_PUZZLES["independent-9140"] = /*JSON-START*/ {
    "number": 17,
    "direction": "across",
    "position": {
-    "x": 11,
+    "x": 0,
     "y": 8
    },
-   "length": 4,
-   "clue": "Full English sent back for assessment (4)",
+   "length": 3,
+   "clue": "My band on the radio (3)",
    "separatorLocations": {},
-   "solution": "EXAM",
+   "solution": "COR",
+   "annotation": null
+  },
+  {
+   "id": "17-down",
+   "number": 17,
+   "direction": "down",
+   "position": {
+    "x": 0,
+    "y": 8
+   },
+   "length": 7,
+   "clue": "Steel of high quality, but not initially slicing (7)",
+   "separatorLocations": {},
+   "solution": "CUTLASS",
    "annotation": null
   },
   {
@@ -307,24 +318,13 @@ window.CRYPTIC_PUZZLES["independent-9140"] = /*JSON-START*/ {
    "number": 18,
    "direction": "across",
    "position": {
-    "x": 0,
-    "y": 10
+    "x": 4,
+    "y": 8
    },
-   "length": 14,
-   "clue": "Independent amongst last papers for appraisal - this setter works for breaks (7,2,5)",
-   "clueItalics": [
-    [
-     0,
-     12
-    ]
-   ],
-   "separatorLocations": {
-    ",": [
-     7,
-     9
-    ]
-   },
-   "solution": "PLASTEROFPARIS",
+   "length": 11,
+   "clue": "Rival in tavern finally shot cowboy (11)",
+   "separatorLocations": {},
+   "solution": "INCOMPETENT",
    "annotation": null
   },
   {
@@ -332,45 +332,41 @@ window.CRYPTIC_PUZZLES["independent-9140"] = /*JSON-START*/ {
    "number": 19,
    "direction": "down",
    "position": {
-    "x": 1,
-    "y": 10
+    "x": 14,
+    "y": 8
    },
-   "length": 5,
-   "clue": "Was misaligned, finding rear end of van parked in ditch (5)",
+   "length": 7,
+   "clue": "People entering wrong hell? (7)",
    "separatorLocations": {},
-   "solution": "LEANT",
+   "solution": "TORMENT",
    "annotation": null
   },
   {
-   "id": "20-down",
+   "id": "20-across",
    "number": 20,
-   "direction": "down",
-   "position": {
-    "x": 9,
-    "y": 10
-   },
-   "length": 5,
-   "clue": "Down the other way? It's a trick (3-2)",
-   "separatorLocations": {
-    "-": [
-     3
-    ]
-   },
-   "solution": "PUTON",
-   "annotation": null
-  },
-  {
-   "id": "21-across",
-   "number": 21,
    "direction": "across",
    "position": {
     "x": 0,
-    "y": 12
+    "y": 10
    },
-   "length": 8,
-   "clue": "Barely credible sports chiefs' endless lies start to unravel - so corrupt (8)",
+   "length": 5,
+   "clue": "John Thomas on the northern accent (5)",
    "separatorLocations": {},
-   "solution": "FABULOUS",
+   "solution": "TWANG",
+   "annotation": null
+  },
+  {
+   "id": "21-down",
+   "number": 21,
+   "direction": "down",
+   "position": {
+    "x": 2,
+    "y": 10
+   },
+   "length": 5,
+   "clue": "Came to wonder about fine (5)",
+   "separatorLocations": {},
+   "solution": "AWOKE",
    "annotation": null
   },
   {
@@ -378,17 +374,27 @@ window.CRYPTIC_PUZZLES["independent-9140"] = /*JSON-START*/ {
    "number": 22,
    "direction": "across",
    "position": {
-    "x": 9,
-    "y": 12
+    "x": 6,
+    "y": 10
    },
-   "length": 6,
-   "clue": "Accept flying is something that increases tension (4-2)",
-   "separatorLocations": {
-    "-": [
-     4
-    ]
+   "length": 9,
+   "clue": "Separate bottles to hold drink (9)",
+   "separatorLocations": {},
+   "solution": "SUNDOWNER",
+   "annotation": null
+  },
+  {
+   "id": "22-down",
+   "number": 22,
+   "direction": "down",
+   "position": {
+    "x": 6,
+    "y": 10
    },
-   "solution": "TAKEUP",
+   "length": 5,
+   "clue": "Classy soprano's aspiration (5)",
+   "separatorLocations": {},
+   "solution": "SWISH",
    "annotation": null
   },
   {
@@ -397,12 +403,12 @@ window.CRYPTIC_PUZZLES["independent-9140"] = /*JSON-START*/ {
    "direction": "across",
    "position": {
     "x": 0,
-    "y": 14
+    "y": 12
    },
-   "length": 6,
-   "clue": "Somerset village hotel drawn from three stone houses (6)",
+   "length": 9,
+   "clue": "A sport's meaning for defender (9)",
    "separatorLocations": {},
-   "solution": "STREET",
+   "solution": "APOLOGIST",
    "annotation": null
   },
   {
@@ -410,17 +416,45 @@ window.CRYPTIC_PUZZLES["independent-9140"] = /*JSON-START*/ {
    "number": 24,
    "direction": "across",
    "position": {
-    "x": 7,
+    "x": 10,
+    "y": 12
+   },
+   "length": 5,
+   "clue": "Notice boards still unfinished, duck (5)",
+   "separatorLocations": {},
+   "solution": "EVADE",
+   "annotation": null
+  },
+  {
+   "id": "25-across",
+   "number": 25,
+   "direction": "across",
+   "position": {
+    "x": 0,
     "y": 14
    },
-   "length": 8,
-   "clue": "When playing, it's sad seeing child getting shoved against locker (5,3)",
+   "length": 10,
+   "clue": "Short game? (5,5)",
    "separatorLocations": {
     ",": [
      5
     ]
    },
-   "solution": "MINORKEY",
+   "solution": "SPEEDCHESS",
+   "annotation": null
+  },
+  {
+   "id": "26-across",
+   "number": 26,
+   "direction": "across",
+   "position": {
+    "x": 11,
+    "y": 14
+   },
+   "length": 4,
+   "clue": "Cocky, for a time (4)",
+   "separatorLocations": {},
+   "solution": "PERT",
    "annotation": null
   }
  ]

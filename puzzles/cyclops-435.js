@@ -53,6 +53,10 @@ window.CRYPTIC_PUZZLES["cyclops-435"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 5ac. (5)",
+   "group": [
+    "5-across",
+    "3-down"
+   ],
    "separatorLocations": {},
    "solution": "STAND",
    "annotation": null
@@ -81,6 +85,10 @@ window.CRYPTIC_PUZZLES["cyclops-435"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "(& 3dn.) Casual shag has you on bedside table, the old-fashioned way (3,5)",
+   "group": [
+    "5-across",
+    "3-down"
+   ],
    "separatorLocations": {},
    "solution": "ONENIGHT",
    "annotation": null
@@ -193,6 +201,10 @@ window.CRYPTIC_PUZZLES["cyclops-435"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 20ac.) VD hazard, balls (4)",
+   "group": [
+    "12-across",
+    "20-across"
+   ],
    "separatorLocations": {},
    "solution": "CLAP",
    "annotation": null
@@ -235,6 +247,10 @@ window.CRYPTIC_PUZZLES["cyclops-435"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "(& 28ac.) Like, e.g., the adulterous David Mellor doing a double whammy ...? (3)",
+   "group": [
+    "15-down",
+    "28-across"
+   ],
    "separatorLocations": {},
    "solution": "TWO",
    "annotation": null
@@ -305,6 +321,10 @@ window.CRYPTIC_PUZZLES["cyclops-435"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 12ac. (4)",
+   "group": [
+    "12-across",
+    "20-across"
+   ],
    "separatorLocations": {},
    "solution": "TRAP",
    "annotation": null
@@ -417,6 +437,10 @@ window.CRYPTIC_PUZZLES["cyclops-435"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 15dn. (6)",
+   "group": [
+    "15-down",
+    "28-across"
+   ],
    "separatorLocations": {},
    "solution": "TIMING",
    "annotation": null

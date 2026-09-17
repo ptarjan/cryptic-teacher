@@ -221,6 +221,11 @@ window.CRYPTIC_PUZZLES["cyclops-731"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "(&17/26) Putin's war  \"anti-imperialist core ploy\"  goes pear-shaped when America intervenes (7)",
+   "group": [
+    "13-across",
+    "17-down",
+    "26-across"
+   ],
    "separatorLocations": {},
    "solution": "SPECIAL",
    "annotation": null
@@ -277,6 +282,11 @@ window.CRYPTIC_PUZZLES["cyclops-731"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "see 13ac. (8)",
+   "group": [
+    "13-across",
+    "17-down",
+    "26-across"
+   ],
    "separatorLocations": {},
    "solution": "MILITARY",
    "annotation": null
@@ -417,6 +427,11 @@ window.CRYPTIC_PUZZLES["cyclops-731"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "see 13ac. (9)",
+   "group": [
+    "13-across",
+    "17-down",
+    "26-across"
+   ],
    "separatorLocations": {},
    "solution": "OPERATION",
    "annotation": null

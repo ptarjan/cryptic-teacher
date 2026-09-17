@@ -95,6 +95,11 @@ window.CRYPTIC_PUZZLES["cyclops-551"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 17ac. (6)",
+   "group": [
+    "17-across",
+    "5-across",
+    "9-across"
+   ],
    "separatorLocations": {},
    "solution": "SPIDER",
    "annotation": null
@@ -151,6 +156,11 @@ window.CRYPTIC_PUZZLES["cyclops-551"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see17ac. (5)",
+   "group": [
+    "17-across",
+    "5-across",
+    "9-across"
+   ],
    "separatorLocations": {},
    "solution": "MEMOS",
    "annotation": null
@@ -179,6 +189,10 @@ window.CRYPTIC_PUZZLES["cyclops-551"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "(& 27ac.) After second occasion, start to hawk the blue Ecstasy (7)",
+   "group": [
+    "11-down",
+    "27-across"
+   ],
    "separatorLocations": {},
    "solution": "SEVENTH",
    "annotation": null
@@ -263,6 +277,11 @@ window.CRYPTIC_PUZZLES["cyclops-551"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 5ac./9ac. )Perhaps the deadly widow notes meddlesome royal's missives (5)",
+   "group": [
+    "17-across",
+    "5-across",
+    "9-across"
+   ],
    "separatorLocations": {},
    "solution": "BLACK",
    "annotation": null
@@ -445,6 +464,10 @@ window.CRYPTIC_PUZZLES["cyclops-551"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 11dn. (6)",
+   "group": [
+    "11-down",
+    "27-across"
+   ],
    "separatorLocations": {},
    "solution": "HEAVEN",
    "annotation": null

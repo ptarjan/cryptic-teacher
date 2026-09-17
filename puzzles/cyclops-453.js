@@ -25,6 +25,11 @@ window.CRYPTIC_PUZZLES["cyclops-453"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "see 12ac. (10)",
+   "group": [
+    "12-across",
+    "24-across",
+    "1-down"
+   ],
    "separatorLocations": {},
    "solution": "PARLIAMENT",
    "annotation": null
@@ -67,6 +72,10 @@ window.CRYPTIC_PUZZLES["cyclops-453"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 26ac.) Eve on top when getting screwed: a quite democratic exercise of  a citizen's right? (4)",
+   "group": [
+    "4-down",
+    "26-across"
+   ],
    "separatorLocations": {},
    "solution": "OPEN",
    "annotation": null
@@ -151,6 +160,11 @@ window.CRYPTIC_PUZZLES["cyclops-453"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 17dn. (4)",
+   "group": [
+    "17-across",
+    "23-down",
+    "10-across"
+   ],
    "separatorLocations": {},
    "solution": "PILL",
    "annotation": null
@@ -179,6 +193,11 @@ window.CRYPTIC_PUZZLES["cyclops-453"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "( & 24ac./1dn.) All that fuss and ceremony just to get one's member back in action? (5)",
+   "group": [
+    "12-across",
+    "24-across",
+    "1-down"
+   ],
    "separatorLocations": {},
    "solution": "STATE",
    "annotation": null
@@ -249,6 +268,11 @@ window.CRYPTIC_PUZZLES["cyclops-453"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "(& 23dn/10ac.) Belated protection for those seeing the light after a one-night stand? (7)",
+   "group": [
+    "17-across",
+    "23-down",
+    "10-across"
+   ],
    "separatorLocations": {},
    "solution": "MORNING",
    "annotation": null
@@ -333,6 +357,11 @@ window.CRYPTIC_PUZZLES["cyclops-453"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see17ac. (5)",
+   "group": [
+    "17-across",
+    "23-down",
+    "10-across"
+   ],
    "separatorLocations": {},
    "solution": "AFTER",
    "annotation": null
@@ -347,6 +376,11 @@ window.CRYPTIC_PUZZLES["cyclops-453"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "see12ac. (7,2)",
+   "group": [
+    "12-across",
+    "24-across",
+    "1-down"
+   ],
    "separatorLocations": {},
    "solution": "OPENINGOF",
    "annotation": null
@@ -375,6 +409,10 @@ window.CRYPTIC_PUZZLES["cyclops-453"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 4dn. (4)",
+   "group": [
+    "4-down",
+    "26-across"
+   ],
    "separatorLocations": {},
    "solution": "VOTE",
    "annotation": null

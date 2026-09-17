@@ -67,6 +67,10 @@ window.CRYPTIC_PUZZLES["cyclops-668"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 12ac. (4)",
+   "group": [
+    "12-across",
+    "3-down"
+   ],
    "separatorLocations": {},
    "solution": "VOTE",
    "annotation": null
@@ -193,6 +197,10 @@ window.CRYPTIC_PUZZLES["cyclops-668"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 3dn.) In which one raised hand might represent thousands of \"very into art deco\" nuts (4)",
+   "group": [
+    "12-across",
+    "3-down"
+   ],
    "separatorLocations": {},
    "solution": "CARD",
    "annotation": null
@@ -235,6 +243,10 @@ window.CRYPTIC_PUZZLES["cyclops-668"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "(& 24ac.) PAYE hype: warn about rather optimistic message at this time? (5,3)",
+   "group": [
+    "15-across",
+    "24-across"
+   ],
    "separatorLocations": {},
    "solution": "HAPPYNEW",
    "annotation": null
@@ -375,6 +387,10 @@ window.CRYPTIC_PUZZLES["cyclops-668"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 15ac. (4)",
+   "group": [
+    "15-across",
+    "24-across"
+   ],
    "separatorLocations": {},
    "solution": "YEAR",
    "annotation": null
@@ -389,6 +405,10 @@ window.CRYPTIC_PUZZLES["cyclops-668"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 26dn.) Corrupt ruler and a member of the clergy (5)",
+   "group": [
+    "25-down",
+    "26-down"
+   ],
    "separatorLocations": {},
    "solution": "RURAL",
    "annotation": null
@@ -403,6 +423,10 @@ window.CRYPTIC_PUZZLES["cyclops-668"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 25dn. (4)",
+   "group": [
+    "25-down",
+    "26-down"
+   ],
    "separatorLocations": {},
    "solution": "DEAN",
    "annotation": null

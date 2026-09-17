@@ -67,6 +67,10 @@ window.CRYPTIC_PUZZLES["cyclops-621"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 19dn.) Suffered defeat: perplexed, crushed (4)",
+   "group": [
+    "4-down",
+    "19-down"
+   ],
    "separatorLocations": {},
    "solution": "LOST",
    "annotation": null
@@ -95,6 +99,10 @@ window.CRYPTIC_PUZZLES["cyclops-621"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(&21dn.) Give excuse not to go to work: \"Prick rot's bad  without energy\" (6)",
+   "group": [
+    "6-across",
+    "21-down"
+   ],
    "separatorLocations": {},
    "solution": "REPORT",
    "annotation": null
@@ -151,6 +159,10 @@ window.CRYPTIC_PUZZLES["cyclops-621"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "See 22ac. (4)",
+   "group": [
+    "22-across",
+    "10-across"
+   ],
    "separatorLocations": {},
    "solution": "INTO",
    "annotation": null
@@ -305,6 +317,10 @@ window.CRYPTIC_PUZZLES["cyclops-621"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "See 4dn. (6)",
+   "group": [
+    "4-down",
+    "19-down"
+   ],
    "separatorLocations": {},
    "solution": "GROUND",
    "annotation": null
@@ -333,6 +349,10 @@ window.CRYPTIC_PUZZLES["cyclops-621"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "See 6ac. (4)",
+   "group": [
+    "6-across",
+    "21-down"
+   ],
    "separatorLocations": {},
    "solution": "SICK",
    "annotation": null
@@ -347,6 +367,10 @@ window.CRYPTIC_PUZZLES["cyclops-621"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 10ac.) Probe peer having it on rocks (4)",
+   "group": [
+    "22-across",
+    "10-across"
+   ],
    "separatorLocations": {},
    "solution": "LOOK",
    "annotation": null

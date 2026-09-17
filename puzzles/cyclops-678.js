@@ -95,6 +95,11 @@ window.CRYPTIC_PUZZLES["cyclops-678"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 9dn. (5)",
+   "group": [
+    "9-down",
+    "27-across",
+    "5-down"
+   ],
    "separatorLocations": {},
    "solution": "ORDER",
    "annotation": null
@@ -151,6 +156,11 @@ window.CRYPTIC_PUZZLES["cyclops-678"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "( &27ac./5dn.) Crazy expenditure, Andrew! Hallo  might this reveal how you got the money? (11)",
+   "group": [
+    "9-down",
+    "27-across",
+    "5-down"
+   ],
    "separatorLocations": {},
    "solution": "UNEXPLAINED",
    "annotation": null
@@ -165,6 +175,10 @@ window.CRYPTIC_PUZZLES["cyclops-678"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 24ac.) Possible cure for randy types: getting around ancient spa town (4)",
+   "group": [
+    "10-across",
+    "24-across"
+   ],
    "separatorLocations": {},
    "solution": "COLD",
    "annotation": null
@@ -375,6 +389,10 @@ window.CRYPTIC_PUZZLES["cyclops-678"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 10ac. (4)",
+   "group": [
+    "10-across",
+    "24-across"
+   ],
    "separatorLocations": {},
    "solution": "BATH",
    "annotation": null
@@ -417,6 +435,11 @@ window.CRYPTIC_PUZZLES["cyclops-678"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 9dn. (6)",
+   "group": [
+    "9-down",
+    "27-across",
+    "5-down"
+   ],
    "separatorLocations": {},
    "solution": "WEALTH",
    "annotation": null

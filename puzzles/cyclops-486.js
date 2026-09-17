@@ -25,6 +25,10 @@ window.CRYPTIC_PUZZLES["cyclops-486"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 2dn.) Latin gonads do when mangled (not one for risky chance) (4)",
+   "group": [
+    "1-down",
+    "2-down"
+   ],
    "separatorLocations": {},
    "solution": "LONG",
    "annotation": null
@@ -39,6 +43,10 @@ window.CRYPTIC_PUZZLES["cyclops-486"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 1dn. (4)",
+   "group": [
+    "1-down",
+    "2-down"
+   ],
    "separatorLocations": {},
    "solution": "ODDS",
    "annotation": null
@@ -67,6 +75,10 @@ window.CRYPTIC_PUZZLES["cyclops-486"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 21ac. (4)",
+   "group": [
+    "21-across",
+    "4-down"
+   ],
    "separatorLocations": {},
    "solution": "OVER",
    "annotation": null
@@ -319,6 +331,10 @@ window.CRYPTIC_PUZZLES["cyclops-486"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 4dn.) Be responsible for cover-up of tabloid balls, sportingly? (5)",
+   "group": [
+    "21-across",
+    "4-down"
+   ],
    "separatorLocations": {},
    "solution": "PAPER",
    "annotation": null
@@ -375,6 +391,10 @@ window.CRYPTIC_PUZZLES["cyclops-486"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 28dn. (4)",
+   "group": [
+    "28-down",
+    "25-down"
+   ],
    "separatorLocations": {},
    "solution": "GEAR",
    "annotation": null
@@ -417,6 +437,10 @@ window.CRYPTIC_PUZZLES["cyclops-486"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 25dn.) Donned by cops getting in with a bad crowd? (4)",
+   "group": [
+    "28-down",
+    "25-down"
+   ],
    "separatorLocations": {},
    "solution": "RIOT",
    "annotation": null

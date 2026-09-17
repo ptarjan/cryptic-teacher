@@ -39,6 +39,10 @@ window.CRYPTIC_PUZZLES["cyclops-514"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 25dn. (4)",
+   "group": [
+    "25-down",
+    "2-down"
+   ],
    "separatorLocations": {},
    "solution": "SHOP",
    "annotation": null
@@ -67,6 +71,10 @@ window.CRYPTIC_PUZZLES["cyclops-514"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "(& 26ac.) Silent in-yer-face style of humour? (7)",
+   "group": [
+    "4-down",
+    "26-across"
+   ],
    "separatorLocations": {},
    "solution": "CUSTARD",
    "annotation": null
@@ -221,6 +229,10 @@ window.CRYPTIC_PUZZLES["cyclops-514"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 24ac.) At which village Putin will tolerate no minor encampment (you might say) (6)",
+   "group": [
+    "15-across",
+    "24-across"
+   ],
    "separatorLocations": {},
    "solution": "WINTER",
    "annotation": null
@@ -361,6 +373,10 @@ window.CRYPTIC_PUZZLES["cyclops-514"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "see 15ac. (8)",
+   "group": [
+    "15-across",
+    "24-across"
+   ],
    "separatorLocations": {},
    "solution": "OLYMPICS",
    "annotation": null
@@ -375,6 +391,10 @@ window.CRYPTIC_PUZZLES["cyclops-514"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 2dn.) Board members bound for establishment with balls? (4)",
+   "group": [
+    "25-down",
+    "2-down"
+   ],
    "separatorLocations": {},
    "solution": "PAWN",
    "annotation": null
@@ -389,6 +409,10 @@ window.CRYPTIC_PUZZLES["cyclops-514"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "see 4dn. (3)",
+   "group": [
+    "4-down",
+    "26-across"
+   ],
    "separatorLocations": {},
    "solution": "PIE",
    "annotation": null

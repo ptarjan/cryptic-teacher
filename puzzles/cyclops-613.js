@@ -39,6 +39,10 @@ window.CRYPTIC_PUZZLES["cyclops-613"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 4dn.) The Truth According To Donald Trump? (4)",
+   "group": [
+    "2-down",
+    "4-down"
+   ],
    "separatorLocations": {},
    "solution": "FAKE",
    "annotation": null
@@ -67,6 +71,10 @@ window.CRYPTIC_PUZZLES["cyclops-613"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 2dn. (4)",
+   "group": [
+    "2-down",
+    "4-down"
+   ],
    "separatorLocations": {},
    "solution": "NEWS",
    "annotation": null
@@ -319,6 +327,10 @@ window.CRYPTIC_PUZZLES["cyclops-613"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 26dn. (5)",
+   "group": [
+    "26-down",
+    "21-across"
+   ],
    "separatorLocations": {},
    "solution": "PENCE",
    "annotation": null
@@ -347,6 +359,10 @@ window.CRYPTIC_PUZZLES["cyclops-613"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 24dn.) Minister's signal: \"bloody year off!\" (5)",
+   "group": [
+    "23-across",
+    "24-down"
+   ],
    "separatorLocations": {},
    "solution": "AMBER",
    "annotation": null
@@ -361,6 +377,10 @@ window.CRYPTIC_PUZZLES["cyclops-613"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 23ac. (4)",
+   "group": [
+    "23-across",
+    "24-down"
+   ],
    "separatorLocations": {},
    "solution": "RUDD",
    "annotation": null
@@ -389,6 +409,10 @@ window.CRYPTIC_PUZZLES["cyclops-613"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 21ac.) One close to Trump married ex-President with little money (4)",
+   "group": [
+    "26-down",
+    "21-across"
+   ],
    "separatorLocations": {},
    "solution": "MIKE",
    "annotation": null

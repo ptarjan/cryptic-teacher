@@ -151,6 +151,10 @@ window.CRYPTIC_PUZZLES["cyclops-643"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 11ac.) Amnesty broadcast with two seconds description of Brexit situation? (5)",
+   "group": [
+    "9-down",
+    "11-across"
+   ],
    "separatorLocations": {},
    "solution": "NASTY",
    "annotation": null
@@ -179,6 +183,10 @@ window.CRYPTIC_PUZZLES["cyclops-643"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 9dn. (4)",
+   "group": [
+    "9-down",
+    "11-across"
+   ],
    "separatorLocations": {},
    "solution": "MESS",
    "annotation": null
@@ -277,6 +285,10 @@ window.CRYPTIC_PUZZLES["cyclops-643"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 20ac. (5)",
+   "group": [
+    "20-across",
+    "17-down"
+   ],
    "separatorLocations": {},
    "solution": "RIGHT",
    "annotation": null
@@ -319,6 +331,10 @@ window.CRYPTIC_PUZZLES["cyclops-643"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 17dn.) Aroused appropriate extremist element (4)",
+   "group": [
+    "20-across",
+    "17-down"
+   ],
    "separatorLocations": {},
    "solution": "HARD",
    "annotation": null

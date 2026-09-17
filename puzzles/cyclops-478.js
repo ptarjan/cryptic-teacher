@@ -305,6 +305,10 @@ window.CRYPTIC_PUZZLES["cyclops-478"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 24dn.) Assume audience is thick, inarticulate and depressed? (4)",
+   "group": [
+    "21-down",
+    "24-down"
+   ],
    "separatorLocations": {},
    "solution": "DUMB",
    "annotation": null
@@ -347,6 +351,10 @@ window.CRYPTIC_PUZZLES["cyclops-478"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 21dn. (4)",
+   "group": [
+    "21-down",
+    "24-down"
+   ],
    "separatorLocations": {},
    "solution": "DOWN",
    "annotation": null

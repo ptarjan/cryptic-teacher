@@ -39,6 +39,10 @@ window.CRYPTIC_PUZZLES["cyclops-630"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 27dn. (4)",
+   "group": [
+    "27-down",
+    "2-down"
+   ],
    "separatorLocations": {},
    "solution": "DOWN",
    "annotation": null
@@ -95,6 +99,10 @@ window.CRYPTIC_PUZZLES["cyclops-630"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 25dn. (4)",
+   "group": [
+    "25-down",
+    "6-down"
+   ],
    "separatorLocations": {},
    "solution": "WARP",
    "annotation": null
@@ -361,6 +369,10 @@ window.CRYPTIC_PUZZLES["cyclops-630"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 6dn.) Write PM a circular: \"Here's how you can roll back the clock\" (4)",
+   "group": [
+    "25-down",
+    "6-down"
+   ],
    "separatorLocations": {},
    "solution": "TIME",
    "annotation": null
@@ -389,6 +401,10 @@ window.CRYPTIC_PUZZLES["cyclops-630"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(&2dn.) Pull out posterior hair fluff (4)",
+   "group": [
+    "27-down",
+    "2-down"
+   ],
    "separatorLocations": {},
    "solution": "BACK",
    "annotation": null

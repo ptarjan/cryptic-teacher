@@ -123,6 +123,10 @@ window.CRYPTIC_PUZZLES["cyclops-807"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "(& 26dn.) The last word in Hitler hair feature filmed (7)",
+   "group": [
+    "8-down",
+    "26-down"
+   ],
    "separatorLocations": {},
    "solution": "PARTING",
    "annotation": null
@@ -389,6 +393,10 @@ window.CRYPTIC_PUZZLES["cyclops-807"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 8dn.",
+   "group": [
+    "8-down",
+    "26-down"
+   ],
    "separatorLocations": {},
    "solution": "SHOT",
    "annotation": null

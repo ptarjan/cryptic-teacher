@@ -151,6 +151,10 @@ window.CRYPTIC_PUZZLES["cyclops-698"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 25ac.) Trump-like, though personally not having taken an extreme position? (4)",
+   "group": [
+    "9-across",
+    "25-across"
+   ],
    "separatorLocations": {},
    "solution": "SELF",
    "annotation": null
@@ -333,6 +337,10 @@ window.CRYPTIC_PUZZLES["cyclops-698"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 24ac.) Flashy system buggered up some credo? (5)",
+   "group": [
+    "22-down",
+    "24-across"
+   ],
    "separatorLocations": {},
    "solution": "MORSE",
    "annotation": null
@@ -361,6 +369,10 @@ window.CRYPTIC_PUZZLES["cyclops-698"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 22dn. (4)",
+   "group": [
+    "22-down",
+    "24-across"
+   ],
    "separatorLocations": {},
    "solution": "CODE",
    "annotation": null
@@ -375,6 +387,10 @@ window.CRYPTIC_PUZZLES["cyclops-698"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "se 9ac. (7)",
+   "group": [
+    "9-across",
+    "25-across"
+   ],
    "separatorLocations": {},
    "solution": "CENTRED",
    "annotation": null

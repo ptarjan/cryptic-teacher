@@ -67,6 +67,10 @@ window.CRYPTIC_PUZZLES["cyclops-425"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "( 28ac.) Stupid shag's over, chief (4)",
+   "group": [
+    "4-down",
+    "28-across"
+   ],
    "separatorLocations": {},
    "solution": "KNOB",
    "annotation": null
@@ -95,6 +99,10 @@ window.CRYPTIC_PUZZLES["cyclops-425"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 14ac. (4)",
+   "group": [
+    "14-across",
+    "6-across"
+   ],
    "separatorLocations": {},
    "solution": "JUAN",
    "annotation": null
@@ -221,6 +229,10 @@ window.CRYPTIC_PUZZLES["cyclops-425"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "(& 6ac.) Name in judo wrestling associated with one skirt-chaser (3)",
+   "group": [
+    "14-across",
+    "6-across"
+   ],
    "separatorLocations": {},
    "solution": "DON",
    "annotation": null
@@ -319,6 +331,10 @@ window.CRYPTIC_PUZZLES["cyclops-425"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "(& 22ac.) \"Joke\" adversary finally intermixed with Tory MPs, twats by which the country is now run (3)",
+   "group": [
+    "20-across",
+    "22-across"
+   ],
    "separatorLocations": {},
    "solution": "TWO",
    "annotation": null
@@ -347,6 +363,10 @@ window.CRYPTIC_PUZZLES["cyclops-425"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "see 20ac. (5,6)",
+   "group": [
+    "20-across",
+    "22-across"
+   ],
    "separatorLocations": {},
    "solution": "PARTYSYSTEM",
    "annotation": null
@@ -431,6 +451,10 @@ window.CRYPTIC_PUZZLES["cyclops-425"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 4dn. (4)",
+   "group": [
+    "4-down",
+    "28-across"
+   ],
    "separatorLocations": {},
    "solution": "HEAD",
    "annotation": null

@@ -39,6 +39,10 @@ window.CRYPTIC_PUZZLES["cyclops-772"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 25dn.) Labour  I say!  operate smoothly (4)",
+   "group": [
+    "1-down",
+    "25-down"
+   ],
    "separatorLocations": {},
    "solution": "WORK",
    "annotation": null
@@ -389,6 +393,10 @@ window.CRYPTIC_PUZZLES["cyclops-772"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 1dn. (4)",
+   "group": [
+    "1-down",
+    "25-down"
+   ],
    "separatorLocations": {},
    "solution": "WELL",
    "annotation": null

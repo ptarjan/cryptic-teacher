@@ -25,6 +25,11 @@ window.CRYPTIC_PUZZLES["cyclops-724"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(see 26dn.) High Court division disposes of half of Tory fortune (6)",
+   "group": [
+    "26-down",
+    "1-down",
+    "21-down"
+   ],
    "separatorLocations": {},
    "solution": "CHANCE",
    "annotation": null
@@ -81,6 +86,10 @@ window.CRYPTIC_PUZZLES["cyclops-724"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "(& 25ac.) Boris's 'cool tackle' could finish his career? (10)",
+   "group": [
+    "5-down",
+    "25-across"
+   ],
    "separatorLocations": {},
    "solution": "LEADERSHIP",
    "annotation": null
@@ -305,6 +314,11 @@ window.CRYPTIC_PUZZLES["cyclops-724"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 26dn. (6)",
+   "group": [
+    "26-down",
+    "1-down",
+    "21-down"
+   ],
    "separatorLocations": {},
    "solution": "SALOON",
    "annotation": null
@@ -361,6 +375,10 @@ window.CRYPTIC_PUZZLES["cyclops-724"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "see 5dn. (9)",
+   "group": [
+    "5-down",
+    "25-across"
+   ],
    "separatorLocations": {},
    "solution": "CHALLENGE",
    "annotation": null
@@ -375,6 +393,11 @@ window.CRYPTIC_PUZZLES["cyclops-724"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(&1dn./21dn.) Enchant with a colossal bust  an opportunity that can't be missed (4)",
+   "group": [
+    "26-down",
+    "1-down",
+    "21-down"
+   ],
    "separatorLocations": {},
    "solution": "LAST",
    "annotation": null
