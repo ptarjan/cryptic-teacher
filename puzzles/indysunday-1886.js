@@ -995,11 +995,14 @@ window.CRYPTIC_PUZZLES["indysunday-1886"] = /*JSON-START*/ {
     "answer": "BRAIN",
     "definition": "mental ability",
     "indicators": [
-     "showing AI lowered"
+     "AI lowered"
     ],
     "indicatorNotes": {
-     "showing AI lowered": "Lowered means further down the column in a down entry, so the pair of letters named slides down the word and the rest closes up above it."
+     "AI lowered": "AI is the pair of letters being worked on, not an instruction, and lowered means further down the column in a down entry — so that pair slides down the word and the rest closes up above it."
     },
+    "linkWords": [
+     "showing"
+    ],
     "anagram": {
      "fodder": "BAIRN"
     },

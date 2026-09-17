@@ -692,9 +692,12 @@ window.CRYPTIC_PUZZLES["indysunday-1885"] = /*JSON-START*/ {
     "type": "charade",
     "answer": "REPAIR",
     "definition": "more than a tune?",
-    "linkWords": [
+    "indicators": [
      "on"
     ],
+    "indicatorNotes": {
+     "on": "Across the grid one thing written on another has been reached afterwards, so the piece named before it is the one that ends up second."
+    },
     "blocks": [
      {
       "clueFragment": "Touching",
@@ -1162,14 +1165,13 @@ window.CRYPTIC_PUZZLES["indysunday-1885"] = /*JSON-START*/ {
     "type": "charade + first letter",
     "answer": "AXEL",
     "definition": "Winter Olympics aerial manoeuvre",
-    "linkWords": [
+    "indicators": [
+     "beginning",
      "on"
     ],
-    "indicators": [
-     "beginning"
-    ],
     "indicatorNotes": {
-     "beginning": "It asks for the front of the name that follows and nothing else — one letter, taken off the start."
+     "beginning": "It asks for the front of the name that follows and nothing else — one letter, taken off the start.",
+     "on": "Across the grid one thing written on another has been reached afterwards, so the piece named before it is the one that ends up second."
     },
     "blocks": [
      {

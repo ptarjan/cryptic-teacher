@@ -440,7 +440,7 @@ window.CRYPTIC_PUZZLES["cryptic-30097"] = /*JSON-START*/ {
      "portion of"
     ],
     "indicatorNotes": {
-     "portion of": "A portion is a piece cut out of something larger, and what is wanted is a piece cut out of the words that follow."
+     "portion of": "A portion is served up just as it came off the larger thing, so what is wanted is an unbroken run of the letters that follow rather than a word meaning them."
     },
     "blocks": [
      {

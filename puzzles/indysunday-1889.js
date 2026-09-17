@@ -1063,7 +1063,7 @@ window.CRYPTIC_PUZZLES["indysunday-1889"] = /*JSON-START*/ {
      "around"
     ],
     "indicatorNotes": {
-     "A little": "A little of something is a piece cut from the middle of it, so only part of the words that follow is wanted.",
+     "A little": "A little of something is a small piece of it taken just as it stands, so an unbroken run of the letters that follow is what is wanted.",
      "around": "To go around is to come back the way you came, so the letters are picked up in the opposite direction."
     },
     "blocks": [
