@@ -163,6 +163,19 @@ if [ "$(printf %s "$fetch_broken" | wc -w)" -ge "$(printf %s "$FETCHERS" | wc -w
   alert "every fetcher failed tonight ($fetch_broken) — no new puzzle can arrive from any paper until this is fixed. The rc lines are in .update.log."
 fi
 
+# What we hold of every series, printed every night whether or not anything is
+# wrong, because the two ways a series dies are both silent: a fetcher that can
+# only ever get "today" leaves its series one puzzle deep forever, and a feed
+# that stops answering leaves it frozen at the day it broke. The nightly run
+# cannot tell either case from a quiet night — it fetched, nothing failed —
+# so until 2026-09-17 the only thing that ever noticed was Paul looking at the
+# site and counting. The full table goes to the log; only a series that has gone
+# QUIET raises an alert, because an unfinished backfill would fire the same
+# alert every night until the walk ends, and an alert that always fires is not
+# read.
+python3 tools/coverage_report.py || true
+coverage_stale=$(python3 tools/coverage_report.py --stale-only) || alert "a series has stopped arriving:"$'\n'"\`\`\`"$'\n'"$coverage_stale"$'\n'"\`\`\`"
+
 # --- 2. pick up solutions that have since been published (prize puzzles, and
 #     every Everyman — its competition window withholds answers for about a
 #     week, same shape of problem as the Guardian prize below it) ---
