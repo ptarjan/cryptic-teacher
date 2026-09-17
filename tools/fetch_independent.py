@@ -110,12 +110,23 @@ NUMBER_FIXES = {
     # that day: different setter (Hoskins, not Grecian), different grid,
     # different clues. 11,296 Mon 26 Dec, 11,298 Wed 28 Dec.
     "221227": 11297,
+    "150806": 8988,    # prints "8,968"; 8,987 Wed 5 Aug, 8,989 Fri 7 Aug
 }
 
 
+# The feed ran a day out of step until Monday 2015-08-17. Before that date the
+# SUNDAY key served the daily (8,979 on Sun 2015-07-26, then 8,980 on the Tue,
+# six a week) and the MONDAY key served the weekly (1,327 / 1,328 / 1,329 on
+# three consecutive Mondays, one a week). Both sequences are continuous across
+# the changeover -- 8,997 Sun 08-16 then 8,998 Mon 08-17, 1,329 Mon 08-10 then
+# 1,330 Sun 08-23 -- so it is the key that moved, not the papers.
+SHIFTED_BEFORE = "150817"
+
+
 def series_for(ymd):
-    is_sunday = datetime.strptime(ymd, "%y%m%d").weekday() == 6
-    return "indysunday" if is_sunday else "independent"
+    weekday = datetime.strptime(ymd, "%y%m%d").weekday()
+    sunday_paper = 0 if ymd < SHIFTED_BEFORE else 6
+    return "indysunday" if weekday == sunday_paper else "independent"
 
 
 def http_get(url):
