@@ -43,10 +43,6 @@ window.CRYPTIC_PUZZLES["cyclops-790"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Eye never starts to get litigious, follow? (5)",
-   "group": [
-    "1-down",
-    "20-across"
-   ],
    "separatorLocations": {},
    "solution": "ENSUE",
    "annotation": null

@@ -82,8 +82,8 @@ window.CRYPTIC_PUZZLES["cyclops-674"] = /*JSON-START*/ {
    "length": 4,
    "clue": "see 22ac. (4)",
    "group": [
-    "5-down",
-    "26-across"
+    "22-across",
+    "5-down"
    ],
    "separatorLocations": {},
    "solution": "MARK",

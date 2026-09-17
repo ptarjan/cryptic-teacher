@@ -423,11 +423,48 @@ def reconcile_groups(entries):
         if all(set(s) == members for s in stated):
             continue                    # the paper already agrees with itself
         leads = {s[0] for s in stated if s}
+
+        # Several lights each claiming to lead. The enumeration settles it,
+        # because a leading clue counts its WHOLE answer: weigh each claimant's
+        # own count against the lights it own claims, and the claim that does not
+        # add up is the one to drop. Cryptic 28,627 resolves its bare "See 22" to
+        # 22-across, whose own finished clue reads "(6)" for a six-letter OPTICS,
+        # making a ten-letter answer out of a six-letter count; 22-down's "(5-4)"
+        # over ORANG and UTAN is exactly nine. So 22-down leads, and 22-across —
+        # in the closure only because the paper put it there — has its group
+        # removed and goes back to being its own answer.
+        if len(leads) > 1:
+            def adds_up(claim):
+                said = ENUMERATION.search(by_id[claim]["clue"] or "")
+                own = [m for m in by_id[claim].get("group") or []]
+                return bool(said) and _cuts_into(
+                    [int(n) for n in re.findall(r"\d+", said.group(1))],
+                    [by_id[m]["length"] for m in own])
+            winners = [c for c in sorted(leads) if adds_up(c)]
+            if len(winners) != 1:
+                # Every claim adds up, so they are all true and the light they
+                # share is in more than one answer — cryptic 28,687's 1-down CLUB
+                # ends both GOLDFISH CLUB (8,4) and MONDAY CLUB (6,4), and its own
+                # clue says "See 19, 22". `group` holds one list, so it cannot say
+                # that; each leading clue keeps its own reading, which is the most
+                # the field can carry and is what the paper published.
+                print(f"WARNING: {'/'.join(sorted(members))}: "
+                      + ("a light shared by several answers — left as published"
+                         if winners else "no claim on this group adds up — left alone"),
+                      file=sys.stderr)
+                continue
+            keep = by_id[winners[0]].get("group") or []
+            for m in members:
+                by_id[m]["group"] = list(keep) if m in keep else None
+                if by_id[m]["group"] is None:
+                    del by_id[m]["group"]
+            print(f"WARNING: {winners[0]}'s group was contested; reading it as "
+                  + " + ".join(keep), file=sys.stderr)
+            continue
+
         rest = sorted(members - leads, key=lambda m: (by_id[m]["position"]["y"],
                                                       by_id[m]["position"]["x"]))
-        if len(leads) != 1:
-            print(f"WARNING: {'/'.join(sorted(members))} disagree about their group "
-                  "and about which clue leads it", file=sys.stderr)
+        if not leads:
             continue
         lead = leads.pop()
         said = ENUMERATION.search(by_id[lead]["clue"] or "")
@@ -450,22 +487,39 @@ def _day(ms):
     return datetime.fromtimestamp(ms / 1000, timezone.utc).date()
 
 
-def bare_letters(solution):
-    """A solution as the grid holds it: one letter per cell, unaccented.
+# What a solution is allowed to hold: the capital letters a solver writes into
+# the cells, and nothing else. Word breaks live in separatorLocations and
+# accents are removed by bare_letters, so anything left that is not A-Z did not
+# come from the grid. tools/puzzle_integrity.py imports this rather than
+# spelling the rule again, so the fetcher that writes a solution and the check
+# that weighs it can never disagree about what a solution looks like.
+NOT_A_LETTER = re.compile(r"[^A-Z]")
 
-    A crossword cell holds a letter, so the accent the paper sets in its own
-    answer text is typography and not a character the solver writes — Everyman
-    3,847's 2-down is published "ROSÉ" for four cells whose wordplay (gRoOmSmEn,
-    regularly) spells ROSE. Stripped here rather than downstream because every
-    reader of `solution` — the crossing check, the length check, the app's own
-    grid — already assumes bare letters, and one accent breaks all of them.
-    Only the accent is removed; anything else non-alphabetic survives to be
+
+def is_bare_letters(solution):
+    """Is this string an answer as the grid holds it — A-Z only?"""
+    return not NOT_A_LETTER.search(solution or "")
+
+
+def bare_letters(solution):
+    """A solution as the grid holds it: one capital letter per cell, unaccented.
+
+    A crossword cell holds a letter, so neither the accent nor the case the paper
+    sets in its own answer text is a character the solver writes. Everyman 3,847's
+    2-down is published "ROSÉ" for four cells whose wordplay (gRoOmSmEn, regularly)
+    spells ROSE; cryptic 28,323 is published with "eVEREST", "fORTNIGHT", "iLIAD"
+    and "office", which is a shift key missed four times and not a theme — its
+    28-across is EVE + REST, so the small "e" does not even fall where the wordplay
+    divides. Normalised here rather than downstream because every reader of
+    `solution` — the crossing check, the length check, the app's own grid —
+    already assumes bare capitals, and one stray character breaks all of them.
+    Only accent and case are touched; anything else non-alphabetic survives to be
     reported by tools/puzzle_integrity.py rather than silently rewritten.
     """
     if not solution:
         return solution
     return "".join(c for c in unicodedata.normalize("NFD", solution)
-                   if unicodedata.category(c) != "Mn")
+                   if unicodedata.category(c) != "Mn").upper()
 
 
 def convert(data):
@@ -505,6 +559,29 @@ def convert(data):
     if wordless:
         print("WARNING: published with no clue text: " + ", ".join(wordless),
               file=sys.stderr)
+
+    # A MASKED solution is not a solution. The Guardian serves cryptic 28,691's
+    # 3-down as "T?S?R" — the shape of the answer with its letters withheld —
+    # and stored verbatim that is worse than no answer at all: the site
+    # advertises full answers and then shows a wrong letter, and the annotator
+    # spends a model building wordplay for a non-word.
+    #
+    # One masked light also means the page is not serving a key, so the puzzle
+    # takes the route a Saturday prize crossword takes on the day it is
+    # published: no solutions at all, which is the honest state and the one
+    # every reader downstream already handles. Keeping the clean lights would
+    # publish half a key — hasSolutions would be false either way, and
+    # refresh_unsolved would stop re-fetching a puzzle whose answers might yet
+    # appear. Written empty, it is re-fetched nightly and fills itself in the
+    # day the paper publishes properly.
+    masked = [e for e in entries if e["solution"] and not is_bare_letters(e["solution"])]
+    if masked:
+        print(f"WARNING: {data['id']}: solution masked on "
+              + ", ".join(f"{e['id']} {e['solution']!r}" for e in masked)
+              + f" — storing all {len(entries)} entries UNSOLVED", file=sys.stderr)
+        for e in entries:
+            e["solution"] = None
+
     series = series_of(data["id"])
 
     # The paper states the publication date twice and they must agree. `date` is

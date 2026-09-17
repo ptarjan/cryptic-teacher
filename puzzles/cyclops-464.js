@@ -110,8 +110,8 @@ window.CRYPTIC_PUZZLES["cyclops-464"] = /*JSON-START*/ {
    "length": 5,
    "clue": "(& 25dn.) Sulphur in crap drug sample (5)",
    "group": [
-    "25-down",
-    "7-across"
+    "7-across",
+    "25-down"
    ],
    "separatorLocations": {},
    "solution": "TASTE",
@@ -384,8 +384,8 @@ window.CRYPTIC_PUZZLES["cyclops-464"] = /*JSON-START*/ {
    "length": 4,
    "clue": "(& 7ac.) Shit Blair finally ruined state  lack of appreciation of social niceties (4)",
    "group": [
-    "25-down",
-    "7-across"
+    "7-across",
+    "25-down"
    ],
    "separatorLocations": {},
    "solution": "POOR",
