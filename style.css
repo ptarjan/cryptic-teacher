@@ -366,17 +366,25 @@ button:disabled:hover { border-color: var(--line); }
    The sentence is the celebration; the fireworks are trim. Anyone who has asked
    their browser for less motion still gets the sentence, and gets it without
    three dozen things flying past it. */
+/* Full width of the column, not clamped to a reading measure: this is the one
+   moment the page has something to say, and a narrow card the width of a
+   paragraph reads as a footnote to the grid above it. The width is also what
+   the fireworks need — three shells spread across a 62ch box on a tablet had
+   most of their sparks flying into `overflow: hidden`.
+   min-height is the same fact from the other side: the sentence and the tally
+   are only two short lines, so without it the box is a strip too shallow to
+   burst anything inside. */
 #celebrate {
-  position: relative; overflow: hidden; margin: 6px 0 14px; padding: 18px 16px;
-  border: 1px solid var(--ind-bg); border-radius: 10px;
-  background: var(--card); max-width: 62ch;
+  position: relative; overflow: hidden; margin: 10px 0 18px; padding: 22px 20px;
+  border: 2px solid var(--accent-soft); border-radius: 12px;
+  background: var(--card); min-height: 150px;
 }
 /* No dismiss button. The scoreline is a fact about the puzzle, so it stays as
    long as the grid is full and comes back when you reopen it; the fireworks are
    the part that only go off once. A "Thanks" that hides your own result is asking
    you to clear away the thing you earned. */
-#celebrate .shout { margin: 0 0 4px; font-size: 1.05rem; font-weight: 600; }
-#celebrate .tally { margin: 0; font-size: .85rem; color: var(--muted); }
+#celebrate .shout { margin: 0 0 6px; font-size: 1.35rem; font-weight: 700; }
+#celebrate .tally { margin: 0; font-size: .95rem; color: var(--muted); }
 #celebrate .tally strong { color: var(--fg); }
 
 /* Scoped to the finish box, because the finish is the only thing worth a
@@ -1017,8 +1025,18 @@ mark.link {
 .vote-ask, .vote-mine { color: var(--fg); }
 .vote-said { color: var(--muted); font-size: .85rem; }
 /* The finish panel is centred prose, and its row belongs to that, not to the
-   ladder's left edge. */
-#celebrate .vote-row { justify-content: center; border-top: none; padding-top: 4px; }
+   ladder's left edge. Unlike the row inside a hint panel — which is deliberately
+   quiet, because a bright call to action at the end of a lesson reads as being
+   sold something — this one is the only question the page ever asks, and it was
+   being missed: small ghost buttons under a muted tally look like a caption.
+   It gets the room and the weight of an actual question. */
+#celebrate .vote-row {
+  justify-content: center; border-top: 1px solid var(--line);
+  margin-top: 16px; padding-top: 14px; font-size: 1rem;
+}
+#celebrate .vote-ask { font-weight: 600; }
+#celebrate .vote-btn { font-size: .95rem; padding: 8px 16px; border-width: 2px; }
+#celebrate .vote-btn:first-of-type { border-color: var(--accent-soft); }
 
 .legend { font-size: .75rem; color: var(--muted); margin-top: 2px; }
 /* why a definition may fairly disagree with the answer's number or part of speech */
