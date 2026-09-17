@@ -1,0 +1,194 @@
+#!/usr/bin/env python3
+"""What we hold of every series, and which ones are not finished.
+
+Run it:
+
+    python3 tools/coverage_report.py            # the table
+    python3 tools/coverage_report.py --quiet    # only the series with a problem
+
+Every series is meant to be walked back to its source's floor and then kept
+current nightly. Two different things stop that happening and neither one
+announces itself: a fetcher that can only ever get "today" leaves its series one
+puzzle deep forever, and a feed that quietly stops answering leaves its series
+frozen at whatever day it broke on. Both look healthy from inside the nightly
+run -- it fetched, nothing failed, there was simply nothing new -- so the only
+way either is noticed is a person looking at the site and counting. This is that
+count, run every night.
+
+The flags, in the order they matter:
+
+  STALE    the newest puzzle is older than three times the series' cadence, so
+           the feed has stopped answering and nobody has been told.
+  SHALLOW  the whole series spans less than SHALLOW_DAYS, which means it has
+           never been backfilled -- the state tools/fetch_metro.py was in on
+           2026-09-17, holding exactly one puzzle.
+  HOLES    more than HOLES_PCT of the numbers between the oldest and newest we
+           hold are missing, so a walk stopped part-way.
+  STRAY    a puzzle whose number is nowhere near the rest of its series, which
+           means it was filed under the wrong one.
+  DATELESS a puzzle with no date at all. The site sorts by date, so these sink.
+
+Exits 1 if any series carries a flag, so the nightly can alert on it.
+"""
+
+import json
+import sys
+from collections import defaultdict
+from datetime import datetime, timezone
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import series as series_meta  # noqa: E402
+
+ROOT = Path(__file__).resolve().parent.parent
+INDEX = ROOT / "puzzles" / "index.json"
+
+# A series younger than this has never been walked backwards. Three months is
+# comfortably longer than any gap a live feed leaves and far shorter than any
+# archive worth having, so nothing that is merely new trips it for long.
+SHALLOW_DAYS = 90
+HOLES_PCT = 5
+# A number this far outside the rest of the series is not that series. Set by
+# the four indysunday files numbered ~8,990 sitting among a sequence that runs
+# 1,330-1,907: a stray is off by thousands, never by tens.
+STRAY_FACTOR = 3
+
+# The lowest number the source will still serve. A floor belongs here only once
+# a walk has ended in 404s at it -- guessing one hides exactly the backfill this
+# report exists to find. Without it, a series that has been walked to its floor
+# reads as 96% missing forever, because the hole count is measured from the
+# oldest number held and most of the numbers below the floor were never
+# digitised. Papers do also serve the odd puzzle from far below their floor;
+# those are counted separately rather than treated as the start of the run.
+ARCHIVE_FLOOR = {
+    "cryptic": 21620,
+}
+
+# Days between issues at the source. Used only to decide whether a series has
+# gone quiet, so a paper printing six days a week and one printing seven are
+# both 1 -- the question is how long a silence is too long, not how many
+# puzzles a week to expect.
+CADENCE_DAYS = {
+    "cryptic": 1,
+    "quiptic": 7,
+    "everyman": 7,
+    "independent": 1,
+    "indysunday": 7,
+    "metro": 1,
+    "cyclops": 14,
+    "globeandmail": 1,
+}
+
+
+def as_date(ms):
+    return datetime.fromtimestamp(ms / 1000, timezone.utc).date()
+
+
+def audit(puzzles, today):
+    """One row per series, each with a (possibly empty) list of flags."""
+    by_series = defaultdict(list)
+    for p in puzzles:
+        by_series[p["series"]].append(p)
+
+    rows = []
+    for name in sorted(by_series):
+        held = by_series[name]
+        all_numbers = sorted(p["number"] for p in held)
+        dates = sorted(as_date(p["date"]) for p in held if p.get("date"))
+        dateless = len(held) - len(dates)
+        floor = ARCHIVE_FLOOR.get(name)
+        below = [n for n in all_numbers if floor and n < floor]
+        numbers = [n for n in all_numbers if n not in set(below)]
+        span = numbers[-1] - numbers[0] + 1
+        missing = span - len(set(numbers))
+        flags = []
+
+        # A series with no dates at all can still be stale or full of holes; it
+        # just cannot be measured on the time axis, so those two checks are
+        # skipped rather than guessed at.
+        if dates:
+            newest, oldest = dates[-1], dates[0]
+            quiet = (today - newest).days
+            depth = (newest - oldest).days
+            cadence = CADENCE_DAYS.get(name)
+            if cadence and quiet > cadence * 3:
+                flags.append(f"STALE nothing since {newest} ({quiet}d)")
+            if depth < SHALLOW_DAYS:
+                flags.append(f"SHALLOW spans {depth}d, never backfilled")
+        else:
+            newest = oldest = None
+
+        if span > 1 and missing * 100 / span > HOLES_PCT:
+            flags.append(f"HOLES {missing} of {span} numbers missing")
+
+        # The gap between what the source still serves and the oldest we have
+        # walked back to. Nothing else here can see it: within what we hold the
+        # series looks complete, and the only sign it is not finished is a floor
+        # we have not reached yet.
+        if floor and numbers[0] > floor:
+            flags.append(f"REACH {numbers[0] - floor} below {numbers[0]} still unfetched "
+                         f"(source floor {floor})")
+
+        # Measured against the series' own middle rather than a fixed band, so
+        # this holds for a sequence numbered in the hundreds and one numbered in
+        # the tens of thousands without a per-series threshold to maintain.
+        mid = numbers[len(numbers) // 2]
+        strays = [n for n in numbers if mid and (n > mid * STRAY_FACTOR or n * STRAY_FACTOR < mid)]
+        if strays:
+            flags.append(f"STRAY {len(strays)} numbered far off ({strays[0]}..{strays[-1]})")
+
+        if dateless:
+            flags.append(f"DATELESS {dateless} with no date")
+
+        rows.append({
+            "series": name,
+            "held": len(held),
+            "below": below,
+            "numbers": (numbers[0], numbers[-1]),
+            "oldest": oldest,
+            "newest": newest,
+            "flags": flags,
+        })
+    return rows
+
+
+def main(argv):
+    quiet = "--quiet" in argv
+    # Two audiences, one report. A dead feed is tonight's problem and worth
+    # waking someone for; an unfinished backfill is a standing to-do that would
+    # fire the same alert every night until the walk finishes, which is how an
+    # alert stops being read. --stale-only is the half that is allowed to shout.
+    stale_only = "--stale-only" in argv
+    index = json.loads(INDEX.read_text())
+    rows = audit(index["puzzles"], datetime.now(timezone.utc).date())
+    if stale_only:
+        for r in rows:
+            r["flags"] = [f for f in r["flags"] if f.startswith("STALE")]
+
+    shown = [r for r in rows if r["flags"]] if quiet or stale_only else rows
+    for r in shown:
+        # The publisher is what makes a row actionable: "metro" is a key, "Metro"
+        # is where to go looking for an archive.
+        pub = series_meta.SERIES.get(r["series"], {}).get("publisher", "?")
+        print(f"{r['series']:<13} {r['held']:>5} held  "
+              f"{r['numbers'][0]}-{r['numbers'][1]}  "
+              f"{r['oldest'] or '?'} to {r['newest'] or '?'}  ({pub})")
+        for f in r["flags"]:
+            print(f"    {f}")
+        if r["below"]:
+            print(f"    note {len(r['below'])} below the known floor "
+                  f"({r['below'][0]}..{r['below'][-1]}) — one-offs, not a gap")
+
+    flagged = [r for r in rows if r["flags"]]
+    if flagged:
+        what = "have gone quiet" if stale_only else "need work"
+        print(f"\n{len(flagged)} of {len(rows)} series {what}: "
+              + ", ".join(r["series"] for r in flagged))
+        return 1
+    print(f"\nall {len(rows)} series "
+          + ("are still being fed" if stale_only else "current and backfilled"))
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main(sys.argv[1:]))
