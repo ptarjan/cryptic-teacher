@@ -5,6 +5,9 @@ puzzle format.
 Usage:
   python3 tools/fetch_metro.py           # fetch today's puzzle if not on disk
   python3 tools/fetch_metro.py --force   # re-fetch and overwrite today's file
+  python3 tools/fetch_metro.py --latest  # same fetch, wired for daily_update.sh:
+                                          # up-to-date <id> / exit 3 when nothing
+                                          # new, else reindex() and print the id
 
 There is exactly one URL (metro.co.uk/puzzles/cryptic-crossword/) and it always
 serves today's puzzle server-side — no archive, no date- or id-keyed URL exists
@@ -24,9 +27,13 @@ date-derived and sortable while staying a plain integer, so it also sorts
 correctly against every other series' number in tools/fetch_puzzle.py's
 reindex() without a str/int comparison crash.
 
-This module does not call reindex() itself and does not touch puzzles/index.*
-or index.html — it only ever writes the one puzzle file. Wiring metro into the
-site (series.py, the index rebuild, daily_update.sh) is a separate step.
+Bare invocation and --force write only the one puzzle file and never touch
+puzzles/index.* — same as every other fetcher's single-puzzle commands, so a
+one-off manual fetch doesn't also rebuild the site's index. --latest is the
+exception, because it's the one daily_update.sh actually drives: it calls the
+shared reindex() on success, matching the contract every other fetcher's
+--latest honours (exit 3 + "up-to-date <id>" for nothing new, exit 0 + a
+reindex + the bare id for a new puzzle).
 """
 
 import datetime
@@ -36,11 +43,8 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from fetch_puzzle import http_bytes, has_words, write_puzzle_file  # noqa: E402
-import series as series_meta  # noqa: E402 — for puzzle_id()/default_setter() only;
-                               # "metro" need not be registered there yet — see
-                               # convert() below for what that fallback returns
-                               # in the meantime.
+from fetch_puzzle import http_bytes, has_words, reindex, write_puzzle_file  # noqa: E402
+import series as series_meta  # noqa: E402 — for puzzle_id()/default_setter() only
 
 ROOT = Path(__file__).resolve().parent.parent
 PUZZLE_DIR = ROOT / "puzzles"
@@ -225,23 +229,53 @@ def convert(data):
     }
 
 
-def main(argv):
-    if argv and argv[0] in ("-h", "--help"):
-        print(__doc__)
-        return 0
-    force = "--force" in argv
+def fetch_today(force=False):
+    """Fetch whatever Metro is currently serving as "today's" puzzle.
 
+    The one fetch-one function every entry point below shares. Returns
+    (puzzle, is_new): is_new is False, and nothing is written, when the file
+    already exists and force wasn't given.
+
+    Nothing here walks back a few days the way fetch_independent.py's --latest
+    does: there is only ever one URL and it only ever answers for "today" by
+    Metro's own clock, so there is no earlier day this feed could be asked
+    for. That skew is already handled one layer down — publication_date()
+    dates the puzzle from the page's own rdate field rather than the fetching
+    machine's clock, which is the whole reason the equivalent walk isn't
+    needed here.
+    """
     page = http_get(URL)
     data = extract_starting_puzzle(page)
     puzzle = convert(data)
     path = PUZZLE_DIR / f"{puzzle['id']}.js"
 
     if path.exists() and not force:
-        print(f"up-to-date {puzzle['id']}")
-        return 3
+        return puzzle, False
 
     PUZZLE_DIR.mkdir(exist_ok=True)
     write_puzzle_file(path, puzzle, generator="tools/fetch_metro.py")
+    return puzzle, True
+
+
+def main(argv):
+    if argv and argv[0] in ("-h", "--help"):
+        print(__doc__)
+        return 0
+
+    if argv and argv[0] == "--latest":
+        puzzle, is_new = fetch_today()
+        if not is_new:
+            print(f"up-to-date {puzzle['id']}")
+            return 3
+        reindex()
+        print(puzzle["id"])
+        return 0
+
+    force = "--force" in argv
+    puzzle, is_new = fetch_today(force=force)
+    if not is_new:
+        print(f"up-to-date {puzzle['id']}")
+        return 3
     print(f"fetched {puzzle['id']}")
     return 0
 

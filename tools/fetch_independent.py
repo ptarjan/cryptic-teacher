@@ -14,7 +14,7 @@ Usage:
   python3 tools/fetch_independent.py --check         # is the feed still there?
 
 One feed, two series: the daily Monday–Saturday and the Independent on Sunday's
-own weekly sequence. See DAILY_MIN for how a file is told which it is.
+own weekly sequence. See series_for() for how a file is told which it is.
 
 Companion to fetch_puzzle.py, which does the Guardian. Separate module rather
 than another SERIES entry there because nothing is shared but the output shape:
@@ -37,14 +37,19 @@ not in the page's wrapper bundle, which is only ads and analytics:
 So the feed is keyed by DATE, not by puzzle number — there is no way to ask for
 "No. 12,426" directly, which is why everything here counts in days and the
 puzzle number is read back out of the file. It needs no auth, no cookies and no
-referer; plain curl works. Reachable back to at least 2019-12-31; a 2015
-date 404s, so the true floor is somewhere between, and --extend finds it by
-walking until a whole chunk of dates comes back empty.
+referer; plain curl works. Reachable back to at least 2017-02-06 (proven
+2026-09-17, an --extend run that stopped on its own time cap, not on a 404);
+the true floor is still unknown. --extend does not auto-detect it — it walks
+exactly the N days it's given and reports what came back missing, and a lone
+404 (Christmas Day, both years seen so far) is an editorial gap, not the
+floor. Finding the floor means rerunning --extend with a larger N and reading
+the summary.
 
 Writes puzzles/<series>-<number>.js (preserving any existing per-clue
 annotations), then rebuilds the index via fetch_puzzle.reindex().
 """
 
+import codecs
 import re
 import sys
 import time
@@ -69,21 +74,22 @@ PLAY_URL = "https://puzzles.independent.co.uk/games/cryptic-crossword-independen
 NS = "{http://crossword.info/xml/rectangular-puzzle}"
 
 # This one feed carries TWO series. Monday–Saturday it is the Independent daily
-# cryptic, numbered ~12,400 and climbing by one a day. On Sundays it serves the
-# Independent on Sunday cryptic, a separate weekly sequence numbered ~1,900.
-#
-# Which one a file holds is decided by its number, because the feed says nothing
-# else about it — same XML, same 15x15 grid, same setters, and the date is the
-# only other clue, which would make a bank holiday shuffle silently mislabel a
-# puzzle. The threshold is safe for a century and a half: the Sunday sequence
-# gains 52 a year from 1,903, the daily 313 a year from 12,438.
+# cryptic; Sundays it is the Independent on Sunday cryptic, a separate weekly
+# sequence — same XML, same 15x15 grid, same setters, nothing in the puzzle
+# itself says which. In 2026 the daily is numbered ~12,400 and the Sunday
+# ~1,900, so a fixed number threshold (used until this comment) looked like a
+# safe way to tell them apart. It wasn't: walking the archive back past 2019
+# found the DAILY series was ALSO under 10,000 back then (No 9,897 on
+# 2018-07-03), which misfiled 539 daily puzzles as Sunday ones. A puzzle's
+# weekday is the one fact that is always right — the Independent on Sunday is
+# only ever printed on a Sunday — and it costs nothing extra since ymd is
+# already in hand.
 #
 # Sundays were skipped entirely until 2026-08-19, and the reason was ids: they
 # were bare numbers, so Sunday No 1,395 would have collided with Guardian Quiptic
 # No 1,395 in the mid-2030s and one would have overwritten the other's file.
 # Ids carry their series now, so the collision cannot happen and the reason is
 # gone.
-DAILY_MIN = 10000
 
 
 # Dates whose puzzle number the source prints wrong. The number is typed by
@@ -107,8 +113,9 @@ NUMBER_FIXES = {
 }
 
 
-def series_for(number):
-    return "independent" if number >= DAILY_MIN else "indysunday"
+def series_for(ymd):
+    is_sunday = datetime.strptime(ymd, "%y%m%d").weekday() == 6
+    return "indysunday" if is_sunday else "independent"
 
 
 def http_get(url):
@@ -167,8 +174,30 @@ def separators(fmt, lengths):
     return out
 
 
+def _cp1252_byte(exc):
+    """codecs error handler: decode just the byte(s) UTF-8 rejected as
+    Windows-1252 rather than giving up on the whole document.
+
+    The feed declares UTF-8 but a handful of older days (2017-03-20 is one)
+    have a single raw cp1252 byte where a proper UTF-8 dash or quote
+    belongs — 0x96 for an en dash, seen here. ET.fromstring is byte-exact
+    about its declared encoding, so that one byte aborts the entire parse.
+    Decoding only the rejected span leaves every valid UTF-8 sequence
+    (accented setter names included) untouched.
+    """
+    bad = exc.object[exc.start:exc.end]
+    return bad.decode("cp1252"), exc.end
+
+
+codecs.register_error("independent_cp1252_fallback", _cp1252_byte)
+
+
+def clean_xml_bytes(data):
+    return data.decode("utf-8", errors="independent_cp1252_fallback").encode("utf-8")
+
+
 def parse(xml_bytes, ymd):
-    root = ET.fromstring(xml_bytes)
+    root = ET.fromstring(clean_xml_bytes(xml_bytes))
     puz = root.find(f".//{NS}rectangular-puzzle")
     title = (puz.findtext(f"{NS}metadata/{NS}title") or "").strip()
     # The title is typed by hand and arrives mistyped in four ways: "No."
@@ -178,10 +207,19 @@ def parse(xml_bytes, ymd):
     # typos, not format changes, so the pipe, the prefix and its punctuation
     # and whitespace inside the digits are all optional.
     m = re.match(r"\|?\s*(?:No[.,]?\s*)?(\d[\d,\s]*\d|\d)\s*(?:by\s*(.+))?$", title)
-    if not m:
-        raise ValueError(f"unrecognised title {title!r}")
-    number = NUMBER_FIXES.get(ymd) or int(re.sub(r"[,\s]", "", m.group(1)))
-    setter = (m.group(2) or "").strip() or "Unknown"
+    if m:
+        setter = (m.group(2) or "").strip() or "Unknown"
+        number_text = m.group(1)
+    else:
+        # A fifth, older shape drops "No." AND "by" both and just reverses the
+        # order: "Raich 9897" (2018-07-03) — setter name, then the number bare.
+        # The number is trustworthy (it slots exactly between 9896 the day
+        # before and 9898 the day after); only the layout differs.
+        m = re.match(r"([A-Za-z][\w.'-]*)\s+(\d[\d,\s]*\d|\d)$", title)
+        if not m:
+            raise ValueError(f"unrecognised title {title!r}")
+        setter, number_text = m.group(1), m.group(2)
+    number = NUMBER_FIXES.get(ymd) or int(re.sub(r"[,\s]", "", number_text))
 
     grid = puz.find(f"{NS}crossword/{NS}grid")
     cols, rows = int(grid.get("width")), int(grid.get("height"))
@@ -265,7 +303,7 @@ def parse(xml_bytes, ymd):
 
     entries.sort(key=lambda e: (e["position"]["y"], e["position"]["x"], e["direction"]))
     when = datetime.strptime(ymd, "%y%m%d").replace(tzinfo=timezone.utc)
-    series = series_for(number)
+    series = series_for(ymd)
     paper = ("Independent on Sunday" if series == "indysunday" else "Independent")
     return {
         "id": series_meta.puzzle_id(series, number),

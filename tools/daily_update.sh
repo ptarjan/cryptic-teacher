@@ -141,9 +141,9 @@ python3 tools/blind_annotate.py restore
 #
 # Every fetcher with a --latest belongs in this list. A series backfilled but
 # left out of it stops at the day it was backfilled and rots from there, which
-# is what happened to Cyclops. fetch_globeandmail.py and fetch_metro.py have no
-# --latest yet and are the two still in that state.
-FETCHERS="fetch_puzzle fetch_independent fetch_observer fetch_privateeye"
+# is what happened to Cyclops. Give a new fetcher --latest and add it here in
+# the same pass; a backfill that isn't in this loop is already rotting.
+FETCHERS="fetch_puzzle fetch_independent fetch_observer fetch_privateeye fetch_globeandmail fetch_metro"
 fetch_broken=""
 for fetcher in $FETCHERS; do
   python3 "tools/$fetcher.py" --latest
@@ -153,8 +153,8 @@ for fetcher in $FETCHERS; do
     fetch_broken="$fetch_broken $fetcher"
   fi
 done
-# One paper down is weather. All three down at once is us: a changed user agent,
-# no network, a python that no longer starts. Nothing new would arrive for as
+# One paper down is weather. Every one of them down at once is us: a changed
+# user agent, no network, a python that no longer starts. Nothing new would arrive for as
 # long as that lasted, and a site that quietly stops updating looks exactly like
 # a site with nothing to update.
 # Counted off FETCHERS rather than a literal, so adding a source can't quietly
@@ -321,11 +321,19 @@ alert_newly_blocked() {
 # mode we refuse is being wrong and silent, which is why a fill that fails the
 # check writes nothing at all.
 #
-# One a night by default, because there is only ever one unsolved puzzle in the
-# normal week. Not for cost: a cold solve is the CHEAP job here — around 10-15
-# turns against an annotation's 40-90, and a third of the spend once cache reads
-# are priced at their tenth. Raising SOLVE_MAX is not what will blow the budget.
-SOLVE_MAX="${SOLVE_MAX:-1}"
+# Five a night, which is a ceiling and not a target: the queue is every puzzle we
+# hold with no answers in it, and on a normal night that queue is empty. It fills
+# in bursts, not one at a time — a Cyclops arrives answer-stripped and waits days
+# for fifteensquared, a Saturday prize waits a week for its key, and with eight
+# series those waits overlap. A limit of one made the burst take a working week
+# to clear, and the puzzles came out of it newest-first, so the oldest answerless
+# grid was the last one ever looked at.
+#
+# The ceiling is not a cost decision: a cold solve is the CHEAP job here — around
+# 10-15 turns against an annotation's 40-90, and a third of the spend once cache
+# reads are priced at their tenth. Raising SOLVE_MAX is not what will blow the
+# budget. The weekly and five-hour usage gates below are what bounds it.
+SOLVE_MAX="${SOLVE_MAX:-5}"
 # A puzzle gets SOLVE_ATTEMPTS_MAX cold solves in its life, then never again.
 # Selection is by date, so before this cap a puzzle that failed was simply the
 # newest unsolved puzzle again tomorrow, and again the night after — the same
