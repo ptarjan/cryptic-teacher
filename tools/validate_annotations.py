@@ -18,9 +18,6 @@ Checks, for every annotated entry:
   - `group` appears only on genuinely linked clues, and is the same list on
     every leg of one, containing itself
 
-  - a linkWord that decides which piece leads is an indicator, not joinery
-    (check_link_word_is_not_an_order_indicator)
-
 And checks that apply only to puzzles we WROTE (see is_authored):
   - no block may have an empty `gives`: every word of an authored clue is
     definition, wordplay or joinery, never surface padding (check_two_pieces)
@@ -385,99 +382,6 @@ def check_link_words_are_equivalences(tag, ann, errors):
                 f"real setter would use this")
 
 
-# Prepositions that can say WHERE a piece goes as easily as they can join two
-# halves of a sentence. Every one of them is also in EQUIVALENCE_LINKS, because
-# most of the time joining is all they do; the check below is what tells the two
-# jobs apart. Containment words (`around`, `holding`, `inside`) are absent on
-# purpose: the types they belong to are skipped wholesale.
-ORDER_LINKS = {
-    "on", "after", "over", "under", "above", "below", "behind", "beneath",
-    "upon", "before", "following",
-}
-
-# Mechanisms that reorder the blocks by themselves, so the link word cannot be
-# blamed for it: a container's inner piece goes inside rather than after, a
-# reversal and a rotation are defined by blocks assembled before the turn, and a
-# deletion lists the letter it removes wherever it likes.
-REORDERING_TYPES = ("container", "reversal", "cycling", "palindrome",
-                    "spoonerism", "deletion", "substitution")
-
-
-def check_link_word_is_not_an_order_indicator(tag, ann, clue, warnings):
-    """A link word that decides the order of the pieces is an indicator.
-
-    `Post on half of wage` (30099 25A) was annotated with `on` in `linkWords`,
-    as if it were an equals sign, and with the blocks coming out in the opposite
-    order to the clue — which is precisely the work `on` was doing: in an across
-    entry what sits on something follows it, so the piece named first is written
-    last. A solver reported it ("On is a indicator right saying you have to
-    reverse the order", 2026-09-16) and was right. Filed as joinery, the one
-    instruction the clue gives about assembly is greyed out and struck through in
-    the clue, and the learner is left to find the order by trial.
-
-    The word alone proves nothing — `on` and `after` join two halves of a
-    sentence far more often than they place a piece, which is why both are in
-    EQUIVALENCE_LINKS and stay there. What proves it is the pair of blocks it
-    stands between coming out in the opposite order to the clue: an inert word
-    cannot have done that, so something has to have, and the only candidate is
-    the word the annotation says does nothing. Types that reorder blocks for
-    reasons of their own are skipped (REORDERING_TYPES), and the word must sit
-    in the gap between the two swapped fragments, not merely somewhere in the
-    clue.
-
-    Unscoped, like the two walkthrough checks: the annotation is ours even when
-    the clue is the Guardian's, and gated to authored puzzles this would never
-    fire at all.
-
-    CALIBRATION (2026-09-17, the whole corpus: 376 annotated puzzles, 11,033
-    entries). 66 entries declare an ordering preposition as a link word and 63
-    of them keep the clue's own order, so the word really is inert and they pass.
-    Three are flagged and all three are the same fault as the report: 30069 5D
-    (`shattered after run` = R + ELAPSE), indysunday-1885 14A (`melody on piano`
-    = P + AIR, an entry with no indicators at all) and 25A (`Lindsey on chopper`
-    = AXE + L). A warning, because the cure is moving one string from
-    `linkWords` to `indicators` and writing its `indicatorNotes` line, which is
-    an edit to make deliberately rather than a build to break."""
-    if "linkedTo" in ann:
-        return
-    if any(t in (ann.get("type") or "") for t in REORDERING_TYPES):
-        return
-    links = [lw for lw in (ann.get("linkWords") or [])
-             if any(w in ORDER_LINKS for w in words_of(lw))]
-    if not links:
-        return
-    blocks = [b for b in (ann.get("blocks") or []) if str(b.get("gives") or "").strip()]
-    spans = []
-    for b in blocks:
-        frag = b.get("clueFragment") or ""
-        i = clue.find(frag)
-        if not frag or i < 0:
-            return
-        spans.append((i, i + len(frag)))
-    if len(spans) < 2:
-        return
-    for lw in links:
-        at = clue.lower().find(lw.lower())
-        if at < 0:
-            continue
-        for (s1, _), (_, e2) in zip(spans, spans[1:]):
-            # The pair either side of the link word, listed in the order the
-            # answer reads, appearing in the clue the other way round.
-            if s1 > e2 and e2 <= at < s1:
-                warnings.append(
-                    f"{tag}: linkWord {lw!r} stands between two blocks that the clue "
-                    f"names in the opposite order, so it is not joinery — it is the "
-                    f"instruction that puts them that way round. Move it to "
-                    f"`indicators` and give it an `indicatorNotes` line saying which "
-                    f"piece it sends where (STYLE.md, 'A link word that fixes the "
-                    f"order is an indicator')")
-                return
-
-
-# Prepositions that join two pieces AND say which way round they go. They are on
-# the EQUIVALENCE_LINKS whitelist because a setter does also use them as plain
-# joinery — but in an across entry "A on B" is B then A, and "A after B" is B
-# then A, and there the word is not joining, it is instructing.
 POSITIONAL_JOINERS = {"on", "after", "behind", "below", "beneath", "under",
                       "following", "supporting"}
 
@@ -2022,7 +1926,6 @@ def validate_puzzle(puzzle):
         # was on a published grid. Gated, they would never fire.
         check_walkthrough_opener(tag, ann, warnings)
         check_walkthrough_closer(tag, ann, warnings)
-        check_link_word_is_not_an_order_indicator(tag, ann, clue, warnings)
         # Not under `authored` either, and for the same reason: the fault is in
         # OUR parse of a published clue, and every hit it has ever had was on
         # somebody else's grid.
