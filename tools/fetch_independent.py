@@ -37,7 +37,9 @@ not in the page's wrapper bundle, which is only ads and analytics:
 So the feed is keyed by DATE, not by puzzle number — there is no way to ask for
 "No. 12,426" directly, which is why everything here counts in days and the
 puzzle number is read back out of the file. It needs no auth, no cookies and no
-referer; plain curl works. Verified reachable back to 2020-01-01.
+referer; plain curl works. Reachable back to at least 2019-12-31; a 2015
+date 404s, so the true floor is somewhere between, and --extend finds it by
+walking until a whole chunk of dates comes back empty.
 
 Writes puzzles/<series>-<number>.js (preserving any existing per-clue
 annotations), then rebuilds the index via fetch_puzzle.reindex().

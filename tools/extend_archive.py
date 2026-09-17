@@ -4,6 +4,7 @@
     python3 tools/extend_archive.py             # top the queue up if it is short
     python3 tools/extend_archive.py --dry-run   # say what it would fetch, fetch nothing
     python3 tools/extend_archive.py --target 80 # override the measured target
+    python3 tools/extend_archive.py --all       # walk every source to its floor
 
 The papers publish four or five puzzles a day between them; a good week of the
 pre-reset burn annotates far more than that. Left alone the queue therefore
@@ -15,6 +16,13 @@ TARGET IS MEASURED, NOT CHOSEN. It is the most puzzles this job has cleared in
 any seven-day stretch of the last two months: the queue only has to be deeper
 than the best run it has ever had. A number typed in here would be wrong the
 first time the burn got faster, and wrong in the expensive direction.
+
+--all IS A DIFFERENT JOB WEARING THE SAME MACHINERY. The top-up above is paced
+by demand; --all ignores the target and keeps walking until every source has
+gone a whole chunk without producing anything, which is what an archive ending
+looks like from here. It exists because a publisher's archive is not ours and
+can go away — the Observer's did, in April 2025, and everything below Everyman
+No. 4097 went with it. Fetching is cheap, un-fetching is impossible.
 
 BACKLOG IS COUNTED FROM GIT, NOT FROM index.json. That file's `annotated` flags
 are rewritten only by the republish step at the END of a run, so mid-run it
@@ -69,6 +77,31 @@ def backlog(done):
     return sum(1 for p in idx if p.get("hasSolutions") and p["id"] not in done)
 
 
+def held():
+    """Every puzzle in the corpus — the measure of whether a round did anything.
+
+    backlog() is the right thing to fetch TOWARDS and the wrong thing to judge a
+    round by: it counts only what is still un-annotated, so a round that lands
+    beside a burn finishing three puzzles reads as having fetched nothing, and
+    the source gets dropped with archive still left in it.
+    """
+    return len(json.load(open("puzzles/index.json"))["puzzles"])
+
+
+def commit(name):
+    """Land each round as it lands.
+
+    A walk to the floor runs for hours and writes thousands of files. Left
+    uncommitted they are swept into whatever the nightly job commits next, all
+    at once, under a message about something else. Not pushed: one push per
+    round would be one CI build per round.
+    """
+    subprocess.run(["git", "add", "-A", "puzzles"], check=True)
+    if subprocess.run(["git", "diff", "--cached", "--quiet", "--", "puzzles"]).returncode:
+        subprocess.run(["git", "commit", "-q", "-m", f"archive: extend {name}",
+                        "--", "puzzles"], check=True)
+
+
 def capacity(done):
     """The most puzzles annotated in any seven days of the last two months."""
     now = time.time()
@@ -81,21 +114,31 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--target", type=int, help="queue depth to top up to")
     ap.add_argument("--chunk", type=int, default=CHUNK, help="puzzles per source per round")
+    ap.add_argument("--all", action="store_true",
+                    help="ignore the target; walk every source to its floor")
+    ap.add_argument("--commit", action="store_true",
+                    help="commit each round that fetched something")
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
 
     done = annotated_ids()
-    target = args.target if args.target is not None else capacity(done)
     have = backlog(done)
-    if not target:
-        print("nothing annotated in the last two months — no measured demand, "
-              "not fetching")
-        return 0
-    print(f"queue {have}, target {target} (best week in the last {WINDOW_DAYS} days)")
-    if have >= target:
-        return 0
+    target = args.target if args.target is not None else capacity(done)
+    if args.all:
+        print(f"walking every source to its floor — {held()} puzzles held, "
+              f"{have} of them waiting to be annotated")
+    else:
+        if not target:
+            print("nothing annotated in the last two months — no measured demand, "
+                  "not fetching")
+            return 0
+        print(f"queue {have}, target {target} "
+              f"(best week in the last {WINDOW_DAYS} days)")
+        if have >= target:
+            return 0
     if args.dry_run:
-        print(f"would extend {target - have} deeper across: "
+        how_far = "to its floor" if args.all else f"{target - have} deeper"
+        print(f"would walk each of these {how_far}: "
               + ", ".join(s for s, _ in SOURCES))
         return 0
 
@@ -104,19 +147,22 @@ def main():
     # requests for the same nothing. Not remembered across runs — an archive
     # that 404s today may be a publisher having a bad afternoon.
     alive = list(SOURCES)
-    while have < target and alive:
+    while alive and (args.all or have < target):
         for source in list(alive):
             name, cmd = source
             print(f"--- extending {name} by {args.chunk}")
+            before = held()
             rc = subprocess.run([a.format(n=args.chunk) for a in cmd]).returncode
-            got = backlog(done)
-            if rc != 0 or got == have:
+            if rc != 0 or held() == before:
                 print(f"    {name} added nothing — dropping it for this run")
                 alive.remove(source)
-            have = got
-            if have >= target:
+            elif args.commit:
+                commit(name)
+            have = backlog(done)
+            if not args.all and have >= target:
                 break
-    print(f"queue now {have} (target {target})")
+    print(f"{held()} puzzles held, queue {have}"
+          + ("" if args.all else f" (target {target})"))
     return 0
 
 
