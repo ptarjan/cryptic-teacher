@@ -7,8 +7,8 @@ window.CRYPTIC_PUZZLES["indysunday-1588"] = /*JSON-START*/ {
  "number": 1588,
  "series": "indysunday",
  "name": "Independent on Sunday cryptic crossword No 1,588",
- "setter": "Peter",
- "date": 1578182400000,
+ "setter": "Hoskins",
+ "date": 1596326400000,
  "dimensions": {
   "cols": 15,
   "rows": 15
@@ -20,13 +20,17 @@ window.CRYPTIC_PUZZLES["indysunday-1588"] = /*JSON-START*/ {
    "number": 1,
    "direction": "across",
    "position": {
-    "x": 0,
+    "x": 1,
     "y": 0
    },
-   "length": 6,
-   "clue": "Buttonhole with a carnation initially added to price (6)",
-   "separatorLocations": {},
-   "solution": "ACCOST",
+   "length": 13,
+   "clue": "Music producer Parisian thugs attacked (7,6)",
+   "separatorLocations": {
+    ",": [
+     7
+    ]
+   },
+   "solution": "SPANISHGUITAR",
    "annotation": null
   },
   {
@@ -34,13 +38,13 @@ window.CRYPTIC_PUZZLES["indysunday-1588"] = /*JSON-START*/ {
    "number": 1,
    "direction": "down",
    "position": {
-    "x": 0,
+    "x": 1,
     "y": 0
    },
    "length": 7,
-   "clue": "Last word written by Dickens' first editor corrected (7)",
+   "clue": "Big cheese Diana Ross once cut to get slice of Ossau-Iraty (7)",
    "separatorLocations": {},
-   "solution": "AMENDED",
+   "solution": "SUPREMO",
    "annotation": null
   },
   {
@@ -48,13 +52,13 @@ window.CRYPTIC_PUZZLES["indysunday-1588"] = /*JSON-START*/ {
    "number": 2,
    "direction": "down",
    "position": {
-    "x": 2,
+    "x": 3,
     "y": 0
    },
    "length": 5,
-   "clue": "Hide money for the audience (5)",
+   "clue": "Info gathered by heartless adjunct for spy (5)",
    "separatorLocations": {},
-   "solution": "CACHE",
+   "solution": "AGENT",
    "annotation": null
   },
   {
@@ -62,27 +66,13 @@ window.CRYPTIC_PUZZLES["indysunday-1588"] = /*JSON-START*/ {
    "number": 3,
    "direction": "down",
    "position": {
-    "x": 4,
-    "y": 0
-   },
-   "length": 9,
-   "clue": "Hebrew sad about loaves baked for sabbath (9)",
-   "separatorLocations": {},
-   "solution": "SHEWBREAD",
-   "annotation": null
-  },
-  {
-   "id": "4-across",
-   "number": 4,
-   "direction": "across",
-   "position": {
-    "x": 8,
+    "x": 5,
     "y": 0
    },
    "length": 7,
-   "clue": "Youngster taking male out (7)",
+   "clue": "Country lad, nice in an odd sort of way (7)",
    "separatorLocations": {},
-   "solution": "SAPLING",
+   "solution": "ICELAND",
    "annotation": null
   },
   {
@@ -90,13 +80,17 @@ window.CRYPTIC_PUZZLES["indysunday-1588"] = /*JSON-START*/ {
    "number": 4,
    "direction": "down",
    "position": {
-    "x": 8,
+    "x": 7,
     "y": 0
    },
-   "length": 7,
-   "clue": "Unusual compass found under edges of seat (7)",
-   "separatorLocations": {},
-   "solution": "STRANGE",
+   "length": 15,
+   "clue": "Very powerful gig by drug-addled singer? (4-11)",
+   "separatorLocations": {
+    "-": [
+     4
+    ]
+   },
+   "solution": "HIGHPERFORMANCE",
    "annotation": null
   },
   {
@@ -104,13 +98,13 @@ window.CRYPTIC_PUZZLES["indysunday-1588"] = /*JSON-START*/ {
    "number": 5,
    "direction": "down",
    "position": {
-    "x": 10,
+    "x": 9,
     "y": 0
    },
-   "length": 5,
-   "clue": "Dish of tomato sauce with half of salt omitted (5)",
+   "length": 6,
+   "clue": "Old city man is earnest and persistent (6)",
    "separatorLocations": {},
-   "solution": "PASTA",
+   "solution": "URGENT",
    "annotation": null
   },
   {
@@ -118,13 +112,13 @@ window.CRYPTIC_PUZZLES["indysunday-1588"] = /*JSON-START*/ {
    "number": 6,
    "direction": "down",
    "position": {
-    "x": 12,
+    "x": 11,
     "y": 0
    },
    "length": 9,
-   "clue": "Gelatine is in drinking vessel (9)",
+   "clue": "Teetotal locum associated with English judge (9)",
    "separatorLocations": {},
-   "solution": "ISINGLASS",
+   "solution": "TEMPERATE",
    "annotation": null
   },
   {
@@ -132,27 +126,27 @@ window.CRYPTIC_PUZZLES["indysunday-1588"] = /*JSON-START*/ {
    "number": 7,
    "direction": "down",
    "position": {
-    "x": 14,
+    "x": 13,
     "y": 0
    },
-   "length": 6,
-   "clue": "Look for bird (6)",
+   "length": 7,
+   "clue": "Scottish squad of soldiers? (7)",
    "separatorLocations": {},
-   "solution": "GANDER",
+   "solution": "RANGERS",
    "annotation": null
   },
   {
-   "id": "8-down",
+   "id": "8-across",
    "number": 8,
-   "direction": "down",
+   "direction": "across",
    "position": {
-    "x": 6,
-    "y": 1
+    "x": 0,
+    "y": 2
    },
-   "length": 6,
-   "clue": "Dandruff in animal's hair occurring twice (6)",
+   "length": 4,
+   "clue": "Primate touring southern part of church (4)",
    "separatorLocations": {},
-   "solution": "FURFUR",
+   "solution": "APSE",
    "annotation": null
   },
   {
@@ -160,13 +154,13 @@ window.CRYPTIC_PUZZLES["indysunday-1588"] = /*JSON-START*/ {
    "number": 9,
    "direction": "across",
    "position": {
-    "x": 0,
+    "x": 5,
     "y": 2
    },
-   "length": 9,
-   "clue": "Letter given to speaker's investigator in government department (9)",
+   "length": 10,
+   "clue": "Appointment in Battle (10)",
    "separatorLocations": {},
-   "solution": "EXCHEQUER",
+   "solution": "ENGAGEMENT",
    "annotation": null
   },
   {
@@ -174,13 +168,13 @@ window.CRYPTIC_PUZZLES["indysunday-1588"] = /*JSON-START*/ {
    "number": 10,
    "direction": "across",
    "position": {
-    "x": 10,
-    "y": 2
+    "x": 0,
+    "y": 4
    },
-   "length": 5,
-   "clue": "Relative embracing sources of child's immunisation for young member of the family (5)",
+   "length": 6,
+   "clue": "Woman in bed with touch of arthritis (6)",
    "separatorLocations": {},
-   "solution": "SCION",
+   "solution": "BERTHA",
    "annotation": null
   },
   {
@@ -188,13 +182,13 @@ window.CRYPTIC_PUZZLES["indysunday-1588"] = /*JSON-START*/ {
    "number": 11,
    "direction": "across",
    "position": {
-    "x": 0,
+    "x": 7,
     "y": 4
    },
-   "length": 5,
-   "clue": "Foreign weed given to British fool (5)",
+   "length": 8,
+   "clue": "Rubbish German article about the Queen's fancy man (8)",
    "separatorLocations": {},
-   "solution": "DWEEB",
+   "solution": "PANDERER",
    "annotation": null
   },
   {
@@ -202,45 +196,45 @@ window.CRYPTIC_PUZZLES["indysunday-1588"] = /*JSON-START*/ {
    "number": 12,
    "direction": "across",
    "position": {
-    "x": 6,
-    "y": 4
-   },
-   "length": 9,
-   "clue": "Enthusiast to hang elaborate ornament (9)",
-   "separatorLocations": {},
-   "solution": "FANDANGLE",
-   "annotation": null
-  },
-  {
-   "id": "13-across",
-   "number": 13,
-   "direction": "across",
-   "position": {
     "x": 0,
     "y": 6
    },
-   "length": 7,
-   "clue": "Performer died in front of a tipsy nurse (7)",
+   "length": 9,
+   "clue": "Officer that's potty about men (9)",
    "separatorLocations": {},
-   "solution": "DANSEUR",
+   "solution": "COMMODORE",
    "annotation": null
   },
   {
-   "id": "14-down",
-   "number": 14,
+   "id": "13-down",
+   "number": 13,
    "direction": "down",
    "position": {
-    "x": 2,
+    "x": 3,
     "y": 6
    },
    "length": 9,
-   "clue": "Childcare provider learnt to accept charge's third animal (5,4)",
+   "clue": "Man and midges involved in psychological warfare? (4,5)",
    "separatorLocations": {
     ",": [
-     5
+     4
     ]
    },
-   "solution": "NANNYGOAT",
+   "solution": "MINDGAMES",
+   "annotation": null
+  },
+  {
+   "id": "14-across",
+   "number": 14,
+   "direction": "across",
+   "position": {
+    "x": 10,
+    "y": 6
+   },
+   "length": 4,
+   "clue": "In this country you might hear an insect (4)",
+   "separatorLocations": {},
+   "solution": "LAOS",
    "annotation": null
   },
   {
@@ -248,41 +242,59 @@ window.CRYPTIC_PUZZLES["indysunday-1588"] = /*JSON-START*/ {
    "number": 15,
    "direction": "across",
    "position": {
-    "x": 8,
-    "y": 6
+    "x": 1,
+    "y": 8
    },
-   "length": 6,
-   "clue": "Dead skin points to burn (6)",
+   "length": 4,
+   "clue": "Function of wickedness? Evil primarily! (4)",
    "separatorLocations": {},
-   "solution": "ESCHAR",
+   "solution": "SINE",
    "annotation": null
   },
   {
-   "id": "16-down",
-   "number": 16,
+   "id": "15-down",
+   "number": 15,
    "direction": "down",
-   "position": {
-    "x": 10,
-    "y": 6
-   },
-   "length": 9,
-   "clue": "Colonel slipped then fell over (9)",
-   "separatorLocations": {},
-   "solution": "COLLAPSED",
-   "annotation": null
-  },
-  {
-   "id": "17-across",
-   "number": 17,
-   "direction": "across",
    "position": {
     "x": 1,
     "y": 8
    },
-   "length": 6,
-   "clue": "Cook made a new fillet (6)",
+   "length": 7,
+   "clue": "Medics turned up around river to get washed (7)",
    "separatorLocations": {},
-   "solution": "ANADEM",
+   "solution": "SCOURED",
+   "annotation": null
+  },
+  {
+   "id": "16-across",
+   "number": 16,
+   "direction": "across",
+   "position": {
+    "x": 6,
+    "y": 8
+   },
+   "length": 9,
+   "clue": "Give up the ales or rum? (4,5)",
+   "separatorLocations": {
+    ",": [
+     4
+    ]
+   },
+   "solution": "LOSEHEART",
+   "annotation": null
+  },
+  {
+   "id": "17-down",
+   "number": 17,
+   "direction": "down",
+   "position": {
+    "x": 9,
+    "y": 8
+   },
+   "length": 7,
+   "clue": "European permit that covers chaps in a group (7)",
+   "separatorLocations": {},
+   "solution": "ELEMENT",
    "annotation": null
   },
   {
@@ -290,27 +302,13 @@ window.CRYPTIC_PUZZLES["indysunday-1588"] = /*JSON-START*/ {
    "number": 18,
    "direction": "down",
    "position": {
-    "x": 6,
+    "x": 13,
     "y": 8
    },
    "length": 7,
-   "clue": "Confused smuggler carrying diamonds deserted at end of road (7)",
+   "clue": "Embarrassed cuddling Jade in bed? (7)",
    "separatorLocations": {},
-   "solution": "MUDDLED",
-   "annotation": null
-  },
-  {
-   "id": "19-across",
-   "number": 19,
-   "direction": "across",
-   "position": {
-    "x": 8,
-    "y": 8
-   },
-   "length": 7,
-   "clue": "Fabric close to crease in sail is damaged (7)",
-   "separatorLocations": {},
-   "solution": "SILESIA",
+   "solution": "RETIRED",
    "annotation": null
   },
   {
@@ -318,73 +316,73 @@ window.CRYPTIC_PUZZLES["indysunday-1588"] = /*JSON-START*/ {
    "number": 19,
    "direction": "down",
    "position": {
-    "x": 8,
-    "y": 8
-   },
-   "length": 6,
-   "clue": "Shift featuring English seamstresses' handiwork (6)",
-   "separatorLocations": {},
-   "solution": "SEWING",
-   "annotation": null
-  },
-  {
-   "id": "20-down",
-   "number": 20,
-   "direction": "down",
-   "position": {
-    "x": 14,
-    "y": 8
-   },
-   "length": 7,
-   "clue": "Direct soldiers next to arms base into annexes (7)",
-   "separatorLocations": {},
-   "solution": "ADDRESS",
-   "annotation": null
-  },
-  {
-   "id": "21-down",
-   "number": 21,
-   "direction": "down",
-   "position": {
-    "x": 0,
+    "x": 5,
     "y": 9
    },
    "length": 6,
-   "clue": "Get home after boat is damaged (6)",
+   "clue": "Note produced by opera singer on radio (6)",
    "separatorLocations": {},
-   "solution": "OBTAIN",
+   "solution": "TENNER",
    "annotation": null
   },
   {
-   "id": "22-across",
-   "number": 22,
+   "id": "20-across",
+   "number": 20,
    "direction": "across",
    "position": {
     "x": 0,
     "y": 10
    },
-   "length": 9,
-   "clue": "Tree to twist over width of type of recess in wall (3,6)",
+   "length": 8,
+   "clue": "Lengthy word? Interminable, perhaps? (4-4)",
    "separatorLocations": {
-    ",": [
-     3
+    "-": [
+     4
     ]
    },
-   "solution": "BAYWINDOW",
+   "solution": "LONGTERM",
    "annotation": null
   },
   {
-   "id": "23-down",
-   "number": 23,
+   "id": "21-across",
+   "number": 21,
+   "direction": "across",
+   "position": {
+    "x": 9,
+    "y": 10
+   },
+   "length": 6,
+   "clue": "Large housing project in European country (6)",
+   "separatorLocations": {},
+   "solution": "ESTATE",
+   "annotation": null
+  },
+  {
+   "id": "22-down",
+   "number": 22,
    "direction": "down",
    "position": {
-    "x": 4,
+    "x": 11,
     "y": 10
    },
    "length": 5,
-   "clue": "Constituents of nitre surprisingly chemically inactive (5)",
+   "clue": "Run into one who is trying to sell fish (5)",
    "separatorLocations": {},
-   "solution": "INERT",
+   "solution": "TROUT",
+   "annotation": null
+  },
+  {
+   "id": "23-across",
+   "number": 23,
+   "direction": "across",
+   "position": {
+    "x": 0,
+    "y": 12
+   },
+   "length": 10,
+   "clue": "Bulge of porcine men needing to get in shape! (10)",
+   "separatorLocations": {},
+   "solution": "PROMINENCE",
    "annotation": null
   },
   {
@@ -392,83 +390,27 @@ window.CRYPTIC_PUZZLES["indysunday-1588"] = /*JSON-START*/ {
    "number": 24,
    "direction": "across",
    "position": {
-    "x": 10,
-    "y": 10
+    "x": 11,
+    "y": 12
    },
-   "length": 5,
-   "clue": "Pungent plant without European identity (5)",
+   "length": 4,
+   "clue": "Awful sort of revolutionary shot by soldiers (4)",
    "separatorLocations": {},
-   "solution": "ACRID",
+   "solution": "OGRE",
    "annotation": null
   },
   {
-   "id": "25-down",
+   "id": "25-across",
    "number": 25,
-   "direction": "down",
-   "position": {
-    "x": 12,
-    "y": 10
-   },
-   "length": 5,
-   "clue": "King replacing fellow in fake government (5)",
-   "separatorLocations": {},
-   "solution": "REIGN",
-   "annotation": null
-  },
-  {
-   "id": "26-across",
-   "number": 26,
    "direction": "across",
    "position": {
-    "x": 0,
-    "y": 12
-   },
-   "length": 5,
-   "clue": "Building material in publicity given award (5)",
-   "separatorLocations": {},
-   "solution": "ADOBE",
-   "annotation": null
-  },
-  {
-   "id": "27-across",
-   "number": 27,
-   "direction": "across",
-   "position": {
-    "x": 6,
-    "y": 12
-   },
-   "length": 9,
-   "clue": "Leader of lions died during Daniel's unorthodox convincing victory (9)",
-   "separatorLocations": {},
-   "solution": "LANDSLIDE",
-   "annotation": null
-  },
-  {
-   "id": "28-across",
-   "number": 28,
-   "direction": "across",
-   "position": {
-    "x": 0,
+    "x": 1,
     "y": 14
    },
-   "length": 7,
-   "clue": "New date not written in series of symbols (7)",
+   "length": 13,
+   "clue": "Desert an idiot travels about, being lost (13)",
    "separatorLocations": {},
-   "solution": "NOTATED",
-   "annotation": null
-  },
-  {
-   "id": "29-across",
-   "number": 29,
-   "direction": "across",
-   "position": {
-    "x": 9,
-    "y": 14
-   },
-   "length": 6,
-   "clue": "Handsome youth is following American college fellow (6)",
-   "separatorLocations": {},
-   "solution": "ADONIS",
+   "solution": "DISORIENTATED",
    "annotation": null
   }
  ]

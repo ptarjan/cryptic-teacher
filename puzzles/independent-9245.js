@@ -2,11 +2,11 @@
 // Annotations (type/definition/indicators/blocks/walkthrough) are original
 // to this project. Edit the annotation objects freely; keep the JSON markers.
 window.CRYPTIC_PUZZLES = window.CRYPTIC_PUZZLES || {};
-window.CRYPTIC_PUZZLES["independent-6245"] = /*JSON-START*/ {
- "id": "independent-6245",
- "number": 6245,
+window.CRYPTIC_PUZZLES["independent-9245"] = /*JSON-START*/ {
+ "id": "independent-9245",
+ "number": 9245,
  "series": "independent",
- "name": "Independent cryptic crossword No 6,245",
+ "name": "Independent cryptic crossword No 9,245",
  "setter": "Dac",
  "date": 1464739200000,
  "dimensions": {
