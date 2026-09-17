@@ -4881,12 +4881,18 @@
     // aria-pressed, and style.css rings it, so what is on is legible on the chip
     // you tapped and not only in the box above it.
     //
-    // They combine, because the question is nearly always two things at once:
+    // The ROWS combine, because the question is nearly always two things at once:
     // "I can choose Everyman brutal". A tap used to REPLACE
     // whatever was in the box, so the paper and the difficulty were mutually
     // exclusive by accident — while the typed search had combined terms all
     // along. The chips are a way to spell the query without knowing the words;
     // they must not be able to express less than the box they fill in.
+    //
+    // Within a row they REPLACE, because a puzzle has exactly one paper and
+    // exactly one band: two of them in the box is an AND that matches nothing,
+    // so a second tap on the Papers row left an empty list and two chips ringed.
+    // A row is a choice, not a set. The Matching row is not one of these — a
+    // setter and a weekday are different questions that happen to share a row.
     //
     // A row each, papers then difficulty ("the difficulty
     // could be on its own line"). They shared one wrapping strip to save a line,
@@ -4908,11 +4914,14 @@
     // Each row numbers its own buttons, so the standing rows keep the same ids
     // whether or not a completion row is above them.
     const seq = {};
-    const group = (label, words, cls, prefix, min, extra) => words.length < (min || 2) ? "" :
+    // `oneOf` says this row is a choice: its chips turn each other off. Passed
+    // as the row's own word list rather than read back off the DOM, so the rule
+    // lives where the row is declared.
+    const group = (label, words, cls, prefix, min, extra, oneOf) => words.length < (min || 2) ? "" :
       `<span class="picker-group"><span class="muted small-note">${label}</span>`
       + words.map((w) => {
         const id = prefix + ((seq[prefix] = (seq[prefix] || 0) + 1) - 1);
-        chips.push([id, w]);
+        chips.push([id, w, oneOf ? words : []]);
         return `<button type="button" id="${id}" class="badge ${cls(w)}" aria-pressed="${
           isOn(w)}">${esc(w)}</button>`;
       }).join("") + (extra || "") + "</span>";
@@ -4930,24 +4939,36 @@
     setHTML($("picker-filters"),
       group("Matching", suggest, () => "term", "ps-", 1)
         + group("Papers", pickerPaperList(),
-                (w) => "series series-" + esc(seriesKeyForLabel(w)), "pf-")
+                (w) => "series series-" + esc(seriesKeyForLabel(w)), "pf-", 2, "", true)
         + group("Difficulty", pickerBandList(), (b) => "diff diff-" + esc(b), "pf-", 2,
                 `<button type="button" id="pf-diff-help" class="badge help" aria-expanded="${
-                  pickerNote === "diff"}" aria-label="What the difficulty bands mean">?</button>`));
+                  pickerNote === "diff"}" aria-label="What the difficulty bands mean">?</button>`,
+                true));
     setHTML($("picker-note"), pickerNote === "diff" ? difficultyNoteHTML() : "");
     const help = $("pf-diff-help");
     if (help) help.onclick = () => {
       pickerNote = pickerNote === "diff" ? null : "diff";
       renderPicker();
     };
-    chips.forEach(([id, w]) => {
+    chips.forEach(([id, w, siblings]) => {
       const el = $(id);
       if (!el) return;
       el.onclick = () => {
         const mine = wordsOf(w);
-        const next = isOn(w)
-          ? picked.filter((x) => mine.indexOf(x) < 0)
-          : picked.concat(mine.filter((x) => picked.indexOf(x) < 0));
+        let next;
+        if (isOn(w)) {
+          next = picked.filter((x) => mine.indexOf(x) < 0);
+        } else {
+          // Only the words of a sibling that is CURRENTLY on come out. Dropping
+          // every sibling's words unconditionally would eat typed terms that a
+          // chip happens to share: "sunday" is a weekday you can search for as
+          // well as half of "indy sunday".
+          const drop = {};
+          siblings.filter((s) => s !== w && isOn(s)).forEach(
+            (s) => wordsOf(s).forEach((x) => { if (mine.indexOf(x) < 0) drop[x] = 1; }));
+          next = picked.filter((x) => !drop[x])
+            .concat(mine.filter((x) => picked.indexOf(x) < 0));
+        }
         $("picker-search").value = next.join(" ");
         renderPicker();
       };
