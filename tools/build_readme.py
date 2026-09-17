@@ -66,6 +66,10 @@ LAYOUT = [
     ("fetching", "tools/fetch_puzzle.py", "fetch/convert the Guardian cryptic, Saturday prize and Quiptic, --latest/--backfill/--extend/--reindex"),
     ("fetching", "tools/fetch_independent.py", "the Independent’s daily and Sunday"),
     ("fetching", "tools/fetch_observer.py", "the Observer’s Everyman"),
+    ("fetching", "tools/fetch_wayback.py", "recovers Guardian puzzles older than the live site keeps, out of the Wayback Machine’s captures"),
+    ("fetching", "tools/fetch_globeandmail.py", "the Globe and Mail’s cryptic, a Times of London syndication, decoded from its Amuse Labs player"),
+    ("fetching", "tools/fetch_privateeye.py", "Private Eye’s Cyclops — the grid from the paper, the answers joined from fifteensquared, which is the only place they are published"),
+    ("fetching", "tools/fetch_metro.py", "the Metro’s cryptic; today’s only, because the paper keeps no archive"),
     ("fetching", "tools/extend_archive.py", "walks the archives backwards to keep the annotation queue deeper than the job's best week"),
     ("fetching", "tools/fetch_minutecryptic.js", "Minute Cryptic’s daily hints, as a corpus to be measured against"),
     ("fetching", "tools/recover_minutecryptic.py", "refills days that capture missed from Minute Cryptic’s own video titles, dated by clue number because the upload date lags"),
@@ -254,6 +258,9 @@ SERIES_NAMES = {
     "everyman": "Observer Everyman",
     "independent": "Independent daily",
     "indysunday": "Independent Sunday",
+    "cyclops": "Private Eye Cyclops",
+    "metro": "Metro cryptic",
+    "globeandmail": "Globe and Mail cryptic",
 }
 
 
