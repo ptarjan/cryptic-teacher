@@ -4608,6 +4608,10 @@
       Saturday. About as hard as the Guardian, with a regular cast of setters —
       Phi, Quince, Eccles, Hippogryph — so their habits are worth learning if you
       like one of them.`],
+    cyclops: ["cyclops", `Cyclops — Private Eye's fortnightly cryptic, and the only
+      one here that swears at you. The wordplay is scrupulously fair, but the
+      surfaces are about whoever is currently in trouble, so a solve leans on the
+      last fortnight's news as much as on the dictionary.`],
     metro: ["metro", `Metro's daily cryptic — the free London paper's commuter
       puzzle, 13x13 and pitched a long way below the broadsheets: short clues,
       everyday words, and a solve that fits a tube journey. A good place to start

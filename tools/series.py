@@ -68,6 +68,15 @@ SERIES = {
         "setter": "Metro",
         "badge": "metro",
     },
+    "cyclops": {
+        # Private Eye ships the grid and the clues but strips the answers -- the
+        # .puz solution grid is one repeated letter -- so these are filled from
+        # fifteensquared's write-ups and carry a solutionSource saying so. The
+        # setter is named in the file, hence no default here.
+        "kind": "Cryptic",
+        "publisher": "Private Eye",
+        "badge": "cyclops",
+    },
     "globeandmail": {
         # The Globe and Mail prints it, but the byline arrives stamped
         # "©News Licensing/Times Media Limited" — it is a Times of London
