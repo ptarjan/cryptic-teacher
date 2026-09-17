@@ -54,6 +54,9 @@ tools/fetch_privateeye.py                    Private Eye’s Cyclops — the gri
                                              the only place they are published
 tools/fetch_metro.py                         the Metro’s cryptic; today’s only, because the
                                              paper keeps no archive
+tools/coverage_report.py                     counts what we hold of every series and names the
+                                             ones that have gone quiet, were never backfilled,
+                                             or are full of holes
 tools/extend_archive.py                      walks the archives backwards to keep the
                                              annotation queue deeper than the job's best week
 tools/fetch_minutecryptic.js                 Minute Cryptic’s daily hints, as a corpus to be
