@@ -68,7 +68,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from apply_solution import check_fill, normalise  # noqa: E402 — the crossing check
-from fetch_puzzle import ENUMERATION, PUZZLE_DIR, read_puzzle_file  # noqa: E402
+from fetch_puzzle import (ENUMERATION, PUZZLE_DIR,  # noqa: E402
+                          is_bare_letters, read_puzzle_file)
 
 ROOT = Path(__file__).resolve().parent.parent
 INDEX = ROOT / "puzzles" / "index.json"
@@ -80,6 +81,17 @@ INDEX = ROOT / "puzzles" / "index.json"
 # 1934-01-18 — but 1934 clears this bar, so what actually refuses it is the
 # date-against-webPublicationDate check in fetch_puzzle.convert().
 EARLIEST_YEAR = 1930
+
+# Series whose LINKED clues are enumerated one light at a time, so a leg's count
+# is its own and not the answer's. Private Eye does this: Cyclops 401's 2-down
+# reads "(& 22dn.) … (4-6)" for its own ten cells while 22-down reads "see 2dn.
+# (6)" for its six. The Guardian and the Independent do the opposite — the whole
+# count on the leading clue, nothing at all on the continuations ("See 3") — so
+# they are held to the strict reading, and a group that has gone wrong there
+# still shows up. That distinction is worth keeping: cryptic-28627's 22-across
+# carried a group the Guardian built out of a mis-resolved "See 22", and its "(6)"
+# matched its own six letters exactly while the group held ten.
+PER_LIGHT_ENUMERATION = {"cyclops"}
 
 
 def content_hash(puzzle):
@@ -146,7 +158,12 @@ def check_shape(puzzle, today, flags):
         solution = e.get("solution")
         if not solution:
             continue
-        if normalise(solution) != solution:
+        # One rule, spelled in the fetcher: a solution is A-Z and nothing else.
+        # convert() now refuses to WRITE anything that fails it — a page serving
+        # a masked answer ("T?S?R", Guardian cryptic 28,691 3-down) is stored
+        # unsolved instead — so anything caught here arrived before that guard
+        # or from a fetcher that does not go through convert().
+        if not is_bare_letters(solution):
             flags.append(("SHAPE", pid, f"{eid}: solution {solution!r} is not bare letters"))
             continue
         checkable.append(e)
@@ -200,7 +217,9 @@ def check_length(puzzle, checkable, flags):
         if any(not s for s in legs):
             continue  # part of the answer is unpublished; nothing to compare yet
         held = sum(len(normalise(s)) for s in legs)
-        if sum(counts) == held or (len(group) > 1 and sum(counts) == len(solution)):
+        per_light = puzzle.get("series") in PER_LIGHT_ENUMERATION
+        if sum(counts) == held or (len(group) > 1 and per_light
+                                   and sum(counts) == len(solution)):
             continue
         where = eid if len(group) == 1 else " + ".join(group)
         holds = f"{held}" if len(group) == 1 else f"{len(solution)} alone or {held} linked"
