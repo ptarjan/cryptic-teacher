@@ -72,12 +72,14 @@ registered, run tools/fetch_puzzle.py --reindex once by hand.
 
 import argparse
 import html
+import itertools
 import json
 import re
 import string
 import struct
 import sys
 import time
+import unicodedata
 import urllib.error
 import urllib.request
 from pathlib import Path
@@ -317,6 +319,14 @@ def fetch_fifteensquared_post(num):
     title (never a substring: 838 must not match a post titled around 8384).
     Zero matches is the normal, expected case for the newest puzzle, which
     the blog — running roughly two issues behind — hasn't covered yet.
+
+    The post must also name this series. Every other daily the blog covers
+    numbers its puzzles in thousands and prints them with a comma, so the
+    digit-boundary guard above does not stop "Guardian Prize 28,434 by Bogus"
+    from answering to Cyclops 434 — 18 of 249 searches came back with one of
+    those. They are a different grid entirely, so requiring the title or slug
+    to say Cyclops (or Private Eye, which a handful of early posts use alone)
+    is what keeps another paper's answers out of this series.
     """
     global _fq_last_request
     wait = FQ_MIN_INTERVAL - (time.monotonic() - _fq_last_request)
@@ -327,8 +337,17 @@ def fetch_fifteensquared_post(num):
     posts = json.loads(data)
     token = re.compile(rf"(?<!\d){num}(?!\d)")
     matches = [p for p in posts
-               if token.search(p.get("slug", "")) or token.search(p["title"]["rendered"])]
+               if (token.search(p.get("slug", "")) or token.search(p["title"]["rendered"]))
+               and is_this_series(p)]
     return matches[0] if matches else None
+
+
+_SERIES_RE = re.compile(r"cyclops|private[\s\-]*eye", re.IGNORECASE)
+
+
+def is_this_series(post):
+    """Whether a fifteensquared post is about Private Eye's Cyclops at all."""
+    return bool(_SERIES_RE.search(post["title"]["rendered"] + " " + post.get("slug", "")))
 
 
 _TAG_RE = re.compile(r"<[^>]+>")
@@ -339,10 +358,38 @@ _TD_RE = re.compile(r"<td[^>]*>(.*?)</td>", re.DOTALL)
 # from the "Clue No / Solution / Clue / Logic" table era (Cyclops 600, 700)
 # don't tag the answer at all — plain text in its own column. Handled where
 # this is used: try <strong>/<b> first, fall back to the cell's bare text.
-_STRONG_RE = re.compile(r"<(?:strong|b)>\s*([^<]*?)\s*</(?:strong|b)>")
+# The tag may carry attributes and may wrap markup rather than bare text —
+# an answer is often a link to its Wikipedia page,
+# <strong><a href="...">DON JUAN</a></strong> — so the body is captured with
+# its tags and stripped afterwards. Matching only bare text here would make
+# every such answer fall through to the whole-cell fallback and swallow the
+# wordplay with it.
+_STRONG_RE = re.compile(r"<(?:strong|b)\b[^>]*>(.*?)</(?:strong|b)>", re.DOTALL)
 # "13", "13ac", "7A" (older template's own number+direction, no separator).
 _KEY_TOKEN_RE = re.compile(r"^(\d+)(ac|dn|a|d)?\.?$", re.IGNORECASE)
 _DIR_FROM_SUFFIX = {"ac": "across", "a": "across", "dn": "down", "d": "down"}
+
+
+_DEL_RE = re.compile(r"<del\b[^>]*>.*?</del>", re.DOTALL)
+# A run of answer tags at the very start of the cell, separated by nothing but
+# whitespace or a line break. A two-word answer is often tagged a word at a
+# time — Cyclops 401 emits "<strong>BETTER</strong> <strong>OFF</strong>", 404
+# "<strong>ROMAN</strong> <strong>POLANSKI </strong>" — so reading only the
+# first tag hands back half the answer. The run must start the cell and must
+# not skip over untagged text, which is what keeps a <strong> inside the
+# wordplay that follows from being mistaken for part of the answer.
+_ANSWER_RUN_RE = re.compile(
+    r"\A(?:\s|<br\s*/?>)*"
+    r"(?:<(?:strong|b)\b[^>]*>.*?</(?:strong|b)>(?:\s|<br\s*/?>)*)+",
+    re.DOTALL)
+
+
+def _leading_answers(cell_html):
+    """The cell's opening run of <strong>/<b> answer tags, or None if it has
+    none — in which case the caller falls back to the cell's bare text, which
+    is how the "Clue No / Solution / Clue / Logic" template prints answers."""
+    m = _ANSWER_RUN_RE.match(cell_html)
+    return m.group(0) if m else None
 
 
 def parse_fifteensquared_rows(content_html):
@@ -377,19 +424,53 @@ def parse_fifteensquared_rows(content_html):
         cells = _TD_RE.findall(row)
         if len(cells) < 2:
             continue
-        key = _TAG_RE.sub("", cells[0]).strip().rstrip(".")
+        # The number cell is hand-typed and shows it: "*1/10" (a star marking a
+        # themed clue), "27/20/ 14/10" (a stray space after a slash),
+        # "13/12ac./24dn." (a dot after every member, not just the last). None
+        # of that changes which lights the row is about, so it is all stripped
+        # before the row is judged to be a clue row at all.
+        key = re.sub(r"\s+", "", html.unescape(_TAG_RE.sub("", cells[0])))
+        key = key.lstrip("*").replace(".", "")
         if not re.match(r"^\d+[a-z]*(/\d+[a-z]*)*$", key, re.IGNORECASE):
-            continue  # not a clue row (e.g. a blank <th> spacer row, or the
-                      # "Clue No / Solution / Clue / Logic" column header row)
-        strong = _STRONG_RE.search(cells[1])
-        raw_answer = strong.group(1) if strong else _TAG_RE.sub("", cells[1]).strip()
-        letters = re.sub(r"[^A-Z]", "", html.unescape(raw_answer).upper())
+            continue  # not a clue row (e.g. a blank <th> spacer row, the
+                      # "Clue No / Solution / Clue / Logic" column header row,
+                      # or a row the blogger left unnumbered
+        # A correction the blogger made in place: the wrong answer struck out,
+        # the right one beside it. <del> is retracted text by definition, so it
+        # is dropped before anything reads the cell.
+        cell = _DEL_RE.sub("", cells[1])
+        answers = _leading_answers(cell)
+        raw_answer = _TAG_RE.sub("", answers if answers is not None else cell).strip()
+        # Answers are printed as words, accents and all — "DÉTENTE". Decompose
+        # first so the accent becomes a separate combining mark and the base
+        # letter survives; stripping non-A-Z straight off drops the É outright
+        # and hands back a DTENTE one letter short of its light.
+        letters = re.sub(r"[^A-Z]", "",
+                         unicodedata.normalize("NFKD", html.unescape(raw_answer).upper()))
         if letters:
             rows.append((key, direction, letters))
     return rows
 
 
-_SEE_RE = re.compile(r"^see\s+(\d+)\s*(ac|dn|down|across)\.?\s*(\([\d,]+\))?$", re.IGNORECASE)
+# A referenced light's whole clue, e.g. "see 4ac.", "See 12 down", "(see 21dn.)
+# (3,6)", "see 13ac. (9)". The direction word is optional: some issues print a
+# bare "see 7." and leave the direction to the solver. The word itself is typed
+# by hand into the puzzle and arrives as "see26ac." with no space and as the
+# typo "se 13ac." (Cyclops 784); matching `se+` with optional space costs
+# nothing, since the pattern is anchored to the entire clue.
+_SEE_RE = re.compile(
+    r"^\(?\s*se+\s*(\d+)\s*(ac|dn|a|d|down|across)?\.?\s*\)?\.?\s*(\([\d,\-]+\))?$",
+    re.IGNORECASE)
+
+
+# The leading light of a linked group names the rest, in answer order, in a
+# prefix on its own clue: "(& 24ac.)", "(& 6dn./22dn.)", "(&14dn.)".
+_AMP_PREFIX_RE = re.compile(r"^\(\s*&\s*([^)]*)\)")
+_AMP_MEMBER_RE = re.compile(r"(\d+)\s*(ac|dn|a|d)?", re.IGNORECASE)
+
+
+def _other_dir(direction):
+    return "down" if direction == "across" else "across"
 
 
 def find_link_groups(puzzle):
@@ -402,17 +483,82 @@ def find_link_groups(puzzle):
       referencer_of: {(num, dir) of a "see..." entry -> (num, dir) it names}
       groups: {leading (num, dir) -> frozenset of every member, leading included}
     """
+    by_id = {(e["number"], e["direction"]) for e in puzzle["entries"]}
     referencer_of = {}
     for e in puzzle["entries"]:
         m = _SEE_RE.match(e["clue"].strip())
         if m:
-            target_dir = "across" if m.group(2).lower() in ("ac", "across") else "down"
+            word = (m.group(2) or "").lower()
+            if word:
+                target_dir = "across" if word in ("ac", "a", "across") else "down"
+            else:
+                # No direction printed. Take whichever direction that number
+                # actually exists in; if both do, we cannot tell, so no group.
+                here = [d for d in ("across", "down") if (int(m.group(1)), d) in by_id]
+                if len(here) != 1:
+                    continue
+                target_dir = here[0]
             referencer_of[(e["number"], e["direction"])] = (int(m.group(1)), target_dir)
 
     groups = {}
     for member, leading in referencer_of.items():
         groups.setdefault(leading, {leading}).add(member)
+
+    # The leading light states its own group too, in the "(& 24ac./6dn.)"
+    # prefix on its clue, and that statement is the one that survives when the
+    # members' own "see 24ac." clues are missing or misprinted. Read it as
+    # well and take the union: the two agree wherever both exist.
+    for e in puzzle["entries"]:
+        m = _AMP_PREFIX_RE.match(e["clue"].strip())
+        if not m:
+            continue
+        leading = (e["number"], e["direction"])
+        members = {leading}
+        for tok in _AMP_MEMBER_RE.finditer(m.group(1)):
+            num, word = int(tok.group(1)), (tok.group(2) or "").lower()
+            if word:
+                member = (num, "across" if word in ("ac", "a") else "down")
+                # The direction printed in the puzzle can name a light that
+                # does not exist — Cyclops 790's 1ac says "(& 20dn.)" over a
+                # grid whose only 20 is across. The grid decides which lights
+                # exist, so an impossible direction falls back to the one
+                # that does; if neither is there the group is dropped below.
+                if member not in by_id and (num, _other_dir(member[1])) in by_id:
+                    member = (num, _other_dir(member[1]))
+            else:
+                here = [d for d in ("across", "down") if (num, d) in by_id]
+                if len(here) != 1:
+                    members = None
+                    break
+                member = (num, here[0])
+            if member not in by_id or member == leading:
+                members = None
+                break
+            members.add(member)
+        if members:
+            groups.setdefault(leading, set()).update(members)
     return referencer_of, {k: frozenset(v) for k, v in groups.items()}
+
+
+def order_group(puzzle_entry, group):
+    """The members of `group` in the order their letters appear in the answer.
+
+    The leading light always comes first — it is the one carrying the clue, so
+    it holds the first word — and the rest follow the order its "(& 24ac.)"
+    prefix names them in. A group whose leader does not name every other member
+    falls back to grid reading order, which is only ever a guess for a group of
+    three or more; the crossing check downstream is what polices it.
+    """
+    leader = (puzzle_entry["number"], puzzle_entry["direction"])
+    rest = [m for m in group if m != leader]
+    m = _AMP_PREFIX_RE.match(puzzle_entry["clue"].strip())
+    if m:
+        named = [int(t.group(1)) for t in _AMP_MEMBER_RE.finditer(m.group(1))]
+        if sorted(named) == sorted(n for n, _ in rest):
+            by_num = {n: (n, d) for n, d in rest}
+            return [leader] + [by_num[n] for n in named]
+    rest.sort(key=lambda k: (k[1], k[0]))
+    return [leader] + rest
 
 
 def solve_from_fifteensquared(puzzle, post):
@@ -454,6 +600,36 @@ def solve_from_fifteensquared(puzzle, post):
         solutions[key] = letters
         return None
 
+    def grid_group_members(num, letters):
+        """The grid's own linked group led by `num`, when its lights' lengths
+        sum to exactly these letters — else None.
+
+        The grid is the authority on which lights a group spans; the blog only
+        supplies the letters, and it gets the key wrong in two ways. It keys a
+        group by its leading light alone ("13A HOT AIR" for 13ac/24ac), and it
+        misnumbers a member outright (Cyclops 806 prints "12/23" for the group
+        the grid links as 12ac/22ac, with a separate 23ac of its own). Exactly
+        one direction of `num` must lead a group that fits, so an ambiguous
+        number falls through to the error path rather than being guessed.
+        """
+        spans = [d for d in ("across", "down")
+                 if groups.get((num, d))
+                 and sum(entries_by_id[m]["length"]
+                         for m in groups[(num, d)]) == len(letters)]
+        if len(spans) != 1:
+            return None
+        return order_group(entries_by_id[(num, spans[0])], groups[(num, spans[0])])
+
+    def assign_across(members, letters, source):
+        pos = 0
+        for member in members:
+            size = entries_by_id[member]["length"]
+            err = assign(member[0], member[1], letters[pos:pos + size], source)
+            if err:
+                return err
+            pos += size
+        return None
+
     for key_raw, heading_dir, letters in rows:
         tokens = key_raw.split("/")
 
@@ -464,9 +640,6 @@ def solve_from_fifteensquared(puzzle, post):
             num = int(m.group(1))
             suffix = m.group(2)
             direction = _DIR_FROM_SUFFIX[suffix.lower()] if suffix else heading_dir
-            if direction is None:
-                return None, (f"'{key_raw}' -> {letters}: no direction — no suffix on the "
-                               "number and no Across/Down heading seen yet")
             # A plain row for a linked entry is not necessarily wrong: the newer
             # template only gives a linked group's own light its real letters via
             # a combined "13/15/17" row (handled below) and leaves every member's
@@ -477,6 +650,35 @@ def solve_from_fifteensquared(puzzle, post):
             # already that light's own correct letters, no combining needed. So a
             # plain row is always just tried directly; assign()'s length check and
             # the crossing check afterwards are what catch it if that is wrong.
+            # The row's Across/Down heading can be wrong for a light the blog
+            # printed under the other half (and "7A" is sometimes the blog's
+            # own typo). If that number exists in only one direction in the
+            # grid, or only one direction has the right length, take that one —
+            # the crossing check downstream still has to agree.
+            # No suffix on the number and no Across/Down heading yet — some
+            # posts open straight into a table with the heading only in the
+            # prose above it. The letters still pin the direction down whenever
+            # exactly one direction of that number is the right length.
+            if direction is None or (num, direction) not in entries_by_id or \
+                    entries_by_id[(num, direction)]["length"] != len(letters):
+                fits = [d for d in ("across", "down")
+                        if entries_by_id.get((num, d), {}).get("length") == len(letters)
+                        and solutions.get((num, d), letters) == letters]
+                if len(fits) == 1:
+                    direction = fits[0]
+                elif direction is None:
+                    return None, (f"'{key_raw}' -> {letters}: no direction — no suffix on the "
+                                   "number, no Across/Down heading yet, and the grid's "
+                                   f"{num}ac/{num}dn do not settle it by length")
+            # Letters that overshoot the light mean the blog keyed a whole
+            # linked group by its leading light — see grid_group_members.
+            if entries_by_id.get((num, direction), {}).get("length") != len(letters):
+                members = grid_group_members(num, letters)
+                if members:
+                    err = assign_across(members, letters, key_raw)
+                    if err:
+                        return None, err
+                    continue
             err = assign(num, direction, letters, key_raw)
             if err:
                 return None, err
@@ -484,40 +686,63 @@ def solve_from_fifteensquared(puzzle, post):
 
         # A linked group, e.g. "13/15/17" (all across) or "16/27ac" (16 takes
         # the row's own direction, 27 overrides it with the explicit suffix).
-        members = []
-        for i, tok in enumerate(tokens):
+        parsed = []
+        for tok in tokens:
             m = _KEY_TOKEN_RE.match(tok)
             if not m:
                 return None, f"'{key_raw}': can't parse group member '{tok}'"
-            n = int(m.group(1))
             suffix = m.group(2)
-            if suffix:
-                d = _DIR_FROM_SUFFIX[suffix.lower()]
-            elif i == 0:
-                d = heading_dir
-            else:
-                d = members[0][1]  # unsuffixed members default to the leading one's direction
-            if d is None:
-                return None, (f"'{key_raw}' -> {letters}: no direction for member '{tok}' — no "
-                               "suffix and no Across/Down heading seen yet")
-            members.append((n, d))
-        leading = members[0]
-        expected = groups.get(leading)
-        if expected is None or expected != frozenset(members):
-            return None, (f"'{key_raw}' -> {letters}: linked group doesn't match the grid "
-                           f"(grid links {_clue_id(*leading)} to "
-                           f"{sorted(_clue_id(*m) for m in groups.get(leading, ()))}, "
-                           f"blog says {sorted(_clue_id(*m) for m in members)})")
-        lengths = [entries_by_id[m]["length"] for m in members]
-        if sum(lengths) != len(letters):
-            return None, (f"'{key_raw}' -> {letters}: {len(letters)} letters but the grid wants "
-                           f"{'+'.join(map(str, lengths))} = {sum(lengths)}")
-        pos = 0
-        for member, length in zip(members, lengths):
-            err = assign(member[0], member[1], letters[pos:pos + length], key_raw)
-            if err:
-                return None, err
-            pos += length
+            parsed.append((int(m.group(1)),
+                           _DIR_FROM_SUFFIX[suffix.lower()] if suffix else None))
+
+        # Direction for an unsuffixed member comes from the GRID's own link
+        # group, never from the leading member's direction: Cyclops links run
+        # across-to-down freely ("8/3" is 8ac linked to 3dn) and fifteensquared
+        # prints bare numbers, so assuming the leader's direction mis-resolved
+        # 160 of the 249 unsolved puzzles. The grid is the authority on which
+        # lights a group contains; the blog only supplies the letters, and
+        # assign()'s length check plus the crossing check still police the join.
+        lead_num, lead_dir = parsed[0]
+        # Every way the group's unsuffixed numbers could land on real grid
+        # entries, filtered by the one thing the blog cannot get wrong: the
+        # letters it printed. An assignment counts only if each member exists
+        # and the members' grid lengths sum to exactly len(letters). Exactly one
+        # survivor is required, so an ambiguous group still fails rather than
+        # guessing, and the crossing and completeness checks police it again.
+        candidates = []
+        for member_dirs in itertools.product(
+                *[[d] if d else ["across", "down"] for _, d in parsed]):
+            members = [(n, d) for (n, _), d in zip(parsed, member_dirs)]
+            if len(set(members)) != len(members):
+                continue
+            if any(m not in entries_by_id for m in members):
+                continue
+            if sum(entries_by_id[m]["length"] for m in members) != len(letters):
+                continue
+            candidates.append(members)
+        # The grid's own "see 4ac." links, where it has them for this group, are
+        # the authority: prefer an assignment that reproduces one exactly.
+        exact = [ms for ms in candidates if groups.get(ms[0]) == frozenset(ms)]
+        if exact:
+            candidates = exact
+        if not candidates:
+            members = grid_group_members(lead_num, letters)
+            if members:
+                err = assign_across(members, letters, key_raw)
+                if err:
+                    return None, err
+                continue
+            guess = [(n, d or heading_dir or "across") for n, d in parsed]
+            sizes = [entries_by_id[m]["length"] for m in guess if m in entries_by_id]
+            return None, (f"'{key_raw}' -> {letters}: {len(letters)} letters but no reading of "
+                          f"this group fits the grid (tried {[_clue_id(*m) for m in guess]}, "
+                          f"lengths {sizes})")
+        if len(candidates) > 1:
+            return None, (f"'{key_raw}' -> {letters}: ambiguous linked group — "
+                          f"{len(candidates)} readings fit the grid")
+        err = assign_across(candidates[0], letters, key_raw)
+        if err:
+            return None, err
 
     missing = [e for e in puzzle["entries"] if (e["number"], e["direction"]) not in solutions]
     if missing:

@@ -7,8 +7,8 @@ window.CRYPTIC_PUZZLES["independent-10051"] = /*JSON-START*/ {
  "number": 10051,
  "series": "independent",
  "name": "Independent cryptic crossword No 10,051",
- "setter": "Phi",
- "date": 1556236800000,
+ "setter": "Eimi",
+ "date": 1546214400000,
  "dimensions": {
   "cols": 15,
   "rows": 15
@@ -16,17 +16,36 @@ window.CRYPTIC_PUZZLES["independent-10051"] = /*JSON-START*/ {
  "sourceUrl": "https://puzzles.independent.co.uk/games/cryptic-crossword-independent/",
  "entries": [
   {
+   "id": "1-across",
+   "number": 1,
+   "direction": "across",
+   "position": {
+    "x": 0,
+    "y": 0
+   },
+   "length": 3,
+   "clue": "See 8",
+   "group": [
+    "8-down",
+    "1-across",
+    "34-across"
+   ],
+   "separatorLocations": {},
+   "solution": "OLD",
+   "annotation": null
+  },
+  {
    "id": "1-down",
    "number": 1,
    "direction": "down",
    "position": {
-    "x": 1,
+    "x": 0,
     "y": 0
    },
    "length": 4,
-   "clue": "Stop avoiding right work in kitchen? (4)",
+   "clue": "Senior citizens love an afterthought (4)",
    "separatorLocations": {},
-   "solution": "BAKE",
+   "solution": "OAPS",
    "annotation": null
   },
   {
@@ -34,13 +53,31 @@ window.CRYPTIC_PUZZLES["independent-10051"] = /*JSON-START*/ {
    "number": 2,
    "direction": "down",
    "position": {
-    "x": 3,
+    "x": 2,
     "y": 0
    },
-   "length": 10,
-   "clue": "Fanciful of minister, say, to have him replacing a Liberal (10)",
+   "length": 5,
+   "clue": "Cook bean, which would be a treat for Homer Simpson (5)",
    "separatorLocations": {},
-   "solution": "CHIMERICAL",
+   "solution": "DONUT",
+   "annotation": null
+  },
+  {
+   "id": "3-across",
+   "number": 3,
+   "direction": "across",
+   "position": {
+    "x": 4,
+    "y": 0
+   },
+   "length": 11,
+   "clue": "Pug died when stuffed with nuts and stodgy food (4,7)",
+   "separatorLocations": {
+    ",": [
+     4
+    ]
+   },
+   "solution": "SUETPUDDING",
    "annotation": null
   },
   {
@@ -48,13 +85,13 @@ window.CRYPTIC_PUZZLES["independent-10051"] = /*JSON-START*/ {
    "number": 3,
    "direction": "down",
    "position": {
-    "x": 5,
+    "x": 4,
     "y": 0
    },
-   "length": 8,
-   "clue": "Contents of Asti carafe replaced - with a different wine (8)",
+   "length": 5,
+   "clue": "With 1A, type that's used in nasty letters (5)",
    "separatorLocations": {},
-   "solution": "FRASCATI",
+   "solution": "STYLE",
    "annotation": null
   },
   {
@@ -62,13 +99,17 @@ window.CRYPTIC_PUZZLES["independent-10051"] = /*JSON-START*/ {
    "number": 4,
    "direction": "down",
    "position": {
-    "x": 7,
+    "x": 6,
     "y": 0
    },
-   "length": 4,
-   "clue": "Salesman dodging repeat success (4)",
+   "length": 8,
+   "clue": "See 11",
+   "group": [
+    "11-across",
+    "4-down"
+   ],
    "separatorLocations": {},
-   "solution": "RISE",
+   "solution": "EIGHTEEN",
    "annotation": null
   },
   {
@@ -76,13 +117,13 @@ window.CRYPTIC_PUZZLES["independent-10051"] = /*JSON-START*/ {
    "number": 5,
    "direction": "down",
    "position": {
-    "x": 9,
+    "x": 8,
     "y": 0
    },
-   "length": 6,
-   "clue": "Look for attention in school (6)",
+   "length": 4,
+   "clue": "One of the Beatles is to become less appealing on the radio (4)",
    "separatorLocations": {},
-   "solution": "SEARCH",
+   "solution": "PAUL",
    "annotation": null
   },
   {
@@ -90,13 +131,13 @@ window.CRYPTIC_PUZZLES["independent-10051"] = /*JSON-START*/ {
    "number": 6,
    "direction": "down",
    "position": {
-    "x": 11,
+    "x": 10,
     "y": 0
    },
-   "length": 4,
-   "clue": "King’s rule keeping up pace (4)",
+   "length": 9,
+   "clue": "Harry possibly supported by Dec's presenting partner, which is incongruous (9)",
    "separatorLocations": {},
-   "solution": "WALK",
+   "solution": "DISSONANT",
    "annotation": null
   },
   {
@@ -104,27 +145,36 @@ window.CRYPTIC_PUZZLES["independent-10051"] = /*JSON-START*/ {
    "number": 7,
    "direction": "down",
    "position": {
-    "x": 13,
+    "x": 12,
     "y": 0
    },
-   "length": 10,
-   "clue": "Dons casual pants, causing outrage (10)",
+   "length": 9,
+   "clue": "Kills time essentially with distance runner on evening shifts (9)",
    "separatorLocations": {},
-   "solution": "SCANDALOUS",
+   "solution": "IMMOLATES",
    "annotation": null
   },
   {
-   "id": "8-across",
+   "id": "8-down",
    "number": 8,
-   "direction": "across",
+   "direction": "down",
    "position": {
-    "x": 0,
-    "y": 1
+    "x": 14,
+    "y": 0
    },
-   "length": 6,
-   "clue": "Almost crazy, that female swimmer (6)",
-   "separatorLocations": {},
-   "solution": "BATHER",
+   "length": 4,
+   "clue": "Star playing Lady Morgan (4,6)",
+   "group": [
+    "8-down",
+    "1-across",
+    "34-across"
+   ],
+   "separatorLocations": {
+    ",": [
+     4
+    ]
+   },
+   "solution": "GARY",
    "annotation": null
   },
   {
@@ -132,17 +182,13 @@ window.CRYPTIC_PUZZLES["independent-10051"] = /*JSON-START*/ {
    "number": 9,
    "direction": "across",
    "position": {
-    "x": 7,
-    "y": 1
+    "x": 0,
+    "y": 2
    },
-   "length": 8,
-   "clue": "Dean’s speciality, getting one man enthralled by church repeatedly (3,5)",
-   "separatorLocations": {
-    ",": [
-     3
-    ]
-   },
-   "solution": "ICEDANCE",
+   "length": 5,
+   "clue": "With 1A, pre-decimal coin discovered in Lancaster (5)",
+   "separatorLocations": {},
+   "solution": "PENNY",
    "annotation": null
   },
   {
@@ -150,18 +196,13 @@ window.CRYPTIC_PUZZLES["independent-10051"] = /*JSON-START*/ {
    "number": 10,
    "direction": "across",
    "position": {
-    "x": 0,
-    "y": 3
+    "x": 6,
+    "y": 2
    },
-   "length": 8,
-   "clue": "Take off the blindfold and I’ll offer some alternatives (3,2,3)",
-   "separatorLocations": {
-    ",": [
-     3,
-     5
-    ]
-   },
-   "solution": "LETMESEE",
+   "length": 9,
+   "clue": "More ghastly Russian spies getting the Queen to eat a certain amount (9)",
+   "separatorLocations": {},
+   "solution": "GRUESOMER",
    "annotation": null
   },
   {
@@ -169,60 +210,49 @@ window.CRYPTIC_PUZZLES["independent-10051"] = /*JSON-START*/ {
    "number": 11,
    "direction": "across",
    "position": {
-    "x": 9,
-    "y": 3
+    "x": 2,
+    "y": 4
    },
    "length": 6,
-   "clue": "Monarch depicted by artist at an angle (6)",
-   "separatorLocations": {},
-   "solution": "RAKING",
-   "annotation": null
-  },
-  {
-   "id": "12-across",
-   "number": 12,
-   "direction": "across",
-   "position": {
-    "x": 0,
-    "y": 5
-   },
-   "length": 6,
-   "clue": "Mountain dweller absolute in dismissing an English father (6)",
-   "separatorLocations": {},
-   "solution": "SHERPA",
-   "annotation": null
-  },
-  {
-   "id": "13-down",
-   "number": 13,
-   "direction": "down",
-   "position": {
-    "x": 1,
-    "y": 5
-   },
-   "length": 10,
-   "clue": "Honour aims when re-expressed? That’s agreeable (10)",
-   "separatorLocations": {},
-   "solution": "HARMONIOUS",
-   "annotation": null
-  },
-  {
-   "id": "14-across",
-   "number": 14,
-   "direction": "across",
-   "position": {
-    "x": 7,
-    "y": 5
-   },
-   "length": 8,
-   "clue": "Had Prince dramatically recalled accepting Princess with a superior attitude? (3-2-3)",
+   "clue": "A good time to be a Harry and score a full round? (6,8)",
+   "group": [
+    "11-across",
+    "4-down"
+   ],
    "separatorLocations": {
-    "-": [
-     3,
-     5
+    ",": [
+     6
     ]
    },
-   "solution": "LAHDIDAH",
+   "solution": "TWENTY",
+   "annotation": null
+  },
+  {
+   "id": "12-down",
+   "number": 12,
+   "direction": "down",
+   "position": {
+    "x": 3,
+    "y": 4
+   },
+   "length": 3,
+   "clue": "Minute number one (3)",
+   "separatorLocations": {},
+   "solution": "WEE",
+   "annotation": null
+  },
+  {
+   "id": "13-across",
+   "number": 13,
+   "direction": "across",
+   "position": {
+    "x": 9,
+    "y": 4
+   },
+   "length": 5,
+   "clue": "Argument about limits of load in place Columbus set sail from with 1A (5)",
+   "separatorLocations": {},
+   "solution": "WORLD",
    "annotation": null
   },
   {
@@ -230,13 +260,13 @@ window.CRYPTIC_PUZZLES["independent-10051"] = /*JSON-START*/ {
    "number": 14,
    "direction": "down",
    "position": {
-    "x": 7,
+    "x": 0,
     "y": 5
    },
    "length": 5,
-   "clue": "Difficulty that’s not soft or trivial (5)",
+   "clue": "Fish in the corner (5)",
    "separatorLocations": {},
-   "solution": "LIGHT",
+   "solution": "ANGLE",
    "annotation": null
   },
   {
@@ -244,13 +274,19 @@ window.CRYPTIC_PUZZLES["independent-10051"] = /*JSON-START*/ {
    "number": 15,
    "direction": "down",
    "position": {
-    "x": 11,
+    "x": 14,
     "y": 5
    },
-   "length": 10,
-   "clue": "Popular period to support dumping leader and to try unifying countries? (10)",
+   "length": 5,
+   "clue": "With 1A, Ancien Régime giving command (5)",
+   "clueItalics": [
+    [
+     9,
+     14
+    ]
+   ],
    "separatorLocations": {},
-   "solution": "INTERMARRY",
+   "solution": "ORDER",
    "annotation": null
   },
   {
@@ -259,16 +295,12 @@ window.CRYPTIC_PUZZLES["independent-10051"] = /*JSON-START*/ {
    "direction": "across",
    "position": {
     "x": 0,
-    "y": 7
+    "y": 6
    },
-   "length": 15,
-   "clue": "Cards inserted in pamphlet hurled into a radar establishment (8,7)",
-   "separatorLocations": {
-    ",": [
-     8
-    ]
-   },
-   "solution": "TRACKINGSTATION",
+   "length": 8,
+   "clue": "Time as defined by Einstein in a certain formulation (8)",
+   "separatorLocations": {},
+   "solution": "NINETIES",
    "annotation": null
   },
   {
@@ -276,55 +308,66 @@ window.CRYPTIC_PUZZLES["independent-10051"] = /*JSON-START*/ {
    "number": 17,
    "direction": "down",
    "position": {
+    "x": 2,
+    "y": 6
+   },
+   "length": 9,
+   "clue": "68-reg Kuga, for example, with stripped gold interior, that's exchanged at midnight (3,3,3)",
+   "separatorLocations": {
+    ",": [
+     3,
+     6
+    ]
+   },
+   "solution": "NEWFOROLD",
+   "annotation": null
+  },
+  {
+   "id": "18-down",
+   "number": 18,
+   "direction": "down",
+   "position": {
+    "x": 4,
+    "y": 6
+   },
+   "length": 9,
+   "clue": "Mates larking around under canvas in books, with 1A (9)",
+   "separatorLocations": {},
+   "solution": "TESTAMENT",
+   "annotation": null
+  },
+  {
+   "id": "19-across",
+   "number": 19,
+   "direction": "across",
+   "position": {
     "x": 9,
+    "y": 6
+   },
+   "length": 6,
+   "clue": "With 1A, one who painted Mother Cradling Son (6)",
+   "clueItalics": [
+    [
+     25,
+     19
+    ]
+   ],
+   "separatorLocations": {},
+   "solution": "MASTER",
+   "annotation": null
+  },
+  {
+   "id": "20-down",
+   "number": 20,
+   "direction": "down",
+   "position": {
+    "x": 8,
     "y": 7
    },
    "length": 8,
-   "clue": "Problematic mark of success is penned by left hand (8)",
+   "clue": "One has certain rights to cover such a shelter with water (8)",
    "separatorLocations": {},
-   "solution": "TICKLISH",
-   "annotation": null
-  },
-  {
-   "id": "18-across",
-   "number": 18,
-   "direction": "across",
-   "position": {
-    "x": 0,
-    "y": 9
-   },
-   "length": 8,
-   "clue": "Upright holy man behind sentimentality about upset pal (8)",
-   "separatorLocations": {},
-   "solution": "GOALPOST",
-   "annotation": null
-  },
-  {
-   "id": "19-down",
-   "number": 19,
-   "direction": "down",
-   "position": {
-    "x": 5,
-    "y": 9
-   },
-   "length": 6,
-   "clue": "Struggle of French in language exam? (6)",
-   "separatorLocations": {},
-   "solution": "ORDEAL",
-   "annotation": null
-  },
-  {
-   "id": "20-across",
-   "number": 20,
-   "direction": "across",
-   "position": {
-    "x": 9,
-    "y": 9
-   },
-   "length": 6,
-   "clue": "Light red coating everyone initially applied to 4 (6)",
-   "separatorLocations": {},
-   "solution": "CERISE",
+   "solution": "PATENTEE",
    "annotation": null
   },
   {
@@ -333,40 +376,30 @@ window.CRYPTIC_PUZZLES["independent-10051"] = /*JSON-START*/ {
    "direction": "across",
    "position": {
     "x": 0,
-    "y": 11
+    "y": 8
    },
    "length": 6,
-   "clue": "Child keeping letter back is touched (6)",
+   "clue": "Frequently leaving Suffolk resort, most depressed (6)",
    "separatorLocations": {},
-   "solution": "KISSED",
+   "solution": "LOWEST",
    "annotation": null
   },
   {
-   "id": "22-down",
+   "id": "22-across",
    "number": 22,
-   "direction": "down",
-   "position": {
-    "x": 3,
-    "y": 11
-   },
-   "length": 4,
-   "clue": "Place best for climbing (4)",
-   "separatorLocations": {},
-   "solution": "SPOT",
-   "annotation": null
-  },
-  {
-   "id": "23-across",
-   "number": 23,
    "direction": "across",
    "position": {
     "x": 7,
-    "y": 11
+    "y": 8
    },
    "length": 8,
-   "clue": "Folk-singing etc completely overwhelmed by dreadful lines (8)",
-   "separatorLocations": {},
-   "solution": "BALLADRY",
+   "clue": "Bandits regularly thrash around, which is a bit off (3,5)",
+   "separatorLocations": {
+    ",": [
+     3
+    ]
+   },
+   "solution": "BADTASTE",
    "annotation": null
   },
   {
@@ -374,27 +407,27 @@ window.CRYPTIC_PUZZLES["independent-10051"] = /*JSON-START*/ {
    "number": 23,
    "direction": "down",
    "position": {
-    "x": 7,
-    "y": 11
+    "x": 11,
+    "y": 8
    },
-   "length": 4,
-   "clue": "Fish out of river is a ray (4)",
+   "length": 3,
+   "clue": "Time had by 1D with 1A (3)",
    "separatorLocations": {},
-   "solution": "BEAM",
+   "solution": "AGE",
    "annotation": null
   },
   {
-   "id": "24-down",
+   "id": "24-across",
    "number": 24,
-   "direction": "down",
+   "direction": "across",
    "position": {
-    "x": 13,
-    "y": 11
+    "x": 1,
+    "y": 10
    },
-   "length": 4,
-   "clue": "Topless dress to startle (4)",
+   "length": 5,
+   "clue": "With 1A, one's rather timid with Arabian state (5)",
    "separatorLocations": {},
-   "solution": "ROCK",
+   "solution": "WOMAN",
    "annotation": null
   },
   {
@@ -402,27 +435,152 @@ window.CRYPTIC_PUZZLES["independent-10051"] = /*JSON-START*/ {
    "number": 25,
    "direction": "across",
    "position": {
-    "x": 0,
-    "y": 13
+    "x": 7,
+    "y": 10
    },
-   "length": 8,
-   "clue": "Robots running out in the morning, leading to American cheers (8)",
+   "length": 6,
+   "clue": "Allude to snaffling cigarette end to make spliff (6)",
    "separatorLocations": {},
-   "solution": "AUTOMATA",
+   "solution": "REEFER",
    "annotation": null
   },
   {
-   "id": "26-across",
+   "id": "26-down",
    "number": 26,
+   "direction": "down",
+   "position": {
+    "x": 10,
+    "y": 10
+   },
+   "length": 5,
+   "clue": "Confronts what you'd expect to see in a regular haunt with 1A (5)",
+   "separatorLocations": {},
+   "solution": "FACES",
+   "annotation": null
+  },
+  {
+   "id": "27-down",
+   "number": 27,
+   "direction": "down",
+   "position": {
+    "x": 12,
+    "y": 10
+   },
+   "length": 5,
+   "clue": "Watery fluid in said space (5)",
+   "separatorLocations": {},
+   "solution": "RHEUM",
+   "annotation": null
+  },
+  {
+   "id": "28-down",
+   "number": 28,
+   "direction": "down",
+   "position": {
+    "x": 0,
+    "y": 11
+   },
+   "length": 4,
+   "clue": "Constant rivals in Glasgow, with 1A (4)",
+   "separatorLocations": {},
+   "solution": "FIRM",
+   "annotation": null
+  },
+  {
+   "id": "29-down",
+   "number": 29,
+   "direction": "down",
+   "position": {
+    "x": 6,
+    "y": 11
+   },
+   "length": 4,
+   "clue": "Something recorded by 26, for example, is a mere trifle with 1A (4)",
+   "separatorLocations": {},
+   "solution": "SONG",
+   "annotation": null
+  },
+  {
+   "id": "30-down",
+   "number": 30,
+   "direction": "down",
+   "position": {
+    "x": 14,
+    "y": 11
+   },
+   "length": 4,
+   "clue": "Won't dance in more established area with 1A (4)",
+   "separatorLocations": {},
+   "solution": "TOWN",
+   "annotation": null
+  },
+  {
+   "id": "31-across",
+   "number": 31,
    "direction": "across",
    "position": {
-    "x": 9,
-    "y": 13
+    "x": 0,
+    "y": 12
    },
-   "length": 6,
-   "clue": "Collided with small lorry (6)",
+   "length": 9,
+   "clue": "Cleared up as routine do got out of control (6,3)",
+   "separatorLocations": {
+    ",": [
+     6
+    ]
+   },
+   "solution": "IRONEDOUT",
+   "annotation": null
+  },
+  {
+   "id": "32-across",
+   "number": 32,
+   "direction": "across",
+   "position": {
+    "x": 10,
+    "y": 12
+   },
+   "length": 5,
+   "clue": "Statement showing company's not in the red - quite the opposite (5)",
    "separatorLocations": {},
-   "solution": "STRUCK",
+   "solution": "CREDO",
+   "annotation": null
+  },
+  {
+   "id": "33-across",
+   "number": 33,
+   "direction": "across",
+   "position": {
+    "x": 0,
+    "y": 14
+   },
+   "length": 11,
+   "clue": "Middlesex and Derbyshire openers stumped by cricket commentator's complaint (3,8)",
+   "separatorLocations": {
+    ",": [
+     3
+    ]
+   },
+   "solution": "MADSTAGGERS",
+   "annotation": null
+  },
+  {
+   "id": "34-across",
+   "number": 34,
+   "direction": "across",
+   "position": {
+    "x": 12,
+    "y": 14
+   },
+   "length": 3,
+   "clue": "See 8",
+   "group": [
+    "8-down",
+    "1-across",
+    "34-across"
+   ],
+   "separatorLocations": {},
+   "solution": "MAN",
    "annotation": null
   }
  ]

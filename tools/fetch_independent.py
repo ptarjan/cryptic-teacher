@@ -86,6 +86,27 @@ NS = "{http://crossword.info/xml/rectangular-puzzle}"
 DAILY_MIN = 10000
 
 
+# Dates whose puzzle number the source prints wrong. The number is typed by
+# hand and the feed is keyed by date, so a mistyped one would file a real
+# puzzle under a number that belongs to another day — or, where that number is
+# already held, drop the puzzle as a duplicate. The sequence decides, not the
+# title: each date below is a publishing day (Monday–Saturday) whose immediate
+# neighbours on disk are the number before it and the number after it, so there
+# is exactly one number the day can hold. Keyed by the fetcher's date key, with
+# what the title prints and the two puzzles that bracket it.
+NUMBER_FIXES = {
+    "190306": 10107,   # prints "10,007"; 10,106 Tue 5 Mar, 10,108 Thu 7 Mar
+    "190426": 10151,   # prints "10,051"; 10,150 Thu 25 Apr, 10,152 Sat 27 Apr
+    "191114": 10324,   # prints "10,234"; 10,323 Wed 13 Nov, 10,325 Fri 15 Nov
+    "220421": 11083,   # prints "10,083"; 11,082 Wed 20 Apr, 11,084 Fri 22 Apr
+    "221013": 11233,   # prints "11,223"; 11,232 Wed 12 Oct, 11,234 Fri 14 Oct
+    # Prints "11,296", the number the day before already holds. Not a repeat of
+    # that day: different setter (Hoskins, not Grecian), different grid,
+    # different clues. 11,296 Mon 26 Dec, 11,298 Wed 28 Dec.
+    "221227": 11297,
+}
+
+
 def series_for(number):
     return "independent" if number >= DAILY_MIN else "indysunday"
 
@@ -150,10 +171,16 @@ def parse(xml_bytes, ymd):
     root = ET.fromstring(xml_bytes)
     puz = root.find(f".//{NS}rectangular-puzzle")
     title = (puz.findtext(f"{NS}metadata/{NS}title") or "").strip()
-    m = re.match(r"No\.?\s*([\d,]+)\s*(?:by\s*(.+))?$", title)
+    # The title is typed by hand and arrives mistyped in four ways: "No."
+    # dropped entirely ("1,514 by Raich"), a comma for its period ("No, 10,407
+    # by Knut"), a stray pipe in front of it ("|No. 10,242 by Serpent"), and a
+    # space inside the digits ("No. 1, 661 by Hoskins"). All are source-side
+    # typos, not format changes, so the pipe, the prefix and its punctuation
+    # and whitespace inside the digits are all optional.
+    m = re.match(r"\|?\s*(?:No[.,]?\s*)?(\d[\d,\s]*\d|\d)\s*(?:by\s*(.+))?$", title)
     if not m:
         raise ValueError(f"unrecognised title {title!r}")
-    number = int(m.group(1).replace(",", ""))
+    number = NUMBER_FIXES.get(ymd) or int(re.sub(r"[,\s]", "", m.group(1)))
     setter = (m.group(2) or "").strip() or "Unknown"
 
     grid = puz.find(f"{NS}crossword/{NS}grid")
@@ -178,13 +205,18 @@ def parse(xml_bytes, ymd):
             # entry they refer to is built from the clue that owns the word.
             if clue.get("is-link"):
                 continue
-            # A period where a comma belongs — "(6.2)" for a two-word answer.
-            # Setters' software emits it now and then, and no cryptic enumeration
-            # uses a period as a real separator, so it is a typo and not a format.
-            # Normalised at the source rather than papered over downstream:
-            # int("6.2") raised, and because one bad clue aborts the whole parse,
-            # the Independent on Sunday No 1,858 was simply absent (2026-08-19).
-            fmt = (clue.get("format") or "").replace(".", ",")
+            # A comma is the only real separator in an enumeration besides the
+            # hyphen, but the source types three other things in its place: a
+            # period ("6.2"), a slash ("2/2") and a bare space ("5 2"). None of
+            # them mean anything in a cryptic enumeration, so all three are
+            # typos and are normalised to a comma at the source rather than
+            # papered over downstream: int("6.2") raised, and because one bad
+            # clue aborts the whole parse the puzzle was simply absent —
+            # Independent on Sunday No 1,858 (2026-08-19), No 11,637 and
+            # No 12,317. The collapse catches "4, 2", where the space follows a
+            # comma that is already there.
+            fmt = re.sub(r",+", ",",
+                         re.sub(r"[./\s]", ",", (clue.get("format") or "").strip()))
             # A linked clue's number can carry a trailing A/D ("7/21A/11") when the
             # bare number would collide with an unrelated clue elsewhere in the same
             # grid — the compiler's own disambiguation, not data we need: direction

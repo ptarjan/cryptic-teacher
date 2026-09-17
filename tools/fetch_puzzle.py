@@ -261,7 +261,13 @@ def plain_text(s):
 def extract_crossword_data(page_html):
     m = re.search(r'<gu-island name="CrosswordComponent"[^>]*props="([^"]*)"', page_html)
     if not m:
-        raise SystemExit("Could not find CrosswordComponent data in page")
+        # Not a SystemExit: walk()'s "malformed page etc. — keep going" handler
+        # only catches Exception. A SystemExit here (found live 2026-09-17,
+        # probing the pre-digitization archive floor) escapes that handler and
+        # kills the whole backfill/extend walk on the first old-format page,
+        # silently truncating every run after it to "whatever came before this
+        # number" with no error attributed to the number that actually failed.
+        raise ValueError("Could not find CrosswordComponent data in page")
     return json.loads(html.unescape(m.group(1)))["data"]
 
 
@@ -691,6 +697,12 @@ def backfill(count, series="cryptic"):
     return walk(range(latest, latest - count, -1), series)
 
 
+# Wider than any run of numbers a paper skips (the Independent's biggest is 1,
+# the Guardian's 3) and far narrower than the 20,000 between the stray 1930s
+# puzzles and the continuous archive.
+ARCHIVE_GAP = 50
+
+
 def extend(count, series="cryptic"):
     """Fetch `count` puzzles of one series OLDER than the oldest we hold.
 
@@ -703,7 +715,20 @@ def extend(count, series="cryptic"):
     have = on_disk_numbers(series)
     if not have:
         return backfill(count, series)
-    oldest = min(have)
+    # The floor of the RUN, not the smallest number on disk. The Guardian's
+    # online archive is not one block: it hosts a handful of 1930s puzzles —
+    # cryptic-1183 is one — twenty thousand numbers below where the continuous
+    # run starts. min() therefore aimed the walk at 1182 and spent the whole
+    # run 404ing through empty space, never touching the real frontier.
+    #
+    # Walking down from the newest and stopping at the first gap wider than a
+    # paper's own skipped numbers also makes a hole self-healing: extend starts
+    # just above it, fills it, and the next run carries on past it.
+    oldest = have[-1]
+    for n in reversed(have[:-1]):
+        if oldest - n > ARCHIVE_GAP:
+            break
+        oldest = n
     return walk(range(oldest - 1, max(oldest - 1 - count, 0), -1), series, "extend")
 
 
