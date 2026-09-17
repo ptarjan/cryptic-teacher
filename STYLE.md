@@ -238,6 +238,22 @@ The post-mortem worth remembering: STOREY *felt* like the best clue in the set
 because the padding is what made the surface smooth. Surface quality is not
 evidence of soundness.
 
+### A link word that orders the pieces is an indicator (solver report 2026-09-16)
+"Post on half of wage" (30099 25A) filed `on` under `linkWords`, where the app
+tells the solver the word "contributes no letters of its own" — and `on` is the
+only thing in that clue saying why the post ends up at the BACK of the answer:
+across the grid, what is written on something has been reached after it; down, it
+sits above it. A solver reported it as an indicator and was right. The test is
+mechanical, and is the check: where the two blocks either side of the joiner come
+out in the opposite order to the clue, and no indicator between them could have
+done it, the joiner did. Move it to `indicators` and give it an `indicatorNotes`
+line saying which piece it sends second.
+`check_link_word_is_not_an_order()` warns, and is unscoped — the parse is ours
+even when the clue is the Guardian's. `on` and `after` stay in
+`EQUIVALENCE_LINKS`, because joining really is what they do most of the time: 65
+entries in the corpus declare a positional joiner as a link word and only three
+of them were ordering anything.
+
 ### The blocks already told them (feedback 2026-07-29)
 Paul's words: "When you basically give the whole answer in the building blocks
 you don't need to have the full walkthrough." The `blocks[]` rung already gives
@@ -284,8 +300,14 @@ the thing being taught, and shuffling is not the mechanism here.
 ### An indicator that does its job loosely: say so (2026-08-25)
 The mirror of the definition rule below. When an indicator is vague, stretched or
 only conventionally understood, name the imprecision in `indicatorNotes` in those
-words. A learner who cannot find a precise instruction needs to be told the
-looseness is the setter's, not a failure of their solving. Silence reads as
+words. Naming the looseness is not the same as handing the choice to the grid:
+the crossings settle only what the clue genuinely leaves open — which article,
+which colour, which of two spellings — never what the other pieces settle. "Half
+of wage" does not say which half, and only one half joins onto the rest to make a
+word, so "the clue leaves it to the crossing letters" was both wrong and a lesson
+in not parsing (solver report, 30099 25A, 2026-09-16). A learner who cannot find
+a precise instruction needs to be told the looseness is the setter's, not a
+failure of their solving. Silence reads as
 significance, which is also why a signal that carries no wordplay at all —
 capitalisation for surface effect, a quoted phrase, odd punctuation — is worth
 retiring out loud rather than leaving to be hunted.
