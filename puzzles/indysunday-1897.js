@@ -1106,7 +1106,7 @@ window.CRYPTIC_PUZZLES["indysunday-1897"] = /*JSON-START*/ {
      "coming round"
     ],
     "indicatorNotes": {
-     "A little": "only a small piece of what follows is on offer, never the whole of it",
+     "A little": "only a small piece of what follows is on offer, and it comes as one unbroken run of the letters already printed there",
      "coming round": "something that comes round turns to face the other way, so the letters are read in reverse"
     },
     "blocks": [

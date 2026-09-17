@@ -882,6 +882,8 @@ const ABBREVIATIONS = {
   "second",
   "seconds",
   "section",
+  "shilling",
+  "shillings",
   "sierra",
   "singular",
   "small",

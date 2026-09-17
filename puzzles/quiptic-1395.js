@@ -77,7 +77,7 @@ window.CRYPTIC_PUZZLES["quiptic-1395"] = /*JSON-START*/ {
      "Part of"
     ],
     "indicatorNotes": {
-     "Part of": "Taking a part means taking a section and leaving the rest, so only some of the letters that follow are wanted."
+     "Part of": "Taking a part means taking a section as it stands, so one unbroken run of the letters that follow is what is wanted."
     },
     "blocks": [
      {
@@ -339,7 +339,7 @@ window.CRYPTIC_PUZZLES["quiptic-1395"] = /*JSON-START*/ {
      "over"
     ],
     "indicatorNotes": {
-     "Some": "Asking for some of a thing asks for a portion, not the whole of the words that follow.",
+     "Some": "Some of a thing is a part of it left as it was found, so an unbroken run of the letters that follow is what is wanted.",
      "over": "Something turned over lies the other way up, so the run of letters is read back against the direction it was written."
     },
     "subReversals": [

@@ -862,7 +862,7 @@ window.CRYPTIC_PUZZLES["everyman-4160"] = /*JSON-START*/ {
      "A little"
     ],
     "indicatorNotes": {
-     "A little": "A little of something is a portion of it, so only a slice of the words that follow is being offered."
+     "A little": "A little of something is a portion of it left as it stands, so one unbroken run of the letters that follow is what is being offered."
     },
     "linkWords": [
      "that's"

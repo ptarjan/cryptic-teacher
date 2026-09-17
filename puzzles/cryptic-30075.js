@@ -566,7 +566,7 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
      "bit of"
     ],
     "indicatorNotes": {
-     "bit of": "A bit of something is a piece cut from inside it, so only part of the words that follow is used."
+     "bit of": "A bit of something is a part of it lifted out whole, so what is wanted is an unbroken run of the letters that follow, exactly as they are printed."
     },
     "blocks": [
      {
