@@ -498,7 +498,18 @@ def find_link_groups(puzzle):
     with no parenthesis, though some older issues also tack their own
     sub-enumeration on afterwards, e.g. "see 13ac. (9)".
 
-    Returns (referencer_of, groups):
+    The two statements can CONTRADICT each other, and then the leading light's
+    own prefix wins. Five puzzles misprint the number in a continuation's "see"
+    — Cyclops 683's 23dn reads "see 9ac." when 11ac's own clue says "(& 23dn.)"
+    and the answer is SECOND WAVE, 9ac being a finished four-letter clue of its
+    own. Honouring both put 23dn in two groups at once and left the legs naming
+    different sets, which is what tools/validate_annotations.py rejects. A
+    continuation that a leading light has already claimed keeps the claim and
+    its own "see" is discarded; one that nobody has claimed still forms a group,
+    so a leader whose prefix names only some of its members is unaffected.
+
+    Returns (referencer_of, groups), with referencer_of holding only the "see"
+    links actually honoured:
       referencer_of: {(num, dir) of a "see..." entry -> (num, dir) it names}
       groups: {leading (num, dir) -> frozenset of every member, leading included}
     """
@@ -519,14 +530,11 @@ def find_link_groups(puzzle):
                 target_dir = here[0]
             referencer_of[(e["number"], e["direction"])] = (int(m.group(1)), target_dir)
 
+    # The leading light states its own group in the "(& 24ac./6dn.)" prefix on
+    # its clue, and that statement is the one that survives when the members'
+    # own "see 24ac." clues are missing or misprinted — so it is read FIRST and
+    # the "see" links are fitted around it below.
     groups = {}
-    for member, leading in referencer_of.items():
-        groups.setdefault(leading, {leading}).add(member)
-
-    # The leading light states its own group too, in the "(& 24ac./6dn.)"
-    # prefix on its clue, and that statement is the one that survives when the
-    # members' own "see 24ac." clues are missing or misprinted. Read it as
-    # well and take the union: the two agree wherever both exist.
     for e in puzzle["entries"]:
         m = _AMP_PREFIX_RE.match(e["clue"].strip())
         if not m:
@@ -556,6 +564,18 @@ def find_link_groups(puzzle):
             members.add(member)
         if members:
             groups.setdefault(leading, set()).update(members)
+
+    # Now the continuations. A light some leader's prefix already names keeps
+    # that group and its own "see" is dropped; anything else forms or joins a
+    # group as before. Dropped rather than merged because the union would be a
+    # third light in a two-light answer — 683's SECOND WAVE does not gain 9ac's
+    # GAIN just because 23dn misprints the number it points at.
+    claimed = {light for members in groups.values() for light in members}
+    for member, leading in list(referencer_of.items()):
+        if member in claimed:
+            del referencer_of[member]
+            continue
+        groups.setdefault(leading, {leading}).add(member)
     return referencer_of, {k: frozenset(v) for k, v in groups.items()}
 
 
@@ -607,6 +627,32 @@ def link_groups(puzzle):
         if len(members) < 2 or any(m not in by_key for m in members):
             continue
         ids = [f"{n}-{d}" for n, d in order_group(by_key[leading], members)]
+        settled = {frozenset(out[eid]) for eid in ids if eid in out}
+
+        # Two lights can each name the other — Cyclops 464's 7ac says "(& 25dn.)"
+        # and 25dn says "(& 7ac.)", both carrying a full clue, for POOR TASTE.
+        # That is agreement about the group and silence about which light leads
+        # it, so the members stand and the first arrangement reached is kept.
+        # Only membership is load-bearing: the app groups by annotation.linkedTo,
+        # check_length sums over the group, and validate_annotations compares the
+        # legs to each other, so none of them can see the order.
+        if settled == {frozenset(ids)}:
+            continue
+
+        # Overlapping DIFFERENT groups is the real contradiction, and it would
+        # leave the legs naming different sets — the asymmetry
+        # validate_annotations.py rejects. find_link_groups has already settled
+        # the misprint it can name, so what is left is prose nothing here reads.
+        # Both groups go: one silently winning on dict order is how a group its
+        # own members disagree with got written in the first place.
+        if settled:
+            for stale in settled:
+                for eid in stale:
+                    out.pop(eid, None)
+            print(f"WARNING: {puzzle.get('id', '?')}: {' + '.join(ids)} overlaps "
+                  f"{' / '.join(' + '.join(sorted(c)) for c in settled)} — "
+                  "linking neither", file=sys.stderr)
+            continue
         for eid in ids:
             out[eid] = ids
     return out

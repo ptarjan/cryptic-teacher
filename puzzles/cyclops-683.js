@@ -161,10 +161,6 @@ window.CRYPTIC_PUZZLES["cyclops-683"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Once more tossing away a good poll victory (4)",
-   "group": [
-    "9-across",
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "GAIN",
    "annotation": null

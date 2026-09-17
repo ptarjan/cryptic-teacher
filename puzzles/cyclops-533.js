@@ -174,8 +174,8 @@ window.CRYPTIC_PUZZLES["cyclops-533"] = /*JSON-START*/ {
    "length": 5,
    "clue": "see 24ac. (5)",
    "group": [
-    "10-across",
-    "29-across"
+    "24-across",
+    "10-across"
    ],
    "separatorLocations": {},
    "solution": "TRICK",

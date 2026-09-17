@@ -1749,8 +1749,28 @@ def check_groups_agree(puzzle, errors):
     left in place it would say "linked" about a clue that is not. Two legs with
     different lists show up only as an answer-letters error on one leg and not
     the other, with nothing pointing at the group.
+
+    One shape is exempt, and it is the paper's doing rather than a fetch's: a
+    light can end MORE THAN ONE answer. Cryptic 28,687's 1-down is CLUB, the
+    second word of both GOLDFISH CLUB (8,4) at 19-down and MONDAY CLUB (6,4) at
+    22-down, and its own clue reads "See 19, 22" — it names both. `group` is one
+    list, so whichever it holds, the other leading clue disagrees with it and
+    always will. The exemption is drawn on that clue and nothing else: a
+    continuation naming several leading clues is in several groups, so a leader
+    it names is allowed to disagree. A continuation naming ONE leader is not
+    covered, which is what keeps the check's teeth — Cyclops 683's 23-down reads
+    "see 9ac." while 11-across claims it, names one leader, and still errors.
+    One entry in the corpus qualifies (2026-09-17).
     """
     by_id = {e["id"]: e for e in puzzle["entries"]}
+
+    def leaders_named(entry):
+        """How many leading clues a bare continuation ("See 19, 22") points at.
+        Zero for any clue with words of its own — that is not a continuation."""
+        m = re.fullmatch(r"\s*See\s+([\d,\s and]+?)\.?\s*", entry.get("clue") or "",
+                         re.IGNORECASE)
+        return len(re.findall(r"\d+", m.group(1))) if m else 0
+
     for e in puzzle["entries"]:
         group = e.get("group")
         if group is None:
@@ -1766,7 +1786,7 @@ def check_groups_agree(puzzle, errors):
             other = by_id.get(gid)
             if other is None:
                 errors.append(f"{e['id']}: group names {gid}, which is not in this puzzle")
-            elif other.get("group") != group:
+            elif other.get("group") != group and leaders_named(other) < 2:
                 errors.append(f"{e['id']}: group {group} disagrees with {gid}'s "
                               f"{other.get('group')} — the two legs of a linked clue "
                               f"must name the same entries in the same order")
