@@ -25,6 +25,11 @@ window.CRYPTIC_PUZZLES["cyclops-654"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 23dn./26ac.) Orgasm complete, rotate and go back to the start (4)",
+   "group": [
+    "1-down",
+    "23-down",
+    "26-across"
+   ],
    "separatorLocations": {},
    "solution": "COME",
    "annotation": null
@@ -53,6 +58,11 @@ window.CRYPTIC_PUZZLES["cyclops-654"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 4/25dn.) Tory ex-cabinet minister failing, as feared  as will pleas to politicians to sort Brexit? (4,2)",
+   "group": [
+    "3-down",
+    "4-down",
+    "25-down"
+   ],
    "separatorLocations": {},
    "solution": "FALLON",
    "annotation": null
@@ -67,6 +77,11 @@ window.CRYPTIC_PUZZLES["cyclops-654"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 3dn. (4)",
+   "group": [
+    "3-down",
+    "4-down",
+    "25-down"
+   ],
    "separatorLocations": {},
    "solution": "DEAF",
    "annotation": null
@@ -249,6 +264,10 @@ window.CRYPTIC_PUZZLES["cyclops-654"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "(& 24ac.) New sort of discouragement, or else covering up sin ultimately: Weinstein's secret weapon? (3-10)",
+   "group": [
+    "16-across",
+    "24-across"
+   ],
    "separatorLocations": {},
    "solution": "NONDISCLOSURE",
    "annotation": null
@@ -361,6 +380,11 @@ window.CRYPTIC_PUZZLES["cyclops-654"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 1dn. (4)",
+   "group": [
+    "1-down",
+    "23-down",
+    "26-across"
+   ],
    "separatorLocations": {},
    "solution": "FULL",
    "annotation": null
@@ -375,6 +399,10 @@ window.CRYPTIC_PUZZLES["cyclops-654"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "see 16ac.",
+   "group": [
+    "16-across",
+    "24-across"
+   ],
    "separatorLocations": {},
    "solution": "AGREEMENT",
    "annotation": null
@@ -389,6 +417,11 @@ window.CRYPTIC_PUZZLES["cyclops-654"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 3dn. (4)",
+   "group": [
+    "3-down",
+    "4-down",
+    "25-down"
+   ],
    "separatorLocations": {},
    "solution": "EARS",
    "annotation": null
@@ -403,6 +436,11 @@ window.CRYPTIC_PUZZLES["cyclops-654"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 1dn. (6)",
+   "group": [
+    "1-down",
+    "23-down",
+    "26-across"
+   ],
    "separatorLocations": {},
    "solution": "CIRCLE",
    "annotation": null

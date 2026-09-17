@@ -25,6 +25,10 @@ window.CRYPTIC_PUZZLES["cyclops-626"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 25dn.) His main concern being the NHS, Corbyn, for one, will have nurses initially stuck in basic accommodation (6)",
+   "group": [
+    "1-down",
+    "25-down"
+   ],
    "separatorLocations": {},
    "solution": "JEREMY",
    "annotation": null
@@ -39,6 +43,10 @@ window.CRYPTIC_PUZZLES["cyclops-626"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 16dn.) Maybe Sean's getting shafted by contrary accountants (4)",
+   "group": [
+    "2-down",
+    "16-down"
+   ],
    "separatorLocations": {},
    "solution": "BEAN",
    "annotation": null
@@ -151,6 +159,10 @@ window.CRYPTIC_PUZZLES["cyclops-626"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 20dn. (4)",
+   "group": [
+    "20-down",
+    "9-down"
+   ],
    "separatorLocations": {},
    "solution": "DISC",
    "annotation": null
@@ -249,6 +261,10 @@ window.CRYPTIC_PUZZLES["cyclops-626"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "see 2dn. (8)",
+   "group": [
+    "2-down",
+    "16-down"
+   ],
    "separatorLocations": {},
    "solution": "COUNTERS",
    "annotation": null
@@ -319,6 +335,10 @@ window.CRYPTIC_PUZZLES["cyclops-626"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 9dn.) Being old, Di scarcely hides record success (4)",
+   "group": [
+    "20-down",
+    "9-down"
+   ],
    "separatorLocations": {},
    "solution": "GOLD",
    "annotation": null
@@ -389,6 +409,10 @@ window.CRYPTIC_PUZZLES["cyclops-626"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 1dn. (4)",
+   "group": [
+    "1-down",
+    "25-down"
+   ],
    "separatorLocations": {},
    "solution": "HUNT",
    "annotation": null

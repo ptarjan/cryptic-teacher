@@ -123,6 +123,10 @@ window.CRYPTIC_PUZZLES["cyclops-666"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "see 13ac. (12)",
+   "group": [
+    "13-across",
+    "7-down"
+   ],
    "separatorLocations": {},
    "solution": "INTERFERENCE",
    "annotation": null
@@ -137,6 +141,10 @@ window.CRYPTIC_PUZZLES["cyclops-666"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 14dn.) US president, daily rumour-spreader (4)",
+   "group": [
+    "8-across",
+    "14-down"
+   ],
    "separatorLocations": {},
    "solution": "BUSH",
    "annotation": null
@@ -207,6 +215,10 @@ window.CRYPTIC_PUZZLES["cyclops-666"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "(& 7dn.) Sinner messed around with user interface, which gave Trump an advantage? (7)",
+   "group": [
+    "13-across",
+    "7-down"
+   ],
    "separatorLocations": {},
    "solution": "RUSSIAN",
    "annotation": null
@@ -221,6 +233,10 @@ window.CRYPTIC_PUZZLES["cyclops-666"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "see 8ac. (9)",
+   "group": [
+    "8-across",
+    "14-down"
+   ],
    "separatorLocations": {},
    "solution": "TELEGRAPH",
    "annotation": null
@@ -249,6 +265,10 @@ window.CRYPTIC_PUZZLES["cyclops-666"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "(& 27ac.) Exercise by party political leaders followed by rough stimulant (3)",
+   "group": [
+    "16-across",
+    "27-across"
+   ],
    "separatorLocations": {},
    "solution": "PEP",
    "annotation": null
@@ -403,6 +423,10 @@ window.CRYPTIC_PUZZLES["cyclops-666"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 16ac. (4)",
+   "group": [
+    "16-across",
+    "27-across"
+   ],
    "separatorLocations": {},
    "solution": "PILL",
    "annotation": null

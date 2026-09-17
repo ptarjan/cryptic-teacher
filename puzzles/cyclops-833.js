@@ -53,6 +53,11 @@ window.CRYPTIC_PUZZLES["cyclops-833"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 15/23dn.)Mates turned up with delight for old-fashioned foreplay (4)",
+   "group": [
+    "3-down",
+    "15-down",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "SLAP",
    "annotation": null
@@ -221,6 +226,11 @@ window.CRYPTIC_PUZZLES["cyclops-833"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "see 3dn.",
+   "group": [
+    "3-down",
+    "15-down",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "AND",
    "annotation": null
@@ -347,6 +357,11 @@ window.CRYPTIC_PUZZLES["cyclops-833"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 3dn.",
+   "group": [
+    "3-down",
+    "15-down",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "TICKLE",
    "annotation": null

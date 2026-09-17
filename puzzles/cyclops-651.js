@@ -291,6 +291,10 @@ window.CRYPTIC_PUZZLES["cyclops-651"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 20ac.) Commercial expansion here in the lap of excited male? (6)",
+   "group": [
+    "19-down",
+    "20-across"
+   ],
    "separatorLocations": {},
    "solution": "GROWTH",
    "annotation": null
@@ -305,6 +309,10 @@ window.CRYPTIC_PUZZLES["cyclops-651"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 19dn. (4)",
+   "group": [
+    "19-down",
+    "20-across"
+   ],
    "separatorLocations": {},
    "solution": "AREA",
    "annotation": null

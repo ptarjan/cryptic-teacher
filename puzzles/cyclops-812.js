@@ -25,6 +25,10 @@ window.CRYPTIC_PUZZLES["cyclops-812"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 26dn.) Slush fund ultimately takes the piss out of the police? (4)",
+   "group": [
+    "1-down",
+    "26-down"
+   ],
    "separatorLocations": {},
    "solution": "GOOD",
    "annotation": null
@@ -53,6 +57,10 @@ window.CRYPTIC_PUZZLES["cyclops-812"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 28dn.)Loopy thing awfully keen to nick fellow in balls (4)",
+   "group": [
+    "3-down",
+    "28-down"
+   ],
    "separatorLocations": {},
    "solution": "REEF",
    "annotation": null
@@ -207,6 +215,10 @@ window.CRYPTIC_PUZZLES["cyclops-812"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 15ac. (5)",
+   "group": [
+    "15-across",
+    "13-down"
+   ],
    "separatorLocations": {},
    "solution": "LAMMY",
    "annotation": null
@@ -235,6 +247,10 @@ window.CRYPTIC_PUZZLES["cyclops-812"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(&13dn.) Minister: crazy lady, mad with MI5 (5)",
+   "group": [
+    "15-across",
+    "13-down"
+   ],
    "separatorLocations": {},
    "solution": "DAVID",
    "annotation": null
@@ -389,6 +405,10 @@ window.CRYPTIC_PUZZLES["cyclops-812"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 1dn.",
+   "group": [
+    "1-down",
+    "26-down"
+   ],
    "separatorLocations": {},
    "solution": "GUYS",
    "annotation": null
@@ -417,6 +437,10 @@ window.CRYPTIC_PUZZLES["cyclops-812"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 3dn.",
+   "group": [
+    "3-down",
+    "28-down"
+   ],
    "separatorLocations": {},
    "solution": "KNOT",
    "annotation": null

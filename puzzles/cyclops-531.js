@@ -151,6 +151,10 @@ window.CRYPTIC_PUZZLES["cyclops-531"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 23dn.) England fans need somewhere to booze and ... well, a host (5)",
+   "group": [
+    "10-across",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "BARMY",
    "annotation": null
@@ -207,6 +211,10 @@ window.CRYPTIC_PUZZLES["cyclops-531"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 18ac. (4)",
+   "group": [
+    "18-across",
+    "14-across"
+   ],
    "separatorLocations": {},
    "solution": "UPON",
    "annotation": null
@@ -221,6 +229,10 @@ window.CRYPTIC_PUZZLES["cyclops-531"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "(& 22ac.) Well, maybe not so plucky having voted for the status quo patriotic hymn (8,3)",
+   "group": [
+    "15-across",
+    "22-across"
+   ],
    "separatorLocations": {},
    "solution": "SCOTLANDTHE",
    "annotation": null
@@ -263,6 +275,10 @@ window.CRYPTIC_PUZZLES["cyclops-531"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 14ac.) Blair's 'issue' a flipping joke at heart  name added to apply pressure (4)",
+   "group": [
+    "18-across",
+    "14-across"
+   ],
    "separatorLocations": {},
    "solution": "LEAN",
    "annotation": null
@@ -333,6 +349,10 @@ window.CRYPTIC_PUZZLES["cyclops-531"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 15ac. (5)",
+   "group": [
+    "15-across",
+    "22-across"
+   ],
    "separatorLocations": {},
    "solution": "BRAVE",
    "annotation": null
@@ -347,6 +367,10 @@ window.CRYPTIC_PUZZLES["cyclops-531"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 10ac. (4)",
+   "group": [
+    "10-across",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "ARMY",
    "annotation": null

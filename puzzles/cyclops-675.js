@@ -81,6 +81,10 @@ window.CRYPTIC_PUZZLES["cyclops-675"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "(& 15dn.) He's gate-crashed metropolitan hen bash  it's rather embarrassingly ignored (8)",
+   "group": [
+    "4-across",
+    "15-down"
+   ],
    "separatorLocations": {},
    "solution": "ELEPHANT",
    "annotation": null
@@ -193,6 +197,10 @@ window.CRYPTIC_PUZZLES["cyclops-675"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 21dn.) Clearing the shelves, pain-racked Conservation needs picking up (5)",
+   "group": [
+    "12-across",
+    "21-down"
+   ],
    "separatorLocations": {},
    "solution": "PANIC",
    "annotation": null
@@ -235,6 +243,10 @@ window.CRYPTIC_PUZZLES["cyclops-675"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "see 4ac. (9)",
+   "group": [
+    "4-across",
+    "15-down"
+   ],
    "separatorLocations": {},
    "solution": "INTHEROOM",
    "annotation": null
@@ -333,6 +345,10 @@ window.CRYPTIC_PUZZLES["cyclops-675"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 12ac. (6)",
+   "group": [
+    "12-across",
+    "21-down"
+   ],
    "separatorLocations": {},
    "solution": "BUYING",
    "annotation": null

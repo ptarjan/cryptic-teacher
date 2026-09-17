@@ -137,6 +137,10 @@ window.CRYPTIC_PUZZLES["cyclops-749"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 26ac.) Maybe union band girl doing twirls without identical top? (4)",
+   "group": [
+    "9-across",
+    "26-across"
+   ],
    "separatorLocations": {},
    "solution": "GOLD",
    "annotation": null
@@ -403,6 +407,10 @@ window.CRYPTIC_PUZZLES["cyclops-749"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 9ac. (4)",
+   "group": [
+    "9-across",
+    "26-across"
+   ],
    "separatorLocations": {},
    "solution": "RING",
    "annotation": null

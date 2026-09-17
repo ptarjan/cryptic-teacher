@@ -39,6 +39,10 @@ window.CRYPTIC_PUZZLES["cyclops-627"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 25 dn. (4)",
+   "group": [
+    "25-down",
+    "2-down"
+   ],
    "separatorLocations": {},
    "solution": "STOP",
    "annotation": null
@@ -123,6 +127,11 @@ window.CRYPTIC_PUZZLES["cyclops-627"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "(& 24ac./16ac.) Successful lobby group that calls the shots? (8)",
+   "group": [
+    "8-across",
+    "24-across",
+    "16-across"
+   ],
    "separatorLocations": {},
    "solution": "NATIONAL",
    "annotation": null
@@ -137,6 +146,10 @@ window.CRYPTIC_PUZZLES["cyclops-627"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 11ac. (6)",
+   "group": [
+    "11-across",
+    "9-across"
+   ],
    "separatorLocations": {},
    "solution": "MOMENT",
    "annotation": null
@@ -165,6 +178,10 @@ window.CRYPTIC_PUZZLES["cyclops-627"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "(& 9ac.) Watts used to get this sudden inspiration? (9)",
+   "group": [
+    "11-across",
+    "9-across"
+   ],
    "separatorLocations": {},
    "solution": "LIGHTBULB",
    "annotation": null
@@ -235,6 +252,11 @@ window.CRYPTIC_PUZZLES["cyclops-627"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "see 8ac. (11)",
+   "group": [
+    "8-across",
+    "24-across",
+    "16-across"
+   ],
    "separatorLocations": {},
    "solution": "ASSOCIATION",
    "annotation": null
@@ -347,6 +369,11 @@ window.CRYPTIC_PUZZLES["cyclops-627"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 8ac. (5)",
+   "group": [
+    "8-across",
+    "24-across",
+    "16-across"
+   ],
    "separatorLocations": {},
    "solution": "RIFLE",
    "annotation": null
@@ -361,6 +388,10 @@ window.CRYPTIC_PUZZLES["cyclops-627"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 2dn.) Dot's loaded, upsetting corporations (4)",
+   "group": [
+    "25-down",
+    "2-down"
+   ],
    "separatorLocations": {},
    "solution": "FULL",
    "annotation": null

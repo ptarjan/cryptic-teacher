@@ -53,6 +53,10 @@ window.CRYPTIC_PUZZLES["cyclops-467"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 8ac (4)",
+   "group": [
+    "8-across",
+    "3-down"
+   ],
    "separatorLocations": {},
    "solution": "LIST",
    "annotation": null
@@ -123,6 +127,10 @@ window.CRYPTIC_PUZZLES["cyclops-467"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 3dn.) Boycott is balls  tick off (5)",
+   "group": [
+    "8-across",
+    "3-down"
+   ],
    "separatorLocations": {},
    "solution": "BLACK",
    "annotation": null
@@ -221,6 +229,10 @@ window.CRYPTIC_PUZZLES["cyclops-467"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 22dn.) Leader of Pakistan, beset by caste unrest, protecting Indian state's victim (5)",
+   "group": [
+    "14-down",
+    "22-down"
+   ],
    "separatorLocations": {},
    "solution": "SCAPE",
    "annotation": null
@@ -347,6 +359,10 @@ window.CRYPTIC_PUZZLES["cyclops-467"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 14dn. (4)",
+   "group": [
+    "14-down",
+    "22-down"
+   ],
    "separatorLocations": {},
    "solution": "GOAT",
    "annotation": null

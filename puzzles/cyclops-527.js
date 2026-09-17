@@ -67,6 +67,10 @@ window.CRYPTIC_PUZZLES["cyclops-527"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 24dn. (4)",
+   "group": [
+    "24-down",
+    "4-down"
+   ],
    "separatorLocations": {},
    "solution": "CHAT",
    "annotation": null
@@ -361,6 +365,10 @@ window.CRYPTIC_PUZZLES["cyclops-527"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 4dn.) \"Python gets the bird\" rumour (4)",
+   "group": [
+    "24-down",
+    "4-down"
+   ],
    "separatorLocations": {},
    "solution": "IDLE",
    "annotation": null

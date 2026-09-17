@@ -25,6 +25,10 @@ window.CRYPTIC_PUZZLES["cyclops-493"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 13ac.) Eye, say, spikes crooked deal  artificial exercise for politicians etc. beset by scandal? (6)",
+   "group": [
+    "1-across",
+    "13-across"
+   ],
    "separatorLocations": {},
    "solution": "DAMAGE",
    "annotation": null
@@ -151,6 +155,10 @@ window.CRYPTIC_PUZZLES["cyclops-493"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 28ac. (4)",
+   "group": [
+    "28-across",
+    "9-across"
+   ],
    "separatorLocations": {},
    "solution": "BEDS",
    "annotation": null
@@ -179,6 +187,10 @@ window.CRYPTIC_PUZZLES["cyclops-493"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 26ac. (4)",
+   "group": [
+    "26-across",
+    "11-across"
+   ],
    "separatorLocations": {},
    "solution": "GAME",
    "annotation": null
@@ -207,6 +219,10 @@ window.CRYPTIC_PUZZLES["cyclops-493"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "see 1ac. (10)",
+   "group": [
+    "1-across",
+    "13-across"
+   ],
    "separatorLocations": {},
    "solution": "LIMITATION",
    "annotation": null
@@ -389,6 +405,10 @@ window.CRYPTIC_PUZZLES["cyclops-493"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 11ac.) Playing with nuts, Rugby? (4)",
+   "group": [
+    "26-across",
+    "11-across"
+   ],
    "separatorLocations": {},
    "solution": "BALL",
    "annotation": null
@@ -417,6 +437,10 @@ window.CRYPTIC_PUZZLES["cyclops-493"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 9ac.) They keep dozy couples apart (4)",
+   "group": [
+    "28-across",
+    "9-across"
+   ],
    "separatorLocations": {},
    "solution": "TWIN",
    "annotation": null

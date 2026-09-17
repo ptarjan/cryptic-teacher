@@ -95,6 +95,11 @@ window.CRYPTIC_PUZZLES["cyclops-710"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 15/24) Steer clear of particular offspring, as an interrogated politician tends to do (5)",
+   "group": [
+    "5-down",
+    "15-down",
+    "24-down"
+   ],
    "separatorLocations": {},
    "solution": "AVOID",
    "annotation": null
@@ -235,6 +240,11 @@ window.CRYPTIC_PUZZLES["cyclops-710"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "see 5dn. (3)",
+   "group": [
+    "5-down",
+    "15-down",
+    "24-down"
+   ],
    "separatorLocations": {},
    "solution": "THE",
    "annotation": null
@@ -361,6 +371,11 @@ window.CRYPTIC_PUZZLES["cyclops-710"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 5dn. (5)",
+   "group": [
+    "5-down",
+    "15-down",
+    "24-down"
+   ],
    "separatorLocations": {},
    "solution": "ISSUE",
    "annotation": null

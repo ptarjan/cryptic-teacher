@@ -7,8 +7,8 @@ window.CRYPTIC_PUZZLES["independent-9087"] = /*JSON-START*/ {
  "number": 9087,
  "series": "independent",
  "name": "Independent cryptic crossword No 9,087",
- "setter": "Monk",
- "date": 1449273600000,
+ "setter": "Klingsor",
+ "date": 1448668800000,
  "dimensions": {
   "cols": 15,
   "rows": 15
@@ -16,21 +16,36 @@ window.CRYPTIC_PUZZLES["independent-9087"] = /*JSON-START*/ {
  "sourceUrl": "https://puzzles.independent.co.uk/games/cryptic-crossword-independent/",
  "entries": [
   {
+   "id": "1-across",
+   "number": 1,
+   "direction": "across",
+   "position": {
+    "x": 0,
+    "y": 0
+   },
+   "length": 14,
+   "clue": "Flying jet that's extremely huge, I've right to be nervous (4,3,7)",
+   "separatorLocations": {
+    ",": [
+     4,
+     7
+    ]
+   },
+   "solution": "HAVETHEJITTERS",
+   "annotation": null
+  },
+  {
    "id": "1-down",
    "number": 1,
    "direction": "down",
    "position": {
-    "x": 3,
+    "x": 0,
     "y": 0
    },
-   "length": 8,
-   "clue": "Prompt cat bites tail of mouse and departs (4-4)",
-   "separatorLocations": {
-    "-": [
-     4
-    ]
-   },
-   "solution": "FEEDLINE",
+   "length": 12,
+   "clue": "Dismiss teacher, one caught out misbehaving? She may want to (12)",
+   "separatorLocations": {},
+   "solution": "HEADMISTRESS",
    "annotation": null
   },
   {
@@ -38,13 +53,13 @@ window.CRYPTIC_PUZZLES["independent-9087"] = /*JSON-START*/ {
    "number": 2,
    "direction": "down",
    "position": {
-    "x": 7,
+    "x": 2,
     "y": 0
    },
-   "length": 4,
-   "clue": "Whip caught on short thick cord (4)",
+   "length": 9,
+   "clue": "Old film star from Depression any number can love (9)",
    "separatorLocations": {},
-   "solution": "CROP",
+   "solution": "VALENTINO",
    "annotation": null
   },
   {
@@ -52,27 +67,19 @@ window.CRYPTIC_PUZZLES["independent-9087"] = /*JSON-START*/ {
    "number": 3,
    "direction": "down",
    "position": {
-    "x": 11,
+    "x": 4,
     "y": 0
    },
-   "length": 6,
-   "clue": "Track over in wood (6)",
+   "length": 5,
+   "clue": "Melody Maker originally penned by old solver? (5)",
+   "clueItalics": [
+    [
+     0,
+     12
+    ]
+   ],
    "separatorLocations": {},
-   "solution": "GROOVE",
-   "annotation": null
-  },
-  {
-   "id": "4-across",
-   "number": 4,
-   "direction": "across",
-   "position": {
-    "x": 1,
-    "y": 1
-   },
-   "length": 7,
-   "clue": "Studio flat one's mates discovered first (7)",
-   "separatorLocations": {},
-   "solution": "ATELIER",
+   "solution": "THEME",
    "annotation": null
   },
   {
@@ -80,13 +87,13 @@ window.CRYPTIC_PUZZLES["independent-9087"] = /*JSON-START*/ {
    "number": 4,
    "direction": "down",
    "position": {
-    "x": 1,
-    "y": 1
+    "x": 6,
+    "y": 0
    },
    "length": 7,
-   "clue": "Fully engages mariners with balls (7)",
+   "clue": "Former partner's on box, maybe pocketing millions? That's excessive (7)",
    "separatorLocations": {},
-   "solution": "ABSORBS",
+   "solution": "EXTREME",
    "annotation": null
   },
   {
@@ -94,27 +101,13 @@ window.CRYPTIC_PUZZLES["independent-9087"] = /*JSON-START*/ {
    "number": 5,
    "direction": "down",
    "position": {
-    "x": 5,
-    "y": 1
+    "x": 8,
+    "y": 0
    },
-   "length": 13,
-   "clue": "Need American backing to cut waste left by European (13)",
+   "length": 7,
+   "clue": "Klingsor's favourite nurse regularly provides motivation (7)",
    "separatorLocations": {},
-   "solution": "INSUFFICIENCY",
-   "annotation": null
-  },
-  {
-   "id": "6-across",
-   "number": 6,
-   "direction": "across",
-   "position": {
-    "x": 9,
-    "y": 1
-   },
-   "length": 5,
-   "clue": "Biting and corrosive about Republican (5)",
-   "separatorLocations": {},
-   "solution": "ACRID",
+   "solution": "IMPETUS",
    "annotation": null
   },
   {
@@ -122,13 +115,13 @@ window.CRYPTIC_PUZZLES["independent-9087"] = /*JSON-START*/ {
    "number": 6,
    "direction": "down",
    "position": {
-    "x": 9,
-    "y": 1
+    "x": 10,
+    "y": 0
    },
-   "length": 13,
-   "clue": "Certified that English education should miss nothing when reviewed (13)",
+   "length": 9,
+   "clue": "Explain why I won't reach Euston on time? Not I (9)",
    "separatorLocations": {},
-   "solution": "AUTHENTICATED",
+   "solution": "TRANSLATE",
    "annotation": null
   },
   {
@@ -136,13 +129,13 @@ window.CRYPTIC_PUZZLES["independent-9087"] = /*JSON-START*/ {
    "number": 7,
    "direction": "down",
    "position": {
-    "x": 13,
-    "y": 1
+    "x": 12,
+    "y": 0
    },
    "length": 5,
-   "clue": "Source of disco beat remained (5)",
+   "clue": "In Don Juan's embrace, girl's beginning to blush (5)",
    "separatorLocations": {},
-   "solution": "DWELT",
+   "solution": "ROUGE",
    "annotation": null
   },
   {
@@ -151,16 +144,12 @@ window.CRYPTIC_PUZZLES["independent-9087"] = /*JSON-START*/ {
    "direction": "across",
    "position": {
     "x": 0,
-    "y": 3
+    "y": 2
    },
-   "length": 6,
-   "clue": "Waits to enter society where singles may get less attention? (1-5)",
-   "separatorLocations": {
-    "-": [
-     1
-    ]
-   },
-   "solution": "BSIDES",
+   "length": 7,
+   "clue": "Illness caused by food that's left a bit late? (7)",
+   "separatorLocations": {},
+   "solution": "AILMENT",
    "annotation": null
   },
   {
@@ -168,46 +157,41 @@ window.CRYPTIC_PUZZLES["independent-9087"] = /*JSON-START*/ {
    "number": 9,
    "direction": "across",
    "position": {
-    "x": 7,
-    "y": 3
+    "x": 8,
+    "y": 2
    },
-   "length": 8,
-   "clue": "Get to press naked cherub's bottom (3,2,3)",
-   "separatorLocations": {
-    ",": [
-     3,
-     5
-    ]
-   },
-   "solution": "PUTTOBED",
-   "annotation": null
-  },
-  {
-   "id": "10-across",
-   "number": 10,
-   "direction": "across",
-   "position": {
-    "x": 1,
-    "y": 5
-   },
-   "length": 13,
-   "clue": "Strengthening bond, following lead given by fine men (13)",
+   "length": 6,
+   "clue": "Capital German company invested in Leith? (6)",
    "separatorLocations": {},
-   "solution": "REINFORCEMENT",
+   "solution": "PRAGUE",
    "annotation": null
   },
   {
-   "id": "11-down",
-   "number": 11,
+   "id": "10-down",
+   "number": 10,
    "direction": "down",
    "position": {
-    "x": 7,
-    "y": 5
+    "x": 14,
+    "y": 3
    },
-   "length": 5,
-   "clue": "Strict foreign soldier in purge (5)",
+   "length": 12,
+   "clue": "Course tackling image building given by North European businessman (12)",
    "separatorLocations": {},
-   "solution": "RIGID",
+   "solution": "ENTREPRENEUR",
+   "annotation": null
+  },
+  {
+   "id": "11-across",
+   "number": 11,
+   "direction": "across",
+   "position": {
+    "x": 0,
+    "y": 4
+   },
+   "length": 9,
+   "clue": "Filling that's nice – mm! – in pie snack? (9)",
+   "separatorLocations": {},
+   "solution": "MINCEMEAT",
    "annotation": null
   },
   {
@@ -215,13 +199,13 @@ window.CRYPTIC_PUZZLES["independent-9087"] = /*JSON-START*/ {
    "number": 12,
    "direction": "across",
    "position": {
-    "x": 0,
-    "y": 7
+    "x": 10,
+    "y": 4
    },
-   "length": 4,
-   "clue": "Slave personnel regularly picked out (4)",
+   "length": 5,
+   "clue": "Radiance observed when one's lit up? (5)",
    "separatorLocations": {},
-   "solution": "ESNE",
+   "solution": "SHEEN",
    "annotation": null
   },
   {
@@ -229,27 +213,13 @@ window.CRYPTIC_PUZZLES["independent-9087"] = /*JSON-START*/ {
    "number": 13,
    "direction": "across",
    "position": {
-    "x": 5,
-    "y": 7
+    "x": 0,
+    "y": 6
    },
-   "length": 5,
-   "clue": "Half of awning closed round bar (5)",
+   "length": 7,
+   "clue": "It could be scoundrel taking in damsel heartlessly (7)",
    "separatorLocations": {},
-   "solution": "INGOT",
-   "annotation": null
-  },
-  {
-   "id": "14-across",
-   "number": 14,
-   "direction": "across",
-   "position": {
-    "x": 11,
-    "y": 7
-   },
-   "length": 4,
-   "clue": "Pro-Americans starting meetings (4)",
-   "separatorLocations": {},
-   "solution": "FORA",
+   "solution": "SWINDLE",
    "annotation": null
   },
   {
@@ -257,46 +227,31 @@ window.CRYPTIC_PUZZLES["independent-9087"] = /*JSON-START*/ {
    "number": 14,
    "direction": "down",
    "position": {
-    "x": 11,
-    "y": 7
+    "x": 4,
+    "y": 6
    },
-   "length": 8,
-   "clue": "Front and back blown off prison wing, perhaps (8)",
-   "separatorLocations": {},
-   "solution": "FORELIMB",
-   "annotation": null
-  },
-  {
-   "id": "15-down",
-   "number": 15,
-   "direction": "down",
-   "position": {
-    "x": 13,
-    "y": 7
-   },
-   "length": 7,
-   "clue": "National American vessel, one that's managed to go about (7)",
-   "separatorLocations": {},
-   "solution": "RUSSIAN",
-   "annotation": null
-  },
-  {
-   "id": "16-across",
-   "number": 16,
-   "direction": "across",
-   "position": {
-    "x": 1,
-    "y": 9
-   },
-   "length": 13,
-   "clue": "Team spirit beat dire prospects (6,2,5)",
+   "length": 9,
+   "clue": "Drink leaves Mark full of energy – for workforce that's ideal (5,4)",
    "separatorLocations": {
     ",": [
-     6,
-     8
+     5
     ]
    },
-   "solution": "ESPRITDECORPS",
+   "solution": "DREAMTEAM",
+   "annotation": null
+  },
+  {
+   "id": "15-across",
+   "number": 15,
+   "direction": "across",
+   "position": {
+    "x": 8,
+    "y": 6
+   },
+   "length": 7,
+   "clue": "Scruple restraining Queen's image-maker (7)",
+   "separatorLocations": {},
+   "solution": "SCANNER",
    "annotation": null
   },
   {
@@ -304,41 +259,59 @@ window.CRYPTIC_PUZZLES["independent-9087"] = /*JSON-START*/ {
    "number": 16,
    "direction": "down",
    "position": {
-    "x": 1,
-    "y": 9
+    "x": 12,
+    "y": 6
    },
-   "length": 5,
-   "clue": "Declined to live over a postgraduate? (5)",
+   "length": 9,
+   "clue": "Nobody of note, tiny person ultimately? Possibly (9)",
    "separatorLocations": {},
-   "solution": "EBBED",
+   "solution": "NONENTITY",
    "annotation": null
   },
   {
-   "id": "17-down",
+   "id": "17-across",
    "number": 17,
-   "direction": "down",
-   "position": {
-    "x": 3,
-    "y": 9
-   },
-   "length": 6,
-   "clue": "Avoiding the dirt cheap evil Frenchman (6)",
-   "separatorLocations": {},
-   "solution": "PICARD",
-   "annotation": null
-  },
-  {
-   "id": "18-across",
-   "number": 18,
    "direction": "across",
    "position": {
     "x": 0,
-    "y": 11
+    "y": 8
    },
-   "length": 8,
-   "clue": "Does one sailor start to spot fish around north and south? (8)",
+   "length": 7,
+   "clue": "They give resistance to Tories violently? (7)",
    "separatorLocations": {},
-   "solution": "ABSCONDS",
+   "solution": "RIOTERS",
+   "annotation": null
+  },
+  {
+   "id": "18-down",
+   "number": 18,
+   "direction": "down",
+   "position": {
+    "x": 6,
+    "y": 8
+   },
+   "length": 7,
+   "clue": "Fight and beat tough character (7)",
+   "separatorLocations": {},
+   "solution": "SPARTAN",
+   "annotation": null
+  },
+  {
+   "id": "19-across",
+   "number": 19,
+   "direction": "across",
+   "position": {
+    "x": 8,
+    "y": 8
+   },
+   "length": 7,
+   "clue": "Removal of corruption's unproductive in football tournament? (5-2)",
+   "separatorLocations": {
+    "-": [
+     5
+    ]
+   },
+   "solution": "CLEANUP",
    "annotation": null
   },
   {
@@ -346,13 +319,13 @@ window.CRYPTIC_PUZZLES["independent-9087"] = /*JSON-START*/ {
    "number": 19,
    "direction": "down",
    "position": {
-    "x": 7,
-    "y": 11
+    "x": 8,
+    "y": 8
    },
-   "length": 4,
-   "clue": "Spoils Posh Spice, perhaps following opening of show (4)",
+   "length": 7,
+   "clue": "Lacy clothes fashionable with clubs? On reflection that's doubtful (7)",
    "separatorLocations": {},
-   "solution": "SWAG",
+   "solution": "CYNICAL",
    "annotation": null
   },
   {
@@ -360,27 +333,27 @@ window.CRYPTIC_PUZZLES["independent-9087"] = /*JSON-START*/ {
    "number": 20,
    "direction": "across",
    "position": {
-    "x": 9,
-    "y": 11
+    "x": 0,
+    "y": 10
    },
-   "length": 6,
-   "clue": "Boozer on time for picture (6)",
+   "length": 5,
+   "clue": "Resort's minute, for a start (5)",
    "separatorLocations": {},
-   "solution": "TALKIE",
+   "solution": "SPASM",
    "annotation": null
   },
   {
-   "id": "21-across",
+   "id": "21-down",
    "number": 21,
-   "direction": "across",
+   "direction": "down",
    "position": {
-    "x": 1,
-    "y": 13
+    "x": 2,
+    "y": 10
    },
    "length": 5,
-   "clue": "Trot round during race (5)",
+   "clue": "A not half sad affair (5)",
    "separatorLocations": {},
-   "solution": "DERBY",
+   "solution": "AMOUR",
    "annotation": null
   },
   {
@@ -388,13 +361,73 @@ window.CRYPTIC_PUZZLES["independent-9087"] = /*JSON-START*/ {
    "number": 22,
    "direction": "across",
    "position": {
-    "x": 7,
-    "y": 13
+    "x": 6,
+    "y": 10
+   },
+   "length": 9,
+   "clue": "Put crudely, can anyone bother? (9)",
+   "separatorLocations": {},
+   "solution": "ANNOYANCE",
+   "annotation": null
+  },
+  {
+   "id": "23-down",
+   "number": 23,
+   "direction": "down",
+   "position": {
+    "x": 10,
+    "y": 10
+   },
+   "length": 5,
+   "clue": "Yen for maiden in island port (5)",
+   "separatorLocations": {},
+   "solution": "YALTA",
+   "annotation": null
+  },
+  {
+   "id": "24-across",
+   "number": 24,
+   "direction": "across",
+   "position": {
+    "x": 1,
+    "y": 12
+   },
+   "length": 6,
+   "clue": "Charlie's open secret (6)",
+   "separatorLocations": {},
+   "solution": "COVERT",
+   "annotation": null
+  },
+  {
+   "id": "25-across",
+   "number": 25,
+   "direction": "across",
+   "position": {
+    "x": 8,
+    "y": 12
    },
    "length": 7,
-   "clue": "Bemoan somehow about onset of Delhi belly (7)",
+   "clue": "Two names (the first abbreviated) for mineral (7)",
    "separatorLocations": {},
-   "solution": "ABDOMEN",
+   "solution": "CALCITE",
+   "annotation": null
+  },
+  {
+   "id": "26-across",
+   "number": 26,
+   "direction": "across",
+   "position": {
+    "x": 1,
+    "y": 14
+   },
+   "length": 14,
+   "clue": "Brief visit involves run then I'm at home, awfully weary (8,6)",
+   "separatorLocations": {
+    ",": [
+     8
+    ]
+   },
+   "solution": "CRIMINALLAWYER",
    "annotation": null
   }
  ]

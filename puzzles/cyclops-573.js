@@ -25,6 +25,11 @@ window.CRYPTIC_PUZZLES["cyclops-573"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(&24ac./26dn.) Intense study  of an impressive erection's appearance? (4)",
+   "group": [
+    "1-down",
+    "24-across",
+    "26-down"
+   ],
    "separatorLocations": {},
    "solution": "LONG",
    "annotation": null
@@ -165,6 +170,10 @@ window.CRYPTIC_PUZZLES["cyclops-573"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 16dn. (4)",
+   "group": [
+    "16-down",
+    "11-across"
+   ],
    "separatorLocations": {},
    "solution": "TALK",
    "annotation": null
@@ -235,6 +244,10 @@ window.CRYPTIC_PUZZLES["cyclops-573"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "(& 11ac.) Taking flight, cocked up challenge (8)",
+   "group": [
+    "16-down",
+    "11-across"
+   ],
    "separatorLocations": {},
    "solution": "FIGHTING",
    "annotation": null
@@ -347,6 +360,11 @@ window.CRYPTIC_PUZZLES["cyclops-573"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 1dn. (4)",
+   "group": [
+    "1-down",
+    "24-across",
+    "26-down"
+   ],
    "separatorLocations": {},
    "solution": "HARD",
    "annotation": null
@@ -375,6 +393,11 @@ window.CRYPTIC_PUZZLES["cyclops-573"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 1dn. (4)",
+   "group": [
+    "1-down",
+    "24-across",
+    "26-down"
+   ],
    "separatorLocations": {},
    "solution": "LOOK",
    "annotation": null

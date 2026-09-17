@@ -95,6 +95,10 @@ window.CRYPTIC_PUZZLES["cyclops-648"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 24dn.) Toss chap off for immediate payment (4)",
+   "group": [
+    "6-down",
+    "24-down"
+   ],
    "separatorLocations": {},
    "solution": "SPOT",
    "annotation": null
@@ -165,6 +169,10 @@ window.CRYPTIC_PUZZLES["cyclops-648"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "See 18ac. (12)",
+   "group": [
+    "18-across",
+    "11-down"
+   ],
    "separatorLocations": {},
    "solution": "OBSOLESCENCE",
    "annotation": null
@@ -263,6 +271,10 @@ window.CRYPTIC_PUZZLES["cyclops-648"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "(& 11dn.) NB. colossal need determined to crack Trump's replacement Apple policy? (7)",
+   "group": [
+    "18-across",
+    "11-down"
+   ],
    "separatorLocations": {},
    "solution": "PLANNED",
    "annotation": null
@@ -361,6 +373,10 @@ window.CRYPTIC_PUZZLES["cyclops-648"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "See 6dn, (4)",
+   "group": [
+    "6-down",
+    "24-down"
+   ],
    "separatorLocations": {},
    "solution": "CASH",
    "annotation": null

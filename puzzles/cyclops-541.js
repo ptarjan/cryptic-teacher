@@ -67,6 +67,10 @@ window.CRYPTIC_PUZZLES["cyclops-541"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 26dn.) Skimpy top produces boner on public transport (4)",
+   "group": [
+    "4-down",
+    "26-down"
+   ],
    "separatorLocations": {},
    "solution": "BOOB",
    "annotation": null
@@ -109,6 +113,11 @@ window.CRYPTIC_PUZZLES["cyclops-541"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 16ac. (4)",
+   "group": [
+    "16-across",
+    "20-across",
+    "7-down"
+   ],
    "separatorLocations": {},
    "solution": "WELL",
    "annotation": null
@@ -235,6 +244,11 @@ window.CRYPTIC_PUZZLES["cyclops-541"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 20/7) Was a success, so chased pussy? (4)",
+   "group": [
+    "16-across",
+    "20-across",
+    "7-down"
+   ],
    "separatorLocations": {},
    "solution": "WENT",
    "annotation": null
@@ -263,6 +277,10 @@ window.CRYPTIC_PUZZLES["cyclops-541"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 27dn.) Archer might well \"do a Campbell\" over Ray appearing in article (5)",
+   "group": [
+    "18-across",
+    "27-down"
+   ],
    "separatorLocations": {},
    "solution": "SPINA",
    "annotation": null
@@ -291,6 +309,11 @@ window.CRYPTIC_PUZZLES["cyclops-541"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 16ac. (4)",
+   "group": [
+    "16-across",
+    "20-across",
+    "7-down"
+   ],
    "separatorLocations": {},
    "solution": "DOWN",
    "annotation": null
@@ -333,6 +356,10 @@ window.CRYPTIC_PUZZLES["cyclops-541"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 25ac. (7)",
+   "group": [
+    "25-across",
+    "23-across"
+   ],
    "separatorLocations": {},
    "solution": "GENERAL",
    "annotation": null
@@ -361,6 +388,10 @@ window.CRYPTIC_PUZZLES["cyclops-541"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "(& 23ac.) Tory teenager, an atrocious \"live\" Bobby Kennedy? (8)",
+   "group": [
+    "25-across",
+    "23-across"
+   ],
    "separatorLocations": {},
    "solution": "ATTORNEY",
    "annotation": null
@@ -375,6 +406,10 @@ window.CRYPTIC_PUZZLES["cyclops-541"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 4dn. (4)",
+   "group": [
+    "4-down",
+    "26-down"
+   ],
    "separatorLocations": {},
    "solution": "TUBE",
    "annotation": null
@@ -389,6 +424,10 @@ window.CRYPTIC_PUZZLES["cyclops-541"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 18ac. (4)",
+   "group": [
+    "18-across",
+    "27-down"
+   ],
    "separatorLocations": {},
    "solution": "YARN",
    "annotation": null

@@ -137,6 +137,10 @@ window.CRYPTIC_PUZZLES["cyclops-773"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(&27dn.) Knockers going after Left forced into bankruptcy (4)",
+   "group": [
+    "8-down",
+    "27-down"
+   ],
    "separatorLocations": {},
    "solution": "GONE",
    "annotation": null
@@ -403,6 +407,10 @@ window.CRYPTIC_PUZZLES["cyclops-773"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 8dn. (4)",
+   "group": [
+    "8-down",
+    "27-down"
+   ],
    "separatorLocations": {},
    "solution": "BUST",
    "annotation": null

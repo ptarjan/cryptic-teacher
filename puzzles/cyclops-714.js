@@ -151,6 +151,10 @@ window.CRYPTIC_PUZZLES["cyclops-714"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "(& 21dn.) Maybe QAnon wants political party's thieving male protected by party supporter (10)",
+   "group": [
+    "10-across",
+    "21-down"
+   ],
    "separatorLocations": {},
    "solution": "CONSPIRACY",
    "annotation": null
@@ -305,6 +309,10 @@ window.CRYPTIC_PUZZLES["cyclops-714"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 10ac. (6)",
+   "group": [
+    "10-across",
+    "21-down"
+   ],
    "separatorLocations": {},
    "solution": "THEORY",
    "annotation": null
@@ -347,6 +355,10 @@ window.CRYPTIC_PUZZLES["cyclops-714"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 26ac.) Join in with Kate twisting member (4)",
+   "group": [
+    "24-across",
+    "26-across"
+   ],
    "separatorLocations": {},
    "solution": "TAKE",
    "annotation": null
@@ -375,6 +387,10 @@ window.CRYPTIC_PUZZLES["cyclops-714"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 24ac. (4)",
+   "group": [
+    "24-across",
+    "26-across"
+   ],
    "separatorLocations": {},
    "solution": "PART",
    "annotation": null

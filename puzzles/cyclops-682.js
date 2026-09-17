@@ -39,6 +39,10 @@ window.CRYPTIC_PUZZLES["cyclops-682"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 16dn. (4)",
+   "group": [
+    "16-down",
+    "2-down"
+   ],
    "separatorLocations": {},
    "solution": "WORD",
    "annotation": null
@@ -137,6 +141,11 @@ window.CRYPTIC_PUZZLES["cyclops-682"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 13ac. (3,3)",
+   "group": [
+    "13-across",
+    "9-across",
+    "24-down"
+   ],
    "separatorLocations": {},
    "solution": "GETOUT",
    "annotation": null
@@ -193,6 +202,11 @@ window.CRYPTIC_PUZZLES["cyclops-682"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "(& 9ac./24dn.) Rueful thought of Cyclops during lockdown, as confessed in Pedantry Corner? (1,6)",
+   "group": [
+    "13-across",
+    "9-across",
+    "24-down"
+   ],
    "separatorLocations": {},
    "solution": "ISHOULD",
    "annotation": null
@@ -235,6 +249,10 @@ window.CRYPTIC_PUZZLES["cyclops-682"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "(2dn.) An oath, e.g. \"Fake!\" (4-6)",
+   "group": [
+    "16-down",
+    "2-down"
+   ],
    "separatorLocations": {},
    "solution": "FOURLETTER",
    "annotation": null
@@ -361,6 +379,11 @@ window.CRYPTIC_PUZZLES["cyclops-682"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 13ac. (4)",
+   "group": [
+    "13-across",
+    "9-across",
+    "24-down"
+   ],
    "separatorLocations": {},
    "solution": "MORE",
    "annotation": null

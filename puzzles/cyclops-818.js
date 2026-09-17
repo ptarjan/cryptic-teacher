@@ -53,6 +53,10 @@ window.CRYPTIC_PUZZLES["cyclops-818"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 23dn.) Labour donor's roll laid out (4)",
+   "group": [
+    "3-down",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "LORD",
    "annotation": null
@@ -137,6 +141,10 @@ window.CRYPTIC_PUZZLES["cyclops-818"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 26ac. (6)",
+   "group": [
+    "26-across",
+    "9-down"
+   ],
    "separatorLocations": {},
    "solution": "LAWYER",
    "annotation": null
@@ -165,6 +173,10 @@ window.CRYPTIC_PUZZLES["cyclops-818"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(&14dn.) Party aimed to break up certain Internet sites (6)",
+   "group": [
+    "11-across",
+    "14-down"
+   ],
    "separatorLocations": {},
    "solution": "SOCIAL",
    "annotation": null
@@ -221,6 +233,10 @@ window.CRYPTIC_PUZZLES["cyclops-818"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 11ac.",
+   "group": [
+    "11-across",
+    "14-down"
+   ],
    "separatorLocations": {},
    "solution": "MEDIA",
    "annotation": null
@@ -361,6 +377,10 @@ window.CRYPTIC_PUZZLES["cyclops-818"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 3dn.",
+   "group": [
+    "3-down",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "ALLI",
    "annotation": null
@@ -403,6 +423,10 @@ window.CRYPTIC_PUZZLES["cyclops-818"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 9dn.) Bowed and brief? Not Trump's apparent view of Giuliani (4)",
+   "group": [
+    "26-across",
+    "9-down"
+   ],
    "separatorLocations": {},
    "solution": "BENT",
    "annotation": null

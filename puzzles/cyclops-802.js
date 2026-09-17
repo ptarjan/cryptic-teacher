@@ -193,6 +193,10 @@ window.CRYPTIC_PUZZLES["cyclops-802"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(&13ac.) \"Bugger hen parties!\" Ian snapped, following one (1,4)",
+   "group": [
+    "12-across",
+    "13-across"
+   ],
    "separatorLocations": {},
    "solution": "APAIN",
    "annotation": null
@@ -207,6 +211,10 @@ window.CRYPTIC_PUZZLES["cyclops-802"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "see 12ac. (2,3,4)",
+   "group": [
+    "12-across",
+    "13-across"
+   ],
    "separatorLocations": {},
    "solution": "INTHEARSE",
    "annotation": null
@@ -389,6 +397,10 @@ window.CRYPTIC_PUZZLES["cyclops-802"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 30ac.) What Putin revels in  grating, but it electrifies many (5)",
+   "group": [
+    "25-across",
+    "30-across"
+   ],
    "separatorLocations": {},
    "solution": "POWER",
    "annotation": null
@@ -459,6 +471,10 @@ window.CRYPTIC_PUZZLES["cyclops-802"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 25ac. (4)",
+   "group": [
+    "25-across",
+    "30-across"
+   ],
    "separatorLocations": {},
    "solution": "GRID",
    "annotation": null

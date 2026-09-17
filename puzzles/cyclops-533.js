@@ -25,6 +25,10 @@ window.CRYPTIC_PUZZLES["cyclops-533"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(&3dn.) Blair (Left ousted by Mandelson primarily) bit stupid to be trapped by Brown? Inane responses here (4)",
+   "group": [
+    "1-across",
+    "3-down"
+   ],
    "separatorLocations": {},
    "solution": "DUMB",
    "annotation": null
@@ -53,6 +57,10 @@ window.CRYPTIC_PUZZLES["cyclops-533"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 1ac. (7)",
+   "group": [
+    "1-across",
+    "3-down"
+   ],
    "separatorLocations": {},
    "solution": "BRITAIN",
    "annotation": null
@@ -165,6 +173,10 @@ window.CRYPTIC_PUZZLES["cyclops-533"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 24ac. (5)",
+   "group": [
+    "10-across",
+    "29-across"
+   ],
    "separatorLocations": {},
    "solution": "TRICK",
    "annotation": null
@@ -179,6 +191,10 @@ window.CRYPTIC_PUZZLES["cyclops-533"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "(& 29ac.) Sarah Palin politically? Traditionally, a real stirrer in the corridors of power etc. (3)",
+   "group": [
+    "11-across",
+    "29-across"
+   ],
    "separatorLocations": {},
    "solution": "TEA",
    "annotation": null
@@ -361,6 +377,10 @@ window.CRYPTIC_PUZZLES["cyclops-533"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "(& 10ac.) Dodge Tory trap (3)",
+   "group": [
+    "24-across",
+    "10-across"
+   ],
    "separatorLocations": {},
    "solution": "CON",
    "annotation": null
@@ -431,6 +451,10 @@ window.CRYPTIC_PUZZLES["cyclops-533"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 10ac. (4)",
+   "group": [
+    "11-across",
+    "29-across"
+   ],
    "separatorLocations": {},
    "solution": "LADY",
    "annotation": null

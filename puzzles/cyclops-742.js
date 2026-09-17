@@ -193,6 +193,10 @@ window.CRYPTIC_PUZZLES["cyclops-742"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 22ac. (4)",
+   "group": [
+    "22-across",
+    "12-across"
+   ],
    "separatorLocations": {},
    "solution": "EXAM",
    "annotation": null
@@ -333,6 +337,10 @@ window.CRYPTIC_PUZZLES["cyclops-742"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 12ac.) Sort of sex with old lover in the morning is a test (4)",
+   "group": [
+    "22-across",
+    "12-across"
+   ],
    "separatorLocations": {},
    "solution": "ORAL",
    "annotation": null

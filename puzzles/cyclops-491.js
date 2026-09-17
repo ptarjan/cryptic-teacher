@@ -193,6 +193,10 @@ window.CRYPTIC_PUZZLES["cyclops-491"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 20ac. (4)",
+   "group": [
+    "20-across",
+    "12-across"
+   ],
    "separatorLocations": {},
    "solution": "THEN",
    "annotation": null
@@ -207,6 +211,10 @@ window.CRYPTIC_PUZZLES["cyclops-491"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 14ac.) They're sickening for Cameron at present? A strong pill prepared (4)",
+   "group": [
+    "13-across",
+    "14-across"
+   ],
    "separatorLocations": {},
    "solution": "POLL",
    "annotation": null
@@ -235,6 +243,10 @@ window.CRYPTIC_PUZZLES["cyclops-491"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 13ac. (7)",
+   "group": [
+    "13-across",
+    "14-across"
+   ],
    "separatorLocations": {},
    "solution": "RATINGS",
    "annotation": null
@@ -249,6 +261,10 @@ window.CRYPTIC_PUZZLES["cyclops-491"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "see 24dn. (3)",
+   "group": [
+    "24-down",
+    "14-down"
+   ],
    "separatorLocations": {},
    "solution": "ROT",
    "annotation": null
@@ -333,6 +349,10 @@ window.CRYPTIC_PUZZLES["cyclops-491"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 12ac.) And the consequences when that's ballsed up? (4)",
+   "group": [
+    "20-across",
+    "12-across"
+   ],
    "separatorLocations": {},
    "solution": "WHAT",
    "annotation": null
@@ -389,6 +409,10 @@ window.CRYPTIC_PUZZLES["cyclops-491"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 14dn.) Absolute bollocks, what most speechifying politicians do? (5)",
+   "group": [
+    "24-down",
+    "14-down"
+   ],
    "separatorLocations": {},
    "solution": "UTTER",
    "annotation": null

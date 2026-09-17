@@ -25,6 +25,10 @@ window.CRYPTIC_PUZZLES["cyclops-568"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "(& 5dn.) \"Opposing cut, one's put in spot\"  one of Brenda's (10)",
+   "group": [
+    "1-down",
+    "5-down"
+   ],
    "separatorLocations": {},
    "solution": "BUCKINGHAM",
    "annotation": null
@@ -81,6 +85,10 @@ window.CRYPTIC_PUZZLES["cyclops-568"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 1dn. (6)",
+   "group": [
+    "1-down",
+    "5-down"
+   ],
    "separatorLocations": {},
    "solution": "PALACE",
    "annotation": null
@@ -95,6 +103,10 @@ window.CRYPTIC_PUZZLES["cyclops-568"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 26dn. (4)",
+   "group": [
+    "26-down",
+    "6-down"
+   ],
    "separatorLocations": {},
    "solution": "CLIP",
    "annotation": null
@@ -249,6 +261,10 @@ window.CRYPTIC_PUZZLES["cyclops-568"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 18dn.) Union hall lay in ruins, stuffing taken out of corrosive Lib Dem-Tory coalition? (6)",
+   "group": [
+    "16-across",
+    "18-down"
+   ],
    "separatorLocations": {},
    "solution": "UNHOLY",
    "annotation": null
@@ -277,6 +293,10 @@ window.CRYPTIC_PUZZLES["cyclops-568"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "see 16ac. (8)",
+   "group": [
+    "16-across",
+    "18-down"
+   ],
    "separatorLocations": {},
    "solution": "ALLIANCE",
    "annotation": null
@@ -305,6 +325,10 @@ window.CRYPTIC_PUZZLES["cyclops-568"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 22dn. (7)",
+   "group": [
+    "22-down",
+    "20-down"
+   ],
    "separatorLocations": {},
    "solution": "DOCTORS",
    "annotation": null
@@ -333,6 +357,10 @@ window.CRYPTIC_PUZZLES["cyclops-568"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 20dn.) Hunt opponents using dodgy journo's dirt about odious Conservative leaders (6)",
+   "group": [
+    "22-down",
+    "20-down"
+   ],
    "separatorLocations": {},
    "solution": "JUNIOR",
    "annotation": null
@@ -389,6 +417,10 @@ window.CRYPTIC_PUZZLES["cyclops-568"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 6dn.) Scum Conservative's on edge  not much to see (4)",
+   "group": [
+    "26-down",
+    "6-down"
+   ],
    "separatorLocations": {},
    "solution": "FILM",
    "annotation": null

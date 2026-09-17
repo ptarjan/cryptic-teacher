@@ -221,6 +221,10 @@ window.CRYPTIC_PUZZLES["cyclops-505"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 17ac.) Unprocessed crap? Right pretentious utterance  here's our space for it (6)",
+   "group": [
+    "15-across",
+    "17-across"
+   ],
    "separatorLocations": {},
    "solution": "PSEUDS",
    "annotation": null
@@ -263,6 +267,10 @@ window.CRYPTIC_PUZZLES["cyclops-505"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 15ac. (6)",
+   "group": [
+    "15-across",
+    "17-across"
+   ],
    "separatorLocations": {},
    "solution": "CORNER",
    "annotation": null
@@ -403,6 +411,10 @@ window.CRYPTIC_PUZZLES["cyclops-505"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 28ac. (5)",
+   "group": [
+    "28-across",
+    "27-across"
+   ],
    "separatorLocations": {},
    "solution": "STEEL",
    "annotation": null
@@ -417,6 +429,10 @@ window.CRYPTIC_PUZZLES["cyclops-505"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 27ac.) Moan about f LibDem leader, \"superhuman sort\" (3,2)",
+   "group": [
+    "28-across",
+    "27-across"
+   ],
    "separatorLocations": {},
    "solution": "MANOF",
    "annotation": null

@@ -81,6 +81,10 @@ window.CRYPTIC_PUZZLES["cyclops-632"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "see 21ac. (2,6)",
+   "group": [
+    "21-across",
+    "5-down"
+   ],
    "separatorLocations": {},
    "solution": "OFLONDON",
    "annotation": null
@@ -95,6 +99,11 @@ window.CRYPTIC_PUZZLES["cyclops-632"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(*11ac./25dn.) Contrary saboteur getting pissed in a squalid cafe (4)",
+   "group": [
+    "6-down",
+    "11-across",
+    "25-down"
+   ],
    "separatorLocations": {},
    "solution": "ARSE",
    "annotation": null
@@ -165,6 +174,11 @@ window.CRYPTIC_PUZZLES["cyclops-632"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 6dn. (5)",
+   "group": [
+    "6-down",
+    "11-across",
+    "25-down"
+   ],
    "separatorLocations": {},
    "solution": "ABOUT",
    "annotation": null
@@ -319,6 +333,10 @@ window.CRYPTIC_PUZZLES["cyclops-632"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 5dn.) No favourite of Trump, normal food, NY variety, with zero filling (5)",
+   "group": [
+    "21-across",
+    "5-down"
+   ],
    "separatorLocations": {},
    "solution": "MAYOR",
    "annotation": null
@@ -389,6 +407,11 @@ window.CRYPTIC_PUZZLES["cyclops-632"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 6dn. (4)",
+   "group": [
+    "6-down",
+    "11-across",
+    "25-down"
+   ],
    "separatorLocations": {},
    "solution": "FACE",
    "annotation": null

@@ -109,6 +109,10 @@ window.CRYPTIC_PUZZLES["cyclops-522"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 22ac. (7)",
+   "group": [
+    "22-across",
+    "7-across"
+   ],
    "separatorLocations": {},
    "solution": "CHOICES",
    "annotation": null
@@ -179,6 +183,10 @@ window.CRYPTIC_PUZZLES["cyclops-522"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 13ac.) \"What one needs if going bald on top: energy for one\"  Brian (4)",
+   "group": [
+    "12-across",
+    "13-across"
+   ],
    "separatorLocations": {},
    "solution": "HEIR",
    "annotation": null
@@ -193,6 +201,10 @@ window.CRYPTIC_PUZZLES["cyclops-522"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "see 12ac. (2,3,5)",
+   "group": [
+    "12-across",
+    "13-across"
+   ],
    "separatorLocations": {},
    "solution": "TOTHECROWN",
    "annotation": null
@@ -305,6 +317,10 @@ window.CRYPTIC_PUZZLES["cyclops-522"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 23dn. (4)",
+   "group": [
+    "23-down",
+    "21-across"
+   ],
    "separatorLocations": {},
    "solution": "NEAR",
    "annotation": null
@@ -319,6 +335,10 @@ window.CRYPTIC_PUZZLES["cyclops-522"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 7ac.) Being manifestly excited at elections: what politicians trying to sell unpopular policies claim to have faced (4)",
+   "group": [
+    "22-across",
+    "7-across"
+   ],
    "separatorLocations": {},
    "solution": "HARD",
    "annotation": null
@@ -333,6 +353,10 @@ window.CRYPTIC_PUZZLES["cyclops-522"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 21ac.) Pulled on organ to get ever closer (4)",
+   "group": [
+    "23-down",
+    "21-across"
+   ],
    "separatorLocations": {},
    "solution": "DRAW",
    "annotation": null

@@ -81,6 +81,10 @@ window.CRYPTIC_PUZZLES["cyclops-595"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 27dn. (4)",
+   "group": [
+    "27-down",
+    "5-down"
+   ],
    "separatorLocations": {},
    "solution": "POOL",
    "annotation": null
@@ -389,6 +393,10 @@ window.CRYPTIC_PUZZLES["cyclops-595"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 5dn.) The stock of a sexually-active population playing with Lego? Nope (4)",
+   "group": [
+    "27-down",
+    "5-down"
+   ],
    "separatorLocations": {},
    "solution": "GENE",
    "annotation": null

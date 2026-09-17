@@ -137,6 +137,10 @@ window.CRYPTIC_PUZZLES["cyclops-617"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "(& 16ac.) Go the apparent way of Trump and Kim Jong-Un, mentally, and mislay one's sculptures? (8)",
+   "group": [
+    "8-across",
+    "16-across"
+   ],
    "separatorLocations": {},
    "solution": "LOSEYOUR",
    "annotation": null
@@ -179,6 +183,10 @@ window.CRYPTIC_PUZZLES["cyclops-617"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "(& 23ac.) Grand, not small, testes (nuts)  prepare yourself (3)",
+   "group": [
+    "11-across",
+    "23-across"
+   ],
    "separatorLocations": {},
    "solution": "GET",
    "annotation": null
@@ -263,6 +271,10 @@ window.CRYPTIC_PUZZLES["cyclops-617"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 8ac (7)",
+   "group": [
+    "8-across",
+    "16-across"
+   ],
    "separatorLocations": {},
    "solution": "MARBLES",
    "annotation": null
@@ -389,6 +401,10 @@ window.CRYPTIC_PUZZLES["cyclops-617"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "see 11ac, (3)",
+   "group": [
+    "11-across",
+    "23-across"
+   ],
    "separatorLocations": {},
    "solution": "SET",
    "annotation": null

@@ -25,6 +25,10 @@ window.CRYPTIC_PUZZLES["cyclops-762"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 26dn.) Very disappointing difficulty getting stiff  damn! (4)",
+   "group": [
+    "1-across",
+    "26-down"
+   ],
    "separatorLocations": {},
    "solution": "BODY",
    "annotation": null
@@ -137,6 +141,10 @@ window.CRYPTIC_PUZZLES["cyclops-762"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 30ac. (4)",
+   "group": [
+    "30-across",
+    "8-down"
+   ],
    "separatorLocations": {},
    "solution": "DISH",
    "annotation": null
@@ -193,6 +201,10 @@ window.CRYPTIC_PUZZLES["cyclops-762"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "(& 21ac.) Bending of rule a convenience for Russian anti-war critics, according to the Kremlin (7)",
+   "group": [
+    "12-across",
+    "21-across"
+   ],
    "separatorLocations": {},
    "solution": "FOREIGN",
    "annotation": null
@@ -319,6 +331,10 @@ window.CRYPTIC_PUZZLES["cyclops-762"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 12ac. (6)",
+   "group": [
+    "12-across",
+    "21-across"
+   ],
    "separatorLocations": {},
    "solution": "AGENTS",
    "annotation": null
@@ -403,6 +419,10 @@ window.CRYPTIC_PUZZLES["cyclops-762"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 1ac. (4)",
+   "group": [
+    "1-across",
+    "26-down"
+   ],
    "separatorLocations": {},
    "solution": "BLOW",
    "annotation": null
@@ -459,6 +479,10 @@ window.CRYPTIC_PUZZLES["cyclops-762"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 8dn.) Party good-looker: something to bring to the table (4)",
+   "group": [
+    "30-across",
+    "8-down"
+   ],
    "separatorLocations": {},
    "solution": "SIDE",
    "annotation": null

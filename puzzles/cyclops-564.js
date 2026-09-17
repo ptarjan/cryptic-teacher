@@ -39,6 +39,10 @@ window.CRYPTIC_PUZZLES["cyclops-564"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 27dn.) Transvestite minister to engage in country pursuit (4)",
+   "group": [
+    "2-down",
+    "27-down"
+   ],
    "separatorLocations": {},
    "solution": "DRAG",
    "annotation": null
@@ -95,6 +99,10 @@ window.CRYPTIC_PUZZLES["cyclops-564"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 19dn.) In crisis no more, having come to terms with a particular sex act? (4)",
+   "group": [
+    "6-down",
+    "19-down"
+   ],
    "separatorLocations": {},
    "solution": "OVER",
    "annotation": null
@@ -179,6 +187,10 @@ window.CRYPTIC_PUZZLES["cyclops-564"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 29ac. (5)",
+   "group": [
+    "29-across",
+    "12-across"
+   ],
    "separatorLocations": {},
    "solution": "KOREA",
    "annotation": null
@@ -263,6 +275,10 @@ window.CRYPTIC_PUZZLES["cyclops-564"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "see 24ac. (2,3,6)",
+   "group": [
+    "24-across",
+    "18-across"
+   ],
    "separatorLocations": {},
    "solution": "OFILLREPUTE",
    "annotation": null
@@ -277,6 +293,10 @@ window.CRYPTIC_PUZZLES["cyclops-564"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 6dn. (3,4)",
+   "group": [
+    "6-down",
+    "19-down"
+   ],
    "separatorLocations": {},
    "solution": "THEHUMP",
    "annotation": null
@@ -347,6 +367,10 @@ window.CRYPTIC_PUZZLES["cyclops-564"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 18ac.) Infamous gathering of MPs? Knock here (5)",
+   "group": [
+    "24-across",
+    "18-across"
+   ],
    "separatorLocations": {},
    "solution": "HOUSE",
    "annotation": null
@@ -389,6 +413,10 @@ window.CRYPTIC_PUZZLES["cyclops-564"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 2dn. (4)",
+   "group": [
+    "2-down",
+    "27-down"
+   ],
    "separatorLocations": {},
    "solution": "HUNT",
    "annotation": null
@@ -417,6 +445,10 @@ window.CRYPTIC_PUZZLES["cyclops-564"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 12ac.) Horror! Kent's got rid of queen, restored a \"democratic republic\"! (5)",
+   "group": [
+    "29-across",
+    "12-across"
+   ],
    "separatorLocations": {},
    "solution": "NORTH",
    "annotation": null

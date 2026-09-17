@@ -25,6 +25,10 @@ window.CRYPTIC_PUZZLES["cyclops-652"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 26ac.) UK blunder, breaking with EC? Result: collapse (6)",
+   "group": [
+    "1-across",
+    "26-across"
+   ],
    "separatorLocations": {},
    "solution": "BUCKLE",
    "annotation": null
@@ -389,6 +393,10 @@ window.CRYPTIC_PUZZLES["cyclops-652"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 1ac. (5)",
+   "group": [
+    "1-across",
+    "26-across"
+   ],
    "separatorLocations": {},
    "solution": "UNDER",
    "annotation": null

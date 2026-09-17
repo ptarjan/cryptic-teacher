@@ -7,8 +7,8 @@ window.CRYPTIC_PUZZLES["independent-9063"] = /*JSON-START*/ {
  "number": 9063,
  "series": "independent",
  "name": "Independent cryptic crossword No 9,063",
- "setter": "Tyrus",
- "date": 1446854400000,
+ "setter": "Monk",
+ "date": 1446249600000,
  "dimensions": {
   "cols": 15,
   "rows": 15
@@ -16,28 +16,17 @@ window.CRYPTIC_PUZZLES["independent-9063"] = /*JSON-START*/ {
  "sourceUrl": "https://puzzles.independent.co.uk/games/cryptic-crossword-independent/",
  "entries": [
   {
-   "id": "1-across",
+   "id": "1-down",
    "number": 1,
-   "direction": "across",
+   "direction": "down",
    "position": {
-    "x": 0,
+    "x": 3,
     "y": 0
    },
-   "length": 15,
-   "clue": "Ooh! A last request for old Dicky produces absolutely zilch (3,6,4,2,3,3,)",
-   "group": [
-    "1-across",
-    "9-across"
-   ],
-   "separatorLocations": {
-    ",": [
-     3,
-     9,
-     13,
-     15
-    ]
-   },
-   "solution": "THESQUAREROOTOF",
+   "length": 8,
+   "clue": "Turncoat Frenchman keeping old oath (8)",
+   "separatorLocations": {},
+   "solution": "RENEGADE",
    "annotation": null
   },
   {
@@ -45,13 +34,13 @@ window.CRYPTIC_PUZZLES["independent-9063"] = /*JSON-START*/ {
    "number": 2,
    "direction": "down",
    "position": {
-    "x": 1,
+    "x": 5,
     "y": 0
    },
-   "length": 9,
-   "clue": "Depression caused by barb? (9)",
+   "length": 6,
+   "clue": "Signal transmitted in the wrong order (6)",
    "separatorLocations": {},
-   "solution": "HOOFPRINT",
+   "solution": "OUTPUT",
    "annotation": null
   },
   {
@@ -59,13 +48,13 @@ window.CRYPTIC_PUZZLES["independent-9063"] = /*JSON-START*/ {
    "number": 3,
    "direction": "down",
    "position": {
-    "x": 3,
+    "x": 7,
     "y": 0
    },
    "length": 7,
-   "clue": "Carol keeps John working hard (7)",
+   "clue": "Union in part of London is unfriendly towards the north (7)",
    "separatorLocations": {},
-   "solution": "SLAVING",
+   "solution": "WEDLOCK",
    "annotation": null
   },
   {
@@ -73,13 +62,17 @@ window.CRYPTIC_PUZZLES["independent-9063"] = /*JSON-START*/ {
    "number": 4,
    "direction": "down",
    "position": {
-    "x": 5,
+    "x": 9,
     "y": 0
    },
-   "length": 5,
-   "clue": "One's left in dark (5)",
-   "separatorLocations": {},
-   "solution": "UNLIT",
+   "length": 8,
+   "clue": "Save wayward ladies, indeed, following admission (3,5)",
+   "separatorLocations": {
+    ",": [
+     3
+    ]
+   },
+   "solution": "LAYASIDE",
    "annotation": null
   },
   {
@@ -87,13 +80,13 @@ window.CRYPTIC_PUZZLES["independent-9063"] = /*JSON-START*/ {
    "number": 5,
    "direction": "down",
    "position": {
-    "x": 7,
+    "x": 11,
     "y": 0
    },
-   "length": 7,
-   "clue": "She makes a mint after promotion (7)",
+   "length": 6,
+   "clue": "Complaint primarily about Greek meal sent back with cold filling (6)",
    "separatorLocations": {},
-   "solution": "ROBERTA",
+   "solution": "ECZEMA",
    "annotation": null
   },
   {
@@ -101,27 +94,27 @@ window.CRYPTIC_PUZZLES["independent-9063"] = /*JSON-START*/ {
    "number": 6,
    "direction": "down",
    "position": {
-    "x": 9,
+    "x": 13,
     "y": 0
    },
-   "length": 9,
-   "clue": "United fan accepts City finished better (9)",
+   "length": 8,
+   "clue": "Compliant lie dying following attack? (8)",
    "separatorLocations": {},
-   "solution": "RECOVERED",
+   "solution": "YIELDING",
    "annotation": null
   },
   {
-   "id": "7-down",
+   "id": "7-across",
    "number": 7,
-   "direction": "down",
+   "direction": "across",
    "position": {
-    "x": 11,
-    "y": 0
+    "x": 0,
+    "y": 1
    },
-   "length": 7,
-   "clue": "Number nine originally wearing gold ring (7)",
+   "length": 8,
+   "clue": "Plan to escape on retiring after school (8)",
    "separatorLocations": {},
-   "solution": "ORDINAL",
+   "solution": "SCHEDULE",
    "annotation": null
   },
   {
@@ -129,13 +122,13 @@ window.CRYPTIC_PUZZLES["independent-9063"] = /*JSON-START*/ {
    "number": 8,
    "direction": "down",
    "position": {
-    "x": 13,
-    "y": 0
+    "x": 1,
+    "y": 1
    },
    "length": 5,
-   "clue": "Touring Ohio, a lot of very fat musicians (5)",
+   "clue": "Letters from Athens dictated somewhere in Africa (5)",
    "separatorLocations": {},
-   "solution": "OBOES",
+   "solution": "CAIRO",
    "annotation": null
   },
   {
@@ -143,22 +136,13 @@ window.CRYPTIC_PUZZLES["independent-9063"] = /*JSON-START*/ {
    "number": 9,
    "direction": "across",
    "position": {
-    "x": 0,
-    "y": 2
+    "x": 9,
+    "y": 1
    },
    "length": 6,
-   "clue": "See 1",
-   "group": [
-    "1-across",
-    "9-across"
-   ],
-   "separatorLocations": {
-    ",": [
-     3,
-     6
-    ]
-   },
-   "solution": "SODALL",
+   "clue": "Frozen cape toured by lorry (6)",
+   "separatorLocations": {},
+   "solution": "ARCTIC",
    "annotation": null
   },
   {
@@ -166,13 +150,17 @@ window.CRYPTIC_PUZZLES["independent-9063"] = /*JSON-START*/ {
    "number": 10,
    "direction": "across",
    "position": {
-    "x": 7,
-    "y": 2
+    "x": 0,
+    "y": 3
    },
-   "length": 8,
-   "clue": "Secret support by party rank and file (8)",
-   "separatorLocations": {},
-   "solution": "BACKDOOR",
+   "length": 6,
+   "clue": "At an end after large amount of money crashes? (4-2)",
+   "separatorLocations": {
+    "-": [
+     4
+    ]
+   },
+   "solution": "PILEUP",
    "annotation": null
   },
   {
@@ -180,13 +168,13 @@ window.CRYPTIC_PUZZLES["independent-9063"] = /*JSON-START*/ {
    "number": 11,
    "direction": "across",
    "position": {
-    "x": 0,
-    "y": 4
+    "x": 7,
+    "y": 3
    },
    "length": 8,
-   "clue": "He shifts second piece of computer hardware (8)",
+   "clue": "Welsh town girl overwhelmed by backing of everybody without exception? (8)",
    "separatorLocations": {},
-   "solution": "SPRINTER",
+   "solution": "LLANELLI",
    "annotation": null
   },
   {
@@ -194,13 +182,13 @@ window.CRYPTIC_PUZZLES["independent-9063"] = /*JSON-START*/ {
    "number": 12,
    "direction": "across",
    "position": {
-    "x": 9,
-    "y": 4
+    "x": 0,
+    "y": 5
    },
-   "length": 6,
-   "clue": "Go like an old Dormobile? (6)",
+   "length": 8,
+   "clue": "Unrealistic novel by jerk (8)",
    "separatorLocations": {},
-   "solution": "VANISH",
+   "solution": "ROMANTIC",
    "annotation": null
   },
   {
@@ -208,49 +196,45 @@ window.CRYPTIC_PUZZLES["independent-9063"] = /*JSON-START*/ {
    "number": 13,
    "direction": "across",
    "position": {
-    "x": 0,
-    "y": 6
+    "x": 9,
+    "y": 5
    },
    "length": 6,
-   "clue": "Petty dictator can leave department (3,3)",
-   "separatorLocations": {
-    ",": [
-     3
-    ]
-   },
-   "solution": "TINGOD",
+   "clue": "Tax department so far gathering intelligence about foreigners (6)",
+   "separatorLocations": {},
+   "solution": "IRAQIS",
    "annotation": null
   },
   {
-   "id": "14-down",
+   "id": "14-across",
    "number": 14,
+   "direction": "across",
+   "position": {
+    "x": 0,
+    "y": 7
+   },
+   "length": 7,
+   "clue": "Keeping pace with a depraved guy who's run to hide (7)",
+   "separatorLocations": {},
+   "solution": "ABREAST",
+   "annotation": null
+  },
+  {
+   "id": "15-down",
+   "number": 15,
    "direction": "down",
    "position": {
-    "x": 5,
-    "y": 6
+    "x": 1,
+    "y": 7
    },
-   "length": 9,
-   "clue": "A bargain  - had to cut price drastically (4,5)",
+   "length": 8,
+   "clue": "Order and combine networked browsers? (4,4)",
    "separatorLocations": {
     ",": [
      4
     ]
    },
-   "solution": "DIRTCHEAP",
-   "annotation": null
-  },
-  {
-   "id": "15-across",
-   "number": 15,
-   "direction": "across",
-   "position": {
-    "x": 7,
-    "y": 6
-   },
-   "length": 8,
-   "clue": "Meteorite that's landed - hear nothing new about it (8)",
-   "separatorLocations": {},
-   "solution": "AEROLITH",
+   "solution": "BOOKCLUB",
    "annotation": null
   },
   {
@@ -258,13 +242,13 @@ window.CRYPTIC_PUZZLES["independent-9063"] = /*JSON-START*/ {
    "number": 16,
    "direction": "down",
    "position": {
-    "x": 13,
-    "y": 6
+    "x": 5,
+    "y": 7
    },
-   "length": 9,
-   "clue": "True? Phone to find out immediately (9)",
+   "length": 8,
+   "clue": "Around hotel, salesmen knocked back drink (8)",
    "separatorLocations": {},
-   "solution": "THEREUPON",
+   "solution": "SPRITZER",
    "annotation": null
   },
   {
@@ -272,17 +256,13 @@ window.CRYPTIC_PUZZLES["independent-9063"] = /*JSON-START*/ {
    "number": 17,
    "direction": "across",
    "position": {
-    "x": 0,
-    "y": 8
+    "x": 8,
+    "y": 7
    },
-   "length": 8,
-   "clue": "Begin to face disaster in chat show (4,4)",
-   "separatorLocations": {
-    ",": [
-     4
-    ]
-   },
-   "solution": "STARTREK",
+   "length": 7,
+   "clue": "Shadow leaves tigers partially obscured (7)",
+   "separatorLocations": {},
+   "solution": "VESTIGE",
    "annotation": null
   },
   {
@@ -290,13 +270,13 @@ window.CRYPTIC_PUZZLES["independent-9063"] = /*JSON-START*/ {
    "number": 18,
    "direction": "down",
    "position": {
-    "x": 3,
-    "y": 8
+    "x": 11,
+    "y": 7
    },
-   "length": 7,
-   "clue": "Poor women invisible and gagged (7)",
+   "length": 8,
+   "clue": "Tragic husband wearing naughty panties (8)",
    "separatorLocations": {},
-   "solution": "RETCHED",
+   "solution": "THESPIAN",
    "annotation": null
   },
   {
@@ -308,9 +288,13 @@ window.CRYPTIC_PUZZLES["independent-9063"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 7,
-   "clue": "Toy boy outside Long Room (7)",
-   "separatorLocations": {},
-   "solution": "KITCHEN",
+   "clue": "50% of Disney finally linked with business in a state (3,4)",
+   "separatorLocations": {
+    ",": [
+     3
+    ]
+   },
+   "solution": "NEWYORK",
    "annotation": null
   },
   {
@@ -318,13 +302,13 @@ window.CRYPTIC_PUZZLES["independent-9063"] = /*JSON-START*/ {
    "number": 20,
    "direction": "across",
    "position": {
-    "x": 9,
-    "y": 8
+    "x": 0,
+    "y": 9
    },
    "length": 6,
-   "clue": "Sacked? Is Pellegrini about to drive away? (6)",
+   "clue": "Tanker was emptied in the name of war (6)",
    "separatorLocations": {},
-   "solution": "DISPEL",
+   "solution": "BOWSER",
    "annotation": null
   },
   {
@@ -332,13 +316,13 @@ window.CRYPTIC_PUZZLES["independent-9063"] = /*JSON-START*/ {
    "number": 21,
    "direction": "down",
    "position": {
-    "x": 11,
-    "y": 8
+    "x": 3,
+    "y": 9
    },
-   "length": 7,
-   "clue": "Top guy in sport's promotion English (7)",
+   "length": 6,
+   "clue": "Food is turning, affected internally (6)",
    "separatorLocations": {},
-   "solution": "SUPREMO",
+   "solution": "SCAMPI",
    "annotation": null
   },
   {
@@ -346,13 +330,13 @@ window.CRYPTIC_PUZZLES["independent-9063"] = /*JSON-START*/ {
    "number": 22,
    "direction": "across",
    "position": {
-    "x": 0,
-    "y": 10
+    "x": 7,
+    "y": 9
    },
-   "length": 6,
-   "clue": "US writer 'put it about' - see, that's beautifully expressed (6)",
+   "length": 8,
+   "clue": "Brains required where soldiers go in? (8)",
    "separatorLocations": {},
-   "solution": "POETIC",
+   "solution": "EGGHEADS",
    "annotation": null
   },
   {
@@ -360,41 +344,41 @@ window.CRYPTIC_PUZZLES["independent-9063"] = /*JSON-START*/ {
    "number": 23,
    "direction": "down",
    "position": {
-    "x": 1,
-    "y": 10
+    "x": 9,
+    "y": 9
    },
-   "length": 5,
-   "clue": "Statesman soon gets upset (5)",
+   "length": 6,
+   "clue": "Heavenly pair of legs exposed when lifting short skirt (6)",
    "separatorLocations": {},
-   "solution": "OMANI",
+   "solution": "GEMINI",
    "annotation": null
   },
   {
-   "id": "24-across",
+   "id": "24-down",
    "number": 24,
-   "direction": "across",
-   "position": {
-    "x": 7,
-    "y": 10
-   },
-   "length": 8,
-   "clue": "Did tramp depart with 'is bundle? (8)",
-   "separatorLocations": {},
-   "solution": "TRAIPSED",
-   "annotation": null
-  },
-  {
-   "id": "25-down",
-   "number": 25,
    "direction": "down",
    "position": {
-    "x": 9,
-    "y": 10
+    "x": 13,
+    "y": 9
    },
    "length": 5,
-   "clue": "One day they'll help (5)",
+   "clue": "Tight knot finally loosened up (5)",
    "separatorLocations": {},
-   "solution": "AIDES",
+   "solution": "DRUNK",
+   "annotation": null
+  },
+  {
+   "id": "25-across",
+   "number": 25,
+   "direction": "across",
+   "position": {
+    "x": 0,
+    "y": 11
+   },
+   "length": 8,
+   "clue": "He tried to sink many reds in match finals in BBC one-day snooker broadcast (8)",
+   "separatorLocations": {},
+   "solution": "MCCARTHY",
    "annotation": null
   },
   {
@@ -402,13 +386,17 @@ window.CRYPTIC_PUZZLES["independent-9063"] = /*JSON-START*/ {
    "number": 26,
    "direction": "across",
    "position": {
-    "x": 0,
-    "y": 12
+    "x": 9,
+    "y": 11
    },
-   "length": 8,
-   "clue": "Does he stock ecstasy tablets, heroin or a different drug? (8)",
-   "separatorLocations": {},
-   "solution": "HASHEESH",
+   "length": 6,
+   "clue": "Plan work with head of admin to stop corporation in recession (3,3)",
+   "separatorLocations": {
+    ",": [
+     3
+    ]
+   },
+   "solution": "MAPOUT",
    "annotation": null
   },
   {
@@ -416,13 +404,13 @@ window.CRYPTIC_PUZZLES["independent-9063"] = /*JSON-START*/ {
    "number": 27,
    "direction": "across",
    "position": {
-    "x": 9,
-    "y": 12
+    "x": 0,
+    "y": 13
    },
    "length": 6,
-   "clue": "Pass degree course in French town (6)",
+   "clue": "6 pupils regularly filling in petition (6)",
    "separatorLocations": {},
-   "solution": "DIEPPE",
+   "solution": "SUPPLE",
    "annotation": null
   },
   {
@@ -430,19 +418,13 @@ window.CRYPTIC_PUZZLES["independent-9063"] = /*JSON-START*/ {
    "number": 28,
    "direction": "across",
    "position": {
-    "x": 0,
-    "y": 14
+    "x": 7,
+    "y": 13
    },
-   "length": 15,
-   "clue": "Beginning to get frisky in pool (I undress and prepare for action) (4,2,4,5)",
-   "separatorLocations": {
-    ",": [
-     4,
-     6,
-     10
-    ]
-   },
-   "solution": "GIRDUPONESLOINS",
+   "length": 8,
+   "clue": "Rifles thrust over cashiers (8)",
+   "separatorLocations": {},
+   "solution": "RANSACKS",
    "annotation": null
   }
  ]

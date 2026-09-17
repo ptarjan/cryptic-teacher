@@ -25,6 +25,10 @@ window.CRYPTIC_PUZZLES["cyclops-637"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 22ac. (6)",
+   "group": [
+    "22-across",
+    "1-across"
+   ],
    "separatorLocations": {},
    "solution": "THRUSH",
    "annotation": null
@@ -95,6 +99,10 @@ window.CRYPTIC_PUZZLES["cyclops-637"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 10ac. (5)",
+   "group": [
+    "10-across",
+    "5-down"
+   ],
    "separatorLocations": {},
    "solution": "HANDS",
    "annotation": null
@@ -165,6 +173,10 @@ window.CRYPTIC_PUZZLES["cyclops-637"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 5dn.) A feature of unemployment: Danish-led fiasco (4)",
+   "group": [
+    "10-across",
+    "5-down"
+   ],
    "separatorLocations": {},
    "solution": "IDLE",
    "annotation": null
@@ -347,6 +359,10 @@ window.CRYPTIC_PUZZLES["cyclops-637"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 1ac.) Vociferous flier shows strain, having infection (4)",
+   "group": [
+    "22-across",
+    "1-across"
+   ],
    "separatorLocations": {},
    "solution": "SONG",
    "annotation": null

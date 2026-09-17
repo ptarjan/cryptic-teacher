@@ -53,6 +53,11 @@ window.CRYPTIC_PUZZLES["cyclops-745"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 27dn. (4)",
+   "group": [
+    "27-down",
+    "12-across",
+    "3-down"
+   ],
    "separatorLocations": {},
    "solution": "LIAR",
    "annotation": null
@@ -179,6 +184,11 @@ window.CRYPTIC_PUZZLES["cyclops-745"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 27dn. (5,4,4)",
+   "group": [
+    "27-down",
+    "12-across",
+    "3-down"
+   ],
    "separatorLocations": {},
    "solution": "FACED",
    "annotation": null
@@ -403,6 +413,11 @@ window.CRYPTIC_PUZZLES["cyclops-745"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 12ac./3dn.) Fake news purveyor unmasked? (4)",
+   "group": [
+    "27-down",
+    "12-across",
+    "3-down"
+   ],
    "separatorLocations": {},
    "solution": "BARE",
    "annotation": null

@@ -95,6 +95,10 @@ window.CRYPTIC_PUZZLES["cyclops-588"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 23dn.) Charles's one-time indulgence, Hirst's bad habit (4)",
+   "group": [
+    "6-across",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "POLO",
    "annotation": null
@@ -361,6 +365,10 @@ window.CRYPTIC_PUZZLES["cyclops-588"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 6ac. (5)",
+   "group": [
+    "6-across",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "SHIRT",
    "annotation": null
@@ -403,6 +411,10 @@ window.CRYPTIC_PUZZLES["cyclops-588"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(&27ac.) Might Theresa May call one \"Line-up to embrace the little dictator\"? (4)",
+   "group": [
+    "26-across",
+    "27-across"
+   ],
    "separatorLocations": {},
    "solution": "SNAP",
    "annotation": null
@@ -417,6 +429,10 @@ window.CRYPTIC_PUZZLES["cyclops-588"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "see 26ac. (8)",
+   "group": [
+    "26-across",
+    "27-across"
+   ],
    "separatorLocations": {},
    "solution": "ELECTION",
    "annotation": null

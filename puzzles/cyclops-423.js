@@ -39,6 +39,10 @@ window.CRYPTIC_PUZZLES["cyclops-423"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 28dn. (4)",
+   "group": [
+    "28-down",
+    "2-down"
+   ],
    "separatorLocations": {},
    "solution": "GAGA",
    "annotation": null
@@ -53,6 +57,10 @@ window.CRYPTIC_PUZZLES["cyclops-423"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "(& 21dn.) Balls put under pressure in the latest party charade? (10)",
+   "group": [
+    "3-down",
+    "21-down"
+   ],
    "separatorLocations": {},
    "solution": "LEADERSHIP",
    "annotation": null
@@ -95,6 +103,10 @@ window.CRYPTIC_PUZZLES["cyclops-423"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 26dn.) Protracted hot air associated with James May? (4)",
+   "group": [
+    "6-down",
+    "26-down"
+   ],
    "separatorLocations": {},
    "solution": "LONG",
    "annotation": null
@@ -249,6 +261,10 @@ window.CRYPTIC_PUZZLES["cyclops-423"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 18ac.) Desirable things  but his wilts when stimulated (4)",
+   "group": [
+    "17-across",
+    "18-across"
+   ],
    "separatorLocations": {},
    "solution": "WISH",
    "annotation": null
@@ -263,6 +279,10 @@ window.CRYPTIC_PUZZLES["cyclops-423"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 17ac. (4)",
+   "group": [
+    "17-across",
+    "18-across"
+   ],
    "separatorLocations": {},
    "solution": "LIST",
    "annotation": null
@@ -305,6 +325,10 @@ window.CRYPTIC_PUZZLES["cyclops-423"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 3dn. (7)",
+   "group": [
+    "3-down",
+    "21-down"
+   ],
    "separatorLocations": {},
    "solution": "CONTEST",
    "annotation": null
@@ -375,6 +399,10 @@ window.CRYPTIC_PUZZLES["cyclops-423"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 6dn. (4)",
+   "group": [
+    "6-down",
+    "26-down"
+   ],
    "separatorLocations": {},
    "solution": "HAIR",
    "annotation": null
@@ -403,6 +431,10 @@ window.CRYPTIC_PUZZLES["cyclops-423"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 2dn.) Bloke, outed gay, with lots of cash: one who helps fill the tabloids (4)",
+   "group": [
+    "28-down",
+    "2-down"
+   ],
    "separatorLocations": {},
    "solution": "LADY",
    "annotation": null

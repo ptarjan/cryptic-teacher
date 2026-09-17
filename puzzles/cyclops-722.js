@@ -375,6 +375,10 @@ window.CRYPTIC_PUZZLES["cyclops-722"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 26dn. (5)",
+   "group": [
+    "26-down",
+    "24-down"
+   ],
    "separatorLocations": {},
    "solution": "LINEN",
    "annotation": null
@@ -403,6 +407,10 @@ window.CRYPTIC_PUZZLES["cyclops-722"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 24dn.) Its sleazy owners would want it washed but not aired? (5)",
+   "group": [
+    "26-down",
+    "24-down"
+   ],
    "separatorLocations": {},
    "solution": "DIRTY",
    "annotation": null

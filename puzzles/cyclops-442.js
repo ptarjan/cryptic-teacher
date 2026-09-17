@@ -95,6 +95,10 @@ window.CRYPTIC_PUZZLES["cyclops-442"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 19ac.) Weapon used by cannabis smoker? (4)",
+   "group": [
+    "6-down",
+    "19-across"
+   ],
    "separatorLocations": {},
    "solution": "BLOW",
    "annotation": null
@@ -109,6 +113,10 @@ window.CRYPTIC_PUZZLES["cyclops-442"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "(& 26ac.) Union strikers? They'll get a hearing by Kate and Wills, etc. (7)",
+   "group": [
+    "7-down",
+    "26-across"
+   ],
    "separatorLocations": {},
    "solution": "WEDDING",
    "annotation": null
@@ -137,6 +145,10 @@ window.CRYPTIC_PUZZLES["cyclops-442"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 27dn.)  [Geddit?] (4)",
+   "group": [
+    "9-across",
+    "27-down"
+   ],
    "separatorLocations": {},
    "solution": "CLUE",
    "annotation": null
@@ -207,6 +219,11 @@ window.CRYPTIC_PUZZLES["cyclops-442"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "(& 18/24) What's Kate to do: swallow it? (He, naked, explodes) (4,4)",
+   "group": [
+    "14-across",
+    "18-across",
+    "24-across"
+   ],
    "separatorLocations": {},
    "solution": "WALKDOWN",
    "annotation": null
@@ -249,6 +266,10 @@ window.CRYPTIC_PUZZLES["cyclops-442"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 25dn.) Global brand takes back arses' money (4)",
+   "group": [
+    "17-across",
+    "25-down"
+   ],
    "separatorLocations": {},
    "solution": "STAR",
    "annotation": null
@@ -263,6 +284,11 @@ window.CRYPTIC_PUZZLES["cyclops-442"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "see 14ac. (3)",
+   "group": [
+    "14-across",
+    "18-across",
+    "24-across"
+   ],
    "separatorLocations": {},
    "solution": "THE",
    "annotation": null
@@ -277,6 +303,10 @@ window.CRYPTIC_PUZZLES["cyclops-442"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 6dn. (4)",
+   "group": [
+    "6-down",
+    "19-across"
+   ],
    "separatorLocations": {},
    "solution": "PIPE",
    "annotation": null
@@ -361,6 +391,11 @@ window.CRYPTIC_PUZZLES["cyclops-442"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 14ac. (5)",
+   "group": [
+    "14-across",
+    "18-across",
+    "24-across"
+   ],
    "separatorLocations": {},
    "solution": "AISLE",
    "annotation": null
@@ -375,6 +410,10 @@ window.CRYPTIC_PUZZLES["cyclops-442"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 17ac. (5)",
+   "group": [
+    "17-across",
+    "25-down"
+   ],
    "separatorLocations": {},
    "solution": "BUCKS",
    "annotation": null
@@ -389,6 +428,10 @@ window.CRYPTIC_PUZZLES["cyclops-442"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 7dn. (5)",
+   "group": [
+    "7-down",
+    "26-across"
+   ],
    "separatorLocations": {},
    "solution": "BELLS",
    "annotation": null
@@ -403,6 +446,10 @@ window.CRYPTIC_PUZZLES["cyclops-442"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 9ac. (4)",
+   "group": [
+    "9-across",
+    "27-down"
+   ],
    "separatorLocations": {},
    "solution": "LESS",
    "annotation": null

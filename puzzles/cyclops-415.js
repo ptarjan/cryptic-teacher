@@ -109,6 +109,11 @@ window.CRYPTIC_PUZZLES["cyclops-415"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 27ac. (5)",
+   "group": [
+    "27-across",
+    "28-across",
+    "7-down"
+   ],
    "separatorLocations": {},
    "solution": "SNAKE",
    "annotation": null
@@ -403,6 +408,11 @@ window.CRYPTIC_PUZZLES["cyclops-415"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "(& 28ac., 7dn.) As Cyclops pants on getting Ken embroiled with a member (3-4)",
+   "group": [
+    "27-across",
+    "28-across",
+    "7-down"
+   ],
    "separatorLocations": {},
    "solution": "ONEEYED",
    "annotation": null
@@ -417,6 +427,11 @@ window.CRYPTIC_PUZZLES["cyclops-415"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 27ac. (7)",
+   "group": [
+    "27-across",
+    "28-across",
+    "7-down"
+   ],
    "separatorLocations": {},
    "solution": "TROUSER",
    "annotation": null

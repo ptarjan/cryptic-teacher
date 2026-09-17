@@ -25,6 +25,10 @@ window.CRYPTIC_PUZZLES["cyclops-805"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 28ac.",
+   "group": [
+    "28-across",
+    "1-across"
+   ],
    "separatorLocations": {},
    "solution": "POLL",
    "annotation": null
@@ -445,6 +449,10 @@ window.CRYPTIC_PUZZLES["cyclops-805"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 1ac.) Parrot's gone to meet its maker  early indication of who'll get in? (4)",
+   "group": [
+    "28-across",
+    "1-across"
+   ],
    "separatorLocations": {},
    "solution": "EXIT",
    "annotation": null

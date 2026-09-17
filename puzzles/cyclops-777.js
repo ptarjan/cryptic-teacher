@@ -109,6 +109,10 @@ window.CRYPTIC_PUZZLES["cyclops-777"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 30ac.) They've been driven more than once to break addicts with drug control agency initiatives (4)",
+   "group": [
+    "6-across",
+    "30-across"
+   ],
    "separatorLocations": {},
    "solution": "USED",
    "annotation": null
@@ -445,6 +449,10 @@ window.CRYPTIC_PUZZLES["cyclops-777"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 6ac.",
+   "group": [
+    "6-across",
+    "30-across"
+   ],
    "separatorLocations": {},
    "solution": "CARS",
    "annotation": null

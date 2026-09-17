@@ -179,6 +179,10 @@ window.CRYPTIC_PUZZLES["cyclops-462"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "(& 14ac.) Archer's duty: extraction of a bigger share of income from wealthy types (5,4)",
+   "group": [
+    "12-across",
+    "14-across"
+   ],
    "separatorLocations": {},
    "solution": "ROBINHOOD",
    "annotation": null
@@ -207,6 +211,10 @@ window.CRYPTIC_PUZZLES["cyclops-462"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "see 12ac. (3)",
+   "group": [
+    "12-across",
+    "14-across"
+   ],
    "separatorLocations": {},
    "solution": "TAX",
    "annotation": null
@@ -291,6 +299,10 @@ window.CRYPTIC_PUZZLES["cyclops-462"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "(& 21ac.) The Broadway play, film, and TV series, showing an occasional shag? (3)",
+   "group": [
+    "20-across",
+    "21-across"
+   ],
    "separatorLocations": {},
    "solution": "THE",
    "annotation": null
@@ -319,6 +331,10 @@ window.CRYPTIC_PUZZLES["cyclops-462"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "see 20ac. (3,6)",
+   "group": [
+    "20-across",
+    "21-across"
+   ],
    "separatorLocations": {},
    "solution": "ODDCOUPLE",
    "annotation": null

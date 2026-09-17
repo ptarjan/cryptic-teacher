@@ -53,6 +53,10 @@ window.CRYPTIC_PUZZLES["cyclops-528"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 27dn. (4)",
+   "group": [
+    "27-down",
+    "3-down"
+   ],
    "separatorLocations": {},
    "solution": "AREA",
    "annotation": null
@@ -67,6 +71,10 @@ window.CRYPTIC_PUZZLES["cyclops-528"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(&25dn.) Put up with old-style Labour faction and start a U-turn? (4)",
+   "group": [
+    "4-down",
+    "25-down"
+   ],
    "separatorLocations": {},
    "solution": "BEAR",
    "annotation": null
@@ -361,6 +369,10 @@ window.CRYPTIC_PUZZLES["cyclops-528"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 4dn. (4)",
+   "group": [
+    "4-down",
+    "25-down"
+   ],
    "separatorLocations": {},
    "solution": "LEFT",
    "annotation": null
@@ -389,6 +401,10 @@ window.CRYPTIC_PUZZLES["cyclops-528"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 3dn.) Rather doubtful thing, head, in the case of oldies? (4)",
+   "group": [
+    "27-down",
+    "3-down"
+   ],
    "separatorLocations": {},
    "solution": "GREY",
    "annotation": null

@@ -25,6 +25,10 @@ window.CRYPTIC_PUZZLES["cyclops-660"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 10ac.) \"Famously ineffective session of MPs\" (Cyclops' cryptic rendering of 'ear implant') (6)",
+   "group": [
+    "1-across",
+    "10-across"
+   ],
    "separatorLocations": {},
    "solution": "ADDLED",
    "annotation": null
@@ -39,6 +43,10 @@ window.CRYPTIC_PUZZLES["cyclops-660"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 27ac. (7)",
+   "group": [
+    "27-across",
+    "2-down"
+   ],
    "separatorLocations": {},
    "solution": "DEPOSIT",
    "annotation": null
@@ -165,6 +173,10 @@ window.CRYPTIC_PUZZLES["cyclops-660"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "see 1ac. (10)",
+   "group": [
+    "1-across",
+    "10-across"
+   ],
    "separatorLocations": {},
    "solution": "PARLIAMENT",
    "annotation": null
@@ -403,6 +415,10 @@ window.CRYPTIC_PUZZLES["cyclops-660"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 2dn.) Abandoned lay: the failed would-be MP's forfeit (4)",
+   "group": [
+    "27-across",
+    "2-down"
+   ],
    "separatorLocations": {},
    "solution": "LOST",
    "annotation": null

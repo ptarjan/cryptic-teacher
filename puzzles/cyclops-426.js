@@ -67,6 +67,10 @@ window.CRYPTIC_PUZZLES["cyclops-426"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "(& 13ac.) Groping bobby pin on girl (there's a cost in it) (7)",
+   "group": [
+    "4-across",
+    "13-across"
+   ],
    "separatorLocations": {},
    "solution": "COPPING",
    "annotation": null
@@ -109,6 +113,10 @@ window.CRYPTIC_PUZZLES["cyclops-426"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "(& 21dn.) Grim style of a comedian about to be suspended? (7)",
+   "group": [
+    "6-down",
+    "21-down"
+   ],
    "separatorLocations": {},
    "solution": "GALLOWS",
    "annotation": null
@@ -207,6 +215,10 @@ window.CRYPTIC_PUZZLES["cyclops-426"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 4ac. (5)",
+   "group": [
+    "4-across",
+    "13-across"
+   ],
    "separatorLocations": {},
    "solution": "AFEEL",
    "annotation": null
@@ -305,6 +317,10 @@ window.CRYPTIC_PUZZLES["cyclops-426"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 27ac. (5)",
+   "group": [
+    "27-across",
+    "19-across"
+   ],
    "separatorLocations": {},
    "solution": "PRESS",
    "annotation": null
@@ -347,6 +363,10 @@ window.CRYPTIC_PUZZLES["cyclops-426"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 6dn. (6)",
+   "group": [
+    "6-down",
+    "21-down"
+   ],
    "separatorLocations": {},
    "solution": "HUMOUR",
    "annotation": null
@@ -431,6 +451,10 @@ window.CRYPTIC_PUZZLES["cyclops-426"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "(& 19ac.) One's commandeered by terrible old bat to iron rags (7)",
+   "group": [
+    "27-across",
+    "19-across"
+   ],
    "separatorLocations": {},
    "solution": "TABLOID",
    "annotation": null

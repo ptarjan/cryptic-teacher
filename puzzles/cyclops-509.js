@@ -151,6 +151,12 @@ window.CRYPTIC_PUZZLES["cyclops-509"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 27ac. (4)",
+   "group": [
+    "27-across",
+    "20-across",
+    "14-across",
+    "10-across"
+   ],
    "separatorLocations": {},
    "solution": "WORD",
    "annotation": null
@@ -207,6 +213,12 @@ window.CRYPTIC_PUZZLES["cyclops-509"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 27ac. (4)",
+   "group": [
+    "27-across",
+    "20-across",
+    "14-across",
+    "10-across"
+   ],
    "separatorLocations": {},
    "solution": "ONES",
    "annotation": null
@@ -291,6 +303,12 @@ window.CRYPTIC_PUZZLES["cyclops-509"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 27ac. (4)",
+   "group": [
+    "27-across",
+    "20-across",
+    "14-across",
+    "10-across"
+   ],
    "separatorLocations": {},
    "solution": "GOOD",
    "annotation": null
@@ -389,6 +407,12 @@ window.CRYPTIC_PUZZLES["cyclops-509"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 20/14/10) Balls, entering work demand, goes berserk  act quite unlike electioneering politician once in power (4)",
+   "group": [
+    "27-across",
+    "20-across",
+    "14-across",
+    "10-across"
+   ],
    "separatorLocations": {},
    "solution": "MAKE",
    "annotation": null

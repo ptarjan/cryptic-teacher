@@ -165,6 +165,10 @@ window.CRYPTIC_PUZZLES["cyclops-755"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "(&12ac.) Out with organisation! Do what Sunak's government suspiciously rushed through (6,5)",
+   "group": [
+    "11-across",
+    "12-across"
+   ],
    "separatorLocations": {},
    "solution": "PUBLICORDER",
    "annotation": null
@@ -179,6 +183,10 @@ window.CRYPTIC_PUZZLES["cyclops-755"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "see 11ac. (3)",
+   "group": [
+    "11-across",
+    "12-across"
+   ],
    "separatorLocations": {},
    "solution": "ACT",
    "annotation": null

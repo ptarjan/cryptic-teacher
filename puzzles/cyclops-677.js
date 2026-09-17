@@ -95,6 +95,10 @@ window.CRYPTIC_PUZZLES["cyclops-677"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "(& 16ac.) Grim catchphrase for the times?  \"The Eye had to recruit a role model, sadly\" (4,3)",
+   "group": [
+    "6-down",
+    "16-across"
+   ],
    "separatorLocations": {},
    "solution": "WEREALL",
    "annotation": null
@@ -235,6 +239,10 @@ window.CRYPTIC_PUZZLES["cyclops-677"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 6dn. (6)",
+   "group": [
+    "6-down",
+    "16-across"
+   ],
    "separatorLocations": {},
    "solution": "DOOMED",
    "annotation": null
@@ -347,6 +355,10 @@ window.CRYPTIC_PUZZLES["cyclops-677"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 25dn. (5)",
+   "group": [
+    "25-down",
+    "23-across"
+   ],
    "separatorLocations": {},
    "solution": "PANIC",
    "annotation": null
@@ -389,6 +401,10 @@ window.CRYPTIC_PUZZLES["cyclops-677"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 23ac.) Pandemic to end badly? Deem unnecessary and keep cool (4)",
+   "group": [
+    "25-down",
+    "23-across"
+   ],
    "separatorLocations": {},
    "solution": "DONT",
    "annotation": null

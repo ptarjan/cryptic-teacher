@@ -34,6 +34,7 @@ downloaded, prints "up-to-date <n>" and exits 3 if nothing new was found.
 
 import hashlib
 import html
+import itertools
 import json
 import re
 import sys
@@ -41,6 +42,7 @@ import time
 import unicodedata
 import urllib.error
 import urllib.request
+from datetime import datetime, timezone
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -120,6 +122,13 @@ PUZZLE_URLS = [
     "https://www.theguardian.com/crosswords/prize/{num}",
     "https://www.theguardian.com/crosswords/quiptic/{num}",
 ]
+
+# The enumeration, and nothing else: the last parenthesised run at the end of a
+# clue. Anchored to the end because cryptics put bracketed asides mid-clue, and
+# Private Eye opens a linked clue with "(& 27ac.)" — the count is always last.
+# Lives here rather than in tools/puzzle_integrity.py, which imports it, so the
+# fetcher that writes the clue and the check that weighs it read the same rule.
+ENUMERATION = re.compile(r"\(([^()]*)\)\s*$")
 
 JSON_START = "/*JSON-START*/"
 JSON_END = "/*JSON-END*/"
@@ -355,6 +364,110 @@ def series_of(page_id):
     return "cryptic"
 
 
+def _cuts_into(counts, lengths):
+    """Can `counts` be cut into consecutive runs summing to each of `lengths`?
+
+    "(4,5,5,2,1,3)" over ROME / WASNT / BUILTIN / ADAY is 4 | 5 | 5,2 | 1,3 —
+    one light can hold several enumerated words, so this is a partition test
+    and not a pairing.
+    """
+    i = 0
+    for n in lengths:
+        got = 0
+        while got < n and i < len(counts):
+            got += counts[i]
+            i += 1
+        if got != n:
+            return False
+    return i == len(counts)
+
+
+def reconcile_groups(entries):
+    """Make every member of a linked clue name the same group.
+
+    The Guardian writes a `group` on each entry, and on one puzzle in the corpus
+    the members disagree: Prize 29,069's 3-down says [3-down, 21-across] while
+    13-across says [3-down, 13-across], so LONDON SYMPHONY ORCHESTRA is stored
+    as two answers that hold 15 of the clue's promised 23 letters. A linked
+    group is an equivalence class — if 13-across is grouped with 3-down then it
+    is grouped with everything 3-down is — so the union is the only reading the
+    paper's own data supports, and taking it costs nothing on the 4,339 groups
+    whose members already agree (they are left untouched, order included).
+
+    The union fixes membership; ORDER then comes from the clue, because the
+    members' lists do not settle it. The leading light carries the enumeration
+    for the whole answer, so the one arrangement whose lights the enumeration
+    cuts into is the answer's own word order: (6,8,9) over LONDON 6, SYMPHONY 8,
+    ORCHESTRA 9 admits 3-down, 13-across, 21-across and nothing else. If the
+    enumeration leaves it open the leader's stated order is kept and the
+    newcomers are appended in grid reading order, which is a guess — but a
+    guess about display order only, after the membership is already right.
+    """
+    by_id = {e["id"]: e for e in entries}
+    closure = {}
+    for e in entries:
+        for eid in e.get("group") or []:
+            closure.setdefault(eid, set()).update(e["group"])
+    merging = True
+    while merging:                      # groups are tiny; this settles at once
+        merging = False
+        for eid, members in closure.items():
+            grown = members.union(*(closure.get(m, {m}) for m in members))
+            if grown != members:
+                closure[eid], merging = grown, True
+
+    for members in {frozenset(v) for v in closure.values()}:
+        if len(members) < 2 or not members <= set(by_id):
+            continue
+        stated = [by_id[m].get("group") or [] for m in members]
+        if all(set(s) == members for s in stated):
+            continue                    # the paper already agrees with itself
+        leads = {s[0] for s in stated if s}
+        rest = sorted(members - leads, key=lambda m: (by_id[m]["position"]["y"],
+                                                      by_id[m]["position"]["x"]))
+        if len(leads) != 1:
+            print(f"WARNING: {'/'.join(sorted(members))} disagree about their group "
+                  "and about which clue leads it", file=sys.stderr)
+            continue
+        lead = leads.pop()
+        said = ENUMERATION.search(by_id[lead]["clue"] or "")
+        counts = [int(n) for n in re.findall(r"\d+", said.group(1))] if said else []
+        fits = [tail for tail in itertools.permutations(rest)
+                if _cuts_into(counts, [by_id[m]["length"] for m in (lead, *tail)])]
+        if len(fits) == 1:
+            order = [lead, *fits[0]]
+        else:
+            named = [m for m in by_id[lead].get("group") or [] if m != lead]
+            order = [lead, *named, *(m for m in rest if m not in named)]
+        print(f"WARNING: {lead}'s group was stated inconsistently; reading it as "
+              + " + ".join(order), file=sys.stderr)
+        for m in members:
+            by_id[m]["group"] = order
+
+
+def _day(ms):
+    """An epoch-milliseconds date as a readable day, for error messages."""
+    return datetime.fromtimestamp(ms / 1000, timezone.utc).date()
+
+
+def bare_letters(solution):
+    """A solution as the grid holds it: one letter per cell, unaccented.
+
+    A crossword cell holds a letter, so the accent the paper sets in its own
+    answer text is typography and not a character the solver writes — Everyman
+    3,847's 2-down is published "ROSÉ" for four cells whose wordplay (gRoOmSmEn,
+    regularly) spells ROSE. Stripped here rather than downstream because every
+    reader of `solution` — the crossing check, the length check, the app's own
+    grid — already assumes bare letters, and one accent breaks all of them.
+    Only the accent is removed; anything else non-alphabetic survives to be
+    reported by tools/puzzle_integrity.py rather than silently rewritten.
+    """
+    if not solution:
+        return solution
+    return "".join(c for c in unicodedata.normalize("NFD", solution)
+                   if unicodedata.category(c) != "Mn")
+
+
 def convert(data):
     """Guardian data -> our puzzle object (annotation: null on every entry)."""
     entries = []
@@ -380,9 +493,10 @@ def convert(data):
             # answer", which is the overwhelming majority of them.
             **({"group": e["group"]} if len(e["group"]) > 1 else {}),
             "separatorLocations": e.get("separatorLocations") or {},
-            "solution": e.get("solution"),
+            "solution": bare_letters(e.get("solution")),
             "annotation": None,
         })
+    reconcile_groups(entries)
     # Say it here, where the paper's own data is still in front of us.
     # Downstream a wordless clue is indistinguishable from a hard one: a cold
     # solve burns inference guessing it off the crossings, and the annotator
@@ -392,6 +506,23 @@ def convert(data):
         print("WARNING: published with no clue text: " + ", ".join(wordless),
               file=sys.stderr)
     series = series_of(data["id"])
+
+    # The paper states the publication date twice and they must agree. `date` is
+    # the puzzle's day; `webPublicationDate` is when the article went up, always
+    # the evening before — measured at under a day apart on every page sampled
+    # from cryptic 21,621 (1999) to today, across all four series. A page whose
+    # two dates disagree by more than a month is mis-filed at the Guardian's end
+    # and nothing on it can be trusted: /crosswords/cryptic/1183 answers 200 with
+    # Quiptic 1,183's clues, grid and answers under a `date` of 1934-01-18, while
+    # its own webPublicationDate says 2022-07-14. Refusing is what makes that a
+    # recorded gap instead of a fabricated puzzle — walk() catches Exception,
+    # prints "skip 1183: …" and carries on.
+    when, published = data.get("date"), data.get("webPublicationDate")
+    if when and published and abs(when - published) > 30 * 86_400_000:
+        raise ValueError(
+            f"{data['id']}: date {_day(when)} contradicts webPublicationDate "
+            f"{_day(published)} — mis-filed page, refusing to write it")
+
     return {
         "id": series_meta.puzzle_id(series, data["number"]),
         "number": data["number"],

@@ -137,6 +137,10 @@ window.CRYPTIC_PUZZLES["cyclops-659"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "(& 21dn.) Fasten Hoey to ground, as a sample of how better life could be! (5,2)",
+   "group": [
+    "7-down",
+    "21-down"
+   ],
    "separatorLocations": {},
    "solution": "TASTEOF",
    "annotation": null
@@ -361,6 +365,10 @@ window.CRYPTIC_PUZZLES["cyclops-659"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 7dn. (5)",
+   "group": [
+    "7-down",
+    "21-down"
+   ],
    "separatorLocations": {},
    "solution": "HONEY",
    "annotation": null

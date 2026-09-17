@@ -25,6 +25,10 @@ window.CRYPTIC_PUZZLES["cyclops-786"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 8dn.) King Charles casually poaches English premier gardener  she'll no doubt blame the Tories (6)",
+   "group": [
+    "1-across",
+    "8-down"
+   ],
    "separatorLocations": {},
    "solution": "RACHEL",
    "annotation": null
@@ -53,6 +57,10 @@ window.CRYPTIC_PUZZLES["cyclops-786"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 18dn. (5)",
+   "group": [
+    "18-down",
+    "2-down"
+   ],
    "separatorLocations": {},
    "solution": "CHASE",
    "annotation": null
@@ -137,6 +145,10 @@ window.CRYPTIC_PUZZLES["cyclops-786"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 1ac.",
+   "group": [
+    "1-across",
+    "8-down"
+   ],
    "separatorLocations": {},
    "solution": "REEVES",
    "annotation": null
@@ -277,6 +289,10 @@ window.CRYPTIC_PUZZLES["cyclops-786"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "(& 2dn.) Poll turnover article by Hunt  get on with it! (3,2,3)",
+   "group": [
+    "18-down",
+    "2-down"
+   ],
    "separatorLocations": {},
    "solution": "CUTTOTHE",
    "annotation": null

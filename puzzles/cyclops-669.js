@@ -179,6 +179,10 @@ window.CRYPTIC_PUZZLES["cyclops-669"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 19ac.) No longer wearing suit, being 'indisposed' (3,2)",
+   "group": [
+    "11-across",
+    "19-across"
+   ],
    "separatorLocations": {},
    "solution": "OUTOF",
    "annotation": null
@@ -291,6 +295,10 @@ window.CRYPTIC_PUZZLES["cyclops-669"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 11ac. (6)",
+   "group": [
+    "11-across",
+    "19-across"
+   ],
    "separatorLocations": {},
    "solution": "ACTION",
    "annotation": null
@@ -375,6 +383,10 @@ window.CRYPTIC_PUZZLES["cyclops-669"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 25dn.) Run round shopping centre (go through it carefully, to be on the safe side) (5)",
+   "group": [
+    "24-down",
+    "25-down"
+   ],
    "separatorLocations": {},
    "solution": "SMALL",
    "annotation": null
@@ -403,6 +415,10 @@ window.CRYPTIC_PUZZLES["cyclops-669"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "No Clue",
+   "group": [
+    "24-down",
+    "25-down"
+   ],
    "separatorLocations": {},
    "solution": "PRINT",
    "annotation": null

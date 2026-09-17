@@ -95,6 +95,10 @@ window.CRYPTIC_PUZZLES["cyclops-594"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 25dn.) Reliable voting indicator, once one disheartened Donald  crazy, LOL! (4)",
+   "group": [
+    "6-down",
+    "25-down"
+   ],
    "separatorLocations": {},
    "solution": "EXIT",
    "annotation": null
@@ -389,6 +393,10 @@ window.CRYPTIC_PUZZLES["cyclops-594"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 6dn. (4)",
+   "group": [
+    "6-down",
+    "25-down"
+   ],
    "separatorLocations": {},
    "solution": "POLL",
    "annotation": null

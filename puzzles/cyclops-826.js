@@ -95,6 +95,10 @@ window.CRYPTIC_PUZZLES["cyclops-826"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 27ac.) Trump's Middle East gamble and each emerging cock-up (6)",
+   "group": [
+    "6-across",
+    "27-across"
+   ],
    "separatorLocations": {},
    "solution": "REGIME",
    "annotation": null
@@ -193,6 +197,11 @@ window.CRYPTIC_PUZZLES["cyclops-826"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 13ac. (2,3)",
+   "group": [
+    "13-across",
+    "12-across",
+    "24-down"
+   ],
    "separatorLocations": {},
    "solution": "INTHE",
    "annotation": null
@@ -207,6 +216,11 @@ window.CRYPTIC_PUZZLES["cyclops-826"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "(& 12ac./24dn.) Dumbo occupying the chamber, an embarrassment to be ignored? (8)",
+   "group": [
+    "13-across",
+    "12-across",
+    "24-down"
+   ],
    "separatorLocations": {},
    "solution": "ELEPHANT",
    "annotation": null
@@ -389,6 +403,11 @@ window.CRYPTIC_PUZZLES["cyclops-826"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 13ac.",
+   "group": [
+    "13-across",
+    "12-across",
+    "24-down"
+   ],
    "separatorLocations": {},
    "solution": "ROOM",
    "annotation": null
@@ -431,6 +450,10 @@ window.CRYPTIC_PUZZLES["cyclops-826"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 6ac.",
+   "group": [
+    "6-across",
+    "27-across"
+   ],
    "separatorLocations": {},
    "solution": "CHANGE",
    "annotation": null

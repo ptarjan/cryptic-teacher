@@ -151,6 +151,10 @@ window.CRYPTIC_PUZZLES["cyclops-828"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "See 16dn.",
+   "group": [
+    "16-down",
+    "10-across"
+   ],
    "separatorLocations": {},
    "solution": "FACTOR",
    "annotation": null
@@ -235,6 +239,10 @@ window.CRYPTIC_PUZZLES["cyclops-828"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "(&10ac.) Dithering defector, a fool pocketing a lot of money  just what the electorate needs at present? (4-4)",
+   "group": [
+    "16-down",
+    "10-across"
+   ],
    "separatorLocations": {},
    "solution": "FEELGOOD",
    "annotation": null
@@ -347,6 +355,11 @@ window.CRYPTIC_PUZZLES["cyclops-828"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "(& 25ac./27ac.)What might well crush Reform's hopes  or working together, even (3)",
+   "group": [
+    "23-across",
+    "25-across",
+    "27-across"
+   ],
    "separatorLocations": {},
    "solution": "THE",
    "annotation": null
@@ -375,6 +388,11 @@ window.CRYPTIC_PUZZLES["cyclops-828"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(see 23ac.) (5)",
+   "group": [
+    "23-across",
+    "25-across",
+    "27-across"
+   ],
    "separatorLocations": {},
    "solution": "GREEN",
    "annotation": null
@@ -403,6 +421,11 @@ window.CRYPTIC_PUZZLES["cyclops-828"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(see 23ac.) (4)",
+   "group": [
+    "23-across",
+    "25-across",
+    "27-across"
+   ],
    "separatorLocations": {},
    "solution": "VOTE",
    "annotation": null

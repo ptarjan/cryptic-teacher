@@ -7,8 +7,8 @@ window.CRYPTIC_PUZZLES["independent-9009"] = /*JSON-START*/ {
  "number": 9009,
  "series": "independent",
  "name": "Independent cryptic crossword No 9,009",
- "setter": "Nimrod",
- "date": 1441411200000,
+ "setter": "Tyrus",
+ "date": 1440806400000,
  "dimensions": {
   "cols": 15,
   "rows": 15
@@ -16,17 +16,17 @@ window.CRYPTIC_PUZZLES["independent-9009"] = /*JSON-START*/ {
  "sourceUrl": "https://puzzles.independent.co.uk/games/cryptic-crossword-independent/",
  "entries": [
   {
-   "id": "1-down",
+   "id": "1-across",
    "number": 1,
-   "direction": "down",
+   "direction": "across",
    "position": {
-    "x": 1,
+    "x": 0,
     "y": 0
    },
-   "length": 8,
-   "clue": "G&S production line, on which 10's written articles (8)",
+   "length": 4,
+   "clue": "Rejected batsman bags century against India - what do selectors do? (4)",
    "separatorLocations": {},
-   "solution": "IOLANTHE",
+   "solution": "PICK",
    "annotation": null
   },
   {
@@ -34,13 +34,23 @@ window.CRYPTIC_PUZZLES["independent-9009"] = /*JSON-START*/ {
    "number": 2,
    "direction": "down",
    "position": {
-    "x": 3,
+    "x": 1,
     "y": 0
    },
-   "length": 8,
-   "clue": "Perhaps Maudling and Hill forgetting to say Linda's worried (8)",
-   "separatorLocations": {},
-   "solution": "REGINALD",
+   "length": 7,
+   "clue": "Hail Queen leaving Frozen performance? (3,4)",
+   "clueItalics": [
+    [
+     19,
+     7
+    ]
+   ],
+   "separatorLocations": {
+    ",": [
+     3
+    ]
+   },
+   "solution": "ICESHOW",
    "annotation": null
   },
   {
@@ -48,13 +58,32 @@ window.CRYPTIC_PUZZLES["independent-9009"] = /*JSON-START*/ {
    "number": 3,
    "direction": "down",
    "position": {
+    "x": 3,
+    "y": 0
+   },
+   "length": 9,
+   "clue": "Extremely nice family stories in case of doubt (9)",
+   "separatorLocations": {},
+   "solution": "KINDLIEST",
+   "annotation": null
+  },
+  {
+   "id": "4-across",
+   "number": 4,
+   "direction": "across",
+   "position": {
     "x": 5,
     "y": 0
    },
-   "length": 6,
-   "clue": "\"It's good-night from me ...\", settling up in The Inn, Orpington (6)",
-   "separatorLocations": {},
-   "solution": "RONNIE",
+   "length": 10,
+   "clue": "Made mistake getting revolutionary drug - I can't take any more (4,2,4)",
+   "separatorLocations": {
+    ",": [
+     4,
+     6
+    ]
+   },
+   "solution": "MAKEITSTOP",
    "annotation": null
   },
   {
@@ -62,13 +91,13 @@ window.CRYPTIC_PUZZLES["independent-9009"] = /*JSON-START*/ {
    "number": 4,
    "direction": "down",
    "position": {
-    "x": 7,
+    "x": 5,
     "y": 0
    },
-   "length": 7,
-   "clue": "Refuse some luggage found in French station (7)",
+   "length": 5,
+   "clue": "Stuck up ladder impatience shows (5)",
    "separatorLocations": {},
-   "solution": "GARBAGE",
+   "solution": "MIRED",
    "annotation": null
   },
   {
@@ -76,17 +105,20 @@ window.CRYPTIC_PUZZLES["independent-9009"] = /*JSON-START*/ {
    "number": 5,
    "direction": "down",
    "position": {
-    "x": 9,
+    "x": 7,
     "y": 0
    },
-   "length": 8,
-   "clue": "See 20",
-   "group": [
-    "20-down",
-    "5-down"
-   ],
-   "separatorLocations": {},
-   "solution": "ROSSITER",
+   "length": 15,
+   "clue": "Union activity's going to spell termination of employment (8-3,4)",
+   "separatorLocations": {
+    "-": [
+     8
+    ],
+    ",": [
+     11
+    ]
+   },
+   "solution": "KNOCKINGOFFTIME",
    "annotation": null
   },
   {
@@ -94,56 +126,41 @@ window.CRYPTIC_PUZZLES["independent-9009"] = /*JSON-START*/ {
    "number": 6,
    "direction": "down",
    "position": {
+    "x": 9,
+    "y": 0
+   },
+   "length": 9,
+   "clue": "Seen Colin's bruised lip? (9)",
+   "separatorLocations": {},
+   "solution": "INSOLENCE",
+   "annotation": null
+  },
+  {
+   "id": "7-down",
+   "number": 7,
+   "direction": "down",
+   "position": {
+    "x": 11,
+    "y": 0
+   },
+   "length": 5,
+   "clue": "False hope at the end - that's sad (5)",
+   "separatorLocations": {},
+   "solution": "SHAME",
+   "annotation": null
+  },
+  {
+   "id": "8-down",
+   "number": 8,
+   "direction": "down",
+   "position": {
     "x": 13,
     "y": 0
    },
-   "length": 6,
-   "clue": "Those embarking on routine eleven irritating minutes late getting up to end of line (covered with more leaves) (6)",
+   "length": 7,
+   "clue": "Isn't backing attitudes at work (7)",
    "separatorLocations": {},
-   "solution": "ELMIER",
-   "annotation": null
-  },
-  {
-   "id": "7-across",
-   "number": 7,
-   "direction": "across",
-   "position": {
-    "x": 0,
-    "y": 1
-   },
-   "length": 4,
-   "clue": "Pointless infection from Cupid's Dart? (4)",
-   "clueItalics": [
-    [
-     25,
-     12
-    ]
-   ],
-   "separatorLocations": {},
-   "solution": "LOVE",
-   "annotation": null
-  },
-  {
-   "id": "8-across",
-   "number": 8,
-   "direction": "across",
-   "position": {
-    "x": 5,
-    "y": 1
-   },
-   "length": 5,
-   "clue": "See 11",
-   "group": [
-    "11-across",
-    "8-across"
-   ],
-   "separatorLocations": {
-    ",": [
-     2,
-     3
-    ]
-   },
-   "solution": "OFADO",
+   "solution": "OPPOSES",
    "annotation": null
   },
   {
@@ -151,27 +168,13 @@ window.CRYPTIC_PUZZLES["independent-9009"] = /*JSON-START*/ {
    "number": 9,
    "direction": "across",
    "position": {
-    "x": 11,
-    "y": 1
+    "x": 0,
+    "y": 2
    },
-   "length": 4,
-   "clue": "Decline to retire a little ill-affected (4)",
+   "length": 8,
+   "clue": "Sign on - one way to feed artist (8)",
    "separatorLocations": {},
-   "solution": "FALL",
-   "annotation": null
-  },
-  {
-   "id": "9-down",
-   "number": 9,
-   "direction": "down",
-   "position": {
-    "x": 11,
-    "y": 1
-   },
-   "length": 5,
-   "clue": "Shine a Light, following sweep (5)",
-   "separatorLocations": {},
-   "solution": "FLASH",
+   "solution": "LEONARDO",
    "annotation": null
   },
   {
@@ -179,23 +182,13 @@ window.CRYPTIC_PUZZLES["independent-9009"] = /*JSON-START*/ {
    "number": 10,
    "direction": "across",
    "position": {
-    "x": 0,
-    "y": 3
+    "x": 9,
+    "y": 2
    },
-   "length": 10,
-   "clue": "Domino's topping ratings, introducing comeback of Thunderball theme (5,5)",
-   "clueItalics": [
-    [
-     50,
-     12
-    ]
-   ],
-   "separatorLocations": {
-    ",": [
-     5
-    ]
-   },
-   "solution": "DAVIDNOBBS",
+   "length": 6,
+   "clue": "Grant the politician has misused with assistant initially (6)",
+   "separatorLocations": {},
+   "solution": "SHAPPS",
    "annotation": null
   },
   {
@@ -203,22 +196,17 @@ window.CRYPTIC_PUZZLES["independent-9009"] = /*JSON-START*/ {
    "number": 11,
    "direction": "across",
    "position": {
-    "x": 11,
-    "y": 3
+    "x": 0,
+    "y": 4
    },
-   "length": 4,
-   "clue": "Party area? Too bad if nuts around (1,3,2,1,2)",
-   "group": [
-    "11-across",
-    "8-across"
-   ],
+   "length": 14,
+   "clue": "Really like endless deaths, bar one perhaps, in film (3,11)",
    "separatorLocations": {
     ",": [
-     1,
-     4
+     3
     ]
    },
-   "solution": "ABIT",
+   "solution": "THELADYKILLERS",
    "annotation": null
   },
   {
@@ -227,64 +215,44 @@ window.CRYPTIC_PUZZLES["independent-9009"] = /*JSON-START*/ {
    "direction": "across",
    "position": {
     "x": 0,
-    "y": 5
+    "y": 6
    },
    "length": 6,
-   "clue": "Rapid firing from above when reclining in office \"fart-seats\" (6)",
+   "clue": "Country clothes precious to police officer out of uniform (6)",
    "separatorLocations": {},
-   "solution": "STRAFE",
+   "solution": "TWEEDS",
    "annotation": null
   },
   {
-   "id": "13-across",
+   "id": "13-down",
    "number": 13,
+   "direction": "down",
+   "position": {
+    "x": 5,
+    "y": 6
+   },
+   "length": 9,
+   "clue": "Prickly type upsetting China? Sure (3,6)",
+   "separatorLocations": {
+    ",": [
+     3
+    ]
+   },
+   "solution": "SEAURCHIN",
+   "annotation": null
+  },
+  {
+   "id": "14-across",
+   "number": 14,
    "direction": "across",
    "position": {
     "x": 7,
-    "y": 5
+    "y": 6
    },
    "length": 8,
-   "clue": "See 24",
-   "group": [
-    "24-down",
-    "13-across",
-    "18-down"
-   ],
-   "separatorLocations": {
-    ",": [
-     3,
-     8
-    ]
-   },
-   "solution": "GETWHERE",
-   "annotation": null
-  },
-  {
-   "id": "14-down",
-   "number": 14,
-   "direction": "down",
-   "position": {
-    "x": 14,
-    "y": 5
-   },
-   "length": 3,
-   "clue": "Top journos' send-offs for one 10 (3)",
+   "clue": "Pants, new ones, worn at various points (8)",
    "separatorLocations": {},
-   "solution": "EDS",
-   "annotation": null
-  },
-  {
-   "id": "15-across",
-   "number": 15,
-   "direction": "across",
-   "position": {
-    "x": 0,
-    "y": 7
-   },
-   "length": 7,
-   "clue": "There can be no number determined to reverse direction (7)",
-   "separatorLocations": {},
-   "solution": "DEADEST",
+   "solution": "NONSENSE",
    "annotation": null
   },
   {
@@ -292,65 +260,65 @@ window.CRYPTIC_PUZZLES["independent-9009"] = /*JSON-START*/ {
    "number": 15,
    "direction": "down",
    "position": {
-    "x": 0,
-    "y": 7
+    "x": 11,
+    "y": 6
    },
-   "length": 3,
-   "clue": "They could be fair pushing up the turf, as the old fellow's doing (3)",
+   "length": 9,
+   "clue": "Listened secretly as barrister mentioned this place in Bow earlier (9)",
    "separatorLocations": {},
-   "solution": "DOS",
+   "solution": "EARWIGGED",
    "annotation": null
   },
   {
-   "id": "16-down",
+   "id": "16-across",
    "number": 16,
-   "direction": "down",
-   "position": {
-    "x": 5,
-    "y": 7
-   },
-   "length": 8,
-   "clue": "Good weather to avoid without heading initially for a 9ac... (8)",
-   "separatorLocations": {},
-   "solution": "SUNSHINE",
-   "annotation": null
-  },
-  {
-   "id": "17-across",
-   "number": 17,
    "direction": "across",
    "position": {
-    "x": 8,
-    "y": 7
+    "x": 0,
+    "y": 8
    },
-   "length": 7,
-   "clue": "Skirting artillery, snipe perhaps appears above ground (7)",
+   "length": 8,
+   "clue": "He won't reproduce form at start of Royal Ascot (8)",
    "separatorLocations": {},
-   "solution": "BRAIRDS",
+   "solution": "CASTRATO",
    "annotation": null
   },
   {
-   "id": "18-down",
-   "number": 18,
+   "id": "17-down",
+   "number": 17,
    "direction": "down",
    "position": {
-    "x": 11,
-    "y": 7
+    "x": 1,
+    "y": 8
    },
-   "length": 8,
-   "clue": "See 24",
-   "group": [
-    "24-down",
-    "13-across",
-    "18-down"
+   "length": 7,
+   "clue": "Joined Times - want to frame following article (7)",
+   "clueItalics": [
+    [
+     7,
+     6
+    ]
    ],
+   "separatorLocations": {},
+   "solution": "ANNEXED",
+   "annotation": null
+  },
+  {
+   "id": "18-across",
+   "number": 18,
+   "direction": "across",
+   "position": {
+    "x": 9,
+    "y": 8
+   },
+   "length": 6,
+   "clue": "Politician having frisky encounter with unmarried bird (4,2)",
    "separatorLocations": {
     ",": [
-     1,
-     3
+     4
     ]
    },
-   "solution": "IAMTODAY",
+   "solution": "EUROMP",
    "annotation": null
   },
   {
@@ -359,52 +327,45 @@ window.CRYPTIC_PUZZLES["independent-9009"] = /*JSON-START*/ {
    "direction": "down",
    "position": {
     "x": 13,
-    "y": 7
-   },
-   "length": 8,
-   "clue": "... to be fair, they're just under great pressure to get a 27 (8)",
-   "separatorLocations": {},
-   "solution": "DESSERTS",
-   "annotation": null
-  },
-  {
-   "id": "20-down",
-   "number": 20,
-   "direction": "down",
-   "position": {
-    "x": 7,
     "y": 8
    },
    "length": 7,
-   "clue": "Actor reprising De Niro's star role? (7,8)",
-   "group": [
-    "20-down",
-    "5-down"
-   ],
-   "separatorLocations": {
-    ",": [
-     7
-    ]
-   },
-   "solution": "LEONARD",
+   "clue": "Fury - big-time (7)",
+   "separatorLocations": {},
+   "solution": "MEGAERA",
    "annotation": null
   },
   {
-   "id": "21-across",
-   "number": 21,
+   "id": "20-across",
+   "number": 20,
    "direction": "across",
    "position": {
-    "x": 0,
-    "y": 9
+    "x": 1,
+    "y": 10
    },
-   "length": 8,
-   "clue": "See 29",
-   "group": [
-    "29-across",
-    "21-across"
-   ],
+   "length": 14,
+   "clue": "Conciliatory words after spasm of anger's held in (2,4,8)",
+   "separatorLocations": {
+    ",": [
+     2,
+     6
+    ]
+   },
+   "solution": "NOHARDFEELINGS",
+   "annotation": null
+  },
+  {
+   "id": "21-down",
+   "number": 21,
+   "direction": "down",
+   "position": {
+    "x": 3,
+    "y": 10
+   },
+   "length": 5,
+   "clue": "Hurry - male in women's quarters! (5)",
    "separatorLocations": {},
-   "solution": "SPUMANTE",
+   "solution": "HAREM",
    "annotation": null
   },
   {
@@ -412,27 +373,27 @@ window.CRYPTIC_PUZZLES["independent-9009"] = /*JSON-START*/ {
    "number": 22,
    "direction": "down",
    "position": {
-    "x": 1,
-    "y": 9
+    "x": 9,
+    "y": 10
    },
-   "length": 6,
-   "clue": "French physicist's patron initially bein' human? (6)",
+   "length": 5,
+   "clue": "Supply nurse's expected (5)",
    "separatorLocations": {},
-   "solution": "PERRIN",
+   "solution": "ENDUE",
    "annotation": null
   },
   {
-   "id": "23-down",
+   "id": "23-across",
    "number": 23,
-   "direction": "down",
+   "direction": "across",
    "position": {
-    "x": 3,
-    "y": 9
+    "x": 0,
+    "y": 12
    },
-   "length": 5,
-   "clue": "Pratt finally seen immersed in pure and simple poetry (5)",
+   "length": 6,
+   "clue": "Old Henry accommodates a Catholic bishop (6)",
    "separatorLocations": {},
-   "solution": "METRE",
+   "solution": "EXARCH",
    "annotation": null
   },
   {
@@ -440,49 +401,13 @@ window.CRYPTIC_PUZZLES["independent-9009"] = /*JSON-START*/ {
    "number": 24,
    "direction": "across",
    "position": {
-    "x": 9,
-    "y": 9
+    "x": 7,
+    "y": 12
    },
-   "length": 6,
-   "clue": "Extremely Secret Army avoiding ransom? It's irregular (6)",
-   "clueItalics": [
-    [
-     0,
-     9
-    ]
-   ],
+   "length": 8,
+   "clue": "Plants turn into papers (ours) (8)",
    "separatorLocations": {},
-   "solution": "INMOST",
-   "annotation": null
-  },
-  {
-   "id": "24-down",
-   "number": 24,
-   "direction": "down",
-   "position": {
-    "x": 9,
-    "y": 9
-   },
-   "length": 6,
-   "clue": "Tired Now, I'm Dead at Eighty - alternative title? (1,5,3,5,1,2,5)",
-   "clueItalics": [
-    [
-     0,
-     30
-    ]
-   ],
-   "group": [
-    "24-down",
-    "13-across",
-    "18-down"
-   ],
-   "separatorLocations": {
-    ",": [
-     1,
-     6
-    ]
-   },
-   "solution": "IDIDNT",
+   "solution": "INDIGOES",
    "annotation": null
   },
   {
@@ -491,12 +416,17 @@ window.CRYPTIC_PUZZLES["independent-9009"] = /*JSON-START*/ {
    "direction": "across",
    "position": {
     "x": 0,
-    "y": 11
+    "y": 14
    },
-   "length": 4,
-   "clue": "Principally 4, rubbish or tat (4)",
-   "separatorLocations": {},
-   "solution": "GROT",
+   "length": 10,
+   "clue": "Gardeners resolved to dig? No time left (4,3,3)",
+   "separatorLocations": {
+    ",": [
+     4,
+     7
+    ]
+   },
+   "solution": "ADAMANDEVE",
    "annotation": null
   },
   {
@@ -504,68 +434,13 @@ window.CRYPTIC_PUZZLES["independent-9009"] = /*JSON-START*/ {
    "number": 26,
    "direction": "across",
    "position": {
-    "x": 5,
-    "y": 11
-   },
-   "length": 10,
-   "clue": "Gimme that I don't unfortunately have right to accept (4,2,4)",
-   "separatorLocations": {
-    ",": [
-     4,
-     6
-    ]
-   },
-   "solution": "HANDITOVER",
-   "annotation": null
-  },
-  {
-   "id": "27-across",
-   "number": 27,
-   "direction": "across",
-   "position": {
-    "x": 0,
-    "y": 13
-   },
-   "length": 4,
-   "clue": "Difficult times: getting out of Civil Service, come back to life (4)",
-   "separatorLocations": {},
-   "solution": "RISE",
-   "annotation": null
-  },
-  {
-   "id": "28-across",
-   "number": 28,
-   "direction": "across",
-   "position": {
-    "x": 5,
-    "y": 13
-   },
-   "length": 5,
-   "clue": "Asian river followed a course westward? Yes and no (5)",
-   "separatorLocations": {},
-   "solution": "NARYN",
-   "annotation": null
-  },
-  {
-   "id": "29-across",
-   "number": 29,
-   "direction": "across",
-   "position": {
     "x": 11,
-    "y": 13
+    "y": 14
    },
    "length": 4,
-   "clue": "For refreshing main taste, sup ___ _______ (4,8)",
-   "group": [
-    "29-across",
-    "21-across"
-   ],
-   "separatorLocations": {
-    ",": [
-     4
-    ]
-   },
-   "solution": "ASTI",
+   "clue": "Very late (4)",
+   "separatorLocations": {},
+   "solution": "DEAD",
    "annotation": null
   }
  ]

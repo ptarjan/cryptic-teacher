@@ -95,6 +95,10 @@ window.CRYPTIC_PUZZLES["cyclops-631"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 12ac. (4)",
+   "group": [
+    "12-across",
+    "6-across"
+   ],
    "separatorLocations": {},
    "solution": "BEAR",
    "annotation": null
@@ -109,6 +113,10 @@ window.CRYPTIC_PUZZLES["cyclops-631"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "(& 24ac.) Independent body keeping an eye on political candidates' preferred type of sex task (9)",
+   "group": [
+    "7-across",
+    "24-across"
+   ],
    "separatorLocations": {},
    "solution": "ELECTORAL",
    "annotation": null
@@ -123,6 +131,10 @@ window.CRYPTIC_PUZZLES["cyclops-631"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 26ac. (4)",
+   "group": [
+    "26-across",
+    "8-down"
+   ],
    "separatorLocations": {},
    "solution": "ARSE",
    "annotation": null
@@ -165,6 +177,10 @@ window.CRYPTIC_PUZZLES["cyclops-631"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 22dn.) Old churchgoer's habit of jiggling bust? It's covering bottom of blouse (4)",
+   "group": [
+    "11-across",
+    "22-down"
+   ],
    "separatorLocations": {},
    "solution": "BEST",
    "annotation": null
@@ -179,6 +195,10 @@ window.CRYPTIC_PUZZLES["cyclops-631"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 6ac.) Stars wee on stand (6)",
+   "group": [
+    "12-across",
+    "6-across"
+   ],
    "separatorLocations": {},
    "solution": "LITTLE",
    "annotation": null
@@ -319,6 +339,10 @@ window.CRYPTIC_PUZZLES["cyclops-631"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 11ac. (4)",
+   "group": [
+    "11-across",
+    "22-down"
+   ],
    "separatorLocations": {},
    "solution": "SUIT",
    "annotation": null
@@ -347,6 +371,10 @@ window.CRYPTIC_PUZZLES["cyclops-631"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "see 7ac. (10)",
+   "group": [
+    "7-across",
+    "24-across"
+   ],
    "separatorLocations": {},
    "solution": "COMMISSION",
    "annotation": null
@@ -375,6 +403,10 @@ window.CRYPTIC_PUZZLES["cyclops-631"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 8dn.) Put your foot down? Yes and no (4)",
+   "group": [
+    "26-across",
+    "8-down"
+   ],
    "separatorLocations": {},
    "solution": "KICK",
    "annotation": null

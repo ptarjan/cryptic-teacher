@@ -81,6 +81,10 @@ window.CRYPTIC_PUZZLES["cyclops-409"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 15dn.) Yet another fix taken constitutionally by silent Americans? (5)",
+   "group": [
+    "5-down",
+    "15-down"
+   ],
    "separatorLocations": {},
    "solution": "FIFTH",
    "annotation": null
@@ -193,6 +197,10 @@ window.CRYPTIC_PUZZLES["cyclops-409"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "(& 23ac.) Our publishers' bargain: Dick Disturbed Dan Getting Head From Tom (Pissed) (8)",
+   "group": [
+    "13-across",
+    "23-across"
+   ],
    "separatorLocations": {},
    "solution": "SNIPCOCK",
    "annotation": null
@@ -221,6 +229,10 @@ window.CRYPTIC_PUZZLES["cyclops-409"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 25dn. (6)",
+   "group": [
+    "25-down",
+    "14-across"
+   ],
    "separatorLocations": {},
    "solution": "ANGELS",
    "annotation": null
@@ -235,6 +247,10 @@ window.CRYPTIC_PUZZLES["cyclops-409"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "see 5dn. (9)",
+   "group": [
+    "5-down",
+    "15-down"
+   ],
    "separatorLocations": {},
    "solution": "AMENDMENT",
    "annotation": null
@@ -347,6 +363,10 @@ window.CRYPTIC_PUZZLES["cyclops-409"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "see 13ac. (3,5)",
+   "group": [
+    "13-across",
+    "23-across"
+   ],
    "separatorLocations": {},
    "solution": "ANDTWEED",
    "annotation": null
@@ -375,6 +395,10 @@ window.CRYPTIC_PUZZLES["cyclops-409"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 14ac.) About fifty, Ellen shags stupid Hairy Bikers (5)",
+   "group": [
+    "25-down",
+    "14-across"
+   ],
    "separatorLocations": {},
    "solution": "HELLS",
    "annotation": null

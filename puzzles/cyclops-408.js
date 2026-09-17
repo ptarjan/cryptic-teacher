@@ -25,6 +25,11 @@ window.CRYPTIC_PUZZLES["cyclops-408"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "(& 25ac./21dn.) Say, for instance, you found a slasher movie gory, don't startle anybody (5,3)",
+   "group": [
+    "1-across",
+    "25-across",
+    "21-down"
+   ],
    "separatorLocations": {},
    "solution": "STATETHE",
    "annotation": null
@@ -67,6 +72,10 @@ window.CRYPTIC_PUZZLES["cyclops-408"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "(& 6dn.) Nibble time, with sex mouthpiece (3)",
+   "group": [
+    "4-down",
+    "6-down"
+   ],
    "separatorLocations": {},
    "solution": "TIT",
    "annotation": null
@@ -109,6 +118,10 @@ window.CRYPTIC_PUZZLES["cyclops-408"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "see 4dn. (3)",
+   "group": [
+    "4-down",
+    "6-down"
+   ],
    "separatorLocations": {},
    "solution": "BIT",
    "annotation": null
@@ -277,6 +290,10 @@ window.CRYPTIC_PUZZLES["cyclops-408"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 24dn. (4)",
+   "group": [
+    "24-down",
+    "17-across"
+   ],
    "separatorLocations": {},
    "solution": "CITY",
    "annotation": null
@@ -333,6 +350,11 @@ window.CRYPTIC_PUZZLES["cyclops-408"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 1ac. (7)",
+   "group": [
+    "1-across",
+    "25-across",
+    "21-down"
+   ],
    "separatorLocations": {},
    "solution": "OBVIOUS",
    "annotation": null
@@ -375,6 +397,10 @@ window.CRYPTIC_PUZZLES["cyclops-408"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 17ac.) Bad guy, lacking capital, goes to financial quarter  not a flourishing area these days? (5)",
+   "group": [
+    "24-down",
+    "17-across"
+   ],
    "separatorLocations": {},
    "solution": "INNER",
    "annotation": null
@@ -389,6 +415,11 @@ window.CRYPTIC_PUZZLES["cyclops-408"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "see 1ac. (8)",
+   "group": [
+    "1-across",
+    "25-across",
+    "21-down"
+   ],
    "separatorLocations": {},
    "solution": "BLEEDING",
    "annotation": null
@@ -403,6 +434,10 @@ window.CRYPTIC_PUZZLES["cyclops-408"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "(& 27dn.) Space CIA, rid of boundaries, turned up in an Antarctic area? (3)",
+   "group": [
+    "26-down",
+    "27-down"
+   ],
    "separatorLocations": {},
    "solution": "ICE",
    "annotation": null
@@ -431,6 +466,10 @@ window.CRYPTIC_PUZZLES["cyclops-408"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "see 26dn. (3)",
+   "group": [
+    "26-down",
+    "27-down"
+   ],
    "separatorLocations": {},
    "solution": "CAP",
    "annotation": null

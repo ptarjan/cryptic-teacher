@@ -53,6 +53,12 @@ window.CRYPTIC_PUZZLES["cyclops-697"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 27ac. (6)",
+   "group": [
+    "27-across",
+    "24-down",
+    "26-down",
+    "3-down"
+   ],
    "separatorLocations": {},
    "solution": "TETHER",
    "annotation": null
@@ -347,6 +353,12 @@ window.CRYPTIC_PUZZLES["cyclops-697"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 27ac. (5)",
+   "group": [
+    "27-across",
+    "24-down",
+    "26-down",
+    "3-down"
+   ],
    "separatorLocations": {},
    "solution": "ENDOF",
    "annotation": null
@@ -375,6 +387,12 @@ window.CRYPTIC_PUZZLES["cyclops-697"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 27ac. (4)",
+   "group": [
+    "27-across",
+    "24-down",
+    "26-down",
+    "3-down"
+   ],
    "separatorLocations": {},
    "solution": "ONES",
    "annotation": null
@@ -389,6 +407,12 @@ window.CRYPTIC_PUZZLES["cyclops-697"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 24/26/3) Desperate, unable to make progress in a ropey attachment? (2,3)",
+   "group": [
+    "27-across",
+    "24-down",
+    "26-down",
+    "3-down"
+   ],
    "separatorLocations": {},
    "solution": "ATTHE",
    "annotation": null

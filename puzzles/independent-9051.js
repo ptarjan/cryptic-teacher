@@ -7,8 +7,8 @@ window.CRYPTIC_PUZZLES["independent-9051"] = /*JSON-START*/ {
  "number": 9051,
  "series": "independent",
  "name": "Independent cryptic crossword No 9,051",
- "setter": "Anax",
- "date": 1445644800000,
+ "setter": "Tees",
+ "date": 1445040000000,
  "dimensions": {
   "cols": 15,
   "rows": 15
@@ -23,24 +23,18 @@ window.CRYPTIC_PUZZLES["independent-9051"] = /*JSON-START*/ {
     "x": 0,
     "y": 0
    },
-   "length": 7,
-   "clue": "Country's airline taken by Palestinian group (7)",
-   "separatorLocations": {},
-   "solution": "BAHAMAS",
-   "annotation": null
-  },
-  {
-   "id": "1-down",
-   "number": 1,
-   "direction": "down",
-   "position": {
-    "x": 0,
-    "y": 0
+   "length": 8,
+   "clue": "Writer having revised Part One spies wasted worker at forge (8,9)",
+   "group": [
+    "1-across",
+    "15-down"
+   ],
+   "separatorLocations": {
+    ",": [
+     8
+    ]
    },
-   "length": 6,
-   "clue": "Oil company's bottling stuff to freeze muscle (6)",
-   "separatorLocations": {},
-   "solution": "BICEPS",
+   "solution": "PATRICIA",
    "annotation": null
   },
   {
@@ -48,13 +42,13 @@ window.CRYPTIC_PUZZLES["independent-9051"] = /*JSON-START*/ {
    "number": 2,
    "direction": "down",
    "position": {
-    "x": 2,
+    "x": 1,
     "y": 0
    },
-   "length": 6,
-   "clue": "Keen to drink local port (6)",
+   "length": 5,
+   "clue": "Defence starts to address legal issues behind injunction (5)",
    "separatorLocations": {},
-   "solution": "HOBART",
+   "solution": "ALIBI",
    "annotation": null
   },
   {
@@ -62,17 +56,13 @@ window.CRYPTIC_PUZZLES["independent-9051"] = /*JSON-START*/ {
    "number": 3,
    "direction": "down",
    "position": {
-    "x": 4,
+    "x": 3,
     "y": 0
    },
-   "length": 15,
-   "clue": "Part of railway damage - signal hardly bent (11,4)",
-   "separatorLocations": {
-    ",": [
-     11
-    ]
-   },
-   "solution": "MARSHALLINGYARD",
+   "length": 11,
+   "clue": "Protest about WW1 battle charge after start of truce (11)",
+   "separatorLocations": {},
+   "solution": "REMONSTRATE",
    "annotation": null
   },
   {
@@ -80,27 +70,22 @@ window.CRYPTIC_PUZZLES["independent-9051"] = /*JSON-START*/ {
    "number": 4,
    "direction": "down",
    "position": {
-    "x": 6,
+    "x": 5,
     "y": 0
    },
-   "length": 9,
-   "clue": "Smooth material can be seductive in blue (9)",
-   "separatorLocations": {},
-   "solution": "SATINWOOD",
-   "annotation": null
-  },
-  {
-   "id": "5-across",
-   "number": 5,
-   "direction": "across",
-   "position": {
-    "x": 8,
-    "y": 0
+   "length": 8,
+   "clue": "For trophy unfairly taken, Celtic exploited hole in formation? (5,3,4)",
+   "group": [
+    "4-down",
+    "11-across"
+   ],
+   "separatorLocations": {
+    ",": [
+     5,
+     8
+    ]
    },
-   "length": 7,
-   "clue": "Tangy M&S shakes in tumbler? (7)",
-   "separatorLocations": {},
-   "solution": "GYMNAST",
+   "solution": "CECILTHE",
    "annotation": null
   },
   {
@@ -108,13 +93,32 @@ window.CRYPTIC_PUZZLES["independent-9051"] = /*JSON-START*/ {
    "number": 5,
    "direction": "down",
    "position": {
-    "x": 8,
+    "x": 7,
     "y": 0
    },
-   "length": 5,
-   "clue": "Scrabble game's front runner? (5)",
+   "length": 15,
+   "clue": "Styled on wife-beating it becomes work of remorse and conscience (8,2,5)",
+   "separatorLocations": {
+    ",": [
+     8,
+     10
+    ]
+   },
+   "solution": "AGENBITEOFINWIT",
+   "annotation": null
+  },
+  {
+   "id": "6-across",
+   "number": 6,
+   "direction": "across",
+   "position": {
+    "x": 9,
+    "y": 0
+   },
+   "length": 6,
+   "clue": "Transaction to import books concerning London's Hampstead Heath? (6)",
    "separatorLocations": {},
-   "solution": "GROPE",
+   "solution": "DENTAL",
    "annotation": null
   },
   {
@@ -122,17 +126,17 @@ window.CRYPTIC_PUZZLES["independent-9051"] = /*JSON-START*/ {
    "number": 6,
    "direction": "down",
    "position": {
-    "x": 10,
+    "x": 9,
     "y": 0
    },
-   "length": 15,
-   "clue": "One having severe dips apparently (5-10)",
+   "length": 6,
+   "clue": "Actor put in frock that's lifted without notice? (2,4)",
    "separatorLocations": {
-    "-": [
-     5
+    ",": [
+     2
     ]
    },
-   "solution": "MANICDEPRESSIVE",
+   "solution": "DENIRO",
    "annotation": null
   },
   {
@@ -140,13 +144,13 @@ window.CRYPTIC_PUZZLES["independent-9051"] = /*JSON-START*/ {
    "number": 7,
    "direction": "down",
    "position": {
-    "x": 12,
+    "x": 11,
     "y": 0
    },
-   "length": 8,
-   "clue": "9 won't start crying, which is odd (8)",
+   "length": 3,
+   "clue": "Fortune to keep after taxes (3)",
    "separatorLocations": {},
-   "solution": "ABERRANT",
+   "solution": "NET",
    "annotation": null
   },
   {
@@ -154,13 +158,17 @@ window.CRYPTIC_PUZZLES["independent-9051"] = /*JSON-START*/ {
    "number": 8,
    "direction": "down",
    "position": {
-    "x": 14,
+    "x": 13,
     "y": 0
    },
-   "length": 8,
-   "clue": "Protecting area, utterly stupid guards (8)",
+   "length": 9,
+   "clue": "See 23",
+   "group": [
+    "23-down",
+    "8-down"
+   ],
    "separatorLocations": {},
-   "solution": "TUTELARY",
+   "solution": "ALIGHIERI",
    "annotation": null
   },
   {
@@ -171,10 +179,14 @@ window.CRYPTIC_PUZZLES["independent-9051"] = /*JSON-START*/ {
     "x": 0,
     "y": 2
    },
-   "length": 5,
-   "clue": "Lie in vehicle's trunk (5)",
-   "separatorLocations": {},
-   "solution": "CABER",
+   "length": 6,
+   "clue": "Fat old woman gets cold burger (3,3)",
+   "separatorLocations": {
+    ",": [
+     3
+    ]
+   },
+   "solution": "BIGMAC",
    "annotation": null
   },
   {
@@ -182,13 +194,13 @@ window.CRYPTIC_PUZZLES["independent-9051"] = /*JSON-START*/ {
    "number": 10,
    "direction": "across",
    "position": {
-    "x": 6,
+    "x": 7,
     "y": 2
    },
-   "length": 9,
-   "clue": "Most awkward deity one found in home (9)",
+   "length": 8,
+   "clue": "Would he calculate mc2 of E in beer mug? (8)",
    "separatorLocations": {},
-   "solution": "THORNIEST",
+   "solution": "EINSTEIN",
    "annotation": null
   },
   {
@@ -199,10 +211,14 @@ window.CRYPTIC_PUZZLES["independent-9051"] = /*JSON-START*/ {
     "x": 0,
     "y": 4
    },
-   "length": 9,
-   "clue": "Fish 'n' chips starter to feed A&E maybe (9)",
+   "length": 4,
+   "clue": "See 4",
+   "group": [
+    "4-down",
+    "11-across"
+   ],
    "separatorLocations": {},
-   "solution": "PERCHANCE",
+   "solution": "LION",
    "annotation": null
   },
   {
@@ -210,45 +226,45 @@ window.CRYPTIC_PUZZLES["independent-9051"] = /*JSON-START*/ {
    "number": 12,
    "direction": "across",
    "position": {
-    "x": 10,
+    "x": 5,
     "y": 4
    },
-   "length": 5,
-   "clue": "Sort of pink and black stuff across river (5)",
+   "length": 10,
+   "clue": "Confusing passages, Bryn Terfel finally has it sorted (10)",
    "separatorLocations": {},
-   "solution": "CORAL",
+   "solution": "LABYRINTHS",
    "annotation": null
   },
   {
-   "id": "13-across",
+   "id": "13-down",
    "number": 13,
+   "direction": "down",
+   "position": {
+    "x": 11,
+    "y": 4
+   },
+   "length": 11,
+   "clue": "Nurse at work after dark has good drink (11)",
+   "separatorLocations": {},
+   "solution": "NIGHTINGALE",
+   "annotation": null
+  },
+  {
+   "id": "14-across",
+   "number": 14,
    "direction": "across",
    "position": {
-    "x": 3,
+    "x": 0,
     "y": 6
    },
-   "length": 12,
-   "clue": "A detergent, fresh one for cellar (5,7)",
+   "length": 8,
+   "clue": "Very intense compilers keen to neck wallop (5-3)",
    "separatorLocations": {
-    ",": [
+    "-": [
      5
     ]
    },
-   "solution": "FLOORCLEANER",
-   "annotation": null
-  },
-  {
-   "id": "14-down",
-   "number": 14,
-   "direction": "down",
-   "position": {
-    "x": 8,
-    "y": 6
-   },
-   "length": 9,
-   "clue": "Play review may have this done (9)",
-   "separatorLocations": {},
-   "solution": "CASTRATED",
+   "solution": "WHITEHOT",
    "annotation": null
   },
   {
@@ -256,87 +272,87 @@ window.CRYPTIC_PUZZLES["independent-9051"] = /*JSON-START*/ {
    "number": 15,
    "direction": "down",
    "position": {
-    "x": 0,
-    "y": 7
+    "x": 1,
+    "y": 6
    },
-   "length": 8,
-   "clue": "Soldiers welcoming hesitant wash Saturdays/Sundays? (8)",
+   "length": 9,
+   "clue": "See 1",
+   "group": [
+    "1-across",
+    "15-down"
+   ],
    "separatorLocations": {},
-   "solution": "SABBATHS",
+   "solution": "HIGHSMITH",
    "annotation": null
   },
   {
-   "id": "16-down",
+   "id": "16-across",
    "number": 16,
+   "direction": "across",
+   "position": {
+    "x": 11,
+    "y": 6
+   },
+   "length": 4,
+   "clue": "Dismal or dark horse (4)",
+   "separatorLocations": {},
+   "solution": "GREY",
+   "annotation": null
+  },
+  {
+   "id": "17-down",
+   "number": 17,
    "direction": "down",
    "position": {
-    "x": 2,
+    "x": 9,
     "y": 7
    },
    "length": 8,
-   "clue": "Boat loads produce paid for before dispatch (3,5)",
-   "separatorLocations": {
-    ",": [
-     3
-    ]
-   },
-   "solution": "PROFORMA",
+   "clue": "Apparently carnivorous French dad to pass through! (8)",
+   "separatorLocations": {},
+   "solution": "PERMEATE",
    "annotation": null
   },
   {
-   "id": "17-across",
-   "number": 17,
+   "id": "18-across",
+   "number": 18,
    "direction": "across",
    "position": {
     "x": 0,
     "y": 8
    },
-   "length": 12,
-   "clue": "A railway crossing sensitive area, soil used in heavy farming (12)",
+   "length": 4,
+   "clue": "Metal god finds Indian city (4)",
    "separatorLocations": {},
-   "solution": "AGROINDUSTRY",
+   "solution": "AGRA",
    "annotation": null
   },
   {
-   "id": "18-down",
-   "number": 18,
-   "direction": "down",
-   "position": {
-    "x": 12,
-    "y": 9
-   },
-   "length": 6,
-   "clue": "Yes, that's Russian camouflage material (6)",
-   "separatorLocations": {},
-   "solution": "DAMASK",
-   "annotation": null
-  },
-  {
-   "id": "19-down",
+   "id": "19-across",
    "number": 19,
-   "direction": "down",
-   "position": {
-    "x": 14,
-    "y": 9
-   },
-   "length": 6,
-   "clue": "I'll save part of junk (6)",
-   "separatorLocations": {},
-   "solution": "HEROIN",
-   "annotation": null
-  },
-  {
-   "id": "20-across",
-   "number": 20,
    "direction": "across",
    "position": {
-    "x": 0,
-    "y": 10
+    "x": 7,
+    "y": 8
    },
-   "length": 5,
-   "clue": "Obscure iron wheels buried in swamp (5)",
+   "length": 8,
+   "clue": "Greek plays, others in Old English, I start to adapt (8)",
    "separatorLocations": {},
-   "solution": "BEFOG",
+   "solution": "ORESTEIA",
+   "annotation": null
+  },
+  {
+   "id": "20-down",
+   "number": 20,
+   "direction": "down",
+   "position": {
+    "x": 5,
+    "y": 9
+   },
+   "length": 6,
+   "clue": "Sent aloft to assassinate but stopped by Mr Hunter (6)",
+   "separatorLocations": {},
+   "solution": "NIMROD",
    "annotation": null
   },
   {
@@ -344,27 +360,13 @@ window.CRYPTIC_PUZZLES["independent-9051"] = /*JSON-START*/ {
    "number": 21,
    "direction": "across",
    "position": {
-    "x": 6,
+    "x": 0,
     "y": 10
    },
-   "length": 9,
-   "clue": "How old trees are used to make platform over pit (9)",
+   "length": 10,
+   "clue": "Self-denial exists among cats at play with mice (10)",
    "separatorLocations": {},
-   "solution": "FORESTAGE",
-   "annotation": null
-  },
-  {
-   "id": "21-down",
-   "number": 21,
-   "direction": "down",
-   "position": {
-    "x": 6,
-    "y": 10
-   },
-   "length": 5,
-   "clue": "Fine material for singer? (5)",
-   "separatorLocations": {},
-   "solution": "FLAME",
+   "solution": "ASCETICISM",
    "annotation": null
   },
   {
@@ -372,27 +374,41 @@ window.CRYPTIC_PUZZLES["independent-9051"] = /*JSON-START*/ {
    "number": 22,
    "direction": "across",
    "position": {
-    "x": 0,
-    "y": 12
+    "x": 11,
+    "y": 10
    },
-   "length": 9,
-   "clue": "Battle-axe given name again? It never needs one (9)",
+   "length": 4,
+   "clue": "Brown back and midsection in Pietà or other work (4)",
    "separatorLocations": {},
-   "solution": "TERMAGANT",
+   "solution": "NUDE",
    "annotation": null
   },
   {
-   "id": "23-across",
+   "id": "23-down",
    "number": 23,
-   "direction": "across",
+   "direction": "down",
    "position": {
-    "x": 10,
-    "y": 12
+    "x": 13,
+    "y": 10
    },
    "length": 5,
-   "clue": "Setter's past, for example? (5)",
-   "separatorLocations": {},
-   "solution": "IMAGO",
+   "clue": "Rage in The Iliad confused poet (5,9)",
+   "clueItalics": [
+    [
+     8,
+     10
+    ]
+   ],
+   "group": [
+    "23-down",
+    "8-down"
+   ],
+   "separatorLocations": {
+    ",": [
+     5
+    ]
+   },
+   "solution": "DANTE",
    "annotation": null
   },
   {
@@ -401,26 +417,68 @@ window.CRYPTIC_PUZZLES["independent-9051"] = /*JSON-START*/ {
    "direction": "across",
    "position": {
     "x": 0,
-    "y": 14
+    "y": 12
    },
-   "length": 7,
-   "clue": "Land outside with blanket (7)",
+   "length": 8,
+   "clue": "Pull out having contest no side wins (8)",
    "separatorLocations": {},
-   "solution": "SWADDLE",
+   "solution": "WITHDRAW",
    "annotation": null
   },
   {
-   "id": "25-across",
+   "id": "25-down",
    "number": 25,
+   "direction": "down",
+   "position": {
+    "x": 3,
+    "y": 12
+   },
+   "length": 3,
+   "clue": "Husband and uncle eviscerated in shade (3)",
+   "separatorLocations": {},
+   "solution": "HUE",
+   "annotation": null
+  },
+  {
+   "id": "26-across",
+   "number": 26,
    "direction": "across",
    "position": {
-    "x": 8,
+    "x": 9,
+    "y": 12
+   },
+   "length": 6,
+   "clue": "Old move on – relative takes in V&A (6)",
+   "separatorLocations": {},
+   "solution": "AVAUNT",
+   "annotation": null
+  },
+  {
+   "id": "27-across",
+   "number": 27,
+   "direction": "across",
+   "position": {
+    "x": 0,
     "y": 14
    },
-   "length": 7,
-   "clue": "Produces one's own cloth (7)",
+   "length": 6,
+   "clue": "Clever Kate Minola departs (6)",
    "separatorLocations": {},
-   "solution": "DOESKIN",
+   "solution": "SHREWD",
+   "annotation": null
+  },
+  {
+   "id": "28-across",
+   "number": 28,
+   "direction": "across",
+   "position": {
+    "x": 7,
+    "y": 14
+   },
+   "length": 8,
+   "clue": "French head drinking English wine looked wobbly (8)",
+   "separatorLocations": {},
+   "solution": "TEETERED",
    "annotation": null
   }
  ]

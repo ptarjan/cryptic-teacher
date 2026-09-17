@@ -81,6 +81,10 @@ window.CRYPTIC_PUZZLES["cyclops-609"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 23dn.) Lose ground, lose erection, lose love  end! (4)",
+   "group": [
+    "5-down",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "DROP",
    "annotation": null
@@ -375,6 +379,10 @@ window.CRYPTIC_PUZZLES["cyclops-609"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 5dn. (4)",
+   "group": [
+    "5-down",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "BACK",
    "annotation": null

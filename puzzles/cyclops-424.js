@@ -25,6 +25,10 @@ window.CRYPTIC_PUZZLES["cyclops-424"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "(& 23ac.) Bugger, say, shaggy cur, Cyclops? (9)",
+   "group": [
+    "1-across",
+    "23-across"
+   ],
    "separatorLocations": {},
    "solution": "CROSSWORD",
    "annotation": null
@@ -179,6 +183,10 @@ window.CRYPTIC_PUZZLES["cyclops-424"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "(& 22ac.) Sportingly using other grounds as a basis for divorce proceedings? (7,4)",
+   "group": [
+    "11-across",
+    "22-across"
+   ],
    "separatorLocations": {},
    "solution": "PLAYINGAWAY",
    "annotation": null
@@ -333,6 +341,10 @@ window.CRYPTIC_PUZZLES["cyclops-424"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 21dn.) Shit dress for a ship's upper location (4)",
+   "group": [
+    "20-down",
+    "21-down"
+   ],
    "separatorLocations": {},
    "solution": "POOP",
    "annotation": null
@@ -347,6 +359,10 @@ window.CRYPTIC_PUZZLES["cyclops-424"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 20dn. (4)",
+   "group": [
+    "20-down",
+    "21-down"
+   ],
    "separatorLocations": {},
    "solution": "DECK",
    "annotation": null
@@ -361,6 +377,10 @@ window.CRYPTIC_PUZZLES["cyclops-424"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "see 11ac. (8)",
+   "group": [
+    "11-across",
+    "22-across"
+   ],
    "separatorLocations": {},
    "solution": "FROMHOME",
    "annotation": null
@@ -375,6 +395,10 @@ window.CRYPTIC_PUZZLES["cyclops-424"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 1ac. (6)",
+   "group": [
+    "1-across",
+    "23-across"
+   ],
    "separatorLocations": {},
    "solution": "SETTER",
    "annotation": null

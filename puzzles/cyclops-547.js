@@ -263,6 +263,10 @@ window.CRYPTIC_PUZZLES["cyclops-547"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 26ac. (6)",
+   "group": [
+    "26-across",
+    "18-across"
+   ],
    "separatorLocations": {},
    "solution": "CENTRE",
    "annotation": null
@@ -375,6 +379,10 @@ window.CRYPTIC_PUZZLES["cyclops-547"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 18ac.) Summon Miliband's professed political stance (it has many hangers-on) (4)",
+   "group": [
+    "26-across",
+    "18-across"
+   ],
    "separatorLocations": {},
    "solution": "CALL",
    "annotation": null

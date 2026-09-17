@@ -7,8 +7,8 @@ window.CRYPTIC_PUZZLES["independent-9069"] = /*JSON-START*/ {
  "number": 9069,
  "series": "independent",
  "name": "Independent cryptic crossword No 9,069",
- "setter": "Anax",
- "date": 1447459200000,
+ "setter": "Tyrus",
+ "date": 1446854400000,
  "dimensions": {
   "cols": 15,
   "rows": 15
@@ -23,28 +23,21 @@ window.CRYPTIC_PUZZLES["independent-9069"] = /*JSON-START*/ {
     "x": 0,
     "y": 0
    },
-   "length": 5,
-   "clue": "In dialect, spoken literature doesn't follow (5)",
-   "separatorLocations": {},
-   "solution": "BUCKS",
-   "annotation": null
-  },
-  {
-   "id": "1-down",
-   "number": 1,
-   "direction": "down",
-   "position": {
-    "x": 0,
-    "y": 0
-   },
-   "length": 8,
-   "clue": "No leads chewed, tie up (3,5)",
+   "length": 15,
+   "clue": "Ooh! A last request for old Dicky produces absolutely zilch (3,6,4,2,3,3,)",
+   "group": [
+    "1-across",
+    "9-across"
+   ],
    "separatorLocations": {
     ",": [
-     3
+     3,
+     9,
+     13,
+     15
     ]
    },
-   "solution": "BITPARTS",
+   "solution": "THESQUAREROOTOF",
    "annotation": null
   },
   {
@@ -52,13 +45,13 @@ window.CRYPTIC_PUZZLES["independent-9069"] = /*JSON-START*/ {
    "number": 2,
    "direction": "down",
    "position": {
-    "x": 2,
+    "x": 1,
     "y": 0
    },
-   "length": 5,
-   "clue": "Escape cold and warm up (5)",
+   "length": 9,
+   "clue": "Depression caused by barb? (9)",
    "separatorLocations": {},
-   "solution": "CHEAT",
+   "solution": "HOOFPRINT",
    "annotation": null
   },
   {
@@ -66,31 +59,13 @@ window.CRYPTIC_PUZZLES["independent-9069"] = /*JSON-START*/ {
    "number": 3,
    "direction": "down",
    "position": {
-    "x": 4,
+    "x": 3,
     "y": 0
    },
-   "length": 15,
-   "clue": "Highly personal reality TV script re-written (8,7)",
-   "separatorLocations": {
-    ",": [
-     8
-    ]
-   },
-   "solution": "STRICTLYPRIVATE",
-   "annotation": null
-  },
-  {
-   "id": "4-across",
-   "number": 4,
-   "direction": "across",
-   "position": {
-    "x": 6,
-    "y": 0
-   },
-   "length": 9,
-   "clue": "Modest about power and Tory protection (9)",
+   "length": 7,
+   "clue": "Carol keeps John working hard (7)",
    "separatorLocations": {},
-   "solution": "COPYRIGHT",
+   "solution": "SLAVING",
    "annotation": null
   },
   {
@@ -98,17 +73,13 @@ window.CRYPTIC_PUZZLES["independent-9069"] = /*JSON-START*/ {
    "number": 4,
    "direction": "down",
    "position": {
-    "x": 6,
+    "x": 5,
     "y": 0
    },
-   "length": 10,
-   "clue": "Motorcade struggles to keep parking alongside (8,2)",
-   "separatorLocations": {
-    ",": [
-     8
-    ]
-   },
-   "solution": "COMPAREDTO",
+   "length": 5,
+   "clue": "One's left in dark (5)",
+   "separatorLocations": {},
+   "solution": "UNLIT",
    "annotation": null
   },
   {
@@ -116,13 +87,13 @@ window.CRYPTIC_PUZZLES["independent-9069"] = /*JSON-START*/ {
    "number": 5,
    "direction": "down",
    "position": {
-    "x": 8,
+    "x": 7,
     "y": 0
    },
-   "length": 4,
-   "clue": "When a duke's packing, I should add notebooks (4)",
+   "length": 7,
+   "clue": "She makes a mint after promotion (7)",
    "separatorLocations": {},
-   "solution": "PADS",
+   "solution": "ROBERTA",
    "annotation": null
   },
   {
@@ -130,17 +101,13 @@ window.CRYPTIC_PUZZLES["independent-9069"] = /*JSON-START*/ {
    "number": 6,
    "direction": "down",
    "position": {
-    "x": 10,
+    "x": 9,
     "y": 0
    },
-   "length": 15,
-   "clue": "After he's upset? (7,8)",
-   "separatorLocations": {
-    ",": [
-     7
-    ]
-   },
-   "solution": "RUFFLEDFEATHERS",
+   "length": 9,
+   "clue": "United fan accepts City finished better (9)",
+   "separatorLocations": {},
+   "solution": "RECOVERED",
    "annotation": null
   },
   {
@@ -148,13 +115,13 @@ window.CRYPTIC_PUZZLES["independent-9069"] = /*JSON-START*/ {
    "number": 7,
    "direction": "down",
    "position": {
-    "x": 12,
+    "x": 11,
     "y": 0
    },
-   "length": 9,
-   "clue": "Travel across lake and promise to shorten travel (9)",
+   "length": 7,
+   "clue": "Number nine originally wearing gold ring (7)",
    "separatorLocations": {},
-   "solution": "GLOBETROT",
+   "solution": "ORDINAL",
    "annotation": null
   },
   {
@@ -162,13 +129,13 @@ window.CRYPTIC_PUZZLES["independent-9069"] = /*JSON-START*/ {
    "number": 8,
    "direction": "down",
    "position": {
-    "x": 14,
+    "x": 13,
     "y": 0
    },
-   "length": 6,
-   "clue": "Able to stand, cheers the greatest (6)",
+   "length": 5,
+   "clue": "Touring Ohio, a lot of very fat musicians (5)",
    "separatorLocations": {},
-   "solution": "TAKING",
+   "solution": "OBOES",
    "annotation": null
   },
   {
@@ -179,10 +146,19 @@ window.CRYPTIC_PUZZLES["independent-9069"] = /*JSON-START*/ {
     "x": 0,
     "y": 2
    },
-   "length": 7,
-   "clue": "Sleep on Kojak's idea (7)",
-   "separatorLocations": {},
-   "solution": "THEOREM",
+   "length": 6,
+   "clue": "See 1",
+   "group": [
+    "1-across",
+    "9-across"
+   ],
+   "separatorLocations": {
+    ",": [
+     3,
+     6
+    ]
+   },
+   "solution": "SODALL",
    "annotation": null
   },
   {
@@ -190,13 +166,13 @@ window.CRYPTIC_PUZZLES["independent-9069"] = /*JSON-START*/ {
    "number": 10,
    "direction": "across",
    "position": {
-    "x": 8,
+    "x": 7,
     "y": 2
    },
-   "length": 7,
-   "clue": "Ornament from slices cut from cloth (7)",
+   "length": 8,
+   "clue": "Secret support by party rank and file (8)",
    "separatorLocations": {},
-   "solution": "DEFROCK",
+   "solution": "BACKDOOR",
    "annotation": null
   },
   {
@@ -208,19 +184,9 @@ window.CRYPTIC_PUZZLES["independent-9069"] = /*JSON-START*/ {
     "y": 4
    },
    "length": 8,
-   "clue": "Not For Tea - unknown Huxley novel (5,3)",
-   "clueItalics": [
-    [
-     0,
-     11
-    ]
-   ],
-   "separatorLocations": {
-    ",": [
-     5
-    ]
-   },
-   "solution": "ANTICHAY",
+   "clue": "He shifts second piece of computer hardware (8)",
+   "separatorLocations": {},
+   "solution": "SPRINTER",
    "annotation": null
   },
   {
@@ -232,64 +198,59 @@ window.CRYPTIC_PUZZLES["independent-9069"] = /*JSON-START*/ {
     "y": 4
    },
    "length": 6,
-   "clue": "Tell wicked uncle about one (4,2)",
-   "separatorLocations": {
-    ",": [
-     4
-    ]
-   },
-   "solution": "CLUEIN",
-   "annotation": null
-  },
-  {
-   "id": "13-down",
-   "number": 13,
-   "direction": "down",
-   "position": {
-    "x": 8,
-    "y": 5
-   },
-   "length": 10,
-   "clue": "One is given if 17 starts (10)",
+   "clue": "Go like an old Dormobile? (6)",
    "separatorLocations": {},
-   "solution": "GOALKEEPER",
+   "solution": "VANISH",
    "annotation": null
   },
   {
-   "id": "14-across",
-   "number": 14,
+   "id": "13-across",
+   "number": 13,
    "direction": "across",
    "position": {
     "x": 0,
     "y": 6
    },
-   "length": 13,
-   "clue": "They'd lure one travelling around British territory far away (3,4,6)",
+   "length": 6,
+   "clue": "Petty dictator can leave department (3,3)",
    "separatorLocations": {
     ",": [
-     3,
-     7
+     3
     ]
    },
-   "solution": "THEBLUEYONDER",
+   "solution": "TINGOD",
    "annotation": null
   },
   {
-   "id": "15-down",
-   "number": 15,
+   "id": "14-down",
+   "number": 14,
    "direction": "down",
    "position": {
-    "x": 2,
+    "x": 5,
     "y": 6
    },
    "length": 9,
-   "clue": "One had 20 x 2 parts to chuck out (2-7)",
+   "clue": "A bargain  - had to cut price drastically (4,5)",
    "separatorLocations": {
-    "-": [
-     2
+    ",": [
+     4
     ]
    },
-   "solution": "EXCONVICT",
+   "solution": "DIRTCHEAP",
+   "annotation": null
+  },
+  {
+   "id": "15-across",
+   "number": 15,
+   "direction": "across",
+   "position": {
+    "x": 7,
+    "y": 6
+   },
+   "length": 8,
+   "clue": "Meteorite that's landed - hear nothing new about it (8)",
+   "separatorLocations": {},
+   "solution": "AEROLITH",
    "annotation": null
   },
   {
@@ -297,13 +258,13 @@ window.CRYPTIC_PUZZLES["independent-9069"] = /*JSON-START*/ {
    "number": 16,
    "direction": "down",
    "position": {
-    "x": 14,
-    "y": 7
+    "x": 13,
+    "y": 6
    },
-   "length": 8,
-   "clue": "Old individual in hire car from China, say? (8)",
+   "length": 9,
+   "clue": "True? Phone to find out immediately (9)",
    "separatorLocations": {},
-   "solution": "ORIENTAL",
+   "solution": "THEREUPON",
    "annotation": null
   },
   {
@@ -311,17 +272,17 @@ window.CRYPTIC_PUZZLES["independent-9069"] = /*JSON-START*/ {
    "number": 17,
    "direction": "across",
    "position": {
-    "x": 2,
+    "x": 0,
     "y": 8
    },
-   "length": 13,
-   "clue": "London landlord's introduction to 20 (7,6)",
+   "length": 8,
+   "clue": "Begin to face disaster in chat show (4,4)",
    "separatorLocations": {
     ",": [
-     7
+     4
     ]
    },
-   "solution": "CAPITALLETTER",
+   "solution": "STARTREK",
    "annotation": null
   },
   {
@@ -329,27 +290,27 @@ window.CRYPTIC_PUZZLES["independent-9069"] = /*JSON-START*/ {
    "number": 18,
    "direction": "down",
    "position": {
-    "x": 0,
-    "y": 9
+    "x": 3,
+    "y": 8
    },
-   "length": 6,
-   "clue": "Be in opposition's goal (6)",
+   "length": 7,
+   "clue": "Poor women invisible and gagged (7)",
    "separatorLocations": {},
-   "solution": "OBJECT",
+   "solution": "RETCHED",
    "annotation": null
   },
   {
-   "id": "19-across",
+   "id": "19-down",
    "number": 19,
-   "direction": "across",
+   "direction": "down",
    "position": {
-    "x": 0,
-    "y": 10
+    "x": 7,
+    "y": 8
    },
-   "length": 6,
-   "clue": "RAF target 1D? (6)",
+   "length": 7,
+   "clue": "Toy boy outside Long Room (7)",
    "separatorLocations": {},
-   "solution": "BANDIT",
+   "solution": "KITCHEN",
    "annotation": null
   },
   {
@@ -357,13 +318,13 @@ window.CRYPTIC_PUZZLES["independent-9069"] = /*JSON-START*/ {
    "number": 20,
    "direction": "across",
    "position": {
-    "x": 7,
-    "y": 10
+    "x": 9,
+    "y": 8
    },
-   "length": 8,
-   "clue": "Time? Or period following it? (8)",
+   "length": 6,
+   "clue": "Sacked? Is Pellegrini about to drive away? (6)",
    "separatorLocations": {},
-   "solution": "SENTENCE",
+   "solution": "DISPEL",
    "annotation": null
   },
   {
@@ -371,41 +332,41 @@ window.CRYPTIC_PUZZLES["independent-9069"] = /*JSON-START*/ {
    "number": 21,
    "direction": "down",
    "position": {
-    "x": 12,
-    "y": 10
+    "x": 11,
+    "y": 8
    },
-   "length": 5,
-   "clue": "Bottle still raised, runs in (5)",
+   "length": 7,
+   "clue": "Top guy in sport's promotion English (7)",
    "separatorLocations": {},
-   "solution": "NERVE",
+   "solution": "SUPREMO",
    "annotation": null
   },
   {
-   "id": "22-down",
+   "id": "22-across",
    "number": 22,
-   "direction": "down",
-   "position": {
-    "x": 6,
-    "y": 11
-   },
-   "length": 4,
-   "clue": "Reported leak that's thrilling (4)",
-   "separatorLocations": {},
-   "solution": "WHEE",
-   "annotation": null
-  },
-  {
-   "id": "23-across",
-   "number": 23,
    "direction": "across",
    "position": {
     "x": 0,
-    "y": 12
+    "y": 10
    },
-   "length": 7,
-   "clue": "What about \"very good knock\" as a memorial? (7)",
+   "length": 6,
+   "clue": "US writer 'put it about' - see, that's beautifully expressed (6)",
    "separatorLocations": {},
-   "solution": "EPITAPH",
+   "solution": "POETIC",
+   "annotation": null
+  },
+  {
+   "id": "23-down",
+   "number": 23,
+   "direction": "down",
+   "position": {
+    "x": 1,
+    "y": 10
+   },
+   "length": 5,
+   "clue": "Statesman soon gets upset (5)",
+   "separatorLocations": {},
+   "solution": "OMANI",
    "annotation": null
   },
   {
@@ -413,32 +374,27 @@ window.CRYPTIC_PUZZLES["independent-9069"] = /*JSON-START*/ {
    "number": 24,
    "direction": "across",
    "position": {
-    "x": 8,
-    "y": 12
+    "x": 7,
+    "y": 10
    },
-   "length": 7,
-   "clue": "Clown both upright and corrupt (7)",
+   "length": 8,
+   "clue": "Did tramp depart with 'is bundle? (8)",
    "separatorLocations": {},
-   "solution": "PIERROT",
+   "solution": "TRAIPSED",
    "annotation": null
   },
   {
-   "id": "25-across",
+   "id": "25-down",
    "number": 25,
-   "direction": "across",
+   "direction": "down",
    "position": {
-    "x": 0,
-    "y": 14
+    "x": 9,
+    "y": 10
    },
-   "length": 9,
-   "clue": "What other earnings will keep behind (2,3,4)",
-   "separatorLocations": {
-    ",": [
-     2,
-     5
-    ]
-   },
-   "solution": "TOTHEREAR",
+   "length": 5,
+   "clue": "One day they'll help (5)",
+   "separatorLocations": {},
+   "solution": "AIDES",
    "annotation": null
   },
   {
@@ -446,13 +402,47 @@ window.CRYPTIC_PUZZLES["independent-9069"] = /*JSON-START*/ {
    "number": 26,
    "direction": "across",
    "position": {
-    "x": 10,
+    "x": 0,
+    "y": 12
+   },
+   "length": 8,
+   "clue": "Does he stock ecstasy tablets, heroin or a different drug? (8)",
+   "separatorLocations": {},
+   "solution": "HASHEESH",
+   "annotation": null
+  },
+  {
+   "id": "27-across",
+   "number": 27,
+   "direction": "across",
+   "position": {
+    "x": 9,
+    "y": 12
+   },
+   "length": 6,
+   "clue": "Pass degree course in French town (6)",
+   "separatorLocations": {},
+   "solution": "DIEPPE",
+   "annotation": null
+  },
+  {
+   "id": "28-across",
+   "number": 28,
+   "direction": "across",
+   "position": {
+    "x": 0,
     "y": 14
    },
-   "length": 5,
-   "clue": "It should be great for surfing, dude (5)",
-   "separatorLocations": {},
-   "solution": "SWELL",
+   "length": 15,
+   "clue": "Beginning to get frisky in pool (I undress and prepare for action) (4,2,4,5)",
+   "separatorLocations": {
+    ",": [
+     4,
+     6,
+     10
+    ]
+   },
+   "solution": "GIRDUPONESLOINS",
    "annotation": null
   }
  ]

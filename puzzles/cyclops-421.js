@@ -67,6 +67,10 @@ window.CRYPTIC_PUZZLES["cyclops-421"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(+ 26ac.) Labour's messy legacy? (5)",
+   "group": [
+    "4-down",
+    "26-across"
+   ],
    "separatorLocations": {},
    "solution": "AFTER",
    "annotation": null
@@ -95,6 +99,10 @@ window.CRYPTIC_PUZZLES["cyclops-421"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 25dn. (4)",
+   "group": [
+    "25-down",
+    "6-down"
+   ],
    "separatorLocations": {},
    "solution": "ROOM",
    "annotation": null
@@ -207,6 +215,11 @@ window.CRYPTIC_PUZZLES["cyclops-421"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "(& 19/23ac.) The country has Tory and Lib leaders: awful net result is a recipe for ridiculing mostly no-hopers on TV (8)",
+   "group": [
+    "14-across",
+    "19-across",
+    "23-across"
+   ],
    "separatorLocations": {},
    "solution": "BRITAINS",
    "annotation": null
@@ -277,6 +290,11 @@ window.CRYPTIC_PUZZLES["cyclops-421"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "see 14ac. (3)",
+   "group": [
+    "14-across",
+    "19-across",
+    "23-across"
+   ],
    "separatorLocations": {},
    "solution": "GOT",
    "annotation": null
@@ -347,6 +365,11 @@ window.CRYPTIC_PUZZLES["cyclops-421"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 14ac. (6)",
+   "group": [
+    "14-across",
+    "19-across",
+    "23-across"
+   ],
    "separatorLocations": {},
    "solution": "TALENT",
    "annotation": null
@@ -375,6 +398,10 @@ window.CRYPTIC_PUZZLES["cyclops-421"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(+ 6dn.) Maybe Georgia fell arse over tip somewhere in the palace? (5)",
+   "group": [
+    "25-down",
+    "6-down"
+   ],
    "separatorLocations": {},
    "solution": "STATE",
    "annotation": null
@@ -389,6 +416,10 @@ window.CRYPTIC_PUZZLES["cyclops-421"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 4dn. (5)",
+   "group": [
+    "4-down",
+    "26-across"
+   ],
    "separatorLocations": {},
    "solution": "BIRTH",
    "annotation": null

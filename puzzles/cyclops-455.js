@@ -179,6 +179,10 @@ window.CRYPTIC_PUZZLES["cyclops-455"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 23ac. (4)",
+   "group": [
+    "23-across",
+    "12-across"
+   ],
    "separatorLocations": {},
    "solution": "FLOP",
    "annotation": null
@@ -319,6 +323,10 @@ window.CRYPTIC_PUZZLES["cyclops-455"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 24dn.) Gruel: a lot could produce a tight pain in the arse (5)",
+   "group": [
+    "22-down",
+    "24-down"
+   ],
    "separatorLocations": {},
    "solution": "LAGER",
    "annotation": null
@@ -333,6 +341,10 @@ window.CRYPTIC_PUZZLES["cyclops-455"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 12ac.) Skimpy wear reveals female \"cheek sag\" (4)",
+   "group": [
+    "23-across",
+    "12-across"
+   ],
    "separatorLocations": {},
    "solution": "FLIP",
    "annotation": null
@@ -347,6 +359,10 @@ window.CRYPTIC_PUZZLES["cyclops-455"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 22dn. (4)",
+   "group": [
+    "22-down",
+    "24-down"
+   ],
    "separatorLocations": {},
    "solution": "LOUT",
    "annotation": null

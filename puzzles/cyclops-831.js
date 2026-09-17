@@ -151,6 +151,10 @@ window.CRYPTIC_PUZZLES["cyclops-831"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 25dn.",
+   "group": [
+    "25-down",
+    "10-down"
+   ],
    "separatorLocations": {},
    "solution": "REAPER",
    "annotation": null
@@ -179,6 +183,10 @@ window.CRYPTIC_PUZZLES["cyclops-831"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(&13ac.) Vow a hacker made about what Trump's actions do (5)",
+   "group": [
+    "12-across",
+    "13-across"
+   ],
    "separatorLocations": {},
    "solution": "WREAK",
    "annotation": null
@@ -193,6 +201,10 @@ window.CRYPTIC_PUZZLES["cyclops-831"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 12ac.",
+   "group": [
+    "12-across",
+    "13-across"
+   ],
    "separatorLocations": {},
    "solution": "HAVOC",
    "annotation": null
@@ -375,6 +387,10 @@ window.CRYPTIC_PUZZLES["cyclops-831"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(&10dn.)You'll be dead unlucky when he comes at you with his long tool (4)",
+   "group": [
+    "25-down",
+    "10-down"
+   ],
    "separatorLocations": {},
    "solution": "GRIM",
    "annotation": null

@@ -25,6 +25,10 @@ window.CRYPTIC_PUZZLES["cyclops-532"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "(& 17dn.) Balls harmed by this typical tabloid-like response to events? (4,4)",
+   "group": [
+    "1-down",
+    "17-down"
+   ],
    "separatorLocations": {},
    "solution": "KNEEJERK",
    "annotation": null
@@ -39,6 +43,10 @@ window.CRYPTIC_PUZZLES["cyclops-532"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 11ac. (4)",
+   "group": [
+    "11-across",
+    "2-down"
+   ],
    "separatorLocations": {},
    "solution": "WORK",
    "annotation": null
@@ -137,6 +145,10 @@ window.CRYPTIC_PUZZLES["cyclops-532"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 24ac.) CIA/Bush rip-off, the making of Bush (5)",
+   "group": [
+    "8-down",
+    "24-across"
+   ],
    "separatorLocations": {},
    "solution": "PUBIC",
    "annotation": null
@@ -179,6 +191,10 @@ window.CRYPTIC_PUZZLES["cyclops-532"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 2dn.) Unpleasant duty of sullied Labour (5)",
+   "group": [
+    "11-across",
+    "2-down"
+   ],
    "separatorLocations": {},
    "solution": "DIRTY",
    "annotation": null
@@ -235,6 +251,10 @@ window.CRYPTIC_PUZZLES["cyclops-532"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 26dn. (5)",
+   "group": [
+    "26-down",
+    "15-across"
+   ],
    "separatorLocations": {},
    "solution": "BAKED",
    "annotation": null
@@ -277,6 +297,10 @@ window.CRYPTIC_PUZZLES["cyclops-532"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "see 1dn. (8)",
+   "group": [
+    "1-down",
+    "17-down"
+   ],
    "separatorLocations": {},
    "solution": "REACTION",
    "annotation": null
@@ -375,6 +399,10 @@ window.CRYPTIC_PUZZLES["cyclops-532"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 8dn. (5)",
+   "group": [
+    "8-down",
+    "24-across"
+   ],
    "separatorLocations": {},
    "solution": "HAIRS",
    "annotation": null
@@ -403,6 +431,10 @@ window.CRYPTIC_PUZZLES["cyclops-532"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 15ac.) Harebrained as Cook's far from 100% effort? (4)",
+   "group": [
+    "26-down",
+    "15-across"
+   ],
    "separatorLocations": {},
    "solution": "HALF",
    "annotation": null

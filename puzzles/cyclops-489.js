@@ -39,6 +39,10 @@ window.CRYPTIC_PUZZLES["cyclops-489"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 5dn.) Rather doubtful ex-PM should get a stretch (4)",
+   "group": [
+    "2-down",
+    "5-down"
+   ],
    "separatorLocations": {},
    "solution": "GREY",
    "annotation": null
@@ -67,6 +71,10 @@ window.CRYPTIC_PUZZLES["cyclops-489"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 18dn. (7)",
+   "group": [
+    "18-down",
+    "4-down"
+   ],
    "separatorLocations": {},
    "solution": "SNAPPER",
    "annotation": null
@@ -81,6 +89,10 @@ window.CRYPTIC_PUZZLES["cyclops-489"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 2dn. (4)",
+   "group": [
+    "2-down",
+    "5-down"
+   ],
    "separatorLocations": {},
    "solution": "AREA",
    "annotation": null
@@ -179,6 +191,10 @@ window.CRYPTIC_PUZZLES["cyclops-489"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "(& 15ac.) \"It makes one spit  no alternative  taking on that wardrobe disaster\", Brenda describing Kate? (9)",
+   "group": [
+    "10-across",
+    "15-across"
+   ],
    "separatorLocations": {},
    "solution": "EXPECTANT",
    "annotation": null
@@ -193,6 +209,10 @@ window.CRYPTIC_PUZZLES["cyclops-489"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "(see 21dn.) (3,6)",
+   "group": [
+    "21-down",
+    "11-across"
+   ],
    "separatorLocations": {},
    "solution": "NTHDEGREE",
    "annotation": null
@@ -249,6 +269,10 @@ window.CRYPTIC_PUZZLES["cyclops-489"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 10ac. (6)",
+   "group": [
+    "10-across",
+    "15-across"
+   ],
    "separatorLocations": {},
    "solution": "MOTHER",
    "annotation": null
@@ -305,6 +329,10 @@ window.CRYPTIC_PUZZLES["cyclops-489"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "(& 4dn.) Green, jumped-up sort demands a parliamentary enforcer for each paparazzo (7)",
+   "group": [
+    "18-down",
+    "4-down"
+   ],
    "separatorLocations": {},
    "solution": "WHIPPER",
    "annotation": null
@@ -347,6 +375,10 @@ window.CRYPTIC_PUZZLES["cyclops-489"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 11ac.) Screwing, end together, clutching article as far as one can (2,3)",
+   "group": [
+    "21-down",
+    "11-across"
+   ],
    "separatorLocations": {},
    "solution": "TOTHE",
    "annotation": null
@@ -375,6 +407,10 @@ window.CRYPTIC_PUZZLES["cyclops-489"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 24ac. (4)",
+   "group": [
+    "24-across",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "ROPE",
    "annotation": null
@@ -389,6 +425,10 @@ window.CRYPTIC_PUZZLES["cyclops-489"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 23dn.) Pissed with Cable's balancing act support? (5)",
+   "group": [
+    "24-across",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "TIGHT",
    "annotation": null

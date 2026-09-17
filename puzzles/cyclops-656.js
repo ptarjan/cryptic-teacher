@@ -67,6 +67,10 @@ window.CRYPTIC_PUZZLES["cyclops-656"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 22dn.) Much depressed in the case of tweet-mad Trump? (5)",
+   "group": [
+    "4-down",
+    "22-down"
+   ],
    "separatorLocations": {},
    "solution": "SMART",
    "annotation": null
@@ -347,6 +351,10 @@ window.CRYPTIC_PUZZLES["cyclops-656"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 4dn. (5)",
+   "group": [
+    "4-down",
+    "22-down"
+   ],
    "separatorLocations": {},
    "solution": "PHONE",
    "annotation": null

@@ -7,8 +7,8 @@ window.CRYPTIC_PUZZLES["independent-9182"] = /*JSON-START*/ {
  "number": 9182,
  "series": "independent",
  "name": "Independent cryptic crossword No 9,182",
- "setter": "Donk",
- "date": 1458950400000,
+ "setter": "Morph",
+ "date": 1458345600000,
  "dimensions": {
   "cols": 15,
   "rows": 15
@@ -20,13 +20,13 @@ window.CRYPTIC_PUZZLES["independent-9182"] = /*JSON-START*/ {
    "number": 1,
    "direction": "across",
    "position": {
-    "x": 1,
+    "x": 0,
     "y": 0
    },
-   "length": 10,
-   "clue": "Pairs of pants, not individually wrapped, can't be dirty (10)",
+   "length": 7,
+   "clue": "Hit the wrong notes? Not here (7)",
    "separatorLocations": {},
-   "solution": "STAINPROOF",
+   "solution": "MISSING",
    "annotation": null
   },
   {
@@ -34,13 +34,13 @@ window.CRYPTIC_PUZZLES["independent-9182"] = /*JSON-START*/ {
    "number": 1,
    "direction": "down",
    "position": {
-    "x": 1,
+    "x": 0,
     "y": 0
    },
-   "length": 5,
-   "clue": "Fancy Bob Hope (5)",
+   "length": 8,
+   "clue": "Greek character captured by relatively small monster (8)",
    "separatorLocations": {},
-   "solution": "SWISH",
+   "solution": "MINOTAUR",
    "annotation": null
   },
   {
@@ -48,13 +48,13 @@ window.CRYPTIC_PUZZLES["independent-9182"] = /*JSON-START*/ {
    "number": 2,
    "direction": "down",
    "position": {
-    "x": 3,
+    "x": 2,
     "y": 0
    },
-   "length": 7,
-   "clue": "Graduates from a smoker - Scot's certainly not (7)",
+   "length": 5,
+   "clue": "Channel One producing seamy stuff? (5)",
    "separatorLocations": {},
-   "solution": "ALUMNAE",
+   "solution": "SEWER",
    "annotation": null
   },
   {
@@ -62,20 +62,13 @@ window.CRYPTIC_PUZZLES["independent-9182"] = /*JSON-START*/ {
    "number": 3,
    "direction": "down",
    "position": {
-    "x": 5,
+    "x": 4,
     "y": 0
    },
-   "length": 15,
-   "clue": "Nowhere near where undersupplied teacher stands (3,2,1,4,5)",
-   "separatorLocations": {
-    ",": [
-     3,
-     5,
-     6,
-     10
-    ]
-   },
-   "solution": "NOTBYALONGCHALK",
+   "length": 7,
+   "clue": "Cruel and senseless endlessly suppressing buzz (7)",
+   "separatorLocations": {},
+   "solution": "INHUMAN",
    "annotation": null
   },
   {
@@ -83,23 +76,27 @@ window.CRYPTIC_PUZZLES["independent-9182"] = /*JSON-START*/ {
    "number": 4,
    "direction": "down",
    "position": {
-    "x": 7,
+    "x": 6,
+    "y": 0
+   },
+   "length": 9,
+   "clue": "Clumsiness of verbal encouragement to Blair? (9)",
+   "separatorLocations": {},
+   "solution": "GAUCHERIE",
+   "annotation": null
+  },
+  {
+   "id": "5-across",
+   "number": 5,
+   "direction": "across",
+   "position": {
+    "x": 8,
     "y": 0
    },
    "length": 7,
-   "clue": "Say Anfield Rap is industry's problem (3,4)",
-   "clueItalics": [
-    [
-     4,
-     12
-    ]
-   ],
-   "separatorLocations": {
-    ",": [
-     3
-    ]
-   },
-   "solution": "REDTAPE",
+   "clue": "Hint of something obscene in time line - fruity stuff between sheets (7)",
+   "separatorLocations": {},
+   "solution": "STRUDEL",
    "annotation": null
   },
   {
@@ -107,18 +104,13 @@ window.CRYPTIC_PUZZLES["independent-9182"] = /*JSON-START*/ {
    "number": 5,
    "direction": "down",
    "position": {
-    "x": 9,
+    "x": 8,
     "y": 0
    },
-   "length": 15,
-   "clue": "Possible object of unrequited love in series (3,5,7)",
-   "separatorLocations": {
-    ",": [
-     3,
-     8
-    ]
-   },
-   "solution": "ONEAFTERANOTHER",
+   "length": 5,
+   "clue": "Directions you take when joining a party? (5)",
+   "separatorLocations": {},
+   "solution": "SIDES",
    "annotation": null
   },
   {
@@ -126,17 +118,13 @@ window.CRYPTIC_PUZZLES["independent-9182"] = /*JSON-START*/ {
    "number": 6,
    "direction": "down",
    "position": {
-    "x": 11,
-    "y": 1
+    "x": 10,
+    "y": 0
    },
-   "length": 6,
-   "clue": "Didn't get takeaway for tea? (3,3)",
-   "separatorLocations": {
-    ",": [
-     3
-    ]
-   },
-   "solution": "ATEOUT",
+   "length": 7,
+   "clue": "Cheese tart cooked with chicory filling inside (7)",
+   "separatorLocations": {},
+   "solution": "RICOTTA",
    "annotation": null
   },
   {
@@ -144,27 +132,27 @@ window.CRYPTIC_PUZZLES["independent-9182"] = /*JSON-START*/ {
    "number": 7,
    "direction": "down",
    "position": {
-    "x": 13,
-    "y": 1
+    "x": 12,
+    "y": 0
    },
-   "length": 8,
-   "clue": "Difference between pitches rejected by United (8)",
+   "length": 9,
+   "clue": "It's toxic, new tech is (9)",
    "separatorLocations": {},
-   "solution": "SEMITONE",
+   "solution": "DIGITALIS",
    "annotation": null
   },
   {
-   "id": "8-across",
+   "id": "8-down",
    "number": 8,
-   "direction": "across",
+   "direction": "down",
    "position": {
-    "x": 0,
-    "y": 2
+    "x": 14,
+    "y": 0
    },
-   "length": 8,
-   "clue": "Put satisfied tours in the upgrades, originally (8)",
+   "length": 6,
+   "clue": "Poet's canon includes rousing lines (6)",
    "separatorLocations": {},
-   "solution": "SITUATED",
+   "solution": "LYRIST",
    "annotation": null
   },
   {
@@ -172,13 +160,13 @@ window.CRYPTIC_PUZZLES["independent-9182"] = /*JSON-START*/ {
    "number": 9,
    "direction": "across",
    "position": {
-    "x": 9,
+    "x": 0,
     "y": 2
    },
-   "length": 6,
-   "clue": "Dish: how it's served to the audience? (6)",
+   "length": 9,
+   "clue": "Hour's seized by fresh type of music journalist (9)",
    "separatorLocations": {},
-   "solution": "ENTREE",
+   "solution": "NEWSHOUND",
    "annotation": null
   },
   {
@@ -186,13 +174,13 @@ window.CRYPTIC_PUZZLES["independent-9182"] = /*JSON-START*/ {
    "number": 10,
    "direction": "across",
    "position": {
-    "x": 0,
-    "y": 4
+    "x": 10,
+    "y": 2
    },
-   "length": 10,
-   "clue": "Small close by house is lighter option for drinking (10)",
+   "length": 5,
+   "clue": "Smoke to get high, leaving ends in vehicle (5)",
    "separatorLocations": {},
-   "solution": "SHANDYGAFF",
+   "solution": "CIGAR",
    "annotation": null
   },
   {
@@ -200,13 +188,13 @@ window.CRYPTIC_PUZZLES["independent-9182"] = /*JSON-START*/ {
    "number": 11,
    "direction": "across",
    "position": {
-    "x": 11,
+    "x": 0,
     "y": 4
    },
-   "length": 4,
-   "clue": "Late report as nothing took effect (4)",
+   "length": 5,
+   "clue": "Beat the booze, but not ecstasy (5)",
    "separatorLocations": {},
-   "solution": "OBIT",
+   "solution": "THRUM",
    "annotation": null
   },
   {
@@ -214,55 +202,59 @@ window.CRYPTIC_PUZZLES["independent-9182"] = /*JSON-START*/ {
    "number": 12,
    "direction": "across",
    "position": {
-    "x": 0,
-    "y": 6
+    "x": 6,
+    "y": 4
    },
-   "length": 6,
-   "clue": "Deviant relaces, not beginning to sow one's oats (6)",
+   "length": 9,
+   "clue": "The man's brooding, inwardly worried, and can't decide (9)",
    "separatorLocations": {},
-   "solution": "CEREAL",
+   "solution": "HESITATES",
    "annotation": null
   },
   {
-   "id": "13-down",
+   "id": "13-across",
    "number": 13,
+   "direction": "across",
+   "position": {
+    "x": 0,
+    "y": 6
+   },
+   "length": 14,
+   "clue": "A French conservative online agitator, skilled at resisting government (14)",
+   "separatorLocations": {},
+   "solution": "UNCONTROLLABLE",
+   "annotation": null
+  },
+  {
+   "id": "14-down",
+   "number": 14,
    "direction": "down",
    "position": {
-    "x": 1,
+    "x": 2,
     "y": 6
    },
-   "length": 8,
-   "clue": "Let one horribly round queen articulate (8)",
+   "length": 9,
+   "clue": "Fattening food followed by relative growth (9)",
    "separatorLocations": {},
-   "solution": "ELOQUENT",
+   "solution": "CARBUNCLE",
    "annotation": null
   },
   {
-   "id": "14-across",
-   "number": 14,
-   "direction": "across",
-   "position": {
-    "x": 7,
-    "y": 6
-   },
-   "length": 8,
-   "clue": "Exchanging tips on Labour, building vote (8)",
-   "separatorLocations": {},
-   "solution": "ELECTION",
-   "annotation": null
-  },
-  {
-   "id": "15-across",
+   "id": "15-down",
    "number": 15,
-   "direction": "across",
+   "direction": "down",
    "position": {
-    "x": 0,
-    "y": 8
+    "x": 8,
+    "y": 6
    },
-   "length": 8,
-   "clue": "Have sex with cross revolutionary and need to escape! (8)",
-   "separatorLocations": {},
-   "solution": "DOORKNOB",
+   "length": 9,
+   "clue": "Perfect shot I hit with welly (4-5)",
+   "separatorLocations": {
+    "-": [
+     4
+    ]
+   },
+   "solution": "LILYWHITE",
    "annotation": null
   },
   {
@@ -270,41 +262,45 @@ window.CRYPTIC_PUZZLES["independent-9182"] = /*JSON-START*/ {
    "number": 16,
    "direction": "down",
    "position": {
-    "x": 3,
-    "y": 8
+    "x": 14,
+    "y": 7
    },
-   "length": 6,
-   "clue": "Gardeners planted around lines in city (6)",
+   "length": 8,
+   "clue": "Ideology holding alternative line relating to climate (8)",
    "separatorLocations": {},
-   "solution": "RHODES",
+   "solution": "ISOTHERM",
    "annotation": null
   },
   {
-   "id": "17-down",
+   "id": "17-across",
    "number": 17,
+   "direction": "across",
+   "position": {
+    "x": 1,
+    "y": 8
+   },
+   "length": 14,
+   "clue": "Their goal is to search ground? (14)",
+   "separatorLocations": {},
+   "solution": "ARCHAEOLOGISTS",
+   "annotation": null
+  },
+  {
+   "id": "18-down",
+   "number": 18,
    "direction": "down",
    "position": {
-    "x": 7,
+    "x": 4,
     "y": 8
    },
    "length": 7,
-   "clue": "Hand round the twist (7)",
-   "separatorLocations": {},
-   "solution": "BANANAS",
-   "annotation": null
-  },
-  {
-   "id": "18-across",
-   "number": 18,
-   "direction": "across",
-   "position": {
-    "x": 9,
-    "y": 8
+   "clue": "Reject frightful banshee (3-4)",
+   "separatorLocations": {
+    "-": [
+     3
+    ]
    },
-   "length": 6,
-   "clue": "Did fish set position (6)",
-   "separatorLocations": {},
-   "solution": "ANGLED",
+   "solution": "HASBEEN",
    "annotation": null
   },
   {
@@ -312,27 +308,27 @@ window.CRYPTIC_PUZZLES["independent-9182"] = /*JSON-START*/ {
    "number": 19,
    "direction": "down",
    "position": {
-    "x": 11,
+    "x": 10,
     "y": 8
    },
    "length": 7,
-   "clue": "Uniform simply resewn by girl in front (7)",
+   "clue": "Explicit image (7)",
    "separatorLocations": {},
-   "solution": "GYMSLIP",
+   "solution": "GRAPHIC",
    "annotation": null
   },
   {
-   "id": "20-across",
+   "id": "20-down",
    "number": 20,
-   "direction": "across",
+   "direction": "down",
    "position": {
     "x": 0,
-    "y": 10
+    "y": 9
    },
-   "length": 4,
-   "clue": "Mark's replacement admitted by attentive urologist (4)",
+   "length": 6,
+   "clue": "Where clutch goes (partly), big end may well go first (6)",
    "separatorLocations": {},
-   "solution": "EURO",
+   "solution": "EGGCUP",
    "annotation": null
   },
   {
@@ -340,13 +336,17 @@ window.CRYPTIC_PUZZLES["independent-9182"] = /*JSON-START*/ {
    "number": 21,
    "direction": "across",
    "position": {
-    "x": 5,
+    "x": 0,
     "y": 10
    },
-   "length": 10,
-   "clue": "Sparkling urban hosts in agreement (10)",
-   "separatorLocations": {},
-   "solution": "CONFORMITY",
+   "length": 9,
+   "clue": "Diminutive fixer feeds workers (4,5)",
+   "separatorLocations": {
+    ",": [
+     4
+    ]
+   },
+   "solution": "GRUBSCREW",
    "annotation": null
   },
   {
@@ -354,13 +354,13 @@ window.CRYPTIC_PUZZLES["independent-9182"] = /*JSON-START*/ {
    "number": 22,
    "direction": "down",
    "position": {
-    "x": 13,
+    "x": 6,
     "y": 10
    },
    "length": 5,
-   "clue": "Had another chance to pass over arm (5)",
+   "clue": "First person in France got up in outfit for makeover (5)",
    "separatorLocations": {},
-   "solution": "TASER",
+   "solution": "REJIG",
    "annotation": null
   },
   {
@@ -368,27 +368,27 @@ window.CRYPTIC_PUZZLES["independent-9182"] = /*JSON-START*/ {
    "number": 23,
    "direction": "across",
    "position": {
-    "x": 0,
-    "y": 12
+    "x": 10,
+    "y": 10
    },
-   "length": 6,
-   "clue": "Change lanes, overtaking woman (6)",
+   "length": 5,
+   "clue": "Valuable property like Park Lane and Mayfair? (5)",
    "separatorLocations": {},
-   "solution": "ANGELA",
+   "solution": "ASSET",
    "annotation": null
   },
   {
-   "id": "24-across",
+   "id": "24-down",
    "number": 24,
-   "direction": "across",
+   "direction": "down",
    "position": {
-    "x": 7,
-    "y": 12
+    "x": 12,
+    "y": 10
    },
-   "length": 8,
-   "clue": "Turning in targets for assassin (no. 3 killed) who's very sceptical (8)",
+   "length": 5,
+   "clue": "Hot place between Guinea-Bissau and Namibia (5)",
    "separatorLocations": {},
-   "solution": "NIHILIST",
+   "solution": "SAUNA",
    "annotation": null
   },
   {
@@ -396,13 +396,55 @@ window.CRYPTIC_PUZZLES["independent-9182"] = /*JSON-START*/ {
    "number": 25,
    "direction": "across",
    "position": {
-    "x": 4,
+    "x": 0,
+    "y": 12
+   },
+   "length": 5,
+   "clue": "It's wheeled out of bankruptcy clearance (5)",
+   "separatorLocations": {},
+   "solution": "CYCLE",
+   "annotation": null
+  },
+  {
+   "id": "26-across",
+   "number": 26,
+   "direction": "across",
+   "position": {
+    "x": 6,
+    "y": 12
+   },
+   "length": 9,
+   "clue": "Pen translation of Joshua 1, Latin and English (9)",
+   "separatorLocations": {},
+   "solution": "JAILHOUSE",
+   "annotation": null
+  },
+  {
+   "id": "27-across",
+   "number": 27,
+   "direction": "across",
+   "position": {
+    "x": 0,
     "y": 14
    },
-   "length": 10,
-   "clue": "Cissy regularly finds space again outside revolving tower (10)",
+   "length": 7,
+   "clue": "Greedy person hoarding Chinese coin and old German one (7)",
    "separatorLocations": {},
-   "solution": "SKYSCRAPER",
+   "solution": "PFENNIG",
+   "annotation": null
+  },
+  {
+   "id": "28-across",
+   "number": 28,
+   "direction": "across",
+   "position": {
+    "x": 8,
+    "y": 14
+   },
+   "length": 7,
+   "clue": "Cry for alimony? (7)",
+   "separatorLocations": {},
+   "solution": "EXCLAIM",
    "annotation": null
   }
  ]

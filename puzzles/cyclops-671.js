@@ -25,6 +25,10 @@ window.CRYPTIC_PUZZLES["cyclops-671"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "(& 13ac.) Editorial by Sun on joint scam probe as a result of Corbyn's election failure (10)",
+   "group": [
+    "1-across",
+    "13-across"
+   ],
    "separatorLocations": {},
    "solution": "LEADERSHIP",
    "annotation": null
@@ -109,6 +113,10 @@ window.CRYPTIC_PUZZLES["cyclops-671"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 28ac. (4)",
+   "group": [
+    "28-across",
+    "7-across"
+   ],
    "separatorLocations": {},
    "solution": "FILL",
    "annotation": null
@@ -207,6 +215,10 @@ window.CRYPTIC_PUZZLES["cyclops-671"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 1ac. (7)",
+   "group": [
+    "1-across",
+    "13-across"
+   ],
    "separatorLocations": {},
    "solution": "CONTEST",
    "annotation": null
@@ -417,6 +429,10 @@ window.CRYPTIC_PUZZLES["cyclops-671"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(+ 7ac.) Refuse to be buried in this country stuff (4)",
+   "group": [
+    "28-across",
+    "7-across"
+   ],
    "separatorLocations": {},
    "solution": "LAND",
    "annotation": null

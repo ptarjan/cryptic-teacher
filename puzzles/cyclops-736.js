@@ -165,6 +165,10 @@ window.CRYPTIC_PUZZLES["cyclops-736"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 24ac.) Put on the latest typical Trumpian retort? (4)",
+   "group": [
+    "10-across",
+    "24-across"
+   ],
    "separatorLocations": {},
    "solution": "FAKE",
    "annotation": null
@@ -179,6 +183,10 @@ window.CRYPTIC_PUZZLES["cyclops-736"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 23ac. (4)",
+   "group": [
+    "23-across",
+    "11-across"
+   ],
    "separatorLocations": {},
    "solution": "DOWN",
    "annotation": null
@@ -347,6 +355,10 @@ window.CRYPTIC_PUZZLES["cyclops-736"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 11ac.) At a loss for words? Not working? Keep it pretty basic (4)",
+   "group": [
+    "23-across",
+    "11-across"
+   ],
    "separatorLocations": {},
    "solution": "DUMB",
    "annotation": null
@@ -375,6 +387,10 @@ window.CRYPTIC_PUZZLES["cyclops-736"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 10ac. (4)",
+   "group": [
+    "10-across",
+    "24-across"
+   ],
    "separatorLocations": {},
    "solution": "NEWS",
    "annotation": null

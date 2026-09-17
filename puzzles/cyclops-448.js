@@ -109,6 +109,10 @@ window.CRYPTIC_PUZZLES["cyclops-448"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "see 13ac. (12)",
+   "group": [
+    "13-across",
+    "7-down"
+   ],
    "separatorLocations": {},
    "solution": "INDEPENDENCE",
    "annotation": null
@@ -123,6 +127,10 @@ window.CRYPTIC_PUZZLES["cyclops-448"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 23ac.) Scum politician finally getting City backing conjures up a dark picture (4)",
+   "group": [
+    "8-across",
+    "23-across"
+   ],
    "separatorLocations": {},
    "solution": "FILM",
    "annotation": null
@@ -165,6 +173,10 @@ window.CRYPTIC_PUZZLES["cyclops-448"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 25ac. (4)",
+   "group": [
+    "25-across",
+    "11-across"
+   ],
    "separatorLocations": {},
    "solution": "WORM",
    "annotation": null
@@ -193,6 +205,10 @@ window.CRYPTIC_PUZZLES["cyclops-448"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "(& 7dn.) Salmond's political ambition is \"perverted, in-depth conceitedness\" (8)",
+   "group": [
+    "13-across",
+    "7-down"
+   ],
    "separatorLocations": {},
    "solution": "SCOTTISH",
    "annotation": null
@@ -333,6 +349,10 @@ window.CRYPTIC_PUZZLES["cyclops-448"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 8ac. (4)",
+   "group": [
+    "8-across",
+    "23-across"
+   ],
    "separatorLocations": {},
    "solution": "NOIR",
    "annotation": null
@@ -361,6 +381,10 @@ window.CRYPTIC_PUZZLES["cyclops-448"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(+ 11ac.) Reading fan has work out in middle of bang (4)",
+   "group": [
+    "25-across",
+    "11-across"
+   ],
    "separatorLocations": {},
    "solution": "BOOK",
    "annotation": null

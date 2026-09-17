@@ -39,6 +39,10 @@ window.CRYPTIC_PUZZLES["cyclops-700"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 21dn. (4)",
+   "group": [
+    "21-down",
+    "2-down"
+   ],
    "separatorLocations": {},
    "solution": "COLD",
    "annotation": null
@@ -305,6 +309,10 @@ window.CRYPTIC_PUZZLES["cyclops-700"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(&23dn.) Cry for help expressed in this version of some credo? (5)",
+   "group": [
+    "19-across",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "MORSE",
    "annotation": null
@@ -361,6 +369,10 @@ window.CRYPTIC_PUZZLES["cyclops-700"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 2dn.) Ailment making you green and frigid (6)",
+   "group": [
+    "21-down",
+    "2-down"
+   ],
    "separatorLocations": {},
    "solution": "COMMON",
    "annotation": null
@@ -403,6 +415,10 @@ window.CRYPTIC_PUZZLES["cyclops-700"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 19ac. (4)",
+   "group": [
+    "19-across",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "CODE",
    "annotation": null

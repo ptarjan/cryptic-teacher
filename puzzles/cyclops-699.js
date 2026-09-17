@@ -39,6 +39,11 @@ window.CRYPTIC_PUZZLES["cyclops-699"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 26dn. (4)",
+   "group": [
+    "26-down",
+    "28-down",
+    "2-down"
+   ],
    "separatorLocations": {},
    "solution": "ARMS",
    "annotation": null
@@ -389,6 +394,11 @@ window.CRYPTIC_PUZZLES["cyclops-699"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 28/2) Enthusiastically accompanied by Frank and members (4)",
+   "group": [
+    "26-down",
+    "28-down",
+    "2-down"
+   ],
    "separatorLocations": {},
    "solution": "WITH",
    "annotation": null
@@ -417,6 +427,11 @@ window.CRYPTIC_PUZZLES["cyclops-699"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 26dn. (4)",
+   "group": [
+    "26-down",
+    "28-down",
+    "2-down"
+   ],
    "separatorLocations": {},
    "solution": "OPEN",
    "annotation": null

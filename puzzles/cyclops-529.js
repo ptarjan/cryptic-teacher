@@ -39,6 +39,10 @@ window.CRYPTIC_PUZZLES["cyclops-529"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 27dn.) Bitter, outspoken act of Brenda which creates poor atmosphere (4)",
+   "group": [
+    "2-down",
+    "27-down"
+   ],
    "separatorLocations": {},
    "solution": "ACID",
    "annotation": null
@@ -81,6 +85,10 @@ window.CRYPTIC_PUZZLES["cyclops-529"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 19dn. (6)",
+   "group": [
+    "19-down",
+    "5-down"
+   ],
    "separatorLocations": {},
    "solution": "SPROUT",
    "annotation": null
@@ -193,6 +201,10 @@ window.CRYPTIC_PUZZLES["cyclops-529"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "(& 25ac.) It can be wretched, about to get limp  maybe an opportunity to put more women in office? (7)",
+   "group": [
+    "13-across",
+    "25-across"
+   ],
    "separatorLocations": {},
    "solution": "CABINET",
    "annotation": null
@@ -277,6 +289,10 @@ window.CRYPTIC_PUZZLES["cyclops-529"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "(& 5dn.) What makes a fart from the EC pontificate about \"Right\"? (8)",
+   "group": [
+    "19-down",
+    "5-down"
+   ],
    "separatorLocations": {},
    "solution": "BRUSSELS",
    "annotation": null
@@ -375,6 +391,10 @@ window.CRYPTIC_PUZZLES["cyclops-529"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "see 13ac. (9)",
+   "group": [
+    "13-across",
+    "25-across"
+   ],
    "separatorLocations": {},
    "solution": "RESHUFFLE",
    "annotation": null
@@ -403,6 +423,10 @@ window.CRYPTIC_PUZZLES["cyclops-529"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 2dn. (4)",
+   "group": [
+    "2-down",
+    "27-down"
+   ],
    "separatorLocations": {},
    "solution": "RAIN",
    "annotation": null

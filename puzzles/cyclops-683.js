@@ -81,6 +81,11 @@ window.CRYPTIC_PUZZLES["cyclops-683"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 8dn. (4)",
+   "group": [
+    "8-down",
+    "5-down",
+    "24-across"
+   ],
    "separatorLocations": {},
    "solution": "WILL",
    "annotation": null
@@ -137,6 +142,11 @@ window.CRYPTIC_PUZZLES["cyclops-683"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 5dn./24ac.) Principals are going to be revolutionary? Expect sackings! (5)",
+   "group": [
+    "8-down",
+    "5-down",
+    "24-across"
+   ],
    "separatorLocations": {},
    "solution": "HEADS",
    "annotation": null
@@ -151,6 +161,10 @@ window.CRYPTIC_PUZZLES["cyclops-683"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "Once more tossing away a good poll victory (4)",
+   "group": [
+    "9-across",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "GAIN",
    "annotation": null
@@ -179,6 +193,10 @@ window.CRYPTIC_PUZZLES["cyclops-683"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 23dn.) Worry associated with covid-19  another indication that you're on your way out? (6)",
+   "group": [
+    "11-across",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "SECOND",
    "annotation": null
@@ -361,6 +379,10 @@ window.CRYPTIC_PUZZLES["cyclops-683"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 9ac. (4)",
+   "group": [
+    "11-across",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "WAVE",
    "annotation": null
@@ -375,6 +397,11 @@ window.CRYPTIC_PUZZLES["cyclops-683"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 8dn. (4)",
+   "group": [
+    "8-down",
+    "5-down",
+    "24-across"
+   ],
    "separatorLocations": {},
    "solution": "ROLL",
    "annotation": null

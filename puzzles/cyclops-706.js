@@ -109,6 +109,10 @@ window.CRYPTIC_PUZZLES["cyclops-706"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "see 28ac. (8)",
+   "group": [
+    "28-across",
+    "5-down"
+   ],
    "separatorLocations": {},
    "solution": "HOPELESS",
    "annotation": null
@@ -445,6 +449,10 @@ window.CRYPTIC_PUZZLES["cyclops-706"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "(& 5dn.) \"To count, lower your expectations,\" as Boris said of a certain ministerial has-been (10, 18ac.) (7)",
+   "group": [
+    "28-across",
+    "5-down"
+   ],
    "separatorLocations": {},
    "solution": "TOTALLY",
    "annotation": null

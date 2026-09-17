@@ -25,6 +25,10 @@ window.CRYPTIC_PUZZLES["cyclops-403"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "(& 10dn.) President (small, not black) trashy thing, stuffed a 5, 21dn (5,3)",
+   "group": [
+    "1-down",
+    "10-down"
+   ],
    "separatorLocations": {},
    "solution": "OSAMABIN",
    "annotation": null
@@ -53,6 +57,10 @@ window.CRYPTIC_PUZZLES["cyclops-403"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 22dn.) Fact: stuffing teenage rough makes you a 5, 21dn (6)",
+   "group": [
+    "3-down",
+    "22-down"
+   ],
    "separatorLocations": {},
    "solution": "ESTATE",
    "annotation": null
@@ -151,6 +159,10 @@ window.CRYPTIC_PUZZLES["cyclops-403"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 1dn. (5)",
+   "group": [
+    "1-down",
+    "10-down"
+   ],
    "separatorLocations": {},
    "solution": "LADEN",
    "annotation": null
@@ -333,6 +345,10 @@ window.CRYPTIC_PUZZLES["cyclops-403"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 3dn. (5)",
+   "group": [
+    "3-down",
+    "22-down"
+   ],
    "separatorLocations": {},
    "solution": "AGENT",
    "annotation": null

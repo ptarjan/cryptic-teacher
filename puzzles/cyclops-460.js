@@ -165,6 +165,10 @@ window.CRYPTIC_PUZZLES["cyclops-460"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 20dn.) Winner's butt wedged into baby doll? Leads to quick dismissal (5)",
+   "group": [
+    "9-across",
+    "20-down"
+   ],
    "separatorLocations": {},
    "solution": "SHORT",
    "annotation": null
@@ -179,6 +183,10 @@ window.CRYPTIC_PUZZLES["cyclops-460"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "(& 25ac.) Congress routinely lying: \"Ignorant foreigners should be converted\" (10)",
+   "group": [
+    "10-across",
+    "25-across"
+   ],
    "separatorLocations": {},
    "solution": "MISSIONARY",
    "annotation": null
@@ -319,6 +327,10 @@ window.CRYPTIC_PUZZLES["cyclops-460"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 9ac. (6)",
+   "group": [
+    "9-across",
+    "20-down"
+   ],
    "separatorLocations": {},
    "solution": "SHRIFT",
    "annotation": null
@@ -403,6 +415,10 @@ window.CRYPTIC_PUZZLES["cyclops-460"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "see 10ac. (8)",
+   "group": [
+    "10-across",
+    "25-across"
+   ],
    "separatorLocations": {},
    "solution": "POSITION",
    "annotation": null

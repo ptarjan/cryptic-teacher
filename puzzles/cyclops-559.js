@@ -67,6 +67,10 @@ window.CRYPTIC_PUZZLES["cyclops-559"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "(& 23dn.) Continental board plot, an opportunity for fraudulent mis-selling? (7)",
+   "group": [
+    "3-down",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "PENSION",
    "annotation": null
@@ -165,6 +169,10 @@ window.CRYPTIC_PUZZLES["cyclops-559"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 11ac.) Glass-bottomed, as a result of this (you might hear) annoyance? (1,4)",
+   "group": [
+    "10-across",
+    "11-across"
+   ],
    "separatorLocations": {},
    "solution": "APAIN",
    "annotation": null
@@ -179,6 +187,10 @@ window.CRYPTIC_PUZZLES["cyclops-559"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "see 10ac. (9)",
+   "group": [
+    "10-across",
+    "11-across"
+   ],
    "separatorLocations": {},
    "solution": "INTHEARSE",
    "annotation": null
@@ -333,6 +345,10 @@ window.CRYPTIC_PUZZLES["cyclops-559"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "(& 28ac.) Hedging bets incriminates 'Team Dave' (7)",
+   "group": [
+    "22-down",
+    "28-across"
+   ],
    "separatorLocations": {},
    "solution": "CABINET",
    "annotation": null
@@ -347,6 +363,10 @@ window.CRYPTIC_PUZZLES["cyclops-559"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 3dn. (6)",
+   "group": [
+    "3-down",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "SCHEME",
    "annotation": null
@@ -417,6 +437,10 @@ window.CRYPTIC_PUZZLES["cyclops-559"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "see 22dn. (9)",
+   "group": [
+    "22-down",
+    "28-across"
+   ],
    "separatorLocations": {},
    "solution": "MINISTERS",
    "annotation": null

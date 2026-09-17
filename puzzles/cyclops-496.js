@@ -67,6 +67,10 @@ window.CRYPTIC_PUZZLES["cyclops-496"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 22dn. (4)",
+   "group": [
+    "22-down",
+    "4-down"
+   ],
    "separatorLocations": {},
    "solution": "ROLL",
    "annotation": null
@@ -165,6 +169,10 @@ window.CRYPTIC_PUZZLES["cyclops-496"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 12ac. (4)",
+   "group": [
+    "12-across",
+    "11-across"
+   ],
    "separatorLocations": {},
    "solution": "GOWN",
    "annotation": null
@@ -179,6 +187,10 @@ window.CRYPTIC_PUZZLES["cyclops-496"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 11ac.) Union outfit laid out a lot of money to skewer unpopular PM (6)",
+   "group": [
+    "12-across",
+    "11-across"
+   ],
    "separatorLocations": {},
    "solution": "BRIDAL",
    "annotation": null
@@ -333,6 +345,10 @@ window.CRYPTIC_PUZZLES["cyclops-496"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 4dn.) Booze during funny banged out introduction (4)",
+   "group": [
+    "22-down",
+    "4-down"
+   ],
    "separatorLocations": {},
    "solution": "DRUM",
    "annotation": null

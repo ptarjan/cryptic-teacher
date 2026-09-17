@@ -151,6 +151,11 @@ window.CRYPTIC_PUZZLES["cyclops-612"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see21ac. (4)",
+   "group": [
+    "21-across",
+    "9-down",
+    "22-down"
+   ],
    "separatorLocations": {},
    "solution": "WITH",
    "annotation": null
@@ -347,6 +352,11 @@ window.CRYPTIC_PUZZLES["cyclops-612"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "(& 9/22dn.) Circus act consumer might well be ignoring the danger (7)",
+   "group": [
+    "21-across",
+    "9-down",
+    "22-down"
+   ],
    "separatorLocations": {},
    "solution": "PLAYING",
    "annotation": null
@@ -389,6 +399,11 @@ window.CRYPTIC_PUZZLES["cyclops-612"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 21ac. (4)",
+   "group": [
+    "21-across",
+    "9-down",
+    "22-down"
+   ],
    "separatorLocations": {},
    "solution": "FIRE",
    "annotation": null

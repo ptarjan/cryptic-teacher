@@ -165,6 +165,10 @@ window.CRYPTIC_PUZZLES["cyclops-411"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "(& 26ac.) Ragman's article put by blue JCB? (3)",
+   "group": [
+    "10-across",
+    "26-across"
+   ],
    "separatorLocations": {},
    "solution": "THE",
    "annotation": null
@@ -193,6 +197,10 @@ window.CRYPTIC_PUZZLES["cyclops-411"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "see 20ac. (13)",
+   "group": [
+    "20-across",
+    "12-across"
+   ],
    "separatorLocations": {},
    "solution": "INTERNATIONAL",
    "annotation": null
@@ -305,6 +313,10 @@ window.CRYPTIC_PUZZLES["cyclops-411"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 12ac.) 10/26's outfit shows anal retention wins out (4)",
+   "group": [
+    "20-across",
+    "12-across"
+   ],
    "separatorLocations": {},
    "solution": "NEWS",
    "annotation": null
@@ -389,6 +401,10 @@ window.CRYPTIC_PUZZLES["cyclops-411"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "see 10ac. (11)",
+   "group": [
+    "10-across",
+    "26-across"
+   ],
    "separatorLocations": {},
    "solution": "DIRTYDIGGER",
    "annotation": null

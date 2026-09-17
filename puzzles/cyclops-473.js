@@ -123,6 +123,10 @@ window.CRYPTIC_PUZZLES["cyclops-473"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 28dn.) \"Put up with gear that's extremely lacking and extremely shitty\"  that won't hold soldiers' attention (5)",
+   "group": [
+    "8-across",
+    "28-down"
+   ],
    "separatorLocations": {},
    "solution": "STAND",
    "annotation": null
@@ -151,6 +155,10 @@ window.CRYPTIC_PUZZLES["cyclops-473"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "(& 20dn.) Hole covered by dicey anatomical device in our classy establishment (9)",
+   "group": [
+    "10-across",
+    "20-down"
+   ],
    "separatorLocations": {},
    "solution": "COALITION",
    "annotation": null
@@ -165,6 +173,10 @@ window.CRYPTIC_PUZZLES["cyclops-473"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 26dn.) No hot dogs, so loss of ardour? (4)",
+   "group": [
+    "11-across",
+    "26-down"
+   ],
    "separatorLocations": {},
    "solution": "COLD",
    "annotation": null
@@ -291,6 +303,10 @@ window.CRYPTIC_PUZZLES["cyclops-473"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 10ac. (7)",
+   "group": [
+    "10-across",
+    "20-down"
+   ],
    "separatorLocations": {},
    "solution": "ACADEMY",
    "annotation": null
@@ -305,6 +321,10 @@ window.CRYPTIC_PUZZLES["cyclops-473"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 30ac. (4,2)",
+   "group": [
+    "30-across",
+    "21-across"
+   ],
    "separatorLocations": {},
    "solution": "CAREOF",
    "annotation": null
@@ -375,6 +395,10 @@ window.CRYPTIC_PUZZLES["cyclops-473"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 11ac. (4)",
+   "group": [
+    "11-across",
+    "26-down"
+   ],
    "separatorLocations": {},
    "solution": "FEET",
    "annotation": null
@@ -403,6 +427,10 @@ window.CRYPTIC_PUZZLES["cyclops-473"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 8ac. (4)",
+   "group": [
+    "8-across",
+    "28-down"
+   ],
    "separatorLocations": {},
    "solution": "EASY",
    "annotation": null
@@ -431,6 +459,10 @@ window.CRYPTIC_PUZZLES["cyclops-473"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 21ac.) Deals with Kate, turning on Wills finally  a force to be dealt with (5)",
+   "group": [
+    "30-across",
+    "21-across"
+   ],
    "separatorLocations": {},
    "solution": "TAKES",
    "annotation": null

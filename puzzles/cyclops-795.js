@@ -39,6 +39,10 @@ window.CRYPTIC_PUZZLES["cyclops-795"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "(& 22dn.) Two masters who can no longer score, being pissed (6,3)",
+   "group": [
+    "1-down",
+    "22-down"
+   ],
    "separatorLocations": {},
    "solution": "BRAHMSAND",
    "annotation": null
@@ -81,6 +85,10 @@ window.CRYPTIC_PUZZLES["cyclops-795"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "(& 23dn.) Was responsible for a leak, like a recent leader of Tories getting hammered (6,2,1)",
+   "group": [
+    "4-down",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "PISSEDASA",
    "annotation": null
@@ -361,6 +369,10 @@ window.CRYPTIC_PUZZLES["cyclops-795"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(see 1 dn.) (5)",
+   "group": [
+    "1-down",
+    "22-down"
+   ],
    "separatorLocations": {},
    "solution": "LISZT",
    "annotation": null
@@ -375,6 +387,10 @@ window.CRYPTIC_PUZZLES["cyclops-795"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(see 4dn.) (4)",
+   "group": [
+    "4-down",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "NEWT",
    "annotation": null

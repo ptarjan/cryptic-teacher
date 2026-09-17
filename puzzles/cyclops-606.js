@@ -25,6 +25,10 @@ window.CRYPTIC_PUZZLES["cyclops-606"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 27dn.) Stuffing knocked out of Libdem: applause gets wild (consumer's indulgence) (4-2)",
+   "group": [
+    "1-down",
+    "27-down"
+   ],
    "separatorLocations": {},
    "solution": "SLAPUP",
    "annotation": null
@@ -53,6 +57,10 @@ window.CRYPTIC_PUZZLES["cyclops-606"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 21ac. (4)",
+   "group": [
+    "21-across",
+    "3-down"
+   ],
    "separatorLocations": {},
    "solution": "ASIA",
    "annotation": null
@@ -193,6 +201,10 @@ window.CRYPTIC_PUZZLES["cyclops-606"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 15ac.) Hilton contract? Trump got out of it (5)",
+   "group": [
+    "13-across",
+    "15-across"
+   ],
    "separatorLocations": {},
    "solution": "PARIS",
    "annotation": null
@@ -221,6 +233,10 @@ window.CRYPTIC_PUZZLES["cyclops-606"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "see 13ac. (9)",
+   "group": [
+    "13-across",
+    "15-across"
+   ],
    "separatorLocations": {},
    "solution": "AGREEMENT",
    "annotation": null
@@ -319,6 +335,10 @@ window.CRYPTIC_PUZZLES["cyclops-606"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "(& 3dn.) \"USA hot seat, as I screwed up a vast continental region\" (9)",
+   "group": [
+    "21-across",
+    "3-down"
+   ],
    "separatorLocations": {},
    "solution": "SOUTHEAST",
    "annotation": null
@@ -403,6 +423,10 @@ window.CRYPTIC_PUZZLES["cyclops-606"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 1dn. (4)",
+   "group": [
+    "1-down",
+    "27-down"
+   ],
    "separatorLocations": {},
    "solution": "MEAL",
    "annotation": null

@@ -319,6 +319,10 @@ window.CRYPTIC_PUZZLES["cyclops-673"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "see 28ac. (10)",
+   "group": [
+    "28-across",
+    "22-across"
+   ],
    "separatorLocations": {},
    "solution": "FLOODGATES",
    "annotation": null
@@ -347,6 +351,10 @@ window.CRYPTIC_PUZZLES["cyclops-673"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 25ac. (4)",
+   "group": [
+    "25-across",
+    "24-across"
+   ],
    "separatorLocations": {},
    "solution": "HAND",
    "annotation": null
@@ -375,6 +383,10 @@ window.CRYPTIC_PUZZLES["cyclops-673"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 24ac.) Act like campaigning politician with a lot of money  \"son needs support\" (4)",
+   "group": [
+    "25-across",
+    "24-across"
+   ],
    "separatorLocations": {},
    "solution": "GLAD",
    "annotation": null
@@ -417,6 +429,10 @@ window.CRYPTIC_PUZZLES["cyclops-673"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "(& 22ac.) Prepare to release liquid intake? Abandon all restrictions! (4,3)",
+   "group": [
+    "28-across",
+    "22-across"
+   ],
    "separatorLocations": {},
    "solution": "OPENTHE",
    "annotation": null

@@ -67,6 +67,10 @@ window.CRYPTIC_PUZZLES["cyclops-832"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 15dn.) Prudish English members of the clergy: we've had too many in recent times (5)",
+   "group": [
+    "3-down",
+    "15-down"
+   ],
    "separatorLocations": {},
    "solution": "PRIME",
    "annotation": null
@@ -95,6 +99,10 @@ window.CRYPTIC_PUZZLES["cyclops-832"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "(& 23dn.) Mafia business, say  Eric M. as Cyclops might put it? (9)",
+   "group": [
+    "5-down",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "ORGANISED",
    "annotation": null
@@ -235,6 +243,10 @@ window.CRYPTIC_PUZZLES["cyclops-832"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "see 3dn.",
+   "group": [
+    "3-down",
+    "15-down"
+   ],
    "separatorLocations": {},
    "solution": "MINISTERS",
    "annotation": null
@@ -347,6 +359,10 @@ window.CRYPTIC_PUZZLES["cyclops-832"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see  5dn.",
+   "group": [
+    "5-down",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "CRIME",
    "annotation": null

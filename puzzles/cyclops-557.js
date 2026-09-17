@@ -53,6 +53,10 @@ window.CRYPTIC_PUZZLES["cyclops-557"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 13ac.) No successor for ex-Labour minister (one burden too many)? (4)",
+   "group": [
+    "3-down",
+    "13-across"
+   ],
    "separatorLocations": {},
    "solution": "LAST",
    "annotation": null
@@ -81,6 +85,10 @@ window.CRYPTIC_PUZZLES["cyclops-557"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 20ac. (6)",
+   "group": [
+    "20-across",
+    "5-down"
+   ],
    "separatorLocations": {},
    "solution": "TURKEY",
    "annotation": null
@@ -179,6 +187,11 @@ window.CRYPTIC_PUZZLES["cyclops-557"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 24dn. (4)",
+   "group": [
+    "24-down",
+    "14-across",
+    "12-across"
+   ],
    "separatorLocations": {},
    "solution": "SKIN",
    "annotation": null
@@ -193,6 +206,10 @@ window.CRYPTIC_PUZZLES["cyclops-557"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 3dn. (5)",
+   "group": [
+    "3-down",
+    "13-across"
+   ],
    "separatorLocations": {},
    "solution": "STRAW",
    "annotation": null
@@ -221,6 +238,11 @@ window.CRYPTIC_PUZZLES["cyclops-557"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 24dn. (4)",
+   "group": [
+    "24-down",
+    "14-across",
+    "12-across"
+   ],
    "separatorLocations": {},
    "solution": "YOUR",
    "annotation": null
@@ -277,6 +299,10 @@ window.CRYPTIC_PUZZLES["cyclops-557"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 21dn. (4)",
+   "group": [
+    "21-down",
+    "17-across"
+   ],
    "separatorLocations": {},
    "solution": "TRAY",
    "annotation": null
@@ -319,6 +345,10 @@ window.CRYPTIC_PUZZLES["cyclops-557"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 5dn.) Twitter flop? Engage in meaningful discussion! (4)",
+   "group": [
+    "20-across",
+    "5-down"
+   ],
    "separatorLocations": {},
    "solution": "TALK",
    "annotation": null
@@ -333,6 +363,10 @@ window.CRYPTIC_PUZZLES["cyclops-557"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 17ac.) Sexual partner suppressing rude titter about right place for 'pussy business'? (6)",
+   "group": [
+    "21-down",
+    "17-across"
+   ],
    "separatorLocations": {},
    "solution": "LITTER",
    "annotation": null
@@ -375,6 +409,11 @@ window.CRYPTIC_PUZZLES["cyclops-557"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 14ac./12ac.) US navy is embroiled with Korea  one's going to look after number one (4)",
+   "group": [
+    "24-down",
+    "14-across",
+    "12-across"
+   ],
    "separatorLocations": {},
    "solution": "SAVE",
    "annotation": null

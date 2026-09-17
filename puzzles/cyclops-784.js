@@ -39,6 +39,10 @@ window.CRYPTIC_PUZZLES["cyclops-784"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "(& 18dn.) Choice oaths ... little chance they'll materialise? (8)",
+   "group": [
+    "2-down",
+    "18-down"
+   ],
    "separatorLocations": {},
    "solution": "ELECTION",
    "annotation": null
@@ -137,6 +141,10 @@ window.CRYPTIC_PUZZLES["cyclops-784"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "se 13ac.",
+   "group": [
+    "13-across",
+    "9-across"
+   ],
    "separatorLocations": {},
    "solution": "PEER",
    "annotation": null
@@ -193,6 +201,10 @@ window.CRYPTIC_PUZZLES["cyclops-784"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 9ac.) Lords member, jailbird taking piss (4)",
+   "group": [
+    "13-across",
+    "9-across"
+   ],
    "separatorLocations": {},
    "solution": "LIFE",
    "annotation": null
@@ -263,6 +275,10 @@ window.CRYPTIC_PUZZLES["cyclops-784"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "see 2dn.",
+   "group": [
+    "2-down",
+    "18-down"
+   ],
    "separatorLocations": {},
    "solution": "PROMISES",
    "annotation": null

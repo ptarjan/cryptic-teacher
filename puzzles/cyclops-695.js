@@ -53,6 +53,10 @@ window.CRYPTIC_PUZZLES["cyclops-695"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 12ac. (4)",
+   "group": [
+    "12-across",
+    "3-down"
+   ],
    "separatorLocations": {},
    "solution": "ENDS",
    "annotation": null
@@ -109,6 +113,10 @@ window.CRYPTIC_PUZZLES["cyclops-695"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 25dn. (6)",
+   "group": [
+    "25-down",
+    "7-across"
+   ],
    "separatorLocations": {},
    "solution": "TARGET",
    "annotation": null
@@ -193,6 +201,10 @@ window.CRYPTIC_PUZZLES["cyclops-695"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 3dn.) Acrobatic manoeuvre, holding object, causes hair problem (5)",
+   "group": [
+    "12-across",
+    "3-down"
+   ],
    "separatorLocations": {},
    "solution": "SPLIT",
    "annotation": null
@@ -221,6 +233,10 @@ window.CRYPTIC_PUZZLES["cyclops-695"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "(& 15dn.) We stir, not confident about what we're going through? (6,2)",
+   "group": [
+    "14-down",
+    "15-down"
+   ],
    "separatorLocations": {},
    "solution": "WINTEROF",
    "annotation": null
@@ -235,6 +251,10 @@ window.CRYPTIC_PUZZLES["cyclops-695"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "see 14dn.",
+   "group": [
+    "14-down",
+    "15-down"
+   ],
    "separatorLocations": {},
    "solution": "DISCONTENT",
    "annotation": null
@@ -389,6 +409,10 @@ window.CRYPTIC_PUZZLES["cyclops-695"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 7ac.) Archer would find it a doddle, developing a grey state (4)",
+   "group": [
+    "25-down",
+    "7-across"
+   ],
    "separatorLocations": {},
    "solution": "EASY",
    "annotation": null

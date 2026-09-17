@@ -81,6 +81,10 @@ window.CRYPTIC_PUZZLES["cyclops-412"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "see 25ac. (8)",
+   "group": [
+    "25-across",
+    "5-across"
+   ],
    "separatorLocations": {},
    "solution": "POSITION",
    "annotation": null
@@ -95,6 +99,10 @@ window.CRYPTIC_PUZZLES["cyclops-412"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 23dn. (7)",
+   "group": [
+    "23-down",
+    "5-down"
+   ],
    "separatorLocations": {},
    "solution": "PLEASER",
    "annotation": null
@@ -151,6 +159,10 @@ window.CRYPTIC_PUZZLES["cyclops-412"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 19dn.) Where you'll get daft answers from Brown clutching rabbit  \"I'm done for\" (4,7)",
+   "group": [
+    "9-across",
+    "19-down"
+   ],
    "separatorLocations": {},
    "solution": "DUMB",
    "annotation": null
@@ -277,6 +289,10 @@ window.CRYPTIC_PUZZLES["cyclops-412"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 26ac. (4)",
+   "group": [
+    "26-across",
+    "17-across"
+   ],
    "separatorLocations": {},
    "solution": "BOOT",
    "annotation": null
@@ -305,6 +321,10 @@ window.CRYPTIC_PUZZLES["cyclops-412"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 9ac. (7)",
+   "group": [
+    "9-across",
+    "19-down"
+   ],
    "separatorLocations": {},
    "solution": "BRITAIN",
    "annotation": null
@@ -361,6 +381,10 @@ window.CRYPTIC_PUZZLES["cyclops-412"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 5dn.) Popular type of bird on date, Penny, length \"relaxer\" (5-7)",
+   "group": [
+    "23-down",
+    "5-down"
+   ],
    "separatorLocations": {},
    "solution": "CROWD",
    "annotation": null
@@ -389,6 +413,10 @@ window.CRYPTIC_PUZZLES["cyclops-412"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "(& 5ac.) Congress conventionally adopting this: \"Foreign non-believers must be converted\"? (10,8)",
+   "group": [
+    "25-across",
+    "5-across"
+   ],
    "separatorLocations": {},
    "solution": "MISSIONARY",
    "annotation": null
@@ -403,6 +431,10 @@ window.CRYPTIC_PUZZLES["cyclops-412"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(+ 17ac.) Familiar government minister and what he'll get after the General Election, being one emblem of fascism? (8)",
+   "group": [
+    "26-across",
+    "17-across"
+   ],
    "separatorLocations": {},
    "solution": "JACK",
    "annotation": null

@@ -123,6 +123,12 @@ window.CRYPTIC_PUZZLES["cyclops-684"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 14ac. (4)",
+   "group": [
+    "14-across",
+    "27-across",
+    "20-across",
+    "7-down"
+   ],
    "separatorLocations": {},
    "solution": "WEAR",
    "annotation": null
@@ -137,6 +143,10 @@ window.CRYPTIC_PUZZLES["cyclops-684"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 24dn.) An erection in the garden for this old copper (live one)? (6)",
+   "group": [
+    "8-across",
+    "24-down"
+   ],
    "separatorLocations": {},
    "solution": "RUNNER",
    "annotation": null
@@ -221,6 +231,12 @@ window.CRYPTIC_PUZZLES["cyclops-684"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "(& 27ac./20ac./7dn.)  Pissed by how bad a garment chosen online, say, looks when actually on you? (3)",
+   "group": [
+    "14-across",
+    "27-across",
+    "20-across",
+    "7-down"
+   ],
    "separatorLocations": {},
    "solution": "THE",
    "annotation": null
@@ -305,6 +321,12 @@ window.CRYPTIC_PUZZLES["cyclops-684"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "see 14ac. (3)",
+   "group": [
+    "14-across",
+    "27-across",
+    "20-across",
+    "7-down"
+   ],
    "separatorLocations": {},
    "solution": "FOR",
    "annotation": null
@@ -361,6 +383,10 @@ window.CRYPTIC_PUZZLES["cyclops-684"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 8ac. (4)",
+   "group": [
+    "8-across",
+    "24-down"
+   ],
    "separatorLocations": {},
    "solution": "BEAN",
    "annotation": null
@@ -403,6 +429,12 @@ window.CRYPTIC_PUZZLES["cyclops-684"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 14ac. (5)",
+   "group": [
+    "14-across",
+    "27-across",
+    "20-across",
+    "7-down"
+   ],
    "separatorLocations": {},
    "solution": "WORSE",
    "annotation": null

@@ -39,6 +39,10 @@ window.CRYPTIC_PUZZLES["cyclops-536"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 4dn. (4)",
+   "group": [
+    "4-down",
+    "2-down"
+   ],
    "separatorLocations": {},
    "solution": "WORK",
    "annotation": null
@@ -67,6 +71,10 @@ window.CRYPTIC_PUZZLES["cyclops-536"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "(& 2dn.) Towel in, Nick, er, dallies with Left  e.g. espionage (12)",
+   "group": [
+    "4-down",
+    "2-down"
+   ],
    "separatorLocations": {},
    "solution": "INTELLIGENCE",
    "annotation": null
@@ -95,6 +103,10 @@ window.CRYPTIC_PUZZLES["cyclops-536"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "(& 25dn.) Daily Mail going after George? (10)",
+   "group": [
+    "6-down",
+    "25-down"
+   ],
    "separatorLocations": {},
    "solution": "WASHINGTON",
    "annotation": null
@@ -375,6 +387,10 @@ window.CRYPTIC_PUZZLES["cyclops-536"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 6dn. (4)",
+   "group": [
+    "6-down",
+    "25-down"
+   ],
    "separatorLocations": {},
    "solution": "POST",
    "annotation": null

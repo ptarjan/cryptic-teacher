@@ -193,6 +193,10 @@ window.CRYPTIC_PUZZLES["cyclops-746"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "se 14ac. (10)",
+   "group": [
+    "14-across",
+    "13-down"
+   ],
    "separatorLocations": {},
    "solution": "DISCONTENT",
    "annotation": null
@@ -207,6 +211,10 @@ window.CRYPTIC_PUZZLES["cyclops-746"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "(&13dn.) Not confident, writes about the UK's current déjà-vu experience (6,2)",
+   "group": [
+    "14-across",
+    "13-down"
+   ],
    "separatorLocations": {},
    "solution": "WINTEROF",
    "annotation": null
@@ -319,6 +327,10 @@ window.CRYPTIC_PUZZLES["cyclops-746"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 24dn. (4)",
+   "group": [
+    "24-down",
+    "22-across"
+   ],
    "separatorLocations": {},
    "solution": "BUTT",
    "annotation": null
@@ -347,6 +359,10 @@ window.CRYPTIC_PUZZLES["cyclops-746"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 22ac.) How to effect such a strike? Use your noddle! (4)",
+   "group": [
+    "24-down",
+    "22-across"
+   ],
    "separatorLocations": {},
    "solution": "HEAD",
    "annotation": null

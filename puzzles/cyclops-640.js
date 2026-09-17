@@ -95,6 +95,10 @@ window.CRYPTIC_PUZZLES["cyclops-640"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 20dn. (4)",
+   "group": [
+    "20-down",
+    "6-down"
+   ],
    "separatorLocations": {},
    "solution": "DISC",
    "annotation": null
@@ -137,6 +141,10 @@ window.CRYPTIC_PUZZLES["cyclops-640"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 26dn. (4)",
+   "group": [
+    "26-down",
+    "9-down"
+   ],
    "separatorLocations": {},
    "solution": "TEAM",
    "annotation": null
@@ -291,6 +299,10 @@ window.CRYPTIC_PUZZLES["cyclops-640"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "(& 6dn.) Record lower down the charts? That's a pain (7)",
+   "group": [
+    "20-down",
+    "6-down"
+   ],
    "separatorLocations": {},
    "solution": "SLIPPED",
    "annotation": null
@@ -375,6 +387,10 @@ window.CRYPTIC_PUZZLES["cyclops-640"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 9dn.) It will host opponents of House at eleven? (4)",
+   "group": [
+    "26-down",
+    "9-down"
+   ],
    "separatorLocations": {},
    "solution": "HOME",
    "annotation": null

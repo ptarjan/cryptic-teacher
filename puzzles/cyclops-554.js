@@ -39,6 +39,10 @@ window.CRYPTIC_PUZZLES["cyclops-554"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 24dn.) Pissed off 'Tone'  an excellent end! (4)",
+   "group": [
+    "2-down",
+    "24-down"
+   ],
    "separatorLocations": {},
    "solution": "HIGH",
    "annotation": null
@@ -95,6 +99,10 @@ window.CRYPTIC_PUZZLES["cyclops-554"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 11ac. (7)",
+   "group": [
+    "11-across",
+    "6-down"
+   ],
    "separatorLocations": {},
    "solution": "BRITISH",
    "annotation": null
@@ -165,6 +173,10 @@ window.CRYPTIC_PUZZLES["cyclops-554"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 6dn.) FBI messed with \"OBE\" t-shirts? Good luck to 'em! (6)",
+   "group": [
+    "11-across",
+    "6-down"
+   ],
    "separatorLocations": {},
    "solution": "BESTOF",
    "annotation": null
@@ -221,6 +233,10 @@ window.CRYPTIC_PUZZLES["cyclops-554"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 22ac.) Steered all clear of pussy protector? (4)",
+   "group": [
+    "15-across",
+    "22-across"
+   ],
    "separatorLocations": {},
    "solution": "FLEA",
    "annotation": null
@@ -319,6 +335,10 @@ window.CRYPTIC_PUZZLES["cyclops-554"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 15ac. (6)",
+   "group": [
+    "15-across",
+    "22-across"
+   ],
    "separatorLocations": {},
    "solution": "COLLAR",
    "annotation": null
@@ -347,6 +367,10 @@ window.CRYPTIC_PUZZLES["cyclops-554"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 2dn. (4)",
+   "group": [
+    "2-down",
+    "24-down"
+   ],
    "separatorLocations": {},
    "solution": "NOTE",
    "annotation": null

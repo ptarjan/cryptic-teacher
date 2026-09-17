@@ -67,6 +67,10 @@ window.CRYPTIC_PUZZLES["cyclops-469"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 14dn. (4)",
+   "group": [
+    "14-down",
+    "4-down"
+   ],
    "separatorLocations": {},
    "solution": "POST",
    "annotation": null
@@ -95,6 +99,10 @@ window.CRYPTIC_PUZZLES["cyclops-469"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 16dn. (4)",
+   "group": [
+    "16-down",
+    "6-down"
+   ],
    "separatorLocations": {},
    "solution": "ARMY",
    "annotation": null
@@ -207,6 +215,10 @@ window.CRYPTIC_PUZZLES["cyclops-469"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "(& 4dn.) Punishing location  Nick needs fix and good support (8)",
+   "group": [
+    "14-down",
+    "4-down"
+   ],
    "separatorLocations": {},
    "solution": "WHIPPING",
    "annotation": null
@@ -235,6 +247,10 @@ window.CRYPTIC_PUZZLES["cyclops-469"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "(& 6dn.) Chinese figures inscrutably unmoved by the views of the masses (10)",
+   "group": [
+    "16-down",
+    "6-down"
+   ],
    "separatorLocations": {},
    "solution": "TERRACOTTA",
    "annotation": null
@@ -361,6 +377,10 @@ window.CRYPTIC_PUZZLES["cyclops-469"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 29ac. (4)",
+   "group": [
+    "29-across",
+    "25-down"
+   ],
    "separatorLocations": {},
    "solution": "SHAG",
    "annotation": null
@@ -417,6 +437,10 @@ window.CRYPTIC_PUZZLES["cyclops-469"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "(& 25dn.) Jump, for pity's sake! (8)",
+   "group": [
+    "29-across",
+    "25-down"
+   ],
    "separatorLocations": {},
    "solution": "SYMPATHY",
    "annotation": null

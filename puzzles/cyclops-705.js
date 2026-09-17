@@ -123,6 +123,10 @@ window.CRYPTIC_PUZZLES["cyclops-705"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 26dn.) The people left out  shock!  Bush (5)",
+   "group": [
+    "8-down",
+    "26-down"
+   ],
    "separatorLocations": {},
    "solution": "PUBIC",
    "annotation": null
@@ -249,6 +253,10 @@ window.CRYPTIC_PUZZLES["cyclops-705"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "(& 23dn.) These days, a packed out pop concert, say, with high volume of transmitters? (13)",
+   "group": [
+    "17-across",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "SUPERSPREADER",
    "annotation": null
@@ -333,6 +341,10 @@ window.CRYPTIC_PUZZLES["cyclops-705"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 17ac. (5,)",
+   "group": [
+    "17-across",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "EVENT",
    "annotation": null
@@ -375,6 +387,10 @@ window.CRYPTIC_PUZZLES["cyclops-705"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 8dn. (4)",
+   "group": [
+    "8-down",
+    "26-down"
+   ],
    "separatorLocations": {},
    "solution": "HAIR",
    "annotation": null

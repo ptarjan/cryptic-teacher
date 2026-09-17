@@ -53,6 +53,10 @@ window.CRYPTIC_PUZZLES["cyclops-709"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "see 25dn. (8)",
+   "group": [
+    "25-down",
+    "3-down"
+   ],
    "separatorLocations": {},
    "solution": "PROPERTY",
    "annotation": null
@@ -193,6 +197,10 @@ window.CRYPTIC_PUZZLES["cyclops-709"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(&14ac.) The government plans to diminish this migrant cash transaction (to be confined in small, basic building) (5)",
+   "group": [
+    "12-across",
+    "14-across"
+   ],
    "separatorLocations": {},
    "solution": "HUMAN",
    "annotation": null
@@ -221,6 +229,10 @@ window.CRYPTIC_PUZZLES["cyclops-709"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "see 13ac. (6,3)",
+   "group": [
+    "12-across",
+    "14-across"
+   ],
    "separatorLocations": {},
    "solution": "RIGHTSACT",
    "annotation": null
@@ -403,6 +415,10 @@ window.CRYPTIC_PUZZLES["cyclops-709"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 3dn.) \"Abandoned right by gutless politician,\" as an owner might claim (4)",
+   "group": [
+    "25-down",
+    "3-down"
+   ],
    "separatorLocations": {},
    "solution": "LOST",
    "annotation": null

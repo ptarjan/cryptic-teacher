@@ -39,6 +39,10 @@ window.CRYPTIC_PUZZLES["cyclops-727"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 24dn.) Be prepared to shoot naked members, it's said (4)",
+   "group": [
+    "2-down",
+    "24-down"
+   ],
    "separatorLocations": {},
    "solution": "BEAR",
    "annotation": null
@@ -347,6 +351,10 @@ window.CRYPTIC_PUZZLES["cyclops-727"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 2dn. (4)",
+   "group": [
+    "2-down",
+    "24-down"
+   ],
    "separatorLocations": {},
    "solution": "ARMS",
    "annotation": null

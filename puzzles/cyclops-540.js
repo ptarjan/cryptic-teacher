@@ -25,6 +25,10 @@ window.CRYPTIC_PUZZLES["cyclops-540"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "see 9ac. (8)",
+   "group": [
+    "9-across",
+    "1-down"
+   ],
    "separatorLocations": {},
    "solution": "STANDARD",
    "annotation": null
@@ -109,6 +113,10 @@ window.CRYPTIC_PUZZLES["cyclops-540"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "(& 15ac.) Box bed seat conversion, which electioneering Cameron is wary of (10)",
+   "group": [
+    "7-across",
+    "15-across"
+   ],
    "separatorLocations": {},
    "solution": "TELEVISION",
    "annotation": null
@@ -137,6 +145,10 @@ window.CRYPTIC_PUZZLES["cyclops-540"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 1dn.) Pissed on flag, approaching the top level (4)",
+   "group": [
+    "9-across",
+    "1-down"
+   ],
    "separatorLocations": {},
    "solution": "HIGH",
    "annotation": null
@@ -165,6 +177,10 @@ window.CRYPTIC_PUZZLES["cyclops-540"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "(& 26ac.) After big knock  being rejected  'hot' Nigel staggers on feet, completely finished (7)",
+   "group": [
+    "11-across",
+    "26-across"
+   ],
    "separatorLocations": {},
    "solution": "NOTHING",
    "annotation": null
@@ -221,6 +237,10 @@ window.CRYPTIC_PUZZLES["cyclops-540"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 7ac. (7)",
+   "group": [
+    "7-across",
+    "15-across"
+   ],
    "separatorLocations": {},
    "solution": "DEBATES",
    "annotation": null
@@ -389,6 +409,10 @@ window.CRYPTIC_PUZZLES["cyclops-540"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 11ac. (4)",
+   "group": [
+    "11-across",
+    "26-across"
+   ],
    "separatorLocations": {},
    "solution": "LEFT",
    "annotation": null

@@ -39,6 +39,10 @@ window.CRYPTIC_PUZZLES["cyclops-581"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 13dn.) American, in defence, fires recklessly  no change there (4)",
+   "group": [
+    "2-down",
+    "13-down"
+   ],
    "separatorLocations": {},
    "solution": "SAME",
    "annotation": null
@@ -81,6 +85,10 @@ window.CRYPTIC_PUZZLES["cyclops-581"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "(& 25dn.) Lessons to be learnt from this account of police bust? (10)",
+   "group": [
+    "5-down",
+    "25-down"
+   ],
    "separatorLocations": {},
    "solution": "CAUTIONARY",
    "annotation": null
@@ -137,6 +145,10 @@ window.CRYPTIC_PUZZLES["cyclops-581"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 23ac.) Does a Brexit upset Scouse lot? (4)",
+   "group": [
+    "8-down",
+    "23-across"
+   ],
    "separatorLocations": {},
    "solution": "CUTS",
    "annotation": null
@@ -207,6 +219,10 @@ window.CRYPTIC_PUZZLES["cyclops-581"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "see 2dn. (10)",
+   "group": [
+    "2-down",
+    "13-down"
+   ],
    "separatorLocations": {},
    "solution": "DIFFERENCE",
    "annotation": null
@@ -333,6 +349,10 @@ window.CRYPTIC_PUZZLES["cyclops-581"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 22dn.) It tightly restricts head doctor with trendy patter (6)",
+   "group": [
+    "21-down",
+    "22-down"
+   ],
    "separatorLocations": {},
    "solution": "SHRINK",
    "annotation": null
@@ -347,6 +367,10 @@ window.CRYPTIC_PUZZLES["cyclops-581"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 21dn. (4)",
+   "group": [
+    "21-down",
+    "22-down"
+   ],
    "separatorLocations": {},
    "solution": "WRAP",
    "annotation": null
@@ -361,6 +385,10 @@ window.CRYPTIC_PUZZLES["cyclops-581"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 8dn. (5)",
+   "group": [
+    "8-down",
+    "23-across"
+   ],
    "separatorLocations": {},
    "solution": "LOOSE",
    "annotation": null
@@ -389,6 +417,10 @@ window.CRYPTIC_PUZZLES["cyclops-581"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 5dn. (4)",
+   "group": [
+    "5-down",
+    "25-down"
+   ],
    "separatorLocations": {},
    "solution": "TALE",
    "annotation": null

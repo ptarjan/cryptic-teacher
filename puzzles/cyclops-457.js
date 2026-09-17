@@ -25,6 +25,10 @@ window.CRYPTIC_PUZZLES["cyclops-457"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "(& 15ac.) Pubic hair in settee removed with lint (not A1)  cynical excuse for tabloid exposé? (2,3,6)",
+   "group": [
+    "1-across",
+    "15-across"
+   ],
    "separatorLocations": {},
    "solution": "INTHEPUBLIC",
    "annotation": null
@@ -235,6 +239,10 @@ window.CRYPTIC_PUZZLES["cyclops-457"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "see 1ac. (8)",
+   "group": [
+    "1-across",
+    "15-across"
+   ],
    "separatorLocations": {},
    "solution": "INTEREST",
    "annotation": null
@@ -347,6 +355,10 @@ window.CRYPTIC_PUZZLES["cyclops-457"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 27ac. (5)",
+   "group": [
+    "27-across",
+    "22-across"
+   ],
    "separatorLocations": {},
    "solution": "PARTY",
    "annotation": null
@@ -417,6 +429,10 @@ window.CRYPTIC_PUZZLES["cyclops-457"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 22ac.) It has one member at Westminster (resentful member, unknown) (5)",
+   "group": [
+    "27-across",
+    "22-across"
+   ],
    "separatorLocations": {},
    "solution": "GREEN",
    "annotation": null

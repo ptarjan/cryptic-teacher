@@ -333,6 +333,10 @@ window.CRYPTIC_PUZZLES["cyclops-717"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 26dn.) Obliged to be truthful around the ground (5)",
+   "group": [
+    "23-across",
+    "26-down"
+   ],
    "separatorLocations": {},
    "solution": "UNDER",
    "annotation": null
@@ -389,6 +393,10 @@ window.CRYPTIC_PUZZLES["cyclops-717"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 23ac. (4)",
+   "group": [
+    "23-across",
+    "26-down"
+   ],
    "separatorLocations": {},
    "solution": "OATH",
    "annotation": null

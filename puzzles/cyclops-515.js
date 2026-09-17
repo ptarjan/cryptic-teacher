@@ -67,6 +67,10 @@ window.CRYPTIC_PUZZLES["cyclops-515"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "(& 23dn.) Answer: Ed's commitment is claptrap? (7)",
+   "group": [
+    "4-down",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "ALOADOF",
    "annotation": null
@@ -95,6 +99,11 @@ window.CRYPTIC_PUZZLES["cyclops-515"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 15/24dn.)Offensively worthless Andy's penis is out  a chat is out (5)",
+   "group": [
+    "5-down",
+    "15-down",
+    "24-down"
+   ],
    "separatorLocations": {},
    "solution": "CHEAP",
    "annotation": null
@@ -179,6 +188,10 @@ window.CRYPTIC_PUZZLES["cyclops-515"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 25ac.) \"Barely lust!\" Joy snapped grabbing penis at its centre (4)",
+   "group": [
+    "11-across",
+    "25-across"
+   ],
    "separatorLocations": {},
    "solution": "ONLY",
    "annotation": null
@@ -235,6 +248,11 @@ window.CRYPTIC_PUZZLES["cyclops-515"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "see 5dn. (3)",
+   "group": [
+    "5-down",
+    "15-down",
+    "24-down"
+   ],
    "separatorLocations": {},
    "solution": "AND",
    "annotation": null
@@ -249,6 +267,10 @@ window.CRYPTIC_PUZZLES["cyclops-515"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 18ac.) Slush fund finally takes the piss out of the police? (4)",
+   "group": [
+    "16-across",
+    "18-across"
+   ],
    "separatorLocations": {},
    "solution": "GOOD",
    "annotation": null
@@ -277,6 +299,10 @@ window.CRYPTIC_PUZZLES["cyclops-515"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 16ac. (4)",
+   "group": [
+    "16-across",
+    "18-across"
+   ],
    "separatorLocations": {},
    "solution": "GUYS",
    "annotation": null
@@ -347,6 +373,10 @@ window.CRYPTIC_PUZZLES["cyclops-515"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 4dn. (5)",
+   "group": [
+    "4-down",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "BALLS",
    "annotation": null
@@ -361,6 +391,11 @@ window.CRYPTIC_PUZZLES["cyclops-515"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 5dn. (5)",
+   "group": [
+    "5-down",
+    "15-down",
+    "24-down"
+   ],
    "separatorLocations": {},
    "solution": "NASTY",
    "annotation": null
@@ -375,6 +410,10 @@ window.CRYPTIC_PUZZLES["cyclops-515"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 11ac. (4)",
+   "group": [
+    "11-across",
+    "25-across"
+   ],
    "separatorLocations": {},
    "solution": "JUST",
    "annotation": null

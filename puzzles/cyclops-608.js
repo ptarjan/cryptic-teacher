@@ -39,6 +39,10 @@ window.CRYPTIC_PUZZLES["cyclops-608"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 16ac.) Having an erection, about to sleep with pretentious has-been politicians (4)",
+   "group": [
+    "2-down",
+    "16-across"
+   ],
    "separatorLocations": {},
    "solution": "UKIP",
    "annotation": null
@@ -235,6 +239,10 @@ window.CRYPTIC_PUZZLES["cyclops-608"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 2dn. (5)",
+   "group": [
+    "2-down",
+    "16-across"
+   ],
    "separatorLocations": {},
    "solution": "PARTY",
    "annotation": null

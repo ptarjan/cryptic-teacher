@@ -53,6 +53,10 @@ window.CRYPTIC_PUZZLES["cyclops-552"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 14ac. (5)",
+   "group": [
+    "14-across",
+    "3-down"
+   ],
    "separatorLocations": {},
    "solution": "MONEY",
    "annotation": null
@@ -95,6 +99,10 @@ window.CRYPTIC_PUZZLES["cyclops-552"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 25dn. (7)",
+   "group": [
+    "25-down",
+    "6-down"
+   ],
    "separatorLocations": {},
    "solution": "STRUDEL",
    "annotation": null
@@ -179,6 +187,11 @@ window.CRYPTIC_PUZZLES["cyclops-552"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 21ac. (6)",
+   "group": [
+    "21-across",
+    "26-across",
+    "12-across"
+   ],
    "separatorLocations": {},
    "solution": "EASYGO",
    "annotation": null
@@ -207,6 +220,10 @@ window.CRYPTIC_PUZZLES["cyclops-552"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 3dn.) Ask how much Tony's involved with leak about Sadam's end (4)",
+   "group": [
+    "14-across",
+    "3-down"
+   ],
    "separatorLocations": {},
    "solution": "TALK",
    "annotation": null
@@ -305,6 +322,11 @@ window.CRYPTIC_PUZZLES["cyclops-552"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 26/12) Effortless orgasm, not rocket science  try to have laid-back attitude (4)",
+   "group": [
+    "21-across",
+    "26-across",
+    "12-across"
+   ],
    "separatorLocations": {},
    "solution": "EASY",
    "annotation": null
@@ -361,6 +383,10 @@ window.CRYPTIC_PUZZLES["cyclops-552"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 6dn.) Multinational's rough, in the clutches of self-serving, twisted, lousy leaders  that's sweet! (5)",
+   "group": [
+    "25-down",
+    "6-down"
+   ],
    "separatorLocations": {},
    "solution": "APPLE",
    "annotation": null
@@ -375,6 +401,11 @@ window.CRYPTIC_PUZZLES["cyclops-552"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 21ac. (4)",
+   "group": [
+    "21-across",
+    "26-across",
+    "12-across"
+   ],
    "separatorLocations": {},
    "solution": "COME",
    "annotation": null

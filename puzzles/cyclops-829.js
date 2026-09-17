@@ -53,6 +53,10 @@ window.CRYPTIC_PUZZLES["cyclops-829"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(&29dn.)Dot's loaded, having turned over a lot of money (4)",
+   "group": [
+    "3-down",
+    "29-down"
+   ],
    "separatorLocations": {},
    "solution": "FULL",
    "annotation": null
@@ -81,6 +85,10 @@ window.CRYPTIC_PUZZLES["cyclops-829"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 18dn.) Trump supporters beat up vegan meat mom (4)",
+   "group": [
+    "5-down",
+    "18-down"
+   ],
    "separatorLocations": {},
    "solution": "MAGA",
    "annotation": null
@@ -263,6 +271,10 @@ window.CRYPTIC_PUZZLES["cyclops-829"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "see 5dn.",
+   "group": [
+    "5-down",
+    "18-down"
+   ],
    "separatorLocations": {},
    "solution": "MOVEMENT",
    "annotation": null
@@ -417,6 +429,10 @@ window.CRYPTIC_PUZZLES["cyclops-829"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 3dn.",
+   "group": [
+    "3-down",
+    "29-down"
+   ],
    "separatorLocations": {},
    "solution": "STOP",
    "annotation": null

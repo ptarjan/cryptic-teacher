@@ -81,6 +81,10 @@ window.CRYPTIC_PUZZLES["cyclops-808"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "(& 26dn.) \"Hell, me income's dodgy!\"  absent peer (8)",
+   "group": [
+    "5-down",
+    "26-down"
+   ],
    "separatorLocations": {},
    "solution": "MICHELLE",
    "annotation": null
@@ -137,6 +141,10 @@ window.CRYPTIC_PUZZLES["cyclops-808"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "see 23dn. (8)",
+   "group": [
+    "23-down",
+    "9-across"
+   ],
    "separatorLocations": {},
    "solution": "DOWNHILL",
    "annotation": null
@@ -361,6 +369,10 @@ window.CRYPTIC_PUZZLES["cyclops-808"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 9ac.) Skiing but hardly getting any better? (5)",
+   "group": [
+    "23-down",
+    "9-across"
+   ],
    "separatorLocations": {},
    "solution": "GOING",
    "annotation": null
@@ -403,6 +415,10 @@ window.CRYPTIC_PUZZLES["cyclops-808"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 5dn. (4)",
+   "group": [
+    "5-down",
+    "26-down"
+   ],
    "separatorLocations": {},
    "solution": "MONE",
    "annotation": null

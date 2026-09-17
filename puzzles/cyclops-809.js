@@ -53,6 +53,10 @@ window.CRYPTIC_PUZZLES["cyclops-809"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 13ac.) Repeating insertion of oxygen, gin, rum into port (5)",
+   "group": [
+    "3-down",
+    "13-across"
+   ],
    "separatorLocations": {},
    "solution": "DOING",
    "annotation": null
@@ -151,6 +155,10 @@ window.CRYPTIC_PUZZLES["cyclops-809"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "(& 24ac.) Self-sacrifice and TACO  about time for legislation to stop public information leaks (8)",
+   "group": [
+    "10-across",
+    "24-across"
+   ],
    "separatorLocations": {},
    "solution": "OFFICIAL",
    "annotation": null
@@ -193,6 +201,10 @@ window.CRYPTIC_PUZZLES["cyclops-809"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 3dn.",
+   "group": [
+    "3-down",
+    "13-across"
+   ],
    "separatorLocations": {},
    "solution": "OVER",
    "annotation": null
@@ -347,6 +359,10 @@ window.CRYPTIC_PUZZLES["cyclops-809"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "see 10ac. (7,3)",
+   "group": [
+    "10-across",
+    "24-across"
+   ],
    "separatorLocations": {},
    "solution": "SECRETSACT",
    "annotation": null

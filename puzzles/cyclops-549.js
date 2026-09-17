@@ -109,6 +109,11 @@ window.CRYPTIC_PUZZLES["cyclops-549"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 28ac. (4)",
+   "group": [
+    "28-across",
+    "7-across",
+    "13-across"
+   ],
    "separatorLocations": {},
    "solution": "UPON",
    "annotation": null
@@ -207,6 +212,11 @@ window.CRYPTIC_PUZZLES["cyclops-549"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 28ac. (5)",
+   "group": [
+    "28-across",
+    "7-across",
+    "13-across"
+   ],
    "separatorLocations": {},
    "solution": "ATIME",
    "annotation": null
@@ -417,6 +427,11 @@ window.CRYPTIC_PUZZLES["cyclops-549"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 7ac./13ac.) How Cinderella gets a start, seeing a Mountie ponce around! (4)",
+   "group": [
+    "28-across",
+    "7-across",
+    "13-across"
+   ],
    "separatorLocations": {},
    "solution": "ONCE",
    "annotation": null

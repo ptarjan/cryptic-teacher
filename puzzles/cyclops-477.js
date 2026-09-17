@@ -67,6 +67,10 @@ window.CRYPTIC_PUZZLES["cyclops-477"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "(& 26dn.) Miliband, in shit, badly wants spot on TV, which speechifying minister stands by (3,8)",
+   "group": [
+    "4-down",
+    "26-down"
+   ],
    "separatorLocations": {},
    "solution": "THEDISPATCH",
    "annotation": null
@@ -109,6 +113,10 @@ window.CRYPTIC_PUZZLES["cyclops-477"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "see 19ac. (3)",
+   "group": [
+    "19-across",
+    "6-down"
+   ],
    "separatorLocations": {},
    "solution": "OFF",
    "annotation": null
@@ -291,6 +299,10 @@ window.CRYPTIC_PUZZLES["cyclops-477"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 6dn.) Act like wanker Archer, briefly, entertaining film company (4)",
+   "group": [
+    "19-across",
+    "6-down"
+   ],
    "separatorLocations": {},
    "solution": "JERK",
    "annotation": null
@@ -389,6 +401,10 @@ window.CRYPTIC_PUZZLES["cyclops-477"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "see 4dn. (3)",
+   "group": [
+    "4-down",
+    "26-down"
+   ],
    "separatorLocations": {},
    "solution": "BOX",
    "annotation": null

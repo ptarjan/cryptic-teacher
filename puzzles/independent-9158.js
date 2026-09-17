@@ -7,8 +7,8 @@ window.CRYPTIC_PUZZLES["independent-9158"] = /*JSON-START*/ {
  "number": 9158,
  "series": "independent",
  "name": "Independent cryptic crossword No 9,158",
- "setter": "Nimrod",
- "date": 1456531200000,
+ "setter": "Klingsor",
+ "date": 1455926400000,
  "dimensions": {
   "cols": 15,
   "rows": 15
@@ -16,17 +16,35 @@ window.CRYPTIC_PUZZLES["independent-9158"] = /*JSON-START*/ {
  "sourceUrl": "https://puzzles.independent.co.uk/games/cryptic-crossword-independent/",
  "entries": [
   {
+   "id": "1-across",
+   "number": 1,
+   "direction": "across",
+   "position": {
+    "x": 0,
+    "y": 0
+   },
+   "length": 8,
+   "clue": "Raving tirade, one containing bitterness principally? (8)",
+   "separatorLocations": {},
+   "solution": "DIATRIBE",
+   "annotation": null
+  },
+  {
    "id": "1-down",
    "number": 1,
    "direction": "down",
    "position": {
-    "x": 1,
+    "x": 0,
     "y": 0
    },
-   "length": 8,
-   "clue": "It intrudes upon irrational thoughts, even given 10 (8)",
-   "separatorLocations": {},
-   "solution": "ALTHOUGH",
+   "length": 6,
+   "clue": "Belittle cook's daughter, getting personal (2,4)",
+   "separatorLocations": {
+    ",": [
+     2
+    ]
+   },
+   "solution": "DODOWN",
    "annotation": null
   },
   {
@@ -34,23 +52,13 @@ window.CRYPTIC_PUZZLES["independent-9158"] = /*JSON-START*/ {
    "number": 2,
    "direction": "down",
    "position": {
-    "x": 3,
+    "x": 2,
     "y": 0
    },
-   "length": 10,
-   "clue": "In a stroke, Thu-Sun idol nails Ruddigore's opening and final act (4,6)",
-   "clueItalics": [
-    [
-     32,
-     9
-    ]
-   ],
-   "separatorLocations": {
-    ",": [
-     4
-    ]
-   },
-   "solution": "LASTHURRAH",
+   "length": 7,
+   "clue": "Artiste, for a time active dancing? (7)",
+   "separatorLocations": {},
+   "solution": "ASTAIRE",
    "annotation": null
   },
   {
@@ -58,13 +66,13 @@ window.CRYPTIC_PUZZLES["independent-9158"] = /*JSON-START*/ {
    "number": 3,
    "direction": "down",
    "position": {
-    "x": 5,
+    "x": 4,
     "y": 0
    },
-   "length": 6,
-   "clue": "Complex clue linked to an element of amino acid (6)",
+   "length": 10,
+   "clue": "Helping to keep order – that's endless fun (10)",
    "separatorLocations": {},
-   "solution": "LEUCIN",
+   "solution": "RECREATION",
    "annotation": null
   },
   {
@@ -72,32 +80,31 @@ window.CRYPTIC_PUZZLES["independent-9158"] = /*JSON-START*/ {
    "number": 4,
    "direction": "down",
    "position": {
-    "x": 7,
+    "x": 6,
     "y": 0
    },
-   "length": 15,
-   "clue": "Tavern worker's snarling line is directed at twisted opera (6,2,7)",
+   "length": 13,
+   "clue": "Battle of wits bolder husband fights (8,5)",
    "separatorLocations": {
     ",": [
-     6,
      8
     ]
    },
-   "solution": "BARBEROFSEVILLE",
+   "solution": "BOSWORTHFIELD",
    "annotation": null
   },
   {
-   "id": "5-down",
+   "id": "5-across",
    "number": 5,
-   "direction": "down",
+   "direction": "across",
    "position": {
     "x": 9,
     "y": 0
    },
-   "length": 8,
-   "clue": "Attending national army gathering as huntress (8)",
+   "length": 6,
+   "clue": "Look for 'em, reportedly showing some guts (6)",
    "separatorLocations": {},
-   "solution": "ATALANTA",
+   "solution": "CAECUM",
    "annotation": null
   },
   {
@@ -105,19 +112,13 @@ window.CRYPTIC_PUZZLES["independent-9158"] = /*JSON-START*/ {
    "number": 6,
    "direction": "down",
    "position": {
-    "x": 11,
+    "x": 10,
     "y": 0
    },
    "length": 4,
-   "clue": "Supreme Creator of 4 missing in Independent (4)",
-   "clueItalics": [
-    [
-     32,
-     11
-    ]
-   ],
+   "clue": "Unfortunately dish is served up incomplete (4)",
    "separatorLocations": {},
-   "solution": "ROSS",
+   "solution": "ALAS",
    "annotation": null
   },
   {
@@ -125,27 +126,27 @@ window.CRYPTIC_PUZZLES["independent-9158"] = /*JSON-START*/ {
    "number": 7,
    "direction": "down",
    "position": {
-    "x": 13,
+    "x": 12,
     "y": 0
    },
-   "length": 6,
-   "clue": "Like Maid Marian, are these Bristol City supporters showing off splendid breasts? (6)",
+   "length": 7,
+   "clue": "Stylish fellow's a wimp (7)",
    "separatorLocations": {},
-   "solution": "ROBINS",
+   "solution": "CHICKEN",
    "annotation": null
   },
   {
-   "id": "8-across",
+   "id": "8-down",
    "number": 8,
-   "direction": "across",
+   "direction": "down",
    "position": {
-    "x": 0,
-    "y": 1
+    "x": 14,
+    "y": 0
    },
-   "length": 6,
-   "clue": "Break up - college holiday (6)",
+   "length": 8,
+   "clue": "I can be found in church (8)",
    "separatorLocations": {},
-   "solution": "CLEAVE",
+   "solution": "MINISTER",
    "annotation": null
   },
   {
@@ -153,13 +154,13 @@ window.CRYPTIC_PUZZLES["independent-9158"] = /*JSON-START*/ {
    "number": 9,
    "direction": "across",
    "position": {
-    "x": 7,
-    "y": 1
+    "x": 0,
+    "y": 2
    },
-   "length": 8,
-   "clue": "Variety of sea-life more diverse than a zoo (8)",
+   "length": 3,
+   "clue": "Caught, oddly, around cover point (3)",
    "separatorLocations": {},
-   "solution": "ANTHOZOA",
+   "solution": "DOT",
    "annotation": null
   },
   {
@@ -167,33 +168,33 @@ window.CRYPTIC_PUZZLES["independent-9158"] = /*JSON-START*/ {
    "number": 10,
    "direction": "across",
    "position": {
-    "x": 0,
-    "y": 3
+    "x": 4,
+    "y": 2
    },
-   "length": 4,
-   "clue": "Which is this guy's loosened tile? (4)",
-   "separatorLocations": {},
-   "solution": "THAT",
-   "annotation": null
-  },
-  {
-   "id": "11-across",
-   "number": 11,
-   "direction": "across",
-   "position": {
-    "x": 5,
-    "y": 3
-   },
-   "length": 10,
-   "clue": "Secret compartment (odd italics) (10)",
+   "length": 11,
+   "clue": "One's charged a Top Gear character coming in for severe criticism (11)",
    "clueItalics": [
     [
-     7,
-     11
+     16,
+     9
     ]
    ],
    "separatorLocations": {},
-   "solution": "CABALISTIC",
+   "solution": "CASTIGATION",
+   "annotation": null
+  },
+  {
+   "id": "11-down",
+   "number": 11,
+   "direction": "down",
+   "position": {
+    "x": 8,
+    "y": 2
+   },
+   "length": 13,
+   "clue": "Never tiring of being a fat, idle drunk (13)",
+   "separatorLocations": {},
+   "solution": "INDEFATIGABLE",
    "annotation": null
   },
   {
@@ -202,12 +203,16 @@ window.CRYPTIC_PUZZLES["independent-9158"] = /*JSON-START*/ {
    "direction": "across",
    "position": {
     "x": 0,
-    "y": 5
+    "y": 4
    },
-   "length": 6,
-   "clue": "Fall in mutual back scratching terms (6)",
-   "separatorLocations": {},
-   "solution": "AUTUMN",
+   "length": 10,
+   "clue": "8 arranged cracking deals, perhaps, for kitchen equipment (5,5)",
+   "separatorLocations": {
+    ",": [
+     5
+    ]
+   },
+   "solution": "WHITEGOODS",
    "annotation": null
   },
   {
@@ -215,18 +220,13 @@ window.CRYPTIC_PUZZLES["independent-9158"] = /*JSON-START*/ {
    "number": 13,
    "direction": "across",
    "position": {
-    "x": 7,
-    "y": 5
+    "x": 11,
+    "y": 4
    },
-   "length": 8,
-   "clue": "Chance it drove over one cutting kid's cake (3,1,4)",
-   "separatorLocations": {
-    ",": [
-     3,
-     4
-    ]
-   },
-   "solution": "RUNARISK",
+   "length": 4,
+   "clue": "Hides, avoiding National's runners (4)",
+   "separatorLocations": {},
+   "solution": "SKIS",
    "annotation": null
   },
   {
@@ -234,13 +234,13 @@ window.CRYPTIC_PUZZLES["independent-9158"] = /*JSON-START*/ {
    "number": 14,
    "direction": "down",
    "position": {
-    "x": 11,
+    "x": 10,
     "y": 5
    },
    "length": 10,
-   "clue": "Electoral reforms absorbing area budget again (10)",
+   "clue": "Prohibited group of rebels? (10)",
    "separatorLocations": {},
-   "solution": "REALLOCATE",
+   "solution": "CONTRABAND",
    "annotation": null
   },
   {
@@ -248,13 +248,19 @@ window.CRYPTIC_PUZZLES["independent-9158"] = /*JSON-START*/ {
    "number": 15,
    "direction": "across",
    "position": {
-    "x": 0,
-    "y": 7
+    "x": 1,
+    "y": 6
    },
-   "length": 4,
-   "clue": "Tea? You might pay me to do some fish (4)",
+   "length": 6,
+   "clue": "Music group's Let it Be embodying old record (6)",
+   "clueItalics": [
+    [
+     14,
+     10
+    ]
+   ],
    "separatorLocations": {},
-   "solution": "CHAR",
+   "solution": "SEPTET",
    "annotation": null
   },
   {
@@ -262,97 +268,73 @@ window.CRYPTIC_PUZZLES["independent-9158"] = /*JSON-START*/ {
    "number": 16,
    "direction": "across",
    "position": {
-    "x": 5,
-    "y": 7
+    "x": 8,
+    "y": 6
    },
-   "length": 5,
-   "clue": "Below ground fireman's cut me loose (5)",
+   "length": 7,
+   "clue": "Dejected, kicking out at cat to show annoyance (7)",
    "separatorLocations": {},
-   "solution": "INFRA",
+   "solution": "FLOUNCE",
    "annotation": null
   },
   {
-   "id": "16-down",
-   "number": 16,
-   "direction": "down",
-   "position": {
-    "x": 5,
-    "y": 7
-   },
-   "length": 8,
-   "clue": "To dedicate to pirate is cutting in itself (8)",
-   "separatorLocations": {},
-   "solution": "INSCRIBE",
-   "annotation": null
-  },
-  {
-   "id": "17-across",
+   "id": "17-down",
    "number": 17,
-   "direction": "across",
-   "position": {
-    "x": 11,
-    "y": 7
-   },
-   "length": 4,
-   "clue": "Cunning opening (4)",
-   "separatorLocations": {},
-   "solution": "ARCH",
-   "annotation": null
-  },
-  {
-   "id": "18-down",
-   "number": 18,
    "direction": "down",
    "position": {
-    "x": 13,
+    "x": 0,
     "y": 7
    },
    "length": 8,
-   "clue": "Writer's in wreck of car left on perimeter fence? (8)",
+   "clue": "Inactive sort to gulp and puff going uphill (8)",
    "separatorLocations": {},
-   "solution": "CRIMINAL",
+   "solution": "SLUGGARD",
    "annotation": null
   },
   {
-   "id": "19-across",
-   "number": 19,
+   "id": "18-across",
+   "number": 18,
    "direction": "across",
    "position": {
     "x": 0,
-    "y": 9
+    "y": 8
    },
-   "length": 8,
-   "clue": "Do mid-morning break three hours early, say, and swap tips (8)",
-   "separatorLocations": {},
-   "solution": "SIGHTSEE",
+   "length": 7,
+   "clue": "Start trouble among the French forces (4,3)",
+   "separatorLocations": {
+    ",": [
+     4
+    ]
+   },
+   "solution": "LEADOFF",
    "annotation": null
   },
   {
-   "id": "20-down",
-   "number": 20,
+   "id": "19-down",
+   "number": 19,
    "direction": "down",
    "position": {
-    "x": 1,
-    "y": 9
+    "x": 2,
+    "y": 8
    },
-   "length": 6,
-   "clue": "Just like the rascal one is, jumping ship (6)",
+   "length": 7,
+   "clue": "Her vet Betsy is one of the very best (7)",
    "separatorLocations": {},
-   "solution": "IMPISH",
+   "solution": "ANAGRAM",
    "annotation": null
   },
   {
-   "id": "21-across",
-   "number": 21,
+   "id": "20-across",
+   "number": 20,
    "direction": "across",
    "position": {
-    "x": 9,
-    "y": 9
+    "x": 8,
+    "y": 8
    },
    "length": 6,
-   "clue": "Time you need to take on lush picture (6)",
+   "clue": "Do needlework? Make lace as well (6)",
    "separatorLocations": {},
-   "solution": "TALKIE",
+   "solution": "TATTOO",
    "annotation": null
   },
   {
@@ -360,49 +342,41 @@ window.CRYPTIC_PUZZLES["independent-9158"] = /*JSON-START*/ {
    "number": 21,
    "direction": "down",
    "position": {
-    "x": 9,
+    "x": 12,
+    "y": 8
+   },
+   "length": 7,
+   "clue": "Play a game (7)",
+   "separatorLocations": {},
+   "solution": "OTHELLO",
+   "annotation": null
+  },
+  {
+   "id": "22-down",
+   "number": 22,
+   "direction": "down",
+   "position": {
+    "x": 14,
     "y": 9
    },
    "length": 6,
-   "clue": "Hats off to Juno, collecting herself overseas sovereignty (3,3)",
-   "separatorLocations": {
-    ",": [
-     3
-    ]
-   },
-   "solution": "THERAJ",
+   "clue": "Rex, impressed by piece, is complimentary (6)",
+   "separatorLocations": {},
+   "solution": "GRATIS",
    "annotation": null
   },
   {
-   "id": "22-across",
-   "number": 22,
+   "id": "23-across",
+   "number": 23,
    "direction": "across",
    "position": {
     "x": 0,
-    "y": 11
-   },
-   "length": 10,
-   "clue": "Pest destructively set about exposed cuticle (6,4)",
-   "separatorLocations": {
-    ",": [
-     6
-    ]
-   },
-   "solution": "SPIDERMITE",
-   "annotation": null
-  },
-  {
-   "id": "23-down",
-   "number": 23,
-   "direction": "down",
-   "position": {
-    "x": 3,
-    "y": 11
+    "y": 10
    },
    "length": 4,
-   "clue": "Like this will cost me my treasure! (4)",
+   "clue": "Kit that's good for women in sport (4)",
    "separatorLocations": {},
-   "solution": "DEAR",
+   "solution": "GEAR",
    "annotation": null
   },
   {
@@ -410,27 +384,27 @@ window.CRYPTIC_PUZZLES["independent-9158"] = /*JSON-START*/ {
    "number": 24,
    "direction": "across",
    "position": {
-    "x": 11,
-    "y": 11
+    "x": 5,
+    "y": 10
    },
-   "length": 4,
-   "clue": "Yellow's out of range with it (4)",
+   "length": 10,
+   "clue": "Ptolemy, say, composed page or sheet regularly in Greek (10)",
    "separatorLocations": {},
-   "solution": "CHIC",
+   "solution": "GEOGRAPHER",
    "annotation": null
   },
   {
-   "id": "25-across",
+   "id": "25-down",
    "number": 25,
-   "direction": "across",
+   "direction": "down",
    "position": {
-    "x": 0,
-    "y": 13
+    "x": 4,
+    "y": 11
    },
-   "length": 8,
-   "clue": "One partner of Oliver H's caught drunk in French city (8)",
+   "length": 4,
+   "clue": "Gas bill's first to hurt (4)",
    "separatorLocations": {},
-   "solution": "ISTANBUL",
+   "solution": "ACHE",
    "annotation": null
   },
   {
@@ -438,13 +412,59 @@ window.CRYPTIC_PUZZLES["independent-9158"] = /*JSON-START*/ {
    "number": 26,
    "direction": "across",
    "position": {
-    "x": 9,
-    "y": 13
+    "x": 0,
+    "y": 12
+   },
+   "length": 11,
+   "clue": "One supports imprisoning a villain it's said for a spell (11)",
+   "separatorLocations": {},
+   "solution": "ABRACADABRA",
+   "annotation": null
+  },
+  {
+   "id": "27-across",
+   "number": 27,
+   "direction": "across",
+   "position": {
+    "x": 12,
+    "y": 12
+   },
+   "length": 3,
+   "clue": "Bad service left expat gutted (3)",
+   "separatorLocations": {},
+   "solution": "LET",
+   "annotation": null
+  },
+  {
+   "id": "28-across",
+   "number": 28,
+   "direction": "across",
+   "position": {
+    "x": 0,
+    "y": 14
    },
    "length": 6,
-   "clue": "Rail service vehicle in which to race the old girl westward (6)",
+   "clue": "Dye's original pigment is less bright (6)",
    "separatorLocations": {},
-   "solution": "AMTRAK",
+   "solution": "DUMBER",
+   "annotation": null
+  },
+  {
+   "id": "29-across",
+   "number": 29,
+   "direction": "across",
+   "position": {
+    "x": 7,
+    "y": 14
+   },
+   "length": 8,
+   "clue": "Be first to sleep with leaders in trade? A useless venture (4,4)",
+   "separatorLocations": {
+    ",": [
+     4
+    ]
+   },
+   "solution": "DEADLOSS",
    "annotation": null
   }
  ]

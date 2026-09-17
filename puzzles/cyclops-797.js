@@ -67,6 +67,10 @@ window.CRYPTIC_PUZZLES["cyclops-797"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see26ac.",
+   "group": [
+    "26-across",
+    "4-down"
+   ],
    "separatorLocations": {},
    "solution": "INTO",
    "annotation": null
@@ -403,6 +407,10 @@ window.CRYPTIC_PUZZLES["cyclops-797"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 4dn) Be a burglar or beatnik bum (5)",
+   "group": [
+    "26-across",
+    "4-down"
+   ],
    "separatorLocations": {},
    "solution": "BREAK",
    "annotation": null

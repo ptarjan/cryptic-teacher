@@ -95,6 +95,10 @@ window.CRYPTIC_PUZZLES["cyclops-815"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "(& 6dn.) It's bad for a person's reputation, showing chopper at office (7)",
+   "group": [
+    "5-down",
+    "6-down"
+   ],
    "separatorLocations": {},
    "solution": "HATCHET",
    "annotation": null
@@ -109,6 +113,10 @@ window.CRYPTIC_PUZZLES["cyclops-815"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "see 5dn.",
+   "group": [
+    "5-down",
+    "6-down"
+   ],
    "separatorLocations": {},
    "solution": "JOB",
    "annotation": null
@@ -137,6 +145,11 @@ window.CRYPTIC_PUZZLES["cyclops-815"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(&16dn/23dn.) Have a snog, then do it again, side by side (4)",
+   "group": [
+    "8-down",
+    "16-down",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "NECK",
    "annotation": null
@@ -263,6 +276,11 @@ window.CRYPTIC_PUZZLES["cyclops-815"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "see 8dn.",
+   "group": [
+    "8-down",
+    "16-down",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "AND",
    "annotation": null
@@ -389,6 +407,11 @@ window.CRYPTIC_PUZZLES["cyclops-815"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 8dn.",
+   "group": [
+    "8-down",
+    "16-down",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "NECK",
    "annotation": null

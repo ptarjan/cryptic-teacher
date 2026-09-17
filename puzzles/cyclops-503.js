@@ -137,6 +137,10 @@ window.CRYPTIC_PUZZLES["cyclops-503"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 17ac. (5)",
+   "group": [
+    "17-across",
+    "8-down"
+   ],
    "separatorLocations": {},
    "solution": "BALLS",
    "annotation": null
@@ -165,6 +169,10 @@ window.CRYPTIC_PUZZLES["cyclops-503"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 26ac. (4)",
+   "group": [
+    "26-across",
+    "10-across"
+   ],
    "separatorLocations": {},
    "solution": "TALK",
    "annotation": null
@@ -263,6 +271,10 @@ window.CRYPTIC_PUZZLES["cyclops-503"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "(& 8dn.) Absolute crap, many society events (7)",
+   "group": [
+    "17-across",
+    "8-down"
+   ],
    "separatorLocations": {},
    "solution": "ALOADOF",
    "annotation": null
@@ -389,6 +401,10 @@ window.CRYPTIC_PUZZLES["cyclops-503"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 10ac.) The new Boy George causing all this verbal nonsense? (4)",
+   "group": [
+    "26-across",
+    "10-across"
+   ],
    "separatorLocations": {},
    "solution": "BABY",
    "annotation": null

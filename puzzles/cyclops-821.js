@@ -179,6 +179,10 @@ window.CRYPTIC_PUZZLES["cyclops-821"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 12ac.",
+   "group": [
+    "12-across",
+    "11-across"
+   ],
    "separatorLocations": {},
    "solution": "SIGHT",
    "annotation": null
@@ -193,6 +197,10 @@ window.CRYPTIC_PUZZLES["cyclops-821"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 11ac.) Waving US flag with horror (5)",
+   "group": [
+    "12-across",
+    "11-across"
+   ],
    "separatorLocations": {},
    "solution": "AWFUL",
    "annotation": null
@@ -375,6 +383,10 @@ window.CRYPTIC_PUZZLES["cyclops-821"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 26ac.) Moving bloke with electronic implant doesn't cost much (5)",
+   "group": [
+    "24-down",
+    "26-down"
+   ],
    "separatorLocations": {},
    "solution": "GOING",
    "annotation": null
@@ -403,6 +415,10 @@ window.CRYPTIC_PUZZLES["cyclops-821"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 24ac.",
+   "group": [
+    "24-down",
+    "26-down"
+   ],
    "separatorLocations": {},
    "solution": "CHEAP",
    "annotation": null

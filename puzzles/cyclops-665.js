@@ -25,6 +25,10 @@ window.CRYPTIC_PUZZLES["cyclops-665"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "(& 10ac.) Crooked loan distribution claimed to be in the public interest? (7)",
+   "group": [
+    "1-across",
+    "10-across"
+   ],
    "separatorLocations": {},
    "solution": "TABLOID",
    "annotation": null
@@ -67,6 +71,10 @@ window.CRYPTIC_PUZZLES["cyclops-665"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "see 23ac. (9)",
+   "group": [
+    "23-across",
+    "3-down"
+   ],
    "separatorLocations": {},
    "solution": "OFFENSIVE",
    "annotation": null
@@ -165,6 +173,10 @@ window.CRYPTIC_PUZZLES["cyclops-665"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 28ac.) Neat whisky? Difficult by the sea (5)",
+   "group": [
+    "9-across",
+    "28-across"
+   ],
    "separatorLocations": {},
    "solution": "STIFF",
    "annotation": null
@@ -179,6 +191,10 @@ window.CRYPTIC_PUZZLES["cyclops-665"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "see 1ac. (9)",
+   "group": [
+    "1-across",
+    "10-across"
+   ],
    "separatorLocations": {},
    "solution": "INTRUSION",
    "annotation": null
@@ -207,6 +223,10 @@ window.CRYPTIC_PUZZLES["cyclops-665"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 24dn.) Gore gets ready for shameful payment (5)",
+   "group": [
+    "12-across",
+    "24-down"
+   ],
    "separatorLocations": {},
    "solution": "BLOOD",
    "annotation": null
@@ -361,6 +381,10 @@ window.CRYPTIC_PUZZLES["cyclops-665"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 3dn.) Brown-noser's strategy: Corbyn's chief impairment  insulting (5)",
+   "group": [
+    "23-across",
+    "3-down"
+   ],
    "separatorLocations": {},
    "solution": "CHARM",
    "annotation": null
@@ -375,6 +399,10 @@ window.CRYPTIC_PUZZLES["cyclops-665"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 12ac. (5)",
+   "group": [
+    "12-across",
+    "24-down"
+   ],
    "separatorLocations": {},
    "solution": "MONEY",
    "annotation": null
@@ -431,6 +459,10 @@ window.CRYPTIC_PUZZLES["cyclops-665"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 9ac. (5)",
+   "group": [
+    "9-across",
+    "28-across"
+   ],
    "separatorLocations": {},
    "solution": "DRINK",
    "annotation": null

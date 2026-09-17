@@ -179,6 +179,10 @@ window.CRYPTIC_PUZZLES["cyclops-713"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "(& 14dn.) Organisation prepared to demonstrate it's no longer being associated with a revolting activity (10)",
+   "group": [
+    "12-across",
+    "14-down"
+   ],
    "separatorLocations": {},
    "solution": "EXTINCTION",
    "annotation": null
@@ -221,6 +225,10 @@ window.CRYPTIC_PUZZLES["cyclops-713"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "see 12ac. (9)",
+   "group": [
+    "12-across",
+    "14-down"
+   ],
    "separatorLocations": {},
    "solution": "REBELLION",
    "annotation": null
@@ -361,6 +369,10 @@ window.CRYPTIC_PUZZLES["cyclops-713"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 25ac.) Henry briefly following creep, Nick (4)",
+   "group": [
+    "24-down",
+    "25-across"
+   ],
    "separatorLocations": {},
    "solution": "HALF",
    "annotation": null
@@ -375,6 +387,10 @@ window.CRYPTIC_PUZZLES["cyclops-713"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 24dn. (4)",
+   "group": [
+    "24-down",
+    "25-across"
+   ],
    "separatorLocations": {},
    "solution": "INCH",
    "annotation": null

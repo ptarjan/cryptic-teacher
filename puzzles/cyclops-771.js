@@ -221,6 +221,10 @@ window.CRYPTIC_PUZZLES["cyclops-771"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "(& 25ac.) Vote-seeking measure? Try getting chop! (3)",
+   "group": [
+    "14-across",
+    "25-across"
+   ],
    "separatorLocations": {},
    "solution": "TAX",
    "annotation": null
@@ -235,6 +239,10 @@ window.CRYPTIC_PUZZLES["cyclops-771"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "(& 18ac.) Those people at possibly deadliest world trouble spot (3,6)",
+   "group": [
+    "15-across",
+    "18-across"
+   ],
    "separatorLocations": {},
    "solution": "THEMIDDLE",
    "annotation": null
@@ -277,6 +285,10 @@ window.CRYPTIC_PUZZLES["cyclops-771"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 15ac. (4)",
+   "group": [
+    "15-across",
+    "18-across"
+   ],
    "separatorLocations": {},
    "solution": "EAST",
    "annotation": null
@@ -305,6 +317,10 @@ window.CRYPTIC_PUZZLES["cyclops-771"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 28ac.) The latest intrusion experienced by listeners? (4)",
+   "group": [
+    "20-across",
+    "28-across"
+   ],
    "separatorLocations": {},
    "solution": "NEWS",
    "annotation": null
@@ -375,6 +391,10 @@ window.CRYPTIC_PUZZLES["cyclops-771"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "see 14ac. (3)",
+   "group": [
+    "14-across",
+    "25-across"
+   ],
    "separatorLocations": {},
    "solution": "CUT",
    "annotation": null
@@ -417,6 +437,10 @@ window.CRYPTIC_PUZZLES["cyclops-771"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 20ac. (5)",
+   "group": [
+    "20-across",
+    "28-across"
+   ],
    "separatorLocations": {},
    "solution": "FLASH",
    "annotation": null

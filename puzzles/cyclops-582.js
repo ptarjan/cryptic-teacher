@@ -179,6 +179,10 @@ window.CRYPTIC_PUZZLES["cyclops-582"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(&24ac.) Take out Nige almost, with hard approach (4)",
+   "group": [
+    "12-across",
+    "24-across"
+   ],
    "separatorLocations": {},
    "solution": "DRAW",
    "annotation": null
@@ -361,6 +365,10 @@ window.CRYPTIC_PUZZLES["cyclops-582"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 12ac. (4)",
+   "group": [
+    "12-across",
+    "24-across"
+   ],
    "separatorLocations": {},
    "solution": "NIGH",
    "annotation": null

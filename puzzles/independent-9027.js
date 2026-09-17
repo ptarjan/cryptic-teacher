@@ -7,8 +7,8 @@ window.CRYPTIC_PUZZLES["independent-9027"] = /*JSON-START*/ {
  "number": 9027,
  "series": "independent",
  "name": "Independent cryptic crossword No 9,027",
- "setter": "Donk",
- "date": 1443225600000,
+ "setter": "Anax",
+ "date": 1442620800000,
  "dimensions": {
   "cols": 15,
   "rows": 15
@@ -20,31 +20,13 @@ window.CRYPTIC_PUZZLES["independent-9027"] = /*JSON-START*/ {
    "number": 1,
    "direction": "across",
    "position": {
-    "x": 0,
+    "x": 1,
     "y": 0
    },
-   "length": 8,
-   "clue": "Pinched rubbish behind cover (3,5)",
-   "separatorLocations": {
-    ",": [
-     3
-    ]
-   },
-   "solution": "HOTPANTS",
-   "annotation": null
-  },
-  {
-   "id": "1-down",
-   "number": 1,
-   "direction": "down",
-   "position": {
-    "x": 0,
-    "y": 0
-   },
-   "length": 6,
-   "clue": "Goods sound entertaining - get the best price for them! (6)",
+   "length": 14,
+   "clue": "Bent, maybe from eating unfinished meal (14)",
    "separatorLocations": {},
-   "solution": "HAGGLE",
+   "solution": "PREDISPOSITION",
    "annotation": null
   },
   {
@@ -55,10 +37,10 @@ window.CRYPTIC_PUZZLES["independent-9027"] = /*JSON-START*/ {
     "x": 2,
     "y": 0
    },
-   "length": 6,
-   "clue": "Yank's one short of a baseball team in \"pitching\" (6)",
+   "length": 7,
+   "clue": "Italian dish recipe, middle bit of liver in mayonnaise (7)",
    "separatorLocations": {},
-   "solution": "TUNING",
+   "solution": "RAVIOLI",
    "annotation": null
   },
   {
@@ -69,10 +51,10 @@ window.CRYPTIC_PUZZLES["independent-9027"] = /*JSON-START*/ {
     "x": 4,
     "y": 0
    },
-   "length": 9,
-   "clue": "Stars in a cracking modern ad (9)",
+   "length": 5,
+   "clue": "Lament putting up online crossword item (5)",
    "separatorLocations": {},
-   "solution": "ANDROMEDA",
+   "solution": "DIRGE",
    "annotation": null
   },
   {
@@ -83,32 +65,24 @@ window.CRYPTIC_PUZZLES["independent-9027"] = /*JSON-START*/ {
     "x": 6,
     "y": 0
    },
-   "length": 13,
-   "clue": "Evens it'll get a radical preacher on box (13)",
+   "length": 4,
+   "clue": "I'm surprised to enter very popular bit of London (4)",
    "separatorLocations": {},
-   "solution": "TELEVANGELIST",
+   "solution": "SOHO",
    "annotation": null
   },
   {
-   "id": "5-across",
+   "id": "5-down",
    "number": 5,
-   "direction": "across",
+   "direction": "down",
    "position": {
-    "x": 9,
+    "x": 8,
     "y": 0
    },
-   "length": 6,
-   "clue": "Let noisy drunk, full of wine, point to 10d? (6,6)",
-   "group": [
-    "5-across",
-    "18-down"
-   ],
-   "separatorLocations": {
-    ",": [
-     6
-    ]
-   },
-   "solution": "TONSIL",
+   "length": 10,
+   "clue": "Mineral found as earth cools off (10)",
+   "separatorLocations": {},
+   "solution": "ORTHOCLASE",
    "annotation": null
   },
   {
@@ -119,10 +93,10 @@ window.CRYPTIC_PUZZLES["independent-9027"] = /*JSON-START*/ {
     "x": 10,
     "y": 0
    },
-   "length": 5,
-   "clue": "Tubby ex-pupils' language? (5)",
+   "length": 9,
+   "clue": "Devilish play, thus regularly unrehearsed (9)",
    "separatorLocations": {},
-   "solution": "OBESE",
+   "solution": "IMPROMPTU",
    "annotation": null
   },
   {
@@ -133,10 +107,10 @@ window.CRYPTIC_PUZZLES["independent-9027"] = /*JSON-START*/ {
     "x": 12,
     "y": 0
    },
-   "length": 8,
-   "clue": "School's whisky and fizz finally brings out sentimentality (8)",
+   "length": 7,
+   "clue": "Actually accepting instruction to take dead tissue (7)",
    "separatorLocations": {},
-   "solution": "SCHMALTZ",
+   "solution": "INFARCT",
    "annotation": null
   },
   {
@@ -147,10 +121,14 @@ window.CRYPTIC_PUZZLES["independent-9027"] = /*JSON-START*/ {
     "x": 14,
     "y": 0
    },
-   "length": 8,
-   "clue": "Letter tips off Liberal Democrat to acquire gold (8)",
-   "separatorLocations": {},
-   "solution": "LANDLORD",
+   "length": 12,
+   "clue": "State added words to book supporting Tyneside pop group (3,9)",
+   "separatorLocations": {
+    ",": [
+     3
+    ]
+   },
+   "solution": "NEWHAMPSHIRE",
    "annotation": null
   },
   {
@@ -158,13 +136,18 @@ window.CRYPTIC_PUZZLES["independent-9027"] = /*JSON-START*/ {
    "number": 9,
    "direction": "across",
    "position": {
-    "x": 0,
+    "x": 1,
     "y": 2
    },
-   "length": 7,
-   "clue": "Tennis player's encouragement of balls (7)",
-   "separatorLocations": {},
-   "solution": "GONADAL",
+   "length": 10,
+   "clue": "What potty contains is a little extreme (4-3-3)",
+   "separatorLocations": {
+    "-": [
+     4,
+     7
+    ]
+   },
+   "solution": "OVERTHETOP",
    "annotation": null
   },
   {
@@ -172,46 +155,35 @@ window.CRYPTIC_PUZZLES["independent-9027"] = /*JSON-START*/ {
    "number": 10,
    "direction": "across",
    "position": {
-    "x": 8,
+    "x": 12,
     "y": 2
    },
-   "length": 7,
-   "clue": "Bloke's bird, from previous marriage? (7)",
+   "length": 3,
+   "clue": "Iron and tungsten are rare (3)",
    "separatorLocations": {},
-   "solution": "STEPHEN",
+   "solution": "FEW",
    "annotation": null
   },
   {
-   "id": "10-down",
-   "number": 10,
+   "id": "11-down",
+   "number": 11,
    "direction": "down",
    "position": {
-    "x": 8,
-    "y": 2
+    "x": 0,
+    "y": 3
    },
-   "length": 13,
-   "clue": "She describes beer guts for fun at party (4-3-6)",
+   "length": 12,
+   "clue": "Small part of shop error - grape's etc gone off (12,10)",
+   "group": [
+    "11-down",
+    "14-down"
+   ],
    "separatorLocations": {
-    "-": [
-     4,
-     7
+    ",": [
+     12
     ]
    },
-   "solution": "SPINTHEBOTTLE",
-   "annotation": null
-  },
-  {
-   "id": "11-across",
-   "number": 11,
-   "direction": "across",
-   "position": {
-    "x": 0,
-    "y": 4
-   },
-   "length": 5,
-   "clue": "This outsider struggles with ball in golf bags (5)",
-   "separatorLocations": {},
-   "solution": "LINGO",
+   "solution": "GREENGROCERS",
    "annotation": null
   },
   {
@@ -219,13 +191,13 @@ window.CRYPTIC_PUZZLES["independent-9027"] = /*JSON-START*/ {
    "number": 12,
    "direction": "across",
    "position": {
-    "x": 6,
+    "x": 0,
     "y": 4
    },
-   "length": 9,
-   "clue": "Without ending, claim movie's rubbish in message (9)",
+   "length": 6,
+   "clue": "United will feed Hodgson a striker (6)",
    "separatorLocations": {},
-   "solution": "VOICEMAIL",
+   "solution": "ROONEY",
    "annotation": null
   },
   {
@@ -233,17 +205,20 @@ window.CRYPTIC_PUZZLES["independent-9027"] = /*JSON-START*/ {
    "number": 13,
    "direction": "across",
    "position": {
-    "x": 3,
-    "y": 6
+    "x": 7,
+    "y": 4
    },
-   "length": 12,
-   "clue": "Club keeps live fish within it on the counter, spread (6,6)",
+   "length": 8,
+   "clue": "New/old part of India, mostly concrete, exclusive location (2-2,4)",
    "separatorLocations": {
+    "-": [
+     2
+    ],
     ",": [
-     6
+     4
     ]
    },
-   "solution": "PEANUTBUTTER",
+   "solution": "NOGOAREA",
    "annotation": null
   },
   {
@@ -251,44 +226,31 @@ window.CRYPTIC_PUZZLES["independent-9027"] = /*JSON-START*/ {
    "number": 14,
    "direction": "down",
    "position": {
-    "x": 10,
-    "y": 6
+    "x": 6,
+    "y": 5
    },
-   "length": 9,
-   "clue": "See 15",
+   "length": 10,
+   "clue": "See 11",
    "group": [
-    "15-down",
+    "11-down",
     "14-down"
    ],
-   "separatorLocations": {
-    ",": [
-     2,
-     5
-    ]
-   },
-   "solution": "UPTHEREAR",
+   "separatorLocations": {},
+   "solution": "APOSTROPHE",
    "annotation": null
   },
   {
-   "id": "15-down",
+   "id": "15-across",
    "number": 15,
-   "direction": "down",
+   "direction": "across",
    "position": {
     "x": 0,
-    "y": 7
+    "y": 6
    },
-   "length": 8,
-   "clue": "Preparing to twerk after rest (8,2,3,4)",
-   "group": [
-    "15-down",
-    "14-down"
-   ],
-   "separatorLocations": {
-    ",": [
-     8
-    ]
-   },
-   "solution": "BRINGING",
+   "length": 9,
+   "clue": "See relevant record is given to business partner (9)",
+   "separatorLocations": {},
+   "solution": "EPISCOPAL",
    "annotation": null
   },
   {
@@ -296,17 +258,17 @@ window.CRYPTIC_PUZZLES["independent-9027"] = /*JSON-START*/ {
    "number": 16,
    "direction": "down",
    "position": {
-    "x": 2,
-    "y": 7
+    "x": 4,
+    "y": 6
    },
-   "length": 8,
-   "clue": "Quivering, we stop US jets (5,3)",
+   "length": 9,
+   "clue": "Lead, with another one, around country (5,4)",
    "separatorLocations": {
     ",": [
      5
     ]
    },
-   "solution": "SPEWSOUT",
+   "solution": "COSTARICA",
    "annotation": null
   },
   {
@@ -314,31 +276,31 @@ window.CRYPTIC_PUZZLES["independent-9027"] = /*JSON-START*/ {
    "number": 17,
    "direction": "across",
    "position": {
-    "x": 0,
-    "y": 8
+    "x": 10,
+    "y": 6
    },
-   "length": 12,
-   "clue": "Those succeeding in Central Park primarily seem confused (12)",
-   "separatorLocations": {},
-   "solution": "REPLACEMENTS",
+   "length": 5,
+   "clue": "Advance from left or right (3,2)",
+   "separatorLocations": {
+    ",": [
+     3
+    ]
+   },
+   "solution": "PUTUP",
    "annotation": null
   },
   {
-   "id": "18-down",
+   "id": "18-across",
    "number": 18,
-   "direction": "down",
+   "direction": "across",
    "position": {
-    "x": 12,
-    "y": 9
+    "x": 0,
+    "y": 8
    },
-   "length": 6,
-   "clue": "See 5",
-   "group": [
-    "5-across",
-    "18-down"
-   ],
+   "length": 5,
+   "clue": "Goes to America, welcoming right breakfast there? (5)",
    "separatorLocations": {},
-   "solution": "HOCKEY",
+   "solution": "GRITS",
    "annotation": null
   },
   {
@@ -346,13 +308,13 @@ window.CRYPTIC_PUZZLES["independent-9027"] = /*JSON-START*/ {
    "number": 19,
    "direction": "down",
    "position": {
-    "x": 14,
-    "y": 9
+    "x": 2,
+    "y": 8
    },
-   "length": 6,
-   "clue": "A lot wanted by this one inside job I'd derailed (6)",
+   "length": 7,
+   "clue": "Figure to bury put outside empty grave (7)",
    "separatorLocations": {},
-   "solution": "BIDDER",
+   "solution": "INTEGER",
    "annotation": null
   },
   {
@@ -360,17 +322,13 @@ window.CRYPTIC_PUZZLES["independent-9027"] = /*JSON-START*/ {
    "number": 20,
    "direction": "across",
    "position": {
-    "x": 0,
-    "y": 10
+    "x": 6,
+    "y": 8
    },
    "length": 9,
-   "clue": "State inmate's arrested, briefly (3,6)",
-   "separatorLocations": {
-    ",": [
-     3
-    ]
-   },
-   "solution": "NEWMEXICO",
+   "clue": "Monster taps letters on it low down (9)",
+   "separatorLocations": {},
+   "solution": "SASQUATCH",
    "annotation": null
   },
   {
@@ -378,13 +336,13 @@ window.CRYPTIC_PUZZLES["independent-9027"] = /*JSON-START*/ {
    "number": 21,
    "direction": "down",
    "position": {
-    "x": 4,
-    "y": 10
+    "x": 12,
+    "y": 8
    },
-   "length": 5,
-   "clue": "Give in to passion, taking off top outside (5)",
+   "length": 7,
+   "clue": "Protecting screen TVs originally used to broadcast (7)",
    "separatorLocations": {},
-   "solution": "EMOTE",
+   "solution": "TESTUDO",
    "annotation": null
   },
   {
@@ -392,17 +350,13 @@ window.CRYPTIC_PUZZLES["independent-9027"] = /*JSON-START*/ {
    "number": 22,
    "direction": "across",
    "position": {
-    "x": 10,
+    "x": 0,
     "y": 10
    },
-   "length": 5,
-   "clue": "Green light significantly shortened is cause of complaint (1,4)",
-   "separatorLocations": {
-    ",": [
-     1
-    ]
-   },
-   "solution": "ECOLI",
+   "length": 8,
+   "clue": "Being banished until, oddly, nothing wrong about it (8)",
+   "separatorLocations": {},
+   "solution": "OUTLAWRY",
    "annotation": null
   },
   {
@@ -410,45 +364,41 @@ window.CRYPTIC_PUZZLES["independent-9027"] = /*JSON-START*/ {
    "number": 23,
    "direction": "across",
    "position": {
-    "x": 0,
-    "y": 12
-   },
-   "length": 7,
-   "clue": "Ready to approach level (4,3)",
-   "separatorLocations": {
-    ",": [
-     4
-    ]
-   },
-   "solution": "IRONOUT",
-   "annotation": null
-  },
-  {
-   "id": "24-across",
-   "number": 24,
-   "direction": "across",
-   "position": {
-    "x": 8,
-    "y": 12
-   },
-   "length": 7,
-   "clue": "We'd take in pieces, subject to alteration (7)",
-   "separatorLocations": {},
-   "solution": "TWEAKED",
-   "annotation": null
-  },
-  {
-   "id": "25-across",
-   "number": 25,
-   "direction": "across",
-   "position": {
-    "x": 0,
-    "y": 14
+    "x": 9,
+    "y": 10
    },
    "length": 6,
-   "clue": "Bowler's edging closer to leg, say (6)",
+   "clue": "Rope that woman takes in was knotted (6)",
    "separatorLocations": {},
-   "solution": "GUTTER",
+   "solution": "HAWSER",
+   "annotation": null
+  },
+  {
+   "id": "24-down",
+   "number": 24,
+   "direction": "down",
+   "position": {
+    "x": 10,
+    "y": 10
+   },
+   "length": 5,
+   "clue": "A daughter I love beginning to say goodbye (5)",
+   "separatorLocations": {},
+   "solution": "ADIOS",
+   "annotation": null
+  },
+  {
+   "id": "25-down",
+   "number": 25,
+   "direction": "down",
+   "position": {
+    "x": 8,
+    "y": 11
+   },
+   "length": 4,
+   "clue": "Out cold, lifeless (4)",
+   "separatorLocations": {},
+   "solution": "FREE",
    "annotation": null
   },
   {
@@ -456,13 +406,45 @@ window.CRYPTIC_PUZZLES["independent-9027"] = /*JSON-START*/ {
    "number": 26,
    "direction": "across",
    "position": {
-    "x": 7,
+    "x": 0,
+    "y": 12
+   },
+   "length": 3,
+   "clue": "One exemplified by 'good' (3)",
+   "separatorLocations": {},
+   "solution": "EGG",
+   "annotation": null
+  },
+  {
+   "id": "27-across",
+   "number": 27,
+   "direction": "across",
+   "position": {
+    "x": 4,
+    "y": 12
+   },
+   "length": 10,
+   "clue": "Arrogant nurses see proof? (10)",
+   "separatorLocations": {},
+   "solution": "IMPERVIOUS",
+   "annotation": null
+  },
+  {
+   "id": "28-across",
+   "number": 28,
+   "direction": "across",
+   "position": {
+    "x": 0,
     "y": 14
    },
-   "length": 8,
-   "clue": "One giving up carrier covered in booze (8)",
-   "separatorLocations": {},
-   "solution": "BETRAYER",
+   "length": 14,
+   "clue": "A water feature's unlikely use, for instance (7,7)",
+   "separatorLocations": {
+    ",": [
+     7
+    ]
+   },
+   "solution": "SURFACETENSION",
    "annotation": null
   }
  ]

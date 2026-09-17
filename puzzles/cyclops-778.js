@@ -67,6 +67,10 @@ window.CRYPTIC_PUZZLES["cyclops-778"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 26dn.",
+   "group": [
+    "26-down",
+    "4-down"
+   ],
    "separatorLocations": {},
    "solution": "BLAIR",
    "annotation": null
@@ -221,6 +225,10 @@ window.CRYPTIC_PUZZLES["cyclops-778"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "(& 24dn.) Group of supporters poisoned by Trump, turn appreciably sick (10)",
+   "group": [
+    "15-down",
+    "24-down"
+   ],
    "separatorLocations": {},
    "solution": "REPUBLICAN",
    "annotation": null
@@ -347,6 +355,10 @@ window.CRYPTIC_PUZZLES["cyclops-778"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 15dn.",
+   "group": [
+    "15-down",
+    "24-down"
+   ],
    "separatorLocations": {},
    "solution": "PARTY",
    "annotation": null
@@ -375,6 +387,10 @@ window.CRYPTIC_PUZZLES["cyclops-778"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 4dn.) Ex-PM's only a bit useless, right? (4)",
+   "group": [
+    "26-down",
+    "4-down"
+   ],
    "separatorLocations": {},
    "solution": "TONY",
    "annotation": null

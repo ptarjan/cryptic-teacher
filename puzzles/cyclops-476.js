@@ -39,6 +39,10 @@ window.CRYPTIC_PUZZLES["cyclops-476"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 11dn.) Take no risk as PA, fly undone, exposes head (4)",
+   "group": [
+    "2-down",
+    "11-down"
+   ],
    "separatorLocations": {},
    "solution": "PLAY",
    "annotation": null
@@ -53,6 +57,10 @@ window.CRYPTIC_PUZZLES["cyclops-476"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 18dn. (7)",
+   "group": [
+    "18-down",
+    "3-down"
+   ],
    "separatorLocations": {},
    "solution": "ANDSODS",
    "annotation": null
@@ -109,6 +117,10 @@ window.CRYPTIC_PUZZLES["cyclops-476"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "see 25dn. (8)",
+   "group": [
+    "25-down",
+    "7-across"
+   ],
    "separatorLocations": {},
    "solution": "CRAWLING",
    "annotation": null
@@ -179,6 +191,10 @@ window.CRYPTIC_PUZZLES["cyclops-476"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 2dn. (4)",
+   "group": [
+    "2-down",
+    "11-down"
+   ],
    "separatorLocations": {},
    "solution": "SAFE",
    "annotation": null
@@ -235,6 +251,10 @@ window.CRYPTIC_PUZZLES["cyclops-476"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 22ac.)Rejected party brief on our Tony Blair and shits' gushing speechifying (6)",
+   "group": [
+    "15-across",
+    "22-across"
+   ],
    "separatorLocations": {},
    "solution": "VERBAL",
    "annotation": null
@@ -291,6 +311,10 @@ window.CRYPTIC_PUZZLES["cyclops-476"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 3dn.) Chances grabbing beach outfit: divided tops, various articles (4)",
+   "group": [
+    "18-down",
+    "3-down"
+   ],
    "separatorLocations": {},
    "solution": "ODDS",
    "annotation": null
@@ -347,6 +371,10 @@ window.CRYPTIC_PUZZLES["cyclops-476"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "see 15ac. (9)",
+   "group": [
+    "15-across",
+    "22-across"
+   ],
    "separatorLocations": {},
    "solution": "DIARRHOEA",
    "annotation": null
@@ -403,6 +431,10 @@ window.CRYPTIC_PUZZLES["cyclops-476"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 7ac.) Crew girl tainted with bank's gutter activity ending with bang? (4)",
+   "group": [
+    "25-down",
+    "7-across"
+   ],
    "separatorLocations": {},
    "solution": "KERB",
    "annotation": null

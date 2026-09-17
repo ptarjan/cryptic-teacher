@@ -25,6 +25,11 @@ window.CRYPTIC_PUZZLES["cyclops-819"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "& 4, 21 Alarming Epstein files involved arrangements of adults with children (6)",
+   "group": [
+    "1-across",
+    "4-across",
+    "21-across"
+   ],
    "separatorLocations": {},
    "solution": "SINGLE",
    "annotation": null
@@ -81,6 +86,11 @@ window.CRYPTIC_PUZZLES["cyclops-819"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 1ac.",
+   "group": [
+    "1-across",
+    "4-across",
+    "21-across"
+   ],
    "separatorLocations": {},
    "solution": "PARENT",
    "annotation": null
@@ -333,6 +343,11 @@ window.CRYPTIC_PUZZLES["cyclops-819"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "see 1 ac (8)",
+   "group": [
+    "1-across",
+    "4-across",
+    "21-across"
+   ],
    "separatorLocations": {},
    "solution": "FAMILIES",
    "annotation": null

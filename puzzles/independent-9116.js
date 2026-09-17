@@ -7,8 +7,8 @@ window.CRYPTIC_PUZZLES["independent-9116"] = /*JSON-START*/ {
  "number": 9116,
  "series": "independent",
  "name": "Independent cryptic crossword No 9,116",
- "setter": "Nestor",
- "date": 1452297600000,
+ "setter": "Hieroglyph",
+ "date": 1451692800000,
  "dimensions": {
   "cols": 15,
   "rows": 15
@@ -20,18 +20,13 @@ window.CRYPTIC_PUZZLES["independent-9116"] = /*JSON-START*/ {
    "number": 1,
    "direction": "down",
    "position": {
-    "x": 0,
+    "x": 1,
     "y": 0
    },
-   "length": 14,
-   "clue": "Participate in a hold-up for a health proposal? (5,4,5)",
-   "separatorLocations": {
-    ",": [
-     5,
-     9
-    ]
-   },
-   "solution": "RAISEONESGLASS",
+   "length": 6,
+   "clue": "Ferret finally seen around yard's very small (6)",
+   "separatorLocations": {},
+   "solution": "TEENSY",
    "annotation": null
   },
   {
@@ -39,13 +34,13 @@ window.CRYPTIC_PUZZLES["independent-9116"] = /*JSON-START*/ {
    "number": 2,
    "direction": "down",
    "position": {
-    "x": 2,
+    "x": 3,
     "y": 0
    },
-   "length": 6,
-   "clue": "Give an office to ruthless leader switching unequal parts (6)",
+   "length": 4,
+   "clue": "Relaxed and unemotional company round lake (4)",
    "separatorLocations": {},
-   "solution": "INSTAL",
+   "solution": "COOL",
    "annotation": null
   },
   {
@@ -53,13 +48,13 @@ window.CRYPTIC_PUZZLES["independent-9116"] = /*JSON-START*/ {
    "number": 3,
    "direction": "down",
    "position": {
-    "x": 4,
+    "x": 5,
     "y": 0
    },
    "length": 8,
-   "clue": "European, gutted over Greek state, who produces incisive letters (8)",
+   "clue": "Ohio Republican supporting terrible court manager (8)",
    "separatorLocations": {},
-   "solution": "ENGRAVER",
+   "solution": "DIRECTOR",
    "annotation": null
   },
   {
@@ -67,13 +62,13 @@ window.CRYPTIC_PUZZLES["independent-9116"] = /*JSON-START*/ {
    "number": 4,
    "direction": "down",
    "position": {
-    "x": 6,
+    "x": 7,
     "y": 0
    },
-   "length": 4,
-   "clue": "The reverse of fine and cool? (4)",
+   "length": 7,
+   "clue": "Metal band turned up 100 university tracks (7)",
    "separatorLocations": {},
-   "solution": "NAFF",
+   "solution": "MERCURY",
    "annotation": null
   },
   {
@@ -81,13 +76,13 @@ window.CRYPTIC_PUZZLES["independent-9116"] = /*JSON-START*/ {
    "number": 5,
    "direction": "down",
    "position": {
-    "x": 10,
+    "x": 9,
     "y": 0
    },
    "length": 6,
-   "clue": "Saigon cultivated Southern Hemisphere trees (6)",
+   "clue": "Haphazard jolly involving a nationalist party (6)",
    "separatorLocations": {},
-   "solution": "NGAIOS",
+   "solution": "RANDOM",
    "annotation": null
   },
   {
@@ -95,27 +90,27 @@ window.CRYPTIC_PUZZLES["independent-9116"] = /*JSON-START*/ {
    "number": 6,
    "direction": "down",
    "position": {
-    "x": 12,
+    "x": 11,
     "y": 0
    },
-   "length": 8,
-   "clue": "Moral expert's ancient letter on one sacred Greek box (8)",
+   "length": 10,
+   "clue": "Individual in Congress perhaps, having accepted the last of the rewards (10)",
    "separatorLocations": {},
-   "solution": "ETHICIST",
+   "solution": "RECOGNISES",
    "annotation": null
   },
   {
-   "id": "7-across",
+   "id": "7-down",
    "number": 7,
-   "direction": "across",
+   "direction": "down",
    "position": {
-    "x": 0,
-    "y": 1
+    "x": 13,
+    "y": 0
    },
-   "length": 3,
-   "clue": "Clip the front of light brown beard (3)",
+   "length": 8,
+   "clue": "Exponent of tantric sex embracing naughty nun's very attractive (8)",
    "separatorLocations": {},
-   "solution": "AWN",
+   "solution": "STUNNING",
    "annotation": null
   },
   {
@@ -123,49 +118,41 @@ window.CRYPTIC_PUZZLES["independent-9116"] = /*JSON-START*/ {
    "number": 8,
    "direction": "across",
    "position": {
-    "x": 4,
+    "x": 0,
     "y": 1
    },
-   "length": 11,
-   "clue": "Audio receivers brought in close, once spread without thinking ahead (4-7)",
-   "separatorLocations": {
-    "-": [
-     4
-    ]
-   },
-   "solution": "NEARSIGHTED",
-   "annotation": null
-  },
-  {
-   "id": "9-down",
-   "number": 9,
-   "direction": "down",
-   "position": {
-    "x": 8,
-    "y": 1
-   },
-   "length": 9,
-   "clue": "Worrying results adapted to cover science fiction (9)",
+   "length": 8,
+   "clue": "Hieroglyph is more disposed to learn by heart (8)",
    "separatorLocations": {},
-   "solution": "STRESSFUL",
+   "solution": "MEMORISE",
    "annotation": null
   },
   {
-   "id": "10-down",
-   "number": 10,
-   "direction": "down",
+   "id": "9-across",
+   "number": 9,
+   "direction": "across",
    "position": {
-    "x": 14,
+    "x": 9,
     "y": 1
    },
-   "length": 14,
-   "clue": "Hands-free devices jerk constantly, leaving last two in dumps (7,7)",
-   "separatorLocations": {
-    ",": [
-     7
-    ]
+   "length": 5,
+   "clue": "Awake right after booze? (5)",
+   "separatorLocations": {},
+   "solution": "ALERT",
+   "annotation": null
+  },
+  {
+   "id": "10-across",
+   "number": 10,
+   "direction": "across",
+   "position": {
+    "x": 0,
+    "y": 3
    },
-   "solution": "DIGITALWATCHES",
+   "length": 10,
+   "clue": "Produced an effect in smoker, originally needing to give up endlessly (10)",
+   "separatorLocations": {},
+   "solution": "INFLUENCED",
    "annotation": null
   },
   {
@@ -173,13 +160,13 @@ window.CRYPTIC_PUZZLES["independent-9116"] = /*JSON-START*/ {
    "number": 11,
    "direction": "across",
    "position": {
-    "x": 0,
+    "x": 11,
     "y": 3
    },
-   "length": 5,
-   "clue": "Oversexed chap has lead, then every third in stray cycling (5)",
+   "length": 4,
+   "clue": "Possesses old wines, regularly binned (4)",
    "separatorLocations": {},
-   "solution": "SATYR",
+   "solution": "OWNS",
    "annotation": null
   },
   {
@@ -187,41 +174,41 @@ window.CRYPTIC_PUZZLES["independent-9116"] = /*JSON-START*/ {
    "number": 12,
    "direction": "across",
    "position": {
-    "x": 6,
-    "y": 3
-   },
-   "length": 9,
-   "clue": "Ready to excuse six involved in fakery (9)",
-   "separatorLocations": {},
-   "solution": "FORGIVING",
-   "annotation": null
-  },
-  {
-   "id": "13-across",
-   "number": 13,
-   "direction": "across",
-   "position": {
     "x": 0,
     "y": 5
    },
-   "length": 9,
-   "clue": "Endless Green promises to pay, keeping British in the dark (9)",
+   "length": 6,
+   "clue": "Youth leader in township is tense key worker (6)",
    "separatorLocations": {},
-   "solution": "OBLIVIOUS",
+   "solution": "TYPIST",
    "annotation": null
   },
   {
-   "id": "14-down",
-   "number": 14,
+   "id": "13-down",
+   "number": 13,
    "direction": "down",
    "position": {
-    "x": 6,
+    "x": 3,
     "y": 5
    },
-   "length": 9,
-   "clue": "Westerner's irrational to replace study that's opposed to 18 (9)",
+   "length": 10,
+   "clue": "Regarded oneself in sympathy with papers covering definite upset (10)",
    "separatorLocations": {},
-   "solution": "OCCIPITAL",
+   "solution": "IDENTIFIED",
+   "annotation": null
+  },
+  {
+   "id": "14-across",
+   "number": 14,
+   "direction": "across",
+   "position": {
+    "x": 7,
+    "y": 5
+   },
+   "length": 8,
+   "clue": "Coleridge, for instance, returned citation by Italian capitalist (8)",
+   "separatorLocations": {},
+   "solution": "ROMANTIC",
    "annotation": null
   },
   {
@@ -229,55 +216,55 @@ window.CRYPTIC_PUZZLES["independent-9116"] = /*JSON-START*/ {
    "number": 15,
    "direction": "across",
    "position": {
-    "x": 10,
-    "y": 5
-   },
-   "length": 5,
-   "clue": "Hide opening from the poor (5)",
-   "separatorLocations": {},
-   "solution": "SKINT",
-   "annotation": null
-  },
-  {
-   "id": "16-across",
-   "number": 16,
-   "direction": "across",
-   "position": {
     "x": 0,
     "y": 7
    },
    "length": 7,
-   "clue": "Perhaps gutsy type in command (7)",
+   "clue": "Heads of Associated Press published edited almanac - revealing scandal comes to light (7)",
    "separatorLocations": {},
-   "solution": "ENTERIC",
+   "solution": "APPEARS",
    "annotation": null
   },
   {
-   "id": "17-down",
-   "number": 17,
+   "id": "16-down",
+   "number": 16,
    "direction": "down",
    "position": {
-    "x": 2,
+    "x": 1,
     "y": 7
    },
    "length": 8,
-   "clue": "Writer's impulse to stop mounting release of emotions (8)",
+   "clue": "Outrageous tenders subsequent to pastor's acts (8)",
    "separatorLocations": {},
-   "solution": "TURGENEV",
+   "solution": "PRETENDS",
    "annotation": null
   },
   {
-   "id": "18-across",
-   "number": 18,
+   "id": "17-across",
+   "number": 17,
    "direction": "across",
    "position": {
     "x": 8,
     "y": 7
    },
    "length": 7,
-   "clue": "Forward on raft, twisting left (7)",
+   "clue": "Rub old lady's plant (7)",
    "separatorLocations": {},
-   "solution": "FRONTAL",
+   "solution": "MASSAGE",
+   "annotation": null
+  },
+  {
+   "id": "18-down",
+   "number": 18,
+   "direction": "down",
+   "position": {
+    "x": 9,
+    "y": 7
+   },
+   "length": 8,
+   "clue": "Gripped by suburban chore, daughter's fixed in the main? (8)",
+   "separatorLocations": {},
+   "solution": "ANCHORED",
    "annotation": null
   },
   {
@@ -285,17 +272,13 @@ window.CRYPTIC_PUZZLES["independent-9116"] = /*JSON-START*/ {
    "number": 19,
    "direction": "down",
    "position": {
-    "x": 10,
-    "y": 7
+    "x": 7,
+    "y": 8
    },
-   "length": 8,
-   "clue": "E.g. Iceland's brand new stuffing bird, the first to be killed? (3,5)",
-   "separatorLocations": {
-    ",": [
-     3
-    ]
-   },
-   "solution": "OWNLABEL",
+   "length": 7,
+   "clue": "Lecture addendum concerning saints (7)",
+   "separatorLocations": {},
+   "solution": "ADDRESS",
    "annotation": null
   },
   {
@@ -306,10 +289,10 @@ window.CRYPTIC_PUZZLES["independent-9116"] = /*JSON-START*/ {
     "x": 0,
     "y": 9
    },
-   "length": 5,
-   "clue": "Trigonometry about primarily hypotenuse and circumference (5)",
+   "length": 8,
+   "clue": "Improved support around river after punt departs (8)",
    "separatorLocations": {},
-   "solution": "GIRTH",
+   "solution": "BETTERED",
    "annotation": null
   },
   {
@@ -317,13 +300,13 @@ window.CRYPTIC_PUZZLES["independent-9116"] = /*JSON-START*/ {
    "number": 21,
    "direction": "down",
    "position": {
-    "x": 4,
+    "x": 5,
     "y": 9
    },
    "length": 6,
-   "clue": "The boy had time to become a climber (6)",
+   "clue": "Yachtsmanship, latterly during excursion over the mouth of some fast-flowing fresh water (6)",
    "separatorLocations": {},
-   "solution": "HEDERA",
+   "solution": "RAPIDS",
    "annotation": null
   },
   {
@@ -331,19 +314,13 @@ window.CRYPTIC_PUZZLES["independent-9116"] = /*JSON-START*/ {
    "number": 22,
    "direction": "across",
    "position": {
-    "x": 6,
+    "x": 9,
     "y": 9
    },
-   "length": 9,
-   "clue": "Rewritten play is one part embracing South Pacific (9)",
-   "clueItalics": [
-    [
-     37,
-     13
-    ]
-   ],
+   "length": 6,
+   "clue": "Stronghold discarded by the French (6)",
    "separatorLocations": {},
-   "solution": "POLYNESIA",
+   "solution": "CASTLE",
    "annotation": null
   },
   {
@@ -351,13 +328,13 @@ window.CRYPTIC_PUZZLES["independent-9116"] = /*JSON-START*/ {
    "number": 23,
    "direction": "down",
    "position": {
-    "x": 12,
+    "x": 13,
     "y": 9
    },
    "length": 6,
-   "clue": "No English in canal site hospital or in French place on Grand Canal (6)",
+   "clue": "Pantry left empty after editor rejected recipe (6)",
    "separatorLocations": {},
-   "solution": "SUZHOU",
+   "solution": "LARDER",
    "annotation": null
   },
   {
@@ -368,38 +345,38 @@ window.CRYPTIC_PUZZLES["independent-9116"] = /*JSON-START*/ {
     "x": 0,
     "y": 11
    },
-   "length": 9,
-   "clue": "Obsessive about City stud from unreliable stories? (9)",
+   "length": 4,
+   "clue": "The tooth of a pinion's held by capable Afghani (4)",
    "separatorLocations": {},
-   "solution": "ANECDOTAL",
+   "solution": "LEAF",
    "annotation": null
   },
   {
-   "id": "25-down",
+   "id": "25-across",
    "number": 25,
+   "direction": "across",
+   "position": {
+    "x": 5,
+    "y": 11
+   },
+   "length": 10,
+   "clue": "Maybe cast by old soprano (10)",
+   "separatorLocations": {},
+   "solution": "PERFORMERS",
+   "annotation": null
+  },
+  {
+   "id": "26-down",
+   "number": 26,
    "direction": "down",
    "position": {
-    "x": 8,
+    "x": 11,
     "y": 11
    },
    "length": 4,
-   "clue": "Parking facilities must go on ring road, say (4)",
+   "clue": "Help following Mark's servant (4)",
    "separatorLocations": {},
-   "solution": "LOOP",
-   "annotation": null
-  },
-  {
-   "id": "26-across",
-   "number": 26,
-   "direction": "across",
-   "position": {
-    "x": 10,
-    "y": 11
-   },
-   "length": 5,
-   "clue": "Unknown amount in a container tipped over digger (5)",
-   "separatorLocations": {},
-   "solution": "ANZAC",
+   "solution": "MAID",
    "annotation": null
   },
   {
@@ -407,17 +384,13 @@ window.CRYPTIC_PUZZLES["independent-9116"] = /*JSON-START*/ {
    "number": 27,
    "direction": "across",
    "position": {
-    "x": 0,
+    "x": 1,
     "y": 13
    },
-   "length": 11,
-   "clue": "Metric units are wrong? Maybe pint unit serves country (6,5)",
-   "separatorLocations": {
-    ",": [
-     6
-    ]
-   },
-   "solution": "SIERRALEONE",
+   "length": 5,
+   "clue": "Awe inspired in the end regarding poster (5)",
+   "separatorLocations": {},
+   "solution": "DREAD",
    "annotation": null
   },
   {
@@ -425,13 +398,13 @@ window.CRYPTIC_PUZZLES["independent-9116"] = /*JSON-START*/ {
    "number": 28,
    "direction": "across",
    "position": {
-    "x": 12,
+    "x": 7,
     "y": 13
    },
-   "length": 3,
-   "clue": "Be beholden to some ne'er-do-wells (3)",
+   "length": 8,
+   "clue": "Sample overturned mushrooms by abandoned mine (8)",
    "separatorLocations": {},
-   "solution": "OWE",
+   "solution": "SPECIMEN",
    "annotation": null
   }
  ]

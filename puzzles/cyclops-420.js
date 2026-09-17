@@ -25,6 +25,10 @@ window.CRYPTIC_PUZZLES["cyclops-420"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 26ac. (6)",
+   "group": [
+    "26-across",
+    "1-down"
+   ],
    "separatorLocations": {},
    "solution": "BUTTON",
    "annotation": null
@@ -81,6 +85,10 @@ window.CRYPTIC_PUZZLES["cyclops-420"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "see 19ac. (10)",
+   "group": [
+    "19-across",
+    "5-down"
+   ],
    "separatorLocations": {},
    "solution": "GOVERNMENT",
    "annotation": null
@@ -305,6 +313,10 @@ window.CRYPTIC_PUZZLES["cyclops-420"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "(& 5dn.) Mixed party rule: Fuel sex with molecular charge control (9)",
+   "group": [
+    "19-across",
+    "5-down"
+   ],
    "separatorLocations": {},
    "solution": "COALITION",
    "annotation": null
@@ -417,6 +429,10 @@ window.CRYPTIC_PUZZLES["cyclops-420"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 1dn.) Put the wind up racing driver, depressed when things get really bad? (5)",
+   "group": [
+    "26-across",
+    "1-down"
+   ],
    "separatorLocations": {},
    "solution": "PANIC",
    "annotation": null

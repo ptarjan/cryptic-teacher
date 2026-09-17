@@ -81,6 +81,12 @@ window.CRYPTIC_PUZZLES["cyclops-497"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "(&15/17/27) Being not so much a neglectful parent and spouse, as one who's politically fired? (8)",
+   "group": [
+    "4-across",
+    "15-across",
+    "17-across",
+    "27-across"
+   ],
    "separatorLocations": {},
    "solution": "SPENDING",
    "annotation": null
@@ -179,6 +185,10 @@ window.CRYPTIC_PUZZLES["cyclops-497"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 23dn.) Pious PM wants award and fanfare sound (4)",
+   "group": [
+    "10-across",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "TONY",
    "annotation": null
@@ -207,6 +217,10 @@ window.CRYPTIC_PUZZLES["cyclops-497"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 26ac. (4)",
+   "group": [
+    "26-across",
+    "12-across"
+   ],
    "separatorLocations": {},
    "solution": "CASE",
    "annotation": null
@@ -249,6 +263,12 @@ window.CRYPTIC_PUZZLES["cyclops-497"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "see 4ac. (4,4)",
+   "group": [
+    "4-across",
+    "15-across",
+    "17-across",
+    "27-across"
+   ],
    "separatorLocations": {},
    "solution": "MORETIME",
    "annotation": null
@@ -277,6 +297,12 @@ window.CRYPTIC_PUZZLES["cyclops-497"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "see 4ac. (4,4)",
+   "group": [
+    "4-across",
+    "15-across",
+    "17-across",
+    "27-across"
+   ],
    "separatorLocations": {},
    "solution": "WITHONES",
    "annotation": null
@@ -361,6 +387,10 @@ window.CRYPTIC_PUZZLES["cyclops-497"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 10ac. (5)",
+   "group": [
+    "10-across",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "BLAIR",
    "annotation": null
@@ -403,6 +433,10 @@ window.CRYPTIC_PUZZLES["cyclops-497"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 12ac.) Tough having erection with sheath? (4)",
+   "group": [
+    "26-across",
+    "12-across"
+   ],
    "separatorLocations": {},
    "solution": "HARD",
    "annotation": null
@@ -417,6 +451,12 @@ window.CRYPTIC_PUZZLES["cyclops-497"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 4ac. (6)",
+   "group": [
+    "4-across",
+    "15-across",
+    "17-across",
+    "27-across"
+   ],
    "separatorLocations": {},
    "solution": "FAMILY",
    "annotation": null

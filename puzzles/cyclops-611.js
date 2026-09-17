@@ -95,6 +95,10 @@ window.CRYPTIC_PUZZLES["cyclops-611"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "(& 23dn.) Potty item placed under orifice for start of booze session? (7)",
+   "group": [
+    "6-down",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "OPENING",
    "annotation": null
@@ -165,6 +169,12 @@ window.CRYPTIC_PUZZLES["cyclops-611"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 24ac. (4)",
+   "group": [
+    "24-across",
+    "25-across",
+    "11-across",
+    "12-across"
+   ],
    "separatorLocations": {},
    "solution": "ENDS",
    "annotation": null
@@ -179,6 +189,12 @@ window.CRYPTIC_PUZZLES["cyclops-611"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 24ac. (4)",
+   "group": [
+    "24-across",
+    "25-across",
+    "11-across",
+    "12-across"
+   ],
    "separatorLocations": {},
    "solution": "MEET",
    "annotation": null
@@ -347,6 +363,10 @@ window.CRYPTIC_PUZZLES["cyclops-611"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 6dn. (4)",
+   "group": [
+    "6-down",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "TIME",
    "annotation": null
@@ -361,6 +381,12 @@ window.CRYPTIC_PUZZLES["cyclops-611"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 25/11/12) Avoid getting into debt when effecting a get-together of a couple of arses? (4)",
+   "group": [
+    "24-across",
+    "25-across",
+    "11-across",
+    "12-across"
+   ],
    "separatorLocations": {},
    "solution": "MAKE",
    "annotation": null
@@ -389,6 +415,12 @@ window.CRYPTIC_PUZZLES["cyclops-611"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 24ac. (4)",
+   "group": [
+    "24-across",
+    "25-across",
+    "11-across",
+    "12-across"
+   ],
    "separatorLocations": {},
    "solution": "BOTH",
    "annotation": null

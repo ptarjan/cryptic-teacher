@@ -25,6 +25,10 @@ window.CRYPTIC_PUZZLES["cyclops-463"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 4dn. (4)",
+   "group": [
+    "4-down",
+    "1-down"
+   ],
    "separatorLocations": {},
    "solution": "PAID",
    "annotation": null
@@ -39,6 +43,11 @@ window.CRYPTIC_PUZZLES["cyclops-463"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 26dn. (4)",
+   "group": [
+    "26-down",
+    "28-down",
+    "2-down"
+   ],
    "separatorLocations": {},
    "solution": "PLAN",
    "annotation": null
@@ -67,6 +76,10 @@ window.CRYPTIC_PUZZLES["cyclops-463"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 1dn.) Private Eye will stuff outside independent fat cat's modest description? (4)",
+   "group": [
+    "4-down",
+    "1-down"
+   ],
    "separatorLocations": {},
    "solution": "WELL",
    "annotation": null
@@ -95,6 +108,10 @@ window.CRYPTIC_PUZZLES["cyclops-463"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "see 21dn. (10)",
+   "group": [
+    "21-down",
+    "6-down"
+   ],
    "separatorLocations": {},
    "solution": "CHANCELLOR",
    "annotation": null
@@ -109,6 +126,10 @@ window.CRYPTIC_PUZZLES["cyclops-463"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 18ac.) Sponsor France's main intervention in leak about Sarkozy's unlikely partner? (6)",
+   "group": [
+    "7-across",
+    "18-across"
+   ],
    "separatorLocations": {},
    "solution": "ANGELA",
    "annotation": null
@@ -165,6 +186,10 @@ window.CRYPTIC_PUZZLES["cyclops-463"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 14dn. (4)",
+   "group": [
+    "14-down",
+    "11-down"
+   ],
    "separatorLocations": {},
    "solution": "ARSE",
    "annotation": null
@@ -221,6 +246,10 @@ window.CRYPTIC_PUZZLES["cyclops-463"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 11dn.) Scrooge pissed with Bottom (5)",
+   "group": [
+    "14-down",
+    "11-down"
+   ],
    "separatorLocations": {},
    "solution": "TIGHT",
    "annotation": null
@@ -277,6 +306,10 @@ window.CRYPTIC_PUZZLES["cyclops-463"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 7ac. (6)",
+   "group": [
+    "7-across",
+    "18-across"
+   ],
    "separatorLocations": {},
    "solution": "MERKEL",
    "annotation": null
@@ -319,6 +352,10 @@ window.CRYPTIC_PUZZLES["cyclops-463"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 6dn.) \"Heavy metal\" Osborne's butch description of 7/18? (4)",
+   "group": [
+    "21-down",
+    "6-down"
+   ],
    "separatorLocations": {},
    "solution": "IRON",
    "annotation": null
@@ -389,6 +426,11 @@ window.CRYPTIC_PUZZLES["cyclops-463"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 28/2) In a flap with every pisspoor grandiose political scheme (4)",
+   "group": [
+    "26-down",
+    "28-down",
+    "2-down"
+   ],
    "separatorLocations": {},
    "solution": "FIVE",
    "annotation": null
@@ -417,6 +459,11 @@ window.CRYPTIC_PUZZLES["cyclops-463"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 26dn. (4)",
+   "group": [
+    "26-down",
+    "28-down",
+    "2-down"
+   ],
    "separatorLocations": {},
    "solution": "YEAR",
    "annotation": null

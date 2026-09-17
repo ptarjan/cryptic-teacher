@@ -137,6 +137,10 @@ window.CRYPTIC_PUZZLES["cyclops-796"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 25dn.",
+   "group": [
+    "25-down",
+    "9-down"
+   ],
    "separatorLocations": {},
    "solution": "FREE",
    "annotation": null
@@ -179,6 +183,10 @@ window.CRYPTIC_PUZZLES["cyclops-796"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "(& 15dn.) Advice to the untalented ambitious: keep slogging away 9 to 5? (4,4,2)",
+   "group": [
+    "12-across",
+    "15-down"
+   ],
    "separatorLocations": {},
    "solution": "DONTGIVEUP",
    "annotation": null
@@ -221,6 +229,10 @@ window.CRYPTIC_PUZZLES["cyclops-796"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "see 12ac. (3,3,3)",
+   "group": [
+    "12-across",
+    "15-down"
+   ],
    "separatorLocations": {},
    "solution": "THEDAYJOB",
    "annotation": null
@@ -361,6 +373,10 @@ window.CRYPTIC_PUZZLES["cyclops-796"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 9dn.) Have experience on the house? Be my guest (4)",
+   "group": [
+    "25-down",
+    "9-down"
+   ],
    "separatorLocations": {},
    "solution": "FEEL",
    "annotation": null

@@ -179,6 +179,10 @@ window.CRYPTIC_PUZZLES["cyclops-753"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "(& 14ac.) River Test court case much in evidence in the public sector now (10)",
+   "group": [
+    "11-across",
+    "14-across"
+   ],
    "separatorLocations": {},
    "solution": "INDUSTRIAL",
    "annotation": null
@@ -235,6 +239,10 @@ window.CRYPTIC_PUZZLES["cyclops-753"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 11ac. (6)",
+   "group": [
+    "11-across",
+    "14-across"
+   ],
    "separatorLocations": {},
    "solution": "ACTION",
    "annotation": null

@@ -81,6 +81,10 @@ window.CRYPTIC_PUZZLES["cyclops-783"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 23dn.",
+   "group": [
+    "23-down",
+    "5-down"
+   ],
    "separatorLocations": {},
    "solution": "ROOM",
    "annotation": null
@@ -151,6 +155,10 @@ window.CRYPTIC_PUZZLES["cyclops-783"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "(& 11ac.) Attempt by his minister to win money from Rishi's doomed venture? (8)",
+   "group": [
+    "10-across",
+    "11-across"
+   ],
    "separatorLocations": {},
    "solution": "ELECTION",
    "annotation": null
@@ -165,6 +173,10 @@ window.CRYPTIC_PUZZLES["cyclops-783"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 10ac.",
+   "group": [
+    "10-across",
+    "11-across"
+   ],
    "separatorLocations": {},
    "solution": "GAMBLE",
    "annotation": null
@@ -235,6 +247,10 @@ window.CRYPTIC_PUZZLES["cyclops-783"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 17ac.) One of 12 celebs swilling gin (4)",
+   "group": [
+    "15-across",
+    "17-across"
+   ],
    "separatorLocations": {},
    "solution": "STAR",
    "annotation": null
@@ -277,6 +293,10 @@ window.CRYPTIC_PUZZLES["cyclops-783"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 15ac.",
+   "group": [
+    "15-across",
+    "17-across"
+   ],
    "separatorLocations": {},
    "solution": "SIGN",
    "annotation": null
@@ -375,6 +395,10 @@ window.CRYPTIC_PUZZLES["cyclops-783"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 5dn.) \"Move over!\" US parent going round Korea rudely (4)",
+   "group": [
+    "23-down",
+    "5-down"
+   ],
    "separatorLocations": {},
    "solution": "MAKE",
    "annotation": null

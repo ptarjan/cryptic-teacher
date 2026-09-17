@@ -53,6 +53,10 @@ window.CRYPTIC_PUZZLES["cyclops-472"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "(& 30ac.) Lookalike princess no longer with prince, has depression  result of coalition's pisspoor policy? (6,3)",
+   "group": [
+    "3-down",
+    "30-across"
+   ],
    "separatorLocations": {},
    "solution": "DOUBLEDIP",
    "annotation": null
@@ -81,6 +85,10 @@ window.CRYPTIC_PUZZLES["cyclops-472"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 22ac. (5)",
+   "group": [
+    "22-across",
+    "5-down"
+   ],
    "separatorLocations": {},
    "solution": "STAND",
    "annotation": null
@@ -319,6 +327,10 @@ window.CRYPTIC_PUZZLES["cyclops-472"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 5dn.) Chef's prime stock soup, plus erection (4)",
+   "group": [
+    "22-across",
+    "5-down"
+   ],
    "separatorLocations": {},
    "solution": "COCK",
    "annotation": null
@@ -431,6 +443,10 @@ window.CRYPTIC_PUZZLES["cyclops-472"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "see 3dn. (9)",
+   "group": [
+    "3-down",
+    "30-across"
+   ],
    "separatorLocations": {},
    "solution": "RECESSION",
    "annotation": null

@@ -81,6 +81,10 @@ window.CRYPTIC_PUZZLES["cyclops-674"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 22ac. (4)",
+   "group": [
+    "5-down",
+    "26-across"
+   ],
    "separatorLocations": {},
    "solution": "MARK",
    "annotation": null
@@ -333,6 +337,10 @@ window.CRYPTIC_PUZZLES["cyclops-674"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "(& 5dn.) One's captivated by strange Ottoman quirk  speech written after it? (9)",
+   "group": [
+    "22-across",
+    "5-down"
+   ],
    "separatorLocations": {},
    "solution": "QUOTATION",
    "annotation": null
@@ -389,6 +397,10 @@ window.CRYPTIC_PUZZLES["cyclops-674"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 26ac.) Keen PM 'ice-breaking' for a Trump sidekick (4)",
+   "group": [
+    "25-down",
+    "26-across"
+   ],
    "separatorLocations": {},
    "solution": "MIKE",
    "annotation": null
@@ -403,6 +415,10 @@ window.CRYPTIC_PUZZLES["cyclops-674"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 5dn. (5)",
+   "group": [
+    "25-down",
+    "26-across"
+   ],
    "separatorLocations": {},
    "solution": "PENCE",
    "annotation": null

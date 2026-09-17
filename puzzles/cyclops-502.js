@@ -123,6 +123,10 @@ window.CRYPTIC_PUZZLES["cyclops-502"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 9dn. (7)",
+   "group": [
+    "9-down",
+    "7-down"
+   ],
    "separatorLocations": {},
    "solution": "OBVIOUS",
    "annotation": null
@@ -151,6 +155,10 @@ window.CRYPTIC_PUZZLES["cyclops-502"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "(& 7dn.) e.g. \"Bloody platitudes reveal sod all that's new\" (3,8)",
+   "group": [
+    "9-down",
+    "7-down"
+   ],
    "separatorLocations": {},
    "solution": "THEBLEEDING",
    "annotation": null
@@ -165,6 +173,10 @@ window.CRYPTIC_PUZZLES["cyclops-502"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 24ac.) Advance at an end: thus Brian's demand of Brenda? (4)",
+   "group": [
+    "10-across",
+    "24-across"
+   ],
    "separatorLocations": {},
    "solution": "MOVE",
    "annotation": null
@@ -375,6 +387,10 @@ window.CRYPTIC_PUZZLES["cyclops-502"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 10ac. (4)",
+   "group": [
+    "10-across",
+    "24-across"
+   ],
    "separatorLocations": {},
    "solution": "OVER",
    "annotation": null

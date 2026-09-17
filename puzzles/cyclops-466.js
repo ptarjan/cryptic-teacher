@@ -67,6 +67,10 @@ window.CRYPTIC_PUZZLES["cyclops-466"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 17dn.) Rupert's tabloid replacement making thousands (funny!) \"accepting end of sleaze\"  F-off! (3,3)",
+   "group": [
+    "3-down",
+    "17-down"
+   ],
    "separatorLocations": {},
    "solution": "THESUN",
    "annotation": null
@@ -277,6 +281,10 @@ window.CRYPTIC_PUZZLES["cyclops-466"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "see 3dn. (2,6)",
+   "group": [
+    "3-down",
+    "17-down"
+   ],
    "separatorLocations": {},
    "solution": "ONSUNDAY",
    "annotation": null

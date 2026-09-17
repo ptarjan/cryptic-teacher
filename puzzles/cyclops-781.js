@@ -81,6 +81,10 @@ window.CRYPTIC_PUZZLES["cyclops-781"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "see 20ac.",
+   "group": [
+    "20-across",
+    "5-down"
+   ],
    "separatorLocations": {},
    "solution": "CAMPAIGN",
    "annotation": null
@@ -305,6 +309,10 @@ window.CRYPTIC_PUZZLES["cyclops-781"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "(& 5dn.) Party's attempt to get elected  large sum invested in dodgy application claim (9)",
+   "group": [
+    "20-across",
+    "5-down"
+   ],
    "separatorLocations": {},
    "solution": "POLITICAL",
    "annotation": null

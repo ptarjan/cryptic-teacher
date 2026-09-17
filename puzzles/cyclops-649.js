@@ -109,6 +109,10 @@ window.CRYPTIC_PUZZLES["cyclops-649"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 21dn. (5)",
+   "group": [
+    "21-down",
+    "6-down"
+   ],
    "separatorLocations": {},
    "solution": "DEATH",
    "annotation": null
@@ -165,6 +169,10 @@ window.CRYPTIC_PUZZLES["cyclops-649"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 15dn.) One's who obsessed  with not passing motions? (4)",
+   "group": [
+    "10-across",
+    "15-down"
+   ],
    "separatorLocations": {},
    "solution": "ANAL",
    "annotation": null
@@ -179,6 +187,10 @@ window.CRYPTIC_PUZZLES["cyclops-649"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 22ac.) Press finished? Make the troubles go away! (6)",
+   "group": [
+    "11-across",
+    "22-across"
+   ],
    "separatorLocations": {},
    "solution": "SMOOTH",
    "annotation": null
@@ -235,6 +247,10 @@ window.CRYPTIC_PUZZLES["cyclops-649"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "see 10ac. (9)",
+   "group": [
+    "10-across",
+    "15-down"
+   ],
    "separatorLocations": {},
    "solution": "RETENTIVE",
    "annotation": null
@@ -333,6 +349,10 @@ window.CRYPTIC_PUZZLES["cyclops-649"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 6dn.) Wasted, stupid pot head  tut! (3,2)",
+   "group": [
+    "21-down",
+    "6-down"
+   ],
    "separatorLocations": {},
    "solution": "PUTTO",
    "annotation": null
@@ -347,6 +367,10 @@ window.CRYPTIC_PUZZLES["cyclops-649"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 11ac. (4)",
+   "group": [
+    "11-across",
+    "22-across"
+   ],
    "separatorLocations": {},
    "solution": "OVER",
    "annotation": null

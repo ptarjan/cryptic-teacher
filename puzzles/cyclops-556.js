@@ -81,6 +81,10 @@ window.CRYPTIC_PUZZLES["cyclops-556"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 6dn.) Lest, um, juggling with tits is a critical indication (6)",
+   "group": [
+    "5-down",
+    "6-down"
+   ],
    "separatorLocations": {},
    "solution": "LITMUS",
    "annotation": null
@@ -95,6 +99,10 @@ window.CRYPTIC_PUZZLES["cyclops-556"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 5dn. (4)",
+   "group": [
+    "5-down",
+    "6-down"
+   ],
    "separatorLocations": {},
    "solution": "TEST",
    "annotation": null
@@ -123,6 +131,10 @@ window.CRYPTIC_PUZZLES["cyclops-556"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 21dn. (6)",
+   "group": [
+    "21-down",
+    "8-across"
+   ],
    "separatorLocations": {},
    "solution": "CRISIS",
    "annotation": null
@@ -151,6 +163,11 @@ window.CRYPTIC_PUZZLES["cyclops-556"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 19dn. (4)",
+   "group": [
+    "19-down",
+    "10-down",
+    "24-down"
+   ],
    "separatorLocations": {},
    "solution": "YOUR",
    "annotation": null
@@ -235,6 +252,10 @@ window.CRYPTIC_PUZZLES["cyclops-556"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "see 19ac. (13)",
+   "group": [
+    "19-across",
+    "16-across"
+   ],
    "separatorLocations": {},
    "solution": "OFINFORMATION",
    "annotation": null
@@ -277,6 +298,10 @@ window.CRYPTIC_PUZZLES["cyclops-556"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "(& 16ac.) Release on rejected Foreign Office lined up to be diluted by Cameron & co.? (7)",
+   "group": [
+    "19-across",
+    "16-across"
+   ],
    "separatorLocations": {},
    "solution": "FREEDOM",
    "annotation": null
@@ -291,6 +316,11 @@ window.CRYPTIC_PUZZLES["cyclops-556"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 10/24) Instinctively go off Labour's right wing (so few?), loony left having infiltrated (6)",
+   "group": [
+    "19-down",
+    "10-down",
+    "24-down"
+   ],
    "separatorLocations": {},
    "solution": "FOLLOW",
    "annotation": null
@@ -333,6 +363,10 @@ window.CRYPTIC_PUZZLES["cyclops-556"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 8ac.) God-backed catastrophe which led to downfall of Tory leader (4)",
+   "group": [
+    "21-down",
+    "8-across"
+   ],
    "separatorLocations": {},
    "solution": "SUEZ",
    "annotation": null
@@ -375,6 +409,11 @@ window.CRYPTIC_PUZZLES["cyclops-556"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 19dn. (4)",
+   "group": [
+    "19-down",
+    "10-down",
+    "24-down"
+   ],
    "separatorLocations": {},
    "solution": "NOSE",
    "annotation": null

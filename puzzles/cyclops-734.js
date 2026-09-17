@@ -25,6 +25,10 @@ window.CRYPTIC_PUZZLES["cyclops-734"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 22dn.) Calculating type wants nooky place as a break from political activity (6)",
+   "group": [
+    "1-across",
+    "22-down"
+   ],
    "separatorLocations": {},
    "solution": "SUMMER",
    "annotation": null
@@ -67,6 +71,10 @@ window.CRYPTIC_PUZZLES["cyclops-734"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "(& 6dn.) \"Red alert! Commie leader, a foul criminal!\" (Trump's nemesis, he claims) (9)",
+   "group": [
+    "3-down",
+    "6-down"
+   ],
    "separatorLocations": {},
    "solution": "ELECTORAL",
    "annotation": null
@@ -109,6 +117,10 @@ window.CRYPTIC_PUZZLES["cyclops-734"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 3dn. (5)",
+   "group": [
+    "3-down",
+    "6-down"
+   ],
    "separatorLocations": {},
    "solution": "FRAUD",
    "annotation": null
@@ -347,6 +359,10 @@ window.CRYPTIC_PUZZLES["cyclops-734"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 1ac. (6)",
+   "group": [
+    "1-across",
+    "22-down"
+   ],
    "separatorLocations": {},
    "solution": "RECESS",
    "annotation": null

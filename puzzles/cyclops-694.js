@@ -25,6 +25,10 @@ window.CRYPTIC_PUZZLES["cyclops-694"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "(& 10ac.) Bear with 'strong handshake' used on reckless drug-taker? (7)",
+   "group": [
+    "1-across",
+    "10-across"
+   ],
    "separatorLocations": {},
    "solution": "STOMACH",
    "annotation": null
@@ -165,6 +169,10 @@ window.CRYPTIC_PUZZLES["cyclops-694"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 1ac, (4)",
+   "group": [
+    "1-across",
+    "10-across"
+   ],
    "separatorLocations": {},
    "solution": "PUMP",
    "annotation": null
@@ -207,6 +215,10 @@ window.CRYPTIC_PUZZLES["cyclops-694"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "(& 22ac.) Cursing: \"Elected  my encore hijacked!\", Trump thinks it should be his second (8,2)",
+   "group": [
+    "13-across",
+    "22-across"
+   ],
    "separatorLocations": {},
    "solution": "SWEARINGIN",
    "annotation": null
@@ -333,6 +345,10 @@ window.CRYPTIC_PUZZLES["cyclops-694"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "see 13ac. (8)",
+   "group": [
+    "13-across",
+    "22-across"
+   ],
    "separatorLocations": {},
    "solution": "CEREMONY",
    "annotation": null
@@ -375,6 +391,10 @@ window.CRYPTIC_PUZZLES["cyclops-694"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 26ac.) Consider Brown to lead Keir's first problem-solving group (5)",
+   "group": [
+    "25-down",
+    "26-across"
+   ],
    "separatorLocations": {},
    "solution": "THINK",
    "annotation": null
@@ -389,6 +409,10 @@ window.CRYPTIC_PUZZLES["cyclops-694"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 25dn. (4)",
+   "group": [
+    "25-down",
+    "26-across"
+   ],
    "separatorLocations": {},
    "solution": "TANK",
    "annotation": null

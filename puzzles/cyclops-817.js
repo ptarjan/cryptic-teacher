@@ -137,6 +137,10 @@ window.CRYPTIC_PUZZLES["cyclops-817"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "(& 11ac.) What we get from Rachel Reeves is logic? Come on, stupid  zero optimism ultimately! (8)",
+   "group": [
+    "9-across",
+    "11-across"
+   ],
    "separatorLocations": {},
    "solution": "ECONOMIC",
    "annotation": null
@@ -165,6 +169,10 @@ window.CRYPTIC_PUZZLES["cyclops-817"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 9ac.",
+   "group": [
+    "9-across",
+    "11-across"
+   ],
    "separatorLocations": {},
    "solution": "GLOOM",
    "annotation": null

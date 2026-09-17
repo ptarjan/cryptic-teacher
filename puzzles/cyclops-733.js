@@ -53,6 +53,10 @@ window.CRYPTIC_PUZZLES["cyclops-733"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "(& 5dn.) How to stress something Boris & co wanted us to do about Partygate (4,1,4)",
+   "group": [
+    "3-down",
+    "5-down"
+   ],
    "separatorLocations": {},
    "solution": "DRAWALINE",
    "annotation": null
@@ -81,6 +85,10 @@ window.CRYPTIC_PUZZLES["cyclops-733"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 3dn. (5,2)",
+   "group": [
+    "3-down",
+    "5-down"
+   ],
    "separatorLocations": {},
    "solution": "UNDERIT",
    "annotation": null
@@ -137,6 +145,10 @@ window.CRYPTIC_PUZZLES["cyclops-733"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(&24dn.) Music genre expert finally getting pitch (4)",
+   "group": [
+    "9-down",
+    "24-down"
+   ],
    "separatorLocations": {},
    "solution": "PROG",
    "annotation": null
@@ -375,6 +387,10 @@ window.CRYPTIC_PUZZLES["cyclops-733"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 9dn. (4)",
+   "group": [
+    "9-down",
+    "24-down"
+   ],
    "separatorLocations": {},
    "solution": "ROCK",
    "annotation": null

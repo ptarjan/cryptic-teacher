@@ -137,6 +137,10 @@ window.CRYPTIC_PUZZLES["cyclops-414"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 23dn.) Party defector's stage act put on film? (4)",
+   "group": [
+    "8-down",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "TURN",
    "annotation": null
@@ -193,6 +197,10 @@ window.CRYPTIC_PUZZLES["cyclops-414"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 13ac.) MPs collectively suspended? Electorate could make it happen! (4)",
+   "group": [
+    "12-across",
+    "13-across"
+   ],
    "separatorLocations": {},
    "solution": "HUNG",
    "annotation": null
@@ -207,6 +215,10 @@ window.CRYPTIC_PUZZLES["cyclops-414"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "see 12ac. (10)",
+   "group": [
+    "12-across",
+    "13-across"
+   ],
    "separatorLocations": {},
    "solution": "PARLIAMENT",
    "annotation": null
@@ -361,6 +373,10 @@ window.CRYPTIC_PUZZLES["cyclops-414"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 8dn. (4)",
+   "group": [
+    "8-down",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "COAT",
    "annotation": null
@@ -389,6 +405,10 @@ window.CRYPTIC_PUZZLES["cyclops-414"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 28ac.) Over the hill half of Tory leadership overturned  a shadow of its former self (4)",
+   "group": [
+    "25-down",
+    "28-across"
+   ],
    "separatorLocations": {},
    "solution": "GONE",
    "annotation": null
@@ -431,6 +451,10 @@ window.CRYPTIC_PUZZLES["cyclops-414"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 25dn. (2,3)",
+   "group": [
+    "25-down",
+    "28-across"
+   ],
    "separatorLocations": {},
    "solution": "TOPOT",
    "annotation": null

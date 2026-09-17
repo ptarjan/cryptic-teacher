@@ -25,6 +25,10 @@ window.CRYPTIC_PUZZLES["cyclops-428"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 14ac. (7)",
+   "group": [
+    "14-across",
+    "1-across"
+   ],
    "separatorLocations": {},
    "solution": "SUICIDE",
    "annotation": null
@@ -165,6 +169,10 @@ window.CRYPTIC_PUZZLES["cyclops-428"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 26ac.) Withdraw whip in retaliation (4)",
+   "group": [
+    "11-across",
+    "26-across"
+   ],
    "separatorLocations": {},
    "solution": "BACK",
    "annotation": null
@@ -207,6 +215,10 @@ window.CRYPTIC_PUZZLES["cyclops-428"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "(& 1ac.) End of member that's been auto-engineered? (9)",
+   "group": [
+    "14-across",
+    "1-across"
+   ],
    "separatorLocations": {},
    "solution": "POLITICAL",
    "annotation": null
@@ -235,6 +247,10 @@ window.CRYPTIC_PUZZLES["cyclops-428"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 19ac. (4)",
+   "group": [
+    "19-across",
+    "16-across"
+   ],
    "separatorLocations": {},
    "solution": "BANK",
    "annotation": null
@@ -277,6 +293,10 @@ window.CRYPTIC_PUZZLES["cyclops-428"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 16ac.) N. America and Europe heading list as a trouble spot (4)",
+   "group": [
+    "19-across",
+    "16-across"
+   ],
    "separatorLocations": {},
    "solution": "WEST",
    "annotation": null
@@ -305,6 +325,10 @@ window.CRYPTIC_PUZZLES["cyclops-428"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 24ac. (6)",
+   "group": [
+    "24-across",
+    "21-down"
+   ],
    "separatorLocations": {},
    "solution": "AGENDA",
    "annotation": null
@@ -347,6 +371,10 @@ window.CRYPTIC_PUZZLES["cyclops-428"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 21dn.) Ulterior motive of those who exaggerated concealment of Iraq's \"WMDs\"? (6)",
+   "group": [
+    "24-across",
+    "21-down"
+   ],
    "separatorLocations": {},
    "solution": "HIDDEN",
    "annotation": null
@@ -375,6 +403,10 @@ window.CRYPTIC_PUZZLES["cyclops-428"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 11ac. (4)",
+   "group": [
+    "11-across",
+    "26-across"
+   ],
    "separatorLocations": {},
    "solution": "LASH",
    "annotation": null

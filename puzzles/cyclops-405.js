@@ -235,6 +235,10 @@ window.CRYPTIC_PUZZLES["cyclops-405"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 25ac. (4)",
+   "group": [
+    "25-across",
+    "15-across"
+   ],
    "separatorLocations": {},
    "solution": "DOWN",
    "annotation": null
@@ -389,6 +393,10 @@ window.CRYPTIC_PUZZLES["cyclops-405"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 15ac.) Measure fed up electorate's desire for Gordon to do this? (4)",
+   "group": [
+    "25-across",
+    "15-across"
+   ],
    "separatorLocations": {},
    "solution": "STEP",
    "annotation": null

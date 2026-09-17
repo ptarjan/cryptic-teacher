@@ -109,6 +109,10 @@ window.CRYPTIC_PUZZLES["cyclops-607"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 23dn.) Sombre toll when the Klan led astray (5)",
+   "group": [
+    "6-across",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "DEATH",
    "annotation": null
@@ -123,6 +127,10 @@ window.CRYPTIC_PUZZLES["cyclops-607"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 25dn.) Government negotiator \"dead keen\", said collapse entails \"victory\" (5)",
+   "group": [
+    "6-down",
+    "25-down"
+   ],
    "separatorLocations": {},
    "solution": "DAVID",
    "annotation": null
@@ -319,6 +327,10 @@ window.CRYPTIC_PUZZLES["cyclops-607"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 28ac. (6)",
+   "group": [
+    "28-across",
+    "19-across"
+   ],
    "separatorLocations": {},
    "solution": "DEFEAT",
    "annotation": null
@@ -375,6 +387,10 @@ window.CRYPTIC_PUZZLES["cyclops-607"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 6ac. (5)",
+   "group": [
+    "6-across",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "KNELL",
    "annotation": null
@@ -403,6 +419,10 @@ window.CRYPTIC_PUZZLES["cyclops-607"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 6dn. (5)",
+   "group": [
+    "6-down",
+    "25-down"
+   ],
    "separatorLocations": {},
    "solution": "DAVIS",
    "annotation": null
@@ -445,6 +465,10 @@ window.CRYPTIC_PUZZLES["cyclops-607"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 19ac.) Descriptive of May's election victory? May's first sort of examination of French achievement (5)",
+   "group": [
+    "28-across",
+    "19-across"
+   ],
    "separatorLocations": {},
    "solution": "MORAL",
    "annotation": null

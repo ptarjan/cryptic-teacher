@@ -53,6 +53,10 @@ window.CRYPTIC_PUZZLES["cyclops-524"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 7dn.) Article stuck in end, together with a twist, as far as is possible (2,3)",
+   "group": [
+    "3-down",
+    "7-down"
+   ],
    "separatorLocations": {},
    "solution": "TOTHE",
    "annotation": null
@@ -109,6 +113,10 @@ window.CRYPTIC_PUZZLES["cyclops-524"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "see 3dn. (3,6)",
+   "group": [
+    "3-down",
+    "7-down"
+   ],
    "separatorLocations": {},
    "solution": "NTHDEGREE",
    "annotation": null
@@ -151,6 +159,10 @@ window.CRYPTIC_PUZZLES["cyclops-524"] = /*JSON-START*/ {
    },
    "length": 11,
    "clue": "(& 19dn.) Our academical report of male on a date: snooty mum's protecting daughter's tail  shit time (11)",
+   "group": [
+    "10-down",
+    "19-down"
+   ],
    "separatorLocations": {},
    "solution": "HEADMASTERS",
    "annotation": null
@@ -165,6 +177,10 @@ window.CRYPTIC_PUZZLES["cyclops-524"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 18ac.) Aroused by rich people's paper: constant state endured by the poor (4)",
+   "group": [
+    "11-across",
+    "18-across"
+   ],
    "separatorLocations": {},
    "solution": "HARD",
    "annotation": null
@@ -263,6 +279,10 @@ window.CRYPTIC_PUZZLES["cyclops-524"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 11ac. (5)",
+   "group": [
+    "11-across",
+    "18-across"
+   ],
    "separatorLocations": {},
    "solution": "TIMES",
    "annotation": null
@@ -277,6 +297,10 @@ window.CRYPTIC_PUZZLES["cyclops-524"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 10dn. (7)",
+   "group": [
+    "10-down",
+    "19-down"
+   ],
    "separatorLocations": {},
    "solution": "MESSAGE",
    "annotation": null
@@ -361,6 +385,10 @@ window.CRYPTIC_PUZZLES["cyclops-524"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 25ac.) Put a spin on Clegg's ultimate defeat (ancient history) (5)",
+   "group": [
+    "24-down",
+    "25-across"
+   ],
    "separatorLocations": {},
    "solution": "GLOSS",
    "annotation": null
@@ -375,6 +403,10 @@ window.CRYPTIC_PUZZLES["cyclops-524"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 24dn. (4)",
+   "group": [
+    "24-down",
+    "25-across"
+   ],
    "separatorLocations": {},
    "solution": "OVER",
    "annotation": null

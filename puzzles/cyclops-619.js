@@ -95,6 +95,10 @@ window.CRYPTIC_PUZZLES["cyclops-619"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 27ac.) Province following the PM? Not too clear, that (4)",
+   "group": [
+    "6-across",
+    "27-across"
+   ],
    "separatorLocations": {},
    "solution": "GREY",
    "annotation": null
@@ -207,6 +211,10 @@ window.CRYPTIC_PUZZLES["cyclops-619"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 23dn.) Hooker ran off on receiving Trump's introduction  troublesome state! (5)",
+   "group": [
+    "12-across",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "NORTH",
    "annotation": null
@@ -235,6 +243,10 @@ window.CRYPTIC_PUZZLES["cyclops-619"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "see 21dn. (3,5)",
+   "group": [
+    "21-down",
+    "14-across"
+   ],
    "separatorLocations": {},
    "solution": "THEDUMPS",
    "annotation": null
@@ -333,6 +345,10 @@ window.CRYPTIC_PUZZLES["cyclops-619"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 14ac.) Miserable, rattled PM disowned Hunt (4,2)",
+   "group": [
+    "21-down",
+    "14-across"
+   ],
    "separatorLocations": {},
    "solution": "DOWNIN",
    "annotation": null
@@ -361,6 +377,10 @@ window.CRYPTIC_PUZZLES["cyclops-619"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 12ac. (5)",
+   "group": [
+    "12-across",
+    "23-down"
+   ],
    "separatorLocations": {},
    "solution": "KOREA",
    "annotation": null
@@ -417,6 +437,10 @@ window.CRYPTIC_PUZZLES["cyclops-619"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 6ac. (4)",
+   "group": [
+    "6-across",
+    "27-across"
+   ],
    "separatorLocations": {},
    "solution": "AREA",
    "annotation": null

@@ -193,6 +193,10 @@ window.CRYPTIC_PUZZLES["cyclops-776"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 18dn.) Emulated  oh my! badly  just like a question-dodging politician (5)",
+   "group": [
+    "12-across",
+    "18-down"
+   ],
    "separatorLocations": {},
    "solution": "MEALY",
    "annotation": null
@@ -263,6 +267,10 @@ window.CRYPTIC_PUZZLES["cyclops-776"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 29ac.) \"Gargoyle with ego\", law-bending political maverick (6)",
+   "group": [
+    "17-across",
+    "29-across"
+   ],
    "separatorLocations": {},
    "solution": "GEORGE",
    "annotation": null
@@ -277,6 +285,10 @@ window.CRYPTIC_PUZZLES["cyclops-776"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 12ac. (7)",
+   "group": [
+    "12-across",
+    "18-down"
+   ],
    "separatorLocations": {},
    "solution": "MOUTHED",
    "annotation": null
@@ -445,6 +457,10 @@ window.CRYPTIC_PUZZLES["cyclops-776"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "see 17ac. (8)",
+   "group": [
+    "17-across",
+    "29-across"
+   ],
    "separatorLocations": {},
    "solution": "GALLOWAY",
    "annotation": null

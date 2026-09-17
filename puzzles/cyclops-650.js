@@ -67,6 +67,10 @@ window.CRYPTIC_PUZZLES["cyclops-650"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 22dn. (2,2)",
+   "group": [
+    "22-down",
+    "4-down"
+   ],
    "separatorLocations": {},
    "solution": "INTO",
    "annotation": null
@@ -109,6 +113,10 @@ window.CRYPTIC_PUZZLES["cyclops-650"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 19dn. (6)",
+   "group": [
+    "19-down",
+    "6-down"
+   ],
    "separatorLocations": {},
    "solution": "OUTCRY",
    "annotation": null
@@ -235,6 +243,10 @@ window.CRYPTIC_PUZZLES["cyclops-650"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 20ac.) Mick in free production, alarmingly on the rise in our cities (5)",
+   "group": [
+    "15-across",
+    "20-across"
+   ],
    "separatorLocations": {},
    "solution": "KNIFE",
    "annotation": null
@@ -305,6 +317,10 @@ window.CRYPTIC_PUZZLES["cyclops-650"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 6dn.) People's Protest: \"Break up Tory club protecting incompetent Conservative leaders!\" (6)",
+   "group": [
+    "19-down",
+    "6-down"
+   ],
    "separatorLocations": {},
    "solution": "PUBLIC",
    "annotation": null
@@ -319,6 +335,10 @@ window.CRYPTIC_PUZZLES["cyclops-650"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 15ac, (5)",
+   "group": [
+    "15-across",
+    "20-across"
+   ],
    "separatorLocations": {},
    "solution": "CRIME",
    "annotation": null
@@ -361,6 +381,10 @@ window.CRYPTIC_PUZZLES["cyclops-650"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 4dn.) Admit defeat, i.e. voting \"Out\" (4)",
+   "group": [
+    "22-down",
+    "4-down"
+   ],
    "separatorLocations": {},
    "solution": "GIVE",
    "annotation": null

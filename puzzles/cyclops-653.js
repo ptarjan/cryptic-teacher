@@ -53,6 +53,10 @@ window.CRYPTIC_PUZZLES["cyclops-653"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 22dn.) Extent of London's sources of cash injection typically, yet woefully slim with it? (4)",
+   "group": [
+    "3-down",
+    "22-down"
+   ],
    "separatorLocations": {},
    "solution": "CITY",
    "annotation": null
@@ -109,6 +113,11 @@ window.CRYPTIC_PUZZLES["cyclops-653"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 24dn/ 26ac.) Lead news is 'Stupid Tory Preston gaffe'  iron out (5)",
+   "group": [
+    "7-across",
+    "24-down",
+    "26-across"
+   ],
    "separatorLocations": {},
    "solution": "FRONT",
    "annotation": null
@@ -333,6 +342,10 @@ window.CRYPTIC_PUZZLES["cyclops-653"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 3dn. (6)",
+   "group": [
+    "3-down",
+    "22-down"
+   ],
    "separatorLocations": {},
    "solution": "LIMITS",
    "annotation": null
@@ -375,6 +388,11 @@ window.CRYPTIC_PUZZLES["cyclops-653"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 7ac. (4)",
+   "group": [
+    "7-across",
+    "24-down",
+    "26-across"
+   ],
    "separatorLocations": {},
    "solution": "PAGE",
    "annotation": null
@@ -403,6 +421,11 @@ window.CRYPTIC_PUZZLES["cyclops-653"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 7ac. (5)",
+   "group": [
+    "7-across",
+    "24-down",
+    "26-across"
+   ],
    "separatorLocations": {},
    "solution": "STORY",
    "annotation": null

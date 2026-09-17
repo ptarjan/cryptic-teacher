@@ -361,6 +361,10 @@ window.CRYPTIC_PUZZLES["cyclops-440"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 26ac. (5)",
+   "group": [
+    "26-across",
+    "25-down"
+   ],
    "separatorLocations": {},
    "solution": "GNOME",
    "annotation": null
@@ -375,6 +379,10 @@ window.CRYPTIC_PUZZLES["cyclops-440"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 25dn.) His organ is handled by many - God! A very small one! (4)",
+   "group": [
+    "26-across",
+    "25-down"
+   ],
    "separatorLocations": {},
    "solution": "LORD",
    "annotation": null

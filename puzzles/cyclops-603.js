@@ -137,6 +137,10 @@ window.CRYPTIC_PUZZLES["cyclops-603"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 17ac.) They welcome getting round to shut up members (4)",
+   "group": [
+    "9-across",
+    "17-across"
+   ],
    "separatorLocations": {},
    "solution": "OPEN",
    "annotation": null
@@ -221,6 +225,10 @@ window.CRYPTIC_PUZZLES["cyclops-603"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 25ac.) It's no dream: leaders of Republican extremists articulate lucid sentence! (4)",
+   "group": [
+    "15-across",
+    "25-across"
+   ],
    "separatorLocations": {},
    "solution": "REAL",
    "annotation": null
@@ -263,6 +271,10 @@ window.CRYPTIC_PUZZLES["cyclops-603"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 9ac. (4)",
+   "group": [
+    "9-across",
+    "17-across"
+   ],
    "separatorLocations": {},
    "solution": "ARMS",
    "annotation": null
@@ -389,6 +401,10 @@ window.CRYPTIC_PUZZLES["cyclops-603"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 15ac. (4)",
+   "group": [
+    "15-across",
+    "25-across"
+   ],
    "separatorLocations": {},
    "solution": "LIFE",
    "annotation": null

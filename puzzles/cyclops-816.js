@@ -193,6 +193,10 @@ window.CRYPTIC_PUZZLES["cyclops-816"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "(& 30ac.) Leonard seen out to get a Reform UK member (3)",
+   "group": [
+    "12-across",
+    "30-across"
+   ],
    "separatorLocations": {},
    "solution": "LEE",
    "annotation": null
@@ -221,6 +225,10 @@ window.CRYPTIC_PUZZLES["cyclops-816"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 24ac. (7)",
+   "group": [
+    "24-across",
+    "14-down"
+   ],
    "separatorLocations": {},
    "solution": "KNOTTED",
    "annotation": null
@@ -361,6 +369,10 @@ window.CRYPTIC_PUZZLES["cyclops-816"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "(& 14dn.) Go through marriage ceremony? Piss off! (3)",
+   "group": [
+    "24-across",
+    "14-down"
+   ],
    "separatorLocations": {},
    "solution": "GET",
    "annotation": null
@@ -445,6 +457,10 @@ window.CRYPTIC_PUZZLES["cyclops-816"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "see 1ac.",
+   "group": [
+    "12-across",
+    "30-across"
+   ],
    "separatorLocations": {},
    "solution": "ANDERSON",
    "annotation": null

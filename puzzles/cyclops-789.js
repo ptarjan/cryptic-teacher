@@ -193,6 +193,10 @@ window.CRYPTIC_PUZZLES["cyclops-789"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "& 20ac.What many an oldie will lose with Bury on fire: settlement (6,4)",
+   "group": [
+    "13-across",
+    "20-across"
+   ],
    "separatorLocations": {},
    "solution": "WINTERFUEL",
    "annotation": null
@@ -235,6 +239,10 @@ window.CRYPTIC_PUZZLES["cyclops-789"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 21ac. (4)",
+   "group": [
+    "21-across",
+    "15-across"
+   ],
    "separatorLocations": {},
    "solution": "LIST",
    "annotation": null
@@ -305,6 +313,10 @@ window.CRYPTIC_PUZZLES["cyclops-789"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 13ac.",
+   "group": [
+    "13-across",
+    "20-across"
+   ],
    "separatorLocations": {},
    "solution": "PAYMENT",
    "annotation": null
@@ -319,6 +331,10 @@ window.CRYPTIC_PUZZLES["cyclops-789"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(&15ac.) Despised people put on this ... this terrible tip (4)",
+   "group": [
+    "21-across",
+    "15-across"
+   ],
    "separatorLocations": {},
    "solution": "SHIT",
    "annotation": null

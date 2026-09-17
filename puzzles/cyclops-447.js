@@ -39,6 +39,10 @@ window.CRYPTIC_PUZZLES["cyclops-447"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 21dn.) Nation's football team utter shit (no punch) (6)",
+   "group": [
+    "2-down",
+    "21-down"
+   ],
    "separatorLocations": {},
    "solution": "UNITED",
    "annotation": null
@@ -137,6 +141,10 @@ window.CRYPTIC_PUZZLES["cyclops-447"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 10ac. (4)",
+   "group": [
+    "10-across",
+    "9-down"
+   ],
    "separatorLocations": {},
    "solution": "POLE",
    "annotation": null
@@ -151,6 +159,10 @@ window.CRYPTIC_PUZZLES["cyclops-447"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 9dn.) Transport politician has nothing on the French \"phallic symbol\" (5)",
+   "group": [
+    "10-across",
+    "9-down"
+   ],
    "separatorLocations": {},
    "solution": "TOTEM",
    "annotation": null
@@ -305,6 +317,10 @@ window.CRYPTIC_PUZZLES["cyclops-447"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 2dn. (6)",
+   "group": [
+    "2-down",
+    "21-down"
+   ],
    "separatorLocations": {},
    "solution": "STATES",
    "annotation": null

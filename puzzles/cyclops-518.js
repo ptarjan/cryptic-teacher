@@ -25,6 +25,10 @@ window.CRYPTIC_PUZZLES["cyclops-518"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 11ac. (4)",
+   "group": [
+    "11-across",
+    "1-down"
+   ],
    "separatorLocations": {},
    "solution": "JOHN",
    "annotation": null
@@ -179,6 +183,10 @@ window.CRYPTIC_PUZZLES["cyclops-518"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(&1dn.) Singer Jack's a fair way through \"No hotel to be trashed before noon\" (5)",
+   "group": [
+    "11-across",
+    "1-down"
+   ],
    "separatorLocations": {},
    "solution": "ELTON",
    "annotation": null
@@ -277,6 +285,10 @@ window.CRYPTIC_PUZZLES["cyclops-518"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 25dn. (7)",
+   "group": [
+    "25-down",
+    "18-down"
+   ],
    "separatorLocations": {},
    "solution": "CURTAIN",
    "annotation": null
@@ -389,6 +401,10 @@ window.CRYPTIC_PUZZLES["cyclops-518"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(&18dn.) Press screen reinstated by 15? (4)",
+   "group": [
+    "25-down",
+    "18-down"
+   ],
    "separatorLocations": {},
    "solution": "IRON",
    "annotation": null

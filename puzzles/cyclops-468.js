@@ -95,6 +95,10 @@ window.CRYPTIC_PUZZLES["cyclops-468"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "(& 18dn.) It makes you instinctively feel like puking? (3)",
+   "group": [
+    "6-down",
+    "18-down"
+   ],
    "separatorLocations": {},
    "solution": "GUT",
    "annotation": null
@@ -179,6 +183,11 @@ window.CRYPTIC_PUZZLES["cyclops-468"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 24ac. (7)",
+   "group": [
+    "24-across",
+    "19-across",
+    "12-across"
+   ],
    "separatorLocations": {},
    "solution": "ONESELF",
    "annotation": null
@@ -263,6 +272,10 @@ window.CRYPTIC_PUZZLES["cyclops-468"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "see 6dn. (8)",
+   "group": [
+    "6-down",
+    "18-down"
+   ],
    "separatorLocations": {},
    "solution": "REACTION",
    "annotation": null
@@ -277,6 +290,11 @@ window.CRYPTIC_PUZZLES["cyclops-468"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 24ac. (4)",
+   "group": [
+    "24-across",
+    "19-across",
+    "12-across"
+   ],
    "separatorLocations": {},
    "solution": "WITH",
    "annotation": null
@@ -347,6 +365,11 @@ window.CRYPTIC_PUZZLES["cyclops-468"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "(& 19, 12) Glyn, pissed with IPA, as well as your dwarf, being a wanker (7)",
+   "group": [
+    "24-across",
+    "19-across",
+    "12-across"
+   ],
    "separatorLocations": {},
    "solution": "PLAYING",
    "annotation": null

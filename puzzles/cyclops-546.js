@@ -39,6 +39,10 @@ window.CRYPTIC_PUZZLES["cyclops-546"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 5dn.) Inflexible Miliband's lot, an unwelcome extra for the old time-server (4)",
+   "group": [
+    "2-down",
+    "5-down"
+   ],
    "separatorLocations": {},
    "solution": "HARD",
    "annotation": null
@@ -81,6 +85,10 @@ window.CRYPTIC_PUZZLES["cyclops-546"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 2dn. (6)",
+   "group": [
+    "2-down",
+    "5-down"
+   ],
    "separatorLocations": {},
    "solution": "LABOUR",
    "annotation": null
@@ -123,6 +131,11 @@ window.CRYPTIC_PUZZLES["cyclops-546"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "(& 29ac./9ac.)Farage incidents that he distorted, being about to cross over to the other side? (7)",
+   "group": [
+    "8-down",
+    "29-across",
+    "9-across"
+   ],
    "separatorLocations": {},
    "solution": "STARING",
    "annotation": null
@@ -137,6 +150,11 @@ window.CRYPTIC_PUZZLES["cyclops-546"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 8dn. (4)",
+   "group": [
+    "8-down",
+    "29-across",
+    "9-across"
+   ],
    "separatorLocations": {},
    "solution": "FACE",
    "annotation": null
@@ -403,6 +421,10 @@ window.CRYPTIC_PUZZLES["cyclops-546"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 28ac.) The decent thing to do just before shag under piano (4)",
+   "group": [
+    "27-down",
+    "28-across"
+   ],
    "separatorLocations": {},
    "solution": "FAIR",
    "annotation": null
@@ -417,6 +439,10 @@ window.CRYPTIC_PUZZLES["cyclops-546"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 27dn. (4)",
+   "group": [
+    "27-down",
+    "28-across"
+   ],
    "separatorLocations": {},
    "solution": "PLAY",
    "annotation": null
@@ -431,6 +457,11 @@ window.CRYPTIC_PUZZLES["cyclops-546"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "see 8dn. (10)",
+   "group": [
+    "8-down",
+    "29-across",
+    "9-across"
+   ],
    "separatorLocations": {},
    "solution": "DEATHINTHE",
    "annotation": null

@@ -179,6 +179,10 @@ window.CRYPTIC_PUZZLES["cyclops-690"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 22ac. (4)",
+   "group": [
+    "22-across",
+    "11-across"
+   ],
    "separatorLocations": {},
    "solution": "DOWN",
    "annotation": null
@@ -333,6 +337,10 @@ window.CRYPTIC_PUZZLES["cyclops-690"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 11ac.) Precisely identify part of member that may grow long and blue (4)",
+   "group": [
+    "22-across",
+    "11-across"
+   ],
    "separatorLocations": {},
    "solution": "NAIL",
    "annotation": null

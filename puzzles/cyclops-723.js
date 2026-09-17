@@ -53,6 +53,10 @@ window.CRYPTIC_PUZZLES["cyclops-723"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 12ac. (4)",
+   "group": [
+    "12-across",
+    "3-down"
+   ],
    "separatorLocations": {},
    "solution": "TEST",
    "annotation": null
@@ -123,6 +127,10 @@ window.CRYPTIC_PUZZLES["cyclops-723"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "see 16ac. (9)",
+   "group": [
+    "16-across",
+    "8-down"
+   ],
    "separatorLocations": {},
    "solution": "STANDARDS",
    "annotation": null
@@ -179,6 +187,10 @@ window.CRYPTIC_PUZZLES["cyclops-723"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 3dn.) Ace detectives' examination? The ultimate check (4)",
+   "group": [
+    "12-across",
+    "3-down"
+   ],
    "separatorLocations": {},
    "solution": "ACID",
    "annotation": null
@@ -235,6 +247,10 @@ window.CRYPTIC_PUZZLES["cyclops-723"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "(& 8dn.) Westminster flags?  They're not up to much presently (13)",
+   "group": [
+    "16-across",
+    "8-down"
+   ],
    "separatorLocations": {},
    "solution": "PARLIAMENTARY",
    "annotation": null

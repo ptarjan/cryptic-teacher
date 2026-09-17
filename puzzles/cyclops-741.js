@@ -179,6 +179,10 @@ window.CRYPTIC_PUZZLES["cyclops-741"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 22dn.) Heeding the call as a one-time News International employee? (5)",
+   "group": [
+    "11-across",
+    "22-down"
+   ],
    "separatorLocations": {},
    "solution": "PHONE",
    "annotation": null
@@ -193,6 +197,10 @@ window.CRYPTIC_PUZZLES["cyclops-741"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 20dn.) A homely, muted broadcast  typical sort of MP's response to questioning? (5)",
+   "group": [
+    "12-across",
+    "20-down"
+   ],
    "separatorLocations": {},
    "solution": "MEALY",
    "annotation": null
@@ -305,6 +313,10 @@ window.CRYPTIC_PUZZLES["cyclops-741"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 12ac. (7)",
+   "group": [
+    "12-across",
+    "20-down"
+   ],
    "separatorLocations": {},
    "solution": "MOUTHED",
    "annotation": null
@@ -333,6 +345,10 @@ window.CRYPTIC_PUZZLES["cyclops-741"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 11ac. (7)",
+   "group": [
+    "11-across",
+    "22-down"
+   ],
    "separatorLocations": {},
    "solution": "HACKING",
    "annotation": null

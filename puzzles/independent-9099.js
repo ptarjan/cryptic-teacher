@@ -7,8 +7,8 @@ window.CRYPTIC_PUZZLES["independent-9099"] = /*JSON-START*/ {
  "number": 9099,
  "series": "independent",
  "name": "Independent cryptic crossword No 9,099",
- "setter": "Bannsider",
- "date": 1450483200000,
+ "setter": "Tees",
+ "date": 1449878400000,
  "dimensions": {
   "cols": 15,
   "rows": 15
@@ -23,28 +23,19 @@ window.CRYPTIC_PUZZLES["independent-9099"] = /*JSON-START*/ {
     "x": 0,
     "y": 0
    },
-   "length": 12,
-   "clue": "Mayo, perhaps, meeting possible GAA opponents in tie? Probably not (8,4)",
+   "length": 10,
+   "clue": "Reimagined – once fog clears – same crime of 14/20 (8,2,7)",
+   "group": [
+    "1-across",
+    "8-down"
+   ],
    "separatorLocations": {
     ",": [
-     8
+     8,
+     10
     ]
    },
-   "solution": "DRESSINGDOWN",
-   "annotation": null
-  },
-  {
-   "id": "1-down",
-   "number": 1,
-   "direction": "down",
-   "position": {
-    "x": 0,
-    "y": 0
-   },
-   "length": 3,
-   "clue": "Pop article in with large cups (3)",
-   "separatorLocations": {},
-   "solution": "DAD",
+   "solution": "MASSACREOF",
    "annotation": null
   },
   {
@@ -52,19 +43,13 @@ window.CRYPTIC_PUZZLES["independent-9099"] = /*JSON-START*/ {
    "number": 2,
    "direction": "down",
    "position": {
-    "x": 2,
+    "x": 1,
     "y": 0
    },
-   "length": 14,
-   "clue": "Calling time? (5,2,3,4)",
-   "separatorLocations": {
-    ",": [
-     5,
-     7,
-     10
-    ]
-   },
-   "solution": "ENEMYATTHEDOOR",
+   "length": 7,
+   "clue": "I want to rise in sober society – vigour lacks in it (7)",
+   "separatorLocations": {},
+   "solution": "ANAEMIA",
    "annotation": null
   },
   {
@@ -72,13 +57,13 @@ window.CRYPTIC_PUZZLES["independent-9099"] = /*JSON-START*/ {
    "number": 3,
    "direction": "down",
    "position": {
-    "x": 4,
+    "x": 3,
     "y": 0
    },
    "length": 5,
-   "clue": "Woman left, initially forgotten here? (5)",
+   "clue": "Few protecting millions in war zone (5)",
    "separatorLocations": {},
-   "solution": "SHELF",
+   "solution": "SOMME",
    "annotation": null
   },
   {
@@ -86,13 +71,13 @@ window.CRYPTIC_PUZZLES["independent-9099"] = /*JSON-START*/ {
    "number": 4,
    "direction": "down",
    "position": {
-    "x": 6,
+    "x": 5,
     "y": 0
    },
-   "length": 4,
-   "clue": "Time off in Scotland? (4)",
+   "length": 8,
+   "clue": "Man, classically elegant, refuses cold food (8)",
    "separatorLocations": {},
-   "solution": "NOON",
+   "solution": "CHAPATTI",
    "annotation": null
   },
   {
@@ -100,13 +85,13 @@ window.CRYPTIC_PUZZLES["independent-9099"] = /*JSON-START*/ {
    "number": 5,
    "direction": "down",
    "position": {
-    "x": 8,
+    "x": 7,
     "y": 0
    },
-   "length": 10,
-   "clue": "Light lifted and switched on by a North American (10)",
+   "length": 15,
+   "clue": "ETA presses ten Fairy Fellows into explosive testing (15)",
    "separatorLocations": {},
-   "solution": "DELAWAREAN",
+   "solution": "EXPERIMENTATION",
    "annotation": null
   },
   {
@@ -114,17 +99,27 @@ window.CRYPTIC_PUZZLES["independent-9099"] = /*JSON-START*/ {
    "number": 6,
    "direction": "down",
    "position": {
-    "x": 10,
+    "x": 9,
     "y": 0
    },
-   "length": 9,
-   "clue": "Roller might, if harnessed? (4,5)",
-   "separatorLocations": {
-    ",": [
-     4
-    ]
+   "length": 6,
+   "clue": "US poet over years lacking enthusiasm (6)",
+   "separatorLocations": {},
+   "solution": "FROSTY",
+   "annotation": null
+  },
+  {
+   "id": "7-across",
+   "number": 7,
+   "direction": "across",
+   "position": {
+    "x": 11,
+    "y": 0
    },
-   "solution": "WAVEPOWER",
+   "length": 4,
+   "clue": "Old man flees injured wizard (4)",
+   "separatorLocations": {},
+   "solution": "MAGE",
    "annotation": null
   },
   {
@@ -132,13 +127,13 @@ window.CRYPTIC_PUZZLES["independent-9099"] = /*JSON-START*/ {
    "number": 7,
    "direction": "down",
    "position": {
-    "x": 12,
-    "y": 1
+    "x": 11,
+    "y": 0
    },
-   "length": 14,
-   "clue": "Not easy: when to stop men pestering women athletes (14)",
+   "length": 9,
+   "clue": "Rainwear put on shivery lad clan caught in 1/8 (9)",
    "separatorLocations": {},
-   "solution": "STEEPLECHASERS",
+   "solution": "MACDONALD",
    "annotation": null
   },
   {
@@ -146,17 +141,17 @@ window.CRYPTIC_PUZZLES["independent-9099"] = /*JSON-START*/ {
    "number": 8,
    "direction": "down",
    "position": {
-    "x": 14,
-    "y": 1
+    "x": 13,
+    "y": 0
    },
-   "length": 10,
-   "clue": "Like Barnet for Conservative Women’s Red Line Bus excursion (4-6)",
-   "separatorLocations": {
-    "-": [
-     4
-    ]
-   },
-   "solution": "BLUERINSED",
+   "length": 7,
+   "clue": "See 1",
+   "group": [
+    "1-across",
+    "8-down"
+   ],
+   "separatorLocations": {},
+   "solution": "GLENCOE",
    "annotation": null
   },
   {
@@ -167,14 +162,10 @@ window.CRYPTIC_PUZZLES["independent-9099"] = /*JSON-START*/ {
     "x": 0,
     "y": 2
    },
-   "length": 9,
-   "clue": "Fuel to finish - and plug boxes call for attention (6,3)",
-   "separatorLocations": {
-    ",": [
-     6
-    ]
-   },
-   "solution": "DIESELOIL",
+   "length": 4,
+   "clue": "Old 7 down had this fine weapon (4)",
+   "separatorLocations": {},
+   "solution": "FARM",
    "annotation": null
   },
   {
@@ -182,13 +173,13 @@ window.CRYPTIC_PUZZLES["independent-9099"] = /*JSON-START*/ {
    "number": 10,
    "direction": "across",
    "position": {
-    "x": 10,
+    "x": 5,
     "y": 2
    },
-   "length": 5,
-   "clue": "Lively one Klitschko finally cut down to size (5)",
+   "length": 10,
+   "clue": "Brave daughter giving sportsman hug made advances (10)",
    "separatorLocations": {},
-   "solution": "VITAL",
+   "solution": "APPROACHED",
    "annotation": null
   },
   {
@@ -200,31 +191,9 @@ window.CRYPTIC_PUZZLES["independent-9099"] = /*JSON-START*/ {
     "y": 4
    },
    "length": 6,
-   "clue": "Get back at the conclusion of work and settle (3,3)",
-   "separatorLocations": {
-    ",": [
-     3
-    ]
-   },
-   "solution": "PAYOFF",
-   "annotation": null
-  },
-  {
-   "id": "11-down",
-   "number": 11,
-   "direction": "down",
-   "position": {
-    "x": 0,
-    "y": 4
-   },
-   "length": 10,
-   "clue": "Weak captive bloodshot after rising blow (6,4)",
-   "separatorLocations": {
-    ",": [
-     6
-    ]
-   },
-   "solution": "POWDERPUFF",
+   "clue": "Brainless life-form a second President recalled? (6)",
+   "separatorLocations": {},
+   "solution": "AMOEBA",
    "annotation": null
   },
   {
@@ -236,77 +205,74 @@ window.CRYPTIC_PUZZLES["independent-9099"] = /*JSON-START*/ {
     "y": 4
    },
    "length": 8,
-   "clue": "Suite, for example, that's over still spoken of (3-5)",
-   "separatorLocations": {
-    "-": [
-     3
-    ]
-   },
-   "solution": "TWOPIECE",
+   "clue": "Upset Carter to reference past events (8)",
+   "separatorLocations": {},
+   "solution": "RETROACT",
    "annotation": null
   },
   {
-   "id": "13-down",
+   "id": "13-across",
    "number": 13,
-   "direction": "down",
-   "position": {
-    "x": 6,
-    "y": 5
-   },
-   "length": 10,
-   "clue": "Agent, quietly raising gym exercise without good mental preparation (8,2)",
-   "separatorLocations": {
-    ",": [
-     8
-    ]
-   },
-   "solution": "PSYCHINGUP",
-   "annotation": null
-  },
-  {
-   "id": "14-across",
-   "number": 14,
    "direction": "across",
    "position": {
     "x": 0,
     "y": 6
    },
-   "length": 11,
-   "clue": "Wife burns tongue shifting man's potion (7,4)",
-   "separatorLocations": {
-    ",": [
-     7
-    ]
-   },
-   "solution": "WITCHESBREW",
+   "length": 8,
+   "clue": "Flexible assistant's uppermost part almost against belly (8)",
+   "separatorLocations": {},
+   "solution": "FACTOTUM",
    "annotation": null
   },
   {
-   "id": "15-down",
-   "number": 15,
+   "id": "14-down",
+   "number": 14,
    "direction": "down",
    "position": {
-    "x": 4,
+    "x": 3,
     "y": 6
    },
    "length": 9,
-   "clue": "Over-familiar, rough and cheeky (9)",
-   "separatorLocations": {},
-   "solution": "HACKNEYED",
+   "clue": "John Dalrymple: flight controller? (3,6,2,5)",
+   "group": [
+    "14-down",
+    "20-down"
+   ],
+   "separatorLocations": {
+    ",": [
+     3,
+     9
+    ]
+   },
+   "solution": "THEMASTER",
    "annotation": null
   },
   {
-   "id": "16-across",
-   "number": 16,
+   "id": "15-across",
+   "number": 15,
    "direction": "across",
    "position": {
-    "x": 12,
+    "x": 11,
     "y": 6
    },
-   "length": 3,
-   "clue": "This flower arrangement certainly would be easy (3)",
+   "length": 4,
+   "clue": "Conservative on the beer – smart man? (4)",
    "separatorLocations": {},
-   "solution": "LEI",
+   "solution": "ALEC",
+   "annotation": null
+  },
+  {
+   "id": "16-down",
+   "number": 16,
+   "direction": "down",
+   "position": {
+    "x": 9,
+    "y": 7
+   },
+   "length": 8,
+   "clue": "One tested bomb aboard chopper going north and east (8)",
+   "separatorLocations": {},
+   "solution": "EXAMINEE",
    "annotation": null
   },
   {
@@ -317,30 +283,24 @@ window.CRYPTIC_PUZZLES["independent-9099"] = /*JSON-START*/ {
     "x": 0,
     "y": 8
    },
-   "length": 3,
-   "clue": "Can't stand after removal of a flipping thorn? Something like that! (3)",
+   "length": 4,
+   "clue": "Overly sentimental sports supporter keeps wicket (4)",
    "separatorLocations": {},
-   "solution": "ETH",
+   "solution": "TWEE",
    "annotation": null
   },
   {
-   "id": "18-across",
+   "id": "18-down",
    "number": 18,
-   "direction": "across",
+   "direction": "down",
    "position": {
-    "x": 4,
+    "x": 1,
     "y": 8
    },
-   "length": 11,
-   "clue": "Monsters of Rock is restored with Alice Cooper initially, etc. (11)",
-   "clueItalics": [
-    [
-     0,
-     17
-    ]
-   ],
+   "length": 7,
+   "clue": "King shows purpose early in the morning (7)",
    "separatorLocations": {},
-   "solution": "COCKATRICES",
+   "solution": "WILLIAM",
    "annotation": null
   },
   {
@@ -348,31 +308,39 @@ window.CRYPTIC_PUZZLES["independent-9099"] = /*JSON-START*/ {
    "number": 19,
    "direction": "across",
    "position": {
-    "x": 0,
-    "y": 10
+    "x": 7,
+    "y": 8
    },
    "length": 8,
-   "clue": "Poet cycling in photograph like old woman? (8)",
-   "separatorLocations": {},
-   "solution": "PEDANTIC",
+   "clue": "One departs north exit closer in adjacent house (4,4)",
+   "separatorLocations": {
+    ",": [
+     4
+    ]
+   },
+   "solution": "NEXTDOOR",
    "annotation": null
   },
   {
-   "id": "20-across",
+   "id": "20-down",
    "number": 20,
-   "direction": "across",
+   "direction": "down",
    "position": {
-    "x": 9,
-    "y": 10
+    "x": 13,
+    "y": 8
    },
-   "length": 6,
-   "clue": "Accessible series of Jonathan Dimbleby's (2,4)",
+   "length": 7,
+   "clue": "See 14",
+   "group": [
+    "14-down",
+    "20-down"
+   ],
    "separatorLocations": {
     ",": [
      2
     ]
    },
-   "solution": "ATHAND",
+   "solution": "OFSTAIR",
    "annotation": null
   },
   {
@@ -380,31 +348,27 @@ window.CRYPTIC_PUZZLES["independent-9099"] = /*JSON-START*/ {
    "number": 21,
    "direction": "down",
    "position": {
-    "x": 10,
-    "y": 10
+    "x": 5,
+    "y": 9
    },
-   "length": 5,
-   "clue": "Fighter mounted on horse, yet disappearing every second (5)",
+   "length": 6,
+   "clue": "Stops before finishing topside of beef in spoilt roast (6)",
    "separatorLocations": {},
-   "solution": "TYSON",
+   "solution": "ABORTS",
    "annotation": null
   },
   {
-   "id": "22-down",
+   "id": "22-across",
    "number": 22,
-   "direction": "down",
+   "direction": "across",
    "position": {
-    "x": 8,
-    "y": 11
+    "x": 0,
+    "y": 10
    },
-   "length": 4,
-   "clue": "Caribbean houses provided that internet facility (2-2)",
-   "separatorLocations": {
-    "-": [
-     2
-    ]
-   },
-   "solution": "WIFI",
+   "length": 8,
+   "clue": "Palace where an innocent artist captures hearts (8)",
+   "separatorLocations": {},
+   "solution": "ALHAMBRA",
    "annotation": null
   },
   {
@@ -412,41 +376,41 @@ window.CRYPTIC_PUZZLES["independent-9099"] = /*JSON-START*/ {
    "number": 23,
    "direction": "across",
    "position": {
+    "x": 9,
+    "y": 10
+   },
+   "length": 6,
+   "clue": "Small Sea States for jellyfish (6)",
+   "separatorLocations": {},
+   "solution": "MEDUSA",
+   "annotation": null
+  },
+  {
+   "id": "24-down",
+   "number": 24,
+   "direction": "down",
+   "position": {
+    "x": 11,
+    "y": 10
+   },
+   "length": 5,
+   "clue": "See nothing in small room in Tavistock Place? (5)",
+   "separatorLocations": {},
+   "solution": "DEVON",
+   "annotation": null
+  },
+  {
+   "id": "25-across",
+   "number": 25,
+   "direction": "across",
+   "position": {
     "x": 0,
     "y": 12
    },
-   "length": 5,
-   "clue": "Reading down at one point score twice instead in this? (5)",
+   "length": 10,
+   "clue": "Sort idiot out with new twist on meaning? (10)",
    "separatorLocations": {},
-   "solution": "FOOTY",
-   "annotation": null
-  },
-  {
-   "id": "24-across",
-   "number": 24,
-   "direction": "across",
-   "position": {
-    "x": 6,
-    "y": 12
-   },
-   "length": 9,
-   "clue": "Politician’s one time to talk cases with Holmes briefly (9)",
-   "separatorLocations": {},
-   "solution": "GAITSKELL",
-   "annotation": null
-  },
-  {
-   "id": "25-down",
-   "number": 25,
-   "direction": "down",
-   "position": {
-    "x": 14,
-    "y": 12
-   },
-   "length": 3,
-   "clue": "Man has feet in bowl - pure bliss! (3)",
-   "separatorLocations": {},
-   "solution": "LES",
+   "solution": "DISTORTION",
    "annotation": null
   },
   {
@@ -454,13 +418,45 @@ window.CRYPTIC_PUZZLES["independent-9099"] = /*JSON-START*/ {
    "number": 26,
    "direction": "across",
    "position": {
-    "x": 3,
+    "x": 11,
+    "y": 12
+   },
+   "length": 4,
+   "clue": "Some dive a little lower for food? (4)",
+   "separatorLocations": {},
+   "solution": "VEAL",
+   "annotation": null
+  },
+  {
+   "id": "27-across",
+   "number": 27,
+   "direction": "across",
+   "position": {
+    "x": 0,
     "y": 14
    },
-   "length": 12,
-   "clue": "Points said to upset Christian heretics (12)",
+   "length": 4,
+   "clue": "Song about masculine Arabic man? (4)",
    "separatorLocations": {},
-   "solution": "ADOPTIONISTS",
+   "solution": "AMIR",
+   "annotation": null
+  },
+  {
+   "id": "28-across",
+   "number": 28,
+   "direction": "across",
+   "position": {
+    "x": 5,
+    "y": 14
+   },
+   "length": 10,
+   "clue": "Sick room, fit medic and oxygen in Californian city (3,7)",
+   "separatorLocations": {
+    ",": [
+     3
+    ]
+   },
+   "solution": "SANLEANDRO",
    "annotation": null
   }
  ]

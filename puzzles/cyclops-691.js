@@ -39,6 +39,11 @@ window.CRYPTIC_PUZZLES["cyclops-691"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 10ac. (4)",
+   "group": [
+    "10-across",
+    "2-down",
+    "17-down"
+   ],
    "separatorLocations": {},
    "solution": "WING",
    "annotation": null
@@ -165,6 +170,11 @@ window.CRYPTIC_PUZZLES["cyclops-691"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 2dn./17dn.) Trump: \"Proper success\" \"Good father\" (very low in star ranking) (5)",
+   "group": [
+    "10-across",
+    "2-down",
+    "17-down"
+   ],
    "separatorLocations": {},
    "solution": "RIGHT",
    "annotation": null
@@ -249,6 +259,10 @@ window.CRYPTIC_PUZZLES["cyclops-691"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "(& 19dn.)Vast whorehouse almost at end of tether, as seen on TV (3)",
+   "group": [
+    "16-across",
+    "19-down"
+   ],
    "separatorLocations": {},
    "solution": "BIG",
    "annotation": null
@@ -291,6 +305,11 @@ window.CRYPTIC_PUZZLES["cyclops-691"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "see 10ac. (8)",
+   "group": [
+    "10-across",
+    "2-down",
+    "17-down"
+   ],
    "separatorLocations": {},
    "solution": "POPULIST",
    "annotation": null
@@ -319,6 +338,10 @@ window.CRYPTIC_PUZZLES["cyclops-691"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 16ac. (7)",
+   "group": [
+    "16-across",
+    "19-down"
+   ],
    "separatorLocations": {},
    "solution": "BROTHER",
    "annotation": null

@@ -2,13 +2,13 @@
 // Annotations (type/definition/indicators/blocks/walkthrough) are original
 // to this project. Edit the annotation objects freely; keep the JSON markers.
 window.CRYPTIC_PUZZLES = window.CRYPTIC_PUZZLES || {};
-window.CRYPTIC_PUZZLES["independent-9003"] = /*JSON-START*/ {
- "id": "independent-9003",
- "number": 9003,
+window.CRYPTIC_PUZZLES["independent-9188"] = /*JSON-START*/ {
+ "id": "independent-9188",
+ "number": 9188,
  "series": "independent",
- "name": "Independent cryptic crossword No 9,003",
- "setter": "Tyrus",
- "date": 1440806400000,
+ "name": "Independent cryptic crossword No 9,188",
+ "setter": "Donk",
+ "date": 1458950400000,
  "dimensions": {
   "cols": 15,
   "rows": 15
@@ -20,13 +20,27 @@ window.CRYPTIC_PUZZLES["independent-9003"] = /*JSON-START*/ {
    "number": 1,
    "direction": "across",
    "position": {
-    "x": 0,
+    "x": 1,
     "y": 0
    },
-   "length": 4,
-   "clue": "Rejected batsman bags century against India - what do selectors do? (4)",
+   "length": 10,
+   "clue": "Pairs of pants, not individually wrapped, can't be dirty (10)",
    "separatorLocations": {},
-   "solution": "PICK",
+   "solution": "STAINPROOF",
+   "annotation": null
+  },
+  {
+   "id": "1-down",
+   "number": 1,
+   "direction": "down",
+   "position": {
+    "x": 1,
+    "y": 0
+   },
+   "length": 5,
+   "clue": "Fancy Bob Hope (5)",
+   "separatorLocations": {},
+   "solution": "SWISH",
    "annotation": null
   },
   {
@@ -34,23 +48,13 @@ window.CRYPTIC_PUZZLES["independent-9003"] = /*JSON-START*/ {
    "number": 2,
    "direction": "down",
    "position": {
-    "x": 1,
+    "x": 3,
     "y": 0
    },
    "length": 7,
-   "clue": "Hail Queen leaving Frozen performance? (3,4)",
-   "clueItalics": [
-    [
-     19,
-     7
-    ]
-   ],
-   "separatorLocations": {
-    ",": [
-     3
-    ]
-   },
-   "solution": "ICESHOW",
+   "clue": "Graduates from a smoker - Scot's certainly not (7)",
+   "separatorLocations": {},
+   "solution": "ALUMNAE",
    "annotation": null
   },
   {
@@ -58,32 +62,20 @@ window.CRYPTIC_PUZZLES["independent-9003"] = /*JSON-START*/ {
    "number": 3,
    "direction": "down",
    "position": {
-    "x": 3,
-    "y": 0
-   },
-   "length": 9,
-   "clue": "Extremely nice family stories in case of doubt (9)",
-   "separatorLocations": {},
-   "solution": "KINDLIEST",
-   "annotation": null
-  },
-  {
-   "id": "4-across",
-   "number": 4,
-   "direction": "across",
-   "position": {
     "x": 5,
     "y": 0
    },
-   "length": 10,
-   "clue": "Made mistake getting revolutionary drug - I can't take any more (4,2,4)",
+   "length": 15,
+   "clue": "Nowhere near where undersupplied teacher stands (3,2,1,4,5)",
    "separatorLocations": {
     ",": [
-     4,
-     6
+     3,
+     5,
+     6,
+     10
     ]
    },
-   "solution": "MAKEITSTOP",
+   "solution": "NOTBYALONGCHALK",
    "annotation": null
   },
   {
@@ -91,13 +83,23 @@ window.CRYPTIC_PUZZLES["independent-9003"] = /*JSON-START*/ {
    "number": 4,
    "direction": "down",
    "position": {
-    "x": 5,
+    "x": 7,
     "y": 0
    },
-   "length": 5,
-   "clue": "Stuck up ladder impatience shows (5)",
-   "separatorLocations": {},
-   "solution": "MIRED",
+   "length": 7,
+   "clue": "Say Anfield Rap is industry's problem (3,4)",
+   "clueItalics": [
+    [
+     4,
+     12
+    ]
+   ],
+   "separatorLocations": {
+    ",": [
+     3
+    ]
+   },
+   "solution": "REDTAPE",
    "annotation": null
   },
   {
@@ -105,20 +107,18 @@ window.CRYPTIC_PUZZLES["independent-9003"] = /*JSON-START*/ {
    "number": 5,
    "direction": "down",
    "position": {
-    "x": 7,
+    "x": 9,
     "y": 0
    },
    "length": 15,
-   "clue": "Union activity's going to spell termination of employment (8-3,4)",
+   "clue": "Possible object of unrequited love in series (3,5,7)",
    "separatorLocations": {
-    "-": [
-     8
-    ],
     ",": [
-     11
+     3,
+     8
     ]
    },
-   "solution": "KNOCKINGOFFTIME",
+   "solution": "ONEAFTERANOTHER",
    "annotation": null
   },
   {
@@ -126,13 +126,17 @@ window.CRYPTIC_PUZZLES["independent-9003"] = /*JSON-START*/ {
    "number": 6,
    "direction": "down",
    "position": {
-    "x": 9,
-    "y": 0
+    "x": 11,
+    "y": 1
    },
-   "length": 9,
-   "clue": "Seen Colin's bruised lip? (9)",
-   "separatorLocations": {},
-   "solution": "INSOLENCE",
+   "length": 6,
+   "clue": "Didn't get takeaway for tea? (3,3)",
+   "separatorLocations": {
+    ",": [
+     3
+    ]
+   },
+   "solution": "ATEOUT",
    "annotation": null
   },
   {
@@ -140,27 +144,27 @@ window.CRYPTIC_PUZZLES["independent-9003"] = /*JSON-START*/ {
    "number": 7,
    "direction": "down",
    "position": {
-    "x": 11,
-    "y": 0
+    "x": 13,
+    "y": 1
    },
-   "length": 5,
-   "clue": "False hope at the end - that's sad (5)",
+   "length": 8,
+   "clue": "Difference between pitches rejected by United (8)",
    "separatorLocations": {},
-   "solution": "SHAME",
+   "solution": "SEMITONE",
    "annotation": null
   },
   {
-   "id": "8-down",
+   "id": "8-across",
    "number": 8,
-   "direction": "down",
+   "direction": "across",
    "position": {
-    "x": 13,
-    "y": 0
+    "x": 0,
+    "y": 2
    },
-   "length": 7,
-   "clue": "Isn't backing attitudes at work (7)",
+   "length": 8,
+   "clue": "Put satisfied tours in the upgrades, originally (8)",
    "separatorLocations": {},
-   "solution": "OPPOSES",
+   "solution": "SITUATED",
    "annotation": null
   },
   {
@@ -168,13 +172,13 @@ window.CRYPTIC_PUZZLES["independent-9003"] = /*JSON-START*/ {
    "number": 9,
    "direction": "across",
    "position": {
-    "x": 0,
+    "x": 9,
     "y": 2
    },
-   "length": 8,
-   "clue": "Sign on - one way to feed artist (8)",
+   "length": 6,
+   "clue": "Dish: how it's served to the audience? (6)",
    "separatorLocations": {},
-   "solution": "LEONARDO",
+   "solution": "ENTREE",
    "annotation": null
   },
   {
@@ -182,13 +186,13 @@ window.CRYPTIC_PUZZLES["independent-9003"] = /*JSON-START*/ {
    "number": 10,
    "direction": "across",
    "position": {
-    "x": 9,
-    "y": 2
+    "x": 0,
+    "y": 4
    },
-   "length": 6,
-   "clue": "Grant the politician has misused with assistant initially (6)",
+   "length": 10,
+   "clue": "Small close by house is lighter option for drinking (10)",
    "separatorLocations": {},
-   "solution": "SHAPPS",
+   "solution": "SHANDYGAFF",
    "annotation": null
   },
   {
@@ -196,17 +200,13 @@ window.CRYPTIC_PUZZLES["independent-9003"] = /*JSON-START*/ {
    "number": 11,
    "direction": "across",
    "position": {
-    "x": 0,
+    "x": 11,
     "y": 4
    },
-   "length": 14,
-   "clue": "Really like endless deaths, bar one perhaps, in film (3,11)",
-   "separatorLocations": {
-    ",": [
-     3
-    ]
-   },
-   "solution": "THELADYKILLERS",
+   "length": 4,
+   "clue": "Late report as nothing took effect (4)",
+   "separatorLocations": {},
+   "solution": "OBIT",
    "annotation": null
   },
   {
@@ -218,9 +218,9 @@ window.CRYPTIC_PUZZLES["independent-9003"] = /*JSON-START*/ {
     "y": 6
    },
    "length": 6,
-   "clue": "Country clothes precious to police officer out of uniform (6)",
+   "clue": "Deviant relaces, not beginning to sow one's oats (6)",
    "separatorLocations": {},
-   "solution": "TWEEDS",
+   "solution": "CEREAL",
    "annotation": null
   },
   {
@@ -228,17 +228,13 @@ window.CRYPTIC_PUZZLES["independent-9003"] = /*JSON-START*/ {
    "number": 13,
    "direction": "down",
    "position": {
-    "x": 5,
+    "x": 1,
     "y": 6
    },
-   "length": 9,
-   "clue": "Prickly type upsetting China? Sure (3,6)",
-   "separatorLocations": {
-    ",": [
-     3
-    ]
-   },
-   "solution": "SEAURCHIN",
+   "length": 8,
+   "clue": "Let one horribly round queen articulate (8)",
+   "separatorLocations": {},
+   "solution": "ELOQUENT",
    "annotation": null
   },
   {
@@ -250,37 +246,37 @@ window.CRYPTIC_PUZZLES["independent-9003"] = /*JSON-START*/ {
     "y": 6
    },
    "length": 8,
-   "clue": "Pants, new ones, worn at various points (8)",
+   "clue": "Exchanging tips on Labour, building vote (8)",
    "separatorLocations": {},
-   "solution": "NONSENSE",
+   "solution": "ELECTION",
    "annotation": null
   },
   {
-   "id": "15-down",
+   "id": "15-across",
    "number": 15,
-   "direction": "down",
-   "position": {
-    "x": 11,
-    "y": 6
-   },
-   "length": 9,
-   "clue": "Listened secretly as barrister mentioned this place in Bow earlier (9)",
-   "separatorLocations": {},
-   "solution": "EARWIGGED",
-   "annotation": null
-  },
-  {
-   "id": "16-across",
-   "number": 16,
    "direction": "across",
    "position": {
     "x": 0,
     "y": 8
    },
    "length": 8,
-   "clue": "He won't reproduce form at start of Royal Ascot (8)",
+   "clue": "Have sex with cross revolutionary and need to escape! (8)",
    "separatorLocations": {},
-   "solution": "CASTRATO",
+   "solution": "DOORKNOB",
+   "annotation": null
+  },
+  {
+   "id": "16-down",
+   "number": 16,
+   "direction": "down",
+   "position": {
+    "x": 3,
+    "y": 8
+   },
+   "length": 6,
+   "clue": "Gardeners planted around lines in city (6)",
+   "separatorLocations": {},
+   "solution": "RHODES",
    "annotation": null
   },
   {
@@ -288,19 +284,13 @@ window.CRYPTIC_PUZZLES["independent-9003"] = /*JSON-START*/ {
    "number": 17,
    "direction": "down",
    "position": {
-    "x": 1,
+    "x": 7,
     "y": 8
    },
    "length": 7,
-   "clue": "Joined Times - want to frame following article (7)",
-   "clueItalics": [
-    [
-     7,
-     6
-    ]
-   ],
+   "clue": "Hand round the twist (7)",
    "separatorLocations": {},
-   "solution": "ANNEXED",
+   "solution": "BANANAS",
    "annotation": null
   },
   {
@@ -312,13 +302,9 @@ window.CRYPTIC_PUZZLES["independent-9003"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 6,
-   "clue": "Politician having frisky encounter with unmarried bird (4,2)",
-   "separatorLocations": {
-    ",": [
-     4
-    ]
-   },
-   "solution": "EUROMP",
+   "clue": "Did fish set position (6)",
+   "separatorLocations": {},
+   "solution": "ANGLED",
    "annotation": null
   },
   {
@@ -326,13 +312,13 @@ window.CRYPTIC_PUZZLES["independent-9003"] = /*JSON-START*/ {
    "number": 19,
    "direction": "down",
    "position": {
-    "x": 13,
+    "x": 11,
     "y": 8
    },
    "length": 7,
-   "clue": "Fury - big-time (7)",
+   "clue": "Uniform simply resewn by girl in front (7)",
    "separatorLocations": {},
-   "solution": "MEGAERA",
+   "solution": "GYMSLIP",
    "annotation": null
   },
   {
@@ -340,32 +326,27 @@ window.CRYPTIC_PUZZLES["independent-9003"] = /*JSON-START*/ {
    "number": 20,
    "direction": "across",
    "position": {
-    "x": 1,
+    "x": 0,
     "y": 10
    },
-   "length": 14,
-   "clue": "Conciliatory words after spasm of anger's held in (2,4,8)",
-   "separatorLocations": {
-    ",": [
-     2,
-     6
-    ]
-   },
-   "solution": "NOHARDFEELINGS",
+   "length": 4,
+   "clue": "Mark's replacement admitted by attentive urologist (4)",
+   "separatorLocations": {},
+   "solution": "EURO",
    "annotation": null
   },
   {
-   "id": "21-down",
+   "id": "21-across",
    "number": 21,
-   "direction": "down",
+   "direction": "across",
    "position": {
-    "x": 3,
+    "x": 5,
     "y": 10
    },
-   "length": 5,
-   "clue": "Hurry - male in women's quarters! (5)",
+   "length": 10,
+   "clue": "Sparkling urban hosts in agreement (10)",
    "separatorLocations": {},
-   "solution": "HAREM",
+   "solution": "CONFORMITY",
    "annotation": null
   },
   {
@@ -373,13 +354,13 @@ window.CRYPTIC_PUZZLES["independent-9003"] = /*JSON-START*/ {
    "number": 22,
    "direction": "down",
    "position": {
-    "x": 9,
+    "x": 13,
     "y": 10
    },
    "length": 5,
-   "clue": "Supply nurse's expected (5)",
+   "clue": "Had another chance to pass over arm (5)",
    "separatorLocations": {},
-   "solution": "ENDUE",
+   "solution": "TASER",
    "annotation": null
   },
   {
@@ -391,9 +372,9 @@ window.CRYPTIC_PUZZLES["independent-9003"] = /*JSON-START*/ {
     "y": 12
    },
    "length": 6,
-   "clue": "Old Henry accommodates a Catholic bishop (6)",
+   "clue": "Change lanes, overtaking woman (6)",
    "separatorLocations": {},
-   "solution": "EXARCH",
+   "solution": "ANGELA",
    "annotation": null
   },
   {
@@ -405,9 +386,9 @@ window.CRYPTIC_PUZZLES["independent-9003"] = /*JSON-START*/ {
     "y": 12
    },
    "length": 8,
-   "clue": "Plants turn into papers (ours) (8)",
+   "clue": "Turning in targets for assassin (no. 3 killed) who's very sceptical (8)",
    "separatorLocations": {},
-   "solution": "INDIGOES",
+   "solution": "NIHILIST",
    "annotation": null
   },
   {
@@ -415,32 +396,13 @@ window.CRYPTIC_PUZZLES["independent-9003"] = /*JSON-START*/ {
    "number": 25,
    "direction": "across",
    "position": {
-    "x": 0,
+    "x": 4,
     "y": 14
    },
    "length": 10,
-   "clue": "Gardeners resolved to dig? No time left (4,3,3)",
-   "separatorLocations": {
-    ",": [
-     4,
-     7
-    ]
-   },
-   "solution": "ADAMANDEVE",
-   "annotation": null
-  },
-  {
-   "id": "26-across",
-   "number": 26,
-   "direction": "across",
-   "position": {
-    "x": 11,
-    "y": 14
-   },
-   "length": 4,
-   "clue": "Very late (4)",
+   "clue": "Cissy regularly finds space again outside revolving tower (10)",
    "separatorLocations": {},
-   "solution": "DEAD",
+   "solution": "SKYSCRAPER",
    "annotation": null
   }
  ]

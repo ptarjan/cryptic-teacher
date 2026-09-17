@@ -53,6 +53,10 @@ window.CRYPTIC_PUZZLES["cyclops-402"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 8ac. (4)",
+   "group": [
+    "8-across",
+    "3-down"
+   ],
    "separatorLocations": {},
    "solution": "OVER",
    "annotation": null
@@ -123,6 +127,10 @@ window.CRYPTIC_PUZZLES["cyclops-402"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 3dn.) Electorate once embracing Gordon's debut  unpleasant after-effects! (4)",
+   "group": [
+    "8-across",
+    "3-down"
+   ],
    "separatorLocations": {},
    "solution": "HANG",
    "annotation": null
@@ -137,6 +145,10 @@ window.CRYPTIC_PUZZLES["cyclops-402"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 25dn. (4)",
+   "group": [
+    "25-down",
+    "9-down"
+   ],
    "separatorLocations": {},
    "solution": "GASP",
    "annotation": null
@@ -151,6 +163,10 @@ window.CRYPTIC_PUZZLES["cyclops-402"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 27ac.) Awful, what peers do with a no.2 (Brown's no.2) (4-4)",
+   "group": [
+    "10-down",
+    "27-across"
+   ],
    "separatorLocations": {},
    "solution": "PISS",
    "annotation": null
@@ -193,6 +209,10 @@ window.CRYPTIC_PUZZLES["cyclops-402"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 15ac.) The PM, \"pants\" according to Obama  such times are very scary (5,8)",
+   "group": [
+    "13-across",
+    "15-across"
+   ],
    "separatorLocations": {},
    "solution": "BROWN",
    "annotation": null
@@ -221,6 +241,10 @@ window.CRYPTIC_PUZZLES["cyclops-402"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "see 13ac. (8)",
+   "group": [
+    "13-across",
+    "15-across"
+   ],
    "separatorLocations": {},
    "solution": "TROUSERS",
    "annotation": null
@@ -389,6 +413,10 @@ window.CRYPTIC_PUZZLES["cyclops-402"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 9dn.) To endure flatulence, pee at the final second (4-4)",
+   "group": [
+    "25-down",
+    "9-down"
+   ],
    "separatorLocations": {},
    "solution": "LAST",
    "annotation": null
@@ -417,6 +445,10 @@ window.CRYPTIC_PUZZLES["cyclops-402"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 10dn. (4)",
+   "group": [
+    "10-down",
+    "27-across"
+   ],
    "separatorLocations": {},
    "solution": "POOR",
    "annotation": null

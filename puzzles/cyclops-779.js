@@ -137,6 +137,10 @@ window.CRYPTIC_PUZZLES["cyclops-779"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "see 26dn. (9)",
+   "group": [
+    "26-down",
+    "9-across"
+   ],
    "separatorLocations": {},
    "solution": "AWARENESS",
    "annotation": null
@@ -375,6 +379,10 @@ window.CRYPTIC_PUZZLES["cyclops-779"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 9ac.) Quality not possessed by Liz Truss? 'Putting out feelers' was ans. (4)",
+   "group": [
+    "26-down",
+    "9-across"
+   ],
    "separatorLocations": {},
    "solution": "SELF",
    "annotation": null

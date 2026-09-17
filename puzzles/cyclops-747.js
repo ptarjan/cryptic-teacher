@@ -25,6 +25,10 @@ window.CRYPTIC_PUZZLES["cyclops-747"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(13ac.) US gun lobby pushes its own interpretation of this support net, working with mad men (6)",
+   "group": [
+    "1-across",
+    "13-across"
+   ],
    "separatorLocations": {},
    "solution": "SECOND",
    "annotation": null
@@ -207,6 +211,10 @@ window.CRYPTIC_PUZZLES["cyclops-747"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "see 1ac. (9)",
+   "group": [
+    "1-across",
+    "13-across"
+   ],
    "separatorLocations": {},
    "solution": "AMENDMENT",
    "annotation": null

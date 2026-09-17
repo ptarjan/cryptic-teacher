@@ -165,6 +165,10 @@ window.CRYPTIC_PUZZLES["cyclops-811"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 25ac.) It's often broken by politicians' lacking self-awareness  or my entire works (5)",
+   "group": [
+    "10-across",
+    "25-across"
+   ],
    "separatorLocations": {},
    "solution": "IRONY",
    "annotation": null
@@ -207,6 +211,10 @@ window.CRYPTIC_PUZZLES["cyclops-811"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 19ac.) Bitter period: Conservative, past it, needs break (4)",
+   "group": [
+    "13-across",
+    "19-across"
+   ],
    "separatorLocations": {},
    "solution": "COLD",
    "annotation": null
@@ -291,6 +299,10 @@ window.CRYPTIC_PUZZLES["cyclops-811"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 13ac.",
+   "group": [
+    "13-across",
+    "19-across"
+   ],
    "separatorLocations": {},
    "solution": "SNAP",
    "annotation": null
@@ -375,6 +387,10 @@ window.CRYPTIC_PUZZLES["cyclops-811"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 10ac.",
+   "group": [
+    "10-across",
+    "25-across"
+   ],
    "separatorLocations": {},
    "solution": "METER",
    "annotation": null

@@ -39,6 +39,10 @@ window.CRYPTIC_PUZZLES["cyclops-774"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "see 18ac. (8)",
+   "group": [
+    "18-across",
+    "1-down"
+   ],
    "separatorLocations": {},
    "solution": "REACTION",
    "annotation": null
@@ -53,6 +57,10 @@ window.CRYPTIC_PUZZLES["cyclops-774"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 24dn.) Fail to separate oddballs, as Republicans do around Trump (5)",
+   "group": [
+    "2-down",
+    "24-down"
+   ],
    "separatorLocations": {},
    "solution": "CLOSE",
    "annotation": null
@@ -305,6 +313,10 @@ window.CRYPTIC_PUZZLES["cyclops-774"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "(& 1dn.) Balls possibly in line of fire from such an unthinking response? (4,4)",
+   "group": [
+    "18-across",
+    "1-down"
+   ],
    "separatorLocations": {},
    "solution": "KNEEJERK",
    "annotation": null
@@ -403,6 +415,10 @@ window.CRYPTIC_PUZZLES["cyclops-774"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 2dn. (5)",
+   "group": [
+    "2-down",
+    "24-down"
+   ],
    "separatorLocations": {},
    "solution": "RANKS",
    "annotation": null

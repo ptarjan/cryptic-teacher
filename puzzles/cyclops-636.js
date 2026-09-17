@@ -95,6 +95,10 @@ window.CRYPTIC_PUZZLES["cyclops-636"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "see 17dn. (5)",
+   "group": [
+    "17-down",
+    "6-down"
+   ],
    "separatorLocations": {},
    "solution": "UNDER",
    "annotation": null
@@ -249,6 +253,10 @@ window.CRYPTIC_PUZZLES["cyclops-636"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "(& 6dn) Liberal Nick (drunken lug) being acquiescent (9)",
+   "group": [
+    "17-down",
+    "6-down"
+   ],
    "separatorLocations": {},
    "solution": "KNUCKLING",
    "annotation": null
@@ -319,6 +327,10 @@ window.CRYPTIC_PUZZLES["cyclops-636"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "(& 22dn.) Peanuts and small measure of drink used to imply a small penis? (6)",
+   "group": [
+    "21-down",
+    "22-down"
+   ],
    "separatorLocations": {},
    "solution": "LITTLE",
    "annotation": null
@@ -333,6 +345,10 @@ window.CRYPTIC_PUZZLES["cyclops-636"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "see 21dn. (6)",
+   "group": [
+    "21-down",
+    "22-down"
+   ],
    "separatorLocations": {},
    "solution": "FINGER",
    "annotation": null

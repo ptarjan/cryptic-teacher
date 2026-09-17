@@ -375,6 +375,10 @@ window.CRYPTIC_PUZZLES["cyclops-739"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "(& 25ac.) Leading hack's position when it comes to the electoral system? (5,4)",
+   "group": [
+    "23-across",
+    "25-across"
+   ],
    "separatorLocations": {},
    "solution": "FIRSTPAST",
    "annotation": null
@@ -417,6 +421,10 @@ window.CRYPTIC_PUZZLES["cyclops-739"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "see 23ac. (3,4)",
+   "group": [
+    "23-across",
+    "25-across"
+   ],
    "separatorLocations": {},
    "solution": "THEPOST",
    "annotation": null

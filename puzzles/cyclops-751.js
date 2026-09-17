@@ -53,6 +53,10 @@ window.CRYPTIC_PUZZLES["cyclops-751"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "see 24dn. (4)",
+   "group": [
+    "24-down",
+    "3-down"
+   ],
    "separatorLocations": {},
    "solution": "BAGS",
    "annotation": null
@@ -389,6 +393,10 @@ window.CRYPTIC_PUZZLES["cyclops-751"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "(& 3dn.) War's grim returns  organisation has lots (4)",
+   "group": [
+    "24-down",
+    "3-down"
+   ],
    "separatorLocations": {},
    "solution": "BODY",
    "annotation": null

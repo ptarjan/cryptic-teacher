@@ -81,6 +81,10 @@ window.CRYPTIC_PUZZLES["cyclops-780"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "see 19ac.",
+   "group": [
+    "19-across",
+    "4-down"
+   ],
    "separatorLocations": {},
    "solution": "OUT",
    "annotation": null
@@ -291,6 +295,10 @@ window.CRYPTIC_PUZZLES["cyclops-780"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "(& 4dn.) It offers a poor view of WASP leader declared to be gay (5)",
+   "group": [
+    "19-across",
+    "4-down"
+   ],
    "separatorLocations": {},
    "solution": "WHITE",
    "annotation": null
