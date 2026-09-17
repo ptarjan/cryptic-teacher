@@ -4608,6 +4608,10 @@
       Saturday. About as hard as the Guardian, with a regular cast of setters —
       Phi, Quince, Eccles, Hippogryph — so their habits are worth learning if you
       like one of them.`],
+    metro: ["metro", `Metro's daily cryptic — the free London paper's commuter
+      puzzle, 13x13 and pitched a long way below the broadsheets: short clues,
+      everyday words, and a solve that fits a tube journey. A good place to start
+      if the Guardian's daily is still a wall.`],
     globeandmail: ["globe & mail", `The Globe and Mail's daily cryptic — syndicated
       from the Times of London, and 13x13 rather than the Times' own 15x15, so it
       is the short, crisp end of that house style: tight surfaces, no obscurity,

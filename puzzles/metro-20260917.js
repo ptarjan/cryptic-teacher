@@ -7,7 +7,7 @@ window.CRYPTIC_PUZZLES["metro-20260917"] = /*JSON-START*/ {
  "number": 20260917,
  "series": "metro",
  "name": "Metro cryptic crossword, 17 September 2026",
- "setter": "Unknown",
+ "setter": "Metro",
  "date": 1789603200000,
  "dimensions": {
   "cols": 13,
