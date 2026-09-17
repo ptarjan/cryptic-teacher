@@ -7,8 +7,8 @@ window.CRYPTIC_PUZZLES["independent-11812"] = /*JSON-START*/ {
  "number": 11812,
  "series": "independent",
  "name": "Independent cryptic crossword No 11,812",
- "setter": "Filbert",
- "date": 1731801600000,
+ "setter": "Coot",
+ "date": 1724025600000,
  "dimensions": {
   "cols": 15,
   "rows": 15
@@ -16,31 +16,17 @@ window.CRYPTIC_PUZZLES["independent-11812"] = /*JSON-START*/ {
  "sourceUrl": "https://puzzles.independent.co.uk/games/cryptic-crossword-independent/",
  "entries": [
   {
-   "id": "1-across",
-   "number": 1,
-   "direction": "across",
-   "position": {
-    "x": 1,
-    "y": 0
-   },
-   "length": 6,
-   "clue": "Prayer provided illumination for some (6)",
-   "separatorLocations": {},
-   "solution": "LITANY",
-   "annotation": null
-  },
-  {
    "id": "1-down",
    "number": 1,
    "direction": "down",
    "position": {
-    "x": 1,
+    "x": 2,
     "y": 0
    },
-   "length": 5,
-   "clue": "Pack animal left priest in the high mountains (5)",
+   "length": 6,
+   "clue": "Where to find drink after spelling Eyjafjallajökull perhaps (6)",
    "separatorLocations": {},
-   "solution": "LLAMA",
+   "solution": "SPEWER",
    "annotation": null
   },
   {
@@ -48,13 +34,13 @@ window.CRYPTIC_PUZZLES["independent-11812"] = /*JSON-START*/ {
    "number": 2,
    "direction": "down",
    "position": {
-    "x": 3,
+    "x": 4,
     "y": 0
    },
-   "length": 9,
-   "clue": "You shouldn't have wasted time over place settings (9)",
+   "length": 4,
+   "clue": "Welsh policeman’s heading to seize Coot’s weed (4)",
    "separatorLocations": {},
-   "solution": "TABLEWARE",
+   "solution": "WIMP",
    "annotation": null
   },
   {
@@ -62,35 +48,31 @@ window.CRYPTIC_PUZZLES["independent-11812"] = /*JSON-START*/ {
    "number": 3,
    "direction": "down",
    "position": {
-    "x": 5,
+    "x": 6,
     "y": 0
    },
-   "length": 7,
-   "clue": "Agree, bout fixed for sure (2,5)",
-   "separatorLocations": {
-    ",": [
-     2
-    ]
-   },
-   "solution": "NODOUBT",
+   "length": 6,
+   "clue": "What follows revolutionary French article tackling ‘European question’? (6)",
+   "separatorLocations": {},
+   "solution": "SEQUEL",
    "annotation": null
   },
   {
-   "id": "4-across",
+   "id": "4-down",
    "number": 4,
-   "direction": "across",
+   "direction": "down",
    "position": {
     "x": 8,
     "y": 0
    },
-   "length": 6,
-   "clue": "A single Venetian magistrate drops round, making you nervous (2,4)",
+   "length": 8,
+   "clue": "Kept property secure in stormy Southsea (5-3)",
    "separatorLocations": {
-    ",": [
-     2
+    "-": [
+     5
     ]
    },
-   "solution": "ONEDGE",
+   "solution": "HOUSESAT",
    "annotation": null
   },
   {
@@ -98,13 +80,13 @@ window.CRYPTIC_PUZZLES["independent-11812"] = /*JSON-START*/ {
    "number": 5,
    "direction": "down",
    "position": {
-    "x": 9,
+    "x": 10,
     "y": 0
    },
-   "length": 7,
-   "clue": "Decadent city in which anything goes (7)",
+   "length": 4,
+   "clue": "When going round central Tokyo, I drink this? (4)",
    "separatorLocations": {},
-   "solution": "NAUGHTY",
+   "solution": "SAKI",
    "annotation": null
   },
   {
@@ -112,13 +94,27 @@ window.CRYPTIC_PUZZLES["independent-11812"] = /*JSON-START*/ {
    "number": 6,
    "direction": "down",
    "position": {
-    "x": 11,
+    "x": 12,
     "y": 0
    },
-   "length": 5,
-   "clue": "Southern states pass on hosting Chinese leader (5)",
+   "length": 8,
+   "clue": "Who's permitted chaotic scene found in lounge? (8)",
    "separatorLocations": {},
-   "solution": "DIXIE",
+   "solution": "LICENSEE",
+   "annotation": null
+  },
+  {
+   "id": "7-across",
+   "number": 7,
+   "direction": "across",
+   "position": {
+    "x": 0,
+    "y": 1
+   },
+   "length": 7,
+   "clue": "Information about hat creates upset (7)",
+   "separatorLocations": {},
+   "solution": "CAPSIZE",
    "annotation": null
   },
   {
@@ -126,13 +122,13 @@ window.CRYPTIC_PUZZLES["independent-11812"] = /*JSON-START*/ {
    "number": 7,
    "direction": "down",
    "position": {
-    "x": 13,
-    "y": 0
+    "x": 0,
+    "y": 1
    },
-   "length": 9,
-   "clue": "Incredibly, optical flickering in old telly limited to one line (9)",
+   "length": 6,
+   "clue": "Artist drawn in by coffee shop's flask (6)",
    "separatorLocations": {},
-   "solution": "EXTREMELY",
+   "solution": "CARAFE",
    "annotation": null
   },
   {
@@ -140,49 +136,41 @@ window.CRYPTIC_PUZZLES["independent-11812"] = /*JSON-START*/ {
    "number": 8,
    "direction": "across",
    "position": {
-    "x": 0,
-    "y": 2
+    "x": 8,
+    "y": 1
    },
-   "length": 4,
-   "clue": "Clothing something you show pride in, twirling (4)",
+   "length": 7,
+   "clue": "Talking pompously, note \"a lot of fruit's round\" (7)",
    "separatorLocations": {},
-   "solution": "GARB",
+   "solution": "ORATING",
    "annotation": null
   },
   {
-   "id": "9-across",
+   "id": "9-down",
    "number": 9,
-   "direction": "across",
-   "position": {
-    "x": 5,
-    "y": 2
-   },
-   "length": 10,
-   "clue": "Poorly-mounted knight's day going perfectly, limiting steer to the left (3,7)",
-   "separatorLocations": {
-    ",": [
-     3
-    ]
-   },
-   "solution": "DONQUIXOTE",
-   "annotation": null
-  },
-  {
-   "id": "10-down",
-   "number": 10,
    "direction": "down",
    "position": {
-    "x": 7,
-    "y": 2
+    "x": 14,
+    "y": 1
    },
-   "length": 11,
-   "clue": "Red giant she realigned, unable to focus so far (4-7)",
-   "separatorLocations": {
-    "-": [
-     4
-    ]
+   "length": 6,
+   "clue": "Excellent joint objective discussed upfront (6)",
+   "separatorLocations": {},
+   "solution": "GOLDEN",
+   "annotation": null
+  },
+  {
+   "id": "10-across",
+   "number": 10,
+   "direction": "across",
+   "position": {
+    "x": 0,
+    "y": 3
    },
-   "solution": "NEARSIGHTED",
+   "length": 9,
+   "clue": "Sore student mentions DIY sheaths (9)",
+   "separatorLocations": {},
+   "solution": "RAWLPLUGS",
    "annotation": null
   },
   {
@@ -190,13 +178,13 @@ window.CRYPTIC_PUZZLES["independent-11812"] = /*JSON-START*/ {
    "number": 11,
    "direction": "across",
    "position": {
-    "x": 0,
-    "y": 4
+    "x": 10,
+    "y": 3
    },
-   "length": 6,
-   "clue": "Rich food consumed in most of France, historically (6)",
+   "length": 5,
+   "clue": "Aldi cooking base stocked - just the job (5)",
    "separatorLocations": {},
-   "solution": "GATEAU",
+   "solution": "IDEAL",
    "annotation": null
   },
   {
@@ -204,27 +192,47 @@ window.CRYPTIC_PUZZLES["independent-11812"] = /*JSON-START*/ {
    "number": 12,
    "direction": "across",
    "position": {
-    "x": 7,
-    "y": 4
+    "x": 0,
+    "y": 5
    },
-   "length": 8,
-   "clue": "The least out of shape? (8)",
+   "length": 9,
+   "clue": "Cheerio and see you later, possibly in food banks (9)",
    "separatorLocations": {},
-   "solution": "ATHLETES",
+   "solution": "FAREWELLS",
    "annotation": null
   },
   {
-   "id": "13-across",
+   "id": "13-down",
    "number": 13,
+   "direction": "down",
+   "position": {
+    "x": 4,
+    "y": 5
+   },
+   "length": 5,
+   "clue": "Greta Thunberg and Isra Hirsi, maybe, with warning (5)",
+   "separatorLocations": {},
+   "solution": "WOMEN",
+   "annotation": null
+  },
+  {
+   "id": "14-across",
+   "number": 14,
    "direction": "across",
    "position": {
-    "x": 0,
-    "y": 6
+    "x": 10,
+    "y": 5
    },
-   "length": 8,
-   "clue": "Flooded land next to lake, people opposed (8)",
+   "length": 5,
+   "clue": "Author aboard the SS Endurance (5)",
+   "clueItalics": [
+    [
+     21,
+     9
+    ]
+   ],
    "separatorLocations": {},
-   "solution": "ATLANTIS",
+   "solution": "HESSE",
    "annotation": null
   },
   {
@@ -232,13 +240,13 @@ window.CRYPTIC_PUZZLES["independent-11812"] = /*JSON-START*/ {
    "number": 14,
    "direction": "down",
    "position": {
-    "x": 1,
-    "y": 6
+    "x": 10,
+    "y": 5
    },
-   "length": 9,
-   "clue": "English during Root's last century were deafening (9)",
+   "length": 5,
+   "clue": "Hydrogen rises through soil and grit (5)",
    "separatorLocations": {},
-   "solution": "THUNDERED",
+   "solution": "HEART",
    "annotation": null
   },
   {
@@ -246,13 +254,27 @@ window.CRYPTIC_PUZZLES["independent-11812"] = /*JSON-START*/ {
    "number": 15,
    "direction": "across",
    "position": {
-    "x": 9,
-    "y": 6
+    "x": 2,
+    "y": 7
    },
-   "length": 6,
-   "clue": "I don't know what to say faced with silly baby's prattle (6)",
+   "length": 11,
+   "clue": "Set out to mend taser that's malfunctioning (11)",
    "separatorLocations": {},
-   "solution": "YABBER",
+   "solution": "DEMONSTRATE",
+   "annotation": null
+  },
+  {
+   "id": "15-down",
+   "number": 15,
+   "direction": "down",
+   "position": {
+    "x": 2,
+    "y": 7
+   },
+   "length": 8,
+   "clue": "Activity for writer's daughter: a water sport (8)",
+   "separatorLocations": {},
+   "solution": "DRAFTING",
    "annotation": null
   },
   {
@@ -260,27 +282,31 @@ window.CRYPTIC_PUZZLES["independent-11812"] = /*JSON-START*/ {
    "number": 16,
    "direction": "down",
    "position": {
-    "x": 11,
-    "y": 6
+    "x": 6,
+    "y": 7
    },
-   "length": 9,
-   "clue": "Spooner's white wine leaked, silly man (9)",
-   "separatorLocations": {},
-   "solution": "BLOCKHEAD",
+   "length": 8,
+   "clue": "Goal at the start gets overturned stopping three points for reserves (4,4)",
+   "separatorLocations": {
+    ",": [
+     4
+    ]
+   },
+   "solution": "NESTEGGS",
    "annotation": null
   },
   {
-   "id": "17-across",
+   "id": "17-down",
    "number": 17,
-   "direction": "across",
+   "direction": "down",
    "position": {
     "x": 0,
     "y": 8
    },
    "length": 6,
-   "clue": "Brilliant Djokovic perhaps keeps winning (6)",
+   "clue": "\"Could I vaccinate you?\" \"Go on\" (6)",
    "separatorLocations": {},
-   "solution": "SUPERB",
+   "solution": "JABBER",
    "annotation": null
   },
   {
@@ -288,13 +314,13 @@ window.CRYPTIC_PUZZLES["independent-11812"] = /*JSON-START*/ {
    "number": 18,
    "direction": "down",
    "position": {
-    "x": 5,
+    "x": 14,
     "y": 8
    },
-   "length": 7,
-   "clue": "Rower using old cash machine in bar (7)",
+   "length": 6,
+   "clue": "Cross at cast shunning birthday working (6)",
    "separatorLocations": {},
-   "solution": "BOATMAN",
+   "solution": "HYBRID",
    "annotation": null
   },
   {
@@ -302,49 +328,49 @@ window.CRYPTIC_PUZZLES["independent-11812"] = /*JSON-START*/ {
    "number": 19,
    "direction": "across",
    "position": {
-    "x": 7,
-    "y": 8
+    "x": 0,
+    "y": 9
    },
-   "length": 8,
-   "clue": "Pope believing at last, touching blood-stained cross (7,1)",
-   "separatorLocations": {
-    ",": [
-     7
-    ]
-   },
-   "solution": "GREGORYX",
+   "length": 5,
+   "clue": "On top, a win follows (5)",
+   "separatorLocations": {},
+   "solution": "AGAIN",
    "annotation": null
   },
   {
-   "id": "20-down",
+   "id": "20-across",
    "number": 20,
+   "direction": "across",
+   "position": {
+    "x": 6,
+    "y": 9
+   },
+   "length": 9,
+   "clue": "Exhibits diary regularly in events at school (6,3)",
+   "separatorLocations": {
+    ",": [
+     6
+    ]
+   },
+   "solution": "SPORTSDAY",
+   "annotation": null
+  },
+  {
+   "id": "21-down",
+   "number": 21,
    "direction": "down",
    "position": {
-    "x": 9,
-    "y": 8
+    "x": 8,
+    "y": 9
    },
-   "length": 7,
-   "clue": "Man sees sports as one (2,5)",
+   "length": 6,
+   "clue": "Concerning cry reveals status of GP at home? (2,4)",
    "separatorLocations": {
     ",": [
      2
     ]
    },
-   "solution": "ENMASSE",
-   "annotation": null
-  },
-  {
-   "id": "21-across",
-   "number": 21,
-   "direction": "across",
-   "position": {
-    "x": 0,
-    "y": 10
-   },
-   "length": 8,
-   "clue": "Notice soldier holding stick out for OC's assistant (8)",
-   "separatorLocations": {},
-   "solution": "ADJUTANT",
+   "solution": "ONCALL",
    "annotation": null
   },
   {
@@ -352,13 +378,17 @@ window.CRYPTIC_PUZZLES["independent-11812"] = /*JSON-START*/ {
    "number": 22,
    "direction": "down",
    "position": {
-    "x": 3,
-    "y": 10
+    "x": 12,
+    "y": 9
    },
-   "length": 5,
-   "clue": "Show the first and third person as objects (5)",
-   "separatorLocations": {},
-   "solution": "USHER",
+   "length": 6,
+   "clue": "One might revisit this corner to take drugs (3-3)",
+   "separatorLocations": {
+    "-": [
+     3
+    ]
+   },
+   "solution": "DOGEAR",
    "annotation": null
   },
   {
@@ -366,13 +396,13 @@ window.CRYPTIC_PUZZLES["independent-11812"] = /*JSON-START*/ {
    "number": 23,
    "direction": "across",
    "position": {
-    "x": 9,
-    "y": 10
+    "x": 0,
+    "y": 11
    },
-   "length": 6,
-   "clue": "Korean dictator to the west, trouble for Japanese emperor (6)",
+   "length": 5,
+   "clue": "Club's new boat vandalised (5)",
    "separatorLocations": {},
-   "solution": "MIKADO",
+   "solution": "BATON",
    "annotation": null
   },
   {
@@ -380,13 +410,13 @@ window.CRYPTIC_PUZZLES["independent-11812"] = /*JSON-START*/ {
    "number": 24,
    "direction": "down",
    "position": {
-    "x": 13,
-    "y": 10
+    "x": 4,
+    "y": 11
    },
-   "length": 5,
-   "clue": "Flat bottom on which daughter stands (5)",
+   "length": 4,
+   "clue": "Spike Milligan's finale: to be ill (4)",
    "separatorLocations": {},
-   "solution": "DREAR",
+   "solution": "NAIL",
    "annotation": null
   },
   {
@@ -394,27 +424,27 @@ window.CRYPTIC_PUZZLES["independent-11812"] = /*JSON-START*/ {
    "number": 25,
    "direction": "across",
    "position": {
-    "x": 0,
-    "y": 12
+    "x": 6,
+    "y": 11
    },
-   "length": 10,
-   "clue": "Was ringing in ears troubling Greek mathematician? (10)",
+   "length": 9,
+   "clue": "One who trades incense with old companion (9)",
    "separatorLocations": {},
-   "solution": "ARCHIMEDES",
+   "solution": "EXCHANGER",
    "annotation": null
   },
   {
-   "id": "26-across",
+   "id": "26-down",
    "number": 26,
-   "direction": "across",
+   "direction": "down",
    "position": {
-    "x": 11,
-    "y": 12
+    "x": 10,
+    "y": 11
    },
    "length": 4,
-   "clue": "Vessel used to be back to front (4)",
+   "clue": "Principally adolescent curse, requiring prescription medicine ultimately? (4)",
    "separatorLocations": {},
-   "solution": "EWER",
+   "solution": "ACNE",
    "annotation": null
   },
   {
@@ -422,13 +452,13 @@ window.CRYPTIC_PUZZLES["independent-11812"] = /*JSON-START*/ {
    "number": 27,
    "direction": "across",
    "position": {
-    "x": 1,
-    "y": 14
+    "x": 0,
+    "y": 13
    },
-   "length": 6,
-   "clue": "Courageous lover gives heart away (6)",
+   "length": 7,
+   "clue": "Management's massaging numbers to cover up billions (7)",
    "separatorLocations": {},
-   "solution": "DARING",
+   "solution": "RUNNING",
    "annotation": null
   },
   {
@@ -437,12 +467,12 @@ window.CRYPTIC_PUZZLES["independent-11812"] = /*JSON-START*/ {
    "direction": "across",
    "position": {
     "x": 8,
-    "y": 14
+    "y": 13
    },
-   "length": 6,
-   "clue": "Short fellow apparently embarrassed about sex (6)",
+   "length": 7,
+   "clue": "Grease protecting a bit of security rope? (7)",
    "separatorLocations": {},
-   "solution": "GENDER",
+   "solution": "LANYARD",
    "annotation": null
   }
  ]
