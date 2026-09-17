@@ -99,9 +99,9 @@ from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from fetch_puzzle import (PUZZLE_DIR, http_bytes, merge_annotations,  # noqa: E402
-                          puzzle_files, read_puzzle_file, reindex,
-                          write_puzzle_file)
+from fetch_puzzle import (PUZZLE_DIR, flatten_clue, http_bytes,  # noqa: E402
+                          merge_annotations, puzzle_files, read_puzzle_file,
+                          reindex, write_puzzle_file)
 import series as series_meta  # noqa: E402
 
 SET = "globeandmail-new-cryptic"
@@ -251,7 +251,11 @@ def convert(data, ymd):
         cells = [(x0 + i, y0) for i in range(length)] if across else [(x0, y0 + i) for i in range(length)]
         word_lens = pw["wordLens"]
         enum = "(" + ",".join(str(n) for n in word_lens) + ")"
-        clue_text = pw["clue"]["clue"].strip()
+        # The Amuse payload italicises titles in the clue with real HTML tags,
+        # and the app escapes puzzle text, so the markup has to come out here.
+        # The italics themselves are part of the clue, so they travel beside it
+        # as ranges, exactly as the Guardian and Independent clues do.
+        clue_text, italics = flatten_clue(pw["clue"]["clue"].strip())
         full_clue = clue_text if ENUM_TAIL_RE.search(clue_text) else f"{clue_text} {enum}"
         seps = {}
         if len(word_lens) > 1:
@@ -268,6 +272,7 @@ def convert(data, ymd):
             "position": {"x": x0, "y": y0},
             "length": length,
             "clue": full_clue,
+            **({"clueItalics": italics} if italics else {}),
             "separatorLocations": seps,
             "solution": solution_letters(box, cells),
             "annotation": None,

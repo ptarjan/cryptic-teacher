@@ -45,6 +45,15 @@ tools/fetch_puzzle.py                        fetch/convert the Guardian cryptic,
                                              and Quiptic, --latest/--backfill/--extend/--reindex
 tools/fetch_independent.py                   the Independent’s daily and Sunday
 tools/fetch_observer.py                      the Observer’s Everyman
+tools/fetch_wayback.py                       recovers Guardian puzzles older than the live site
+                                             keeps, out of the Wayback Machine’s captures
+tools/fetch_globeandmail.py                  the Globe and Mail’s cryptic, a Times of London
+                                             syndication, decoded from its Amuse Labs player
+tools/fetch_privateeye.py                    Private Eye’s Cyclops — the grid from the paper,
+                                             the answers joined from fifteensquared, which is
+                                             the only place they are published
+tools/fetch_metro.py                         the Metro’s cryptic; today’s only, because the
+                                             paper keeps no archive
 tools/extend_archive.py                      walks the archives backwards to keep the
                                              annotation queue deeper than the job's best week
 tools/fetch_minutecryptic.js                 Minute Cryptic’s daily hints, as a corpus to be
