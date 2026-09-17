@@ -58,6 +58,15 @@ SERIES = {
         "kind": "Cryptic",
         "publisher": "Independent",
     },
+    "globeandmail": {
+        # The Globe and Mail prints it, but the byline arrives stamped
+        # "©News Licensing/Times Media Limited" — it is a Times of London
+        # syndication, 13x13 rather than the Times' own 15x15. Publisher is the
+        # masthead a solver sees; the setter name that comes with it is real.
+        "kind": "Cryptic",
+        "publisher": "Globe and Mail",
+        "badge": "globe & mail",
+    },
     "indysunday": {
         # The Independent on Sunday's own weekly sequence, ~1,900 and climbing
         # by one a week, served from the same feed as the daily (see
