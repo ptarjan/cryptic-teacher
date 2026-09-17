@@ -1283,7 +1283,7 @@ window.CRYPTIC_PUZZLES["cryptic-30099"] = /*JSON-START*/ {
       "note": "and the last of the five, taken from the same place"
      }
     ],
-    "walkthrough": "'Secondary characters' reads as the minor players in an office drama, which is a fine sentence and a counting instruction at the same time.",
+    "walkthrough": "'Secondary characters' reads as the minor players in an office drama. They are letters, not people: five consecutive words follow and each gives up its second one, which is why 'major flaws' is scenery and not part of the definition.",
     "definitionFit": "Critical → FOCAL: a focal point is the one everything converges on, so a focal issue is the critical one, the point that decides the rest."
    }
   },
@@ -1304,14 +1304,13 @@ window.CRYPTIC_PUZZLES["cryptic-30099"] = /*JSON-START*/ {
     "answer": "GESTATION",
     "definition": "when things are developing",
     "indicators": [
+     "on",
      "half of"
     ],
     "indicatorNotes": {
-     "half of": "Half of a four-letter word is two letters, and the clue leaves it to the crossing letters to say which half is wanted."
+     "on": "In an across entry one thing sits on another by following it along the row, so the piece named before this word is written second.",
+     "half of": "Half of a four-letter word is two letters, and nothing here says which two: the pair that leaves a word when the pieces are joined is the one wanted."
     },
-    "linkWords": [
-     "on"
-    ],
     "pieces": [
      "GE",
      "STATION"
@@ -1328,7 +1327,7 @@ window.CRYPTIC_PUZZLES["cryptic-30099"] = /*JSON-START*/ {
       "note": "a sentry's post is a station, the place they are set to keep"
      }
     ],
-    "walkthrough": "The surface is payroll admin. 'Post' is the military sense rather than the mail, and that switch is what hides the longer of the two pieces.",
+    "walkthrough": "The surface is payroll admin, and 'Post' is the military sense rather than the mail. An across clue's 'on' means 'after', so the piece the clue names first is the one written last.",
     "definitionFit": "when things are developing → GESTATION: the period in which something is carried and grows before it emerges, whether an infant or an idea."
    }
   },
