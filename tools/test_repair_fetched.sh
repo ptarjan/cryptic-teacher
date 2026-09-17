@@ -31,6 +31,11 @@ same() { if [ "$2" = "$3" ]; then echo "  ok: $1"; else
 work=$(mktemp -d); trap 'rm -rf "$work"' EXIT
 mkdir -p "$work/tools" "$work/puzzles"
 cp "$REPO"/tools/*.py "$work/tools/"
+# The one fixture that is NOT built here. The false-cross-reference rule is
+# gated off for the series that enumerate light by light, and a hand-written
+# Private Eye puzzle would only prove the gate against our idea of Private Eye.
+# This is the paper's own file, groups and counts as Cyclops printed them.
+cp "$REPO"/puzzles/cyclops-401.js "$work/puzzles/"
 run() { (cd "$work" && python3 tools/repair_fetched.py "$@" 2>&1); }
 # One fixture at a time: a --apply over the whole scratch tree would repair the
 # next section's fixture before that section had looked at it.
@@ -97,6 +102,26 @@ write("cryptic", 103, base + 3 * DAY, [
     entry("3-down", 3, "down", 2, 0, 6, "The whole thing (6,8,9)", "LONDON",
           ["3-down", "21-across"])])
 
+# 104 — cryptic 27,884's defect: 20-across's "See 5 across" is WORDPLAY, and
+# the Guardian's parser read it as a cross-reference and linked the two. Both
+# lights agree about the membership, so reconcile_groups has nothing to fix —
+# what gives it away is that each clue already counts its own light in full.
+write("cryptic", 104, base + 4 * DAY, [
+    entry("5-across", 5, "across", 0, 2, 7,
+          "Tempted to carry Olympic torch, at last took faltering steps (7)",
+          "LURCHED", ["5-across", "20-across"]),
+    entry("20-across", 20, "across", 0, 10, 10,
+          "See 5 across out to find another date (10)", "RESCHEDULE",
+          ["5-across", "20-across"])])
+
+# 105 — a genuine Guardian link, which must survive untouched: the whole count
+# sits on the leading light and the continuation carries none at all.
+write("cryptic", 105, base + 5 * DAY, [
+    entry("1-across", 1, "across", 0, 0, 3, "The whole phrase (3,4)", "ODD",
+          ["1-across", "5-across"]),
+    entry("5-across", 5, "across", 0, 2, 4, "See 1", "JOBS",
+          ["1-across", "5-across"])])
+
 # A series whose numbers and dates climb together, except for one puzzle served
 # under a date from 1934 — the Guardian does this at /cryptic/1183, which is
 # Quiptic 1,183 wearing a cryptic's URL.
@@ -149,6 +174,41 @@ same "every member now names the same three lights, in enumeration order" \
   "$(groups puzzles/cryptic-103.js)" \
   '[["13-across", ["3-down", "13-across", "21-across"]], ["21-across", ["3-down", "13-across", "21-across"]], ["3-down", ["3-down", "13-across", "21-across"]]]'
 absent "$(one cryptic-103)" "cryptic-103:" "clean on the second run"
+
+echo "a group whose every light counts itself in full is not a linked answer"
+out=$(one cryptic-104)
+check "$out" "cryptic-104" "the puzzle is reported"
+check "$out" "1 false cross-reference(s) dissolved: 5-across + 20-across" \
+  "naming the two lights the paper linked"
+check "$out" "WARNING: 5-across + 20-across: every light carries a full" \
+  "warned on stderr, with the reason"
+check "$(groups puzzles/cryptic-104.js)" '"5-across", ["5-across", "20-across"]' \
+  "a dry run wrote nothing"
+one cryptic-104 --apply >/dev/null
+same "both lights go back to being their own answers" \
+  "$(groups puzzles/cryptic-104.js)" '[["5-across", null], ["20-across", null]]'
+absent "$(one cryptic-104)" "cryptic-104:" "clean on the second run"
+
+echo "a real linked answer is left alone"
+before=$(cksum < "$work/puzzles/cryptic-105.js")
+out=$(one cryptic-105 --apply)
+absent "$out" "cryptic-105" "the whole count on the leading light is not a false link"
+same "byte-identical after a repair run" \
+  "$(cksum < "$work/puzzles/cryptic-105.js")" "$before"
+same "the group survives" "$(groups puzzles/cryptic-105.js)" \
+  '[["1-across", ["1-across", "5-across"]], ["5-across", ["1-across", "5-across"]]]'
+
+echo "Private Eye prints a count per light, so the rule is off for cyclops"
+before=$(cksum < "$work/puzzles/cyclops-401.js")
+out=$(one cyclops-401 --apply)
+absent "$out" "cyclops-401" "nothing is wrong with the paper's own file"
+absent "$out" "dissolved" "and none of its five per-light groups is dissolved"
+same "byte-identical after a repair run" \
+  "$(cksum < "$work/puzzles/cyclops-401.js")" "$before"
+same "2-down (4-6) and 22-down (6) are still one answer" \
+  "$(groups puzzles/cyclops-401.js | python3 -c 'import json,sys; \
+     print(json.dumps(dict(json.load(sys.stdin))["22-down"]))')" \
+  '["2-down", "22-down"]'
 
 echo "a date its own neighbours contradict is reported and never guessed at"
 out=$(run)

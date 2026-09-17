@@ -130,6 +130,17 @@ PUZZLE_URLS = [
 # fetcher that writes the clue and the check that weighs it read the same rule.
 ENUMERATION = re.compile(r"\(([^()]*)\)\s*$")
 
+# Series whose LINKED clues are enumerated one light at a time, so a leg's count
+# is its own and not the answer's. Private Eye does this: Cyclops 401's 2-down
+# reads "(& 22dn.) … (4-6)" for its own ten cells while 22-down reads "see 2dn.
+# (6)" for its six. The Guardian and the Independent do the opposite — the whole
+# count on the leading clue, nothing at all on the continuations ("See 3").
+# Beside ENUMERATION and for the same reason: dissolve_false_groups() reads a
+# group's counts as evidence and tools/puzzle_integrity.py weighs the same
+# counts in check_length, and two copies of this set could drift into
+# disagreeing about which papers are allowed to count light by light.
+PER_LIGHT_ENUMERATION = {"cyclops"}
+
 JSON_START = "/*JSON-START*/"
 JSON_END = "/*JSON-END*/"
 
@@ -482,6 +493,61 @@ def reconcile_groups(entries):
             by_id[m]["group"] = order
 
 
+def _own_count(entry):
+    """What an entry's own clue says its answer counts, or None if it says nothing."""
+    said = ENUMERATION.search(entry.get("clue") or "")
+    if not said:
+        return None
+    counts = [int(n) for n in re.findall(r"\d+", said.group(1))]
+    return sum(counts) if counts else None
+
+
+def dissolve_false_groups(entries, series):
+    """Break up groups that are not linked answers at all. Returns the ones broken.
+
+    A linked answer is enumerated ONCE, on the leading light, for the whole
+    phrase: cryptic-29069's 3-down says "(6,8,9)" and its two continuations say
+    "See 3". So a group in which EVERY member carries a full enumeration of its
+    own light is not one answer spread over several lights — each of those
+    clues already told the solver its light is complete — and the link is the
+    paper's parser reading wordplay as a cross-reference. Cryptic 27,884's
+    20-across is "See 5 across out to find another date (10)", where "See 5" is
+    the wordplay; the Guardian grouped it with 5-across LURCHED "(7)" and left
+    RESCHEDULE stored as half of a seventeen-letter answer that nobody wrote.
+
+    Gated off for PER_LIGHT_ENUMERATION series, where a full count on every leg
+    is the house style rather than evidence of anything: dissolving Cyclops
+    401's 2-down/22-down would break 1,538 clues that are exactly as published.
+
+    Run AFTER reconcile_groups, and only over groups whose members already agree
+    about their membership — a group still contested there is one reconcile
+    declined to read, and reading it here would be a second opinion.
+    """
+    if series in PER_LIGHT_ENUMERATION:
+        return []
+    by_id = {e["id"]: e for e in entries}
+    dissolved, seen = [], set()
+    for e in entries:
+        members = e.get("group") or []
+        if len(members) < 2 or frozenset(members) in seen:
+            continue
+        seen.add(frozenset(members))
+        if not set(members) <= set(by_id):
+            continue
+        if any(set(by_id[m].get("group") or []) != set(members) for m in members):
+            continue
+        if any(_own_count(by_id[m]) != by_id[m].get("length") for m in members):
+            continue
+        for m in members:
+            del by_id[m]["group"]
+        dissolved.append(list(members))
+        print(f"WARNING: {' + '.join(members)}: every light carries a full "
+              "enumeration of its own, so this is a cross-reference in the "
+              "wordplay and not a linked answer — group dissolved",
+              file=sys.stderr)
+    return dissolved
+
+
 def _day(ms):
     """An epoch-milliseconds date as a readable day, for error messages."""
     return datetime.fromtimestamp(ms / 1000, timezone.utc).date()
@@ -559,6 +625,7 @@ def convert(data):
             "annotation": None,
         })
     reconcile_groups(entries)
+    dissolve_false_groups(entries, series_of(data["id"]))
     # Say it here, where the paper's own data is still in front of us.
     # Downstream a wordless clue is indistinguishable from a hard one: a cold
     # solve burns inference guessing it off the crossings, and the annotator
