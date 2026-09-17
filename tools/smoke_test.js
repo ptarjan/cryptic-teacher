@@ -33,6 +33,15 @@ const reported = (mark) => beacons.slice(mark).map((b) => b.body.parts);
 // used everywhere this test drives the picker.
 const numberOf = (id) => (((global.CRYPTIC_INDEX || {}).puzzles || [])
   .find((p) => p.id === id) || { number: id }).number;
+// A row's innerHTML carries "№ 1183", and past ~600 puzzles the archive also
+// carries "№ 11830".."№ 11839" — every one of which contains "№ 1183" as a
+// plain substring. `.includes("№ " + num)` picked whichever row came first,
+// which for most of this file's history was always the row it meant, until
+// the corpus grew enough digits to make that a coincidence rather than a
+// guarantee (Paul, backfill past 1,183 puzzles, 2026-09-17). Anchored so a
+// number can only match its own row, not a longer number it happens to
+// prefix.
+const rowHasNumber = (html, num) => new RegExp("№ " + num + "(?!\\d)").test(html);
 
 // --- the vendored decoder is the build vendor/README.md pins ---
 // A dependency nobody can diff is one nobody reads. The hash is written down in
@@ -1234,7 +1243,7 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
     registry["btn-picker"].onclick();
     typeInPicker(String(unofficial.number));
     const row = pickerRows().find((li) => li.children[0]
-      && li.children[0].innerHTML.includes("№ " + unofficial.number));
+      && rowHasNumber(li.children[0].innerHTML, unofficial.number));
     assert(row && row.children[0].innerHTML.includes("unverified answers"),
       `the picker badges No ${unofficial.number} as unverified`);
     row.children[0].onclick();
@@ -1249,7 +1258,7 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
     registry["btn-picker"].onclick();
     typeInPicker(String(official.number));
     pickerRows().find((li) => li.children[0]
-      && li.children[0].innerHTML.includes("№ " + official.number)).children[0].onclick();
+      && rowHasNumber(li.children[0].innerHTML, official.number)).children[0].onclick();
     assert(registry["unofficial-note"].classList.contains("hidden"),
       `No ${official.number} has the paper's answers and shows no note`);
   }
@@ -1279,7 +1288,7 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
     registry["btn-picker"].onclick();
     typeInPicker(String(target.number));
     const li = pickerRows().find((x) => x.children[0]
-      && x.children[0].innerHTML.includes("№ " + target.number));
+      && rowHasNumber(x.children[0].innerHTML, target.number));
     return li ? li.children[0].innerHTML : "";
   };
 
@@ -1322,7 +1331,7 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
       .find((p) => p.id === id) || {}).number;
     registry["btn-picker"].onclick();
     typeInPicker(String(num));
-    const li = registry["picker-list"].children.find((x) => x.children[0] && x.children[0].innerHTML.includes("№ " + num));
+    const li = registry["picker-list"].children.find((x) => x.children[0] && rowHasNumber(x.children[0].innerHTML, num));
     assert(li, `picker finds puzzle ${id} when searched for`);
     li.children[0].onclick();
     const row = registry["clue-" + e.id];
@@ -1750,7 +1759,7 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
       registry["btn-picker"].onclick();
       typeInPicker(String(numberOf(id)));
       const li = registry["picker-list"].children.find(
-        (x) => x.children[0] && x.children[0].innerHTML.includes("№ " + numberOf(id)));
+        (x) => x.children[0] && rowHasNumber(x.children[0].innerHTML, numberOf(id)));
       assert(li, `picker finds puzzle ${id}`);
       li.children[0].onclick();
     };
@@ -1943,7 +1952,7 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
   registry["btn-picker"].onclick();
   typeInPicker(String(numberOf(withInd.id)));
   registry["picker-list"].children
-    .find((x) => x.children[0] && x.children[0].innerHTML.includes("№ " + numberOf(withInd.id)))
+    .find((x) => x.children[0] && rowHasNumber(x.children[0].innerHTML, numberOf(withInd.id)))
     .children[0].onclick();
   registry["clue-" + withInd.e.id].listeners.click[0]();
   const indBtn = registry["hint-next"].children.find((b) => /indicator/i.test(b.textContent) && !b.disabled);
@@ -2525,7 +2534,7 @@ registry["reset-puzzle"].onclick();
   registry["btn-picker"].onclick();
   typeInPicker(String(taught.number));
   pickerRows().find((li) => li.children[0]
-    && li.children[0].innerHTML.includes("№ " + taught.number)).children[0].onclick();
+    && rowHasNumber(li.children[0].innerHTML, taught.number)).children[0].onclick();
   registry["reset-puzzle"].onclick();
 
   // An entry that is nobody's linked leg, so solving it really does solve the
@@ -3100,7 +3109,7 @@ global.realSetTimeout(() => {
     registry["btn-picker"].onclick();
     typeInPicker(String(numberOf(id)));
     registry["picker-list"].children
-      .find((x) => x.children[0] && x.children[0].innerHTML.includes("\u2116 " + numberOf(id)))
+      .find((x) => x.children[0] && rowHasNumber(x.children[0].innerHTML, numberOf(id)))
       .children[0].onclick();
   };
   const firstOpen = beacons.length;
@@ -3238,7 +3247,7 @@ global.realSetTimeout(() => {
     registry["btn-picker"].onclick();
     typeInPicker(String(numberOf(id)));
     registry["picker-list"].children
-      .find((li) => li.children[0] && li.children[0].innerHTML.includes("№ " + numberOf(id)))
+      .find((li) => li.children[0] && rowHasNumber(li.children[0].innerHTML, numberOf(id)))
       .children[0].onclick();
   };
   openFresh();
@@ -3419,7 +3428,7 @@ global.realSetTimeout(() => {
     registry["btn-picker"].onclick();
     typeInPicker(String(puzzles[found.id].number));
     const li = registry["picker-list"].children.find(
-      (x) => x.children[0] && x.children[0].innerHTML.includes("№ " + puzzles[found.id].number));
+      (x) => x.children[0] && rowHasNumber(x.children[0].innerHTML, puzzles[found.id].number));
     assert(li, "picker finds the puzzle to guess on");
     li.children[0].onclick();
     registry["reset-puzzle"].onclick();
@@ -3571,7 +3580,7 @@ global.realSetTimeout(() => {
     registry["btn-picker"].onclick();
     typeInPicker(String(puzzles[id].number));
     const li = registry["picker-list"].children.find(
-      (x) => x.children[0] && x.children[0].innerHTML.includes("№ " + puzzles[id].number));
+      (x) => x.children[0] && rowHasNumber(x.children[0].innerHTML, puzzles[id].number));
     if (!li) return false;
     li.children[0].onclick();
     registry["reset-puzzle"].onclick();
@@ -3847,7 +3856,7 @@ global.realSetTimeout(() => {
     registry["btn-picker"].onclick();
     typeInPicker(String(puzzles[id].number));
     const li = registry["picker-list"].children.find((x) => x.children[0]
-      && x.children[0].innerHTML.includes("№ " + puzzles[id].number));
+      && rowHasNumber(x.children[0].innerHTML, puzzles[id].number));
     assert(li, `the picker can reopen puzzle ${puzzles[id].number} to reload the damaged save`);
     if (li) {
       li.children[0].onclick();
@@ -3895,7 +3904,7 @@ global.realSetTimeout(() => {
     registry["btn-picker"].onclick();
     typeInPicker(String(puzzles[found.id].number));
     const li = registry["picker-list"].children.find(
-      (x) => x.children[0] && x.children[0].innerHTML.includes("№ " + puzzles[found.id].number));
+      (x) => x.children[0] && rowHasNumber(x.children[0].innerHTML, puzzles[found.id].number));
     assert(li, "picker finds the puzzle to drag on");
     li.children[0].onclick();
     registry["reset-puzzle"].onclick();
@@ -3994,8 +4003,19 @@ global.realSetTimeout(() => {
     typeInPicker(q);
     const opts = suggestions();
     assert(opts.length > 0, `"${q}" completes to something`);
-    assert(opts.length <= 12,
-      `and to a list short enough to see past, not a wall: "${q}" gave ` + opts.length);
+    // There is no cap in app.js on how many completions a query can return —
+    // pickerSuggestTerms() just filters the whole vocabulary and hands it all
+    // back — so a fixed "<= 12" here was never a real product invariant. It
+    // was a number that happened to hold while the archive was small, and a
+    // two-letter setter-initial probe was guaranteed to break it once enough
+    // setters shared an opening ("an" gave 13 once the archive passed a few
+    // thousand puzzles, Paul, 2026-09-17). What IS real and worth protecting:
+    // every offered term actually completes what was typed, case
+    // insensitively, and none of them repeats.
+    opts.forEach((t) => assert(t.toLowerCase().includes(q),
+      `"${t}" was offered for "${q}", so it must actually contain it: ` + opts.join(" ")));
+    assert(new Set(opts).size === opts.length,
+      `"${q}"'s completions are not offered twice: ` + opts.join(" "));
     opts.forEach((t) => offered.add(t));
   });
   assert(offered.size >= 5, "the search offers something to complete: " + offered.size);
@@ -4137,7 +4157,7 @@ global.realSetTimeout(() => {
     registry["btn-picker"].onclick();
     typeInPicker(String(puzzles[found.id].number));
     const li = registry["picker-list"].children.find(
-      (x) => x.children[0] && x.children[0].innerHTML.includes("№ " + puzzles[found.id].number));
+      (x) => x.children[0] && rowHasNumber(x.children[0].innerHTML, puzzles[found.id].number));
     assert(li, "picker finds the puzzle to be asked about");
     li.children[0].onclick();
     registry["reset-puzzle"].onclick();
@@ -4270,7 +4290,7 @@ global.realSetTimeout(() => {
       registry["btn-picker"].onclick();
       typeInPicker(String(puzzles[found.id].number));
       const li = registry["picker-list"].children.find(
-        (x) => x.children[0] && x.children[0].innerHTML.includes("№ " + puzzles[found.id].number));
+        (x) => x.children[0] && rowHasNumber(x.children[0].innerHTML, puzzles[found.id].number));
       li.children[0].onclick();
       registry["reset-puzzle"].onclick();
       registry["clue-" + found.e.id].listeners.click[0]();
@@ -4338,7 +4358,7 @@ global.realSetTimeout(() => {
   registry["btn-picker"].onclick();
   typeInPicker(String(puzzles[found.id].number));
   const li = registry["picker-list"].children.find(
-    (x) => x.children[0] && x.children[0].innerHTML.includes("№ " + puzzles[found.id].number));
+    (x) => x.children[0] && rowHasNumber(x.children[0].innerHTML, puzzles[found.id].number));
   assert(li, "picker finds the whole-clue definition puzzle");
   li.children[0].onclick();
   registry["reset-puzzle"].onclick();
@@ -4378,7 +4398,7 @@ global.realSetTimeout(() => {
     registry["btn-picker"].onclick();
     typeInPicker(String(puzzles[found.id].number));
     const li = registry["picker-list"].children.find(
-      (x) => x.children[0] && x.children[0].innerHTML.includes("№ " + puzzles[found.id].number));
+      (x) => x.children[0] && rowHasNumber(x.children[0].innerHTML, puzzles[found.id].number));
     assert(li, "picker finds the " + want + " puzzle");
     li.children[0].onclick();
     registry["reset-puzzle"].onclick();
@@ -4439,7 +4459,7 @@ global.realSetTimeout(() => {
     registry["btn-picker"].onclick();
     typeInPicker(String(puzzles[found.id].number));
     const li = registry["picker-list"].children.find(
-      (x) => x.children[0] && x.children[0].innerHTML.includes("№ " + puzzles[found.id].number));
+      (x) => x.children[0] && rowHasNumber(x.children[0].innerHTML, puzzles[found.id].number));
     assert(li, "picker finds the edge-word puzzle");
     li.children[0].onclick();
     registry["reset-puzzle"].onclick();
@@ -4530,7 +4550,7 @@ global.realSetTimeout(() => {
       registry["btn-picker"].onclick();
       typeInPicker(String(puzzles[id].number));
       const li = registry["picker-list"].children.find(
-        (x) => x.children[0] && x.children[0].innerHTML.includes("№ " + puzzles[id].number));
+        (x) => x.children[0] && rowHasNumber(x.children[0].innerHTML, puzzles[id].number));
       if (!li) continue;
       li.children[0].onclick();
       registry["reset-puzzle"].onclick();
@@ -4611,7 +4631,7 @@ global.realSetTimeout(() => {
     registry["btn-picker"].onclick();
     typeInPicker(String(puzzles[found.id].number));
     const li = registry["picker-list"].children.find(
-      (x) => x.children[0] && x.children[0].innerHTML.includes("№ " + puzzles[found.id].number));
+      (x) => x.children[0] && rowHasNumber(x.children[0].innerHTML, puzzles[found.id].number));
     assert(li, "picker finds the puzzle to guess on");
     li.children[0].onclick();
     registry["reset-puzzle"].onclick();
@@ -4988,7 +5008,7 @@ global.realSetTimeout(() => {
     registry["btn-picker"].onclick();
     typeInPicker(String(puzzles[id].number));
     const li = registry["picker-list"].children.find(
-      (x) => x.children[0] && x.children[0].innerHTML.includes("№ " + puzzles[id].number));
+      (x) => x.children[0] && rowHasNumber(x.children[0].innerHTML, puzzles[id].number));
     if (!li) return false;
     li.children[0].onclick();
     registry["reset-puzzle"].onclick();
