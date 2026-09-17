@@ -8,6 +8,10 @@ Usage:
                                                            # oldest globeandmail-*
                                                            # puzzle already on disk
                                                            # (default 14)
+  python3 tools/fetch_globeandmail.py --latest            # newest date the
+                                                           # vendor's picker
+                                                           # advertises, if not
+                                                           # already on disk
   python3 tools/fetch_globeandmail.py --list              # print the dates the
                                                            # vendor's own picker
                                                            # currently advertises
@@ -339,6 +343,42 @@ def oldest_held():
     return datetime.fromtimestamp(min(stamps) / 1000, timezone.utc).date()
 
 
+def latest():
+    """The newest date the vendor's own picker advertises, if we don't already
+    hold it. Returns the puzzle, or None for "nothing new" — the same contract
+    fetch_puzzle.py and fetch_independent.py use, so daily_update.sh can tell
+    a quiet night from a broken feed.
+
+    list_available_dates() is the walk-back here: unlike Independent's feed,
+    which is keyed by date and answers for any day whether or not it exists,
+    this vendor's picker already enumerates exactly what it currently has, so
+    there is nothing to guess about "today" — the newest entry the picker
+    offers IS the newest thing there is to fetch, whatever day it happens to
+    be locally. Trying every entry rather than just the first guards the one
+    case that isn't guessable: the picker listing a date microseconds before
+    the crossword endpoint itself has it, which would otherwise read as the
+    feed being down.
+    """
+    dates = list_available_dates()
+    if not dates:
+        raise SystemExit("date-picker advertised no dates")
+    for ymd in dates:
+        try:
+            data = fetch_raw_json(f"{SET}_{ymd}")
+        except urllib.error.HTTPError as err:
+            if err.code != 404:
+                raise
+            continue
+        puzzle = convert(data, ymd)
+        if (PUZZLE_DIR / f"{puzzle['id']}.js").exists():
+            # The newest date the picker can see is one we already have, so
+            # there is nothing newer to find further down the list either.
+            print(f"up-to-date {puzzle['id']}")
+            return None
+        return fetch_date(ymd, PUZZLE_DIR)
+    return None
+
+
 def run_dates(ymds, out_dir, dry_run):
     fetched = missing = 0
     for i, ymd in enumerate(ymds):
@@ -383,6 +423,14 @@ def main(argv):
         end = (held - timedelta(days=1)) if held else date.today()
         ymds = [(end - timedelta(days=i)).strftime("%Y%m%d") for i in range(n)]
         run_dates(ymds, out_dir, dry_run)
+        return 0
+
+    if argv[0] == "--latest":
+        puzzle = latest()
+        if not puzzle:
+            return 3
+        reindex()
+        print(puzzle["id"])
         return 0
 
     # 2026-09-17 and 20260917 both mean the same day. The vendor's ids are the
