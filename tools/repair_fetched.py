@@ -34,6 +34,14 @@ Linked groups whose members disagree. reconcile_groups is re-run over the stored
 entries and writes back what it makes of them, warning on stderr as it does in a
 fetch.
 
+Groups that were never a linked answer. A group whose every light carries a full
+enumeration of its own is the paper's parser reading wordplay as a
+cross-reference — cryptic-27,884's 20-across "See 5 across out to find another
+date (10)" got grouped with 5-across LURCHED "(7)", storing RESCHEDULE as part
+of a seventeen-letter answer nobody wrote. fetch_puzzle.dissolve_false_groups
+breaks those up, and is gated off for the series that genuinely enumerate light
+by light, so no Cyclops group is touched.
+
 WHAT IT ONLY REPORTS
 
 A mis-filed date. convert() now refuses a page whose two stated dates are more
@@ -134,6 +142,16 @@ def regroup(puzzle):
             for e in puzzle["entries"] if before[e["id"]] != e.get("group")]
 
 
+def dissolve(puzzle):
+    """Break up groups that are not linked answers. Returns the ones broken.
+
+    The fetcher's own rule and its own cyclops gate, called rather than copied.
+    Run AFTER regroup, exactly as convert() runs it after reconcile_groups: the
+    rule reads a group whose members agree, and reconcile is what makes them.
+    """
+    return fetcher.dissolve_false_groups(puzzle["entries"], puzzle.get("series"))
+
+
 def misfiled_dates(dated):
     """Which of a series' puzzles are dated against the run of their own numbers?
 
@@ -218,6 +236,11 @@ def repair(path, puzzle, apply_it):
         notes.append(f"{len(moved)} linked-clue group(s) reconciled: "
                      + ", ".join(f"{eid} {was or '—'}→{now or '—'}"
                                  for eid, was, now in moved))
+
+    broken = dissolve(fixed)
+    if broken:
+        notes.append(f"{len(broken)} false cross-reference(s) dissolved: "
+                     + ", ".join(" + ".join(g) for g in broken))
 
     if json.dumps(fixed, sort_keys=True, ensure_ascii=False) == before:
         return None

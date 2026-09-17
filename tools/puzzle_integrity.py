@@ -68,8 +68,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from apply_solution import check_fill, normalise  # noqa: E402 — the crossing check
-from fetch_puzzle import (ENUMERATION, PUZZLE_DIR,  # noqa: E402
-                          is_bare_letters, read_puzzle_file)
+from fetch_puzzle import (ENUMERATION, PER_LIGHT_ENUMERATION,  # noqa: E402
+                          PUZZLE_DIR, is_bare_letters, read_puzzle_file)
 
 ROOT = Path(__file__).resolve().parent.parent
 INDEX = ROOT / "puzzles" / "index.json"
@@ -82,16 +82,14 @@ INDEX = ROOT / "puzzles" / "index.json"
 # date-against-webPublicationDate check in fetch_puzzle.convert().
 EARLIEST_YEAR = 1930
 
-# Series whose LINKED clues are enumerated one light at a time, so a leg's count
-# is its own and not the answer's. Private Eye does this: Cyclops 401's 2-down
-# reads "(& 22dn.) … (4-6)" for its own ten cells while 22-down reads "see 2dn.
-# (6)" for its six. The Guardian and the Independent do the opposite — the whole
-# count on the leading clue, nothing at all on the continuations ("See 3") — so
-# they are held to the strict reading, and a group that has gone wrong there
-# still shows up. That distinction is worth keeping: cryptic-28627's 22-across
-# carried a group the Guardian built out of a mis-resolved "See 22", and its "(6)"
-# matched its own six letters exactly while the group held ten.
-PER_LIGHT_ENUMERATION = {"cyclops"}
+# PER_LIGHT_ENUMERATION names the series whose linked clues are enumerated one
+# light at a time, and is imported rather than restated: the fetcher dissolves a
+# group whose every leg counts its own light (dissolve_false_groups), and this
+# check forgives exactly that shape. Two lists would let one paper be forgiven
+# here and taken apart there. The Guardian and the Independent count the whole
+# answer on the leading clue and nothing at all on the continuations ("See 3"),
+# so they are held to the strict reading and a group that has gone wrong there
+# still shows up.
 
 
 def content_hash(puzzle):
