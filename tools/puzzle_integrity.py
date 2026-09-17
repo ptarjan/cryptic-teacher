@@ -24,9 +24,10 @@ The flags, in the order they matter:
             three files of one puzzle print as one group of three, not three pairs.
   LENGTH    an answer that contradicts the length the data itself states. Two
             statements exist per entry and both are checked: the grid's `length`
-            field, and the (5,4)-style enumeration at the end of the clue. The
-            enumeration is summed across the entry's `group`, because a linked clue
-            carries one enumeration for an answer split over several grid entries.
+            field, and the (5,4)-style enumeration at the end of the clue. On a
+            LINKED clue the enumeration is allowed to count either that light or
+            the whole group, because the papers in this corpus do both — see
+            check_length, which has the numbers.
   CROSS     two entries that share a grid cell and disagree about its letter. One
             wrong answer normally breaks three or four of these, so a clean sheet
             is real evidence the fill is the paper's and not a mangling of it.
@@ -67,20 +68,18 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from apply_solution import check_fill, normalise  # noqa: E402 — the crossing check
-from fetch_puzzle import PUZZLE_DIR, read_puzzle_file  # noqa: E402
+from fetch_puzzle import ENUMERATION, PUZZLE_DIR, read_puzzle_file  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 INDEX = ROOT / "puzzles" / "index.json"
 
 # No cryptic crossword in this corpus predates the Guardian's, which began in 1929.
-# A date below this is a fetcher inventing one from a number, not an old puzzle:
-# it is how cryptic-1183 came to be dated 1934 while holding a 2022 Quiptic.
+# A date below this is a page the publisher mis-filed or a fetcher that lost one,
+# not an old puzzle. A backstop only: the Guardian serves such a page — its
+# /crosswords/cryptic/1183 answers 200 with Quiptic 1,183's clues under a date of
+# 1934-01-18 — but 1934 clears this bar, so what actually refuses it is the
+# date-against-webPublicationDate check in fetch_puzzle.convert().
 EARLIEST_YEAR = 1930
-
-# The enumeration, and nothing else: the last parenthesised run at the end of the
-# clue. Anchored to the end because cryptics put bracketed asides mid-clue, and
-# Private Eye opens linked clues with "(& 27ac.)" — the count is always last.
-ENUMERATION = re.compile(r"\(([^()]*)\)\s*$")
 
 
 def content_hash(puzzle):
@@ -130,8 +129,18 @@ def check_shape(puzzle, today, flags):
         # A clue is its words. Strip the enumeration before judging it empty, so
         # " (1,6,3,1,4)" — an entry the fetcher got the count for and not the text —
         # reads as the blank it is.
+        #
+        # Unless the paper printed it blank, which setters do as the trick itself:
+        # cryptic-30098's 12-across is wordless so that its own number is the only
+        # thing left pointing at NOONDAY, and cryptic-29345's 5-down is wordless
+        # over (1,6,3,1,4) for I HAVEN'T GOT A CLUE. Both are the joke and must
+        # never be filled in or filtered out. fetch_puzzle.convert() settles which
+        # is which at fetch time, where the paper's own data is still in front of
+        # it, and records the answer as clueMissing — so this reads that field
+        # rather than guessing again from the text and reaching a different
+        # verdict. An unmarked blank clue is still a defect and still reported.
         clue = e.get("clue") or ""
-        if not ENUMERATION.sub("", clue).strip():
+        if not e.get("clueMissing") and not ENUMERATION.sub("", clue).strip():
             flags.append(("SHAPE", pid, f"{eid}: clue is blank"))
 
         solution = e.get("solution")
@@ -147,9 +156,28 @@ def check_shape(puzzle, today, flags):
 def check_length(puzzle, checkable, flags):
     """The two length statements the data makes about an answer, against the answer.
 
-    Grid length is per entry. The enumeration is per CLUE, and a linked clue is one
-    clue over several entries, so it is summed across the group — 3-down's "(6,8,9)"
-    is measured against 3-down and 21-across together."""
+    Grid length is per entry, and is checked per entry: an answer that does not fit
+    its own light is wrong however the clue is printed.
+
+    The enumeration is the looser one, because a LINKED clue is enumerated two ways
+    and this corpus holds both. The Guardian and the Independent print the whole
+    answer's count on the light that carries the clue and nothing on the others, so
+    29,069's "(6,8,9)" belongs to LONDON + SYMPHONY + ORCHESTRA together. Private
+    Eye prints each light its own count instead, on every light including the
+    leading one: Cyclops 401's 2-down reads "(& 22dn.) … (4-6)" for its own ten
+    cells while 22-down reads "see 2dn. (6)" for its six. Measured across 769
+    linked Cyclops groups, 760 leading lights and 778 continuations count only
+    their own light — and then nine leaders and two continuations print the group's
+    whole count, in the same paper, so it is not even a rule per publisher.
+
+    So a linked clue's enumeration is required to equal its own light or the whole
+    group, and anything else is the defect. That is weaker than the unlinked check
+    deliberately: the alternative is 1,538 Cyclops clues reported for obeying their
+    own paper's convention, and a check nobody can read is a check nobody reads.
+    The grid-length test above is untouched and still holds every light to its own
+    cells, which is where a wrong ANSWER shows up; this one catches a wrong COUNT,
+    and it still caught 29,069, whose clue promised 23 letters over a group the
+    Guardian's own data had truncated to 15."""
     pid = puzzle["id"]
     by_id = {e["id"]: e for e in puzzle.get("entries") or []}
     for e in checkable:
@@ -172,10 +200,12 @@ def check_length(puzzle, checkable, flags):
         if any(not s for s in legs):
             continue  # part of the answer is unpublished; nothing to compare yet
         held = sum(len(normalise(s)) for s in legs)
-        if sum(counts) != held:
-            where = eid if len(group) == 1 else " + ".join(group)
-            flags.append(("LENGTH", pid, (f"{where}: clue says ({m.group(1)}) = "
-                                          f"{sum(counts)}, answer holds {held}")))
+        if sum(counts) == held or (len(group) > 1 and sum(counts) == len(solution)):
+            continue
+        where = eid if len(group) == 1 else " + ".join(group)
+        holds = f"{held}" if len(group) == 1 else f"{len(solution)} alone or {held} linked"
+        flags.append(("LENGTH", pid, (f"{where}: clue says ({m.group(1)}) = "
+                                      f"{sum(counts)}, answer holds {holds}")))
 
 
 def check_cross(puzzle, checkable, flags):

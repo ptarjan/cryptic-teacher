@@ -276,15 +276,25 @@ def convert(num, puz):
 
     # Clues are consumed in file order, which is exactly grid_entries' order
     # (that's the .puz convention this numbering was built to match).
+    #
+    # Which lights are linked is read off the clue prose before the entries are
+    # built, so the group can go in beside the clue it was read from rather than
+    # be bolted on afterwards. See link_groups.
+    groups = link_groups({"entries": [
+        {"number": n, "direction": d, "clue": c.strip()}
+        for (n, d, _x, _y, _len), c in zip(grid_entries, puz["clues"])]})
+
     entries = []
     for (number, direction, x, y, length), clue in zip(grid_entries, puz["clues"]):
+        eid = f"{number}-{direction}"
         entries.append({
-            "id": f"{number}-{direction}",
+            "id": eid,
             "number": number,
             "direction": direction,
             "position": {"x": x, "y": y},
             "length": length,
             "clue": clue.strip(),
+            **({"group": groups[eid]} if eid in groups else {}),
             "separatorLocations": {},
             "solution": None,  # see module docstring — never recoverable from this feed today
             "annotation": None,
@@ -471,8 +481,10 @@ _SEE_RE = re.compile(
 
 
 # The leading light of a linked group names the rest, in answer order, in a
-# prefix on its own clue: "(& 24ac.)", "(& 6dn./22dn.)", "(&14dn.)".
-_AMP_PREFIX_RE = re.compile(r"^\(\s*&\s*([^)]*)\)")
+# prefix on its own clue: "(& 24ac.)", "(& 6dn./22dn.)", "(&14dn.)". Six clues
+# across the archive type a "+" for the "&" — "(+ 17ac.)" — which is the same
+# statement in the same place, so it is read as one rather than losing the link.
+_AMP_PREFIX_RE = re.compile(r"^\(\s*[&+]\s*([^)]*)\)")
 _AMP_MEMBER_RE = re.compile(r"(\d+)\s*(ac|dn|a|d)?", re.IGNORECASE)
 
 
@@ -566,6 +578,38 @@ def order_group(puzzle_entry, group):
             return [leader] + [by_num[n] for n in named]
     rest.sort(key=lambda k: (k[1], k[0]))
     return [leader] + rest
+
+
+def link_groups(puzzle):
+    """{entry id -> the whole linked group as entry ids, in answer order}.
+
+    The `group` field the app and tools/puzzle_integrity.py read, in the shape
+    tools/fetch_puzzle.py and tools/fetch_independent.py write it: every member
+    carries the complete list including itself, and a clue that is its own
+    answer is absent rather than carrying a list of one.
+
+    The Guardian and the Independent are TOLD which lights are linked — the
+    Guardian ships a `group` array and Crossword Compiler ships one <word> with
+    several cell runs. Private Eye ships neither, only prose ("(& 24ac.)" on
+    one clue and "see 24ac." on the other), so the link has to be read back out
+    of the clue text; find_link_groups is that reader and this is the same
+    answer expressed as entry ids.
+
+    A group naming a light the grid does not have is dropped, not guessed: the
+    grid is the authority on which lights exist (the same rule as
+    grid_group_members), and the prose is hand-typed and names a missing light
+    in five puzzles of 378.
+    """
+    _, groups = find_link_groups(puzzle)
+    by_key = {(e["number"], e["direction"]): e for e in puzzle["entries"]}
+    out = {}
+    for leading, members in groups.items():
+        if len(members) < 2 or any(m not in by_key for m in members):
+            continue
+        ids = [f"{n}-{d}" for n, d in order_group(by_key[leading], members)]
+        for eid in ids:
+            out[eid] = ids
+    return out
 
 
 def solve_from_fifteensquared(puzzle, post):

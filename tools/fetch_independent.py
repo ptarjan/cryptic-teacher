@@ -100,6 +100,10 @@ NS = "{http://crossword.info/xml/rectangular-puzzle}"
 # neighbours on disk are the number before it and the number after it, so there
 # is exactly one number the day can hold. Keyed by the fetcher's date key, with
 # what the title prints and the two puzzles that bracket it.
+#
+# One-offs only. A wrong number that repeats to a rule belongs in a rule, not in
+# 31 copies of one line — see SATURDAY_LAG below. This dict is checked first, so
+# a date listed here overrides that rule.
 NUMBER_FIXES = {
     "190306": 10107,   # prints "10,007"; 10,106 Tue 5 Mar, 10,108 Thu 7 Mar
     "190426": 10151,   # prints "10,051"; 10,150 Thu 25 Apr, 10,152 Sat 27 Apr
@@ -111,7 +115,31 @@ NUMBER_FIXES = {
     # different clues. 11,296 Mon 26 Dec, 11,298 Wed 28 Dec.
     "221227": 11297,
     "150806": 8988,    # prints "8,968"; 8,987 Wed 5 Aug, 8,989 Fri 7 Aug
+    # Inside SATURDAY_LAG, but Christmas Day fell on the Friday and the paper
+    # did not print, so that week ran five publishing days and the rule's six
+    # would land on 9,111 — the Monday's number. Prints "9,105"; 9,109 Thu 24
+    # Dec, nothing Fri 25 Dec, 9,111 Mon 28 Dec.
+    "151226": 9110,
 }
+
+
+# Every Saturday from 2015-08-22 to 2016-03-26 printed the PREVIOUS Saturday's
+# number: 31 Saturdays, one repeating fault, so a dated range rather than 31
+# NUMBER_FIXES entries saying the same thing. A full Mon–Sat week is six
+# publishing days, so the printed number sits six below the slot the sequence
+# leaves free — Sat 2015-08-29 prints "9,003" between 9,008 Fri 28 Aug and 9,010
+# Mon 31 Aug, and only 9,009 fits. Verified against the Friday before and the
+# Monday after for every Saturday in the range and the two either side of each
+# end; the Saturdays outside it need no correction. A week short a publishing
+# day breaks the arithmetic, not the rule, and goes in NUMBER_FIXES above.
+#
+# The range opens a week before the first Saturday held on disk. 2015-08-22 was
+# a resend of 8,997 and was deleted, but the fix still has to cover it: without
+# one, re-fetching that date writes its 8,997 title over the real 8,997 and
+# moves that puzzle to the wrong day. With it the resend lands on 9,003, the
+# empty slot that is genuinely its own, where puzzle_integrity.py reports it as
+# a DUPLICATE to be deleted again.
+SATURDAY_LAG = ("150822", "160326")
 
 
 # The feed ran a day out of step until Monday 2015-08-17. Before that date the
@@ -123,10 +151,52 @@ NUMBER_FIXES = {
 SHIFTED_BEFORE = "150817"
 
 
+# Enumerations the paper printed wrong, and still serves wrong. A cryptic's
+# enumeration is a promise about the answer's shape, and one that contradicts
+# the light it sits on teaches a learner to count wrong — so these are corrected
+# here, at the source, rather than left for a reader to trip over.
+#
+# Keyed by (fetcher date key, the feed's own `word` id, the format it prints),
+# valued with the format the grid demands. Including the wrong value in the KEY
+# is what makes this safe to leave in place: the day Arkadium re-cuts the feed
+# the key stops matching and the feed's own value is taken, so a corrected
+# upstream can never be overwritten with a stale correction, and a shifted word
+# id can never silently re-point a fix at an innocent clue.
+#
+# Every one below is the PAPER's error, confirmed against the light's own cell
+# count, its wordplay, and the fifteensquared blog for the day:
+#   150819 word 30 = 23dn BALSAM, "Plant maiden found under wood" — BALSA + M,
+#     six cells, printed (5). A solver said so on the day (fifteensquared,
+#     Independent 9,000 / Dac, comment 5: "My paper gives 23D as a five letter
+#     answer, but of course there are six spaces").
+#   160512 word 27 = 23dn INTRO, "Britons wanting borders sabotaged opening" —
+#     anagram of (B)RITON(S), five cells, printed (7). Same again
+#     (Independent 9228 / Nestor, comment 10: "Not helped by my printout having
+#     (7) not (5) for 23dn"); the blog itself prints (5).
+#   160512 word 28 = 27dn GOO, "Travel over slush" — GO + O, three cells,
+#     printed (5). The blog prints (3). Nobody complained about this one, but
+#     it is the same fault in the same puzzle.
+FORMAT_FIXES = {
+    ("150819", "30", "5"): "6",
+    ("160512", "27", "7"): "5",
+    ("160512", "28", "5"): "3",
+}
+
+
 def series_for(ymd):
     weekday = datetime.strptime(ymd, "%y%m%d").weekday()
     sunday_paper = 0 if ymd < SHIFTED_BEFORE else 6
     return "indysunday" if weekday == sunday_paper else "independent"
+
+
+def true_number(ymd, printed):
+    """The number a date actually holds, given the one its title prints."""
+    if ymd in NUMBER_FIXES:
+        return NUMBER_FIXES[ymd]
+    saturday = datetime.strptime(ymd, "%y%m%d").weekday() == 5
+    if saturday and SATURDAY_LAG[0] <= ymd <= SATURDAY_LAG[1]:
+        return printed + 6
+    return printed
 
 
 def http_get(url):
@@ -230,7 +300,7 @@ def parse(xml_bytes, ymd):
         if not m:
             raise ValueError(f"unrecognised title {title!r}")
         setter, number_text = m.group(1), m.group(2)
-    number = NUMBER_FIXES.get(ymd) or int(re.sub(r"[,\s]", "", number_text))
+    number = true_number(ymd, int(re.sub(r"[,\s]", "", number_text)))
 
     grid = puz.find(f"{NS}crossword/{NS}grid")
     cols, rows = int(grid.get("width")), int(grid.get("height"))
@@ -266,6 +336,7 @@ def parse(xml_bytes, ymd):
             # comma that is already there.
             fmt = re.sub(r",+", ",",
                          re.sub(r"[./\s]", ",", (clue.get("format") or "").strip()))
+            fmt = FORMAT_FIXES.get((ymd, clue.get("word"), fmt), fmt)
             # A linked clue's number can carry a trailing A/D ("7/21A/11") when the
             # bare number would collide with an unrelated clue elsewhere in the same
             # grid — the compiler's own disambiguation, not data we need: direction
