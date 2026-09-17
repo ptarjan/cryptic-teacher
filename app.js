@@ -2587,8 +2587,12 @@
     //
     // A break costs one tile's worth of arc, so the circle is sized for the
     // letters plus the gaps and the pitch between neighbours holds either side
-    // of one.
-    const slots = n + (cuts.length - 1);
+    // of one. There is a break after EVERY word, the last one included: a
+    // circle has no end, so a gap only between words leaves the last word
+    // running straight into the first and the reader counting to find where
+    // one stops. One word gets no breaks at all — an unbroken ring is the
+    // whole point of it.
+    const slots = n + (cuts.length > 1 ? cuts.length : 0);
     const radius = Math.max(56, Math.min(140,
       Math.ceil(PITCH / (2 * Math.sin(Math.PI / Math.max(3, slots))))));
     const d = radius * 2 + 34;
