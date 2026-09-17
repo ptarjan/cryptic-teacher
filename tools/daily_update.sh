@@ -186,7 +186,8 @@ coverage_stale=$(python3 tools/coverage_report.py --stale-only) || alert "a seri
 #     it happens once per puzzle, on a night nobody knows in advance, so it has
 #     to come and find us.
 refreshed=$( { python3 tools/fetch_puzzle.py --refresh-unsolved
-               python3 tools/fetch_observer.py --refresh-unsolved; } 2>&1 | tee /dev/stderr)
+               python3 tools/fetch_observer.py --refresh-unsolved
+               python3 tools/fetch_privateeye.py --refresh-unsolved; } 2>&1 | tee /dev/stderr)
 graded=$(printf %s "$refreshed" | grep -E "^BLIND SOLVE GRADED|^  miss ")
 # A clean sweep and a bad night are not the same message. Both are worth
 # sending — the grade is the whole measurement behind ANNOTATE_BLIND and it

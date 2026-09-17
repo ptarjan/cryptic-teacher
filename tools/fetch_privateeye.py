@@ -10,6 +10,12 @@ Usage:
                                                      # number sequence downward
   python3 tools/fetch_privateeye.py --dry-run 838    # parse and print, write nothing
   python3 tools/fetch_privateeye.py --out DIR ...    # write elsewhere (default puzzles/)
+  python3 tools/fetch_privateeye.py --refresh-unsolved
+                                                     # re-run the fifteensquared join for
+                                                     # every on-disk Cyclops still waiting
+                                                     # on it (walk() and --latest never
+                                                     # revisit a number once it's on disk,
+                                                     # so nothing else ever will)
 
 WHERE THIS COMES FROM. https://www.private-eye.co.uk/crossword lists the current
 issue and links straight to an Across Lite file:
@@ -85,8 +91,9 @@ import urllib.request
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from fetch_puzzle import (PUZZLE_DIR, http_bytes, merge_annotations,  # noqa: E402
-                          puzzle_files, read_puzzle_file, write_puzzle_file)
+from fetch_puzzle import (PUZZLE_DIR, grade_model_fill, http_bytes,  # noqa: E402
+                          merge_annotations, print_grade, puzzle_files,
+                          read_puzzle_file, write_puzzle_file)
 
 INDEX_URL = "https://www.private-eye.co.uk/crossword"
 PUZ_URL = "https://www.private-eye.co.uk/pictures/crossword/download/{num}.puz"
@@ -833,6 +840,62 @@ def fetch_number(num, out_dir, dry_run=False):
     return puzzle
 
 
+def refresh_unsolved():
+    """Re-run the fifteensquared join for on-disk Cyclops puzzles that don't
+    have real answers yet — the one gap walk() and --latest both leave open,
+    since neither ever revisits a number already on disk.
+
+    "Has real answers" cannot be read off completeness of the solution fields:
+    a Cyclops can carry a full grid of letters that are a model's own guess
+    (solutionSource.kind == "model", written by apply_solution.py while the
+    blog stays silent — see daily_update.sh's cold-solve queue), and the .puz
+    feed itself never supplies real ones at all (module docstring). The only
+    fact that means "these are the paper's own words" is
+    solutionSource.kind == "fifteensquared" — fifteensquared is the sole real
+    key this feed ever gets, so once that kind is set the puzzle is done and
+    asking again would only spend a request on an answer that cannot change.
+    Anything else — no solutionSource, or kind == "model" — is pending.
+
+    Annotations already on the entries are untouched by construction: unlike
+    a re-fetch of the .puz (which rebuilds entries from scratch and needs
+    merge_annotations to carry them across), this mutates the on-disk entries
+    in place, so nothing is ever cleared except the annotations on entries a
+    model got wrong, exactly as grade_model_fill does for the other papers'
+    refresh_unsolved."""
+    pending = []
+    for path in puzzle_files():
+        p = read_puzzle_file(path)
+        if p.get("series") != SERIES:
+            continue
+        if (p.get("solutionSource") or {}).get("kind") == "fifteensquared":
+            continue
+        pending.append(p["number"])
+
+    filled = 0
+    for num in pending:
+        path = puzzle_path(PUZZLE_DIR, num)
+        puzzle = read_puzzle_file(path)
+        was_model = (puzzle.get("solutionSource") or {}).get("kind") == "model"
+        guessed = ({e["id"]: e.get("solution") for e in puzzle["entries"]}
+                   if was_model else None)
+        try:
+            fill_answers(puzzle, num, puzzle)
+            if (puzzle.get("solutionSource") or {}).get("kind") == "fifteensquared":
+                if guessed is not None:
+                    print_grade(puzzle, grade_model_fill(puzzle, guessed))
+                write_puzzle_file(path, puzzle, generator="tools/fetch_privateeye.py")
+                print(f"solutions now published for {num}")
+                filled += 1
+            elif was_model:
+                print(f"{num}: solutions still withheld — keeping our own fill")
+            else:
+                print(f"{num}: solutions still withheld")
+        except Exception as err:  # noqa: BLE001 — one bad puzzle shouldn't stop the refresh
+            print(f"refresh {num} failed: {err}")
+        time.sleep(1)
+    print(f"refresh-unsolved: {filled}/{len(pending)} puzzle(s) gained solutions")
+
+
 def on_disk_numbers(out_dir):
     prefix = f"{SERIES}-"
     return sorted(int(p.stem[len(prefix):]) for p in out_dir.glob(f"{prefix}*.js")
@@ -880,9 +943,14 @@ def main(argv):
     parser.add_argument("--extend", nargs="?", const=30, type=int)
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--out", type=Path, default=PUZZLE_DIR)
+    parser.add_argument("--refresh-unsolved", action="store_true")
     args = parser.parse_args(argv)
 
     args.out.mkdir(parents=True, exist_ok=True)
+
+    if args.refresh_unsolved:
+        refresh_unsolved()
+        return 0
 
     if args.latest:
         num = find_latest_number()
