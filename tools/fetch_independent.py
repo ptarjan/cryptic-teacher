@@ -120,6 +120,11 @@ NUMBER_FIXES = {
     # would land on 9,111 — the Monday's number. Prints "9,105"; 9,109 Thu 24
     # Dec, nothing Fri 25 Dec, 9,111 Mon 28 Dec.
     "151226": 9110,
+    "160601": 9245,    # prints "6,245"; 9,244 Tue 31 May, 9,246 Thu 2 Jun
+    # Indy on Sunday. Prints "1,588", the number Sun 2 Aug 2020 genuinely holds
+    # (Hoskins) — this day is a different puzzle (Peter), one week after 1,557
+    # and one before 1,559, so 1,558 is the only number that fits.
+    "200105": 1558,
 }
 
 
