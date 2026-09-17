@@ -3,16 +3,24 @@
 puzzle format.
 
 Usage:
-  python3 tools/fetch_metro.py           # fetch today's puzzle if not on disk
-  python3 tools/fetch_metro.py --force   # re-fetch and overwrite today's file
-  python3 tools/fetch_metro.py --latest  # same fetch, wired for daily_update.sh:
-                                          # up-to-date <id> / exit 3 when nothing
-                                          # new, else reindex() and print the id
+  python3 tools/fetch_metro.py            # fetch today's puzzle if not on disk
+  python3 tools/fetch_metro.py --force    # re-fetch and overwrite today's file
+  python3 tools/fetch_metro.py --latest   # same fetch, wired for daily_update.sh:
+                                           # up-to-date <id> / exit 3 when nothing
+                                           # new, else reindex() and print the id
+  python3 tools/fetch_metro.py --wayback [--dry-run]
+                                           # walk every Wayback Machine capture
+                                           # of the live URL below and write
+                                           # whatever day isn't on disk yet
 
-There is exactly one URL (metro.co.uk/puzzles/cryptic-crossword/) and it always
-serves today's puzzle server-side — no archive, no date- or id-keyed URL exists
-— so this fetcher cannot backfill or extend like tools/fetch_puzzle.py does; it
-can only ever get "today", whatever day it is run.
+There is exactly one live URL (metro.co.uk/puzzles/cryptic-crossword/) and it
+always serves today's puzzle server-side — no date- or id-keyed URL exists —
+so fetch_today() (bare invocation, --force, --latest) cannot backfill or
+extend like tools/fetch_puzzle.py does; it can only ever get "today", whatever
+day it is run. --wayback is the one exception: the Wayback Machine holds its
+own independent captures of that same URL taken on past days, each still
+carrying that day's `starting_puzzle` object, which is how it can recover
+days fetch_today() never ran for. See backfill_wayback() below.
 
 The puzzle's own id (pml_id) is an opaque token that cannot be verified across
 days, so puzzles are keyed by their publication date instead, taken from the
@@ -40,16 +48,34 @@ import datetime
 import json
 import re
 import sys
+import time
+import urllib.error
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from fetch_puzzle import http_bytes, has_words, reindex, write_puzzle_file  # noqa: E402
+from fetch_wayback import maybe_gunzip, SLEEP_SECONDS  # noqa: E402 — shared Wayback plumbing
 import series as series_meta  # noqa: E402 — for puzzle_id()/default_setter() only
 
 ROOT = Path(__file__).resolve().parent.parent
 PUZZLE_DIR = ROOT / "puzzles"
 URL = "https://metro.co.uk/puzzles/cryptic-crossword/"
 SERIES = "metro"
+
+# "id_" tells Wayback to serve a capture AS CAPTURED (no toolbar, no rewritten
+# links) — see fetch_wayback.py's module docstring, which this reuses rather
+# than re-deriving.
+WAYBACK_CAPTURE_URL = "https://web.archive.org/web/{timestamp}id_/" + URL
+
+# CDX is the Wayback Machine's own index of what it captured, queried directly
+# rather than guessed at: collapse=digest drops a capture whose content hash
+# matches the one immediately before it in time, so a page re-crawled several
+# times in one day while nothing changed counts once. filter=statuscode:200
+# excludes captures of an error response.
+WAYBACK_CDX_URL = ("https://web.archive.org/cdx/search/cdx?url="
+                    "metro.co.uk/puzzles/cryptic-crossword/&output=json"
+                    "&fl=timestamp,digest,statuscode&filter=statuscode:200"
+                    "&collapse=digest")
 
 
 def http_get(url):
@@ -130,11 +156,21 @@ def convert(data):
     """Metro's starting_puzzle -> our puzzle object (annotation: null throughout)."""
     gd = data["game_data"]
     rows, cols = gd["rows"], gd["cols"]
-    pzlmap = gd["grid"]["pzlmap"]
-    if len(pzlmap) != rows * cols:
-        raise SystemExit(f"pzlmap length {len(pzlmap)} != rows*cols {rows*cols}")
-    black = {k for k, ch in enumerate(pzlmap) if ch == "*"}
-    light = set(range(rows * cols)) - black
+    # grid.pzlmap is absent on Metro pages from before it started shipping the
+    # black-square mask alongside the clue items (only `items` existed then —
+    # seen on Wayback captures, never on a live fetch). Without a mask there is
+    # nothing independent to check the reconstructed grid against, so black and
+    # light stay None and every check below keyed on them is skipped rather than
+    # faked from data the page never sent.
+    grid_field = gd.get("grid")
+    pzlmap = grid_field.get("pzlmap") if grid_field else None
+    if pzlmap is not None:
+        if len(pzlmap) != rows * cols:
+            raise SystemExit(f"pzlmap length {len(pzlmap)} != rows*cols {rows*cols}")
+        black = {k for k, ch in enumerate(pzlmap) if ch == "*"}
+        light = set(range(rows * cols)) - black
+    else:
+        black = light = None
 
     entries = []
     grid = {}  # cell index -> letter, built alongside entries as a cross-check
@@ -150,7 +186,7 @@ def convert(data):
         answer = re.sub(r"[^A-Z]", "", item["answer"].upper())
         length = len(answer)
         row, col = divmod(idx0, cols)
-        if idx0 in black:
+        if black is not None and idx0 in black:
             raise SystemExit(f"item {item['num']} {direction} starts on a black cell ({row},{col})")
         if direction == "across":
             cells = [idx0 + k for k in range(length)]
@@ -161,7 +197,7 @@ def convert(data):
             if row + length > rows:
                 raise SystemExit(f"item {item['num']} down runs past the column edge")
         for cell in cells:
-            if cell in black:
+            if black is not None and cell in black:
                 raise SystemExit(f"item {item['num']} {direction} crosses a black cell")
             if cell in grid and grid[cell] != answer[cells.index(cell)]:
                 raise SystemExit(f"item {item['num']} {direction} conflicts with another "
@@ -187,8 +223,10 @@ def convert(data):
     # for THIS day's puzzle: every light cell got exactly one letter and no
     # light cell was left over. Anything else means today's puzzle broke an
     # assumption verified only against the one saved sample, and writing a
-    # grid we can't vouch for is worse than refusing to.
-    if set(grid.keys()) != light:
+    # grid we can't vouch for is worse than refusing to. Skipped when there was
+    # no pzlmap to check against — the per-item crossing-conflict check above
+    # is what's left to catch a bad start/dir reading in that case.
+    if light is not None and set(grid.keys()) != light:
         missing = sorted(light - set(grid.keys()))
         extra = sorted(set(grid.keys()) - light)
         raise SystemExit(f"grid reconstruction mismatch — missing cells {missing[:10]}, "
@@ -257,6 +295,103 @@ def fetch_today(force=False):
     return puzzle, True
 
 
+def http_bytes_patient(url):
+    """http_bytes, retried past both a stalled read and an outage longer than
+    http_bytes's own backoff covers.
+
+    web.archive.org's CDX endpoint stalls mid-response often enough under
+    this fetcher's load to matter: urllib raises that as a bare TimeoutError,
+    not a urllib.error.URLError, so http_bytes's own HTTPError/URLError retry
+    never sees it. Separately, CDX has been observed 503ing for minutes at a
+    stretch — longer than http_bytes's own ~4.5 minutes of internal backoff —
+    so a 503/429 that survives that internal retry is worth one more, slower,
+    round here rather than giving up on what is otherwise a working query.
+    """
+    for wait in (30, 60, 120, 240, None):
+        try:
+            return http_bytes(url)
+        except (TimeoutError, ConnectionError) as err:
+            if wait is None:
+                raise
+            print(f"  {err} on {url} — waiting {wait}s")
+            time.sleep(wait)
+        except urllib.error.HTTPError as err:
+            if wait is None or err.code not in (429, 503):
+                raise
+            print(f"  HTTP {err.code} (outlasted http_bytes's own retry) on {url} "
+                  f"— waiting {wait}s")
+            time.sleep(wait)
+
+
+def wayback_snapshot_timestamps():
+    """Every distinct Wayback capture timestamp of the live URL, oldest first
+    (CDX returns rows in capture order; the first row is the field header)."""
+    rows = json.loads(http_bytes_patient(WAYBACK_CDX_URL))[1:]
+    return [row[0] for row in rows]
+
+
+def fetch_wayback_snapshot(timestamp):
+    """One archived capture's starting_puzzle data, by Wayback timestamp.
+
+    maybe_gunzip (from fetch_wayback.py) undoes on-the-wire gzip the same way
+    it does for Guardian captures — urllib never decompresses this for us,
+    and archive.org applies it independently of what either fetcher asks for.
+    """
+    page = maybe_gunzip(http_bytes_patient(WAYBACK_CAPTURE_URL.format(timestamp=timestamp)))
+    return extract_starting_puzzle(page.decode("utf-8", errors="replace"))
+
+
+def backfill_wayback(dry_run=False):
+    """Walk every Wayback capture of the live URL and write whichever day
+    isn't on disk yet.
+
+    Two different failure shapes are printed and skipped rather than stopping
+    the walk, matching fetch_wayback.py's fetch_one(): a capture whose page
+    has since changed shape past what extract_starting_puzzle/convert can
+    read, and a capture that lands on a day already written (by an earlier
+    capture in this same walk, or by a previous run). reindex() is not called
+    here — see the module docstring on why --latest is the only mode that
+    touches the site index.
+    """
+    written = already = failed = 0
+    planned = set()  # paths already queued this run — dry-run never touches disk,
+                      # so path.exists() alone can't catch a day two captures agree on
+    for timestamp in wayback_snapshot_timestamps():
+        try:
+            data = fetch_wayback_snapshot(timestamp)
+            date = publication_date(data)
+        except SystemExit as err:
+            print(f"SKIP {timestamp}: {err}")
+            failed += 1
+            continue
+
+        number = int(date.strftime("%Y%m%d"))
+        path = PUZZLE_DIR / f"{series_meta.puzzle_id(SERIES, number)}.js"
+        if path.exists() or path in planned:
+            already += 1
+        else:
+            planned.add(path)
+            try:
+                puzzle = convert(data)
+            except SystemExit as err:
+                print(f"SKIP {timestamp} ({date}): {err}")
+                failed += 1
+                continue
+            if dry_run:
+                print(f"DRY RUN — would write {path}")
+            else:
+                PUZZLE_DIR.mkdir(exist_ok=True)
+                write_puzzle_file(path, puzzle, generator="tools/fetch_metro.py --wayback")
+                print(f"wrote {path}")
+            written += 1
+
+        time.sleep(SLEEP_SECONDS)
+
+    print(f"done: {written} written, {already} already on disk, "
+          f"{failed} failed to parse")
+    return written
+
+
 def main(argv):
     if argv and argv[0] in ("-h", "--help"):
         print(__doc__)
@@ -269,6 +404,10 @@ def main(argv):
             return 3
         reindex()
         print(puzzle["id"])
+        return 0
+
+    if argv and argv[0] == "--wayback":
+        backfill_wayback(dry_run="--dry-run" in argv[1:])
         return 0
 
     force = "--force" in argv
