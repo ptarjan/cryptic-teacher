@@ -55,7 +55,7 @@ from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from fetch_puzzle import (PUZZLE_DIR, UA, flatten_clue,  # noqa: E402
+from fetch_puzzle import (PUZZLE_DIR, UA, http_bytes, flatten_clue,  # noqa: E402
                           merge_annotations, puzzle_files, read_puzzle_file,
                           reindex, write_puzzle_file)
 import series as series_meta  # noqa: E402
@@ -91,8 +91,7 @@ def series_for(number):
 
 
 def http_get(url):
-    req = urllib.request.Request(url, headers=UA)
-    return urllib.request.urlopen(req, timeout=30).read()
+    return http_bytes(url)
 
 
 def inner_xml(el):
