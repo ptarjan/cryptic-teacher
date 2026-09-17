@@ -54,6 +54,14 @@ tools/fetch_privateeye.py                    Private Eye’s Cyclops — the gri
                                              the only place they are published
 tools/fetch_metro.py                         the Metro’s cryptic; today’s only, because the
                                              paper keeps no archive
+tools/repair_fetched.py                      applies the fetchers’ current rules to puzzles
+                                             already on disk — bare-capital solutions, a masked
+                                             prize answer, a linked group whose members
+                                             disagree — and reports the dates their own
+                                             neighbours contradict
+tools/test_repair_fetched.sh                 builds a puzzle file with each of those defects
+                                             and proves the repair fixes it, leaves a clean
+                                             file byte-identical, and is clean on the second run
 tools/puzzle_integrity.py                    checks the puzzles themselves: two puzzles that
                                              are the same puzzle, an answer that does not fit
                                              its clue’s printed length, two entries that cross

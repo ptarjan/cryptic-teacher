@@ -43,7 +43,8 @@ jobs:
           python3 tools/build_readme.py --check-layout || fails+=("layout table")
           for t in tools/test_alert_claimed.sh tools/test_annotate_attempts.sh \
                    tools/test_annotate_postmortem.sh tools/test_annotate_retry.sh \
-                   tools/test_prereset_paths.sh tools/test_push_conflict.sh; do
+                   tools/test_prereset_paths.sh tools/test_push_conflict.sh \
+                   tools/test_repair_fetched.sh; do
             echo "::group::bash $t"
             bash "$t" || fails+=("$t")
             echo "::endgroup::"
