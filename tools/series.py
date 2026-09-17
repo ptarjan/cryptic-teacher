@@ -58,6 +58,16 @@ SERIES = {
         "kind": "Cryptic",
         "publisher": "Independent",
     },
+    "metro": {
+        # Supplied to Metro by Puzzler Digital and printed with no byline at
+        # all, so there is no name to scrape and a blank one is not a scraping
+        # failure. The paper stands in as the attribution, the way "Everyman"
+        # does for the Observer.
+        "kind": "Cryptic",
+        "publisher": "Metro",
+        "setter": "Metro",
+        "badge": "metro",
+    },
     "globeandmail": {
         # The Globe and Mail prints it, but the byline arrives stamped
         # "©News Licensing/Times Media Limited" — it is a Times of London
