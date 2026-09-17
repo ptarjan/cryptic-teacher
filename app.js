@@ -5200,10 +5200,23 @@
   // on a phone you caught the tail and in the installed app, where the box is
   // furthest below the fold, nothing at all, on iOS.
   //
-  // So they are paused until the box is on screen. The backstop matters as much
-  // as the observer: a box that is never looked at must end up burnt out rather
-  // than frozen mid-burst, waiting to go off under someone who scrolls past it
-  // ten minutes later.
+  // So they are paused until the box is on screen. Two things decide whether
+  // anyone ever sees them, and both used to be wrong for the installed app on a
+  // tablet:
+  //
+  // How much of the box counts as seen. Forty per cent of it is a lot to ask at
+  // the one moment the on-screen keyboard is up — the last letter of the puzzle
+  // has just been typed — so the box could sit visibly on the screen and never
+  // trip the observer. A sliver is enough to look at.
+  //
+  // What happens when it is never seen. The backstop used to unpause anyway
+  // after four seconds, which spends the burst into an empty screen and leaves
+  // nothing for the scroll that arrives a moment later; the sparks are
+  // `forwards`, so they finish invisible and stay that way. A firework either
+  // goes off where someone is looking or it does not go off: the observer keeps
+  // waiting, and the long stop throws the whole thing away rather than burning
+  // it, so nothing is left frozen mid-burst to ambush a reader ten minutes on.
+  const FIREWORK_ABANDON_MS = 60000;
   function startFireworksWhenSeen(box) {
     const fw = box.querySelector(".fireworks");
     if (!fw) return;
@@ -5212,9 +5225,12 @@
     if (typeof IntersectionObserver !== "function") return go();
     const io = new IntersectionObserver((rows) => {
       if (rows.some((r) => r.isIntersecting)) { io.disconnect(); go(); }
-    }, { threshold: 0.4 });
+    }, { threshold: 0.01 });
     io.observe(fw);
-    setTimeout(() => { io.disconnect(); go(); }, 4000);
+    setTimeout(() => {
+      io.disconnect();
+      if (fw.classList.contains("hold") && fw.remove) fw.remove();
+    }, FIREWORK_ABANDON_MS);
   }
 
   // Bursts that go off once, staggered across the box. Each spark carries the
@@ -5228,7 +5244,7 @@
     const shells = SHELLS.map((sh, b) => {
       const bits = Array.from({ length: sparks }, (_, i) => {
         const a = (i / sparks) * Math.PI * 2;
-        const r = 30 + (i % 3) * 9;
+        const r = 46 + (i % 3) * 14;
         return `<span class="spark" style="--dx:${(Math.cos(a) * r).toFixed(1)}px;` +
           `--dy:${(Math.sin(a) * r).toFixed(1)}px;` +
           `animation-delay:${(b * 0.32).toFixed(2)}s"></span>`;
