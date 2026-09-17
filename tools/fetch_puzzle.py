@@ -487,6 +487,14 @@ def _day(ms):
     return datetime.fromtimestamp(ms / 1000, timezone.utc).date()
 
 
+# How far two statements of one puzzle's date may disagree before the page is
+# mis-filed rather than merely sloppy — see the date check at the end of
+# convert(). Named because tools/repair_fetched.py measures already-written
+# files against the same month, and a second number there could drift from
+# this one into disagreeing about which stored puzzles are mis-filed.
+MISFILED_MS = 30 * 86_400_000
+
+
 # What a solution is allowed to hold: the capital letters a solver writes into
 # the cells, and nothing else. Word breaks live in separatorLocations and
 # accents are removed by bare_letters, so anything left that is not A-Z did not
@@ -595,7 +603,7 @@ def convert(data):
     # recorded gap instead of a fabricated puzzle — walk() catches Exception,
     # prints "skip 1183: …" and carries on.
     when, published = data.get("date"), data.get("webPublicationDate")
-    if when and published and abs(when - published) > 30 * 86_400_000:
+    if when and published and abs(when - published) > MISFILED_MS:
         raise ValueError(
             f"{data['id']}: date {_day(when)} contradicts webPublicationDate "
             f"{_day(published)} — mis-filed page, refusing to write it")
