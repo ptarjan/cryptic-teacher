@@ -420,20 +420,16 @@ ANNOTATE_MAX_WEEKLY_PCT="${ANNOTATE_MAX_WEEKLY_PCT:-50}"
 # follows.
 ANNOTATE_MODEL="${ANNOTATE_MODEL:-opus}"
 # Annotate without being shown the published answers, and grade what the model
-# derives against them afterwards. See tools/blind_annotate.py for why this
-# measures something the sighted path cannot. The cost of a blind night is that
-# any clue the model gets wrong ships with no hints at all, so this is a trial
-# with an end: run it for a stretch of nights, then compare the graded accuracy
-# and the check_annotation_loss.py numbers against the sighted corpus and decide.
+# derives against them afterwards. See tools/blind_annotate.py for what this
+# measures that the sighted path cannot.
 #
-# The default is the trial's state, and it lives here because the repo is the
-# only place that survives the machine. Set it anywhere else — a scheduler's
-# environment, one host's dotfiles — and nothing in this checkout knows the
-# trial exists, and a rewrite of that one file switches it off with no alert
-# and no way to tell from the log that a sighted night was not the intended
-# one. An environment variable still wins, so a one-off `ANNOTATE_BLIND= `
-# still works.
-ANNOTATE_BLIND="${ANNOTATE_BLIND:-1}"
+# Off by default: the trial ran 2026-09-06 to 09-17 and the numbers are in the
+# commit that turned it off. Set ANNOTATE_BLIND=1 to run a blind night; the
+# machinery, the grading and blind_misses.json all still work. The default
+# lives here rather than in a scheduler's environment because the repo is the
+# only thing that survives the machine, and a night whose mode was set
+# somewhere else cannot be read back out of the log.
+ANNOTATE_BLIND="${ANNOTATE_BLIND:-}"
 . "$REPO/tools/annotate_model.sh"
 if [ -n "$pending$unsolved" ] && ! python3 tools/weekly_usage.py --self-test; then
   # The gate's own four cases, run offline before its verdict is believed. A
@@ -538,6 +534,11 @@ spend_session_before=$(python3 tools/weekly_usage.py --group session 2>/dev/null
 # the one people are actually looking at. Same session gate as annotation, and
 # the same trailer, since it is the same model spending the same quota.
 solved_ok=0
+# id:session for every grid solved tonight, so the annotation below can carry on
+# in the conversation that worked it out. Same "$num:$sid" list and the same
+# reason as ann_sids above: bash 3.2 has no associative arrays.
+solve_sids=""
+solve_session_of() { printf '%s\n' $solve_sids | sed -n "s/^$1://p" | tail -1; }
 if [ -n "$unsolved" ] && command -v claude >/dev/null 2>&1; then
   for num in $unsolved; do
     session=$(python3 tools/weekly_usage.py --group session)
@@ -550,7 +551,14 @@ if [ -n "$unsolved" ] && command -v claude >/dev/null 2>&1; then
     verdict="${TMPDIR:-/tmp}/cryptic-verdict-$num.log"
     rm -f "$fill"
     echo "solving puzzle $num cold with Claude Code... (session ${session:-unknown}%)"
+    # Named, so the annotation can resume it. Working an answer out and
+    # explaining how it was worked out are the same reasoning, and this is the
+    # only place the second half is still bought twice.
+    solve_sid=$(session_id) || solve_sid=""
+    solve_sess=()
+    [ -n "$solve_sid" ] && solve_sess=(--session-id "$solve_sid")
     claude -p "Solve the cryptic crossword in puzzles/$num.js in this repo. Its answers have not been published, so there is no key: follow tools/solve_prompt.md exactly, write your fill to $fill, and iterate against 'python3 tools/apply_solution.py $num --fill $fill --check-only' until every crossing agrees. Do not write to puzzles/ — the calling script applies the fill." \
+      "${solve_sess[@]}" \
       --model "$ANNOTATE_MODEL" \
       --allowedTools "Read,Write,Edit,Bash(python3 *),Bash(node *)" \
       --max-turns 120 >"$solvelog" 2>&1
@@ -570,6 +578,7 @@ if [ -n "$unsolved" ] && command -v claude >/dev/null 2>&1; then
     if [ "$applied" -eq 0 ]; then
       solved_ok=$((solved_ok + 1))
       pending="$num $pending"
+      solve_sids="$solve_sids $num:$solve_sid"
       python3 - "$num" "$SOLVE_ATTEMPTS_FILE" <<'EOF'
 import json, sys
 num, path = sys.argv[1], sys.argv[2]
@@ -681,6 +690,21 @@ if [ -n "$pending" ]; then
         ann_sess=(--resume "$ann_sid")
         ann_prompt="An earlier run of this task was cut off before it finished. Everything you did before that is intact in this conversation, but the files may have been rolled back since — read puzzles/$num.js to see how far you actually got, and carry on from there rather than starting again. Write in several smaller edits instead of one large one: an edit big enough to hit the output token limit will be cut off. Finish the task you were given and run 'python3 tools/annotate_check.py $num' until it reports clean. Do not commit."
         echo "  $num still has the session its last attempt died in — resuming that rather than buying it from scratch"
+      else
+        # Nothing died, but this grid may have been solved cold half an hour ago
+        # in a conversation that is still on disk. That run derived every answer
+        # and the wordplay that reached it, which is exactly what an annotation
+        # has to say; starting fresh hands the model a key and makes it work
+        # backwards to reasoning it already did. It cannot work from memory
+        # alone -- the transcript ends before apply_solution.py wrote the fill
+        # in -- so the prompt sends it back to the file.
+        solve_prior=$(solve_session_of "$num")
+        if session_exists "$solve_prior"; then
+          ann_sid="$solve_prior"
+          ann_sess=(--resume "$ann_sid")
+          ann_prompt="You solved this crossword earlier in this conversation, and your fill has since been written into puzzles/$num.js. Read the file as it now stands rather than working from memory, then annotate it from the wordplay you used to derive each answer. $ann_prompt"
+          echo "  $num was solved cold tonight — annotating in that same conversation rather than from a cold start"
+        fi
       fi
       ann_sids="$ann_sids $num:$ann_sid"
       ann_ok=""
