@@ -125,9 +125,40 @@ JSON_START = "/*JSON-START*/"
 JSON_END = "/*JSON-END*/"
 
 
+# A throttled request and a missing puzzle look identical to a walk: both are
+# an exception where a page should have been. Every walker here reads that as
+# "this number was never published" and moves on, so without these a throttled
+# stretch is written into the archive as a run of holes, and a long enough one
+# looks like the end of the archive and retires the source for the run.
+RETRY_STATUSES = (429, 500, 502, 503, 504)
+RETRY_WAITS = (5, 20, 60, 180)
+
+
+def http_bytes(url, timeout=30):
+    """One GET, backing off on the statuses that mean "not now" rather than
+    "not here". Retry-After wins over our own schedule when the server sends
+    one, capped so a silly value cannot park the walk for an afternoon."""
+    for wait in RETRY_WAITS + (None,):
+        try:
+            req = urllib.request.Request(url, headers=UA)
+            return urllib.request.urlopen(req, timeout=timeout).read()
+        except urllib.error.HTTPError as err:
+            if wait is None or err.code not in RETRY_STATUSES:
+                raise
+            try:
+                wait = max(wait, min(float(err.headers.get("Retry-After")), 600))
+            except (AttributeError, TypeError, ValueError):
+                pass
+            print(f"  HTTP {err.code} on {url} — waiting {wait:.0f}s")
+        except urllib.error.URLError as err:
+            if wait is None:
+                raise
+            print(f"  {err.reason} on {url} — waiting {wait}s")
+        time.sleep(wait)
+
+
 def http_get(url):
-    req = urllib.request.Request(url, headers=UA)
-    return urllib.request.urlopen(req, timeout=30).read().decode("utf-8")
+    return http_bytes(url).decode("utf-8")
 
 
 TAG_RE = re.compile(r"<(/?)([a-zA-Z][a-zA-Z0-9]*)[^>]*>")
@@ -626,6 +657,14 @@ def walk(numbers, series, what="backfill"):
             fetch_number(num)
             fetched += 1
         except urllib.error.HTTPError as err:
+            # http_bytes has already backed off four times by here, so this is
+            # not a blip. Recording it as a gap would bake a lie into the
+            # archive; stopping costs one source for one run.
+            if err.code in RETRY_STATUSES:
+                print(f"STOPPING at {num}: HTTP {err.code} after every retry — "
+                      f"{fetched} fetched before it started refusing")
+                reindex()
+                raise
             print(f"skip {num}: HTTP {err.code}")
             missing += 1
         except Exception as err:  # malformed page etc. — keep going

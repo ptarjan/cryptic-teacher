@@ -75,7 +75,7 @@ from datetime import datetime
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from fetch_puzzle import (PUZZLE_DIR, UA, flatten_clue, grade_model_fill,  # noqa: E402
+from fetch_puzzle import (PUZZLE_DIR, UA, http_bytes, flatten_clue, grade_model_fill,  # noqa: E402
                           merge_annotations, print_grade, puzzle_files, puzzle_path,
                           read_puzzle_file, reindex, write_puzzle_file)
 from fetch_independent import span  # noqa: E402 — same 1-based "2-7"/"7" span format
@@ -103,8 +103,7 @@ TOPIC_LINK_RE = re.compile(r"/puzzles/everyman/article/everyman-no-(\d+)")
 
 
 def http_get(url):
-    req = urllib.request.Request(url, headers=UA)
-    return urllib.request.urlopen(req, timeout=30).read().decode("utf-8")
+    return http_bytes(url).decode("utf-8")
 
 
 def http_get_json(url):
