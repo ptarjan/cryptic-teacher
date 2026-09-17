@@ -23,9 +23,12 @@
   --badge-none-fg: #5b564d;
   --badge-series-bg: #e9def5; /* which crossword this is — the default, cryptic */
   --badge-series-fg: #543a75;
-  /* The other four papers, so the picker's paper legend reads as five papers
-     rather than one colour repeated five times. Muted like the rest of the
-     badge palette, not the mastheads' actual colours. */
+  /* Every other paper, so the picker's paper legend reads as eight papers
+     rather than one colour repeated. Muted like the rest of the badge palette,
+     not the mastheads' actual colours. A paper with no entry here falls back to
+     --badge-series-* and is indistinguishable from the Guardian, which is what
+     happened to Cyclops, Metro and the Globe as each was added; smoke_test.js
+     now fails if a series has no rule of its own. */
   --paper-quiptic-bg: #dfe6f0;
   --paper-quiptic-fg: #2c4f70;
   --paper-independent-bg: #dfe6d2;
@@ -34,6 +37,12 @@
   --paper-indysunday-fg: #1f5c56;
   --paper-everyman-bg: #f0e0cf;
   --paper-everyman-fg: #7a4a24;
+  --paper-cyclops-bg: #f6dcdc;
+  --paper-cyclops-fg: #8a2f2f;
+  --paper-globeandmail-bg: #f2e8c9;
+  --paper-globeandmail-fg: #6a5817;
+  --paper-metro-bg: #e0e2e6;
+  --paper-metro-fg: #444a55;
   /* One motion language for the hint panel. Everything in there is an entrance —
      a mark arriving on the clue, a verdict arriving under it, the graded clue
      travelling up to the rung it judged — and an entrance is one duration and
@@ -82,6 +91,12 @@
     --paper-indysunday-fg: #93cdc5;
     --paper-everyman-bg: #4a3624;
     --paper-everyman-fg: #e0b98a;
+    --paper-cyclops-bg: #4b2727;
+    --paper-cyclops-fg: #edaaaa;
+    --paper-globeandmail-bg: #423819;
+    --paper-globeandmail-fg: #dac479;
+    --paper-metro-bg: #2e3238;
+    --paper-metro-fg: #b8c0cc;
   }
 }
 
@@ -238,13 +253,18 @@ button:disabled:hover { border-color: var(--line); }
    middle one lined that column up with itself and nothing else. */
 .badge.series { background: var(--badge-series-bg); color: var(--badge-series-fg);
                 min-width: 7.2em; text-align: center; }
-/* Cryptic is the default and keeps the plain series colour above; the other
-   four papers get their own so the picker's paper legend — the one place all
-   five sit in a row together — reads at a glance instead of by label alone. */
-.badge.series-quiptic     { background: var(--paper-quiptic-bg);     color: var(--paper-quiptic-fg); }
-.badge.series-independent { background: var(--paper-independent-bg); color: var(--paper-independent-fg); }
-.badge.series-indysunday  { background: var(--paper-indysunday-bg);  color: var(--paper-indysunday-fg); }
-.badge.series-everyman    { background: var(--paper-everyman-bg);    color: var(--paper-everyman-fg); }
+/* Cryptic is the default and keeps the plain series colour above; every other
+   paper gets its own so the picker's paper legend — the one place they all sit
+   in a row together — reads at a glance instead of by label alone. One rule per
+   series in SERIES_BADGE, or the legend goes back to being one colour repeated:
+   that is asserted, not remembered. */
+.badge.series-quiptic      { background: var(--paper-quiptic-bg);      color: var(--paper-quiptic-fg); }
+.badge.series-independent  { background: var(--paper-independent-bg);  color: var(--paper-independent-fg); }
+.badge.series-indysunday   { background: var(--paper-indysunday-bg);   color: var(--paper-indysunday-fg); }
+.badge.series-everyman     { background: var(--paper-everyman-bg);     color: var(--paper-everyman-fg); }
+.badge.series-cyclops      { background: var(--paper-cyclops-bg);      color: var(--paper-cyclops-fg); }
+.badge.series-globeandmail { background: var(--paper-globeandmail-bg); color: var(--paper-globeandmail-fg); }
+.badge.series-metro        { background: var(--paper-metro-bg);        color: var(--paper-metro-fg); }
 
 /* The anagram ring: fodder laid out with no first letter and no last one, so
    there is no reading order for the eye to fall back into. Absolute placement

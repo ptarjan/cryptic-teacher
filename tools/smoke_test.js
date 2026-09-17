@@ -551,6 +551,20 @@ const patBoxes = () => (patHTML().match(/class="pat-box [^"]*"/g) || []);
     .forEach((s) => assert(badged.includes(s),
       `series '${s}' has a badge in app.js's SERIES_BADGE`));
 
+  /* --- and its own colour, not the default one ---
+
+     A badge with no `.badge.series-<key>` rule silently falls back to
+     --badge-series-*, which is the Guardian's purple, so the paper legend shows
+     two, three, four papers wearing one colour and the chips stop being
+     readable without their labels. Cyclops, Metro and the Globe and Mail each
+     shipped that way — the CSS was written when there were five series and
+     nothing made adding a sixth touch it. "cryptic" is the one legitimate
+     user of the default: it IS the default. */
+  const badgeCss = fs.readFileSync(path.join(ROOT, "style.css"), "utf8");
+  badged.filter((s) => s !== "cryptic" && s !== "authored").forEach((s) =>
+    assert(badgeCss.includes(`.badge.series-${s} `),
+      `series '${s}' has its own pill colour in style.css (.badge.series-${s})`));
+
   /* --- a push notification says WHICH PAPER, and there is still one table ---
 
      On the site a row wears a badge, so "Cryptic crossword No 30,106" is

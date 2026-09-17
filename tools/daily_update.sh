@@ -134,11 +134,18 @@ echo "=== cryptic-teacher update $(date '+%Y-%m-%d %H:%M') ==="
 python3 tools/blind_annotate.py restore
 
 # --- 1. fetch the latest puzzle of every series (exit 3 = nothing new, fine) ---
-# Three fetchers, run independently on purpose: one source going down should
-# not cost us the other two. Neither failing stops the run — there is usually
-# a backlog worth annotating regardless.
+# Run independently on purpose: one source going down should not cost us the
+# others. None failing stops the run — there is usually a backlog worth
+# annotating regardless. Cyclops is fortnightly, so fetch_privateeye normally
+# returns 3 here; that is "nothing new", not a fault.
+#
+# Every fetcher with a --latest belongs in this list. A series backfilled but
+# left out of it stops at the day it was backfilled and rots from there, which
+# is what happened to Cyclops. fetch_globeandmail.py and fetch_metro.py have no
+# --latest yet and are the two still in that state.
+FETCHERS="fetch_puzzle fetch_independent fetch_observer fetch_privateeye"
 fetch_broken=""
-for fetcher in fetch_puzzle fetch_independent fetch_observer; do
+for fetcher in $FETCHERS; do
   python3 "tools/$fetcher.py" --latest
   fetch_rc=$?
   if [ $fetch_rc -ne 0 ] && [ $fetch_rc -ne 3 ]; then
@@ -150,7 +157,9 @@ done
 # no network, a python that no longer starts. Nothing new would arrive for as
 # long as that lasted, and a site that quietly stops updating looks exactly like
 # a site with nothing to update.
-if [ "$(printf %s "$fetch_broken" | wc -w)" -ge 3 ]; then
+# Counted off FETCHERS rather than a literal, so adding a source can't quietly
+# turn "all of them" into "all but the new one" and silence this alert.
+if [ "$(printf %s "$fetch_broken" | wc -w)" -ge "$(printf %s "$FETCHERS" | wc -w)" ]; then
   alert "every fetcher failed tonight ($fetch_broken) — no new puzzle can arrive from any paper until this is fixed. The rc lines are in .update.log."
 fi
 
