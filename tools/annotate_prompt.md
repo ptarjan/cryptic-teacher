@@ -131,6 +131,12 @@ disagree, it wins.
   surface padding — a block with an empty `gives` and a note saying so. That fourth
   option is only for published clues; in a puzzle you are writing
   (`tools/AUTHORING.md`) it is an ERROR, so rewrite the clue without the word.
+- A link word joins and says nothing else. `on`, `after`, `behind`, `below`, `under`
+  and `following` also say WHICH WAY ROUND — in an across entry "A on B" is B then A —
+  and where one of them is what puts the pieces in the answer's order it is an
+  indicator, with an `indicatorNotes` entry, not a `linkWord`. The page tells solvers a
+  link word "contributes no letters of its own", so filing the clue's only instruction
+  there leaves nothing to explain why a piece moved.
 - The definition's words are not wordplay. A block whose `clueFragment` repeats a word
   the `definition` claimed says the answer is the answer. If you cannot see the
   wordplay, the clue is unsolved — leave it `null`.
