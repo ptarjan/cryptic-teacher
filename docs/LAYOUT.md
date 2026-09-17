@@ -54,6 +54,10 @@ tools/fetch_privateeye.py                    Private Eye’s Cyclops — the gri
                                              the only place they are published
 tools/fetch_metro.py                         the Metro’s cryptic; today’s only, because the
                                              paper keeps no archive
+tools/puzzle_integrity.py                    checks the puzzles themselves: two puzzles that
+                                             are the same puzzle, an answer that does not fit
+                                             its clue’s printed length, two entries that cross
+                                             and disagree
 tools/coverage_report.py                     counts what we hold of every series and names the
                                              ones that have gone quiet, were never backfilled,
                                              or are full of holes
