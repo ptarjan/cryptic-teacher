@@ -4002,7 +4002,15 @@ global.realSetTimeout(() => {
   probes.forEach((q) => {
     typeInPicker(q);
     const opts = suggestions();
-    assert(opts.length > 0, `"${q}" completes to something`);
+    // A probe whose word is already a standing chip needs no completion: the
+    // chip sits next to the box permanently, so the word has been seen, which
+    // is the whole point of completing it. Private Eye's setter IS its paper —
+    // "cyclops" is both — and app.js drops a suggestion that repeats a chip
+    // rather than offering the same word twice.
+    const chipped = [...registry["picker-filters"].innerHTML.matchAll(
+      /id="pf-\d+"[^>]*>([^<]+)</g)].some((m) => m[1].toLowerCase().includes(q));
+    assert(opts.length > 0 || chipped,
+      `"${q}" completes to something, or is already a chip`);
     // There is no cap in app.js on how many completions a query can return —
     // pickerSuggestTerms() just filters the whole vocabulary and hands it all
     // back — so a fixed "<= 12" here was never a real product invariant. It
@@ -4042,8 +4050,11 @@ global.realSetTimeout(() => {
 // named next to the box, bands easiest first and papers biggest first.
 {
   registry["btn-picker"].onclick();
+  // Scraped out of the HTML, so the text arrives escaped: the chip the solver
+  // reads as "globe & mail" is written "globe &amp; mail" there.
   const shown = () => [...registry["picker-filters"].innerHTML.matchAll(
-    /id="pf-\d+"[^>]*>([^<]+)</g)].map((m) => m[1]);
+    /id="pf-\d+"[^>]*>([^<]+)</g)].map((m) => m[1]
+      .replace(/&#39;/g, "'").replace(/&quot;/g, '"').replace(/&amp;/g, "&"));
 
   const at = {}, n = {};
   (window.CRYPTIC_INDEX.puzzles || []).forEach((p) => {
