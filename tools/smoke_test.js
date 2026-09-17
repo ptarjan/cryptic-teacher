@@ -441,9 +441,13 @@ const cellCount = openPuz.dimensions.cols * openPuz.dimensions.rows;
 assert(registry["grid"].children.length === cellCount,
   `grid has ${cellCount} cells, got ` + registry["grid"].children.length);
 const lightCells = registry["grid"].children.filter((c) => !c.classList.contains("block"));
-// Guardian blocked grids run from roughly 140 to 180 light squares; the old
-// floor of 150 was one puzzle's figure, and No 30,071 (140) tripped it.
-assert(lightCells.length > 120, "light cells present: " + lightCells.length);
+// A share of the grid, not a count. A British blocked grid is between a half
+// and three quarters light whatever its size, and a fixed floor only ever
+// describes the size that was in the corpus when it was written: 120 was a
+// 15x15 figure and the Metro's 13x13 has 109 lights, which is 64% and
+// perfectly normal.
+assert(lightCells.length > cellCount * 0.5,
+  `light cells present: ${lightCells.length} of ${cellCount}`);
 assert(registry["clues-across"].children.length > 10, "across clues rendered");
 assert(registry["clues-down"].children.length > 10, "down clues rendered");
 assert(registry["hint-clue"].innerHTML.length > 10, "hint panel shows a clue");
