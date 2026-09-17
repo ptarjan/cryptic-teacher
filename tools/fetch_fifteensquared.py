@@ -16,8 +16,14 @@ be asked for by a comma-separated list of post ids, so the whole archive slice
 we care about is tens of requests rather than hundreds — minutes at the crawl
 delay, not hours. Do not "optimise" that into one-request-per-post.
 
-  python3 tools/fetch_fifteensquared.py            # top up the cache
-  python3 tools/fetch_fifteensquared.py --status   # what is cached already
+A run walks every page the API reports for each category, because a page cap
+silently truncates the archive: Independent alone is 73 pages, and a run that
+stopped at six looked exactly like a finished one. `--pages` is there to bound a
+quick spot-check, never to bound a top-up.
+
+  python3 tools/fetch_fifteensquared.py                       # top up the cache
+  python3 tools/fetch_fifteensquared.py --status              # what is cached
+  python3 tools/fetch_fifteensquared.py --category Everyman   # one series
 
 Two things that cost a round trip to learn (2026-09-09): the `.com` domain
 times out, only `.net` answers; and the API returns 403 to python-urllib's
@@ -50,11 +56,17 @@ BATCH = 25
 
 # The categories that overlap what we hold. Ids come from /categories; names are
 # kept beside them so a renumbering is visible rather than silent.
+#
+# Private Eye/Cyclops earns its place twice over: it is the one series whose
+# answers exist nowhere else, because Private Eye's own .puz ships a dummy
+# solution grid, so this blog is the only source tools/fetch_privateeye.py can
+# join against.
 CATEGORIES = {
     "Guardian": None,
     "Independent": None,
     "Everyman": None,
     "Guardian Quiptic": None,
+    "Private Eye/Cyclops": None,
 }
 
 _last_request = [0.0]
@@ -112,9 +124,12 @@ def store(directory, key, payload):
     tmp.rename(directory / f"{key}.json")
 
 
-def fetch_posts(cat_id, name, pages_max):
-    """Newest first. Stops at the first fully-cached page — the archive only
-    grows at the head, so an older page cannot have changed under us."""
+def fetch_posts(cat_id, name, pages_max=None):
+    """Newest first, to the last page the API reports. Stops early at the first
+    fully-cached page — the archive only grows at the head, so an older page
+    cannot have changed under us. pages_max is an explicit spot-check bound and
+    is None for a real run: a default that caps pages truncates the archive
+    without ever saying so."""
     have = cached_post_ids()
     new = 0
     page, pages = 1, 1
@@ -130,6 +145,8 @@ def fetch_posts(cat_id, name, pages_max):
             new += 1
         print(f"  {name} page {page}/{pages}: +{len(fresh)} new", flush=True)
         page += 1
+    if pages_max is not None and pages_max < pages:
+        print(f"  {name}: STOPPED at --pages {pages_max} of {pages} pages", flush=True)
     return new
 
 
@@ -194,8 +211,12 @@ def status():
 def main():
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--status", action="store_true", help="report the cache and exit")
-    ap.add_argument("--pages", type=int, default=6,
-                    help="max pages of 100 posts per category (default 6)")
+    ap.add_argument("--pages", type=int, default=None,
+                    help="stop after this many pages of 100 posts per category; "
+                         "for a quick spot-check only (default: every page)")
+    ap.add_argument("--category", action="append", metavar="NAME",
+                    help=f"only this category, repeatable "
+                         f"({', '.join(CATEGORIES)})")
     ap.add_argument("--posts-only", action="store_true", help="skip comments")
     args = ap.parse_args()
 
@@ -204,13 +225,22 @@ def main():
 
     print(f"cache {CACHE}  (crawl delay {CRAWL_DELAY}s, {PER_PAGE} records/request)",
           flush=True)
+    wanted = args.category or list(CATEGORIES)
+    unknown = [c for c in wanted if c not in CATEGORIES]
+    if unknown:
+        raise SystemExit(f"--category {', '.join(unknown)}: not one of "
+                         f"{', '.join(CATEGORIES)}")
+
     cats = resolve_categories()
     total_new = 0
-    for name, cat_id in cats.items():
-        total_new += fetch_posts(cat_id, name, args.pages)
+    for name in wanted:
+        total_new += fetch_posts(cats[name], name, args.pages)
     print(f"posts: +{total_new} new, {len(cached_post_ids())} cached", flush=True)
 
     if not args.posts_only:
+        # Comments for the whole cache, not just this run's posts: a previous
+        # run killed during its comment pass leaves posts with no comment file,
+        # and nothing else ever comes back for them.
         n = fetch_comments(cached_post_ids())
         print(f"comments: fetched for {n} posts", flush=True)
 
