@@ -2,18 +2,18 @@
 // Annotations (type/definition/indicators/blocks/walkthrough) are original
 // to this project. Edit the annotation objects freely; keep the JSON markers.
 window.CRYPTIC_PUZZLES = window.CRYPTIC_PUZZLES || {};
-window.CRYPTIC_PUZZLES["cryptic-24307"] = /*JSON-START*/ {
- "id": "cryptic-24307",
- "number": 24307,
+window.CRYPTIC_PUZZLES["cryptic-23201"] = /*JSON-START*/ {
+ "id": "cryptic-23201",
+ "number": 23201,
  "series": "cryptic",
- "name": "Prize crossword No 24,307",
+ "name": "Cryptic crossword No 23,201",
  "setter": "Araucaria",
- "date": 1202515200000,
+ "date": 1090454400000,
  "dimensions": {
   "cols": 15,
   "rows": 15
  },
- "sourceUrl": "https://www.theguardian.com/crosswords/prize/24307",
+ "sourceUrl": "https://www.theguardian.com/crosswords/cryptic/23201",
  "entries": [
   {
    "id": "1-across",
@@ -24,14 +24,10 @@ window.CRYPTIC_PUZZLES["cryptic-24307"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 5,
-   "clue": "Like the RAs in A, no ruddy use holding informal talks — you just get mews (3,2,4,8)",
+   "clue": "Here there's little time for trees  ... (5)",
    "separatorLocations": {},
-   "solution": "CRIDU",
-   "annotation": null,
-   "group": [
-    "1-across",
-    "1-down"
-   ]
+   "solution": "FIRST",
+   "annotation": null
   },
   {
    "id": "1-down",
@@ -42,14 +38,14 @@ window.CRYPTIC_PUZZLES["cryptic-24307"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 12,
-   "clue": "See 1 across (12)",
-   "separatorLocations": {},
-   "solution": "CHATSYNDROME",
-   "annotation": null,
-   "group": [
-    "1-across",
-    "1-down"
-   ]
+   "clue": "Defective report by people who draw a guesthouse (6,6)",
+   "separatorLocations": {
+    ",": [
+     6
+    ]
+   },
+   "solution": "FAWLTYTOWERS",
+   "annotation": null
   },
   {
    "id": "2-down",
@@ -60,9 +56,13 @@ window.CRYPTIC_PUZZLES["cryptic-24307"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 9,
-   "clue": "Among two books concluded game, I’m told (9)",
-   "separatorLocations": {},
-   "solution": "INTIMATED",
+   "clue": "Welcome to Cleveland, darling! (3,6)",
+   "separatorLocations": {
+    ",": [
+     3
+    ]
+   },
+   "solution": "REDCARPET",
    "annotation": null
   },
   {
@@ -74,9 +74,9 @@ window.CRYPTIC_PUZZLES["cryptic-24307"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 5,
-   "clue": "Surprise has one distressed, knocked over too (5)",
+   "clue": "Point of time for music-maker (5)",
    "separatorLocations": {},
-   "solution": "UPSET",
+   "solution": "THORN",
    "annotation": null
   },
   {
@@ -88,9 +88,9 @@ window.CRYPTIC_PUZZLES["cryptic-24307"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 8,
-   "clue": "“Bonjour” ’ll be Spooner’s slur on type of Brit (4,4)",
+   "clue": "...  and little time among trees (8)",
    "separatorLocations": {},
-   "solution": "JOHNBULL",
+   "solution": "FOREMOST",
    "annotation": null
   },
   {
@@ -102,9 +102,9 @@ window.CRYPTIC_PUZZLES["cryptic-24307"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 9,
-   "clue": "Ackland has cane and perfume comes from it (4,5)",
+   "clue": "Defer changing Sam's boss's name (9)",
    "separatorLocations": {},
-   "solution": "JOSSSTICK",
+   "solution": "FREDERICK",
    "annotation": null
   },
   {
@@ -116,9 +116,9 @@ window.CRYPTIC_PUZZLES["cryptic-24307"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 4,
-   "clue": "The helping part, complete with C (for cold) (4)",
+   "clue": "Came up with 3 and 17 (4)",
    "separatorLocations": {},
-   "solution": "HAND",
+   "solution": "ROSE",
    "annotation": null
   },
   {
@@ -130,9 +130,13 @@ window.CRYPTIC_PUZZLES["cryptic-24307"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 9,
-   "clue": "Casks with which playwright’s entertained some cooks (9)",
-   "separatorLocations": {},
-   "solution": "BARRICOES",
+   "clue": "Actress of the extreme right and what Pussy said about it (3,6)",
+   "separatorLocations": {
+    ",": [
+     3
+    ]
+   },
+   "solution": "MIAFARROW",
    "annotation": null
   },
   {
@@ -144,9 +148,13 @@ window.CRYPTIC_PUZZLES["cryptic-24307"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 5,
-   "clue": "This answer, if you’re sharp, you will have guessed (5)",
+   "clue": "There's a war raging - I'm taking flight overseas (10)",
+   "group": [
+    "7-down",
+    "17-across"
+   ],
    "separatorLocations": {},
-   "solution": "LEMON",
+   "solution": "SHEAR",
    "annotation": null
   },
   {
@@ -158,9 +166,14 @@ window.CRYPTIC_PUZZLES["cryptic-24307"] = /*JSON-START*/ {
     "y": 2
    },
    "length": 14,
-   "clue": "Marsh work (sic) — train time’s right — makes classy crooks (7,2,5)",
-   "separatorLocations": {},
-   "solution": "ARTISTSINCRIME",
+   "clue": "Mr Weller's recorder confines steps to steppes? (4,4,6)",
+   "separatorLocations": {
+    ",": [
+     4,
+     8
+    ]
+   },
+   "solution": "WIDEOPENSPACES",
    "annotation": null
   },
   {
@@ -172,9 +185,9 @@ window.CRYPTIC_PUZZLES["cryptic-24307"] = /*JSON-START*/ {
     "y": 3
    },
    "length": 12,
-   "clue": "Conduct ungreen in key in English lake (7,5)",
+   "clue": "Centre piece of orchestra that may feel a tug (12)",
    "separatorLocations": {},
-   "solution": "WASTINGWATER",
+   "solution": "HEARTSTRINGS",
    "annotation": null
   },
   {
@@ -186,9 +199,13 @@ window.CRYPTIC_PUZZLES["cryptic-24307"] = /*JSON-START*/ {
     "y": 4
    },
    "length": 8,
-   "clue": "Half time is money — thus do Hebrews think (8)",
-   "separatorLocations": {},
-   "solution": "SEMITISM",
+   "clue": "Mr Hornby's work of art I sent off (5,3)",
+   "separatorLocations": {
+    ",": [
+     5
+    ]
+   },
+   "solution": "TRAINSET",
    "annotation": null
   },
   {
@@ -200,9 +217,9 @@ window.CRYPTIC_PUZZLES["cryptic-24307"] = /*JSON-START*/ {
     "y": 4
    },
    "length": 6,
-   "clue": "Girl to girl turning where the river’s blue (6)",
+   "clue": "Playwright provides endless fence (6)",
    "separatorLocations": {},
-   "solution": "VIENNA",
+   "solution": "BARRIE",
    "annotation": null
   },
   {
@@ -214,9 +231,9 @@ window.CRYPTIC_PUZZLES["cryptic-24307"] = /*JSON-START*/ {
     "y": 6
    },
    "length": 9,
-   "clue": "Talking (when M?), I grant, with net perplexed (9)",
+   "clue": "Use keys for 40, not for seat in church liturgy (9)",
    "separatorLocations": {},
-   "solution": "NATTERING",
+   "solution": "TYPEWRITE",
    "annotation": null
   },
   {
@@ -228,9 +245,9 @@ window.CRYPTIC_PUZZLES["cryptic-24307"] = /*JSON-START*/ {
     "y": 6
    },
    "length": 9,
-   "clue": "Exciting! Poor George, topped, wants common sense (9)",
+   "clue": "Skilled writer with writing on doctor's round up for inclusion (9)",
    "separatorLocations": {},
-   "solution": "EROGENOUS",
+   "solution": "WORDSMITH",
    "annotation": null
   },
   {
@@ -242,9 +259,9 @@ window.CRYPTIC_PUZZLES["cryptic-24307"] = /*JSON-START*/ {
     "y": 6
    },
    "length": 9,
-   "clue": "Dealer in death, starter to one for tape (9)",
+   "clue": "Duke topped by Duke (9)",
    "separatorLocations": {},
-   "solution": "GUNRUNNER",
+   "solution": "ELLINGTON",
    "annotation": null
   },
   {
@@ -256,9 +273,9 @@ window.CRYPTIC_PUZZLES["cryptic-24307"] = /*JSON-START*/ {
     "y": 6
    },
    "length": 5,
-   "clue": "Return to holding and the rest is set (5)",
+   "clue": "History is said to place the city in partial country (5)",
    "separatorLocations": {},
-   "solution": "OCTET",
+   "solution": "RECUR",
    "annotation": null
   },
   {
@@ -270,9 +287,9 @@ window.CRYPTIC_PUZZLES["cryptic-24307"] = /*JSON-START*/ {
     "y": 6
    },
    "length": 9,
-   "clue": "Bite’s proof: sound horn! Harm caused by final drink (5,4)",
+   "clue": "Pussy getting his number after church raised a lot of questions (9)",
    "separatorLocations": {},
-   "solution": "TOOTHMARK",
+   "solution": "CATECHISM",
    "annotation": null
   },
   {
@@ -284,9 +301,13 @@ window.CRYPTIC_PUZZLES["cryptic-24307"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 5,
-   "clue": "Here cowboys were to Shanks’s mare confined? (5)",
+   "clue": "See 7",
+   "group": [
+    "7-down",
+    "17-across"
+   ],
    "separatorLocations": {},
-   "solution": "RODEO",
+   "solution": "WATER",
    "annotation": null
   },
   {
@@ -298,9 +319,9 @@ window.CRYPTIC_PUZZLES["cryptic-24307"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 9,
-   "clue": "St Vincent’s city: like one like him, dressed (9)",
+   "clue": "Power of base article in sanctified island (9)",
    "separatorLocations": {},
-   "solution": "KINGSTOWN",
+   "solution": "KILOWATTS",
    "annotation": null
   },
   {
@@ -312,9 +333,9 @@ window.CRYPTIC_PUZZLES["cryptic-24307"] = /*JSON-START*/ {
     "y": 10
    },
    "length": 6,
-   "clue": "Many provided with provisions, vexed (6)",
+   "clue": "Something wrong with girl? (6)",
    "separatorLocations": {},
-   "solution": "MIFFED",
+   "solution": "REMISS",
    "annotation": null
   },
   {
@@ -326,9 +347,9 @@ window.CRYPTIC_PUZZLES["cryptic-24307"] = /*JSON-START*/ {
     "y": 10
    },
    "length": 5,
-   "clue": "Brother to Bartle, governor of the Cape (5)",
+   "clue": "Communicators have shot up (5)",
    "separatorLocations": {},
-   "solution": "FRERE",
+   "solution": "MEDIA",
    "annotation": null
   },
   {
@@ -340,9 +361,9 @@ window.CRYPTIC_PUZZLES["cryptic-24307"] = /*JSON-START*/ {
     "y": 10
    },
    "length": 8,
-   "clue": "Last wish with “status _” gives Mastermind (4,4)",
+   "clue": "Policeman perhaps to go to heaven for certain (8)",
    "separatorLocations": {},
-   "solution": "QUIZSHOW",
+   "solution": "ENFORCER",
    "annotation": null
   },
   {
@@ -354,9 +375,9 @@ window.CRYPTIC_PUZZLES["cryptic-24307"] = /*JSON-START*/ {
     "y": 10
    },
    "length": 5,
-   "clue": "Last first, with little beast to fasten tight (3,2)",
+   "clue": "Vegetable in garden for a change (5)",
    "separatorLocations": {},
-   "solution": "ZIPUP",
+   "solution": "ORACH",
    "annotation": null
   },
   {
@@ -368,9 +389,9 @@ window.CRYPTIC_PUZZLES["cryptic-24307"] = /*JSON-START*/ {
     "y": 11
    },
    "length": 4,
-   "clue": "I’m only here for beer — so NIMBY ends (4)",
+   "clue": "Wasn't a performer in \"The African Queen\" (4)",
    "separatorLocations": {},
-   "solution": "DRAY",
+   "solution": "DIDO",
    "annotation": null
   },
   {
@@ -382,9 +403,9 @@ window.CRYPTIC_PUZZLES["cryptic-24307"] = /*JSON-START*/ {
     "y": 12
    },
    "length": 14,
-   "clue": "Next port with annals shows it may not take (14)",
+   "clue": "A little way in worship without love - this order could be freezing (14)",
    "separatorLocations": {},
-   "solution": "XENOTRANSPLANT",
+   "solution": "ADMINISTRATION",
    "annotation": null
   },
   {
@@ -396,9 +417,13 @@ window.CRYPTIC_PUZZLES["cryptic-24307"] = /*JSON-START*/ {
     "y": 14
    },
    "length": 8,
-   "clue": "Conformist customers (as always) right (3-5)",
-   "separatorLocations": {},
-   "solution": "YEASAYER",
+   "clue": "Ready money for a number of trees in 4 across (4,4)",
+   "separatorLocations": {
+    ",": [
+     4
+    ]
+   },
+   "solution": "CASHDOWN",
    "annotation": null
   },
   {
@@ -410,9 +435,9 @@ window.CRYPTIC_PUZZLES["cryptic-24307"] = /*JSON-START*/ {
     "y": 14
    },
    "length": 5,
-   "clue": "Beside traditional fire a chance to bet (5)",
+   "clue": "Sound American fertiliser (5)",
    "separatorLocations": {},
-   "solution": "POKER",
+   "solution": "HUMUS",
    "annotation": null
   }
  ]
