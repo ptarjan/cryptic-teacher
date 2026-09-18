@@ -5354,9 +5354,22 @@
   const BURST_STATES = ["hold", "lit", "spent", "missed"];
   const burstInFlight = (burst) =>
     burst.classList.contains("hold") || burst.classList.contains("lit");
+  // One observer at a time, and only while a burst is actually waiting to be
+  // seen. The .fireworks node is built once and reused by every finish in the
+  // session, so an observer left watching it is still there when the next burst
+  // arrives: finish enough puzzles without the box ever coming on screen and the
+  // node collects one per finish, each firing on a burst that is not its own.
+  // "hold" is the only state that is waiting for anything, so every other state
+  // takes the watcher down with it — including the empty one, which is how
+  // opening another puzzle stops watching for a burst that no longer exists.
+  let burstWatch = null;
+  function stopWatchingBurst() {
+    if (burstWatch) { burstWatch.disconnect(); burstWatch = null; }
+  }
   function burstState(burst, state) {
     BURST_STATES.forEach((c) => burst.classList.remove(c));
     if (state) burst.classList.add(state);
+    if (state !== "hold") stopWatchingBurst();
     if (state !== "hold" && state !== "lit") burst.innerHTML = "";
   }
 
@@ -5398,6 +5411,9 @@
   function fireBurst(burst) {
     const run = ++burstRun;
     const mine = () => run === burstRun;
+    // The last burst's watcher, if it is somehow still waiting: a burst that is
+    // replaced was never seen, and nothing is owed to it.
+    stopWatchingBurst();
     burstState(burst, "hold");
     burst.innerHTML = shellsHTML();
     const go = () => {
@@ -5408,12 +5424,11 @@
       }, BURST_MS);
     };
     if (typeof IntersectionObserver !== "function") return go();
-    const io = new IntersectionObserver((rows) => {
-      if (rows.some((r) => r.isIntersecting)) { io.disconnect(); go(); }
+    burstWatch = new IntersectionObserver((rows) => {
+      if (rows.some((r) => r.isIntersecting)) go();
     }, { threshold: 0.01 });
-    io.observe(burst);
+    burstWatch.observe(burst);
     setTimeout(() => {
-      io.disconnect();
       if (mine() && burst.classList.contains("hold")) burstState(burst, "missed");
     }, FIREWORK_ABANDON_MS);
   }
