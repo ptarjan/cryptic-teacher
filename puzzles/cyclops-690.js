@@ -8,7 +8,7 @@ window.CRYPTIC_PUZZLES["cyclops-690"] = /*JSON-START*/ {
  "series": "cyclops",
  "name": "Private Eye Cyclops crossword No 690",
  "setter": "Cyclops",
- "date": 1605657600000,
+ "date": 1605830400000,
  "dimensions": {
   "cols": 15,
   "rows": 15
