@@ -1732,7 +1732,10 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
       // The solved tick sits with the tag, not with the words: it is a mark
       // ABOUT the clue, so it is stripped for the same reason the tag is.
       html = html.replace(/^\s*<span class="clue-done[^"]*"[^>]*>[\s\S]*?<\/span>/, "");
-      const re = /<mark class="([a-z0-9]+)">([\s\S]*?)<\/mark>|<[^>]*>|([^<]+)/g;
+      // A mark in the picker clue also says whether it is an end of its run
+      // (data-edge — see markUp), which is about how it PAINTS and says nothing
+      // about which part of the clue it is. Read the class and skip the rest.
+      const re = /<mark class="([a-z0-9]+)"[^>]*>([\s\S]*?)<\/mark>|<[^>]*>|([^<]+)/g;
       let m;
       while ((m = re.exec(html)) !== null) {
         if (m[1] === undefined && m[3] === undefined) continue;      // any other tag
@@ -3536,6 +3539,27 @@ global.realSetTimeout(() => {
       + registry["hint-body"].innerHTML);
   assert(registry["hint-clue"].innerHTML.includes('mark class="def"'),
     "the definition is highlighted once the rung is up");
+  // And it is highlighted as one band. The picker prints the clue a word at a
+  // time, so a run arrives as a piece per word and a piece per space; the pieces
+  // may differ only at the run's two ENDS, which is what style.css rounds off.
+  // An unmarked character anywhere between the first piece and the last is a
+  // gap the band cannot cross.
+  {
+    const lit = registry["hint-clue"].innerHTML;
+    const run = lit.match(/<mark class="def"[^>]*>[\s\S]*?<\/mark>/g) || [];
+    const edges = (p) => ((p.match(/data-edge="([^"]*)"/) || [, ""])[1]).split(" ").filter(Boolean);
+    assert(run.length && edges(run[0]).includes("start")
+           && edges(run[run.length - 1]).includes("end"),
+      "the definition's first and last pieces are the ends of the run: " + lit);
+    assert(run.slice(1, -1).every((p) => !edges(p).length),
+      "and no piece inside it claims to be an end — those are the beads: " + lit);
+    const whole = lit.slice(lit.indexOf(run[0]),
+      lit.lastIndexOf(run[run.length - 1]) + run[run.length - 1].length);
+    const bare = whole.replace(/<mark class="def"[^>]*>[\s\S]*?<\/mark>/g, "").replace(/<[^>]*>/g, "");
+    assert(bare === "",
+      "and the spaces between its words are marked too, so the band is unbroken: "
+        + JSON.stringify(bare));
+  }
   assert(/\b0<\/strong> hint levels used/.test(registry["scorebar"].innerHTML),
     "a rung you earned costs nothing: " + registry["scorebar"].innerHTML);
 
@@ -4775,6 +4799,39 @@ global.realSetTimeout(() => {
       `${selector.trim()} must not redeclare the box .gw sets — only its border's colour ` +
       `or style may differ between states: ${body.trim()}`);
   });
+
+  // A marked run in the picker clue paints as ONE band, not a bead per word.
+  // The picker cuts every mark into a piece per word and a piece per space (see
+  // pickableClueHTML), so the pill padding and rounding that is right for a mark
+  // wrapped round a whole phrase draws a row of blobs in there instead. Nothing
+  // in this file can measure a pixel, so pin the CSS that undoes it: it must be
+  // class-agnostic, because a rule that lists the mark classes it knows about
+  // leaves the next one beaded, and it must sit AFTER the pill rules, because
+  // the two selectors weigh the same and source order is the whole of what
+  // decides which wins.
+  const pills = [...pickCss.matchAll(/(?:^|\n)mark\.\w+[^{]*\{([^}]*)\}/g)]
+    .filter((m) => /padding\s*:|border-radius\s*:/.test(m[1]));
+  assert(pills.length >= 3, "a mark is still a pill everywhere else: " + pills.length);
+  const band = /(?:^|\n)\.guess-clue mark\s*\{([^}]*)\}/.exec(pickCss);
+  assert(band && /padding:\s*0\s*[;}]/.test(band[1] + "}") && /border-radius:\s*0\s*[;}]/.test(band[1] + "}"),
+    "inside the picker clue a mark is a fragment of a band, not a pill: one rule "
+    + "over every mark class, flattening its padding and its rounding");
+  assert(band && band.index > pills[pills.length - 1].index,
+    "and it comes after the pill rules it undoes — same weight, so source order is all there is");
+  // The band still has to cross the 1px border every .gw carries, or the run is
+  // beaded again at hairline width: the mark on the SPACE between two words is
+  // the piece that paints under both neighbours' borders, and the chips are
+  // lifted above it so a picked word's own border draws on top of the band
+  // rather than being painted out by it.
+  const gwBorder = (/(?:^|\n)\.gw\s*\{[^}]*\bborder:\s*(\d+)px/.exec(pickCss) || [, null])[1];
+  const seam = /(?:^|\n)\.guess-clue > mark\s*\{([^}]*)\}/.exec(pickCss);
+  assert(gwBorder && seam
+    && new RegExp(`padding:\\s*0 ${gwBorder}px`).test(seam[1])
+    && new RegExp(`margin:\\s*0 -${gwBorder}px`).test(seam[1]),
+    `the marked spaces carry the band under the ${gwBorder}px .gw border on either side of them, `
+    + "and give the width straight back so the clue's layout does not move: " + (seam ? seam[1] : "no rule"));
+  assert(/(?:^|\n)\.guess-clue \.gw\s*\{[^}]*position:\s*relative/.test(pickCss),
+    "and the word boxes paint above that, so a picked word keeps its border");
 
   // Cold, the ladder has two locks on it: the assembly rung and the walkthrough.
   open();
