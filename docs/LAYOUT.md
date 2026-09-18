@@ -78,6 +78,14 @@ tools/test_puzzle_integrity.sh               proves the two LENGTH exception tab
                                              nothing looser than the exact sentence they’re
                                              keyed on, and that baselining one finding never
                                              silences the rest of its puzzle
+tools/fetch_ia_book.py                       borrows a lending-restricted archive.org book,
+                                             saves its OCR text outside the repo, and returns
+                                             the loan
+tools/test_blank_clue_carry.sh               proves a re-fetch cannot empty a puzzle whose
+                                             clues were recovered by hand off the Guardian’s
+                                             old site, that the paper still wins wherever it
+                                             prints words, and that the sixteen recovered prize
+                                             puzzles still carry every clue
 tools/coverage_report.py                     counts what we hold of every series and names the
                                              ones that have gone quiet, were never backfilled,
                                              or are full of holes

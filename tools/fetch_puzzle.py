@@ -977,7 +977,16 @@ def convert(data):
     # solve burns inference guessing it off the crossings, and the annotator
     # takes the blame for failing to solve nothing.
     wordless = [e["id"] for e in entries if not has_words(e["clue"])]
-    if wordless:
+    if wordless and len(wordless) == len(entries):
+        # Every clue blank is a different animal from a blank clue: the page is
+        # a grid with no puzzle in it, and for the Guardian's 2005-08 prize
+        # puzzles that is what the right page serves — see carry_recovered_clues.
+        # Named so a backfill's log says which puzzle to go and get by hand
+        # rather than burying it in a list of every light it has.
+        print(f"WARNING: {data['id']}: all {len(entries)} clues blank — the paper's "
+              "data has the grid and not the text. The clues are on the page its "
+              "own special instructions link to.", file=sys.stderr)
+    elif wordless:
         print("WARNING: published with no clue text: " + ", ".join(wordless),
               file=sys.stderr)
 
@@ -1062,6 +1071,8 @@ def merge_annotations(new_puzzle, old_puzzle):
             if notes.get(e["id"]):
                 e[field] = notes[e["id"]]
 
+    carry_recovered_clues(new_puzzle, old_puzzle)
+
     was_model = (old_puzzle.get("solutionSource") or {}).get("kind") == "model"
     if not was_model:
         return None
@@ -1075,6 +1086,45 @@ def merge_annotations(new_puzzle, old_puzzle):
         new_puzzle["solutionSource"] = old_puzzle["solutionSource"]
         return None
     return grade_model_fill(new_puzzle, guessed)
+
+
+def carry_recovered_clues(new_puzzle, old_puzzle):
+    """Keep clue text a re-fetch would replace with nothing.
+
+    The Guardian's crossword data for its 2005-08 PRIZE puzzles carries the grid
+    and the answers and no clue text at all — the clues were published as prose
+    on the paper's old site, which the puzzle page still links to ("click here
+    to see the clues"), and they were never folded back into the data. Fetching
+    one therefore writes a grid with no puzzle in it, which is what
+    tools/puzzle_integrity.py's "all N clues are blank" reports.
+
+    That is not a routing mistake and cannot be fixed by asking for a different
+    URL: /crosswords/cryptic/<n> 404s for every one of them, and
+    /crosswords/prize/<n> — the right page, the one whose number and date match
+    — is the page serving the blanks.
+
+    So the recovery is by hand, off those linked pages, and this is what keeps
+    it: an entry whose stored clue has words and whose freshly-fetched one does
+    not keeps the stored one. Without it, one --refresh-unsolved or one
+    re-fetch silently empties sixteen recovered puzzles and the report that
+    found them starts over.
+
+    The group travels with the clue for the same reason. It is not the paper's
+    group — the paper sent none — it is the statement of which lights the
+    recovered clue's enumeration counts, and a clue that keeps its count while
+    losing its group contradicts itself at the next length check.
+    """
+    old = {e["id"]: e for e in old_puzzle.get("entries", [])}
+    for e in new_puzzle["entries"]:
+        was = old.get(e["id"])
+        if not was or has_words(e["clue"]) or not has_words(was.get("clue")):
+            continue
+        e["clue"] = was["clue"]
+        e.pop("clueMissing", None)
+        for field in ("clueItalics", "group"):
+            e.pop(field, None)
+            if was.get(field):
+                e[field] = was[field]
 
 
 def grade_model_fill(puzzle, guessed):
