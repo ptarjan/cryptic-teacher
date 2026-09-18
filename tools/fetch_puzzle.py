@@ -103,28 +103,49 @@ GUARDIAN_SERIES = {
         # The Guardian ships no creator for these; the fallback byline is in
         # tools/series.py, along with the reason there isn't one.
         #
-        # The Guardian's mirror of this series is bounded at both ends. No.
-        # 2,965 (2003-07-27) is the oldest page it holds and 4,096
-        # (2025-04-20) the newest; every number between the two still serves
-        # full clue data. 2,964 and below 404, and so does 4,097 and up — the
-        # Observer went to Tortoise Media in April 2025 and nothing it has
-        # published since is here. tools/fetch_observer.py fetches those from
-        # observer.co.uk. The series index page still links to them, so this
-        # looks alive from the index alone.
+        # The Guardian's mirror of this series is bounded at both ends, not
+        # unfetchable end to end. EVERYMAN_FLOOR (below) is the oldest page it
+        # holds; 4,096 (2025-04-20) is the newest, and every number in between
+        # still serves full clue data — confirmed at 2,965, 3,000, 3,549 and
+        # 4,096. 4,097 and up 404 here: the Observer went to Tortoise Media in
+        # April 2025 and nothing published since is on theguardian.com, only at
+        # observer.co.uk (tools/fetch_observer.py). The series index page still
+        # links to those newer ones, so backfill (which walks down from
+        # whatever the index page calls newest) would spend a run 404ing
+        # through the moved-away tail before it reached real puzzles — hence
+        # moved_to still gates --backfill and --latest below. --extend walks
+        # the OTHER direction, into the still-live range this mirror actually
+        # serves, so it reads EVERYMAN_FLOOR instead of moved_to.
         #
         # The entry STAYS, because series_of() reads a puzzle's series off this
-        # table and 4,096 puzzles on disk say "everyman". What it carries is the
-        # fact that it cannot be fetched here, so every route that fetches reads
-        # it in one place instead of each one learning about the 404s separately.
+        # table and puzzles on disk numbered above 4,096 still say "everyman".
         "moved_to": "tools/fetch_observer.py (observer.co.uk, from no. 4097 on)",
     },
 }
+# The oldest Everyman page theguardian.com still serves. Checked 2026-09-18:
+# 2,965 (2003-07-27) 200s and parses 28 clues clean; 2,964 and every number
+# tried below it — 2,960, 2,950, 2,930, 2,900, 2,600 — 404 under every URL
+# scheme this fetcher or tools/fetch_wayback.py has ever used. A wall, not
+# patchiness.
+EVERYMAN_FLOOR = 2965
+# The oldest Guardian cryptic page theguardian.com still serves: a site-wide
+# date wall at 1999-06-23, corroborated by the Guardian quick crossword
+# walling at No. 9,093 on the same day. tools/coverage_report.py's
+# ARCHIVE_FLOOR carries the same number for the coverage audit.
+CRYPTIC_FLOOR = 21620
+# Read by extend() to stop a walk at the oldest number a series' mirror will
+# ever 200 on, instead of learning that one 404 at a time. Quiptic has no
+# entry: nobody has walked it to a wall yet, so no floor is honest here.
+FLOORS = {"everyman": EVERYMAN_FLOOR, "cryptic": CRYPTIC_FLOOR}
 FETCHABLE = [s for s, spec in GUARDIAN_SERIES.items() if not spec.get("moved_to")]
-# Tried in order for a bare number; the first that isn't a 404 wins.
+# Tried in order for a bare number; the first that isn't a 404 wins. Everyman
+# is here too — moved_to only marks the series' NEW end as gone, not this
+# mirror's historical range (EVERYMAN_FLOOR..4096), which 200s like any other.
 PUZZLE_URLS = [
     "https://www.theguardian.com/crosswords/cryptic/{num}",
     "https://www.theguardian.com/crosswords/prize/{num}",
     "https://www.theguardian.com/crosswords/quiptic/{num}",
+    "https://www.theguardian.com/crosswords/everyman/{num}",
 ]
 
 # The enumeration, and nothing else: the last parenthesised run at the end of a
@@ -225,8 +246,12 @@ def has_words(clue):
 # else — "See 5 across out to find another date" is wordplay that opens the
 # same way and must not read as a pointer (cryptic 27,884, the puzzle
 # dissolve_false_groups was written for).
+# The space after "see" is optional because the paper's markup does not always
+# print one: cryptic-23101's 9-across reads "See10" and cryptic-24418's 19- and
+# 20-across both read "See17". A \b there matches nothing between "e" and "1",
+# so those three legs read as wordplay and their answers were stored short.
 CONTINUATION = re.compile(
-    r"(?i)^see\b[\s\d,&.]*(?:(?:across|down|and|or|above|dn|ac)\b[\s\d,&.]*)*$")
+    r"(?i)^see(?![a-z])[\s\d,&.]*(?:(?:across|down|and|or|above|dn|ac)\b[\s\d,&.]*)*$")
 
 
 def is_continuation(clue):
@@ -456,6 +481,36 @@ def _cuts_into(counts, lengths):
     return i == len(counts)
 
 
+def _subset_that_fits(lead, rest, counts, by_id):
+    """The lights of `rest` the leader's enumeration actually counts, and the ones
+    it does not. Both empty when the answer is not decided by arithmetic alone.
+
+    Asked only when NO arrangement of the whole closure cuts into the leader's
+    count, which is the union having gone too far. The Guardian's older markup
+    writes a themed puzzle's cross-references as pairs — cryptic-23228 hangs six
+    lines of Wordsworth's Lucy off 9-across, each leg storing [9-across, itself]
+    — and a union over pairs sharing one hub makes eight lights of what the clue
+    counts as two. The leading clue counts its whole answer and nothing else, so
+    the subset its counts cut into is the answer; the rest were never in it.
+
+    Taken only when exactly one subset cuts, for reconstruct_groups' reason: two
+    readings that both add up are two answers this data cannot tell apart.
+    """
+    if len(rest) > RECONSTRUCT_LIMIT:
+        return [], []
+    found = {}
+    for size in range(1, len(rest)):
+        for sub in itertools.combinations(rest, size):
+            ok = [tail for tail in itertools.permutations(sub)
+                  if _cuts_into(counts, [by_id[m]["length"] for m in (lead, *tail)])]
+            if ok:
+                found[frozenset(sub)] = ok
+    if len(found) != 1:
+        return [], []
+    (keep, ok), = found.items()
+    return ok, [m for m in rest if m not in keep]
+
+
 def reconcile_groups(entries):
     """Make every member of a linked clue name the same group.
 
@@ -545,14 +600,23 @@ def reconcile_groups(entries):
         counts = [int(n) for n in re.findall(r"\d+", said.group(1))] if said else []
         fits = [tail for tail in itertools.permutations(rest)
                 if _cuts_into(counts, [by_id[m]["length"] for m in (lead, *tail)])]
+        freed = []
+        if not fits and counts:
+            fits, freed = _subset_that_fits(lead, rest, counts, by_id)
+            rest = [m for m in rest if m not in freed]
         if len(fits) == 1:
             order = [lead, *fits[0]]
         else:
-            named = [m for m in by_id[lead].get("group") or [] if m != lead]
+            named = [m for m in by_id[lead].get("group") or []
+                     if m != lead and m in rest]
             order = [lead, *named, *(m for m in rest if m not in named)]
         print(f"WARNING: {lead}'s group was stated inconsistently; reading it as "
-              + " + ".join(order), file=sys.stderr)
-        for m in members:
+              + " + ".join(order)
+              + (f", leaving {' + '.join(freed)} out of it" if freed else ""),
+              file=sys.stderr)
+        for m in freed:
+            del by_id[m]["group"]
+        for m in order:
             by_id[m]["group"] = order
 
 
@@ -795,6 +859,18 @@ def _spare_light(entry, lead):
             and _own_count(entry) is None)
 
 
+def _word_splits(counts, lengths):
+    """How many of these lights start in the middle of an enumerated word.
+
+    Zero is what _cuts_into calls a fit. Above zero the answer still holds every
+    letter the enumeration counts, but at least one word straddles two lights —
+    legal, and printed that way, so it is the tiebreak reconstruct_groups uses
+    to order such a group rather than a reason to refuse it.
+    """
+    edges = set(itertools.accumulate(counts))
+    return sum(1 for cut in itertools.accumulate(lengths[:-1]) if cut not in edges)
+
+
 def reconstruct_groups(entries, series):
     """Put back the lights a linked answer's enumeration counts and its group lost.
     Returns the rebuilt groups, one list of lights per group.
@@ -852,19 +928,40 @@ def reconstruct_groups(entries, series):
         if not spare or len(members) + len(spare) > RECONSTRUCT_LIMIT:
             continue
         tail = [m for m in members if m != lead["id"]]
-        fits = {}
+        fits, adds_up = {}, {}
         for size in range(1, len(spare) + 1):
             for extra in itertools.combinations(spare, size):
                 if held + sum(by_id[m]["length"] for m in extra) != sum(counts):
                     continue
-                orders = [rest for rest in itertools.permutations(tail + list(extra))
+                arrangements = list(itertools.permutations(tail + list(extra)))
+                adds_up[frozenset(extra)] = arrangements
+                orders = [rest for rest in arrangements
                           if _cuts_into(counts, [by_id[m]["length"]
                                                  for m in (lead["id"], *rest)])]
                 if orders:
                     fits[frozenset(extra)] = orders
-        if len(fits) != 1:
+        if len(fits) == 1:
+            (extra, orders), = fits.items()
+        elif not fits and len(adds_up) == 1:
+            # The letters are all accounted for and only one set of lights can
+            # hold them, but no arrangement puts a light boundary on every word
+            # boundary — because a WORD is split across two lights. Quiptic
+            # 306's "(13)" is WOOL over 16-across and GATHERING over 17-across,
+            # one word in two halves, and cryptic-23182's "(5,3,4,5)" cuts START
+            # ALL into STAR and TALL. _cuts_into is a word-boundary test, so it
+            # can only refuse these; the arithmetic is what settles membership
+            # and it is unambiguous here. Order is then the arrangement that
+            # splits the fewest words, and a tie falls through to the stated
+            # order as everywhere else — a display question, asked after
+            # membership is already right.
+            (extra, arrangements), = adds_up.items()
+            splits = {rest: _word_splits(counts, [by_id[m]["length"]
+                                                  for m in (lead["id"], *rest)])
+                      for rest in arrangements}
+            fewest = min(splits.values())
+            orders = [rest for rest in arrangements if splits[rest] == fewest]
+        else:
             continue
-        (extra, orders), = fits.items()
         if len(orders) == 1:
             order = [lead["id"], *orders[0]]
         else:
@@ -1471,7 +1568,14 @@ def extend(count, series="cryptic"):
         if oldest - n > ARCHIVE_GAP:
             break
         oldest = n
-    return walk(range(oldest - 1, max(oldest - 1 - count, 0), -1), series, "extend")
+    # Clamped to the series' own honest floor where one is known, rather than
+    # walking into 404s that would take a while to learn nothing from — the
+    # same reasoning as fetch_observer.py's EARLIEST.
+    floor = FLOORS.get(series, 0)
+    if oldest <= floor:
+        print(f"extend done: {series} starts at {floor}; nothing older exists here")
+        return 0
+    return walk(range(oldest - 1, max(oldest - 1 - count, floor - 1), -1), series, "extend")
 
 
 def refresh_unsolved():
@@ -1563,10 +1667,12 @@ def main(argv):
         count = int(argv[1]) if len(argv) > 1 else 30
         series = argv[2] if len(argv) > 2 else "cryptic"
         if series not in GUARDIAN_SERIES:
-            raise SystemExit(f"Unknown series {series!r}; try {'/'.join(FETCHABLE)}")
-        if GUARDIAN_SERIES[series].get("moved_to"):
-            raise SystemExit(f"{series} is no longer published here — use "
-                             f"{GUARDIAN_SERIES[series]['moved_to']}")
+            raise SystemExit(f"Unknown series {series!r}; try {'/'.join(GUARDIAN_SERIES)}")
+        # No moved_to guard here, unlike --backfill just above: moved_to marks
+        # that a series' NEWEST puzzles live elsewhere now, which is exactly
+        # the direction --backfill walks and exactly the direction --extend
+        # doesn't. Everyman's older numbers (down to EVERYMAN_FLOOR) still
+        # 200 on theguardian.com — see the GUARDIAN_SERIES comment above.
         extend(count, series)
         return 0
     if argv[0] == "--latest":
