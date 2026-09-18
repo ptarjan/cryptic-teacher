@@ -312,7 +312,7 @@ def build_corpus():
         f"({parts}). {annotated:,} of them are annotated clue-for-clue, all six "
         f"rungs, machine-validated: {done:,} of {clues:,} clues, or {pct}%. The "
         f"rest are backlog the daily job is still draining — they show an "
-        f"<em>auto hints</em> badge and degrade gracefully (checking and letter "
+        f"<em>answers only</em> badge and degrade gracefully (checking and letter "
         f"reveals still work; the teaching ladder appears once a puzzle is "
         f"annotated)."
     )

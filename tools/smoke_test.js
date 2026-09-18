@@ -419,7 +419,7 @@ assert(openPuz, "the opened puzzle's data is loaded: " + openId);
 // must agree with the index rather than always saying something.
 {
   const idx = (global.CRYPTIC_INDEX.puzzles || []).find((p) => p.id === openId);
-  const badged = registry["puzzle-title"].innerHTML.includes("auto hints");
+  const badged = registry["puzzle-title"].innerHTML.includes("answers only");
   assert(idx && badged === !idx.annotated,
     "title badge disagrees with the index for " + openId + ": badged=" + badged);
 }
@@ -1252,6 +1252,30 @@ assert(registry["picker-search"].value === "", "the filter box starts empty on o
     "the archive badges both coverage states, because it lists both");
   assert(!pickerRowHTML.join("").includes("full hints"),
     "and the picker badges only the exception, because it lists only one of them");
+
+  // ...and both name that state in the SAME words. One fact — we hold this
+  // puzzle's solutions and nobody has annotated it — is written three times:
+  // twice in app.js (the row/title badge and the degraded hint panel) and once
+  // in tools/build_seo_pages.py. The words are "answers only" and nothing but
+  // this holds them together: the app's wording is read out of its own source
+  // and matched against what the archive page actually rendered, so changing
+  // either surface alone fails here, naming both.
+  const appCoverageWords = [...appSrc.matchAll(/<span class="badge auto">([^<]+)<\/span>/g)]
+    .map((m) => m[1]);
+  const archiveCoverageWords = [...new Set(
+    [...archiveRowHTML.join("").matchAll(/<span class="badge auto"[^>]*>([^<]+)</g)]
+      .map((m) => m[1]).filter((w) => !/unverified/i.test(w)))];
+  assert(appCoverageWords.length >= 2 && new Set(appCoverageWords).size === 1,
+    "app.js badges the un-annotated state in more than one wording: "
+      + appCoverageWords.join(" | "));
+  assert(archiveCoverageWords.length === 1 &&
+         archiveCoverageWords[0] === appCoverageWords[0],
+    "app and archive disagree on the un-annotated wording: app says "
+      + JSON.stringify(appCoverageWords[0]) + ", archive says "
+      + archiveCoverageWords.map((w) => JSON.stringify(w)).join("/"));
+  assert(appCoverageWords[0] === "answers only",
+    'both surfaces agree, but on the wrong words: "answers only" is the decided '
+      + "copy, they say " + JSON.stringify(appCoverageWords[0]));
 }
 
 /* --- and the wide archive row is one line, because it says which line ---
@@ -1365,7 +1389,7 @@ assert(registry["picker-search"].value === "", "the filter box starts empty on o
   assert(listedNums.length && !strays.length,
     "un-annotated puzzles are listed by default: " + strays.join(", "));
   // The badge is the visible half of the same rule.
-  assert(!html.includes("auto hints"),
+  assert(!html.includes("answers only"),
     "un-annotated puzzles are listed by default: " + pickerRows().length + " rows");
   assert(pickerRows().length < allPuzzles.length,
     "something is hidden, so the footer count means something");
@@ -1407,7 +1431,7 @@ assert(registry["picker-search"].value === "", "the filter box starts empty on o
     "a filter that matches nothing says so rather than showing everything");
 }
 
-// --- open an un-annotated puzzle (auto hints degradation) ---
+// --- open an un-annotated puzzle (answers-only degradation) ---
 // Reachable only by searching for it now — which is exactly the escape hatch
 // that makes hiding them by default acceptable.
 // hasSolutions matters: the escape hatches asserted below are the reveal
@@ -1424,15 +1448,15 @@ const noneAnnotated = (p) => {
 };
 const autoPuzzle = allPuzzles.find((p) => !p.annotated && p.hasSolutions && noneAnnotated(p));
 typeInPicker(String(autoPuzzle.number));
-const autoRow = pickerRows().find((li) => li.children[0] && li.children[0].innerHTML.includes("auto hints"));
+const autoRow = pickerRows().find((li) => li.children[0] && li.children[0].innerHTML.includes("answers only"));
 assert(autoRow, `searching for ${autoPuzzle.number} surfaces the un-annotated puzzle`);
 const autoBtn = autoRow.children[0];
 autoBtn.onclick();
-assert(registry["puzzle-title"].innerHTML.includes("auto hints"), "auto-hints puzzle opened");
-assert(registry["hint-body"].innerHTML.includes("auto hints") || registry["hint-body"].innerHTML.includes("hasn"), "degraded hint panel message");
+assert(registry["puzzle-title"].innerHTML.includes("answers only"), "answers-only puzzle opened");
+assert(registry["hint-body"].innerHTML.includes("answers only") || registry["hint-body"].innerHTML.includes("hasn"), "degraded hint panel message");
 assert(registry["hint-next"].children.some((b) => /Reveal answer/.test(b.textContent)),
-  "auto-hints puzzle offers Reveal answer: " + btnNames());
-assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hints puzzle offers letter escape hatch");
+  "answers-only puzzle offers Reveal answer: " + btnNames());
+assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "answers-only puzzle offers letter escape hatch");
 
 // --- picking a puzzle rewrites the address bar, because that is what gets shared ---
 // A link has to hand over the puzzle on the screen. Left alone, the URL still

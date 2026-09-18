@@ -612,7 +612,7 @@ commit_puzzle() {
     return 1
   fi
   # Solved-but-short is not a failure anywhere else in this pipeline: the nulled
-  # clues just ship as "auto hints". Say so, once, per puzzle.
+  # clues just ship as "answers only". Say so, once, per puzzle.
   loss=$(python3 tools/check_annotation_loss.py "$num" 2>&1) || \
     alert "pre-reset backfill left clues blank — $loss. They ship with no teaching ladder, and validate_annotations.py fails the puzzle for it."
   echo "$loss"

@@ -4207,7 +4207,7 @@
         wordplay in them to explain. ${esc(e.clueCorrupt)}
         ${canCheck() ? "You can reveal the answer below." : ""}</p></div>`
         : `<div class="hint-step"><p class="muted">This clue hasn’t been hand-annotated yet
-        (<span class="badge auto">auto hints</span>), so there’s no teaching ladder for it.
+        (<span class="badge auto">answers only</span>), so there’s no teaching ladder for it.
         You can still check your letters${canCheck() ? " and reveal below" : ""}.</p></div>`;
       if (canCheck() && !solved) nextSpec.push({ fill: true, text: "Reveal answer" });
     } else {
@@ -4642,7 +4642,7 @@
   // (tools/build_seo_pages.py) still badges both, and correctly — it lists
   // every puzzle, so there the two states are a real distinction.
   function hintsBadge(annotated) {
-    return annotated ? "" : `<span class="badge auto">auto hints</span>`;
+    return annotated ? "" : `<span class="badge auto">answers only</span>`;
   }
 
   // Shares the coverage axis (neutral) with the hints badge on purpose: both
