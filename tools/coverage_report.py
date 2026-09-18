@@ -61,7 +61,13 @@ STRAY_FACTOR = 3
 # digitised. Papers do also serve the odd puzzle from far below their floor;
 # those are counted separately rather than treated as the start of the run.
 ARCHIVE_FLOOR = {
+    # 1999-06-23, a site-wide date wall on theguardian.com — corroborated by
+    # the Guardian quick crossword walling at No. 9,093 the same day. Same
+    # number as tools/fetch_puzzle.py's CRYPTIC_FLOOR.
     "cryptic": 21620,
+    # 2003-07-27, confirmed by tools/fetch_puzzle.py's --extend walk 404ing at
+    # 2,964 and below. Same number as that file's EVERYMAN_FLOOR.
+    "everyman": 2965,
 }
 
 # Days between issues at the source. Used only to decide whether a series has
