@@ -24,8 +24,7 @@ window.CRYPTIC_PUZZLES["cryptic-24475"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 6,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Small boy or girl failed exam at beginning of term (6)",
    "separatorLocations": {},
    "solution": "AVOCET",
    "annotation": null
@@ -53,8 +52,7 @@ window.CRYPTIC_PUZZLES["cryptic-24475"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 8,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Untwisted hair (8)",
    "separatorLocations": {},
    "solution": "NUTHATCH",
    "annotation": null
@@ -82,8 +80,7 @@ window.CRYPTIC_PUZZLES["cryptic-24475"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 8,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Not sure could be better — to hit nail on head? (8)",
    "separatorLocations": {},
    "solution": "UMBRETTE",
    "annotation": null
@@ -97,8 +94,7 @@ window.CRYPTIC_PUZZLES["cryptic-24475"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 10,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Mad spirit (10)",
    "separatorLocations": {},
    "solution": "WOODPECKER",
    "annotation": null
@@ -126,8 +122,7 @@ window.CRYPTIC_PUZZLES["cryptic-24475"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 4,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Marshal Saxe’s inverted inclusion (4)",
    "separatorLocations": {},
    "solution": "XEMA",
    "annotation": null
@@ -155,8 +150,7 @@ window.CRYPTIC_PUZZLES["cryptic-24475"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 6,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Look up the second apocalyptic horse (6)",
    "separatorLocations": {},
    "solution": "GANDER",
    "annotation": null
@@ -170,8 +164,7 @@ window.CRYPTIC_PUZZLES["cryptic-24475"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 6,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Enchanting F (6)",
    "separatorLocations": {},
    "solution": "MERLIN",
    "annotation": null
@@ -185,8 +178,7 @@ window.CRYPTIC_PUZZLES["cryptic-24475"] = /*JSON-START*/ {
     "y": 1
    },
    "length": 7,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Flower after fifth of July (7)",
    "separatorLocations": {},
    "solution": "VULTURE",
    "annotation": null
@@ -284,8 +276,7 @@ window.CRYPTIC_PUZZLES["cryptic-24475"] = /*JSON-START*/ {
     "y": 5
    },
    "length": 5,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Apologise for losing head (5)",
    "separatorLocations": {},
    "solution": "EGRET",
    "annotation": null
@@ -331,8 +322,7 @@ window.CRYPTIC_PUZZLES["cryptic-24475"] = /*JSON-START*/ {
     "y": 5
    },
    "length": 5,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Horse losing by 100 (5)",
    "separatorLocations": {},
    "solution": "HERON",
    "annotation": null
@@ -364,8 +354,7 @@ window.CRYPTIC_PUZZLES["cryptic-24475"] = /*JSON-START*/ {
     "y": 7
    },
    "length": 7,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "It circulates in Central America (7)",
    "separatorLocations": {},
    "solution": "QUETZAL",
    "annotation": null
@@ -411,8 +400,7 @@ window.CRYPTIC_PUZZLES["cryptic-24475"] = /*JSON-START*/ {
     "y": 7
    },
    "length": 4,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "First repeated (4)",
    "separatorLocations": {},
    "solution": "IBIS",
    "annotation": null
@@ -440,8 +428,7 @@ window.CRYPTIC_PUZZLES["cryptic-24475"] = /*JSON-START*/ {
     "y": 7
    },
    "length": 7,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Cornwall to let? (7)",
    "separatorLocations": {},
    "solution": "SWALLOW",
    "annotation": null
@@ -483,8 +470,7 @@ window.CRYPTIC_PUZZLES["cryptic-24475"] = /*JSON-START*/ {
     "y": 9
    },
    "length": 4,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Not so much as a dinner plate (4)",
    "separatorLocations": {},
    "solution": "TEAL",
    "annotation": null
@@ -544,8 +530,7 @@ window.CRYPTIC_PUZZLES["cryptic-24475"] = /*JSON-START*/ {
     "y": 11
    },
    "length": 13,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Horse — a very thin one — favourite becomes outsider (5,8)",
    "separatorLocations": {},
    "solution": "ZEBRAPARAKEET",
    "annotation": null
@@ -573,8 +558,7 @@ window.CRYPTIC_PUZZLES["cryptic-24475"] = /*JSON-START*/ {
     "y": 11
    },
    "length": 7,
-   "clue": " ",
-   "clueMissing": true,
+   "clue": "Electoral success for the left? (7)",
    "separatorLocations": {},
    "solution": "REDPOLL",
    "annotation": null
@@ -588,8 +572,7 @@ window.CRYPTIC_PUZZLES["cryptic-24475"] = /*JSON-START*/ {
     "y": 13
    },
    "length": 4,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Sporting caper (4)",
    "separatorLocations": {},
    "solution": "LARK",
    "annotation": null
@@ -603,8 +586,7 @@ window.CRYPTIC_PUZZLES["cryptic-24475"] = /*JSON-START*/ {
     "y": 13
    },
    "length": 8,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Sticker to bottom (8)",
    "separatorLocations": {},
    "solution": "BARNACLE",
    "annotation": null
@@ -632,8 +614,7 @@ window.CRYPTIC_PUZZLES["cryptic-24475"] = /*JSON-START*/ {
     "y": 13
    },
    "length": 7,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Fish sandwich returned by collector (7)",
    "separatorLocations": {},
    "solution": "JACKDAW",
    "annotation": null
@@ -661,8 +642,7 @@ window.CRYPTIC_PUZZLES["cryptic-24475"] = /*JSON-START*/ {
     "y": 13
    },
    "length": 8,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Number with hat (8)",
    "separatorLocations": {},
    "solution": "CARDINAL",
    "annotation": null
@@ -704,8 +684,7 @@ window.CRYPTIC_PUZZLES["cryptic-24475"] = /*JSON-START*/ {
     "y": 15
    },
    "length": 6,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Student in French style (6)",
    "separatorLocations": {},
    "solution": "FALCON",
    "annotation": null
@@ -719,8 +698,7 @@ window.CRYPTIC_PUZZLES["cryptic-24475"] = /*JSON-START*/ {
     "y": 15
    },
    "length": 6,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "W’s return of spirits (6)",
    "separatorLocations": {},
    "solution": "YAFFLE",
    "annotation": null
@@ -748,8 +726,7 @@ window.CRYPTIC_PUZZLES["cryptic-24475"] = /*JSON-START*/ {
     "y": 15
    },
    "length": 9,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Leave the high ground (9)",
    "separatorLocations": {},
    "solution": "PARTRIDGE",
    "annotation": null
@@ -763,8 +740,7 @@ window.CRYPTIC_PUZZLES["cryptic-24475"] = /*JSON-START*/ {
     "y": 15
    },
    "length": 6,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Baptist’s big bear (6)",
    "separatorLocations": {},
    "solution": "DIPPER",
    "annotation": null
@@ -834,8 +810,7 @@ window.CRYPTIC_PUZZLES["cryptic-24475"] = /*JSON-START*/ {
     "y": 17
    },
    "length": 4,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Crate may be box (4)",
    "separatorLocations": {},
    "solution": "KITE",
    "annotation": null
@@ -863,8 +838,7 @@ window.CRYPTIC_PUZZLES["cryptic-24475"] = /*JSON-START*/ {
     "y": 19
    },
    "length": 5,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "2 disclosed without the translation (5)",
    "separatorLocations": {},
    "solution": "OWLET",
    "annotation": null
