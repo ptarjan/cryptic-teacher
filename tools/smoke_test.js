@@ -11,6 +11,19 @@ let failures = 0;
 // can guard them: a stack trace stops the suite dead and hides every other result.
 const assert = (cond, msg) => { if (!cond) { failures++; console.error("FAIL:", msg); } return !!cond; };
 
+// The crawlable pages this test reads are generated and not committed, so a
+// checkout that has not built them cannot be smoke-tested at all. Stop with the
+// command to run rather than an ENOENT stack trace from readFileSync: the path
+// alone does not tell anyone that the file is meant to be built, or by what.
+const readBuilt = (rel) => {
+  const file = path.join(ROOT, rel);
+  if (!fs.existsSync(file)) {
+    console.error(`FAIL: ${rel} has not been built — run: python3 tools/build_seo_pages.py`);
+    process.exit(1);
+  }
+  return fs.readFileSync(file, "utf8");
+};
+
 // The DOM stub and the app boot live in tools/fake_dom.js, because
 // tools/make_hint_packets.js boots the same app to walk the same hint ladder.
 // One stub, so a grader can never mark a rung the app does not actually show.
@@ -206,7 +219,7 @@ const rowHasNumber = (html, num) => new RegExp("№ " + num + "(?!\\d)").test(ht
   // links.
   const anchor = (w) => "abbr-" + w.toLowerCase().replace(/[^a-z0-9]+/g, "-")
     .replace(/^-|-$/g, "");
-  const page = fs.readFileSync(path.join(ROOT, "abbreviations/index.html"), "utf8");
+  const page = readBuilt("abbreviations/index.html");
   {
     // The word itself may be wrapped in a link out to a clue that uses the
     // convention, so the cell is compared with that unwrapped.
@@ -257,7 +270,7 @@ const rowHasNumber = (html, num) => new RegExp("№ " + num + "(?!\\d)").test(ht
 
   // The glossary is on one indexable URL, not two competing for the same query:
   // /learn/ links to it instead of repeating the table.
-  const learn = fs.readFileSync(path.join(ROOT, "learn/index.html"), "utf8");
+  const learn = readBuilt("learn/index.html");
   assert(!learn.includes('<table class="glossary">'),
     "/learn/ points at /abbreviations/ rather than duplicating the table");
   assert(/href="[^"]*abbreviations\/"/.test(learn),
