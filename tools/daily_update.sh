@@ -376,6 +376,13 @@ SOLVE_ATTEMPTS_MAX="${SOLVE_ATTEMPTS_MAX:-1}"
 # worktree, and a count kept there is a count that resets whenever the worktree
 # is rebuilt — which is exactly the night the cap needed to hold.
 SOLVE_ATTEMPTS_FILE="${CT_MAIN_CHECKOUT:-$REPO}/.solve_attempts.json"
+# puzzles/index.json is generated and untracked, so the copy on disk here was
+# written by whatever code ran last, not by this checkout's. The queue reads
+# fields off it and reads a missing field as a puzzle with nothing wrong, so an
+# index older than a field silently answers "fine" for every puzzle — which is
+# how cryptic-24577 was handed to a model the night clue counts were added.
+# Nine seconds over the whole corpus; the rest of the script reindexes anyway.
+python3 tools/fetch_puzzle.py --reindex
 unsolved=$(python3 - "$SOLVE_MAX" "$SOLVE_ATTEMPTS_MAX" "$SOLVE_ATTEMPTS_FILE" <<'EOF'
 import json, sys
 limit, cap, path = int(sys.argv[1]), int(sys.argv[2]), sys.argv[3]
