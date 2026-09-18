@@ -3465,6 +3465,13 @@ global.realSetTimeout(() => {
   // like one that went off in front of someone.
   assert(burst.classList.contains("hold"),
     "the burst waits rather than burning into a page that is still moving: " + burst.className);
+  // LIVE observers, and exactly one of them. The .fireworks node is built once
+  // and reused by every finish in the session, so an observer left watching it
+  // is still there for the next burst: counted globally rather than per call,
+  // this said 378 the first time it ran — one for every grid any earlier test in
+  // this file had finished, all of them still watching the same div. Keep it
+  // counting every watcher of the node, not just the one this burst made, or it
+  // stops being able to see that again.
   assert(global.watchersOf(burst) === 1,
     "and exactly one observer is watching for the box to arrive: " + global.watchersOf(burst));
   // And the page goes to it. The keyboard is up — the last letter of the puzzle
