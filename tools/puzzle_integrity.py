@@ -123,6 +123,10 @@ EARLIEST_YEAR = 1930
 # now-unreachable exception — caught by test_puzzle_integrity.sh proving every
 # key here still matches a live finding, not just an exact one.
 PUBLISHED_WRONG = {
+    ("everyman-3072", "14-across: clue says (4,2,6) = 12, answer holds 13"):
+        "ROAD TO NOWHERE fills the thirteen cells the grid gives it, and the "
+        "Guardian's own separator positions (4 and 6) spell 4,2,7 under a count "
+        "printed (4,2,6)",
     ("cryptic-23536", "23-down: clue says (5) = 5, answer holds 7"):
         "ERRHINE fills the seven cells the grid gives it under a clue printed (5)",
     ("quiptic-169", "13-down: clue says (4-5) = 9, answer holds 10"):
@@ -147,6 +151,10 @@ PUBLISHED_WRONG = {
      "1-down + 26-across: clue says (4,5) = 9, answer holds 4 alone or 13 linked"):
         "1-down ASIL is counted (4,5) for ASIL NADIR, but NADIR is 28-across under "
         "a clue of its own and the paper linked 1-down to 26-across PANOPLIED (9)",
+    ("everyman-3072", "14-across: clue says (4,2,6) = 12, answer holds 13"):
+        "ROADTONOWHERE fills the thirteen cells the grid gives it — ROAD TO "
+        "NOWHERE, the Talking Heads song — under a count the Guardian's own "
+        "JSON prints as (4,2,6); NOWHERE is seven letters, not six",
 }
 
 # The LENGTH findings that are a light the Guardian never linked, not a mistake in
