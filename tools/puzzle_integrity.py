@@ -95,9 +95,17 @@ EARLIEST_YEAR = 1930
 # report for ever, teaching everyone to skim it.
 #
 # Keyed by puzzle AND by the whole finding, because the point is to forgive these
-# three sentences and nothing else. Any other defect in the same clue — a changed
+# two sentences and nothing else. Any other defect in the same clue — a changed
 # answer, a light regrouped, a second count gone wrong — reads as a different
 # finding and still reports.
+#
+# A third entry lived here for cryptic-27173 until 2026-09-17: 29-down and
+# 23-down were never a real link (LINCOLN and OXFORD are cathedral cities in
+# the puzzle's theme, not a linked answer), and d4ea38b's prune_one_sided_members
+# later dropped that false group on its own account, for its own reason. The
+# finding this forgave stopped occurring and nobody came back to remove the
+# now-unreachable exception — caught by test_puzzle_integrity.sh proving every
+# key here still matches a live finding, not just an exact one.
 PUBLISHED_WRONG = {
     ("cryptic-23536", "23-down: clue says (5) = 5, answer holds 7"):
         "ERRHINE fills the seven cells the grid gives it under a clue printed (5)",
@@ -105,10 +113,6 @@ PUBLISHED_WRONG = {
      "1-down + 26-across: clue says (4,5) = 9, answer holds 4 alone or 13 linked"):
         "1-down ASIL is counted (4,5) for ASIL NADIR, but NADIR is 28-across under "
         "a clue of its own and the paper linked 1-down to 26-across PANOPLIED (9)",
-    ("cryptic-27173",
-     "29-down + 23-down: clue says (4) = 4, answer holds 4 alone or 10 linked"):
-        "29-down SHOE is counted (4) for its own light while 23-down OXFORD points "
-        "at it, so the ten cells of OXFORD SHOE are nowhere counted",
 }
 
 # The LENGTH findings that are a light the Guardian never linked, not a mistake in
