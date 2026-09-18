@@ -34,13 +34,25 @@ Linked groups whose members disagree. reconcile_groups is re-run over the stored
 entries and writes back what it makes of them, warning on stderr as it does in a
 fetch.
 
-Groups that were never a linked answer. A group whose every light carries a full
-enumeration of its own is the paper's parser reading wordplay as a
-cross-reference — cryptic-27,884's 20-across "See 5 across out to find another
-date (10)" got grouped with 5-across LURCHED "(7)", storing RESCHEDULE as part
-of a seventeen-letter answer nobody wrote. fetch_puzzle.dissolve_false_groups
-breaks those up, and is gated off for the series that genuinely enumerate light
-by light, so no Cyclops group is touched.
+Lights that were never part of a linked answer. A light whose own clue counts its
+own cells in full is a finished answer, whatever group the paper put it in — it
+is the parser reading wordplay as a cross-reference. Cryptic-27,884's 20-across
+"See 5 across out to find another date (10)" got grouped with 5-across LURCHED
+"(7)", storing RESCHEDULE as part of a seventeen-letter answer nobody wrote.
+fetch_puzzle.dissolve_false_groups weighs that per light and not per group, so a
+stranger hung off a real quotation leaves alone and the quotation keeps its other
+lights; a group with nothing left that carries a clue goes whole. A bare "See 22"
+leg never counts as the stranger, however the paper counted it. Gated off for the
+series that genuinely enumerate light by light, so no Cyclops group is touched.
+
+Linked answers the paper never grouped. The same markup that invented links also
+lost real ones, leaving an enumeration that counts more letters than the lights
+it was given — cryptic-23,816's 9-across TREAD "(5,3,6)" over five cells, with THE
+BOARDS in 10-across under the clue "See above" and in no group at all.
+fetch_puzzle.reconstruct_groups puts back the lights the counts cut into, taking
+only lights the paper itself left spare (a pointer naming the clue, or no clue at
+all) and only when exactly one membership fits the enumeration. Two readings that
+both add up are left alone: a guess would be stored as fact.
 
 WHAT IT ONLY REPORTS
 
@@ -152,6 +164,15 @@ def dissolve(puzzle):
     return fetcher.dissolve_false_groups(puzzle["entries"], puzzle.get("series"))
 
 
+def rebuild(puzzle):
+    """Reassemble linked answers the paper left short. Returns the groups rebuilt.
+
+    The fetcher's own rule, called where convert() calls it: after dissolve, which
+    is what settles whether a link is real before anything is rebuilt from one.
+    """
+    return fetcher.reconstruct_groups(puzzle["entries"], puzzle.get("series"))
+
+
 def misfiled_dates(dated):
     """Which of a series' puzzles are dated against the run of their own numbers?
 
@@ -241,6 +262,11 @@ def repair(path, puzzle, apply_it):
     if broken:
         notes.append(f"{len(broken)} false cross-reference(s) dissolved: "
                      + ", ".join(" + ".join(g) for g in broken))
+
+    rebuilt = rebuild(fixed)
+    if rebuilt:
+        notes.append(f"{len(rebuilt)} linked answer(s) reassembled: "
+                     + ", ".join(" + ".join(g) for g in rebuilt))
 
     if json.dumps(fixed, sort_keys=True, ensure_ascii=False) == before:
         return None
