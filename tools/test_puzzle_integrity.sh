@@ -34,6 +34,19 @@
 # it actually excuses. The third property (non-blanket suppression) mutates an
 # in-memory copy of one real puzzle and never writes to disk, so nothing under
 # puzzles/ is ever touched.
+#
+# "The real corpus" means the files fetch_puzzle.puzzle_files() walks off disk,
+# not the rows in the committed puzzles/index.json. That index is a build
+# artefact this repo deliberately never stages from a test run (it collides
+# between whatever else is fetching or annotating at the same time — see
+# tools/test_push_conflict.sh), so at any given moment it can be stale in
+# either direction: entries for files a later commit removed, or files a
+# later commit added that it was never re-run to pick up. Neither kind of
+# staleness is a LENGTH defect or anything the exception tables touch, and a
+# test that read the index instead of the disk would go red for either one
+# and teach everybody to ignore its failures. check_shape's own "not on disk"
+# SHAPE flag is what catches an index that has drifted; this file has nothing
+# to add to that and does not try.
 set -uo pipefail
 cd "$(dirname "$0")/.."
 REPO="$PWD"
@@ -47,29 +60,25 @@ same() { if [ "$2" = "$3" ]; then echo "  ok: $1"; else
   echo "  FAIL: $1"$'\n'"    want $3"$'\n'"    got  $2"; fails=$((fails + 1)); fi; }
 field() { awk -v k="$1" '$1==k {print $2}' <<<"$2"; }
 
-echo "the real corpus is clean, and the CLI says so"
-out=$(python3 tools/puzzle_integrity.py 2>&1); rc=$?
-same "exit code" "$rc" "0"
-check "$out" "no duplicates, every stated length agrees, every crossing agrees" \
-  "and says so"
+echo "the CLI's own LENGTH tally is zero (DUPLICATE/CROSS/SHAPE are not this test's concern)"
+out=$(python3 tools/puzzle_integrity.py 2>&1)
+same "LENGTH tally" "$(awk '/^  LENGTH/ {print $2}' <<<"$out")" "0"
 
 echo "exactness: a lengthened key must not still match, and dropping one table must not touch the other"
 combo=$(PYTHONPATH="$REPO/tools" python3 - <<'PY'
-import json
 from datetime import datetime, timezone
+import fetch_puzzle
 import puzzle_integrity as pi
 
 today = datetime.now(timezone.utc).date()
-index = json.loads(pi.INDEX.read_text())
-rows = index["puzzles"]
 
-# check_shape does not read either exception table, so the corpus is read from
-# disk exactly once here; every variant below reruns check_length in memory.
+# Walked straight off disk, not off puzzles/index.json -- see the file header
+# for why the committed index is not "the real corpus" for this test's
+# purposes. check_shape does not read either exception table, so the corpus
+# is read from disk exactly once here; every variant below reruns
+# check_length in memory.
 cache = []
-for row in rows:
-    path = pi.PUZZLE_DIR / row["file"]
-    if not path.exists():
-        continue
+for path in fetch_puzzle.puzzle_files():
     puzzle = pi.read_puzzle_file(path)
     flags = []
     checkable = pi.check_shape(puzzle, today, flags)
