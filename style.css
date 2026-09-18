@@ -1371,12 +1371,29 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
 .s-index .p-num { min-width: 5.4em; }
 .s-index .p-meta { font-size: .82rem; }
 /* The archive is a full-width page rather than a 430px panel, so once there is
-   room it collapses back to the single line the two-line row stands in for. */
-@media (min-width: 640px) {
-  .s-index { grid-template-columns: auto auto 1fr auto; }
+   room it collapses back to the single line the two-line row stands in for.
+   "Room" is 760px because that is .static-page's max-width: below it the list
+   is still growing with the window and the badges wrap, at it and above it the
+   list is 728px whatever the window does. A breakpoint that fires before the
+   page has stopped growing is a breakpoint that fires before it fits. */
+@media (min-width: 760px) {
+  /* No content-sized track on this list, because the list is twelve thousand
+     rows long and a content-sized track is as wide as its worst row. The
+     setter column held a paper's 47-character copyright line and every other
+     row paid for it out of the badge column beside it; a setter name is six
+     characters at the median and twelve at the 99.5th, so the track is bounded
+     at a setter's width and the rare long one uses the ellipsis .p-setter has
+     been carrying all along. The badges then take the slack, which is what
+     keeps them on one line. */
+  .s-index { grid-template-columns: auto fit-content(14ch) minmax(0, 1fr) auto; }
   .s-index a { align-items: center; }
-  .s-index .p-tags { grid-column: 3; justify-self: start; }
-  .s-index .p-meta { grid-column: 4; }
+  /* Every item on this line names its row as well as its column. Grid's
+     auto-placement is sparse: the date is column 4 and comes before the badges
+     in the DOM, so a badge box that names only column 3 asks for a column the
+     cursor has already passed and is given a second line instead. One line
+     means saying so. */
+  .s-index .p-tags { grid-column: 3; grid-row: 1; justify-self: start; }
+  .s-index .p-meta { grid-column: 4; grid-row: 1; }
 }
 
 .s-pager { display: flex; justify-content: space-between; gap: 16px; margin: 32px 0 0; }
