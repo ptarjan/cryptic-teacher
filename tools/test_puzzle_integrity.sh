@@ -157,5 +157,40 @@ same "it is the injected 1-across defect" "$(field NEW_DEFECT "$out3")" "True"
 same "the baselined 13-across/16-down pair stays silent" \
   "$(field PAIR_SILENT "$out3")" "True"
 
+echo "a grid with no puzzle in it: every clue blank is one finding, one blank clue is none"
+out4=$(PYTHONPATH="$REPO/tools" python3 - <<'PY'
+import copy
+from datetime import datetime, timezone
+import puzzle_integrity as pi
+
+today = datetime.now(timezone.utc).date()
+# A real puzzle, so the fixture cannot drift out of the shape the checker reads.
+# clueMissing on every entry is the state the 2005-2008 Saturday prize puzzles are
+# in: answers scraped, clue text never fetched. Per-entry forgiveness finds nothing
+# wrong with any single one of them, which is the whole reason the puzzle is asked.
+puzzle = copy.deepcopy(pi.read_puzzle_file(pi.PUZZLE_DIR / "cryptic-24104.js"))
+
+
+def blank(p, entries):
+    for e in entries:
+        e["clue"], e["clueMissing"] = f"({e['length']})", True
+    flags = []
+    pi.check_shape(p, today, flags)
+    return [f[2] for f in flags if "blank" in f[2]]
+
+
+one = copy.deepcopy(puzzle)
+print("ONE_BLANK", len(blank(one, one["entries"][:1])))
+whole = copy.deepcopy(puzzle)
+found = blank(whole, whole["entries"])
+print("ALL_BLANK", len(found))
+print("BLANK_SAYS", found == [f"all {len(whole['entries'])} clues are blank"])
+PY
+)
+same "one clue the setter left blank is not a defect" "$(field ONE_BLANK "$out4")" "0"
+same "a puzzle with no clue text at all is exactly one finding" \
+  "$(field ALL_BLANK "$out4")" "1"
+same "and it counts the clues it actually read" "$(field BLANK_SAYS "$out4")" "True"
+
 [ "$fails" = 0 ] && echo "puzzle_integrity: all checks passed" || echo "puzzle_integrity: $fails FAILED"
 exit $((fails > 0))
