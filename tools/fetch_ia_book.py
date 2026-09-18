@@ -19,16 +19,22 @@ A missing file is a hard stop naming the exact path it looked at, because
 "see the log" doesn't tell you which of $IA_CREDS or the default you need to
 fix.
 
-WHY A LOAN AT ALL. <id>_djvu.txt at
-https://archive.org/download/<id>/<id>_djvu.txt is the OCR text we want. On
-both target identifiers, unborrowed, it returns HTTP 401 (verified
-2026-09-18 — not the 403 first guessed; archive.org's real answer for "this
-book is lending-restricted and you don't hold a loan" is 401). Borrowing is
-the only way to flip that to 200.
+WHY A LOAN AT ALL, AND WHY NOT _djvu.txt. <id>_djvu.txt at
+https://archive.org/download/<id>/<id>_djvu.txt is the plain-text OCR dump
+you'd want, and it's what a public-domain item serves — but for a lending
+book it stays HTTP 401 even with an active loan held (verified live
+2026-09-18: logged in, browse_book + create_token both succeeded, loan
+cookies present, and the request still 401'd). archive.org simply does not
+generate/serve that whole-book text file for lending items; a loan does not
+unlock it. What a loan *does* unlock is the BookReader's own per-page OCR
+endpoint (see FULL-TEXT ENDPOINT below), which is loan-gated (HTTP 403
+"Item not available" with no session/loan, HTTP 200 with hidden text once
+logged in and holding the loan) and is the only route this script found
+that returns real text for a book you don't own outright.
 
 ENDPOINT SEQUENCE (verified against archive.org live 2026-09-18, and cross-
 checked against github.com/MiniGlome/Archive.org-Downloader, a working
-downloader that exercises the same flow):
+downloader that exercises the same login/loan flow):
 
   1. GET  https://archive.org/services/csrf-token
      -> {"success": true, "value": {"token": "..."}} — token feeds both the
@@ -52,18 +58,35 @@ downloader that exercises the same flow):
   4. POST same URL, data: action=create_token, identifier=<id>
      Success has the literal substring "token" in the response body (the
      reference implementation's own success check; the response isn't a
-     clean {"success": true} shape here).
-  5. GET the _djvu.txt URL with the now-authenticated, now-loaned session.
-  6. POST same loan URL, data: action=return_loan, identifier=<id>
+     clean {"success": true} shape here). This sets loan-<id> and
+     br-loan-<id> cookies on the session — those, not the token value
+     itself, are what later requests need.
+  5. FULL-TEXT ENDPOINT (this is the part that took experimentation — see
+     fetch_full_text()'s docstring for the full story):
+     a. GET https://archive.org/metadata/<id> (public, no login needed) for
+        "server", "dir", and metadata.imagecount — dir + "/" + <id> +
+        "_djvu.xml" is the page path the next call wants, and imagecount
+        is how many pages to walk.
+     b. For page in 1..imagecount: GET
+        https://<server>/BookReader/BookReaderGetTextWrapper.php
+          ?path=<urlencoded page path>&mode=djvu_xml&page=<page>
+        -> djvu.xml for that one page: an <OBJECT><HIDDENTEXT>...</OBJECT>
+        tree of PAGECOLUMN/REGION/PARAGRAPH/LINE/WORD elements, each WORD
+        carrying its OCR text plus pixel coordinates and a confidence
+        score. Cover/blank pages have no <HIDDENTEXT> at all — normal, not
+        an error. This is the same per-page endpoint the in-browser reader
+        uses for text selection (found via the "textSelection" plugin URL
+        template in BookReaderJSIA.php's response, which is where this
+        endpoint was discovered — see fetch_full_text() docstring).
+     Concatenated per-page text, pages joined with form-feed (\x0c), is
+     what this script writes.
+  6. POST loan URL, data: action=return_loan, identifier=<id>
      Success: HTTP 200, {"success": true}.
 
-Steps 1-2 (csrf + login, including the bad-credentials error shape) and the
-401-before-loan fact were run for real against archive.org while writing
-this. Steps 3-5 (borrow, token, fetch) and step 6 (return) are UNTESTED —
-there was no working account yet — implemented from the reference source
-above and archive.org's documented response shapes, not from a live run.
-Run this for real the moment credentials land and fix whatever step 3-6
-actually does differently.
+Every step above, including the full-text route, was run for real against
+archive.org for newpenguinbkguar0000perk (150 pages) on 2026-09-18: login,
+browse_book, create_token, all 150 pages of BookReaderGetTextWrapper.php,
+and return_loan all succeeded, and the output file contains real book text.
 
 The loan is always returned on the way out, success or exception, unless
 --keep-loan is given — these are one-hour, one-copy, no-waitlist loans on
@@ -75,6 +98,8 @@ import argparse
 import json
 import os
 import sys
+import time
+import xml.etree.ElementTree as ET
 from pathlib import Path
 
 import requests
@@ -83,9 +108,11 @@ UA = {"User-Agent": "Mozilla/5.0 (cryptic-teacher; personal educational use)"}
 CSRF_URL = "https://archive.org/services/csrf-token"
 LOGIN_URL = "https://archive.org/services/account/login/"
 LOAN_URL = "https://archive.org/services/loans/loan/"
-DJVU_URL = "https://archive.org/download/{id}/{id}_djvu.txt"
+METADATA_URL = "https://archive.org/metadata/{id}"
+PAGE_TEXT_URL = "https://{server}/BookReader/BookReaderGetTextWrapper.php"
 DEFAULT_CREDS = "~/.config/ia/creds"
 DEFAULT_OUT = Path("/tmp/cryptic-teacher-ia-books")
+PAGE_FETCH_DELAY_SECONDS = 0.3
 
 
 def load_credentials(path):
@@ -172,13 +199,83 @@ def return_loan(session, identifier):
     print(f"returned loan for {identifier}")
 
 
-def fetch_djvu_text(session, identifier):
-    url = DJVU_URL.format(id=identifier)
-    r = session.get(url, timeout=60)
-    if not r.ok:
-        raise SystemExit(f"{identifier}_djvu.txt still HTTP {r.status_code} after "
-                          "borrowing — the loan may not have granted full-text access")
-    return r.text
+def _page_text_from_djvu_xml(xml_bytes):
+    """<HIDDENTEXT> holds nested PAGECOLUMN/REGION/PARAGRAPH/LINE/WORD
+    elements with per-word OCR + coordinates. Pages with no text layer
+    (covers, blanks) simply have no HIDDENTEXT and yield ''. The last few
+    leaves of newpenguinbkguar0000perk (148-150 of 150) come back HTTP 200
+    with a genuinely empty body rather than an XML shell — same "no text
+    here" case, not an error, so an empty/unparseable body yields '' too
+    instead of raising."""
+    if not xml_bytes.strip():
+        return ""
+    try:
+        root = ET.fromstring(xml_bytes)
+    except ET.ParseError:
+        return ""
+    hidden = root.find("HIDDENTEXT")
+    if hidden is None:
+        return ""
+    paragraphs = []
+    for region in hidden.iter("REGION"):
+        for para in region.findall("PARAGRAPH"):
+            lines = [
+                " ".join(word.text or "" for word in line.findall("WORD"))
+                for line in para.findall("LINE")
+            ]
+            text = "\n".join(line for line in lines if line)
+            if text:
+                paragraphs.append(text)
+    return "\n\n".join(paragraphs)
+
+
+def fetch_full_text(session, identifier):
+    """djvu.txt (see module docstring) stays HTTP 401 even with an active
+    loan — archive.org doesn't serve the plain-text dump for lending books
+    at all. What the loan *does* unlock is BookReaderGetTextWrapper.php,
+    the same per-page OCR (djvu.xml with word coordinates) the in-browser
+    reader uses for text selection: confirmed HTTP 403 "Item not available"
+    with no session, HTTP 200 with hidden text once logged in and holding
+    the loan (verified live 2026-09-18). There is no whole-book endpoint,
+    so this walks every page and concatenates.
+    """
+    meta = session.get(METADATA_URL.format(id=identifier), timeout=30)
+    meta.raise_for_status()
+    meta_json = meta.json()
+    server = meta_json.get("server")
+    item_dir = meta_json.get("dir")
+    page_count = meta_json.get("metadata", {}).get("imagecount")
+    if not server or not item_dir or not page_count:
+        raise SystemExit(
+            f"metadata for {identifier} is missing server/dir/imagecount "
+            f"(got server={server!r} dir={item_dir!r} imagecount={page_count!r}) "
+            "— can't locate per-page OCR without them"
+        )
+    page_count = int(page_count)
+    book_path = f"{item_dir}/{identifier}_djvu.xml"
+    url = PAGE_TEXT_URL.format(server=server)
+
+    pages = []
+    for page in range(1, page_count + 1):
+        # book_path must be passed raw, NOT pre-urlencoded: requests'
+        # params= urlencodes values itself, so pre-quoting here would
+        # double-encode the slashes (%2F -> %252F) and archive.org 403s
+        # the mangled path as "Item not available" — indistinguishable
+        # from a real auth failure without diffing the outgoing r.url.
+        r = session.get(url, params={"path": book_path, "mode": "djvu_xml", "page": page},
+                         timeout=30)
+        if not r.ok:
+            raise SystemExit(
+                f"page {page}/{page_count} of {identifier} failed: "
+                f"HTTP {r.status_code} {r.text[:300]} — the loan may have expired "
+                "mid-fetch, or archive.org is rate-limiting; rerun once the loan "
+                "cools down rather than retrying immediately"
+            )
+        pages.append(_page_text_from_djvu_xml(r.content))
+        if page < page_count:
+            time.sleep(PAGE_FETCH_DELAY_SECONDS)
+
+    return "\x0c".join(pages)
 
 
 def main(argv):
@@ -202,7 +299,7 @@ def main(argv):
         login(session, email, password, creds_path)
         logged_in = True
         borrow(session, args.identifier)
-        text = fetch_djvu_text(session, args.identifier)
+        text = fetch_full_text(session, args.identifier)
     finally:
         # Runs on success AND on exception — a crash must not strand a
         # one-hour lock on a single-copy, no-waitlist book. Only skipped
