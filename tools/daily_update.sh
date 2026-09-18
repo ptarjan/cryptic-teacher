@@ -176,10 +176,12 @@ fi
 python3 tools/coverage_report.py || true
 coverage_stale=$(python3 tools/coverage_report.py --stale-only) || alert "a series has stopped arriving:"$'\n'"\`\`\`"$'\n'"$coverage_stale"$'\n'"\`\`\`"
 
-# The puzzles themselves, as opposed to what we have written about them. It is
-# clean as of 2026-09-17 and every finding is a real defect, so this one alerts
-# on anything at all: two puzzles that are the same puzzle, an answer that does
-# not fit its clue's printed length, two crossing entries that disagree.
+# The puzzles themselves, as opposed to what we have written about them.
+# tools/puzzle_integrity.py forgives, by exact finding, the LENGTH sentences
+# that can never be fixed — PUBLISHED_WRONG and UNLINKED_IN_SOURCE — so this
+# alerts only on a NEW defect: two puzzles that are the same puzzle, an answer
+# that does not fit its clue's printed length, two crossing entries that
+# disagree.
 integrity=$(python3 tools/puzzle_integrity.py --quiet) ||
   alert "the corpus has picked up a defect:"$'\n'"\`\`\`"$'\n'"$integrity"$'\n'"\`\`\`"
 
