@@ -24,6 +24,17 @@ pick=$(awk '/^unsolved=\$\(python3 /,/^\)$/' tools/daily_update.sh)
 [ -n "$pick" ] ||
   { echo "FAIL: the solve-queue block is no longer where this test reads it from"; exit 1; }
 
+echo "the queue reads an index this checkout wrote"
+# puzzles/index.json is generated and untracked, and the queue reads a missing
+# field as a puzzle with nothing wrong. So an index left behind by older code
+# answers "fine" for every puzzle, and the night clue counts were added that is
+# exactly what handed cryptic-24577 to a model. The reindex has to come first.
+reindex_at=$(grep -n '^python3 tools/fetch_puzzle.py --reindex$' tools/daily_update.sh |
+             cut -d: -f1 | head -1)
+select_at=$(grep -n '^unsolved=\$(python3 ' tools/daily_update.sh | cut -d: -f1 | head -1)
+check "the index is rebuilt before the queue is chosen" \
+  "$([ -n "$reindex_at" ] && [ "$reindex_at" -lt "$select_at" ] && echo yes || echo no)" yes
+
 echo "the index counts the clues a solver can read, per puzzle"
 # Straight at the function the index is built from, so this still says what the
 # field means on a day the corpus holds no puzzle with a gap in it.
