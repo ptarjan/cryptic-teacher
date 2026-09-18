@@ -441,6 +441,29 @@
                             clearedAt: prev.clearedAt || 0, updated: now });
     syncPushSoon();
   }
+  // Time only counts while the puzzle is in front of you. The gap between two
+  // saves is the sitting, so a tab left open behind another window would bank
+  // the whole interval as solving. Going away banks the sitting up to that
+  // moment and ends it; coming back starts a new one, so the time away is not
+  // counted at all.
+  const timingStarted = () => {
+    const s = store.get(stateKey(), null);
+    return !!(s && s.timing && s.timing.lastAt);
+  };
+  function pauseTiming() {
+    // Nothing typed yet and nothing pending: opening a puzzle and switching
+    // away must not start its clock, or every puzzle glanced at is in progress.
+    if (saveTimer === null && !timingStarted()) return;
+    clearTimeout(saveTimer);
+    writeState();
+  }
+  function resumeTiming() {
+    const s = store.get(stateKey(), null);
+    if (!s || !s.timing || !s.timing.lastAt) return;
+    s.timing.lastAt = Date.now();
+    store.set(stateKey(), s);
+    timing = s.timing;
+  }
   function restoreState() {
     const s = store.get(stateKey(), null);
     hintsShown = (s && s.hintsShown) || {};
@@ -5458,8 +5481,14 @@
     // Coming back to a tab is exactly when the other machine's work is waiting,
     // and it is the cheapest possible moment to ask.
     document.addEventListener("visibilitychange", () => {
-      if (!document.hidden && syncOn()) syncPull();
+      if (document.hidden) { pauseTiming(); return; }
+      resumeTiming();
+      if (syncOn()) syncPull();
     });
+    // A desktop tab stays visible behind another window, so hidden is only half
+    // of "in front of you"; focus is the other half.
+    window.addEventListener("blur", pauseTiming);
+    window.addEventListener("focus", resumeTiming);
     // Typing is the whole navigation model once the list outgrows a screen, so
     // the box is focused on open and Enter takes the top row — number in, puzzle
     // open, no mouse. Escape gets you back out; the global key handler ignores
