@@ -81,7 +81,6 @@ window.CRYPTIC_PUZZLES["cryptic-29042"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "../-./.../.--././-.-./-/---/.-. ? (5)",
-   "clueMissing": true,
    "separatorLocations": {},
    "solution": "MORSE",
    "annotation": null
