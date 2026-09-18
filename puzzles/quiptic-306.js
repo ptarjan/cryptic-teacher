@@ -251,7 +251,11 @@ window.CRYPTIC_PUZZLES["quiptic-306"] = /*JSON-START*/ {
    "clue": "Shearer might be dreaming (13)",
    "separatorLocations": {},
    "solution": "WOOL",
-   "annotation": null
+   "annotation": null,
+   "group": [
+    "16-across",
+    "17-across"
+   ]
   },
   {
    "id": "16-down",
@@ -280,7 +284,11 @@ window.CRYPTIC_PUZZLES["quiptic-306"] = /*JSON-START*/ {
    "clueMissing": true,
    "separatorLocations": {},
    "solution": "GATHERING",
-   "annotation": null
+   "annotation": null,
+   "group": [
+    "16-across",
+    "17-across"
+   ]
   },
   {
    "id": "18-down",

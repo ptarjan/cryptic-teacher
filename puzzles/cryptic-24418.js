@@ -281,7 +281,12 @@ window.CRYPTIC_PUZZLES["cryptic-24418"] = /*JSON-START*/ {
     ]
    },
    "solution": "STAGE",
-   "annotation": null
+   "annotation": null,
+   "group": [
+    "17-across",
+    "19-across",
+    "20-across"
+   ]
   },
   {
    "id": "18-down",
@@ -309,7 +314,12 @@ window.CRYPTIC_PUZZLES["cryptic-24418"] = /*JSON-START*/ {
    "clue": "See17",
    "separatorLocations": {},
    "solution": "MAN",
-   "annotation": null
+   "annotation": null,
+   "group": [
+    "17-across",
+    "19-across",
+    "20-across"
+   ]
   },
   {
    "id": "19-down",
@@ -337,7 +347,12 @@ window.CRYPTIC_PUZZLES["cryptic-24418"] = /*JSON-START*/ {
    "clue": "See17",
    "separatorLocations": {},
    "solution": "AGING",
-   "annotation": null
+   "annotation": null,
+   "group": [
+    "17-across",
+    "19-across",
+    "20-across"
+   ]
   },
   {
    "id": "21-across",

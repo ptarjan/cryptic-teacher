@@ -27,7 +27,8 @@ window.CRYPTIC_PUZZLES["cryptic-23101"] = /*JSON-START*/ {
    "clue": "See 10",
    "group": [
     "10-across",
-    "1-across"
+    "1-across",
+    "9-across"
    ],
    "separatorLocations": {
     ",": [
@@ -178,7 +179,12 @@ window.CRYPTIC_PUZZLES["cryptic-23101"] = /*JSON-START*/ {
    "clue": "See10",
    "separatorLocations": {},
    "solution": "DISTANCE",
-   "annotation": null
+   "annotation": null,
+   "group": [
+    "10-across",
+    "1-across",
+    "9-across"
+   ]
   },
   {
    "id": "10-across",
@@ -192,7 +198,8 @@ window.CRYPTIC_PUZZLES["cryptic-23101"] = /*JSON-START*/ {
    "clue": "Approaching picket line? (6,8,8)",
    "group": [
     "10-across",
-    "1-across"
+    "1-across",
+    "9-across"
    ],
    "separatorLocations": {
     ",": [

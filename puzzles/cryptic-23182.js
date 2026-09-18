@@ -288,6 +288,7 @@ window.CRYPTIC_PUZZLES["cryptic-23182"] = /*JSON-START*/ {
    "clue": "See 22",
    "group": [
     "22-down",
+    "23-down",
     "16-down"
    ],
    "separatorLocations": {
@@ -396,6 +397,7 @@ window.CRYPTIC_PUZZLES["cryptic-23182"] = /*JSON-START*/ {
    "clue": "After 8 12, go back to square 1 and spring up ('ow-d'ye-do, Lynn) with profit (5,3,4,5)",
    "group": [
     "22-down",
+    "23-down",
     "16-down"
    ],
    "separatorLocations": {
@@ -416,7 +418,12 @@ window.CRYPTIC_PUZZLES["cryptic-23182"] = /*JSON-START*/ {
    "clue": "see 22",
    "separatorLocations": {},
    "solution": "TALL",
-   "annotation": null
+   "annotation": null,
+   "group": [
+    "22-down",
+    "23-down",
+    "16-down"
+   ]
   },
   {
    "id": "24-across",

@@ -125,6 +125,9 @@ EARLIEST_YEAR = 1930
 PUBLISHED_WRONG = {
     ("cryptic-23536", "23-down: clue says (5) = 5, answer holds 7"):
         "ERRHINE fills the seven cells the grid gives it under a clue printed (5)",
+    ("quiptic-169", "13-down: clue says (4-5) = 9, answer holds 10"):
+        "STEPPARENT is the anagram of the clue's own \"Repent past\" and fills the "
+        "ten cells the grid gives it, under a count printed (4-5) for STEP-PARENT",
     ("cryptic-25949",
      "cell (0, 11): one square, 2 clue numbers — 24-down is numbered 24, "
      "26-across is numbered 26"):
@@ -240,10 +243,6 @@ UNLINKED_IN_SOURCE = dict([
      "18-down DRY is unclued and exactly the length ALL AND SUNDRY is short, but "
      "nothing links it to this group and recruiting it would be a connection the "
      "paper never printed"),
-    (("cryptic-24418", "17-across: clue says (5-8) = 13, answer holds 5"),
-     "two different established answers in this grid (1-down + 24-down, and "
-     "8-down + 27-down) both total exactly the eight missing letters; which one "
-     "STAGE completes is not in the data"),
     (("cryptic-24411", "4-down: clue says (4,4) = 8, answer holds 4"),
      "no light in this grid is blank, spare, or grouped toward the four missing "
      "letters"),
@@ -399,6 +398,10 @@ UNLINKED_IN_SOURCE = dict([
     (("cryptic-23299", "12-across: clue says (4,5,2) = 11, answer holds 4"),
      "no light in this grid is blank, spare, or grouped toward the seven "
      "missing letters"),
+    (("cryptic-23247", "19-down: clue says (7,4) = 11, answer holds 7"),
+     "the TOWN that would make SWINDON TOWN is 9-across, whose own clue reads "
+     "\"See 15 and 19\" and whose one `group` field the paper spent on "
+     "15-across + 9-across's FREETOWN"),
 ])
 
 # PER_LIGHT_ENUMERATION names the series whose linked clues are enumerated one

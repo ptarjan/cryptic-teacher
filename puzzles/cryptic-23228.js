@@ -27,13 +27,7 @@ window.CRYPTIC_PUZZLES["cryptic-23228"] = /*JSON-START*/ {
    "clue": "See 9",
    "group": [
     "9-across",
-    "25-down",
-    "1-across",
-    "7-down",
-    "13-down",
-    "14-down",
-    "18-down",
-    "19-across"
+    "1-across"
    ],
    "separatorLocations": {},
    "solution": "UNKNOWN",
@@ -133,16 +127,6 @@ window.CRYPTIC_PUZZLES["cryptic-23228"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "See 9",
-   "group": [
-    "9-across",
-    "25-down",
-    "1-across",
-    "7-down",
-    "13-down",
-    "14-down",
-    "18-down",
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "DIFFERENCE",
    "annotation": null
@@ -173,13 +157,7 @@ window.CRYPTIC_PUZZLES["cryptic-23228"] = /*JSON-START*/ {
    "clue": "In which the disappearance of a non-celebrity leads to the poet's transmogrification (3,5,7)",
    "group": [
     "9-across",
-    "25-down",
-    "1-across",
-    "7-down",
-    "13-down",
-    "14-down",
-    "18-down",
-    "19-across"
+    "1-across"
    ],
    "separatorLocations": {
     ",": [
@@ -246,16 +224,6 @@ window.CRYPTIC_PUZZLES["cryptic-23228"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "See 9",
-   "group": [
-    "9-across",
-    "25-down",
-    "1-across",
-    "7-down",
-    "13-down",
-    "14-down",
-    "18-down",
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "CEASEDTOBE",
    "annotation": null
@@ -270,16 +238,6 @@ window.CRYPTIC_PUZZLES["cryptic-23228"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "See 9",
-   "group": [
-    "9-across",
-    "25-down",
-    "1-across",
-    "7-down",
-    "13-down",
-    "14-down",
-    "18-down",
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "INHERGRAVE",
    "annotation": null
@@ -340,16 +298,6 @@ window.CRYPTIC_PUZZLES["cryptic-23228"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "See 9",
-   "group": [
-    "9-across",
-    "25-down",
-    "1-across",
-    "7-down",
-    "13-down",
-    "14-down",
-    "18-down",
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "WHENLUCY",
    "annotation": null
@@ -364,16 +312,6 @@ window.CRYPTIC_PUZZLES["cryptic-23228"] = /*JSON-START*/ {
    },
    "length": 3,
    "clue": "See 9",
-   "group": [
-    "9-across",
-    "25-down",
-    "1-across",
-    "7-down",
-    "13-down",
-    "14-down",
-    "18-down",
-    "19-across"
-   ],
    "separatorLocations": {},
    "solution": "SHE",
    "annotation": null
@@ -467,16 +405,6 @@ window.CRYPTIC_PUZZLES["cryptic-23228"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "See 9",
-   "group": [
-    "9-across",
-    "25-down",
-    "1-across",
-    "7-down",
-    "13-down",
-    "14-down",
-    "18-down",
-    "19-across"
-   ],
    "separatorLocations": {
     ",": []
    },
