@@ -63,6 +63,28 @@ def type_blurbs(src=None):
     return out
 
 
+def ladder(src=None):
+    """[(rung key, button label), ...] in the order the app numbers the rungs.
+
+    `LABELS` in app.js is written in ladder order and app.js sorts the rungs by
+    `Object.keys(LABELS)`, so the map's key order is the order — the whole of it,
+    with no second list anywhere to disagree. Every tool that needs to know which
+    rung is first reads it from here; three of them used to keep a list of their
+    own, and `tools/rung_report.py` was reporting a solver who took one rung as
+    having climbed three.
+    """
+    src = src if src is not None else APP.read_text(encoding="utf-8")
+    if not re.search(r"const RUNG_ORDER = Object\.keys\(LABELS\);", src):
+        raise SystemExit("app_tables: app.js no longer orders the ladder by "
+                         "`Object.keys(LABELS)`, so LABELS' key order is no "
+                         "longer the ladder's order. Put the order back in "
+                         "LABELS rather than in a list beside it.")
+    out = re.findall(r'(\w+):\s*"([^"]+)"', _block(src, "const LABELS = {", "\n    };"))
+    if not out:
+        raise SystemExit("app_tables: LABELS parsed empty")
+    return out
+
+
 def family_of(type_, fams=None):
     """The family a (possibly compound) type belongs to. First match wins."""
     t = (type_ or "").lower()
@@ -81,6 +103,8 @@ FALLBACK_FAMILY = ("Wordplay",
 
 
 def main():
+    print(" -> ".join(f"{i}. {label}" for i, (_, label) in enumerate(ladder(), 1)))
+    print()
     for label, blurb, keys in families():
         print(f"{label}\n  types: {', '.join(keys)}\n  {blurb}")
     print()

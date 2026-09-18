@@ -238,8 +238,9 @@ read app.js or the validator to check it.
 
 ### The controlled vocabulary for `type`
 
-Join parts with ` + `. Each part belongs to one family, shown on rung 1; a
-compound type's family is the FIRST row below that matches it.
+Join parts with ` + `. Each part belongs to one family, shown on the
+"What kind of clue is this?" rung; a compound type's family is the
+FIRST row below that matches it.
 
 **Double or cryptic definition**
 

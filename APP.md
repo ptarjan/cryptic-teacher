@@ -32,7 +32,7 @@ is why the two are separate files rather than two halves of one.
   indicator rung said "this clue does two things" and then listed three, on
   `container + charade + middle letters + reversal` (Paul, 4096 16d, 2026-08-17).
   Number words come off `.length`, always.
-- Rung 3 says what the indicator DOES; `indicatorNotes` says why that word means
+- The indicator rung says what the indicator DOES; `indicatorNotes` says why that word means
   it. The general sentence ("it tells you to shuffle the letters") is identical on
   every anagram in the corpus, which is what makes the rung feel content-free to
   pay for — the complaint has now been made twice ("these tell you what to do with
@@ -46,14 +46,14 @@ is why the two are separate files rather than two halves of one.
   without it while the old ones drain.
 - Generic wording is not a frame to put around a real answer — it is what gets
   said when there is no real answer. So where every indicator has a note, the
-  notes are the whole of rung 3: no "this clue does two things, and the
+  notes are the whole of the indicator rung: no "this clue does two things, and the
   indicators are what tell them apart", no list of the operations, no "which word
   calls for which is the step to work out here" ("this is just context free,
   never just put out text for the sake of filling space", Paul, 2026-08-17). The
   count was the tell — the operations come off the clue TYPE, so `container +
   charade + middle letters + reversal` promises four while only three of them
   have an indicator to point at. That sentence never described the indicators; it
-  described the type, and the type is rung 1. The generic branch survives only
+  described the type, which is a different rung. The generic branch survives only
   for the puzzles that predate `indicatorNotes`, and `tools/smoke_test.js`
   enforces the rule structurally rather than by banned phrase: strip the notes
   list from a fully-noted rung and what is left must be empty, so new filler
@@ -103,9 +103,21 @@ is why the two are separate files rather than two halves of one.
   `#kbd` is only the intake for a soft one. `activeElement` cannot see this bug —
   it reads identically before and after the re-focus — so `fake_dom` counts
   `focus()` calls and the test asserts zero.
+- The ladder's ORDER has exactly one source: the key order of `LABELS` in
+  `app.js`. `RUNG_ORDER` is `Object.keys(LABELS)`, `tools/build_readme.py`
+  numbers the README's rung list off the same map, and `tools/smoke_test.js`
+  parses it out of `app.js` and asserts every clue in the corpus numbers its
+  rungs in that order. Do not write the order down a second time — it was
+  written down twice, and the README published `1. What kind of clue is this?`
+  through two reorders of the live ladder before anyone noticed. Today it runs
+  indicators, definition, type, blocks, walkthrough: the indicator is the
+  cheapest rung (it names the mechanism and leaves the definition to find),
+  naming the definition hands half the clue over, and the family is usually
+  already spent by the time you have both (`spentBy`).
 - The ladder is TIERED: free choice within a tier, no choice across tiers
-  (`RUNG_TIER` in app.js). Tier 0 is what the clue asks you to SPOT — the family,
-  the definition, the indicators — and any of them may be taken in any order.
+  (`RUNG_TIER` in app.js). Tier 0 is what the clue asks you to SPOT — the
+  indicators, the definition, the family — and any of them may be taken in any
+  order.
   Tier 1 is the building blocks, which unlock only once every tier-0 rung this
   clue has is up. Tier 2 is the walkthrough, which unlocks after the blocks.
   Both halves of that are feedback and both have to hold:
@@ -186,9 +198,9 @@ is why the two are separate files rather than two halves of one.
   (`tools/build_seo_pages.py`) does badge both states, and should: it lists every
   puzzle, so there the distinction is real. Generalise this — a label that every
   item carries is decoration, not information.
-- Rung 1 names the clue FAMILY, never the precise type (feedback 2026-07-26:
-  "the type of clues seem a bit specific for a first hint"). Opening a clue with
-  `charade + alternate letters` hands over the whole mechanism. The families,
+- The type rung names the clue FAMILY, never the precise type (feedback
+  2026-07-26: "the type of clues seem a bit specific for a first hint"). Telling
+  a solver `charade + alternate letters` hands over the whole mechanism. The families,
   in match order (first match wins, so the dominant mechanism of a compound type
   decides): **Definitions only** (double/cryptic definition), **&lit**,
   **Rearrangement** (anagram), **Sound** (homophone, spoonerism), **Charade**,

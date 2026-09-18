@@ -2145,10 +2145,10 @@
     ["palindrome", "A palindrome: the answer reads the same forwards and backwards, and that symmetry is the wordplay — there is nothing else to take apart."]
   ];
 
-  // Rung 1 must not hand the mechanism over. It names the FAMILY — the shape of
-  // the job — and the precise (honest, compound) type is held back until the
-  // building-blocks rung. First match wins, so the list is ordered by which
-  // mechanism dominates a compound type. Every part in TYPE_PARTS (validator)
+  // The type rung must not hand the mechanism over. It names the FAMILY — the
+  // shape of the job — and the precise (honest, compound) type is held back
+  // until the building-blocks rung. First match wins, so the list is ordered by
+  // which mechanism dominates a compound type. Every part in TYPE_PARTS (validator)
   // must be claimed by exactly one family here. See APP.md.
   //
   // `n` is how many annotated clues in puzzles/ this family is a correct answer
@@ -2225,8 +2225,9 @@
   // one — so `gives` is never rendered for it. It used to print the whole clue →
   // the whole answer, because that is the only "block" a cryptic definition can
   // have, so hint 3 of 4 read “Might this keep you to time?” → WATCHSTRAP: the
-  // solver paid for a rung and was handed the solve, one rung after rung 2 had
-  // told them there was no separable wordplay here (1392 22-across). The validator now refuses a `gives` on a cryptic definition and
+  // solver paid for a rung and was handed the solve on a clue whose definition
+  // rung had already told them there was no separable wordplay here
+  // (1392 22-across). The validator now refuses a `gives` on a cryptic definition and
   // demands the clue be split, so this suppression is belt to that braces.
   //
   // A block whose letters ARE the whole answer hands over the solve on the rung
@@ -2805,10 +2806,16 @@
     // smoke test holds the corpus to exactly that: one label per key, across
     // every annotated clue there is. Type-specific wording belongs in the body,
     // which is what you are paying for.
+    //
+    // Written in ladder order, and that order is the only copy of it: the sort
+    // below is Object.keys(LABELS), and tools/build_readme.py reads this same
+    // map to number the rungs in README.md. Reorder these five lines and the
+    // app, the README and tools/smoke_test.js all move together — there is
+    // nowhere left to write a ladder that disagrees with itself.
     const LABELS = {
-      type: "What kind of clue is this?",
-      definition: "Where is the definition?",
       indicators: "Spot the indicator words",
+      definition: "Where is the definition?",
+      type: "What kind of clue is this?",
       blocks: "The building blocks",
       walkthrough: "Full walkthrough"
     };
@@ -2825,8 +2832,9 @@
       html: shown.map((f) => `<p><strong>${esc(f.label)}</strong>. ${esc(f.blurb)}</p>`).join("")
     });
 
-    // The exact mechanism, held back until the user has already seen the family,
-    // the definition and the indicators.
+    // The exact mechanism, held back until every spotting rung is behind the
+    // solver — the indicators, the definition and the family, in whatever order
+    // the ladder is currently in.
     //
     // Double and cryptic definitions used to be exempt from this line entirely,
     // on the grounds that their family label had already said it. It has not:
@@ -2843,9 +2851,9 @@
     const mechanics = `<p class="mechanism">Mechanism: <strong>${esc(ann.type)}</strong>.
       ${isDD || isCD ? "" : esc(typeBlurb(ann.type))}</p>`;
 
-    // Where the definition lives, and the rung the ladder now leads with. For a
-    // double definition the news is not "there are two" — the family rung says
-    // that, and says it later — it is WHERE the clue splits.
+    // Where the definition lives. For a double definition the news is not "there
+    // are two" — the family rung says that, and says it later — it is WHERE the
+    // clue splits.
     if (isDD && ann.definition2) {
       steps.push({
         key: "definition",
@@ -2889,8 +2897,8 @@
     // `definitionNote` used to hang here too and could not: it explains why the
     // definition does not agree with the ANSWER ("payment" for PEANUTS, singular
     // for a plural), so it is written about the answer and 16 of them in the
-    // corpus named it outright — TRUMP CARDS handed over on rung 2. Rewording
-    // them would only have hidden a structural mistake: a note comparing the
+    // corpus named it outright — TRUMP CARDS handed over on the definition
+    // rung. Rewording them would only have hidden a structural mistake: a note comparing the
     // answer to the definition is not an early hint, whatever words it uses. It
     // now renders beside definitionFit on the walkthrough rung, where the answer
     // is already on the table, and the validator gates the early fields at zero.
@@ -3090,7 +3098,10 @@
     //
     // A sort, not a reordered set of pushes: the walkthrough's html asks whether
     // a blocks rung exists, so every rung has to be built before any is placed.
-    const RUNG_ORDER = ["indicators", "definition", "type", "blocks", "walkthrough"];
+    // The order itself is LABELS' own, not a second list beside it — a literal
+    // array here is a copy, and a copy is what let the README publish
+    // "1. What kind of clue is this?" through two reorders of the live ladder.
+    const RUNG_ORDER = Object.keys(LABELS);
     steps.sort((a, b) => RUNG_ORDER.indexOf(a.key) - RUNG_ORDER.indexOf(b.key));
     return steps;
   }
@@ -3113,9 +3124,8 @@
   //
   // The type rung is the exception to "literal spans": its answer is a family,
   // not words in the clue, so it asks by offering the seven. It belongs here all
-  // the same — it is the one thing you can be asked before reading a word of the
-  // wordplay, and a ladder that asks about every other part and hands this one
-  // over is a ladder that answers its own first question.
+  // the same — a ladder that asks about every other part and hands this one over
+  // is a ladder that answers one of its own questions.
   const GUESSABLE = { type: 1, definition: 1, indicators: 1, blocks: 1 };
 
   // The clue split into things you can put a finger on. Whitespace-delimited, so

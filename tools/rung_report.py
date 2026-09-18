@@ -20,15 +20,23 @@ sync code is a crossword, not an identity (see sync/worker.js).
 """
 import argparse
 import json
+import os
 import sys
 import urllib.request
 from collections import Counter
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import app_tables  # noqa: E402 — needs the sys.path line above
+
 SYNC = "https://cryptic-teacher-sync.curly-unit-b9e0.workers.dev"
 ANSWER = "answer"
-# The ladder in the order app.js recommends, so "how far did they climb" is a
+# The ladder in the order app.js numbers it, so "how far did they climb" is a
 # position in this list and not the arbitrary order the rungs were asked for.
-LADDER = ["type", "definition", "indicators", "blocks", "walkthrough"]
+# Read out of app.js rather than typed here: a copy of the order reports the
+# wrong height the moment the ladder is reordered, and silently — a solver who
+# took only the indicators was counted as having climbed three rungs, and the
+# "up to …" histogram named the wrong rung, for as long as the copy sat stale.
+LADDER = [key for key, _label in app_tables.ladder()]
 
 
 def fetch(code):

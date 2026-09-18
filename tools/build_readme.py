@@ -391,11 +391,13 @@ RUNG_NOTES = {
 def build_ladder():
     """The ladder, named with app.js's own button labels and in its own order."""
     app = (REPO / "app.js").read_text(encoding="utf-8")
-    block = re.search(r"const LABELS = \{(.*?)\n    \};", app, re.S)
-    if not block:
-        fail("app.js has no `const LABELS = { … };` map, which is where the rung "
-             "names live. If it moved, point this function at the new one.")
-    labels = re.findall(r'(\w+):\s*"([^"]+)"', block.group(1))
+    sys.path.insert(0, str(REPO / "tools"))
+    import app_tables
+    # The numbering is app.js's own: `ladder()` reads the ordered LABELS map the
+    # app sorts its rungs by, and raises if app.js stops deriving the order from
+    # it. A copy of the order here is what published "1. What kind of clue is
+    # this?" for two reorders after the app had stopped leading with it.
+    labels = app_tables.ladder(app)
     missing = [k for k, _ in labels if k not in RUNG_NOTES]
     if missing:
         fail("these rungs are in app.js but have no line in RUNG_NOTES in this "

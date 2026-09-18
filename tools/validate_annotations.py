@@ -739,8 +739,8 @@ def check_definition_fit(tag, ann, errors, warnings):
         errors.append(f"{tag}: definitionFit {fit!r} just restates the definition with the "
                       f"answer in it — explain WHY the two mean the same")
 
-# An early rung must not contain the answer. The hint ladder is a ladder: rung 1
-# names the family, rung 2 the definition, rung 3 the indicators, and only the
+# An early rung must not contain the answer. The hint ladder is a ladder: the
+# spotting rungs name the indicators, the definition and the family, and only the
 # building blocks and the walkthrough are entitled to spell the answer out. A
 # field rendered above that line which names the answer collapses the ladder —
 # the solver pays a hint and is handed the solve.
