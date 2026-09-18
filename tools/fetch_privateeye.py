@@ -10,6 +10,10 @@ Usage:
                                                      # number sequence downward
   python3 tools/fetch_privateeye.py --dry-run 838    # parse and print, write nothing
   python3 tools/fetch_privateeye.py --out DIR ...    # write elsewhere (default puzzles/)
+  python3 tools/fetch_privateeye.py --backfill-dates
+                                                     # fill in the publication date of
+                                                     # every on-disk Cyclops missing one,
+                                                     # from the Eye's issue cover pages
   python3 tools/fetch_privateeye.py --refresh-unsolved
                                                      # re-run the fifteensquared join for
                                                      # every on-disk Cyclops still waiting
@@ -77,6 +81,7 @@ registered, run tools/fetch_puzzle.py --reindex once by hand.
 """
 
 import argparse
+import datetime
 import html
 import itertools
 import json
@@ -104,8 +109,10 @@ PUZ_URL = "https://www.private-eye.co.uk/pictures/crossword/download/{num}.puz"
 # no politeness cost to asking for more candidates to filter locally.
 FQ_SEARCH_URL = "https://fifteensquared.net/wp-json/wp/v2/posts?search=Cyclops+{num}&per_page=40"
 FQ_MIN_INTERVAL = 1.0  # seconds — politeness floor between requests to fifteensquared.net
+COVER_URL = "https://www.private-eye.co.uk/covers/cover-{issue}"
 SERIES = "cyclops"
 SETTER = "Cyclops"
+PUBLICATION_WEEKDAY = 4  # Friday — the Eye dates every issue to a Friday
 
 BLACK = "."
 
@@ -306,13 +313,93 @@ def convert(num, puz):
         "series": SERIES,
         "name": f"Private Eye Cyclops crossword No {num}",
         "setter": SETTER,
-        "date": None,  # the .puz carries no publication date; the Eye issue does, but
-                        # issue numbers and crossword numbers are two sequences and
-                        # nothing here can safely correlate one to the other
+        "date": cover_date(num, puz["title"]),
         "dimensions": {"cols": width, "rows": height},
         "sourceUrl": INDEX_URL,
         "entries": entries,
     }
+
+
+# ---------- publication date, via the Eye's own cover page ----------
+
+MONTHS = {m: i + 1 for i, m in enumerate(
+    ["January", "February", "March", "April", "May", "June",
+     "July", "August", "September", "October", "November", "December"])}
+
+_cover_cache = {}
+
+
+def issue_number(num, title):
+    """The Private Eye issue number a .puz title names, or None.
+
+    The title pairs the crossword number with the issue number, but the order
+    is not stable across the archive: No. 400 ships as "Eye 1245/400" and
+    No. 821 as "Eye 821/1666". Whitespace drifts too ("Eye 538/ 1383"). So the
+    pair is read positionally-agnostically — whichever half is not the
+    crossword number is the issue — which is also the check: a title naming
+    neither `num` nor a plausible issue is not a title this can read.
+    """
+    match = re.search(r"Eye\s*(\d+)\s*/\s*(\d+)", title or "")
+    if not match:
+        return None
+    left, right = int(match.group(1)), int(match.group(2))
+    if left == num and right != num:
+        return right
+    if right == num and left != num:
+        return left
+    return None
+
+
+def fetch_cover_date(issue):
+    """The publication date Private Eye prints on its own cover page for
+    `issue`, as a datetime.date, or None if the page is missing or silent.
+
+    The date is read only from inside the page's "Issue NNNN ... <date>" block
+    so that the archive's navigation to neighbouring issues, which also prints
+    dates, cannot answer for the issue asked about.
+    """
+    if issue in _cover_cache:
+        return _cover_cache[issue]
+    time.sleep(1)  # one request per second, max — the caller has just fetched a .puz
+    try:
+        page = http_bytes(COVER_URL.format(issue=issue)).decode("utf-8", "replace")
+    except urllib.error.HTTPError:
+        _cover_cache[issue] = None
+        return None
+    match = re.search(rf"Issue\s*{issue}\b.{{0,400}}?(\d{{1,2}})\s+([A-Z][a-z]+)\s+(\d{{4}})",
+                      page, re.DOTALL)
+    found = None
+    if match and match.group(2) in MONTHS:
+        found = datetime.date(int(match.group(3)), MONTHS[match.group(2)],
+                              int(match.group(1)))
+    _cover_cache[issue] = found
+    return found
+
+
+def cover_date(num, title):
+    """Publication date of Cyclops `num` in epoch ms at midnight UTC, or None.
+
+    The .puz itself carries no date, but it names its issue, and the Eye dates
+    that issue on its own cover page — so this is the publisher's date for this
+    puzzle, not an interpolation off the number sequence. Verified against six
+    puzzles already dated on disk, spread over 2009-2026: all six matched to
+    the day with no offset.
+
+    A date that is not a Friday is discarded rather than written. The Eye dates
+    every issue to a Friday, so a non-Friday means the issue was misread, not
+    that the magazine moved.
+    """
+    issue = issue_number(num, title)
+    if issue is None:
+        return None
+    found = fetch_cover_date(issue)
+    if found is None or found.weekday() != PUBLICATION_WEEKDAY:
+        if found is not None:
+            print(f"  {SERIES}-{num}: cover-{issue} says {found} "
+                  f"({found:%A}), not a Friday — left undated")
+        return None
+    return int(datetime.datetime.combine(
+        found, datetime.time(), datetime.timezone.utc).timestamp() * 1000)
 
 
 # ---------- fifteensquared.net answer join ----------
@@ -986,6 +1073,56 @@ def refresh_unsolved():
     print(f"refresh-unsolved: {filled}/{len(pending)} puzzle(s) gained solutions")
 
 
+DATE_LINE = re.compile(r'^ "date": (?:null|\d+),$', re.MULTILINE)
+
+
+def stamp_date(path, epoch_ms):
+    """Write just the top-level `date` of an on-disk puzzle, in place.
+
+    A line edit, not a re-serialisation, because the only thing being learned
+    here is the date: re-emitting the whole file would also quietly restyle
+    everything the annotators have written into it. The pattern is anchored to
+    the top-level field's one-space indent, so the deeper `solutionSource.date`
+    cannot match.
+    """
+    text = path.read_text()
+    text, count = DATE_LINE.subn(f' "date": {epoch_ms},', text, count=1)
+    if count != 1:
+        raise ValueError(f"{path.name}: no top-level date line to write")
+    path.write_text(text)
+
+
+def backfill_dates(out_dir, dry_run=False):
+    """Fill in the publication date of every on-disk Cyclops that lacks one.
+
+    The dates come from the Eye's own issue cover pages; see cover_date.
+    """
+    written = skipped = 0
+    for num in on_disk_numbers(out_dir):
+        path = puzzle_path(out_dir, num)
+        puzzle = read_puzzle_file(path)
+        if puzzle.get("date"):
+            continue
+        try:
+            data = http_bytes(PUZ_URL.format(num=num))
+            epoch_ms = cover_date(num, parse_puz(data)["title"])
+        except Exception as err:  # noqa: BLE001 — one bad puzzle shouldn't stop the walk
+            print(f"skip {SERIES}-{num}: {err}")
+            epoch_ms = None
+        if epoch_ms is None:
+            skipped += 1
+        else:
+            shown = datetime.datetime.fromtimestamp(
+                epoch_ms / 1000, datetime.timezone.utc).date()
+            if not dry_run:
+                stamp_date(path, epoch_ms)
+            print(f"{'[dry-run] ' if dry_run else ''}dated {SERIES}-{num}: {shown}")
+            written += 1
+        time.sleep(1)  # one request per second, max
+    print(f"done: {written} dated, {skipped} still undated")
+    return written
+
+
 def on_disk_numbers(out_dir):
     prefix = f"{SERIES}-"
     return sorted(int(p.stem[len(prefix):]) for p in out_dir.glob(f"{prefix}*.js")
@@ -1034,12 +1171,17 @@ def main(argv):
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--out", type=Path, default=PUZZLE_DIR)
     parser.add_argument("--refresh-unsolved", action="store_true")
+    parser.add_argument("--backfill-dates", action="store_true")
     args = parser.parse_args(argv)
 
     args.out.mkdir(parents=True, exist_ok=True)
 
     if args.refresh_unsolved:
         refresh_unsolved()
+        return 0
+
+    if args.backfill_dates:
+        backfill_dates(args.out, dry_run=args.dry_run)
         return 0
 
     if args.latest:
