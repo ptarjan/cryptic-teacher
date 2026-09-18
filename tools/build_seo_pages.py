@@ -933,13 +933,56 @@ def assert_no_root_relative(files):
                          f"at {BASE}/, so these 404):\n  " + "\n  ".join(bad[:20]))
 
 
+def orphans(files):
+    """Per-puzzle output directories under puzzles/ that this run does not write.
+
+    Output is decided by the index, so the set of directories that should exist
+    is known exactly on every run; a directory outside that set is one no future
+    run will ever rewrite. The generator only ever wrote, so those accumulated
+    silently — a renamed puzzle left its old page behind serving stale content
+    at a live URL, with nothing on disk to say it was dead.
+
+    The rule is narrow on purpose, because this walks the directory that also
+    holds the site's real data:
+
+      * only direct child DIRECTORIES of puzzles/ are candidates, so the flat
+        puzzles/<series>-<number>.js sources cannot be reached at all;
+      * a directory qualifies only if its entire content is one index.html,
+        which is the exact shape this generator creates;
+      * and only if that index.html is not one this run is about to write.
+
+    A bare-numeric directory is NOT an orphan: legacy_redirects() writes one for
+    every puzzle number and always will. The test for a dead page is "this run
+    does not write it", never a guess from the name.
+
+    Anything that does not fit the shape is returned as a leftover rather than
+    removed — an unexpected file under puzzles/ is a question, not a target.
+    """
+    wanted = {p.parent for p in files if p.parent.parent == PUZZLE_DIR}
+    dead, unexpected = [], []
+    for d in sorted(PUZZLE_DIR.iterdir()):
+        if not d.is_dir() or d in wanted:
+            continue
+        if [x.name for x in d.iterdir()] == ["index.html"]:
+            dead.append(d)
+        else:
+            unexpected.append(d)
+    return dead, unexpected
+
+
 def main():
     files = outputs()
     check = "--check" in sys.argv
     stale = [p for p, text in files.items()
              if not p.exists() or p.read_text(encoding="utf-8") != text]
+    dead, unexpected = orphans(files)
+    for d in unexpected:
+        print(f"LEFTOVER: {d.relative_to(ROOT)} is not a generated page directory "
+              "— left alone")
     if check:
-        if stale:
+        for d in sorted(dead):
+            print(f"ORPHAN: {d.relative_to(ROOT)}")
+        if stale or dead:
             for p in sorted(stale):
                 print(f"STALE: {p.relative_to(ROOT)}")
             print("run python3 tools/build_seo_pages.py")
@@ -949,7 +992,11 @@ def main():
     for p, text in files.items():
         p.parent.mkdir(parents=True, exist_ok=True)
         p.write_text(text, encoding="utf-8")
-    print(f"wrote {len(files)} page(s); {len(stale)} changed")
+    for d in dead:
+        (d / "index.html").unlink()
+        d.rmdir()
+    print(f"wrote {len(files)} page(s); {len(stale)} changed; "
+          f"{len(dead)} orphan(s) removed")
     return 0
 
 
