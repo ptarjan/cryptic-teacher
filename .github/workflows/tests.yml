@@ -1,24 +1,28 @@
-# pages.yml builds and deploys the site. It only exercises four of this
-# repo's test scripts — test_alert_claimed.sh, test_prereset_paths.sh,
-# test_notify_race.js and test_push_hold.js — and only because
-# tools/smoke_test.js happens to shell out to them, and only on a push to
-# master, never on a pull request. The rest (the daily-job tests and
-# test_webpush.js) are wired to nothing at all: tools/test_annotate_attempts.sh
-# broke on 2026-09-11 and nobody noticed until 2026-09-13, because nothing ran
-# it.
+# Every test entry point in tools/ runs HERE, and this workflow has no
+# `concurrency:` block, so nothing it runs can be cancelled by a later push.
+# That is the point of it.
 #
-# This runs every test entry point in tools/ directly, on every push and pull
-# request, and reports ALL failures rather than stopping at the first — a
-# workflow that stops at the first red script is a workflow that hides the
-# second one.
+# pages.yml does have one — `group: pages, cancel-in-progress: true` — because
+# two pushes a minute apart must not race to publish, and the older build is not
+# worth waiting for. The cost is that every check inside it is abandoned along
+# with the deploy it was gating. tools/smoke_test.js used to be reachable only
+# from there, so on 2026-09-18 a commit merged with its only real check
+# cancelled by the very next push and master went red on somebody else's
+# commit. A check that a later push can cancel is a check that is optional.
 #
-# The two loops glob tools/test_*.sh and tools/test_*.js rather than naming
-# them, so a test is wired in by being written: a list to add to is a list
-# somebody forgets, and the test that never runs is indistinguishable from the
-# test that passes.
+# So the loop globs both of the repo's test-file spellings, tools/test_*.{sh,js}
+# and tools/*_test.{sh,js}, rather than naming files: a test is wired in by
+# being written, and a list to add to is a list somebody forgets. The one file
+# that spells it the second way is tools/smoke_test.js, which is precisely the
+# file the first glob silently excluded. tools/test_ci_coverage.js asserts that
+# every test entry point is matched here, so the next file to be named something
+# new fails rather than disappearing.
+#
+# All failures are reported rather than stopping at the first: a workflow that
+# stops at the first red script hides the second one.
 #
 # A separate workflow from pages.yml on purpose: a broken test must never block
-# a site deploy, and this needs no site build to run.
+# a site deploy.
 #
 # Left out, deliberately: nothing here calls the real `claude` CLI, needs an
 # API key, or touches the network — the daily-job tests read the block under
@@ -42,18 +46,25 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
+      # tools/smoke_test.js drives the app against the generated pages and stops
+      # with "run: python3 tools/build_seo_pages.py" if they are not there, so
+      # they are built first. The index comes before the pages because the pages
+      # are generated from it. Neither step touches the network, and the social
+      # cards are deliberately not drawn: a page points at its own card only if
+      # the file is on disk, and nothing here asks about cards.
+      - name: Build the pages the tests read
+        run: |
+          python3 tools/fetch_puzzle.py --reindex
+          python3 tools/build_seo_pages.py
       - name: Run every test script
         run: |
           fails=()
           python3 tools/build_readme.py --check-layout || fails+=("layout table")
-          for t in tools/test_*.sh; do
-            echo "::group::bash $t"
-            bash "$t" || fails+=("$t")
-            echo "::endgroup::"
-          done
-          for t in tools/test_*.js; do
-            echo "::group::node $t"
-            node "$t" || fails+=("$t")
+          for t in tools/test_*.sh tools/test_*.js tools/*_test.sh tools/*_test.js; do
+            [ -e "$t" ] || continue
+            case "$t" in *.sh) run=bash ;; *) run=node ;; esac
+            echo "::group::$run $t"
+            "$run" "$t" || fails+=("$t")
             echo "::endgroup::"
           done
           if [ "${#fails[@]}" -gt 0 ]; then
