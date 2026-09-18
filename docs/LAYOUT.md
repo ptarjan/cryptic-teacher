@@ -68,6 +68,10 @@ tools/puzzle_integrity.py                    checks the puzzles themselves: two 
                                              are the same puzzle, an answer that does not fit
                                              its clue’s printed length, two entries that cross
                                              and disagree
+tools/test_puzzle_integrity.sh               proves the two LENGTH exception tables match by
+                                             nothing looser than the exact sentence they’re
+                                             keyed on, and that baselining one finding never
+                                             silences the rest of its puzzle
 tools/coverage_report.py                     counts what we hold of every series and names the
                                              ones that have gone quiet, were never backfilled,
                                              or are full of holes
