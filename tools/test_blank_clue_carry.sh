@@ -94,8 +94,8 @@ empty=$(PYTHONPATH=tools python3 - <<'PY'
 from pathlib import Path
 import fetch_puzzle as fetcher
 bad = []
-for n in (23269, 23370, 23466, 23598, 23646, 23669, 23681, 23717, 23789, 23821,
-          23897, 23945, 24141, 24243, 24307, 24331):
+for n in (23053, 23269, 23370, 23466, 23598, 23646, 23669, 23681, 23717, 23789,
+          23821, 23897, 23945, 24141, 24243, 24307, 24331):
     p = fetcher.read_puzzle_file(Path("puzzles") / f"cryptic-{n}.js")
     c = fetcher.clue_coverage(p)
     if c["present"] < c["total"]:
