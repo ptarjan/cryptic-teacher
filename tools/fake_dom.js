@@ -228,7 +228,13 @@ function boot(opts) {
     }
   };
 
+  // The page's own window listens as well as the document does — the solve clock
+  // stops on blur and starts again on focus — so a window that cannot be
+  // listened to is a window the app crashes against. Dispatched the same way
+  // docListeners is, and handed back for the same reason.
+  const winListeners = {};
   global.window = {
+    addEventListener(type, fn) { (winListeners[type] = winListeners[type] || []).push(fn); },
     // An iPad in portrait, roughly: tall enough that the grid and the hint panel
     // cannot both be on screen, which is the whole reason picking a clue scrolls.
     innerHeight: 1000,
@@ -417,8 +423,8 @@ function boot(opts) {
 
   // appSrc goes back out because the smoke test greps app.js's own source for the
   // FAMILIES table — an assertion about the code, not about the rendered DOM.
-  return { registry, document, storage, docListeners, canonicalLink, FakeEl, appSrc, beacons,
-           window: global.window };
+  return { registry, document, storage, docListeners, winListeners, canonicalLink, FakeEl,
+           appSrc, beacons, window: global.window };
 }
 
 module.exports = { boot, ROOT };
