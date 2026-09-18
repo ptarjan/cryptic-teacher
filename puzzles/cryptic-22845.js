@@ -24,8 +24,7 @@ window.CRYPTIC_PUZZLES["cryptic-22845"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 8,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "False tongue gives information at the top (8)",
    "separatorLocations": {},
    "solution": "NEWSPEAK",
    "annotation": null
@@ -39,8 +38,7 @@ window.CRYPTIC_PUZZLES["cryptic-22845"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 4,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Vic's game? You move as shown by dice's score (4)",
    "separatorLocations": {},
    "solution": "LUDO",
    "annotation": null
@@ -54,8 +52,7 @@ window.CRYPTIC_PUZZLES["cryptic-22845"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 6,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Peter (in opera) made poor Tom so black (6)",
    "separatorLocations": {},
    "solution": "GRIMES",
    "annotation": null
@@ -69,8 +66,7 @@ window.CRYPTIC_PUZZLES["cryptic-22845"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 8,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Shows cowardice, not that in Manx display (8)",
    "separatorLocations": {},
    "solution": "XANTHISM",
    "annotation": null
@@ -84,8 +80,7 @@ window.CRYPTIC_PUZZLES["cryptic-22845"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 10,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Transparencies that save things from decay (5,5)",
    "separatorLocations": {},
    "solution": "WATERGLASS",
    "annotation": null
@@ -99,8 +94,7 @@ window.CRYPTIC_PUZZLES["cryptic-22845"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 6,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Very old and young heads time at sea (6)",
    "separatorLocations": {},
    "solution": "VOYAGE",
    "annotation": null
@@ -114,8 +108,7 @@ window.CRYPTIC_PUZZLES["cryptic-22845"] = /*JSON-START*/ {
     "y": 1
    },
    "length": 8,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Wanted some sheets to infiltrate the left (8)",
    "separatorLocations": {},
    "solution": "REQUIRED",
    "annotation": null
@@ -129,8 +122,7 @@ window.CRYPTIC_PUZZLES["cryptic-22845"] = /*JSON-START*/ {
     "y": 1
    },
    "length": 6,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Resembling Hamlet as applied to Bacon? (6)",
    "separatorLocations": {},
    "solution": "DANISH",
    "annotation": null
@@ -144,8 +136,7 @@ window.CRYPTIC_PUZZLES["cryptic-22845"] = /*JSON-START*/ {
     "y": 1
    },
    "length": 6,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "A fighting girl, the longest on the map (6)",
    "separatorLocations": {},
    "solution": "AMAZON",
    "annotation": null
@@ -159,8 +150,7 @@ window.CRYPTIC_PUZZLES["cryptic-22845"] = /*JSON-START*/ {
     "y": 3
    },
    "length": 4,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "A capital in bondage to Slovenes (4)",
    "separatorLocations": {},
    "solution": "OSLO",
    "annotation": null
@@ -174,8 +164,7 @@ window.CRYPTIC_PUZZLES["cryptic-22845"] = /*JSON-START*/ {
     "y": 3
    },
    "length": 10,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Please watch this space, or on the line you'll drop (4,3,3)",
    "separatorLocations": {},
    "solution": "MINDTHEGAP",
    "annotation": null
@@ -189,11 +178,14 @@ window.CRYPTIC_PUZZLES["cryptic-22845"] = /*JSON-START*/ {
     "y": 5
    },
    "length": 6,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "S lady's nag takes in part-sozzled back (6,6)",
    "separatorLocations": {},
    "solution": "HERPES",
-   "annotation": null
+   "annotation": null,
+   "group": [
+    "12-across",
+    "22-across"
+   ]
   },
   {
    "id": "13-down",
@@ -204,8 +196,7 @@ window.CRYPTIC_PUZZLES["cryptic-22845"] = /*JSON-START*/ {
     "y": 5
    },
    "length": 10,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Peck-picker loved Dickensian flanked by Queens (5,5)",
    "separatorLocations": {},
    "solution": "PETERPIPER",
    "annotation": null
@@ -219,8 +210,7 @@ window.CRYPTIC_PUZZLES["cryptic-22845"] = /*JSON-START*/ {
     "y": 5
    },
    "length": 8,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Bone, broken leg's, makes tiles from stones on shore (8)",
    "separatorLocations": {},
    "solution": "SHINGLES",
    "annotation": null
@@ -234,8 +224,7 @@ window.CRYPTIC_PUZZLES["cryptic-22845"] = /*JSON-START*/ {
     "y": 7
    },
    "length": 6,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Equipment numbered by small carnivore (6)",
    "separatorLocations": {},
    "solution": "KITTEN",
    "annotation": null
@@ -249,8 +238,7 @@ window.CRYPTIC_PUZZLES["cryptic-22845"] = /*JSON-START*/ {
     "y": 7
    },
    "length": 8,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Leave land when telly prize superb is heard (8)",
    "separatorLocations": {},
    "solution": "EMIGRATE",
    "annotation": null
@@ -264,8 +252,7 @@ window.CRYPTIC_PUZZLES["cryptic-22845"] = /*JSON-START*/ {
     "y": 7
    },
    "length": 6,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "This strike must be the devil to perform (6)",
    "separatorLocations": {},
    "solution": "IMPACT",
    "annotation": null
@@ -279,8 +266,7 @@ window.CRYPTIC_PUZZLES["cryptic-22845"] = /*JSON-START*/ {
     "y": 7
    },
    "length": 8,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Three skirts like ancient city with a store (8)",
    "separatorLocations": {},
    "solution": "TREASURY",
    "annotation": null
@@ -294,8 +280,7 @@ window.CRYPTIC_PUZZLES["cryptic-22845"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 6,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "The man from Auntie qualified by note (6)",
    "separatorLocations": {},
    "solution": "YENTOB",
    "annotation": null
@@ -309,8 +294,7 @@ window.CRYPTIC_PUZZLES["cryptic-22845"] = /*JSON-START*/ {
     "y": 9
    },
    "length": 8,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "A value for some floor of rail bereft (8)",
    "separatorLocations": {},
    "solution": "QUARTILE",
    "annotation": null
@@ -324,8 +308,7 @@ window.CRYPTIC_PUZZLES["cryptic-22845"] = /*JSON-START*/ {
     "y": 9
    },
    "length": 6,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Blue with another lacking potency (6)",
    "separatorLocations": {},
    "solution": "UNABLE",
    "annotation": null
@@ -339,11 +322,14 @@ window.CRYPTIC_PUZZLES["cryptic-22845"] = /*JSON-START*/ {
     "y": 9
    },
    "length": 6,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "See 12 (6)",
    "separatorLocations": {},
    "solution": "ZOSTER",
-   "annotation": null
+   "annotation": null,
+   "group": [
+    "12-across",
+    "22-across"
+   ]
   },
   {
    "id": "22-down",
@@ -354,8 +340,7 @@ window.CRYPTIC_PUZZLES["cryptic-22845"] = /*JSON-START*/ {
     "y": 9
    },
    "length": 6,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Belt holding such as ram and goat (6)",
    "separatorLocations": {},
    "solution": "ZODIAC",
    "annotation": null
@@ -369,8 +354,7 @@ window.CRYPTIC_PUZZLES["cryptic-22845"] = /*JSON-START*/ {
     "y": 11
    },
    "length": 10,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "About Z7, boy: done so measure's taken (10)",
    "separatorLocations": {},
    "solution": "CALIBRATED",
    "annotation": null
@@ -384,11 +368,14 @@ window.CRYPTIC_PUZZLES["cryptic-22845"] = /*JSON-START*/ {
     "y": 11
    },
    "length": 4,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Cracks put together, judges seek to storm (4;4)",
    "separatorLocations": {},
    "solution": "JEST",
-   "annotation": null
+   "annotation": null,
+   "group": [
+    "24-across",
+    "24-down"
+   ]
   },
   {
    "id": "24-down",
@@ -399,11 +386,14 @@ window.CRYPTIC_PUZZLES["cryptic-22845"] = /*JSON-START*/ {
     "y": 11
    },
    "length": 4,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "See 24 across (4)",
    "separatorLocations": {},
    "solution": "JOKE",
-   "annotation": null
+   "annotation": null,
+   "group": [
+    "24-across",
+    "24-down"
+   ]
   },
   {
    "id": "25-across",
@@ -414,8 +404,7 @@ window.CRYPTIC_PUZZLES["cryptic-22845"] = /*JSON-START*/ {
     "y": 13
    },
    "length": 6,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Able to speak with ease, is left unstirred (6)",
    "separatorLocations": {},
    "solution": "FLUENT",
    "annotation": null
@@ -429,8 +418,7 @@ window.CRYPTIC_PUZZLES["cryptic-22845"] = /*JSON-START*/ {
     "y": 13
    },
    "length": 8,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Spelling deficiency in titled chap (5,3)",
    "separatorLocations": {},
    "solution": "BLACKART",
    "annotation": null
