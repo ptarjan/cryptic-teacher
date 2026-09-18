@@ -3471,11 +3471,32 @@ global.realSetTimeout(() => {
     (b) => /definition/i.test(b.textContent || "") && !b.disabled);
 
   openIt();
+  // The clue must not resize the moment tapping starts: at rest every word is
+  // already its own .gw box (an inert one — see .gw.still), so tapping only
+  // ever recolours borders that were already taking up the room. Pin the
+  // property that actually broke — the BOX COUNT, not a class name — because a
+  // clue that renders as plain flowing text at rest and as N bordered chips
+  // once tapping starts passes a "contains guess-clue" check just fine while
+  // still reflowing under the solver.
+  const wordCount = (clue) =>
+    (clue.replace(/\s*\([^()]*\)\s*$/, "").match(/\S+/g) || []).length;
+  const boxCount = (html) => (html.match(/class="gw/g) || []).length;
+  const restingHTML = registry["hint-clue"].innerHTML;
+  const restingBoxes = boxCount(restingHTML);
+  assert(restingBoxes === wordCount(found.e.clue),
+    "every word of the clue is boxed even when nothing is being asked: " + restingHTML);
   const btn = defBtn();
   assert(btn, "the definition rung is offered: " + registry["hint-next"].innerHTML);
   btn.onclick();
+  assert(boxCount(registry["hint-clue"].innerHTML) === restingBoxes,
+    "and tapping neither adds nor removes a single box, only recolours them: "
+      + `${restingBoxes} at rest, ${boxCount(registry["hint-clue"].innerHTML)} tapping`);
   let html = panelHTML();
-  assert(html.includes("guess-clue"), "the definition rung asks before it tells: " + html);
+  // "guess-clue" alone no longer tells asking apart from resting — the clue's
+  // words are chip-wrapped in both states now, so the box never resizes
+  // switching between them (see .gw.still in style.css). "ask" is the class
+  // that only the actually-asking form carries.
+  assert(html.includes("guess-clue ask"), "the definition rung asks before it tells: " + html);
   assert(!html.includes("hint-step\"><span class=\"step-label\">2 ·"),
     "the rung is not handed over while the question is still open: " + html);
   // One clue on the screen, and it is the real one. The question used to print a
@@ -3540,7 +3561,7 @@ global.realSetTimeout(() => {
   // And the escape hatch out of the question itself.
   openIt();
   defBtn().onclick();
-  assert(panelHTML().includes("guess-clue"), "asked again");
+  assert(panelHTML().includes("guess-clue ask"), "asked again");
   registry["guess-tell"].onclick();
   assert(registry["hint-body"].innerHTML.includes("hint-step"), "“Just tell me” tells you");
   assert(!registry["hint-body"].innerHTML.includes("guess-verdict"),
@@ -3555,7 +3576,7 @@ global.realSetTimeout(() => {
   // coming out gets no announcement, only the finished grid does.
   openIt();
   defBtn().onclick();
-  assert(panelHTML().includes("guess-clue"), "asked a third time");
+  assert(panelHTML().includes("guess-clue ask"), "asked a third time");
   // Typed, not clicked square by square: a click on a crossing cell can pick
   // the other entry, and moving to another clue abandons the guess by design.
   // The solver being described here never left the clue.
@@ -4702,7 +4723,7 @@ global.realSetTimeout(() => {
     const b = rung(re);
     if (!b) return null;
     b.onclick();
-    if (!panelHTML().includes("guess-clue")) return null;
+    if (!panelHTML().includes("guess-clue ask")) return null;
     registry["gw-0"].onclick();
     registry["guess-check"].onclick();
     const marks = registry["hint-body"].innerHTML.match(/class="gw([^"]*)"/g) || [];
@@ -4721,7 +4742,7 @@ global.realSetTimeout(() => {
   const pickClass = (re) => {
     open();
     rung(re).onclick();
-    return (panelHTML().match(/class="guess-clue[^"]*"/) || [""])[0];
+    return (panelHTML().match(/class="guess-clue ask[^"]*"/) || [""])[0];
   };
   const defPick = pickClass(/definition/i), indPick = pickClass(/indicator/i);
   assert(/pick-definition/.test(defPick),
@@ -4738,6 +4759,22 @@ global.realSetTimeout(() => {
   assert(/\.gw\.on\s*\{[^}]*var\(--pick-bg\)/.test(pickCss) &&
          /\.gw\.hit\s*\{[^}]*var\(--pick-bg\)/.test(pickCss),
     "and both the picking and the marking read it");
+
+  // A word's box is the same size whichever of .gw's forms it is wearing —
+  // button, span, known, still, on, hit, missed — because the markup puts
+  // every one of them through the same .gw box (see pickableClueHTML): only
+  // the border's colour, style, background and text colour may tell the
+  // states apart. A rule here that snuck in a padding, margin or border WIDTH
+  // is exactly the bug that used to make the clue resize when tapping began.
+  const gwRules = pickCss.match(/(?:^|\n)((?:[.\w][^{}\n]*,?\s*)+)\{([^}]*)\}/g) || [];
+  const boxProps = /\b(?:padding|margin)\b\s*:|border(?:-(?:top|right|bottom|left))?-width\s*:|(?<!-)\bborder\s*:\s*[\d.]/;
+  gwRules.forEach((rule) => {
+    const [, selector, body] = rule.match(/^\s*\n?([^{]+)\{([^}]*)\}/) || [];
+    if (!selector || selector.trim() === ".gw" || !/\.gw(?:[.\s]|$)/.test(selector)) return;
+    assert(!boxProps.test(body),
+      `${selector.trim()} must not redeclare the box .gw sets — only its border's colour ` +
+      `or style may differ between states: ${body.trim()}`);
+  });
 
   // Cold, the ladder has two locks on it: the assembly rung and the walkthrough.
   open();
