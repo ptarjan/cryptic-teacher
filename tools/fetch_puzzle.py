@@ -1102,8 +1102,90 @@ def bare_letters(solution):
                    if unicodedata.category(c) != "Mn").upper()
 
 
+# The answers the SOURCE got wrong, and what its own clues say they are.
+#
+# A key with one letter out is invisible to every check this repo has: both
+# lights crossing the bad cell agree with each other, so tools/puzzle_integrity's
+# CROSS check is silent; both still hold the letters their enumerations count, so
+# LENGTH is silent too. The grid is perfectly self-consistent — it is the PAPER
+# that is wrong, not the data made of it — and nothing downstream can tell.
+#
+# So the correction has to be stated somewhere, and the file on disk is not
+# somewhere: carry_recovered_clues carries clue text across a re-fetch and
+# nothing carries a solution, so one deliberate re-fetch of cryptic-23053
+# silently restores the Guardian's letter. This is the statement, and
+# correct_source_answers applies it every time an answer is read off a page.
+#
+# Keyed by puzzle AND entry, holding BOTH values, because an entry is only good
+# while the paper is still serving the wrong one. `served` is what the page
+# sends, `corrected` is what goes in the file; a page since fixed no longer
+# matches `served` and is warned about rather than rewritten — a stale key here
+# must be deleted, exactly as a stale key in tools/puzzle_integrity.py's
+# PUBLISHED_WRONG must. Liveness is checked at fetch time, the one moment the
+# source is actually in front of us, because nothing in this repo's tests
+# touches the network; tools/test_source_answer_wrong.sh holds the half that can
+# be proved offline.
+#
+# This is for answers the source got WRONG, never for a guess or a preference.
+# The note has to be evidence that settles it — an enumeration that splits into
+# no words, a light that is not a word, the wordplay, the crossing — and an
+# answer merely solved here belongs in solutionSource (tools/apply_solution.py),
+# which marks a whole puzzle's fill unofficial. This table is the opposite case:
+# an official key, published, with a known error in two of its letters.
+SOURCE_ANSWER_WRONG = {
+    ("cryptic-23053", "18-across"): (
+        "GETSTEADY", "GETSREADY",
+        'the clue "Prepares, if year were good, for yesterday" is printed (4,5) '
+        "and GETSTEADY splits into no pair of words at all; GETS READY is the "
+        "definition, and its R is the cell (4,8) 15-down crosses"),
+    ("cryptic-23053", "15-down"): (
+        "XETOPHILY", "XEROPHILY",
+        "XETOPHILY is not a word; XEROPHILY, a liking for dry conditions, is the "
+        '"hence home and dry" of the clue, its wordplay the unknowns X and Y '
+        "keeping queen ER round O with duke PHIL — and its R is the same cell "
+        "(4,8), where the Guardian's key holds T in both lights that cross"),
+}
+
+
+def correct_source_answers(pid, entries):
+    """Put SOURCE_ANSWER_WRONG's letters into answers just read off the page.
+
+    Warns instead of rewriting when the table no longer describes the source:
+    the entry is gone, or the page serves something other than the value the
+    table names — including the corrected value itself, which is the paper
+    having fixed its own key. Overriding an answer nobody disputes is how a
+    correction outlives the error it was written for, so a stale entry is named
+    and the published answer is left exactly as it arrived.
+
+    An entry carrying no answer at all is not staleness: a prize puzzle is
+    published without its key, and there is nothing yet to compare.
+    """
+    by_id = {e["id"]: e for e in entries}
+    for (table_pid, eid), (served, corrected, _why) in SOURCE_ANSWER_WRONG.items():
+        if table_pid != pid:
+            continue
+        entry = by_id.get(eid)
+        if entry is None:
+            print(f"WARNING: SOURCE_ANSWER_WRONG {pid} {eid}: this puzzle has no "
+                  "such entry — stale key, delete it", file=sys.stderr)
+            continue
+        if not entry.get("solution"):
+            continue
+        if entry["solution"] == served:
+            entry["solution"] = corrected
+            continue
+        print(f"WARNING: SOURCE_ANSWER_WRONG {pid} {eid} is STALE: the page "
+              f"serves {entry['solution']}, not the {served} this table replaces "
+              f"with {corrected} — leaving it as published, delete the key",
+              file=sys.stderr)
+
+
 def convert(data):
     """Guardian data -> our puzzle object (annotation: null on every entry)."""
+    # Named before the entries are built: correct_source_answers is keyed by the
+    # id this puzzle will be filed under, not by the page it arrived from.
+    series = series_of(data["id"])
+    pid = series_meta.puzzle_id(series, data["number"])
     entries = []
     for e in sorted(data["entries"], key=lambda e: (e["position"]["y"], e["position"]["x"], e["direction"])):
         clue, italics = flatten_clue(e["clue"])
@@ -1130,10 +1212,14 @@ def convert(data):
             "solution": bare_letters(e.get("solution")),
             "annotation": None,
         })
+    # Before anything reads the answers: reconcile_groups and the length checks
+    # downstream all weigh letters, and the paper's wrong one is not the letter
+    # this corpus holds.
+    correct_source_answers(pid, entries)
     reconcile_groups(entries)
     prune_one_sided_members(entries)
-    dissolve_false_groups(entries, series_of(data["id"]))
-    reconstruct_groups(entries, series_of(data["id"]))
+    dissolve_false_groups(entries, series)
+    reconstruct_groups(entries, series)
     # Say it here, where the paper's own data is still in front of us.
     # Downstream a wordless clue is indistinguishable from a hard one: a cold
     # solve burns inference guessing it off the crossings, and the annotator
@@ -1174,8 +1260,6 @@ def convert(data):
         for e in entries:
             e["solution"] = None
 
-    series = series_of(data["id"])
-
     # The paper states the publication date twice and they must agree. `date` is
     # the puzzle's day; `webPublicationDate` is when the article went up, always
     # the evening before — measured at under a day apart on every page sampled
@@ -1193,7 +1277,7 @@ def convert(data):
             f"{_day(published)} — mis-filed page, refusing to write it")
 
     return {
-        "id": series_meta.puzzle_id(series, data["number"]),
+        "id": pid,
         "number": data["number"],
         "series": series,
         "name": data["name"],

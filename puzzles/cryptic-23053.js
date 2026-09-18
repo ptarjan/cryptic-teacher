@@ -137,13 +137,13 @@ window.CRYPTIC_PUZZLES["cryptic-23053"] = /*JSON-START*/ {
    },
    "length": 13,
    "clue": "See 13 (7,6)",
+   "separatorLocations": {},
+   "solution": "DOWNINGSTREET",
+   "annotation": null,
    "group": [
     "13-across",
     "9-down"
-   ],
-   "separatorLocations": {},
-   "solution": "DOWNINGSTREET",
-   "annotation": null
+   ]
   },
   {
    "id": "10-across",
@@ -197,13 +197,13 @@ window.CRYPTIC_PUZZLES["cryptic-23053"] = /*JSON-START*/ {
    },
    "length": 9,
    "clue": "Anaesthetist, nurse having organised a tester, is for leader authorised (6,3,7,6)",
+   "separatorLocations": {},
+   "solution": "NUMBERTEN",
+   "annotation": null,
    "group": [
     "13-across",
     "9-down"
-   ],
-   "separatorLocations": {},
-   "solution": "NUMBERTEN",
-   "annotation": null
+   ]
   },
   {
    "id": "14-across",

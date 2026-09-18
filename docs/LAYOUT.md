@@ -86,6 +86,11 @@ tools/test_blank_clue_carry.sh               proves a re-fetch cannot empty a pu
                                              old site, that the paper still wins wherever it
                                              prints words, and that the sixteen recovered prize
                                              puzzles still carry every clue
+tools/test_source_answer_wrong.sh            proves the table of answers the PAPER got wrong
+                                             still corrects the letters it names, still leaves
+                                             every other light alone, and names itself stale
+                                             rather than overriding a key the paper has since
+                                             fixed
 tools/coverage_report.py                     counts what we hold of every series and names the
                                              ones that have gone quiet, were never backfilled,
                                              or are full of holes

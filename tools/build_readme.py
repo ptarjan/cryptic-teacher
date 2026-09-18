@@ -77,6 +77,7 @@ LAYOUT = [
     ("fetching", "tools/test_puzzle_integrity.sh", "proves the two LENGTH exception tables match by nothing looser than the exact sentence they’re keyed on, and that baselining one finding never silences the rest of its puzzle"),
     ("fetching", "tools/fetch_ia_book.py", "borrows a lending-restricted archive.org book, saves its OCR text outside the repo, and returns the loan"),
     ("fetching", "tools/test_blank_clue_carry.sh", "proves a re-fetch cannot empty a puzzle whose clues were recovered by hand off the Guardian’s old site, that the paper still wins wherever it prints words, and that the sixteen recovered prize puzzles still carry every clue"),
+    ("fetching", "tools/test_source_answer_wrong.sh", "proves the table of answers the PAPER got wrong still corrects the letters it names, still leaves every other light alone, and names itself stale rather than overriding a key the paper has since fixed"),
     ("fetching", "tools/coverage_report.py", "counts what we hold of every series and names the ones that have gone quiet, were never backfilled, or are full of holes"),
     ("fetching", "tools/extend_archive.py", "walks the archives backwards to keep the annotation queue deeper than the job's best week"),
     ("fetching", "tools/fetch_minutecryptic.js", "Minute Cryptic’s daily hints, as a corpus to be measured against"),
