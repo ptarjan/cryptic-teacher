@@ -42,6 +42,7 @@ import time
 import unicodedata
 import urllib.error
 import urllib.request
+from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -207,6 +208,32 @@ def has_words(clue):
     that unsolvable and would have thrown away a clue the setter meant.
     """
     return any(c.isalnum() for c in re.sub(r"\([\d,\-. ]*\)", "", clue))
+
+
+# What a continuation leg's clue is made of once its enumeration is off: the
+# word "see", the numbers it points at, and the words that join them. Nothing
+# else — "See 5 across out to find another date" is wordplay that opens the
+# same way and must not read as a pointer (cryptic 27,884, the puzzle
+# dissolve_false_groups was written for).
+CONTINUATION = re.compile(
+    r"(?i)^see\b[\s\d,&.]*(?:(?:across|down|and|or|above|dn|ac)\b[\s\d,&.]*)*$")
+
+
+def is_continuation(clue):
+    """Is this clue nothing but a pointer at the light that carries the answer?
+
+    "See 2", "See 1 down and 7", "See 23 13 across, or 11" — what the paper
+    prints on the legs of a linked answer, and a clue with no wordplay in it.
+
+    It matters because a count riding along with one — "See 2 (6)" on
+    cryptic-23578's 7-down LOYOLA, six cells of IGNATIUS LOYOLA "(8,6)" — is the
+    leg's OWN cell count and not a statement about the answer. The Guardian
+    printed those routinely before about 2015. So a counted continuation is
+    neither evidence that a group is false (dissolve_false_groups) nor a length
+    contradiction when it disagrees with the group's total
+    (tools/puzzle_integrity.py check_length); both ask here.
+    """
+    return bool(CONTINUATION.match(ENUMERATION.sub("", clue or "").strip()))
 
 
 def flatten_clue(s):
@@ -503,17 +530,39 @@ def _own_count(entry):
 
 
 def dissolve_false_groups(entries, series):
-    """Break up groups that are not linked answers at all. Returns the ones broken.
+    """Take out of a linked group every light that is a whole answer already.
+    Returns the lists of lights removed, one per group it touched.
 
     A linked answer is enumerated ONCE, on the leading light, for the whole
     phrase: cryptic-29069's 3-down says "(6,8,9)" and its two continuations say
-    "See 3". So a group in which EVERY member carries a full enumeration of its
-    own light is not one answer spread over several lights — each of those
-    clues already told the solver its light is complete — and the link is the
-    paper's parser reading wordplay as a cross-reference. Cryptic 27,884's
+    "See 3". So a light whose own clue counts exactly its own cells has already
+    told the solver that light is finished, and it is not carrying part of
+    anybody else's answer — whatever the paper's `group` says. Cryptic 27,884's
     20-across is "See 5 across out to find another date (10)", where "See 5" is
     the wordplay; the Guardian grouped it with 5-across LURCHED "(7)" and left
     RESCHEDULE stored as half of a seventeen-letter answer that nobody wrote.
+
+    Weighed per light rather than over the whole group, because the two shapes
+    it takes need different answers and the older markup is full of both:
+
+      Every member counts itself — 27,884 above, and cryptic-23987's DIS, TEN,
+      CON and TED, four three-letter answers the paper linked because three of
+      them read "See 13". Nothing here is linked to anything; the group goes.
+
+      One member counts itself and the rest are bare "See 22" continuations —
+      cryptic-23468's 8-down HEAD "(4)" with 26-across LIGHT "See 8". HEAD is
+      complete at four letters, so LIGHT is its own answer too and the group
+      goes with it, there being nothing left for it to link.
+
+      One member counts itself and two or more real legs remain — cryptic-25430,
+      where the Guardian hung 19-down ALL RIGHT "(3,5)" off the group carrying
+      NATURE I LOVED AND NEXT TO NATURE ART. Only the intruder leaves; the
+      answer that was really there keeps its remaining lights.
+
+    A bare continuation is never the intruder, however it is counted: "See 2 (6)"
+    is the Guardian's older way of printing the leg's own cell count beside the
+    pointer, and it says nothing about whether the link is real. See
+    is_continuation.
 
     Gated off for PER_LIGHT_ENUMERATION series, where a full count on every leg
     is the house style rather than evidence of anything: dissolving Cyclops
@@ -536,16 +585,210 @@ def dissolve_false_groups(entries, series):
             continue
         if any(set(by_id[m].get("group") or []) != set(members) for m in members):
             continue
-        if any(_own_count(by_id[m]) != by_id[m].get("length") for m in members):
+        # The paper's own arithmetic first: if any light's count covers the whole
+        # group, the group IS one answer and nothing below applies. Cryptic
+        # 29,069's 3-down says "(6,8,9)" over LONDON, SYMPHONY and ORCHESTRA,
+        # and its legs may carry full clues and counts of their own — which is
+        # the shape a false link has too, so the total is what tells them apart.
+        total = sum(by_id[m].get("length") or 0 for m in members)
+        if any(_own_count(by_id[m]) == total for m in members):
             continue
-        for m in members:
+        carriers = [m for m in members if not is_continuation(by_id[m].get("clue"))]
+        complete = [m for m in carriers
+                    if _own_count(by_id[m]) == by_id[m].get("length")]
+        if not complete and carriers:
+            continue
+        keep = [m for m in members if m not in complete]
+        counters, every = list(complete), not keep
+        if len(keep) < 2 or all(is_continuation(by_id[m].get("clue"))
+                                for m in keep):
+            # What is left is not an answer: one light cannot be a linked one,
+            # and a set of bare "See 13" legs with nothing that carries a clue
+            # is four answers the paper cross-referenced (cryptic-23987's DIS,
+            # TEN, CON and TED), not one spread over four lights. Either way the
+            # group goes; the pointer survives in the clue text, where the paper
+            # put it.
+            complete, keep = list(members), []
+        for m in complete:
             del by_id[m]["group"]
-        dissolved.append(list(members))
-        print(f"WARNING: {' + '.join(members)}: every light carries a full "
-              "enumeration of its own, so this is a cross-reference in the "
+        for m in keep:
+            by_id[m]["group"] = keep
+        dissolved.append(list(complete))
+        if keep:
+            print(f"WARNING: {' + '.join(complete)}: counts its own light in "
+                  f"full, so it is not part of {' + '.join(keep)}'s answer — "
+                  "taken out of the group", file=sys.stderr)
+            continue
+        print(f"WARNING: {' + '.join(members)}: "
+              + ("every light carries a full enumeration of its own"
+                 if every else
+                 f"{' + '.join(counters)} counts its own light in full and "
+                 "what is left carries no clue of its own")
+              + ", so this is a cross-reference in the "
               "wordplay and not a linked answer — group dissolved",
               file=sys.stderr)
     return dissolved
+
+
+# The number a pointer names, and the direction if it bothers to say: "See 16",
+# "See 16 Down", "see 19 across", "See 23 13 across, or 11". Only ever applied to
+# a clue is_continuation has already agreed is nothing but a pointer, so every
+# number in it is a light it points at.
+POINTER = re.compile(r"(\d+)\s*(across|down|ac|dn)?\b", re.I)
+SHORT_DIRECTIONS = {"ac": "across", "dn": "down"}
+
+# The most lights one answer may be reassembled over. The search is every subset
+# of the spare lights against every order of the result, so it has to stop
+# somewhere; the longest linked answer in the corpus runs to six lights, and
+# nothing that needs more than this is being reconstructed from an enumeration
+# anyway.
+RECONSTRUCT_LIMIT = 9
+
+
+def _points_at(clue, lead):
+    """Does this pointer name `lead`?
+
+    A pointer that names no light at all — cryptic-23816's 10-across "See above",
+    printed under the clue it continues — names whatever it turns out to fit, and
+    the enumeration is left to say which. A pointer that names lights names only
+    those, and a direction it states is held to: "See 16 Down" is not about
+    16-across.
+    """
+    named = [(int(n), SHORT_DIRECTIONS.get(d.lower(), d.lower()) or None)
+             for n, d in POINTER.findall(ENUMERATION.sub("", clue or ""))]
+    return not named or any(n == lead["number"] and d in (None, lead["direction"])
+                            for n, d in named)
+
+
+def _spare_light(entry, lead):
+    """Is this light free to be part of `lead`'s answer, on the paper's own say-so?
+
+    Two shapes qualify, and both are the paper saying this light is not an answer
+    by itself. A pointer naming the lead — "See 16", "See 1 across and 9" — is the
+    Guardian's continuation leg, which is_continuation settles. And a light the
+    paper printed NO clue for is a leg whose pointer the old markup lost outright:
+    cryptic-23609's 8-down RUST arrives with an empty clue beside 7-down's "Doubt
+    if small droplets corrode (8)", which counts eight cells over a four-cell
+    light.
+
+    Nothing else is spare. A light carrying words of its own is an answer of its
+    own, whatever it crosses, and a blank one that still states a count is
+    complete as it stands — cryptic-29345's 5-down is wordless over "(1,6,3,1,4)"
+    because I HAVEN'T GOT A CLUE is the joke, and it is finished. A counted
+    continuation is exempt from that, as everywhere else: "See 2 (6)" is the leg's
+    own cell count printed beside the pointer, not a claim to be a whole answer.
+
+    A light the paper has already put in somebody else's group is not spare
+    either. One `group` field cannot say that a light ends two answers —
+    cryptic-24951's 24-across THE is in both SET THE CAT AMONG THE PIGEONS and
+    LET THE DOG SEE THE RABBIT — so taking it would be quietly deciding which
+    answer loses it.
+    """
+    group = entry.get("group") or []
+    if len(group) > 1 and lead["id"] not in group:
+        return False
+    clue = entry.get("clue")
+    if is_continuation(clue):
+        return _points_at(clue, lead)
+    return (not ENUMERATION.sub("", clue or "").strip()
+            and _own_count(entry) is None)
+
+
+def reconstruct_groups(entries, series):
+    """Put back the lights a linked answer's enumeration counts and its group lost.
+    Returns the rebuilt groups, one list of lights per group.
+
+    The mirror of dissolve_false_groups, and the other half of the same damage:
+    the Guardian's pre-2015 markup read cross-references in the wordplay as links,
+    and failed to record links that were really there. What is left after the
+    false ones go is an enumeration counting more letters than the lights the
+    paper grouped — cryptic-23816's 9-across TREAD "(5,3,6)", fourteen letters over
+    five cells, with THE BOARDS sitting in 10-across under the clue "See above" and
+    in no group at all.
+
+    The lights that may be put back are the spare ones — see _spare_light — and
+    the enumeration is what chooses among them: a Guardian leading clue counts the
+    whole answer word by word, so the lights of that answer are the ones its counts
+    cut into (_cuts_into), one light per run of words. A membership is taken only
+    when it is the ONLY one that cuts. Two readings that both add up are two
+    answers this data cannot tell apart, and a guess between them would be written
+    into the file as fact; the enumeration keeps failing to match instead, where
+    tools/puzzle_integrity.py reports it.
+
+    Order comes from the enumeration too when it is settled, and otherwise from
+    reconcile_groups' rule — the stated order kept and the newcomers appended in
+    grid reading order. Ambiguous ORDER is a display question, asked only after
+    membership is already right.
+
+    Gated off for PER_LIGHT_ENUMERATION series, where a leg's count is its own
+    light's and says nothing about the rest of the answer, so there is no
+    arithmetic here to reconstruct from.
+
+    Run AFTER dissolve_false_groups, which is what decides which links are real:
+    a group broken there is not one to be rebuilt here, and cannot be — a light
+    it frees counts its own cells in full, which is exactly what _spare_light
+    refuses.
+    """
+    if series in PER_LIGHT_ENUMERATION:
+        return []
+    by_id = {e["id"]: e for e in entries}
+    claimed, rebuilt = {}, []
+    for lead in entries:
+        if is_continuation(lead.get("clue")):
+            continue                    # a pointer counts its own light, not an answer
+        said = ENUMERATION.search(lead.get("clue") or "")
+        counts = [int(n) for n in re.findall(r"\d+", said.group(1))] if said else []
+        if not counts:
+            continue
+        members = list(lead.get("group") or [lead["id"]])
+        if lead["id"] not in members or not set(members) <= set(by_id):
+            continue
+        held = sum(by_id[m].get("length") or 0 for m in members)
+        if sum(counts) == held:
+            continue                    # the lights the paper grouped already hold it
+        spare = [e["id"] for e in entries
+                 if e["id"] not in members and _spare_light(e, lead)]
+        if not spare or len(members) + len(spare) > RECONSTRUCT_LIMIT:
+            continue
+        tail = [m for m in members if m != lead["id"]]
+        fits = {}
+        for size in range(1, len(spare) + 1):
+            for extra in itertools.combinations(spare, size):
+                if held + sum(by_id[m]["length"] for m in extra) != sum(counts):
+                    continue
+                orders = [rest for rest in itertools.permutations(tail + list(extra))
+                          if _cuts_into(counts, [by_id[m]["length"]
+                                                 for m in (lead["id"], *rest)])]
+                if orders:
+                    fits[frozenset(extra)] = orders
+        if len(fits) != 1:
+            continue
+        (extra, orders), = fits.items()
+        if len(orders) == 1:
+            order = [lead["id"], *orders[0]]
+        else:
+            order = [lead["id"], *tail,
+                     *sorted(extra, key=lambda m: (by_id[m]["position"]["y"],
+                                                   by_id[m]["position"]["x"]))]
+        claimed[lead["id"]] = (order, extra)
+
+    # One light, one answer. Two leading clues whose enumerations both reach the
+    # same spare light are the shared-light case again, arrived at from the other
+    # side, and `group` still cannot hold it — so neither claim is written.
+    taken = Counter(m for _order, extra in claimed.values() for m in extra)
+    for lead_id, (order, extra) in sorted(claimed.items()):
+        if any(taken[m] > 1 for m in extra):
+            print(f"WARNING: {lead_id}: {', '.join(sorted(m for m in extra if taken[m] > 1))} "
+                  "would finish more than one answer — left as published",
+                  file=sys.stderr)
+            continue
+        for m in order:
+            by_id[m]["group"] = list(order)
+        rebuilt.append(list(order))
+        print(f"WARNING: {lead_id}: its enumeration counts "
+              f"{' + '.join(sorted(extra))}, which the paper left out of the group "
+              f"— reading the answer as {' + '.join(order)}", file=sys.stderr)
+    return rebuilt
 
 
 def _day(ms):
@@ -626,6 +869,7 @@ def convert(data):
         })
     reconcile_groups(entries)
     dissolve_false_groups(entries, series_of(data["id"]))
+    reconstruct_groups(entries, series_of(data["id"]))
     # Say it here, where the paper's own data is still in front of us.
     # Downstream a wordless clue is indistinguishable from a hard one: a cold
     # solve burns inference guessing it off the crossings, and the annotator
@@ -901,8 +1145,29 @@ def reindex():
     return index
 
 
+# Guardian numbers where the ordinary "try cryptic, then prize" order in
+# fetch_page() lands on the wrong puzzle because two unrelated pages both
+# claim the same number. cryptic/24451 answers 200 with a page dated
+# 2008-11-20 (Brendan) — self-consistent (date and webPublicationDate agree),
+# so convert()'s own mis-filed guard never fires — but 24451 is the single
+# Saturday between cryptic-24450 (2008-07-25, Fri) and cryptic-24452
+# (2008-07-28, Mon), and prize/24451 holds exactly that puzzle (Araucaria,
+# 2008-07-26). The Brendan page is genuinely 24551: cryptic/24551 and
+# prize/24551 both 404, and cryptic-24550 (2008-11-19) / cryptic-24552
+# (2008-11-21) bracket the single day it belongs in. Keyed by the number
+# actually wanted; valued with (url template to fetch instead of the default
+# order, the number to trust over whatever that page's own data says — None
+# to trust the page).
+NUMBER_URL_FIXES = {
+    24451: ("https://www.theguardian.com/crosswords/prize/{num}", None),
+    24551: ("https://www.theguardian.com/crosswords/cryptic/24451", 24551),
+}
+
+
 def fetch_page(num):
     """Get a puzzle page by number, trying each series URL (cryptic, then prize)."""
+    if num in NUMBER_URL_FIXES:
+        return http_get(NUMBER_URL_FIXES[num][0].format(num=num))
     last = None
     for url in PUZZLE_URLS:
         try:
@@ -916,6 +1181,10 @@ def fetch_page(num):
 
 def fetch_number(num):
     data = extract_crossword_data(fetch_page(num))
+    if num in NUMBER_URL_FIXES:
+        forced_number = NUMBER_URL_FIXES[num][1]
+        if forced_number is not None:
+            data["number"] = forced_number
     puzzle = convert(data)
     path = PUZZLE_DIR / f"{puzzle['id']}.js"
     is_new = not path.exists()
