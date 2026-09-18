@@ -24,8 +24,7 @@ window.CRYPTIC_PUZZLES["cryptic-24243"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 13,
-   "clue": " (13)",
-   "clueMissing": true,
+   "clue": "Trickster's admission of being tricked, making John see to Mike (3,4,2,2,2)",
    "separatorLocations": {},
    "solution": "THEJOKEISONME",
    "annotation": null
@@ -39,8 +38,7 @@ window.CRYPTIC_PUZZLES["cryptic-24243"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "Mixed race boy supplies football club teas (4-5)",
    "separatorLocations": {},
    "solution": "HALFCASTE",
    "annotation": null
@@ -54,8 +52,7 @@ window.CRYPTIC_PUZZLES["cryptic-24243"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "Smoked food? (5)",
    "separatorLocations": {},
    "solution": "JOINT",
    "annotation": null
@@ -69,8 +66,7 @@ window.CRYPTIC_PUZZLES["cryptic-24243"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "Cooker about to return humble greeting (5)",
    "separatorLocations": {},
    "solution": "KOTOW",
    "annotation": null
@@ -84,8 +80,7 @@ window.CRYPTIC_PUZZLES["cryptic-24243"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "Popular opening or select opening for patentees (9)",
    "separatorLocations": {},
    "solution": "INVENTORS",
    "annotation": null
@@ -99,8 +94,7 @@ window.CRYPTIC_PUZZLES["cryptic-24243"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "Coleridge's narrator made ten dollars (3,6)",
    "separatorLocations": {},
    "solution": "OLDSAILOR",
    "annotation": null
@@ -114,8 +108,7 @@ window.CRYPTIC_PUZZLES["cryptic-24243"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "Piece of music encountered outside books (5)",
    "separatorLocations": {},
    "solution": "MOTET",
    "annotation": null
@@ -129,8 +122,7 @@ window.CRYPTIC_PUZZLES["cryptic-24243"] = /*JSON-START*/ {
     "y": 1
    },
    "length": 13,
-   "clue": " (13)",
-   "clueMissing": true,
+   "clue": "Equation: solution (if Roman and atomic numbers) Z = F (1,4,1,6,1)",
    "separatorLocations": {},
    "solution": "XPLUSYEQUALSZ",
    "annotation": null
@@ -144,8 +136,7 @@ window.CRYPTIC_PUZZLES["cryptic-24243"] = /*JSON-START*/ {
     "y": 1
    },
    "length": 13,
-   "clue": " (13)",
-   "clueMissing": true,
+   "clue": "Walkover here? If with donkey, remove all but centre of part 2 (5,8)",
    "separatorLocations": {},
    "solution": "ZEBRACROSSING",
    "annotation": null
@@ -159,8 +150,7 @@ window.CRYPTIC_PUZZLES["cryptic-24243"] = /*JSON-START*/ {
     "y": 2
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Friend with spray to work on the hand? (7)",
    "separatorLocations": {},
    "solution": "PALMIST",
    "annotation": null
@@ -174,8 +164,7 @@ window.CRYPTIC_PUZZLES["cryptic-24243"] = /*JSON-START*/ {
     "y": 2
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Patrol boat (see minieditor?) (7)",
    "separatorLocations": {},
    "solution": "VEDETTE",
    "annotation": null
@@ -189,8 +178,7 @@ window.CRYPTIC_PUZZLES["cryptic-24243"] = /*JSON-START*/ {
     "y": 4
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "Full length hook with next to last letter (5)",
    "separatorLocations": {},
    "solution": "UNCUT",
    "annotation": null
@@ -204,8 +192,7 @@ window.CRYPTIC_PUZZLES["cryptic-24243"] = /*JSON-START*/ {
     "y": 4
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "Pursued and succeeded (4,5)",
    "separatorLocations": {},
    "solution": "WENTAFTER",
    "annotation": null
@@ -219,8 +206,7 @@ window.CRYPTIC_PUZZLES["cryptic-24243"] = /*JSON-START*/ {
     "y": 6
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "You suffer a bit, said Joe in Arabic (5)",
    "separatorLocations": {},
    "solution": "YUSUF",
    "annotation": null
@@ -234,8 +220,7 @@ window.CRYPTIC_PUZZLES["cryptic-24243"] = /*JSON-START*/ {
     "y": 6
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "Square for river that's kept in (5-4)",
    "separatorLocations": {},
    "solution": "FORTYNINE",
    "annotation": null
@@ -249,8 +234,7 @@ window.CRYPTIC_PUZZLES["cryptic-24243"] = /*JSON-START*/ {
     "y": 6
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "Sophist is smart about work record (9)",
    "separatorLocations": {},
    "solution": "CHOPLOGIC",
    "annotation": null
@@ -264,8 +248,7 @@ window.CRYPTIC_PUZZLES["cryptic-24243"] = /*JSON-START*/ {
     "y": 6
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "Trickster holding greater part of culture grower (9)",
    "separatorLocations": {},
    "solution": "CHEMOSTAT",
    "annotation": null
@@ -279,8 +262,7 @@ window.CRYPTIC_PUZZLES["cryptic-24243"] = /*JSON-START*/ {
     "y": 6
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "Actor's part in gallery near to being clean? (9)",
    "separatorLocations": {},
    "solution": "GODLINESS",
    "annotation": null
@@ -294,8 +276,7 @@ window.CRYPTIC_PUZZLES["cryptic-24243"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "Queen's (ER's) show rum quality (9)",
    "separatorLocations": {},
    "solution": "QUEERNESS",
    "annotation": null
@@ -309,8 +290,7 @@ window.CRYPTIC_PUZZLES["cryptic-24243"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "Took no part in the cowboy show? (5)",
    "separatorLocations": {},
    "solution": "RODEO",
    "annotation": null
@@ -324,8 +304,7 @@ window.CRYPTIC_PUZZLES["cryptic-24243"] = /*JSON-START*/ {
     "y": 10
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "Beatles' address to Turk in foreign parts (5,4)",
    "separatorLocations": {},
    "solution": "ABBEYROAD",
    "annotation": null
@@ -339,8 +318,7 @@ window.CRYPTIC_PUZZLES["cryptic-24243"] = /*JSON-START*/ {
     "y": 10
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "Relative to Pole, unknown in New York (5)",
    "separatorLocations": {},
    "solution": "BRONX",
    "annotation": null
@@ -354,8 +332,7 @@ window.CRYPTIC_PUZZLES["cryptic-24243"] = /*JSON-START*/ {
     "y": 10
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "Capital letter missing from scene of oracle (5)",
    "separatorLocations": {},
    "solution": "DELHI",
    "annotation": null
@@ -369,8 +346,7 @@ window.CRYPTIC_PUZZLES["cryptic-24243"] = /*JSON-START*/ {
     "y": 10
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "They are hard on the hand (5)",
    "separatorLocations": {},
    "solution": "NAILS",
    "annotation": null
@@ -384,8 +360,7 @@ window.CRYPTIC_PUZZLES["cryptic-24243"] = /*JSON-START*/ {
     "y": 10
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "Roman family name for women only? (5)",
    "separatorLocations": {},
    "solution": "NOMEN",
    "annotation": null
@@ -399,8 +374,7 @@ window.CRYPTIC_PUZZLES["cryptic-24243"] = /*JSON-START*/ {
     "y": 12
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Duns' advocate is confined by great man (7)",
    "separatorLocations": {},
    "solution": "SCOTIST",
    "annotation": null
@@ -414,8 +388,7 @@ window.CRYPTIC_PUZZLES["cryptic-24243"] = /*JSON-START*/ {
     "y": 12
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Strike by Pole which can draw blood (7)",
    "separatorLocations": {},
    "solution": "LAMPERN",
    "annotation": null
@@ -429,8 +402,7 @@ window.CRYPTIC_PUZZLES["cryptic-24243"] = /*JSON-START*/ {
     "y": 14
    },
    "length": 13,
-   "clue": " (13)",
-   "clueMissing": true,
+   "clue": "Spurious pretext is news that should stand up in court (6,7)",
    "separatorLocations": {},
    "solution": "EXPERTWITNESS",
    "annotation": null
