@@ -293,7 +293,6 @@ window.CRYPTIC_PUZZLES["cryptic-28717"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "…  ? (8)",
-   "clueMissing": true,
    "separatorLocations": {},
    "solution": "WORDLESS",
    "annotation": null
