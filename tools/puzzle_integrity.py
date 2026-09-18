@@ -27,7 +27,9 @@ The flags, in the order they matter:
             field, and the (5,4)-style enumeration at the end of the clue. On a
             LINKED clue the enumeration is allowed to count either that light or
             the whole group, because the papers in this corpus do both — see
-            check_length, which has the numbers.
+            check_length, which has the numbers. Three findings are excepted by
+            name, in PUBLISHED_WRONG: what the Guardian printed there cannot be
+            reconciled with the grid it printed beside it.
   CROSS     two entries that share a grid cell and disagree about its letter. One
             wrong answer normally breaks three or four of these, so a clean sheet
             is real evidence the fill is the paper's and not a mangling of it.
@@ -69,7 +71,8 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from apply_solution import check_fill, normalise  # noqa: E402 — the crossing check
 from fetch_puzzle import (ENUMERATION, PER_LIGHT_ENUMERATION,  # noqa: E402
-                          PUZZLE_DIR, is_bare_letters, read_puzzle_file)
+                          PUZZLE_DIR, is_bare_letters, is_continuation,
+                          read_puzzle_file)
 
 ROOT = Path(__file__).resolve().parent.parent
 INDEX = ROOT / "puzzles" / "index.json"
@@ -82,14 +85,39 @@ INDEX = ROOT / "puzzles" / "index.json"
 # date-against-webPublicationDate check in fetch_puzzle.convert().
 EARLIEST_YEAR = 1930
 
+# The LENGTH findings that are the PAPER, not the data we made of it: an
+# enumeration no reading of the grid the Guardian published can satisfy, so no
+# fetcher or repair can ever clear them and they would otherwise sit in the
+# report for ever, teaching everyone to skim it.
+#
+# Keyed by puzzle AND by the whole finding, because the point is to forgive these
+# three sentences and nothing else. Any other defect in the same clue — a changed
+# answer, a light regrouped, a second count gone wrong — reads as a different
+# finding and still reports.
+PUBLISHED_WRONG = {
+    ("cryptic-23536", "23-down: clue says (5) = 5, answer holds 7"):
+        "ERRHINE fills the seven cells the grid gives it under a clue printed (5)",
+    ("cryptic-25949",
+     "1-down + 26-across: clue says (4,5) = 9, answer holds 4 alone or 13 linked"):
+        "1-down ASIL is counted (4,5) for ASIL NADIR, but NADIR is 28-across under "
+        "a clue of its own and the paper linked 1-down to 26-across PANOPLIED (9)",
+    ("cryptic-27173",
+     "29-down + 23-down: clue says (4) = 4, answer holds 4 alone or 10 linked"):
+        "29-down SHOE is counted (4) for its own light while 23-down OXFORD points "
+        "at it, so the ten cells of OXFORD SHOE are nowhere counted",
+}
+
 # PER_LIGHT_ENUMERATION names the series whose linked clues are enumerated one
 # light at a time, and is imported rather than restated: the fetcher dissolves a
 # group whose every leg counts its own light (dissolve_false_groups), and this
 # check forgives exactly that shape. Two lists would let one paper be forgiven
 # here and taken apart there. The Guardian and the Independent count the whole
-# answer on the leading clue and nothing at all on the continuations ("See 3"),
-# so they are held to the strict reading and a group that has gone wrong there
-# still shows up.
+# answer on the leading clue, so they are held to the strict reading and a group
+# that has gone wrong there still shows up — with one exception that is about
+# the CLUE and not the paper: a leg printed "See 3 (6)", which the Guardian did
+# routinely before about 2015, is counting its own cells, and check_length reads
+# it that way in every series. fetch_puzzle.is_continuation decides which clues
+# those are.
 
 
 def content_hash(puzzle):
@@ -215,14 +243,24 @@ def check_length(puzzle, checkable, flags):
         if any(not s for s in legs):
             continue  # part of the answer is unpublished; nothing to compare yet
         held = sum(len(normalise(s)) for s in legs)
-        per_light = puzzle.get("series") in PER_LIGHT_ENUMERATION
+        # A counted continuation counts its own light, in any paper. "See 2 (6)"
+        # has no wordplay to count anything else with: cryptic-23578's 7-down is
+        # that exactly, six cells of IGNATIUS LOYOLA whose "(8,6)" is printed
+        # where it belongs, on 2-down. The Guardian did this routinely before
+        # about 2015, so the reading is not a licence handed to a publisher but
+        # one the clue itself asks for — see fetch_puzzle.is_continuation.
+        per_light = (puzzle.get("series") in PER_LIGHT_ENUMERATION
+                     or is_continuation(e.get("clue")))
         if sum(counts) == held or (len(group) > 1 and per_light
                                    and sum(counts) == len(solution)):
             continue
         where = eid if len(group) == 1 else " + ".join(group)
         holds = f"{held}" if len(group) == 1 else f"{len(solution)} alone or {held} linked"
-        flags.append(("LENGTH", pid, (f"{where}: clue says ({m.group(1)}) = "
-                                      f"{sum(counts)}, answer holds {holds}")))
+        finding = (f"{where}: clue says ({m.group(1)}) = "
+                   f"{sum(counts)}, answer holds {holds}")
+        if (pid, finding) in PUBLISHED_WRONG:
+            continue
+        flags.append(("LENGTH", pid, finding))
 
 
 def check_cross(puzzle, checkable, flags):
