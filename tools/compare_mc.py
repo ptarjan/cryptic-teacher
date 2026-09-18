@@ -188,7 +188,9 @@ def ladder_steps(ann, clue_text):
     return steps
 
 
-OUR_RUNG_ORDER = ["indicators", "definition", "type", "blocks", "walkthrough"]
+# Read from app.js, not transcribed: this file already parses app.js for the
+# rung WORDS, and a hand-kept order beside them is the same rot one field over.
+OUR_RUNG_ORDER = [key for key, _label in app_tables.ladder()]
 
 
 # ---------- loading ----------
