@@ -94,6 +94,31 @@ def as_date(ms):
     return datetime.fromtimestamp(ms / 1000, timezone.utc).date()
 
 
+def is_date_keyed(held):
+    """True when a series' "number" is really its own date spelled YYYYMMDD
+    (metro: number 20260918 on 2026-09-18), not a running puzzle count.
+
+    Checked structurally -- every puzzle that carries a date must parse as
+    YYYYMMDD and equal that same puzzle's date -- rather than by series name,
+    because the failure mode this guards against is `numbers[-1] -
+    numbers[0]` being fed a pair of dates and returning a difference that
+    looks like a puzzle count but isn't. Naming metro here would fix today's
+    series and leave the next date-keyed feed to trip the same bug.
+    """
+    checked = False
+    for p in held:
+        if not p.get("date"):
+            continue
+        try:
+            parsed = datetime.strptime(str(p["number"]), "%Y%m%d").date()
+        except ValueError:
+            return False
+        if parsed != as_date(p["date"]):
+            return False
+        checked = True
+    return checked
+
+
 def audit(puzzles, today):
     """One row per series, each with a (possibly empty) list of flags."""
     by_series = defaultdict(list)
@@ -107,6 +132,7 @@ def audit(puzzles, today):
         dates = sorted(as_date(p["date"]) for p in held if p.get("date"))
         dateless = len(held) - len(dates)
         floor = ARCHIVE_FLOOR.get(name)
+        cadence = CADENCE_DAYS.get(name)
         below = [n for n in all_numbers if floor and n < floor]
         numbers = [n for n in all_numbers if n not in set(below)]
         span = numbers[-1] - numbers[0] + 1
@@ -120,7 +146,6 @@ def audit(puzzles, today):
             newest, oldest = dates[-1], dates[0]
             quiet = (today - newest).days
             depth = (newest - oldest).days
-            cadence = CADENCE_DAYS.get(name)
             if cadence and quiet > cadence * 3:
                 flags.append(f"STALE nothing since {newest} ({quiet}d)")
             if depth < SHALLOW_DAYS:
@@ -128,7 +153,16 @@ def audit(puzzles, today):
         else:
             newest = oldest = None
 
-        if span > 1 and missing * 100 / span > HOLES_PCT:
+        if dates and cadence and is_date_keyed(held):
+            # numbers[0] and numbers[-1] are dates in disguise here, so their
+            # difference (metro: 20260918 - 20250403 = 10,464) isn't a puzzle
+            # count -- measure the axis this series actually has: publication
+            # days, at its own cadence, between the oldest and newest held.
+            expected = depth // cadence + 1
+            missing = expected - len(dates)
+            if expected > 1 and missing * 100 / expected > HOLES_PCT:
+                flags.append(f"HOLES {missing} of {expected} publication days missing")
+        elif span > 1 and missing * 100 / span > HOLES_PCT:
             flags.append(f"HOLES {missing} of {span} numbers missing")
 
         # The gap between what the source still serves and the oldest we have
