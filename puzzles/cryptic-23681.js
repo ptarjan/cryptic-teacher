@@ -24,8 +24,7 @@ window.CRYPTIC_PUZZLES["cryptic-23681"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 12,
-   "clue": " (12)",
-   "clueMissing": true,
+   "clue": "Victorian rogue to use poker on potential blaze at tea time (5,7)",
    "separatorLocations": {},
    "solution": "JABEZBALFOUR",
    "annotation": null
@@ -39,8 +38,7 @@ window.CRYPTIC_PUZZLES["cryptic-23681"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Aristides - and there must be many others (4,3)",
    "separatorLocations": {},
    "solution": "JUSTONE",
    "annotation": null
@@ -54,8 +52,7 @@ window.CRYPTIC_PUZZLES["cryptic-23681"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Listening to financial body's clever remarks is a treat (7)",
    "separatorLocations": {},
    "solution": "BANQUET",
    "annotation": null
@@ -69,8 +66,7 @@ window.CRYPTIC_PUZZLES["cryptic-23681"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "Code without one thing that transmits weak interaction (1,8)",
    "separatorLocations": {},
    "solution": "ZPARTICLE",
    "annotation": null
@@ -84,8 +80,7 @@ window.CRYPTIC_PUZZLES["cryptic-23681"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "Blend with something else 997 years ago (5)",
    "separatorLocations": {},
    "solution": "ADMIX",
    "annotation": null
@@ -99,8 +94,7 @@ window.CRYPTIC_PUZZLES["cryptic-23681"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Iron in itself contains carbon from fruit of tree (3,4)",
    "separatorLocations": {},
    "solution": "FIRCONE",
    "annotation": null
@@ -114,8 +108,7 @@ window.CRYPTIC_PUZZLES["cryptic-23681"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Ulster's bond in US concerns time, place and action (7)",
    "separatorLocations": {},
    "solution": "UNITIES",
    "annotation": null
@@ -129,8 +122,7 @@ window.CRYPTIC_PUZZLES["cryptic-23681"] = /*JSON-START*/ {
     "y": 1
    },
    "length": 12,
-   "clue": " (12)",
-   "clueMissing": true,
+   "clue": "Victims of displacement activity enjoyed by Mr Squeers (8,4)",
    "separatorLocations": {},
    "solution": "WHIPPINGBOYS",
    "annotation": null
@@ -144,8 +136,7 @@ window.CRYPTIC_PUZZLES["cryptic-23681"] = /*JSON-START*/ {
     "y": 2
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Houses for very little money, praise the Lord! (7)",
    "separatorLocations": {},
    "solution": "HOSANNA",
    "annotation": null
@@ -159,8 +150,7 @@ window.CRYPTIC_PUZZLES["cryptic-23681"] = /*JSON-START*/ {
     "y": 2
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "I get spoilt without getting spliced (7)",
    "separatorLocations": {},
    "solution": "MARRIED",
    "annotation": null
@@ -174,8 +164,7 @@ window.CRYPTIC_PUZZLES["cryptic-23681"] = /*JSON-START*/ {
     "y": 2
    },
    "length": 12,
-   "clue": " (12)",
-   "clueMissing": true,
+   "clue": "Where castaway lies stranded, maybe (6,6)",
    "separatorLocations": {},
    "solution": "DESERTISLAND",
    "annotation": null
@@ -189,8 +178,7 @@ window.CRYPTIC_PUZZLES["cryptic-23681"] = /*JSON-START*/ {
     "y": 4
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "P-punishment with nasty cut as its yield (7)",
    "separatorLocations": {},
    "solution": "PRODUCT",
    "annotation": null
@@ -204,8 +192,7 @@ window.CRYPTIC_PUZZLES["cryptic-23681"] = /*JSON-START*/ {
     "y": 4
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "\"The Wrong Box\" finishes with viral problems (1-6)",
    "separatorLocations": {},
    "solution": "XBODIES",
    "annotation": null
@@ -219,8 +206,7 @@ window.CRYPTIC_PUZZLES["cryptic-23681"] = /*JSON-START*/ {
     "y": 6
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "Incapable of moving from Berliner to tabloid? (5)",
    "separatorLocations": {},
    "solution": "INERT",
    "annotation": null
@@ -234,8 +220,7 @@ window.CRYPTIC_PUZZLES["cryptic-23681"] = /*JSON-START*/ {
     "y": 6
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "Study for the less intelligent can help store energy (9)",
    "separatorLocations": {},
    "solution": "CONDENSER",
    "annotation": null
@@ -249,8 +234,7 @@ window.CRYPTIC_PUZZLES["cryptic-23681"] = /*JSON-START*/ {
     "y": 6
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "The yield of the vine shall form US city (9)",
    "separatorLocations": {},
    "solution": "NASHVILLE",
    "annotation": null
@@ -264,8 +248,7 @@ window.CRYPTIC_PUZZLES["cryptic-23681"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "Hunters too, probably: there may be rags about (9)",
    "separatorLocations": {},
    "solution": "GATHERERS",
    "annotation": null
@@ -279,8 +262,7 @@ window.CRYPTIC_PUZZLES["cryptic-23681"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Old solver grasping about a US writer (7)",
    "separatorLocations": {},
    "solution": "THOREAU",
    "annotation": null
@@ -294,8 +276,7 @@ window.CRYPTIC_PUZZLES["cryptic-23681"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Look round at writer: he should keep an _____ on watch (3,4)",
    "separatorLocations": {},
    "solution": "EYEOPEN",
    "annotation": null
@@ -309,8 +290,7 @@ window.CRYPTIC_PUZZLES["cryptic-23681"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "Mongoose, one among kings (piece of Kipling) (5)",
    "separatorLocations": {},
    "solution": "RIKKI",
    "annotation": null
@@ -324,8 +304,7 @@ window.CRYPTIC_PUZZLES["cryptic-23681"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Greeting on appearances? (7)",
    "separatorLocations": {},
    "solution": "REGARDS",
    "annotation": null
@@ -339,8 +318,7 @@ window.CRYPTIC_PUZZLES["cryptic-23681"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Playful country almost keeps Araucaria on the wagon (7)",
    "separatorLocations": {},
    "solution": "KITTENY",
    "annotation": null
@@ -354,8 +332,7 @@ window.CRYPTIC_PUZZLES["cryptic-23681"] = /*JSON-START*/ {
     "y": 10
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Gold I return to US city for mountain building (7)",
    "separatorLocations": {},
    "solution": "OROGENY",
    "annotation": null
@@ -369,8 +346,7 @@ window.CRYPTIC_PUZZLES["cryptic-23681"] = /*JSON-START*/ {
     "y": 10
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "Creature marked in portions 3 and 2 of Timothy (1-4)",
    "separatorLocations": {},
    "solution": "YMOTH",
    "annotation": null
@@ -384,8 +360,7 @@ window.CRYPTIC_PUZZLES["cryptic-23681"] = /*JSON-START*/ {
     "y": 10
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Meat about to achieve the un-meat-like (7)",
    "separatorLocations": {},
    "solution": "VEGETAL",
    "annotation": null
@@ -399,8 +374,7 @@ window.CRYPTIC_PUZZLES["cryptic-23681"] = /*JSON-START*/ {
     "y": 12
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Rag-and-bone man with small change going precipitately down into the water (5-2)",
    "separatorLocations": {},
    "solution": "STEEPTO",
    "annotation": null
@@ -414,8 +388,7 @@ window.CRYPTIC_PUZZLES["cryptic-23681"] = /*JSON-START*/ {
     "y": 12
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Like the Hydra, the eagle's in French for the year (7)",
    "separatorLocations": {},
    "solution": "LERNEAN",
    "annotation": null
@@ -429,8 +402,7 @@ window.CRYPTIC_PUZZLES["cryptic-23681"] = /*JSON-START*/ {
     "y": 14
    },
    "length": 12,
-   "clue": " (12)",
-   "clueMissing": true,
+   "clue": "Heartless ruler's game keeping pupil at lycée unlettered so as not to be put out? (12)",
    "separatorLocations": {},
    "solution": "QUENCHLESSLY",
    "annotation": null

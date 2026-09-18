@@ -24,8 +24,7 @@ window.CRYPTIC_PUZZLES["cryptic-23598"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 13,
-   "clue": " (13)",
-   "clueMissing": true,
+   "clue": "Were gardener and park one and the same? (6,3,4)",
    "separatorLocations": {},
    "solution": "JEKYLLANDHYDE",
    "annotation": null
@@ -39,8 +38,7 @@ window.CRYPTIC_PUZZLES["cryptic-23598"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "Can you recall how Morse was christened? Try! (9)",
    "separatorLocations": {},
    "solution": "ENDEAVOUR",
    "annotation": null
@@ -54,8 +52,7 @@ window.CRYPTIC_PUZZLES["cryptic-23598"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "Long greatly to make brass at start of Yule (5)",
    "separatorLocations": {},
    "solution": "YEARN",
    "annotation": null
@@ -69,8 +66,7 @@ window.CRYPTIC_PUZZLES["cryptic-23598"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "Heather came first: I'm not sure who is next (5)",
    "separatorLocations": {},
    "solution": "LEDUM",
    "annotation": null
@@ -84,8 +80,7 @@ window.CRYPTIC_PUZZLES["cryptic-23598"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "Pests enter Kelly, but let's not be vexed (5,4)",
    "separatorLocations": {},
    "solution": "NEVERMIND",
    "annotation": null
@@ -99,8 +94,7 @@ window.CRYPTIC_PUZZLES["cryptic-23598"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "Catch that jarred Number Ten, to pay for fire? (6,3)",
    "separatorLocations": {},
    "solution": "HEARTHTAX",
    "annotation": null
@@ -114,8 +108,7 @@ window.CRYPTIC_PUZZLES["cryptic-23598"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "Meet most of cost, what food is governed by? (5)",
    "separatorLocations": {},
    "solution": "DEFRA",
    "annotation": null
@@ -129,8 +122,7 @@ window.CRYPTIC_PUZZLES["cryptic-23598"] = /*JSON-START*/ {
     "y": 1
    },
    "length": 13,
-   "clue": " (13)",
-   "clueMissing": true,
+   "clue": "From four fawns' game it's not a hundred yet (5-8)",
    "separatorLocations": {},
    "solution": "WOMANSUFFRAGE",
    "annotation": null
@@ -144,8 +136,7 @@ window.CRYPTIC_PUZZLES["cryptic-23598"] = /*JSON-START*/ {
     "y": 1
    },
    "length": 13,
-   "clue": " (13)",
-   "clueMissing": true,
+   "clue": "Void at the outset, asks \"they leave nought dry?\" (7,6)",
    "separatorLocations": {},
    "solution": "BLANKETSPRAYS",
    "annotation": null
@@ -159,8 +150,7 @@ window.CRYPTIC_PUZZLES["cryptic-23598"] = /*JSON-START*/ {
     "y": 2
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "A game of cards men may have left in lurch (3,4)",
    "separatorLocations": {},
    "solution": "OLDMAID",
    "annotation": null
@@ -174,8 +164,7 @@ window.CRYPTIC_PUZZLES["cryptic-23598"] = /*JSON-START*/ {
     "y": 2
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Amount of drug that makes sixth boy turn left (7)",
    "separatorLocations": {},
    "solution": "VIALFUL",
    "annotation": null
@@ -189,8 +178,7 @@ window.CRYPTIC_PUZZLES["cryptic-23598"] = /*JSON-START*/ {
     "y": 4
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "A profit that I mean to multiply? (5)",
    "separatorLocations": {},
    "solution": "AGAIN",
    "annotation": null
@@ -204,8 +192,7 @@ window.CRYPTIC_PUZZLES["cryptic-23598"] = /*JSON-START*/ {
     "y": 4
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "Old second version's many a humorous text (4,5)",
    "separatorLocations": {},
    "solution": "MARKTWAIN",
    "annotation": null
@@ -219,8 +206,7 @@ window.CRYPTIC_PUZZLES["cryptic-23598"] = /*JSON-START*/ {
     "y": 6
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "South German wine from contact with the live? (5)",
    "separatorLocations": {},
    "solution": "SHOCK",
    "annotation": null
@@ -234,8 +220,7 @@ window.CRYPTIC_PUZZLES["cryptic-23598"] = /*JSON-START*/ {
     "y": 6
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "Cook that won martial - also poster - fame (9)",
    "separatorLocations": {},
    "solution": "KITCHENER",
    "annotation": null
@@ -249,11 +234,14 @@ window.CRYPTIC_PUZZLES["cryptic-23598"] = /*JSON-START*/ {
     "y": 6
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "See 16 down (9)",
    "separatorLocations": {},
    "solution": "QUINTUPLE",
-   "annotation": null
+   "annotation": null,
+   "group": [
+    "16-down",
+    "16-across"
+   ]
   },
   {
    "id": "16-down",
@@ -264,11 +252,14 @@ window.CRYPTIC_PUZZLES["cryptic-23598"] = /*JSON-START*/ {
     "y": 6
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "Twice quit a crude plan forged of four or five (9 and 9)",
    "separatorLocations": {},
    "solution": "QUADRATIC",
-   "annotation": null
+   "annotation": null,
+   "group": [
+    "16-down",
+    "16-across"
+   ]
   },
   {
    "id": "17-down",
@@ -279,8 +270,7 @@ window.CRYPTIC_PUZZLES["cryptic-23598"] = /*JSON-START*/ {
     "y": 6
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "China makes obvious cover for gold church (9)",
    "separatorLocations": {},
    "solution": "PORCELAIN",
    "annotation": null
@@ -294,8 +284,7 @@ window.CRYPTIC_PUZZLES["cryptic-23598"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "Scots head in mouth, plus it's from mouth of horse (5,4)",
    "separatorLocations": {},
    "solution": "FIRSTHAND",
    "annotation": null
@@ -309,8 +298,7 @@ window.CRYPTIC_PUZZLES["cryptic-23598"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "Unknown leaves king supply of wine to get (5)",
    "separatorLocations": {},
    "solution": "XERES",
    "annotation": null
@@ -324,8 +312,7 @@ window.CRYPTIC_PUZZLES["cryptic-23598"] = /*JSON-START*/ {
     "y": 10
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "It's Archer faked old German legislature (9)",
    "separatorLocations": {},
    "solution": "REICHSRAT",
    "annotation": null
@@ -339,11 +326,14 @@ window.CRYPTIC_PUZZLES["cryptic-23598"] = /*JSON-START*/ {
     "y": 10
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "No longer suspect, making Chanel tire (2,3,5)",
    "separatorLocations": {},
    "solution": "INTHE",
-   "annotation": null
+   "annotation": null,
+   "group": [
+    "21-down",
+    "23-across"
+   ]
   },
   {
    "id": "22-down",
@@ -354,8 +344,7 @@ window.CRYPTIC_PUZZLES["cryptic-23598"] = /*JSON-START*/ {
     "y": 10
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "The river tour may be a Cornish feature (5)",
    "separatorLocations": {},
    "solution": "TRURO",
    "annotation": null
@@ -369,11 +358,14 @@ window.CRYPTIC_PUZZLES["cryptic-23598"] = /*JSON-START*/ {
     "y": 10
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "See 21 (5)",
    "separatorLocations": {},
    "solution": "CLEAR",
-   "annotation": null
+   "annotation": null,
+   "group": [
+    "21-down",
+    "23-across"
+   ]
   },
   {
    "id": "23-down",
@@ -384,8 +376,7 @@ window.CRYPTIC_PUZZLES["cryptic-23598"] = /*JSON-START*/ {
     "y": 10
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "Goddess, see (say) the rest from X (5)",
    "separatorLocations": {},
    "solution": "CERES",
    "annotation": null
@@ -399,8 +390,7 @@ window.CRYPTIC_PUZZLES["cryptic-23598"] = /*JSON-START*/ {
     "y": 12
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Georgian belief that catches prey, of course (4,3)",
    "separatorLocations": {},
    "solution": "GATENET",
    "annotation": null
@@ -414,8 +404,7 @@ window.CRYPTIC_PUZZLES["cryptic-23598"] = /*JSON-START*/ {
     "y": 12
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "No Scout, old king of learning was bereft (7)",
    "separatorLocations": {},
    "solution": "UNREADY",
    "annotation": null
@@ -429,8 +418,7 @@ window.CRYPTIC_PUZZLES["cryptic-23598"] = /*JSON-START*/ {
     "y": 14
    },
    "length": 13,
-   "clue": " (13)",
-   "clueMissing": true,
+   "clue": "Such marks on road result in -brass or -brule (5,8)",
    "separatorLocations": {},
    "solution": "ZEBRACROSSING",
    "annotation": null

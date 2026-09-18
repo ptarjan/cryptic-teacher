@@ -24,8 +24,7 @@ window.CRYPTIC_PUZZLES["cryptic-23669"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 15,
-   "clue": " (15)",
-   "clueMissing": true,
+   "clue": "See 7 - by no means awed, I'd circulated (2,6,3,4)",
    "separatorLocations": {},
    "solution": "MYBONNIEWASDEAD",
    "annotation": null
@@ -39,8 +38,7 @@ window.CRYPTIC_PUZZLES["cryptic-23669"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 15,
-   "clue": " (15)",
-   "clueMissing": true,
+   "clue": "Lily was leader of kings (4,2,9)",
    "separatorLocations": {},
    "solution": "STAROFBETHLEHEM",
    "annotation": null
@@ -54,8 +52,7 @@ window.CRYPTIC_PUZZLES["cryptic-23669"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 10,
-   "clue": " (10)",
-   "clueMissing": true,
+   "clue": "See 7 - court coming up about number in New York ball (2,2,6)",
    "separatorLocations": {},
    "solution": "ONMYPILLOW",
    "annotation": null
@@ -69,8 +66,7 @@ window.CRYPTIC_PUZZLES["cryptic-23669"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "See 7 - bothered by demon (2,2,3)",
    "separatorLocations": {},
    "solution": "ONMYBED",
    "annotation": null
@@ -84,11 +80,14 @@ window.CRYPTIC_PUZZLES["cryptic-23669"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 4,
-   "clue": " (4)",
-   "clueMissing": true,
+   "clue": "Tea? China would be delightful (8)",
    "separatorLocations": {},
    "solution": "CHAR",
-   "annotation": null
+   "annotation": null,
+   "group": [
+    "5-down",
+    "21-down"
+   ]
   },
   {
    "id": "6-down",
@@ -99,8 +98,7 @@ window.CRYPTIC_PUZZLES["cryptic-23669"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 15,
-   "clue": " (15)",
-   "clueMissing": true,
+   "clue": "Internal problem affecting pirates with tin sails (15)",
    "separatorLocations": {},
    "solution": "ANTIPERISTALSIS",
    "annotation": null
@@ -114,8 +112,7 @@ window.CRYPTIC_PUZZLES["cryptic-23669"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 15,
-   "clue": " (15)",
-   "clueMissing": true,
+   "clue": "US city's secret police keeping the odd thing amateur (4,5,2,1,3)",
    "separatorLocations": {},
    "solution": "LASTNIGHTASILAY",
    "annotation": null
@@ -129,8 +126,7 @@ window.CRYPTIC_PUZZLES["cryptic-23669"] = /*JSON-START*/ {
     "y": 1
    },
    "length": 8,
-   "clue": " (8)",
-   "clueMissing": true,
+   "clue": "Muscular stuff done in Tony's name (8)",
    "separatorLocations": {},
    "solution": "SYNTONIN",
    "annotation": null
@@ -144,8 +140,7 @@ window.CRYPTIC_PUZZLES["cryptic-23669"] = /*JSON-START*/ {
     "y": 1
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "Bird and bloke going courting? (6)",
    "separatorLocations": {},
    "solution": "HANNAH",
    "annotation": null
@@ -159,8 +154,7 @@ window.CRYPTIC_PUZZLES["cryptic-23669"] = /*JSON-START*/ {
     "y": 3
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "Sacred scriptural city entered at intervals (6)",
    "separatorLocations": {},
    "solution": "HOURLY",
    "annotation": null
@@ -174,8 +168,7 @@ window.CRYPTIC_PUZZLES["cryptic-23669"] = /*JSON-START*/ {
     "y": 3
    },
    "length": 8,
-   "clue": " (8)",
-   "clueMissing": true,
+   "clue": "Golden sovereign is in - pen back the white side (8)",
    "separatorLocations": {},
    "solution": "YORKISTS",
    "annotation": null
@@ -189,8 +182,7 @@ window.CRYPTIC_PUZZLES["cryptic-23669"] = /*JSON-START*/ {
     "y": 5
    },
    "length": 4,
-   "clue": " (4)",
-   "clueMissing": true,
+   "clue": "Repeated condition causes a bit of a stink (2,2)",
    "separatorLocations": {},
    "solution": "ANIF",
    "annotation": null
@@ -204,8 +196,7 @@ window.CRYPTIC_PUZZLES["cryptic-23669"] = /*JSON-START*/ {
     "y": 5
    },
    "length": 10,
-   "clue": " (10)",
-   "clueMissing": true,
+   "clue": "First and second almost negligent at death's door (2,8)",
    "separatorLocations": {},
    "solution": "INEXTREMIS",
    "annotation": null
@@ -219,8 +210,7 @@ window.CRYPTIC_PUZZLES["cryptic-23669"] = /*JSON-START*/ {
     "y": 5
    },
    "length": 10,
-   "clue": " (10)",
-   "clueMissing": true,
+   "clue": "The sort who makes up crosswords for the press? (10)",
    "separatorLocations": {},
    "solution": "TYPESETTER",
    "annotation": null
@@ -234,8 +224,7 @@ window.CRYPTIC_PUZZLES["cryptic-23669"] = /*JSON-START*/ {
     "y": 7
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Girl sees bloke around Tyneside (7)",
    "separatorLocations": {},
    "solution": "FENELLA",
    "annotation": null
@@ -249,8 +238,7 @@ window.CRYPTIC_PUZZLES["cryptic-23669"] = /*JSON-START*/ {
     "y": 7
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Johnny's put the pigs out (7)",
    "separatorLocations": {},
    "solution": "UPRIGHT",
    "annotation": null
@@ -264,8 +252,7 @@ window.CRYPTIC_PUZZLES["cryptic-23669"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Composite plant (of sticker and nettle antidote?) (7)",
    "separatorLocations": {},
    "solution": "BURDOCK",
    "annotation": null
@@ -279,8 +266,7 @@ window.CRYPTIC_PUZZLES["cryptic-23669"] = /*JSON-START*/ {
     "y": 9
    },
    "length": 10,
-   "clue": " (10)",
-   "clueMissing": true,
+   "clue": "Partners among the money-crazy get food from trees (6,4)",
    "separatorLocations": {},
    "solution": "CASHEWNUTS",
    "annotation": null
@@ -294,8 +280,7 @@ window.CRYPTIC_PUZZLES["cryptic-23669"] = /*JSON-START*/ {
     "y": 9
    },
    "length": 4,
-   "clue": " (4)",
-   "clueMissing": true,
+   "clue": "See 7 - time to cover (4)",
    "separatorLocations": {},
    "solution": "THAT",
    "annotation": null
@@ -309,8 +294,7 @@ window.CRYPTIC_PUZZLES["cryptic-23669"] = /*JSON-START*/ {
     "y": 11
    },
    "length": 8,
-   "clue": " (8)",
-   "clueMissing": true,
+   "clue": "See 7 - instincts lead paper's editor (1,7)",
    "separatorLocations": {},
    "solution": "IDREAMED",
    "annotation": null
@@ -324,11 +308,14 @@ window.CRYPTIC_PUZZLES["cryptic-23669"] = /*JSON-START*/ {
     "y": 11
    },
    "length": 4,
-   "clue": " (4)",
-   "clueMissing": true,
+   "clue": "See 5",
    "separatorLocations": {},
    "solution": "MING",
-   "annotation": null
+   "annotation": null,
+   "group": [
+    "5-down",
+    "21-down"
+   ]
   },
   {
    "id": "22-across",
@@ -339,8 +326,7 @@ window.CRYPTIC_PUZZLES["cryptic-23669"] = /*JSON-START*/ {
     "y": 11
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "Over six feet is this composer? (6)",
    "separatorLocations": {},
    "solution": "TALLIS",
    "annotation": null
@@ -354,8 +340,7 @@ window.CRYPTIC_PUZZLES["cryptic-23669"] = /*JSON-START*/ {
     "y": 13
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "Watch out! Sailors need large space (6)",
    "separatorLocations": {},
    "solution": "CAVERN",
    "annotation": null
@@ -369,8 +354,7 @@ window.CRYPTIC_PUZZLES["cryptic-23669"] = /*JSON-START*/ {
     "y": 13
    },
    "length": 8,
-   "clue": " (8)",
-   "clueMissing": true,
+   "clue": "Dog referring to neckwear connected with the office? (8)",
    "separatorLocations": {},
    "solution": "CLERICAL",
    "annotation": null

@@ -24,11 +24,14 @@ window.CRYPTIC_PUZZLES["cryptic-23945"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "See 1 down (6)",
    "separatorLocations": {},
    "solution": "FATHOM",
-   "annotation": null
+   "annotation": null,
+   "group": [
+    "1-down",
+    "1-across"
+   ]
   },
   {
    "id": "1-down",
@@ -39,11 +42,14 @@ window.CRYPTIC_PUZZLES["cryptic-23945"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 4,
-   "clue": " (4)",
-   "clueMissing": true,
+   "clue": "Top soldier restricts setter's oversized house to thirty foot (4,6)",
    "separatorLocations": {},
    "solution": "FIVE",
-   "annotation": null
+   "annotation": null,
+   "group": [
+    "1-down",
+    "1-across"
+   ]
   },
   {
    "id": "2-down",
@@ -54,8 +60,7 @@ window.CRYPTIC_PUZZLES["cryptic-23945"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Passed being exhausted? (7)",
    "separatorLocations": {},
    "solution": "THROUGH",
    "annotation": null
@@ -69,8 +74,7 @@ window.CRYPTIC_PUZZLES["cryptic-23945"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 8,
-   "clue": " (8)",
-   "clueMissing": true,
+   "clue": "Revisit row about brand (8)",
    "separatorLocations": {},
    "solution": "OVERTYPE",
    "annotation": null
@@ -84,8 +88,7 @@ window.CRYPTIC_PUZZLES["cryptic-23945"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 8,
-   "clue": " (8)",
-   "clueMissing": true,
+   "clue": "Fancy lines, past and high-level, get the bird (8)",
    "separatorLocations": {},
    "solution": "WHIMBREL",
    "annotation": null
@@ -99,8 +102,7 @@ window.CRYPTIC_PUZZLES["cryptic-23945"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 11,
-   "clue": " (11)",
-   "clueMissing": true,
+   "clue": "Pieces of brass neckerchief holder are deceptive (11)",
    "separatorLocations": {},
    "solution": "HORNSWOGGLE",
    "annotation": null
@@ -114,8 +116,7 @@ window.CRYPTIC_PUZZLES["cryptic-23945"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "Not much of a note (6)",
    "separatorLocations": {},
    "solution": "MINUTE",
    "annotation": null
@@ -129,8 +130,7 @@ window.CRYPTIC_PUZZLES["cryptic-23945"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Balfour's pretty girl from Lancaster (3,4)",
    "separatorLocations": {},
    "solution": "REDROSE",
    "annotation": null
@@ -144,8 +144,7 @@ window.CRYPTIC_PUZZLES["cryptic-23945"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "Fifty poems to Geordieland form a magnet (9)",
    "separatorLocations": {},
    "solution": "LODESTONE",
    "annotation": null
@@ -159,8 +158,7 @@ window.CRYPTIC_PUZZLES["cryptic-23945"] = /*JSON-START*/ {
     "y": 2
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "Shakespearean sides (6)",
    "separatorLocations": {},
    "solution": "VERGES",
    "annotation": null
@@ -174,8 +172,7 @@ window.CRYPTIC_PUZZLES["cryptic-23945"] = /*JSON-START*/ {
     "y": 2
    },
    "length": 8,
-   "clue": " (8)",
-   "clueMissing": true,
+   "clue": "Great Italian painter judged mad sent back to patriarch (8)",
    "separatorLocations": {},
    "solution": "GRANDDAD",
    "annotation": null
@@ -189,8 +186,7 @@ window.CRYPTIC_PUZZLES["cryptic-23945"] = /*JSON-START*/ {
     "y": 4
    },
    "length": 14,
-   "clue": " (14)",
-   "clueMissing": true,
+   "clue": "Next placings' effect is just - a pox on it (14)",
    "separatorLocations": {},
    "solution": "JUXTAPOSITIONS",
    "annotation": null
@@ -204,8 +200,7 @@ window.CRYPTIC_PUZZLES["cryptic-23945"] = /*JSON-START*/ {
     "y": 4
    },
    "length": 11,
-   "clue": " (11)",
-   "clueMissing": true,
+   "clue": "Like Elizabeth Bennet's pride, with Julia and Crawford initially involved (11)",
    "separatorLocations": {},
    "solution": "PREJUDICIAL",
    "annotation": null
@@ -219,11 +214,14 @@ window.CRYPTIC_PUZZLES["cryptic-23945"] = /*JSON-START*/ {
     "y": 6
    },
    "length": 10,
-   "clue": " (10)",
-   "clueMissing": true,
+   "clue": "One damn thing after another for a fellow whose forte may be who he is, in more than one manner of speaking (1,7,2,9)",
    "separatorLocations": {},
    "solution": "ACHAPTEROF",
-   "annotation": null
+   "annotation": null,
+   "group": [
+    "13-across",
+    "13-down"
+   ]
   },
   {
    "id": "13-down",
@@ -234,11 +232,14 @@ window.CRYPTIC_PUZZLES["cryptic-23945"] = /*JSON-START*/ {
     "y": 6
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "See 13 across (9)",
    "separatorLocations": {},
    "solution": "ACCIDENTS",
-   "annotation": null
+   "annotation": null,
+   "group": [
+    "13-across",
+    "13-down"
+   ]
   },
   {
    "id": "14-across",
@@ -249,8 +250,7 @@ window.CRYPTIC_PUZZLES["cryptic-23945"] = /*JSON-START*/ {
     "y": 6
    },
    "length": 4,
-   "clue": " (4)",
-   "clueMissing": true,
+   "clue": "Report of crew missing money? There isn't any (4)",
    "separatorLocations": {},
    "solution": "ZERO",
    "annotation": null
@@ -264,8 +264,7 @@ window.CRYPTIC_PUZZLES["cryptic-23945"] = /*JSON-START*/ {
     "y": 7
    },
    "length": 8,
-   "clue": " (8)",
-   "clueMissing": true,
+   "clue": "Russian general greater than Gerald but lesser than Angelica (8)",
    "separatorLocations": {},
    "solution": "KAUFMANN",
    "annotation": null
@@ -279,8 +278,7 @@ window.CRYPTIC_PUZZLES["cryptic-23945"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 4,
-   "clue": " (4)",
-   "clueMissing": true,
+   "clue": "Prize holding unknown painter (4)",
    "separatorLocations": {},
    "solution": "CUYP",
    "annotation": null
@@ -294,8 +292,7 @@ window.CRYPTIC_PUZZLES["cryptic-23945"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Wanted time with small boy (7)",
    "separatorLocations": {},
    "solution": "YEARNED",
    "annotation": null
@@ -309,8 +306,7 @@ window.CRYPTIC_PUZZLES["cryptic-23945"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 10,
-   "clue": " (10)",
-   "clueMissing": true,
+   "clue": "Nick, American town student, get up! (10)",
    "separatorLocations": {},
    "solution": "BURGLARISE",
    "annotation": null
@@ -324,8 +320,7 @@ window.CRYPTIC_PUZZLES["cryptic-23945"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "No need to wait for this month? (7)",
    "separatorLocations": {},
    "solution": "INSTANT",
    "annotation": null
@@ -339,8 +334,7 @@ window.CRYPTIC_PUZZLES["cryptic-23945"] = /*JSON-START*/ {
     "y": 9
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "Supplement to United Kingdom English twice revised (3,3)",
    "separatorLocations": {},
    "solution": "EKEOUT",
    "annotation": null
@@ -354,8 +348,7 @@ window.CRYPTIC_PUZZLES["cryptic-23945"] = /*JSON-START*/ {
     "y": 10
    },
    "length": 14,
-   "clue": " (14)",
-   "clueMissing": true,
+   "clue": "Khaki fires land that's dreadfully soaked (5,4,1,4)",
    "separatorLocations": {},
    "solution": "DRANKLIKEAFISH",
    "annotation": null
@@ -369,8 +362,7 @@ window.CRYPTIC_PUZZLES["cryptic-23945"] = /*JSON-START*/ {
     "y": 11
    },
    "length": 4,
-   "clue": " (4)",
-   "clueMissing": true,
+   "clue": "Tobacco money (4)",
    "separatorLocations": {},
    "solution": "QUID",
    "annotation": null
@@ -384,8 +376,7 @@ window.CRYPTIC_PUZZLES["cryptic-23945"] = /*JSON-START*/ {
     "y": 12
    },
    "length": 8,
-   "clue": " (8)",
-   "clueMissing": true,
+   "clue": "No books on beast, first century, will be benign (3-5)",
    "separatorLocations": {},
    "solution": "NONTOXIC",
    "annotation": null
@@ -399,8 +390,7 @@ window.CRYPTIC_PUZZLES["cryptic-23945"] = /*JSON-START*/ {
     "y": 12
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "Return from fraud, an axed scheme for site of dome (6)",
    "separatorLocations": {},
    "solution": "XANADU",
    "annotation": null
@@ -414,8 +404,7 @@ window.CRYPTIC_PUZZLES["cryptic-23945"] = /*JSON-START*/ {
     "y": 14
    },
    "length": 8,
-   "clue": " (8)",
-   "clueMissing": true,
+   "clue": "Appointment in Yorkshire town not booked without hustle (8)",
    "separatorLocations": {},
    "solution": "SEDATELY",
    "annotation": null
@@ -429,8 +418,7 @@ window.CRYPTIC_PUZZLES["cryptic-23945"] = /*JSON-START*/ {
     "y": 14
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "Man's follower's change of heart is a reversal (6)",
    "separatorLocations": {},
    "solution": "UNITED",
    "annotation": null

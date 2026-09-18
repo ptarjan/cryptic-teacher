@@ -24,8 +24,7 @@ window.CRYPTIC_PUZZLES["cryptic-23370"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "The price includes the house and help at home (2-4)",
    "separatorLocations": {},
    "solution": "COHOST",
    "annotation": null
@@ -39,8 +38,7 @@ window.CRYPTIC_PUZZLES["cryptic-23370"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 8,
-   "clue": " (8)",
-   "clueMissing": true,
+   "clue": "I'm drunk: to frighten lawyer kept my head (4,4)",
    "separatorLocations": {},
    "solution": "COWSMILK",
    "annotation": null
@@ -54,8 +52,7 @@ window.CRYPTIC_PUZZLES["cryptic-23370"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 8,
-   "clue": " (8)",
-   "clueMissing": true,
+   "clue": "Hospitals keeping lots of heads sans cover (8)",
    "separatorLocations": {},
    "solution": "HOODLESS",
    "annotation": null
@@ -69,8 +66,7 @@ window.CRYPTIC_PUZZLES["cryptic-23370"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "Cooks taking time - red lights are in these areas (5)",
    "separatorLocations": {},
    "solution": "STEWS",
    "annotation": null
@@ -84,8 +80,7 @@ window.CRYPTIC_PUZZLES["cryptic-23370"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 8,
-   "clue": " (8)",
-   "clueMissing": true,
+   "clue": "Foreword to mobile, as one has ascended (8)",
    "separatorLocations": {},
    "solution": "UPWARDLY",
    "annotation": null
@@ -99,8 +94,7 @@ window.CRYPTIC_PUZZLES["cryptic-23370"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 13,
-   "clue": " (13)",
-   "clueMissing": true,
+   "clue": "Guards murphies - even TV's split inside (13)",
    "separatorLocations": {},
    "solution": "PREVENTATIVES",
    "annotation": null
@@ -114,8 +108,7 @@ window.CRYPTIC_PUZZLES["cryptic-23370"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "An age we took to fix - will shortly come (1,4,2,2)",
    "separatorLocations": {},
    "solution": "AWEEKTOGO",
    "annotation": null
@@ -129,8 +122,7 @@ window.CRYPTIC_PUZZLES["cryptic-23370"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "Got my own back up, worn in extreme youth (6)",
    "separatorLocations": {},
    "solution": "DIAPER",
    "annotation": null
@@ -144,8 +136,7 @@ window.CRYPTIC_PUZZLES["cryptic-23370"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "You start too soon, though regularly planned (6)",
    "separatorLocations": {},
    "solution": "YEARLY",
    "annotation": null
@@ -159,8 +150,7 @@ window.CRYPTIC_PUZZLES["cryptic-23370"] = /*JSON-START*/ {
     "y": 2
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "Was authorising tower to be designed (5)",
    "separatorLocations": {},
    "solution": "WROTE",
    "annotation": null
@@ -174,11 +164,15 @@ window.CRYPTIC_PUZZLES["cryptic-23370"] = /*JSON-START*/ {
     "y": 2
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "Wee dram for a Glaswegian: the rot's mended:\"Who W a Z-an Othello\" (5,3,1,9,4,5)",
    "separatorLocations": {},
    "solution": "THEREWASA",
-   "annotation": null
+   "annotation": null,
+   "group": [
+    "10-across",
+    "10-down",
+    "22-down"
+   ]
   },
   {
    "id": "10-down",
@@ -189,11 +183,15 @@ window.CRYPTIC_PUZZLES["cryptic-23370"] = /*JSON-START*/ {
     "y": 2
    },
    "length": 13,
-   "clue": " (13)",
-   "clueMissing": true,
+   "clue": "See 10 across (13)",
    "separatorLocations": {},
    "solution": "TRAGEDIANFROM",
-   "annotation": null
+   "annotation": null,
+   "group": [
+    "10-across",
+    "10-down",
+    "22-down"
+   ]
   },
   {
    "id": "11-across",
@@ -204,8 +202,7 @@ window.CRYPTIC_PUZZLES["cryptic-23370"] = /*JSON-START*/ {
     "y": 4
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "Spy with black suit to dig a creature out (4,5)",
    "separatorLocations": {},
    "solution": "MOLESPADE",
    "annotation": null
@@ -219,8 +216,7 @@ window.CRYPTIC_PUZZLES["cryptic-23370"] = /*JSON-START*/ {
     "y": 4
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "Must be Charles II's girl, with mournful tone (5)",
    "separatorLocations": {},
    "solution": "KNELL",
    "annotation": null
@@ -234,8 +230,7 @@ window.CRYPTIC_PUZZLES["cryptic-23370"] = /*JSON-START*/ {
     "y": 6
    },
    "length": 12,
-   "clue": " (12)",
-   "clueMissing": true,
+   "clue": "Quiz ends with cobblers' thing, a sort of mark (4,8)",
    "separatorLocations": {},
    "solution": "LASTQUESTION",
    "annotation": null
@@ -249,8 +244,7 @@ window.CRYPTIC_PUZZLES["cryptic-23370"] = /*JSON-START*/ {
     "y": 6
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "Friendly as will be found with hikers various (9)",
    "separatorLocations": {},
    "solution": "QUAKERISH",
    "annotation": null
@@ -264,8 +258,7 @@ window.CRYPTIC_PUZZLES["cryptic-23370"] = /*JSON-START*/ {
     "y": 7
    },
    "length": 8,
-   "clue": " (8)",
-   "clueMissing": true,
+   "clue": "Last setter's Gilbert, Guardian of the land (8)",
    "separatorLocations": {},
    "solution": "ZIMBABWE",
    "annotation": null
@@ -279,8 +272,7 @@ window.CRYPTIC_PUZZLES["cryptic-23370"] = /*JSON-START*/ {
     "y": 7
    },
    "length": 8,
-   "clue": " (8)",
-   "clueMissing": true,
+   "clue": "Not so! Her C17 playwright's about (5,3)",
    "separatorLocations": {},
    "solution": "OTHERWAY",
    "annotation": null
@@ -294,8 +286,7 @@ window.CRYPTIC_PUZZLES["cryptic-23370"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 12,
-   "clue": " (12)",
-   "clueMissing": true,
+   "clue": "Verse song, is it not? (Brahms, or like fellow) (12)",
    "separatorLocations": {},
    "solution": "VARIATIONIST",
    "annotation": null
@@ -309,8 +300,7 @@ window.CRYPTIC_PUZZLES["cryptic-23370"] = /*JSON-START*/ {
     "y": 9
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "Born mid Yanks' roughage, I'm not one for truth (6)",
    "separatorLocations": {},
    "solution": "FIBBER",
    "annotation": null
@@ -324,8 +314,7 @@ window.CRYPTIC_PUZZLES["cryptic-23370"] = /*JSON-START*/ {
     "y": 9
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "Measures of love held by Jim's fellow-lover (6)",
    "separatorLocations": {},
    "solution": "JOULES",
    "annotation": null
@@ -339,8 +328,7 @@ window.CRYPTIC_PUZZLES["cryptic-23370"] = /*JSON-START*/ {
     "y": 10
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "The setter's poem gets on line from phone (5)",
    "separatorLocations": {},
    "solution": "IMODE",
    "annotation": null
@@ -354,8 +342,7 @@ window.CRYPTIC_PUZZLES["cryptic-23370"] = /*JSON-START*/ {
     "y": 10
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "Prepared for shipping, sodium number (Clark) (9)",
    "separatorLocations": {},
    "solution": "NAVIGABLE",
    "annotation": null
@@ -369,11 +356,15 @@ window.CRYPTIC_PUZZLES["cryptic-23370"] = /*JSON-START*/ {
     "y": 10
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "See 10 (5)",
    "separatorLocations": {},
    "solution": "GWELO",
-   "annotation": null
+   "annotation": null,
+   "group": [
+    "10-across",
+    "10-down",
+    "22-down"
+   ]
   },
   {
    "id": "23-across",
@@ -384,8 +375,7 @@ window.CRYPTIC_PUZZLES["cryptic-23370"] = /*JSON-START*/ {
     "y": 12
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "Sick one splits poet's game with whites and red (9)",
    "separatorLocations": {},
    "solution": "BILLIARDS",
    "annotation": null
@@ -399,8 +389,7 @@ window.CRYPTIC_PUZZLES["cryptic-23370"] = /*JSON-START*/ {
     "y": 12
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "The Spanish front: I need some room, it's said (5)",
    "separatorLocations": {},
    "solution": "ELBOW",
    "annotation": null
@@ -414,8 +403,7 @@ window.CRYPTIC_PUZZLES["cryptic-23370"] = /*JSON-START*/ {
     "y": 14
    },
    "length": 8,
-   "clue": " (8)",
-   "clueMissing": true,
+   "clue": "Framer of theorems will care provide (4,4)",
    "separatorLocations": {},
    "solution": "RESTHOME",
    "annotation": null
@@ -429,8 +417,7 @@ window.CRYPTIC_PUZZLES["cryptic-23370"] = /*JSON-START*/ {
     "y": 14
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "Fraction type: record put for start to find (1,4,1)",
    "separatorLocations": {},
    "solution": "XOVERY",
    "annotation": null

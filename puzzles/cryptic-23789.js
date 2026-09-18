@@ -24,8 +24,7 @@ window.CRYPTIC_PUZZLES["cryptic-23789"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 8,
-   "clue": " (8)",
-   "clueMissing": true,
+   "clue": "Flier's quarters have effect on us, he repeated (3,5)",
    "separatorLocations": {},
    "solution": "HENHOUSE",
    "annotation": null
@@ -39,8 +38,7 @@ window.CRYPTIC_PUZZLES["cryptic-23789"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 4,
-   "clue": " (4)",
-   "clueMissing": true,
+   "clue": "Flier contributing to fax, email etc (4)",
    "separatorLocations": {},
    "solution": "XEMA",
    "annotation": null
@@ -54,8 +52,7 @@ window.CRYPTIC_PUZZLES["cryptic-23789"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "Part of Mozambique, a country in Africa (6)",
    "separatorLocations": {},
    "solution": "ZAMBIA",
    "annotation": null
@@ -69,8 +66,7 @@ window.CRYPTIC_PUZZLES["cryptic-23789"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Little boy catches another briefly with caged animals (3,4)",
    "separatorLocations": {},
    "solution": "PETMICE",
    "annotation": null
@@ -84,8 +80,7 @@ window.CRYPTIC_PUZZLES["cryptic-23789"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 8,
-   "clue": " (8)",
-   "clueMissing": true,
+   "clue": "South American setter, artist without public accessibility (2,6)",
    "separatorLocations": {},
    "solution": "INCAMERA",
    "annotation": null
@@ -99,8 +94,7 @@ window.CRYPTIC_PUZZLES["cryptic-23789"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 10,
-   "clue": " (10)",
-   "clueMissing": true,
+   "clue": "Flier's mad old spirit to keep up (10)",
    "separatorLocations": {},
    "solution": "WOODPECKER",
    "annotation": null
@@ -114,8 +108,7 @@ window.CRYPTIC_PUZZLES["cryptic-23789"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "Flier - more than one, they say - has power (6)",
    "separatorLocations": {},
    "solution": "TOUCAN",
    "annotation": null
@@ -129,8 +122,7 @@ window.CRYPTIC_PUZZLES["cryptic-23789"] = /*JSON-START*/ {
     "y": 1
    },
    "length": 8,
-   "clue": " (8)",
-   "clueMissing": true,
+   "clue": "Representative of French ambassador (8)",
    "separatorLocations": {},
    "solution": "DELEGATE",
    "annotation": null
@@ -144,8 +136,7 @@ window.CRYPTIC_PUZZLES["cryptic-23789"] = /*JSON-START*/ {
     "y": 1
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "Joshua's new - dragon's not the same (5)",
    "separatorLocations": {},
    "solution": "NKOMO",
    "annotation": null
@@ -159,8 +150,7 @@ window.CRYPTIC_PUZZLES["cryptic-23789"] = /*JSON-START*/ {
     "y": 3
    },
    "length": 4,
-   "clue": " (4)",
-   "clueMissing": true,
+   "clue": "Flier that's explosive in the sun (4)",
    "separatorLocations": {},
    "solution": "RHEA",
    "annotation": null
@@ -174,8 +164,7 @@ window.CRYPTIC_PUZZLES["cryptic-23789"] = /*JSON-START*/ {
     "y": 3
    },
    "length": 10,
-   "clue": " (10)",
-   "clueMissing": true,
+   "clue": "Flier that isn't explosive - always avoid (6,4)",
    "separatorLocations": {},
    "solution": "BOMBAYDUCK",
    "annotation": null
@@ -189,8 +178,7 @@ window.CRYPTIC_PUZZLES["cryptic-23789"] = /*JSON-START*/ {
     "y": 5
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "Flier from Mozambique learning to fly (6)",
    "separatorLocations": {},
    "solution": "QUELEA",
    "annotation": null
@@ -204,8 +192,7 @@ window.CRYPTIC_PUZZLES["cryptic-23789"] = /*JSON-START*/ {
     "y": 5
    },
    "length": 10,
-   "clue": " (10)",
-   "clueMissing": true,
+   "clue": "Boy holds pole - boy that's got the other - we take boarders (10)",
    "separatorLocations": {},
    "solution": "LANDLADIES",
    "annotation": null
@@ -219,8 +206,7 @@ window.CRYPTIC_PUZZLES["cryptic-23789"] = /*JSON-START*/ {
     "y": 5
    },
    "length": 8,
-   "clue": " (8)",
-   "clueMissing": true,
+   "clue": "VP docked without money in Indian capital (8)",
    "separatorLocations": {},
    "solution": "CHEYENNE",
    "annotation": null
@@ -234,8 +220,7 @@ window.CRYPTIC_PUZZLES["cryptic-23789"] = /*JSON-START*/ {
     "y": 7
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "In Paris you entertain a German - it's full of bloody tubes (7)",
    "separatorLocations": {},
    "solution": "VEINOUS",
    "annotation": null
@@ -249,8 +234,7 @@ window.CRYPTIC_PUZZLES["cryptic-23789"] = /*JSON-START*/ {
     "y": 7
    },
    "length": 8,
-   "clue": " (8)",
-   "clueMissing": true,
+   "clue": "Annan's dog has sex without restraint (8)",
    "separatorLocations": {},
    "solution": "UNCURBED",
    "annotation": null
@@ -264,8 +248,7 @@ window.CRYPTIC_PUZZLES["cryptic-23789"] = /*JSON-START*/ {
     "y": 7
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Flier of flag getting pile back (7)",
    "separatorLocations": {},
    "solution": "JACKDAW",
    "annotation": null
@@ -279,8 +262,7 @@ window.CRYPTIC_PUZZLES["cryptic-23789"] = /*JSON-START*/ {
     "y": 7
    },
    "length": 8,
-   "clue": " (8)",
-   "clueMissing": true,
+   "clue": "Flier's here by chasing a little girl (8)",
    "separatorLocations": {},
    "solution": "AVIATRIX",
    "annotation": null
@@ -294,8 +276,7 @@ window.CRYPTIC_PUZZLES["cryptic-23789"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Middle Eastern sectary you take to the water in Germany without saying who you are (7)",
    "separatorLocations": {},
    "solution": "YEZIDEE",
    "annotation": null
@@ -309,8 +290,7 @@ window.CRYPTIC_PUZZLES["cryptic-23789"] = /*JSON-START*/ {
     "y": 9
    },
    "length": 8,
-   "clue": " (8)",
-   "clueMissing": true,
+   "clue": "Little hair makes stupidity sound half clever (8)",
    "separatorLocations": {},
    "solution": "FOLLICLE",
    "annotation": null
@@ -324,8 +304,7 @@ window.CRYPTIC_PUZZLES["cryptic-23789"] = /*JSON-START*/ {
     "y": 9
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "Fruit not going any distance? (6)",
    "separatorLocations": {},
    "solution": "ORANGE",
    "annotation": null
@@ -339,8 +318,7 @@ window.CRYPTIC_PUZZLES["cryptic-23789"] = /*JSON-START*/ {
     "y": 9
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "Flier's a boy (6)",
    "separatorLocations": {},
    "solution": "MARTIN",
    "annotation": null
@@ -354,8 +332,7 @@ window.CRYPTIC_PUZZLES["cryptic-23789"] = /*JSON-START*/ {
     "y": 9
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "Flier on target (6)",
    "separatorLocations": {},
    "solution": "MAGPIE",
    "annotation": null
@@ -369,8 +346,7 @@ window.CRYPTIC_PUZZLES["cryptic-23789"] = /*JSON-START*/ {
     "y": 11
    },
    "length": 10,
-   "clue": " (10)",
-   "clueMissing": true,
+   "clue": "Flier using smoother language lacking nothing (10)",
    "separatorLocations": {},
    "solution": "SANDERLING",
    "annotation": null
@@ -384,8 +360,7 @@ window.CRYPTIC_PUZZLES["cryptic-23789"] = /*JSON-START*/ {
     "y": 11
    },
    "length": 4,
-   "clue": " (4)",
-   "clueMissing": true,
+   "clue": "Flier flown (4)",
    "separatorLocations": {},
    "solution": "KITE",
    "annotation": null
@@ -399,8 +374,7 @@ window.CRYPTIC_PUZZLES["cryptic-23789"] = /*JSON-START*/ {
     "y": 11
    },
    "length": 4,
-   "clue": " (4)",
-   "clueMissing": true,
+   "clue": "Flier tied (4)",
    "separatorLocations": {},
    "solution": "KNOT",
    "annotation": null
@@ -414,8 +388,7 @@ window.CRYPTIC_PUZZLES["cryptic-23789"] = /*JSON-START*/ {
     "y": 13
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "Flier turning cold mass to energy (5)",
    "separatorLocations": {},
    "solution": "GREBE",
    "annotation": null
@@ -429,8 +402,7 @@ window.CRYPTIC_PUZZLES["cryptic-23789"] = /*JSON-START*/ {
     "y": 13
    },
    "length": 8,
-   "clue": " (8)",
-   "clueMissing": true,
+   "clue": "Staccato poem about salt without doubt? (8)",
    "separatorLocations": {},
    "solution": "EPISODIC",
    "annotation": null

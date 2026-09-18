@@ -24,8 +24,7 @@ window.CRYPTIC_PUZZLES["cryptic-23897"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 12,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Mystery ingredient in the noise Jaques and I make (2,2,4,4)",
    "separatorLocations": {},
    "solution": "JENESAIAQUOI",
    "annotation": null
@@ -39,8 +38,7 @@ window.CRYPTIC_PUZZLES["cryptic-23897"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 7,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Is proud about title backed by lawyers (7)",
    "separatorLocations": {},
    "solution": "JURISTS",
    "annotation": null
@@ -54,8 +52,7 @@ window.CRYPTIC_PUZZLES["cryptic-23897"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 7,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Aquatic plant on railway cutting not feeling love (7)",
    "separatorLocations": {},
    "solution": "NELUMBO",
    "annotation": null
@@ -69,8 +66,7 @@ window.CRYPTIC_PUZZLES["cryptic-23897"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 9,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Punishment arranged by international body may result in finger-licking (6,3)",
    "separatorLocations": {},
    "solution": "STICKYBUN",
    "annotation": null
@@ -84,8 +80,7 @@ window.CRYPTIC_PUZZLES["cryptic-23897"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 5,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Loch's hero makes precision instruments (5)",
    "separatorLocations": {},
    "solution": "INVAR",
    "annotation": null
@@ -99,8 +94,7 @@ window.CRYPTIC_PUZZLES["cryptic-23897"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 7,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "You finish painting one in silk of high degree (7)",
    "separatorLocations": {},
    "solution": "QUARTIC",
    "annotation": null
@@ -114,8 +108,7 @@ window.CRYPTIC_PUZZLES["cryptic-23897"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 7,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Opening provided in pursuit of gold and diamonds (7)",
    "separatorLocations": {},
    "solution": "ORIFICE",
    "annotation": null
@@ -129,8 +122,7 @@ window.CRYPTIC_PUZZLES["cryptic-23897"] = /*JSON-START*/ {
     "y": 1
    },
    "length": 12,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Spread efforts to show remaining horses? (4,3,5)",
    "separatorLocations": {},
    "solution": "PLAYTHEFIELD",
    "annotation": null
@@ -144,8 +136,7 @@ window.CRYPTIC_PUZZLES["cryptic-23897"] = /*JSON-START*/ {
     "y": 2
    },
    "length": 7,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Hardy's partner (I said) of siren (7)",
    "separatorLocations": {},
    "solution": "LORELEI",
    "annotation": null
@@ -159,8 +150,7 @@ window.CRYPTIC_PUZZLES["cryptic-23897"] = /*JSON-START*/ {
     "y": 2
    },
    "length": 7,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "One in place of Pope (nameless) has supplies for journey (7)",
    "separatorLocations": {},
    "solution": "VIATICA",
    "annotation": null
@@ -174,8 +164,7 @@ window.CRYPTIC_PUZZLES["cryptic-23897"] = /*JSON-START*/ {
     "y": 2
    },
    "length": 12,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Comedy actress arranged the New York release (6,6)",
    "separatorLocations": {},
    "solution": "ATHENESEYLER",
    "annotation": null
@@ -189,8 +178,7 @@ window.CRYPTIC_PUZZLES["cryptic-23897"] = /*JSON-START*/ {
     "y": 4
    },
    "length": 7,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Beast keeps silence and mother takes the veil (7)",
    "separatorLocations": {},
    "solution": "YASHMAK",
    "annotation": null
@@ -204,8 +192,7 @@ window.CRYPTIC_PUZZLES["cryptic-23897"] = /*JSON-START*/ {
     "y": 4
    },
    "length": 7,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Like a rodent developing a thirst (7)",
    "separatorLocations": {},
    "solution": "RATTISH",
    "annotation": null
@@ -219,8 +206,7 @@ window.CRYPTIC_PUZZLES["cryptic-23897"] = /*JSON-START*/ {
     "y": 6
    },
    "length": 5,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Is obliged to break oaths (3,2)",
    "separatorLocations": {},
    "solution": "HASTO",
    "annotation": null
@@ -234,8 +220,7 @@ window.CRYPTIC_PUZZLES["cryptic-23897"] = /*JSON-START*/ {
     "y": 6
    },
    "length": 9,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Force bits of rock to be put among rubbish in the cinema (3,6)",
    "separatorLocations": {},
    "solution": "BIGSCREEN",
    "annotation": null
@@ -249,8 +234,7 @@ window.CRYPTIC_PUZZLES["cryptic-23897"] = /*JSON-START*/ {
     "y": 6
    },
    "length": 9,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Form of megastore for fuel (9)",
    "separatorLocations": {},
    "solution": "GASOMETER",
    "annotation": null
@@ -264,8 +248,7 @@ window.CRYPTIC_PUZZLES["cryptic-23897"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 9,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Second best hand in the Douay Bible (4,5)",
    "separatorLocations": {},
    "solution": "FOURKINGS",
    "annotation": null
@@ -279,8 +262,7 @@ window.CRYPTIC_PUZZLES["cryptic-23897"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 7,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Cancel instruction for meal within meal, removing starter (7)",
    "separatorLocations": {},
    "solution": "UNTEACH",
    "annotation": null
@@ -294,8 +276,7 @@ window.CRYPTIC_PUZZLES["cryptic-23897"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 7,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "King's letter to profiteer is excluded (4,3)",
    "separatorLocations": {},
    "solution": "KEPTOUT",
    "annotation": null
@@ -309,8 +290,7 @@ window.CRYPTIC_PUZZLES["cryptic-23897"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 5,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Timeless conveyances at last on three-dimensional graph (1-4)",
    "separatorLocations": {},
    "solution": "ZAXIS",
    "annotation": null
@@ -324,8 +304,7 @@ window.CRYPTIC_PUZZLES["cryptic-23897"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 7,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Painter not working when clown's about (7)",
    "separatorLocations": {},
    "solution": "ZOFFANY",
    "annotation": null
@@ -339,8 +318,7 @@ window.CRYPTIC_PUZZLES["cryptic-23897"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 7,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Mark almost anything yellow (7)",
    "separatorLocations": {},
    "solution": "XANTHIN",
    "annotation": null
@@ -354,8 +332,7 @@ window.CRYPTIC_PUZZLES["cryptic-23897"] = /*JSON-START*/ {
     "y": 10
    },
    "length": 7,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "What city people talk about in the tube? (7)",
    "separatorLocations": {},
    "solution": "ECTOPIC",
    "annotation": null
@@ -369,8 +346,7 @@ window.CRYPTIC_PUZZLES["cryptic-23897"] = /*JSON-START*/ {
     "y": 10
    },
    "length": 5,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Not quite one to fancy nice explanations (5)",
    "separatorLocations": {},
    "solution": "CYNIC",
    "annotation": null
@@ -384,8 +360,7 @@ window.CRYPTIC_PUZZLES["cryptic-23897"] = /*JSON-START*/ {
     "y": 10
    },
    "length": 7,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Setter's cooler with unknown Welsh girl (7)",
    "separatorLocations": {},
    "solution": "MYFANWY",
    "annotation": null
@@ -399,8 +374,7 @@ window.CRYPTIC_PUZZLES["cryptic-23897"] = /*JSON-START*/ {
     "y": 12
    },
    "length": 7,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Soldier finds love in monster (7)",
    "separatorLocations": {},
    "solution": "DRAGOON",
    "annotation": null
@@ -414,8 +388,7 @@ window.CRYPTIC_PUZZLES["cryptic-23897"] = /*JSON-START*/ {
     "y": 12
    },
    "length": 7,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Give instruction that is fractious, as formerly (7)",
    "separatorLocations": {},
    "solution": "TEACHIE",
    "annotation": null
@@ -429,8 +402,7 @@ window.CRYPTIC_PUZZLES["cryptic-23897"] = /*JSON-START*/ {
     "y": 14
    },
    "length": 12,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Good heavens! One of those films! That's no way to do things! (4,1,5,2)",
    "separatorLocations": {},
    "solution": "WHATACARRYON",
    "annotation": null
