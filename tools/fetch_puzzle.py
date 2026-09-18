@@ -268,7 +268,16 @@ def is_continuation(clue):
     contradiction when it disagrees with the group's total
     (tools/puzzle_integrity.py check_length); both ask here.
     """
-    return bool(CONTINUATION.match(ENUMERATION.sub("", clue or "").strip()))
+    # Stripped of the ellipsis the paper chains consecutive clues with, because
+    # a pointer wears it too: cryptic-21642's 5-down is "... see 22", the tail of
+    # 22-down's own "... not to mention their friend ... (2,3,7,2,3,3)", and the
+    # dots are the chain and not wordplay. Anchored on "see" without this, that
+    # leg read as a clue of its own and TO SAY NOTHING OF THE DOG was stored as
+    # its first two words. Leading dots only ever join a clue to its neighbour;
+    # anything else in front of "see" still refuses, which is what keeps
+    # "Follow, see 12 across" wordplay.
+    return bool(CONTINUATION.match(
+        ENUMERATION.sub("", clue or "").strip(" .…\t\n")))
 
 
 # The exemption every rule about linked groups needs, stated once. Read by
@@ -968,72 +977,85 @@ def reconstruct_groups(entries, series):
         return []
     by_id = {e["id"]: e for e in entries}
     claimed, rebuilt = {}, []
-    for lead in entries:
-        if is_continuation(lead.get("clue")):
-            continue                    # a pointer counts its own light, not an answer
-        said = ENUMERATION.search(lead.get("clue") or "")
-        counts = [int(n) for n in re.findall(r"\d+", said.group(1))] if said else []
-        if not counts:
-            continue
-        members = list(lead.get("group") or [lead["id"]])
-        if lead["id"] not in members or not set(members) <= set(by_id):
-            continue
-        held = sum(by_id[m].get("length") or 0 for m in members)
-        if sum(counts) == held:
-            continue                    # the lights the paper grouped already hold it
-        spare = [e["id"] for e in entries
-                 if e["id"] not in members and _spare_light(e, lead, entries)]
-        if not spare or len(members) + len(spare) > RECONSTRUCT_LIMIT:
-            continue
-        tail = [m for m in members if m != lead["id"]]
-        fits, adds_up = {}, {}
-        for size in range(1, len(spare) + 1):
-            for extra in itertools.combinations(spare, size):
-                if held + sum(by_id[m]["length"] for m in extra) != sum(counts):
+    # Two passes, because a spare light finishes one answer and not two. A lead
+    # whose candidate sets the first pass cannot tell apart is asked again with
+    # the lights another lead's enumeration already took removed, which is often
+    # the whole of the ambiguity: cryptic-21673 prints two unclued six-cell
+    # lights, and once 8-across's SPEAKERS has taken the CORNER that follows it,
+    # VESTED is the only reading left for 26-across INTEREST's "(6,8)" — a count
+    # whose spare light is numbered BEFORE the clue, where _continues_it can
+    # never settle anything and elimination is the only thing that can.
+    for _pass in (1, 2):
+        spent = frozenset(m for _order, extra in claimed.values() for m in extra)
+        for lead in entries:
+            if lead["id"] in claimed:
+                continue
+            if is_continuation(lead.get("clue")):
+                continue                    # a pointer counts its own light, not an answer
+            said = ENUMERATION.search(lead.get("clue") or "")
+            counts = [int(n) for n in re.findall(r"\d+", said.group(1))] if said else []
+            if not counts:
+                continue
+            members = list(lead.get("group") or [lead["id"]])
+            if lead["id"] not in members or not set(members) <= set(by_id):
+                continue
+            held = sum(by_id[m].get("length") or 0 for m in members)
+            if sum(counts) == held:
+                continue                    # the lights the paper grouped already hold it
+            spare = [e["id"] for e in entries
+                     if e["id"] not in members and e["id"] not in spent
+                     and _spare_light(e, lead, entries)]
+            if not spare or len(members) + len(spare) > RECONSTRUCT_LIMIT:
+                continue
+            tail = [m for m in members if m != lead["id"]]
+            fits, adds_up = {}, {}
+            for size in range(1, len(spare) + 1):
+                for extra in itertools.combinations(spare, size):
+                    if held + sum(by_id[m]["length"] for m in extra) != sum(counts):
+                        continue
+                    arrangements = list(itertools.permutations(tail + list(extra)))
+                    adds_up[frozenset(extra)] = arrangements
+                    orders = [rest for rest in arrangements
+                              if _cuts_into(counts, [by_id[m]["length"]
+                                                     for m in (lead["id"], *rest)])]
+                    if orders:
+                        fits[frozenset(extra)] = orders
+            if fits:
+                extra = (next(iter(fits)) if len(fits) == 1
+                         else _continues_it(lead, fits, by_id))
+                if extra is None:
                     continue
-                arrangements = list(itertools.permutations(tail + list(extra)))
-                adds_up[frozenset(extra)] = arrangements
-                orders = [rest for rest in arrangements
-                          if _cuts_into(counts, [by_id[m]["length"]
-                                                 for m in (lead["id"], *rest)])]
-                if orders:
-                    fits[frozenset(extra)] = orders
-        if fits:
-            extra = (next(iter(fits)) if len(fits) == 1
-                     else _continues_it(lead, fits, by_id))
-            if extra is None:
+                orders = fits[extra]
+            elif adds_up:
+                # The letters are all accounted for, but no arrangement puts a light
+                # boundary on every word boundary — because a WORD is split across
+                # two lights. Quiptic 306's "(13)" is WOOL over 16-across and
+                # GATHERING over 17-across, one word in two halves, and
+                # cryptic-23182's "(5,3,4,5)" cuts START ALL into STAR and TALL.
+                # _cuts_into is a word-boundary test, so it can only refuse these;
+                # the arithmetic is what settles membership. Order is then the
+                # arrangement that splits the fewest words, and a tie falls through
+                # to the stated order as everywhere else — a display question, asked
+                # after membership is already right.
+                extra = (next(iter(adds_up)) if len(adds_up) == 1
+                         else _continues_it(lead, adds_up, by_id))
+                if extra is None:
+                    continue
+                arrangements = adds_up[extra]
+                splits = {rest: _word_splits(counts, [by_id[m]["length"]
+                                                      for m in (lead["id"], *rest)])
+                          for rest in arrangements}
+                fewest = min(splits.values())
+                orders = [rest for rest in arrangements if splits[rest] == fewest]
+            else:
                 continue
-            orders = fits[extra]
-        elif adds_up:
-            # The letters are all accounted for, but no arrangement puts a light
-            # boundary on every word boundary — because a WORD is split across
-            # two lights. Quiptic 306's "(13)" is WOOL over 16-across and
-            # GATHERING over 17-across, one word in two halves, and
-            # cryptic-23182's "(5,3,4,5)" cuts START ALL into STAR and TALL.
-            # _cuts_into is a word-boundary test, so it can only refuse these;
-            # the arithmetic is what settles membership. Order is then the
-            # arrangement that splits the fewest words, and a tie falls through
-            # to the stated order as everywhere else — a display question, asked
-            # after membership is already right.
-            extra = (next(iter(adds_up)) if len(adds_up) == 1
-                     else _continues_it(lead, adds_up, by_id))
-            if extra is None:
-                continue
-            arrangements = adds_up[extra]
-            splits = {rest: _word_splits(counts, [by_id[m]["length"]
-                                                  for m in (lead["id"], *rest)])
-                      for rest in arrangements}
-            fewest = min(splits.values())
-            orders = [rest for rest in arrangements if splits[rest] == fewest]
-        else:
-            continue
-        if len(orders) == 1:
-            order = [lead["id"], *orders[0]]
-        else:
-            order = [lead["id"], *tail,
-                     *sorted(extra, key=lambda m: (by_id[m]["position"]["y"],
-                                                   by_id[m]["position"]["x"]))]
-        claimed[lead["id"]] = (order, extra)
+            if len(orders) == 1:
+                order = [lead["id"], *orders[0]]
+            else:
+                order = [lead["id"], *tail,
+                         *sorted(extra, key=lambda m: (by_id[m]["position"]["y"],
+                                                       by_id[m]["position"]["x"]))]
+            claimed[lead["id"]] = (order, extra)
 
     # One light, one answer. Two leading clues whose enumerations both reach the
     # same spare light are the shared-light case again, arrived at from the other
