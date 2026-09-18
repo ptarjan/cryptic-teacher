@@ -247,6 +247,9 @@ tools/annotate_attempts.py                   counts the annotation runs a puzzle
 tools/test_annotate_attempts.sh              drives that ledger out of daily_update.sh itself:
                                              what is charged, what is forgiven, what leaves the
                                              queue
+tools/test_solve_queue_clues.sh              drives the cold-solve queue out of daily_update.sh
+                                             against made-up clue counts, so a grid with
+                                             nothing to read is never bought a model run
 tools/test_push_conflict.sh                  proves the nightly push rebuilds a generated file
                                              the remote also rebuilt, and refuses to resolve
                                              anything else
