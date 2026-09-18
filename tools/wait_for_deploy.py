@@ -10,9 +10,10 @@ Two checks, because either one alone passes on a deploy that has not happened.
 The commit GitHub Pages last built must be the local HEAD, which covers every
 file in the push — a change to markup or to a generated page moves no asset
 stamp, and a stamps-only check called such a deploy live the instant it was
-pushed. And the live index.html must carry the local asset stamps, which the
-commit check cannot see: the commit is built, but the CDN can still be handing
-out the previous page, and the stamps are what a reload actually picks up.
+pushed. And the live index.html must carry the hashes the local asset files
+have right now, which the commit check cannot see: the commit is built, but
+the CDN can still be handing out the previous page, and the stamps are what a
+reload actually picks up.
 
     python3 tools/wait_for_deploy.py            # poll until live, or fail
     python3 tools/wait_for_deploy.py --check    # one look, no waiting
@@ -21,6 +22,7 @@ Exit 0 live, 1 timed out or mismatched. Run it as the last step of the deploy
 pipeline, after the push.
 """
 import argparse
+import hashlib
 import json
 import os
 import re
@@ -33,11 +35,30 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 URL = "https://cryptic.paultarjan.com/"
 REPO = "ptarjan/cryptic-teacher"
+ASSETS = ["app.js", "style.css", "puzzles/index.js"]
 STAMP = re.compile(r'(app\.js|style\.css|puzzles/index\.js)\?v=([a-f0-9]+)')
 
 
 def stamps(text):
     return dict(STAMP.findall(text))
+
+
+def want_stamps():
+    """The hash each asset should carry live, from the files themselves —
+    not parsed out of local index.html. daily_update.sh deliberately
+    unstamps index.html before committing (tools/stamp_assets.py --unstamp,
+    "the deploy workflow stamps its own checkout, so what ships is stamped
+    anyway"), and this script runs right after that, against that same
+    working tree. Reading local index.html for the expected stamps used to
+    make that unstamped state look exactly like an undeployed site: it
+    failed instantly on "no asset stamps in local index.html", never
+    polling GitHub or the live page at all (2026-09-18, the daily update's
+    own push falsely alerted this way while the actual deploy succeeded a
+    few seconds later). Hashing the assets directly is right either way:
+    it is the same md5[:8] tools/stamp_assets.py's digest() computes.
+    """
+    return {rel: hashlib.md5((open(os.path.join(ROOT, rel), "rb")).read()).hexdigest()[:8]
+            for rel in ASSETS}
 
 
 def fetch():
@@ -93,11 +114,7 @@ def main():
     ap.add_argument("--timeout", type=int, default=300)
     args = ap.parse_args()
 
-    with open(os.path.join(ROOT, "index.html"), encoding="utf-8") as f:
-        want = stamps(f.read())
-    if not want:
-        print("no asset stamps in local index.html — run tools/stamp_assets.py", file=sys.stderr)
-        return 1
+    want = want_stamps()
 
     head = subprocess.run(["git", "rev-parse", "HEAD"], capture_output=True,
                           text=True, cwd=ROOT).stdout.strip()
