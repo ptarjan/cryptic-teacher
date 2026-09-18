@@ -89,6 +89,7 @@ window.CRYPTIC_PUZZLES["cryptic-24668"] = /*JSON-START*/ {
    },
    "length": 12,
    "clue": "?   (1,6,1,4)",
+   "clueMissing": true,
    "separatorLocations": {
     ",": [
      1,
