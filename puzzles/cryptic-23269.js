@@ -24,8 +24,7 @@ window.CRYPTIC_PUZZLES["cryptic-23269"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 8,
-   "clue": " (8)",
-   "clueMissing": true,
+   "clue": "A game bird's roost at Christmas: hence comes William (4-4)",
    "separatorLocations": {},
    "solution": "PEARTREE",
    "annotation": null
@@ -39,8 +38,7 @@ window.CRYPTIC_PUZZLES["cryptic-23269"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 4,
-   "clue": " (4)",
-   "clueMissing": true,
+   "clue": "At last it matters not which second J (4)",
    "separatorLocations": {},
    "solution": "ZANY",
    "annotation": null
@@ -54,8 +52,7 @@ window.CRYPTIC_PUZZLES["cryptic-23269"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "Nike? - had son by arrow cleft (6)",
    "separatorLocations": {},
    "solution": "GODWIN",
    "annotation": null
@@ -69,8 +66,7 @@ window.CRYPTIC_PUZZLES["cryptic-23269"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Arrange in lines: check round where song's begun (7)",
    "separatorLocations": {},
    "solution": "VERSIFY",
    "annotation": null
@@ -84,8 +80,7 @@ window.CRYPTIC_PUZZLES["cryptic-23269"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 8,
-   "clue": " (8)",
-   "clueMissing": true,
+   "clue": "Prince keeping somewhat posh, as thing of course (8)",
    "separatorLocations": {},
    "solution": "HABITUAL",
    "annotation": null
@@ -99,8 +94,7 @@ window.CRYPTIC_PUZZLES["cryptic-23269"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 10,
-   "clue": " (10)",
-   "clueMissing": true,
+   "clue": "Columns describing various brigs on Dee (5,5)",
    "separatorLocations": {},
    "solution": "RIDGEBONES",
    "annotation": null
@@ -114,8 +108,7 @@ window.CRYPTIC_PUZZLES["cryptic-23269"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "Things told a student, soon to drop a horse (2,4)",
    "separatorLocations": {},
    "solution": "INFOAL",
    "annotation": null
@@ -129,8 +122,7 @@ window.CRYPTIC_PUZZLES["cryptic-23269"] = /*JSON-START*/ {
     "y": 1
    },
    "length": 8,
-   "clue": " (8)",
-   "clueMissing": true,
+   "clue": "In general, Nail - and one might add, Touch not (3,5)",
    "separatorLocations": {},
    "solution": "LETALONE",
    "annotation": null
@@ -144,8 +136,7 @@ window.CRYPTIC_PUZZLES["cryptic-23269"] = /*JSON-START*/ {
     "y": 1
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "For Celia, tale within and tales without (6)",
    "separatorLocations": {},
    "solution": "ALIENA",
    "annotation": null
@@ -159,8 +150,7 @@ window.CRYPTIC_PUZZLES["cryptic-23269"] = /*JSON-START*/ {
     "y": 3
    },
    "length": 4,
-   "clue": " (4)",
-   "clueMissing": true,
+   "clue": "Cross fish has power to view what's not on view (1-3)",
    "separatorLocations": {},
    "solution": "XRAY",
    "annotation": null
@@ -174,8 +164,7 @@ window.CRYPTIC_PUZZLES["cryptic-23269"] = /*JSON-START*/ {
     "y": 3
    },
    "length": 10,
-   "clue": " (10)",
-   "clueMissing": true,
+   "clue": "The seat of power existed: nothing's new (10)",
    "separatorLocations": {},
    "solution": "WASHINGTON",
    "annotation": null
@@ -189,8 +178,7 @@ window.CRYPTIC_PUZZLES["cryptic-23269"] = /*JSON-START*/ {
     "y": 5
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "Harry, said Fred, has liquor in first B (6)",
    "separatorLocations": {},
    "solution": "TRUMAN",
    "annotation": null
@@ -204,8 +192,7 @@ window.CRYPTIC_PUZZLES["cryptic-23269"] = /*JSON-START*/ {
     "y": 5
    },
    "length": 10,
-   "clue": " (10)",
-   "clueMissing": true,
+   "clue": "Composer, one that follows change to men (10)",
    "separatorLocations": {},
    "solution": "MONTEVERDI",
    "annotation": null
@@ -219,8 +206,7 @@ window.CRYPTIC_PUZZLES["cryptic-23269"] = /*JSON-START*/ {
     "y": 5
    },
    "length": 8,
-   "clue": " (8)",
-   "clueMissing": true,
+   "clue": "A golfing match: the kidnapped boy turned left (4-4)",
    "separatorLocations": {},
    "solution": "FOURBALL",
    "annotation": null
@@ -234,8 +220,7 @@ window.CRYPTIC_PUZZLES["cryptic-23269"] = /*JSON-START*/ {
     "y": 7
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Know, heartless ass, this party-leading Scot? (7)",
    "separatorLocations": {},
    "solution": "KENNEDY",
    "annotation": null
@@ -249,8 +234,7 @@ window.CRYPTIC_PUZZLES["cryptic-23269"] = /*JSON-START*/ {
     "y": 7
    },
    "length": 8,
-   "clue": " (8)",
-   "clueMissing": true,
+   "clue": "Bird, easy thing and hard, cop must retain (8)",
    "separatorLocations": {},
    "solution": "DABCHICK",
    "annotation": null
@@ -264,8 +248,7 @@ window.CRYPTIC_PUZZLES["cryptic-23269"] = /*JSON-START*/ {
     "y": 7
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Bill Heathcliff loved initially when wed (7)",
    "separatorLocations": {},
    "solution": "CLINTON",
    "annotation": null
@@ -279,8 +262,7 @@ window.CRYPTIC_PUZZLES["cryptic-23269"] = /*JSON-START*/ {
     "y": 7
    },
    "length": 8,
-   "clue": " (8)",
-   "clueMissing": true,
+   "clue": "For \"nought\" write \"cross\": continuing source of ill I am (4,4)",
    "separatorLocations": {},
    "solution": "OPENSORE",
    "annotation": null
@@ -294,8 +276,7 @@ window.CRYPTIC_PUZZLES["cryptic-23269"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Fen stream splits rocks, whereon great ships we see (7)",
    "separatorLocations": {},
    "solution": "SEAWAYS",
    "annotation": null
@@ -309,8 +290,7 @@ window.CRYPTIC_PUZZLES["cryptic-23269"] = /*JSON-START*/ {
     "y": 9
    },
    "length": 8,
-   "clue": " (8)",
-   "clueMissing": true,
+   "clue": "First lady, centre of activity? (5,3)",
    "separatorLocations": {},
    "solution": "QUEENBEE",
    "annotation": null
@@ -324,8 +304,7 @@ window.CRYPTIC_PUZZLES["cryptic-23269"] = /*JSON-START*/ {
     "y": 9
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "The public service workers sing as one (6)",
    "separatorLocations": {},
    "solution": "UNISON",
    "annotation": null
@@ -339,8 +318,7 @@ window.CRYPTIC_PUZZLES["cryptic-23269"] = /*JSON-START*/ {
     "y": 9
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "Who's good in mockery? Fool that's not an ass (6)",
    "separatorLocations": {},
    "solution": "JESTER",
    "annotation": null
@@ -354,8 +332,7 @@ window.CRYPTIC_PUZZLES["cryptic-23269"] = /*JSON-START*/ {
     "y": 9
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "No clear fresh words we need - just start to gas (6)",
    "separatorLocations": {},
    "solution": "JARGON",
    "annotation": null
@@ -369,8 +346,7 @@ window.CRYPTIC_PUZZLES["cryptic-23269"] = /*JSON-START*/ {
     "y": 11
    },
    "length": 10,
-   "clue": " (10)",
-   "clueMissing": true,
+   "clue": "General that is retired on points in rain (10)",
    "separatorLocations": {},
    "solution": "EISENHOWER",
    "annotation": null
@@ -384,8 +360,7 @@ window.CRYPTIC_PUZZLES["cryptic-23269"] = /*JSON-START*/ {
     "y": 11
    },
    "length": 4,
-   "clue": " (4)",
-   "clueMissing": true,
+   "clue": "... a plant or plants proclaiming wine, it's said (4)",
    "separatorLocations": {},
    "solution": "BUSH",
    "annotation": null
@@ -399,8 +374,7 @@ window.CRYPTIC_PUZZLES["cryptic-23269"] = /*JSON-START*/ {
     "y": 11
    },
    "length": 4,
-   "clue": " (4)",
-   "clueMissing": true,
+   "clue": "Are placed where cops are placed: some do about ... (4)",
    "separatorLocations": {},
    "solution": "BEAT",
    "annotation": null
@@ -414,8 +388,7 @@ window.CRYPTIC_PUZZLES["cryptic-23269"] = /*JSON-START*/ {
     "y": 13
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "Austen or Dickens compassed such as Sven (6)",
    "separatorLocations": {},
    "solution": "NORDIC",
    "annotation": null
@@ -429,8 +402,7 @@ window.CRYPTIC_PUZZLES["cryptic-23269"] = /*JSON-START*/ {
     "y": 13
    },
    "length": 8,
-   "clue": " (8)",
-   "clueMissing": true,
+   "clue": "Farmers as troops on line - perhaps one may (8)",
    "separatorLocations": {},
    "solution": "YEOMANRY",
    "annotation": null
