@@ -1182,6 +1182,21 @@ assert(registry["picker-search"].value === "", "the filter box starts empty on o
   typeInPicker(String(target.number));
   assert(pickerRows().length === 1 && pickerHTMLNow().includes("№ " + target.number),
     "filtering by number finds exactly that puzzle");
+  // And that number is the whole number. Every puzzle number of five digits or
+  // fewer is a run of digits inside some longer one once an archive is this
+  // deep, so the pair is found here rather than named: the shorter number must
+  // not turn up the longer one. Structural, so it cannot decay into a test of
+  // one puzzle that happens to have been re-numbered.
+  const numbers = allPuzzles.map((p) => String(p.number));
+  const short = numbers.find((n, i) => numbers.indexOf(n) === i
+    && numbers.lastIndexOf(n) === i
+    && numbers.some((m) => m.length > n.length && m.includes(n)));
+  typeInPicker(short);
+  const found = pickerRows().map((li) =>
+    (li.children[0].innerHTML.match(/№ ([\d,]+)/) || [])[1]);
+  assert(found.length === 1 && found[0].replace(/,/g, "") === short,
+    "a number search matches whole numbers only, not digits inside a longer one: "
+    + short + " found " + found.join(", "));
   typeInPicker(target.setter.toLowerCase());
   assert(pickerHTMLNow().includes("№ " + target.number),
     "filtering by setter works: " + target.setter);
