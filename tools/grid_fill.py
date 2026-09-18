@@ -102,6 +102,11 @@ def parse_pattern(text):
 
 MIN_ENTRY = 4          # see check_min_entry_length
 MAX_UNCHECKED_RUN = 1  # see check_unchecked_runs — Exet forbids ANY adjacency
+# see check_checked_ratio. Named rather than left as a default argument because
+# apply_solution.check_geometry holds published grids to the same floor, and two
+# copies of the figure would let an authored grid and a fetched one disagree
+# about what a crossword is.
+MIN_CHECKED_RATIO, MAX_CHECKED_RATIO = 0.28, 0.52
 
 
 class Slot:
@@ -337,12 +342,14 @@ def check_connectivity(grid):
     return []
 
 
-def check_checked_ratio(grid, lo=0.28, hi=0.52):
+def check_checked_ratio(grid, lo=MIN_CHECKED_RATIO, hi=MAX_CHECKED_RATIO):
     """Roughly a third to a half of all letters checked. Measured over the
     Guardian grids in puzzles/ the figure is 31-40%; the band is widened a little
     so a legitimately chunkier grid is not refused, but a 20%-checked grid (a
     solver's nightmare) or a 60%-checked one (an American grid wearing a British
-    hat) is."""
+    hat) is. Measured over every grid in the corpus, not just the Guardian's, the
+    span is 29-50%, so the band holds published grids too and
+    apply_solution.check_geometry applies its floor to them."""
     lights = grid.lights()
     ratio = len(grid.checked_cells()) / len(lights) if lights else 0
     if not lo <= ratio <= hi:

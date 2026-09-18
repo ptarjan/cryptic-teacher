@@ -54,9 +54,10 @@ same() { if [ "$2" = "$3" ]; then echo "  ok: $1"; else
   echo "  FAIL: $1"$'\n'"    want $3"$'\n'"    got  $2"; fails=$((fails + 1)); fi; }
 field() { awk -v k="$1" '$1==k {print $2}' <<<"$2"; }
 
-echo "the CLI's own LENGTH tally is zero (DUPLICATE/CROSS/SHAPE are not this test's concern)"
+echo "the CLI's own LENGTH and GRID tallies are zero (DUPLICATE/CROSS/SHAPE are not this test's concern)"
 out=$(python3 tools/puzzle_integrity.py 2>&1)
 same "LENGTH tally" "$(awk '/^  LENGTH/ {print $2}' <<<"$out")" "0"
+same "GRID tally" "$(awk '/^  GRID/ {print $2}' <<<"$out")" "0"
 
 echo "exactness: a lengthened key must not still match, and dropping one table must not touch the other"
 combo=$(PYTHONPATH="$REPO/tools" python3 - <<'PY'
@@ -79,9 +80,12 @@ for path in fetch_puzzle.puzzle_files():
     cache.append((puzzle, checkable))
 
 def length_count():
+    # Both checks that consult the tables, so a dropped GRID key shows up in the
+    # same total a dropped LENGTH key does.
     flags = []
     for puzzle, checkable in cache:
         pi.check_length(puzzle, checkable, flags)
+        pi.check_grid(puzzle, flags)
     return len(flags)
 
 orig_pw = dict(pi.PUBLISHED_WRONG)
@@ -191,6 +195,45 @@ same "one clue the setter left blank is not a defect" "$(field ONE_BLANK "$out4"
 same "a puzzle with no clue text at all is exactly one finding" \
   "$(field ALL_BLANK "$out4")" "1"
 same "and it counts the clues it actually read" "$(field BLANK_SAYS "$out4")" "True"
+
+echo "grid geometry: a light off the board and two acrosses on one cell are findings"
+out5=$(PYTHONPATH="$REPO/tools" python3 - <<'XPY'
+import copy
+import puzzle_integrity as pi
+from apply_solution import check_geometry
+
+# A real 15x15, so the fixture cannot drift out of the shape the checker reads.
+puzzle = pi.read_puzzle_file(pi.PUZZLE_DIR / "cryptic-24104.js")
+print("PRISTINE", len(check_geometry(puzzle)))
+
+# 1-across is 15 cells of a 15-wide grid. Shifted one column right it is the
+# same light, still crossing everything, and no longer on the board.
+off = copy.deepcopy(puzzle)
+by_id = {e["id"]: e for e in off["entries"]}
+assert by_id["1-across"]["length"] == off["dimensions"]["cols"], "fixture assumption broken"
+by_id["1-across"]["position"]["x"] = 1
+found = check_geometry(off)
+print("OFFBOARD", len(found))
+print("OFFBOARD_SAYS", found == ["1-across: 15 cells across from (1,0) runs off a 15x15 grid"])
+
+# A second across laid over the first four cells of 1-across: the shape a
+# mis-templated grid takes when a light is split or a block lands in the wrong
+# square. Numbered like 1-across so that only the overlap rule can speak.
+over = copy.deepcopy(puzzle)
+twin = copy.deepcopy({e["id"]: e for e in over["entries"]}["1-across"])
+twin["id"], twin["length"] = "1-across-twin", 4
+over["entries"].append(twin)
+found = check_geometry(over)
+print("OVERLAP", len(found))
+print("OVERLAP_SAYS", all(f == f"cell ({x}, 0): 2 across lights share it — "
+                          "1-across, 1-across-twin" for x, f in enumerate(found)))
+XPY
+)
+same "the puzzle as published is a coherent grid" "$(field PRISTINE "$out5")" "0"
+same "a light off the board is exactly one finding" "$(field OFFBOARD "$out5")" "1"
+same "and it names the light, the run and the board" "$(field OFFBOARD_SAYS "$out5")" "True"
+same "two acrosses over four cells is four findings" "$(field OVERLAP "$out5")" "4"
+same "each names the cell and both lights" "$(field OVERLAP_SAYS "$out5")" "True"
 
 [ "$fails" = 0 ] && echo "puzzle_integrity: all checks passed" || echo "puzzle_integrity: $fails FAILED"
 exit $((fails > 0))
