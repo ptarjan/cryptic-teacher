@@ -27,9 +27,13 @@ The flags, in the order they matter:
             field, and the (5,4)-style enumeration at the end of the clue. On a
             LINKED clue the enumeration is allowed to count either that light or
             the whole group, because the papers in this corpus do both — see
-            check_length, which has the numbers. Three findings are excepted by
-            name, in PUBLISHED_WRONG: what the Guardian printed there cannot be
-            reconciled with the grid it printed beside it.
+            check_length, which has the numbers. Some findings are excepted by
+            name, in two tables keyed the same way but stating different things:
+            PUBLISHED_WRONG is the Guardian contradicting itself, what it printed
+            there cannot be reconciled with the grid beside it; UNLINKED_IN_SOURCE
+            is the Guardian never recording a link at all, so the rest of the
+            answer sits in a light this corpus has no license to invent a
+            connection to.
   CROSS     two entries that share a grid cell and disagree about its letter. One
             wrong answer normally breaks three or four of these, so a clean sheet
             is real evidence the fill is the paper's and not a mangling of it.
@@ -106,6 +110,234 @@ PUBLISHED_WRONG = {
         "29-down SHOE is counted (4) for its own light while 23-down OXFORD points "
         "at it, so the ten cells of OXFORD SHOE are nowhere counted",
 }
+
+# The LENGTH findings that are a light the Guardian never linked, not a mistake in
+# either the clue or the grid: the enumeration counts letters that live somewhere
+# else in the puzzle, and the only lights available for them already belong to a
+# different answer, are still carrying their own separate clue, or are unclued but
+# not nameable without guessing among more than one candidate or a bare count
+# spanning two lights. This repo's rule is to leave a light exactly as published —
+# reconstructing the missing connection would be inventing a fact the paper never
+# printed, so these can never be cleared by a fetcher or a repair pass either.
+#
+# Keyed the same way as PUBLISHED_WRONG — by puzzle and by the whole finding — and
+# for the same reason: forgive exactly this sentence, not the clue it comes from,
+# so any other defect on the same light still reports.
+UNLINKED_IN_SOURCE = dict([
+    (("cryptic-26330", "7-down: clue says (5-5) = 10, answer holds 5"),
+     "BLANK, which would make POINT-BLANK, is not spare — its own clue commits it "
+     "to 21-across's BLANK CHEQUE"),
+    (("cryptic-26330", "10-across: clue says (14) = 14, answer holds 6"),
+     "BREAKING, which would make GROUNDBREAKING, is not spare — its own clue "
+     "commits it to 18-down's BREAKING POINT"),
+    (("cryptic-26330", "15-across: clue says (11) = 11, answer holds 5"),
+     "GROUND, which would make UNDERGROUND, is not spare — its own clue commits "
+     "it to 10-across's GROUNDBREAKING"),
+    (("cryptic-26330", "18-down: clue says (8,5) = 13, answer holds 8"),
+     "POINT, which would make BREAKING POINT, is not spare — its own clue commits "
+     "it to 7-down's POINT-BLANK"),
+    (("cryptic-26330", "21-across: clue says (5,6) = 11, answer holds 5"),
+     "CHEQUE, which would make BLANK CHEQUE, carries its own complete, "
+     "self-contained clue and nothing links it here"),
+    (("cryptic-26330", "25-down: clue says (10) = 10, answer holds 5"),
+     "no light anywhere in this grid is blank, spare, or grouped toward "
+     "completing it"),
+    (("cryptic-26178", "6-across: clue says (8) = 8, answer holds 4"),
+     "the WOOD that would make DASHWOOD is already spent on 1-down + 26-across's "
+     "WOODHOUSE"),
+    (("cryptic-25949", "17-across: clue says (5-3,5) = 13, answer holds 5"),
+     "no group in this grid links it to the rest of the phrase, despite its own "
+     "clue naming other numbers"),
+    (("cryptic-25949", "21-across: clue says (7) = 7, answer holds 5"),
+     "no group in this grid links it to the rest of the phrase, despite its own "
+     "clue naming other numbers"),
+    (("cryptic-25949", "24-across: clue says (9) = 9, answer holds 7"),
+     "no group in this grid links it to the rest of the phrase, despite its own "
+     "clue naming other numbers"),
+    (("cryptic-25949", "29-across: clue says (9) = 9, answer holds 5"),
+     "no group in this grid links it to the rest of the phrase, despite its own "
+     "clue naming other numbers"),
+    (("cryptic-25430",
+      "22-down + 23-down + 12-across: clue says (6,1,5,3,4,2,6,3) = 30, "
+      "answer holds 6 alone or 21 linked"),
+     "Landor's epitaph repeats NATURE, which the grid holds only once, and ends "
+     "in ART — already spent on 8-down + 19-across's ART DECO; no single light "
+     "supplies the gap"),
+    (("cryptic-25220",
+      "23-across: clue says (3,7,4,2,8,4,2,5,2,3,7,1,4) = 52, answer holds 10"),
+     "the missing 6 letters are 22-across LIFE IS (mislabelled '22-down' in the "
+     "source), already spent on 14-across + 22-across's LIFE IS TOO SHORT"),
+    (("cryptic-25126", "6-down: clue says (4,5) = 9, answer holds 4"),
+     "the MINOR that would make ASIA MINOR is already spent on 17/19/20-across's "
+     "MAJOR AND MINOR"),
+    (("cryptic-25126", "8-down: clue says (4,5) = 9, answer holds 4"),
+     "the MAJOR that would make DRUM MAJOR is already spent on 17/19/20-across's "
+     "MAJOR AND MINOR"),
+    (("cryptic-24951", "16-down: clue says (3,3,3,5,3,7) = 24, answer holds 3"),
+     "the LET THE ... DOG SEE THE RABBIT it needs is already spent on "
+     "18-down + 24-across + 8-down's own group"),
+    (("cryptic-24640", "17-across: clue says (5,3,5) = 13, answer holds 5"),
+     "the NEW and WORLD that would make BRAVE NEW WORLD are already spent on "
+     "18/20/31-across's NEW WORLD ORDER"),
+    (("cryptic-24587", "15-across: clue says (8) = 8, answer holds 4"),
+     "16-across MARK is unclued and exactly the length HALLMARK is short, but "
+     "nothing links it to 15-across and recruiting it would be a connection the "
+     "paper never printed"),
+    (("cryptic-24575",
+      "9-across + 18-down + 7-down + 16-down + 19-across + 29-across: "
+      "clue says (3,4,2,3,8,3,3,9,3,5,3,5) = 51, answer holds 9 alone or 42 "
+      "linked"),
+     "the White Queen's line repeats JAM three times and adds AND once; the "
+     "grid holds JAM only once and has no AND at all, so no light can supply "
+     "the repeats"),
+    (("cryptic-24540", "24-across: clue says (5,6) = 11, answer holds 5"),
+     "no light in this grid is blank, spare, or grouped toward the six missing "
+     "letters"),
+    (("cryptic-24531", "22-across: clue says (3,4,3,4) = 14, answer holds 7"),
+     "the LET IT BE that would finish SHE SAID LET IT BE is already spent on "
+     "19-across + 6-down's own linked answer"),
+    (("cryptic-24496", "19-down: clue says (13) = 13, answer holds 7"),
+     "no light in this grid is blank, spare, or grouped toward the six missing "
+     "letters"),
+    (("cryptic-24447",
+      "13-across + 16-down + 24-across: clue says (3,3,6) = 12, answer holds 3 "
+      "alone or 9 linked"),
+     "18-down DRY is unclued and exactly the length ALL AND SUNDRY is short, but "
+     "nothing links it to this group and recruiting it would be a connection the "
+     "paper never printed"),
+    (("cryptic-24418", "17-across: clue says (5-8) = 13, answer holds 5"),
+     "two different established answers in this grid (1-down + 24-down, and "
+     "8-down + 27-down) both total exactly the eight missing letters; which one "
+     "STAGE completes is not in the data"),
+    (("cryptic-24411", "4-down: clue says (4,4) = 8, answer holds 4"),
+     "no light in this grid is blank, spare, or grouped toward the four missing "
+     "letters"),
+    (("cryptic-24303", "12-across: clue says (10) = 10, answer holds 5"),
+     "HEART, which would make SWEETHEART, carries its own full separate clue at "
+     "23-down (\"Try time at centre\")"),
+    (("cryptic-24231",
+      "4-across + 15-across + 12-across: clue says (6,8,4,3,4) = 25, "
+      "answer holds 6 alone or 18 linked"),
+     "no light in this grid is blank, spare, or grouped toward the seven missing "
+     "letters"),
+    (("cryptic-24133",
+      "2-down + 16-down: clue says (6,3,5) = 14, answer holds 6 alone or 11 "
+      "linked"),
+     "no light in this grid is blank, spare, or grouped toward the three missing "
+     "letters"),
+    (("cryptic-24133",
+      "21-across + 1-down: clue says (7,3,4) = 14, answer holds 7 alone or 11 "
+      "linked"),
+     "no light in this grid is blank, spare, or grouped toward the three missing "
+     "letters"),
+    (("cryptic-24133",
+      "24-down + 8-down: clue says (4,7) = 11, answer holds 4 alone or 8 "
+      "linked"),
+     "no light in this grid is blank, spare, or grouped toward the three missing "
+     "letters"),
+    (("cryptic-24104", "13-across: clue says (6) = 6, answer holds 3"),
+     "the ASH that would make POTASH is already spent on 18-down + 24-across's "
+     "ASHORE"),
+    (("cryptic-24104", "16-down: clue says (6) = 6, answer holds 3"),
+     "the ORE that would complete it is already spent on 18-down + 24-across's "
+     "ASHORE"),
+    (("cryptic-23874", "18-down: clue says (5,8) = 13, answer holds 8"),
+     "no light in this grid is blank, spare, or grouped toward the five missing "
+     "letters"),
+    (("cryptic-23837",
+      "10-across + 1-down: clue says (3,4,4,3,2,5,5,4) = 30, answer holds 7 "
+      "alone or 21 linked"),
+     "no light in this grid is blank, spare, or grouped toward the nine missing "
+     "letters"),
+    (("cryptic-23834",
+      "11-across + 27-across: clue says (7,11,13) = 31, answer holds 7 alone or "
+      "21 linked"),
+     "no light in this grid is blank, spare, or grouped toward the ten missing "
+     "letters"),
+    (("cryptic-23753",
+      "1-across + 52-across: clue says (4,6-4) = 14, answer holds 4 alone or 8 "
+      "linked"),
+     "no light in this grid is blank, spare, or grouped toward the six missing "
+     "letters"),
+    (("cryptic-23753", "48-down: clue says (7) = 7, answer holds 3"),
+     "no light in this grid is blank, spare, or grouped toward the four missing "
+     "letters"),
+    (("cryptic-23737", "2-down: clue says (3,7) = 10, answer holds 4"),
+     "no light in this grid is blank, spare, or grouped toward the six missing "
+     "letters"),
+    (("cryptic-23731",
+      "3-down + 16-down + 4-down + 5-down + 11-across + 21-across: "
+      "clue says (2,2,4,4,4,3,4,4,5,4,2,4,4,7) = 53, answer holds 4 alone or 49 "
+      "linked"),
+     "the Macbeth line repeats WERE, DONE and IT; the grid holds each only once, "
+     "so no light can supply the repeats"),
+    (("cryptic-23695",
+      "13-down + 9-across: clue says (4-6,9,6) = 25, answer holds 10 alone or "
+      "19 linked"),
+     "no light in this grid is blank, spare, or grouped toward the six missing "
+     "letters"),
+    (("cryptic-23660", "7-down: clue says (4,1,5,3) = 13, answer holds 5"),
+     "no light in this grid is blank, spare, or grouped toward the eight missing "
+     "letters"),
+    (("cryptic-23651",
+      "8-down + 16-down + 1-across + 4-across + 15-across + 25-across: "
+      "clue says (3,3,4,3,3,3,6,6,2,1,4,4,4) = 46, answer holds 13 alone or 40 "
+      "linked"),
+     "the song lyric repeats SHE WAS; the grid holds it only once, so no light "
+     "can supply the repeat"),
+    (("cryptic-23626", "22-down: clue says (4,2,4) = 10, answer holds 6"),
+     "the LOVE that would make FALL IN LOVE is already spent on "
+     "27-across + 28-across's own linked answer, whose clue names this light "
+     "too (\"See 28 and 22\")"),
+    (("cryptic-23625", "8-across: clue says (4,4,5) = 13, answer holds 8"),
+     "no light in this grid is blank, spare, or grouped toward the five missing "
+     "letters"),
+    (("cryptic-23609", "7-down: clue says (8) = 8, answer holds 4"),
+     "MIST's neighbour 8-down RUST is unclued and the right length, but a bare "
+     "(8) is one unbroken word and cannot be assembled by reading across two "
+     "separate lights"),
+    (("cryptic-23609", "22-down: clue says (4,4) = 8, answer holds 4"),
+     "BACK has more than one unclued four-cell light in this grid it could pair "
+     "with; nothing in the data says which"),
+    (("cryptic-23559",
+      "7-down: clue says (1,4-2,3,3,4) = 17, answer holds 13"),
+     "no light in this grid is blank, spare, or grouped toward the four missing "
+     "letters"),
+    (("cryptic-23541",
+      "4-down + 19-down + 8-down: clue says (6,1,5 and 4,2,6,3) = 27, "
+      "answer holds 6 alone or 23 linked"),
+     "no light in this grid is blank, spare, or grouped toward the four missing "
+     "letters"),
+    (("cryptic-23501",
+      "8-across + 9-across: clue says (3,5,2,3,5,5) = 23, answer holds 8 alone "
+      "or 13 linked"),
+     "no light in this grid is blank, spare, or grouped toward the ten missing "
+     "letters"),
+    (("cryptic-23429",
+      "17-across + 27-across: clue says (1,4,7,4) = 16, answer holds 5 alone or "
+      "9 linked"),
+     "the BRITISH that would make A VERY BRITISH COUP is already spent on "
+     "24-across + 29-across's BRITISH EMPIRE"),
+    (("cryptic-23405", "23-down: clue says (5,4) = 9, answer holds 5"),
+     "the ARMS that would make SLOPE ARMS is already spent on 9-across + "
+     "24-down's ORDER ARMS"),
+    (("cryptic-23314", "13-across: clue says (7,7) = 14, answer holds 7"),
+     "no light in this grid is blank, spare, or grouped toward the seven "
+     "missing letters"),
+    (("cryptic-23299",
+      "1-across + 19-down + 10-across: clue says (2,3,2,5,2,7,6) = 27, "
+      "answer holds 7 alone or 22 linked"),
+     "no light in this grid is blank, spare, or grouped toward the five missing "
+     "letters, despite the clue naming other numbers"),
+    (("cryptic-23299",
+      "9-across + 24-down: clue says (5,4,6) = 15, answer holds 5 alone or 9 "
+      "linked"),
+     "no light in this grid is blank, spare, or grouped toward the six missing "
+     "letters, despite the clue naming other numbers"),
+    (("cryptic-23299", "12-across: clue says (4,5,2) = 11, answer holds 4"),
+     "no light in this grid is blank, spare, or grouped toward the seven "
+     "missing letters"),
+])
 
 # PER_LIGHT_ENUMERATION names the series whose linked clues are enumerated one
 # light at a time, and is imported rather than restated: the fetcher dissolves a
@@ -258,7 +490,7 @@ def check_length(puzzle, checkable, flags):
         holds = f"{held}" if len(group) == 1 else f"{len(solution)} alone or {held} linked"
         finding = (f"{where}: clue says ({m.group(1)}) = "
                    f"{sum(counts)}, answer holds {holds}")
-        if (pid, finding) in PUBLISHED_WRONG:
+        if (pid, finding) in PUBLISHED_WRONG or (pid, finding) in UNLINKED_IN_SOURCE:
             continue
         flags.append(("LENGTH", pid, finding))
 
