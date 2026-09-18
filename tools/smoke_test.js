@@ -46,6 +46,22 @@ const reported = (mark) => beacons.slice(mark).map((b) => b.body.parts);
 // used everywhere this test drives the picker.
 const numberOf = (id) => (((global.CRYPTIC_INDEX || {}).puzzles || [])
   .find((p) => p.id === id) || { number: id }).number;
+// The ladder, read off app.js's ordered LABELS map rather than copied here. The
+// map's key order is the ladder's order — app.js sorts by Object.keys(LABELS)
+// and tools/build_readme.py numbers README.md off the same map — so this file
+// cannot hold an order that disagrees with the app. It held one for two
+// reorders, and every assertion below that names a rung was reading a list the
+// app had stopped using.
+const LADDER = (() => {
+  const block = /const LABELS = \{([\s\S]*?)\n    \};/.exec(appSrc);
+  if (!assert(block, "app.js still declares the ladder as `const LABELS = { … };`")) return [];
+  if (!assert(/const RUNG_ORDER = Object\.keys\(LABELS\);/.test(appSrc),
+      "the ladder's order is Object.keys(LABELS), not a second list beside it — "
+      + "a copy is what let the README publish an order the app had abandoned")) return [];
+  return [...block[1].matchAll(/(\w+):\s*"([^"]+)"/g)].map((m) => ({ key: m[1], label: m[2] }));
+})();
+assert(LADDER.length === 5, "the ladder has five rungs: " + LADDER.map((r) => r.key).join(", "));
+
 // A row's innerHTML carries "№ 1183", and past ~600 puzzles the archive also
 // carries "№ 11830".."№ 11839" — every one of which contains "№ 1183" as a
 // plain substring. `.includes("№ " + num)` picked whichever row came first,
@@ -1808,6 +1824,35 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
         if (!row || !row.listeners.click) continue;
         seenTypes.add(e.annotation.type);
         row.listeners.click[0]();
+        // The ladder numbers its rungs in LADDER's order, on every clue in the
+        // corpus. Checked by the NUMBER on each button rather than by the
+        // button's position, because the row lists the rungs you can take
+        // before the ones you can't; and checked as a subsequence rather than
+        // as 1..5, because the ladder is built per clue — lots of clues have no
+        // indicators rung and no blocks rung — and the row drops a rung once it
+        // has been taken, so its number goes with it and the rest keep theirs.
+        {
+          const numbered = registry["hint-next"].children
+            .map((b) => /^(\d+) · ([^·]*?)(?: · free)?$/.exec(b.textContent || ""))
+            .filter(Boolean)
+            .map((m) => ({ n: +m[1], label: m[2].trim() }))
+            .sort((a, b) => a.n - b.n);
+          const where = `${id} ${e.id} (${e.annotation.type})`;
+          const shownAs = () => numbered.map((r) => `${r.n} ${r.label}`).join(" | ");
+          assert(numbered.every((r) => r.n >= 1 && r.n <= LADDER.length)
+            && new Set(numbered.map((r) => r.n)).size === numbered.length,
+            `${where}: every rung wears its own number in 1..${LADDER.length}: ` + shownAs());
+          // Climbing by number and climbing by app.js's order are the same walk.
+          let at = -1;
+          const inOrder = numbered.every((r) => {
+            at = LADDER.findIndex((x, j) => j > at && x.label === r.label);
+            return at >= 0;
+          });
+          assert(inOrder,
+            `${where}: the rungs are numbered in app.js's own ladder order (`
+            + LADDER.map((r) => r.label).join(" → ") + "), but this clue offers "
+            + shownAs());
+        }
         for (let i = 0; i < 9; i++) {
           const btns = registry["hint-next"].children.filter((b) => b.onclick);
           if (!btns.length) break;
@@ -1821,11 +1866,10 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
       }
     }
     assert(seenTypes.size > 20, "the sweep saw the corpus's variety of types: " + seenTypes.size);
-    // Six rungs exist, so six names exist. A seventh means a branch phrased a
+    // Five rungs exist, so five names exist. A sixth means a branch phrased a
     // label for its clue type, whatever the wording turned out to be.
-    const LADDER = ["What kind of clue is this?", "Where is the definition?",
-      "Spot the indicator words", "The building blocks", "Full walkthrough"];
-    const extra = [...names].filter(([n]) => !LADDER.includes(n));
+    const LABEL_SET = LADDER.map((r) => r.label);
+    const extra = [...names].filter(([n]) => !LABEL_SET.includes(n));
     assert(!extra.length,
       "a rung is named differently depending on the clue, so its button leaks the " +
       "type before it is bought: " +
@@ -4963,7 +5007,7 @@ global.realSetTimeout(() => {
 
   // Climb to the walkthrough, taking whatever rungs this clue happens to have
   // and telling the quiz we do not want to guess.
-  // A rung button reads "3 · Spot the indicator words", or "Show hint 3 · …" for
+  // A rung button reads "1 · Spot the indicator words", or "Show hint 1 · …" for
   // the next one up, and is disabled until its tier opens — so it is matched on
   // the label the ladder gives it, and only counts once it can be pressed.
   const rungs = () => reg["hint-next"].children;

@@ -304,10 +304,16 @@ def indicator_gloss(ann, ind, family):
 
 
 def rungs_for(p):
-    """Three rungs, in the app's order and close to the app's words.
+    """Three rungs, close to the app's words but in the card's own order.
 
     Trimmed, because a card is read in a thumbnail — but never rephrased into a
     claim the app doesn't make, and never carrying the answer.
+
+    Family first, then the definition, then the indicator: a card is read by
+    somebody who has not opened the clue and is not climbing anything, so it
+    opens by saying what kind of thing they are looking at. The app's ladder
+    starts from the other end, because there the solver is being asked to do
+    the work rather than shown what the work is.
     """
     ann = p["ann"]
     label, blurb, _ = p["family"]

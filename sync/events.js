@@ -38,16 +38,18 @@
   // Written in the order a solve goes, because that is the order the report
   // reads them in: the question these answer is a funnel from "arrived" to
   // "finished", not a set of unrelated tallies (tools/usage_report.py).
-  // The hint names are the ladder's rung keys, prefixed. app.js owns the rungs
-  // (RUNG_TIER plus ANSWER_RUNG) and this list is written out rather than built
-  // from them, because tools/usage_report.py reads these names out of this file
-  // as text and cannot run the module. tools/smoke_test.js compares the two
+  // The hint names are the ladder's rung keys, prefixed, and they are listed in
+  // the ladder's own order (LABELS in app.js) so the funnel reads down the rungs
+  // rather than across them. app.js owns the rungs (RUNG_TIER plus ANSWER_RUNG)
+  // and this list is written out rather than built from them, because
+  // tools/usage_report.py reads these names out of this file as text and cannot
+  // run the module. tools/smoke_test.js compares the two
   // both ways, so a rung with no name here — or a name here with no rung —
   // fails rather than becoming a counter that reads zero forever.
   return Object.freeze([
     "visit-new", "visit-return", "visit-regular",
     "open", "letter",
-    "hint-type", "hint-definition", "hint-indicators",
+    "hint-indicators", "hint-definition", "hint-type",
     "hint-blocks", "hint-walkthrough", "hint-answer",
     "check", "entry", "half", "done"
   ]);
