@@ -236,6 +236,32 @@ def is_continuation(clue):
     return bool(CONTINUATION.match(ENUMERATION.sub("", clue or "").strip()))
 
 
+# The exemption every rule about linked groups needs, stated once. Read by
+# prune_one_sided_members below and by tools/validate_annotations.py
+# check_groups_agree, which must agree about which disagreements are the
+# paper's doing rather than a fetch's.
+LEADERS_NAMED = re.compile(r"\s*See\s+([\d,\s and]+?)\.?\s*", re.IGNORECASE)
+
+
+def leaders_named(clue):
+    """How many leading clues a bare continuation ("See 19, 22") points at.
+
+    A light can end MORE THAN ONE answer. Cryptic 28,687's 1-down is CLUB, the
+    second word of both GOLDFISH CLUB (8,4) at 19-down and MONDAY CLUB (6,4) at
+    22-down, and its clue reads "See 19, 22" — it names both. `group` is one
+    list, so whichever answer it records the other leading clue disagrees with
+    it and always will, and that disagreement is the paper's and not a fetch's.
+
+    Zero for a clue with words of its own, which is not a continuation, and zero
+    for a pointer that says anything beyond the numbers it names — a count, a
+    direction, "or". That narrowness is the point: a continuation naming ONE
+    leader is an ordinary leg and stays held to its group, which is what keeps
+    the rules downstream worth anything.
+    """
+    m = LEADERS_NAMED.fullmatch(clue or "")
+    return len(re.findall(r"\d+", m.group(1))) if m else 0
+
+
 def flatten_clue(s):
     """HTML clue text -> (plain text, italic ranges into that text).
 
@@ -527,6 +553,71 @@ def _own_count(entry):
         return None
     counts = [int(n) for n in re.findall(r"\d+", said.group(1))]
     return sum(counts) if counts else None
+
+
+def prune_one_sided_members(entries):
+    """Drop every group that names a light not in it. Returns (id, group) per
+    entry it frees.
+
+    A group is the lights one answer is spread over, and the paper writes it on
+    every one of them. So a light that is not in the puzzle at all, or that
+    stores a group of its own instead, is not in this one — the membership is
+    stated by one side only, and there is nothing on the other side to hold it
+    up. The Guardian's pre-2015 markup produced both:
+
+      A light that does not exist — cryptic-24640's 13-across and 17-across are
+      grouped with "18-down", and the puzzle has an 18-ACROSS holding the NEW of
+      FROM THE NEW WORLD. Which light was meant is not in the data, and reading
+      the direction as a typo would be writing a membership the paper never
+      stated.
+
+      A light that is in another answer — cryptic-25126's 6-down "(4,5)" claims
+      20-across for ASIA MINOR while 20-across stores MAJOR AND MINOR, and
+      cryptic-27173's 25-across LINCOLN "(7)" claims 23-down OXFORD, which is a
+      cathedral in the theme and not half of an answer.
+
+    The whole group goes, never the naming alone: the lights that are left are
+    an answer with a hole in it, and shortening the group to them would say the
+    letters are all here when the paper said they are not. Cryptic-24640 is the
+    case that settles it — drop "18-down" from 13-across's group and FROM THE +
+    WORLD is stored as a finished answer with the NEW missing out of the middle.
+    An unlinked light is a true statement about a puzzle; a short answer is not.
+
+    What may be rebuilt from the paper's arithmetic is rebuilt by
+    reconstruct_groups, which runs after this and is the one rule that decides
+    which lights an enumeration covers. This one only takes away what nothing
+    supports.
+
+    A light whose own clue names SEVERAL leading clues is exempt and holds any
+    group it is named in: it ends more than one answer, so it cannot store every
+    group it is in and its silence is not evidence against anybody's claim. See
+    leaders_named, which tools/validate_annotations.py check_groups_agree asks
+    the same way — the fetcher and that check must exempt the same clues, or one
+    of them is writing what the other rejects.
+
+    Run AFTER reconcile_groups, which is the chance for a disagreement to be
+    read rather than pruned: a group that survives reconcile contested is one it
+    declined to settle, and every rule after this one — dissolve_false_groups,
+    reconstruct_groups — reads a group its members agree about.
+    """
+    by_id = {e["id"]: e for e in entries}
+    stated = {e["id"]: list(e["group"]) for e in entries if e.get("group")}
+    pruned = []
+    for eid, group in sorted(stated.items()):
+        if len(group) < 2 or eid not in group:
+            continue
+        one_sided = [m for m in group
+                     if m != eid and (m not in by_id
+                                      or (stated.get(m) != group
+                                          and leaders_named(by_id[m].get("clue")) < 2))]
+        if not one_sided:
+            continue
+        del by_id[eid]["group"]
+        pruned.append((eid, group))
+        print(f"WARNING: {eid}: {' + '.join(one_sided)} is in no group with it, "
+              f"so {' + '.join(group)} is an answer with a light missing "
+              "— group dropped", file=sys.stderr)
+    return pruned
 
 
 def dissolve_false_groups(entries, series):
@@ -868,6 +959,7 @@ def convert(data):
             "annotation": None,
         })
     reconcile_groups(entries)
+    prune_one_sided_members(entries)
     dissolve_false_groups(entries, series_of(data["id"]))
     reconstruct_groups(entries, series_of(data["id"]))
     # Say it here, where the paper's own data is still in front of us.

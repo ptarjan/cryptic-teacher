@@ -117,10 +117,6 @@ window.CRYPTIC_PUZZLES["cryptic-26178"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": " Heroines — pursued without energy (8)",
-   "group": [
-    "6-across",
-    "26-down"
-   ],
    "separatorLocations": {},
    "solution": "DASH",
    "annotation": null

@@ -211,11 +211,6 @@ window.CRYPTIC_PUZZLES["cryptic-24640"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "Work of 23, originating in 9 or 29, say (4,3,3,2)",
-   "group": [
-    "13-across",
-    "18-down",
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -223,7 +218,11 @@ window.CRYPTIC_PUZZLES["cryptic-24640"] = /*JSON-START*/ {
     ]
    },
    "solution": "FROMTHE",
-   "annotation": null
+   "annotation": null,
+   "group": [
+    "13-across",
+    "20-across"
+   ]
   },
   {
    "id": "13-down",
@@ -299,11 +298,6 @@ window.CRYPTIC_PUZZLES["cryptic-24640"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Novel utterance from 25, originally in 14 (5,3,5)",
-   "group": [
-    "17-across",
-    "18-down",
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      5
@@ -359,18 +353,17 @@ window.CRYPTIC_PUZZLES["cryptic-24640"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "See 13, 17 and 18",
-   "group": [
-    "13-across",
-    "18-down",
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      3
     ]
    },
    "solution": "WORLD",
-   "annotation": null
+   "annotation": null,
+   "group": [
+    "13-across",
+    "20-across"
+   ]
   },
   {
    "id": "21-down",

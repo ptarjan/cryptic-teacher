@@ -154,6 +154,17 @@ def regroup(puzzle):
             for e in puzzle["entries"] if before[e["id"]] != e.get("group")]
 
 
+def prune(puzzle):
+    """Drop the group memberships only one side ever stated. Returns the entries
+    it changed.
+
+    The fetcher's own rule, called where convert() calls it: after regroup, which
+    is the chance for a disagreement to be READ rather than pruned, and before
+    dissolve and rebuild, which both want a group its members agree about.
+    """
+    return fetcher.prune_one_sided_members(puzzle["entries"])
+
+
 def dissolve(puzzle):
     """Break up groups that are not linked answers. Returns the ones broken.
 
@@ -257,6 +268,11 @@ def repair(path, puzzle, apply_it):
         notes.append(f"{len(moved)} linked-clue group(s) reconciled: "
                      + ", ".join(f"{eid} {was or '—'}→{now or '—'}"
                                  for eid, was, now in moved))
+
+    one_sided = prune(fixed)
+    if one_sided:
+        notes.append(f"{len(one_sided)} one-sided group(s) dropped: "
+                     + ", ".join(f"{eid} {' + '.join(was)}" for eid, was in one_sided))
 
     broken = dissolve(fixed)
     if broken:

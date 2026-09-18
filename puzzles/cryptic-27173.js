@@ -379,10 +379,6 @@ window.CRYPTIC_PUZZLES["cryptic-27173"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "See 23 13 across, or 11 (7)",
-   "group": [
-    "23-down",
-    "25-across"
-   ],
    "separatorLocations": {},
    "solution": "LINCOLN",
    "annotation": null
@@ -453,10 +449,6 @@ window.CRYPTIC_PUZZLES["cryptic-27173"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "From what we hear, drive away, partly brake (4)",
-   "group": [
-    "29-down",
-    "23-down"
-   ],
    "separatorLocations": {},
    "solution": "SHOE",
    "annotation": null
