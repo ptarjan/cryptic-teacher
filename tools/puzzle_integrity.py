@@ -91,7 +91,7 @@ from apply_solution import (check_fill, check_geometry,  # noqa: E402
                             normalise)
 from fetch_puzzle import (ENUMERATION, PER_LIGHT_ENUMERATION,  # noqa: E402
                           PUZZLE_DIR, has_words, is_bare_letters,
-                          is_continuation, read_puzzle_file, reindex)
+                          prints_own_count, read_puzzle_file, reindex)
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -424,6 +424,11 @@ UNLINKED_IN_SOURCE = dict([
      "the THERESA that makes SAINT THERESA is 1-across, spent on the paper's "
      "own five-light group for the ONE-EYED YELLOW IDOL line — 19-down's "
      "\"Whence 20,1across\" names both uses"),
+    (("cryptic-22691",
+      "8-down + 23-down + 11-across + 18-down: clue says "
+      "(3,6,2,3,5,2,3,5,2,4,10) = 45, answer holds 14 alone or 31 linked"),
+     "the KING CARACTACUS the song ends on is 1-across, which carries a full "
+     "clue of its own"),
     (("cryptic-21750",
       "3-down + 17-down: clue says (3,5,11,7) = 26, answer holds 8 alone or "
       "15 linked"),
@@ -605,9 +610,11 @@ def check_length(puzzle, checkable, flags):
         # that exactly, six cells of IGNATIUS LOYOLA whose "(8,6)" is printed
         # where it belongs, on 2-down. The Guardian did this routinely before
         # about 2015, so the reading is not a licence handed to a publisher but
-        # one the clue itself asks for — see fetch_puzzle.is_continuation.
+        # one the clue itself asks for — see fetch_puzzle.prints_own_count,
+        # which also covers the leg left wordless over its own cell count when
+        # the pointer went missing, cryptic-21762's 26-across " (8)".
         per_light = (puzzle.get("series") in PER_LIGHT_ENUMERATION
-                     or is_continuation(e.get("clue")))
+                     or prints_own_count(e))
         if sum(counts) == held or (len(group) > 1 and per_light
                                    and sum(counts) == len(solution)):
             continue

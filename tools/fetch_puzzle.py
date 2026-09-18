@@ -638,6 +638,34 @@ def _own_count(entry):
     return sum(counts) if counts else None
 
 
+def prints_own_count(entry):
+    """Is the count beside this clue its own light's cells, not the answer's?
+
+    Two shapes, both from the Guardian's pre-2015 markup. A counted pointer —
+    "See 2 (6)" — which is_continuation settles. And a leg the pointer was lost
+    from altogether, left wordless over a single number that is exactly its own
+    light: cryptic-21762's 26-across is " (8)" over the AURELIUS that finishes
+    25-across MARCUS "(6,8)".
+
+    An enumeration that cuts the light into WORDS is an answer's count and not a
+    light's, wordless or not — cryptic-29345's "(1,6,3,1,4)" over I HAVEN'T GOT
+    A CLUE is a finished answer whose joke is that nothing is printed to solve.
+
+    Read by _spare_light, to know which wordless lights a linked answer may be
+    put back together from, and by tools/puzzle_integrity.py check_length, so
+    that a leg counting its own cells is not read as the group's enumeration and
+    reported against it. One rule, because the two must agree about it.
+    """
+    clue = entry.get("clue")
+    if is_continuation(clue):
+        return True
+    said = ENUMERATION.search(clue or "")
+    if not said or ENUMERATION.sub("", clue or "").strip():
+        return False
+    return (_own_count(entry) == entry.get("length")
+            and len(said.group(1).strip().split(",")) == 1)
+
+
 def prune_one_sided_members(entries):
     """Drop every group that names a light not in it. Returns (id, group) per
     entry it frees.
@@ -877,8 +905,16 @@ def _spare_light(entry, lead, entries):
     clue = entry.get("clue")
     if is_continuation(clue):
         return _points_at(entry, lead, entries)
-    return (not ENUMERATION.sub("", clue or "").strip()
-            and _own_count(entry) is None)
+    if ENUMERATION.sub("", clue or "").strip():
+        return False
+    # Wordless, so the only question is what the count beside it counts. One
+    # number equal to this light's own cells is the leg's cell count, printed
+    # the way "See 2 (6)" prints it with the pointer gone: cryptic-21762's
+    # 26-across is " (8)" over the AURELIUS that finishes 25-across MARCUS
+    # "(6,8)". An enumeration that cuts the light into WORDS is an answer,
+    # finished as it stands — cryptic-29345's "(1,6,3,1,4)" over I HAVEN'T GOT
+    # A CLUE — and so is a count that is not this light's at all.
+    return _own_count(entry) is None or prints_own_count(entry)
 
 
 def _word_splits(counts, lengths):
