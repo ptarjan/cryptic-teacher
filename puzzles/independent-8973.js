@@ -8,7 +8,7 @@ window.CRYPTIC_PUZZLES["independent-8973"] = /*JSON-START*/ {
  "series": "independent",
  "name": "Independent cryptic crossword No 8,973",
  "setter": "Rorschach",
- "date": 1437264000000,
+ "date": 1437350400000,
  "dimensions": {
   "cols": 15,
   "rows": 15
