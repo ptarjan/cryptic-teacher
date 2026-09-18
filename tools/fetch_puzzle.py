@@ -1157,6 +1157,30 @@ def puzzle_is_annotated(puzzle):
                or e.get("clueCorrupt") for e in puzzle["entries"])
 
 
+def clue_coverage(puzzle):
+    """How many of a puzzle's entries a solver can read, out of how many there are.
+
+    A count and not a flag. "Has clues" collapses two cases that want opposite
+    answers: a puzzle missing one clue of 28 is still a solvable grid, and one
+    missing all 28 is a picture of a lattice. Only the ratio separates them, so
+    the ratio is what the index carries and each reader picks its own line.
+
+    Readable is has_words plus not clueCorrupt, the same pair puzzle_is_annotated
+    excuses: printed-blank and printed-wrong are equally unsolvable, and a solver
+    handed either has to invent the clue before it can answer it.
+
+    `present` is a FLOOR, not a measurement. has_words cannot tell a clue the
+    paper left out from a clue that is one character long on purpose — ")" for
+    CLOSE BRACKETS, "?" for I HAVEN'T A CLUE, a line of morse for MORSE — and
+    counts all of those as absent. So a reader deciding anything off this wants
+    a ratio with room in it, and must never read one uncounted entry as a broken
+    puzzle: several of them are the best clue in the grid.
+    """
+    return {"present": sum(1 for e in puzzle["entries"]
+                           if has_words(e["clue"]) and not e.get("clueCorrupt")),
+            "total": len(puzzle["entries"])}
+
+
 def reindex():
     """Rebuild puzzles/index.json and index.js from the puzzle files on disk.
 
@@ -1180,6 +1204,7 @@ def reindex():
     for path in puzzle_files():
         p = read_puzzle_file(path)
         rating = ratings.get(p["id"])
+        coverage = clue_coverage(p)
         puzzles.append({
             "id": p["id"],
             "number": p["number"],
@@ -1196,6 +1221,13 @@ def reindex():
             "v": hashlib.md5(path.read_bytes()).hexdigest()[:8],
             "annotated": puzzle_is_annotated(p),
             "hasSolutions": all(e.get("solution") for e in p["entries"]),
+            # Clue coverage, written ONLY where some clue is unreadable: absent
+            # means every entry carries a clue, which is 12,424 of 12,462
+            # puzzles. index.js is 4 MB and the browser downloads all of it, so
+            # a field that would say "28 of 28" twelve thousand times is 400 kB
+            # on every first load to state the default. Readers take the absence
+            # as full coverage; the 38 puzzles with a gap say so by name.
+            **({"clues": coverage} if coverage["present"] < coverage["total"] else {}),
             # True where the grid was solved here rather than published by the
             # paper. The site says so wherever it shows those answers: a learner
             # checking their grid is entitled to know whose answer they lost to.
