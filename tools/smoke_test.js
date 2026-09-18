@@ -1126,6 +1126,33 @@ const typeInPicker = (q) => {
   registry["picker-search"].value = q;
   registry["picker-search"].listeners.input[0]();
 };
+// A number is not an identity. Seventy numbers in the corpus name a puzzle in
+// two series at once — cyclops-838 and quiptic-838 both exist — so a search for
+// the number alone returns both rows, and taking the first opened whichever the
+// index happened to list first. Everything afterwards then missed by a whole
+// puzzle: the clue ids belong to the puzzle that was meant, not the one that
+// opened. The series is printed on the row's badge and is in the picker's
+// haystack, so searching for both is also what a person does.
+// Both halves fall back to the id itself, which spells them: a puzzle file the
+// index has not caught up with is still findable, rather than searched for as
+// "undefined undefined" and reported as a picker that cannot find it.
+const seriesOf = (id) => ((allPuzzles.find((p) => p.id === id) || {}).series
+  || String(id).replace(/-\d+$/, ""));
+const numberIn = (id) => numberOf(id) || Number(String(id).replace(/^.*-/, ""));
+const pickerSearchFor = (id) => typeInPicker(numberIn(id) + " " + seriesOf(id));
+const pickerRowFor = (id) => {
+  pickerSearchFor(id);
+  return pickerRows().find((li) => li.children[0]
+    && rowHasNumber(li.children[0].innerHTML, numberIn(id)));
+};
+// Opens the picker first, because most callers are arriving from another puzzle.
+const openFromPicker = (id) => {
+  registry["btn-picker"].onclick();
+  const li = pickerRowFor(id);
+  assert(li, `picker finds ${id} when searched for`);
+  li.children[0].onclick();
+  return li;
+};
 registry["btn-picker"].onclick();
 assert(pickerRows().length >= 5, "picker lists the annotated puzzles: " + pickerRows().length);
 assert(registry["picker-search"].value === "", "the filter box starts empty on open");
@@ -1406,8 +1433,14 @@ assert(registry["picker-search"].value === "", "the filter box starts empty on o
 {
   const target = allPuzzles.find((p) => p.annotated);
   typeInPicker(String(target.number));
+  assert(pickerRows().length && pickerRows().every((li) =>
+    rowHasNumber(li.children[0].innerHTML, target.number)),
+    "filtering by number finds the puzzles carrying that number and nothing else");
+  // The number narrows; the number and the series together identify. A number
+  // shared by two series has to come back as two rows there and one row here.
+  pickerSearchFor(target.id);
   assert(pickerRows().length === 1 && pickerHTMLNow().includes("№ " + target.number),
-    "filtering by number finds exactly that puzzle");
+    `number plus series finds exactly one puzzle: ${target.id}`);
   // And that number is the whole number. Every puzzle number of five digits or
   // fewer is a run of digits inside some longer one once an archive is this
   // deep, so the pair is found here rather than named: the shorter number must
@@ -1447,9 +1480,9 @@ const noneAnnotated = (p) => {
   return puz && puz.entries.every((e) => !e.annotation);
 };
 const autoPuzzle = allPuzzles.find((p) => !p.annotated && p.hasSolutions && noneAnnotated(p));
-typeInPicker(String(autoPuzzle.number));
-const autoRow = pickerRows().find((li) => li.children[0] && li.children[0].innerHTML.includes("answers only"));
-assert(autoRow, `searching for ${autoPuzzle.number} surfaces the un-annotated puzzle`);
+const autoRow = pickerRowFor(autoPuzzle.id);
+assert(autoRow && autoRow.children[0].innerHTML.includes("answers only"),
+  `searching for ${autoPuzzle.id} surfaces the un-annotated puzzle`);
 const autoBtn = autoRow.children[0];
 autoBtn.onclick();
 assert(registry["puzzle-title"].innerHTML.includes("answers only"), "answers-only puzzle opened");
@@ -1500,9 +1533,7 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "answers
   const unofficial = allPuzzles.find((p) => p.solutionsUnofficial && global.window.CRYPTIC_PUZZLES[p.id]);
   if (unofficial) {
     registry["btn-picker"].onclick();
-    typeInPicker(String(unofficial.number));
-    const row = pickerRows().find((li) => li.children[0]
-      && rowHasNumber(li.children[0].innerHTML, unofficial.number));
+    const row = pickerRowFor(unofficial.id);
     assert(row && row.children[0].innerHTML.includes("unverified answers"),
       `the picker badges No ${unofficial.number} as unverified`);
     row.children[0].onclick();
@@ -1514,10 +1545,7 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "answers
     // And the note must disappear again on a puzzle with the paper's own answers.
     const official = allPuzzles.find((p) => p.hasSolutions && !p.solutionsUnofficial
       && global.window.CRYPTIC_PUZZLES[p.id]);
-    registry["btn-picker"].onclick();
-    typeInPicker(String(official.number));
-    pickerRows().find((li) => li.children[0]
-      && rowHasNumber(li.children[0].innerHTML, official.number)).children[0].onclick();
+    openFromPicker(official.id);
     assert(registry["unofficial-note"].classList.contains("hidden"),
       `No ${official.number} has the paper's answers and shows no note`);
   }
@@ -1545,9 +1573,7 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "answers
   const kept = storage[key];
   const rowHTML = () => {
     registry["btn-picker"].onclick();
-    typeInPicker(String(target.number));
-    const li = pickerRows().find((x) => x.children[0]
-      && rowHasNumber(x.children[0].innerHTML, target.number));
+    const li = pickerRowFor(target.id);
     return li ? li.children[0].innerHTML : "";
   };
 
@@ -1581,18 +1607,10 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "answers
     return null;
   };
   const openClue = ({ id, e }) => {
-    // Search by number rather than scanning the default list: the default list
+    // Searched for rather than scanned out of the default list: the default list
     // is annotated-only, and a puzzle can carry annotated clues while its index
     // flag says otherwise (mid-annotation, or a partial hand-edit).
-    // Searched by NUMBER, which is what the picker shows and what a person
-    // types; `id` carries the series and never appears on screen.
-    const num = ((global.CRYPTIC_INDEX.puzzles || [])
-      .find((p) => p.id === id) || {}).number;
-    registry["btn-picker"].onclick();
-    typeInPicker(String(num));
-    const li = registry["picker-list"].children.find((x) => x.children[0] && rowHasNumber(x.children[0].innerHTML, num));
-    assert(li, `picker finds puzzle ${id} when searched for`);
-    li.children[0].onclick();
+    openFromPicker(id);
     const row = registry["clue-" + e.id];
     assert(row && row.listeners.click, `clue list shows ${e.number}${e.direction[0]}: ${e.clue}`);
     row.listeners.click[0]();
@@ -2017,14 +2035,7 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "answers
           `${id} ${e.id}: the definition is not marked at all: ` + registry["hint-clue"].innerHTML);
       }
     };
-    const openPuzzle = (id) => {
-      registry["btn-picker"].onclick();
-      typeInPicker(String(numberOf(id)));
-      const li = registry["picker-list"].children.find(
-        (x) => x.children[0] && rowHasNumber(x.children[0].innerHTML, numberOf(id)));
-      assert(li, `picker finds puzzle ${id}`);
-      li.children[0].onclick();
-    };
+    const openPuzzle = (id) => openFromPicker(id);
     for (const id of Object.keys(puzzles).sort()) {
       const withAnn = (puzzles[id].entries || []).filter((e) => e.annotation);
       if (!withAnn.length) continue;
@@ -2239,11 +2250,7 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "answers
     return null;
   })();
   assert(withInd, "at least one annotation names an indicator that occurs in its clue");
-  registry["btn-picker"].onclick();
-  typeInPicker(String(numberOf(withInd.id)));
-  registry["picker-list"].children
-    .find((x) => x.children[0] && rowHasNumber(x.children[0].innerHTML, numberOf(withInd.id)))
-    .children[0].onclick();
+  openFromPicker(withInd.id);
   registry["clue-" + withInd.e.id].listeners.click[0]();
   const indBtn = registry["hint-next"].children.find((b) => /indicator/i.test(b.textContent) && !b.disabled);
   assert(indBtn, "the indicators rung is offered from cold: " + registry["hint-next"].innerHTML);
@@ -2821,10 +2828,7 @@ registry["reset-puzzle"].onclick();
 {
   const taught = allPuzzles.find((p) => p.annotated && p.hasSolutions
     && global.window.CRYPTIC_PUZZLES[p.id]);
-  registry["btn-picker"].onclick();
-  typeInPicker(String(taught.number));
-  pickerRows().find((li) => li.children[0]
-    && rowHasNumber(li.children[0].innerHTML, taught.number)).children[0].onclick();
+  openFromPicker(taught.id);
   registry["reset-puzzle"].onclick();
 
   // An entry that is nobody's linked leg, so solving it really does solve the
@@ -3397,13 +3401,7 @@ global.realSetTimeout(() => {
   const id = Object.keys(puzzles).sort().find((k) =>
     (puzzles[k].entries || []).every((e) => e.solution));
   assert(id, "some puzzle in the corpus ships every solution");
-  const open = () => {
-    registry["btn-picker"].onclick();
-    typeInPicker(String(numberOf(id)));
-    registry["picker-list"].children
-      .find((x) => x.children[0] && rowHasNumber(x.children[0].innerHTML, numberOf(id)))
-      .children[0].onclick();
-  };
+  const open = () => openFromPicker(id);
   // The vote tally comes back from /v whenever it comes back, and "whenever"
   // includes the second and a half the fireworks are in the air. Held here
   // rather than left to the network, so the test can land it exactly then.
@@ -3651,13 +3649,7 @@ global.realSetTimeout(() => {
 // slate the same way: open it and click reset-puzzle.
 {
   const id = "cryptic-30066";
-  const openFresh = () => {
-    registry["btn-picker"].onclick();
-    typeInPicker(String(numberOf(id)));
-    registry["picker-list"].children
-      .find((li) => li.children[0] && rowHasNumber(li.children[0].innerHTML, numberOf(id)))
-      .children[0].onclick();
-  };
+  const openFresh = () => openFromPicker(id);
   openFresh();
   registry["reset-puzzle"].onclick();
   const key = (k) => kd(ev(k));
@@ -3834,9 +3826,7 @@ global.realSetTimeout(() => {
 
   const openIt = () => {
     registry["btn-picker"].onclick();
-    typeInPicker(String(puzzles[found.id].number));
-    const li = registry["picker-list"].children.find(
-      (x) => x.children[0] && rowHasNumber(x.children[0].innerHTML, puzzles[found.id].number));
+    const li = pickerRowFor(found.id);
     assert(li, "picker finds the puzzle to guess on");
     li.children[0].onclick();
     registry["reset-puzzle"].onclick();
@@ -4028,9 +4018,7 @@ global.realSetTimeout(() => {
 
   const openClue = (id, e) => {
     registry["btn-picker"].onclick();
-    typeInPicker(String(puzzles[id].number));
-    const li = registry["picker-list"].children.find(
-      (x) => x.children[0] && rowHasNumber(x.children[0].innerHTML, puzzles[id].number));
+    const li = pickerRowFor(id);
     if (!li) return false;
     li.children[0].onclick();
     registry["reset-puzzle"].onclick();
@@ -4304,9 +4292,7 @@ global.realSetTimeout(() => {
     storage[key] = JSON.stringify({ hintsShown: { [e.id]: ["blocks"] }, updated: Date.now() });
 
     registry["btn-picker"].onclick();
-    typeInPicker(String(puzzles[id].number));
-    const li = registry["picker-list"].children.find((x) => x.children[0]
-      && rowHasNumber(x.children[0].innerHTML, puzzles[id].number));
+    const li = pickerRowFor(id);
     assert(li, `the picker can reopen puzzle ${puzzles[id].number} to reload the damaged save`);
     if (li) {
       li.children[0].onclick();
@@ -4352,9 +4338,7 @@ global.realSetTimeout(() => {
 
   const open = () => {
     registry["btn-picker"].onclick();
-    typeInPicker(String(puzzles[found.id].number));
-    const li = registry["picker-list"].children.find(
-      (x) => x.children[0] && rowHasNumber(x.children[0].innerHTML, puzzles[found.id].number));
+    const li = pickerRowFor(found.id);
     assert(li, "picker finds the puzzle to drag on");
     li.children[0].onclick();
     registry["reset-puzzle"].onclick();
@@ -4616,9 +4600,7 @@ global.realSetTimeout(() => {
   // a right one each cost can be read off the same starting point.
   const open = () => {
     registry["btn-picker"].onclick();
-    typeInPicker(String(puzzles[found.id].number));
-    const li = registry["picker-list"].children.find(
-      (x) => x.children[0] && rowHasNumber(x.children[0].innerHTML, puzzles[found.id].number));
+    const li = pickerRowFor(found.id);
     assert(li, "picker finds the puzzle to be asked about");
     li.children[0].onclick();
     registry["reset-puzzle"].onclick();
@@ -4749,9 +4731,7 @@ global.realSetTimeout(() => {
   if (assert(found, "some clue in the corpus is a charade AND an extraction")) {
     const open = () => {
       registry["btn-picker"].onclick();
-      typeInPicker(String(puzzles[found.id].number));
-      const li = registry["picker-list"].children.find(
-        (x) => x.children[0] && rowHasNumber(x.children[0].innerHTML, puzzles[found.id].number));
+      const li = pickerRowFor(found.id);
       li.children[0].onclick();
       registry["reset-puzzle"].onclick();
       registry["clue-" + found.e.id].listeners.click[0]();
@@ -4817,9 +4797,7 @@ global.realSetTimeout(() => {
   assert(found, "some clue is defined end to end by its two definitions");
 
   registry["btn-picker"].onclick();
-  typeInPicker(String(puzzles[found.id].number));
-  const li = registry["picker-list"].children.find(
-    (x) => x.children[0] && rowHasNumber(x.children[0].innerHTML, puzzles[found.id].number));
+  const li = pickerRowFor(found.id);
   assert(li, "picker finds the whole-clue definition puzzle");
   li.children[0].onclick();
   registry["reset-puzzle"].onclick();
@@ -4857,9 +4835,7 @@ global.realSetTimeout(() => {
     const found = pick(want);
     assert(found, "the corpus has a clue typed " + want);
     registry["btn-picker"].onclick();
-    typeInPicker(String(puzzles[found.id].number));
-    const li = registry["picker-list"].children.find(
-      (x) => x.children[0] && rowHasNumber(x.children[0].innerHTML, puzzles[found.id].number));
+    const li = pickerRowFor(found.id);
     assert(li, "picker finds the " + want + " puzzle");
     li.children[0].onclick();
     registry["reset-puzzle"].onclick();
@@ -4918,9 +4894,7 @@ global.realSetTimeout(() => {
 
   const askDef = () => {
     registry["btn-picker"].onclick();
-    typeInPicker(String(puzzles[found.id].number));
-    const li = registry["picker-list"].children.find(
-      (x) => x.children[0] && rowHasNumber(x.children[0].innerHTML, puzzles[found.id].number));
+    const li = pickerRowFor(found.id);
     assert(li, "picker finds the edge-word puzzle");
     li.children[0].onclick();
     registry["reset-puzzle"].onclick();
@@ -5009,9 +4983,7 @@ global.realSetTimeout(() => {
       if (spans.some((s) => !s) || spans[0].some((n) => spans[1].indexOf(n) >= 0)) continue;
       tried++;
       registry["btn-picker"].onclick();
-      typeInPicker(String(puzzles[id].number));
-      const li = registry["picker-list"].children.find(
-        (x) => x.children[0] && rowHasNumber(x.children[0].innerHTML, puzzles[id].number));
+      const li = pickerRowFor(id);
       if (!li) continue;
       li.children[0].onclick();
       registry["reset-puzzle"].onclick();
@@ -5090,9 +5062,7 @@ global.realSetTimeout(() => {
 
   const open = () => {
     registry["btn-picker"].onclick();
-    typeInPicker(String(puzzles[found.id].number));
-    const li = registry["picker-list"].children.find(
-      (x) => x.children[0] && rowHasNumber(x.children[0].innerHTML, puzzles[found.id].number));
+    const li = pickerRowFor(found.id);
     assert(li, "picker finds the puzzle to guess on");
     li.children[0].onclick();
     registry["reset-puzzle"].onclick();
@@ -5410,10 +5380,7 @@ global.realSetTimeout(() => {
   const first = Object.keys(global.window.CRYPTIC_PUZZLES).sort()[0];
   const e = (global.window.CRYPTIC_PUZZLES[first].entries || [])[0];
   registry["btn-picker"].onclick();
-  typeInPicker(String(global.window.CRYPTIC_PUZZLES[first].number));
-  const li = registry["picker-list"].children.find(
-    (x) => x.children[0] && x.children[0].innerHTML.includes(
-      "№ " + global.window.CRYPTIC_PUZZLES[first].number));
+  const li = pickerRowFor(first);
   if (assert(li, "picker finds a puzzle to report on")) {
     li.children[0].onclick();
     registry["clue-" + e.id].listeners.click[0]();
@@ -5516,9 +5483,7 @@ global.realSetTimeout(() => {
   };
   const openClue = (id, e) => {
     registry["btn-picker"].onclick();
-    typeInPicker(String(puzzles[id].number));
-    const li = registry["picker-list"].children.find(
-      (x) => x.children[0] && rowHasNumber(x.children[0].innerHTML, puzzles[id].number));
+    const li = pickerRowFor(id);
     if (!li) return false;
     li.children[0].onclick();
     registry["reset-puzzle"].onclick();
