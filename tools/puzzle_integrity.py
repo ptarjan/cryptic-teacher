@@ -38,7 +38,9 @@ The flags, in the order they matter:
             wrong answer normally breaks three or four of these, so a clean sheet
             is real evidence the fill is the paper's and not a mangling of it.
   SHAPE     data that cannot be right whatever the puzzle says: no entries at all,
-            a clue that is blank once its enumeration is removed, a solution
+            a clue that is blank once its enumeration is removed, a puzzle whose
+            clues are ALL blank — a grid with no puzzle in it, which no amount of
+            per-clue forgiveness can be — a solution
             carrying something other than letters, the same entry id twice in one
             puzzle, or a date in the future or before EARLIEST_YEAR.
 
@@ -394,6 +396,20 @@ def check_shape(puzzle, today, flags):
             flags.append(("SHAPE", pid, f"dated {d}, which is in the future"))
         elif d.year < EARLIEST_YEAR:
             flags.append(("SHAPE", pid, f"dated {d}, before cryptics existed"))
+
+    # A clue marked clueMissing is forgiven one at a time, because a setter who
+    # prints one blank clue means it. A puzzle where EVERY clue is blank is not a
+    # setter's joke, it is a grid with no puzzle in it: nothing to solve, nothing
+    # to annotate, and nothing the app can show. Per-entry forgiveness cannot see
+    # that, so it is asked here, of the whole puzzle, once.
+    #
+    # These are recoverable, which is why there is no exception table for them.
+    # The 14 of 15 in the corpus that fall on a Saturday say what went wrong: the
+    # answers came off a prize puzzle's solution page and the clue text lives on
+    # /crosswords/prize/<n>, not /crosswords/cryptic/<n>, and in the printable PDF
+    # beside it. So this reports until someone goes and gets the clues.
+    if not any(ENUMERATION.sub("", e.get("clue") or "").strip() for e in entries):
+        flags.append(("SHAPE", pid, f"all {len(entries)} clues are blank"))
 
     seen, checkable = set(), []
     for e in entries:
