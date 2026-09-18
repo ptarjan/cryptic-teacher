@@ -40,8 +40,7 @@ The flags, in the order they matter:
   SHAPE     data that cannot be right whatever the puzzle says: no entries at all,
             a clue that is blank once its enumeration is removed, a solution
             carrying something other than letters, the same entry id twice in one
-            puzzle, a date in the future or before EARLIEST_YEAR, or an indexed
-            file that is not on disk.
+            puzzle, or a date in the future or before EARLIEST_YEAR.
 
 An entry whose solution carries non-letters is reported once, as SHAPE, and then
 left out of LENGTH and CROSS — its letter count is not a second defect, it is the
@@ -53,10 +52,14 @@ nothing to weigh for them and skip. Only entries that actually carry a solution
 are checked, so an empty grid passes and a half-filled one is still checked as far
 as it goes.
 
-Cost: one pass, one read per file, no network. All four checks together read the
-whole corpus in about five seconds — 6,859 puzzles, ~200k clues, on 2026-09-17 —
-so every check is on by default and none sits behind a flag. Nothing here is
-expensive enough to be worth the confusion of an off-by-default check.
+The corpus it reads is the puzzle files on disk. puzzles/index.json names them
+and is generated, so it is rebuilt here before it is read — see fetch_puzzle.reindex.
+
+Cost: one rebuild of the index, then one pass, one read per file, no network. All
+four checks together read the whole corpus in about nine seconds — 12,462 puzzles,
+~365k clues, on 2026-09-17 — plus seven for the rebuild, so every check is on by
+default and none sits behind a flag. Nothing here is expensive enough to be worth
+the confusion of an off-by-default check.
 
 Exits 1 if anything is flagged, so the nightly can alert on it. It reports and
 never writes: a defect here is a fetcher bug or a bad source page, and the fix
@@ -76,10 +79,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from apply_solution import check_fill, normalise  # noqa: E402 — the crossing check
 from fetch_puzzle import (ENUMERATION, PER_LIGHT_ENUMERATION,  # noqa: E402
                           PUZZLE_DIR, is_bare_letters, is_continuation,
-                          read_puzzle_file)
+                          read_puzzle_file, reindex)
 
 ROOT = Path(__file__).resolve().parent.parent
-INDEX = ROOT / "puzzles" / "index.json"
 
 # No cryptic crossword in this corpus predates the Guardian's, which began in 1929.
 # A date below this is a page the publisher mis-filed or a fetcher that lost one,
@@ -517,11 +519,7 @@ def audit(rows, today):
     flags = []
     by_content = defaultdict(list)
     for row in rows:
-        path = PUZZLE_DIR / row["file"]
-        if not path.exists():
-            flags.append(("SHAPE", row["id"], f"indexed as {row['file']}, not on disk"))
-            continue
-        puzzle = read_puzzle_file(path)
+        puzzle = read_puzzle_file(PUZZLE_DIR / row["file"])
         by_content[content_hash(puzzle)].append(puzzle["id"])
         checkable = check_shape(puzzle, today, flags)
         check_length(puzzle, checkable, flags)
@@ -533,8 +531,10 @@ def audit(rows, today):
 def main(argv):
     quiet = "--quiet" in argv
     started = time.time()
-    index = json.loads(INDEX.read_text())
-    rows = index["puzzles"]
+    # Rebuilt, not read: reindex() writes one row per file it just walked, so
+    # every row below names a file that is there. What this tool judges is the
+    # corpus, and a stale manifest is not a defect in it.
+    rows = reindex()["puzzles"]
     flags, copies = audit(rows, datetime.now(timezone.utc).date())
 
     for ids in copies:
@@ -551,7 +551,7 @@ def main(argv):
         return 1 if total else 0
 
     elapsed = time.time() - started
-    print(f"\n{len(rows)} puzzles read in {elapsed:.1f}s")
+    print(f"\n{len(rows)} puzzles indexed and read in {elapsed:.1f}s")
     print(f"  DUPLICATE {sum(len(i) for i in copies)} files in {len(copies)} groups")
     for flag in ("LENGTH", "CROSS", "SHAPE"):
         print(f"  {flag:<9} {len(by_flag[flag])}")

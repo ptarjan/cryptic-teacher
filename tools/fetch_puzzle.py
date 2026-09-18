@@ -1158,6 +1158,12 @@ def puzzle_is_annotated(puzzle):
 
 
 def reindex():
+    """Rebuild puzzles/index.json and index.js from the puzzle files on disk.
+
+    Both are generated and untracked, so this is the one entry point: every
+    local tool rebuilds through it before reading the index, rather than each
+    remembering to. `--reindex` on the command line is this function, and
+    tools/reindex.js is the same call for the node harnesses."""
     # Difficulty needs every puzzle at once (each rating is relative to the
     # others), so it is scored in one pass here rather than per-file. It stays
     # optional so that a checkout missing any of its data still gets a working

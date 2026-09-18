@@ -3,12 +3,15 @@
 #
 # The daily job commits in its own worktree and pushes last, so anything an
 # interactive session pushed while it worked is on master first. The files that
-# collide are always the GENERATED ones — puzzles/index.json, puzzles/index.js,
-# README.md, the per-puzzle pages — because both sides rebuilt them from their
-# own view of the corpus. That is not a disagreement, and on 2026-09-06 and
-# 2026-09-07 it cost the site a day each time: the rebase stopped, the push
-# never happened, and a finished night's annotations sat in a detached worktree
-# until someone went looking.
+# collide are always the GENERATED ones — README.md above all, since both sides
+# rebuild it from their own view of the corpus. That is not a disagreement, and
+# on 2026-09-06 and 2026-09-07 it cost the site a day each time: the rebase
+# stopped, the push never happened, and a finished night's annotations sat in a
+# detached worktree until someone went looking.
+#
+# The generated file used here is README.md because it is generated AND tracked.
+# The puzzle manifest is generated and not tracked, so it cannot conflict at
+# all — which is the whole reason it stopped being committed.
 #
 #     bash tools/test_push_conflict.sh
 #
@@ -54,26 +57,32 @@ echo "a rebase that never started is not a conflict:"
 rebuild_generated_conflicts; check "returns non-zero with no rebase in progress" "$?" "1"
 
 echo "a conflict in a generated file is rebuilt and the pick lands:"
+# The corpus sentence inside README.md's generated block: one line, rebuilt from
+# the puzzle files by tools/build_readme.py, so the two sides collide on it and
+# the rebuild is what resolves it. Found rather than numbered, so moving the
+# block does not quietly aim this at a hand-written line.
+corpus=$(( $(grep -n '^\*\*Corpus\*\* ' README.md | cut -d: -f1) - 1 ))
+[ "$corpus" -gt 0 ] || { echo "FAIL: README.md has no **Corpus** line to collide on"; exit 1; }
 git checkout -q -B upstream "$base"
-poke puzzles/index.json 1 ' "latest": "upstream-side",'
-git commit -qam "upstream rebuilt the index"
+poke README.md "$corpus" '**Corpus** — upstream-side'
+git commit -qam "upstream rebuilt the README"
 git checkout -q -B nightly "$base"
-poke puzzles/index.json 1 ' "latest": "nightly-side",'
+poke README.md "$corpus" '**Corpus** — nightly-side'
 # A second, non-colliding change, so the pick is not empty once the index is
 # rebuilt. It has to be an existing tracked file: build_readme.py refuses to run
 # against a new file with no row in its layout table, and this function runs it.
 printf '\n<!-- the night'"'"'s own work -->\n' >> APP.md
 git commit -qam "the night's work"
 git rebase -q upstream >/dev/null 2>&1
-check "the rebase did stop" "$(git diff --name-only --diff-filter=U)" "puzzles/index.json"
+check "the rebase did stop" "$(git diff --name-only --diff-filter=U)" "README.md"
 rebuild_generated_conflicts; check "returns zero" "$?" "0"
 # The state directory, not REBASE_HEAD: git leaves that ref behind afterwards.
 check "the rebase finished" "$(rebase_running && echo yes)" ""
 check "the night's own change survived" \
   "$(grep -c "the night's own work" APP.md)" "1"
-check "no markers left in the index" "$(grep -c '^<<<<<<< ' puzzles/index.json)" "0"
-check "the index is valid JSON again" \
-  "$(python3 -c 'import json;json.load(open("puzzles/index.json"));print("ok")' 2>&1)" "ok"
+check "no markers left in the README" "$(grep -c '^<<<<<<< ' README.md)" "0"
+check "the corpus line was rebuilt, not picked" \
+  "$(grep -c '^\*\*Corpus\*\* — [0-9,]* puzzles across' README.md)" "1"
 check "nothing left uncommitted" "$(git status --porcelain)" ""
 # index.html is not one of the conflicted files, but it carries the content
 # hash of an index.js the rebuild just rewrote. Nothing else here would

@@ -24,8 +24,9 @@ abbreviations/                               the glossary of standard abbreviati
                                              rung links into — generated, not committed
 og/                                          one 1200x630 social card per puzzle, drawn from
                                              one of its clues — generated, not committed
-puzzles/index.json                           manifest: one row per puzzle (latest first)
-puzzles/index.js                             the same manifest as a script (so file:// works)
+puzzles/index.json, puzzles/index.js         manifest: one row per puzzle, latest first, and
+                                             the same as a script so file:// works — built by
+                                             tools/fetch_puzzle.py --reindex, not committed
 puzzles/<series>-<n>.js                      one puzzle per file, JSON between /*JSON-START*/ …
                                              /*JSON-END*/
 
@@ -170,6 +171,9 @@ tools/smoke_test.js                          the whole app driven headless again
                                              corpus
 tools/fake_dom.js                            the fake DOM that boots the real app.js under
                                              Node, shared by every harness
+tools/reindex.js                             rebuilds the puzzle manifest before a node harness
+                                             reads it, through the same --reindex the site's
+                                             build runs
 tools/e2e_analytics.py                       drives a real browser through a solve and checks
                                              every event lands in KV
 tools/wait_for_deploy.py                     blocks until Pages is serving the pushed commit,
