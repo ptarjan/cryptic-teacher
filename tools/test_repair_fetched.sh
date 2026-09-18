@@ -225,6 +225,47 @@ write("cryptic", 113, base + 13 * DAY, [
     entry("24-across", 24, "across", 0, 8, 3, "See 16", "THE",
           ["18-down", "24-across"])])
 
+# 114 — cryptic-24,640: FROM THE NEW WORLD over 13-across, 18-across and
+# 20-across, which the Guardian's markup grouped as "18-DOWN" — a light the
+# puzzle does not have. The light that was meant is not in the data, so the
+# group goes whole rather than being shortened to the two lights that are here
+# and storing FROM THE + WORLD as a finished answer. 20-across then names its
+# three leading clues, which is a light ending three answers and is allowed to
+# disagree with every one of them: NEW WORLD ORDER keeps its group.
+write("cryptic", 114, base + 14 * DAY, [
+    entry("13-across", 13, "across", 0, 4, 7,
+          "Work of 23, originating in 9 or 29, say (4,3,3,2)", "FROMTHE",
+          ["13-across", "18-down", "20-across"]),
+    entry("17-across", 17, "across", 0, 6, 5,
+          "Novel utterance from 25, originally in 14 (5,3,5)", "BRAVE",
+          ["17-across", "18-down", "20-across"]),
+    entry("18-across", 18, "across", 0, 8, 3,
+          "Dr Low, possibly, providing answer to all our ills (3,5,5)", "NEW",
+          ["18-across", "20-across", "31-across"]),
+    entry("20-across", 20, "across", 0, 10, 5, "See 13, 17 and 18", "WORLD",
+          ["13-across", "18-down", "20-across"]),
+    entry("31-across", 31, "across", 0, 12, 5, "See 18", "ORDER",
+          ["18-across", "20-across", "31-across"])])
+
+# 115 — cryptic-25,126: MAJOR AND MINOR over three lights, with ASIA MINOR and
+# DRUM MAJOR each claiming one of them for a second answer. Every claim adds up,
+# so reconcile_groups leaves all three as published — and two of them are stated
+# by one side only, because 17-across and 20-across store the answer they are
+# both in. "See 17" names ONE leading clue, so it is held to its group and the
+# claims on it go; MAJOR AND MINOR is untouched.
+write("cryptic", 115, base + 15 * DAY, [
+    entry("6-down", 6, "down", 0, 0, 4, "Romania is unsettled region near Greece (4,5)",
+          "ASIA", ["6-down", "20-across"]),
+    entry("8-down", 8, "down", 2, 0, 4, "NCO and daughter having drink with PM once (4,5)",
+          "DRUM", ["8-down", "17-across"]),
+    entry("17-across", 17, "across", 0, 4, 5,
+          "Like 4 and 11, or 24 down and 22 down, or 13 across, 14 and 27 (5,3,5)",
+          "MAJOR", ["17-across", "19-across", "20-across"]),
+    entry("19-across", 19, "across", 0, 6, 3, "See 17", "AND",
+          ["17-across", "19-across", "20-across"]),
+    entry("20-across", 20, "across", 0, 8, 5, "See 17", "MINOR",
+          ["17-across", "19-across", "20-across"])])
+
 # A series whose numbers and dates climb together, except for one puzzle served
 # under a date from 1934 — the Guardian does this at /cryptic/1183, which is
 # Quiptic 1,183 wearing a cryptic's URL.
@@ -397,6 +438,33 @@ same "byte-identical after a repair run" \
   "$(cksum < "$work/puzzles/cryptic-113.js")" "$before"
 same "24-across stays where the paper put it" "$(groups puzzles/cryptic-113.js)" \
   '[["16-down", null], ["13-across", null], ["1-down", null], ["18-down", ["18-down", "24-across"]], ["24-across", ["18-down", "24-across"]]]'
+
+echo "a group naming a light the puzzle does not have is dropped, not shortened"
+out=$(one cryptic-114)
+check "$out" "cryptic-114" "the puzzle is reported"
+check "$out" "3 one-sided group(s) dropped" "all three lights that named 18-down"
+check "$out" "WARNING: 17-across: 18-down is in no group with it" \
+  "warned on stderr, naming the light that is not there"
+check "$out" "is an answer with a light missing — group dropped" "and why the whole group goes"
+same "a dry run wrote nothing" "$(groups puzzles/cryptic-114.js)" \
+  '[["13-across", ["13-across", "18-down", "20-across"]], ["17-across", ["17-across", "18-down", "20-across"]], ["18-across", ["18-across", "20-across", "31-across"]], ["20-across", ["13-across", "18-down", "20-across"]], ["31-across", ["18-across", "20-across", "31-across"]]]'
+one cryptic-114 --apply >/dev/null
+same "no group names 18-down, and NEW WORLD ORDER is untouched behind a light that names three leaders" \
+  "$(groups puzzles/cryptic-114.js)" \
+  '[["13-across", ["13-across", "20-across"]], ["17-across", null], ["18-across", ["18-across", "20-across", "31-across"]], ["20-across", ["13-across", "20-across"]], ["31-across", ["18-across", "20-across", "31-across"]]]'
+absent "$(one cryptic-114)" "cryptic-114:" "clean on the second run"
+
+echo "a group naming a light that stores an answer of its own is dropped"
+out=$(one cryptic-115)
+check "$out" "cryptic-115: 2 one-sided group(s) dropped: 6-down 6-down + 20-across, 8-down 8-down + 17-across" \
+  "both claims, and neither of the lights they were made on"
+check "$out" "WARNING: 6-down: 20-across is in no group with it" \
+  "warned on stderr, naming the light that stores another answer"
+one cryptic-115 --apply >/dev/null
+same "ASIA MINOR and DRUM MAJOR go, MAJOR AND MINOR stays whole" \
+  "$(groups puzzles/cryptic-115.js)" \
+  '[["6-down", null], ["8-down", null], ["17-across", ["17-across", "19-across", "20-across"]], ["19-across", ["17-across", "19-across", "20-across"]], ["20-across", ["17-across", "19-across", "20-across"]]]'
+absent "$(one cryptic-115)" "cryptic-115:" "clean on the second run"
 
 echo "a date its own neighbours contradict is reported and never guessed at"
 out=$(run)
