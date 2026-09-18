@@ -1310,7 +1310,7 @@ def check_every_clue_is_annotated(entries, errors, warnings, misses=()):
             warnings.append(
                 f"{tag}: no annotation — the blind run answered "
                 f"{misses[e['id']]!r} wrongly and the grader dropped its "
-                f"explanation. It ships with auto hints until someone annotates it")
+                f"explanation. It ships with answers only until someone annotates it")
             continue
         if not re.sub(r"\([\d,\-\s]+\)\s*$", "", e["clue"]).strip():
             warnings.append(f"{tag}: no annotation, and no clue to annotate — "

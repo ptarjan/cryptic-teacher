@@ -4,7 +4,7 @@
 A run that meets a clue it cannot parse does not fail. Validation nulls the
 wrong annotation (fetch_puzzle.merge_annotations) and everything downstream
 carries on: the puzzle commits, the index marks it `annotated: false`, the site
-badges those clues "auto hints", and the only evidence is a ratio buried in a
+badges those clues "answers only", and the only evidence is a ratio buried in a
 log nobody opens. That is indistinguishable from a run that solved everything —
 which means a model too weak to solve the puzzle looks exactly like a good
 night, and the first person to notice is a learner who opened a clue with no

@@ -192,7 +192,7 @@ is why the two are separate files rather than two halves of one.
   in the app — not on picker rows, not on the puzzle title. Once the picker
   listed annotated puzzles only, that badge asserted the same thing about every
   row, which communicates nothing while still taking a line of the row; being
-  taught is simply what a puzzle here IS. The `auto hints` badge stays, because
+  taught is simply what a puzzle here IS. The `answers only` badge stays, because
   it is now the only thing the badge slot ever says, and it says it exactly when
   the puzzle in front of you is the odd one out. The generated archive page
   (`tools/build_seo_pages.py`) does badge both states, and should: it lists every
