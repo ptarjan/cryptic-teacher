@@ -189,6 +189,9 @@ tools/test_notify_race.js                    ticks two papers over a slow networ
 tools/test_solve_clock.js                    walks away from a puzzle and comes back, so the
                                              time spent elsewhere is proved never to be counted
                                              as solving
+tools/test_ci_coverage.js                    checks every test in tools/ is run by the workflow
+                                             a later push cannot cancel, so no check is quietly
+                                             optional
 tools/qr_check.py                            decodes qr.js’s own output with a real decoder — a
                                              wrong QR code draws perfectly and simply never
                                              scans
