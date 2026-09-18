@@ -1160,6 +1160,192 @@ assert(registry["picker-search"].value === "", "the filter box starts empty on o
       (li.children[0].innerHTML.match(/p-meta">[^<]*/) || [""])[0]).join(" | "));
   typeInPicker("");
 }
+
+/* --- the archive row IS the picker row, and it is one line when there is room ---
+
+   /puzzles/ and the in-app picker list the same thing, so a solver who has
+   learnt to read one has to be able to read the other: the same parts in the
+   same order, carrying the same badges on the same axes. They are built by
+   different languages — renderPicker() in app.js, hub_page() in
+   tools/build_seo_pages.py — so neither file can state that they agree. The
+   order below is the one written-down description of a row and both are checked
+   against it; what is compared is what each one actually renders.
+
+   Three differences are deliberate and are asserted as such below, so that they
+   stay decisions rather than drift:
+     * no progress on the archive — a static page has no per-solver state;
+     * the archive badges BOTH coverage states, the app only the exception,
+       because the picker lists annotated puzzles and the archive lists all;
+     * the number and the date are written long on the archive and short in the
+       picker, which is a 430px panel. */
+{
+  const AXES = ["series", "difficulty", "coverage", "source", "progress"];
+  const PARTS = ["p-num", "p-setter", "p-meta", "p-tags"];
+
+  const partsOf = (html) =>
+    [...html.matchAll(/<span class="(p-num|p-setter|p-meta|p-tags)"/g)].map((m) => m[1]);
+  // The coverage badge and the source badge are both .badge.auto — style.css's
+  // rule is one colour per axis, not per badge — so those two alone are told
+  // apart by what they say.
+  const axisOf = (cls, text) =>
+    /\bp-prog\b/.test(cls) ? "progress"
+      : /\bseries\b/.test(cls) ? "series"
+      : /\bdiff\b/.test(cls) ? "difficulty"
+      : /unverified/i.test(text) ? "source" : "coverage";
+  const axesOf = (html) => {
+    const tags = (html.match(/<span class="p-tags">([\s\S]*)$/) || ["", ""])[1];
+    return [...tags.matchAll(/<span class="((?:badge|p-prog)[^"]*)"[^>]*>([^<]*)</g)]
+      .map((m) => axisOf(m[1], m[2]));
+  };
+
+  const pickerRowHTML = pickerRows().map((li) => li.children[0].innerHTML);
+  // The hub page links puzzles from its prose and its pager too, so the rows are
+  // taken from the list itself rather than from every <li> that holds a link.
+  const archiveList = (readBuilt("puzzles/index.html")
+    .match(/<ul class="s-index">([\s\S]*?)<\/ul>/) || ["", ""])[1];
+  const archiveRowHTML = archiveList.match(/<li><a [\s\S]*?<\/a><\/li>/g) || [];
+  assert(pickerRowHTML.length && archiveRowHTML.length,
+    `both lists render rows: picker ${pickerRowHTML.length}, archive ${archiveRowHTML.length}`);
+
+  const archiveAxes = new Set();
+  for (const [name, rows] of [["picker", pickerRowHTML], ["archive", archiveRowHTML]]) {
+    const parts = [...new Set(rows.map((h) => partsOf(h).join(",")))];
+    assert(parts.length === 1 && parts[0] === PARTS.join(","),
+      `every ${name} row is ${PARTS.join(", ")} in that order, got: ` + parts.join(" | "));
+    // Every row of both, not a sample: which badges a row carries depends on the
+    // puzzle, so the rare combination is exactly the one an eye never reaches.
+    rows.forEach((h) => {
+      const axes = axesOf(h);
+      if (name === "archive") axes.forEach((a) => archiveAxes.add(a));
+      const ranks = axes.map((a) => AXES.indexOf(a));
+      assert(!ranks.includes(-1) && ranks.every((r, i) => i === 0 || r > ranks[i - 1]),
+        `a ${name} row's badges run ${AXES.join(" → ")}, got ${axes.join(" → ")}: ` + h);
+    });
+  }
+
+  /* And the order above stays honest only while every name in it is a badge
+     something still renders. What the archive should show is not a fixture, it
+     is a question the index answers, so it is asked of the index — a paper whose
+     answers stop needing the unverified badge must retire the axis here too,
+     rather than leaving a name that describes a row that no longer exists. */
+  {
+    const listed = allPuzzles.filter((p) => p.hasSolutions);
+    const want = new Set(["series", "coverage"]);   // every archive row has both
+    if (listed.some((p) => p.difficulty)) want.add("difficulty");
+    if (listed.some((p) => p.solutionsUnofficial)) want.add("source");
+    assert([...archiveAxes].sort().join(",") === [...want].sort().join(","),
+      "the archive's badges are the ones the index says it has: rendered " +
+      [...archiveAxes].sort().join(",") + ", expected " + [...want].sort().join(","));
+    // Progress is the picker's alone and depends on what this solver has typed,
+    // so it is asked of the template rather than of a row.
+    assert(/class="p-prog/.test(appSrc),
+      "the picker row still carries progress, which is why 'progress' is in AXES");
+    assert(AXES.every((a) => want.has(a) || a === "progress"),
+      "AXES names only axes a row actually carries: " + AXES.join(", "));
+  }
+
+  // The deliberate three, asserted so they stay decisions rather than drift.
+  assert(!archiveRowHTML.join("").includes("p-prog"),
+    "the archive carries no progress: a static page has no per-solver state");
+  assert(archiveRowHTML.some((h) => h.includes("full hints")) &&
+         archiveRowHTML.some((h) => h.includes("answers only")),
+    "the archive badges both coverage states, because it lists both");
+  assert(!pickerRowHTML.join("").includes("full hints"),
+    "and the picker badges only the exception, because it lists only one of them");
+}
+
+/* --- and the wide archive row is one line, because it says which line ---
+
+   Four things sit on that line and CSS Grid decides where each lands. Both
+   halves of this are invisible to a headless DOM and only show up as a screen
+   full of rubble, which is how they shipped. */
+{
+  const css = fs.readFileSync(path.join(ROOT, "style.css"), "utf8")
+    .replace(/\/\*[\s\S]*?\*\//g, "");
+  const rulesIn = (text) => [...text.matchAll(/([^{}]+)\{([^{}]*)\}/g)]
+    .map((m) => ({ sel: m[1].trim().replace(/\s+/g, " "), body: m[2] }));
+  // The last declaration wins, which is what the media query relies on.
+  const prop = (rules, sel, name) => {
+    const hit = rules.filter((r) => r.sel === sel)
+      .map((r) => (r.body.match(new RegExp(name + "\\s*:\\s*([^;]+)")) || [])[1])
+      .filter(Boolean).pop();
+    return hit ? hit.trim() : null;
+  };
+  const media = [...css.matchAll(/@media([^{]+)\{((?:[^{}]|\{[^{}]*\})*)\}/g)];
+  const wideBlock = media.find((m) => /\.s-index\s*\{/.test(m[2]));
+  assert(wideBlock, "style.css still has a wide branch for the archive list");
+  const wide = rulesIn(wideBlock[2]);
+  const base = rulesIn(css.replace(/@media[^{]+\{(?:[^{}]|\{[^{}]*\})*\}/g, ""));
+  const PARTS = ["p-num", "p-setter", "p-meta", "p-tags"];
+  const colOf = (cls) => Number(prop(wide, ".s-index ." + cls, "grid-column")
+    || prop(base, "." + cls, "grid-column"));
+  const rowOf = (cls) => prop(wide, ".s-index ." + cls, "grid-row");
+
+  /* Grid's auto-placement cursor never moves backwards (sparse packing, CSS
+     Grid §8.5): an item whose column is behind the cursor does not go back to
+     it, it starts a NEW ROW. The date is column 4 and comes before the badges
+     in the markup, so badges that named only column 3 were given a second line
+     under a row that had just been told to be one line. Simulated here rather
+     than described, because the markup order and the column numbers are written
+     in two different files and either one may move. */
+  {
+    const order = PARTS.filter((cls) => !rowOf(cls));
+    let cursor = 0;
+    const pushed = order.filter((cls) => {
+      const col = colOf(cls);
+      const back = col < cursor;
+      cursor = col;
+      return back;
+    });
+    assert(!pushed.length,
+      `${pushed.join(", ")} sits in a column the auto-placement cursor has already ` +
+      "passed, so grid starts a new row for it — give it a grid-row, or put it " +
+      "in markup order: " + PARTS.map((c) => `${c}=col ${colOf(c)}`).join(", "));
+  }
+
+  /* And no track on this list may be sized by its contents. The list is twelve
+     thousand rows long, so a content-sized track is as wide as its single worst
+     row and every other row pays: one 47-character copyright line in a setter
+     field took 272px of a 728px list away from the badges beside it. .p-setter
+     carries an ellipsis for exactly this, and an `auto` track never lets it
+     fire. */
+  {
+    const tracks = (() => {
+      const out = []; let depth = 0, cur = "";
+      for (const ch of (prop(wide, ".s-index", "grid-template-columns") || "")) {
+        if (ch === "(") depth++;
+        if (ch === ")") depth--;
+        if (ch === " " && !depth) { if (cur) out.push(cur); cur = ""; } else cur += ch;
+      }
+      if (cur) out.push(cur);
+      return out;
+    })();
+    const columns = PARTS.map(colOf);
+    assert(tracks.length === Math.max(...columns),
+      `the wide list declares one track per column (${Math.max(...columns)}), got ` +
+      tracks.length + ": " + tracks.join(" "));
+    const elastic = PARTS.filter((cls) =>
+      /ellipsis/.test(prop(base, "." + cls, "text-overflow") || ""));
+    assert(elastic.length, "some row part still truncates rather than pushing the row wide");
+    elastic.forEach((cls) => {
+      const track = tracks[colOf(cls) - 1];
+      assert(track && !/^(auto|max-content|min-content)$/.test(track),
+        `.${cls} truncates, but its track is '${track}' — a content-sized track is ` +
+        "as wide as the worst row in the archive, so the ellipsis never fires");
+    });
+  }
+
+  /* The narrow form is not a fallback, it is the design for a 430px panel (see
+     the note above .p-tags): number and date pinned to opposite corners, badges
+     on a line of their own. The picker uses it at every width and shares these
+     base rules, so a change aimed at the archive lands there too. */
+  assert(prop(base, ".p-tags", "grid-column") === "1 / -1",
+    "narrow rows still give the badges a full-width line of their own");
+  assert(prop(base, "#picker-list button, .s-index a", "grid-template-columns")
+    === "auto 1fr auto",
+    "and the shared two-line row is still three columns");
+}
+
 {
   // "current" is the row for the puzzle already open, which is listed whatever
   // its annotation state — don't hide the user's own work. Everything else in a
