@@ -4074,13 +4074,15 @@
     // the clue while you typed the last letter into it ("I don't see any
     // excitement next to the clue when you're typing it out when you solve it").
     // So this one does not expire: it is a standing mark that
-    // the clue is out, and arriving late still finds it. Gold for a clue solved
-    // with nothing bought, the same two tiers the cells already use.
+    // the clue is out, and arriving late still finds it. A clue solved with
+    // nothing bought gets the gold star, anything else the green check — the
+    // same glyph and the same two tiers the clue list uses, so one mark means
+    // one thing wherever it is drawn.
     let clueLine = `<span class="entry-tag">${tag(e)}</span>`;
     if (solved) {
       const clean = noHintsSolve(e);
       clueLine += `<span class="clue-done${clean ? " clean" : ""}" title="${
-        clean ? "Solved with no hints at all" : "Solved"}">✓</span>`;
+        clean ? "Solved with no hints at all" : "Solved"}">${clean ? "★" : "✓"}</span>`;
     }
     if (holder !== e) clueLine += `<span class="muted">(linked with ${tag(holder)}) </span>`;
     setHTML($("hint-pattern"), patternHTML(e));
