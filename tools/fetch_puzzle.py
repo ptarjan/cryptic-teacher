@@ -202,12 +202,19 @@ def has_words(clue):
     """A clue is content plus an enumeration. Strip the enumeration and there
     has to be something left, or the paper published nothing to solve.
 
-    Something, not a letter. A bare cross-reference is a whole clue — "␣␣␣␣␣ 9
-    (5)" is cryptic-30059 14-down, where the printed gap IS the wordplay and the
-    9 points at the rest of it, and it annotates fine. Requiring a letter called
-    that unsolvable and would have thrown away a clue the setter meant.
+    Something, not a letter, and not even a digit. A bare cross-reference is a
+    whole clue — "␣␣␣␣␣ 9 (5)" is cryptic-30059 14-down, where the printed gap IS
+    the wordplay and the 9 points at the rest of it. So is a clue with no
+    alphanumerics at all: ")" is the whole of CLOSE BRACKETS, "?" of I HAVEN'T A
+    CLUE, a line of morse of MORSE. Any character the setter printed is a clue,
+    and only an empty remainder means the paper printed nothing to solve.
+
+    Unicode format characters are already gone by the time this sees a clue —
+    visible() and the italic-aware parser beside it both drop category Cf — so a
+    clue built out of zero-width spaces is the empty string here, and still reads
+    as blank rather than as punctuation the setter chose.
     """
-    return any(c.isalnum() for c in re.sub(r"\([\d,\-. ]*\)", "", clue))
+    return bool(re.sub(r"\([\d,\-. ]*\)", "", clue).strip())
 
 
 # What a continuation leg's clue is made of once its enumeration is off: the
@@ -1169,12 +1176,12 @@ def clue_coverage(puzzle):
     excuses: printed-blank and printed-wrong are equally unsolvable, and a solver
     handed either has to invent the clue before it can answer it.
 
-    `present` is a FLOOR, not a measurement. has_words cannot tell a clue the
-    paper left out from a clue that is one character long on purpose — ")" for
-    CLOSE BRACKETS, "?" for I HAVEN'T A CLUE, a line of morse for MORSE — and
-    counts all of those as absent. So a reader deciding anything off this wants
-    a ratio with room in it, and must never read one uncounted entry as a broken
-    puzzle: several of them are the best clue in the grid.
+    A one-character clue counts as present, because it is one: ")" is the whole
+    of CLOSE BRACKETS and a line of morse the whole of MORSE. What stays
+    uncounted is an entry the paper printed nothing for. Even so, a reader
+    deciding anything off this wants a ratio with room in it rather than a line
+    at one missing entry — a setter who prints a blank clue on purpose leaves a
+    grid that is still entirely solvable.
     """
     return {"present": sum(1 for e in puzzle["entries"]
                            if has_words(e["clue"]) and not e.get("clueCorrupt")),

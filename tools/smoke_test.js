@@ -3074,7 +3074,9 @@ registry["reset-puzzle"].onclick();
       + "annotated, and treating it as merely unsolved re-spends a run on it nightly");
   });
 
-  const hasWords = (clue) => /[a-zA-Z0-9]/.test(clue.replace(/\([\d,\-. ]*\)/g, ""));
+  // Mirrors has_words() in tools/fetch_puzzle.py: anything left after the
+  // enumeration comes off is a clue, punctuation included.
+  const hasWords = (clue) => clue.replace(/\([\d,\-. ]*\)/g, "").trim() !== "";
   const index = JSON.parse(fs.readFileSync(path.join(ROOT, "puzzles", "index.json"), "utf8"));
   const annotatedInIndex = new Map(index.puzzles.map((p) => [p.id, p.annotated]));
   const files = fs.readdirSync(path.join(ROOT, "puzzles")).filter((f) => /^[a-z]+-\d+\.js$/.test(f));
