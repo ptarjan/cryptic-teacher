@@ -111,8 +111,8 @@ def main(argv):
 
     rc, out = run([sys.executable, str(TOOLS / "fetch_puzzle.py"), "--reindex"])
     if rc:
-        print(f"\nthe index was not refreshed:\n{out}")
-        issues.append("puzzles/index.js is stale")
+        print(f"\nthe index was not rebuilt:\n{out}")
+        issues.append("puzzles/index.json and index.js were not rebuilt")
 
     counts = ([f"{errors} ERROR"] if errors else []) + \
              ([f"{warns} warn"] if warns else []) + issues

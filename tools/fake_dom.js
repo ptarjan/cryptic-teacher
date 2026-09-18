@@ -20,6 +20,7 @@
 "use strict";
 const fs = require("fs");
 const path = require("path");
+const { reindex } = require("./reindex.js");
 const ROOT = path.join(__dirname, "..");
 
 function boot(opts) {
@@ -408,6 +409,11 @@ function boot(opts) {
   // the bare name exactly as the page does.
   new Function("window", fs.readFileSync(path.join(ROOT, "sync/merge.js"), "utf8"))(global.window);
   global.window.CTMerge = global.CTMerge;
+  // The manifest is generated and untracked, so it is rebuilt from the puzzle
+  // files before it is read — in a fresh clone there is no index.js at all, and
+  // in a working tree there is whatever the last rebuild left. Memoised, so the
+  // nine boots in tools/smoke_test.js cost one rebuild.
+  reindex();
   new Function("window", fs.readFileSync(path.join(ROOT, "puzzles/index.js"), "utf8"))(global.window);
   global.CRYPTIC_INDEX = global.window.CRYPTIC_INDEX;
 

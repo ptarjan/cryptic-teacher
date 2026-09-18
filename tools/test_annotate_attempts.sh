@@ -112,6 +112,9 @@ echo "a puzzle that ends up annotated anyway is forgotten, however that happened
 # is the point of it: a blocked puzzle somebody annotates by hand, or one the
 # blind-solve grading later strips a clue from, must not be held out of the
 # queue by a count nobody remembers is there.
+# That index is generated and not committed, so it is built before it is read:
+# in a fresh clone — which is what CI is — there is no file here at all.
+python3 tools/fetch_puzzle.py --reindex >/dev/null
 done_id=$(python3 -c 'import json; print(next(p["id"] for p in
           json.load(open("puzzles/index.json"))["puzzles"] if p["annotated"]))')
 record_annotate_failure "$done_id" "failed: something broke" "" >/dev/null

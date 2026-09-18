@@ -36,17 +36,11 @@
 # puzzles/ is ever touched.
 #
 # "The real corpus" means the files fetch_puzzle.puzzle_files() walks off disk,
-# not the rows in the committed puzzles/index.json. That index is a build
-# artefact this repo deliberately never stages from a test run (it collides
-# between whatever else is fetching or annotating at the same time — see
-# tools/test_push_conflict.sh), so at any given moment it can be stale in
-# either direction: entries for files a later commit removed, or files a
-# later commit added that it was never re-run to pick up. Neither kind of
-# staleness is a LENGTH defect or anything the exception tables touch, and a
-# test that read the index instead of the disk would go red for either one
-# and teach everybody to ignore its failures. check_shape's own "not on disk"
-# SHAPE flag is what catches an index that has drifted; this file has nothing
-# to add to that and does not try.
+# not the rows in puzzles/index.json. The index is a build artefact, generated
+# and not committed, and every tool that reads it rebuilds it first — so the
+# two agree by construction and the disk is the shorter way to say it. Walking
+# it here also keeps this test off the eleven-second rebuild it does not need:
+# the exception tables are keyed on clue text, which no index carries.
 set -uo pipefail
 cd "$(dirname "$0")/.."
 REPO="$PWD"

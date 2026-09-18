@@ -122,20 +122,7 @@ const rowHasNumber = (html, num) => new RegExp("№ " + num + "(?!\\d)").test(ht
     if (html.includes(`${rel}?v=`)) stampedHere++;
   });
 
-  // The same hazard one level down: app.js appends index.js's per-puzzle `v` to
-  // each puzzle file, so a re-annotation that does not rebuild the index serves
-  // the OLD annotation to anyone holding a cached copy. stamp_assets.py does not
-  // touch these — only tools/fetch_puzzle.py --reindex does — so nothing
-  // otherwise notices, and the symptom is a fix that looks deployed and isn't.
-  (global.CRYPTIC_INDEX.puzzles || []).forEach((p) => {
-    if (!p.v) return;
-    const want = crypto.createHash("md5")
-      .update(fs.readFileSync(path.join(ROOT, "puzzles", p.file))).digest("hex").slice(0, 8);
-    assert(p.v === want,
-      `puzzles/index.js has a stale ?v= for ${p.file} (run tools/fetch_puzzle.py --reindex)`);
-  });
-
-  // And the same hazard sideways, for the files the REPO commits: a stamp
+  // The same hazard one level down, for the files the REPO commits: a stamp
   // written by hand or by the stamper can go stale, so every one of them is
   // resolved back to the file it names. The generated pages are not swept here
   // and cannot be: they are gitignored now, built from the current assets on a
