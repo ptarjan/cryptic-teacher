@@ -264,9 +264,10 @@ def is_continuation(clue):
     cryptic-23578's 7-down LOYOLA, six cells of IGNATIUS LOYOLA "(8,6)" — is the
     leg's OWN cell count and not a statement about the answer. The Guardian
     printed those routinely before about 2015. So a counted continuation is
-    neither evidence that a group is false (dissolve_false_groups) nor a length
-    contradiction when it disagrees with the group's total
-    (tools/puzzle_integrity.py check_length); both ask here.
+    neither evidence that a group is false (dissolve_false_groups), nor a claim
+    to lead the group it sits in (reconcile_groups), nor a length contradiction
+    when it disagrees with the group's total (tools/puzzle_integrity.py
+    check_length); all three ask here.
     """
     # Stripped of the ellipsis the paper chains consecutive clues with, because
     # a pointer wears it too: cryptic-21642's 5-down is "... see 22", the tail of
@@ -560,7 +561,17 @@ def reconcile_groups(entries):
         stated = [by_id[m].get("group") or [] for m in members]
         if all(set(s) == members for s in stated):
             continue                    # the paper already agrees with itself
-        leads = {s[0] for s in stated if s}
+        # A light whose own clue is a bare pointer does not lead, however the
+        # paper ordered the pair it wrote. The Guardian's older markup writes
+        # every link as a two-element group that names ITSELF first, so in a
+        # chain (26 pairs with 8, 26 pairs with 17, 17 pairs with 20) the middle
+        # light claims to lead on nothing but list order, and the count riding
+        # on its "See 26 (7,8)" is its own legs' cells, never the answer's.
+        # Counted as a claimant it wins the election against the real leading
+        # clue and takes the whole group down with it: cryptic-22249 lost
+        # EVERYONE SUDDENLY BURST OUT SINGING that way, 31 cells read as 8.
+        leads = {s[0] for s in stated
+                 if s and not is_continuation(by_id[s[0]].get("clue"))}
 
         # Several lights each claiming to lead. The enumeration settles it,
         # because a leading clue counts its WHOLE answer: weigh each claimant's
