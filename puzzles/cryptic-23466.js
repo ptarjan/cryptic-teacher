@@ -24,8 +24,7 @@ window.CRYPTIC_PUZZLES["cryptic-23466"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 8,
-   "clue": " (8)",
-   "clueMissing": true,
+   "clue": "Flag with his number on it for bull? (8)",
    "separatorLocations": {},
    "solution": "IRISHISM",
    "annotation": null
@@ -39,8 +38,7 @@ window.CRYPTIC_PUZZLES["cryptic-23466"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 4,
-   "clue": " (4)",
-   "clueMissing": true,
+   "clue": "Hang - write \"died\" (4)",
    "separatorLocations": {},
    "solution": "PEND",
    "annotation": null
@@ -54,8 +52,7 @@ window.CRYPTIC_PUZZLES["cryptic-23466"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "A sorry plight leading to prayer? (6)",
    "separatorLocations": {},
    "solution": "ROSARY",
    "annotation": null
@@ -69,8 +66,7 @@ window.CRYPTIC_PUZZLES["cryptic-23466"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "With two points changed he can magnify (7)",
    "separatorLocations": {},
    "solution": "ENHANCE",
    "annotation": null
@@ -84,8 +80,7 @@ window.CRYPTIC_PUZZLES["cryptic-23466"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 8,
-   "clue": " (8)",
-   "clueMissing": true,
+   "clue": "Disease for girl from Shakespearean Welshman (8)",
    "separatorLocations": {},
    "solution": "FLUELLEN",
    "annotation": null
@@ -99,8 +94,7 @@ window.CRYPTIC_PUZZLES["cryptic-23466"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 10,
-   "clue": " (3-7)",
-   "clueMissing": true,
+   "clue": "English cottage - British is my first choice for green holidays (3-7)",
    "separatorLocations": {
     "-": [
      3
@@ -118,8 +112,7 @@ window.CRYPTIC_PUZZLES["cryptic-23466"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "Take a bird and apologise (6)",
    "separatorLocations": {},
    "solution": "REGRET",
    "annotation": null
@@ -133,8 +126,7 @@ window.CRYPTIC_PUZZLES["cryptic-23466"] = /*JSON-START*/ {
     "y": 1
    },
    "length": 8,
-   "clue": " (4-4)",
-   "clueMissing": true,
+   "clue": "Legitimate time to return garment in series (4-4)",
    "separatorLocations": {
     "-": [
      4
@@ -152,8 +144,7 @@ window.CRYPTIC_PUZZLES["cryptic-23466"] = /*JSON-START*/ {
     "y": 1
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "Key or what for? (6)",
    "separatorLocations": {},
    "solution": "LOCKER",
    "annotation": null
@@ -167,8 +158,7 @@ window.CRYPTIC_PUZZLES["cryptic-23466"] = /*JSON-START*/ {
     "y": 3
    },
    "length": 4,
-   "clue": " (4)",
-   "clueMissing": true,
+   "clue": "Accustomed to being of service (4)",
    "separatorLocations": {},
    "solution": "USED",
    "annotation": null
@@ -182,8 +172,7 @@ window.CRYPTIC_PUZZLES["cryptic-23466"] = /*JSON-START*/ {
     "y": 3
    },
    "length": 10,
-   "clue": " (2,1,7)",
-   "clueMissing": true,
+   "clue": "Some reversion to neuter form on the off chance (2,1,7)",
    "separatorLocations": {
     ",": [
      2,
@@ -202,8 +191,7 @@ window.CRYPTIC_PUZZLES["cryptic-23466"] = /*JSON-START*/ {
     "y": 5
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "Medical test by keeping one in before operations (6)",
    "separatorLocations": {},
    "solution": "BIOPSY",
    "annotation": null
@@ -217,8 +205,7 @@ window.CRYPTIC_PUZZLES["cryptic-23466"] = /*JSON-START*/ {
     "y": 5
    },
    "length": 10,
-   "clue": " (10)",
-   "clueMissing": true,
+   "clue": "The least bright king at home to a composer (10)",
    "separatorLocations": {},
    "solution": "PALESTRINA",
    "annotation": null
@@ -232,8 +219,7 @@ window.CRYPTIC_PUZZLES["cryptic-23466"] = /*JSON-START*/ {
     "y": 5
    },
    "length": 8,
-   "clue": " (8)",
-   "clueMissing": true,
+   "clue": "Act desperately to contain a cult that's widespread in India (8)",
    "separatorLocations": {},
    "solution": "CALCUTTA",
    "annotation": null
@@ -247,8 +233,7 @@ window.CRYPTIC_PUZZLES["cryptic-23466"] = /*JSON-START*/ {
     "y": 7
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Ruler starting on road to prepare to fly (7)",
    "separatorLocations": {},
    "solution": "EMPLANE",
    "annotation": null
@@ -262,8 +247,7 @@ window.CRYPTIC_PUZZLES["cryptic-23466"] = /*JSON-START*/ {
     "y": 7
    },
    "length": 8,
-   "clue": " (8)",
-   "clueMissing": true,
+   "clue": "Setter's among those who vote against official candidates (8)",
    "separatorLocations": {},
    "solution": "NOMINEES",
    "annotation": null
@@ -277,8 +261,7 @@ window.CRYPTIC_PUZZLES["cryptic-23466"] = /*JSON-START*/ {
     "y": 7
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "London borough life, uncertain in purpose (7)",
    "separatorLocations": {},
    "solution": "ENFIELD",
    "annotation": null
@@ -292,8 +275,7 @@ window.CRYPTIC_PUZZLES["cryptic-23466"] = /*JSON-START*/ {
     "y": 7
    },
    "length": 8,
-   "clue": " (8)",
-   "clueMissing": true,
+   "clue": "Lights before entering left and right and North and South (8)",
    "separatorLocations": {},
    "solution": "LANTERNS",
    "annotation": null
@@ -307,8 +289,7 @@ window.CRYPTIC_PUZZLES["cryptic-23466"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Blow up from below after hours (7)",
    "separatorLocations": {},
    "solution": "INFLATE",
    "annotation": null
@@ -322,8 +303,7 @@ window.CRYPTIC_PUZZLES["cryptic-23466"] = /*JSON-START*/ {
     "y": 9
    },
    "length": 8,
-   "clue": " (8)",
-   "clueMissing": true,
+   "clue": "New boy muddling fen with marsh (8)",
    "separatorLocations": {},
    "solution": "FRESHMAN",
    "annotation": null
@@ -337,8 +317,7 @@ window.CRYPTIC_PUZZLES["cryptic-23466"] = /*JSON-START*/ {
     "y": 9
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "Scots poet and painter, male, for example (6)",
    "separatorLocations": {},
    "solution": "RAMSAY",
    "annotation": null
@@ -352,8 +331,7 @@ window.CRYPTIC_PUZZLES["cryptic-23466"] = /*JSON-START*/ {
     "y": 9
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "City of coast and border in one (6)",
    "separatorLocations": {},
    "solution": "RIMINI",
    "annotation": null
@@ -367,8 +345,7 @@ window.CRYPTIC_PUZZLES["cryptic-23466"] = /*JSON-START*/ {
     "y": 9
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "Recover from uncle? Think again (6)",
    "separatorLocations": {},
    "solution": "REDEEM",
    "annotation": null
@@ -382,8 +359,7 @@ window.CRYPTIC_PUZZLES["cryptic-23466"] = /*JSON-START*/ {
     "y": 11
    },
    "length": 10,
-   "clue": " (10)",
-   "clueMissing": true,
+   "clue": "Bad girl involved with men, confused as of old (10)",
    "separatorLocations": {},
    "solution": "IMBRANGLED",
    "annotation": null
@@ -397,8 +373,7 @@ window.CRYPTIC_PUZZLES["cryptic-23466"] = /*JSON-START*/ {
     "y": 11
    },
    "length": 4,
-   "clue": " (4)",
-   "clueMissing": true,
+   "clue": "The dentist's garden (4)",
    "separatorLocations": {},
    "solution": "EDEN",
    "annotation": null
@@ -412,8 +387,7 @@ window.CRYPTIC_PUZZLES["cryptic-23466"] = /*JSON-START*/ {
     "y": 11
    },
    "length": 4,
-   "clue": " (4)",
-   "clueMissing": true,
+   "clue": "Repeat of the chorus (4)",
    "separatorLocations": {},
    "solution": "ECHO",
    "annotation": null
@@ -427,8 +401,7 @@ window.CRYPTIC_PUZZLES["cryptic-23466"] = /*JSON-START*/ {
     "y": 13
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "Veronese gentleman's servant uncovered by string (6)",
    "separatorLocations": {},
    "solution": "LAUNCE",
    "annotation": null
@@ -442,8 +415,7 @@ window.CRYPTIC_PUZZLES["cryptic-23466"] = /*JSON-START*/ {
     "y": 13
    },
    "length": 8,
-   "clue": " (3,5)",
-   "clueMissing": true,
+   "clue": "It is done with articles (3,5)",
    "separatorLocations": {
     ",": [
      3
