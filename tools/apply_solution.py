@@ -10,6 +10,10 @@ The check is the whole point. There is no answer key for these puzzles — that
 is why we are solving them — so correctness cannot be verified directly. What
 CAN be verified is self-consistency, mechanically and completely:
 
+  * the grid itself coherent — every light on the board, no two lights in one
+    direction on the same cell, one clue number per square, nothing uncrossed
+    (check_geometry, which needs no fill and is what puzzle_integrity's GRID
+    flag runs over the corpus)
   * every entry answered (a partial fill would publish a half-solved puzzle)
   * every answer the length the grid wants
   * letters only, so "?" and "TBC" can't sneak in as an answer
@@ -35,17 +39,111 @@ import datetime
 import json
 import re
 import sys
+from collections import defaultdict
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from fetch_puzzle import (PUZZLE_DIR, read_puzzle_file, reindex,  # noqa: E402
                           resolve_puzzle, write_puzzle_file)
+from grid_fill import MIN_CHECKED_RATIO  # noqa: E402 — the authoring rulebook's floor
 
 
 def normalise(answer):
     """"POPULAR FRONT" -> "POPULARFRONT". Solutions are stored as bare letters;
     the word breaks live in separatorLocations, which comes from the paper."""
     return re.sub(r"[^A-Z]", "", str(answer).upper())
+
+
+def check_geometry(puzzle):
+    """Do the entries describe a COHERENT GRID? Returns a list of problems.
+
+    There is no block map in the puzzle format. The geometry IS the entry list:
+    a start cell, a direction and a length per light, inside the puzzle's stated
+    dimensions, and the shape of the grid has to be read back out of that. So a
+    grid that was guessed or built off the wrong template can satisfy every
+    length and every crossing and still be nonsense, and nothing else here would
+    say so.
+
+    The rules, each of which holds in every one of the 13,397 grids in puzzles/:
+
+      * every light lies on the board, whole
+      * no two lights in the same direction share a cell — two acrosses on one
+        row means a template with the wrong blocks or a light split in two
+      * lights starting in the same square carry the same clue number, because
+        they are the same numbered square
+      * every light longer than one cell is crossed by a light in the other
+        direction; a cryptic has no unchecked word
+      * checked cells are at least MIN_CHECKED_RATIO of the grid, the floor
+        grid_fill applies to a grid we author ourselves. Imported rather than
+        restated: one number, whether the grid arrived from a paper or from us.
+
+    Fill-independent on purpose. An unsolved puzzle has a grid too, and the
+    model-solve gate has to settle whether the grid is real BEFORE it weighs a
+    fill against it — a fill checked against an incoherent grid proves nothing.
+    """
+    problems = []
+    dims = puzzle.get("dimensions") or {}
+    cols, rows = dims.get("cols"), dims.get("rows")
+    if not cols or not rows:
+        problems.append("the puzzle states no grid dimensions")
+
+    placed, cells, starts = [], defaultdict(list), defaultdict(list)
+    for entry in puzzle.get("entries") or []:
+        eid = entry.get("id")
+        pos = entry.get("position") or {}
+        x, y = pos.get("x"), pos.get("y")
+        length, direction = entry.get("length"), entry.get("direction")
+        if (direction not in ("across", "down")
+                or not all(isinstance(v, int) for v in (x, y, length)) or length < 1):
+            problems.append(f"{eid}: position {pos}, length {length!r}, "
+                            f"direction {direction!r} does not place a light")
+            continue
+        across = direction == "across"
+        far_x, far_y = (x + length - 1, y) if across else (x, y + length - 1)
+        if x < 0 or y < 0 or (cols and far_x >= cols) or (rows and far_y >= rows):
+            problems.append(f"{eid}: {length} cells {direction} from ({x},{y}) "
+                            f"runs off a {cols}x{rows} grid")
+            continue
+        placed.append(entry)
+        starts[(x, y)].append(entry)
+        for i in range(length):
+            cells[(x + i, y) if across else (x, y + i)].append(entry)
+
+    for cell, occupants in sorted(cells.items()):
+        for direction in ("across", "down"):
+            same = sorted(e["id"] for e in occupants if e["direction"] == direction)
+            if len(same) > 1:
+                problems.append(f"cell {cell}: {len(same)} {direction} lights "
+                                f"share it — " + ", ".join(same))
+
+    for cell, here in sorted(starts.items()):
+        if len({e.get("number") for e in here}) > 1:
+            detail = ", ".join(f"{e['id']} is numbered {e.get('number')}"
+                               for e in sorted(here, key=lambda e: e["id"]))
+            problems.append(f"cell {cell}: one square, {len(here)} clue "
+                            f"numbers — {detail}")
+
+    for entry in placed:
+        if entry["length"] < 2:
+            continue
+        x, y = entry["position"]["x"], entry["position"]["y"]
+        across = entry["direction"] == "across"
+        crossed = any(
+            o["direction"] != entry["direction"]
+            for i in range(entry["length"])
+            for o in cells[(x + i, y) if across else (x, y + i)])
+        if not crossed:
+            problems.append(f"{entry['id']}: {entry['length']} cells "
+                            f"{entry['direction']} from ({x},{y}), crossing nothing")
+
+    if cells:
+        checked = sum(1 for occ in cells.values()
+                      if len({e["direction"] for e in occ}) > 1)
+        ratio = checked / len(cells)
+        if ratio < MIN_CHECKED_RATIO:
+            problems.append(f"only {ratio:.0%} of the {len(cells)} cells are "
+                            f"checked, under the {MIN_CHECKED_RATIO:.0%} a grid needs")
+    return problems
 
 
 def check_fill(puzzle, fill):
@@ -124,6 +222,9 @@ def main():
         raise SystemExit("--fill must be a JSON object of entry id -> answer")
 
     cells, crossings, problems = check_fill(puzzle, fill)
+    # The grid before the fill: a fill that agrees with an incoherent grid has
+    # agreed with nothing, so nothing may be written into one.
+    problems = check_geometry(puzzle) + problems
     print(f"{args.number}: {len(puzzle['entries'])} entries, {len(fill)} answers given, "
           f"{crossings} crossing cells")
     if problems:

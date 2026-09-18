@@ -34,6 +34,15 @@ The flags, in the order they matter:
             is the Guardian never recording a link at all, so the rest of the
             answer sits in a light this corpus has no license to invent a
             connection to.
+  GRID      an entry list that is not a coherent grid: a light running off the
+            board, two lights in one direction sitting on the same cell, one
+            square carrying two clue numbers, a light nothing crosses, or so few
+            checked cells that the thing is not a cryptic grid. The puzzle format
+            has no block map — the geometry IS the entries, and a grid that was
+            guessed or built off the wrong template can satisfy every length and
+            every crossing and still be nonsense. The rule lives in
+            apply_solution.check_geometry so the model-solve gate refuses to
+            write a fill into an incoherent grid for the same reason.
   CROSS     two entries that share a grid cell and disagree about its letter. One
             wrong answer normally breaks three or four of these, so a clean sheet
             is real evidence the fill is the paper's and not a mangling of it.
@@ -58,9 +67,9 @@ The corpus it reads is the puzzle files on disk. puzzles/index.json names them
 and is generated, so it is rebuilt here before it is read — see fetch_puzzle.reindex.
 
 Cost: one rebuild of the index, then one pass, one read per file, no network. All
-four checks together read the whole corpus in about nine seconds — 12,462 puzzles,
-~365k clues, on 2026-09-17 — plus seven for the rebuild, so every check is on by
-default and none sits behind a flag. Nothing here is expensive enough to be worth
+five checks together read the whole corpus in about ten seconds — 13,743 puzzles,
+~400k clues, on 2026-09-18 — plus the rebuild, so every check is on by default and
+none sits behind a flag. Nothing here is expensive enough to be worth
 the confusion of an off-by-default check.
 
 Exits 1 if anything is flagged, so the nightly can alert on it. It reports and
@@ -78,7 +87,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from apply_solution import check_fill, normalise  # noqa: E402 — the crossing check
+from apply_solution import (check_fill, check_geometry,  # noqa: E402
+                            normalise)
 from fetch_puzzle import (ENUMERATION, PER_LIGHT_ENUMERATION,  # noqa: E402
                           PUZZLE_DIR, has_words, is_bare_letters,
                           is_continuation, read_puzzle_file, reindex)
@@ -93,10 +103,12 @@ ROOT = Path(__file__).resolve().parent.parent
 # date-against-webPublicationDate check in fetch_puzzle.convert().
 EARLIEST_YEAR = 1930
 
-# The LENGTH findings that are the PAPER, not the data we made of it: an
-# enumeration no reading of the grid the Guardian published can satisfy, so no
-# fetcher or repair can ever clear them and they would otherwise sit in the
-# report for ever, teaching everyone to skim it.
+# The findings that are the PAPER, not the data we made of it: an enumeration no
+# reading of the grid the Guardian published can satisfy, or a numbering the
+# Guardian printed against itself, so no fetcher or repair can ever clear them
+# and they would otherwise sit in the report for ever, teaching everyone to skim
+# it. Both LENGTH and GRID consult this table; a finding is forgiven by its own
+# text, whichever check produced it.
 #
 # Keyed by puzzle AND by the whole finding, because the point is to forgive these
 # two sentences and nothing else. Any other defect in the same clue — a changed
@@ -113,6 +125,21 @@ EARLIEST_YEAR = 1930
 PUBLISHED_WRONG = {
     ("cryptic-23536", "23-down: clue says (5) = 5, answer holds 7"):
         "ERRHINE fills the seven cells the grid gives it under a clue printed (5)",
+    ("cryptic-25949",
+     "cell (0, 11): one square, 2 clue numbers — 24-down is numbered 24, "
+     "26-across is numbered 26"):
+        "the Guardian numbered this grid's downs and acrosses in two separate "
+        "sequences, and its own clues cross-reference the numbers as printed",
+    ("cryptic-25949",
+     "cell (6, 7): one square, 2 clue numbers — 19-down is numbered 19, "
+     "20-across is numbered 20"):
+        "the Guardian numbered this grid's downs and acrosses in two separate "
+        "sequences, and its own clues cross-reference the numbers as printed",
+    ("cryptic-25949",
+     "cell (8, 9): one square, 2 clue numbers — 22-down is numbered 22, "
+     "24-across is numbered 24"):
+        "the Guardian numbered this grid's downs and acrosses in two separate "
+        "sequences, and its own clues cross-reference the numbers as printed",
     ("cryptic-25949",
      "1-down + 26-across: clue says (4,5) = 9, answer holds 4 alone or 13 linked"):
         "1-down ASIL is counted (4,5) for ASIL NADIR, but NADIR is 28-across under "
@@ -551,6 +578,18 @@ def check_length(puzzle, checkable, flags):
         flags.append(("LENGTH", pid, finding))
 
 
+def check_grid(puzzle, flags):
+    """The grid the entries describe, from tools/apply_solution.py — the same
+    check that gates a model fill before it is written. It is asked of the whole
+    entry list, answered or not, because a light is in the grid whether or not
+    anyone has filled it in yet."""
+    pid = puzzle["id"]
+    for problem in check_geometry(puzzle):
+        if (pid, problem) in PUBLISHED_WRONG:
+            continue
+        flags.append(("GRID", pid, problem))
+
+
 def check_cross(puzzle, checkable, flags):
     """Crossing-letter agreement, from tools/apply_solution.py — the same check that
     gates a model-solved grid before it is written. It is handed only the entries
@@ -572,6 +611,7 @@ def audit(rows, today):
         puzzle = read_puzzle_file(PUZZLE_DIR / row["file"])
         by_content[content_hash(puzzle)].append(puzzle["id"])
         checkable = check_shape(puzzle, today, flags)
+        check_grid(puzzle, flags)
         check_length(puzzle, checkable, flags)
         check_cross(puzzle, checkable, flags)
     copies = sorted(sorted(ids) for ids in by_content.values() if len(ids) > 1)
@@ -592,7 +632,7 @@ def main(argv):
     by_flag = defaultdict(list)
     for flag, pid, what in flags:
         by_flag[flag].append((pid, what))
-    for flag in ("LENGTH", "CROSS", "SHAPE"):
+    for flag in ("LENGTH", "CROSS", "GRID", "SHAPE"):
         for pid, what in by_flag[flag]:
             print(f"{flag:<9} {pid:<22} {what}")
 
@@ -603,10 +643,11 @@ def main(argv):
     elapsed = time.time() - started
     print(f"\n{len(rows)} puzzles indexed and read in {elapsed:.1f}s")
     print(f"  DUPLICATE {sum(len(i) for i in copies)} files in {len(copies)} groups")
-    for flag in ("LENGTH", "CROSS", "SHAPE"):
+    for flag in ("LENGTH", "CROSS", "GRID", "SHAPE"):
         print(f"  {flag:<9} {len(by_flag[flag])}")
     if not total:
-        print("\nno duplicates, every stated length agrees, every crossing agrees")
+        print("\nno duplicates, every grid coherent, every stated length agrees, "
+              "every crossing agrees")
     return 1 if total else 0
 
 
