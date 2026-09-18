@@ -52,10 +52,11 @@ from fetch_puzzle import puzzle_files, read_puzzle_file
 
 
 # Counted here rather than imported: a test that asks the writer what the writer
-# wrote asserts nothing. Readable is a word left once the enumeration is off —
-# "␣␣ 9 (5)" is a whole clue, cryptic-30059 14-down — and not marked corrupt.
+# wrote asserts nothing. Readable is anything left once the enumeration is off —
+# "␣␣ 9 (5)" is a whole clue, cryptic-30059 14-down, and so is ")" on its own,
+# the whole of CLOSE BRACKETS — and not marked corrupt.
 def readable(e):
-    return (any(c.isalnum() for c in re.sub(r"\([\d,\-. ]*\)", "", e["clue"]))
+    return (bool(re.sub(r"\([\d,\-. ]*\)", "", e["clue"]).strip())
             and not e.get("clueCorrupt"))
 
 
