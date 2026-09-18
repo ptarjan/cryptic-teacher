@@ -24,8 +24,7 @@ window.CRYPTIC_PUZZLES["cryptic-24505"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 8,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Italian road divisions, last of same (8)",
    "separatorLocations": {},
    "solution": "MILANESE",
    "annotation": null
@@ -39,11 +38,14 @@ window.CRYPTIC_PUZZLES["cryptic-24505"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 4,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "See 10 (4)",
    "separatorLocations": {},
    "solution": "LING",
-   "annotation": null
+   "annotation": null,
+   "group": [
+    "10-across",
+    "2-down"
+   ]
   },
   {
    "id": "3-down",
@@ -54,8 +56,7 @@ window.CRYPTIC_PUZZLES["cryptic-24505"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 6,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Trouble with organ: nothing is in code (6)",
    "separatorLocations": {},
    "solution": "CIPHER",
    "annotation": null
@@ -69,8 +70,7 @@ window.CRYPTIC_PUZZLES["cryptic-24505"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 7,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Once more say “Well read student won’t appear” (7)",
    "separatorLocations": {},
    "solution": "ITERATE",
    "annotation": null
@@ -84,8 +84,7 @@ window.CRYPTIC_PUZZLES["cryptic-24505"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 8,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Such deviation: slab in floor unlined (8)",
    "separatorLocations": {},
    "solution": "QUARTILE",
    "annotation": null
@@ -99,8 +98,7 @@ window.CRYPTIC_PUZZLES["cryptic-24505"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 10,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "What makes B A? Extended small abode? (6,4)",
    "separatorLocations": {},
    "solution": "DOUBLEFLAT",
    "annotation": null
@@ -114,8 +112,7 @@ window.CRYPTIC_PUZZLES["cryptic-24505"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 6,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Look hard and see inside: give nought to eat (6)",
    "separatorLocations": {},
    "solution": "STARVE",
    "annotation": null
@@ -129,8 +126,7 @@ window.CRYPTIC_PUZZLES["cryptic-24505"] = /*JSON-START*/ {
     "y": 1
    },
    "length": 8,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Destructive type left one in this display (8)",
    "separatorLocations": {},
    "solution": "NIHILIST",
    "annotation": null
@@ -144,8 +140,7 @@ window.CRYPTIC_PUZZLES["cryptic-24505"] = /*JSON-START*/ {
     "y": 1
    },
    "length": 5,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Beneath the waves it goes about distressed (1-4)",
    "separatorLocations": {},
    "solution": "UBOAT",
    "annotation": null
@@ -159,11 +154,14 @@ window.CRYPTIC_PUZZLES["cryptic-24505"] = /*JSON-START*/ {
     "y": 3
    },
    "length": 4,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Ungainly mob takes fish when good’s the sport (8)",
    "separatorLocations": {},
    "solution": "GANG",
-   "annotation": null
+   "annotation": null,
+   "group": [
+    "10-across",
+    "2-down"
+   ]
   },
   {
    "id": "11-across",
@@ -174,8 +172,7 @@ window.CRYPTIC_PUZZLES["cryptic-24505"] = /*JSON-START*/ {
     "y": 3
    },
    "length": 10,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "With cranesbill poet George keeps sibling short (4,6)",
    "separatorLocations": {},
    "solution": "HERBROBERT",
    "annotation": null
@@ -189,8 +186,7 @@ window.CRYPTIC_PUZZLES["cryptic-24505"] = /*JSON-START*/ {
     "y": 5
    },
    "length": 6,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Protector or practitioner of game (6)",
    "separatorLocations": {},
    "solution": "KEEPER",
    "annotation": null
@@ -204,8 +200,7 @@ window.CRYPTIC_PUZZLES["cryptic-24505"] = /*JSON-START*/ {
     "y": 5
    },
    "length": 10,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Choice pole for fishing, capital for shrew: shortage of fuel for aircraft centre too (10)",
    "separatorLocations": {},
    "solution": "PETRODROME",
    "annotation": null
@@ -219,8 +214,7 @@ window.CRYPTIC_PUZZLES["cryptic-24505"] = /*JSON-START*/ {
     "y": 5
    },
    "length": 8,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Spruce tree destroyed by something with three feet (8)",
    "separatorLocations": {},
    "solution": "TRIMETER",
    "annotation": null
@@ -234,8 +228,7 @@ window.CRYPTIC_PUZZLES["cryptic-24505"] = /*JSON-START*/ {
     "y": 7
    },
    "length": 7,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "For all that strayed the Sabbath was designed (4,3)",
    "separatorLocations": {},
    "solution": "RESTDAY",
    "annotation": null
@@ -249,8 +242,7 @@ window.CRYPTIC_PUZZLES["cryptic-24505"] = /*JSON-START*/ {
     "y": 7
    },
    "length": 8,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "(A near mad answer) Folk from desert climes (8)",
    "separatorLocations": {},
    "solution": "ARABIANS",
    "annotation": null
@@ -264,8 +256,7 @@ window.CRYPTIC_PUZZLES["cryptic-24505"] = /*JSON-START*/ {
     "y": 7
    },
    "length": 7,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Bleak House campaigner has explosive near (7)",
    "separatorLocations": {},
    "solution": "JELLYBY",
    "annotation": null
@@ -279,8 +270,7 @@ window.CRYPTIC_PUZZLES["cryptic-24505"] = /*JSON-START*/ {
     "y": 7
    },
    "length": 8,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Some weapons’ parts in bags with witch’s rhymes (8)",
    "separatorLocations": {},
    "solution": "BREECHES",
    "annotation": null
@@ -294,8 +284,7 @@ window.CRYPTIC_PUZZLES["cryptic-24505"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 7,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Where law is turned to ass, a Francophone (7)",
    "separatorLocations": {},
    "solution": "WALLOON",
    "annotation": null
@@ -309,8 +298,7 @@ window.CRYPTIC_PUZZLES["cryptic-24505"] = /*JSON-START*/ {
     "y": 9
    },
    "length": 8,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Arches in skull with right make Mozart gay (8)",
    "separatorLocations": {},
    "solution": "ZYGOMATA",
    "annotation": null
@@ -324,8 +312,7 @@ window.CRYPTIC_PUZZLES["cryptic-24505"] = /*JSON-START*/ {
     "y": 9
    },
    "length": 6,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "You’ve swallowed broken pipe, I’m glad to say (6)",
    "separatorLocations": {},
    "solution": "YIPPEE",
    "annotation": null
@@ -339,11 +326,14 @@ window.CRYPTIC_PUZZLES["cryptic-24505"] = /*JSON-START*/ {
     "y": 9
    },
    "length": 6,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "See 22 (6)",
    "separatorLocations": {},
    "solution": "FATHER",
-   "annotation": null
+   "annotation": null,
+   "group": [
+    "22-down",
+    "22-across"
+   ]
   },
   {
    "id": "22-down",
@@ -354,11 +344,14 @@ window.CRYPTIC_PUZZLES["cryptic-24505"] = /*JSON-START*/ {
     "y": 9
    },
    "length": 6,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "New Forest opera singer took in kid (6-6)",
    "separatorLocations": {},
    "solution": "FOSTER",
-   "annotation": null
+   "annotation": null,
+   "group": [
+    "22-down",
+    "22-across"
+   ]
   },
   {
    "id": "23-across",
@@ -369,8 +362,7 @@ window.CRYPTIC_PUZZLES["cryptic-24505"] = /*JSON-START*/ {
     "y": 11
    },
    "length": 10,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "These subatomic things on page unknown (1-9)",
    "separatorLocations": {},
    "solution": "XPARTICLES",
    "annotation": null
@@ -384,11 +376,14 @@ window.CRYPTIC_PUZZLES["cryptic-24505"] = /*JSON-START*/ {
     "y": 11
    },
    "length": 4,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "See 24 (4)",
    "separatorLocations": {},
    "solution": "VOCE",
-   "annotation": null
+   "annotation": null,
+   "group": [
+    "24-down",
+    "24-across"
+   ]
   },
   {
    "id": "24-down",
@@ -399,11 +394,14 @@ window.CRYPTIC_PUZZLES["cryptic-24505"] = /*JSON-START*/ {
     "y": 11
    },
    "length": 4,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Bat Richards and a bowler (old) in test (4,4)",
    "separatorLocations": {},
    "solution": "VIVA",
-   "annotation": null
+   "annotation": null,
+   "group": [
+    "24-down",
+    "24-across"
+   ]
   },
   {
    "id": "25-across",
@@ -414,8 +412,7 @@ window.CRYPTIC_PUZZLES["cryptic-24505"] = /*JSON-START*/ {
     "y": 13
    },
    "length": 5,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "The steel menagerie has Woody hid (5)",
    "separatorLocations": {},
    "solution": "ELMEN",
    "annotation": null
@@ -429,8 +426,7 @@ window.CRYPTIC_PUZZLES["cryptic-24505"] = /*JSON-START*/ {
     "y": 13
    },
    "length": 8,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Round one: go round with general survey (8)",
    "separatorLocations": {},
    "solution": "OVERVIEW",
    "annotation": null
