@@ -24,8 +24,7 @@ window.CRYPTIC_PUZZLES["cryptic-24141"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 13,
-   "clue": " (13)",
-   "clueMissing": true,
+   "clue": "Cowboy work playing lyre with bird in jug (5-8)",
    "separatorLocations": {},
    "solution": "JERRYBUILDING",
    "annotation": null
@@ -39,8 +38,7 @@ window.CRYPTIC_PUZZLES["cryptic-24141"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "Duck towards the floor to keep warm (9)",
    "separatorLocations": {},
    "solution": "EIDERDOWN",
    "annotation": null
@@ -54,8 +52,7 @@ window.CRYPTIC_PUZZLES["cryptic-24141"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "Sound of light in lift (5)",
    "separatorLocations": {},
    "solution": "RAISE",
    "annotation": null
@@ -69,8 +66,7 @@ window.CRYPTIC_PUZZLES["cryptic-24141"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "Standard American? Not the real thing (5)",
    "separatorLocations": {},
    "solution": "BOGUS",
    "annotation": null
@@ -84,8 +80,7 @@ window.CRYPTIC_PUZZLES["cryptic-24141"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "Lustrously adorned listener was first to follow fiend (9)",
    "separatorLocations": {},
    "solution": "IMPEARLED",
    "annotation": null
@@ -99,8 +94,7 @@ window.CRYPTIC_PUZZLES["cryptic-24141"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "Pickpocket gets hard strap at start of E, for example (9)",
    "separatorLocations": {},
    "solution": "DIPHTHONG",
    "annotation": null
@@ -114,8 +108,7 @@ window.CRYPTIC_PUZZLES["cryptic-24141"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "Bottom of screen a director uses (5)",
    "separatorLocations": {},
    "solution": "NADIR",
    "annotation": null
@@ -129,8 +122,7 @@ window.CRYPTIC_PUZZLES["cryptic-24141"] = /*JSON-START*/ {
     "y": 1
    },
    "length": 13,
-   "clue": " (13)",
-   "clueMissing": true,
+   "clue": "Fitter but ... (13)",
    "separatorLocations": {},
    "solution": "QUALIFICATION",
    "annotation": null
@@ -144,8 +136,7 @@ window.CRYPTIC_PUZZLES["cryptic-24141"] = /*JSON-START*/ {
     "y": 1
    },
    "length": 13,
-   "clue": " (13)",
-   "clueMissing": true,
+   "clue": "Indicator on plan for decimal currency when St Hugh first topped tyrant (1,5,3,4)",
    "separatorLocations": {},
    "solution": "XMARKSTHESPOT",
    "annotation": null
@@ -159,8 +150,7 @@ window.CRYPTIC_PUZZLES["cryptic-24141"] = /*JSON-START*/ {
     "y": 2
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Immortal student leaving island in Gabon (7)",
    "separatorLocations": {},
    "solution": "UNDYING",
    "annotation": null
@@ -174,8 +164,7 @@ window.CRYPTIC_PUZZLES["cryptic-24141"] = /*JSON-START*/ {
     "y": 2
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Pontificate over fashion for the people (7)",
    "separatorLocations": {},
    "solution": "POPEDOM",
    "annotation": null
@@ -189,8 +178,7 @@ window.CRYPTIC_PUZZLES["cryptic-24141"] = /*JSON-START*/ {
     "y": 4
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "Elgar's work is great (5)",
    "separatorLocations": {},
    "solution": "LARGE",
    "annotation": null
@@ -204,8 +192,7 @@ window.CRYPTIC_PUZZLES["cryptic-24141"] = /*JSON-START*/ {
     "y": 4
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "I disperse people from t-terraces (9)",
    "separatorLocations": {},
    "solution": "SCATTERER",
    "annotation": null
@@ -219,8 +206,7 @@ window.CRYPTIC_PUZZLES["cryptic-24141"] = /*JSON-START*/ {
     "y": 6
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "Plants liquid gold on part of Alaska (5)",
    "separatorLocations": {},
    "solution": "FLORA",
    "annotation": null
@@ -234,8 +220,7 @@ window.CRYPTIC_PUZZLES["cryptic-24141"] = /*JSON-START*/ {
     "y": 6
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "Wit takes room for season (5,4)",
    "separatorLocations": {},
    "solution": "ATTICSALT",
    "annotation": null
@@ -249,8 +234,7 @@ window.CRYPTIC_PUZZLES["cryptic-24141"] = /*JSON-START*/ {
     "y": 6
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "Game's outside base at festival (9)",
    "separatorLocations": {},
    "solution": "HALLOWMAS",
    "annotation": null
@@ -264,8 +248,7 @@ window.CRYPTIC_PUZZLES["cryptic-24141"] = /*JSON-START*/ {
     "y": 6
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "Combine runner without zephyr with leader of run (9)",
    "separatorLocations": {},
    "solution": "HARVESTER",
    "annotation": null
@@ -279,8 +262,7 @@ window.CRYPTIC_PUZZLES["cryptic-24141"] = /*JSON-START*/ {
     "y": 6
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "Preserve and spoil invalid over water (9)",
    "separatorLocations": {},
    "solution": "MARMALADE",
    "annotation": null
@@ -294,8 +276,7 @@ window.CRYPTIC_PUZZLES["cryptic-24141"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "Senior officer's half turn towards danger when surrounded (9)",
    "separatorLocations": {},
    "solution": "CINCTURED",
    "annotation": null
@@ -309,8 +290,7 @@ window.CRYPTIC_PUZZLES["cryptic-24141"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "Width on horse? (5)",
    "separatorLocations": {},
    "solution": "GIRTH",
    "annotation": null
@@ -324,8 +304,7 @@ window.CRYPTIC_PUZZLES["cryptic-24141"] = /*JSON-START*/ {
     "y": 10
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "Local officer, zany Saracen to Spooner if American (4,5)",
    "separatorLocations": {},
    "solution": "TOWNCLERK",
    "annotation": null
@@ -339,8 +318,7 @@ window.CRYPTIC_PUZZLES["cryptic-24141"] = /*JSON-START*/ {
     "y": 10
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "A question of place (5)",
    "separatorLocations": {},
    "solution": "WHERE",
    "annotation": null
@@ -354,8 +332,7 @@ window.CRYPTIC_PUZZLES["cryptic-24141"] = /*JSON-START*/ {
     "y": 10
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "Job's second piece of work has a lot of green cloth backing (5)",
    "separatorLocations": {},
    "solution": "KEZIA",
    "annotation": null
@@ -369,8 +346,7 @@ window.CRYPTIC_PUZZLES["cryptic-24141"] = /*JSON-START*/ {
     "y": 10
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "Bottles for little girl without love as well (5)",
    "separatorLocations": {},
    "solution": "VIALS",
    "annotation": null
@@ -384,8 +360,7 @@ window.CRYPTIC_PUZZLES["cryptic-24141"] = /*JSON-START*/ {
     "y": 10
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "Love of our neighbour (5)",
    "separatorLocations": {},
    "solution": "VENUS",
    "annotation": null
@@ -399,8 +374,7 @@ window.CRYPTIC_PUZZLES["cryptic-24141"] = /*JSON-START*/ {
     "y": 12
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Month in which girl wants ham (7)",
    "separatorLocations": {},
    "solution": "OVERACT",
    "annotation": null
@@ -414,8 +388,7 @@ window.CRYPTIC_PUZZLES["cryptic-24141"] = /*JSON-START*/ {
     "y": 12
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Traveller does a bit of whizzing around (7)",
    "separatorLocations": {},
    "solution": "ZINGARO",
    "annotation": null
@@ -429,8 +402,7 @@ window.CRYPTIC_PUZZLES["cryptic-24141"] = /*JSON-START*/ {
     "y": 14
    },
    "length": 13,
-   "clue": " (13)",
-   "clueMissing": true,
+   "clue": "Has-beens in country seats with dry rot (10,3)",
    "separatorLocations": {},
    "solution": "YESTERDAYSMEN",
    "annotation": null

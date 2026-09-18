@@ -24,8 +24,7 @@ window.CRYPTIC_PUZZLES["cryptic-24331"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 6,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Thug, IQ poor, that Spenser's left just so (6)",
    "separatorLocations": {},
    "solution": "QUIGHT",
    "annotation": null
@@ -39,8 +38,7 @@ window.CRYPTIC_PUZZLES["cryptic-24331"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 9,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Turn quiet Hampshire town with type of door (2-3-4)",
    "separatorLocations": {},
    "solution": "UPANDOVER",
    "annotation": null
@@ -54,8 +52,7 @@ window.CRYPTIC_PUZZLES["cryptic-24331"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 6,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "The country house to good extent is here (6)",
    "separatorLocations": {},
    "solution": "GRANGE",
    "annotation": null
@@ -69,8 +66,7 @@ window.CRYPTIC_PUZZLES["cryptic-24331"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 9,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "A story told to figure end of kite (9)",
    "separatorLocations": {},
    "solution": "TAILPLANE",
    "annotation": null
@@ -84,11 +80,14 @@ window.CRYPTIC_PUZZLES["cryptic-24331"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 6,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Di Prince, back blushing now, with Arab state (6,5)",
    "separatorLocations": {},
    "solution": "WONDER",
-   "annotation": null
+   "annotation": null,
+   "group": [
+    "5-across",
+    "5-down"
+   ]
   },
   {
    "id": "5-down",
@@ -99,11 +98,14 @@ window.CRYPTIC_PUZZLES["cryptic-24331"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 5,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "See 5 across (5)",
    "separatorLocations": {},
    "solution": "WOMAN",
-   "annotation": null
+   "annotation": null,
+   "group": [
+    "5-across",
+    "5-down"
+   ]
   },
   {
    "id": "6-down",
@@ -114,8 +116,7 @@ window.CRYPTIC_PUZZLES["cryptic-24331"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 8,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Relating to fair sister, new in face (8)",
    "separatorLocations": {},
    "solution": "NUNDINAL",
    "annotation": null
@@ -129,8 +130,7 @@ window.CRYPTIC_PUZZLES["cryptic-24331"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 5,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "End of the cut of meat far off to send (5)",
    "separatorLocations": {},
    "solution": "ELOIN",
    "annotation": null
@@ -144,8 +144,7 @@ window.CRYPTIC_PUZZLES["cryptic-24331"] = /*JSON-START*/ {
     "y": 2
    },
    "length": 7,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Fellow at one with oriental fare (7)",
    "separatorLocations": {},
    "solution": "CHAPATI",
    "annotation": null
@@ -159,8 +158,7 @@ window.CRYPTIC_PUZZLES["cryptic-24331"] = /*JSON-START*/ {
     "y": 2
    },
    "length": 11,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "See actors (most) in cut - hoists line in air (7,4)",
    "separatorLocations": {},
    "solution": "CLOTHESPROP",
    "annotation": null
@@ -174,8 +172,7 @@ window.CRYPTIC_PUZZLES["cryptic-24331"] = /*JSON-START*/ {
     "y": 2
    },
    "length": 7,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Maltese herb no longer on the menu (7)",
    "separatorLocations": {},
    "solution": "MINTOFF",
    "annotation": null
@@ -189,8 +186,7 @@ window.CRYPTIC_PUZZLES["cryptic-24331"] = /*JSON-START*/ {
     "y": 2
    },
    "length": 11,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "The premier league game welcomed at New Year (5-6)",
    "separatorLocations": {},
    "solution": "FIRSTFOOTER",
    "annotation": null
@@ -204,8 +200,7 @@ window.CRYPTIC_PUZZLES["cryptic-24331"] = /*JSON-START*/ {
     "y": 4
    },
    "length": 15,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Frank, skirting glade whose bits are out of place, encounters senior who has hurt himself (3,3,9)",
    "separatorLocations": {},
    "solution": "OLDAGEPENSIONER",
    "annotation": null
@@ -219,8 +214,7 @@ window.CRYPTIC_PUZZLES["cryptic-24331"] = /*JSON-START*/ {
     "y": 6
    },
    "length": 4,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "A singular complaint in home of queen (4)",
    "separatorLocations": {},
    "solution": "HIVE",
    "annotation": null
@@ -234,8 +228,7 @@ window.CRYPTIC_PUZZLES["cryptic-24331"] = /*JSON-START*/ {
     "y": 6
    },
    "length": 10,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "The beast in coat (not English) is a cleric (4,6)",
    "separatorLocations": {},
    "solution": "JACKRABBIT",
    "annotation": null
@@ -249,8 +242,7 @@ window.CRYPTIC_PUZZLES["cryptic-24331"] = /*JSON-START*/ {
     "y": 6
    },
    "length": 9,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Maintain a watch in dark - gee up, hysteric! (4,5)",
    "separatorLocations": {},
    "solution": "KEEPGUARD",
    "annotation": null
@@ -264,8 +256,7 @@ window.CRYPTIC_PUZZLES["cryptic-24331"] = /*JSON-START*/ {
     "y": 6
    },
    "length": 9,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Fellow from lake in padded pod is found (5,4)",
    "separatorLocations": {},
    "solution": "BROADBEAN",
    "annotation": null
@@ -279,8 +270,7 @@ window.CRYPTIC_PUZZLES["cryptic-24331"] = /*JSON-START*/ {
     "y": 7
    },
    "length": 8,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "The queen that's raised by kings much more than scores (8)",
    "separatorLocations": {},
    "solution": "ZILLIONS",
    "annotation": null
@@ -294,8 +284,7 @@ window.CRYPTIC_PUZZLES["cryptic-24331"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 10,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "For soldiers, even, crimes cannot be right (10)",
    "separatorLocations": {},
    "solution": "SERVICEMEN",
    "annotation": null
@@ -309,8 +298,7 @@ window.CRYPTIC_PUZZLES["cryptic-24331"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 4,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "The toy that's back and topless here encores (2-2)",
    "separatorLocations": {},
    "solution": "YOYO",
    "annotation": null
@@ -324,8 +312,7 @@ window.CRYPTIC_PUZZLES["cryptic-24331"] = /*JSON-START*/ {
     "y": 9
    },
    "length": 6,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Blue movies should be taxed? Right - do it straight (1-5)",
    "separatorLocations": {},
    "solution": "XRATED",
    "annotation": null
@@ -339,8 +326,7 @@ window.CRYPTIC_PUZZLES["cryptic-24331"] = /*JSON-START*/ {
     "y": 10
    },
    "length": 15,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Direct solution frequent borrowers know (9,6)",
    "separatorLocations": {},
    "solution": "REVOLVINGCREDIT",
    "annotation": null
@@ -354,8 +340,7 @@ window.CRYPTIC_PUZZLES["cryptic-24331"] = /*JSON-START*/ {
     "y": 10
    },
    "length": 5,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "The roadside rod processions have before (5)",
    "separatorLocations": {},
    "solution": "VERGE",
    "annotation": null
@@ -369,8 +354,7 @@ window.CRYPTIC_PUZZLES["cryptic-24331"] = /*JSON-START*/ {
     "y": 10
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "Woodbines, the source of many a Norse scene (5)",
    "separatorLocations": {},
    "solution": "IBSEN",
    "annotation": null
@@ -384,8 +368,7 @@ window.CRYPTIC_PUZZLES["cryptic-24331"] = /*JSON-START*/ {
     "y": 12
    },
    "length": 7,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Endangered room cut short at top of shelf (7)",
    "separatorLocations": {},
    "solution": "PARLOUS",
    "annotation": null
@@ -399,8 +382,7 @@ window.CRYPTIC_PUZZLES["cryptic-24331"] = /*JSON-START*/ {
     "y": 12
    },
    "length": 7,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Edentate, live, an old salt gets around (7)",
    "separatorLocations": {},
    "solution": "ANTBEAR",
    "annotation": null
@@ -414,8 +396,7 @@ window.CRYPTIC_PUZZLES["cryptic-24331"] = /*JSON-START*/ {
     "y": 14
    },
    "length": 6,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Not so much happening: the school's the venue (6)",
    "separatorLocations": {},
    "solution": "LESSON",
    "annotation": null
@@ -429,8 +410,7 @@ window.CRYPTIC_PUZZLES["cryptic-24331"] = /*JSON-START*/ {
     "y": 14
    },
    "length": 6,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Where tennis players watch to sad, sad end (6)",
    "separatorLocations": {},
    "solution": "DEDANS",
    "annotation": null

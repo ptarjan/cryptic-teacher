@@ -24,8 +24,7 @@ window.CRYPTIC_PUZZLES["cryptic-23717"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 13,
-   "clue": " (13)",
-   "clueMissing": true,
+   "clue": "Elevator with excursionist concealing male criminal (4,3,6)",
    "separatorLocations": {},
    "solution": "JACKTHERIPPER",
    "annotation": null
@@ -39,8 +38,7 @@ window.CRYPTIC_PUZZLES["cryptic-23717"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "Hermit finds security and with it ecstasy (9)",
    "separatorLocations": {},
    "solution": "ANCHORITE",
    "annotation": null
@@ -54,8 +52,7 @@ window.CRYPTIC_PUZZLES["cryptic-23717"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "\"Up,\" observed monarch, \"up with the dance\" (5)",
    "separatorLocations": {},
    "solution": "KNEES",
    "annotation": null
@@ -69,8 +66,7 @@ window.CRYPTIC_PUZZLES["cryptic-23717"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "Higher chopper, say, for beast of the rocks (5)",
    "separatorLocations": {},
    "solution": "HYRAX",
    "annotation": null
@@ -84,8 +80,7 @@ window.CRYPTIC_PUZZLES["cryptic-23717"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "Borrow book by red man without a lot of point (6,3)",
    "separatorLocations": {},
    "solution": "ROMANYRYE",
    "annotation": null
@@ -99,8 +94,7 @@ window.CRYPTIC_PUZZLES["cryptic-23717"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "Resonance of scheme by General Grant (9)",
    "separatorLocations": {},
    "solution": "PLANGENCY",
    "annotation": null
@@ -114,8 +108,7 @@ window.CRYPTIC_PUZZLES["cryptic-23717"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "Not the all-American girl (5)",
    "separatorLocations": {},
    "solution": "ERICA",
    "annotation": null
@@ -129,8 +122,7 @@ window.CRYPTIC_PUZZLES["cryptic-23717"] = /*JSON-START*/ {
     "y": 1
    },
    "length": 13,
-   "clue": " (13)",
-   "clueMissing": true,
+   "clue": "Vitality after questions by good girl with monocle (8-5)",
    "separatorLocations": {},
    "solution": "QUIZZINGGLASS",
    "annotation": null
@@ -144,8 +136,7 @@ window.CRYPTIC_PUZZLES["cryptic-23717"] = /*JSON-START*/ {
     "y": 1
    },
    "length": 13,
-   "clue": " (13)",
-   "clueMissing": true,
+   "clue": "Log recreating wind, terror etc (7,6)",
    "separatorLocations": {},
    "solution": "WRITTENRECORD",
    "annotation": null
@@ -159,8 +150,7 @@ window.CRYPTIC_PUZZLES["cryptic-23717"] = /*JSON-START*/ {
     "y": 2
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Relative to a relative's initially obscure (7)",
    "separatorLocations": {},
    "solution": "UNCLEAR",
    "annotation": null
@@ -174,8 +164,7 @@ window.CRYPTIC_PUZZLES["cryptic-23717"] = /*JSON-START*/ {
     "y": 2
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Comparatively substantial body, we hear (7)",
    "separatorLocations": {},
    "solution": "MEATIER",
    "annotation": null
@@ -189,8 +178,7 @@ window.CRYPTIC_PUZZLES["cryptic-23717"] = /*JSON-START*/ {
     "y": 4
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "Gad! It's grand among lots of animals (5)",
    "separatorLocations": {},
    "solution": "ZOOKS",
    "annotation": null
@@ -204,8 +192,7 @@ window.CRYPTIC_PUZZLES["cryptic-23717"] = /*JSON-START*/ {
     "y": 4
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "Apple inserted into orange, possibly, within 10 feet (9)",
    "separatorLocations": {},
    "solution": "XENOGRAFT",
    "annotation": null
@@ -219,8 +206,7 @@ window.CRYPTIC_PUZZLES["cryptic-23717"] = /*JSON-START*/ {
     "y": 6
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "Return of some news-papers provides epic (5)",
    "separatorLocations": {},
    "solution": "ILIAD",
    "annotation": null
@@ -234,8 +220,7 @@ window.CRYPTIC_PUZZLES["cryptic-23717"] = /*JSON-START*/ {
     "y": 6
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "Old coin for little boy, pickpocket and deserter (9)",
    "separatorLocations": {},
    "solution": "DANDIPRAT",
    "annotation": null
@@ -249,8 +234,7 @@ window.CRYPTIC_PUZZLES["cryptic-23717"] = /*JSON-START*/ {
     "y": 6
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "Dance in Provence (a long way off) and in Spain (Bravo!) (9)",
    "separatorLocations": {},
    "solution": "FARANDOLE",
    "annotation": null
@@ -264,8 +248,7 @@ window.CRYPTIC_PUZZLES["cryptic-23717"] = /*JSON-START*/ {
     "y": 6
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "What's said about V in 4 is on V (3,6)",
    "separatorLocations": {},
    "solution": "FORVALOUR",
    "annotation": null
@@ -279,8 +262,7 @@ window.CRYPTIC_PUZZLES["cryptic-23717"] = /*JSON-START*/ {
     "y": 6
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "Muslins when the music stops (9)",
    "separatorLocations": {},
    "solution": "ORGANDIES",
    "annotation": null
@@ -294,8 +276,7 @@ window.CRYPTIC_PUZZLES["cryptic-23717"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "Leafy growth provides room in theatre for actor (5,4)",
    "separatorLocations": {},
    "solution": "GREENTREE",
    "annotation": null
@@ -309,8 +290,7 @@ window.CRYPTIC_PUZZLES["cryptic-23717"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "Huntsman could be a grey (5)",
    "separatorLocations": {},
    "solution": "YAGER",
    "annotation": null
@@ -324,8 +304,7 @@ window.CRYPTIC_PUZZLES["cryptic-23717"] = /*JSON-START*/ {
     "y": 10
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "Oil from crab until cooked (9)",
    "separatorLocations": {},
    "solution": "LUBRICANT",
    "annotation": null
@@ -339,8 +318,7 @@ window.CRYPTIC_PUZZLES["cryptic-23717"] = /*JSON-START*/ {
     "y": 10
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "First whaling captain elevated by religion (5)",
    "separatorLocations": {},
    "solution": "BAHAI",
    "annotation": null
@@ -354,8 +332,7 @@ window.CRYPTIC_PUZZLES["cryptic-23717"] = /*JSON-START*/ {
     "y": 10
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "Friendly place to dress around pole (5)",
    "separatorLocations": {},
    "solution": "TONGA",
    "annotation": null
@@ -369,8 +346,7 @@ window.CRYPTIC_PUZZLES["cryptic-23717"] = /*JSON-START*/ {
     "y": 10
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "Section would be funny with change of heart (5)",
    "separatorLocations": {},
    "solution": "CONIC",
    "annotation": null
@@ -384,8 +360,7 @@ window.CRYPTIC_PUZZLES["cryptic-23717"] = /*JSON-START*/ {
     "y": 10
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "Provide for queens (5)",
    "separatorLocations": {},
    "solution": "CATER",
    "annotation": null
@@ -399,8 +374,7 @@ window.CRYPTIC_PUZZLES["cryptic-23717"] = /*JSON-START*/ {
     "y": 12
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Singer in South Australia backs lively movement (7)",
    "separatorLocations": {},
    "solution": "SCHERZO",
    "annotation": null
@@ -414,8 +388,7 @@ window.CRYPTIC_PUZZLES["cryptic-23717"] = /*JSON-START*/ {
     "y": 12
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Comparatively dapper painter (7)",
    "separatorLocations": {},
    "solution": "NATTIER",
    "annotation": null
@@ -429,8 +402,7 @@ window.CRYPTIC_PUZZLES["cryptic-23717"] = /*JSON-START*/ {
     "y": 14
    },
    "length": 13,
-   "clue": " (13)",
-   "clueMissing": true,
+   "clue": "Hero's \"we are not amused\"? (8,5)",
    "separatorLocations": {},
    "solution": "VICTORIACROSS",
    "annotation": null
