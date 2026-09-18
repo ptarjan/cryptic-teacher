@@ -24,8 +24,7 @@ window.CRYPTIC_PUZZLES["cryptic-24433"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 8,
-   "clue": " (8)",
-   "clueMissing": true,
+   "clue": "Long, thin, round and hollow, but raised if gold mine opens (8)",
    "separatorLocations": {},
    "solution": "TUBIFORM",
    "annotation": null
@@ -39,8 +38,7 @@ window.CRYPTIC_PUZZLES["cryptic-24433"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 4,
-   "clue": " (4)",
-   "clueMissing": true,
+   "clue": "Stone attached to unknowns (4)",
    "separatorLocations": {},
    "solution": "ONYX",
    "annotation": null
@@ -54,8 +52,7 @@ window.CRYPTIC_PUZZLES["cryptic-24433"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "Dorset river to supply water? (6)",
    "separatorLocations": {},
    "solution": "PIDDLE",
    "annotation": null
@@ -69,8 +66,7 @@ window.CRYPTIC_PUZZLES["cryptic-24433"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Some grumbles coming up during last years of vintners’ science (7)",
    "separatorLocations": {},
    "solution": "ZYMURGY",
    "annotation": null
@@ -84,8 +80,7 @@ window.CRYPTIC_PUZZLES["cryptic-24433"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 8,
-   "clue": " (8)",
-   "clueMissing": true,
+   "clue": "Relative, a handsome fellow, fairly liberal (8)",
    "separatorLocations": {},
    "solution": "BROADISH",
    "annotation": null
@@ -99,8 +94,7 @@ window.CRYPTIC_PUZZLES["cryptic-24433"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 10,
-   "clue": " (10)",
-   "clueMissing": true,
+   "clue": "Old lover in play with fortress of stone (10)",
    "separatorLocations": {},
    "solution": "HARDCASTLE",
    "annotation": null
@@ -114,8 +108,7 @@ window.CRYPTIC_PUZZLES["cryptic-24433"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "Old coins conceal bugs in the best bread, they say (6)",
    "separatorLocations": {},
    "solution": "SLICED",
    "annotation": null
@@ -129,8 +122,7 @@ window.CRYPTIC_PUZZLES["cryptic-24433"] = /*JSON-START*/ {
     "y": 1
    },
    "length": 8,
-   "clue": " (8)",
-   "clueMissing": true,
+   "clue": "How much? And is it long or short? (8)",
    "separatorLocations": {},
    "solution": "QUANTITY",
    "annotation": null
@@ -144,8 +136,7 @@ window.CRYPTIC_PUZZLES["cryptic-24433"] = /*JSON-START*/ {
     "y": 1
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "Do you mean that about friend? (6)",
    "separatorLocations": {},
    "solution": "REALLY",
    "annotation": null
@@ -159,8 +150,7 @@ window.CRYPTIC_PUZZLES["cryptic-24433"] = /*JSON-START*/ {
     "y": 3
    },
    "length": 4,
-   "clue": " (4)",
-   "clueMissing": true,
+   "clue": "Rapid evasive movements said to be result of bad spell (4)",
    "separatorLocations": {},
    "solution": "JINX",
    "annotation": null
@@ -174,8 +164,7 @@ window.CRYPTIC_PUZZLES["cryptic-24433"] = /*JSON-START*/ {
     "y": 3
    },
    "length": 10,
-   "clue": " (10)",
-   "clueMissing": true,
+   "clue": "I leave priest swallowing fly: I got caught and I’m hooked (4,6)",
    "separatorLocations": {},
    "solution": "DRUGADDICT",
    "annotation": null
@@ -189,8 +178,7 @@ window.CRYPTIC_PUZZLES["cryptic-24433"] = /*JSON-START*/ {
     "y": 5
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "Little dog was king first in olden days (6)",
    "separatorLocations": {},
    "solution": "YORKIE",
    "annotation": null
@@ -204,8 +192,7 @@ window.CRYPTIC_PUZZLES["cryptic-24433"] = /*JSON-START*/ {
     "y": 5
    },
    "length": 10,
-   "clue": " (10)",
-   "clueMissing": true,
+   "clue": "Tip of possible weapon often pink, I suspect (5-5)",
    "separatorLocations": {},
    "solution": "KNIFEPOINT",
    "annotation": null
@@ -219,8 +206,7 @@ window.CRYPTIC_PUZZLES["cryptic-24433"] = /*JSON-START*/ {
     "y": 5
    },
    "length": 8,
-   "clue": " (8)",
-   "clueMissing": true,
+   "clue": "Clown forbidding movement of dial (8)",
    "separatorLocations": {},
    "solution": "GRIMALDI",
    "annotation": null
@@ -234,8 +220,7 @@ window.CRYPTIC_PUZZLES["cryptic-24433"] = /*JSON-START*/ {
     "y": 7
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Disease removed leader encompassing anger displayed by judges (7)",
    "separatorLocations": {},
    "solution": "UMPIRES",
    "annotation": null
@@ -249,8 +234,7 @@ window.CRYPTIC_PUZZLES["cryptic-24433"] = /*JSON-START*/ {
     "y": 7
    },
    "length": 8,
-   "clue": " (8)",
-   "clueMissing": true,
+   "clue": "The right name given to fellows like us (8)",
    "separatorLocations": {},
    "solution": "EARTHMEN",
    "annotation": null
@@ -264,8 +248,7 @@ window.CRYPTIC_PUZZLES["cryptic-24433"] = /*JSON-START*/ {
     "y": 7
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Fish to mark out court? (7)",
    "separatorLocations": {},
    "solution": "WHITING",
    "annotation": null
@@ -279,8 +262,7 @@ window.CRYPTIC_PUZZLES["cryptic-24433"] = /*JSON-START*/ {
     "y": 7
    },
    "length": 8,
-   "clue": " (8)",
-   "clueMissing": true,
+   "clue": "Cause of torpor surrounding Catholic Action, perhaps (8)",
    "separatorLocations": {},
    "solution": "NARCOTIC",
    "annotation": null
@@ -294,8 +276,7 @@ window.CRYPTIC_PUZZLES["cryptic-24433"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Yemen’s port order, a growth that’s benign (7)",
    "separatorLocations": {},
    "solution": "ADENOMA",
    "annotation": null
@@ -309,8 +290,7 @@ window.CRYPTIC_PUZZLES["cryptic-24433"] = /*JSON-START*/ {
     "y": 9
    },
    "length": 8,
-   "clue": " (8)",
-   "clueMissing": true,
+   "clue": "Ferret, clearly alive, about to go wrong (8)",
    "separatorLocations": {},
    "solution": "VIVERRID",
    "annotation": null
@@ -324,8 +304,7 @@ window.CRYPTIC_PUZZLES["cryptic-24433"] = /*JSON-START*/ {
     "y": 9
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "High standards when one is in business (6)",
    "separatorLocations": {},
    "solution": "IDEALS",
    "annotation": null
@@ -339,8 +318,7 @@ window.CRYPTIC_PUZZLES["cryptic-24433"] = /*JSON-START*/ {
     "y": 9
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "Woman in row is stoned (6)",
    "separatorLocations": {},
    "solution": "CHERRY",
    "annotation": null
@@ -354,8 +332,7 @@ window.CRYPTIC_PUZZLES["cryptic-24433"] = /*JSON-START*/ {
     "y": 9
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "Canine instincts succeeding point (6)",
    "separatorLocations": {},
    "solution": "CUSPID",
    "annotation": null
@@ -369,8 +346,7 @@ window.CRYPTIC_PUZZLES["cryptic-24433"] = /*JSON-START*/ {
     "y": 11
    },
    "length": 10,
-   "clue": " (10)",
-   "clueMissing": true,
+   "clue": "Greek philosopher translated in Hoxne and Snape (10)",
    "separatorLocations": {},
    "solution": "XENOPHANES",
    "annotation": null
@@ -384,8 +360,7 @@ window.CRYPTIC_PUZZLES["cryptic-24433"] = /*JSON-START*/ {
     "y": 11
    },
    "length": 4,
-   "clue": " (4)",
-   "clueMissing": true,
+   "clue": "Booty for junior officer, say (4)",
    "separatorLocations": {},
    "solution": "LOOT",
    "annotation": null
@@ -399,8 +374,7 @@ window.CRYPTIC_PUZZLES["cryptic-24433"] = /*JSON-START*/ {
     "y": 11
    },
    "length": 4,
-   "clue": " (4)",
-   "clueMissing": true,
+   "clue": "Departed after time (4)",
    "separatorLocations": {},
    "solution": "LATE",
    "annotation": null
@@ -414,8 +388,7 @@ window.CRYPTIC_PUZZLES["cryptic-24433"] = /*JSON-START*/ {
     "y": 13
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "Projector for (F for Fritz) director’s direction (6)",
    "separatorLocations": {},
    "solution": "FLANGE",
    "annotation": null
@@ -429,8 +402,7 @@ window.CRYPTIC_PUZZLES["cryptic-24433"] = /*JSON-START*/ {
     "y": 13
    },
    "length": 8,
-   "clue": " (8)",
-   "clueMissing": true,
+   "clue": "Keep mum at pub without acknowledgment to one (8)",
    "separatorLocations": {},
    "solution": "MAINTAIN",
    "annotation": null
