@@ -4853,9 +4853,20 @@
     // filter at all.
     const terms = q.split(/\s+/).filter(Boolean);
     if (terms.length) {
+      // A run of digits is a NUMBER, and a number is not the digits sitting
+      // inside a longer one. With 12,462 puzzles indexed that stopped being
+      // theoretical: Globe and Mail 3,368 is inside Guardian cryptic 23,368, so
+      // typing the number printed on the page you are looking at returned two
+      // unrelated puzzles (2026-09-18). A digits-only term has to start where a
+      // number starts, which still narrows as you type — "233" opens 23,368 and
+      // not 3,368 — and leaves every other term matching anywhere, because
+      // "imogen" inside a setter's name is exactly what a search is for.
+      const matchers = terms.map((t) => (/^\d+$/.test(t)
+        ? new RegExp("(^|[^\\d])" + t) : null));
       return INDEX.puzzles.filter((p) => {
         const hay = pickerHaystack(p);
-        return terms.every((t) => hay.includes(t));
+        return terms.every((t, i) => (matchers[i] ? matchers[i].test(hay)
+                                                  : hay.includes(t)));
       });
     }
     // INDEX.puzzles is latest-first, so the cap counts down from today. The two
