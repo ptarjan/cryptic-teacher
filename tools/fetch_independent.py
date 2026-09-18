@@ -114,6 +114,10 @@ NUMBER_FIXES = {
     # that day: different setter (Hoskins, not Grecian), different grid,
     # different clues. 11,296 Mon 26 Dec, 11,298 Wed 28 Dec.
     "221227": 11297,
+    # Prints its own date, "150613", where the number goes. 8,941 Thu 11 Jun,
+    # 8,943 Sat 13 Jun.
+    "150612": 8942,
+    "150625": 8953,    # prints "8,954"; 8,952 Wed 24 Jun, 8,954 Fri 26 Jun
     "150806": 8988,    # prints "8,968"; 8,987 Wed 5 Aug, 8,989 Fri 7 Aug
     # Inside SATURDAY_LAG, but Christmas Day fell on the Friday and the paper
     # did not print, so that week ran five publishing days and the rule's six
@@ -147,13 +151,20 @@ NUMBER_FIXES = {
 SATURDAY_LAG = ("150822", "160326")
 
 
-# The feed ran a day out of step until Monday 2015-08-17. Before that date the
-# SUNDAY key served the daily (8,979 on Sun 2015-07-26, then 8,980 on the Tue,
-# six a week) and the MONDAY key served the weekly (1,327 / 1,328 / 1,329 on
-# three consecutive Mondays, one a week). Both sequences are continuous across
-# the changeover -- 8,997 Sun 08-16 then 8,998 Mon 08-17, 1,329 Mon 08-10 then
-# 1,330 Sun 08-23 -- so it is the key that moved, not the papers.
-SHIFTED_BEFORE = "150817"
+# A window in 2015 where the feed ran a day out of step. Inside it the SUNDAY
+# key served the daily (8,979 on Sun 2015-07-26, then 8,980 on the Tue, six a
+# week) and the MONDAY key served the weekly (1,327 / 1,328 / 1,329 on three
+# consecutive Mondays, one a week). Outside it, both ends, the key is the
+# publication day: the weekly is on the Sunday key and the daily on the other
+# six. Both sequences are continuous across both edges -- 1,325 Sun 07-12 then
+# 1,326 on the Monday key, 8,997 Sun 08-16 then 8,998 Mon 08-17 -- so it is the
+# key that moved, not the papers.
+#
+# The window's opening edge is the week of 2015-07-13, whose keys 07-13 to
+# 07-17 are all 404 and whose 07-18 is a Saturday, which is a daily either way:
+# every key that could tell the two regimes apart is on one side of it or the
+# other, so any date in that week names the same boundary.
+SHIFTED = ("150713", "150816")
 
 
 # Enumerations the paper printed wrong, and still serves wrong. A cryptic's
@@ -190,7 +201,7 @@ FORMAT_FIXES = {
 
 def series_for(ymd):
     weekday = datetime.strptime(ymd, "%y%m%d").weekday()
-    sunday_paper = 0 if ymd < SHIFTED_BEFORE else 6
+    sunday_paper = 0 if SHIFTED[0] <= ymd <= SHIFTED[1] else 6
     return "indysunday" if weekday == sunday_paper else "independent"
 
 
@@ -278,33 +289,80 @@ def _cp1252_byte(exc):
 codecs.register_error("independent_cp1252_fallback", _cp1252_byte)
 
 
+CLOSE = b"</crossword-compiler>"
+
+
 def clean_xml_bytes(data):
-    return data.decode("utf-8", errors="independent_cp1252_fallback").encode("utf-8")
+    """The document, decodable and with nothing after its root element.
+
+    A few days (2015-07-24 is one) are served as one complete document with a
+    second, partial re-serialisation of the same puzzle appended after it. XML
+    has exactly one root, so the trailing copy is not content — it makes the
+    file unparseable, and the day is simply absent. Everything up to the first
+    close of the root is the whole puzzle; the tail is dropped unread.
+    """
+    text = data.decode("utf-8", errors="independent_cp1252_fallback")
+    end = text.find(CLOSE.decode())
+    if end != -1:
+        text = text[:end + len(CLOSE)]
+    return text.encode("utf-8")
+
+
+def metadata_title(title):
+    """(setter, number text) off <metadata><title>, or None if it isn't one.
+
+    Hand-typed, and it arrives mistyped in four ways: "No." dropped entirely
+    ("1,514 by Raich"), a comma for its period ("No, 10,407 by Knut"), a stray
+    pipe in front of it ("|No. 10,242 by Serpent"), and a space inside the
+    digits ("No. 1, 661 by Hoskins"). All are source-side typos, not format
+    changes, so the pipe, the prefix and its punctuation and whitespace inside
+    the digits are all optional.
+    """
+    m = re.match(r"\|?\s*(?:No[.,]?\s*)?(\d[\d,\s]*\d|\d)\s*(?:by\s*(.+))?$", title)
+    if m:
+        return (m.group(2) or "").strip() or "Unknown", m.group(1)
+    # A fifth, older shape drops "No." AND "by" both and just reverses the
+    # order: "Raich 9897" (2018-07-03) — setter name, then the number bare.
+    # The number is trustworthy (it slots exactly between 9896 the day before
+    # and 9898 the day after); only the layout differs.
+    m = re.match(r"([A-Za-z][\w.'-]*)\s+(\d[\d,\s]*\d|\d)$", title)
+    return (m.group(1), m.group(2)) if m else None
+
+
+def clue_list_heading(puz):
+    """(setter, number text) off the Across clue list's own heading, or None.
+
+    Until 2015-09 the compiler wrote the setter and number into the heading
+    above the Across clues — "<b>Nestor-8977...Across</b>", sometimes with two
+    dots instead of three. From 2015-09 on that heading is a bare "Across" and
+    this returns None.
+
+    Read in preference to <metadata><title>, not as a fallback for an empty
+    one, because in that era the metadata title is a scratch field rather than
+    a title: it is empty on most days and on the rest holds whatever the setter
+    was using to keep track ("Hob 23", "Kairos 0026", "gdn.cryptic"). Three of
+    those parse as a title and yield a number that belongs to nothing. Where
+    both carry a number they agree, so preferring this one changes no day that
+    was already being read correctly.
+    """
+    for clues in puz.findall(f"{NS}crossword/{NS}clues"):
+        heading = clues.find(f"{NS}title")
+        if heading is None:
+            continue
+        m = re.match(r"(.+)-(\d+)\.+Across$", "".join(heading.itertext()).strip())
+        if m:
+            return m.group(1).strip(), m.group(2)
+    return None
 
 
 def parse(xml_bytes, ymd):
     root = ET.fromstring(clean_xml_bytes(xml_bytes))
     puz = root.find(f".//{NS}rectangular-puzzle")
     title = (puz.findtext(f"{NS}metadata/{NS}title") or "").strip()
-    # The title is typed by hand and arrives mistyped in four ways: "No."
-    # dropped entirely ("1,514 by Raich"), a comma for its period ("No, 10,407
-    # by Knut"), a stray pipe in front of it ("|No. 10,242 by Serpent"), and a
-    # space inside the digits ("No. 1, 661 by Hoskins"). All are source-side
-    # typos, not format changes, so the pipe, the prefix and its punctuation
-    # and whitespace inside the digits are all optional.
-    m = re.match(r"\|?\s*(?:No[.,]?\s*)?(\d[\d,\s]*\d|\d)\s*(?:by\s*(.+))?$", title)
-    if m:
-        setter = (m.group(2) or "").strip() or "Unknown"
-        number_text = m.group(1)
-    else:
-        # A fifth, older shape drops "No." AND "by" both and just reverses the
-        # order: "Raich 9897" (2018-07-03) — setter name, then the number bare.
-        # The number is trustworthy (it slots exactly between 9896 the day
-        # before and 9898 the day after); only the layout differs.
-        m = re.match(r"([A-Za-z][\w.'-]*)\s+(\d[\d,\s]*\d|\d)$", title)
-        if not m:
-            raise ValueError(f"unrecognised title {title!r}")
-        setter, number_text = m.group(1), m.group(2)
+    named = clue_list_heading(puz) or metadata_title(title)
+    if not named:
+        raise ValueError(f"unrecognised title {title!r}")
+    setter, number_text = named
     number = true_number(ymd, int(re.sub(r"[,\s]", "", number_text)))
 
     grid = puz.find(f"{NS}crossword/{NS}grid")

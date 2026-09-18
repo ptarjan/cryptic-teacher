@@ -65,6 +65,7 @@ LAYOUT = [
 
     ("fetching", "tools/fetch_puzzle.py", "fetch/convert the Guardian cryptic, Saturday prize and Quiptic, --latest/--backfill/--extend/--reindex"),
     ("fetching", "tools/fetch_independent.py", "the Independent’s daily and Sunday"),
+    ("fetching", "tools/test_fetch_independent.sh", "drives that parser over the days whose title is empty or is the setter’s own scratch note, and proves each one lands on the right number AND the right series — the two sequences both ran under 10,000, so the number never gets a vote"),
     ("fetching", "tools/fetch_observer.py", "the Observer’s Everyman"),
     ("fetching", "tools/fetch_wayback.py", "recovers Guardian puzzles older than the live site keeps, out of the Wayback Machine’s captures"),
     ("fetching", "tools/fetch_globeandmail.py", "the Globe and Mail’s cryptic, a Times of London syndication, decoded from its Amuse Labs player"),
