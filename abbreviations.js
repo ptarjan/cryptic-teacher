@@ -428,6 +428,9 @@ const ABBREVIATIONS = {
   "inside",
   "trendy"
  ],
+ "INF": [
+  "information"
+ ],
  "INT": [
   "international"
  ],
