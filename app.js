@@ -5206,6 +5206,8 @@
     // clues at all.
     urlClue = null;
     $("celebrate").classList.add("hidden");
+    // Nothing in the air belongs to a grid that is no longer open.
+    { const parts = celebrateParts(); if (parts) burstState(parts.burst, ""); }
     restoreState();
     sealArrivedProgress();
     beacon("open");
@@ -5263,17 +5265,46 @@
     if (earned) beacon("done");
     celebrate(complete, earned);
   }
-  // `earned` is only the paper. The sentence shows whenever the grid is full,
+  // The finish box is two children, built once and never replaced: the burst and
+  // the scoreline. Only the scoreline is ever redrawn. They used to be one
+  // innerHTML string, so the vote tally arriving from /v — which redraws the
+  // scoreline, and arrives whenever it arrives — deleted the burst mid-flight.
+  // A function whose job is a sentence must not be able to reach the fireworks,
+  // and the way to guarantee that is for them not to be in what it writes.
+  let celebrateEls = null;
+  function celebrateParts() {
+    const box = $("celebrate");
+    if (!box) return null;
+    if (!celebrateEls || celebrateEls.box !== box) {
+      const burst = document.createElement("div");
+      burst.className = "fireworks";
+      const line = document.createElement("div");
+      line.className = "scoreline";
+      box.appendChild(burst);
+      box.appendChild(line);
+      celebrateEls = { box, burst, line };
+    }
+    return celebrateEls;
+  }
+
+  // `earned` is only the fireworks. The sentence shows whenever the grid is full,
   // including on a finished puzzle reopened next week — it is a fact about the
   // puzzle, not an event, and there is nothing to dismiss ("why are the stats
   // dismissed with thanks? Can they just be on the one line when you finish"). Written once per completion rather than on every render:
-  // the minutes would otherwise tick over mid-burst and wipe the fireworks.
+  // the minutes figure would otherwise tick over as you sat there and the
+  // sentence would rewrite itself under you.
   let tallyDrawn = false;
   function celebrate(complete, earned) {
-    const box = $("celebrate");
-    if (!box) return;
+    const parts = celebrateParts();
+    if (!parts) return;
+    const box = parts.box;
     box.classList.toggle("hidden", !complete);
-    if (!complete) { tallyDrawn = false; return; }
+    if (!complete) {
+      tallyDrawn = false;
+      // A grid that stops being full takes whatever is still in the air with it.
+      if (burstInFlight(parts.burst)) burstState(parts.burst, "");
+      return;
+    }
     if (tallyDrawn && !earned) return;
     tallyDrawn = true;
     const total = entries.filter((e) => !(e.annotation && e.annotation.linkedTo)).length;
@@ -5293,31 +5324,55 @@
     bits.push(levels ? `<strong>${levels}</strong> hint${levels === 1 ? "" : "s"} spent`
                      : "not one hint spent");
     if (mins) bits.push(`<strong>${mins}</strong> minute${mins === 1 ? "" : "s"} at it`);
-    box.innerHTML = (earned ? fireworksHTML() : "")
-      + `<p class="shout">Finished — the whole grid.</p>`
+    parts.line.innerHTML = `<p class="shout">Finished — the whole grid.</p>`
       + `<p class="tally">${bits.join(" · ")}</p>`
       + voteRowHTML(voteTarget(null), "How was the puzzle?", "Enjoyed it", "Not really");
-    wireVotes(box, () => celebrate(true, false));
-    // The box is below the grid, so on a phone the fireworks go off off-screen
-    // and the question at the bottom of them is never seen ("I want fireworks
-    // when I solve a puzzle and scroll to vote on it"). Placed
-    // by the same machinery as the hint panel, which is the code that knows the
-    // keyboard is still up: the last letter of a puzzle is typed, so the keys
-    // are over the bottom third of the screen at exactly this moment.
+    wireVotes(parts.line, () => celebrate(true, false));
+    // The box sits between the title and the grid, so where it is at the moment
+    // the last letter goes in depends on where the page is: on a phone or a
+    // narrow window the solver has scrolled down to the grid with the keyboard
+    // up, and the box is off the TOP of the band; on a tablet the whole page
+    // fits and the box is already on screen, so there is no travel at all.
+    // Both are handled here, and neither is assumed: the placement scrolls only
+    // when the box is outside the band, and fireBurst() waits for the box to be
+    // seen rather than for a scroll that may never happen.
     // Only on the transition. Reopening a finished puzzle must not yank the page
     // around, for the same reason it does not throw fireworks.
-    if (earned) { startFireworksWhenSeen(box); scrollToHintPanel("celebrate", "celebrate"); }
+    if (earned) { fireBurst(parts.burst); scrollToHintPanel("celebrate", "celebrate"); }
+  }
+
+  // Where the burst is, in one word, on the element itself. Four outcomes used to
+  // leave pixel-identical nothing — never lit, burned while the box was off
+  // screen, burned where someone was looking, thrown away unseen — so "I have
+  // never seen the fireworks" was a report the page could not answer. It can
+  // now: open the box in an inspector and the class says which of the four
+  // happened. "hold" is also what the stylesheet gates the animation on.
+  //
+  // Only "hold" and "lit" have anything in the air, so every other state empties
+  // the shells out of the page rather than leaving them frozen at opacity 0 for
+  // the next reader of the DOM to puzzle over.
+  const BURST_STATES = ["hold", "lit", "spent", "missed"];
+  const burstInFlight = (burst) =>
+    burst.classList.contains("hold") || burst.classList.contains("lit");
+  function burstState(burst, state) {
+    BURST_STATES.forEach((c) => burst.classList.remove(c));
+    if (state) burst.classList.add(state);
+    if (state !== "hold" && state !== "lit") burst.innerHTML = "";
   }
 
   // A firework nobody was looking at is not a firework. The sparks used to start
-  // the instant the markup was written, while the page was still travelling down
-  // to the box — three shells last 1.7s and the scroll can eat most of that, so
-  // on a phone you caught the tail and in the installed app, where the box is
-  // furthest below the fold, nothing at all, on iOS.
+  // the instant the markup was written, while the page was still travelling to
+  // the box — three shells last a couple of seconds and the scroll can eat most
+  // of that, so you caught the tail, or nothing at all, on iOS.
   //
-  // So they are paused until the box is on screen. Two things decide whether
-  // anyone ever sees them, and both used to be wrong for the installed app on a
-  // tablet:
+  // So the shells are written held, and the stylesheet gives a spark its
+  // animation only once the hold comes off — not an animation paused at birth,
+  // because a paused animation still has a start time and WebKit is under no
+  // obligation to rewind it for us. No hold, no animation; hold off, a fresh
+  // 0%. That is the only arrangement in which a burst held for a minute still
+  // burns from the beginning when it is finally let go.
+  //
+  // Two things decide whether anyone ever sees them:
   //
   // How much of the box counts as seen. Forty per cent of it is a lot to ask at
   // the one moment the on-screen keyboard is up — the last letter of the puzzle
@@ -5326,25 +5381,40 @@
   //
   // What happens when it is never seen. The backstop used to unpause anyway
   // after four seconds, which spends the burst into an empty screen and leaves
-  // nothing for the scroll that arrives a moment later; the sparks are
-  // `forwards`, so they finish invisible and stay that way. A firework either
-  // goes off where someone is looking or it does not go off: the observer keeps
-  // waiting, and the long stop throws the whole thing away rather than burning
-  // it, so nothing is left frozen mid-burst to ambush a reader ten minutes on.
+  // nothing for the scroll that arrives a moment later. A firework either goes
+  // off where someone is looking or it does not go off: the observer keeps
+  // waiting, and the long stop throws the shells away rather than burning them,
+  // marked "missed" so the throwing-away is on the record.
   const FIREWORK_ABANDON_MS = 60000;
-  function startFireworksWhenSeen(box) {
-    const fw = box.querySelector(".fireworks");
-    if (!fw) return;
-    fw.classList.add("hold");
-    const go = () => fw.classList.remove("hold");
+  // The longest shell: its 0.64s delay, its 1.5s burn, and a beat. After this
+  // there is nothing left to look at, so the shells come out of the page.
+  const BURST_MS = 2400;
+  // Every timer this arms names the burst it belongs to. The node is reused —
+  // clear a solved grid and solve it again and the same div holds the new
+  // shells — so a minute-long abandon timer left over from the last burst would
+  // otherwise land on this one and mark a burst that is happily in the air as
+  // one nobody ever saw.
+  let burstRun = 0;
+  function fireBurst(burst) {
+    const run = ++burstRun;
+    const mine = () => run === burstRun;
+    burstState(burst, "hold");
+    burst.innerHTML = shellsHTML();
+    const go = () => {
+      if (!mine() || !burst.classList.contains("hold")) return;
+      burstState(burst, "lit");
+      setTimeout(() => {
+        if (mine() && burst.classList.contains("lit")) burstState(burst, "spent");
+      }, BURST_MS);
+    };
     if (typeof IntersectionObserver !== "function") return go();
     const io = new IntersectionObserver((rows) => {
       if (rows.some((r) => r.isIntersecting)) { io.disconnect(); go(); }
     }, { threshold: 0.01 });
-    io.observe(fw);
+    io.observe(burst);
     setTimeout(() => {
       io.disconnect();
-      if (fw.classList.contains("hold") && fw.remove) fw.remove();
+      if (mine() && burst.classList.contains("hold")) burstState(burst, "missed");
     }, FIREWORK_ABANDON_MS);
   }
 
@@ -5355,7 +5425,7 @@
   // prefers-reduced-motion turns the whole thing off and leaves the sentence,
   // which is the part that was actually missing.
   const SHELLS = [{ x: 20, y: 30 }, { x: 52, y: 62 }, { x: 80, y: 26 }];
-  function fireworksHTML(sparks = 14) {
+  function shellsHTML(sparks = 14) {
     const shells = SHELLS.map((sh, b) => {
       const bits = Array.from({ length: sparks }, (_, i) => {
         const a = (i / sparks) * Math.PI * 2;
@@ -5366,7 +5436,7 @@
       }).join("");
       return `<span class="shell" style="left:${sh.x}%;top:${sh.y}%">${bits}</span>`;
     }).join("");
-    return `<div class="fireworks">${shells}</div>`;
+    return shells;
   }
 
   function refreshAll() {
