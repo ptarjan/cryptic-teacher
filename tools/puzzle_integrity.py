@@ -151,10 +151,6 @@ PUBLISHED_WRONG = {
      "1-down + 26-across: clue says (4,5) = 9, answer holds 4 alone or 13 linked"):
         "1-down ASIL is counted (4,5) for ASIL NADIR, but NADIR is 28-across under "
         "a clue of its own and the paper linked 1-down to 26-across PANOPLIED (9)",
-    ("everyman-3072", "14-across: clue says (4,2,6) = 12, answer holds 13"):
-        "ROADTONOWHERE fills the thirteen cells the grid gives it — ROAD TO "
-        "NOWHERE, the Talking Heads song — under a count the Guardian's own "
-        "JSON prints as (4,2,6); NOWHERE is seven letters, not six",
 }
 
 # The LENGTH findings that are a light the Guardian never linked, not a mistake in
