@@ -129,7 +129,11 @@ window.CRYPTIC_PUZZLES["cryptic-23609"] = /*JSON-START*/ {
    "clue": "Doubt if small droplets corrode (8)",
    "separatorLocations": {},
    "solution": "MIST",
-   "annotation": null
+   "annotation": null,
+   "group": [
+    "7-down",
+    "8-down"
+   ]
   },
   {
    "id": "8-down",
@@ -144,7 +148,11 @@ window.CRYPTIC_PUZZLES["cryptic-23609"] = /*JSON-START*/ {
    "clueMissing": true,
    "separatorLocations": {},
    "solution": "RUST",
-   "annotation": null
+   "annotation": null,
+   "group": [
+    "7-down",
+    "8-down"
+   ]
   },
   {
    "id": "9-across",
@@ -352,7 +360,11 @@ window.CRYPTIC_PUZZLES["cryptic-23609"] = /*JSON-START*/ {
     ]
    },
    "solution": "BACK",
-   "annotation": null
+   "annotation": null,
+   "group": [
+    "22-down",
+    "23-down"
+   ]
   },
   {
    "id": "23-down",
@@ -367,7 +379,11 @@ window.CRYPTIC_PUZZLES["cryptic-23609"] = /*JSON-START*/ {
    "clueMissing": true,
    "separatorLocations": {},
    "solution": "DOWN",
-   "annotation": null
+   "annotation": null,
+   "group": [
+    "22-down",
+    "23-down"
+   ]
   },
   {
    "id": "24-across",

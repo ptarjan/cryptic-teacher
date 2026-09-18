@@ -257,7 +257,11 @@ window.CRYPTIC_PUZZLES["cryptic-24587"] = /*JSON-START*/ {
    "clue": "Houseboy showing quality (8)",
    "separatorLocations": {},
    "solution": "HALL",
-   "annotation": null
+   "annotation": null,
+   "group": [
+    "15-across",
+    "16-across"
+   ]
   },
   {
    "id": "16-across",
@@ -272,7 +276,11 @@ window.CRYPTIC_PUZZLES["cryptic-24587"] = /*JSON-START*/ {
    "clueMissing": true,
    "separatorLocations": {},
    "solution": "MARK",
-   "annotation": null
+   "annotation": null,
+   "group": [
+    "15-across",
+    "16-across"
+   ]
   },
   {
    "id": "16-down",
