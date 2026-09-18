@@ -24,11 +24,14 @@ window.CRYPTIC_PUZZLES["cryptic-23821"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 6,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "See 20",
    "separatorLocations": {},
    "solution": "SPREAD",
-   "annotation": null
+   "annotation": null,
+   "group": [
+    "20-down",
+    "1-across"
+   ]
   },
   {
    "id": "1-down",
@@ -39,8 +42,7 @@ window.CRYPTIC_PUZZLES["cryptic-23821"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 7,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Bone in front or behind? Hesitant pronouncement (7)",
    "separatorLocations": {},
    "solution": "STERNUM",
    "annotation": null
@@ -54,8 +56,7 @@ window.CRYPTIC_PUZZLES["cryptic-23821"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 5,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "In operation nine to five, say (5)",
    "separatorLocations": {},
    "solution": "RATIO",
    "annotation": null
@@ -69,8 +70,7 @@ window.CRYPTIC_PUZZLES["cryptic-23821"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 7,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Gather together in a cold island (7)",
    "separatorLocations": {},
    "solution": "ACCRETE",
    "annotation": null
@@ -84,8 +84,7 @@ window.CRYPTIC_PUZZLES["cryptic-23821"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 6,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Orville or Wilbur, say, making fine catch (6,5)",
    "separatorLocations": {},
    "solution": "MISTER",
    "annotation": null
@@ -99,8 +98,7 @@ window.CRYPTIC_PUZZLES["cryptic-23821"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 6,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Striker popular with party? True (6,5)",
    "separatorLocations": {},
    "solution": "INSIDE",
    "annotation": null
@@ -114,8 +112,7 @@ window.CRYPTIC_PUZZLES["cryptic-23821"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 9,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Overwhelm with emotion that can move people (9)",
    "separatorLocations": {},
    "solution": "TRANSPORT",
    "annotation": null
@@ -129,8 +126,7 @@ window.CRYPTIC_PUZZLES["cryptic-23821"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 7,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Ex-president upset - time to withdraw (7)",
    "separatorLocations": {},
    "solution": "RETRACT",
    "annotation": null
@@ -144,8 +140,7 @@ window.CRYPTIC_PUZZLES["cryptic-23821"] = /*JSON-START*/ {
     "y": 1
    },
    "length": 13,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "School covering 9, 23 and 20 (13)",
    "separatorLocations": {},
    "solution": "COMPREHENSIVE",
    "annotation": null
@@ -159,11 +154,14 @@ window.CRYPTIC_PUZZLES["cryptic-23821"] = /*JSON-START*/ {
     "y": 2
    },
    "length": 4,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Omitted to make Conservatives triumphant? (4,6)",
    "separatorLocations": {},
    "solution": "LEFT",
-   "annotation": null
+   "annotation": null,
+   "group": [
+    "9-across",
+    "11-across"
+   ]
   },
   {
    "id": "10-across",
@@ -174,8 +172,7 @@ window.CRYPTIC_PUZZLES["cryptic-23821"] = /*JSON-START*/ {
     "y": 2
    },
    "length": 10,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Rolls in collection of cars isn't so different (10)",
    "separatorLocations": {},
    "solution": "CROISSANTS",
    "annotation": null
@@ -189,11 +186,14 @@ window.CRYPTIC_PUZZLES["cryptic-23821"] = /*JSON-START*/ {
     "y": 4
    },
    "length": 6,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "See 9",
    "separatorLocations": {},
    "solution": "UNDONE",
-   "annotation": null
+   "annotation": null,
+   "group": [
+    "9-across",
+    "11-across"
+   ]
   },
   {
    "id": "12-across",
@@ -204,8 +204,7 @@ window.CRYPTIC_PUZZLES["cryptic-23821"] = /*JSON-START*/ {
     "y": 4
    },
    "length": 8,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Base 18 rebuilt over time (8)",
    "separatorLocations": {},
    "solution": "PEDESTAL",
    "annotation": null
@@ -219,8 +218,7 @@ window.CRYPTIC_PUZZLES["cryptic-23821"] = /*JSON-START*/ {
     "y": 6
    },
    "length": 9,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Authorised printing unit we are getting in school (9)",
    "separatorLocations": {},
    "solution": "EMPOWERED",
    "annotation": null
@@ -234,8 +232,7 @@ window.CRYPTIC_PUZZLES["cryptic-23821"] = /*JSON-START*/ {
     "y": 6
    },
    "length": 9,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Top gear (9)",
    "separatorLocations": {},
    "solution": "OUTERWEAR",
    "annotation": null
@@ -249,8 +246,7 @@ window.CRYPTIC_PUZZLES["cryptic-23821"] = /*JSON-START*/ {
     "y": 6
    },
    "length": 4,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Of a type of chocolate (4,6)",
    "separatorLocations": {},
    "solution": "SOFT",
    "annotation": null
@@ -264,11 +260,14 @@ window.CRYPTIC_PUZZLES["cryptic-23821"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 4,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "See 23",
    "separatorLocations": {},
    "solution": "NOTE",
-   "annotation": null
+   "annotation": null,
+   "group": [
+    "23-down",
+    "16-across"
+   ]
   },
   {
    "id": "16-down",
@@ -279,8 +278,7 @@ window.CRYPTIC_PUZZLES["cryptic-23821"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 7,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Remainder zero - all right? (7,4)",
    "separatorLocations": {},
    "solution": "NOTHING",
    "annotation": null
@@ -294,8 +292,7 @@ window.CRYPTIC_PUZZLES["cryptic-23821"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 9,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Detect intern - one might be in this (9,6)",
    "separatorLocations": {},
    "solution": "DETENTION",
    "annotation": null
@@ -309,8 +306,7 @@ window.CRYPTIC_PUZZLES["cryptic-23821"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 7,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Passed by breaking a speed limit, initially (7)",
    "separatorLocations": {},
    "solution": "ELAPSED",
    "annotation": null
@@ -324,8 +320,7 @@ window.CRYPTIC_PUZZLES["cryptic-23821"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 7,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Actor I spotted in old musical (7)",
    "separatorLocations": {},
    "solution": "OLIVIER",
    "annotation": null
@@ -339,11 +334,14 @@ window.CRYPTIC_PUZZLES["cryptic-23821"] = /*JSON-START*/ {
     "y": 9
    },
    "length": 6,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Couple of pages in paper for corporation? (6,6)",
    "separatorLocations": {},
    "solution": "CENTRE",
-   "annotation": null
+   "annotation": null,
+   "group": [
+    "20-down",
+    "1-across"
+   ]
   },
   {
    "id": "21-across",
@@ -354,8 +352,7 @@ window.CRYPTIC_PUZZLES["cryptic-23821"] = /*JSON-START*/ {
     "y": 10
    },
    "length": 8,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Courses for runners, initially (8)",
    "separatorLocations": {},
    "solution": "STARTERS",
    "annotation": null
@@ -369,8 +366,7 @@ window.CRYPTIC_PUZZLES["cryptic-23821"] = /*JSON-START*/ {
     "y": 10
    },
    "length": 6,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Perfectly OK ceremony, as a rule, we hear (5,2,4)",
    "separatorLocations": {},
    "solution": "ASRAIN",
    "annotation": null
@@ -384,11 +380,14 @@ window.CRYPTIC_PUZZLES["cryptic-23821"] = /*JSON-START*/ {
     "y": 10
    },
    "length": 5,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Having entitlement to money, one appropriately struck (5,4)",
    "separatorLocations": {},
    "solution": "RIGHT",
-   "annotation": null
+   "annotation": null,
+   "group": [
+    "23-down",
+    "16-across"
+   ]
   },
   {
    "id": "24-across",
@@ -399,8 +398,7 @@ window.CRYPTIC_PUZZLES["cryptic-23821"] = /*JSON-START*/ {
     "y": 12
    },
    "length": 10,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Instructions from dreadful court composer (10)",
    "separatorLocations": {},
    "solution": "DIRECTIVES",
    "annotation": null
@@ -414,8 +412,7 @@ window.CRYPTIC_PUZZLES["cryptic-23821"] = /*JSON-START*/ {
     "y": 12
    },
    "length": 4,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "Forbidding German to go west of border (4)",
    "separatorLocations": {},
    "solution": "GRIM",
    "annotation": null
@@ -429,8 +426,7 @@ window.CRYPTIC_PUZZLES["cryptic-23821"] = /*JSON-START*/ {
     "y": 14
    },
    "length": 6,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "A growing concern (6,6)",
    "separatorLocations": {},
    "solution": "GARDEN",
    "annotation": null
@@ -444,8 +440,7 @@ window.CRYPTIC_PUZZLES["cryptic-23821"] = /*JSON-START*/ {
     "y": 14
    },
    "length": 6,
-   "clue": "",
-   "clueMissing": true,
+   "clue": "One prepares to publish something, having partly revised it, originally (6)",
    "separatorLocations": {},
    "solution": "EDITOR",
    "annotation": null
