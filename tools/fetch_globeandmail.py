@@ -7,7 +7,8 @@ Usage:
   python3 tools/fetch_globeandmail.py --extend [N]        # N days OLDER than the
                                                            # oldest globeandmail-*
                                                            # puzzle already on disk
-                                                           # (default 14)
+                                                           # (default 14), clipped
+                                                           # at GLOBEANDMAIL_FLOOR_DATE
   python3 tools/fetch_globeandmail.py --latest            # newest date the
                                                            # vendor's picker
                                                            # advertises, if not
@@ -113,6 +114,17 @@ DATE_PICKER_URL = f"https://cdn-us.amuselabs.com/pmm/date-picker?set={SET}"
 PUZZLE_URL = f"https://cdn-us.amuselabs.com/pmm/crossword?id={{puzzle_id}}&set={SET}&embed=1"
 PLAY_URL = "https://www.theglobeandmail.com/puzzles-and-crosswords/new-cryptic/?date={ymd}"
 REQUEST_GAP = 1.0  # seconds between requests — see PACING above
+# The oldest date the numbered series has a puzzle at. Checked 2026-09-18: the
+# crossword endpoint 200s with a genuine Amuse "puzzle not found" page (not an
+# HTTP 404, and not a shape change — no rawc field, no title field, nothing to
+# parse) for every day from 2025-11-02 to 2025-11-14 and every Saturday walked
+# back to 2025-01-04, and for the puzzle-number-as-id variants tried in place
+# of a date (3105, 3104, 0003105, No3105). Three exceptions in that window —
+# 2025-11-01, 2025-11-08, 2025-11-15 — DO 200 with real box/placedWords data,
+# but carry no title, so see convert()'s blank-title comment for why those
+# still aren't fetchable. "No 3106" (2025-11-16) is where the numbered daily
+# series actually starts; nothing below it has ever been found on this CDN.
+GLOBEANDMAIL_FLOOR_DATE = date(2025, 11, 16)
 
 
 # ---------- decode (ported from a working brute-force key search; see module
@@ -204,12 +216,20 @@ def deobfuscate_rawc(rawc):
 
 
 RAWC_RE = re.compile(r'rawc"\s*:\s*"(.*?)"')
+# Amuse answers a puzzleId it has never heard of with HTTP 200 and this error
+# page (params.exceptionString.errorMessage), not a 404 — so absence of rawc
+# alone doesn't say WHY. Recognising the marker turns "page shape changed?"
+# (a real-parser-bug message) into an accurate one for the everyday case of
+# asking for a date below GLOBEANDMAIL_FLOOR_DATE.
+NOT_FOUND_MARKER = "was not found"
 
 
 def fetch_raw_json(puzzle_id):
     html = http_bytes(PUZZLE_URL.format(puzzle_id=puzzle_id)).decode("utf-8", errors="replace")
     m = RAWC_RE.search(html)
     if not m:
+        if NOT_FOUND_MARKER in html:
+            raise ValueError(f"{puzzle_id}: not found (Amuse has no puzzle at this id)")
         raise ValueError(f"no rawc field found for {puzzle_id} — page shape changed?")
     rawc = json.loads('"' + m.group(1) + '"')  # unescape JSON string escapes (\/ etc)
     return json.loads(deobfuscate_rawc(rawc))
@@ -241,7 +261,19 @@ def setter_name(author):
 
 
 def convert(data, ymd):
-    m = TITLE_RE.search((data.get("title") or "").strip())
+    title = (data.get("title") or "").strip()
+    if not title:
+        # Confirmed at 2025-11-01, 2025-11-08 and 2025-11-15: real box/
+        # placedWords data, but title, subtitle, author, authorEmail,
+        # authorURL, copyright and description are ALL blank — a preview
+        # puzzle published before the numbered daily series started (see
+        # GLOBEANDMAIL_FLOOR_DATE), not a page whose shape changed. There is
+        # no publisher number anywhere in the payload to file it under, and
+        # inventing one would plant a fake gap that trips coverage_report's
+        # STRAY check forever, so this is a distinct, expected error rather
+        # than "unrecognised title" below.
+        raise ValueError(f"{ymd}: blank title — a pre-launch preview puzzle with no publisher number, not fetchable into this series")
+    m = TITLE_RE.search(title)
     if not m:
         raise ValueError(f"unrecognised title {data.get('title')!r} for {ymd}")
     number = int(m.group(1).replace(",", ""))
@@ -321,7 +353,22 @@ def fetch_date(ymd, out_dir, dry_run=False):
         return puzzle
     is_new = not path.exists()
     if not is_new:
-        merge_annotations(puzzle, read_puzzle_file(path))
+        old = read_puzzle_file(path)
+        old_day = datetime.fromtimestamp(old["date"] / 1000, timezone.utc).date()
+        new_day = datetime.fromtimestamp(puzzle["date"] / 1000, timezone.utc).date()
+        if old_day != new_day:
+            # The paper's own title is what convert() files under (see its
+            # NUMBERING note) and it has repeated for real: "No 3262" was
+            # printed on both 2026-05-17 and 2026-05-18, two different grids
+            # — a publisher-side duplicate, not a same-day correction. Writing
+            # here would silently destroy whichever day isn't already on
+            # disk, so refuse instead of guessing which one wins.
+            raise ValueError(
+                f"{puzzle['id']} on disk is dated {old_day}, but {ymd} is a different "
+                f"day ({new_day}) with the same title/number — publisher duplicate, "
+                "not a refresh; not overwriting"
+            )
+        merge_annotations(puzzle, old)
     write_puzzle_file(path, puzzle, generator="tools/fetch_globeandmail.py")
     print(("fetched " if is_new else "refreshed ") + f"{puzzle['id']} ({ymd})")
     return puzzle
@@ -421,7 +468,18 @@ def main(argv):
         n = int(argv[1]) if len(argv) > 1 else 14
         held = oldest_held()
         end = (held - timedelta(days=1)) if held else date.today()
-        ymds = [(end - timedelta(days=i)).strftime("%Y%m%d") for i in range(n)]
+        # Without this, a held archive that already reaches the floor never
+        # moves: oldest_held() keeps returning the same date, so every call
+        # re-walks the identical dead window below it and reports 0 fetched
+        # forever, indistinguishable from a feed worth retrying. Stop here
+        # instead, the same way fetch_puzzle.py's FLOORS does for the
+        # Guardian series.
+        if end < GLOBEANDMAIL_FLOOR_DATE:
+            print(f"already at the archive floor ({GLOBEANDMAIL_FLOOR_DATE.isoformat()}, "
+                  "No 3106) — see GLOBEANDMAIL_FLOOR_DATE for the evidence; nothing older to fetch")
+            return 0
+        start = max(GLOBEANDMAIL_FLOOR_DATE, end - timedelta(days=n - 1))
+        ymds = [(end - timedelta(days=i)).strftime("%Y%m%d") for i in range((end - start).days + 1)]
         run_dates(ymds, out_dir, dry_run)
         return 0
 

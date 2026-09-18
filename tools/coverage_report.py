@@ -72,6 +72,13 @@ ARCHIVE_FLOOR = {
     # 2003-07-27, confirmed by tools/fetch_puzzle.py's --extend walk 404ing at
     # 2,964 and below. Same number as that file's EVERYMAN_FLOOR.
     "everyman": 2965,
+    # 2025-11-16 ("No 3106"), confirmed 2026-09-18: cdn-us.amuselabs.com
+    # "puzzle not found"s every day from 2025-11-02 to 2025-11-14 and every
+    # Saturday walked back to 2025-01-04. Three earlier dates (2025-11-01,
+    # -08, -15) do carry real puzzle data but no publisher number in any
+    # field, so they were never filed here either. Same number as
+    # tools/fetch_globeandmail.py's GLOBEANDMAIL_FLOOR_DATE.
+    "globeandmail": 3106,
 }
 
 # Days between issues at the source. Used only to decide whether a series has
