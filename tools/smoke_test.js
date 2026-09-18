@@ -3192,10 +3192,37 @@ global.realSetTimeout(() => {
       .find((x) => x.children[0] && rowHasNumber(x.children[0].innerHTML, numberOf(id)))
       .children[0].onclick();
   };
+  // The vote tally comes back from /v whenever it comes back, and "whenever"
+  // includes the second and a half the fireworks are in the air. Held here
+  // rather than left to the network, so the test can land it exactly then.
+  // Settled synchronously, because the suite has no event loop turn to wait in
+  // and app.js consumes the reply with .then(), never await. Everything that is
+  // not the tally simply stays in flight, which is what a slow network looks
+  // like and is the honest thing for a harness with no server behind it.
+  const inFlight = { then: () => inFlight, catch: () => inFlight };
+  const realFetch = global.fetch;
+  let landTally = null;
+  global.fetch = (url) => {
+    if (!/\/v\?/.test(String(url))) return inFlight;
+    const queued = [];
+    const chain = { then(f) { queued.push(f); return chain; }, catch() { return chain; } };
+    landTally = (tally) => {
+      let v = { ok: true, json: () => tally };
+      queued.forEach((f) => { v = f(v); });
+    };
+    return chain;
+  };
+
   const firstOpen = beacons.length;
   open();
   const box = registry["celebrate"];
   assert(box.classList.contains("hidden"), "nothing is celebrated on opening a fresh grid");
+  // #celebrate is two children: the burst and the scoreline. They were one
+  // innerHTML string, which is how a tally landing mid-burst used to delete the
+  // fireworks — so what used to be box.innerHTML is the scoreline's, and the
+  // separation is itself the thing under test.
+  const childOf = (cls) => box.children.find((c) => c.classList.contains(cls));
+  const said = () => (childOf("scoreline") || { innerHTML: "" }).innerHTML;
 
   const puz = puzzles[id];
   const cols = puz.dimensions.cols;
@@ -3212,8 +3239,11 @@ global.realSetTimeout(() => {
   // Filled square by square, the way a solver does it, so the moment of
   // completion is the moment the LAST light square gets its letter — which is
   // somewhere in the middle of an entry, not at the end of a loop.
-  // Laid out below the grid and off the bottom of the screen, which is where it
-  // really is on a phone: the finish has to bring the page to it.
+  // Laid out out of the band, which is where it is when the last letter lands:
+  // the box sits between the title and the grid, so on a phone the page has
+  // scrolled down to the grid with the keyboard up and the box is off the top,
+  // and on a tablet the whole page fits and it is already in view. Off the
+  // bottom here — the same travel, and the easier of the two to nail down.
   registry["celebrate"].layout(1800, 120);
   global.window.pageYOffset = 0; global.window.scrolls.length = 0;
   const filled = new Set();
@@ -3228,20 +3258,31 @@ global.realSetTimeout(() => {
       const done = filled.size === squares.size;
       if (!box.classList.contains("hidden")) fired++;
       assert(box.classList.contains("hidden") !== done,
-        done ? "the last light square in the grid is celebrated: " + box.innerHTML
+        done ? "the last light square in the grid is celebrated: " + said()
              : `the grid is ${squares.size - filled.size} squares short and it celebrated anyway`);
     });
   }
   assert(fired === 1, "and celebrated once, not on every keystroke after: " + fired);
-  assert(/\d+<\/strong> clues/.test(box.innerHTML) && /hint/.test(box.innerHTML),
-    "and it says what was achieved, not just that something was: " + box.innerHTML);
+  assert(/\d+<\/strong> clues/.test(said()) && /hint/.test(said()),
+    "and it says what was achieved, not just that something was: " + said());
   // Fireworks, and every spark carrying the vector it flies along: a burst whose
   // sparks all share one angle is a dribble, and that is only visible by eye.
-  assert(/class="fireworks"/.test(box.innerHTML) && (box.innerHTML.match(/--dx:/g) || []).length > 20,
-    "finishing sets off fireworks, each spark with its own vector: " + box.innerHTML);
-  // And the page goes to it. The box is below the grid and the keyboard is up —
-  // the last letter of the puzzle was just typed — so a finish nobody scrolls to
-  // is fireworks off-screen and a vote never asked for.
+  const burst = childOf("fireworks");
+  assert(burst && (burst.innerHTML.match(/--dx:/g) || []).length > 20,
+    "finishing sets off fireworks, each spark with its own vector: "
+    + (burst && burst.innerHTML));
+  // Held, and held by nobody having looked yet — not by a scroll having been
+  // ordered. This is the assertion the harness could not make at all until
+  // fake_dom grew an IntersectionObserver: without one the app took its "no
+  // observer, burn now" branch on every run, so the hold was untested by
+  // construction and a burst that went off into an empty screen looked exactly
+  // like one that went off in front of someone.
+  assert(burst.classList.contains("hold"),
+    "the burst waits rather than burning into a page that is still moving: " + burst.className);
+  assert(global.watchersOf(burst) === 1,
+    "and exactly one observer is watching for the box to arrive: " + global.watchersOf(burst));
+  // And the page goes to it. The keyboard is up — the last letter of the puzzle
+  // was just typed — so a finish nobody scrolls to is a vote never asked for.
   global.flushTimers(10000);
   assert(global.window.scrolls.length === 1,
     "finishing moves the page once, to the finish box: "
@@ -3252,15 +3293,49 @@ global.realSetTimeout(() => {
       `and the whole box is on screen after it (top ${r.top}, bottom ${r.bottom}, `
       + `viewport ${global.window.innerHeight})`);
   }
+
+  // --- the tally arriving cannot take the fireworks with it ---
+  // The /v reply redraws the scoreline, and it lands whenever it lands: the
+  // request goes out when the puzzle opens, so it is routinely still in the air
+  // as the last letter goes in. It used to be redrawn by writing the whole box,
+  // which deleted the .fireworks div mid-burst and re-armed nothing — the one
+  // bug here that could take a burst away from someone who WAS looking at it.
+  // The fix is structural, so this asserts the structure: same node, same
+  // sparks, same state, and a scoreline that really did change underneath.
+  assert(typeof landTally === "function", "the finish box asked /v for the tally when it opened");
+  {
+    const sparks = burst.innerHTML;
+    landTally({ [`p:${id}`]: { up: 7, down: 1 } });
+    assert(/7 of 8 liked it/.test(said()),
+      "the tally landing really does redraw the scoreline: " + said());
+    assert(childOf("fireworks") === burst && burst.innerHTML === sparks
+      && burst.classList.contains("hold"),
+      "and the burst it redraws around is untouched: " + burst.className);
+  }
+
+  // --- and it goes off when, and only when, the box is looked at ---
+  assert(global.intersect(burst) === 1,
+    "the observer really is watching the burst, so this record reaches it");
+  assert(!burst.classList.contains("hold") && burst.classList.contains("lit"),
+    "the first intersecting record lets the burst go: " + burst.className);
+  assert(global.watchersOf(burst) === 0,
+    "and the observer disconnects behind it rather than firing all afternoon");
+  // Spent, not left in the page. A burst that has finished is invisible either
+  // way, so without a state on the element the DOM cannot tell "over" from
+  // "never happened" — which is the whole reason nobody could say what was
+  // going wrong on the iPad.
+  global.flushTimers(10000);
+  assert(burst.classList.contains("spent") && burst.innerHTML === "",
+    "and the shells come out of the page once they have burned: " + burst.className);
   // Nothing to dismiss, and nothing that can dismiss it: the scoreline is a
   // fact about the puzzle, not a notification. It has to
   // survive the renders that follow, which is what a stray keystroke causes.
   assert(!registry["celebrate-done"], "and there is no Thanks button to clear it away");
-  const settled = box.innerHTML;
+  const settled = said();
   cellAt(puz.entries[0].position.x, puz.entries[0].position.y)
     .listeners.mousedown[0]({ preventDefault() {} });
-  assert(!box.classList.contains("hidden") && box.innerHTML === settled,
-    "and it stays, unchanged, when the grid is redrawn under it: " + box.innerHTML);
+  assert(!box.classList.contains("hidden") && said() === settled,
+    "and it stays, unchanged, when the grid is redrawn under it: " + said());
 
   // --- and the solve was counted, once per thing, not once per keystroke ---
   // A whole grid is hundreds of keystrokes and dozens of finished entries. If
@@ -3290,10 +3365,12 @@ global.realSetTimeout(() => {
   // Re-opening it shows the scoreline again — it is what you did to this
   // puzzle, and it reads the same next week — but throws no paper. The paper
   // is the moment; the sentence is the record.
-  assert(!box.classList.contains("hidden") && /<strong>\d+<\/strong> clues/.test(box.innerHTML),
-    "re-opening a puzzle you already finished still shows what you did: " + box.innerHTML);
-  assert(box.innerHTML.indexOf("class=\"paper\"") < 0,
-    "but does not throw paper at you a second time: " + box.innerHTML);
+  assert(!box.classList.contains("hidden") && /<strong>\d+<\/strong> clues/.test(said()),
+    "re-opening a puzzle you already finished still shows what you did: " + said());
+  // Asserted on the burst node, not by grepping the box for a class name that
+  // stopped existing years ago and so could never have failed.
+  assert(childOf("fireworks").innerHTML === "",
+    "but does not throw fireworks at you a second time: " + childOf("fireworks").innerHTML);
   // The same rule the celebration follows, in the counter: progress that was
   // already in the grid when it opened belongs to the session that made it.
   // Without this a returning solver's every visit would report a finished
@@ -3301,6 +3378,38 @@ global.realSetTimeout(() => {
   assert(reported(reopen).join(",") === "open",
     "re-opening a finished puzzle reports only that it was opened: "
       + reported(reopen).join(","));
+
+  // --- a burst nobody ever looked at is given up, and says so ---
+  // The other half of the observer. If the box never comes on screen the sparks
+  // must not be left in the page frozen at opacity 0, and — the part that cost
+  // the time — the four ways a burst can end must not all be the same nothing.
+  // Solved again from a reset, because that is the only way to a second, unseen
+  // burst; the same node holds it, which is why the abandon timer names the run
+  // it belongs to rather than trusting the node it finds.
+  {
+    registry["reset-puzzle"].onclick();
+    assert(box.classList.contains("hidden"), "clearing the grid takes the finish box with it");
+    const again = new Set();
+    for (const e of puz.entries) {
+      walk(e, (x, y, i) => {
+        const k = x + "," + y;
+        if (again.has(k)) return;
+        cellAt(x, y).listeners.mousedown[0]({ preventDefault() {} });
+        kd(ev(e.solution[i]));
+        again.add(k);
+      });
+    }
+    assert(childOf("fireworks") === burst && burst.classList.contains("hold"),
+      "solving it again after a reset earns a fresh burst in the same node: " + burst.className);
+    global.flushTimers(61000);
+    assert(burst.classList.contains("missed") && !burst.classList.contains("hold"),
+      "a burst nobody ever looked at is given up rather than burned into an empty "
+      + "screen, and the element says so: " + burst.className);
+    assert(burst.innerHTML === "",
+      "and its shells come out of the page rather than sitting there invisible: "
+      + burst.innerHTML);
+  }
+  global.fetch = realFetch;
 }
 
 // --- a single clue's own solve gets a gentle nod, once, only when typed ---

@@ -354,6 +354,44 @@ function boot(opts) {
     }
   };
 
+  // Modelled for the same reason the clock and the scroll are: the app asks an
+  // IntersectionObserver whether the finish box is on screen, and holds the
+  // fireworks until it says yes. Without one here `typeof IntersectionObserver
+  // !== "function"` was true on every run, so every test took the "no observer,
+  // burn now" branch — which meant the hold, the observer and the abandon, the
+  // three pieces of "I have never seen fireworks on iPad", were untested by
+  // construction rather than by choice.
+  //
+  // Nothing intersects on its own. A layout here has no compositor to notice it,
+  // and the test is the only thing that knows when the page has travelled, so
+  // the test fires the records.
+  const observers = [];
+  global.IntersectionObserver = class IntersectionObserver {
+    constructor(cb, options) {
+      this.cb = cb; this.options = options || {};
+      this.targets = []; this.live = true;
+      observers.push(this);
+    }
+    observe(el) { if (this.live && this.targets.indexOf(el) < 0) this.targets.push(el); }
+    unobserve(el) { const i = this.targets.indexOf(el); if (i >= 0) this.targets.splice(i, 1); }
+    disconnect() { this.live = false; this.targets = []; }
+    takeRecords() { return []; }
+  };
+  global.window.IntersectionObserver = global.IntersectionObserver;
+  // Tells every live observer watching el that it is (or is not) on screen, and
+  // returns how many were told — so a test can assert that something really is
+  // being watched, rather than pass because nothing happened.
+  global.intersect = (el, isIntersecting = true) => {
+    let told = 0;
+    for (const io of [...observers]) {
+      if (!io.live || io.targets.indexOf(el) < 0) continue;
+      told++;
+      io.cb([{ target: el, isIntersecting, intersectionRatio: isIntersecting ? 1 : 0 }], io);
+    }
+    return told;
+  };
+  global.watchersOf = (el) => observers.filter((io) => io.live && io.targets.indexOf(el) >= 0).length;
+
   // The sync panel's Copy button is the only way most people will move the code
   // to their other device. Without a clipboard here the harness can only reach
   // the "your browser won't let me" branch, which is the branch nobody uses.
