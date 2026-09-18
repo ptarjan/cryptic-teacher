@@ -103,11 +103,14 @@ GUARDIAN_SERIES = {
         # The Guardian ships no creator for these; the fallback byline is in
         # tools/series.py, along with the reason there isn't one.
         #
-        # It no longer ships the puzzles either. The Observer went to Tortoise
-        # Media in April 2025 and every everyman article page here 404s now,
-        # including the ones the series index still links to — the index page
-        # survived, which is why this looked alive. tools/fetch_observer.py
-        # fetches them from observer.co.uk instead.
+        # The Guardian's mirror of this series is bounded at both ends. No.
+        # 2,965 (2003-07-27) is the oldest page it holds and 4,096
+        # (2025-04-20) the newest; every number between the two still serves
+        # full clue data. 2,964 and below 404, and so does 4,097 and up — the
+        # Observer went to Tortoise Media in April 2025 and nothing it has
+        # published since is here. tools/fetch_observer.py fetches those from
+        # observer.co.uk. The series index page still links to them, so this
+        # looks alive from the index alone.
         #
         # The entry STAYS, because series_of() reads a puzzle's series off this
         # table and 4,096 puzzles on disk say "everyman". What it carries is the
