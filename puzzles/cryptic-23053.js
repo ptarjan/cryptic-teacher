@@ -24,8 +24,7 @@ window.CRYPTIC_PUZZLES["cryptic-23053"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 13,
-   "clue": " (13)",
-   "clueMissing": true,
+   "clue": "Spooner's slow cooker's stopper, bossy bird (4,2,3,4)",
    "separatorLocations": {},
    "solution": "COCKOFTHEWALK",
    "annotation": null
@@ -39,8 +38,7 @@ window.CRYPTIC_PUZZLES["cryptic-23053"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "In one-day cricket, failed when breathalysed (4,5)",
    "separatorLocations": {},
    "solution": "OVERLIMIT",
    "annotation": null
@@ -54,8 +52,7 @@ window.CRYPTIC_PUZZLES["cryptic-23053"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "Concept of Destiny that's made a mark (5)",
    "separatorLocations": {},
    "solution": "KARMA",
    "annotation": null
@@ -69,8 +66,7 @@ window.CRYPTIC_PUZZLES["cryptic-23053"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "Note given to Ralph by Barbara, both on stage (5)",
    "separatorLocations": {},
    "solution": "FLYNN",
    "annotation": null
@@ -84,8 +80,7 @@ window.CRYPTIC_PUZZLES["cryptic-23053"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "Yank queen in love: for silence one must pay (4,5)",
    "separatorLocations": {},
    "solution": "HUSHMONEY",
    "annotation": null
@@ -99,8 +94,7 @@ window.CRYPTIC_PUZZLES["cryptic-23053"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "Glutton whose booze holds gun whence Rev must fly (9)",
    "separatorLocations": {},
    "solution": "WOLVERINE",
    "annotation": null
@@ -114,8 +108,7 @@ window.CRYPTIC_PUZZLES["cryptic-23053"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "Had inclination for a fast, d'ye hark? (5)",
    "separatorLocations": {},
    "solution": "LEANT",
    "annotation": null
@@ -129,8 +122,7 @@ window.CRYPTIC_PUZZLES["cryptic-23053"] = /*JSON-START*/ {
     "y": 1
    },
    "length": 13,
-   "clue": " (13)",
-   "clueMissing": true,
+   "clue": "A tease for weight: could be the mind's the master's (4,9)",
    "separatorLocations": {},
    "solution": "QUIZPROGRAMME",
    "annotation": null
@@ -144,8 +136,11 @@ window.CRYPTIC_PUZZLES["cryptic-23053"] = /*JSON-START*/ {
     "y": 1
    },
    "length": 13,
-   "clue": " (13)",
-   "clueMissing": true,
+   "clue": "See 13 (7,6)",
+   "group": [
+    "13-across",
+    "9-down"
+   ],
    "separatorLocations": {},
    "solution": "DOWNINGSTREET",
    "annotation": null
@@ -159,8 +154,7 @@ window.CRYPTIC_PUZZLES["cryptic-23053"] = /*JSON-START*/ {
     "y": 2
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "So is the lark - you hark - at heaven's gates (2,5)",
    "separatorLocations": {},
    "solution": "UPEARLY",
    "annotation": null
@@ -174,8 +168,7 @@ window.CRYPTIC_PUZZLES["cryptic-23053"] = /*JSON-START*/ {
     "y": 2
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Disposed of trouble, one who fought in Spain (7)",
    "separatorLocations": {},
    "solution": "SOLDADO",
    "annotation": null
@@ -189,8 +182,7 @@ window.CRYPTIC_PUZZLES["cryptic-23053"] = /*JSON-START*/ {
     "y": 4
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "Scott's wife's last shrub is heard (Scots disagree) (5)",
    "separatorLocations": {},
    "solution": "ZELDA",
    "annotation": null
@@ -204,8 +196,11 @@ window.CRYPTIC_PUZZLES["cryptic-23053"] = /*JSON-START*/ {
     "y": 4
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "Anaesthetist, nurse having organised a tester, is for leader authorised (6,3,7,6)",
+   "group": [
+    "13-across",
+    "9-down"
+   ],
    "separatorLocations": {},
    "solution": "NUMBERTEN",
    "annotation": null
@@ -219,8 +214,7 @@ window.CRYPTIC_PUZZLES["cryptic-23053"] = /*JSON-START*/ {
     "y": 6
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "King holding road - record the song again (5)",
    "separatorLocations": {},
    "solution": "REMIX",
    "annotation": null
@@ -234,10 +228,9 @@ window.CRYPTIC_PUZZLES["cryptic-23053"] = /*JSON-START*/ {
     "y": 6
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "Unknowns keep queen round duke: hence home and dry (9)",
    "separatorLocations": {},
-   "solution": "XETOPHILY",
+   "solution": "XEROPHILY",
    "annotation": null
   },
   {
@@ -249,8 +242,7 @@ window.CRYPTIC_PUZZLES["cryptic-23053"] = /*JSON-START*/ {
     "y": 6
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "See the last first? Not I in jumble sale (9)",
    "separatorLocations": {},
    "solution": "VENDITION",
    "annotation": null
@@ -264,8 +256,7 @@ window.CRYPTIC_PUZZLES["cryptic-23053"] = /*JSON-START*/ {
     "y": 6
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "Of journeys made by Ivor with a tail (9)",
    "separatorLocations": {},
    "solution": "VIATORIAL",
    "annotation": null
@@ -279,8 +270,7 @@ window.CRYPTIC_PUZZLES["cryptic-23053"] = /*JSON-START*/ {
     "y": 6
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "Turned in, rolled close - with unit loved to play (9)",
    "separatorLocations": {},
    "solution": "INVOLUTED",
    "annotation": null
@@ -294,10 +284,9 @@ window.CRYPTIC_PUZZLES["cryptic-23053"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "Prepares, if year were good, for yesterday (4,5)",
    "separatorLocations": {},
-   "solution": "GETSTEADY",
+   "solution": "GETSREADY",
    "annotation": null
   },
   {
@@ -309,8 +298,7 @@ window.CRYPTIC_PUZZLES["cryptic-23053"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "He strangely lives, this royal personage (5)",
    "separatorLocations": {},
    "solution": "ELVIS",
    "annotation": null
@@ -324,8 +312,7 @@ window.CRYPTIC_PUZZLES["cryptic-23053"] = /*JSON-START*/ {
     "y": 10
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "Two girls: we hear them singing side by side (9)",
    "separatorLocations": {},
    "solution": "ANTIPHONY",
    "annotation": null
@@ -339,8 +326,7 @@ window.CRYPTIC_PUZZLES["cryptic-23053"] = /*JSON-START*/ {
     "y": 10
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "No company for Graces or for Fates (5)",
    "separatorLocations": {},
    "solution": "THREE",
    "annotation": null
@@ -354,8 +340,7 @@ window.CRYPTIC_PUZZLES["cryptic-23053"] = /*JSON-START*/ {
     "y": 10
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "Persist with bark for shrub producing tea (5)",
    "separatorLocations": {},
    "solution": "YAPON",
    "annotation": null
@@ -369,8 +354,7 @@ window.CRYPTIC_PUZZLES["cryptic-23053"] = /*JSON-START*/ {
     "y": 10
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "By this boat's emptied and a stack supplied (5)",
    "separatorLocations": {},
    "solution": "BALER",
    "annotation": null
@@ -384,8 +368,7 @@ window.CRYPTIC_PUZZLES["cryptic-23053"] = /*JSON-START*/ {
     "y": 10
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "Toby postprandially may be heard (5)",
    "separatorLocations": {},
    "solution": "BELCH",
    "annotation": null
@@ -399,8 +382,7 @@ window.CRYPTIC_PUZZLES["cryptic-23053"] = /*JSON-START*/ {
     "y": 12
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Just swallow one: a dry one is advised (7)",
    "separatorLocations": {},
    "solution": "MARTINI",
    "annotation": null
@@ -414,8 +396,7 @@ window.CRYPTIC_PUZZLES["cryptic-23053"] = /*JSON-START*/ {
     "y": 12
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "The painter's, not the stacker's nor the taster's (7)",
    "separatorLocations": {},
    "solution": "PALETTE",
    "annotation": null
@@ -429,8 +410,7 @@ window.CRYPTIC_PUZZLES["cryptic-23053"] = /*JSON-START*/ {
     "y": 14
    },
    "length": 13,
-   "clue": " (13)",
-   "clueMissing": true,
+   "clue": "In one united gardener with park (6,3,4)",
    "separatorLocations": {},
    "solution": "JEKYLLANDHYDE",
    "annotation": null
