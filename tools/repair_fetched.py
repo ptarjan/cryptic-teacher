@@ -51,8 +51,10 @@ it was given — cryptic-23,816's 9-across TREAD "(5,3,6)" over five cells, with
 BOARDS in 10-across under the clue "See above" and in no group at all.
 fetch_puzzle.reconstruct_groups puts back the lights the counts cut into, taking
 only lights the paper itself left spare (a pointer naming the clue, or no clue at
-all) and only when exactly one membership fits the enumeration. Two readings that
-both add up are left alone: a guess would be stored as fact.
+all) and only when the enumeration settles which — one membership that fits it,
+or, where several hold the letters it counts, the one the clue list puts next
+after the clue. A tie that survives both is left alone: a guess would be stored
+as fact.
 
 WHAT IT ONLY REPORTS
 

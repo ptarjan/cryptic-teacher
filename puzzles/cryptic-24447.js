@@ -241,7 +241,8 @@ window.CRYPTIC_PUZZLES["cryptic-24447"] = /*JSON-START*/ {
    "group": [
     "13-across",
     "16-down",
-    "24-across"
+    "24-across",
+    "18-down"
    ],
    "separatorLocations": {
     ",": [
@@ -292,7 +293,8 @@ window.CRYPTIC_PUZZLES["cryptic-24447"] = /*JSON-START*/ {
    "group": [
     "13-across",
     "16-down",
-    "24-across"
+    "24-across",
+    "18-down"
    ],
    "separatorLocations": {
     ",": [
@@ -333,7 +335,13 @@ window.CRYPTIC_PUZZLES["cryptic-24447"] = /*JSON-START*/ {
    "clueMissing": true,
    "separatorLocations": {},
    "solution": "DRY",
-   "annotation": null
+   "annotation": null,
+   "group": [
+    "13-across",
+    "16-down",
+    "24-across",
+    "18-down"
+   ]
   },
   {
    "id": "19-across",
@@ -444,7 +452,8 @@ window.CRYPTIC_PUZZLES["cryptic-24447"] = /*JSON-START*/ {
    "group": [
     "13-across",
     "16-down",
-    "24-across"
+    "24-across",
+    "18-down"
    ],
    "separatorLocations": {},
    "solution": "AND",

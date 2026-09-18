@@ -152,9 +152,9 @@ PUBLISHED_WRONG = {
 # The LENGTH findings that are a light the Guardian never linked, not a mistake in
 # either the clue or the grid: the enumeration counts letters that live somewhere
 # else in the puzzle, and the only lights available for them already belong to a
-# different answer, are still carrying their own separate clue, or are unclued but
-# not nameable without guessing among more than one candidate or a bare count
-# spanning two lights. This repo's rule is to leave a light exactly as published —
+# different answer, are still carrying their own separate clue, or do not exist at
+# all — no light in the grid is blank, spare or grouped toward the missing
+# letters. This repo's rule is to leave a light exactly as published —
 # reconstructing the missing connection would be inventing a fact the paper never
 # printed, so these can never be cleared by a fetcher or a repair pass either.
 #
@@ -217,10 +217,6 @@ UNLINKED_IN_SOURCE = dict([
     (("cryptic-24640", "17-across: clue says (5,3,5) = 13, answer holds 5"),
      "the NEW and WORLD that would make BRAVE NEW WORLD are already spent on "
      "18/20/31-across's NEW WORLD ORDER"),
-    (("cryptic-24587", "15-across: clue says (8) = 8, answer holds 4"),
-     "16-across MARK is unclued and exactly the length HALLMARK is short, but "
-     "nothing links it to 15-across and recruiting it would be a connection the "
-     "paper never printed"),
     (("cryptic-24575",
       "9-across + 18-down + 7-down + 16-down + 19-across + 29-across: "
       "clue says (3,4,2,3,8,3,3,9,3,5,3,5) = 51, answer holds 9 alone or 42 "
@@ -237,12 +233,6 @@ UNLINKED_IN_SOURCE = dict([
     (("cryptic-24496", "19-down: clue says (13) = 13, answer holds 7"),
      "no light in this grid is blank, spare, or grouped toward the six missing "
      "letters"),
-    (("cryptic-24447",
-      "13-across + 16-down + 24-across: clue says (3,3,6) = 12, answer holds 3 "
-      "alone or 9 linked"),
-     "18-down DRY is unclued and exactly the length ALL AND SUNDRY is short, but "
-     "nothing links it to this group and recruiting it would be a connection the "
-     "paper never printed"),
     (("cryptic-24411", "4-down: clue says (4,4) = 8, answer holds 4"),
      "no light in this grid is blank, spare, or grouped toward the four missing "
      "letters"),
@@ -353,13 +343,6 @@ UNLINKED_IN_SOURCE = dict([
     (("cryptic-23625", "8-across: clue says (4,4,5) = 13, answer holds 8"),
      "no light in this grid is blank, spare, or grouped toward the five missing "
      "letters"),
-    (("cryptic-23609", "7-down: clue says (8) = 8, answer holds 4"),
-     "MIST's neighbour 8-down RUST is unclued and the right length, but a bare "
-     "(8) is one unbroken word and cannot be assembled by reading across two "
-     "separate lights"),
-    (("cryptic-23609", "22-down: clue says (4,4) = 8, answer holds 4"),
-     "BACK has more than one unclued four-cell light in this grid it could pair "
-     "with; nothing in the data says which"),
     (("cryptic-23559",
       "7-down: clue says (1,4-2,3,3,4) = 17, answer holds 13"),
      "no light in this grid is blank, spare, or grouped toward the four missing "

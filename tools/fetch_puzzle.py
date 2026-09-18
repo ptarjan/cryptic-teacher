@@ -871,6 +871,48 @@ def _word_splits(counts, lengths):
     return sum(1 for cut in itertools.accumulate(lengths[:-1]) if cut not in edges)
 
 
+def _continues_it(lead, candidates, by_id):
+    """Which of these sets of spare lights the clue list says is `lead`'s
+    continuation, or None if it does not say.
+
+    Asked only when the arithmetic leaves more than one reading — several sets of
+    spare lights each holding exactly the letters the enumeration counts — and it
+    is the clue list's own order that tells them apart: a leg the paper left
+    unclued is one whose "See 7" went missing, and the clue it continues was
+    printed EARLIER in the numbering. Every blank leg in the corpus is arranged
+    that way, and ten of the twelve continue the clue immediately before them in
+    their own direction.
+
+    So a set is a candidate only if every light in it is numbered after the lead,
+    and the one taken is the set that stays nearest to it — cryptic-23609 prints
+    "Doubt if small droplets corrode (8)" at 7-down over four cells with two
+    unclued four-cell lights in the grid, 8-down and 23-down, and MIST is finished
+    by the RUST beside it, not by the DOWN eleven rows below that finishes
+    22-down's "Pull out tail feathers (4,4)".
+
+    Nearest means the set that reaches least far down the clue list, ties broken
+    by the total distance, and a tie that survives both is not settled: two
+    readings equally far from the lead are two answers this data cannot tell
+    apart, and the enumeration is left to keep failing where
+    tools/puzzle_integrity.py reports it.
+    """
+    reach = {}
+    for extra in candidates:
+        gaps = [by_id[m]["number"] - lead["number"] for m in extra]
+        if min(gaps) > 0:
+            reach[extra] = (max(gaps), sum(gaps))
+    if not reach:
+        return None
+    nearest = min(reach.values())
+    winners = [extra for extra, r in reach.items() if r == nearest]
+    if len(winners) != 1:
+        return None
+    print(f"WARNING: {lead['id']}: {len(candidates)} sets of spare lights hold the "
+          f"letters it counts; taking {' + '.join(sorted(winners[0]))}, the one "
+          "that follows it in the clue list", file=sys.stderr)
+    return winners[0]
+
+
 def reconstruct_groups(entries, series):
     """Put back the lights a linked answer's enumeration counts and its group lost.
     Returns the rebuilt groups, one list of lights per group.
@@ -886,11 +928,14 @@ def reconstruct_groups(entries, series):
     The lights that may be put back are the spare ones — see _spare_light — and
     the enumeration is what chooses among them: a Guardian leading clue counts the
     whole answer word by word, so the lights of that answer are the ones its counts
-    cut into (_cuts_into), one light per run of words. A membership is taken only
-    when it is the ONLY one that cuts. Two readings that both add up are two
-    answers this data cannot tell apart, and a guess between them would be written
-    into the file as fact; the enumeration keeps failing to match instead, where
-    tools/puzzle_integrity.py reports it.
+    cut into (_cuts_into), one light per run of words. A membership is taken when
+    it is the ONLY one that cuts, or — for the answers whose words straddle two
+    lights, where nothing cuts at all — the only one that adds up. Several
+    readings that all add up are separated by _continues_it, on the clue list's
+    own order; a tie it declines to settle is two answers this data cannot tell
+    apart, and a guess between them would be written into the file as fact, so the
+    enumeration keeps failing to match instead, where tools/puzzle_integrity.py
+    reports it.
 
     Order comes from the enumeration too when it is settled, and otherwise from
     reconcile_groups' rule — the stated order kept and the newcomers appended in
@@ -940,21 +985,28 @@ def reconstruct_groups(entries, series):
                                                  for m in (lead["id"], *rest)])]
                 if orders:
                     fits[frozenset(extra)] = orders
-        if len(fits) == 1:
-            (extra, orders), = fits.items()
-        elif not fits and len(adds_up) == 1:
-            # The letters are all accounted for and only one set of lights can
-            # hold them, but no arrangement puts a light boundary on every word
-            # boundary — because a WORD is split across two lights. Quiptic
-            # 306's "(13)" is WOOL over 16-across and GATHERING over 17-across,
-            # one word in two halves, and cryptic-23182's "(5,3,4,5)" cuts START
-            # ALL into STAR and TALL. _cuts_into is a word-boundary test, so it
-            # can only refuse these; the arithmetic is what settles membership
-            # and it is unambiguous here. Order is then the arrangement that
-            # splits the fewest words, and a tie falls through to the stated
-            # order as everywhere else — a display question, asked after
-            # membership is already right.
-            (extra, arrangements), = adds_up.items()
+        if fits:
+            extra = (next(iter(fits)) if len(fits) == 1
+                     else _continues_it(lead, fits, by_id))
+            if extra is None:
+                continue
+            orders = fits[extra]
+        elif adds_up:
+            # The letters are all accounted for, but no arrangement puts a light
+            # boundary on every word boundary — because a WORD is split across
+            # two lights. Quiptic 306's "(13)" is WOOL over 16-across and
+            # GATHERING over 17-across, one word in two halves, and
+            # cryptic-23182's "(5,3,4,5)" cuts START ALL into STAR and TALL.
+            # _cuts_into is a word-boundary test, so it can only refuse these;
+            # the arithmetic is what settles membership. Order is then the
+            # arrangement that splits the fewest words, and a tie falls through
+            # to the stated order as everywhere else — a display question, asked
+            # after membership is already right.
+            extra = (next(iter(adds_up)) if len(adds_up) == 1
+                     else _continues_it(lead, adds_up, by_id))
+            if extra is None:
+                continue
+            arrangements = adds_up[extra]
             splits = {rest: _word_splits(counts, [by_id[m]["length"]
                                                   for m in (lead["id"], *rest)])
                       for rest in arrangements}

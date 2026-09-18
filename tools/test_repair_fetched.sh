@@ -197,18 +197,37 @@ write("cryptic", 111, base + 11 * DAY, [
           "Some relaxation in store - for 8? (6,7)", "RETAIL"),
     entry("19-across", 19, "across", 0, 10, 7, "", "THERAPY")])
 
-# 112 — cryptic-23,609, which holds both ways of not being able to say. BACK DOWN
-# is counted "(4,4)" over four cells and the puzzle has TWO unclued four-cell
-# lights: both readings cut the enumeration exactly, so the data does not say which
-# is the answer. MISTRUST is counted "(8)" over four cells, and no reading cuts at
-# all, because an enumerated word cannot be split across two lights. Zero fits or
-# several, nothing is written and the count goes on contradicting itself in
-# tools/puzzle_integrity.py, where somebody can see it.
+# 112 — cryptic-23,609, where the arithmetic alone cannot say and the clue list
+# can. Two answers of eight letters over four cells each, and TWO unclued
+# four-cell lights to finish them with: every reading adds up, so the counts
+# settle nothing on their own. What settles it is that an unclued leg continues
+# the clue printed before it — MIST takes the RUST at 8-down, BACK the DOWN at
+# 23-down. MISTRUST's "(8)" is also a word split across two lights, so it arrives
+# by the arithmetic path with nothing cutting cleanly at all.
 write("cryptic", 112, base + 12 * DAY, [
     entry("7-down", 7, "down", 2, 0, 4, "Doubt if small droplets corrode (8)", "MIST"),
     entry("22-down", 22, "down", 8, 0, 4, "Pull out tail feathers (4,4)", "BACK"),
     entry("8-down", 8, "down", 4, 0, 4, "", "RUST"),
     entry("23-down", 23, "down", 6, 0, 4, "", "DOWN")])
+
+# 116 — 112's shape with the clue printed last: both unclued lights are numbered
+# BEFORE the count that would take one of them. A leg the paper left unclued lost
+# a pointer to a clue earlier in the list, so neither of these is this clue's, and
+# nothing is written.
+write("cryptic", 116, base + 16 * DAY, [
+    entry("8-down", 8, "down", 4, 0, 4, "", "RUST"),
+    entry("23-down", 23, "down", 6, 0, 4, "", "DOWN"),
+    entry("24-down", 24, "down", 8, 0, 4, "Pull out tail feathers (4,4)", "BACK")])
+
+# 117 — and 112's shape with the two unclued lights the same distance away,
+# sharing the cell that numbers them both. The clue list puts neither nearer than
+# the other, so it says no more than the arithmetic does and nothing is written:
+# the count goes on contradicting itself in tools/puzzle_integrity.py, where
+# somebody can see it.
+write("cryptic", 117, base + 17 * DAY, [
+    entry("7-down", 7, "down", 2, 0, 4, "Pull out tail feathers (4,4)", "BACK"),
+    entry("8-across", 8, "across", 0, 4, 4, "", "DOWN"),
+    entry("8-down", 8, "down", 0, 4, 4, "", "RUST")])
 
 # 113 — cryptic-24,951: SET THE CAT AMONG THE PIGEONS "(3,3,3,5,3,7)" needs the THE
 # in 24-across, and the paper has already spent that light on LET THE DOG SEE THE
@@ -421,14 +440,34 @@ same "RESERVE RATIOS and RETAIL THERAPY, not crossed over" \
   '[["13-across", ["13-across", "15-across"]], ["15-across", ["13-across", "15-across"]], ["17-across", ["17-across", "19-across"]], ["19-across", ["17-across", "19-across"]]]'
 absent "$(one cryptic-111)" "cryptic-111:" "clean on the second run"
 
-echo "two readings that both add up mean the data does not say, so nothing is written"
-before=$(cksum < "$work/puzzles/cryptic-112.js")
-out=$(one cryptic-112 --apply)
-absent "$out" "cryptic-112" "an ambiguous reconstruction is not a repair"
+echo "when several readings add up, the unclued leg belongs to the clue before it"
+out=$(one cryptic-112)
+check "$out" "2 linked answer(s) reassembled: 22-down + 23-down, 7-down + 8-down" \
+  "each count takes the unclued light that follows it, not the other one"
+check "$out" "WARNING: 7-down: 2 sets of spare lights hold the letters it counts" \
+  "warned on stderr, saying the choice was made and how"
+one cryptic-112 --apply >/dev/null
+same "MISTRUST and BACK DOWN, not crossed over" "$(groups puzzles/cryptic-112.js)" \
+  '[["7-down", ["7-down", "8-down"]], ["22-down", ["22-down", "23-down"]], ["8-down", ["7-down", "8-down"]], ["23-down", ["22-down", "23-down"]]]'
+absent "$(one cryptic-112)" "cryptic-112:" "clean on the second run"
+
+echo "an unclued light numbered before the clue is not that clue's continuation"
+before=$(cksum < "$work/puzzles/cryptic-116.js")
+out=$(one cryptic-116 --apply)
+absent "$out" "cryptic-116" "nothing follows the count, so nothing is reassembled"
 same "byte-identical after a repair run" \
-  "$(cksum < "$work/puzzles/cryptic-112.js")" "$before"
-same "all four lights are left as published" "$(groups puzzles/cryptic-112.js)" \
-  '[["7-down", null], ["22-down", null], ["8-down", null], ["23-down", null]]'
+  "$(cksum < "$work/puzzles/cryptic-116.js")" "$before"
+same "all three lights are left as published" "$(groups puzzles/cryptic-116.js)" \
+  '[["8-down", null], ["23-down", null], ["24-down", null]]'
+
+echo "two readings the clue list cannot separate mean the data does not say"
+before=$(cksum < "$work/puzzles/cryptic-117.js")
+out=$(one cryptic-117 --apply)
+absent "$out" "cryptic-117" "an ambiguous reconstruction is not a repair"
+same "byte-identical after a repair run" \
+  "$(cksum < "$work/puzzles/cryptic-117.js")" "$before"
+same "all three lights are left as published" "$(groups puzzles/cryptic-117.js)" \
+  '[["7-down", null], ["8-across", null], ["8-down", null]]'
 
 echo "a light already in somebody else's answer is not taken for this one"
 before=$(cksum < "$work/puzzles/cryptic-113.js")
