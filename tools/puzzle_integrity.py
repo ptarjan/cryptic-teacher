@@ -80,8 +80,8 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from apply_solution import check_fill, normalise  # noqa: E402 — the crossing check
 from fetch_puzzle import (ENUMERATION, PER_LIGHT_ENUMERATION,  # noqa: E402
-                          PUZZLE_DIR, is_bare_letters, is_continuation,
-                          read_puzzle_file, reindex)
+                          PUZZLE_DIR, has_words, is_bare_letters,
+                          is_continuation, read_puzzle_file, reindex)
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -408,7 +408,7 @@ def check_shape(puzzle, today, flags):
     # answers came off a prize puzzle's solution page and the clue text lives on
     # /crosswords/prize/<n>, not /crosswords/cryptic/<n>, and in the printable PDF
     # beside it. So this reports until someone goes and gets the clues.
-    if not any(ENUMERATION.sub("", e.get("clue") or "").strip() for e in entries):
+    if not any(has_words(e.get("clue")) for e in entries):
         flags.append(("SHAPE", pid, f"all {len(entries)} clues are blank"))
 
     seen, checkable = set(), []
@@ -418,9 +418,16 @@ def check_shape(puzzle, today, flags):
             flags.append(("SHAPE", pid, f"entry id {eid} appears twice"))
         seen.add(eid)
 
-        # A clue is its words. Strip the enumeration before judging it empty, so
-        # " (1,6,3,1,4)" — an entry the fetcher got the count for and not the text —
-        # reads as the blank it is.
+        # A clue is its words. has_words is the one definition of "the paper
+        # printed nothing here" — the same rule fetch_puzzle.convert() uses to
+        # set clueMissing at fetch time — so this reads the words off the same
+        # test rather than reimplementing a stripped-enumeration check that can
+        # drift from it. It did drift: cyclops-309's 17-across is "(see 3dn.)",
+        # a bare cross-reference wholly inside one parenthesis and a whole clue
+        # by has_words' own rule ("A bare cross-reference is a whole clue"), but
+        # the old ENUMERATION.sub(...).strip() check here matched the whole
+        # parenthesis as if it were an enumeration and stripped it to nothing,
+        # reporting a real clue as blank.
         #
         # Unless the paper printed it blank, which setters do as the trick itself:
         # cryptic-30098's 12-across is wordless so that its own number is the only
@@ -432,7 +439,7 @@ def check_shape(puzzle, today, flags):
         # rather than guessing again from the text and reaching a different
         # verdict. An unmarked blank clue is still a defect and still reported.
         clue = e.get("clue") or ""
-        if not e.get("clueMissing") and not ENUMERATION.sub("", clue).strip():
+        if not e.get("clueMissing") and not has_words(clue):
             flags.append(("SHAPE", pid, f"{eid}: clue is blank"))
 
         solution = e.get("solution")
