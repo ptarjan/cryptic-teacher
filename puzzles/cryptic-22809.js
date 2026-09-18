@@ -24,8 +24,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 12,
-   "clue": " (12)",
-   "clueMissing": true,
+   "clue": "Swineherds take Jacques on for colouring (12)",
    "separatorLocations": {},
    "solution": "PIGMENTATION",
    "annotation": null
@@ -39,8 +38,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 10,
-   "clue": " (10)",
-   "clueMissing": true,
+   "clue": "You are heard during breakfast - tea brewed after it - throw up! (10)",
    "separatorLocations": {},
    "solution": "EGURGITATE",
    "annotation": null
@@ -54,8 +52,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "Time to erect building finishing with hall, wall and all, perhaps (6)",
    "separatorLocations": {},
    "solution": "TERCET",
    "annotation": null
@@ -69,8 +66,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "Images of ideal characters with nothing in them (6)",
    "separatorLocations": {},
    "solution": "EIDOLA",
    "annotation": null
@@ -84,8 +80,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "Water plants in stampedes (6)",
    "separatorLocations": {},
    "solution": "RUSHES",
    "annotation": null
@@ -99,8 +94,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "President of 54 2 43 (6)",
    "separatorLocations": {},
    "solution": "REAGAN",
    "annotation": null
@@ -114,8 +108,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "Primate swallowing drink - one can't decline it (6)",
    "separatorLocations": {},
    "solution": "APTOTE",
    "annotation": null
@@ -129,8 +122,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "Blow this for a meal! (6)",
    "separatorLocations": {},
    "solution": "BUFFET",
    "annotation": null
@@ -144,8 +136,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 10,
-   "clue": " (10)",
-   "clueMissing": true,
+   "clue": "Account for surprised expression - be lovey-dovey (4,3,3)",
    "separatorLocations": {},
    "solution": "BILLANDCOO",
    "annotation": null
@@ -159,8 +150,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 8,
-   "clue": " (8)",
-   "clueMissing": true,
+   "clue": "Fashionable place to play golf as ordered (2,6)",
    "separatorLocations": {},
    "solution": "INCOURSE",
    "annotation": null
@@ -174,8 +164,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 1
    },
    "length": 12,
-   "clue": " (12)",
-   "clueMissing": true,
+   "clue": "Certain about fireplace with fruit, having a little 43 (6-6)",
    "separatorLocations": {},
    "solution": "SINGLEFIGURE",
    "annotation": null
@@ -189,8 +178,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 1
    },
    "length": 8,
-   "clue": " (8)",
-   "clueMissing": true,
+   "clue": "Insurance company's interchanged with improper interest (8)",
    "separatorLocations": {},
    "solution": "PRURIENT",
    "annotation": null
@@ -204,8 +192,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 3
    },
    "length": 10,
-   "clue": " (10)",
-   "clueMissing": true,
+   "clue": "Smoother English form of mercy with reluctant following (5,5)",
    "separatorLocations": {},
    "solution": "EMERYCLOTH",
    "annotation": null
@@ -219,8 +206,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 3
    },
    "length": 10,
-   "clue": " (10)",
-   "clueMissing": true,
+   "clue": "Jolly Robin (10)",
    "separatorLocations": {},
    "solution": "GOODFELLOW",
    "annotation": null
@@ -234,8 +220,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 5
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "Charge to write as spoken (6)",
    "separatorLocations": {},
    "solution": "INDICT",
    "annotation": null
@@ -249,8 +234,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 5
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Being 5 reportedly warms the heart (7)",
    "separatorLocations": {},
    "solution": "ABSENCE",
    "annotation": null
@@ -264,8 +248,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 5
    },
    "length": 3,
-   "clue": " (3)",
-   "clueMissing": true,
+   "clue": "Feathered reptile? (3)",
    "separatorLocations": {},
    "solution": "BOA",
    "annotation": null
@@ -279,11 +262,14 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 5
    },
    "length": 3,
-   "clue": " (3)",
-   "clueMissing": true,
+   "clue": "Prophet in the list repeated in St Matthew Passion (3,3)",
    "separatorLocations": {},
    "solution": "ELI",
-   "annotation": null
+   "annotation": null,
+   "group": [
+    "18-down",
+    "42-across"
+   ]
   },
   {
    "id": "19-down",
@@ -294,8 +280,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 5
    },
    "length": 3,
-   "clue": " (3)",
-   "clueMissing": true,
+   "clue": "Two, they say, with love from 8 (3)",
    "separatorLocations": {},
    "solution": "COO",
    "annotation": null
@@ -309,8 +294,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 5
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "Religious writings for pets, if the pet was Latin? (6)",
    "separatorLocations": {},
    "solution": "TANTRA",
    "annotation": null
@@ -324,8 +308,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 7
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "A little sleep and singular charity is a destructive agent (6)",
    "separatorLocations": {},
    "solution": "NAPALM",
    "annotation": null
@@ -339,8 +322,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 7
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Performance with jacket (7)",
    "separatorLocations": {},
    "solution": "MATINEE",
    "annotation": null
@@ -354,8 +336,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 7
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Deer featured in our first ABC (7)",
    "separatorLocations": {},
    "solution": "CARIBOU",
    "annotation": null
@@ -369,8 +350,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 7
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Taxi containing politician and journalist could take sleeper (4,3)",
    "separatorLocations": {},
    "solution": "CAMPBED",
    "annotation": null
@@ -384,8 +364,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 7
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "King takes tea delivered outside (7)",
    "separatorLocations": {},
    "solution": "RICHARD",
    "annotation": null
@@ -399,8 +378,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 7
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Scottish sexton left after bedtime (7)",
    "separatorLocations": {},
    "solution": "BEDERAL",
    "annotation": null
@@ -414,8 +392,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 7
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Naughty minx due to become pure (7)",
    "separatorLocations": {},
    "solution": "UNMIXED",
    "annotation": null
@@ -429,8 +406,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 7
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "Holder kicked on the way out (6)",
    "separatorLocations": {},
    "solution": "BUCKET",
    "annotation": null
@@ -444,8 +420,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 7
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Changes to cabin, maybe, for gardens (7)",
    "separatorLocations": {},
    "solution": "BOTANIC",
    "annotation": null
@@ -459,8 +434,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 3,
-   "clue": " (3)",
-   "clueMissing": true,
+   "clue": "Ismaili leader's range (3)",
    "separatorLocations": {},
    "solution": "AGA",
    "annotation": null
@@ -474,8 +448,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 3,
-   "clue": " (3)",
-   "clueMissing": true,
+   "clue": "One-off rival to Esperanto (3)",
    "separatorLocations": {},
    "solution": "NEO",
    "annotation": null
@@ -489,8 +462,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 9
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "Riviera city street at its most agreeable (6)",
    "separatorLocations": {},
    "solution": "NICEST",
    "annotation": null
@@ -504,8 +476,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 9
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Road man, no gentleman, interrupts address to the Queen (7)",
    "separatorLocations": {},
    "solution": "MACADAM",
    "annotation": null
@@ -519,8 +490,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 9
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "Heard scouts are actors (6)",
    "separatorLocations": {},
    "solution": "TROUPE",
    "annotation": null
@@ -534,8 +504,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 9
    },
    "length": 12,
-   "clue": " (12)",
-   "clueMissing": true,
+   "clue": "Piano and pipe go round with sure winner, as already settled (12)",
    "separatorLocations": {},
    "solution": "PRECONCERTED",
    "annotation": null
@@ -549,8 +518,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 10
    },
    "length": 3,
-   "clue": " (3)",
-   "clueMissing": true,
+   "clue": "Single member from hell? (3)",
    "separatorLocations": {},
    "solution": "IMP",
    "annotation": null
@@ -564,8 +532,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 10
    },
    "length": 3,
-   "clue": " (3)",
-   "clueMissing": true,
+   "clue": "Princess's mount (3)",
    "separatorLocations": {},
    "solution": "IDA",
    "annotation": null
@@ -579,8 +546,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 11
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "International body's wordplay not treated by doctors? (6)",
    "separatorLocations": {},
    "solution": "UNSPUN",
    "annotation": null
@@ -594,8 +560,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 11
    },
    "length": 10,
-   "clue": " (10)",
-   "clueMissing": true,
+   "clue": "Jacket for cook taking a shot at work with fish (6,4)",
    "separatorLocations": {},
    "solution": "POTATOPEEL",
    "annotation": null
@@ -609,8 +574,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 11
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Chastise farceur for pottery (7)",
    "separatorLocations": {},
    "solution": "BEATRIX",
    "annotation": null
@@ -624,8 +588,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 11
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "Crunchable anaesthetic (6)",
    "separatorLocations": {},
    "solution": "NUMBER",
    "annotation": null
@@ -639,8 +602,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 11
    },
    "length": 10,
-   "clue": " (10)",
-   "clueMissing": true,
+   "clue": "We leave poet keeping on sleuth on the Riviera (5,5)",
    "separatorLocations": {},
    "solution": "MONTECARLO",
    "annotation": null
@@ -654,8 +616,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 12
    },
    "length": 3,
-   "clue": " (3)",
-   "clueMissing": true,
+   "clue": "Araucaria's spoken to detective (3)",
    "separatorLocations": {},
    "solution": "EYE",
    "annotation": null
@@ -669,11 +630,14 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 12
    },
    "length": 3,
-   "clue": " (3)",
-   "clueMissing": true,
+   "clue": "See 18 (3)",
    "separatorLocations": {},
    "solution": "ELI",
-   "annotation": null
+   "annotation": null,
+   "group": [
+    "18-down",
+    "42-across"
+   ]
   },
   {
    "id": "43-across",
@@ -684,8 +648,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 13
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "Coward spirit? Best start supple (6)",
    "separatorLocations": {},
    "solution": "BLITHE",
    "annotation": null
@@ -699,8 +662,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 13
    },
    "length": 8,
-   "clue": " (8)",
-   "clueMissing": true,
+   "clue": "Convenience multiplied by character from \"Watch with Mother\" (5,3)",
    "separatorLocations": {},
    "solution": "LOOBYLOO",
    "annotation": null
@@ -714,8 +676,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 13
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Acted part of Dido and was first to be swindled (7)",
    "separatorLocations": {},
    "solution": "DIDDLED",
    "annotation": null
@@ -729,8 +690,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 13
    },
    "length": 3,
-   "clue": " (3)",
-   "clueMissing": true,
+   "clue": "A girl's best friend in the cooler? (3)",
    "separatorLocations": {},
    "solution": "ICE",
    "annotation": null
@@ -744,8 +704,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 13
    },
    "length": 3,
-   "clue": " (3)",
-   "clueMissing": true,
+   "clue": "Marriage portion on the Internet? (3)",
    "separatorLocations": {},
    "solution": "DOT",
    "annotation": null
@@ -759,8 +718,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 13
    },
    "length": 3,
-   "clue": " (3)",
-   "clueMissing": true,
+   "clue": "Tree for Michaelmas (3)",
    "separatorLocations": {},
    "solution": "ELM",
    "annotation": null
@@ -774,8 +732,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 13
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "Bits of poetry aren't 46, so reverse (6)",
    "separatorLocations": {},
    "solution": "CANTOS",
    "annotation": null
@@ -789,8 +746,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 15
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "Throwback keeping out those short in the tooth? (6)",
    "separatorLocations": {},
    "solution": "YOUTHS",
    "annotation": null
@@ -804,8 +760,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 15
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "Start to be contrasted (3,3)",
    "separatorLocations": {},
    "solution": "SETOFF",
    "annotation": null
@@ -819,8 +774,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 15
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "When I get myself something to drink from? (7)",
    "separatorLocations": {},
    "solution": "TEATIME",
    "annotation": null
@@ -834,8 +788,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 15
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "Like the foregoing journey with the French (6)",
    "separatorLocations": {},
    "solution": "TRIPLE",
    "annotation": null
@@ -849,8 +802,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 15
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "A method, they say, of raising anchors (6)",
    "separatorLocations": {},
    "solution": "AWEIGH",
    "annotation": null
@@ -864,8 +816,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 15
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "Come a little closer? Presently - I get it! (2,1,3)",
    "separatorLocations": {},
    "solution": "INABIT",
    "annotation": null
@@ -879,8 +830,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 15
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "Overcome former partner's dog at pole (6)",
    "separatorLocations": {},
    "solution": "EXPUGN",
    "annotation": null
@@ -894,8 +844,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 15
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "Graf going to church, it's said (6)",
    "separatorLocations": {},
    "solution": "SPEECH",
    "annotation": null
@@ -909,8 +858,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 15
    },
    "length": 6,
-   "clue": " (6)",
-   "clueMissing": true,
+   "clue": "Manatee with its tail first in barge (3,3)",
    "separatorLocations": {},
    "solution": "SEACOW",
    "annotation": null
@@ -924,8 +872,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 17
    },
    "length": 10,
-   "clue": " (10)",
-   "clueMissing": true,
+   "clue": "Feel fellow - perhaps she may spit (10)",
    "separatorLocations": {},
    "solution": "SYMPATHISE",
    "annotation": null
@@ -939,8 +886,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 17
    },
    "length": 10,
-   "clue": " (10)",
-   "clueMissing": true,
+   "clue": "Aldebaran takes heart from a nearer star (5,5)",
    "separatorLocations": {},
    "solution": "ALPHATAURI",
    "annotation": null
@@ -954,8 +900,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 19
    },
    "length": 8,
-   "clue": " (8)",
-   "clueMissing": true,
+   "clue": "Strong turned up with flower (8)",
    "separatorLocations": {},
    "solution": "POWERFUL",
    "annotation": null
@@ -969,8 +914,7 @@ window.CRYPTIC_PUZZLES["cryptic-22809"] = /*JSON-START*/ {
     "y": 19
    },
    "length": 12,
-   "clue": " (12)",
-   "clueMissing": true,
+   "clue": "Poet confused with lion's egg, being hypnotised, perhaps (5,2,5)",
    "separatorLocations": {},
    "solution": "GOINGTOSLEEP",
    "annotation": null

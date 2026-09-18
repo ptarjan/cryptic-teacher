@@ -24,11 +24,14 @@ window.CRYPTIC_PUZZLES["cryptic-22929"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 12,
-   "clue": " (12)",
-   "clueMissing": true,
+   "clue": "See 1 down (12)",
    "separatorLocations": {},
    "solution": "THINGSOFLIFE",
-   "annotation": null
+   "annotation": null,
+   "group": [
+    "1-down",
+    "1-across"
+   ]
   },
   {
    "id": "1-down",
@@ -39,11 +42,14 @@ window.CRYPTIC_PUZZLES["cryptic-22929"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Golf? Fishing? Ode to the strange joys we have (3,4,6,2,4)",
    "separatorLocations": {},
    "solution": "THEGOOD",
-   "annotation": null
+   "annotation": null,
+   "group": [
+    "1-down",
+    "1-across"
+   ]
   },
   {
    "id": "2-down",
@@ -54,8 +60,7 @@ window.CRYPTIC_PUZZLES["cryptic-22929"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Smoker at risk brings life to some conditions (7)",
    "separatorLocations": {},
    "solution": "INHALER",
    "annotation": null
@@ -69,8 +74,7 @@ window.CRYPTIC_PUZZLES["cryptic-22929"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "The soldier's weapon keeps Madras revealed (9)",
    "separatorLocations": {},
    "solution": "GUARDSMAN",
    "annotation": null
@@ -84,8 +88,7 @@ window.CRYPTIC_PUZZLES["cryptic-22929"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "French madame topped a reproductive gland (5)",
    "separatorLocations": {},
    "solution": "OVARY",
    "annotation": null
@@ -99,8 +102,7 @@ window.CRYPTIC_PUZZLES["cryptic-22929"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Old town, first class, not posh, is razed to ground (4,3)",
    "separatorLocations": {},
    "solution": "LAIDLOW",
    "annotation": null
@@ -114,8 +116,7 @@ window.CRYPTIC_PUZZLES["cryptic-22929"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Detect what's heard as great uncertainty (4,3)",
    "separatorLocations": {},
    "solution": "FINDOUT",
    "annotation": null
@@ -129,8 +130,7 @@ window.CRYPTIC_PUZZLES["cryptic-22929"] = /*JSON-START*/ {
     "y": 1
    },
    "length": 12,
-   "clue": " (12)",
-   "clueMissing": true,
+   "clue": "A house of cards? Four times an hour they sound (7-5)",
    "separatorLocations": {},
    "solution": "QUARTERJACKS",
    "annotation": null
@@ -144,8 +144,7 @@ window.CRYPTIC_PUZZLES["cryptic-22929"] = /*JSON-START*/ {
     "y": 2
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Canal for Arthur English with new shape (7)",
    "separatorLocations": {},
    "solution": "URETHRA",
    "annotation": null
@@ -159,8 +158,7 @@ window.CRYPTIC_PUZZLES["cryptic-22929"] = /*JSON-START*/ {
     "y": 2
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "False dealing renders one correctly dressed (7)",
    "separatorLocations": {},
    "solution": "ALIGNED",
    "annotation": null
@@ -174,8 +172,7 @@ window.CRYPTIC_PUZZLES["cryptic-22929"] = /*JSON-START*/ {
     "y": 2
    },
    "length": 12,
-   "clue": " (12)",
-   "clueMissing": true,
+   "clue": "Inditing science left one proving crook (12)",
    "separatorLocations": {},
    "solution": "DISCREDITING",
    "annotation": null
@@ -189,8 +186,7 @@ window.CRYPTIC_PUZZLES["cryptic-22929"] = /*JSON-START*/ {
     "y": 4
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "The origin came first, grubbed in the ground (7)",
    "separatorLocations": {},
    "solution": "ROOTLED",
    "annotation": null
@@ -204,8 +200,7 @@ window.CRYPTIC_PUZZLES["cryptic-22929"] = /*JSON-START*/ {
     "y": 4
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "The old? Let's topless go, shades of old leaves (7)",
    "separatorLocations": {},
    "solution": "YELLOWS",
    "annotation": null
@@ -219,8 +214,7 @@ window.CRYPTIC_PUZZLES["cryptic-22929"] = /*JSON-START*/ {
     "y": 6
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "The senior wine producer's flowering tree (5)",
    "separatorLocations": {},
    "solution": "ELDER",
    "annotation": null
@@ -234,8 +228,7 @@ window.CRYPTIC_PUZZLES["cryptic-22929"] = /*JSON-START*/ {
     "y": 6
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "Mum's awfully weak at heart: it's done by U (4,5)",
    "separatorLocations": {},
    "solution": "MAKEWATER",
    "annotation": null
@@ -249,8 +242,7 @@ window.CRYPTIC_PUZZLES["cryptic-22929"] = /*JSON-START*/ {
     "y": 6
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "Take office - broken sash with brands is bound (4,5)",
    "separatorLocations": {},
    "solution": "KISSHANDS",
    "annotation": null
@@ -264,8 +256,7 @@ window.CRYPTIC_PUZZLES["cryptic-22929"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 9,
-   "clue": " (9)",
-   "clueMissing": true,
+   "clue": "Sleep? Stick around with joiners and musicians (4,5)",
    "separatorLocations": {},
    "solution": "JAZZBANDS",
    "annotation": null
@@ -279,8 +270,7 @@ window.CRYPTIC_PUZZLES["cryptic-22929"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Flower (cut) the metro girl award receives (7)",
    "separatorLocations": {},
    "solution": "ZAMBEZI",
    "annotation": null
@@ -294,8 +284,7 @@ window.CRYPTIC_PUZZLES["cryptic-22929"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Not before time, one's died in place of rest (7)",
    "separatorLocations": {},
    "solution": "BELATED",
    "annotation": null
@@ -309,8 +298,7 @@ window.CRYPTIC_PUZZLES["cryptic-22929"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "Unlively tanner grabs a tailless ape (5)",
    "separatorLocations": {},
    "solution": "VAPID",
    "annotation": null
@@ -324,8 +312,7 @@ window.CRYPTIC_PUZZLES["cryptic-22929"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Maybe leaves ancient city in the Cape (7)",
    "separatorLocations": {},
    "solution": "VERDURE",
    "annotation": null
@@ -339,8 +326,7 @@ window.CRYPTIC_PUZZLES["cryptic-22929"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "French friend by moonlight entertains - off land? (7)",
    "separatorLocations": {},
    "solution": "PIERROT",
    "annotation": null
@@ -354,8 +340,7 @@ window.CRYPTIC_PUZZLES["cryptic-22929"] = /*JSON-START*/ {
     "y": 10
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Far from straightforward, most of facial look (7)",
    "separatorLocations": {},
    "solution": "COMPLEX",
    "annotation": null
@@ -369,8 +354,7 @@ window.CRYPTIC_PUZZLES["cryptic-22929"] = /*JSON-START*/ {
     "y": 10
    },
    "length": 5,
-   "clue": " (5)",
-   "clueMissing": true,
+   "clue": "From 0 to 10, backed gas (not that from tap) (5)",
    "separatorLocations": {},
    "solution": "XENON",
    "annotation": null
@@ -384,8 +368,7 @@ window.CRYPTIC_PUZZLES["cryptic-22929"] = /*JSON-START*/ {
     "y": 10
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Much harm can come to clothing; therefore yield (7)",
    "separatorLocations": {},
    "solution": "HARVEST",
    "annotation": null
@@ -399,8 +382,7 @@ window.CRYPTIC_PUZZLES["cryptic-22929"] = /*JSON-START*/ {
     "y": 12
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Appease - like child too young to start to shave? (7)",
    "separatorLocations": {},
    "solution": "SWEETEN",
    "annotation": null
@@ -414,8 +396,7 @@ window.CRYPTIC_PUZZLES["cryptic-22929"] = /*JSON-START*/ {
     "y": 12
    },
    "length": 7,
-   "clue": " (7)",
-   "clueMissing": true,
+   "clue": "Ken's pet, said Weasley: so no charge is due (7)",
    "separatorLocations": {},
    "solution": "NEUTRON",
    "annotation": null
@@ -429,8 +410,7 @@ window.CRYPTIC_PUZZLES["cryptic-22929"] = /*JSON-START*/ {
     "y": 14
    },
    "length": 12,
-   "clue": " (12)",
-   "clueMissing": true,
+   "clue": "Gain row - with girl inside, gain body wrap (7,5)",
    "separatorLocations": {},
    "solution": "WINDINGSHEET",
    "annotation": null
