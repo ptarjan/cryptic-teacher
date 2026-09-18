@@ -32,6 +32,7 @@ Exits 1 if any series carries a flag, so the nightly can alert on it.
 """
 
 import json
+import statistics
 import sys
 from collections import defaultdict
 from datetime import datetime, timezone
@@ -48,9 +49,12 @@ INDEX = ROOT / "puzzles" / "index.json"
 # archive worth having, so nothing that is merely new trips it for long.
 SHALLOW_DAYS = 90
 HOLES_PCT = 5
-# A number this far outside the rest of the series is not that series. Set by
-# the four indysunday files numbered ~8,990 sitting among a sequence that runs
-# 1,330-1,907: a stray is off by thousands, never by tens.
+# How many interquartile spreads outside the bulk of a series a number may
+# sit before it stops looking like that series and starts looking like a
+# misfile. Applied to the interquartile range rather than the median value,
+# so it measures how tightly the numbers cluster, not how far a number sits
+# from the middle -- a series backfilled all the way to its floor is one
+# dense run from top to bottom, never "far" from its own median.
 STRAY_FACTOR = 3
 
 # The lowest number the source will still serve. A floor belongs here only once
@@ -135,13 +139,21 @@ def audit(puzzles, today):
             flags.append(f"REACH {numbers[0] - floor} below {numbers[0]} still unfetched "
                          f"(source floor {floor})")
 
-        # Measured against the series' own middle rather than a fixed band, so
-        # this holds for a sequence numbered in the hundreds and one numbered in
-        # the tens of thousands without a per-series threshold to maintain.
-        mid = numbers[len(numbers) // 2]
-        strays = [n for n in numbers if mid and (n > mid * STRAY_FACTOR or n * STRAY_FACTOR < mid)]
-        if strays:
-            flags.append(f"STRAY {len(strays)} numbered far off ({strays[0]}..{strays[-1]})")
+        # Fenced off the interquartile range rather than the median value, so
+        # this catches a number with nothing between it and the rest of the
+        # series, without also catching the low end of a series that has been
+        # backfilled all the way down to its floor -- those numbers are far
+        # from the middle by value, but not sparse; they sit shoulder to
+        # shoulder with their neighbours, which the spread of the bulk (not
+        # its centre) is what tells apart. Skipped under four numbers, where
+        # a quartile split cannot mean anything.
+        if len(numbers) >= 4:
+            q1, _, q3 = statistics.quantiles(numbers, n=4, method="inclusive")
+            iqr = q3 - q1
+            lo, hi = q1 - STRAY_FACTOR * iqr, q3 + STRAY_FACTOR * iqr
+            strays = [n for n in numbers if n < lo or n > hi]
+            if strays:
+                flags.append(f"STRAY {len(strays)} numbered far off ({strays[0]}..{strays[-1]})")
 
         if dateless:
             flags.append(f"DATELESS {dateless} with no date")
