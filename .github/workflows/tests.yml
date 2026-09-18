@@ -12,6 +12,11 @@
 # workflow that stops at the first red script is a workflow that hides the
 # second one.
 #
+# The two loops glob tools/test_*.sh and tools/test_*.js rather than naming
+# them, so a test is wired in by being written: a list to add to is a list
+# somebody forgets, and the test that never runs is indistinguishable from the
+# test that passes.
+#
 # A separate workflow from pages.yml on purpose: a broken test must never block
 # a site deploy, and this needs no site build to run.
 #
@@ -41,15 +46,12 @@ jobs:
         run: |
           fails=()
           python3 tools/build_readme.py --check-layout || fails+=("layout table")
-          for t in tools/test_alert_claimed.sh tools/test_annotate_attempts.sh \
-                   tools/test_annotate_postmortem.sh tools/test_annotate_retry.sh \
-                   tools/test_prereset_paths.sh tools/test_push_conflict.sh \
-                   tools/test_puzzle_integrity.sh tools/test_repair_fetched.sh; do
+          for t in tools/test_*.sh; do
             echo "::group::bash $t"
             bash "$t" || fails+=("$t")
             echo "::endgroup::"
           done
-          for t in tools/test_notify_race.js tools/test_push_hold.js tools/test_webpush.js; do
+          for t in tools/test_*.js; do
             echo "::group::node $t"
             node "$t" || fails+=("$t")
             echo "::endgroup::"

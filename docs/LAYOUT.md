@@ -182,6 +182,9 @@ tools/test_push_hold.js                      runs the cron fan-out over a fake n
                                              exactly once
 tools/test_notify_race.js                    ticks two papers over a slow network, where a tick
                                              that landed during a save used to be thrown away
+tools/test_solve_clock.js                    walks away from a puzzle and comes back, so the
+                                             time spent elsewhere is proved never to be counted
+                                             as solving
 tools/qr_check.py                            decodes qr.js’s own output with a real decoder — a
                                              wrong QR code draws perfectly and simply never
                                              scans
