@@ -26,6 +26,10 @@ The flags, in the order they matter:
            hold are missing, so a walk stopped part-way.
   STRAY    a puzzle whose number is nowhere near the rest of its series, which
            means it was filed under the wrong one.
+  WEEKDAY  a puzzle dated on a day of the week its paper does not publish on,
+           which means its date is wrong -- the puzzle is real, the date is
+           not, and every date-ordered view of the site puts it in the wrong
+           place.
   DATELESS a puzzle with no date at all. The site sorts by date, so these sink.
 
 Exits 1 if any series carries a flag, so the nightly can alert on it.
@@ -56,6 +60,26 @@ HOLES_PCT = 5
 # from the middle -- a series backfilled all the way to its floor is one
 # dense run from top to bottom, never "far" from its own median.
 STRAY_FACTOR = 3
+# A weekday carrying less than this share of a series' dates is not one of that
+# paper's publication days, so a puzzle landing there has a wrong date rather
+# than an unusual one. Expressed as a share and not a count because the question
+# is whether the day is part of the pattern, and a paper that changed its
+# publication day mid-life leaves a real minority weekday -- the Observer's 51
+# Saturday Everymen (4%) and the Quiptic's 128 Sundays (9%) are both eras, not
+# errors, and must stay silent. One puzzle in three hundred is not an era.
+ODD_WEEKDAY_PCT = 1
+
+# Puzzles that really were published on a day their series otherwise never
+# uses. An entry belongs here only once the neighbouring numbers have been read
+# and they corroborate the odd date rather than contradicting it -- a date that
+# cannot be reconciled with its neighbours stays flagged, because the report is
+# the to-do list for exactly that.
+WEEKDAY_AS_PUBLISHED = {
+    # The Quiptic launched on Tuesday 1999-11-23 and only settled onto Mondays
+    # afterwards: No 2 is Monday 1999-11-29, the Monday after, not the Monday
+    # before. There is no wrong date here, just a first edition.
+    ("quiptic", 1): "the series' launch day, before it moved to Mondays",
+}
 
 # The lowest number the source will still serve. A floor belongs here only once
 # a walk has ended in 404s at it -- guessing one hides exactly the backfill this
@@ -195,6 +219,28 @@ def audit(puzzles, today):
             strays = [n for n in numbers if n < lo or n > hi]
             if strays:
                 flags.append(f"STRAY {len(strays)} numbered far off ({strays[0]}..{strays[-1]})")
+
+        # Which days a paper publishes on is the most stable fact about a
+        # series, so a date on a day the rest of the series never uses is a
+        # broken date rather than a rare edition. Nothing else here can see it:
+        # such a puzzle has a plausible number, sits in a dense run, and is
+        # neither stale nor missing -- it is simply filed on the wrong day.
+        # Derived from the series' own dates rather than a table of publication
+        # schedules, so a paper that moves its crossword day needs no edit here.
+        odd = defaultdict(list)
+        for p in held:
+            if p.get("date"):
+                odd[as_date(p["date"]).strftime("%a")].append(p["number"])
+        for day, nums in sorted(odd.items()):
+            if len(nums) * 100 / len(dates) >= ODD_WEEKDAY_PCT:
+                continue
+            nums = [n for n in nums if (name, n) not in WEEKDAY_AS_PUBLISHED]
+            if not nums:
+                continue
+            shown = ", ".join(str(n) for n in sorted(nums)[:6])
+            more = "" if len(nums) <= 6 else f", +{len(nums) - 6} more"
+            flags.append(f"WEEKDAY {len(nums)} dated {day}, which {name} "
+                         f"does not publish on ({shown}{more})")
 
         if dateless:
             flags.append(f"DATELESS {dateless} with no date")

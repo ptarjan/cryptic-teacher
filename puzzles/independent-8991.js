@@ -8,7 +8,7 @@ window.CRYPTIC_PUZZLES["independent-8991"] = /*JSON-START*/ {
  "series": "independent",
  "name": "Independent cryptic crossword No 8,991",
  "setter": "Hob",
- "date": 1439078400000,
+ "date": 1439164800000,
  "dimensions": {
   "cols": 15,
   "rows": 15

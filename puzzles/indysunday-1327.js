@@ -8,7 +8,7 @@ window.CRYPTIC_PUZZLES["indysunday-1327"] = /*JSON-START*/ {
  "series": "indysunday",
  "name": "Independent on Sunday cryptic crossword No 1,327",
  "setter": "Kairos",
- "date": 1437955200000,
+ "date": 1437868800000,
  "dimensions": {
   "cols": 15,
   "rows": 15
