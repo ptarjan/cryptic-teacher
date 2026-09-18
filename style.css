@@ -845,7 +845,12 @@ button:disabled:hover { border-color: var(--line); }
   display: inline-block; box-sizing: border-box; vertical-align: baseline;
   -webkit-appearance: none; appearance: none;
   font: inherit; line-height: 1.35; text-align: center;
-  padding: 1px 6px; margin: 0 1px;
+  /* No horizontal padding or margin, so the only thing between two words is the
+     space that was always there plus the two 1px borders. The box is carried in
+     every state, visible or transparent, which means any breathing room added
+     here is added to the clue AT REST, where it reads as a sentence with the
+     words pushed apart. The border hugging the word is the whole budget. */
+  padding: 1px 0; margin: 0;
   background: transparent; border: 1px solid var(--line); border-radius: 4px;
 }
 /* A hairline in --line is the border every inert box on the page wears, so an
@@ -857,8 +862,10 @@ button.gw { border-style: dashed; border-color: var(--pick-fg); }
 /* This sentence is the only thing that says WHERE to act, and it was muted grey
    — the page's styling for an aside. It is the instruction. */
 .tap-hint { color: var(--accent); font-weight: 600; }
-/* Big enough to hit with a thumb without the clue turning into a keypad. */
-@media (pointer: coarse) { .gw { padding: 5px 8px; } }
+/* Big enough to hit with a thumb without the clue turning into a keypad. The
+   extra height is free — the line already has leading — but extra WIDTH is not:
+   it lands in the gap between words. The word itself is what a thumb aims at. */
+@media (pointer: coarse) { .gw { padding: 5px 0; } }
 .gw.on { background: var(--pick-bg); border-color: var(--pick-fg); color: var(--pick-fg); }
 /* A word an earlier rung already named. Still there — knowing where the
    definition ends is most of knowing where the wordplay starts — but plainly not
@@ -1032,6 +1039,38 @@ mark.link {
   background: none; color: var(--muted); padding: 0 1px;
   text-decoration: line-through; text-decoration-color: var(--line);
 }
+/* Everywhere but the picker a mark is one element around a whole phrase, and the
+   padding and rounding above make it a pill. The picker prints the clue a word
+   at a time — a .gw box per word, the spaces between them marked up on their own
+   (see pickableClueHTML) — so ONE marked run arrives there as a piece per word
+   and a piece per space. A pill per piece paints a run as a row of beads. In
+   there a mark is a fragment of a band, not a pill: it paints edge to edge, and
+   only the run's two ends, which markUp names with data-edge, are rounded.
+
+   Class-agnostic on purpose, and it must stay below the pill rules it undoes:
+   the two selectors weigh the same, so source order is what decides, and a mark
+   class added later has to arrive already banded rather than beaded.
+
+   The ends keep the pill's own 2px cap, so a run reads as one long pill and a
+   one-word mark in here looks exactly like the same mark anywhere else. Only
+   the ends can afford it: padding on an inline box is width, and width on every
+   piece is the gap between the words that beaded the run in the first place. */
+.guess-clue mark { padding: 0; border-radius: 0; }
+.guess-clue mark[data-edge~="start"] { padding-left: 2px; border-radius: 3px 0 0 3px; }
+.guess-clue mark[data-edge~="end"] { padding-right: 2px; border-radius: 0 3px 3px 0; }
+.guess-clue mark[data-edge~="start"][data-edge~="end"] { border-radius: 3px; }
+/* Every .gw carries a 1px border in every state, transparent at rest, and the
+   word's mark lives inside it — so a band painted by the marks alone stops 1px
+   short at each side of every word and the run reads as beads again, hairline
+   width. The mark on the SPACE between two words is the one piece with nothing
+   else in it, so it is the piece that carries the band across: 1px of padding
+   each side to paint under both neighbours' borders, taken straight back as
+   margin so not a pixel of the clue's layout moves. The chips are lifted above
+   it — a positioned element paints after its unpositioned siblings — so a
+   picked word's coloured border still draws ON TOP of the band instead of being
+   painted out by it. */
+.guess-clue > mark { padding: 0 1px; margin: 0 -1px; }
+.guess-clue .gw { position: relative; }
 /* A highlight fades in rather than snapping on. Taking a rung repaints the
    clue, and the coloured span appearing at full strength — padding and all —
    reads as the line jumping under the words being read — when the definition

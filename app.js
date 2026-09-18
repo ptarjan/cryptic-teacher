@@ -1243,7 +1243,13 @@
   // so instead of nesting one inside the other the clue is cut at every
   // boundary either list has and each piece wrapped in whatever covers it.
   // Adjacent pieces of one italic render as one italic; nothing shows the seam.
-  function markUp(text, marks, italics) {
+  // `edges` asks for data-edge="start"/"end" on the pieces that sit at the two
+  // ends of a mark. A caller that marks up a whole string gets one <mark> per
+  // range and has no use for it; a caller that marks the same range up in
+  // pieces — pickableClueHTML, a piece per word and a piece per space — needs
+  // to know which pieces are the ends, because the pieces paint as one band and
+  // only a band's ends are rounded.
+  function markUp(text, marks, italics, edges) {
     const cuts = [0, text.length];
     marks.forEach((m) => cuts.push(m.i, m.i + m.len));
     italics.forEach((r) => cuts.push(r[0], r[0] + r[1]));
@@ -1256,7 +1262,14 @@
       const m = marks.filter((k) => covers(k.i, k.len))[0];
       let piece = esc(text.slice(a, pts[s + 1]));
       if (italics.filter((r) => covers(r[0], r[1])).length) piece = "<i>" + piece + "</i>";
-      out += m ? `<mark class="${m.cls}">${piece}</mark>` : piece;
+      // A mark cut short by the slice it was asked about is not ending here: the
+      // rest of it is in the next slice, so it opens or closes nothing.
+      const edge = m && edges
+        ? `${a === m.i ? " start" : ""}${pts[s + 1] === m.i + m.len ? " end" : ""}`.trim()
+        : "";
+      out += m
+        ? `<mark class="${m.cls}"${edge ? ` data-edge="${edge}"` : ""}>${piece}</mark>`
+        : piece;
     }
     return out;
   }
@@ -3436,6 +3449,12 @@
   // marked up as themselves. Every mark already bought therefore stays lit,
   // inside the word you are pointing at.
   //
+  // One mark therefore arrives as a piece per word and a piece per space, and
+  // the pieces have to paint as ONE band across the run: a pill's padding and
+  // rounding on each piece would draw a bead per word. The pieces say which of
+  // them are the run's two ends (markUp's `edges`) and style.css does the rest —
+  // see `.guess-clue mark`.
+  //
   // Called with no ask (rung not being asked right now) it still wraps every
   // word in the same .gw box, just an inert one: a plain sentence and a row of
   // picking buttons do not share a box model, so reading the clue and then
@@ -3450,7 +3469,7 @@
     // needs shifting and nothing else.
     const slice = (a, b) => markUp(e.clue.slice(a, b),
       marks.map((m) => ({ i: m.i - a, len: m.len, cls: m.cls })),
-      italics.map((r) => [r[0] - a, r[1]]));
+      italics.map((r) => [r[0] - a, r[1]]), true);
     const tokens = ask ? ask.tokens : clueTokens(e.clue);
     let out = "", at = 0;
     tokens.forEach((t, i) => {
