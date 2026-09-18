@@ -67,9 +67,9 @@ The corpus it reads is the puzzle files on disk. puzzles/index.json names them
 and is generated, so it is rebuilt here before it is read — see fetch_puzzle.reindex.
 
 Cost: one rebuild of the index, then one pass, one read per file, no network. All
-five checks together read the whole corpus in about ten seconds — 13,743 puzzles,
-~400k clues, on 2026-09-18 — plus the rebuild, so every check is on by default and
-none sits behind a flag. Nothing here is expensive enough to be worth
+five checks together, the index rebuild included, read the whole corpus in about
+half a minute — 13,969 puzzles, ~400k clues, on 2026-09-18 — so every check is on
+by default and none sits behind a flag. Nothing here is expensive enough to be worth
 the confusion of an off-by-default check.
 
 Exits 1 if anything is flagged, so the nightly can alert on it. It reports and
