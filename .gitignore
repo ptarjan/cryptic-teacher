@@ -105,6 +105,21 @@ tools/_*
 /abbreviations/index.html
 /sitemap.xml
 
+# The puzzle manifest, both forms, written by tools/fetch_puzzle.py --reindex:
+# one row per puzzle with its content hash and its difficulty rating. Derived
+# from puzzles/*.js in ten seconds and from nothing else, so committing it bought
+# nothing and cost correctness — the jobs commit puzzle files by pathspec and
+# skipped it, so master carried an index naming 252 files that were not there
+# and missing 7,254 that were, while CI reindexed on its own checkout and the
+# live site never saw any of it.
+#
+# Everything that reads it rebuilds it first (fetch_puzzle.reindex, and
+# tools/reindex.js for the node harnesses), which is what makes that drift
+# impossible rather than merely invisible. README.md's "Run it" says so: a clone
+# runs that one command before opening the page.
+/puzzles/index.json
+/puzzles/index.js
+
 # The per-puzzle social cards, screenshotted by tools/make_og.sh. 24MB of PNGs
 # that no page reads from the repo: .github/workflows/pages.yml draws them on the
 # clean checkout it publishes, keeping them in an actions/cache between runs and

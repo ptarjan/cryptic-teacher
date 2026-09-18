@@ -48,11 +48,27 @@ saved in localStorage per puzzle.
 
 ## Run it
 
-No build step, no backend. Either:
+One build step, no backend. The puzzle list the app opens with is generated from the
+puzzle files and is not committed, so a fresh clone builds it once — about ten seconds
+for the whole corpus:
+
+```
+python3 tools/fetch_puzzle.py --reindex
+```
+
+That writes `puzzles/index.json` and `puzzles/index.js`, and restamps `index.html`'s
+`?v=` hashes to match, so `git status` will show that file. Then either:
 
 - open `index.html` directly in a browser (works from `file://`), or
 - `python3 -m http.server 8017` in the repo root and visit <http://localhost:8017/>, or
-- host the repo as-is on GitHub Pages (all paths are relative; `.nojekyll` included).
+- host on GitHub Pages: `.github/workflows/pages.yml` runs that same command on its
+  own checkout before it builds, so there is nothing to commit and nothing to keep
+  in step (all paths are relative; `.nojekyll` included).
+
+Re-run it after fetching or annotating anything. The tools do it for themselves —
+`tools/smoke_test.js`, `tools/test_push_hold.js`, `tools/puzzle_integrity.py` and
+`tools/build_readme.py` all rebuild the index before they read it — so the command
+above is for the browser.
 
 ## Puzzle file format
 

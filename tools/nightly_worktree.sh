@@ -91,6 +91,13 @@ if [ "${CT_IN_WORKTREE:-0}" != 1 ] && [ "${CT_NO_WORKTREE:-0}" != 1 ]; then
   fi
 
   if [ -n "$_ct_tree" ]; then
+    # The puzzle manifest is generated and not tracked, so a tree just reset to
+    # origin/master has either no index at all (a tree made tonight) or the one
+    # the last run left, describing puzzle files the reset has since changed.
+    # Every job here reads it long before it reaches its own reindex, so it is
+    # rebuilt once, here, where the tree changed.
+    (cd "$_ct_tree" && python3 tools/fetch_puzzle.py --reindex >/dev/null) ||
+      echo "WORKTREE: could not rebuild puzzles/index.* in $_ct_tree — the job will read a stale or missing manifest" >&2
     # One copy of each, in the main checkout, reached from everywhere.
     for _ct_share in .claude .alert-state .usage_cache.json; do
       [ -e "$_ct_tree/$_ct_share" ] && continue

@@ -52,8 +52,8 @@ LAYOUT = [
     ("", "learn/", "the “How cryptic clues work” lesson, built from tools/tutorial.html — generated, not committed"),
     ("", "abbreviations/", "the glossary of standard abbreviations the blocks rung links into — generated, not committed"),
     ("", "og/", "one 1200x630 social card per puzzle, drawn from one of its clues — generated, not committed"),
-    ("", "puzzles/index.json", "manifest: one row per puzzle (latest first)"),
-    ("", "puzzles/index.js", "the same manifest as a script (so file:// works)"),
+    ("", "puzzles/index.json, puzzles/index.js",
+     "manifest: one row per puzzle, latest first, and the same as a script so file:// works — built by tools/fetch_puzzle.py --reindex, not committed"),
     ("", "puzzles/<series>-<n>.js", "one puzzle per file, JSON between /*JSON-START*/ … /*JSON-END*/"),
 
     ("the rest of the site", "site.webmanifest", "PWA name, icons and display mode"),
@@ -121,6 +121,7 @@ LAYOUT = [
     ("building and checking the site", "tools/stamp_assets.py", "cache-busting ?v= stamps; the smoke test fails on a stale one"),
     ("building and checking the site", "tools/smoke_test.js", "the whole app driven headless against the real corpus"),
     ("building and checking the site", "tools/fake_dom.js", "the fake DOM that boots the real app.js under Node, shared by every harness"),
+    ("building and checking the site", "tools/reindex.js", "rebuilds the puzzle manifest before a node harness reads it, through the same --reindex the site's build runs"),
     ("building and checking the site", "tools/e2e_analytics.py", "drives a real browser through a solve and checks every event lands in KV"),
     ("building and checking the site", "tools/wait_for_deploy.py", "blocks until Pages is serving the pushed commit, so nobody is told to reload early"),
     ("building and checking the site", "tools/test_webpush.js", "runs the RFC 8291 test vector through sync/webpush.js, so the encryption is checked against something other than itself"),
@@ -271,8 +272,12 @@ SERIES_NAMES = {
 
 
 def build_corpus():
-    index = json.loads((REPO / "puzzles/index.json").read_text(encoding="utf-8"))
-    rows = index["puzzles"]
+    # Rebuilt, not read: the manifest is generated and untracked, and these
+    # counts go into a file that IS committed. Reading whatever the tree happened
+    # to hold is how a README comes to name a corpus size nobody has any more.
+    sys.path.insert(0, str(REPO / "tools"))
+    from fetch_puzzle import reindex
+    rows = reindex()["puzzles"]
 
     by_series = {}
     for r in rows:

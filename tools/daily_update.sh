@@ -1089,8 +1089,9 @@ rm -f "$REPO/tools/_ann_"*.json
 
 # Stamping is a build step, so the stamps come back off before anything is
 # staged. A ?v= hash committed into index.html changes on every asset edit and
-# on every reindex (puzzles/index.js is stamped too), which is churn in a
-# tracked file and the thing this job's rebase collides in night after night.
+# on every reindex (index.html carries puzzles/index.js's hash too), which is
+# churn in a tracked file and the thing this job's rebase collides in night
+# after night.
 # The deploy workflow stamps its own checkout, so what ships is stamped anyway.
 python3 tools/stamp_assets.py --unstamp
 
@@ -1125,8 +1126,8 @@ if [ -n "$(git status --porcelain)" ]; then
   left=$(git status --porcelain | cut -c4- | tr '\n' ' ')
   [ -n "$left" ] && alert "the daily update committed, and left these behind in its own worktree: $left"
   # A rebase that stops here is rarely a disagreement. Every file this job writes
-  # that an interactive session writes too is GENERATED — puzzles/index.json,
-  # puzzles/index.js, README.md, sitemap.xml, the per-puzzle pages — so a
+  # that an interactive session writes too is GENERATED — README.md, the asset
+  # stamps, and what is still tracked of the built pages — so a
   # conflict in one is two rebuilds of the same inputs, not two opinions, and
   # resolving it by hand is what stranded the 2026-09-06 and 09-07 runs. Rebuild
   # from the merged sources instead.

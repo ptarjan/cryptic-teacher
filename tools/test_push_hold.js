@@ -24,8 +24,14 @@ import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 import worker from "../sync/worker.js";
+import { reindex } from "./reindex.js";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
+// Generated and untracked: rebuilt from the puzzle files before it is read, the
+// same as every other local reader. The fake fetch below serves this to the
+// Worker exactly as the site serves it, so a missing index is a test that
+// cannot run rather than one that passes on yesterday's corpus.
+reindex();
 const INDEX = JSON.parse(fs.readFileSync(path.join(ROOT, "puzzles/index.json"), "utf8"));
 
 const b64url = (bytes) => Buffer.from(bytes).toString("base64")
