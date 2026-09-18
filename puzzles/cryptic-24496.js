@@ -299,7 +299,11 @@ window.CRYPTIC_PUZZLES["cryptic-24496"] = /*JSON-START*/ {
    "clue": "12's to die? Setter is having name put in new register (13)",
    "separatorLocations": {},
    "solution": "MEISTER",
-   "annotation": null
+   "annotation": null,
+   "group": [
+    "19-down",
+    "21-down"
+   ]
   },
   {
    "id": "20-across",
@@ -327,7 +331,11 @@ window.CRYPTIC_PUZZLES["cryptic-24496"] = /*JSON-START*/ {
    "clue": "See 21",
    "separatorLocations": {},
    "solution": "SINGER",
-   "annotation": null
+   "annotation": null,
+   "group": [
+    "19-down",
+    "21-down"
+   ]
   },
   {
    "id": "22-across",

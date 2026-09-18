@@ -59,7 +59,11 @@ window.CRYPTIC_PUZZLES["cryptic-23737"] = /*JSON-START*/ {
     ]
    },
    "solution": "RANA",
-   "annotation": null
+   "annotation": null,
+   "group": [
+    "2-down",
+    "3-down"
+   ]
   },
   {
    "id": "3-down",
@@ -73,7 +77,11 @@ window.CRYPTIC_PUZZLES["cryptic-23737"] = /*JSON-START*/ {
    "clue": "See 3",
    "separatorLocations": {},
    "solution": "GROUND",
-   "annotation": null
+   "annotation": null,
+   "group": [
+    "2-down",
+    "3-down"
+   ]
   },
   {
    "id": "4-down",

@@ -230,9 +230,6 @@ UNLINKED_IN_SOURCE = dict([
     (("cryptic-24531", "22-across: clue says (3,4,3,4) = 14, answer holds 7"),
      "the LET IT BE that would finish SHE SAID LET IT BE is already spent on "
      "19-across + 6-down's own linked answer"),
-    (("cryptic-24496", "19-down: clue says (13) = 13, answer holds 7"),
-     "no light in this grid is blank, spare, or grouped toward the six missing "
-     "letters"),
     (("cryptic-24411", "4-down: clue says (4,4) = 8, answer holds 4"),
      "no light in this grid is blank, spare, or grouped toward the four missing "
      "letters"),
@@ -312,9 +309,6 @@ UNLINKED_IN_SOURCE = dict([
      "letters"),
     (("cryptic-23753", "48-down: clue says (7) = 7, answer holds 3"),
      "no light in this grid is blank, spare, or grouped toward the four missing "
-     "letters"),
-    (("cryptic-23737", "2-down: clue says (3,7) = 10, answer holds 4"),
-     "no light in this grid is blank, spare, or grouped toward the six missing "
      "letters"),
     (("cryptic-23731",
       "3-down + 16-down + 4-down + 5-down + 11-across + 21-across: "

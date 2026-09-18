@@ -810,7 +810,7 @@ SHORT_DIRECTIONS = {"ac": "across", "dn": "down"}
 RECONSTRUCT_LIMIT = 9
 
 
-def _points_at(clue, lead):
+def _points_at(entry, lead, entries):
     """Does this pointer name `lead`?
 
     A pointer that names no light at all — cryptic-23816's 10-across "See above",
@@ -818,14 +818,27 @@ def _points_at(clue, lead):
     the enumeration is left to say which. A pointer that names lights names only
     those, and a direction it states is held to: "See 16 Down" is not about
     16-across.
+
+    A number no OTHER light in the grid carries names nothing either, and is
+    dropped before that test: everyman-3306's 17-across is "See 17" over fourteen
+    cells, and 17-across is the only light numbered 17, so the pointer has lost
+    whatever it was printed to name. A number without a direction is the paper's
+    ordinary way of naming the other light of that number — "See 1" on 1-down is
+    1-across, thirteen times in this corpus — which is why the light's own number
+    is dropped only when no other light answers to it. What is left when every
+    number goes is "See above": the enumeration says which light it is, or
+    nothing does.
     """
     named = [(int(n), SHORT_DIRECTIONS.get(d.lower(), d.lower()) or None)
-             for n, d in POINTER.findall(ENUMERATION.sub("", clue or ""))]
+             for n, d in POINTER.findall(ENUMERATION.sub("", entry.get("clue") or ""))]
+    named = [(n, d) for n, d in named
+             if any(o["id"] != entry["id"] and o["number"] == n
+                    and d in (None, o["direction"]) for o in entries)]
     return not named or any(n == lead["number"] and d in (None, lead["direction"])
                             for n, d in named)
 
 
-def _spare_light(entry, lead):
+def _spare_light(entry, lead, entries):
     """Is this light free to be part of `lead`'s answer, on the paper's own say-so?
 
     Two shapes qualify, and both are the paper saying this light is not an answer
@@ -854,7 +867,7 @@ def _spare_light(entry, lead):
         return False
     clue = entry.get("clue")
     if is_continuation(clue):
-        return _points_at(clue, lead)
+        return _points_at(entry, lead, entries)
     return (not ENUMERATION.sub("", clue or "").strip()
             and _own_count(entry) is None)
 
@@ -969,7 +982,7 @@ def reconstruct_groups(entries, series):
         if sum(counts) == held:
             continue                    # the lights the paper grouped already hold it
         spare = [e["id"] for e in entries
-                 if e["id"] not in members and _spare_light(e, lead)]
+                 if e["id"] not in members and _spare_light(e, lead, entries)]
         if not spare or len(members) + len(spare) > RECONSTRUCT_LIMIT:
             continue
         tail = [m for m in members if m != lead["id"]]

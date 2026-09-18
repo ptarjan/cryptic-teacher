@@ -258,7 +258,11 @@ window.CRYPTIC_PUZZLES["everyman-3306"] = /*JSON-START*/ {
     ]
    },
    "solution": "OUTOFTHEFRYING",
-   "annotation": null
+   "annotation": null,
+   "group": [
+    "14-across",
+    "17-across"
+   ]
   },
   {
    "id": "15-down",
@@ -304,7 +308,11 @@ window.CRYPTIC_PUZZLES["everyman-3306"] = /*JSON-START*/ {
    "clue": "See 17",
    "separatorLocations": {},
    "solution": "PANINTOTHEFIRE",
-   "annotation": null
+   "annotation": null,
+   "group": [
+    "14-across",
+    "17-across"
+   ]
   },
   {
    "id": "18-down",
