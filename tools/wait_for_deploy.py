@@ -22,7 +22,6 @@ Exit 0 live, 1 timed out or mismatched. Run it as the last step of the deploy
 pipeline, after the push.
 """
 import argparse
-import hashlib
 import json
 import os
 import re
@@ -32,6 +31,8 @@ import time
 import urllib.request
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.join(ROOT, "tools"))
+from stamp_assets import digest                      # noqa: E402 - needs ROOT on the path
 
 URL = "https://cryptic.paultarjan.com/"
 REPO = "ptarjan/cryptic-teacher"
@@ -44,21 +45,20 @@ def stamps(text):
 
 
 def want_stamps():
-    """The hash each asset should carry live, from the files themselves —
-    not parsed out of local index.html. daily_update.sh deliberately
-    unstamps index.html before committing (tools/stamp_assets.py --unstamp,
-    "the deploy workflow stamps its own checkout, so what ships is stamped
-    anyway"), and this script runs right after that, against that same
-    working tree. Reading local index.html for the expected stamps used to
-    make that unstamped state look exactly like an undeployed site: it
-    failed instantly on "no asset stamps in local index.html", never
-    polling GitHub or the live page at all (2026-09-18, the daily update's
-    own push falsely alerted this way while the actual deploy succeeded a
-    few seconds later). Hashing the assets directly is right either way:
-    it is the same md5[:8] tools/stamp_assets.py's digest() computes.
+    """The hash each asset should carry live, computed from the files themselves
+    rather than parsed out of local index.html.
+
+    daily_update.sh unstamps index.html before committing (the deploy workflow
+    stamps its own checkout, so what ships is stamped and what is stored is not)
+    and runs this script straight afterwards, against that same working tree. An
+    unstamped index.html holds no expected hashes at all, so reading it made a
+    healthy tree indistinguishable from an undeployed site and failed before
+    either GitHub or the live page was ever looked at.
+
+    digest() comes from stamp_assets, which is what writes the live stamps: the
+    check and the thing it checks cannot disagree about how a hash is made.
     """
-    return {rel: hashlib.md5((open(os.path.join(ROOT, rel), "rb")).read()).hexdigest()[:8]
-            for rel in ASSETS}
+    return {rel: digest(rel) for rel in ASSETS}
 
 
 def fetch():

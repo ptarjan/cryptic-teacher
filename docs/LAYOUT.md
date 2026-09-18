@@ -178,6 +178,10 @@ tools/e2e_analytics.py                       drives a real browser through a sol
                                              every event lands in KV
 tools/wait_for_deploy.py                     blocks until Pages is serving the pushed commit,
                                              so nobody is told to reload early
+tools/test_wait_for_deploy.sh                proves that check reads the live page before it
+                                             calls a deploy failed, and finds its expected
+                                             hashes in the assets rather than in an index.html
+                                             the nightly has already unstamped
 tools/test_webpush.js                        runs the RFC 8291 test vector through
                                              sync/webpush.js, so the encryption is checked
                                              against something other than itself

@@ -124,6 +124,7 @@ LAYOUT = [
     ("building and checking the site", "tools/reindex.js", "rebuilds the puzzle manifest before a node harness reads it, through the same --reindex the site's build runs"),
     ("building and checking the site", "tools/e2e_analytics.py", "drives a real browser through a solve and checks every event lands in KV"),
     ("building and checking the site", "tools/wait_for_deploy.py", "blocks until Pages is serving the pushed commit, so nobody is told to reload early"),
+    ("building and checking the site", "tools/test_wait_for_deploy.sh", "proves that check reads the live page before it calls a deploy failed, and finds its expected hashes in the assets rather than in an index.html the nightly has already unstamped"),
     ("building and checking the site", "tools/test_webpush.js", "runs the RFC 8291 test vector through sync/webpush.js, so the encryption is checked against something other than itself"),
     ("building and checking the site", "tools/test_push_hold.js", "runs the cron fan-out over a fake night, so a puzzle held until morning is proved to arrive exactly once"),
     ("building and checking the site", "tools/test_notify_race.js", "ticks two papers over a slow network, where a tick that landed during a save used to be thrown away"),
