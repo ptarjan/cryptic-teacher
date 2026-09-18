@@ -262,6 +262,33 @@ UNLINKED_IN_SOURCE = dict([
       "21 linked"),
      "no light in this grid is blank, spare, or grouped toward the ten missing "
      "letters"),
+    # 23,821 is the shape this table exists for, seven times over. Its theme is
+    # LEFT, RIGHT and CENTRE, and the paper clues each of the three lights
+    # holding them into several answers at once — RIGHT alone finishes MISTER
+    # RIGHT, INSIDE RIGHT, RIGHT NOTE and RIGHT AS RAIN. `group` is one list per
+    # entry, so each of the three can be written into exactly one of its
+    # answers, and these are the answers left over.
+    (("cryptic-23821", "4-across: clue says (6,5) = 11, answer holds 6"),
+     "the RIGHT that would make MISTER RIGHT is already spent on "
+     "23-down + 16-across's RIGHT NOTE"),
+    (("cryptic-23821", "5-down: clue says (6,5) = 11, answer holds 6"),
+     "the RIGHT that would make INSIDE RIGHT is already spent on "
+     "23-down + 16-across's RIGHT NOTE"),
+    (("cryptic-23821", "22-across: clue says (5,2,4) = 11, answer holds 6"),
+     "the RIGHT that would make RIGHT AS RAIN is already spent on "
+     "23-down + 16-across's RIGHT NOTE"),
+    (("cryptic-23821", "15-across: clue says (4,6) = 10, answer holds 4"),
+     "the CENTRE that would make SOFT CENTRE is already spent on "
+     "20-down + 1-across's CENTRE SPREAD"),
+    (("cryptic-23821", "17-across: clue says (9,6) = 15, answer holds 9"),
+     "the CENTRE that would make DETENTION CENTRE is already spent on "
+     "20-down + 1-across's CENTRE SPREAD"),
+    (("cryptic-23821", "26-across: clue says (6,6) = 12, answer holds 6"),
+     "the CENTRE that would make GARDEN CENTRE is already spent on "
+     "20-down + 1-across's CENTRE SPREAD"),
+    (("cryptic-23821", "16-down: clue says (7,4) = 11, answer holds 7"),
+     "the LEFT that would make NOTHING LEFT is already spent on "
+     "9-across + 11-across's LEFT UNDONE"),
     (("cryptic-23753",
       "1-across + 52-across: clue says (4,6-4) = 14, answer holds 4 alone or 8 "
       "linked"),
