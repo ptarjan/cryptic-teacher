@@ -379,6 +379,12 @@ UNLINKED_IN_SOURCE = dict([
      "the TOWN that would make SWINDON TOWN is 9-across, whose own clue reads "
      "\"See 15 and 19\" and whose one `group` field the paper spent on "
      "15-across + 9-across's FREETOWN"),
+    (("cryptic-22968",
+      "3-down + 21-down: clue says (4,2,3,3,2,3,3,4) = 24, answer holds 4 "
+      "alone or 12 linked"),
+     "Forsyth's catchphrase says NICE and TO SEE YOU twice each; the grid holds "
+     "each once, at 3-down and 21-down, and every other light in it carries its "
+     "own clue and its own answer"),
 ])
 
 # PER_LIGHT_ENUMERATION names the series whose linked clues are enumerated one
