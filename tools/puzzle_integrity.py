@@ -151,6 +151,20 @@ PUBLISHED_WRONG = {
      "1-down + 26-across: clue says (4,5) = 9, answer holds 4 alone or 13 linked"):
         "1-down ASIL is counted (4,5) for ASIL NADIR, but NADIR is 28-across under "
         "a clue of its own and the paper linked 1-down to 26-across PANOPLIED (9)",
+    ("cryptic-22813", "15-down: clue says (2,6) = 8, answer holds 10"):
+        "SUSTAINING is one word of ten letters and fills the ten cells the grid "
+        "gives it, under a clue the paper printed (2,6)",
+    ("cryptic-21730",
+     "11-across: 7 cells across from (0,83) runs off a 15x15 grid"):
+        "the Guardian's own markup puts 11-across at \"position\":{\"x\":0,"
+        "\"y\":83} on a grid it declares 15 rows tall; which row it meant is "
+        "not something this data says",
+    ("cryptic-21640",
+     "1-across + 17-down + 5-across + 9-across + 14-down: clue says "
+     "(6,1,3-4,6,4,2) = 26, answer holds 7 alone or 45 linked"):
+        "the Guardian grouped all five lights itself and filled them with "
+        "THERE'S A ONE-EYED YELLOW IDOL TO THE NORTH OF KHATMANDU, 45 cells, "
+        "under an enumeration it printed only as far as the first 26",
 }
 
 # The LENGTH findings that are a light the Guardian never linked, not a mistake in
@@ -389,6 +403,44 @@ UNLINKED_IN_SOURCE = dict([
      "Forsyth's catchphrase says NICE and TO SEE YOU twice each; the grid holds "
      "each once, at 3-down and 21-down, and every other light in it carries its "
      "own clue and its own answer"),
+    (("cryptic-22933", "22-down: clue says (8) = 8, answer holds 4"),
+     "the PLAY that would make WORDPLAY is 8-down, whose clue reads \"See 1 "
+     "across and 22\" — it ends the SCOTTISH PLAY too, and the paper's one "
+     "`group` field is spent on 1-across"),
+    (("cryptic-22841",
+      "8-down + 21-down + 12-down: clue says (4,2,3,2,3,4,6) = 24, answer "
+      "holds 4 alone or 18 linked"),
+     "the CHANCE that finishes HAVE AN EYE TO THE MAIN CHANCE is 1-down, "
+     "already spent on 1-down + 15-across + 2-down's CHANCE WOULD BE A FINE "
+     "THING"),
+    (("cryptic-22831", "12-across: clue says (6,6) = 12, answer holds 6"),
+     "the ESTATE that would make FOURTH ESTATE is 25-across, which carries a "
+     "full clue of its own and is pointed at by 7-down's \"See 25\" for ESTATE "
+     "AGENTS"),
+    (("cryptic-22831", "15-across: clue says (7,6) = 13, answer holds 7"),
+     "the same 25-across ESTATE would make HOUSING ESTATE, and one light "
+     "cannot be the second word of three answers at once"),
+    (("cryptic-21640", "20-down: clue says (5,7) = 12, answer holds 5"),
+     "the THERESA that makes SAINT THERESA is 1-across, spent on the paper's "
+     "own five-light group for the ONE-EYED YELLOW IDOL line — 19-down's "
+     "\"Whence 20,1across\" names both uses"),
+    (("cryptic-21750",
+      "3-down + 17-down: clue says (3,5,11,7) = 26, answer holds 8 alone or "
+      "15 linked"),
+     "the SHAKESPEARE in THE ROYAL SHAKESPEARE COMPANY is 5-down, which "
+     "carries a full clue of its own"),
+    (("cryptic-21748", "16-down: clue says (4,4,7) = 15, answer holds 8"),
+     "the FORWARD that finishes BEST FOOT FORWARD is 1-across, which carries a "
+     "full clue of its own — 5-across names the pair as \"16 1across\""),
+    (("cryptic-21718", "12-across: clue says (4,6) = 10, answer holds 4"),
+     "the LITTLE that makes JOHN LITTLE is 19-down, already spent on 19-down + "
+     "8-down's LITTLE GREEN MEN"),
+    (("cryptic-21625", "6-down: clue says (5,2,3,5,2,4) = 21, answer holds 15"),
+     "the OF TIME that finishes DANCE TO THE MUSIC OF TIME is 7-down, which "
+     "12-across's AHEAD OF TIME needs just as much; one light, two answers"),
+    (("cryptic-21625", "12-across: clue says (5,2,4) = 11, answer holds 5"),
+     "the same 7-down OF TIME finishes 6-down's DANCE TO THE MUSIC OF TIME, "
+     "and `group` cannot say a light ends both"),
 ])
 
 # PER_LIGHT_ENUMERATION names the series whose linked clues are enumerated one
