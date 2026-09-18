@@ -80,12 +80,16 @@ for path in fetch_puzzle.puzzle_files():
     cache.append((puzzle, checkable))
 
 def length_count():
-    # Both checks that consult the tables, so a dropped GRID key shows up in the
-    # same total a dropped LENGTH key does.
+    # EVERY check that consults the tables, so a dropped key shows up in this
+    # total whichever check would have produced its finding. The counts below
+    # are read off len(table), so a check left out here reads as keys that
+    # forgive nothing and fails the run — which is what caught check_cross
+    # being absent from this list the day it started consulting PUBLISHED_WRONG.
     flags = []
     for puzzle, checkable in cache:
         pi.check_length(puzzle, checkable, flags)
         pi.check_grid(puzzle, flags)
+        pi.check_cross(puzzle, checkable, flags)
     return len(flags)
 
 orig_pw = dict(pi.PUBLISHED_WRONG)
