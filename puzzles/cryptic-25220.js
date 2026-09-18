@@ -129,15 +129,6 @@ window.CRYPTIC_PUZZLES["cryptic-25220"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "See 23",
-   "group": [
-    "23-across",
-    "25-across",
-    "26-across",
-    "22-down",
-    "11-across",
-    "7-across",
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      1,
@@ -186,15 +177,6 @@ window.CRYPTIC_PUZZLES["cryptic-25220"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": "See 23",
-   "group": [
-    "23-across",
-    "25-across",
-    "26-across",
-    "22-down",
-    "11-across",
-    "7-across",
-    "10-across"
-   ],
    "separatorLocations": {
     ",": []
    },
@@ -211,15 +193,6 @@ window.CRYPTIC_PUZZLES["cryptic-25220"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "See 23",
-   "group": [
-    "23-across",
-    "25-across",
-    "26-across",
-    "22-down",
-    "11-across",
-    "7-across",
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -451,15 +424,6 @@ window.CRYPTIC_PUZZLES["cryptic-25220"] = /*JSON-START*/ {
    },
    "length": 10,
    "clue": "O Swindon Town! outed from highest league — a fair cow — or a Houlier needed: would this clarion call be any compensation? (3,7,4,2,8,4,2,5,2,3,7,1,4)",
-   "group": [
-    "23-across",
-    "25-across",
-    "26-across",
-    "22-down",
-    "11-across",
-    "7-across",
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      3,
@@ -513,15 +477,6 @@ window.CRYPTIC_PUZZLES["cryptic-25220"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "See 23",
-   "group": [
-    "23-across",
-    "25-across",
-    "26-across",
-    "22-down",
-    "11-across",
-    "7-across",
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      4,
@@ -541,15 +496,6 @@ window.CRYPTIC_PUZZLES["cryptic-25220"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "See 23",
-   "group": [
-    "23-across",
-    "25-across",
-    "26-across",
-    "22-down",
-    "11-across",
-    "7-across",
-    "10-across"
-   ],
    "separatorLocations": {
     ",": [
      8

@@ -56,7 +56,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 PUZZLE_DIR = ROOT / "puzzles"
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from fetch_puzzle import puzzle_files, resolve_puzzle  # noqa: E402 — one glob, one id resolver
+from fetch_puzzle import (  # noqa: E402 — one glob, one id resolver, one exemption
+    leaders_named, puzzle_files, resolve_puzzle)
 from find_answer_leaks import says  # noqa: E402 — one matcher, shared with the finder
 JSON_START = "/*JSON-START*/"
 JSON_END = "/*JSON-END*/"
@@ -1760,16 +1761,13 @@ def check_groups_agree(puzzle, errors):
     it names is allowed to disagree. A continuation naming ONE leader is not
     covered, which is what keeps the check's teeth — Cyclops 683's 23-down reads
     "see 9ac." while 11-across claims it, names one leader, and still errors.
-    One entry in the corpus qualifies (2026-09-17).
+    One entry in the corpus qualifies (2026-09-17). The count lives in
+    fetch_puzzle.leaders_named, which tools/fetch_puzzle.py
+    prune_one_sided_members asks the same question of before it prunes a group:
+    the fetcher and this check must exempt the same clues or one of them is
+    writing what the other rejects.
     """
     by_id = {e["id"]: e for e in puzzle["entries"]}
-
-    def leaders_named(entry):
-        """How many leading clues a bare continuation ("See 19, 22") points at.
-        Zero for any clue with words of its own — that is not a continuation."""
-        m = re.fullmatch(r"\s*See\s+([\d,\s and]+?)\.?\s*", entry.get("clue") or "",
-                         re.IGNORECASE)
-        return len(re.findall(r"\d+", m.group(1))) if m else 0
 
     for e in puzzle["entries"]:
         group = e.get("group")
@@ -1786,7 +1784,7 @@ def check_groups_agree(puzzle, errors):
             other = by_id.get(gid)
             if other is None:
                 errors.append(f"{e['id']}: group names {gid}, which is not in this puzzle")
-            elif other.get("group") != group and leaders_named(other) < 2:
+            elif other.get("group") != group and leaders_named(other.get("clue")) < 2:
                 errors.append(f"{e['id']}: group {group} disagrees with {gid}'s "
                               f"{other.get('group')} — the two legs of a linked clue "
                               f"must name the same entries in the same order")

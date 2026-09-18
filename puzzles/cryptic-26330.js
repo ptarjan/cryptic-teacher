@@ -117,10 +117,6 @@ window.CRYPTIC_PUZZLES["cryptic-26330"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Being blunt after misuse no bit can bore into piece of wood (5-5)",
-   "group": [
-    "7-down",
-    "21-across"
-   ],
    "separatorLocations": {},
    "solution": "POINT",
    "annotation": null
@@ -167,10 +163,6 @@ window.CRYPTIC_PUZZLES["cryptic-26330"] = /*JSON-START*/ {
    },
    "length": 6,
    "clue": "Pioneering way to make dog run? (14)",
-   "group": [
-    "10-across",
-    "18-down"
-   ],
    "separatorLocations": {},
    "solution": "GROUND",
    "annotation": null
@@ -241,10 +233,6 @@ window.CRYPTIC_PUZZLES["cryptic-26330"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Tube not sufficiently fine? (11)",
-   "group": [
-    "15-across",
-    "10-across"
-   ],
    "separatorLocations": {},
    "solution": "UNDER",
    "annotation": null
@@ -287,10 +275,6 @@ window.CRYPTIC_PUZZLES["cryptic-26330"] = /*JSON-START*/ {
    },
    "length": 8,
    "clue": "Rendering pencil unusable, that's when one loses it (8,5)",
-   "group": [
-    "18-down",
-    "7-down"
-   ],
    "separatorLocations": {},
    "solution": "BREAKING",
    "annotation": null
@@ -333,10 +317,6 @@ window.CRYPTIC_PUZZLES["cryptic-26330"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Complete freedom to ignore what may be drawn (5,6)",
-   "group": [
-    "21-across",
-    "29-across"
-   ],
    "separatorLocations": {},
    "solution": "BLANK",
    "annotation": null
@@ -393,10 +373,6 @@ window.CRYPTIC_PUZZLES["cryptic-26330"] = /*JSON-START*/ {
    },
    "length": 5,
    "clue": "Order grinder attached to front of cement mixer (10)",
-   "group": [
-    "25-down",
-    "15-across"
-   ],
    "separatorLocations": {},
    "solution": "COMPO",
    "annotation": null

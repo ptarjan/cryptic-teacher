@@ -99,10 +99,6 @@ window.CRYPTIC_PUZZLES["cryptic-25126"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": " Romania is unsettled region near Greece (4,5)",
-   "group": [
-    "6-down",
-    "20-across"
-   ],
    "separatorLocations": {
     ",": [
      4
@@ -135,10 +131,6 @@ window.CRYPTIC_PUZZLES["cryptic-25126"] = /*JSON-START*/ {
    },
    "length": 4,
    "clue": " NCO and daughter having drink with PM once (4,5)",
-   "group": [
-    "8-down",
-    "17-across"
-   ],
    "separatorLocations": {
     ",": [
      4
