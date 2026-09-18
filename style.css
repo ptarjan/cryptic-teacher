@@ -666,10 +666,9 @@ button:disabled:hover { border-color: var(--line); }
   border: 1px solid var(--line); border-left: 4px solid var(--accent);
   border-radius: 8px; background: var(--card); padding: 12px 15px; margin-top: 4px;
 }
-/* Set at the width the bordered picking words need (see .guess-clue below),
-   not the width a plain sentence would want on its own — the clue is read in
-   both forms and starting picking must not change this element's own metrics,
-   or the panel reflows out from under the solver at the moment they begin. */
+/* The clue is read in both forms — as a row of picking chips and, at rest,
+   as the same chips inert (see .gw.still below) — so this element's own
+   metrics never move between them; only the words' border colour does. */
 /* One size, everywhere. The clue used to read a step smaller on a wide screen
    than on a tablet, and the big one is the right one on both: it is the thing
    being read — render the clue as big as when it's selected, all the time.
@@ -831,11 +830,17 @@ button:disabled:hover { border-color: var(--line); }
    not read the same gesture as selecting text. pan-y rather than none: a drag
    that starts on a word still has to be able to scroll the page. */
 .guess-clue { -webkit-user-select: none; user-select: none; }
+/* Except at rest (see .gw.still below): nothing is being dragged there, so the
+   clue reads as a normal sentence and can be selected and copied like one. */
+.guess-clue.still { -webkit-user-select: text; user-select: text; }
 .guess-clue .gw { touch-action: pan-y; }
-/* Every property that decides the box, set the same for both forms: a <button>
-   while the words are tappable, a <span> once they have been graded or were
-   never in play. A UA stylesheet dresses those two very differently, and the
-   difference is paid in the words shuffling on the tap that grades them. */
+/* Every property that decides the box, set the same for every form a word
+   takes: a <button> while it is tappable, a <span> once it has been graded,
+   and a <span> again — .gw.still — for the ordinary case of nothing being
+   asked about it yet. A UA stylesheet dresses a button and a span very
+   differently, and an unset property here is paid either in the words
+   shuffling on the tap that grades them or in the whole clue reflowing the
+   moment picking starts or ends. */
 .gw {
   display: inline-block; box-sizing: border-box; vertical-align: baseline;
   -webkit-appearance: none; appearance: none;
@@ -862,6 +867,11 @@ button.gw { border-style: dashed; border-color: var(--pick-fg); }
 .gw.known {
   border-color: transparent; color: var(--muted); opacity: .75;
 }
+/* The clue at rest, nothing currently asked: still one .gw box per word — same
+   padding, same margin, same border WIDTH as a picking button — just an inert
+   one, so nothing about the clue's own shape has to change the moment picking
+   starts. A transparent border, not no border, is what makes that true. */
+.gw.still { border-color: transparent; }
 
 /* The seven families, offered whole and in ladder order under every clue that
    asks: the list IS the vocabulary the site teaches, so it is the same list

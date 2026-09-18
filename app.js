@@ -3435,6 +3435,13 @@
   // them — the spaces, and the enumeration clueTokens leaves off the end — are
   // marked up as themselves. Every mark already bought therefore stays lit,
   // inside the word you are pointing at.
+  //
+  // Called with no ask (rung not being asked right now) it still wraps every
+  // word in the same .gw box, just an inert one: a plain sentence and a row of
+  // picking buttons do not share a box model, so reading the clue and then
+  // starting to tap it used to reflow the whole line under the solver's eye.
+  // The box is always there; only its border's colour and its element's
+  // interactivity change with the state.
   function pickableClueHTML(e, ask, picked, rung) {
     const marks = clueMarks(e);
     const italics = italicsOf(e);
@@ -3444,17 +3451,20 @@
     const slice = (a, b) => markUp(e.clue.slice(a, b),
       marks.map((m) => ({ i: m.i - a, len: m.len, cls: m.cls })),
       italics.map((r) => [r[0] - a, r[1]]));
+    const tokens = ask ? ask.tokens : clueTokens(e.clue);
     let out = "", at = 0;
-    ask.tokens.forEach((t, i) => {
-      const settled = ask.known.indexOf(i) >= 0;
+    tokens.forEach((t, i) => {
+      const settled = ask && ask.known.indexOf(i) >= 0;
       const inner = slice(t.i, t.i + t.text.length);
-      out += slice(at, t.i) + (settled
+      out += slice(at, t.i) + (!ask
+        ? `<span class="gw still">${inner}</span>`
+        : settled
         ? `<span class="gw known">${inner}</span>`
         : `<button type="button" id="gw-${i}" class="gw${
             picked.indexOf(i) >= 0 ? " on" : ""}">${inner}</button>`);
       at = t.i + t.text.length;
     });
-    return `<span class="guess-clue ask pick-${rung || "indicators"}">${
+    return `<span class="guess-clue ${ask ? "ask" : "still"} pick-${rung || "indicators"}">${
       out + slice(at, e.clue.length)}</span>`;
   }
 
@@ -4144,7 +4154,7 @@
     const escape = $("hint-escape");
     let bodyHTML = "";
     const nextSpec = [];
-    let ask = null;
+    let ask = null, tapping = false;
 
     if (!ann) {
       // Two different silences, and telling them apart is the whole point.
@@ -4187,7 +4197,7 @@
       // buttons, and that is only knowable from the question being asked now.
       ask = guessing ? guessAsk(e, guessing.rung, guessing.step) : null;
       if (guessing && !ask) guessing = null;
-      const tapping = !!(ask && !ask.choices && !ask.pairs && guessing && holder === e);
+      tapping = !!(ask && !ask.choices && !ask.pairs && guessing && holder === e);
       // The blocks rung as much of it as has been handed over. A solved clue
       // gets the lot: its score is settled, and the rest of the ladder is free
       // from that moment, so there is nothing left for the pacing to protect.
@@ -4309,9 +4319,13 @@
     // question ended up being asked. A linked clue is the exception and keeps the
     // second copy: the words being asked about are this entry's own clue, and the
     // one on display belongs to the entry it is linked with.
-    clueLine += (ask && !ask.choices && !ask.pairs && guessing && holder === e)
+    //
+    // Chip-wrapped either way — see pickableClueHTML — so tapping starting or
+    // ending never changes this element's own box, only the colour of the
+    // border round each word.
+    clueLine += tapping
       ? pickableClueHTML(e, ask, guessing.picked, guessing.rung)
-      : clueHTML(holder);
+      : pickableClueHTML(holder, null, [], null);
     // The marks fade in, which is an arrival: it must play when a mark arrives
     // and at no other time. Picking words rewrites the clue too — the picked
     // word's class is in the markup — so every <mark> came back as a new element
@@ -4332,7 +4346,10 @@
     // class carries no metric that setHTML's markup comparison would need to
     // catch. Set on the element rather than baked into the markup, or the
     // flash would replay every re-render mid-guess instead of firing once.
-    $("hint-clue").classList.toggle("picking", clueLine.indexOf("guess-clue") >= 0);
+    // Gated on tapping itself now, not on the markup containing "guess-clue" —
+    // that substring is in the resting render too since both forms share the
+    // same chip markup, so it stopped telling picking apart from reading.
+    $("hint-clue").classList.toggle("picking", tapping);
 
     setHTML($("hint-meter"), meterHTML + (freeRest ? " · the rest are free now" : ""));
 
