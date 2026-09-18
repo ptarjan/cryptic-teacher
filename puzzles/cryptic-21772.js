@@ -2,18 +2,18 @@
 // Annotations (type/definition/indicators/blocks/walkthrough) are original
 // to this project. Edit the annotation objects freely; keep the JSON markers.
 window.CRYPTIC_PUZZLES = window.CRYPTIC_PUZZLES || {};
-window.CRYPTIC_PUZZLES["cryptic-21762"] = /*JSON-START*/ {
- "id": "cryptic-21762",
- "number": 21762,
+window.CRYPTIC_PUZZLES["cryptic-21772"] = /*JSON-START*/ {
+ "id": "cryptic-21772",
+ "number": 21772,
  "series": "cryptic",
- "name": "Cryptic crossword No 21,762",
- "setter": "Bunthorne",
- "date": 944524800000,
+ "name": "Prize crossword No 21,772",
+ "setter": "Enigmatist",
+ "date": 945475200000,
  "dimensions": {
   "cols": 15,
   "rows": 15
  },
- "sourceUrl": "https://www.theguardian.com/crosswords/cryptic/21762",
+ "sourceUrl": "https://www.theguardian.com/crosswords/prize/21772",
  "entries": [
   {
    "id": "1-down",
@@ -24,14 +24,19 @@ window.CRYPTIC_PUZZLES["cryptic-21762"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 8,
-   "clue": "Feel a git? Change! Join the race! (3,1,4)",
+   "clue": "Version of Sequel A: compere's about to appear in court (1,6,1,1,7)",
+   "group": [
+    "1-down",
+    "5-down"
+   ],
    "separatorLocations": {
     ",": [
-     3,
-     4
+     1,
+     7,
+     8
     ]
    },
-   "solution": "GETALIFE",
+   "solution": "EEQUALSM",
    "annotation": null
   },
   {
@@ -43,17 +48,9 @@ window.CRYPTIC_PUZZLES["cryptic-21762"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 4,
-   "clue": " 16 of 5 had four husbands with brass. Oh! Wicked female! ... (4,2,8)",
-   "group": [
-    "2-down",
-    "13-down"
-   ],
-   "separatorLocations": {
-    ",": [
-     4
-    ]
-   },
-   "solution": "BESS",
+   "clue": "Too many drugs taken in by the constitution (4)",
+   "separatorLocations": {},
+   "solution": "BODY",
    "annotation": null
   },
   {
@@ -65,9 +62,9 @@ window.CRYPTIC_PUZZLES["cryptic-21762"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 6,
-   "clue": "...  and only two farthings in a fortune: \"These things are as ______ in the wind\" (6)",
+   "clue": "Mourn for morning in Church season (6)",
    "separatorLocations": {},
-   "solution": "PIFFLE",
+   "solution": "LAMENT",
    "annotation": null
   },
   {
@@ -75,17 +72,22 @@ window.CRYPTIC_PUZZLES["cryptic-21762"] = /*JSON-START*/ {
    "number": 4,
    "direction": "down",
    "position": {
-    "x": 9,
+    "x": 7,
     "y": 0
    },
-   "length": 8,
-   "clue": "US Marines train here by Potomac. B-- awful! (4,4)",
+   "length": 7,
+   "clue": "Sort of delivery for which you sign on the circled line at '4' -  it's in from bank (7,6,2,10)",
+   "group": [
+    "4-down",
+    "18-down",
+    "6-down"
+   ],
    "separatorLocations": {
     ",": [
-     4
+     7
     ]
    },
-   "solution": "BOOTCAMP",
+   "solution": "SPECIAL",
    "annotation": null
   },
   {
@@ -93,13 +95,21 @@ window.CRYPTIC_PUZZLES["cryptic-21762"] = /*JSON-START*/ {
    "number": 5,
    "direction": "down",
    "position": {
-    "x": 11,
+    "x": 9,
     "y": 0
    },
-   "length": 10,
-   "clue": "City where Kate's put six feet under (10)",
-   "separatorLocations": {},
-   "solution": "SHREWSBURY",
+   "length": 8,
+   "clue": "See 1 (8)",
+   "group": [
+    "1-down",
+    "5-down"
+   ],
+   "separatorLocations": {
+    ",": [
+     1
+    ]
+   },
+   "solution": "CSQUARED",
    "annotation": null
   },
   {
@@ -107,50 +117,46 @@ window.CRYPTIC_PUZZLES["cryptic-21762"] = /*JSON-START*/ {
    "number": 6,
    "direction": "down",
    "position": {
+    "x": 11,
+    "y": 0
+   },
+   "length": 10,
+   "clue": "See 4 (10)",
+   "group": [
+    "4-down",
+    "18-down",
+    "6-down"
+   ],
+   "separatorLocations": {},
+   "solution": "RELATIVITY",
+   "annotation": null
+  },
+  {
+   "id": "7-down",
+   "number": 7,
+   "direction": "down",
+   "position": {
     "x": 13,
     "y": 0
    },
    "length": 6,
-   "clue": "Wisdom, therefore, in articles (6)",
+   "clue": "Stick \"Great puzzles by Enigmatist\" at 7 down (6)",
    "separatorLocations": {},
-   "solution": "ATHENA",
+   "solution": "ADHERE",
    "annotation": null
   },
   {
-   "id": "7-across",
-   "number": 7,
+   "id": "8-across",
+   "number": 8,
    "direction": "across",
    "position": {
     "x": 0,
     "y": 1
    },
    "length": 8,
-   "clue": "These MDs enter insane crises of conflict! (8,4,10)",
-   "group": [
-    "7-across",
-    "10-across",
-    "11-across"
-   ],
-   "separatorLocations": {
-    ",": [
-     8
-    ]
-   },
-   "solution": "MEDECINS",
-   "annotation": null
-  },
-  {
-   "id": "8-down",
-   "number": 8,
-   "direction": "down",
-   "position": {
-    "x": 7,
-    "y": 1
-   },
-   "length": 6,
-   "clue": "Boorish attempt to influence the mighty with society leader (6)",
+   "clue": "Some roasted beef produces fruity flesh (8)",
    "separatorLocations": {},
-   "solution": "SLOBBY",
+   "solution": "MESOCARP",
    "annotation": null
   },
   {
@@ -162,9 +168,9 @@ window.CRYPTIC_PUZZLES["cryptic-21762"] = /*JSON-START*/ {
     "y": 1
    },
    "length": 6,
-   "clue": "Snake worshipper losing hope about it (6)",
+   "clue": "Means of making rate  assessment, reverse of profound and so accommodating (6)",
    "separatorLocations": {},
-   "solution": "OPHITE",
+   "solution": "SPEEDO",
    "annotation": null
   },
   {
@@ -176,14 +182,9 @@ window.CRYPTIC_PUZZLES["cryptic-21762"] = /*JSON-START*/ {
     "y": 3
    },
    "length": 4,
-   "clue": "See 7 (4)",
-   "group": [
-    "7-across",
-    "10-across",
-    "11-across"
-   ],
+   "clue": "Passionate woman with plenty of hair but no heart (4)",
    "separatorLocations": {},
-   "solution": "SANS",
+   "solution": "FURY",
    "annotation": null
   },
   {
@@ -195,18 +196,9 @@ window.CRYPTIC_PUZZLES["cryptic-21762"] = /*JSON-START*/ {
     "y": 3
    },
    "length": 10,
-   "clue": "See 7 (10)",
-   "group": [
-    "7-across",
-    "10-across",
-    "11-across"
-   ],
-   "separatorLocations": {
-    ",": [
-     4
-    ]
-   },
-   "solution": "FRONTIERES",
+   "clue": "Gave Spurs 100: that's how long we've lasted, ultimately? (10)",
+   "separatorLocations": {},
+   "solution": "ENCOURAGED",
    "annotation": null
   },
   {
@@ -218,9 +210,9 @@ window.CRYPTIC_PUZZLES["cryptic-21762"] = /*JSON-START*/ {
     "y": 5
    },
    "length": 6,
-   "clue": "Aviators losing time going East: that's hairy! (6)",
+   "clue": "\"British\" inscribed in watchful old timer's chain (6)",
    "separatorLocations": {},
-   "solution": "PILOSE",
+   "solution": "ALBERT",
    "annotation": null
   },
   {
@@ -232,17 +224,9 @@ window.CRYPTIC_PUZZLES["cryptic-21762"] = /*JSON-START*/ {
     "y": 5
    },
    "length": 10,
-   "clue": "See 2 (10)",
-   "group": [
-    "2-down",
-    "13-down"
-   ],
-   "separatorLocations": {
-    ",": [
-     2
-    ]
-   },
-   "solution": "OFHARDWICK",
+   "clue": "Source of wine causes slip during Real-Atletico match? (10)",
+   "separatorLocations": {},
+   "solution": "ELDERBERRY",
    "annotation": null
   },
   {
@@ -254,9 +238,9 @@ window.CRYPTIC_PUZZLES["cryptic-21762"] = /*JSON-START*/ {
     "y": 5
    },
    "length": 8,
-   "clue": "Superior to Tommy's tin helmet? (8)",
+   "clue": "Dry undercover for 747? (8)",
    "separatorLocations": {},
-   "solution": "BRASSHAT",
+   "solution": "AIRLINER",
    "annotation": null
   },
   {
@@ -264,13 +248,13 @@ window.CRYPTIC_PUZZLES["cryptic-21762"] = /*JSON-START*/ {
    "number": 15,
    "direction": "across",
    "position": {
-    "x": 1,
+    "x": 0,
     "y": 7
    },
-   "length": 6,
-   "clue": "Code of the English and this involves many (6)",
+   "length": 7,
+   "clue": "A little tinned fly? (7)",
    "separatorLocations": {},
-   "solution": "ETHICS",
+   "solution": "SMIDGEN",
    "annotation": null
   },
   {
@@ -282,9 +266,9 @@ window.CRYPTIC_PUZZLES["cryptic-21762"] = /*JSON-START*/ {
     "y": 7
    },
    "length": 8,
-   "clue": "Left from incalculable role in \"The Marriage of Figaro\" (8)",
+   "clue": "The great man's thirsty: his in this! (8)",
    "separatorLocations": {},
-   "solution": "COUNTESS",
+   "solution": "EINSTEIN",
    "annotation": null
   },
   {
@@ -295,10 +279,10 @@ window.CRYPTIC_PUZZLES["cryptic-21762"] = /*JSON-START*/ {
     "x": 8,
     "y": 7
    },
-   "length": 6,
-   "clue": "What the economy needs: get-up-and-go! (6)",
+   "length": 7,
+   "clue": "They can't do without theologian, one dipping into one of his books (7)",
    "separatorLocations": {},
-   "solution": "UPTURN",
+   "solution": "ADDICTS",
    "annotation": null
   },
   {
@@ -310,9 +294,19 @@ window.CRYPTIC_PUZZLES["cryptic-21762"] = /*JSON-START*/ {
     "y": 7
    },
    "length": 8,
-   "clue": "Nuclear sub built from tin with usual reaction (8)",
-   "separatorLocations": {},
-   "solution": "NAUTILUS",
+   "clue": "See 4 (8)",
+   "group": [
+    "4-down",
+    "18-down",
+    "6-down"
+   ],
+   "separatorLocations": {
+    ",": [
+     6,
+     8
+    ]
+   },
+   "solution": "THEORYOF",
    "annotation": null
   },
   {
@@ -323,10 +317,10 @@ window.CRYPTIC_PUZZLES["cryptic-21762"] = /*JSON-START*/ {
     "x": 7,
     "y": 8
    },
-   "length": 6,
-   "clue": "Offer, say, his kingdom (6)",
+   "length": 7,
+   "clue": "Please observe curfew! (7)",
    "separatorLocations": {},
-   "solution": "MERCIA",
+   "solution": "DELIGHT",
    "annotation": null
   },
   {
@@ -338,9 +332,9 @@ window.CRYPTIC_PUZZLES["cryptic-21762"] = /*JSON-START*/ {
     "y": 9
    },
    "length": 8,
-   "clue": "Stop that Cartier-Bresson set! (8)",
+   "clue": "Facing forward, but often far removed (8)",
    "separatorLocations": {},
-   "solution": "APERTURE",
+   "solution": "AFFRONTE",
    "annotation": null
   },
   {
@@ -352,9 +346,9 @@ window.CRYPTIC_PUZZLES["cryptic-21762"] = /*JSON-START*/ {
     "y": 9
    },
    "length": 6,
-   "clue": "River rat slaughtered and left at the gate (6)",
+   "clue": "Strong hint for Sally (6)",
    "separatorLocations": {},
-   "solution": "PORTAL",
+   "solution": "FLIGHT",
    "annotation": null
   },
   {
@@ -366,9 +360,9 @@ window.CRYPTIC_PUZZLES["cryptic-21762"] = /*JSON-START*/ {
     "y": 9
    },
    "length": 6,
-   "clue": "Where the Normans stitched up the Saxons? (6)",
+   "clue": "Terrapins kept in academy desalinator (6)",
    "separatorLocations": {},
-   "solution": "BAYEUX",
+   "solution": "EMYDES",
    "annotation": null
   },
   {
@@ -380,9 +374,9 @@ window.CRYPTIC_PUZZLES["cryptic-21762"] = /*JSON-START*/ {
     "y": 9
    },
    "length": 6,
-   "clue": "Exhausted by capturing a king (6)",
+   "clue": "Go horribly green with envy, ultimately (6)",
    "separatorLocations": {},
-   "solution": "BLEARY",
+   "solution": "ENERGY",
    "annotation": null
   },
   {
@@ -394,14 +388,9 @@ window.CRYPTIC_PUZZLES["cryptic-21762"] = /*JSON-START*/ {
     "y": 11
    },
    "length": 10,
-   "clue": "Raise handlebar with force and quarrel at the pain of it (4,1,5)",
-   "separatorLocations": {
-    ",": [
-     4,
-     5
-    ]
-   },
-   "solution": "GROWATACHE",
+   "clue": "Way for bee or crow to avoid connections (10)",
+   "separatorLocations": {},
+   "solution": "DIRECTLINE",
    "annotation": null
   },
   {
@@ -413,9 +402,9 @@ window.CRYPTIC_PUZZLES["cryptic-21762"] = /*JSON-START*/ {
     "y": 11
    },
    "length": 4,
-   "clue": "A spot of air-traffic control: b--  cheek! (4)",
+   "clue": "Fellow to observe correct stamp (4)",
    "separatorLocations": {},
-   "solution": "BLIP",
+   "solution": "MARK",
    "annotation": null
   },
   {
@@ -427,9 +416,9 @@ window.CRYPTIC_PUZZLES["cryptic-21762"] = /*JSON-START*/ {
     "y": 11
    },
    "length": 4,
-   "clue": "Papal demand for spit and polish (4)",
+   "clue": "Bumble's Third Law - it was likened to such a 2 (4)",
    "separatorLocations": {},
-   "solution": "BULL",
+   "solution": "MASS",
    "annotation": null
   },
   {
@@ -441,18 +430,10 @@ window.CRYPTIC_PUZZLES["cryptic-21762"] = /*JSON-START*/ {
     "y": 13
    },
    "length": 6,
-   "clue": " I, Romulus Caesar, could for universal love become Emperor (6,8)",
-   "separatorLocations": {
-    ",": [
-     6
-    ]
-   },
-   "solution": "MARCUS",
-   "annotation": null,
-   "group": [
-    "25-across",
-    "26-across"
-   ]
+   "clue": "Oddly this is about time in Staffs (6)",
+   "separatorLocations": {},
+   "solution": "THYRSI",
+   "annotation": null
   },
   {
    "id": "26-across",
@@ -463,15 +444,14 @@ window.CRYPTIC_PUZZLES["cryptic-21762"] = /*JSON-START*/ {
     "y": 13
    },
    "length": 8,
-   "clue": " (8)",
-   "clueMissing": true,
-   "separatorLocations": {},
-   "solution": "AURELIUS",
-   "annotation": null,
-   "group": [
-    "25-across",
-    "26-across"
-   ]
+   "clue": "Look after drunk's outstanding feature (4,4)",
+   "separatorLocations": {
+    ",": [
+     4
+    ]
+   },
+   "solution": "HIGHSPOT",
+   "annotation": null
   }
  ]
 } /*JSON-END*/;
