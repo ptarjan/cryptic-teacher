@@ -115,17 +115,15 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-PUZZLE_DIR = ROOT / "puzzles"
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from fetch_puzzle import puzzle_files, puzzle_is_annotated  # noqa: E402 — one glob for every tool
+from fetch_puzzle import (  # noqa: E402 — one glob, one reader for every tool
+    puzzle_files, puzzle_is_annotated, read_puzzle_file)
 LEXICON = ROOT / "tools" / "data" / "lexicon.tsv"
 BASELINE = ROOT / "tools" / "data" / "difficulty_baseline.json"
 # What an answer scores when the lexicon has never heard of it. Deliberately the
 # tail of the list rather than beyond it: unknown here almost always means a
 # proper noun or a phrase build_lexicon.js dropped by design, not a hard word.
 MISSING_RANK = 60000
-JSON_START = "/*JSON-START*/"
-JSON_END = "/*JSON-END*/"
 
 # How much each component moves the overall index. Checking leads because it is
 # the one component that is a fact rather than a judgement.
@@ -235,11 +233,6 @@ def banding(index, base):
     """The index in units of its own spread, which is what BANDS is written in."""
     ref = base.get("index")
     return (index - ref["mean"]) / ref["sd"] if ref and ref.get("sd") else index
-
-
-def load(path):
-    text = path.read_text(encoding="utf-8")
-    return json.loads(text.split(JSON_START, 1)[1].rsplit(JSON_END, 1)[0])
 
 
 def ranks():
@@ -402,7 +395,7 @@ def all_scores(base=None):
     base = base if base is not None else load_baseline()
     out = {}
     for path in puzzle_files():
-        puz = load(path)
+        puz = read_puzzle_file(path)
         s = score(puz, rank, base)
         if s:
             # Keyed by ID, not number: two papers can reach the same number
@@ -436,7 +429,7 @@ def rebaseline():
     before = all_scores()
     cols = {}
     for path in puzzle_files():
-        for k, v in raw(load(path), rank).items():
+        for k, v in raw(read_puzzle_file(path), rank).items():
             if v is not None:
                 cols.setdefault(k, []).append(v)
     comps = {}
@@ -500,7 +493,7 @@ def scored_meta():
     scores = all_scores()
     meta = {}
     for path in puzzle_files():
-        puz = load(path)
+        puz = read_puzzle_file(path)
         if puz["id"] in scores:
             meta[puz["id"]] = puz
     return scores, meta

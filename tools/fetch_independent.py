@@ -45,7 +45,7 @@ exactly the N days it's given and reports what came back missing, and a lone
 floor. Finding the floor means rerunning --extend with a larger N and reading
 the summary.
 
-Writes puzzles/<series>-<number>.js (preserving any existing per-clue
+Writes puzzles/<series>-<number>.json (preserving any existing per-clue
 annotations), then rebuilds the index via fetch_puzzle.reindex().
 """
 
@@ -60,9 +60,9 @@ from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from fetch_puzzle import (PUZZLE_DIR, UA, http_bytes, flatten_clue,  # noqa: E402
-                          merge_annotations, puzzle_files, read_puzzle_file,
-                          reindex, write_puzzle_file)
+from fetch_puzzle import (UA, http_bytes, flatten_clue,  # noqa: E402
+                          merge_annotations, puzzle_files, puzzle_path,
+                          read_puzzle_file, reindex, write_puzzle_file)
 import series as series_meta  # noqa: E402
 
 FEED = ("https://ams.cdn.arkadiumhosted.com/assets/gamesfeed/independent/"
@@ -466,7 +466,7 @@ def parse(xml_bytes, ymd):
 def fetch_day(ymd):
     """Fetch one date, whichever of the two series that day carries."""
     puzzle = parse(http_get(FEED.format(ymd=ymd)), ymd)
-    path = PUZZLE_DIR / f"{puzzle['id']}.js"
+    path = puzzle_path(puzzle["series"], puzzle["number"])
     is_new = not path.exists()
     if not is_new:
         merge_annotations(puzzle, read_puzzle_file(path))
@@ -527,7 +527,7 @@ def latest():
             if err.code != 404:
                 raise
             continue
-        if (PUZZLE_DIR / f"{puzzle['id']}.js").exists():
+        if puzzle_path(puzzle["series"], puzzle["number"]).exists():
             # The newest day we can see is one we already have, so there is
             # nothing newer to find further back either.
             print(f"up-to-date {puzzle['id']}")

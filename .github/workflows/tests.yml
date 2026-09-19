@@ -52,6 +52,9 @@ jobs:
       # are generated from it. Neither step touches the network, and the social
       # cards are deliberately not drawn: a page points at its own card only if
       # the file is on disk, and nothing here asks about cards.
+      # --reindex also builds puzzles/<id>.js from puzzles/<id>.json, and a
+      # clone has only the .json. Every test below that loads a puzzle the way
+      # the browser does needs those shims on disk.
       - name: Build the pages the tests read
         run: |
           python3 tools/fetch_puzzle.py --reindex

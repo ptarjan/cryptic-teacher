@@ -29,9 +29,8 @@ import re
 import sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
-from fetch_puzzle import read_puzzle_file, resolve_puzzle  # noqa: E402
-
-PUZZLES = pathlib.Path(__file__).parent.parent / "puzzles"
+from fetch_puzzle import (  # noqa: E402 — one glob, one reader, one id resolver
+    puzzle_files, read_puzzle_file, resolve_puzzle)
 
 # An inflection the same word can carry without becoming a different word. Longer
 # tails are a different word and not a leak: "cutter" does not give away CUT.
@@ -60,12 +59,9 @@ def says(text, answer):
 
 
 def leaks(only=()):
-    paths = [resolve_puzzle(n) for n in only] if only else sorted(PUZZLES.glob("*.js"))
+    paths = [resolve_puzzle(n) for n in only] if only else puzzle_files()
     for path in paths:
-        try:
-            puzzle = read_puzzle_file(path)
-        except Exception:
-            continue
+        puzzle = read_puzzle_file(path)
         for entry in puzzle.get("entries", []):
             ann = entry.get("annotation") or {}
             answer = ann.get("answer")

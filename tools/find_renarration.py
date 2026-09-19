@@ -33,14 +33,13 @@ writing time, with both examples above in front of the annotator.
 
 Usage:  python3 tools/find_renarration.py [puzzle-number ...]
 """
-import json
-import os
 import re
 import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from fetch_puzzle import puzzle_files, resolve_puzzle  # noqa: E402
+from fetch_puzzle import (  # noqa: E402 — one glob, one id resolver, one reader
+    puzzle_files, read_puzzle_file, resolve_puzzle)
 
 CAPS = re.compile(r"\b[A-Z][A-Z’'-]{1,}\b")
 # Assembly language: the walkthrough is placing pieces relative to one another,
@@ -55,12 +54,6 @@ TEACHING = re.compile(
     r"\b(abbreviat\w*|staple\w*|worth banking|stands for|shorthand|standard|"
     r"convention\w*|vocabulary|crosswordese|every solver|symbol|"
     r"the setter\w* word)\b", re.I)
-
-
-def load(path):
-    s = open(path).read()
-    i = s.index("{", s.index("CRYPTIC_PUZZLES["))
-    return json.loads(s[i:s.rindex("}") + 1])
 
 
 def chunks_of(ann):
@@ -78,10 +71,7 @@ def chunks_of(ann):
 
 
 def scan(path):
-    try:
-        puz = load(path)
-    except Exception:
-        return []
+    puz = read_puzzle_file(path)
     found = []
     for e in puz.get("entries", []):
         ann = e.get("annotation") or {}
@@ -101,16 +91,15 @@ def scan(path):
         positional = bool(POSITIONAL.search(walk))
         # Worst first: assembly language and no attempt to teach anything.
         rank = 0 if (positional and not teaching) else 1 if positional else 2
-        found.append((rank, os.path.basename(path)[:-3], e["id"], answer,
-                      hits, walk))
+        found.append((rank, path.stem, e["id"], answer, hits, walk))
     return found
 
 
 def main(argv):
     if argv:
-        paths = [str(resolve_puzzle(n)) for n in argv]
+        paths = [resolve_puzzle(n) for n in argv]
     else:
-        paths = [str(p) for p in puzzle_files()]
+        paths = puzzle_files()
     rows = [r for p in paths for r in scan(p)]
     rows.sort(key=lambda r: (r[0], r[1], r[2]))
     label = {0: "ASSEMBLY", 1: "MIXED", 2: "NAMES-ONLY"}

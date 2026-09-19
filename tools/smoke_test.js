@@ -378,6 +378,8 @@ assert(!registry["app"].classList.contains("hidden"), "app visible after boot");
 // The checks below are about the corpus, not about booting, so they need all of
 // it. Loaded here, deliberately after the assertion above — that ordering is the
 // only thing keeping the two apart.
+// p.file is the generated script the page injects, not the puzzle source, because
+// this arm is testing what the browser loads. The boot above rebuilt it.
 global.CRYPTIC_INDEX.puzzles.forEach((p) => {
   if (global.window.CRYPTIC_PUZZLES[p.id]) return;
   new Function("window", fs.readFileSync(path.join(ROOT, "puzzles", p.file), "utf8"))(global.window);
@@ -534,7 +536,7 @@ const patBoxes = () => (patHTML().match(/class="pat-box [^"]*"/g) || []);
 
   const seen = {};
   fs.readdirSync(path.join(ROOT, "puzzles"))
-    .filter((f) => f.endsWith(".js") && f !== "index.js")
+    .filter((f) => f.endsWith(".json") && f !== "index.json")
     .forEach((f) => {
       const src = fs.readFileSync(path.join(ROOT, "puzzles", f), "utf8");
       [...src.matchAll(/"type"\s*:\s*"([^"]*)"/g)].forEach((m) => {
@@ -3041,23 +3043,21 @@ registry["reset-puzzle"].onclick();
   assert(/clueItalics/.test(src),
     "app.js reads clueItalics, so the ranges the fetchers write are actually rendered");
 
-  /* Three sweeps in this file pick their puzzles with /^[a-z0-9]+-\d+\.js$/,
+  /* Three sweeps in this file pick their puzzles with /^[a-z0-9]+-\d+\.json$/,
      which is a FILTER: a file whose name does not match is not reported, it is
      skipped, so a new series key of an unexpected shape would drop out of all
      three and nobody would be told. tools/series.py's puzzle_id refuses to mint
      such a key, and this says so out loud — the filter and the minter have to
      agree, and this is where that agreement is checked. */
   const puzzleFiles = fs.readdirSync(path.join(ROOT, "puzzles"))
-    .filter((f) => f.endsWith(".js") && f !== "index.js");
-  const files = puzzleFiles.filter((f) => /^[a-z0-9]+-\d+\.js$/.test(f));
+    .filter((f) => f.endsWith(".json") && f !== "index.json");
+  const files = puzzleFiles.filter((f) => /^[a-z0-9]+-\d+\.json$/.test(f));
   assert(files.length === puzzleFiles.length,
-    "every puzzle file is named <series>-<number>.js, so the sweeps that filter on "
+    "every puzzle file is named <series>-<number>.json, so the sweeps that filter on "
     + "that shape see all of them: " + puzzleFiles.filter((f) => !files.includes(f)).join(", "));
   let withItalics = 0;
   files.forEach((f) => {
-    const text = fs.readFileSync(path.join(ROOT, "puzzles", f), "utf8");
-    const puz = JSON.parse(text.slice(text.indexOf("{", text.indexOf("CRYPTIC_PUZZLES[")),
-                                      text.lastIndexOf("}") + 1));
+    const puz = JSON.parse(fs.readFileSync(path.join(ROOT, "puzzles", f), "utf8"));
     puz.entries.forEach((e) => {
       assert(!/<\/?[a-zA-Z][^>]*>/.test(e.clue),
         `${puz.id} ${e.id}: clue still carries markup — ${e.clue.slice(0, 60)}`);
@@ -3118,11 +3118,9 @@ registry["reset-puzzle"].onclick();
   const hasWords = (clue) => clue.replace(/\([\d,\-. ]*\)/g, "").trim() !== "";
   const index = JSON.parse(fs.readFileSync(path.join(ROOT, "puzzles", "index.json"), "utf8"));
   const annotatedInIndex = new Map(index.puzzles.map((p) => [p.id, p.annotated]));
-  const files = fs.readdirSync(path.join(ROOT, "puzzles")).filter((f) => /^[a-z0-9]+-\d+\.js$/.test(f));
+  const files = fs.readdirSync(path.join(ROOT, "puzzles")).filter((f) => /^[a-z0-9]+-\d+\.json$/.test(f));
   files.forEach((f) => {
-    const text = fs.readFileSync(path.join(ROOT, "puzzles", f), "utf8");
-    const puz = JSON.parse(text.slice(text.indexOf("{", text.indexOf("CRYPTIC_PUZZLES[")),
-                                      text.lastIndexOf("}") + 1));
+    const puz = JSON.parse(fs.readFileSync(path.join(ROOT, "puzzles", f), "utf8"));
     puz.entries.forEach((e) => {
       assert(hasWords(e.clue) === !e.clueMissing,
         `${puz.id} ${e.id}: clueMissing disagrees with the clue text — ${JSON.stringify(e.clue)}`);
@@ -3178,10 +3176,8 @@ registry["reset-puzzle"].onclick();
   assert(shape("Vague (two words)", 9) === null, "prose in the brackets is not an enumeration");
   assert(String(shape("Feed typo (6.6)", 12)) === "6,6", "a period where a comma was meant");
 
-  fs.readdirSync(path.join(ROOT, "puzzles")).filter((f) => /^[a-z0-9]+-\d+\.js$/.test(f)).forEach((f) => {
-    const text = fs.readFileSync(path.join(ROOT, "puzzles", f), "utf8");
-    const puz = JSON.parse(text.slice(text.indexOf("{", text.indexOf("CRYPTIC_PUZZLES[")),
-                                      text.lastIndexOf("}") + 1));
+  fs.readdirSync(path.join(ROOT, "puzzles")).filter((f) => /^[a-z0-9]+-\d+\.json$/.test(f)).forEach((f) => {
+    const puz = JSON.parse(fs.readFileSync(path.join(ROOT, "puzzles", f), "utf8"));
     puz.entries.forEach((e) => {
       const ans = e.annotation && e.annotation.answer;
       const drawn = shape(e.clue, e.length);

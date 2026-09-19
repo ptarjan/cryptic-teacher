@@ -161,14 +161,12 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from difficulty import _rank_list, load, moments  # noqa: E402
+from difficulty import _rank_list, moments  # noqa: E402
+from fetch_puzzle import puzzle_files, read_puzzle_file  # noqa: E402 — one glob, one reader for every tool
 
 # Below this a device's count is dominated by which puzzles happen to be
 # blogged, not by whether solvers like it.
 MIN_DEVICE_CLUES = 60
-
-ROOT = Path(__file__).resolve().parent.parent
-PUZZLE_DIR = ROOT / "puzzles"
 
 WORD = re.compile(r"[A-Za-z’']+")
 
@@ -183,10 +181,6 @@ WORSE_WHEN_HIGH = {
 
 # Counts rather than shares, so they print as integers.
 COUNTS = {"short_entries"}
-
-
-def puzzle_files():
-    return sorted(p for p in PUZZLE_DIR.glob("*.js") if p.name != "index.js")
 
 
 def annotated(puz):
@@ -326,7 +320,7 @@ def all_observations():
     """
     raw = {}
     for path in puzzle_files():
-        puz = load(path)
+        puz = read_puzzle_file(path)
         o = observe(puz)
         if o:
             o["series"] = puz.get("series")
@@ -416,7 +410,7 @@ def device_vs_favourites(voted):
     tot, obs, exp, var = Counter(), Counter(), defaultdict(float), defaultdict(float)
     puzzles = clues = names = 0
     for path in puzzle_files():
-        puz = load(path)
+        puz = read_puzzle_file(path)
         ents = annotated(puz)
         pid = puz.get("id")
         if pid not in voted or not ents:
@@ -482,7 +476,7 @@ def vs_favourites(votes_path, trials=3000):
     obs, _ = all_observations()
     rows = []
     for path in puzzle_files():
-        puz = load(path)
+        puz = read_puzzle_file(path)
         pid = puz.get("id")
         ents = annotated(puz)
         if pid not in voted or pid not in obs or not ents:

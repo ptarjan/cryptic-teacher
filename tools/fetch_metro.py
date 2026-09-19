@@ -53,7 +53,8 @@ import urllib.error
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from fetch_puzzle import http_bytes, has_words, reindex, write_puzzle_file  # noqa: E402
+from fetch_puzzle import (http_bytes, has_words, puzzle_path,  # noqa: E402
+                          reindex, write_puzzle_file)
 from fetch_wayback import maybe_gunzip, SLEEP_SECONDS  # noqa: E402 — shared Wayback plumbing
 import series as series_meta  # noqa: E402 — for puzzle_id()/default_setter() only
 
@@ -285,7 +286,7 @@ def fetch_today(force=False):
     page = http_get(URL)
     data = extract_starting_puzzle(page)
     puzzle = convert(data)
-    path = PUZZLE_DIR / f"{puzzle['id']}.js"
+    path = puzzle_path(puzzle["series"], puzzle["number"])
 
     if path.exists() and not force:
         return puzzle, False
@@ -366,7 +367,7 @@ def backfill_wayback(dry_run=False):
             continue
 
         number = int(date.strftime("%Y%m%d"))
-        path = PUZZLE_DIR / f"{series_meta.puzzle_id(SERIES, number)}.js"
+        path = puzzle_path(SERIES, number)
         if path.exists() or path in planned:
             already += 1
         else:

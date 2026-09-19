@@ -49,7 +49,14 @@ jobs:
       # in between carries an index that does not describe the tree, and the
       # smoke test failed the deploy for it (2026-09-15, everyman-4168). Before
       # the pages and the stamps, both of which read what this writes.
-      - name: Reindex the puzzles
+      #
+      # The same command builds puzzles/<id>.js from puzzles/<id>.json first.
+      # A clone has only the .json files, and app.js loads a puzzle by injecting
+      # a <script> tag — it cannot fetch(), because the site is openable from
+      # file://. The two are one step rather than two because the index hashes
+      # the shim bytes, so indexing without building is not a thing that can be
+      # correct.
+      - name: Build the puzzle shims and reindex
         run: python3 tools/fetch_puzzle.py --reindex
       # The cards are 24MB of PNGs that change one file a night, so they are
       # neither committed nor redrawn from scratch: the cache carries them and

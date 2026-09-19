@@ -27,8 +27,11 @@ og/                                          one 1200x630 social card per puzzle
 puzzles/index.json, puzzles/index.js         manifest: one row per puzzle, latest first, and
                                              the same as a script so file:// works — built by
                                              tools/fetch_puzzle.py --reindex, not committed
-puzzles/<series>-<n>.js                      one puzzle per file, JSON between /*JSON-START*/ …
-                                             /*JSON-END*/
+puzzles/<series>-<n>.json                    one puzzle per file, plain JSON: the whole file is
+                                             the payload
+puzzles/<series>-<n>.js                      the same puzzle as a script, so app.js can inject
+                                             it from file:// — built by tools/fetch_puzzle.py
+                                             --reindex, not committed
 
 the rest of the site
 site.webmanifest                             PWA name, icons and display mode

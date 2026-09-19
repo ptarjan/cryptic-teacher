@@ -90,7 +90,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from fetch_puzzle import (PUZZLE_DIR, convert, http_bytes,  # noqa: E402
-                          reindex, write_puzzle_file)
+                          puzzle_path, reindex, write_puzzle_file)
 import series as series_meta  # noqa: E402
 
 WAYBACK_URL = ("https://web.archive.org/web/{year}id_/"
@@ -212,7 +212,10 @@ def main(argv):
 
     recovered = skipped = already = 0
     for num in numbers:
-        path = args.out / f"{series_meta.puzzle_id(args.series, num)}.js"
+        # puzzle_path() always resolves against the real puzzles/ dir, so it
+        # can't stand in when --out points elsewhere.
+        path = (puzzle_path(args.series, num) if is_live_dir
+                else args.out / f"{series_meta.puzzle_id(args.series, num)}.json")
         if path.exists():
             print(f"skip {args.series}-{num}: already have {path}")
             already += 1

@@ -39,8 +39,11 @@ from fetch_puzzle import ROOT, has_words, read_puzzle_file, resolve_puzzle  # no
 def changed_puzzles():
     out = subprocess.run(["git", "diff", "--name-only", "HEAD", "--", "puzzles/"],
                          cwd=ROOT, capture_output=True, text=True).stdout
-    return [ROOT / line for line in out.split() if line.endswith(".js")
-            and not line.endswith("index.js")]
+    # .json, because that is the committed form — the .js beside it is
+    # generated and gitignored, so a diff can never name one and a filter
+    # looking for one would report every night clean without reading a file.
+    return [ROOT / line for line in out.split() if line.endswith(".json")
+            and not line.endswith("index.json")]
 
 
 def unannotated(puzzle):

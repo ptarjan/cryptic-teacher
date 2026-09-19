@@ -72,7 +72,7 @@ or whose blog post fails verification against the grid, gets solution: None
 instead — same shape the app already uses for a prize puzzle whose answers
 haven't been published (see hasSolutions in fetch_puzzle.reindex).
 
-Writes <out>/cyclops-<number>.js (preserving any existing per-clue annotations
+Writes <out>/cyclops-<number>.json (preserving any existing per-clue annotations
 via merge_annotations). Deliberately does NOT rebuild puzzles/index.json or
 index.js — this fetcher lands before the "cyclops" series exists in
 tools/series.py and app.js, so an index write here would either crash (series
@@ -98,7 +98,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from fetch_puzzle import (PUZZLE_DIR, grade_model_fill, http_bytes,  # noqa: E402
                           merge_annotations, print_grade, puzzle_files,
-                          read_puzzle_file, write_puzzle_file)
+                          puzzle_path, read_puzzle_file, write_puzzle_file)
 
 INDEX_URL = "https://www.private-eye.co.uk/crossword"
 PUZ_URL = "https://www.private-eye.co.uk/pictures/crossword/download/{num}.puz"
@@ -949,8 +949,11 @@ def solve_from_fifteensquared(puzzle, post):
 
 # ---------- fetch / walk ----------
 
-def puzzle_path(out_dir, num):
-    return out_dir / f"{SERIES}-{num}.js"
+def out_path(out_dir, num):
+    """out_dir's own copy of whatever fetch_puzzle.puzzle_path() would name
+    this number under puzzles/ itself — so --out can redirect where a puzzle
+    lands without spelling the file name format a second time."""
+    return out_dir / puzzle_path(SERIES, num).name
 
 
 def fill_answers(puzzle, num, old_puzzle):
@@ -1002,7 +1005,7 @@ def fetch_number(num, out_dir, dry_run=False):
     data = http_bytes(PUZ_URL.format(num=num))
     puz = parse_puz(data)
     puzzle = convert(num, puz)
-    path = puzzle_path(out_dir, num)
+    path = out_path(out_dir, num)
     old_puzzle = read_puzzle_file(path) if path.exists() else None
     fill_answers(puzzle, num, old_puzzle)
     if dry_run:
@@ -1050,7 +1053,7 @@ def refresh_unsolved():
 
     filled = 0
     for num in pending:
-        path = puzzle_path(PUZZLE_DIR, num)
+        path = out_path(PUZZLE_DIR, num)
         puzzle = read_puzzle_file(path)
         was_model = (puzzle.get("solutionSource") or {}).get("kind") == "model"
         guessed = ({e["id"]: e.get("solution") for e in puzzle["entries"]}
@@ -1099,7 +1102,7 @@ def backfill_dates(out_dir, dry_run=False):
     """
     written = skipped = 0
     for num in on_disk_numbers(out_dir):
-        path = puzzle_path(out_dir, num)
+        path = out_path(out_dir, num)
         puzzle = read_puzzle_file(path)
         if puzzle.get("date"):
             continue
@@ -1125,7 +1128,7 @@ def backfill_dates(out_dir, dry_run=False):
 
 def on_disk_numbers(out_dir):
     prefix = f"{SERIES}-"
-    return sorted(int(p.stem[len(prefix):]) for p in out_dir.glob(f"{prefix}*.js")
+    return sorted(int(p.stem[len(prefix):]) for p in out_dir.glob(f"{prefix}*.json")
                   if p.stem[len(prefix):].isdigit())
 
 
@@ -1140,7 +1143,7 @@ def find_latest_number():
 def walk(numbers, out_dir, dry_run=False):
     fetched = skipped = missing = 0
     for num in numbers:
-        if not dry_run and puzzle_path(out_dir, num).exists():
+        if not dry_run and out_path(out_dir, num).exists():
             skipped += 1
             continue
         try:
@@ -1186,7 +1189,7 @@ def main(argv):
 
     if args.latest:
         num = find_latest_number()
-        if not args.dry_run and puzzle_path(args.out, num).exists():
+        if not args.dry_run and out_path(args.out, num).exists():
             print(f"up-to-date {SERIES}-{num}")
             return 3
         fetch_number(num, args.out, dry_run=args.dry_run)

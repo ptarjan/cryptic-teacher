@@ -48,7 +48,8 @@ from urllib.parse import urlparse
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import build_abbreviations  # noqa: E402 — one glossary, rendered into every page that shows it
 import series as series_meta  # noqa: E402 — what each series IS; see tools/series.py
-from fetch_puzzle import puzzle_files  # noqa: E402 — one glob for every tool
+from fetch_puzzle import (  # noqa: E402 — one glob, one reader, one puzzles/ for every tool
+    PUZZLE_DIR, puzzle_files, read_puzzle_file)
 from stamp_assets import asset_url  # noqa: E402 — content-hashed asset URLs
 # Which clue a puzzle's card shows, and how to describe it. Imported rather than
 # reimplemented: the alt text has to describe the picture that was actually
@@ -56,10 +57,7 @@ from stamp_assets import asset_url  # noqa: E402 — content-hashed asset URLs
 from make_og_card import alt_text as card_alt  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
-PUZZLE_DIR = ROOT / "puzzles"
 BASE = "https://cryptic.paultarjan.com"
-JSON_START = "/*JSON-START*/"
-JSON_END = "/*JSON-END*/"
 
 # Marker pair in index.html. The homepage is hand-written and stays that way;
 # only what is between these two comments is generated, so the crawl path out
@@ -101,15 +99,10 @@ def esc_clue(s):
     return _CLUE_TAG_RE.sub(r"<\1\2>", esc(s))
 
 
-def load(path):
-    text = path.read_text(encoding="utf-8")
-    return json.loads(text.split(JSON_START, 1)[1].rsplit(JSON_END, 1)[0])
-
-
 def puzzles():
     out = []
     for path in puzzle_files():
-        out.append(load(path))
+        out.append(read_puzzle_file(path))
     # Chronological, matching fetch_puzzle.reindex(). Sorting on the number was
     # the same thing while every puzzle was a cryptic; now that quiptics (~1,400)
     # sit alongside cryptics (~30,000) it would file every quiptic at the end of
@@ -958,8 +951,8 @@ def orphans(files):
     The rule is narrow on purpose, because this walks the directory that also
     holds the site's real data:
 
-      * only direct child DIRECTORIES of puzzles/ are candidates, so the flat
-        puzzles/<series>-<number>.js sources cannot be reached at all;
+      * only direct child DIRECTORIES of puzzles/ are candidates, so no flat
+        puzzles/<series>-<number>.* file can be reached at all;
       * a directory qualifies only if its entire content is one index.html,
         which is the exact shape this generator creates;
       * and only if that index.html is not one this run is about to write.

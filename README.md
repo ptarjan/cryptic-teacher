@@ -50,16 +50,17 @@ saved in localStorage per puzzle.
 
 ## Run it
 
-One build step, no backend. The puzzle list the app opens with is generated from the
-puzzle files and is not committed, so a fresh clone builds it once — about ten seconds
-for the whole corpus:
+One build step, no backend. The puzzle list the app opens with, and the script form of
+each puzzle the app loads, are generated from the committed puzzle files and are not
+committed, so a fresh clone builds them once — about ten seconds for the whole corpus:
 
 ```
 python3 tools/fetch_puzzle.py --reindex
 ```
 
-That writes `puzzles/index.json` and `puzzles/index.js`, and restamps `index.html`'s
-`?v=` hashes to match, so `git status` will show that file. Then either:
+That writes `puzzles/index.json`, `puzzles/index.js` and a `puzzles/<series>-<n>.js` per
+puzzle, and restamps `index.html`'s `?v=` hashes to match, so `git status` will show that
+file. Then either:
 
 - open `index.html` directly in a browser (works from `file://`), or
 - `python3 -m http.server 8017` in the repo root and visit <http://localhost:8017/>, or
@@ -74,13 +75,15 @@ above is for the browser.
 
 ## Puzzle file format
 
-`puzzles/<number>.js` assigns one JSON object to `window.CRYPTIC_PUZZLES["<number>"]`.
-The JSON sits between `/*JSON-START*/` and `/*JSON-END*/` markers so the Python tools can
-read and rewrite it. Shape:
+`puzzles/<series>-<n>.json` is one puzzle as plain JSON — the whole file is the payload,
+and it is the committed source every tool reads and writes. Beside it, generated and not
+committed, `puzzles/<series>-<n>.js` assigns that same JSON to
+`window.CRYPTIC_PUZZLES["<series>-<n>"]` between `/*JSON-START*/` and `/*JSON-END*/`
+markers, which is how the page loads a puzzle from `file://`. Shape:
 
 ```jsonc
 {
-  "id": "30066", "number": 30066, "name": "Cryptic crossword No 30,066",
+  "id": "cryptic-30066", "number": 30066, "name": "Cryptic crossword No 30,066",
   "setter": "Tramp", "date": 1784764800000, "dimensions": {"rows": 15, "cols": 15},
   "sourceUrl": "https://www.theguardian.com/crosswords/cryptic/30066",
   "entries": [
@@ -178,7 +181,7 @@ python3 tools/fetch_puzzle.py --latest  # newest cryptic (no-op if already prese
 python3 tools/fetch_puzzle.py --backfill 30   # the last 30, skipping ones you have
 ```
 
-Then annotate the new `puzzles/<series>-<n>.js` by hand or with Claude Code using
+Then annotate the new `puzzles/<series>-<n>.json` by hand or with Claude Code using
 `tools/annotate_prompt.md`, and check your work:
 
 ```

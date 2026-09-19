@@ -1,8 +1,9 @@
-/* Rebuild puzzles/index.json and puzzles/index.js, for the node harnesses.
+/* Rebuild puzzles/index.json, puzzles/index.js and the per-puzzle .js shims,
+   for the node harnesses.
 
-   The manifest is generated from the puzzle files and is not committed, so a
-   fresh clone has none and a working tree has whatever the last rebuild left.
-   Anything that reads it calls this first:
+   All of them are generated from the puzzles/<id>.json sources and none are
+   committed, so a fresh clone has none and a working tree has whatever the last
+   rebuild left. Anything that reads one calls this first:
 
      require("./reindex").reindex();
 

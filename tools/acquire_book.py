@@ -391,7 +391,9 @@ def file_unsolved(puzzle_meta, grid, across, down, volume, out_dir):
         return None, [f"tools/file_penguin_puzzle.py raised "
                       f"{type(err).__name__}: {err}"]
     out_dir.mkdir(parents=True, exist_ok=True)
-    path = out_dir / f"{built['id']}.js"
+    # puzzle_path() always resolves against the real puzzles/ dir; this out_dir
+    # defaults to /tmp and can be pointed anywhere, so it can't stand in here.
+    path = out_dir / f"{built['id']}.json"
     write_puzzle_file(path, built, generator="tools/acquire_book.py")
     return path, []
 

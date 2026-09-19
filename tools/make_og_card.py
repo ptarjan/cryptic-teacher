@@ -51,7 +51,8 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import app_tables  # noqa: E402 — app.js's tables, read from app.js
-from fetch_puzzle import puzzle_files  # noqa: E402 — one glob for every tool
+from fetch_puzzle import (  # noqa: E402 — one glob, one reader, one puzzles/ for every tool
+    PUZZLE_DIR, puzzle_files, read_puzzle_file, shim_path)
 CARD = REPO / "tools" / "og_card.html"
 APP = REPO / "app.js"
 # Quiptic 1,393 3D: "Woman found in Oregon or Maine (5)" — five short words, a
@@ -82,10 +83,22 @@ def first_sentence(text):
 
 # Every "number" below is really a puzzle ID ("cryptic-30089") — the key a file
 # is named by. The number is what the CARD prints; this is what finds it.
+def puzzle_file(pid):
+    """The puzzle a card is drawn from, named by its id.
+
+    The id spells the file rather than being resolved from a bare number: a
+    card is filed under og/<pid>.png and remembered under the same key, so a
+    number that matched two series would put one paper's grid on the other
+    paper's card.
+    """
+    path = PUZZLE_DIR / f"{pid}.json"
+    if not path.exists():
+        raise SystemExit(f"no puzzle {pid} in {PUZZLE_DIR}")
+    return path
+
+
 def load(pid):
-    text = (REPO / f"puzzles/{pid}.js").read_text(encoding="utf-8")
-    body = text.split("/*JSON-START*/", 1)[1].rsplit("/*JSON-END*/", 1)[0]
-    return json.loads(body)
+    return read_puzzle_file(puzzle_file(pid))
 
 
 def norm(s):
@@ -544,8 +557,16 @@ def _salt():
 
 
 def card_key(pid, salt):
+    """What a card was drawn from, hashed: the salt plus the puzzle.
+
+    The puzzle is taken from its generated script shim, not from the .json
+    source. A card is drawn from the puzzle's content, which both forms state
+    identically, so keying on the shim keeps every already-drawn card valid
+    through a change to how the source file is spelled — and a real edit to a
+    puzzle reaches the shim too, so nothing stale survives.
+    """
     h = salt.copy()
-    h.update((REPO / f"puzzles/{pid}.js").read_bytes())
+    h.update(shim_path(puzzle_file(pid)).read_bytes())
     return h.hexdigest()
 
 
@@ -573,7 +594,7 @@ def stale():
 
 
 def record(pid):
-    """Note that pid's card is now drawn from what puzzles/<pid>.js says today.
+    """Note that pid's card is now drawn from what that puzzle says today.
 
     Called per card rather than once at the end, so a run that dies halfway
     leaves the cards it did draw marked done and the rest still stale.
