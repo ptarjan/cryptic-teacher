@@ -470,8 +470,16 @@ const lightCells = registry["grid"].children.filter((c) => !c.classList.contains
 // perfectly normal.
 assert(lightCells.length > cellCount * 0.5,
   `light cells present: ${lightCells.length} of ${cellCount}`);
-assert(registry["clues-across"].children.length > 10, "across clues rendered");
-assert(registry["clues-down"].children.length > 10, "down clues rendered");
+// One list item per entry, in each direction — not "more than ten". A floor is
+// a 15x15 figure in disguise: the Metro's 13x13 has exactly 10 across clues, so
+// `> 10` called a correctly rendered list empty. Counting against the puzzle's
+// own entries is also the stronger check, because it catches a list that
+// renders one clue too many as well as one that renders none.
+for (const dir of ["across", "down"]) {
+  const want = openPuz.entries.filter((e) => e.direction === dir).length;
+  assert(registry["clues-" + dir].children.length === want,
+    `${dir} clues rendered: ${registry["clues-" + dir].children.length} of ${want}`);
+}
 assert(registry["hint-clue"].innerHTML.length > 10, "hint panel shows a clue");
 
 // --- letter pattern strip: one box per cell, checked vs unchecked marked ---
