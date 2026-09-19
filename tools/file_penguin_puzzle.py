@@ -258,7 +258,8 @@ def build(record, identifier, model, unsolved=False):
         # continuation ("See 11") is printed without one and stays that way.
         if enumeration:
             e["clue"] = f"{e['clue']} ({enumeration})"
-        e["separatorLocations"] = seps.get(e["id"], {})
+        if seps.get(e["id"]):
+            e["separatorLocations"] = seps[e["id"]]
         if e["id"] in groups:
             e["group"] = list(groups[e["id"]])
         # null, not absent, on an unsolved puzzle: that is how every unsolved
@@ -269,7 +270,6 @@ def build(record, identifier, model, unsolved=False):
             # Read by the annotator, via tools/annotate_prompt.md. Written only
             # when it is not the default, so its presence is the whole signal.
             e["solutionConfidence"] = confidence
-        e["annotation"] = None
         out.append(e)
 
     verification = record.get("verification") or {}
