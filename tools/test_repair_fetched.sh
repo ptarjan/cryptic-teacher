@@ -29,8 +29,13 @@ same() { if [ "$2" = "$3" ]; then echo "  ok: $1"; else
   echo "  FAIL: $1"$'\n'"    want $3"$'\n'"    got  $2"; fails=$((fails + 1)); fi; }
 
 work=$(mktemp -d); trap 'rm -rf "$work"' EXIT
-mkdir -p "$work/tools" "$work/puzzles"
+mkdir -p "$work/tools/data" "$work/puzzles"
 cp "$REPO"/tools/*.py "$work/tools/"
+# The tables those modules read at import. tools/series.py loads the book
+# registry the moment it is imported -- a book's shelf, scan and index are data
+# and the module is only the reader -- so a scratch tree with the code and not
+# the tables is a tree where nothing importable imports.
+cp "$REPO"/tools/data/books.json "$work/tools/data/"
 # The one fixture that is NOT built here. The false-cross-reference rule is
 # gated off for the series that enumerate light by light, and a hand-written
 # Private Eye puzzle would only prove the gate against our idea of Private Eye.
