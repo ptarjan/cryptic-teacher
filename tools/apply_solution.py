@@ -46,6 +46,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from fetch_puzzle import (PUZZLE_DIR, read_puzzle_file, reindex,  # noqa: E402
                           resolve_puzzle, write_puzzle_file)
 from grid_fill import MIN_CHECKED_RATIO  # noqa: E402 — the authoring rulebook's floor
+from series import official_key  # noqa: E402
 
 
 def normalise(answer):
@@ -253,6 +254,16 @@ def main():
         "date": datetime.date.today().isoformat(),
         "check": f"{len(puzzle['entries'])} entries, {crossings} crossings, 0 conflicts",
     }
+    # Whether a key is ever coming is a fact about the series, not about this
+    # solve, so it is read from tools/series.py rather than carried in the fill.
+    # It has to be stamped HERE as well as in tools/file_penguin_puzzle.py: a
+    # Penguin reprint filed without answers is solved by the nightly job through
+    # this function, and a reprint that reached the site without it would have
+    # tools/build_seo_pages.py promise official answers "as soon as those
+    # appear" for a book that prints its solutions as pictures.
+    never = official_key(puzzle.get("series"))
+    if never:
+        puzzle["solutionSource"]["officialKey"] = never
     write_puzzle_file(path, puzzle, generator="tools/apply_solution.py")
     print(f"wrote {len(puzzle['entries'])} solutions into {path} (marked unofficial)")
     reindex()

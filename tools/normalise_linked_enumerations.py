@@ -21,8 +21,8 @@ normalise_record() itself before building, which is what makes the wrong shape
 unfilable rather than merely refused; run this CLI when you want to see or
 record the rewrite.
 
-THE ENUMERATION IS DERIVED FROM THE ANSWER, never from the printed per-light
-counts. "(5,3,6)" is a statement about UNTER DEN LINDEN's words, and the words
+THE ENUMERATION IS DERIVED FROM THE ANSWER wherever there is one, never from
+the printed per-light counts. "(5,3,6)" is a statement about UNTER DEN LINDEN's words, and the words
 are in the answer; the per-light counts are a statement about the grid, which
 already knows its own light lengths. Splitting "5" and "9" back into "5,3,6" out
 of the printed numbers is impossible — the 9 says nothing about where DEN ends.
@@ -30,6 +30,12 @@ So the fill's spaces and hyphens supply the word structure, the grid supplies
 the totals, and a printed per-light count is used for one thing only: as a
 cross-check that refuses when it disagrees with the answer (the fill lost a
 space, or the answer is not the one the book counted).
+
+A record with no answers is the one case that has nothing else to go on, and it
+is a real one: a puzzle filed unsolved for the nightly backfill to finish. There
+the printed per-light counts ARE the word structure the book gave for each
+light, and only the join between two lights is supplied — as a comma, the way
+this corpus reads a linked answer's split. See group_enumeration_from_counts.
 
 A light boundary inside a linked answer is a word break, so the join between two
 lights is written as a comma unless the earlier light's fill ends in a hyphen.
@@ -210,6 +216,52 @@ def group_enumeration(group_ids, by_id, fill):
     return parts
 
 
+def group_enumeration_from_counts(group_ids, by_id):
+    """The whole answer's enumeration when there is no answer to read it off.
+
+    A puzzle can be filed before it is solved — the nightly cold solve in
+    tools/daily_update.sh finishes it later — and such a record has the book's
+    printed per-light counts and nothing else. Those counts are still the book's
+    own statement of the words inside each light, so the only thing derived here
+    is the JOIN between two lights, which the corpus already reads as a word
+    break: a linked answer is split AT its words. Whether that break is a hyphen
+    rather than a comma cannot be known without the answer, and a comma is what
+    the corpus spells, so a comma is what is written; the solve that fills the
+    grid does not rewrite it, because by then the count is on the leader and
+    normalise_record leaves a leader-form record alone.
+
+    A light that prints no count at all — book 27's 17-down, nine cells under
+    "See 7" and nothing else — counts as one word of its own length. That is the
+    weakest true statement available: its cells are in the answer, and where its
+    words fall is not knowable until somebody solves it. It is not the same as
+    dropping the group's internal breaks and printing one total. "(14)" over
+    UNTER DEN LINDEN would say the answer is a single fourteen-letter word and
+    would contradict the rule above, which the whole corpus reads: a linked
+    answer is split AT its words, so the join between two lights is a break.
+    "(5,9)" keeps the break the grid proves and guesses only inside the light
+    nobody counted.
+
+    It still refuses a printed count that does not add up to its own light,
+    because that is a disagreement rather than a gap.
+    """
+    parts = []
+    for position, gid in enumerate(group_ids):
+        entry = by_id[gid]
+        printed = entry.get("enumeration")
+        if not printed:
+            parts.append((entry["length"], "," if position < len(group_ids) - 1 else ""))
+            continue
+        mine = enumeration_parts(printed)
+        held = sum(n for n, _ in mine)
+        if held != entry["length"]:
+            raise SystemExit(
+                f"{gid}: the book counts ({printed}) = {held} letters, the light is "
+                f"{entry['length']} cells")
+        mine[-1] = (mine[-1][0], "," if position < len(group_ids) - 1 else "")
+        parts.extend(mine)
+    return parts
+
+
 def normalise_record(record):
     """Rewrite every linked group in a solve record into leader form.
 
@@ -233,7 +285,13 @@ def normalise_record(record):
         if not strays and was and sum(n for n, _ in enumeration_parts(was)) == cells:
             continue  # already leader form; the answer gets no vote over it
 
-        parts = group_enumeration(group_ids, by_id, fill)
+        # Off the answers where there are answers, off the book's printed
+        # counts where there are not. An unsolved record is the second case for
+        # every one of its groups; a partially-solved one can be both.
+        if all(fill.get(gid) for gid in group_ids):
+            parts = group_enumeration(group_ids, by_id, fill)
+        else:
+            parts = group_enumeration_from_counts(group_ids, by_id)
         counted = sum(n for n, _ in parts)
         if counted != cells:
             raise SystemExit(

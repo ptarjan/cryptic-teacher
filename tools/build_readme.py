@@ -210,6 +210,7 @@ LAYOUT = [
     ("tables everything else reads", "tools/data/sample_fill_11.json", "the worked 11x11 fill tools/AUTHORING.md walks through"),
     ("tables everything else reads", "tools/data/authored_A001_clues.json", "the hand-written clues for that fill"),
     ("tables everything else reads", "tools/data/annotate_attempts.json", "which puzzles have already had an annotation run spent on them and lost"),
+    ("tables everything else reads", "tools/data/penguin_partial_fills/", "answers from a Penguin-book solve that stopped short; the puzzle itself is filed unsolved for the nightly cold solve to finish"),
     ("tables everything else reads", "tools/data/blind_misses.json", "which entries the last blind annotate run got wrong, the one blank check_every_clue_is_annotated will not fail on"),
     ("tables everything else reads", "tools/data/favourite_grading/key.json", "which packet label is which pair, and which side of it was voted for: the only thing that un-blinds a packet"),
     ("tables everything else reads", "tools/data/favourite_grading/packets/", "one blind batch of clues per file, labels only"),
@@ -225,6 +226,7 @@ LAYOUT_EXEMPT = re.compile(r"""
     | ^tools/__pycache__/
     | ^puzzles/                     # covered by the <series>-<n>.js line
     | ^tools/data/favourite_grading/(packets|scores)/  # covered by the two directory lines
+    | ^tools/data/penguin_partial_fills/            # covered by the directory line
     | ^og/                          # covered by the og/ line
     | ^vendor/                      # covered by the vendor/ line
     | ^learn/ | ^abbreviations/
@@ -281,10 +283,16 @@ SERIES_NAMES = {
     "cyclops": "Private Eye Cyclops",
     "metro": "Metro cryptic",
     "globeandmail": "Globe and Mail cryptic",
-    # One entry per Penguin volume, because one series per volume: every volume
-    # numbers its puzzles from its own 1 (see tools/series.py).
-    "penguin5": "Penguin book 5",
 }
+
+# One entry per Penguin volume, because one series per volume: every volume
+# numbers its puzzles from its own 1. Built off the volume list in
+# tools/series.py rather than typed again, so a volume cannot be in one and
+# missing from the other — build_corpus() stops on a series it has no name for.
+sys.path.insert(0, str(REPO / "tools"))
+from series import PENGUIN_VOLUMES  # noqa: E402
+
+SERIES_NAMES.update({f"penguin{v}": f"Penguin book {v}" for v in PENGUIN_VOLUMES})
 
 
 def build_corpus():
