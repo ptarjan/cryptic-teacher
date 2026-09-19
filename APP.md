@@ -75,6 +75,19 @@ is why the two are separate files rather than two halves of one.
   where two marks genuinely overlap the SHORTER one wins the overlap so both stay
   visible. The smoke test buys every rung on every annotated clue in the corpus
   and reads the marks back off the rendered HTML.
+- The clue's leading and the size of its tap targets are ONE number, and it is
+  spent on the reader. Every word of the clue is an inline-block chip in every
+  state (see `pickableClueHTML`), and an inline-block's margin box is the floor
+  of the line box — a line-height below the chip's height is silently ignored.
+  So a chip grown to thumb size is paid for in white space by the 75% of clues
+  that wrap on a 390px phone, in every state, including the one the solver
+  spends nearly all their time in: reading. A clue that picks nothing at all was
+  set with a full blank line between its two lines for that reason (iPhone,
+  2026-09-18). `--gw-box` and `--gw-line` in `style.css` are declared as one sum
+  and `tools/smoke_test.js` checks the arithmetic against `.gw`'s own box,
+  because the drift is invisible in a headless DOM and shows up only on a phone
+  holding a long clue. Grow the target by growing the sum, knowing it is leading
+  you are buying; never by giving `.gw` a box of its own on some devices.
 - A tap must leave the soft keyboard exactly as it found it, unless the tap is
   going to type. On iOS the keyboard IS the viewport: it arriving and it leaving
   are the same size of reflow, and either one lands on the page in the same
@@ -696,6 +709,11 @@ all 55:
 - Every asset URL carries a content hash (`style.css?v=…`, puzzle files use the
   `v` field in `puzzles/index.json`). GitHub Pages sends `max-age=14400`, so
   without this a phone shows four-hour-old CSS after a reload (feedback
-  2026-07-26). After ANY edit to index.html's assets run
-  `python3 tools/stamp_assets.py`; the smoke test fails on stale stamps and
-  `tools/daily_update.sh` re-stamps automatically.
+  2026-07-26). The stamp is a BUILD step, not a tracked value: the committed
+  `index.html` carries bare references, `.github/workflows/pages.yml` runs
+  `python3 tools/stamp_assets.py` on its own checkout, and what ships is stamped
+  while what is stored is not. A hash in a tracked file changes on every commit
+  that touches an asset — pure churn, and the one thing the nightly rebase
+  conflicts in. So do not commit a stamped index.html; if you ran the stamper to
+  look at something, `python3 tools/stamp_assets.py --unstamp` puts the tree
+  back. The smoke test checks that the REFERENCE is there, never the stamp.

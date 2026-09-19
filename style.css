@@ -68,6 +68,20 @@
   --burst-1: #d4568f;
   --burst-2: #2e9e5b;
   --burst-3: #2b7fb8;
+  /* The clue's leading and the size of the target a finger aims at in it are
+     ONE number. Every word of the clue is an inline-block chip (.gw) in every
+     state, and an inline-block's margin box is the FLOOR of the line box: a
+     line-height below the chip's own height is silently ignored, so the chip's
+     box is the gap between two lines of a clue that wrapped — and three
+     quarters of the corpus wraps at 1.3rem on a phone. Making the chip
+     thumb-sized therefore double-spaces the clue for the solver who is only
+     reading it, and no line-height can take that back. So the two are declared
+     together, here, once, for .hint-clue and .guess-clue both: --gw-box is the
+     target, --gw-line adds the only separation the reader gets between one
+     line's dashed boxes and the next's. In em, so the sum follows the clue
+     whatever size it is set at. */
+  --gw-box: calc(1.35em + 4px);   /* .gw: 1.35em of text, +1px padding +1px border a side */
+  --gw-line: calc(var(--gw-box) + 4px);
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -713,7 +727,7 @@ button:disabled:hover { border-color: var(--line); }
    than on a tablet, and the big one is the right one on both: it is the thing
    being read — render the clue as big as when it's selected, all the time.
    Stated once so the two cannot drift apart again. */
-.hint-clue { font-size: 1.3rem; line-height: 2.1; margin-bottom: 6px; }
+.hint-clue { font-size: 1.3rem; line-height: var(--gw-line); margin-bottom: 6px; }
 .hint-clue .entry-tag { font-weight: 700; font-family: -apple-system, Helvetica, sans-serif; margin-right: 6px; }
 #hint-meter { font-size: .8rem; margin-bottom: 8px; }
 
@@ -835,13 +849,10 @@ button:disabled:hover { border-color: var(--line); }
 /* One line-height for the clue in every state it is ever in. Grading swaps the
    markup underneath these words, and any metric that differs between the two
    forms re-wraps the whole clue at the moment the solver is trying to read what
-   changed. Nothing below may override it. */
-.guess-clue { line-height: 2.1; }
-/* Nested inside .hint-clue, take ITS line-height rather than the default above
-   — the two are the same number today, but .hint-clue is the one the picking
-   transition is pinned to, so a future change to that number only has one
-   place to happen. */
-.hint-clue .guess-clue { line-height: inherit; }
+   changed. Nothing below may override it. It is the same token .hint-clue is
+   set from — the copy nested inside it and the standalone copy a linked clue
+   gets are the same sum, so there is no second number to keep in step. */
+.guess-clue { line-height: var(--gw-line); }
 /* The question appears in the panel BELOW while the thing to tap is the clue
    ABOVE it, so nothing on screen moves at the place the solver has to act. One
    flash when picking begins, sending the eye up to the line that just became
@@ -885,11 +896,14 @@ button:disabled:hover { border-color: var(--line); }
   display: inline-block; box-sizing: border-box; vertical-align: baseline;
   -webkit-appearance: none; appearance: none;
   font: inherit; line-height: 1.35; text-align: center;
-  /* No horizontal padding or margin, so the only thing between two words is the
-     space that was always there plus the two 1px borders. The box is carried in
-     every state, visible or transparent, which means any breathing room added
-     here is added to the clue AT REST, where it reads as a sentence with the
-     words pushed apart. The border hugging the word is the whole budget. */
+  /* A hairline and no more, in either direction. The box is carried in every
+     state, visible or transparent, so breathing room added here is added to the
+     clue AT REST. Across, it lands in the gap between two words and the clue
+     stops reading as a sentence. Down, it is worse: this box is the floor of
+     the clue's line box (see --gw-box), so a pixel added for a thumb is a pixel
+     of white between two lines of a clue that wrapped, and no line-height can
+     take it back. The border hugging the word is the whole budget — grow the
+     target by growing --gw-box, which grows the leading with it, on purpose. */
   padding: 1px 0; margin: 0;
   background: transparent; border: 1px solid var(--line); border-radius: 4px;
 }
@@ -902,10 +916,6 @@ button.gw { border-style: dashed; border-color: var(--pick-fg); }
 /* This sentence is the only thing that says WHERE to act, and it was muted grey
    — the page's styling for an aside. It is the instruction. */
 .tap-hint { color: var(--accent); font-weight: 600; }
-/* Big enough to hit with a thumb without the clue turning into a keypad. The
-   extra height is free — the line already has leading — but extra WIDTH is not:
-   it lands in the gap between words. The word itself is what a thumb aims at. */
-@media (pointer: coarse) { .gw { padding: 5px 0; } }
 .gw.on { background: var(--pick-bg); border-color: var(--pick-fg); color: var(--pick-fg); }
 /* A word an earlier rung already named. Still there — knowing where the
    definition ends is most of knowing where the wordplay starts — but plainly not
