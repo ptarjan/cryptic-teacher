@@ -5142,6 +5142,45 @@ global.realSetTimeout(() => {
       `or style may differ between states: ${body.trim()}`);
   });
 
+  // And that box is the clue's LEADING. .gw is an inline-block, and an
+  // inline-block's margin box is the floor of the line box: a line-height under
+  // the chip's own height is silently ignored, so the chip's height is the white
+  // a reader sees between two lines of a clue that wrapped — which three
+  // quarters of the corpus does at 1.3rem on a phone. The two are therefore one
+  // declared sum, and the arithmetic is checked here because nothing in a
+  // headless DOM has a pixel in it: the only place they drift apart is a real
+  // phone holding a long clue.
+  const gwCss = pickCss.replace(/\/\*[\s\S]*?\*\//g, "");
+  const gwBox = /--gw-box:\s*calc\(([\d.]+)em\s*\+\s*(\d+)px\)/.exec(gwCss);
+  const gwLine = /--gw-line:\s*calc\(var\(--gw-box\)\s*\+\s*(\d+)px\)/.exec(gwCss);
+  if (assert(gwBox && gwLine && +gwLine[1] > 0,
+    "the clue's word box and its leading are declared as one sum (--gw-box, --gw-line)")) {
+    const gwBody = (/(?:^|\n)\.gw\s*\{([^}]*)\}/.exec(gwCss) || [])[1] || "";
+    const gwNum = (re) => { const m = re.exec(gwBody); return m ? +m[1] : NaN; };
+    const gwText = gwNum(/line-height:\s*([\d.]+)/);
+    assert(gwText === +gwBox[1],
+      `--gw-box carries .gw's own line-height (${gwBox[1]}em declared vs ${gwText})`);
+    const gwEdge = 2 * (gwNum(/padding:\s*([\d.]+)px/) + gwNum(/border:\s*([\d.]+)px/));
+    assert(gwEdge === +gwBox[2],
+      `--gw-box carries .gw's padding and border too (${gwBox[2]}px declared vs ${gwEdge}px)`);
+  }
+  [/\.hint-clue\s*\{([^}]*)\}/, /(?:^|\n)\.guess-clue\s*\{([^}]*)\}/].forEach((re) => {
+    const m = re.exec(gwCss);
+    assert(m && /line-height:\s*var\(--gw-line\)/.test(m[1]),
+      "the clue's leading is that sum and never a number of its own: "
+      + (m ? m[1].trim() : "rule missing"));
+  });
+  // Including inside a media query. The sweep above reads one rule per line and
+  // cannot see the query wrapped round it, which is how a coarse pointer came to
+  // buy a thumb-sized box — and pay for it in leading on every clue it wrapped.
+  [...gwCss.matchAll(/@media([^{]+)\{((?:[^{}]|\{[^{}]*\})*)\}/g)].forEach((q) => {
+    [...q[2].matchAll(/\.gw\b[^{}]*\{([^{}]*)\}/g)].forEach((g) => {
+      assert(!boxProps.test(g[1]),
+        `@media${q[1]}gives .gw a box of its own; the clue's leading is that box on `
+        + `every device, so grow --gw-box instead: ${g[1].trim()}`);
+    });
+  });
+
   // A marked run in the picker clue paints as ONE band, not a bead per word.
   // The picker cuts every mark into a piece per word and a piece per space (see
   // pickableClueHTML), so the pill padding and rounding that is right for a mark
