@@ -77,6 +77,7 @@ LAYOUT = [
     ("fetching", "tools/test_puzzle_integrity.sh", "proves the two LENGTH exception tables match by nothing looser than the exact sentence they’re keyed on, and that baselining one finding never silences the rest of its puzzle"),
     ("fetching", "tools/fetch_ia_book.py", "borrows a lending-restricted archive.org book, saves its OCR text outside the repo, and returns the loan"),
     ("fetching", "tools/parse_penguin_book.py", "segments that book's OCR text into puzzles, clues and enumerations, and reports per-puzzle what OCR destroyed"),
+    ("fetching", "tools/file_penguin_puzzle.py", "turns one solved Penguin-book puzzle into a puzzle file: the book's own number, no date because no volume prints one, and answers marked as a model's with no official key ever coming"),
     ("fetching", "tools/test_blank_clue_carry.sh", "proves a re-fetch cannot empty a puzzle whose clues were recovered by hand off the Guardian’s old site, that the paper still wins wherever it prints words, and that the sixteen recovered prize puzzles still carry every clue"),
     ("fetching", "tools/test_source_answer_wrong.sh", "proves the table of answers the PAPER got wrong still corrects the letters it names, still leaves every other light alone, and names itself stale rather than overriding a key the paper has since fixed"),
     ("fetching", "tools/coverage_report.py", "counts what we hold of every series and names the ones that have gone quiet, were never backfilled, or are full of holes"),
