@@ -264,7 +264,10 @@ def main():
     never = official_key(puzzle.get("series"))
     if never:
         puzzle["solutionSource"]["officialKey"] = never
-    write_puzzle_file(path, puzzle, generator="tools/apply_solution.py")
+    # No generator: this fills answers into a file a fetcher laid out, and
+    # stamping its own name would erase which fetcher that was. What this tool
+    # did is recorded in solutionSource, above.
+    write_puzzle_file(path, puzzle)
     print(f"wrote {len(puzzle['entries'])} solutions into {path} (marked unofficial)")
     reindex()
 

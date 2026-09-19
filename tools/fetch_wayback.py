@@ -64,9 +64,15 @@ recovered JSON, because the archived payload carries the same fields the live
 CrosswordComponent props do (id, number, name, date, dimensions, entries[]
 with position/length/clue/separatorLocations/solution, and creator when the
 paper credited one). sourceUrl is therefore the ORIGINAL theguardian.com URL,
-never the web.archive.org one; the schema convert() produces has no field for
-an archive URL, so none is invented here — the archive URL a puzzle was
-recovered from is only ever printed to stdout, not stored.
+never the web.archive.org one — it is the address a reader would cite, and
+several tools read it expecting that. The capture actually read is recorded
+separately, in provenance.retrievedUrl, alongside provenance.retrievedFrom
+"wayback"; without it a puzzle recovered from a 2016 snapshot of a page the
+Guardian has since dropped was indistinguishable on disk from one fetched live
+that morning, and the only address that can still serve it was printed to
+stdout and thrown away. The 492 puzzles recovered before that field existed
+have it null: which capture answered on the day was never written down, and
+guessing one would be worse than admitting it.
 
 reindex() (puzzles/index.json + index.js) only runs when writing into the
 real puzzle directory. Anything written to a --out override is a sample, not
@@ -168,9 +174,9 @@ def fetch_one(series, num, years=YEARS_TO_TRY):
             continue
         puzzle = convert(data)
         print(f"{series}-{num}: recovered from {archive_url} (capture year {year})")
-        return puzzle
+        return puzzle, archive_url
     print(f"SKIP {series}-{num}: {last_reason}")
-    return None
+    return None, None
 
 
 def numbers_from_args(args):
@@ -211,14 +217,15 @@ def main(argv):
             print(f"skip {args.series}-{num}: already have {path}")
             already += 1
             continue
-        puzzle = fetch_one(args.series, num, years)
+        puzzle, archive_url = fetch_one(args.series, num, years)
         if puzzle is None:
             skipped += 1
             continue
         if args.dry_run:
             print(f"  DRY RUN — would write {path}")
         else:
-            write_puzzle_file(path, puzzle, generator="tools/fetch_wayback.py")
+            write_puzzle_file(path, puzzle, generator="tools/fetch_wayback.py",
+                              retrieved_url=archive_url)
             print(f"  wrote {path}")
         recovered += 1
 
