@@ -13,7 +13,7 @@ window.CRYPTIC_PUZZLES["penguin7-5"] = /*JSON-START*/ {
   "cols": 15,
   "rows": 15
  },
- "sourceUrl": "https://archive.org/details/newpenguinbkguar0000perk",
+ "sourceUrl": "https://archive.org/details/isbn_9780140248098",
  "provenance": {
   "publisher": "Guardian",
   "series": "penguin7",
@@ -24,7 +24,7 @@ window.CRYPTIC_PUZZLES["penguin7-5"] = /*JSON-START*/ {
   "gridOrigin": "reconstructed",
   "solutionOrigin": "unsolved",
   "book": {
-   "identifier": "unknown",
+   "identifier": "isbn_9780140248098",
    "title": "The New Penguin Book of The Guardian Crosswords, volume 7",
    "volume": 7,
    "numberInBook": 5,

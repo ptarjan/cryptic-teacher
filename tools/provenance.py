@@ -256,21 +256,10 @@ GRID_ORIGIN_BY_SERIES = {"authored": "authored"}
 #
 # Keyed by series because a volume IS a series here (see series.py: every volume
 # restarts its numbering at 1, so penguin5-3 and penguin3-3 are different
-# puzzles). Only volume 5 has been filed; the others have identifiers that
-# nobody has looked up yet, and file_penguin_puzzle.py refuses a volume that is
-# not in this table rather than stamping volume 5's scan on volume 3's puzzles.
-# archive.org item ids, by volume. ONLY volume 5's is known: acquire_book.py
-# takes the identifier on the command line and file_penguin_puzzle.py threw it
-# away in favour of a hardcoded constant, so volumes 2, 3, 7 and 11 were filed
-# carrying volume 5's scan as their sourceUrl and the real ids were never
-# written down anywhere in the repo. Those read "unknown" here rather than
-# inheriting the wrong book — the sourceUrl on those ten files is a known
-# defect, and repeating it in provenance would launder it into a second
-# source that agrees with the first.
-#
-# file_penguin_puzzle.py now takes --identifier and acquire_book.py passes the
-# one it was given, so a volume filed from here on records its own scan.
-BOOK_IDENTIFIERS = {5: "newpenguinbkguar0000perk"}
+# puzzles). The identifier itself is NOT kept here: series.py holds it, and this
+# module reads it through series.scan_identifier. Two tables keyed by volume can
+# only drift, and a puzzle whose sourceUrl names one book while its
+# provenance.book names another is exactly what that drift looks like.
 BOOK_TITLE = "The New Penguin Book of The Guardian Crosswords, volume {volume}"
 
 
@@ -279,24 +268,28 @@ def book_of(series):
 
     Derived from the series key rather than listed, because a volume IS a
     series here and a table listing them twice would have to be extended in
-    two places every time a book is acquired — which is exactly how the
-    identifier came to be hardcoded in the first place.
+    two places every time a book is acquired.
+
+    A penguin series with no recorded scan raises. There is no placeholder
+    identifier: a file saying "unknown" reads afterwards as a fact about the
+    book rather than a gap, and it is a gap a human has to close by looking the
+    volume up.
     """
     m = PENGUIN.fullmatch(series or "")
     if not m:
         return None
     volume = int(m.group(1))
+    identifier = series_table.scan_identifier(series)
+    if not identifier:
+        raise ValueError(
+            f"{series} has no archive.org identifier in series.PENGUIN_VOLUMES "
+            f"— look up volume {volume}'s own scan and add it there; filing it "
+            f"without one makes the puzzle cite a book it did not come from")
     return {
-        "identifier": BOOK_IDENTIFIERS.get(volume, "unknown"),
+        "identifier": identifier,
         "title": BOOK_TITLE.format(volume=volume),
         "volume": volume,
     }
-
-
-def book_url(volume):
-    """The archive.org item URL for a volume, or None if nobody recorded it."""
-    identifier = BOOK_IDENTIFIERS.get(volume)
-    return f"https://archive.org/details/{identifier}" if identifier else None
 
 
 REQUIRED = ("publisher", "series", "acquiredBy", "acquiredOn",
