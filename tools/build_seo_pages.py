@@ -469,7 +469,20 @@ def puzzle_page(puz, meta, prev_p, next_p):
     # prize puzzle solved here before the paper published its key, the answers
     # below are a machine's — right or wrong, and searchable either way, so the
     # claim gets qualified in the page itself rather than only in the data.
-    if (puz.get("solutionSource") or {}).get("kind") == "model":
+    source = puz.get("solutionSource") or {}
+    if source.get("kind") == "model" and source.get("officialKey") == "never":
+        # A reprint with no key coming. Promising official answers "as soon as
+        # those appear" would be a promise nothing can keep: the book prints its
+        # solutions as answer-grid images that OCR to noise, and it names no
+        # puzzle number or date to look a key up by. Say that instead.
+        body.append(
+            f'<p class="unofficial-note">The answers below are our own solve, checked for '
+            "consistency at every crossing in the grid but never confirmed against a published "
+            f"key — the book this {paper} crossword was reprinted in gives its solutions only as "
+            "pictures of filled grids, and names neither a puzzle number nor a date to look one "
+            "up by. No official answers are coming, so treat these as a careful reading rather "
+            "than the last word.</p>")
+    elif source.get("kind") == "model":
         body.append(
             f'<p class="unofficial-note">The {paper} has not published the answers to this prize '
             "crossword yet. The solutions below are our own solve, checked for consistency "

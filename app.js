@@ -4691,6 +4691,11 @@
       from the Times of London, and 13x13 rather than the Times' own 15x15, so it
       is the short, crisp end of that house style: tight surfaces, no obscurity,
       and a solve you can finish on a coffee.`],
+    penguin5: ["penguin 5", `Guardian crosswords reprinted in The New Penguin Book
+      of The Guardian Crosswords, volume 5 — mostly Araucaria and his contemporaries,
+      and older and chewier than today's daily. The book prints no date and no
+      Guardian number, so these are numbered by their place in it, and the answers
+      are our own solve rather than the paper's.`],
     indysunday: ["indy sunday", `The Independent on Sunday's cryptic — its own
       weekly numbering, near 1,900 while the daily is past 12,400. Same stable of
       setters as the daily, and pitched about the same.`],

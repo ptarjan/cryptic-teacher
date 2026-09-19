@@ -1029,7 +1029,7 @@ answer.slice(0, len - 1).split("").forEach((ch) => kd(ev(ch)));
     const row = registry["hint-vote"].innerHTML;
     const m = /data-vote="([^"|]+)\|up"/.exec(row);
     assert(m, "a solved clue offers the vote row: " + row.slice(-400));
-    assert(/^c:[a-z]+-\d+:\d+-(across|down)$/.test(m[1]),
+    assert(/^c:[a-z0-9]+-\d+:\d+-(across|down)$/.test(m[1]),
       "and it names the puzzle and the clue, nothing about the solver: " + m[1]);
     assert(/data-vote="[^"]+\|down"/.test(row), "both verdicts are offered: " + row.slice(-400));
     assert(!/data-vote=/.test(body),
@@ -2314,7 +2314,7 @@ registry["reset-puzzle"].onclick();
 // back on the next pull — the reset has to be a thing that happened, with a
 // time on it, for the merge to have anything to obey.
 {
-  const after = JSON.parse(storage[Object.keys(storage).find((k) => /^ct:[a-z]+-\d+$/.test(k))] || "{}");
+  const after = JSON.parse(storage[Object.keys(storage).find((k) => /^ct:[a-z0-9]+-\d+$/.test(k))] || "{}");
   assert(after.clearedAt > 0 && Object.keys(after.letters || {}).length === 0,
     "resetting records when it happened, so the reset itself can reach the other device");
 }
@@ -3041,7 +3041,18 @@ registry["reset-puzzle"].onclick();
   assert(/clueItalics/.test(src),
     "app.js reads clueItalics, so the ranges the fetchers write are actually rendered");
 
-  const files = fs.readdirSync(path.join(ROOT, "puzzles")).filter((f) => /^[a-z]+-\d+\.js$/.test(f));
+  /* Three sweeps in this file pick their puzzles with /^[a-z0-9]+-\d+\.js$/,
+     which is a FILTER: a file whose name does not match is not reported, it is
+     skipped, so a new series key of an unexpected shape would drop out of all
+     three and nobody would be told. tools/series.py's puzzle_id refuses to mint
+     such a key, and this says so out loud — the filter and the minter have to
+     agree, and this is where that agreement is checked. */
+  const puzzleFiles = fs.readdirSync(path.join(ROOT, "puzzles"))
+    .filter((f) => f.endsWith(".js") && f !== "index.js");
+  const files = puzzleFiles.filter((f) => /^[a-z0-9]+-\d+\.js$/.test(f));
+  assert(files.length === puzzleFiles.length,
+    "every puzzle file is named <series>-<number>.js, so the sweeps that filter on "
+    + "that shape see all of them: " + puzzleFiles.filter((f) => !files.includes(f)).join(", "));
   let withItalics = 0;
   files.forEach((f) => {
     const text = fs.readFileSync(path.join(ROOT, "puzzles", f), "utf8");
@@ -3107,7 +3118,7 @@ registry["reset-puzzle"].onclick();
   const hasWords = (clue) => clue.replace(/\([\d,\-. ]*\)/g, "").trim() !== "";
   const index = JSON.parse(fs.readFileSync(path.join(ROOT, "puzzles", "index.json"), "utf8"));
   const annotatedInIndex = new Map(index.puzzles.map((p) => [p.id, p.annotated]));
-  const files = fs.readdirSync(path.join(ROOT, "puzzles")).filter((f) => /^[a-z]+-\d+\.js$/.test(f));
+  const files = fs.readdirSync(path.join(ROOT, "puzzles")).filter((f) => /^[a-z0-9]+-\d+\.js$/.test(f));
   files.forEach((f) => {
     const text = fs.readFileSync(path.join(ROOT, "puzzles", f), "utf8");
     const puz = JSON.parse(text.slice(text.indexOf("{", text.indexOf("CRYPTIC_PUZZLES[")),
@@ -3167,7 +3178,7 @@ registry["reset-puzzle"].onclick();
   assert(shape("Vague (two words)", 9) === null, "prose in the brackets is not an enumeration");
   assert(String(shape("Feed typo (6.6)", 12)) === "6,6", "a period where a comma was meant");
 
-  fs.readdirSync(path.join(ROOT, "puzzles")).filter((f) => /^[a-z]+-\d+\.js$/.test(f)).forEach((f) => {
+  fs.readdirSync(path.join(ROOT, "puzzles")).filter((f) => /^[a-z0-9]+-\d+\.js$/.test(f)).forEach((f) => {
     const text = fs.readFileSync(path.join(ROOT, "puzzles", f), "utf8");
     const puz = JSON.parse(text.slice(text.indexOf("{", text.indexOf("CRYPTIC_PUZZLES[")),
                                       text.lastIndexOf("}") + 1));
@@ -3379,7 +3390,7 @@ global.realSetTimeout(() => {
   // passes for one range of puzzle numbers is asserting the wrong thing.
   assert(storage["ct:" + openId], `progress persisted to localStorage under ct:${openId}, got ` +
     JSON.stringify(Object.keys(storage)));
-  const saved = JSON.parse(storage[Object.keys(storage).find((k) => /^ct:[a-z]+-\d/.test(k))]);
+  const saved = JSON.parse(storage[Object.keys(storage).find((k) => /^ct:[a-z0-9]+-\d/.test(k))]);
   // Without a timestamp the merge cannot tell two devices apart, so this is
   // written whether or not sync is on — turning it on later must not find a
   // pile of undated saves.
