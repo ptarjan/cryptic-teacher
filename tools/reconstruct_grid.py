@@ -20,10 +20,18 @@ lists of lengths and nothing else:
 
 Clue numbers are optional, because a scan often loses them: OCR of a printed
 book keeps the clue text and the enumeration and drops the little numerals.
-When the numbers *are* legible, pass triples instead —
-``[(1, "across", 6), (1, "down", 4), ...]`` — and they become extra
-constraints rather than the thing the search keys on. An unknown length may
-be written ``None``, at a steep price in search.
+When some or all numbers *are* legible, pass triples instead —
+``[(1, "across", 6), (None, "across", 6), (5, "across", 4), ...]`` — one
+direction's triples given in the order that direction prints (row-major
+order, the same order full numbering would sort them into), with ``number``
+written ``None`` for whichever lights lost theirs. That is the general case:
+every number present, none present, and anything in between are the same
+input shape and the same search, not three of them. A known number is a hard
+constraint; an unknown one is still not a free variable, because numbering is
+a dense 1..N sequence with each value used once — so it is squeezed between
+whichever known numbers flank it in its own direction, tighter the fewer
+unknowns separate them, exact when only one does. An unknown length may be
+written ``None`` too, at a steep price in search.
 
 Lengths here are LIGHTS, not enumerations. An enumeration of "(7,5)" is one
 twelve-cell light and should be passed as 12. A linked clue — "1,5" with a
@@ -86,10 +94,12 @@ consistent with the lists, up to a limit, and says whether the limit bit.
 Usage:
     python3 tools/reconstruct_grid.py cryptic-30066          # strip, re-derive
     python3 tools/reconstruct_grid.py cryptic-30066 --numberless
+    python3 tools/reconstruct_grid.py cryptic-30066 --blank 0.5 --seed 1
     python3 tools/reconstruct_grid.py --lights lights.json --cols 15 --rows 15
 """
 import argparse
 import json
+import random
 import sys
 from pathlib import Path
 
@@ -107,11 +117,56 @@ DEFAULT_MAX_NODES = 2_000_000
 DEFAULT_LIMIT = 40
 
 
+def _sequence_bounds(nums):
+    """lo[i]/hi[i]: the range light i's number must fall in, one direction at a time.
+
+    A direction's own numbers strictly increase (parse_lights enforces it), so
+    a light with no number of its own is still squeezed by its neighbours: it
+    must be at least the previous known number plus its distance forward from
+    it, and at most the next known number minus its distance back from it --
+    tighter the closer a run of unknowns sits to a known number on either
+    side, and exact once only one unknown separates two knowns. This is the
+    partial-numbering case doing real work: five consecutive unknown downs
+    between two known numbers 21 apart can only be 22..26, not "any number".
+    `hi[i] is None` means no known number ever follows, so there is no ceiling.
+    """
+    n = len(nums)
+    lo, hi = [1] * n, [None] * n
+    last, last_i = None, -1
+    for i, v in enumerate(nums):
+        if v is not None:
+            lo[i] = v
+            last, last_i = v, i
+        elif last is not None:
+            lo[i] = last + (i - last_i)
+    nxt, nxt_i = None, n
+    for i in range(n - 1, -1, -1):
+        v = nums[i]
+        if v is not None:
+            hi[i] = v
+            nxt, nxt_i = v, i
+        elif nxt is not None:
+            hi[i] = nxt - (nxt_i - i)
+    return lo, hi
+
+
 class _Solver:
     def __init__(self, across, down, anum, dnum, cols, rows,
                  limit, symmetry, max_nodes, strict=True):
         self.across, self.down = across, down
+        # Numbers are always a per-light list from here on, `None` standing for
+        # "not known" light by light -- the single generalisation that makes a
+        # fully numbered puzzle, a fully numberless one and everything between
+        # the same code path instead of three. A caller who knows nothing about
+        # a whole direction may still pass `None` for it; it reads the same as
+        # a list of `None`s of the right length.
+        anum = anum if anum is not None else [None] * len(across)
+        dnum = dnum if dnum is not None else [None] * len(down)
+        if len(anum) != len(across) or len(dnum) != len(down):
+            raise ValueError("a number list must have one entry per light")
         self.anum, self.dnum = anum, dnum
+        self.alo, self.ahi = _sequence_bounds(anum)
+        self.dlo, self.dhi = _sequence_bounds(dnum)
         self.na, self.nd = len(across), len(down)
         self.cols, self.rows = cols, rows
         self.limit, self.symmetry, self.max_nodes = limit, symmetry, max_nodes
@@ -178,6 +233,16 @@ class _Solver:
         for i in trail[mark:]:
             self.cells[i] = None
         del trail[mark:]
+
+    @staticmethod
+    def number_ok(lo, hi, i, n):
+        """Could light i legally take number n, given what its direction knows?
+
+        Exact when the light's own number is known (lo[i] == hi[i] == it).
+        Otherwise a range narrowed by _sequence_bounds from whichever known
+        numbers flank it -- unconstrained, bar the floor of 1, when none do.
+        """
+        return lo[i] <= n and (hi[i] is None or n <= hi[i])
 
     # --- the search -------------------------------------------------------
 
@@ -276,7 +341,7 @@ class _Solver:
             want = self.across[ai]
             if want is not None and want != length:
                 return
-            if self.anum is not None and self.anum[ai] != n:
+            if not self.number_ok(self.alo, self.ahi, ai, n):
                 return
             self.branch_down(y, x, length, i, ai + 1, di, n, top_blocked,
                              numbered=True, trail=trail)
@@ -302,10 +367,10 @@ class _Solver:
         """
         x0 = x - i
         may_start = top_blocked and di < self.nd
-        if may_start and self.anum is not None and not numbered \
-                and ai < self.na and self.anum[ai] == n:
+        if may_start and not numbered and ai < self.na \
+                and self.anum[ai] is not None and self.anum[ai] == n:
             may_start = False   # a down-only number is not one the acrosses claim
-        if may_start and self.dnum is not None and self.dnum[di] != n:
+        if may_start and not self.number_ok(self.dlo, self.dhi, di, n):
             may_start = False
 
         if may_start:
@@ -607,28 +672,49 @@ def conventions_broken(grid, symmetry=True):
 def parse_lights(spec):
     """Normalise either input shape to (across, down, across_nums, down_nums).
 
-    Numbers come back as None when the caller had none, which is the common
-    case for anything that has been through OCR.
+    Numbers come back as None when the caller had none for that light, which
+    is the common case for anything that has been through OCR -- and now the
+    *usual* case, not just the all-or-nothing extremes: any mix of known and
+    unknown numbers is legal, one entry at a time.
+
+    The triple form ``(number, direction, length)`` used to be an unordered
+    set keyed by number, which meant a light with no number could not be
+    represented at all. It is read positionally instead: the triples for one
+    direction must already be given in the order the puzzle prints them
+    (row-major order, same as increasing number), and `number` may be `None`
+    for any of them. When every number is given this is the same order
+    sorting by number would produce, so nothing that always numbered fully
+    needs to change; a caller with gaps just leaves them `None` in place
+    rather than omitting them.
     """
     if isinstance(spec, dict):
         across = [None if v is None else int(v) for v in spec.get("across", [])]
         down = [None if v is None else int(v) for v in spec.get("down", [])]
         anum = spec.get("acrossNumbers")
         dnum = spec.get("downNumbers")
+        if anum is not None:
+            anum = [None if v is None else int(v) for v in anum]
+        if dnum is not None:
+            dnum = [None if v is None else int(v) for v in dnum]
         return across, down, anum, dnum
 
-    seen = {"across": {}, "down": {}}
+    lengths = {"across": [], "down": []}
+    numbers = {"across": [], "down": []}
+    last = {"across": None, "down": None}
     for number, direction, length in spec:
         d = str(direction).lower()
-        if d not in seen:
+        if d not in lengths:
             raise ValueError(f"light {number}: unknown direction {direction!r}")
-        if int(number) in seen[d]:
-            raise ValueError(f"two {d} lights numbered {number}")
-        seen[d][int(number)] = None if length is None else int(length)
-    anum = sorted(seen["across"])
-    dnum = sorted(seen["down"])
-    return ([seen["across"][k] for k in anum], [seen["down"][k] for k in dnum],
-            anum, dnum)
+        num = None if number is None else int(number)
+        if num is not None and last[d] is not None and num <= last[d]:
+            raise ValueError(
+                f"{d} numbers must strictly increase in the order given; "
+                f"{num} follows {last[d]}")
+        if num is not None:
+            last[d] = num
+        numbers[d].append(num)
+        lengths[d].append(None if length is None else int(length))
+    return lengths["across"], lengths["down"], numbers["across"], numbers["down"]
 
 
 def reconstruct(spec, cols=15, rows=15, limit=DEFAULT_LIMIT, symmetry=True,
@@ -677,6 +763,21 @@ def lights_of(puzzle, numbered=True):
             for d in ("across", "down")}
 
 
+def blank_numbers(triples, fraction, rng):
+    """Simulate the OCR damage this module exists for: lose `fraction` of the
+    numbers off a fully-numbered light list, keep everything else.
+
+    Order is untouched -- it is what parse_lights reads position from once a
+    number is gone -- and which lights lose theirs is decided by `rng`, so a
+    fixed seed reproduces the exact same puzzle at the exact same coverage
+    level every run. `fraction` is a probability per light, not a count, so
+    0.0 and 1.0 reproduce the fully-numbered and fully-numberless paths
+    exactly rather than approximating them.
+    """
+    return [(None if rng.random() < fraction else number, direction, length)
+            for number, direction, length in triples]
+
+
 def grid_of(puzzle):
     """The published black squares, as reconstruct() would render them."""
     cols, rows = puzzle["dimensions"]["cols"], puzzle["dimensions"]["rows"]
@@ -697,6 +798,10 @@ def main(argv=None):
                                      ' or [[number, direction, length], ...]')
     ap.add_argument("--numberless", action="store_true",
                     help="throw the clue numbers away before reconstructing")
+    ap.add_argument("--blank", type=float, default=0.0,
+                    help="fraction of clue numbers to erase at random first, "
+                         "simulating partial OCR loss (needs --puzzle)")
+    ap.add_argument("--seed", type=int, default=0, help="seed for --blank")
     ap.add_argument("--cols", type=int, default=15)
     ap.add_argument("--rows", type=int, default=15)
     ap.add_argument("--limit", type=int, default=DEFAULT_LIMIT)
@@ -713,6 +818,10 @@ def main(argv=None):
     if args.puzzle:
         puzzle = read_puzzle_file(resolve_puzzle(args.puzzle))
         spec = lights_of(puzzle, numbered=not args.numberless)
+        if args.blank:
+            if args.numberless:
+                ap.error("--blank already has nothing to erase under --numberless")
+            spec = blank_numbers(spec, args.blank, random.Random(args.seed))
         published = grid_of(puzzle)
         cols, rows = puzzle["dimensions"]["cols"], puzzle["dimensions"]["rows"]
     else:
