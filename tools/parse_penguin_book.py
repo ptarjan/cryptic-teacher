@@ -44,6 +44,36 @@ a leading number, which is often simply gone. A leading number is captured
 opportunistically when present; when absent it is left null — NEVER guessed
 or interpolated (a fabricated number is worse than a missing one).
 
+LAYOUT VARIANTS. The Penguin volumes are not the only print convention in
+this series of scans, and the differences are typographic, not OCR damage —
+the next book set in the same style will hit them all again, so they are
+handled as variants of the shared patterns and nothing here is ever keyed to
+an identifier. The one that had to be added second, the DOTTED-NUMBER LAYOUT,
+prints:
+
+  "Cryptic Across"     the running head glued onto the header line
+  "13. Clue text"      dotted clue numbers
+  "1 & 4 Ac. Clue"     linked clues with & and an explicit direction
+  "13. See 14 Across"  cross-references that name the direction too
+  ". Clue text"        what a dotted number leaves when OCR eats the digits
+
+Counted over the 33 book scans on hand (2026-09-18): dotted numbers in 12 of
+them, glued running heads in 8, direction-bearing cross-references in 9 — so
+this is a convention, not a quirk. Untreated it is not a partial loss but a
+total one in two stages: no header matches, so every puzzle in the book falls
+through to jigsaw mode and loses its Across/Down split; and no leading number
+matches, so clue-number recovery is 0%.
+
+Measured on crypticcrossword0000unse, which prints all five forms: 17 of 17
+puzzles fell to jigsaw mode before and 0 of 17 do after, and clue-number
+recovery went from 0/394 to 68/401. That 17% is the honest ceiling, not a
+shortfall: only 71 of this scan's printed numbers survived OCR as digits at
+all (the rest are the ". Clue text" case, where the digit is simply gone and
+inventing it would be worse than leaving it null), and 68 of those 71 are
+recovered. Of the three not recovered, two are not clue numbers at all —
+"1,000 request face-covering (4)" and "100 resigned..." are clue TEXT that
+opens with a number, and are meant to be left alone.
+
 GRID-BLEED NOISE. The facing grid-image page's OCR garbage sometimes leaks
 onto the clue leaf (and vice versa) as a stray line with no real word in it
 ("23eS8ee 11", "DNPONADANRWN"). is_garbage_line() drops these before
@@ -88,7 +118,13 @@ KNOWN_SETTERS = {
 # stray OCR artifact like the "<" that follows a perfectly good "(6)" on
 # puzzle 49's last down clue must not cost a real, legible enumeration.
 ENUMERATION_RE = re.compile(r"\(([\d]+(?:[\s,\-][\d]+)*)\)[^\w()]{0,4}$")
-SEE_REFERENCE_RE = re.compile(r"^(?:\d+(?:\s*,\s*\d+)*\s*[,.]?\s*)?See\s+\d+\s*$")
+# The trailing direction ("See 14 Across") is the DOTTED-NUMBER LAYOUT's way
+# of writing what the Penguin volumes write as "See 14" — same clue, one more
+# printed word. Without it the line closes no chunk and silently glues itself
+# onto the next clue, costing two clues instead of one.
+SEE_REFERENCE_RE = re.compile(
+    r"^(?:\d+(?:\s*,\s*\d+)*\s*[,.]?\s*)?See\s+\d+"
+    r"\s*(?:Across|Down|Ac|Dn)?\b\.?\s*$")
 # The lookahead's job is only to reject a bare digit run that isn't
 # actually a clue number (grid-bleed noise, a number embedded mid-sentence)
 # — requiring the very next character start a word/paren/quote is enough
@@ -101,7 +137,30 @@ SEE_REFERENCE_RE = re.compile(r"^(?:\d+(?:\s*,\s*\d+)*\s*[,.]?\s*)?See\s+\d+\s*$
 # 2/3/5/7/11 (their surviving leading numbers are followed by capitalised
 # clue text) and recovers real numbers on the 1974 book that the
 # upper-case-only version was dropping.
-LEADING_NUMBER_RE = re.compile(r"^(\d{1,2}(?:\s*,\s*\d{1,2})*)\s+(?=[A-Za-z(\"'‘])")
+# Three spellings of the same thing, all live in the scans on hand:
+#   "13 Clue text"      the Penguin volumes
+#   "13. Clue text"     the DOTTED-NUMBER LAYOUT (see LAYOUT VARIANTS above)
+#   "1 & 4 Ac. Clue"    a linked pair in that same layout, where the Penguin
+#                       volumes print "1,4"
+# The space before the direction is optional because the books print it both
+# ways ("8 & 17 Ac." and "8 & 17Ac."). What keeps that from eating clue text
+# is the \b after the direction word, not the space: "5 Acid test (4)" keeps
+# its number and every letter of its text, because "Ac" followed by "id" is
+# not a word boundary. The direction is consumed rather than captured, since
+# which way a linked partner runs is already fixed by the header the clue
+# sits under. Two-digit numbers only, so a clue whose TEXT opens with a
+# number ("1,000 request face-covering (4)") is left alone rather than being
+# renumbered into nonsense.
+LEADING_NUMBER_RE = re.compile(
+    r"^(\d{1,2}(?:\s*[,&]\s*\d{1,2})*)"
+    r"(?:\s*(?:Across|Down|Ac|Dn)\b\.?)?"
+    r"\s*\.?\s+(?=[A-Za-z(\"'‘])")
+
+# A dotted number whose digits the OCR lost outright, leaving the printed dot
+# behind (". Partly open a container (4)"). The number is gone and is never
+# invented; the orphan dot is not clue text either, so it is dropped rather
+# than filed as the first character of the clue.
+ORPHAN_NUMBER_DOT_RE = re.compile(r"^\.\s+(?=[A-Za-z(\"'‘])")
 
 # "ACROSS"/"DOWN" headers on guardiancrosswor0000perk sometimes OCR with a
 # stray leading glyph from the facing grid bleeding onto the same leaf
@@ -112,10 +171,29 @@ LEADING_NUMBER_RE = re.compile(r"^(\d{1,2}(?:\s*,\s*\d{1,2})*)\s+(?=[A-Za-z(\"'�
 # path and losing the Across/Down split entirely.
 HEADER_RE = re.compile(r"^[^A-Za-z0-9]{0,3}(ACROSS|DOWN)[^A-Za-z0-9]{0,3}$", re.IGNORECASE)
 
+# The DOTTED-NUMBER LAYOUT prints its running head on the header line itself
+# ("Cryptic Across", and where the OCR mangled the head, "CryBHE Across"), so
+# nothing anchored at the start of the line can match it. The head is one or
+# two purely alphabetic words: requiring that — no digits anywhere — is what
+# keeps "13. See 14 Across", a real cross-reference clue printed in this very
+# layout, from being read as a section header and throwing away every clue
+# above it. A head that is itself the word "See" is rejected in _header_kind
+# for the same reason, since OCR does lose the leading number.
+GLUED_HEAD_RE = re.compile(
+    r"^(?P<head>(?:[A-Za-z]{2,12}[^A-Za-z0-9\s]{0,2}\s+){1,2})"
+    r"(ACROSS|DOWN)[^A-Za-z0-9]{0,3}$",
+    re.IGNORECASE)
+
 
 def _header_kind(line: str) -> str | None:
-    m = HEADER_RE.match(line.strip())
-    return m.group(1).upper() if m else None
+    line = line.strip()
+    m = HEADER_RE.match(line)
+    if m:
+        return m.group(1).upper()
+    m = GLUED_HEAD_RE.match(line)
+    if m and "see" not in m.group("head").lower():
+        return m.group(2).upper()
+    return None
 
 
 def load_leaves(path: Path) -> list[str]:
@@ -327,8 +405,10 @@ def parse_clue_chunk(chunk: str) -> dict:
     number = None
     m = LEADING_NUMBER_RE.match(text)
     if m:
-        number = m.group(1).replace(" ", "")
+        number = m.group(1).replace(" ", "").replace("&", ",")
         text = text[m.end():]
+    else:
+        text = ORPHAN_NUMBER_DOT_RE.sub("", text)
 
     enumeration = None
     enum_m = ENUMERATION_RE.search(text)
