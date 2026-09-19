@@ -410,6 +410,9 @@ tools/data/difficulty_baseline.json          the frozen distribution difficulty.
 tools/data/lexicon.tsv                       192,738 British-cryptic words by frequency rank;
                                              difficulty.py scores obscurity off it
 tools/data/grading_rubric.md                 the five axes a blind judge scores a clue on
+tools/data/book_candidates.json              which archive.org crossword books are worth
+                                             acquiring in full, measured one short loan at a
+                                             time; a measurement, not a permanent fact
 tools/data/penguin5_control.json             the ten-puzzle Penguin volume 5 control
                                              tools/test_acquire_book.sh gates on: light specs,
                                              black-square patterns and a digest of the parser's
@@ -439,5 +442,7 @@ tools/provenance.py                          where a puzzle came from — and, t
                                              matters, where its ANSWERS came from
 tools/test_provenance.sh                     does provenance actually REFUSE a puzzle that lies
                                              about where it came from?
+tools/rank_book_candidates.py                rank archive.org crossword books by whether
+                                             acquiring one in full is worth it
 ```
 <!-- LAYOUT-END -->
