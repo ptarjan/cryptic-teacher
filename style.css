@@ -1157,14 +1157,16 @@ mark.link {
 }
 .vote-ask, .vote-mine { color: var(--fg); }
 .vote-said { color: var(--muted); font-size: .85rem; }
-/* The finish panel is centred prose, and its row belongs to that, not to the
-   ladder's left edge. Unlike the row inside a hint panel — which is deliberately
-   quiet, because a bright call to action at the end of a lesson reads as being
-   sold something — this one is the only question the page ever asks, and it was
-   being missed: small ghost buttons under a muted tally look like a caption.
-   It gets the room and the weight of an actual question. */
+/* Unlike the row inside a hint panel — which is deliberately quiet, because a
+   bright call to action at the end of a lesson reads as being sold something —
+   this one is the only question the page ever asks, and small ghost buttons
+   under a muted tally look like a caption. It gets the room and the weight of
+   an actual question.
+   It stays on the panel's left edge, because the shout and the tally above it
+   are left-aligned paragraphs: a centred row under them is the only thing in
+   the box not lined up with anything. */
 #celebrate .vote-row {
-  justify-content: center; border-top: 1px solid var(--line);
+  border-top: 1px solid var(--line);
   margin-top: 16px; padding-top: 14px; font-size: 1rem;
 }
 #celebrate .vote-ask { font-weight: 600; }
