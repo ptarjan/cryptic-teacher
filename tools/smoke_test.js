@@ -1236,7 +1236,14 @@ const pickerRowFor = (id) => {
 const openFromPicker = (id) => {
   registry["btn-picker"].onclick();
   const li = pickerRowFor(id);
-  assert(li, `picker finds ${id} when searched for`);
+  // Guarded, because every caller's next line is about the puzzle this was
+  // supposed to open: unguarded, a miss throws on `.children` and the stack
+  // trace kills the suite, so one missing row hides every assertion after it.
+  // The labels of what DID come back, because the failure is always "the
+  // search found something else" and the message is the only place to see it.
+  if (!assert(li, `picker finds ${id} when searched for; rows were `
+      + (pickerRows().map((r) => (r.children[0] || {}).innerHTML || "?").join(" | ")
+        || "(none)"))) return null;
   li.children[0].onclick();
   return li;
 };
@@ -1568,15 +1575,18 @@ const noneAnnotated = (p) => {
 };
 const autoPuzzle = allPuzzles.find((p) => !p.annotated && p.hasSolutions && noneAnnotated(p));
 const autoRow = pickerRowFor(autoPuzzle.id);
-assert(autoRow && autoRow.children[0].innerHTML.includes("answers only"),
-  `searching for ${autoPuzzle.id} surfaces the un-annotated puzzle`);
-const autoBtn = autoRow.children[0];
-autoBtn.onclick();
-assert(registry["puzzle-title"].innerHTML.includes("answers only"), "answers-only puzzle opened");
-assert(registry["hint-body"].innerHTML.includes("answers only") || registry["hint-body"].innerHTML.includes("hasn"), "degraded hint panel message");
-assert(registry["hint-next"].children.some((b) => /Reveal answer/.test(b.textContent)),
-  "answers-only puzzle offers Reveal answer: " + btnNames());
-assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "answers-only puzzle offers letter escape hatch");
+// Guarded: everything below is about the row, so without it the reads throw
+// and the stack trace hides every later test rather than reporting one FAIL.
+if (assert(autoRow, `picker finds ${autoPuzzle.id} when searched for`)) {
+  assert(autoRow.children[0].innerHTML.includes("answers only"),
+    `searching for ${autoPuzzle.id} surfaces the un-annotated puzzle`);
+  autoRow.children[0].onclick();
+  assert(registry["puzzle-title"].innerHTML.includes("answers only"), "answers-only puzzle opened");
+  assert(registry["hint-body"].innerHTML.includes("answers only") || registry["hint-body"].innerHTML.includes("hasn"), "degraded hint panel message");
+  assert(registry["hint-next"].children.some((b) => /Reveal answer/.test(b.textContent)),
+    "answers-only puzzle offers Reveal answer: " + btnNames());
+  assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "answers-only puzzle offers letter escape hatch");
+}
 
 // --- picking a puzzle rewrites the address bar, because that is what gets shared ---
 // A link has to hand over the puzzle on the screen. Left alone, the URL still
