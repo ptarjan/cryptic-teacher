@@ -43,6 +43,12 @@
   --paper-globeandmail-fg: #6a5817;
   --paper-metro-bg: #e0e2e6;
   --paper-metro-fg: #444a55;
+  /* The Herald's shelf. Plum, because it is the one hue left that no other
+     paper claims: quiptic has the pale blue, indysunday the teal, independent
+     the olive, everyman the tan, cyclops the red, globeandmail the cream,
+     metro the grey, penguin the brown, and the Guardian default the mauve. */
+  --paper-herald-bg: #f2dde8;
+  --paper-herald-fg: #7a3358;
   /* One colour for the whole Penguin shelf, not one per volume. The volumes
      are one book series and the label already says which — "penguin 5" beside
      "penguin 7" — so five browns a reader cannot tell apart would carry no
@@ -126,6 +132,8 @@
     --paper-globeandmail-fg: #dac479;
     --paper-metro-bg: #2e3238;
     --paper-metro-fg: #b8c0cc;
+    --paper-herald-bg: #43263a;
+    --paper-herald-fg: #e8aecd;
     --paper-penguin-bg: #3a3229;
     --paper-penguin-fg: #cbb79a;
     /* Brighter than their light-mode twins, not darker: a spark is a light
@@ -307,6 +315,7 @@ button:disabled:hover { border-color: var(--line); }
 .badge.series-penguin5     { background: var(--paper-penguin-bg);      color: var(--paper-penguin-fg); }
 .badge.series-penguin7     { background: var(--paper-penguin-bg);      color: var(--paper-penguin-fg); }
 .badge.series-penguin11    { background: var(--paper-penguin-bg);      color: var(--paper-penguin-fg); }
+.badge.series-herald2      { background: var(--paper-herald-bg);       color: var(--paper-herald-fg); }
 
 /* The anagram ring: fodder laid out with no first letter and no last one, so
    there is no reading order for the eye to fall back into. Absolute placement
