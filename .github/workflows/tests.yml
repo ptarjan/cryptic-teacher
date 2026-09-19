@@ -63,6 +63,13 @@ jobs:
         run: |
           fails=()
           python3 tools/build_readme.py --check-layout || fails+=("layout table")
+          # abbreviations.js is generated output that is nonetheless committed:
+          # app.js loads it with a <script> tag so the site opens from file://,
+          # and a clone would otherwise need a second build command. Committed
+          # generated output is only correct while it is current, so editing the
+          # JSON without rerunning the builder fails here.
+          python3 tools/build_abbreviations.py && git diff --quiet abbreviations.js \
+            || fails+=("abbreviations table")
           for t in tools/test_*.sh tools/test_*.js tools/*_test.sh tools/*_test.js; do
             [ -e "$t" ] || continue
             case "$t" in *.sh) run=bash ;; *) run=node ;; esac
