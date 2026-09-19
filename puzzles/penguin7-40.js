@@ -503,7 +503,7 @@ window.CRYPTIC_PUZZLES["penguin7-40"] = /*JSON-START*/ {
   "kind": "model",
   "model": "opus",
   "date": "2026-09-18",
-  "check": "30 entries, ? crossings, unchecked (all crossings were verified by hand while solving; no machine check run) conflicts",
+  "check": "30 entries, 60 crossings, 0 conflicts (tools/apply_solution.py --check-only, after filing)",
   "officialKey": "never"
  }
 } /*JSON-END*/;
