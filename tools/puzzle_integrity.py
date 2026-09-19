@@ -134,24 +134,9 @@ PUBLISHED_WRONG = {
         "STEPPARENT is the anagram of the clue's own \"Repent past\" and fills the "
         "ten cells the grid gives it, under a count printed (4-5) for STEP-PARENT",
     ("cryptic-25949",
-     "cell (0, 11): one square, 2 clue numbers — 24-down is numbered 24, "
-     "26-across is numbered 26"):
-        "the Guardian numbered this grid's downs and acrosses in two separate "
-        "sequences, and its own clues cross-reference the numbers as printed",
-    ("cryptic-25949",
-     "cell (6, 7): one square, 2 clue numbers — 19-down is numbered 19, "
-     "20-across is numbered 20"):
-        "the Guardian numbered this grid's downs and acrosses in two separate "
-        "sequences, and its own clues cross-reference the numbers as printed",
-    ("cryptic-25949",
-     "cell (8, 9): one square, 2 clue numbers — 22-down is numbered 22, "
-     "24-across is numbered 24"):
-        "the Guardian numbered this grid's downs and acrosses in two separate "
-        "sequences, and its own clues cross-reference the numbers as printed",
-    ("cryptic-25949",
-     "1-down + 26-across: clue says (4,5) = 9, answer holds 4 alone or 13 linked"):
-        "1-down ASIL is counted (4,5) for ASIL NADIR, but NADIR is 28-across under "
-        "a clue of its own and the paper linked 1-down to 26-across PANOPLIED (9)",
+     "1-down + 24-across: clue says (4,5) = 9, answer holds 4 alone or 13 linked"):
+        "1-down ASIL is counted (4,5) for ASIL NADIR, but NADIR is 26-across under "
+        "a clue of its own and the paper linked 1-down to 24-across PANOPLIED (9)",
     ("cryptic-22813", "15-down: clue says (2,6) = 8, answer holds 10"):
         "SUSTAINING is one word of ten letters and fills the ten cells the grid "
         "gives it, under a clue the paper printed (2,6)",
@@ -445,13 +430,13 @@ UNLINKED_IN_SOURCE = dict([
     (("cryptic-25949", "17-across: clue says (5-3,5) = 13, answer holds 5"),
      "no group in this grid links it to the rest of the phrase, despite its own "
      "clue naming other numbers"),
-    (("cryptic-25949", "21-across: clue says (7) = 7, answer holds 5"),
+    (("cryptic-25949", "20-across: clue says (7) = 7, answer holds 5"),
      "no group in this grid links it to the rest of the phrase, despite its own "
      "clue naming other numbers"),
-    (("cryptic-25949", "24-across: clue says (9) = 9, answer holds 7"),
+    (("cryptic-25949", "22-across: clue says (9) = 9, answer holds 7"),
      "no group in this grid links it to the rest of the phrase, despite its own "
      "clue naming other numbers"),
-    (("cryptic-25949", "29-across: clue says (9) = 9, answer holds 5"),
+    (("cryptic-25949", "28-across: clue says (9) = 9, answer holds 5"),
      "no group in this grid links it to the rest of the phrase, despite its own "
      "clue naming other numbers"),
     (("cryptic-25430",
