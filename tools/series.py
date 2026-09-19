@@ -197,13 +197,13 @@ SERIES["penguin"] = {
 #
 # kind carries "Book 2" rather than the publisher, because the crawlable page
 # prints "{publisher} {kind} Crossword No {position}" — "Herald Book 2 Cryptic"
-# reads, "Herald Herald Book 2 Cryptic" does not. shelf drops the publisher for
-# the same reason: the badge beside it already says "herald".
+# reads, "Herald Herald Book 2 Cryptic" does not. shelf keeps it, because shelf
+# is printed where nothing else names the paper: see the rule below.
 SERIES["herald"] = {
     "kind": "Book {volume} Cryptic",
     "publisher": "Herald",
     "badge": "herald",
-    "shelf": "book {volume}",
+    "shelf": "Herald book {volume}",
     "bookTitle": "The Herald Crossword Book, volume {volume}",
     "name": "Herald cryptic crossword, book {volume} No {position}",
     # Same permanent fact as the Penguin volumes, reached differently: this book
@@ -213,7 +213,405 @@ SERIES["herald"] = {
     # a date to look one up by. No official key is coming.
     "officialKey": "never",
     "volumes": {
+        1: "heraldcrosswordb0000calu",
         2: "heraldcrosswordb0000unse",
+    },
+}
+
+# ----------------------------------------------------------- the rest of the
+# shelf
+#
+# Sixteen more book lines, registered before the scans that fill them:
+# tools/data/book_acquisition_plan.json is the order they are being read in,
+# and a volume has to be here before tools/acquire_book.py will file a puzzle
+# citing it. Three rules decided every key below, and they are why there are
+# sixteen of them rather than five.
+#
+# ONE KEY PER PRINTED LINE, not per publisher and not per paper. Everything
+# above a `volumes` map is a TEMPLATE with {volume} written into it, so a key
+# can only hold books whose titles differ by their number and by nothing else.
+# The Telegraph alone prints five such lines — Pan's "Cryptic Crossword Book",
+# Pan's "Big Book", Pan's "Big Book of Brain Sharpener", Octopus's "All New
+# Cryptic Crosswords" and Octopus's "Cryptic Crosswords" — each numbering its
+# own volumes from 1. One key for the five would have to name four of them
+# wrongly in bookTitle, and four wrong book titles is not a saving.
+#
+# A BOOK KEY IS NEVER A LIVE SERIES' KEY. `independent` is a feed, 8,932-12,465
+# on disk today and backfilling downwards, so the Penguin book of the
+# Independent's crosswords is `penguinindy`: its volume 1 is numbers 1001-1099,
+# which sits inside the daily's own sequence, and one key cannot be a feed and
+# a book at once anyway — is_book() is "has a volumes map". Checked against
+# every series' range rather than assumed: quiptic 1-1,399, cyclops 300-838,
+# indysunday 1,320-1,907, everyman 2,965-4,169, globeandmail 3,106-3,369,
+# cryptic 21,620-30,115, and metro's number is a date (20,250,403 up). No other
+# new key below is a paper this repo fetches.
+#
+# THE VOLUME IS THE BOOK'S OWN PRINTED NUMBER, on twenty-two of the
+# twenty-four, and every one of those was read off the cover scan rather than
+# off a catalogue: archive.org and Open Library between them lost the number on
+# four of these books, and invented none. The word counts as printed — "The
+# First Penguin Book of the Independent Crosswords" is volume 1 and "The Ninth
+# Penguin book of the Times crosswords" is volume 9. The two books that print
+# no number anywhere, `morse` and `brainsharp`, say INVENTED here and again in
+# the plan file, because a number nobody can check against a cover would
+# otherwise sit in this table looking exactly like the twenty-two that can be.
+#
+# EVERY SHELF NAMES ITS OWN BOOK. display_number() is printed with no badge
+# beside it in the homepage list that tools/build_seo_pages.py writes — just
+# "{shelf} No {position}" and a setter — so a bare "book 2 No 7" would be the
+# Herald's, the Scotsman's, the Sunday Telegraph's and the Daily Mail's at
+# once. The Herald's shelf was bare while it was the only book with a plain
+# number; it is "Herald book 2" now, for the same reason the nine below name a
+# paper or a line. The ones that already read as one thing on their own —
+# "Toughie book 1", "Brain Sharpener book 1", "Penguin FT book 1" — do not
+# repeat the paper.
+#
+# KEYS ARE 4-12 LETTERS, NO DIGITS. sync/worker.js matches a vote id with
+# [a-z]{4,12}-\d{1,6}, so `times1998` or `sundaytelegraph` would not fail —
+# they would quietly drop this shelf's votes on the floor. Hence `timesbooks`
+# and `sundaytel`.
+#
+# officialKey is "never" on every one of them, for the reason it is "never" on
+# the two above: these are out-of-print reprint collections that number their
+# puzzles from 1 in the book, so a puzzle here carries no paper number and no
+# date, and there is nothing a publisher could ever serve an answer key
+# AGAINST. The sample behind tools/data/book_candidates.json shows the same
+# thing from the other end — every one of them parsed as book numbers 1, 2, 3.
+
+# The Scotsman crossword book (Black & White Publishing, 2001): the Edinburgh
+# broadsheet's own cryptics, the same publisher and the same format as the
+# Herald books above. The volume is printed on it — the title is "The Scotsman
+# crossword book. 2" — and leaves volume 1 a number to arrive at.
+SERIES["scotsman"] = {
+    "kind": "Book {volume} Cryptic",
+    "publisher": "Scotsman",
+    "badge": "scotsman",
+    "shelf": "Scotsman book {volume}",
+    "bookTitle": "The Scotsman Crossword Book, volume {volume}",
+    "name": "Scotsman cryptic crossword, book {volume} No {position}",
+    "officialKey": "never",
+    "volumes": {
+        2: "scotsmancrosswor0000unse_i4i5",
+    },
+}
+
+# Chambers book of Araucaria crosswords (Chambers, 2005): John Graham's own
+# collection start to finish, which is why the key is the setter and not the
+# publisher — "chambers" would have to hold the Morse book below too, and the
+# two are not one line with two numbers. Volume 2 is printed on the cover;
+# volume 3 is scanned (chambersbookofar0000arau_e6k7) and sits undetermined in
+# tools/data/book_candidates.json, so this table grows rather than changes.
+#
+# Publisher is Chambers, not the Guardian. Araucaria set for the Guardian for
+# fifty years, but the book names its setter and never a paper, and a masthead
+# on every one of these pages would be a claim the book does not make.
+SERIES["araucaria"] = {
+    "kind": "Book {volume} Cryptic",
+    "publisher": "Chambers",
+    "badge": "araucaria",
+    "shelf": "Araucaria book {volume}",
+    "bookTitle": "Chambers Book of Araucaria Crosswords, volume {volume}",
+    "name": "Araucaria cryptic crossword, book {volume} No {position}",
+    # The title is the byline: every puzzle in the book is his, so a blank
+    # byline here is anonymity of the Everyman kind and not a scraping failure.
+    "setter": "Araucaria",
+    "officialKey": "never",
+    "volumes": {
+        2: "chambersbookofar0000arau",
+    },
+}
+
+# Chambers book of Morse crosswords (Chambers, 2006), the crosswords Colin
+# Dexter wrote around Inspector Morse. ONE BOOK, AND NO NUMBER ANYWHERE ON IT,
+# so volume 1 is INVENTED — the numbering has nowhere else to put a book, and
+# the plan file says so rather than letting a made-up 1 look like a printed
+# one.
+#
+SERIES["morse"] = {
+    "kind": "Morse Book {volume} Cryptic",
+    "publisher": "Chambers",
+    "badge": "morse",
+    "shelf": "Morse book {volume}",
+    "bookTitle": "Chambers Book of Morse Crosswords, volume {volume}",
+    "name": "Morse cryptic crossword, book {volume} No {position}",
+    # "by Colin Dexter" is the cover, and a default is only ever the fallback
+    # for a puzzle that arrives with no byline of its own — so if the book
+    # credits its puzzles individually, what it prints still wins.
+    "setter": "Colin Dexter",
+    "officialKey": "never",
+    "volumes": {
+        1: "chambersbookofmo0000dext",
+    },
+}
+
+# The Times Cryptic Crossword Book (HarperCollins): the Times' daily cryptics,
+# 80 to a volume and one volume a year. Both numbers here are printed on the
+# covers, and the run they belong to is continuous — 12/2008, 13/2009, 15/2011,
+# 17/2013, 18/2014, 19/2015, 20/2016, 21/2017, 22/2018, 24/2020 through
+# 29/2025 in Open Library's edition records. That run is also the evidence for
+# the key below it.
+SERIES["times"] = {
+    "kind": "Book {volume} Cryptic",
+    "publisher": "Times",
+    "badge": "times",
+    "shelf": "Times book {volume}",
+    "bookTitle": "The Times Cryptic Crossword Book {volume}",
+    "name": "Times cryptic crossword, book {volume} No {position}",
+    "officialKey": "never",
+    "volumes": {
+        13: "timescrypticcros0000time_i0s6",
+        21: "timescrypticcros0000time",
+    },
+}
+
+# TWO BOOKS ON THIS SHELF ARE CATALOGUED "The Times Cryptic Crossword Book
+# 21", and this is the other one. The catalogues are what collide; the covers
+# do not. This book's cover reads "THE TIMES CROSSWORDS ... BOOK 21 — THE
+# WORLD'S MOST FAMOUS CROSSWORD PUZZLE" (Times Books, January 1998, ISBN
+# 1-902254-06-7, 144 pages), while `times` volume 21 is "The Times Cryptic
+# Crossword Book 21" (HarperCollins, 2017, ISBN 978-0-00-817388-3, 246 leaves).
+# Two different printed titles, and archive.org normalised the first into the
+# second's.
+#
+# The dates say the same thing independently: the HarperCollins run is one
+# volume a year with no gap in it — 12/2008 through 29/2025 — so 1998 falls
+# eleven volumes before its 12 and cannot be a renumbering of it. Same paper's
+# puzzles, two publishers' numberings, two keys; the title each cover prints is
+# what the templates carry, so no page here can name the wrong book.
+SERIES["timesbooks"] = {
+    "kind": "Crosswords Book {volume} Cryptic",
+    "publisher": "Times",
+    "badge": "times books",
+    "shelf": "Times Crosswords book {volume}",
+    "bookTitle": "The Times Crosswords, book {volume} (Times Books)",
+    "name": "Times cryptic crossword, Times Crosswords book {volume} "
+            "No {position}",
+    "officialKey": "never",
+    "volumes": {
+        21: "isbn_9781902254067",
+    },
+}
+
+# The Penguin Book of The Times Crosswords (Penguin, 1988 and 1989): the same
+# reprint-a-paper format as the Guardian Penguins at the top of this section,
+# a different paper, and therefore a different key — `penguin` volume 9 would
+# be a Guardian book, and the volume number alone cannot name a book once two
+# papers both have a ninth. The covers print their volumes as words, "Ninth"
+# and "Tenth"; the digits are those words.
+SERIES["penguintimes"] = {
+    "kind": "Penguin Book {volume} Cryptic",
+    "publisher": "Times",
+    "badge": "times penguin",
+    "shelf": "Penguin Times book {volume}",
+    "bookTitle": "The Penguin Book of The Times Crosswords, volume {volume}",
+    "name": "Times cryptic crossword, Penguin book {volume} No {position}",
+    "officialKey": "never",
+    "volumes": {
+        9: "ninthpenguinbook0000unse",
+        10: "tenthpenguinbook0000unse",
+    },
+}
+
+# The Penguin Book of Independent Crosswords (Penguin, 1990). NOT `independent`
+# — that key is the live daily feed, and this is the collision the rule at the
+# top of this section exists for. Volume 1 is printed, in the same way the
+# Times Penguins print 9 and 10: the cover reads "THE FIRST PENGUIN BOOK OF THE
+# INDEPENDENT CROSSWORDS".
+SERIES["penguinindy"] = {
+    "kind": "Penguin Book {volume} Cryptic",
+    "publisher": "Independent",
+    "badge": "indy penguin",
+    "shelf": "Penguin Indy book {volume}",
+    "bookTitle": "The Penguin Book of Independent Crosswords, volume {volume}",
+    "name": "Independent cryptic crossword, Penguin book {volume} No {position}",
+    "officialKey": "never",
+    "volumes": {
+        1: "penguinbookofind0000unse_y8k9",
+    },
+}
+
+# The Penguin Book of Financial Times Crosswords (Penguin, 1973), the oldest
+# book on the shelf by fifteen years, and "The First Penguin Book of" on the
+# cover — volume 1, printed. The FT is a paper this repo has no feed for, so
+# there is no key to collide with; the name still follows the Penguin pattern
+# beside it rather than inventing a second shape for the same kind of book.
+SERIES["penguinft"] = {
+    "kind": "Penguin Book {volume} Cryptic",
+    "publisher": "Financial Times",
+    "badge": "ft penguin",
+    "shelf": "Penguin FT book {volume}",
+    "bookTitle": "The Penguin Book of Financial Times Crosswords, volume {volume}",
+    "name": "Financial Times cryptic crossword, Penguin book {volume} No {position}",
+    "officialKey": "never",
+    "volumes": {
+        1: "penguinbookoffin0000unse",
+    },
+}
+
+# The Daily Telegraph Cryptic Crossword Book (Pan): the longest line here, past
+# 60 volumes by 2010. Every number below is printed, including the one the
+# catalogues had lost — isbn_9780330346429 is cased as an unnumbered "Daily
+# Telegraph Cryptic Crossword Book" by archive.org and Open Library alike, and
+# its own title page reads "Che Daily Telegraph / Cryptic Crossword Book / 32",
+# first published 1996 by Pan. Read off the book, because the catalogue's
+# silence was about the catalogue.
+#
+# That same leaf prints Pan's shelf, which is where the four keys under this
+# one come from: "Cryptic Crossword Book 17-41", "Big Book of Cryptic
+# Crosswords 1-5", "Big Book of Quick Crosswords 1-5", "Sunday Telegraph
+# Cryptic Crossword Book 1-7". Four separately numbered lines from one
+# publisher for one paper.
+SERIES["telegraph"] = {
+    "kind": "Book {volume} Cryptic",
+    "publisher": "Telegraph",
+    "badge": "telegraph book",
+    "shelf": "Telegraph book {volume}",
+    "bookTitle": "The Daily Telegraph Cryptic Crossword Book {volume}",
+    "name": "Telegraph cryptic crossword, book {volume} No {position}",
+    "officialKey": "never",
+    "volumes": {
+        25: "isbn_9780330325868",
+        28: "dailytelegraphcr0000dail",
+        31: "isbn_9780330343763",
+        32: "isbn_9780330346429",
+    },
+}
+
+# The Daily Telegraph Big Book of Cryptic Crosswords (Pan): the same paper and
+# the same publisher as `telegraph`, and a SEPARATE numbering — the 1996 ad
+# page quoted above prints "Cryptic Crossword Book 17-41" and "Big Book of
+# Cryptic Crosswords 1-5" as two lines of one shelf, so a shared key would file
+# this book as a sixth of the other. Twice the size of a numbered book, which
+# is why it opens the acquisition plan. The 6 is on the cover; the catalogues
+# have it down as unnumbered.
+SERIES["telbig"] = {
+    "kind": "Big Book {volume} Cryptic",
+    "publisher": "Telegraph",
+    "badge": "telegraph big book",
+    "shelf": "Telegraph big book {volume}",
+    "bookTitle": "The Daily Telegraph Big Book of Cryptic Crosswords {volume}",
+    "name": "Telegraph cryptic crossword, big book {volume} No {position}",
+    "officialKey": "never",
+    "volumes": {
+        6: "dailytelegraphbi0000dail",
+    },
+}
+
+# The Daily Telegraph Big Book of Brain Sharpener Cryptic Crosswords (Pan,
+# 2007). VOLUME 1 IS INVENTED — the cover prints no number at all, and "Brain
+# Sharpener" was a 2007 Pan sub-brand spread across puzzle types (there is a
+# Brain Sharpener sudoku) rather than a numbered crossword line, so there is
+# nothing for this to be the second of.
+#
+# Not a volume of `telbig`, though both are Pan "Big Books" of the same size:
+# that line's numbers are printed and 6 is taken, so filing this one there
+# would either collide or give it a number no cover carries.
+SERIES["brainsharp"] = {
+    "kind": "Brain Sharpener Book {volume} Cryptic",
+    "publisher": "Telegraph",
+    "badge": "brain sharpener",
+    "shelf": "Brain Sharpener book {volume}",
+    "bookTitle": "The Daily Telegraph Big Book of Brain Sharpener Cryptic "
+                 "Crosswords, volume {volume}",
+    "name": "Telegraph cryptic crossword, Brain Sharpener book {volume} "
+            "No {position}",
+    "officialKey": "never",
+    "volumes": {
+        1: "isbn_9780330451789",
+    },
+}
+
+# The Telegraph All New Cryptic Crosswords (Octopus, 2012-2014): the paper's
+# other book programme, numbered 1-8 from its own 1 while Pan's line was in its
+# fifties. Volume 4 is on the cover.
+SERIES["telallnew"] = {
+    "kind": "All New Book {volume} Cryptic",
+    "publisher": "Telegraph",
+    "badge": "telegraph all new",
+    "shelf": "Telegraph All New book {volume}",
+    "bookTitle": "The Telegraph All New Cryptic Crosswords {volume}",
+    "name": "Telegraph cryptic crossword, All New book {volume} No {position}",
+    "officialKey": "never",
+    "volumes": {
+        4: "telegraphallnewc0000unse_a7j2",
+    },
+}
+
+# Telegraph Cryptic Crosswords (Octopus, 2017 onwards, 1-15 and counting): the
+# same publisher's NEXT line, and a third Telegraph numbering rather than a
+# continuation of the one above — Octopus restarted at 1 under a new title in
+# 2017, so an "All New" 2 and a "Cryptic Crosswords" 2 are two books. Volume 2
+# is printed.
+SERIES["telcryptic"] = {
+    "kind": "Crosswords Book {volume} Cryptic",
+    "publisher": "Telegraph",
+    "badge": "telegraph cryptics",
+    "shelf": "Telegraph Crosswords book {volume}",
+    "bookTitle": "Telegraph Cryptic Crosswords {volume}",
+    "name": "Telegraph cryptic crossword, Crosswords book {volume} "
+            "No {position}",
+    "officialKey": "never",
+    "volumes": {
+        2: "telegraphcryptic0000tele",
+    },
+}
+
+# The Telegraph All New Toughie Crossword (Hamlyn, 2012), "Book 1" printed on
+# it. The Toughie is the Telegraph's second daily cryptic and a markedly harder
+# one, which is why it is a key and not a volume of `telallnew` beside it: a
+# solver choosing a Toughie is choosing the difficulty, and that is the one
+# thing a badge exists to say.
+SERIES["toughie"] = {
+    "kind": "Toughie Book {volume} Cryptic",
+    "publisher": "Telegraph",
+    "badge": "toughie",
+    "shelf": "Toughie book {volume}",
+    "bookTitle": "The Telegraph All New Toughie Crossword, book {volume}",
+    "name": "Telegraph Toughie crossword, book {volume} No {position}",
+    "officialKey": "never",
+    "volumes": {
+        1: "telegraphallnewt0000tele",
+    },
+}
+
+# The Sunday Telegraph Book of Cryptic Crosswords (Pan): a different paper from
+# the daily — its own masthead and its own setters — numbered to 14 by 2007.
+# All three volumes here print their number on the cover in one house design,
+# and only the 4 reached the catalogues: archive.org and Open Library both list
+# 1 and 2 as untitled reprints, which would have made three numbered volumes
+# look like three unnumbered ones and cost two invented numbers. Read the
+# covers. The gap at 3 is a book nobody has scanned, not a mistake here.
+SERIES["sundaytel"] = {
+    "kind": "Book {volume} Cryptic",
+    "publisher": "Sunday Telegraph",
+    "badge": "sunday telegraph",
+    "shelf": "Sunday Telegraph book {volume}",
+    "bookTitle": "The Sunday Telegraph Book of Cryptic Crosswords {volume}",
+    "name": "Sunday Telegraph cryptic crossword, book {volume} No {position}",
+    "officialKey": "never",
+    "volumes": {
+        1: "isbn_9780330339605",
+        2: "sundaytelegraphb0000sund",
+        4: "isbn_9780330350013",
+    },
+}
+
+# Daily Mail New Cryptic Crosswords (Hamlyn, 2007): volume 2, printed on the
+# cover, of a line that runs to at least 12. The only tabloid on the shelf, and
+# the only book here that prints its own puzzle count — "A new compilation of
+# 100 Daily Mail Crosswords", against the 123 the sample extrapolated. That gap
+# is the over-count tools/data/book_candidates.json's own calibration warns
+# about, measured for once against a number the book states.
+SERIES["dailymail"] = {
+    "kind": "Book {volume} Cryptic",
+    "publisher": "Daily Mail",
+    "badge": "daily mail",
+    "shelf": "Daily Mail book {volume}",
+    "bookTitle": "Daily Mail New Cryptic Crosswords, volume {volume}",
+    "name": "Daily Mail cryptic crossword, book {volume} No {position}",
+    "officialKey": "never",
+    "volumes": {
+        2: "isbn_9780600616405",
     },
 }
 
