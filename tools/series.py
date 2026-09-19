@@ -17,6 +17,8 @@ written for a solver deciding what to attempt next, not a machine fact, and it
 lives next to the code that renders it. An unlisted series there simply goes
 unbadged.
 """
+import json
+import pathlib
 import re
 
 # No series-priority field. The backfill queues by date across every series at
@@ -106,16 +108,27 @@ SERIES = {
 
 # --------------------------------------------------------------------- books
 #
-# A book series is ONE series per BOOK, not one per volume, and the volume lives
-# in the number: `volume * 1000 + position`. penguin-5018 is volume 5's
-# eighteenth puzzle, herald-2007 is Herald book 2's seventh; read one back with
-# divmod(number, 1000).
+# THE BOOKS ARE NOT IN THIS FILE. tools/data/books.json is the registry: one
+# row per PHYSICAL BOOK on the shelf, carrying its archive.org identifier, the
+# volume number its own cover prints, the shelf label a reader sees, the
+# publisher, the printed title, the puzzle-name lead, and a stable book_index
+# that is never reused. This module reads it, and app.js reads it too through
+# the copy tools/fetch_puzzle.py --reindex writes into puzzles/index.json.
 #
-# The volumes still have to be kept apart — every volume numbers its own puzzles
-# from 1, so one shared sequence would put six different puzzles at No 3 and
-# walk prev/next between books, which is the reason indysunday is not part of
-# independent. The NUMBER does that now, and nothing else has to: one key means
-# one badge, one colour, one tooltip and one entry here however many volumes the
+# NOTHING HAND-COPIES A ROW. An 18-key BOOK_SHELF object in app.js was mirrored
+# by a `shelf` column here, and two copies of one fact is how a shelf comes to
+# be spelled two ways — one of them on the page a reader is looking at.
+#
+# A book series is ONE series per BOOK, not one per volume, and the volume
+# lives in the number: `volume * 1000 + position`. penguin-5018 is volume 5's
+# eighteenth puzzle, herald-2007 is Herald book 2's seventh; read one back with
+# split_number() below, which refuses a position of 0 and a volume no row
+# registers, so a number that names no puzzle cannot be built or read back.
+#
+# The volumes have to be kept apart — every volume numbers its own puzzles from
+# 1, so one shared sequence would put six different puzzles at No 3 and walk
+# prev/next between books. The NUMBER does that, and nothing else has to: one
+# key means one badge, one colour and one tooltip however many volumes the
 # shelf grows to.
 #
 # AN INTEGER, NOT A DECIMAL. `number` is a JSON number and String(5.10) is
@@ -124,496 +137,121 @@ SERIES = {
 # every \d+ regex, int() and String() key in the repo working untouched:
 # parse_id() below, tools/smoke_test.js's /^[a-z0-9]+-\d+\.json$/ over every
 # filename, sync/worker.js's [a-z]{4,12}-\d{1,6} over every vote id.
-#
-# A thousand positions per volume, and split_number() refuses a position of 0 or
-# a volume this table has never heard of — so a number that names no puzzle
-# cannot be built or read back, rather than quietly meaning something.
 POSITIONS_PER_VOLUME = 1000
 
-# `volumes` IS the per-volume table: volume -> the archive.org item that volume
-# was scanned from. The identifier is PER VOLUME and each puzzle cites the book
-# it was actually read out of — one identifier for the series would be a claim
-# about provenance that is false for four books out of five.
-#
-# It is the only genuinely per-volume FACT. The book's title, a puzzle's name,
-# the kind on its page and the shelf label a reader sees are the same sentence
-# with the volume written into it, so they are templates here rather than a
-# hand-copied entry per book — {volume} and {position} are filled in by the
-# accessors below. A sixth Penguin volume is one line in `volumes`; a book from
-# a publisher that is neither is one entry in SERIES.
-#
-# Any volume with a puzzle on disk must be listed: tools/build_readme.py refuses
-# a series it has no name for, and split_number() refuses a number whose volume
-# is not here.
+BOOKS_FILE = pathlib.Path(__file__).resolve().parent / "data" / "books.json"
 
-# The New Penguin Book of The Guardian Crosswords: Guardian reprints, scanned
-# and OCR'd, whose grids were reconstructed from the clue list and whose answers
-# are solved here.
-#
-# No volume prints a Guardian puzzle number or a publication date, checked
-# across all six books, so the position here is the book's own and `date` is
-# null. The kind says "Penguin Book 5" because the crawlable page's heading is
-# "{publisher} {kind} Crossword No {position}" and "Guardian Cryptic Crossword
-# No 18" would claim a Guardian number that this puzzle does not have and
-# nobody can look up.
-SERIES["penguin"] = {
-    "kind": "Penguin Book {volume} Cryptic",
-    "publisher": "Guardian",
-    "badge": "penguin",
-    # What display_number() puts in front of the position where no kind is
-    # printed beside it — the archive rows, the picker, prev/next. The publisher
-    # is "Guardian" and the book is Penguin's, so the label has to name the
-    # book; "book 5" alone would read as the Guardian's fifth of something.
-    "shelf": "Penguin book {volume}",
-    "bookTitle": "The New Penguin Book of The Guardian Crosswords, "
-                 "volume {volume}",
-    "name": "Guardian cryptic crossword, Penguin book {volume} No {position}",
-    # NOTHING WILL EVER GRADE THESE. Penguin prints its solutions as answer-grid
-    # IMAGES that OCR to noise, and there is no Guardian number or date to find
-    # a key by. It is a fact about the book, so it is stated once here and
-    # copied onto each puzzle as solutionSource.officialKey by whichever route
-    # fills the grid — tools/file_penguin_puzzle.py when the answers arrive with
-    # the puzzle, tools/apply_solution.py when the nightly cold solve finishes
-    # one filed without them. A puzzle that lost it would have
-    # tools/build_seo_pages.py promise a reader that official answers replace
-    # ours "as soon as those appear", which is a promise nothing can keep.
-    "officialKey": "never",
-    "volumes": {
-        2: "isbn_9780140176438",
-        3: "isbn_9780140176445",
-        5: "newpenguinbkguar0000perk",
-        7: "isbn_9780140248098",
-        11: "isbn_9780140277500",
-    },
-}
 
-# The Herald Crossword Book (Black & White Publishing): the Glasgow Herald's own
-# cryptics by seven named setters, scanned and OCR'd, grids reconstructed from
-# the clue lists exactly as the Penguin volumes were. Not a Penguin volume, and
-# the first book here that is not — which is why the lines above are fields
-# rather than a pattern matched off the key. "penguin(N)" could never have
-# matched this, and a volume number alone cannot name a book once two publishers
-# both print a volume 2.
-#
-# kind carries "Book 2" rather than the publisher, because the crawlable page
-# prints "{publisher} {kind} Crossword No {position}" — "Herald Book 2 Cryptic"
-# reads, "Herald Herald Book 2 Cryptic" does not. shelf keeps it, because shelf
-# is printed where nothing else names the paper: see the rule below.
-SERIES["herald"] = {
-    "kind": "Book {volume} Cryptic",
-    "publisher": "Herald",
-    "badge": "herald",
-    "shelf": "Herald book {volume}",
-    "bookTitle": "The Herald Crossword Book, volume {volume}",
-    "name": "Herald cryptic crossword, book {volume} No {position}",
-    # Same permanent fact as the Penguin volumes, reached differently: this book
-    # DOES print its answers, as text at the back rather than as the answer-grid
-    # images Penguin prints. But it prints them in a 2005 collection, nowhere a
-    # publisher will ever serve, and no puzzle in it carries a Herald number or
-    # a date to look one up by. No official key is coming.
-    "officialKey": "never",
-    "volumes": {
-        1: "heraldcrosswordb0000calu",
-        2: "heraldcrosswordb0000unse",
-    },
-}
+def _load_books():
+    """The registry, checked on the way in.
 
-# ----------------------------------------------------------- the rest of the
-# shelf
+    Every rule here is one a wrong row would otherwise break silently and a
+    long way from the row: a reused book_index points a saved grid, a vote and
+    an indexed URL at another book's crossword, and a volume that has drifted
+    out of the title beside it names the wrong book on a page that exists to
+    say which book it is. Checked at import, which is the cheapest moment —
+    before anything has filed a puzzle against a bad row.
+    """
+    rows = json.loads(BOOKS_FILE.read_text(encoding="utf-8"))["books"]
+    by_index, by_identifier = {}, {}
+    for row in rows:
+        index, identifier = row["book_index"], row["identifier"]
+        where = f"tools/data/books.json: book_index {index} ({identifier})"
+        if index < 1:
+            raise ValueError(f"{where}: a book_index starts at 1")
+        if index in by_index:
+            raise ValueError(
+                f"{where} is already {by_index[index]['identifier']}. A "
+                f"book_index is the high half of every puzzle number in its "
+                f"book, so it is never reused — retire it with the book")
+        if identifier in by_identifier:
+            raise ValueError(
+                f"{where} is registered twice, as book_index "
+                f"{by_identifier[identifier]['book_index']} as well. One scan "
+                f"is one book")
+        # The volume is the number the BOOK prints on itself, and shelf and
+        # kind have it written into them by the accessors below rather than
+        # carried beside them a second time. `title` and `name` cannot be
+        # built that way — a title is the publisher's own sentence, and the
+        # papers that print several lines word theirs differently — so the two
+        # that do hold it spelled out are checked against it instead.
+        volume = str(row["volume"])
+        if volume not in row["title"]:
+            raise ValueError(f"{where}: volume {volume} is nowhere in its "
+                             f"title {row['title']!r}; one of the two is wrong")
+        if not row["name"].endswith(volume):
+            raise ValueError(f"{where}: name {row['name']!r} has to end in "
+                             f"volume {volume} — puzzle_name() appends "
+                             f"\" No <position>\" to it")
+        by_index[index] = row
+        by_identifier[identifier] = row
+    return by_index
+
+
+BOOKS = _load_books()
+BOOK_BY_IDENTIFIER = {row["identifier"]: row for row in BOOKS.values()}
+
+# Which badge each book shelf wears, and the one thing about a book that is not
+# in the registry: the badge is the SERIES' and the registry is per book.
 #
-# Sixteen more book lines, registered before the scans that fill them:
-# tools/data/book_acquisition_plan.json is the order they are being read in,
-# and a volume has to be here before tools/acquire_book.py will file a puzzle
-# citing it. Three rules decided every key below, and they are why there are
-# sixteen of them rather than five.
-#
-# ONE KEY PER PRINTED LINE, not per publisher and not per paper. Everything
-# above a `volumes` map is a TEMPLATE with {volume} written into it, so a key
-# can only hold books whose titles differ by their number and by nothing else.
-# The Telegraph alone prints five such lines — Pan's "Cryptic Crossword Book",
-# Pan's "Big Book", Pan's "Big Book of Brain Sharpener", Octopus's "All New
-# Cryptic Crosswords" and Octopus's "Cryptic Crosswords" — each numbering its
-# own volumes from 1. One key for the five would have to name four of them
-# wrongly in bookTitle, and four wrong book titles is not a saving.
+# ONE KEY PER PRINTED LINE, not per publisher and not per paper. Everything the
+# registry holds is the book's own, so a key can only cover books whose titles
+# differ by their number and by nothing else. The Telegraph alone prints five
+# such lines — Pan's "Cryptic Crossword Book", Pan's "Big Book", Pan's "Big
+# Book of Brain Sharpener", Octopus's "All New Cryptic Crosswords" and
+# Octopus's "Cryptic Crosswords" — each numbering its own volumes from 1.
 #
 # A BOOK KEY IS NEVER A LIVE SERIES' KEY. `independent` is a feed, 8,932-12,465
-# on disk today and backfilling downwards, so the Penguin book of the
-# Independent's crosswords is `penguinindy`: its volume 1 is numbers 1001-1099,
-# which sits inside the daily's own sequence, and one key cannot be a feed and
-# a book at once anyway — is_book() is "has a volumes map". Checked against
-# every series' range rather than assumed: quiptic 1-1,399, cyclops 300-838,
-# indysunday 1,320-1,907, everyman 2,965-4,169, globeandmail 3,106-3,369,
-# cryptic 21,620-30,115, and metro's number is a date (20,250,403 up). No other
-# new key below is a paper this repo fetches.
-#
-# THE VOLUME IS THE BOOK'S OWN PRINTED NUMBER, on twenty-two of the
-# twenty-four, and every one of those was read off the cover scan rather than
-# off a catalogue: archive.org and Open Library between them lost the number on
-# four of these books, and invented none. The word counts as printed — "The
-# First Penguin Book of the Independent Crosswords" is volume 1 and "The Ninth
-# Penguin book of the Times crosswords" is volume 9. The two books that print
-# no number anywhere, `morse` and `brainsharp`, say INVENTED here and again in
-# the plan file, because a number nobody can check against a cover would
-# otherwise sit in this table looking exactly like the twenty-two that can be.
-#
-# EVERY SHELF NAMES ITS OWN BOOK. display_number() is printed with no badge
-# beside it in the homepage list that tools/build_seo_pages.py writes — just
-# "{shelf} No {position}" and a setter — so a bare "book 2 No 7" would be the
-# Herald's, the Scotsman's, the Sunday Telegraph's and the Daily Mail's at
-# once. The Herald's shelf was bare while it was the only book with a plain
-# number; it is "Herald book 2" now, for the same reason the nine below name a
-# paper or a line. The ones that already read as one thing on their own —
-# "Toughie book 1", "Brain Sharpener book 1", "Penguin FT book 1" — do not
-# repeat the paper.
+# on disk and backfilling downwards, so the Penguin book of the Independent's
+# crosswords is `penguinindy`: its volume 1 is numbers 1001-1099, which sits
+# inside the daily's own sequence, and one key cannot be a feed and a book at
+# once anyway — is_book() is "has a shelf in this table".
 #
 # KEYS ARE 4-12 LETTERS, NO DIGITS. sync/worker.js matches a vote id with
 # [a-z]{4,12}-\d{1,6}, so `times1998` or `sundaytelegraph` would not fail —
-# they would quietly drop this shelf's votes on the floor. Hence `timesbooks`
+# they would quietly drop that shelf's votes on the floor. Hence `timesbooks`
 # and `sundaytel`.
-#
-# officialKey is "never" on every one of them, for the reason it is "never" on
-# the two above: these are out-of-print reprint collections that number their
-# puzzles from 1 in the book, so a puzzle here carries no paper number and no
-# date, and there is nothing a publisher could ever serve an answer key
-# AGAINST. The sample behind tools/data/book_candidates.json shows the same
-# thing from the other end — every one of them parsed as book numbers 1, 2, 3.
-
-# The Scotsman crossword book (Black & White Publishing, 2001): the Edinburgh
-# broadsheet's own cryptics, the same publisher and the same format as the
-# Herald books above. The volume is printed on it — the title is "The Scotsman
-# crossword book. 2" — and leaves volume 1 a number to arrive at.
-SERIES["scotsman"] = {
-    "kind": "Book {volume} Cryptic",
-    "publisher": "Scotsman",
-    "badge": "scotsman",
-    "shelf": "Scotsman book {volume}",
-    "bookTitle": "The Scotsman Crossword Book, volume {volume}",
-    "name": "Scotsman cryptic crossword, book {volume} No {position}",
-    "officialKey": "never",
-    "volumes": {
-        2: "scotsmancrosswor0000unse_i4i5",
-    },
+BOOK_BADGE = {
+    "penguin": "penguin",
+    "herald": "herald",
+    "scotsman": "scotsman",
+    "araucaria": "araucaria",
+    "morse": "morse",
+    "times": "times",
+    "timesbooks": "times books",
+    "penguintimes": "times penguin",
+    "penguinindy": "indy penguin",
+    "penguinft": "ft penguin",
+    "telegraph": "telegraph book",
+    "telbig": "telegraph big book",
+    "brainsharp": "brain sharpener",
+    "telallnew": "telegraph all new",
+    "telcryptic": "telegraph cryptics",
+    "toughie": "toughie",
+    "sundaytel": "sunday telegraph",
+    "dailymail": "daily mail",
 }
 
-# Chambers book of Araucaria crosswords (Chambers, 2005): John Graham's own
-# collection start to finish, which is why the key is the setter and not the
-# publisher — "chambers" would have to hold the Morse book below too, and the
-# two are not one line with two numbers. Volume 2 is printed on the cover;
-# volume 3 is scanned (chambersbookofar0000arau_e6k7) and sits undetermined in
-# tools/data/book_candidates.json, so this table grows rather than changes.
-#
-# Publisher is Chambers, not the Guardian. Araucaria set for the Guardian for
-# fifty years, but the book names its setter and never a paper, and a masthead
-# on every one of these pages would be a claim the book does not make.
-SERIES["araucaria"] = {
-    "kind": "Book {volume} Cryptic",
-    "publisher": "Chambers",
-    "badge": "araucaria",
-    "shelf": "Araucaria book {volume}",
-    "bookTitle": "Chambers Book of Araucaria Crosswords, volume {volume}",
-    "name": "Araucaria cryptic crossword, book {volume} No {position}",
-    # The title is the byline: every puzzle in the book is his, so a blank
-    # byline here is anonymity of the Everyman kind and not a scraping failure.
-    "setter": "Araucaria",
-    "officialKey": "never",
-    "volumes": {
-        2: "chambersbookofar0000arau",
-    },
-}
-
-# Chambers book of Morse crosswords (Chambers, 2006), the crosswords Colin
-# Dexter wrote around Inspector Morse. ONE BOOK, AND NO NUMBER ANYWHERE ON IT,
-# so volume 1 is INVENTED — the numbering has nowhere else to put a book, and
-# the plan file says so rather than letting a made-up 1 look like a printed
-# one.
-#
-SERIES["morse"] = {
-    "kind": "Morse Book {volume} Cryptic",
-    "publisher": "Chambers",
-    "badge": "morse",
-    "shelf": "Morse book {volume}",
-    "bookTitle": "Chambers Book of Morse Crosswords, volume {volume}",
-    "name": "Morse cryptic crossword, book {volume} No {position}",
-    # "by Colin Dexter" is the cover, and a default is only ever the fallback
-    # for a puzzle that arrives with no byline of its own — so if the book
-    # credits its puzzles individually, what it prints still wins.
-    "setter": "Colin Dexter",
-    "officialKey": "never",
-    "volumes": {
-        1: "chambersbookofmo0000dext",
-    },
-}
-
-# The Times Cryptic Crossword Book (HarperCollins): the Times' daily cryptics,
-# 80 to a volume and one volume a year. Both numbers here are printed on the
-# covers, and the run they belong to is continuous — 12/2008, 13/2009, 15/2011,
-# 17/2013, 18/2014, 19/2015, 20/2016, 21/2017, 22/2018, 24/2020 through
-# 29/2025 in Open Library's edition records. That run is also the evidence for
-# the key below it.
-SERIES["times"] = {
-    "kind": "Book {volume} Cryptic",
-    "publisher": "Times",
-    "badge": "times",
-    "shelf": "Times book {volume}",
-    "bookTitle": "The Times Cryptic Crossword Book {volume}",
-    "name": "Times cryptic crossword, book {volume} No {position}",
-    "officialKey": "never",
-    "volumes": {
-        13: "timescrypticcros0000time_i0s6",
-        21: "timescrypticcros0000time",
-    },
-}
-
-# TWO BOOKS ON THIS SHELF ARE CATALOGUED "The Times Cryptic Crossword Book
-# 21", and this is the other one. The catalogues are what collide; the covers
-# do not. This book's cover reads "THE TIMES CROSSWORDS ... BOOK 21 — THE
-# WORLD'S MOST FAMOUS CROSSWORD PUZZLE" (Times Books, January 1998, ISBN
-# 1-902254-06-7, 144 pages), while `times` volume 21 is "The Times Cryptic
-# Crossword Book 21" (HarperCollins, 2017, ISBN 978-0-00-817388-3, 246 leaves).
-# Two different printed titles, and archive.org normalised the first into the
-# second's.
-#
-# The dates say the same thing independently: the HarperCollins run is one
-# volume a year with no gap in it — 12/2008 through 29/2025 — so 1998 falls
-# eleven volumes before its 12 and cannot be a renumbering of it. Same paper's
-# puzzles, two publishers' numberings, two keys; the title each cover prints is
-# what the templates carry, so no page here can name the wrong book.
-SERIES["timesbooks"] = {
-    "kind": "Crosswords Book {volume} Cryptic",
-    "publisher": "Times",
-    "badge": "times books",
-    "shelf": "Times Crosswords book {volume}",
-    "bookTitle": "The Times Crosswords, book {volume} (Times Books)",
-    "name": "Times cryptic crossword, Times Crosswords book {volume} "
-            "No {position}",
-    "officialKey": "never",
-    "volumes": {
-        21: "isbn_9781902254067",
-    },
-}
-
-# The Penguin Book of The Times Crosswords (Penguin, 1988 and 1989): the same
-# reprint-a-paper format as the Guardian Penguins at the top of this section,
-# a different paper, and therefore a different key — `penguin` volume 9 would
-# be a Guardian book, and the volume number alone cannot name a book once two
-# papers both have a ninth. The covers print their volumes as words, "Ninth"
-# and "Tenth"; the digits are those words.
-SERIES["penguintimes"] = {
-    "kind": "Penguin Book {volume} Cryptic",
-    "publisher": "Times",
-    "badge": "times penguin",
-    "shelf": "Penguin Times book {volume}",
-    "bookTitle": "The Penguin Book of The Times Crosswords, volume {volume}",
-    "name": "Times cryptic crossword, Penguin book {volume} No {position}",
-    "officialKey": "never",
-    "volumes": {
-        9: "ninthpenguinbook0000unse",
-        10: "tenthpenguinbook0000unse",
-    },
-}
-
-# The Penguin Book of Independent Crosswords (Penguin, 1990). NOT `independent`
-# — that key is the live daily feed, and this is the collision the rule at the
-# top of this section exists for. Volume 1 is printed, in the same way the
-# Times Penguins print 9 and 10: the cover reads "THE FIRST PENGUIN BOOK OF THE
-# INDEPENDENT CROSSWORDS".
-SERIES["penguinindy"] = {
-    "kind": "Penguin Book {volume} Cryptic",
-    "publisher": "Independent",
-    "badge": "indy penguin",
-    "shelf": "Penguin Indy book {volume}",
-    "bookTitle": "The Penguin Book of Independent Crosswords, volume {volume}",
-    "name": "Independent cryptic crossword, Penguin book {volume} No {position}",
-    "officialKey": "never",
-    "volumes": {
-        1: "penguinbookofind0000unse_y8k9",
-    },
-}
-
-# The Penguin Book of Financial Times Crosswords (Penguin, 1973), the oldest
-# book on the shelf by fifteen years, and "The First Penguin Book of" on the
-# cover — volume 1, printed. The FT is a paper this repo has no feed for, so
-# there is no key to collide with; the name still follows the Penguin pattern
-# beside it rather than inventing a second shape for the same kind of book.
-SERIES["penguinft"] = {
-    "kind": "Penguin Book {volume} Cryptic",
-    "publisher": "Financial Times",
-    "badge": "ft penguin",
-    "shelf": "Penguin FT book {volume}",
-    "bookTitle": "The Penguin Book of Financial Times Crosswords, volume {volume}",
-    "name": "Financial Times cryptic crossword, Penguin book {volume} No {position}",
-    "officialKey": "never",
-    "volumes": {
-        1: "penguinbookoffin0000unse",
-    },
-}
-
-# The Daily Telegraph Cryptic Crossword Book (Pan): the longest line here, past
-# 60 volumes by 2010. Every number below is printed, including the one the
-# catalogues had lost — isbn_9780330346429 is cased as an unnumbered "Daily
-# Telegraph Cryptic Crossword Book" by archive.org and Open Library alike, and
-# its own title page reads "Che Daily Telegraph / Cryptic Crossword Book / 32",
-# first published 1996 by Pan. Read off the book, because the catalogue's
-# silence was about the catalogue.
-#
-# That same leaf prints Pan's shelf, which is where the four keys under this
-# one come from: "Cryptic Crossword Book 17-41", "Big Book of Cryptic
-# Crosswords 1-5", "Big Book of Quick Crosswords 1-5", "Sunday Telegraph
-# Cryptic Crossword Book 1-7". Four separately numbered lines from one
-# publisher for one paper.
-SERIES["telegraph"] = {
-    "kind": "Book {volume} Cryptic",
-    "publisher": "Telegraph",
-    "badge": "telegraph book",
-    "shelf": "Telegraph book {volume}",
-    "bookTitle": "The Daily Telegraph Cryptic Crossword Book {volume}",
-    "name": "Telegraph cryptic crossword, book {volume} No {position}",
-    "officialKey": "never",
-    "volumes": {
-        25: "isbn_9780330325868",
-        28: "dailytelegraphcr0000dail",
-        31: "isbn_9780330343763",
-        32: "isbn_9780330346429",
-    },
-}
-
-# The Daily Telegraph Big Book of Cryptic Crosswords (Pan): the same paper and
-# the same publisher as `telegraph`, and a SEPARATE numbering — the 1996 ad
-# page quoted above prints "Cryptic Crossword Book 17-41" and "Big Book of
-# Cryptic Crosswords 1-5" as two lines of one shelf, so a shared key would file
-# this book as a sixth of the other. Twice the size of a numbered book, which
-# is why it opens the acquisition plan. The 6 is on the cover; the catalogues
-# have it down as unnumbered.
-SERIES["telbig"] = {
-    "kind": "Big Book {volume} Cryptic",
-    "publisher": "Telegraph",
-    "badge": "telegraph big book",
-    "shelf": "Telegraph big book {volume}",
-    "bookTitle": "The Daily Telegraph Big Book of Cryptic Crosswords {volume}",
-    "name": "Telegraph cryptic crossword, big book {volume} No {position}",
-    "officialKey": "never",
-    "volumes": {
-        6: "dailytelegraphbi0000dail",
-    },
-}
-
-# The Daily Telegraph Big Book of Brain Sharpener Cryptic Crosswords (Pan,
-# 2007). VOLUME 1 IS INVENTED — the cover prints no number at all, and "Brain
-# Sharpener" was a 2007 Pan sub-brand spread across puzzle types (there is a
-# Brain Sharpener sudoku) rather than a numbered crossword line, so there is
-# nothing for this to be the second of.
-#
-# Not a volume of `telbig`, though both are Pan "Big Books" of the same size:
-# that line's numbers are printed and 6 is taken, so filing this one there
-# would either collide or give it a number no cover carries.
-SERIES["brainsharp"] = {
-    "kind": "Brain Sharpener Book {volume} Cryptic",
-    "publisher": "Telegraph",
-    "badge": "brain sharpener",
-    "shelf": "Brain Sharpener book {volume}",
-    "bookTitle": "The Daily Telegraph Big Book of Brain Sharpener Cryptic "
-                 "Crosswords, volume {volume}",
-    "name": "Telegraph cryptic crossword, Brain Sharpener book {volume} "
-            "No {position}",
-    "officialKey": "never",
-    "volumes": {
-        1: "isbn_9780330451789",
-    },
-}
-
-# The Telegraph All New Cryptic Crosswords (Octopus, 2012-2014): the paper's
-# other book programme, numbered 1-8 from its own 1 while Pan's line was in its
-# fifties. Volume 4 is on the cover.
-SERIES["telallnew"] = {
-    "kind": "All New Book {volume} Cryptic",
-    "publisher": "Telegraph",
-    "badge": "telegraph all new",
-    "shelf": "Telegraph All New book {volume}",
-    "bookTitle": "The Telegraph All New Cryptic Crosswords {volume}",
-    "name": "Telegraph cryptic crossword, All New book {volume} No {position}",
-    "officialKey": "never",
-    "volumes": {
-        4: "telegraphallnewc0000unse_a7j2",
-    },
-}
-
-# Telegraph Cryptic Crosswords (Octopus, 2017 onwards, 1-15 and counting): the
-# same publisher's NEXT line, and a third Telegraph numbering rather than a
-# continuation of the one above — Octopus restarted at 1 under a new title in
-# 2017, so an "All New" 2 and a "Cryptic Crosswords" 2 are two books. Volume 2
-# is printed.
-SERIES["telcryptic"] = {
-    "kind": "Crosswords Book {volume} Cryptic",
-    "publisher": "Telegraph",
-    "badge": "telegraph cryptics",
-    "shelf": "Telegraph Crosswords book {volume}",
-    "bookTitle": "Telegraph Cryptic Crosswords {volume}",
-    "name": "Telegraph cryptic crossword, Crosswords book {volume} "
-            "No {position}",
-    "officialKey": "never",
-    "volumes": {
-        2: "telegraphcryptic0000tele",
-    },
-}
-
-# The Telegraph All New Toughie Crossword (Hamlyn, 2012), "Book 1" printed on
-# it. The Toughie is the Telegraph's second daily cryptic and a markedly harder
-# one, which is why it is a key and not a volume of `telallnew` beside it: a
-# solver choosing a Toughie is choosing the difficulty, and that is the one
-# thing a badge exists to say.
-SERIES["toughie"] = {
-    "kind": "Toughie Book {volume} Cryptic",
-    "publisher": "Telegraph",
-    "badge": "toughie",
-    "shelf": "Toughie book {volume}",
-    "bookTitle": "The Telegraph All New Toughie Crossword, book {volume}",
-    "name": "Telegraph Toughie crossword, book {volume} No {position}",
-    "officialKey": "never",
-    "volumes": {
-        1: "telegraphallnewt0000tele",
-    },
-}
-
-# The Sunday Telegraph Book of Cryptic Crosswords (Pan): a different paper from
-# the daily — its own masthead and its own setters — numbered to 14 by 2007.
-# All three volumes here print their number on the cover in one house design,
-# and only the 4 reached the catalogues: archive.org and Open Library both list
-# 1 and 2 as untitled reprints, which would have made three numbered volumes
-# look like three unnumbered ones and cost two invented numbers. Read the
-# covers. The gap at 3 is a book nobody has scanned, not a mistake here.
-SERIES["sundaytel"] = {
-    "kind": "Book {volume} Cryptic",
-    "publisher": "Sunday Telegraph",
-    "badge": "sunday telegraph",
-    "shelf": "Sunday Telegraph book {volume}",
-    "bookTitle": "The Sunday Telegraph Book of Cryptic Crosswords {volume}",
-    "name": "Sunday Telegraph cryptic crossword, book {volume} No {position}",
-    "officialKey": "never",
-    "volumes": {
-        1: "isbn_9780330339605",
-        2: "sundaytelegraphb0000sund",
-        4: "isbn_9780330350013",
-    },
-}
-
-# Daily Mail New Cryptic Crosswords (Hamlyn, 2007): volume 2, printed on the
-# cover, of a line that runs to at least 12. The only tabloid on the shelf, and
-# the only book here that prints its own puzzle count — "A new compilation of
-# 100 Daily Mail Crosswords", against the 123 the sample extrapolated. That gap
-# is the over-count tools/data/book_candidates.json's own calibration warns
-# about, measured for once against a number the book states.
-SERIES["dailymail"] = {
-    "kind": "Book {volume} Cryptic",
-    "publisher": "Daily Mail",
-    "badge": "daily mail",
-    "shelf": "Daily Mail book {volume}",
-    "bookTitle": "Daily Mail New Cryptic Crosswords, volume {volume}",
-    "name": "Daily Mail cryptic crossword, book {volume} No {position}",
-    "officialKey": "never",
-    "volumes": {
-        2: "isbn_9780600616405",
-    },
-}
+for _key, _badge in BOOK_BADGE.items():
+    SERIES[_key] = {
+        "badge": _badge,
+        # officialKey is "never" on every book: these are out-of-print reprint
+        # collections that number their puzzles from 1 in the book, so a puzzle
+        # here carries no paper number and no date and there is nothing a
+        # publisher could ever serve an answer key AGAINST. It is a fact about
+        # the shelf, so it is stated once and copied onto each puzzle as
+        # solutionSource.officialKey by whichever route fills the grid — a
+        # puzzle that lost it would have tools/build_seo_pages.py promise a
+        # reader that official answers replace ours "as soon as those appear",
+        # which is a promise nothing can keep.
+        "officialKey": "never",
+        # What makes this a book series. Asked of the table, never
+        # pattern-matched off the key: "penguin(N)" answered correctly only
+        # while every book was a Penguin volume, and it answered "no" for The
+        # Herald in three separate places.
+        "books": True,
+    }
+del _key, _badge
 
 # Unlisted falls back to the Guardian cryptic, which is right both for the daily
 # and for the Saturday prize that shares its number sequence and is recorded
@@ -634,20 +272,37 @@ def kind(series, number=None):
     Cryptic" at a reader, or silently drop the volume from a page whose whole
     job is saying which puzzle it is.
     """
-    template = meta(series)["kind"]
     if not is_book(series):
-        return template
-    volume, _ = split_number(series, _require_number(series, number, "kind"))
-    return template.format(volume=volume)
+        return meta(series)["kind"]
+    row = book_row(series, _require_number(series, number, "kind"))
+    return f"{row['kind']} {row['volume']} Cryptic"
 
 
-def publisher(series):
+def publisher(series, number=None):
     """The paper whose puzzle it is — NOT necessarily the site we fetched it
-    from. Everyman is the Observer's, only syndicated onto the Guardian's."""
+    from. Everyman is the Observer's, only syndicated onto the Guardian's.
+
+    A book's paper is the BOOK's, so it comes from the registry and needs the
+    number. Without one the answer is "", not a guess: one shelf reprints a
+    dozen papers, and "" is what puzzles/index.json's `papers` table wants
+    anyway — the push fan-out prefixes a notification title with it, and every
+    book puzzle's own name already opens with the paper that printed it.
+    """
+    if is_book(series):
+        return book_row(series, number)["publisher"] if number is not None else ""
     return meta(series)["publisher"]
 
 
-def default_setter(series):
+def default_setter(series, number=None):
+    """Used only where the source publishes no byline.
+
+    Per BOOK for a book: the Araucaria and Morse collections are one setter
+    from cover to cover, and a blank byline in either is anonymity of the
+    Everyman kind rather than a scraping failure. What the book prints over an
+    individual puzzle still wins — this is the fallback, not an override.
+    """
+    if is_book(series) and number is not None:
+        return book_row(series, number).get("setter", "Unknown")
     return meta(series).get("setter", "Unknown")
 
 
@@ -689,12 +344,30 @@ def is_book(series):
     answered correctly only while every book was a Penguin volume, and it
     answered "no" for The Herald in three separate places.
     """
-    return "volumes" in meta(series)
+    return "books" in meta(series)
 
 
 def volumes(series):
-    """volume -> archive.org identifier, empty for a series off a feed."""
-    return meta(series).get("volumes", {})
+    """volume -> the registry row for it, empty for a series off a feed.
+
+    Read out of tools/data/books.json every time rather than cached beside it:
+    a second copy of the registry inside the module that reads the registry is
+    the shape this whole change removed.
+    """
+    return {row["volume"]: row for row in BOOKS.values()
+            if row["was"] == series} if is_book(series) else {}
+
+
+def book_row(series, number):
+    """The registry row for the book this puzzle was read out of.
+
+    The one lookup. Every book fact a page prints — the shelf label, the
+    volume, the publisher, the title, the scan, the puzzle's own name — comes
+    through here, so a puzzle cannot cite one book in its heading and another
+    in its provenance.
+    """
+    volume, _ = split_number(series, _require_number(series, number, "book_row"))
+    return volumes(series)[volume]
 
 
 def _require_number(series, number, what):
@@ -715,9 +388,9 @@ def book_number(series, volume, position):
     """
     if volume not in volumes(series):
         raise ValueError(
-            f"{series} has no volume {volume} in tools/series.py — add it and "
-            f"its archive.org identifier there, or its puzzles will cite a "
-            f"book they did not come from")
+            f"{series} has no volume {volume} in tools/data/books.json — add "
+            f"the book and its archive.org identifier there, or its puzzles "
+            f"will cite a book they did not come from")
     if not 1 <= position < POSITIONS_PER_VOLUME:
         raise ValueError(
             f"{series} volume {volume} position {position} is outside "
@@ -739,20 +412,20 @@ def split_number(series, number):
         raise ValueError(f"{series}-{number} has position 0; positions start at 1")
     if volume not in volumes(series):
         raise ValueError(
-            f"{series}-{number} is volume {volume}, which is not in "
-            f"tools/series.py — add the volume and its archive.org identifier "
-            f"there")
+            f"{series}-{number} is volume {volume}, which no row of "
+            f"tools/data/books.json registers — add the book and its "
+            f"archive.org identifier there")
     return volume, position
 
 
 def volume_of(series, number):
     """Which volume of its book this puzzle is: 5, for penguin-5018.
 
-    The number the BOOK prints on its own spine, and two publishers' volume 2
-    are different books — which is why book-ness is asked of the table rather
-    than read off the key, as it was while every book here was a Penguin volume.
+    The number the BOOK prints on its own spine — read off a cover scan for
+    twenty-eight of the thirty — and two publishers' volume 2 are different
+    books, which is why a volume is never a key and never an index.
     """
-    return split_number(series, number)[0]
+    return book_row(series, number)["volume"]
 
 
 def position_of(series, number):
@@ -781,8 +454,8 @@ def display_number(series, number):
     """
     if not is_book(series):
         return f"No {int(number):,}"
-    volume, position = split_number(series, number)
-    return f"{meta(series)['shelf'].format(volume=volume)} No {position}"
+    row = book_row(series, number)
+    return f"{row['shelf']} {row['volume']} No {position_of(series, number)}"
 
 
 def legacy_id(series, number):
@@ -809,7 +482,7 @@ def scan_identifier(series, number):
     """
     if not is_book(series):
         return None
-    return volumes(series)[volume_of(series, number)]
+    return book_row(series, number)["identifier"]
 
 
 def scan_url(series, number):
@@ -823,25 +496,32 @@ def scan_url(series, number):
 
 
 def book_title(series, number):
-    """The printed book this puzzle was read out of, or None for a feed."""
+    """The printed book this puzzle was read out of, or None for a feed.
+
+    The title the COVER prints, stored whole in the registry rather than
+    templated off the volume: "The Times Cryptic Crossword Book 21" and "The
+    Times Crosswords, book 21 (Times Books)" are two different books catalogued
+    under one name, and a template that wrote the volume into a shared sentence
+    could only name one of them correctly.
+    """
     if not is_book(series):
         return None
-    volume = volume_of(series, _require_number(series, number, "book_title"))
-    return meta(series)["bookTitle"].format(volume=volume)
+    return book_row(series, number)["title"]
 
 
 def puzzle_name(series, number):
     """The title on a book puzzle: the paper, the book, and the book's number.
 
-    Templated beside the book it names, so acquiring one is an entry in this
-    file rather than an entry here plus an f-string in the filing tool.
+    Stored in the registry as the lead — "Guardian cryptic crossword, Penguin
+    book 5" — with the position appended here, so acquiring a book is one row
+    in tools/data/books.json rather than a row there plus an f-string in the
+    filing tool.
     """
     if not is_book(series):
-        raise KeyError(f"series {series!r} has no puzzle-name template; it is "
-                       f"not a book series, and its puzzles are named by "
-                       f"whatever feed fetched them")
-    volume, position = split_number(series, number)
-    return meta(series)["name"].format(volume=volume, position=position)
+        raise KeyError(f"series {series!r} has no puzzle-name lead; it is not "
+                       f"a book series, and its puzzles are named by whatever "
+                       f"feed fetched them")
+    return f"{book_row(series, number)['name']} No {position_of(series, number)}"
 
 
 # ---------- ids ----------
