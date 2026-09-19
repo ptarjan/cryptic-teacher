@@ -591,7 +591,7 @@ from pathlib import Path
 sys.path.insert(0, "tools")
 from fetch_puzzle import PUZZLE_DIR, read_puzzle_file
 try:
-    puzzle = read_puzzle_file(PUZZLE_DIR / f"{sys.argv[1]}.js")
+    puzzle = read_puzzle_file(PUZZLE_DIR / f"{sys.argv[1]}.json")
 except Exception as err:  # noqa: BLE001 — an unreadable file is not a date
     print(f"cannot read {sys.argv[1]} to place it in the queue: {err}", file=sys.stderr)
     sys.exit(1)
