@@ -14,6 +14,16 @@ window.CRYPTIC_PUZZLES["cyclops-316"] = /*JSON-START*/ {
   "rows": 15
  },
  "sourceUrl": "https://www.private-eye.co.uk/crossword",
+ "provenance": {
+  "publisher": "Private Eye",
+  "series": "cyclops",
+  "acquiredBy": "tools/fetch_privateeye.py",
+  "acquiredOn": "2026-09-18",
+  "retrievedFrom": "publisher",
+  "retrievedUrl": null,
+  "gridOrigin": "published",
+  "solutionOrigin": "unsolved"
+ },
  "entries": [
   {
    "id": "1-down",

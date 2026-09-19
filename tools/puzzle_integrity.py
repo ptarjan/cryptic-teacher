@@ -56,6 +56,19 @@ The flags, in the order they matter:
   CROSS     two entries that share a grid cell and disagree about its letter. One
             wrong answer normally breaks three or four of these, so a clean sheet
             is real evidence the fill is the paper's and not a mangling of it.
+  PROV      a puzzle that does not say where it came from, or says something
+            tools/provenance.py does not allow. The one that matters is
+            solutionOrigin: a grid the setter published is ground truth, a grid
+            this repo cold-solved is our guess, and until provenance existed
+            the two were the same 15x15 of capital letters with nothing to tell
+            them apart. So the check refuses an origin outside the enum, an
+            origin that contradicts the file it sits on (claiming "published"
+            over a solutionSource that says "model", or "unsolved" over a grid
+            full of answers), a retrieval channel that disagrees with the tool
+            that did the retrieving, and a publisher or series that disagrees
+            with the puzzle's own id. Every allowed value is enumerated in
+            tools/provenance.py and read from there, so this file does not hold
+            a second copy of the list to fall out of step with the first.
   SHAPE     data that cannot be right whatever the puzzle says: no entries at all,
             a clue that is blank once its enumeration is removed, a puzzle whose
             clues are ALL blank — a grid with no puzzle in it, which no amount of
@@ -105,8 +118,14 @@ from fetch_puzzle import (ENUMERATION, PER_LIGHT_ENUMERATION,  # noqa: E402
                           is_continuation, prints_own_count, read_puzzle_file,
                           reindex)
 from reconstruct_grid import grid_of, lights_from_grid, lights_of  # noqa: E402
+import provenance  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
+
+# The flags, in the order they are reported. One tuple, read by both the
+# per-finding listing and the tally, so a check cannot be added to one and
+# missed from the other.
+FLAGS = ("LENGTH", "CROSS", "GRID", "NUMBER", "SHAPE", "PROV")
 
 # No cryptic crossword in this corpus predates the Guardian's, which began in 1929.
 # A date below this is a page the publisher mis-filed or a fetcher that lost one,
@@ -1009,6 +1028,20 @@ def check_cross(puzzle, checkable, flags):
         flags.append(("CROSS", pid, p))
 
 
+def check_provenance(puzzle, flags):
+    """Where the puzzle and its answers came from — tools/provenance.py.
+
+    Every allowed value is enumerated in that module and nowhere else; this
+    check only asks whether the file agrees with it. The reason it is a corpus
+    check rather than a fetcher assert is that a fetcher can only vouch for the
+    puzzles it wrote, and the failure this guards against is a grid we solved
+    ourselves becoming indistinguishable from the setter's own answer key —
+    which is a property of the corpus as a whole, and is only ever noticed if
+    something sweeps the whole of it."""
+    for finding in provenance.check(puzzle):
+        flags.append(("PROV", puzzle["id"], finding))
+
+
 def audit(rows, today):
     """One flat list of (flag, puzzle id, what) plus the duplicate groups."""
     flags = []
@@ -1017,6 +1050,7 @@ def audit(rows, today):
         puzzle = read_puzzle_file(PUZZLE_DIR / row["file"])
         by_content[content_hash(puzzle)].append(puzzle["id"])
         checkable = check_shape(puzzle, today, flags)
+        check_provenance(puzzle, flags)
         check_grid(puzzle, flags)
         check_numbering(puzzle, flags)
         check_length(puzzle, checkable, flags)
@@ -1039,7 +1073,7 @@ def main(argv):
     by_flag = defaultdict(list)
     for flag, pid, what in flags:
         by_flag[flag].append((pid, what))
-    for flag in ("LENGTH", "CROSS", "GRID", "NUMBER", "SHAPE"):
+    for flag in FLAGS:
         for pid, what in by_flag[flag]:
             print(f"{flag:<9} {pid:<22} {what}")
 
@@ -1050,11 +1084,12 @@ def main(argv):
     elapsed = time.time() - started
     print(f"\n{len(rows)} puzzles indexed and read in {elapsed:.1f}s")
     print(f"  DUPLICATE {sum(len(i) for i in copies)} files in {len(copies)} groups")
-    for flag in ("LENGTH", "CROSS", "GRID", "NUMBER", "SHAPE"):
+    for flag in FLAGS:
         print(f"  {flag:<9} {len(by_flag[flag])}")
     if not total:
         print("\nno duplicates, every grid coherent, every grid's own numbering "
-              "matches its clues, every stated length agrees, every crossing agrees")
+              "matches its clues, every stated length agrees, every crossing agrees, "
+              "and every puzzle says where it and its answers came from")
     return 1 if total else 0
 
 

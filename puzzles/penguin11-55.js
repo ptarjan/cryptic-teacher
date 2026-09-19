@@ -14,6 +14,23 @@ window.CRYPTIC_PUZZLES["penguin11-55"] = /*JSON-START*/ {
   "rows": 15
  },
  "sourceUrl": "https://archive.org/details/newpenguinbkguar0000perk",
+ "provenance": {
+  "publisher": "Guardian",
+  "series": "penguin11",
+  "acquiredBy": "tools/file_penguin_puzzle.py",
+  "acquiredOn": "2026-09-18",
+  "retrievedFrom": "book",
+  "retrievedUrl": null,
+  "gridOrigin": "reconstructed",
+  "solutionOrigin": "unsolved",
+  "book": {
+   "identifier": "unknown",
+   "title": "The New Penguin Book of The Guardian Crosswords, volume 11",
+   "volume": 11,
+   "numberInBook": 55,
+   "leaf": null
+  }
+ },
  "entries": [
   {
    "id": "1-across",

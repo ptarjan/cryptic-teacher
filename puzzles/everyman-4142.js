@@ -14,6 +14,16 @@ window.CRYPTIC_PUZZLES["everyman-4142"] = /*JSON-START*/ {
   "rows": 15
  },
  "sourceUrl": "https://observer.co.uk/puzzles/everyman/article/everyman-no-4142",
+ "provenance": {
+  "publisher": "Observer",
+  "series": "everyman",
+  "acquiredBy": "tools/fetch_observer.py",
+  "acquiredOn": "2026-07-26",
+  "retrievedFrom": "publisher",
+  "retrievedUrl": null,
+  "gridOrigin": "published",
+  "solutionOrigin": "published"
+ },
  "entries": [
   {
    "id": "1-across",

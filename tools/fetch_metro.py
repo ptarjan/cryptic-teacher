@@ -381,7 +381,10 @@ def backfill_wayback(dry_run=False):
                 print(f"DRY RUN — would write {path}")
             else:
                 PUZZLE_DIR.mkdir(exist_ok=True)
-                write_puzzle_file(path, puzzle, generator="tools/fetch_metro.py --wayback")
+                write_puzzle_file(path, puzzle,
+                                  generator="tools/fetch_metro.py --wayback",
+                                  retrieved_url=WAYBACK_CAPTURE_URL.format(
+                                      timestamp=timestamp))
                 print(f"wrote {path}")
             written += 1
 

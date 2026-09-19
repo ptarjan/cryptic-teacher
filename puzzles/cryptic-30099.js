@@ -14,6 +14,16 @@ window.CRYPTIC_PUZZLES["cryptic-30099"] = /*JSON-START*/ {
   "rows": 15
  },
  "sourceUrl": "https://www.theguardian.com/crosswords/cryptic/30099",
+ "provenance": {
+  "publisher": "Guardian",
+  "series": "cryptic",
+  "acquiredBy": "tools/fetch_puzzle.py",
+  "acquiredOn": "2026-08-31",
+  "retrievedFrom": "publisher",
+  "retrievedUrl": null,
+  "gridOrigin": "published",
+  "solutionOrigin": "published"
+ },
  "entries": [
   {
    "id": "1-across",

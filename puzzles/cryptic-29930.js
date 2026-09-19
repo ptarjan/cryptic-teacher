@@ -14,6 +14,16 @@ window.CRYPTIC_PUZZLES["cryptic-29930"] = /*JSON-START*/ {
   "rows": 15
  },
  "sourceUrl": "https://www.theguardian.com/crosswords/prize/29930",
+ "provenance": {
+  "publisher": "Guardian",
+  "series": "cryptic",
+  "acquiredBy": "tools/fetch_puzzle.py",
+  "acquiredOn": "2026-09-09",
+  "retrievedFrom": "publisher",
+  "retrievedUrl": null,
+  "gridOrigin": "published",
+  "solutionOrigin": "published"
+ },
  "entries": [
   {
    "id": "1-across",
