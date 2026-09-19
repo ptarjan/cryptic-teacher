@@ -124,6 +124,49 @@ The loan is always returned on the way out, success or exception, unless
 --keep-loan is given — these are one-hour, one-copy, no-waitlist loans on
 both target books, so a crash that leaves one held locks the next borrow
 out for the full hour.
+
+WHY A LEDGER AS WELL AS THE CONTEXT MANAGER. borrowed()'s finally clause
+covers every exit Python controls, and nothing else: a process killed by a
+signal runs no finally clause at all, and that includes plain SIGTERM, which
+is what `timeout N` sends. Verified by tools/test_fetch_ia_book.sh, which
+kills a holder mid-loan with SIGTERM and with SIGKILL and watches the loan
+stay out. So the return cannot be guaranteed in-process, and the guarantee is
+moved to the NEXT process instead: record_loan() writes the identifier to
+LOAN_LEDGER before the block runs, forget_loan() drops it after a confirmed
+return, and reconcile_loans() — called by borrowed() at startup, before any
+new loan is taken — hands back everything the ledger still lists that this
+run is not working on. A killed run therefore leaks a loan for exactly as
+long as it takes the next run to start.
+
+There is NO list-my-loans call to reconcile against. The loans service takes
+one action per request and its action namespace was swept live 2026-09-19:
+query, user_loans, list_loans, loans, get_loans, my_loans, loan_records,
+current_loans and a dozen more all answer HTTP 400 invalid_action, and
+action=availability without an identifier 400s too. What availability DOES
+carry, once logged in, is the account's own view of the item —
+user_has_browsed, user_has_borrowed, user_loan_record, user_loan_count,
+user_at_max_loans — so "do we hold this one?" is answerable per identifier
+and that is what holds_loan() asks. The ledger is what supplies the list of
+identifiers to ask about.
+
+THE LENDING LIMIT is a third refusal, distinct from both halves of the borrow
+trap: HTTP 400 {"error": "Your account has hit a lending limit. Please try
+again later or contact info@archive.org."}. It is a statement about the
+ACCOUNT, not the item, and that is the whole point of telling it apart — it
+will be returned for every other identifier too, so a driver that moves on to
+the next book collects one identical refusal per book and acquires nothing.
+borrow() raises LendingLimitReached for it, which callers are expected to
+treat as "stop the run", not "try the next one".
+NOT A CONCURRENCY CAP, and this is the trap: returning loans need not clear
+it. Verified live 2026-09-19 — the account was refused every borrow for more
+than four hours after a run ended while holding ZERO loans: all 24 plan books
+plus unrelated lending items reported user_loan_count=0, user_at_max_loans=
+false, available_to_browse=true with a free copy, and browse_book still
+answered with the lending-limit string. So the binding limit counts loans
+TAKEN over some period rather than loans HELD, archive.org publishes neither
+the cap nor a reset time for it in any response field or header, and the only
+honest thing to report is the live counters plus what this machine still
+holds. Do not fit a number to it.
 """
 
 import argparse
@@ -148,7 +191,20 @@ DEFAULT_OUT = Path("/tmp/cryptic-teacher-ia-books")
 # The one refusal string archive.org sends for two unrelated conditions; on
 # its own it means only "no loan for you right now", never "no loan needed".
 AMBIGUOUS_BORROW_ERROR = "not available to borrow"
+# The account-level refusal: says nothing about the identifier, so retrying a
+# different book is pointless. See THE LENDING LIMIT in the module docstring.
+LENDING_LIMIT_ERROR = "lending limit"
 PAGE_FETCH_DELAY_SECONDS = 0.3
+# Loans taken and not yet confirmed returned. Deliberately not under /tmp:
+# it has to outlive the process that wrote it, which is the whole point.
+LOAN_LEDGER = "~/.local/state/cryptic-teacher/ia-loans.json"
+
+
+class LendingLimitReached(SystemExit):
+    """archive.org refused because the ACCOUNT is over its lending limit.
+    Separate from every other refusal because it is the only one that says
+    nothing about the identifier: the next book gets the same answer, so the
+    run stops here instead of failing 24 times in a row."""
 
 
 def load_credentials(path):
@@ -214,6 +270,142 @@ def lending_status(session, identifier):
     return status if isinstance(status, dict) else None
 
 
+def holds_loan(session, identifier):
+    """True if archive.org says this account holds a loan on the item right
+    now, False if it does not, None if availability would not say. Asked one
+    identifier at a time because the loans service has no list-my-loans
+    action at all (module docstring) — the ledger supplies the identifiers,
+    this answers for each. Needed before returning anything: return_loan
+    answers {"success": true} for a book that was never borrowed, so its
+    reply is no evidence a loan existed and would make the reconcile report
+    returns it never made."""
+    status = lending_status(session, identifier)
+    if status is None:
+        return None
+    return bool(status.get("user_has_browsed")
+                or status.get("user_has_borrowed")
+                or status.get("user_loan_record"))
+
+
+def ledger_path(override=None):
+    return Path(override) if override is not None else Path(
+        os.environ.get("IA_LOAN_LEDGER", LOAN_LEDGER)).expanduser()
+
+
+def read_ledger(path=None):
+    """{identifier: taken-at} for loans this machine took and has not
+    confirmed returned. A missing or corrupt ledger reads as empty: it is a
+    record of what to clean up, and losing it must not stop a run."""
+    try:
+        entries = json.loads(ledger_path(path).read_text())
+    except (OSError, ValueError):
+        return {}
+    return entries if isinstance(entries, dict) else {}
+
+
+def _write_ledger(entries, path=None):
+    """Written whole through a temp file and os.replace, because the writer
+    is the process being killed: a half-written ledger would lose exactly the
+    entry the next run needs."""
+    target = ledger_path(path)
+    target.parent.mkdir(parents=True, exist_ok=True)
+    tmp = target.with_name(target.name + ".tmp")
+    with open(tmp, "w", encoding="utf-8") as fh:
+        json.dump(entries, fh, indent=1, sort_keys=True)
+        fh.flush()
+        os.fsync(fh.fileno())
+    os.replace(tmp, target)
+
+
+def record_loan(identifier, path=None):
+    """Called after the loan is granted and BEFORE the caller gets the
+    session, so there is no window where the loan exists and nothing on disk
+    knows about it."""
+    entries = read_ledger(path)
+    entries[identifier] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+    _write_ledger(entries, path)
+
+
+def forget_loan(identifier, path=None):
+    """Called only after a return archive.org confirmed. A return that fails
+    leaves the entry, which is what makes the next run retry it."""
+    entries = read_ledger(path)
+    if entries.pop(identifier, None) is not None:
+        _write_ledger(entries, path)
+
+
+def reconcile_loans(session, keep=(), path=None, log=None):
+    """Hand back every loan the ledger still lists, except the ones in
+    `keep`, and return the identifiers actually returned.
+
+    This is what makes a killed run recoverable. borrowed()'s finally clause
+    cannot help there — a signal kills the process without running it, plain
+    SIGTERM from `timeout N` included — so the guarantee lives here instead,
+    in the next process to start, before it takes a loan of its own.
+
+    Each entry is confirmed with holds_loan() first, so an entry whose loan
+    simply expired on its own is dropped quietly rather than reported as a
+    return that happened.
+    """
+    log = log or (lambda message: print(message, file=sys.stderr))
+    keep = set(keep)
+    returned = []
+    for identifier, taken_at in sorted(read_ledger(path).items()):
+        if identifier in keep:
+            continue
+        held = holds_loan(session, identifier)
+        if held is None:
+            log(f"reconcile: {identifier} was left on loan at {taken_at} and "
+                f"archive.org's availability call would not say whether this "
+                f"account still holds it, so it was left alone; it expires on "
+                f"its own within the hour.")
+            continue
+        if not held:
+            forget_loan(identifier, path)
+            continue
+        try:
+            return_loan(session, identifier)
+        except Exception as err:
+            log(f"reconcile: {identifier} is still on loan (taken {taken_at}) "
+                f"and archive.org refused to take it back: {err}")
+            continue
+        forget_loan(identifier, path)
+        returned.append(identifier)
+        log(f"reconcile: returned {identifier}, left on loan at {taken_at} by "
+            f"a run that did not survive to return it")
+    return returned
+
+
+def _lending_limit_message(session, identifier, err, path=None):
+    """The refusal that is about the account rather than the book, reported
+    with the live counters and this machine's own outstanding loans, because
+    the first two questions are always "how many do we hold" and "does giving
+    them back fix it"."""
+    status = lending_status(session, identifier) or {}
+    outstanding = sorted(read_ledger(path))
+    return (
+        f"{identifier}: archive.org refused the loan because THIS ACCOUNT is "
+        f"over its lending limit — \"{err.strip()}\" Nothing is wrong with "
+        f"the book: it reports "
+        f"{status.get('available_browsable_copies')} of "
+        f"{status.get('max_browsable_copies')} browsable copies free. Every "
+        f"other identifier will be refused identically until the limit "
+        f"clears, so stop here rather than collecting the same refusal once "
+        f"per book.\n"
+        f"  archive.org's count for this account: "
+        f"user_loan_count={status.get('user_loan_count')}, "
+        f"user_at_max_loans={status.get('user_at_max_loans')}\n"
+        f"  loans this machine took and has not returned: "
+        f"{', '.join(outstanding) if outstanding else 'none'}\n"
+        f"  Returning loans need not clear this. The account has been refused "
+        f"for hours while holding zero loans, so the binding limit counts "
+        f"loans TAKEN over a period, not loans HELD, and archive.org "
+        f"publishes neither the cap nor a reset time for it — there is no "
+        f"number here to wait for, only a wait. If it never clears, "
+        f"info@archive.org is the only other move."
+    )
+
+
 def _classify_refused_browse(session, identifier):
     """browse_book refused with the ambiguous string. Return normally if the
     item genuinely needs no loan; otherwise raise SystemExit naming the real
@@ -272,6 +464,9 @@ def borrow(session, identifier):
             err = r.json().get("error", "")
         except ValueError:
             err = r.text
+        if LENDING_LIMIT_ERROR in err:
+            raise LendingLimitReached(
+                _lending_limit_message(session, identifier, err))
         if AMBIGUOUS_BORROW_ERROR not in err:
             raise SystemExit(f"browse_book failed for {identifier}: {err}")
         _classify_refused_browse(session, identifier)  # raises unless free
@@ -291,7 +486,7 @@ def borrow(session, identifier):
 
 
 @contextlib.contextmanager
-def borrowed(identifier, creds_path=None, keep_loan=False):
+def borrowed(identifier, creds_path=None, keep_loan=False, reconcile=True):
     """A logged-in session with the loan already taken, yielded to the caller,
     and RETURNED ON THE WAY OUT however the block ends — normally, by
     exception, or by KeyboardInterrupt. That is why this is a context manager
@@ -300,9 +495,22 @@ def borrowed(identifier, creds_path=None, keep_loan=False):
     "remember to call return_loan" is not a guarantee. Any caller that wants
     text out of a lending item goes through here.
 
+    THE FINALLY CLAUSE IS NOT THE WHOLE GUARANTEE. It covers every exit
+    Python controls and no signal at all: SIGKILL, and equally plain SIGTERM
+    from `timeout N`, end the process without running it, and the loan stays
+    out for its full hour. So this ALSO reconciles at startup — before
+    borrowing anything it returns every loan the ledger says an earlier run
+    took and never gave back, `identifier` itself excepted. Pass
+    reconcile=False only when another loan of this account is deliberately
+    open elsewhere.
+
     Yields the session whether or not a loan was needed: an item that needs
     none is not an error (borrow() says which), and its text is fetched the
     same way. Only a loan actually taken is returned.
+
+    --keep-loan deliberately keeps the loan past this block, so it is also
+    kept out of the ledger: the caller has taken ownership of that return,
+    and a later run must not reconcile away a loan somebody is reading.
     """
     creds_path = creds_path or Path(
         os.environ.get("IA_CREDS", DEFAULT_CREDS)).expanduser()
@@ -310,9 +518,15 @@ def borrowed(identifier, creds_path=None, keep_loan=False):
     session = requests.Session()
     session.headers.update(UA)
     login(session, email, password, creds_path)
+    if reconcile:
+        reconcile_loans(session, keep=(identifier,))
     loan_held = False
     try:
         loan_held = borrow(session, identifier)
+        if loan_held and not keep_loan:
+            # On disk before the caller gets the session: from here on, a kill
+            # at any instant leaves something that names the loan to return.
+            record_loan(identifier)
         yield session
     finally:
         if loan_held and not keep_loan:
@@ -321,6 +535,8 @@ def borrowed(identifier, creds_path=None, keep_loan=False):
             except Exception as err:
                 print(f"warning: could not return loan for {identifier}: {err}",
                       file=sys.stderr)
+            else:
+                forget_loan(identifier)
 
 
 def return_loan(session, identifier):
@@ -420,9 +636,45 @@ def fetch_full_text(session, identifier, max_pages=None):
     return "\x0c".join(pages)
 
 
+def report_loans(creds_path, probe_identifier=None):
+    """What this account holds, and a clean-up of everything stale, without
+    taking a loan. The account-wide counters only exist inside some item's
+    availability response, so one identifier has to be named to read them —
+    a ledger entry by preference, else the one passed in."""
+    email, password = load_credentials(creds_path)
+    session = requests.Session()
+    session.headers.update(UA)
+    login(session, email, password, creds_path)
+
+    entries = read_ledger()
+    print(f"ledger {ledger_path()}: "
+          + (", ".join(f"{k} (taken {v})" for k, v in sorted(entries.items()))
+             if entries else "empty — no loan was left open by a previous run"))
+
+    probe = probe_identifier or (sorted(entries)[0] if entries else None)
+    if probe:
+        status = lending_status(session, probe) or {}
+        print(f"account counters, as reported inside availability({probe}): "
+              f"user_loan_count={status.get('user_loan_count')} "
+              f"user_at_max_loans={status.get('user_at_max_loans')} "
+              f"user_has_browsed={status.get('user_has_browsed')}")
+    else:
+        print("account counters: not read — archive.org reports them only "
+              "inside an item's availability response, so name an identifier "
+              "to probe with.")
+
+    returned = reconcile_loans(session)
+    print(f"stale loans returned: {', '.join(returned) if returned else 'none'}")
+    return 0
+
+
 def main(argv):
     p = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    p.add_argument("identifier", help="archive.org item id, e.g. newpenguinbkguar0000perk")
+    p.add_argument("identifier", nargs="?",
+                    help="archive.org item id, e.g. newpenguinbkguar0000perk")
+    p.add_argument("--loans", action="store_true",
+                    help="report what this account has on loan, return every "
+                         "stale one, and exit without borrowing anything")
     p.add_argument("--out", type=Path, default=DEFAULT_OUT,
                     help=f"output directory (default: {DEFAULT_OUT})")
     p.add_argument("--max-pages", type=int,
@@ -435,6 +687,11 @@ def main(argv):
     args = p.parse_args(argv)
 
     creds_path = Path(os.environ.get("IA_CREDS", DEFAULT_CREDS)).expanduser()
+
+    if args.loans:
+        return report_loans(creds_path, args.identifier)
+    if not args.identifier:
+        p.error("an identifier is required unless --loans is given")
 
     args.out.mkdir(parents=True, exist_ok=True)
 

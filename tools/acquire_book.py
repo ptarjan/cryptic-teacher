@@ -34,8 +34,16 @@ one costs now.
      carrying its own reason verbatim, which after tools/fetch_ia_book.py's
      availability check distinguishes "all copies checked out, retry later"
      from "this item needs no loan"), and "text-not-public" (there is no
-     text layer to get at all, for anyone). Any of the three exits non-zero,
-     so an unattended run cannot report success having acquired nothing.
+     text layer to get at all, for anyone). Any of them exits non-zero, so an
+     unattended run cannot report success having acquired nothing.
+
+     "lending-limit" is reported apart from "borrow-refused" and exits
+     EXIT_LENDING_LIMIT (3) rather than 1, because it is the one refusal that
+     is not about this book: archive.org has throttled the ACCOUNT, so the
+     next identifier and every identifier after it gets the same answer. A
+     driver looping over a book list must stop on 3. It is not a concurrency
+     cap and returning loans need not clear it — see THE LENDING LIMIT in
+     tools/fetch_ia_book.py.
   2. SPLIT. tools/parse_penguin_book.py cuts the book into puzzles and reads
      each one's setter, number and clue list.
   3. GEOMETRY. tools/light_spec.py turns one clue list into a light spec,
@@ -96,6 +104,11 @@ METADATA_URL = "https://archive.org/metadata/{id}"
 # Where tools/fetch_ia_book.py leaves what a human borrowed earlier.
 FETCHED_TEXT_DIR = Path("/tmp/cryptic-teacher-ia-books")
 DEFAULT_OUT = Path("/tmp/acquire_book")
+
+# Stage 1 refused because the ACCOUNT is throttled, not because this book is
+# unavailable. Its own exit code so a driver can tell "this book failed" from
+# "every remaining book will fail" without parsing a message.
+EXIT_LENDING_LIMIT = 3
 
 NODE_BUDGET = 8_000_000   # the budget the vol-5 control was measured under
 WALL_SECONDS = 240        # per puzzle, enforced inside the worker
@@ -227,6 +240,11 @@ def borrow_text(identifier, max_pages=None):
     try:
         with ia.borrowed(identifier) as session:
             text = ia.fetch_full_text(session, identifier, max_pages)
+    except ia.LendingLimitReached as err:
+        # Caught ahead of SystemExit, which it subclasses. Folding it into
+        # "borrow-refused" is what let one run report the same account-level
+        # refusal 24 times, once per book, and acquire nothing.
+        return None, str(err), "lending-limit"
     except SystemExit as err:
         # Carries archive.org's real condition verbatim — including "all
         # copies checked out, retry later", which is a retry, not a defeat.
@@ -470,7 +488,7 @@ def main(argv=None):
         # things done about them.
         print(f"{args.identifier}: {status} — {how}", file=sys.stderr)
         print(f"report -> {report_path}")
-        return 1
+        return EXIT_LENDING_LIMIT if status == "lending-limit" else 1
     print(f"text: {how}")
 
     # ---- stage 2
