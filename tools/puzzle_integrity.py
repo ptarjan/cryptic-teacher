@@ -43,6 +43,16 @@ The flags, in the order they matter:
             every crossing and still be nonsense. The rule lives in
             apply_solution.check_geometry so the model-solve gate refuses to
             write a fill into an incoherent grid for the same reason.
+  NUMBER    the stored clue numbers disagree with the numbers the puzzle's own
+            grid would print. A blocked crossword's numbering is a pure function
+            of its black squares (reconstruct_grid.lights_from_grid): scanning
+            row-major, a cell takes the next number iff it starts an across or
+            down light. So lights_from_grid(grid_of(puzzle)) must exactly equal
+            lights_of(puzzle) — where it doesn't, a clue was given the wrong
+            number, and every later clue numbered off the same collision drifts
+            with it. Reported once per puzzle, at the first light where the two
+            lists diverge, because a single wrong number is usually the root
+            cause and everything after it is the same defect restated.
   CROSS     two entries that share a grid cell and disagree about its letter. One
             wrong answer normally breaks three or four of these, so a clean sheet
             is real evidence the fill is the paper's and not a mangling of it.
@@ -67,7 +77,7 @@ The corpus it reads is the puzzle files on disk. puzzles/index.json names them
 and is generated, so it is rebuilt here before it is read — see fetch_puzzle.reindex.
 
 Cost: one rebuild of the index, then one pass, one read per file, no network. All
-five checks together, the index rebuild included, read the whole corpus in about
+six checks together, the index rebuild included, read the whole corpus in about
 half a minute — 13,969 puzzles, ~400k clues, on 2026-09-18 — so every check is on
 by default and none sits behind a flag. Nothing here is expensive enough to be worth
 the confusion of an off-by-default check.
@@ -84,6 +94,7 @@ import sys
 import time
 from collections import defaultdict
 from datetime import datetime, timezone
+from itertools import zip_longest
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -93,6 +104,7 @@ from fetch_puzzle import (ENUMERATION, PER_LIGHT_ENUMERATION,  # noqa: E402
                           PUZZLE_DIR, has_words, is_bare_letters,
                           is_continuation, prints_own_count, read_puzzle_file,
                           reindex)
+from reconstruct_grid import grid_of, lights_from_grid, lights_of  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -108,8 +120,8 @@ EARLIEST_YEAR = 1930
 # reading of the grid the Guardian published can satisfy, or a numbering the
 # Guardian printed against itself, so no fetcher or repair can ever clear them
 # and they would otherwise sit in the report for ever, teaching everyone to skim
-# it. Both LENGTH and GRID consult this table; a finding is forgiven by its own
-# text, whichever check produced it.
+# it. LENGTH, GRID and NUMBER all consult this table; a finding is forgiven by
+# its own text, whichever check produced it.
 #
 # Keyed by puzzle AND by the whole finding, because the point is to forgive these
 # two sentences and nothing else. Any other defect in the same clue — a changed
@@ -145,6 +157,14 @@ PUBLISHED_WRONG = {
         "the Guardian's own markup puts 11-across at \"position\":{\"x\":0,"
         "\"y\":83} on a grid it declares 15 rows tall; which row it meant is "
         "not something this data says",
+    ("cryptic-21730",
+     "numbering does not match the grid: 16 light(s) disagree, starting with "
+     "the file's 12-across (7 cells) where the grid gives 12-across (5 cells)"):
+        "11-across being off the board (see the finding above) is what the "
+        "grid-derived numbering diverges on — with it missing from the grid, "
+        "every number from 12 on is one light short of the file's; fixing the "
+        "numbering would mean guessing where 11-across actually sits, which "
+        "this data does not say",
     ("cryptic-21640",
      "1-across + 17-down + 5-across + 9-across + 14-down: clue says "
      "(6,1,3-4,6,4,2) = 26, answer holds 7 alone or 45 linked"):
@@ -380,6 +400,13 @@ PUBLISHED_WRONG = {
         "lot\" clues 16-down's ALL — and the lower-half coordinates are "
         "rotated with it, so every crossing below row 6 disagrees; which "
         "cells the paper meant is not something this data says",
+    ("cryptic-22482",
+     "numbering does not match the grid: 10 light(s) disagree, starting with "
+     "the file's 16-down (3 cells) where the grid gives 16-down (4 cells)"):
+        "the same 2002-04-01 rotation that misplaces this puzzle's lower half "
+        "(see the crossing and off-board findings above) leaves the grid's "
+        "own numbering diverging from the file's from 16-down on; re-deriving "
+        "it would mean guessing the coordinates the paper never printed",
     ("cryptic-22482",
      "26-down: 9 cells down from (13,9) runs off a 15x15 grid"):
         "the Guardian's own markup puts 26-down at \"position\":{\"x\":13,\"y\":9} "
@@ -927,6 +954,40 @@ def check_grid(puzzle, flags):
         flags.append(("GRID", pid, problem))
 
 
+def check_numbering(puzzle, flags):
+    """Clue numbers as a pure function of the grid, against the numbers stored.
+
+    reconstruct_grid.lights_from_grid scans the puzzle's own grid (built from
+    entry positions and lengths, the same grid_of() check_grid judges) row-major
+    and hands out the next number exactly when a cell starts an across or down
+    light. That is the whole rule a publisher's numbering follows, so it must
+    reproduce reconstruct_grid.lights_of(puzzle) — the numbers, directions and
+    lengths the file actually stores — exactly. Where it doesn't, a light was
+    given the wrong number: a collision with another light's number, or a cell
+    that starts both an across and a down light and wrongly got two different
+    ones, and either shifts every later number that shares its row-major order.
+
+    Reported once per puzzle rather than once per shifted light, at the first
+    point the two lists diverge — everything downstream of a numbering
+    collision is the same defect restated, not a second one."""
+    pid = puzzle["id"]
+    derived = sorted(lights_from_grid(grid_of(puzzle)))
+    stored = sorted(lights_of(puzzle))
+    if derived == stored:
+        return
+
+    def fmt(light):
+        return "nothing" if light is None else f"{light[0]}-{light[1]} ({light[2]} cells)"
+
+    diffs = [(d, s) for d, s in zip_longest(derived, stored) if d != s]
+    d, s = diffs[0]
+    finding = (f"numbering does not match the grid: {len(diffs)} light(s) disagree, "
+               f"starting with the file's {fmt(s)} where the grid gives {fmt(d)}")
+    if (pid, finding) in PUBLISHED_WRONG:
+        return
+    flags.append(("NUMBER", pid, finding))
+
+
 def check_cross(puzzle, checkable, flags):
     """Crossing-letter agreement, from tools/apply_solution.py — the same check that
     gates a model-solved grid before it is written. It is handed only the entries
@@ -957,6 +1018,7 @@ def audit(rows, today):
         by_content[content_hash(puzzle)].append(puzzle["id"])
         checkable = check_shape(puzzle, today, flags)
         check_grid(puzzle, flags)
+        check_numbering(puzzle, flags)
         check_length(puzzle, checkable, flags)
         check_cross(puzzle, checkable, flags)
     copies = sorted(sorted(ids) for ids in by_content.values() if len(ids) > 1)
@@ -977,7 +1039,7 @@ def main(argv):
     by_flag = defaultdict(list)
     for flag, pid, what in flags:
         by_flag[flag].append((pid, what))
-    for flag in ("LENGTH", "CROSS", "GRID", "SHAPE"):
+    for flag in ("LENGTH", "CROSS", "GRID", "NUMBER", "SHAPE"):
         for pid, what in by_flag[flag]:
             print(f"{flag:<9} {pid:<22} {what}")
 
@@ -988,11 +1050,11 @@ def main(argv):
     elapsed = time.time() - started
     print(f"\n{len(rows)} puzzles indexed and read in {elapsed:.1f}s")
     print(f"  DUPLICATE {sum(len(i) for i in copies)} files in {len(copies)} groups")
-    for flag in ("LENGTH", "CROSS", "GRID", "SHAPE"):
+    for flag in ("LENGTH", "CROSS", "GRID", "NUMBER", "SHAPE"):
         print(f"  {flag:<9} {len(by_flag[flag])}")
     if not total:
-        print("\nno duplicates, every grid coherent, every stated length agrees, "
-              "every crossing agrees")
+        print("\nno duplicates, every grid coherent, every grid's own numbering "
+              "matches its clues, every stated length agrees, every crossing agrees")
     return 1 if total else 0
 
 

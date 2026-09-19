@@ -54,10 +54,11 @@ same() { if [ "$2" = "$3" ]; then echo "  ok: $1"; else
   echo "  FAIL: $1"$'\n'"    want $3"$'\n'"    got  $2"; fails=$((fails + 1)); fi; }
 field() { awk -v k="$1" '$1==k {print $2}' <<<"$2"; }
 
-echo "the CLI's own LENGTH and GRID tallies are zero (DUPLICATE/CROSS/SHAPE are not this test's concern)"
+echo "the CLI's own LENGTH, GRID and NUMBER tallies are zero (DUPLICATE/CROSS/SHAPE are not this test's concern)"
 out=$(python3 tools/puzzle_integrity.py 2>&1)
 same "LENGTH tally" "$(awk '/^  LENGTH/ {print $2}' <<<"$out")" "0"
 same "GRID tally" "$(awk '/^  GRID/ {print $2}' <<<"$out")" "0"
+same "NUMBER tally" "$(awk '/^  NUMBER/ {print $2}' <<<"$out")" "0"
 
 echo "exactness: a lengthened key must not still match, and dropping one table must not touch the other"
 combo=$(PYTHONPATH="$REPO/tools" python3 - <<'PY'
@@ -84,11 +85,13 @@ def length_count():
     # total whichever check would have produced its finding. The counts below
     # are read off len(table), so a check left out here reads as keys that
     # forgive nothing and fails the run — which is what caught check_cross
-    # being absent from this list the day it started consulting PUBLISHED_WRONG.
+    # being absent from this list the day it started consulting PUBLISHED_WRONG,
+    # and check_numbering the day it started doing the same.
     flags = []
     for puzzle, checkable in cache:
         pi.check_length(puzzle, checkable, flags)
         pi.check_grid(puzzle, flags)
+        pi.check_numbering(puzzle, flags)
         pi.check_cross(puzzle, checkable, flags)
     return len(flags)
 
