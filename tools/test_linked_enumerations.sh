@@ -48,10 +48,6 @@ from pathlib import Path
 
 import file_penguin_puzzle as filing
 
-# Volume 7's real archive.org id is not recorded anywhere in the repo, and
-# file_penguin_puzzle refuses to invent one — it used to stamp volume 5's
-# scan on every volume. A fixture id keeps these cases about enumerations.
-FIXTURE_SCAN = "fixture-penguin-volume-7"
 from normalise_linked_enumerations import normalise_record, resolve_groups
 
 fails = []
@@ -257,8 +253,7 @@ refuses("a printed count that does not fit its own light",
         ["8-down", "the book counts (3)", "the light is 4 cells"])
 
 print("an unsolved puzzle files with the same counts and no answers")
-puzzle = filing.build(copy.deepcopy(SPLIT_UNSOLVED), 7, "opus", unsolved=True,
-                      identifier=FIXTURE_SCAN)
+puzzle = filing.build(copy.deepcopy(SPLIT_UNSOLVED), 7, "opus", unsolved=True)
 built = {e["id"]: e for e in puzzle["entries"]}
 same("the leader's clue prints the whole answer's count",
      built["7-down"]["clue"].endswith("(4,4)"), True)
@@ -277,7 +272,7 @@ short = record([light("7-down", 7, "down", 4, "Fellow player makes anagrams", "4
                 light("8-down", 8, "down", 4, "See 7", "4")],
                {"7-down": "TEAM"})
 try:
-    filing.build(short, 7, "opus", identifier=FIXTURE_SCAN)
+    filing.build(short, 7, "opus")
     fails.append("a solved filing still refuses a missing answer")
     print("  FAIL: a solved filing still refuses a missing answer\n"
           "    it filed a puzzle with no answer for 8-down")
