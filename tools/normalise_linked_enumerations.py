@@ -6,7 +6,7 @@
 
 An answer that spans two lights is stored ONE way here: the leader carries the
 enumeration of the WHOLE answer and every continuation carries null.
-puzzles/penguin5-3.js is the settled example — 15-down "(9,5,4)" over NEWCASTLE,
+puzzles/penguin-5003.js is the settled example — 15-down "(9,5,4)" over NEWCASTLE,
 17-down "See 15" with no count of its own over UNDERLYME. tools/apply_solution.py,
 tools/puzzle_integrity.py's check_length and the app all read a linked answer's
 count off its leader, so a count sitting on a continuation is not a smaller

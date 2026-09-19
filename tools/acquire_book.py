@@ -365,13 +365,32 @@ def entries_from_grid(grid, across, down):
     return entries, problems
 
 
-def file_unsolved(puzzle_meta, grid, across, down, volume, out_dir):
+def file_unsolved(puzzle_meta, grid, across, down, series, volume, out_dir,
+                  identifier=None):
     """(path, problems). Reuses tools/file_penguin_puzzle.py's own guard, in
     process, so everything it knows about these books -- the id, the null
     date, the absent solutionSource, how a linked group is stored -- is
-    applied here too instead of being restated and drifting."""
+    applied here too instead of being restated and drifting.
+
+    `identifier` is the archive.org item THIS RUN read. It is checked against
+    the volume's own scan in tools/series.py, never used: reading volume 7's
+    text while passing --volume 5 is the one mistake this route can make in
+    silence, and every puzzle it filed would cite a book it did not come from
+    for good.
+    """
     from fetch_puzzle import write_puzzle_file
     from file_penguin_puzzle import build as build_penguin
+    from series import book_number, scan_identifier
+
+    if identifier:
+        number = book_number(series, volume, puzzle_meta["book_number"])
+        expected = scan_identifier(series, number)
+        if identifier != expected:
+            return None, [f"this run is reading {identifier} but {series} "
+                          f"volume {volume} is scanned from {expected} in "
+                          f"tools/series.py — one of the two is wrong, and "
+                          f"filing either way makes the puzzle cite the wrong "
+                          f"book"]
 
     entries, problems = entries_from_grid(grid, across, down)
     if problems:
@@ -381,7 +400,8 @@ def file_unsolved(puzzle_meta, grid, across, down, volume, out_dir):
               "puzzle": {"dimensions": {"cols": len(grid[0]), "rows": len(grid)},
                           "entries": entries}}
     try:
-        built = build_penguin(record, volume, "unsolved", unsolved=True)
+        built = build_penguin(record, volume, "unsolved", unsolved=True,
+                              series=series)
     except SystemExit as err:
         # file_penguin_puzzle refuses rather than guesses, which is right; a
         # refusal is this puzzle's problem and not the run's, so it is caught,
@@ -403,9 +423,13 @@ def file_unsolved(puzzle_meta, grid, across, down, volume, out_dir):
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("identifier", help="archive.org item id")
+    ap.add_argument("--series", default="penguin",
+                    help="which book this is: a series key from tools/series.py "
+                         "(default penguin; herald is the other)")
     ap.add_argument("--volume", type=int,
-                    help="which Penguin volume this is; the series key is "
-                         "penguin<N>. Required to file anything")
+                    help="which volume of that book. Required to file anything: "
+                         "the id is <series>-<volume*1000+position>, so volume "
+                         "5's No 18 is penguin-5018")
     ap.add_argument("--text", help="an OCR .txt already on disk, instead of fetching")
     ap.add_argument("--out", type=Path, default=DEFAULT_OUT,
                     help=f"where the report and any filed puzzles go (default {DEFAULT_OUT})")
@@ -514,13 +538,13 @@ def main(argv=None):
             row["filing"] = "not attempted (--file not given)"
             continue
         if args.volume is None:
-            row["filing"] = "refused: --volume is needed to know the series key"
+            row["filing"] = "refused: --volume is needed to build the number"
             continue
         meta = {"book_number": bn, "setter": row["setter"]}
         spec = next(j for j in jobs if j["book_number"] == bn)
         path, problems = file_unsolved(meta, tuple(row["grids"][0]),
                                         spec["across"], spec["down"],
-                                        args.volume, puzzle_dir,
+                                        args.series, args.volume, puzzle_dir,
                                         identifier=args.identifier)
         if path is None:
             row["filing"] = "refused"

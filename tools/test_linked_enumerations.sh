@@ -6,7 +6,7 @@
 #
 # An answer spanning two lights is stored one way in this corpus: the whole
 # answer's enumeration on the leader, null on the continuation.
-# puzzles/penguin5-3.json is the settled example — 15-down "(9,5,4)" over
+# puzzles/penguin-5003.json is the settled example — 15-down "(9,5,4)" over
 # NEWCASTLE, 17-down "See 15" with no count over UNDERLYME.
 #
 # The solve scripts emit the opposite shape, a per-light count on each half,
@@ -109,7 +109,7 @@ SPLIT = record(
      light("8-down", 8, "down", 4, "See 7", "4")],
     {"7-down": "TEAM", "8-down": "MATE"})
 
-# penguin5-3's shape, already right: the whole count on the leader, none on the
+# penguin-5003's shape, already right: the whole count on the leader, none on the
 # continuation, and the continuation's fill stored without the space that its
 # two words would need — which is exactly what re-deriving would get wrong.
 LEADER = record(

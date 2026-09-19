@@ -167,25 +167,29 @@ else:
     sys.path.insert(0, "tools")
     from acquire_book import file_unsolved
     import fetch_puzzle
+    import series
     SKIP_ENTRY = {"solution", "annotation", "solutionConfidence"}
     with tempfile.TemporaryDirectory() as tmp:
         for bn in CONTROL["known_good_in_corpus"]:
             want = PUZZLES[str(bn)]
             a, d, _, _ = build_spec(parsed[bn])
             grid = tuple(want["expected_grids"][0])
+            # bn is the number the BOOK prints. The id carries the volume too
+            # (tools/series.py: volume * 1000 + position), so volume 5's No 18
+            # is penguin-5018 and the control's own numbering is unchanged.
+            pid = f"penguin-{series.book_number('penguin', 5, bn)}"
             path, problems = file_unsolved(
-                {"book_number": bn, "setter": want["setter"]}, grid, a, d, 5,
-                Path(tmp))
+                {"book_number": bn, "setter": want["setter"]}, grid, a, d,
+                "penguin", 5, Path(tmp))
             if path is None:
-                fail(f"penguin5-{bn}: could not be filed — {problems[0]}")
+                fail(f"{pid}: could not be filed — {problems[0]}")
                 continue
             mine = fetch_puzzle.read_puzzle_file(path)
-            corpus = fetch_puzzle.read_puzzle_file(
-                Path(f"puzzles/penguin5-{bn}.json"))
+            corpus = fetch_puzzle.read_puzzle_file(Path(f"puzzles/{pid}.json"))
             if any(e["solution"] is not None for e in mine["entries"]):
-                fail(f"penguin5-{bn}: filed with answers; --unsolved must file none")
+                fail(f"{pid}: filed with answers; --unsolved must file none")
             if "solutionSource" in mine:
-                fail(f"penguin5-{bn}: carries solutionSource — an unsolved file "
+                fail(f"{pid}: carries solutionSource — an unsolved file "
                      f"must not, or reindex marks it model-solved")
             # provenance is stamped at WRITE time and records when this file
             # arrived, so the copy just written into /tmp says it arrived today
@@ -209,19 +213,20 @@ else:
                     if me[eid].get(k) != we[eid].get(k):
                         diffs.append(f"{eid}.{k}")
             if diffs:
-                # penguin5-18's 7-down is a KNOWN corpus error, not a pipeline
-                # one: the book prints a hyphenated enumeration and the file in
-                # puzzles/ carries a comma. The pipeline reads what is printed.
-                known = {f"penguin5-18": {"7-down.clue", "7-down.separatorLocations"}}
-                unexpected = sorted(set(diffs) - known.get(f"penguin5-{bn}", set()))
+                # penguin-5018's 7-down is a KNOWN corpus error, not a
+                # pipeline one: the book prints a hyphenated enumeration and the
+                # file in puzzles/ carries a comma. The pipeline reads what is
+                # printed.
+                known = {"penguin-5018": {"7-down.clue", "7-down.separatorLocations"}}
+                unexpected = sorted(set(diffs) - known.get(pid, set()))
                 if unexpected:
-                    fail(f"penguin5-{bn}: differs from puzzles/ in "
+                    fail(f"{pid}: differs from puzzles/ in "
                          f"{len(unexpected)} place(s): {unexpected[:4]}")
                 else:
-                    print(f"  ok   penguin5-{bn} matches puzzles/ apart from the "
+                    print(f"  ok   {pid} matches puzzles/ apart from the "
                           f"known corpus error in 7-down")
             else:
-                print(f"  ok   penguin5-{bn} matches puzzles/ exactly "
+                print(f"  ok   {pid} matches puzzles/ exactly "
                       f"(grid and clues, {len(mine['entries'])} entries)")
 
 print()
