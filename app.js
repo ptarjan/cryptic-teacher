@@ -383,6 +383,16 @@
   function forgetSavedProgress(key) {
     if (savedCache && String(key).indexOf("ct:") === 0) savedCache = null;
   }
+  // The other writer, and the one store.set cannot see: another tab of this
+  // site, where the same solver is typing into the same localStorage. A browser
+  // announces exactly that, so listen for it — without this, a picker opened in
+  // this tab would go on reporting the progress as it stood when THIS tab last
+  // wrote, which is the whole failure mode a cache of what was read has.
+  //
+  // key is null when a tab cleared the store, which is every key at once.
+  if (window.addEventListener) window.addEventListener("storage", (ev) => {
+    if (!ev || !ev.key || String(ev.key).indexOf("ct:") === 0) savedCache = null;
+  });
   function savedProgress() {
     if (savedCache) return savedCache;
     const found = {};

@@ -27,8 +27,19 @@ const readBuilt = (rel) => {
 // The DOM stub and the app boot live in tools/fake_dom.js, because
 // tools/make_hint_packets.js boots the same app to walk the same hint ladder.
 // One stub, so a grader can never mark a rung the app does not actually show.
-const { registry, document, storage, docListeners, canonicalLink, FakeEl, appSrc, beacons } =
-  require("./fake_dom.js").boot();
+const { registry, document, storage, docListeners, winListeners, canonicalLink, FakeEl,
+        appSrc, beacons } = require("./fake_dom.js").boot();
+// Another tab of this site saving progress. Several tests plant a save rather
+// than typing two hundred letters into a grid, and a plant written straight
+// into `storage` is a write no browser can perform: the page it happened in
+// would have gone through app.js, and a page it did NOT happen in is told by
+// the storage event. Writing the value without the event models neither, and
+// what it silently tests is whether the app re-reads localStorage on every
+// render — which the picker deliberately no longer does.
+const saveFromAnotherTab = (key, value) => {
+  if (value === undefined) delete storage[key]; else storage[key] = value;
+  (winListeners.storage || []).forEach((fn) => fn({ key, newValue: value === undefined ? null : value }));
+};
 const EVENTS = require("../sync/events.js");
 // A guess is asked of the clue at the top of the panel and answered in the body
 // under it, so "what the panel is showing" spans both elements. Tests that care
@@ -1772,18 +1783,31 @@ if (assert(autoRow, `picker finds ${autoPuzzle.id} when searched for`)) {
     return li ? li.children[0].innerHTML : "";
   };
 
-  storage[key] = JSON.stringify({ letters, updated: 1 });
-  assert(/solved ✓/.test(rowHTML()),
-    `a complete, correct grid reads as solved in the picker: ${rowHTML().slice(0, 200)}`);
+  // What the row says about progress, which is the only part of it these two
+  // assertions are about. Read out rather than sliced off the front: the row
+  // leads with the number, the setter, the date and four badges, so the first
+  // 200 characters of it are the same whichever way this fails, and a failure
+  // that cannot say which half of the `&&` went wrong sends the reader to the
+  // wrong half (2026-09-19).
+  const progressIn = (html) =>
+    (html.match(/<span class="p-prog[^"]*"[^>]*>([^<]*)</) || [, "(nothing at all)"])[1].trim();
+
+  saveFromAnotherTab(key, JSON.stringify({ letters, updated: 1 }));
+  const full = rowHTML();
+  assert(/solved ✓/.test(full),
+    `a complete, correct grid reads as solved in the picker, but the row says `
+    + `"${progressIn(full)}"`);
 
   const oneShort = Object.assign({}, letters);
   delete oneShort[Object.keys(oneShort)[0]];
-  storage[key] = JSON.stringify({ letters: oneShort, updated: 1 });
+  saveFromAnotherTab(key, JSON.stringify({ letters: oneShort, updated: 1 }));
   const partial = rowHTML();
-  assert(!/solved ✓/.test(partial) && new RegExp(Object.keys(letters).length + " letters in").test(partial),
-    `one square short is not solved, and says how far along it is: ${partial.slice(0, 200)}`);
+  const want = Object.keys(letters).length + " letters in";
+  assert(!/solved ✓/.test(partial) && new RegExp(want).test(partial),
+    `one square short is not solved and says how far along it is: the row says `
+    + `"${progressIn(partial)}", wanted "${want}"`);
 
-  if (kept === undefined) delete storage[key]; else storage[key] = kept;
+  saveFromAnotherTab(key, kept);
 }
 
 // --- link words and definition notes reach the screen ---
