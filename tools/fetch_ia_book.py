@@ -51,11 +51,41 @@ downloader that exercises the same login/loan flow):
      carry the login through every later request.
   3. POST https://archive.org/services/loans/loan/  data: action=browse_book,
      identifier=<id>
-     A book that needs no loan (public domain) answers HTTP 400 with
-     {"error": "This book is not available to borrow at this time...money"}
-     wording containing "not available to borrow" — not a failure, just skip
-     the loan and read straight through. Any other non-2xx here is real.
+     HTTP 400 {"error": "This book is not available to borrow at this time.
+     Please try again later."} is AMBIGUOUS and must never be read as
+     "public domain, no loan needed" on its own — see THE BORROW TRAP below.
+     Any other non-2xx here is real.
+  3b. THE BORROW TRAP. archive.org returns that one byte-identical 400 body
+     for two different conditions: (a) an item that needs no loan at all, and
+     (b) a lending item whose every copy is checked out right now. Verified
+     live 2026-09-18 with one logged-in session: sketchbookofgeof00irvi (no
+     loan needed) and dailytelegraphcr0000dail (single copy out until
+     04:37 UTC) both answered with exactly
+     {"error":"This book is not available to borrow at this time. Please try
+     again later."} — same status, same string, nothing in the response
+     separating them. Reading it as (a) sends a temporarily-unavailable book
+     down the no-loan path, where it dies two steps later at create_token
+     with {"error":"You do not currently have this book borrowed."}: a true
+     sentence about a cause that is not the real one.
+     WHAT ACTUALLY SEPARATES THEM is a second, cheap, login-free call to the
+     same endpoint: action=availability, whose "lending_status" object says
+     it outright —
+         no loan needed : is_lendable=false, is_readable=true,
+                          max_lendable_copies=0
+         all copies out : is_lendable=true, is_readable=false,
+                          max_browsable_copies=1, available_browsable_copies=0,
+                          active_browses=1, next_browse_expiration=<when a
+                          copy frees up>
+     is_lendable is the discriminator; the copy counts and
+     next_browse_expiration are what make the "retry later" message say WHEN.
+     lending_status() makes that call and _classify_refused_browse() turns it
+     into one of: proceed without a loan, or a SystemExit naming the real
+     condition. If the availability call itself gives no lending_status, the
+     code says it cannot tell rather than picking the friendlier side.
   4. POST same URL, data: action=create_token, identifier=<id>
+     ONLY when a loan was actually granted. Without one it answers HTTP 400
+     "You do not currently have this book borrowed." — which is how the
+     borrow trap used to surface.
      Success has the literal substring "token" in the response body (the
      reference implementation's own success check; the response isn't a
      clean {"success": true} shape here). This sets loan-<id> and
@@ -80,8 +110,10 @@ downloader that exercises the same login/loan flow):
         endpoint was discovered — see fetch_full_text() docstring).
      Concatenated per-page text, pages joined with form-feed (\x0c), is
      what this script writes.
-  6. POST loan URL, data: action=return_loan, identifier=<id>
-     Success: HTTP 200, {"success": true}.
+  6. POST loan URL, data: action=return_loan, identifier=<id>, but only when
+     step 3 actually granted a loan. Success: HTTP 200, {"success": true}.
+     (It answers {"success": true} for an item you never borrowed as well, so
+     its reply is no evidence a loan existed — borrow()'s return value is.)
 
 Every step above, including the full-text route, was run for real against
 archive.org for newpenguinbkguar0000perk (150 pages) on 2026-09-18: login,
@@ -112,6 +144,9 @@ METADATA_URL = "https://archive.org/metadata/{id}"
 PAGE_TEXT_URL = "https://{server}/BookReader/BookReaderGetTextWrapper.php"
 DEFAULT_CREDS = "~/.config/ia/creds"
 DEFAULT_OUT = Path("/tmp/cryptic-teacher-ia-books")
+# The one refusal string archive.org sends for two unrelated conditions; on
+# its own it means only "no loan for you right now", never "no loan needed".
+AMBIGUOUS_BORROW_ERROR = "not available to borrow"
 PAGE_FETCH_DELAY_SECONDS = 0.3
 
 
@@ -162,9 +197,73 @@ def login(session, email, password, creds_path):
     raise SystemExit(f"archive.org login failed: {result}")
 
 
+def lending_status(session, identifier):
+    """The "lending_status" object from action=availability, or None if the
+    response carries no usable one. This is the only call that tells a book
+    needing no loan apart from a lending book with every copy out — the
+    browse_book refusal cannot (module docstring, THE BORROW TRAP). It needs
+    no login and takes no loan."""
+    r = session.post(LOAN_URL,
+                     data={"action": "availability", "identifier": identifier},
+                     timeout=30)
+    try:
+        status = r.json()["lending_status"]
+    except (ValueError, KeyError, TypeError):
+        return None
+    return status if isinstance(status, dict) else None
+
+
+def _classify_refused_browse(session, identifier):
+    """browse_book refused with the ambiguous string. Return normally if the
+    item genuinely needs no loan; otherwise raise SystemExit naming the real
+    condition. Never resolves the ambiguity by assuming: when availability
+    won't say, this says it won't say."""
+    status = lending_status(session, identifier)
+    if status is None:
+        raise SystemExit(
+            f"{identifier}: archive.org refused the loan with the message it "
+            f'sends BOTH for "this book needs no loan" and for "every copy is '
+            f'checked out" ("{AMBIGUOUS_BORROW_ERROR}"), and its availability '
+            f"endpoint returned no lending_status to tell the two apart — so "
+            f"which one this is cannot be determined, and guessing either way "
+            f"would be wrong. Retry in a few minutes; if it persists, the "
+            f"availability API has changed shape and lending_status() needs "
+            f"updating."
+        )
+
+    if not status.get("is_lendable"):
+        if status.get("is_readable"):
+            return  # genuinely no loan required: read it straight through
+        raise SystemExit(
+            f"{identifier}: archive.org lends no copies of this item "
+            f"(is_lendable=false) and will not let this account read it "
+            f"either (is_readable=false), so there is no loan to wait for — "
+            f"it needs different access, not a retry."
+        )
+
+    free = status.get("available_browsable_copies")
+    if free:
+        raise SystemExit(
+            f"{identifier}: archive.org refused the loan yet reports {free} "
+            f"browsable copy/copies free — a copy was almost certainly taken "
+            f"between the two calls. Retry in a minute."
+        )
+    until = status.get("next_browse_expiration")
+    raise SystemExit(
+        f"{identifier}: all copies checked out, retry later — archive.org "
+        f"lends {status.get('max_browsable_copies')} copy/copies of this book "
+        f"and {status.get('active_browses')} are on loan right now"
+        + (f", the next one free at {until} UTC" if until else "")
+        + ". This is NOT a public-domain item and NOT a credentials problem; "
+        "nothing here will work until a copy comes back."
+    )
+
+
 def borrow(session, identifier):
-    """browse_book then create_token. A book needing no loan (public domain)
-    is left alone, not treated as a failure — see the module docstring."""
+    """browse_book then create_token. Returns True if a loan is now held (and
+    must be returned), False if the item needs none. A refusal is never read
+    as "needs no loan" on its own — see the module docstring, THE BORROW
+    TRAP."""
     data = {"action": "browse_book", "identifier": identifier}
     r = session.post(LOAN_URL, data=data, timeout=30)
     if r.status_code == 400:
@@ -172,8 +271,12 @@ def borrow(session, identifier):
             err = r.json().get("error", "")
         except ValueError:
             err = r.text
-        if "not available to borrow" not in err:
+        if AMBIGUOUS_BORROW_ERROR not in err:
             raise SystemExit(f"browse_book failed for {identifier}: {err}")
+        _classify_refused_browse(session, identifier)  # raises unless free
+        # No loan needed, so create_token has nothing to sign and would answer
+        # "You do not currently have this book borrowed."
+        return False
     elif not r.ok:
         raise SystemExit(f"browse_book failed for {identifier}: "
                           f"HTTP {r.status_code} {r.text[:300]}")
@@ -183,6 +286,7 @@ def borrow(session, identifier):
     if "token" not in r.text:
         raise SystemExit(f"create_token failed for {identifier}: "
                           f"HTTP {r.status_code} {r.text[:300]}")
+    return True
 
 
 def return_loan(session, identifier):
@@ -294,18 +398,17 @@ def main(argv):
     session = requests.Session()
     session.headers.update(UA)
 
-    logged_in = False
+    loan_held = False
     try:
         login(session, email, password, creds_path)
-        logged_in = True
-        borrow(session, args.identifier)
+        loan_held = borrow(session, args.identifier)
         text = fetch_full_text(session, args.identifier)
     finally:
         # Runs on success AND on exception — a crash must not strand a
         # one-hour lock on a single-copy, no-waitlist book. Only skipped
-        # when login itself never succeeded (nothing was borrowed) or the
-        # caller explicitly asked to keep the loan.
-        if logged_in and not args.keep_loan:
+        # when no loan was actually taken (login failed, or the item needs
+        # none) or the caller explicitly asked to keep the loan.
+        if loan_held and not args.keep_loan:
             try:
                 return_loan(session, args.identifier)
             except Exception as err:
