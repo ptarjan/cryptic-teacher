@@ -4691,15 +4691,41 @@
       from the Times of London, and 13x13 rather than the Times' own 15x15, so it
       is the short, crisp end of that house style: tight surfaces, no obscurity,
       and a solve you can finish on a coffee.`],
-    penguin5: ["penguin 5", `Guardian crosswords reprinted in The New Penguin Book
-      of The Guardian Crosswords, volume 5 — mostly Araucaria and his contemporaries,
-      and older and chewier than today's daily. The book prints no date and no
-      Guardian number, so these are numbered by their place in it, and the answers
-      are our own solve rather than the paper's.`],
+    penguin2: ["penguin 2", `Guardian crosswords reprinted in The New Penguin
+      Book of The Guardian Crosswords, volume 2 — the paper's back catalogue, and
+      older and chewier than today's daily. The book prints no date and no Guardian
+      number, so these are numbered by their place in it, and the answers are our own
+      solve rather than the paper's: it prints its solutions only as pictures of
+      filled grids.`],
+    penguin3: ["penguin 3", `Guardian crosswords reprinted in The New Penguin
+      Book of The Guardian Crosswords, volume 3 — the paper's back catalogue, and
+      older and chewier than today's daily. The book prints no date and no Guardian
+      number, so these are numbered by their place in it, and the answers are our own
+      solve rather than the paper's: it prints its solutions only as pictures of
+      filled grids.`],
+    penguin5: ["penguin 5", `Guardian crosswords reprinted in The New Penguin
+      Book of The Guardian Crosswords, volume 5 — the paper's back catalogue, and
+      older and chewier than today's daily. The book prints no date and no Guardian
+      number, so these are numbered by their place in it, and the answers are our own
+      solve rather than the paper's: it prints its solutions only as pictures of
+      filled grids.`],
+    penguin7: ["penguin 7", `Guardian crosswords reprinted in The New Penguin
+      Book of The Guardian Crosswords, volume 7 — the paper's back catalogue, and
+      older and chewier than today's daily. The book prints no date and no Guardian
+      number, so these are numbered by their place in it, and the answers are our own
+      solve rather than the paper's: it prints its solutions only as pictures of
+      filled grids.`],
+    penguin11: ["penguin 11", `Guardian crosswords reprinted in The New Penguin
+      Book of The Guardian Crosswords, volume 11 — the paper's back catalogue, and
+      older and chewier than today's daily. The book prints no date and no Guardian
+      number, so these are numbered by their place in it, and the answers are our own
+      solve rather than the paper's: it prints its solutions only as pictures of
+      filled grids.`],
     indysunday: ["indy sunday", `The Independent on Sunday's cryptic — its own
       weekly numbering, near 1,900 while the daily is past 12,400. Same stable of
       setters as the daily, and pitched about the same.`],
   };
+
 
   function seriesBadge(p) {
     return seriesChip(p.series || "cryptic");
