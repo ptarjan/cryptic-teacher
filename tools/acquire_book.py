@@ -15,13 +15,27 @@ FIVE STAGES, all CPU. Each one reports what it could not do rather than
 guessing, because a wrong puzzle costs far more to find later than a missing
 one costs now.
 
-  1. TEXT. The item's OCR text layer, from a PUBLIC route only: an explicit
+  1. TEXT. The item's OCR text layer, cheapest route first: an explicit
      --text, then a file left by an earlier tools/fetch_ia_book.py run, then
-     archive.org's public <id>_djvu.txt. This script never logs in, never
-     borrows and never works around a restriction; a lending item whose text
-     is not publicly served is reported as "text-not-public" and the run
-     stops cleanly. Borrowing one is a separate, credentialed, human-run
-     decision and it lives in tools/fetch_ia_book.py where it belongs.
+     archive.org's public <id>_djvu.txt, and finally — for a lending item,
+     which is what every book on the acquire list is — a borrow, read and
+     return through tools/fetch_ia_book.py. The borrow is not duplicated
+     here: fetch_ia_book.borrowed() is a context manager that takes the loan
+     and RETURNS IT on every path out of the block, including an exception
+     or a Ctrl-C, because these are one-hour single-copy loans and a missed
+     return locks the book for the next hour. One loan at a time, one book.
+     Pass --no-borrow for a run that must stay entirely public.
+
+     Borrowing is what makes the whole pipeline CPU end to end. It is also
+     the one stage that can fail for a reason retrying will fix, so the
+     three stop conditions are reported apart rather than as one "no text":
+     "no-credentials" (no archive.org login is configured — the report says
+     which file to create), "borrow-refused" (archive.org would not lend it,
+     carrying its own reason verbatim, which after tools/fetch_ia_book.py's
+     availability check distinguishes "all copies checked out, retry later"
+     from "this item needs no loan"), and "text-not-public" (there is no
+     text layer to get at all, for anyone). Any of the three exits non-zero,
+     so an unattended run cannot report success having acquired nothing.
   2. SPLIT. tools/parse_penguin_book.py cuts the book into puzzles and reads
      each one's setter, number and clue list.
   3. GEOMETRY. tools/light_spec.py turns one clue list into a light spec,
@@ -59,6 +73,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import signal
 import sys
 import time
@@ -89,67 +104,153 @@ SOLUTION_LIMIT = 40
 
 # ------------------------------------------------------------------ stage 1
 
-def fetch_text(identifier, override=None):
-    """(path, how) for the item's OCR text, or (None, why) if there isn't one.
+def fetch_text(identifier, override=None, allow_borrow=True, max_pages=None):
+    """(path, how, status) for the item's OCR text. status is None when there
+    is text, and otherwise names which stop this was, since they want
+    different things from whoever reads the run: "no-credentials" is fixed by
+    creating a file, "borrow-refused" often by waiting an hour, and
+    "text-not-public" by nothing at all.
 
-    PUBLIC ROUTES ONLY, in order of what costs archive.org least. A lending
-    item's text layer is not publicly served -- <id>_djvu.txt stays HTTP 401
-    even for someone holding a loan, which tools/fetch_ia_book.py documents
-    in detail -- and that is a stop, not an obstacle to get around.
+    CHEAPEST ROUTE FIRST, so archive.org is asked for a loan only when the
+    free routes are genuinely exhausted: --text, then an earlier run's cached
+    text, then the public <id>_djvu.txt, then a borrow. A lending item's text
+    layer is never publicly served -- <id>_djvu.txt stays HTTP 401 even for
+    someone holding a loan, which tools/fetch_ia_book.py documents in detail
+    -- so for those the borrow is not an optimisation, it is the only route.
     """
     if override:
         p = Path(override)
         if not p.exists():
-            return None, f"--text {p} does not exist"
-        return p, f"--text {p}"
+            return None, f"--text {p} does not exist", "text-not-public"
+        return p, f"--text {p}", None
 
     cached = FETCHED_TEXT_DIR / f"{identifier}.txt"
     if cached.exists() and cached.stat().st_size > 0:
-        return cached, (f"{cached}, left by an earlier tools/fetch_ia_book.py "
-                        f"run (borrowed and returned by a human, not by this "
-                        f"script)")
+        return cached, (f"{cached}, left by an earlier borrow (no loan taken "
+                        f"this run)"), None
 
     url = PUBLIC_TEXT_URL.format(id=identifier)
+    body = None
     try:
         req = urllib.request.Request(url, headers=UA)
         with urllib.request.urlopen(req, timeout=60) as r:
             body = r.read()
     except urllib.error.HTTPError as err:
-        return None, _not_public(identifier, url, f"HTTP {err.code}")
+        why = _not_public(identifier, url, f"HTTP {err.code}")
     except urllib.error.URLError as err:
-        return None, f"{url} could not be reached: {err.reason}"
-    if not body.strip():
-        return None, _not_public(identifier, url, "an empty body")
+        return None, f"{url} could not be reached: {err.reason}", "text-not-public"
+    else:
+        if not body.strip():
+            body, why = None, _not_public(identifier, url, "an empty body")
 
-    DEFAULT_OUT.mkdir(parents=True, exist_ok=True)
-    out = DEFAULT_OUT / f"{identifier}.txt"
-    out.write_bytes(body)
-    return out, f"{url} (public text layer, {len(body)} bytes)"
+    if body is not None:
+        DEFAULT_OUT.mkdir(parents=True, exist_ok=True)
+        out = DEFAULT_OUT / f"{identifier}.txt"
+        out.write_bytes(body)
+        return out, f"{url} (public text layer, {len(body)} bytes)", None
+
+    kind, _ = item_restriction(identifier)
+    if kind == "lending":
+        if not allow_borrow:
+            return None, f"{why}; --no-borrow was given, so no loan was taken", \
+                "text-not-public"
+        return borrow_text(identifier, max_pages)
+    return None, why, "text-not-public"
+
+
+def item_restriction(identifier):
+    """(kind, detail) for why archive.org serves no public text: "lending",
+    "missing", "public-no-ocr", or "unknown" when the metadata call itself
+    failed. Kept separate from the message because stage 1 has to ACT on the
+    answer — a lending item is the one case there is a route around."""
+    try:
+        req = urllib.request.Request(METADATA_URL.format(id=identifier), headers=UA)
+        with urllib.request.urlopen(req, timeout=30) as r:
+            meta = json.loads(r.read()).get("metadata", {})
+    except Exception as err:
+        return "unknown", f"; archive.org's metadata could not be read ({err})"
+    if not meta:
+        return "missing", "; archive.org has no item with that identifier"
+    if meta.get("access-restricted-item") in ("true", True):
+        return "lending", ("; this is a lending item — archive.org serves no "
+                           "public text layer for one, and a loan does not "
+                           "unlock <id>_djvu.txt either, so the text has to "
+                           "come from the BookReader page OCR behind a loan")
+    return "public-no-ocr", ("; the item is public but has no _djvu.txt, so it "
+                             "was never OCR'd")
 
 
 def _not_public(identifier, url, what):
     """Say WHY the text is unavailable, naming the restriction if there is
     one. "404" sends someone to check their spelling; "this is a lending
-    item" tells them the only lawful route is a human borrowing it."""
-    detail = ""
-    try:
-        req = urllib.request.Request(METADATA_URL.format(id=identifier), headers=UA)
-        with urllib.request.urlopen(req, timeout=30) as r:
-            meta = json.loads(r.read()).get("metadata", {})
-        if not meta:
-            detail = "; archive.org has no item with that identifier"
-        elif meta.get("access-restricted-item") in ("true", True):
-            detail = ("; this is a lending item — archive.org does not serve a "
-                      "public text layer for one, and a loan does not unlock "
-                      "it either. The only lawful route is a human running "
-                      "tools/fetch_ia_book.py with their own credentials and "
-                      "passing the result to --text")
-        else:
-            detail = ("; the item is public but has no _djvu.txt, so it was "
-                      "never OCR'd")
-    except Exception:
-        detail = ""
+    item" says which route is left."""
+    _, detail = item_restriction(identifier)
     return f"{url} returned {what}{detail}"
+
+
+def borrow_text(identifier, max_pages=None):
+    """(path, how, status) — stage 1 for a lending item: borrow it, read its
+    page OCR, return the loan, and leave the text where the cache above will
+    find it so a second run never borrows the same book twice.
+
+    THE LOAN IS RETURNED BY THE SHAPE OF THE CODE, not by remembering to.
+    fetch_ia_book.borrowed() is a context manager whose finally clause hands
+    the loan back on every exit — success, exception, or KeyboardInterrupt —
+    and this function adds no path that escapes it. One identifier, one loan,
+    held for exactly as long as the read takes.
+
+    fetch_ia_book is imported HERE rather than at module scope on purpose: it
+    needs the third-party `requests`, and tools/test_acquire_book.sh imports
+    this module on a runner that has no third-party packages at all. A
+    missing dependency must cost the borrow route, not every caller of the
+    file.
+    """
+    try:
+        import fetch_ia_book as ia
+    except ModuleNotFoundError as err:
+        return None, (f"borrowing {identifier} needs the `requests` package, "
+                      f"which is not installed here ({err}). Install it, or "
+                      f"run tools/fetch_ia_book.py elsewhere and pass the "
+                      f"result to --text"), "no-borrow-dependency"
+
+    creds_path = Path(os.environ.get("IA_CREDS", ia.DEFAULT_CREDS)).expanduser()
+    try:
+        ia.load_credentials(creds_path)
+    except SystemExit as err:
+        # load_credentials already names the exact path and the exact file
+        # shape to create. Quoting it beats writing that sentence twice and
+        # letting the two drift.
+        return None, (f"{identifier} is a lending item, so acquiring it needs "
+                      f"an archive.org login, and there isn't one: {err}"), \
+            "no-credentials"
+
+    try:
+        with ia.borrowed(identifier) as session:
+            text = ia.fetch_full_text(session, identifier, max_pages)
+    except SystemExit as err:
+        # Carries archive.org's real condition verbatim — including "all
+        # copies checked out, retry later", which is a retry, not a defeat.
+        return None, str(err), "borrow-refused"
+
+    if not text.strip():
+        return None, (f"the loan for {identifier} succeeded but every page "
+                      f"came back empty — the item has no text layer even "
+                      f"behind a loan"), "text-not-public"
+
+    FETCHED_TEXT_DIR.mkdir(parents=True, exist_ok=True)
+    if max_pages is None:
+        out = FETCHED_TEXT_DIR / f"{identifier}.txt"
+        note = f", cached at {out}"
+    else:
+        # A sample must never land under the whole-book name: the cache check
+        # at the top of fetch_text would find it on the next run and acquire
+        # a fraction of a book without anything looking wrong.
+        out = FETCHED_TEXT_DIR / f"{identifier}.sample-{max_pages}p.txt"
+        note = (f", written to {out} as a SAMPLE of the first {max_pages} "
+                f"pages — not the book, and not cached as one")
+    out.write_text(text, encoding="utf-8")
+    return out, (f"borrowed from archive.org, {len(text)} chars of page OCR "
+                 f"read, loan returned{note}"), None
 
 
 # ------------------------------------------------------------------ stage 3
@@ -314,6 +415,13 @@ def main(argv=None):
     ap.add_argument("--file", action="store_true",
                     help="actually write puzzle files; without it stages 1-3 and "
                          "5 run and nothing is written but the report")
+    ap.add_argument("--no-borrow", action="store_true",
+                    help="never take a loan: public routes only, and a lending "
+                         "item stops the run instead of being borrowed")
+    ap.add_argument("--max-pages", type=int,
+                    help="when borrowing, read only the first N pages. A "
+                         "SAMPLE for checking the route end to end; it is not "
+                         "the whole book and is not cached as one")
     ap.add_argument("--jobs", type=int, default=4, help="parallel reconstructions")
     ap.add_argument("--limit", type=int, help="only the first N puzzles, for a smoke run")
     ap.add_argument("--only", type=int, nargs="*",
@@ -326,14 +434,19 @@ def main(argv=None):
     report_path = work / "report.json"
 
     # ---- stage 1
-    text_path, how = fetch_text(args.identifier, args.text)
+    text_path, how, status = fetch_text(args.identifier, args.text,
+                                         allow_borrow=not args.no_borrow,
+                                         max_pages=args.max_pages)
     if text_path is None:
         report = {"identifier": args.identifier, "stage": "text",
-                  "status": "text-not-public", "reason": how, "puzzles": []}
+                  "status": status, "reason": how, "puzzles": []}
         report_path.write_text(json.dumps(report, indent=1), encoding="utf-8")
-        print(f"{args.identifier}: no public text layer — {how}")
+        # The reason IS the message. Whoever reads this run is reading this
+        # line, not a log somewhere, and the three stops want three different
+        # things done about them.
+        print(f"{args.identifier}: {status} — {how}", file=sys.stderr)
         print(f"report -> {report_path}")
-        return 0
+        return 1
     print(f"text: {how}")
 
     # ---- stage 2
