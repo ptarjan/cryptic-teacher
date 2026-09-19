@@ -21,6 +21,7 @@ audit hits are worth fixing and do not fail the build.
 """
 import contextlib
 import io
+import json
 import subprocess
 import sys
 from pathlib import Path
@@ -94,7 +95,7 @@ def main(argv):
                 print(f"      {n['clueFragment']}: {n['note']}")
         issues.append(f"{sum(len(f['notes']) for f in found)} answer leak(s)")
 
-    rows = [r for r in scan(str(path)) if r[0] == 0]
+    rows = [r for r in scan(path) if r[0] == 0]
     if rows:
         print("\nwalkthroughs that only re-narrate their own blocks "
               "(say what the blocks CANNOT show):")
@@ -102,12 +103,13 @@ def main(argv):
             print(f"  {cid} {answer} names {', '.join(hits)}\n      {walk}")
         issues.append(f"{len(rows)} re-narrated walkthrough(s)")
 
-    rc, out = run(["node", "--check", str(path)])
-    if rc is None:
-        print(f"\nskipped: {out} — puzzles/{path.name} was not syntax-checked")
-    elif rc:
-        print(f"\nnode --check puzzles/{path.name}:\n{out}")
-        issues.append("the file is not valid JavaScript")
+    # The puzzle is JSON now; the .js shim is build output, so the file that has
+    # to parse is this one, and json does it without shelling out to node.
+    try:
+        json.loads(path.read_text(encoding="utf-8"))
+    except ValueError as err:
+        print(f"\npuzzles/{path.name} is not valid JSON:\n{err}")
+        issues.append("the file is not valid JSON")
 
     rc, out = run([sys.executable, str(TOOLS / "fetch_puzzle.py"), "--reindex"])
     if rc:
