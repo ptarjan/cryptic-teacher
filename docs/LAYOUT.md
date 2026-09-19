@@ -157,6 +157,12 @@ tools/AUTHORING.md                           how an original puzzle gets set: th
                                              filled first, the clues written by hand after
 tools/grid_rules.py                          what makes a British blocked grid legal, in one
                                              place
+tools/reconstruct_grid.py                    recovers a puzzle’s black squares from its clue
+                                             list alone, for grids we have no readable picture
+                                             of
+tools/test_reconstruct_grid.sh               scores that reconstruction against real grids,
+                                             with and without the clue numbers, and re-counts
+                                             the conventions it leans on
 tools/grid_fill.py                           fills a legal grid with answers you can actually
                                              write clues for
 tools/clueability.py                         scores how easy a fair cryptic clue for a word
