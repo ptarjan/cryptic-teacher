@@ -201,7 +201,7 @@ f = flagged(lambda z: z["provenance"].update(publisher="Guardian"))
 print("WRONG_PUBLISHER", len(f) > 0)
 
 # A model fill relabelled as the publisher's, on a puzzle that says model.
-penguin = fetch_puzzle.read_puzzle_file(fetch_puzzle.PUZZLE_DIR / "penguin5-27.json")
+penguin = fetch_puzzle.read_puzzle_file(fetch_puzzle.PUZZLE_DIR / "penguin-5027.json")
 print("PENGUIN_PRISTINE", len(p.check(penguin)))
 lied = copy.deepcopy(penguin)
 lied["provenance"]["solutionOrigin"] = "published"

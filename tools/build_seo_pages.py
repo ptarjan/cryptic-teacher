@@ -117,7 +117,34 @@ def puzzles():
 # and an Everyman page doesn't credit the wrong paper — Everyman is the
 # Observer's Sunday puzzle, only syndicated onto the Guardian's site.
 def kind(p):
-    return series_meta.kind(p.get("series"))
+    return series_meta.kind(p.get("series"), p["number"])
+
+
+def position(p):
+    """The number printed BESIDE the kind, which already names the volume.
+
+    A book puzzle's stored number carries its volume (tools/series.py,
+    volume * 1000 + position), so "Penguin Book 5 Cryptic No 5,018" would both
+    name a number no book prints and say the volume twice. A feed puzzle's
+    number is its position, so this is the publisher's own number there.
+    """
+    return series_meta.position_of(p.get("series") or "cryptic", p["number"])
+
+
+def named(p):
+    """"Guardian Penguin Book 5 Cryptic No 18" — the puzzle in full prose."""
+    return f"{publisher(p)} {kind(p)} No {position(p):,}"
+
+
+def display_number(p):
+    """The number as a reader is shown it — "No 30,089", "Penguin book 5 No 18".
+
+    Used wherever a number is printed with no kind beside it: the archive rows,
+    the homepage list, prev/next. See display_number() in tools/series.py; a
+    book's stored number carries its volume, and "No 5,018" names a puzzle no
+    book prints.
+    """
+    return series_meta.display_number(p.get("series") or "cryptic", p["number"])
 
 
 def publisher(p):
@@ -369,7 +396,7 @@ def puzzle_page(puz, meta, prev_p, next_p):
     what = kind(puz)                  # "Cryptic", "Quiptic", "Everyman"
     paper = publisher(puz)            # "Guardian", "Observer"
     lower = what.lower()
-    pretty = f"{num:,}"
+    pretty = f"{position(puz):,}"
     when = datestr(puz.get("date"))
     diff = (meta or {}).get("difficulty") or {}
     annotated = (meta or {}).get("annotated")
@@ -434,10 +461,10 @@ def puzzle_page(puz, meta, prev_p, next_p):
     nav = []
     if prev_p:
         nav.append(f'<a rel="prev" href="{BASE}/puzzles/{prev_p["id"]}/">'
-                   f'&larr; No {prev_p["number"]:,}</a>')
+                   f'&larr; {display_number(prev_p)}</a>')
     if next_p:
         nav.append(f'<a rel="next" href="{BASE}/puzzles/{next_p["id"]}/">'
-                   f'No {next_p["number"]:,} &rarr;</a>')
+                   f'{display_number(next_p)} &rarr;</a>')
 
     article_ld = {
         "@context": "https://schema.org", "@type": "Article",
@@ -554,7 +581,7 @@ def hub_page(idx):
                   f'{esc(series_meta.badge(p.get("series") or "cryptic"))}</span>')
         rows.append(
             f'<li><a href="{BASE}/puzzles/{p["id"]}/">'
-            f'<span class="p-num">No {p["number"]:,}</span>'
+            f'<span class="p-num">{display_number(p)}</span>'
             f'<span class="p-setter">{esc(p.get("setter") or "")}</span>'
             f'<span class="p-meta">{esc(when)}</span>'
             f'<span class="p-tags">{series}{badge}{hints}{ours}</span></a></li>')
@@ -785,7 +812,7 @@ def homepage_nav(idx):
     """
     recent = [p for p in idx["puzzles"] if p.get("hasSolutions")][:12]
     items = "".join(
-        f'<li><a href="puzzles/{p["id"]}/">No {p["number"]:,}'
+        f'<li><a href="puzzles/{p["id"]}/">{display_number(p)}'
         + (f' &middot; {esc(p.get("setter"))}' if p.get("setter") else "")
         + "</a></li>" for p in recent)
     return f"""{NAV_START}
@@ -825,6 +852,48 @@ def patch_homepage(idx):
     return path, new
 
 
+def moved_page(slug, target, title, body, crumb):
+    """One "this puzzle is at <url>" page: canonical for a crawler, meta
+    refresh for a reader. GitHub Pages cannot answer with a 301, so a URL that
+    has moved is a page that says so in both of the ways that count."""
+    return {PUZZLE_DIR / slug / "index.html": (
+        head(title, f"Where to find {crumb.lower()}.", target,
+             extra=f'<meta http-equiv="refresh" content="0; url={esc(target)}">\n')
+        + masthead([("Cryptic Teacher", "/"), ("Puzzles", "/puzzles/"),
+                    (crumb, "")])
+        + f'<main class="static-main"><h1>{esc(title)}</h1>{body}</main>\n'
+        + FOOTER)}
+
+
+def legacy_ids(solved):
+    """A page at every id a puzzle has ever had, pointing at the one it has now.
+
+    An id is in shared links, in indexed pages, and in the key every browser
+    saved its progress under, so it has to keep resolving forever. One family
+    so far: the scanned books were one series PER VOLUME until 2026-09-19 and
+    are one series per book now, with the volume moved into the number, so
+    /puzzles/penguin5-18/ is /puzzles/penguin-5018/.
+
+    Derived from each puzzle rather than listed, by series.legacy_id(), so a
+    volume acquired after the collapse gets its page without anyone remembering
+    to add one. That writes a page for an id that was never published, which is
+    harmless for the same reason the bare-number pages below say "is at" rather
+    than "has moved": the page's job is to say which puzzle a name refers to.
+    """
+    out = {}
+    for p in solved:
+        was = series_meta.legacy_id(p.get("series") or "cryptic", p["number"])
+        if not was or was == p["id"]:
+            continue
+        target = f"{BASE}/puzzles/{p['id']}/"
+        label = named(p)
+        out.update(moved_page(
+            was, target, f"{label} has moved",
+            f'<p>This puzzle is now at <a href="{target}">{esc(target)}</a>.</p>',
+            label))
+    return out
+
+
 def legacy_redirects(solved):
     """A page at /puzzles/<bare number>/ for every puzzle, pointing at its id.
 
@@ -857,7 +926,7 @@ def legacy_redirects(solved):
         if len(ps) == 1:
             target = f"{BASE}/puzzles/{ps[0]['id']}/"
             title = f"No {pretty} — {publisher(ps[0])} {kind(ps[0])}"
-            body = (f'<p>This puzzle is at '
+            body = (f'<p>{esc(named(ps[0]))} is at '
                     f'<a href="{target}">{esc(target)}</a>.</p>')
             refresh = f'<meta http-equiv="refresh" content="0; url={esc(target)}">\n'
         else:
@@ -865,7 +934,7 @@ def legacy_redirects(solved):
             title = f"No {pretty} — which paper?"
             body = ("<p>More than one paper has a No " + pretty + ":</p><ul>" + "".join(
                 f'<li><a href="{BASE}/puzzles/{p["id"]}/">'
-                f'{esc(publisher(p))} {esc(kind(p))} No {pretty}</a></li>' for p in ps)
+                f'{esc(named(p))}</a></li>' for p in ps)
                 + "</ul>")
             refresh = ""
         out[PUZZLE_DIR / num / "index.html"] = (
@@ -897,6 +966,8 @@ def outputs():
         pages[puz["id"]] = puzzle_page(puz, meta.get(puz["id"]), prev_p, next_p)
         files[PUZZLE_DIR / puz["id"] / "index.html"] = pages[puz["id"]]
     for path, page in legacy_redirects(solved).items():
+        files[path] = page
+    for path, page in legacy_ids(solved).items():
         files[path] = page
     files[PUZZLE_DIR / "index.html"] = hub_page(idx)
     files[ROOT / "learn" / "index.html"] = learn_page()

@@ -49,11 +49,11 @@
      metro the grey, penguin the brown, and the Guardian default the mauve. */
   --paper-herald-bg: #f2dde8;
   --paper-herald-fg: #7a3358;
-  /* One colour for the whole Penguin shelf, not one per volume. The volumes
-     are one book series and the label already says which — "penguin 5" beside
-     "penguin 7" — so five browns a reader cannot tell apart would carry no
-     information the word does not. Each volume still gets its own rule below,
-     because a series with no rule at all falls back to the Guardian's purple. */
+  /* One colour for the whole Penguin shelf, and one chip: the volumes are one
+     series now, and which volume a row is is in the number it prints
+     ("Penguin book 5 No 18"), so five browns a reader cannot tell apart would
+     carry no information the number does not. A series with no rule below falls
+     back to the Guardian's purple, so every series still needs one. */
   --paper-penguin-bg: #e3ded4;
   --paper-penguin-fg: #5c4a33;
   /* One motion language for the hint panel. Everything in there is an entrance —
@@ -310,12 +310,8 @@ button:disabled:hover { border-color: var(--line); }
 .badge.series-cyclops      { background: var(--paper-cyclops-bg);      color: var(--paper-cyclops-fg); }
 .badge.series-globeandmail { background: var(--paper-globeandmail-bg); color: var(--paper-globeandmail-fg); }
 .badge.series-metro        { background: var(--paper-metro-bg);        color: var(--paper-metro-fg); }
-.badge.series-penguin2     { background: var(--paper-penguin-bg);      color: var(--paper-penguin-fg); }
-.badge.series-penguin3     { background: var(--paper-penguin-bg);      color: var(--paper-penguin-fg); }
-.badge.series-penguin5     { background: var(--paper-penguin-bg);      color: var(--paper-penguin-fg); }
-.badge.series-penguin7     { background: var(--paper-penguin-bg);      color: var(--paper-penguin-fg); }
-.badge.series-penguin11    { background: var(--paper-penguin-bg);      color: var(--paper-penguin-fg); }
-.badge.series-herald2      { background: var(--paper-herald-bg);       color: var(--paper-herald-fg); }
+.badge.series-penguin      { background: var(--paper-penguin-bg);      color: var(--paper-penguin-fg); }
+.badge.series-herald       { background: var(--paper-herald-bg);       color: var(--paper-herald-fg); }
 
 /* The anagram ring: fodder laid out with no first letter and no last one, so
    there is no reading order for the eye to fall back into. Absolute placement

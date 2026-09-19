@@ -240,17 +240,61 @@
   // bare form has to keep working forever: it is in every link already shared,
   // in every browser's saved progress, and in the envelope a phone that has not
   // reloaded is still uploading.
-  const IS_ID = {}, BY_NUMBER = {}, BY_ID = {};
+  // ---------- books ----------
+  // A scanned book is ONE series however many volumes it has, and the volume
+  // lives in the number: volume * 1000 + position, so penguin-5018 is volume
+  // 5's No 18. Mirrors tools/series.py, which is where a book is added; what is
+  // here is the half the browser needs, because the index carries a series key
+  // and a number and nothing in it says which keys are books.
+  //
+  // The value is what goes in front of the volume where no kind is printed
+  // beside it. "Penguin book 5" names the book because the publisher is the
+  // Guardian; The Herald's own book is just "book 2", since the chip beside it
+  // already says herald.
+  const BOOK_SHELF = { penguin: "Penguin book", herald: "book" };
+
+  function bookVolume(series, number) {
+    if (!Object.prototype.hasOwnProperty.call(BOOK_SHELF, series)) return null;
+    const n = Number(number);
+    const volume = Math.floor(n / 1000), position = n % 1000;
+    return position ? { volume, position } : null;
+  }
+
+  // What a solver reads instead of the stored number. Mirrors
+  // display_number() in tools/series.py: "No 5,018" names a puzzle no book
+  // prints, and with one chip for the whole shelf a bare "No 18" would name
+  // five different puzzles.
+  function displayNumber(p) {
+    const b = bookVolume(p.series, p.number);
+    return b ? `${BOOK_SHELF[p.series]} ${b.volume} No ${b.position}`
+             : `№ ${p.number}`;
+  }
+
+  // The id this puzzle had while every volume was its own series
+  // ("penguin5-18"). Mirrors legacy_id() in tools/series.py. A rule rather
+  // than a list, so a volume acquired later keeps working without anyone
+  // remembering to add it.
+  function legacyId(p) {
+    const b = bookVolume(p.series, p.number);
+    return b ? `${p.series}${b.volume}-${b.position}` : null;
+  }
+
+  const IS_ID = {}, BY_NUMBER = {}, BY_ID = {}, ALIAS = {};
   INDEX.puzzles.forEach((p) => {
     IS_ID[p.id] = 1;
     BY_ID[p.id] = p;
     // First wins, and the list is newest-first, so an ambiguous number resolves
     // to the puzzle a stale link is overwhelmingly more likely to have meant.
     if (!(String(p.number) in BY_NUMBER)) BY_NUMBER[String(p.number)] = p.id;
+    // Saved progress, shared links and one browser's sync envelope all hold the
+    // id a puzzle had when they were written. An id that stopped resolving
+    // would orphan a grid somebody is halfway through.
+    const was = legacyId(p);
+    if (was) ALIAS[was] = p.id;
   });
   const canonicalId = (id) => {
     const s = String(id == null ? "" : id);
-    return IS_ID[s] ? s : (BY_NUMBER[s] || s);
+    return IS_ID[s] ? s : (ALIAS[s] || BY_NUMBER[s] || s);
   };
 
   // Saved progress moves with the id, once. Anyone mid-grid keeps their grid.
@@ -4691,45 +4735,22 @@
       from the Times of London, and 13x13 rather than the Times' own 15x15, so it
       is the short, crisp end of that house style: tight surfaces, no obscurity,
       and a solve you can finish on a coffee.`],
-    penguin2: ["penguin 2", `Guardian crosswords reprinted in The New Penguin
-      Book of The Guardian Crosswords, volume 2 — the paper's back catalogue, and
-      older and chewier than today's daily. The book prints no date and no Guardian
-      number, so these are numbered by their place in it, and the answers are our own
-      solve rather than the paper's: it prints its solutions only as pictures of
-      filled grids.`],
-    penguin3: ["penguin 3", `Guardian crosswords reprinted in The New Penguin
-      Book of The Guardian Crosswords, volume 3 — the paper's back catalogue, and
-      older and chewier than today's daily. The book prints no date and no Guardian
-      number, so these are numbered by their place in it, and the answers are our own
-      solve rather than the paper's: it prints its solutions only as pictures of
-      filled grids.`],
-    penguin5: ["penguin 5", `Guardian crosswords reprinted in The New Penguin
-      Book of The Guardian Crosswords, volume 5 — the paper's back catalogue, and
-      older and chewier than today's daily. The book prints no date and no Guardian
-      number, so these are numbered by their place in it, and the answers are our own
-      solve rather than the paper's: it prints its solutions only as pictures of
-      filled grids.`],
-    penguin7: ["penguin 7", `Guardian crosswords reprinted in The New Penguin
-      Book of The Guardian Crosswords, volume 7 — the paper's back catalogue, and
-      older and chewier than today's daily. The book prints no date and no Guardian
-      number, so these are numbered by their place in it, and the answers are our own
-      solve rather than the paper's: it prints its solutions only as pictures of
-      filled grids.`],
-    penguin11: ["penguin 11", `Guardian crosswords reprinted in The New Penguin
-      Book of The Guardian Crosswords, volume 11 — the paper's back catalogue, and
-      older and chewier than today's daily. The book prints no date and no Guardian
-      number, so these are numbered by their place in it, and the answers are our own
-      solve rather than the paper's: it prints its solutions only as pictures of
-      filled grids.`],
+    penguin: ["penguin", `Guardian crosswords reprinted in The New Penguin Book
+      of The Guardian Crosswords — volumes 2, 3, 5, 7 and 11 so far. The paper's
+      back catalogue, and older and chewier than today's daily. No volume prints
+      a date or a Guardian number, so each puzzle is numbered by its book and its
+      place in it — Penguin book 5 No 18 — and the answers are our own solve
+      rather than the paper's: the books print their solutions only as pictures
+      of filled grids.`],
     indysunday: ["indy sunday", `The Independent on Sunday's cryptic — its own
       weekly numbering, near 1,900 while the daily is past 12,400. Same stable of
       setters as the daily, and pitched about the same.`],
-    herald2: ["herald 2", `Cryptics from The Herald, Glasgow's broadsheet,
-      reprinted in The Herald Crossword Book volume 2 — seven setters with
-      distinct habits, from Roger Squires' brisk fair play to the Wee Stinker's
-      terse misdirection. The book prints no date and no Herald number, so these
-      are numbered by their place in it, and the answers are our own solve rather
-      than the paper's.`],
+    herald: ["herald", `Cryptics from The Herald, Glasgow's broadsheet,
+      reprinted in The Herald Crossword Book — volume 2 so far, seven setters
+      with distinct habits, from Roger Squires' brisk fair play to the Wee
+      Stinker's terse misdirection. The book prints no date and no Herald
+      number, so each puzzle is numbered by its book and its place in it —
+      book 2 No 7 — and the answers are our own solve rather than the paper's.`],
   };
 
 
@@ -4836,7 +4857,8 @@
     // is called, "guardian" is what the paper is, and the one the row shows has
     // to be the one that matches.
     const series = p.series || "cryptic";
-    return [p.number, String(p.number).replace(/(\d)(\d{3})$/, "$1,$2"), p.setter, d, dd.day,
+    return [p.number, String(p.number).replace(/(\d)(\d{3})$/, "$1,$2"),
+      displayNumber(p), p.setter, d, dd.day,
       series, (SERIES_BADGE[series] || [""])[0], p.difficulty ? p.difficulty.band : "",
       st.done ? "solved done" : st.filled ? "started unfinished" : ""].join(" ").toLowerCase();
   }
@@ -5120,7 +5142,7 @@
       // sits with them because it is a status like they are, and because
       // gluing it onto the date made the one nowrap element in the row long
       // enough to shove everything else off the line.
-      btn.innerHTML = `<span class="p-num">№ ${p.number}</span>
+      btn.innerHTML = `<span class="p-num">${displayNumber(p)}</span>
         <span class="p-setter">${esc(p.setter)}</span>
         <span class="p-meta">${d}</span>
         <span class="p-tags">${seriesBadge(p)}${difficultyBadge(p)}${hintsBadge(p.annotated)}${sourceBadge(p)}

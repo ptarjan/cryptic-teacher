@@ -50,7 +50,7 @@ ONE PUZZLE CAN HAVE THREE DIFFERENT ORIGINS, so they are three fields rather
 than one "source". Cyclops is the ordinary case, not an edge case: the grid and
 clues come from Private Eye's own .puz download, and the answers come from a
 fifteensquared write-up, because Private Eye ships the puzzle with the solution
-grid blanked. A penguin5 puzzle has three — clues off a book scan, geometry
+grid blanked. A penguin puzzle has three — clues off a book scan, geometry
 reconstructed here from those clues, answers solved here by a model. Read
 `retrievedFrom` for how the puzzle got here, `gridOrigin` for where its
 geometry came from, and `solutionOrigin` for whose the answers are.
@@ -90,37 +90,14 @@ from urllib.parse import urlparse
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import series as series_table  # noqa: E402
 
-# A Penguin volume is its own series ("penguin5"), because every book renumbers
-# from its own 1. Matched rather than listed, so acquiring a book is one entry
-# in series.py and nothing here.
-# The volume number trailing a book series key: "penguin5" is volume 5,
-# "herald2" is The Herald's volume 2. It is the number the BOOK prints on its
-# own spine, and two publishers' volume 2 are different books — which is why
-# book-ness itself is asked of the series table below rather than read off this
-# pattern, as it was while every book here was a Penguin volume.
-VOLUME = re.compile(r"(\d+)$")
-
-
-def is_book(series):
-    """Whether this series' puzzles were read out of a scanned printed book."""
-    return bool(series_table.book_title(series))
-
-
-def volume_of(series):
-    """Which volume of its book this series is, from the digits its key ends in.
-
-    A book series key is the book plus its volume ("penguin5", "herald2"),
-    because each volume renumbers from 1 and so has to be its own series. A
-    book that never prints a volume number would need a field here rather than
-    a pattern; none has yet, and inventing the field before the book exists
-    would be guessing at what it will look like.
-    """
-    m = VOLUME.search(series or "")
-    if not m:
-        raise ValueError(
-            f"{series} is book-sourced but its key ends in no volume number, "
-            f"so nothing here can say which volume its puzzles are from")
-    return int(m.group(1))
+# One series per BOOK, with the volume in the number (series.py:
+# volume * 1000 + position). Both questions — is this a book, and which volume
+# is this puzzle — are asked of that table and never parsed out of the key: the
+# key held the volume only while a book was one series per volume, and a key
+# that ends in no digits is every book series now.
+is_book = series_table.is_book
+volume_of = series_table.volume_of
+position_of = series_table.position_of
 
 # ---------------------------------------------------------------- the enums
 #
@@ -278,37 +255,36 @@ GRID_ORIGIN_BY_SERIES = {"authored": "authored"}
 # So the book block carries what actually pins the puzzle down: which scan,
 # which volume, and the puzzle's number within that volume.
 #
-# Keyed by series because a volume IS a series here (see series.py: every volume
-# restarts its numbering at 1, so penguin5-3 and penguin3-3 are different
-# puzzles). The identifier itself is NOT kept here: series.py holds it, and this
-# module reads it through series.scan_identifier. Two tables keyed by volume can
-# only drift, and a puzzle whose sourceUrl names one book while its
-# provenance.book names another is exactly what that drift looks like.
-def book_of(series):
-    """The book block for a book-sourced series, or None.
+# Nothing about the book is kept here: series.py holds it, and this module
+# reads it through series.book_title/scan_identifier/volume_of. Two tables
+# keyed by volume can only drift, and a puzzle whose sourceUrl names one book
+# while its provenance.book names another is exactly what that drift looks
+# like.
+def book_of(series, number):
+    """The book block for one book-sourced puzzle, or None.
 
-    Derived from the series table rather than listed, because a book IS a
-    series here and a table listing them twice would have to be extended in two
-    places every time a book is acquired.
+    Takes the number as well as the series because the volume is in the number
+    — a series is a book now, not a book's volume — and every field below is
+    the volume's, not the shelf's.
 
     A book series with no recorded scan raises. There is no placeholder
     identifier: a file saying "unknown" reads afterwards as a fact about the
     book rather than a gap, and it is a gap a human has to close by looking the
     volume up.
     """
-    title = series_table.book_title(series)
-    if not title:
+    if not is_book(series):
         return None
-    identifier = series_table.scan_identifier(series)
+    identifier = series_table.scan_identifier(series, number)
     if not identifier:
         raise ValueError(
-            f"{series} has no archive.org identifier in tools/series.py — look "
-            f"up its own scan and add it there; filing it without one makes "
-            f"the puzzle cite a book it did not come from")
+            f"{series} volume {volume_of(series, number)} has no archive.org "
+            f"identifier in tools/series.py — look up its own scan and add it "
+            f"there; filing it without one makes the puzzle cite a book it did "
+            f"not come from")
     return {
         "identifier": identifier,
-        "title": title,
-        "volume": volume_of(series),
+        "title": series_table.book_title(series, number),
+        "volume": volume_of(series, number),
     }
 
 
@@ -426,9 +402,11 @@ def derive(puzzle, claimed, acquired_on, previously=None):
         "previousSolutionOrigin")
     if previously and previously != origin:
         prov["previousSolutionOrigin"] = previously
-    book = book_of(series)
+    book = book_of(series, puzzle["number"]) if is_book(series) else None
     if book:
-        book["numberInBook"] = puzzle["number"]
+        # The book's own number, not the file's: the file's carries the volume
+        # (series.py, volume * 1000 + position) and the book prints No 18.
+        book["numberInBook"] = position_of(series, puzzle["number"])
         # Which leaf of the scan the clues were read off. parse_penguin_book.py
         # knows it (it emits source_leaves) but the five puzzles filed before
         # provenance existed were written from solve records that no longer
@@ -581,7 +559,7 @@ def check(puzzle):
         findings.append(f"provenance.solutionOrigin is {stated!r} but the file "
                         f"carries answers and no solutionSource to back that")
 
-    if book_of(series):
+    if is_book(series):
         book = prov.get("book")
         if not isinstance(book, dict):
             findings.append(f"{series} is book-sourced but provenance has no book block")
@@ -589,10 +567,19 @@ def check(puzzle):
             for key in ("identifier", "title", "volume", "numberInBook"):
                 if not book.get(key):
                     findings.append(f"provenance.book is missing {key}")
-            if book.get("numberInBook") != puzzle.get("number"):
+            # Both halves of the number are checked, because the number IS the
+            # pair: a block that agreed on the position while naming another
+            # volume would cite the wrong book and read as correct.
+            want_volume = volume_of(series, puzzle["number"])
+            want_position = position_of(series, puzzle["number"])
+            if book.get("volume") != want_volume:
+                findings.append(
+                    f"provenance.book.volume is {book.get('volume')!r} but "
+                    f"{puzzle.get('id')} is volume {want_volume}")
+            if book.get("numberInBook") != want_position:
                 findings.append(
                     f"provenance.book.numberInBook is {book.get('numberInBook')!r} "
-                    f"but the puzzle is No {puzzle.get('number')!r}")
+                    f"but {puzzle.get('id')} is No {want_position} in its book")
     elif prov.get("book"):
         findings.append(f"provenance has a book block but {series!r} is not book-sourced")
 
