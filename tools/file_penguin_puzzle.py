@@ -3,13 +3,14 @@
 
     python3 tools/file_penguin_puzzle.py /tmp/penguin_solve_book3.json --volume 5
     python3 tools/file_penguin_puzzle.py /tmp/penguin_input_vol7_5.json --volume 7 --unsolved
-    python3 tools/file_penguin_puzzle.py /tmp/herald_2_7.json --series herald2 --unsolved
+    python3 tools/file_penguin_puzzle.py /tmp/herald_2_7.json --series herald --volume 2 --unsolved
 
 Named for the Penguin volumes it was written for, and it files any book that
 comes down the same route — "The New Penguin Book of The Guardian Crosswords"
 and "The Herald Crossword Book" alike. Which book it is, is one entry in
-tools/series.py: the key, the title, the puzzle-name template and the scan it
-was read out of. --volume is the Penguin shorthand for --series penguin<N>.
+tools/series.py: the key, the title, the puzzle-name template and the volume's
+scan. --series names the book, --volume names the volume, and both are needed
+because the number is built out of the volume.
 
 These puzzles come from "The New Penguin Book of The Guardian Crosswords",
 scanned and OCR'd (tools/fetch_ia_book.py), parsed into clue lists
@@ -21,11 +22,12 @@ spelled once, here.
 
 THE NUMBER IS THE BOOK'S, NOT THE GUARDIAN'S. No volume prints a Guardian
 puzzle number or a publication date — checked across all six books. So the key
-is book-local: the series is the volume ("penguin5") and the number is the
-book's own position in it (3), giving "penguin5-3". A volume per series because
-every volume restarts at 1, and sharing one series would put two different
-puzzles at No 3 in one sequence and walk prev/next between them — the same
-reasoning tools/series.py gives for splitting indysunday off independent.
+is book-local: the series is the BOOK ("penguin") and the number carries the
+volume and the puzzle's place in it, volume * 1000 + position, giving
+"penguin-5003" for volume 5's No 3. The volume is in the number and not in the
+key because every volume restarts at 1 — one flat sequence would put five
+different puzzles at No 3 and walk prev/next between books — while five keys
+meant five badges, five colours and five tooltips for one shelf.
 
 THERE IS NO DATE, so `date` is null. That is an established state in this
 corpus rather than a new one: nine Cyclops puzzles carry it, puzzle_integrity's
@@ -57,7 +59,7 @@ wordplay for exactly those clues, which is the worst thing this route could
 produce — a teaching site confidently teaching a parse nobody verified.
 
 A LINKED ANSWER'S COUNT LIVES ON ITS LEADER, and the continuation prints none
-— puzzles/penguin5-3.json's 15-down "(9,5,4)" over NEWCASTLE and 17-down "See 15"
+— puzzles/penguin-5003.json's 15-down "(9,5,4)" over NEWCASTLE and 17-down "See 15"
 over UNDERLYME. The solve scripts emit the other shape, a per-light count on
 each half, so this converts it on the way in rather than refusing it: see
 tools/normalise_linked_enumerations.py, which derives the count from the
@@ -110,19 +112,20 @@ from fetch_puzzle import puzzle_path, write_puzzle_file  # noqa: E402
 # which lights a "See N" ties together, and what the group's enumeration is.
 from normalise_linked_enumerations import (enumeration_parts,  # noqa: E402
                                            normalise_record, resolve_groups)
-from series import (default_setter, official_key,  # noqa: E402
+from series import (book_number, default_setter, official_key,  # noqa: E402
                     puzzle_id, puzzle_name, scan_url)
 import provenance  # noqa: E402
 
-def source_url(series):
+def source_url(series, number):
     """The archive.org item these clues were read out of.
 
-    The series decides it, through tools/series.py, and no caller may pass one
-    in. sourceUrl and provenance.book.identifier both come from that one table,
-    so the two cannot name different books; a free identifier beside a free
+    The series and the number decide it, through tools/series.py, and no caller
+    may pass one in — the volume is in the number and the scan is the volume's.
+    sourceUrl and provenance.book.identifier both come from that one table, so
+    the two cannot name different books; a free identifier beside a free
     --volume is precisely how they came to.
     """
-    url = scan_url(series)
+    url = scan_url(series, number)
     if not url:
         raise SystemExit(
             f"{series} has no archive.org identifier in tools/series.py — look "
@@ -207,14 +210,16 @@ def coarse_continuations(record):
 
 def build(record, volume, model, unsolved=False, series=None):
     src = record["puzzle"]
-    number = record["book_number"]
-    # `series` names the book outright; `volume` is the Penguin shorthand for
-    # it, kept because that is what the Penguin recipes and acquire_book pass.
-    if not series:
-        if volume is None:
-            raise SystemExit("build needs either series= or volume=: without "
-                             "one of them there is no series key")
-        series = f"penguin{volume}"
+    # The record carries the number the BOOK prints. The stored number carries
+    # the volume as well (tools/series.py: volume * 1000 + position), because
+    # one series now covers every volume of a book and No 18 alone would name
+    # five different puzzles.
+    position = record["book_number"]
+    series = series or "penguin"
+    if volume is None:
+        raise SystemExit("build needs volume=: the volume is half the number, "
+                         "and without it there is no id to file under")
+    number = book_number(series, volume, position)
     pid = puzzle_id(series, number)
     # --unsolved files no answers at all, not the ones the record happens to
     # hold: see the module docstring — a half-filled puzzle file turns away the
@@ -290,7 +295,7 @@ def build(record, volume, model, unsolved=False, series=None):
         # "nobody knows", not a gap to be filled in later.
         "date": None,
         "dimensions": src["dimensions"],
-        "sourceUrl": source_url(series),
+        "sourceUrl": source_url(series, number),
         "entries": out,
     }
     # No solve, no solutionSource. The field says whose answers these are, and
@@ -325,12 +330,13 @@ def build(record, volume, model, unsolved=False, series=None):
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("record", help="the solve record, e.g. /tmp/penguin_solve_book3.json")
-    ap.add_argument("--series",
-                    help="the series key outright, for a book that is not a "
-                         "Penguin volume (e.g. herald2). One of this and "
-                         "--volume is required")
-    ap.add_argument("--volume", type=int,
-                    help="which Penguin volume this book is (the series key is penguin<N>)")
+    ap.add_argument("--series", default="penguin",
+                    help="which book this is: a series key from tools/series.py "
+                         "(default penguin; herald is the other)")
+    ap.add_argument("--volume", type=int, required=True,
+                    help="which volume of that book. The id is "
+                         "<series>-<volume*1000+position>, so volume 5's No 18 "
+                         "is penguin-5018")
     ap.add_argument("--model", default="opus", help="the model that solved it")
     ap.add_argument("--unsolved", action="store_true",
                     help="file the grid and clues with no answers at all, for the "

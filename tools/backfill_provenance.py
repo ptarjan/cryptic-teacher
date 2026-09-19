@@ -99,7 +99,7 @@ because the set of such code is small and its whole history is here:
   * The coverage arithmetic corroborates it exactly. solutionSource sits
     precisely where the non-publisher routes ran: 434 of 518 Cyclops, and the
     other 84 Cyclops files have no answers at all — so every Cyclops file that
-    HAS answers is labelled. Same for all 5 penguin5. What is left unlabelled
+    HAS answers is labelled. Same for all 5 Penguin volume 5 puzzles. What is left unlabelled
     is entirely series served by publisher fetchers.
   * Finally, only 19 commits in the whole history modify the answers of an
     already-existing file (`git log --diff-filter=M -G'"solution": "[A-Z]'
@@ -129,6 +129,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import provenance  # noqa: E402
+import series as series_table  # noqa: E402
 from fetch_puzzle import (generator_of, puzzle_files,  # noqa: E402
                           read_puzzle_file, write_puzzle_file)
 
@@ -210,20 +211,33 @@ def machine_solved_ever():
         out = git("log", "--name-only", "--format=", f"-S{needle}", "--", "puzzles/")
         ids.update(filter(None, map(puzzle_id, out.splitlines())))
 
-    # An id from before the id-namespacing commit names a puzzle that no longer
-    # goes by that name. Resolve it by its number, and ONLY when exactly one
-    # puzzle on disk has that number — two papers reaching one number is the
-    # collision namespacing exists to prevent, and guessing between them would
-    # put one puzzle's history on another's file.
-    live, by_number = set(), {}
+    # An id in history names a puzzle that may no longer go by that name, in two
+    # different ways, and they are resolved in two different ways.
+    #
+    # A RENAME IS KNOWN, so it is looked up and never guessed at: the scanned
+    # books were one series per volume until 2026-09-19, and penguin5-18 is
+    # penguin-5018. series.legacy_id() says so for every puzzle on disk. Left to
+    # the by-number fallback below, penguin5-18 would resolve by its "18" to
+    # quiptic-18 — filing one puzzle's cold-solve history on another paper's
+    # crossword, which is precisely the collision namespacing exists to prevent.
+    #
+    # A PRE-NAMESPACING id is a bare number and names nothing else, so it is
+    # resolved by that number, and ONLY when exactly one puzzle on disk has it.
+    live, by_number, renamed = set(), {}, {}
     for path in puzzle_files():
         live.add(path.stem)
         by_number.setdefault(path.stem.rsplit("-", 1)[-1], []).append(path.stem)
+        was = series_table.legacy_id(*series_table.parse_id(path.stem))
+        if was:
+            renamed[was] = path.stem
 
     resolved, unresolved = set(), []
     for pid in ids:
         if pid in live:
             resolved.add(pid)
+            continue
+        if pid in renamed:
+            resolved.add(renamed[pid])
             continue
         hits = by_number.get(pid.rsplit("-", 1)[-1], [])
         if len(hits) == 1:

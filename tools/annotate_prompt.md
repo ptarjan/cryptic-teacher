@@ -5,9 +5,10 @@ repository — a Guardian daily or Quiptic, the Observer's Everyman, the Indepen
 daily or Sunday, Private Eye's Cyclops, Metro's daily, the Globe and Mail's, or a
 Guardian reprint out of a Penguin book. The target file is `puzzles/<ID>.js`, where the
 ID is the series and the number together (`cryptic-30089`, `everyman-4165`,
-`quiptic-1395`, `independent-12438`, `indysunday-1903`, `penguin5-3`); every paper
-numbers from its own 1 — and a Penguin volume from its own 1 again — so the number
-alone names nothing. The caller names the file to annotate; that file is the target and picking a
+`quiptic-1395`, `independent-12438`, `indysunday-1903`, `penguin-5003`); every paper
+numbers from its own 1, and a scanned book is one series with the volume folded
+into the number — `penguin-5003` is Penguin volume 5's No 3 — so the number alone
+names nothing. The caller names the file to annotate; that file is the target and picking a
 different one is never right.
 
 ## What to produce

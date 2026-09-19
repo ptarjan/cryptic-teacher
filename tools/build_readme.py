@@ -295,17 +295,14 @@ SERIES_NAMES = {
     "cyclops": "Private Eye Cyclops",
     "metro": "Metro cryptic",
     "globeandmail": "Globe and Mail cryptic",
-    "herald2": "Herald book 2",
+    # One entry per BOOK, not per volume: a scanned book is one series however
+    # many of its volumes are on the shelf, and which volume a puzzle is from
+    # is in its number (tools/series.py, volume * 1000 + position). The count
+    # beside it is the whole shelf's, which is what a reader of this corpus
+    # line wants — the volumes are the same puzzle source.
+    "penguin": "Penguin book reprints",
+    "herald": "Herald book reprints",
 }
-
-# One entry per Penguin volume, because one series per volume: every volume
-# numbers its puzzles from its own 1. Built off the volume list in
-# tools/series.py rather than typed again, so a volume cannot be in one and
-# missing from the other — build_corpus() stops on a series it has no name for.
-sys.path.insert(0, str(REPO / "tools"))
-from series import PENGUIN_VOLUMES  # noqa: E402
-
-SERIES_NAMES.update({f"penguin{v}": f"Penguin book {v}" for v in PENGUIN_VOLUMES})
 
 
 def build_corpus():
