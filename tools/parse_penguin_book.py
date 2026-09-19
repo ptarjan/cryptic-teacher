@@ -67,6 +67,12 @@ SOLUTIONS_MARKER = re.compile(r"\bSolutions\b")  # capital S: skips lowercase
 # "solution(s)" occurring inside real clue text (confirmed: leaves 20, 30,
 # 46, 106, 126 all use the lowercase word legitimately).
 
+# Vols 2/3/7/11 have no "Solutions" banner leaf, but their answer-grid
+# images are individually labelled "No. <n>" (the book's own puzzle
+# number) wherever that OCR'd cleanly — used only as a refinement of the
+# structural end-of-puzzles boundary in find_puzzle_range, never required.
+SOLUTIONS_NO_MARKER_RE = re.compile(r"\bNo\.\s*\d+")
+
 # Setters confirmed present by direct observation: either named in the task
 # brief, or found as a clean, dictionary-plausible standalone line on a grid
 # leaf (see the tally this was built from in the parser's own git history —
@@ -83,7 +89,33 @@ KNOWN_SETTERS = {
 # puzzle 49's last down clue must not cost a real, legible enumeration.
 ENUMERATION_RE = re.compile(r"\(([\d]+(?:[\s,\-][\d]+)*)\)[^\w()]{0,4}$")
 SEE_REFERENCE_RE = re.compile(r"^(?:\d+(?:\s*,\s*\d+)*\s*[,.]?\s*)?See\s+\d+\s*$")
-LEADING_NUMBER_RE = re.compile(r"^(\d{1,2}(?:\s*,\s*\d{1,2})*)\s+(?=[A-Z(\"'‘])")
+# The lookahead's job is only to reject a bare digit run that isn't
+# actually a clue number (grid-bleed noise, a number embedded mid-sentence)
+# — requiring the very next character start a word/paren/quote is enough
+# for that; requiring it be UPPERCASE additionally is not protecting
+# against anything, it just throws away real numbers on real clues whose
+# first letter OCR lowercased (guardiancrosswor0000perk, the 1974 book,
+# does this constantly: "1 perehing clear..." is a genuine numbered clue
+# with garbled text, not noise). Confirmed by direct comparison: broadening
+# this to accept lowercase changes zero numbered-clue counts on vols
+# 2/3/5/7/11 (their surviving leading numbers are followed by capitalised
+# clue text) and recovers real numbers on the 1974 book that the
+# upper-case-only version was dropping.
+LEADING_NUMBER_RE = re.compile(r"^(\d{1,2}(?:\s*,\s*\d{1,2})*)\s+(?=[A-Za-z(\"'‘])")
+
+# "ACROSS"/"DOWN" headers on guardiancrosswor0000perk sometimes OCR with a
+# stray leading glyph from the facing grid bleeding onto the same leaf
+# ("| ACROSS", "— ACROSS") since, unlike the Penguin volumes, this book has
+# no separate grid leaf to absorb that noise — the grid and clue text share
+# one page. A tolerant match (up to 3 non-letters on either side) recovers
+# these as real headers instead of falling through to the jigsaw-detection
+# path and losing the Across/Down split entirely.
+HEADER_RE = re.compile(r"^[^A-Za-z0-9]{0,3}(ACROSS|DOWN)[^A-Za-z0-9]{0,3}$", re.IGNORECASE)
+
+
+def _header_kind(line: str) -> str | None:
+    m = HEADER_RE.match(line.strip())
+    return m.group(1).upper() if m else None
 
 
 def load_leaves(path: Path) -> list[str]:
@@ -92,24 +124,58 @@ def load_leaves(path: Path) -> list[str]:
 
 
 def find_puzzle_range(leaves: list[str]) -> tuple[int, int]:
-    """Return (start, end) leaf indices spanning "The Puzzles" section,
-    end exclusive. Raises ValueError if either boundary can't be found —
-    a silent wrong range would corrupt every puzzle downstream."""
+    """Return (start, end) leaf indices spanning the puzzle section, end
+    exclusive. Raises ValueError if no start boundary can be found at all —
+    a silent wrong range would corrupt every puzzle downstream.
+
+    START: vol 5 (newpenguinbkguar0000perk) prints an explicit "The
+    Puzzles" section-title leaf, tried first. Some other scans in this
+    series (vol 2) carry no title leaf at all — the Foreword runs straight
+    into the first "Across" clue leaf. When the title is absent, start
+    falls back to the first leaf in the whole book that looks like a real
+    clue leaf (classify_clue_leaves' own >=8-enumeration-lines test,
+    applied here before any range is known).
+
+    END: vol 5 has a "Solutions" banner leaf. Other scans in this series
+    (vols 2 and 3, confirmed by direct inspection) have neither a
+    "Solutions" banner nor any other title text marking the boundary — the
+    section just ends and answer-grid-image OCR noise follows. For those,
+    end falls back to the first later leaf carrying a printed "No. <n>"
+    solution-grid label if the OCR caught one (vol 2 has these; vol 3
+    doesn't), and only if that also comes up empty, to the last clue-like
+    leaf's own immediate trailing leaf — never guessed beyond what's
+    actually in the text."""
     start = None
     for i, leaf in enumerate(leaves):
         if leaf.strip() == PUZZLES_SECTION_TITLE:
             start = i + 1
             break
-    if start is None:
-        raise ValueError(f"could not find section title {PUZZLES_SECTION_TITLE!r}")
 
     end = None
-    for i in range(start, len(leaves)):
-        if SOLUTIONS_MARKER.search(leaves[i]) and len(leaves[i].strip()) < 100:
-            end = i
-            break
-    if end is None:
-        raise ValueError("could not find the Solutions section boundary")
+    if start is not None:
+        for i in range(start, len(leaves)):
+            if SOLUTIONS_MARKER.search(leaves[i]) and len(leaves[i].strip()) < 100:
+                end = i
+                break
+
+    if start is None or end is None:
+        clue_like = [i for i, leaf in enumerate(leaves) if _looks_like_clue_leaf(leaf)]
+        if not clue_like:
+            raise ValueError(
+                f"could not find section title {PUZZLES_SECTION_TITLE!r}, and "
+                "no leaf in the whole book looks like a clue leaf either "
+                "(>=8 enumeration-terminated lines) — can't locate the "
+                "puzzle region at all"
+            )
+        if start is None:
+            start = clue_like[0]
+        if end is None:
+            for i in range(clue_like[-1] + 1, len(leaves)):
+                if SOLUTIONS_NO_MARKER_RE.search(leaves[i]):
+                    end = i
+                    break
+            if end is None:
+                end = min(clue_like[-1] + 2, len(leaves))
     return start, end
 
 
@@ -168,17 +234,20 @@ def is_garbage_line(line: str) -> bool:
     return True
 
 
-def classify_clue_leaves(leaves: list[str], start: int, end: int) -> list[int]:
+def _looks_like_clue_leaf(leaf: str) -> bool:
     """A clue leaf is one with many lines ending in a parenthesised
     enumeration — true of both the normal Across/Down layout and the two
-    flat "jigsaw" puzzles, and not true of grid/setter leaves or blanks."""
-    idxs = []
-    for i in range(start, end):
-        lines = [ln.strip() for ln in leaves[i].split("\n") if ln.strip()]
-        enum_lines = sum(1 for ln in lines if ENUMERATION_RE.search(ln))
-        if enum_lines >= 8:
-            idxs.append(i)
-    return idxs
+    flat "jigsaw" puzzles, and not true of grid/setter leaves or blanks.
+    Shared by classify_clue_leaves (within a known range) and
+    find_puzzle_range's structural fallback (over the whole book, when
+    there's no title leaf to bound the range first)."""
+    lines = [ln.strip() for ln in leaf.split("\n") if ln.strip()]
+    enum_lines = sum(1 for ln in lines if ENUMERATION_RE.search(ln))
+    return enum_lines >= 8
+
+
+def classify_clue_leaves(leaves: list[str], start: int, end: int) -> list[int]:
+    return [i for i in range(start, end) if _looks_like_clue_leaf(leaves[i])]
 
 
 def group_into_puzzles(clue_idxs: list[int], end: int) -> list[tuple[int, list[int]]]:
@@ -204,9 +273,16 @@ def extract_setter(leaves: list[str], trailing_idxs: list[int]) -> str | None:
 
 def find_content_start(lines: list[str]) -> tuple[int, str]:
     """Skip leading noise (page-number/grid bleed) on a clue leaf to find
-    where real clue content begins. Returns (index, mode)."""
+    where real clue content begins. Returns (index, mode).
+
+    Tolerant on "Across" via _header_kind: the Penguin volumes (2/3/5/7/11)
+    print it title-case cleanly, but the 1974 Hodder book
+    (guardiancrosswor0000perk) prints "ACROSS"/"DOWN" in caps, on the same
+    leaf as its grid rather than a separate clue leaf, and sometimes with a
+    stray OCR glyph stuck to it ("| ACROSS") — one tolerant check covers
+    both instead of a second layout-specific code path."""
     for i, line in enumerate(lines):
-        if line.strip() == "Across":
+        if _header_kind(line) == "ACROSS":
             return i + 1, "across_down"
     for i, line in enumerate(lines):
         if line.strip().lower().startswith("method:"):
@@ -270,9 +346,11 @@ def parse_clue_chunk(chunk: str) -> dict:
 
 
 def split_across_down(lines: list[str]) -> tuple[list[str], list[str]]:
+    """Tolerant on "Down" via _header_kind, for the same reason as
+    find_content_start's "Across" check — see its docstring."""
     down_idx = None
     for i, line in enumerate(lines):
-        if line.strip() == "Down":
+        if _header_kind(line) == "DOWN":
             down_idx = i
             break
     if down_idx is None:
