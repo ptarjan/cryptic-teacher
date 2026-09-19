@@ -569,9 +569,10 @@ const patBoxes = () => (patHTML().match(/class="pat-box [^"]*"/g) || []);
                                  appSrc.indexOf("function seriesBadge"));
   const badged = [...badgeBlock.matchAll(/^\s{4}(\w+):/gm)].map((m) => m[1]);
   assert(badged.length > 3, "SERIES_BADGE parsed from app.js: " + badged.length);
-  new Set((global.CRYPTIC_INDEX.puzzles || []).map((p) => p.series || "cryptic"))
-    .forEach((s) => assert(badged.includes(s),
-      `series '${s}' has a badge in app.js's SERIES_BADGE`));
+  const indexSeries = [...new Set((global.CRYPTIC_INDEX.puzzles || [])
+    .map((p) => p.series || "cryptic"))];
+  indexSeries.forEach((s) => assert(badged.includes(s),
+    `series '${s}' has a badge in app.js's SERIES_BADGE`));
 
   /* --- and its own colour, not the default one ---
 
@@ -581,9 +582,15 @@ const patBoxes = () => (patHTML().match(/class="pat-box [^"]*"/g) || []);
      readable without their labels. Cyclops, Metro and the Globe and Mail each
      shipped that way — the CSS was written when there were five series and
      nothing made adding a sixth touch it. "cryptic" is the one legitimate
-     user of the default: it IS the default. */
+     user of the default: it IS the default.
+
+     Checked over the index's series as well as app.js's, so a series that is
+     in neither file is told both things in one run. Checking only `badged`
+     made adding a series cost a red run per file: register it and CI names the
+     missing badge, add the badge and CI then names the missing colour. */
   const badgeCss = fs.readFileSync(path.join(ROOT, "style.css"), "utf8");
-  badged.filter((s) => s !== "cryptic" && s !== "authored").forEach((s) =>
+  [...new Set([...badged, ...indexSeries])]
+    .filter((s) => s !== "cryptic" && s !== "authored").forEach((s) =>
     assert(badgeCss.includes(`.badge.series-${s} `),
       `series '${s}' has its own pill colour in style.css (.badge.series-${s})`));
 
