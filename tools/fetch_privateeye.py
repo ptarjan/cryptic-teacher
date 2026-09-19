@@ -302,9 +302,7 @@ def convert(num, puz):
             "length": length,
             "clue": clue.strip(),
             **({"group": groups[eid]} if eid in groups else {}),
-            "separatorLocations": {},
             "solution": None,  # see module docstring — never recoverable from this feed today
-            "annotation": None,
         })
 
     return {

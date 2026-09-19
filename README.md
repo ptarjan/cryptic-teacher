@@ -91,7 +91,7 @@ markers, which is how the page loads a puzzle from `file://`. Shape:
       "id": "16-across", "number": 16, "direction": "across",
       "position": {"x": 0, "y": 8}, "length": 10,
       "clue": "Destroying climate, sun reaches highest point (10)",
-      "separatorLocations": {},
+      "separatorLocations": {",": [7]},
       "solution": "CULMINATES",
       "annotation": {
         "type": "anagram",
@@ -117,7 +117,10 @@ Annotation rules (enforced by `tools/validate_annotations.py`):
   embedded steps; hidden answers must occur inside the clue's letters.
 - Linked entries: full annotation on the group's first entry with `"coversGroup": true`;
   the others get `{"linkedTo": "<first-id>"}`.
-- Un-annotated entries keep `"annotation": null` — the app then badges the puzzle `answers only` and offers no teaching ladder.
+- Un-annotated entries carry no `annotation` key at all — the app then badges the puzzle
+  `answers only` and offers no teaching ladder. `separatorLocations` is written the same way:
+  only when the paper marks a break inside the answer. An absent key means empty everywhere
+  that reads one, so nothing writes `{}` or `null` into a puzzle file.
 
 ### Provenance: where the puzzle, its grid and its answers each came from
 

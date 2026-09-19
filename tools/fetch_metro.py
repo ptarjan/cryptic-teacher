@@ -215,9 +215,8 @@ def convert(data):
             "length": length,
             "clue": clue,
             **({} if has_words(clue) else {"clueMissing": True}),
-            "separatorLocations": {},  # Metro ships none; enumeration stays in the clue text
+            # Metro ships no separators; the enumeration stays in the clue text.
             "solution": answer,
-            "annotation": None,
         })
 
     # The strongest available check that start/dir/pzlmap were read correctly

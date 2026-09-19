@@ -119,7 +119,7 @@ def restore():
             guess = e.get("solution") or ""
             if guess.strip().upper() != truth.strip().upper():
                 wrong.append((e["id"], guess or "(nothing)", truth))
-                e["annotation"] = None
+                e.pop("annotation", None)
             e["solution"] = truth
 
         write_puzzle_file(path, puzzle)
