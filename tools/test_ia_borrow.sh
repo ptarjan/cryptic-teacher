@@ -24,6 +24,13 @@
 set -u
 cd "$(dirname "$0")/.."
 
+# Every check below reads or writes the loan ledger. Point it at a scratch
+# file: a test that cleaned up the machine's real outstanding loans would be
+# returning books somebody is reading.
+LEDGER_DIR=$(mktemp -d)
+trap 'rm -rf "$LEDGER_DIR"' EXIT
+export IA_LOAN_LEDGER="$LEDGER_DIR/ia-loans.json"
+
 python3 - <<'PYEOF'
 import json
 import sys
@@ -340,6 +347,176 @@ try:
         ok("--no-borrow stops on a lending item without taking a loan")
 finally:
     A.item_restriction = real_restriction
+
+# -------------------------------------------------------------- case 11
+# The account-level refusal. It is not about the identifier, so it must not
+# arrive as the same exception every per-book refusal uses: a driver looping
+# over a book list has to be able to tell "this book failed" from "every
+# remaining book will fail", which is the difference between one refusal and
+# twenty-four identical ones.
+print("case 11: the account has hit its lending limit")
+LENDING_LIMIT_BODY = json.dumps(
+    {"error": "Your account has hit a lending limit. Please try again later "
+              "or contact info@archive.org."})
+LIMIT_AVAILABILITY = {           # live shape 2026-09-19: a free copy, still refused
+    "is_lendable": True, "is_readable": False,
+    "max_browsable_copies": 1, "available_browsable_copies": 1,
+    "active_browses": 0, "available_to_browse": True,
+    "user_loan_count": 0, "user_at_max_loans": False,
+    "user_has_browsed": False, "user_loan_record": [],
+}
+s = StubSession(browse=Response(400, LENDING_LIMIT_BODY),
+                availability=availability_response(LIMIT_AVAILABILITY))
+try:
+    result = F.borrow(s, "isbn_9780330451789")
+    fail(f"returned {result!r} for a lending-limit refusal")
+except F.LendingLimitReached as e:
+    msg = str(e)
+    ok("raises LendingLimitReached, not the generic per-book refusal")
+    if "create_token" in s.calls:
+        fail("reached create_token without a loan")
+    for wanted, why in (
+            ("user_loan_count=0", "does not report how many loans the account holds"),
+            ("user_at_max_loans=False", "does not report whether the concurrency cap is the binding one"),
+            ("loans this machine took and has not returned: none",
+             "does not report this machine's own outstanding loans"),
+            ("not loans HELD", "does not say that returning loans need not clear it"),
+            ("stop here", "does not tell the caller to stop rather than try the next book")):
+        if wanted not in msg:
+            fail(f"{why}: {msg!r}")
+    else:
+        ok("names the live counters, the outstanding loans, and says stop")
+except SystemExit as e:
+    fail(f"raised a plain SystemExit, indistinguishable from a per-book "
+         f"refusal: {e}")
+
+# The generic refusal must NOT be upgraded: only the lending-limit string is.
+s = StubSession(browse=Response(400, json.dumps({"error": "Item is dark."})))
+try:
+    F.borrow(s, "darkitem0000xxxx")
+    fail("a plain error was swallowed")
+except F.LendingLimitReached:
+    fail("an unrelated refusal was reported as a lending limit")
+except SystemExit:
+    ok("an unrelated refusal stays a plain per-book refusal")
+
+# -------------------------------------------------------------- case 12
+# The startup reconcile. borrowed()'s finally clause cannot run when the
+# process is killed by a signal, so the loan is returned by the NEXT run
+# instead — but only after archive.org confirms the account still holds it,
+# because return_loan answers {"success": true} for a book never borrowed and
+# would otherwise let the reconcile report returns it never made.
+print("case 12: the startup reconcile returns what a killed run left out")
+
+
+class ReconcileSession:
+    def __init__(self, held, refuse_return=()):
+        self.held = set(held)
+        self.refuse_return = set(refuse_return)
+        self.returned = []
+        self.asked = []
+
+    def post(self, url, data=None, timeout=None):
+        action, ident = data["action"], data["identifier"]
+        if action == "availability":
+            self.asked.append(ident)
+            return availability_response(
+                {"user_has_browsed": ident in self.held, "user_loan_record": []})
+        if action == "return_loan":
+            if ident in self.refuse_return:
+                return Response(500, "nope")
+            self.returned.append(ident)
+            return Response(200, json.dumps({"success": True}))
+        raise AssertionError(f"unexpected action {action!r}")
+
+
+F._write_ledger({"leaked0000xxxx": "2026-09-19T14:55:00Z",
+                 "expired0000xxxx": "2026-09-19T09:00:00Z",
+                 "working0000xxxx": "2026-09-19T20:00:00Z"})
+s = ReconcileSession(held={"leaked0000xxxx", "working0000xxxx"})
+got = F.reconcile_loans(s, keep=("working0000xxxx",), log=lambda m: None)
+check("returns the loan a killed run left out", got, ["leaked0000xxxx"])
+check("never touches the book this run is working on",
+      "working0000xxxx" in s.asked or "working0000xxxx" in s.returned, False)
+check("drops an entry whose loan already expired, without claiming a return",
+      "expired0000xxxx" in s.returned, False)
+check("the ledger is left holding only the in-flight book",
+      sorted(F.read_ledger()), ["working0000xxxx"])
+
+# A return archive.org refuses must leave the entry, or the next run forgets
+# the one loan still out there.
+F._write_ledger({"stubborn0000xxxx": "2026-09-19T14:55:00Z"})
+s = ReconcileSession(held={"stubborn0000xxxx"}, refuse_return={"stubborn0000xxxx"})
+got = F.reconcile_loans(s, log=lambda m: None)
+check("a refused return is not reported as returned", got, [])
+check("a refused return keeps its ledger entry for the next run",
+      sorted(F.read_ledger()), ["stubborn0000xxxx"])
+F._write_ledger({})
+
+# -------------------------------------------------------------- case 13
+# The ledger entry has to exist BEFORE the caller can be killed holding the
+# loan, and has to survive being killed: written whole, never half.
+print("case 13: the ledger records the loan before the block runs")
+seen_during_block = []
+real = (F.load_credentials, F.login, F.borrow, F.return_loan, F.requests,
+        F.reconcile_loans)
+F.load_credentials = lambda path: ("someone@example.com", "hunter2")
+F.login = lambda *a, **k: None
+F.return_loan = lambda session, identifier: None
+F.reconcile_loans = lambda *a, **k: []
+F.requests = types.SimpleNamespace(
+    Session=lambda: types.SimpleNamespace(headers={}, post=None))
+try:
+    F.borrow = lambda session, identifier: True
+    with F.borrowed("inflight0000xxxx"):
+        seen_during_block.append(sorted(F.read_ledger()))
+    check("the loan is on disk while the block runs",
+          seen_during_block, [["inflight0000xxxx"]])
+    check("and gone once it is confirmed returned", sorted(F.read_ledger()), [])
+
+    # --keep-loan hands ownership of the return to the caller, so it must not
+    # be ledgered: a later run would otherwise reconcile away a loan somebody
+    # is deliberately holding open.
+    with F.borrowed("kept0000xxxx", keep_loan=True):
+        seen_during_block.append(sorted(F.read_ledger()))
+    check("--keep-loan is not ledgered", sorted(F.read_ledger()), [])
+finally:
+    (F.load_credentials, F.login, F.borrow, F.return_loan, F.requests,
+     F.reconcile_loans) = real
+
+# -------------------------------------------------------------- case 14
+# acquire_book.py is what the 24-book driver runs, so the account-level
+# refusal has to survive the trip through it as its own status and its own
+# exit code. Sharing exit 1 with every per-book failure is what let a driver
+# burn 24 books in 18 minutes on one refusal.
+print("case 14: acquire_book reports the lending limit apart")
+check("acquire_book has a dedicated exit code", A.EXIT_LENDING_LIMIT, 3)
+
+
+class LimitModule:
+    LendingLimitReached = F.LendingLimitReached
+    DEFAULT_CREDS = F.DEFAULT_CREDS
+
+    @staticmethod
+    def load_credentials(path):
+        return ("someone@example.com", "hunter2")
+
+    @staticmethod
+    def borrowed(identifier):
+        raise F.LendingLimitReached(f"{identifier}: the account is over its "
+                                     f"lending limit, stop here")
+
+
+sys.modules["fetch_ia_book"] = LimitModule
+try:
+    path, how, status = A.borrow_text("isbn_9780330451789")
+    check("status is its own, not borrow-refused", status, "lending-limit")
+    if "stop here" not in how:
+        fail(f"the account-level reason was lost on the way through: {how!r}")
+    else:
+        ok("carries the reason through to the report")
+finally:
+    sys.modules["fetch_ia_book"] = F
 
 print()
 if failures:

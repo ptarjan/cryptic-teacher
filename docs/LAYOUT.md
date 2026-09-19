@@ -82,8 +82,10 @@ tools/test_puzzle_integrity.sh               proves the two LENGTH exception tab
                                              keyed on, and that baselining one finding never
                                              silences the rest of its puzzle
 tools/fetch_ia_book.py                       borrows a lending-restricted archive.org book,
-                                             saves its OCR text outside the repo, and returns
-                                             the loan
+                                             saves its OCR text outside the repo, returns the
+                                             loan, and hands back on startup any loan a killed
+                                             run left out — a finally clause does not run when
+                                             the process is killed by a signal
 tools/parse_penguin_book.py                  segments that book's OCR text into puzzles, clues
                                              and enumerations, and reports per-puzzle what OCR
                                              destroyed
@@ -120,7 +122,13 @@ tools/test_acquire_book.sh                   gates that pipeline on ten control 
 tools/test_ia_borrow.sh                      holds the one archive.org refusal string that
                                              means two different things apart, so a book whose
                                              copies are all out is never read as one that needs
-                                             no loan
+                                             no loan, and keeps the account-wide lending limit
+                                             a third answer that stops the run rather than a
+                                             twenty-fourth per-book failure
+tools/test_ia_loan_leak.sh                   kills a real borrow with SIGTERM and SIGKILL
+                                             against a stub archive.org to prove the loan does
+                                             leak, then proves the next run gives it back
+                                             before borrowing anything of its own
 tools/test_penguin_layout.sh                 gates the dotted-number print layout — glued
                                              running head, "13." numbers, "1 & 4 Ac." links —
                                              whose loss costs a whole book to jigsaw mode and
@@ -413,6 +421,11 @@ tools/data/grading_rubric.md                 the five axes a blind judge scores 
 tools/data/book_candidates.json              which archive.org crossword books are worth
                                              acquiring in full, measured one short loan at a
                                              time; a measurement, not a permanent fact
+tools/data/book_acquisition_plan.json        the crossword books still to acquire, in the order
+                                             to take them: archive.org identifier, series and
+                                             volume, the puzzle count and clean fraction
+                                             measured off a sample, and the evidence for every
+                                             volume number — including the ones marked INVENTED
 tools/data/penguin5_control.json             the ten-puzzle Penguin volume 5 control
                                              tools/test_acquire_book.sh gates on: light specs,
                                              black-square patterns and a digest of the parser's
