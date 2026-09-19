@@ -4,7 +4,7 @@ every number here comes from counting fields, not from asking a model to judge.
 
 Reads tools/data/minutecryptic/hints.jsonl (24 records, gitignored — their
 copyrighted teaching material, kept locally to measure, never to copy from) and
-every puzzles/*.js annotation on disk. Prints tables to stdout; writes nothing
+every puzzles/*.json annotation on disk. Prints tables to stdout; writes nothing
 under version control. If the MC corpus isn't on disk this prints one line and
 exits — that directory is local-only, not part of the repo.
 
@@ -23,7 +23,6 @@ footnote are simplified away because none of them move the word count more than
 a word or two).
 """
 
-import glob
 import json
 import pathlib
 import re
@@ -208,10 +207,10 @@ def load_hints_jsonl():
 
 
 def load_our_annotations():
-    from fetch_puzzle import read_puzzle_file
+    from fetch_puzzle import puzzle_files, read_puzzle_file
     out = []
-    for p in sorted(glob.glob(str(ROOT / "puzzles" / "*.js"))):
-        data = read_puzzle_file(pathlib.Path(p))
+    for p in puzzle_files():
+        data = read_puzzle_file(p)
         for e in data.get("entries", []):
             ann = e.get("annotation")
             if ann:

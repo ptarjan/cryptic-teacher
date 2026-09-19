@@ -20,6 +20,12 @@ from datetime import datetime, timedelta, timezone
 
 BAR = "█"
 
+# The suffixes a puzzle has been committed under. A puzzle is one puzzle
+# whichever form holds it, so paths are read for their id and the suffix is
+# discarded: counting a change of form as an arrival and a departure is the
+# same error as not following a rename, and invents the same backlog.
+PUZZLE_SUFFIXES = (".json", ".js")
+
 
 def events(live, flagged):
     """(arrived, annotated) epoch seconds per puzzle id, from the git log.
@@ -38,8 +44,13 @@ def events(live, flagged):
     when = subject = None
 
     def pid_of(path):
-        name = path[len("puzzles/"):] if path.startswith("puzzles/") else ""
-        return name[:-3] if name.endswith(".js") else None
+        if not path.startswith("puzzles/"):
+            return None
+        name = path[len("puzzles/"):]
+        for suffix in PUZZLE_SUFFIXES:
+            if name.endswith(suffix):
+                return name[:-len(suffix)] or None
+        return None
 
     for line in out.splitlines():
         if line.startswith("\x01"):
@@ -54,8 +65,12 @@ def events(live, flagged):
         status = parts[0]
         if status.startswith("R") and len(parts) >= 3:
             old, new = pid_of(parts[1]), pid_of(parts[2])
-            if old and new and old != new:
-                for book in (arrived, done):
+            # A rename carries a puzzle's record to a new id only when the
+            # history has not seen that id before. A pair whose two ids are
+            # both already known is similarity detection matching one puzzle
+            # against another, and following it would delete a real record.
+            if old and new and old != new and new not in touched:
+                for book in (arrived, done, touched):
                     if old in book:
                         book.setdefault(new, book.pop(old))
             pid = new
@@ -63,9 +78,18 @@ def events(live, flagged):
             pid = pid_of(parts[-1])
         if pid is None:
             continue
-        touched[pid] = when
+
+        # Whether this commit could have changed what is IN the file. Removing
+        # a puzzle, renaming one, and re-adding one that has already arrived
+        # all move a file between paths without writing anything into it, so
+        # none of them may stand as the date a puzzle was annotated.
+        moved = status.startswith(("D", "R")) or (
+            status.startswith("A") and pid in arrived)
         if status.startswith("A"):
             arrived.setdefault(pid, when)
+        if moved:
+            continue
+        touched[pid] = when
         # A puzzle leaves the backlog on the first commit that annotates it.
         # Keyed on the touched PATH, not on ids parsed out of the subject:
         # "Annotate 30066 (Tramp) and 30067 (Imogen)" names two puzzles one way

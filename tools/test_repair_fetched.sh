@@ -35,7 +35,7 @@ cp "$REPO"/tools/*.py "$work/tools/"
 # gated off for the series that enumerate light by light, and a hand-written
 # Private Eye puzzle would only prove the gate against our idea of Private Eye.
 # This is the paper's own file, groups and counts as Cyclops printed them.
-cp "$REPO"/puzzles/cyclops-401.js "$work/puzzles/"
+cp "$REPO"/puzzles/cyclops-401.json "$work/puzzles/"
 run() { (cd "$work" && python3 tools/repair_fetched.py "$@" 2>&1); }
 # One fixture at a time: a --apply over the whole scratch tree would repair the
 # next section's fixture before that section had looked at it.
@@ -71,7 +71,7 @@ def write(series, number, date, entries):
               "name": f"Fixture {number}", "setter": "Nobody", "date": date,
               "dimensions": {"cols": 15, "rows": 15},
               "sourceUrl": f"https://example.invalid/{pid}", "entries": entries}
-    fetcher.write_puzzle_file(fetcher.PUZZLE_DIR / f"{pid}.js", puzzle)
+    fetcher.write_puzzle_file(fetcher.PUZZLE_DIR / f"{pid}.json", puzzle)
 
 base = 1_600_000_000_000
 
@@ -297,11 +297,11 @@ for n in range(200, 207):
 PY
 
 echo "a clean file is not touched, and the run says so"
-before=$(cksum < "$work/puzzles/cryptic-100.js")
+before=$(cksum < "$work/puzzles/cryptic-100.json")
 out=$(one cryptic-100 --apply)
 absent "$out" "cryptic-100:" "the control puzzle is not reported"
 same "byte-identical after a repair run" \
-  "$(cksum < "$work/puzzles/cryptic-100.js")" "$before"
+  "$(cksum < "$work/puzzles/cryptic-100.json")" "$before"
 
 echo "an accented or mixed-case solution is normalised to what the cells hold"
 out=$(one cryptic-101)
@@ -309,10 +309,10 @@ check "$out" "cryptic-101: 3 solution(s) normalised" "all three are seen"
 check "$out" "eVEREST→EVEREST" "case"
 check "$out" "ACORUÑA→ACORUNA" "accent"
 check "$out" "office→OFFICE" "a solution in lower case throughout"
-check "$(cat "$work/puzzles/cryptic-101.js")" '"solution": "eVEREST"' \
+check "$(cat "$work/puzzles/cryptic-101.json")" '"solution": "eVEREST"' \
   "a dry run wrote nothing"
 one cryptic-101 --apply >/dev/null
-check "$(cat "$work/puzzles/cryptic-101.js")" '"solution": "ACORUNA"' "written on --apply"
+check "$(cat "$work/puzzles/cryptic-101.json")" '"solution": "ACORUNA"' "written on --apply"
 absent "$(one cryptic-101)" "cryptic-101:" "clean on the second run"
 
 echo "one masked light takes the whole puzzle unsolved, as a fetch would"
@@ -323,8 +323,8 @@ check "$out" "all 2 entries stored unsolved" "and what that costs"
 check "$out" "WARNING: cryptic-102: solution masked on" "warned on stderr"
 one cryptic-102 --apply >/dev/null
 same "the masked light is stored unsolved" \
-  "$(grep -c '"solution": null' "$work/puzzles/cryptic-102.js")" "2"
-absent "$(grep '"solution"' "$work/puzzles/cryptic-102.js")" "T?S?R" \
+  "$(grep -c '"solution": null' "$work/puzzles/cryptic-102.json")" "2"
+absent "$(grep '"solution"' "$work/puzzles/cryptic-102.json")" "T?S?R" \
   "the mask is gone rather than kept as an answer"
 absent "$(one cryptic-102)" "cryptic-102:" "clean on the second run"
 
@@ -334,7 +334,7 @@ check "$out" "cryptic-103" "the puzzle is reported"
 check "$out" "linked-clue group(s) reconciled" "and why"
 one cryptic-103 --apply >/dev/null
 same "every member now names the same three lights, in enumeration order" \
-  "$(groups puzzles/cryptic-103.js)" \
+  "$(groups puzzles/cryptic-103.json)" \
   '[["13-across", ["3-down", "13-across", "21-across"]], ["21-across", ["3-down", "13-across", "21-across"]], ["3-down", ["3-down", "13-across", "21-across"]]]'
 absent "$(one cryptic-103)" "cryptic-103:" "clean on the second run"
 
@@ -345,31 +345,31 @@ check "$out" "1 false cross-reference(s) dissolved: 5-across + 20-across" \
   "naming the two lights the paper linked"
 check "$out" "WARNING: 5-across + 20-across: every light carries a full" \
   "warned on stderr, with the reason"
-check "$(groups puzzles/cryptic-104.js)" '"5-across", ["5-across", "20-across"]' \
+check "$(groups puzzles/cryptic-104.json)" '"5-across", ["5-across", "20-across"]' \
   "a dry run wrote nothing"
 one cryptic-104 --apply >/dev/null
 same "both lights go back to being their own answers" \
-  "$(groups puzzles/cryptic-104.js)" '[["5-across", null], ["20-across", null]]'
+  "$(groups puzzles/cryptic-104.json)" '[["5-across", null], ["20-across", null]]'
 absent "$(one cryptic-104)" "cryptic-104:" "clean on the second run"
 
 echo "a real linked answer is left alone"
-before=$(cksum < "$work/puzzles/cryptic-105.js")
+before=$(cksum < "$work/puzzles/cryptic-105.json")
 out=$(one cryptic-105 --apply)
 absent "$out" "cryptic-105" "the whole count on the leading light is not a false link"
 same "byte-identical after a repair run" \
-  "$(cksum < "$work/puzzles/cryptic-105.js")" "$before"
-same "the group survives" "$(groups puzzles/cryptic-105.js)" \
+  "$(cksum < "$work/puzzles/cryptic-105.json")" "$before"
+same "the group survives" "$(groups puzzles/cryptic-105.json)" \
   '[["1-across", ["1-across", "5-across"]], ["5-across", ["1-across", "5-across"]]]'
 
 echo "Private Eye prints a count per light, so the rule is off for cyclops"
-before=$(cksum < "$work/puzzles/cyclops-401.js")
+before=$(cksum < "$work/puzzles/cyclops-401.json")
 out=$(one cyclops-401 --apply)
 absent "$out" "cyclops-401" "nothing is wrong with the paper's own file"
 absent "$out" "dissolved" "and none of its five per-light groups is dissolved"
 same "byte-identical after a repair run" \
-  "$(cksum < "$work/puzzles/cyclops-401.js")" "$before"
+  "$(cksum < "$work/puzzles/cyclops-401.json")" "$before"
 same "2-down (4-6) and 22-down (6) are still one answer" \
-  "$(groups puzzles/cyclops-401.js | python3 -c 'import json,sys; \
+  "$(groups puzzles/cyclops-401.json | python3 -c 'import json,sys; \
      print(json.dumps(dict(json.load(sys.stdin))["22-down"]))')" \
   '["2-down", "22-down"]'
 
@@ -382,17 +382,17 @@ check "$out" "WARNING: 19-down: counts its own light in full" \
   "warned on stderr, with the reason"
 one cryptic-106 --apply >/dev/null
 same "the quotation keeps its three lights and the stranger is free" \
-  "$(groups puzzles/cryptic-106.js)" \
+  "$(groups puzzles/cryptic-106.json)" \
   '[["22-down", ["22-down", "23-down", "12-across"]], ["23-down", ["22-down", "23-down", "12-across"]], ["12-across", ["22-down", "23-down", "12-across"]], ["19-down", null]]'
 absent "$(one cryptic-106)" "cryptic-106:" "clean on the second run"
 
 echo "a continuation that prints its own cell count is not a false link"
-before=$(cksum < "$work/puzzles/cryptic-107.js")
+before=$(cksum < "$work/puzzles/cryptic-107.json")
 out=$(one cryptic-107 --apply)
 absent "$out" "cryptic-107" "\"See 2 (6)\" counts the leg, not the answer"
 same "byte-identical after a repair run" \
-  "$(cksum < "$work/puzzles/cryptic-107.js")" "$before"
-same "IGNATIUS LOYOLA survives whole" "$(groups puzzles/cryptic-107.js)" \
+  "$(cksum < "$work/puzzles/cryptic-107.json")" "$before"
+same "IGNATIUS LOYOLA survives whole" "$(groups puzzles/cryptic-107.json)" \
   '[["2-down", ["2-down", "7-down"]], ["7-down", ["2-down", "7-down"]]]'
 
 echo "a group left with no clue in it is four answers, not one"
@@ -402,17 +402,17 @@ check "$out" "1 false cross-reference(s) dissolved: 13-across + 18-down + 16-dow
 check "$out" "WARNING: 13-across + 18-down + 16-down + 24-across: 13-across counts its own light in full and what is left carries no clue" \
   "warned on stderr, with the reason"
 one cryptic-108 --apply >/dev/null
-same "all four are their own answers again" "$(groups puzzles/cryptic-108.js)" \
+same "all four are their own answers again" "$(groups puzzles/cryptic-108.json)" \
   '[["13-across", null], ["18-down", null], ["16-down", null], ["24-across", null]]'
 absent "$(one cryptic-108)" "cryptic-108:" "clean on the second run"
 
 echo "a counted leg is still a leg when the paper's own counts do not add up"
-before=$(cksum < "$work/puzzles/cryptic-109.js")
+before=$(cksum < "$work/puzzles/cryptic-109.json")
 out=$(one cryptic-109 --apply)
 absent "$out" "cryptic-109" "\"See 4 (2,6,3)\" is not a light claiming to be an answer"
 same "byte-identical after a repair run" \
-  "$(cksum < "$work/puzzles/cryptic-109.js")" "$before"
-same "all three lights stay in the quotation" "$(groups puzzles/cryptic-109.js)" \
+  "$(cksum < "$work/puzzles/cryptic-109.json")" "$before"
+same "all three lights stay in the quotation" "$(groups puzzles/cryptic-109.json)" \
   '[["4-down", ["4-down", "19-down", "8-down"]], ["19-down", ["4-down", "19-down", "8-down"]], ["8-down", ["4-down", "19-down", "8-down"]]]'
 
 echo "a light the paper left out of the group is put back when the counts say so"
@@ -422,11 +422,11 @@ check "$out" "1 linked answer(s) reassembled: 9-across + 10-across" \
   "naming the light that was missing"
 check "$out" "WARNING: 9-across: its enumeration counts 10-across" \
   "warned on stderr, with the reason"
-same "a dry run wrote nothing" "$(groups puzzles/cryptic-110.js)" \
+same "a dry run wrote nothing" "$(groups puzzles/cryptic-110.json)" \
   '[["9-across", null], ["10-across", null], ["20-down", null]]'
 one cryptic-110 --apply >/dev/null
 same "TREAD THE BOARDS is one answer, and the light that counts itself is not in it" \
-  "$(groups puzzles/cryptic-110.js)" \
+  "$(groups puzzles/cryptic-110.json)" \
   '[["9-across", ["9-across", "10-across"]], ["10-across", ["9-across", "10-across"]], ["20-down", null]]'
 absent "$(one cryptic-110)" "cryptic-110:" "clean on the second run"
 
@@ -436,7 +436,7 @@ check "$out" "2 linked answer(s) reassembled: 13-across + 15-across, 17-across +
   "both answers, each taking the unclued light its own count fits"
 one cryptic-111 --apply >/dev/null
 same "RESERVE RATIOS and RETAIL THERAPY, not crossed over" \
-  "$(groups puzzles/cryptic-111.js)" \
+  "$(groups puzzles/cryptic-111.json)" \
   '[["13-across", ["13-across", "15-across"]], ["15-across", ["13-across", "15-across"]], ["17-across", ["17-across", "19-across"]], ["19-across", ["17-across", "19-across"]]]'
 absent "$(one cryptic-111)" "cryptic-111:" "clean on the second run"
 
@@ -447,35 +447,35 @@ check "$out" "2 linked answer(s) reassembled: 22-down + 23-down, 7-down + 8-down
 check "$out" "WARNING: 7-down: 2 sets of spare lights hold the letters it counts" \
   "warned on stderr, saying the choice was made and how"
 one cryptic-112 --apply >/dev/null
-same "MISTRUST and BACK DOWN, not crossed over" "$(groups puzzles/cryptic-112.js)" \
+same "MISTRUST and BACK DOWN, not crossed over" "$(groups puzzles/cryptic-112.json)" \
   '[["7-down", ["7-down", "8-down"]], ["22-down", ["22-down", "23-down"]], ["8-down", ["7-down", "8-down"]], ["23-down", ["22-down", "23-down"]]]'
 absent "$(one cryptic-112)" "cryptic-112:" "clean on the second run"
 
 echo "an unclued light numbered before the clue is not that clue's continuation"
-before=$(cksum < "$work/puzzles/cryptic-116.js")
+before=$(cksum < "$work/puzzles/cryptic-116.json")
 out=$(one cryptic-116 --apply)
 absent "$out" "cryptic-116" "nothing follows the count, so nothing is reassembled"
 same "byte-identical after a repair run" \
-  "$(cksum < "$work/puzzles/cryptic-116.js")" "$before"
-same "all three lights are left as published" "$(groups puzzles/cryptic-116.js)" \
+  "$(cksum < "$work/puzzles/cryptic-116.json")" "$before"
+same "all three lights are left as published" "$(groups puzzles/cryptic-116.json)" \
   '[["8-down", null], ["23-down", null], ["24-down", null]]'
 
 echo "two readings the clue list cannot separate mean the data does not say"
-before=$(cksum < "$work/puzzles/cryptic-117.js")
+before=$(cksum < "$work/puzzles/cryptic-117.json")
 out=$(one cryptic-117 --apply)
 absent "$out" "cryptic-117" "an ambiguous reconstruction is not a repair"
 same "byte-identical after a repair run" \
-  "$(cksum < "$work/puzzles/cryptic-117.js")" "$before"
-same "all three lights are left as published" "$(groups puzzles/cryptic-117.js)" \
+  "$(cksum < "$work/puzzles/cryptic-117.json")" "$before"
+same "all three lights are left as published" "$(groups puzzles/cryptic-117.json)" \
   '[["7-down", null], ["8-across", null], ["8-down", null]]'
 
 echo "a light already in somebody else's answer is not taken for this one"
-before=$(cksum < "$work/puzzles/cryptic-113.js")
+before=$(cksum < "$work/puzzles/cryptic-113.json")
 out=$(one cryptic-113 --apply)
 absent "$out" "cryptic-113" "the enumeration is left unsatisfied instead"
 same "byte-identical after a repair run" \
-  "$(cksum < "$work/puzzles/cryptic-113.js")" "$before"
-same "24-across stays where the paper put it" "$(groups puzzles/cryptic-113.js)" \
+  "$(cksum < "$work/puzzles/cryptic-113.json")" "$before"
+same "24-across stays where the paper put it" "$(groups puzzles/cryptic-113.json)" \
   '[["16-down", null], ["13-across", null], ["1-down", null], ["18-down", ["18-down", "24-across"]], ["24-across", ["18-down", "24-across"]]]'
 
 echo "a group naming a light the puzzle does not have is dropped, not shortened"
@@ -485,11 +485,11 @@ check "$out" "3 one-sided group(s) dropped" "all three lights that named 18-down
 check "$out" "WARNING: 17-across: 18-down is in no group with it" \
   "warned on stderr, naming the light that is not there"
 check "$out" "is an answer with a light missing — group dropped" "and why the whole group goes"
-same "a dry run wrote nothing" "$(groups puzzles/cryptic-114.js)" \
+same "a dry run wrote nothing" "$(groups puzzles/cryptic-114.json)" \
   '[["13-across", ["13-across", "18-down", "20-across"]], ["17-across", ["17-across", "18-down", "20-across"]], ["18-across", ["18-across", "20-across", "31-across"]], ["20-across", ["13-across", "18-down", "20-across"]], ["31-across", ["18-across", "20-across", "31-across"]]]'
 one cryptic-114 --apply >/dev/null
 same "no group names 18-down, and NEW WORLD ORDER is untouched behind a light that names three leaders" \
-  "$(groups puzzles/cryptic-114.js)" \
+  "$(groups puzzles/cryptic-114.json)" \
   '[["13-across", ["13-across", "20-across"]], ["17-across", null], ["18-across", ["18-across", "20-across", "31-across"]], ["20-across", ["13-across", "20-across"]], ["31-across", ["18-across", "20-across", "31-across"]]]'
 absent "$(one cryptic-114)" "cryptic-114:" "clean on the second run"
 
@@ -501,7 +501,7 @@ check "$out" "WARNING: 6-down: 20-across is in no group with it" \
   "warned on stderr, naming the light that stores another answer"
 one cryptic-115 --apply >/dev/null
 same "ASIA MINOR and DRUM MAJOR go, MAJOR AND MINOR stays whole" \
-  "$(groups puzzles/cryptic-115.js)" \
+  "$(groups puzzles/cryptic-115.json)" \
   '[["6-down", null], ["8-down", null], ["17-across", ["17-across", "19-across", "20-across"]], ["19-across", ["17-across", "19-across", "20-across"]], ["20-across", ["17-across", "19-across", "20-across"]]]'
 absent "$(one cryptic-115)" "cryptic-115:" "clean on the second run"
 
@@ -511,10 +511,10 @@ check "$out" "quiptic-203: dated 1934-01-18" "the stored date"
 check "$out" "mis-filed, re-fetch it" "what to do about it"
 check "$out" "1 mis-filed date(s)" "counted apart from the repairs"
 absent "$out" "quiptic-202" "a puzzle in line with its neighbours is not flagged"
-before=$(cksum < "$work/puzzles/quiptic-203.js")
+before=$(cksum < "$work/puzzles/quiptic-203.json")
 run --series quiptic --apply >/dev/null
 same "left exactly as it was, because the real date is not here to be had" \
-  "$(cksum < "$work/puzzles/quiptic-203.js")" "$before"
+  "$(cksum < "$work/puzzles/quiptic-203.json")" "$before"
 
 echo "the selection flags keep a run off everything else"
 out=$(run --series quiptic)

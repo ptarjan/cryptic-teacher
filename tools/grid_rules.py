@@ -17,13 +17,13 @@ The rules outlived the picture, which is why they live in their own module.
 
 Usage:  python3 tools/grid_rules.py [puzzle-number]   # check a real grid passes
 """
-import json
 import sys
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO / "tools"))
-from fetch_puzzle import resolve_puzzle  # noqa: E402 — id or bare number
+from fetch_puzzle import (  # noqa: E402 — one id resolver, one reader
+    read_puzzle_file, resolve_puzzle)
 DEFAULT_PUZZLE = "cryptic-30066"   # Tramp, 15x15, fully annotated
 # One light in accent blue, the way the app highlights the entry you're on.
 # A middle row rather than the top one: against the border, row 1 read as a
@@ -34,9 +34,7 @@ HIGHLIGHT = "14-across"
 
 
 def load(number):
-    text = resolve_puzzle(number).read_text(encoding="utf-8")
-    body = text.split("/*JSON-START*/", 1)[1].rsplit("/*JSON-END*/", 1)[0]
-    return json.loads(body)
+    return read_puzzle_file(resolve_puzzle(number))
 
 
 def mask(puz):

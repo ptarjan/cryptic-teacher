@@ -96,7 +96,7 @@ import fetch_puzzle as fetcher
 bad = []
 for n in (22809, 22845, 22929, 23053, 23269, 23370, 23466, 23598, 23646, 23669,
           23681, 23717, 23789, 23821, 23897, 23945, 24141, 24243, 24307, 24331):
-    p = fetcher.read_puzzle_file(Path("puzzles") / f"cryptic-{n}.js")
+    p = fetcher.read_puzzle_file(Path("puzzles") / f"cryptic-{n}.json")
     c = fetcher.clue_coverage(p)
     if c["present"] < c["total"]:
         bad.append(f"{p['id']} {c['present']}/{c['total']}")

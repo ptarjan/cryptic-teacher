@@ -166,7 +166,7 @@ else:
     print("part 3: the five known-good puzzles, filed unsolved, against puzzles/")
     sys.path.insert(0, "tools")
     from acquire_book import file_unsolved
-    MARKER = re.compile(r"/\*JSON-START\*/(.*)/\*JSON-END\*/", re.S)
+    import fetch_puzzle
     SKIP_ENTRY = {"solution", "annotation", "solutionConfidence"}
     with tempfile.TemporaryDirectory() as tmp:
         for bn in CONTROL["known_good_in_corpus"]:
@@ -179,9 +179,9 @@ else:
             if path is None:
                 fail(f"penguin5-{bn}: could not be filed — {problems[0]}")
                 continue
-            mine = json.loads(MARKER.search(path.read_text()).group(1))
-            corpus = json.loads(MARKER.search(
-                Path(f"puzzles/penguin5-{bn}.js").read_text()).group(1))
+            mine = fetch_puzzle.read_puzzle_file(path)
+            corpus = fetch_puzzle.read_puzzle_file(
+                Path(f"puzzles/penguin5-{bn}.json"))
             if any(e["solution"] is not None for e in mine["entries"]):
                 fail(f"penguin5-{bn}: filed with answers; --unsolved must file none")
             if "solutionSource" in mine:

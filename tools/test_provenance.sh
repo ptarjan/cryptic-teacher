@@ -154,7 +154,7 @@ import provenance as p
 # A real Cyclops: Private Eye ships the grid, fifteensquared supplies the
 # answers. Two different origins on one puzzle, which is the case a single
 # "source" field cannot express and the reason there are three fields.
-base = fetch_puzzle.read_puzzle_file(fetch_puzzle.PUZZLE_DIR / "cyclops-526.js")
+base = fetch_puzzle.read_puzzle_file(fetch_puzzle.PUZZLE_DIR / "cyclops-526.json")
 print("PRISTINE", len(p.check(base)))
 print("REALLY_WRITEUP", (base["provenance"]["solutionOrigin"] == "writeup"
                          and base["provenance"]["retrievedFrom"] == "publisher"))
@@ -201,7 +201,7 @@ f = flagged(lambda z: z["provenance"].update(publisher="Guardian"))
 print("WRONG_PUBLISHER", len(f) > 0)
 
 # A model fill relabelled as the publisher's, on a puzzle that says model.
-penguin = fetch_puzzle.read_puzzle_file(fetch_puzzle.PUZZLE_DIR / "penguin5-27.js")
+penguin = fetch_puzzle.read_puzzle_file(fetch_puzzle.PUZZLE_DIR / "penguin5-27.json")
 print("PENGUIN_PRISTINE", len(p.check(penguin)))
 lied = copy.deepcopy(penguin)
 lied["provenance"]["solutionOrigin"] = "published"

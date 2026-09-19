@@ -282,7 +282,7 @@ pending=$(python3 - "$ANNOTATE_MAX" "$annotate_blocked" <<'EOF'
 import json, sys
 idx = json.load(open("puzzles/index.json"))
 blocked = set(sys.argv[2].split())
-# IDs, not numbers: puzzles/<id>.js is what every step below names, so no
+# IDs, not numbers: puzzles/<id>.json is what every step below names, so no
 # consumer has to resolve a number two papers could share.
 todo = sorted(((p.get("date") or 0, p["id"]) for p in idx["puzzles"]
                if not p["annotated"] and p.get("hasSolutions")
@@ -622,7 +622,7 @@ if [ -n "$unsolved" ] && command -v claude >/dev/null 2>&1; then
     solve_sid=$(session_id) || solve_sid=""
     solve_sess=()
     [ -n "$solve_sid" ] && solve_sess=(--session-id "$solve_sid")
-    claude -p "Solve the cryptic crossword in puzzles/$num.js in this repo. Its answers have not been published, so there is no key: follow tools/solve_prompt.md exactly, write your fill to $fill, and iterate against 'python3 tools/apply_solution.py $num --fill $fill --check-only' until every crossing agrees. Do not write to puzzles/ — the calling script applies the fill." \
+    claude -p "Solve the cryptic crossword in puzzles/$num.json in this repo. Its answers have not been published, so there is no key: follow tools/solve_prompt.md exactly, write your fill to $fill, and iterate against 'python3 tools/apply_solution.py $num --fill $fill --check-only' until every crossing agrees. Do not write to puzzles/ — the calling script applies the fill." \
       "${solve_sess[@]}" \
       --model "$ANNOTATE_MODEL" \
       --allowedTools "Read,Write,Edit,Bash(python3 *),Bash(node *)" \
@@ -735,11 +735,11 @@ if [ -n "$pending" ]; then
       # ourselves) is annotated sighted as usual.
       ann_tools="Read,Write,Edit,Bash(python3 *),Bash(node *),WebSearch,WebFetch"
       ann_turns=80
-      ann_task="Annotate the cryptic crossword in puzzles/$num.js in this repo."
+      ann_task="Annotate the cryptic crossword in puzzles/$num.json in this repo."
       if [ -n "$ANNOTATE_BLIND" ] && python3 tools/blind_annotate.py hide "$num"; then
         ann_tools="Read,Write,Edit,Bash(python3 *),Bash(node *)"
         ann_turns=120
-        ann_task="Solve AND annotate the cryptic crossword in puzzles/$num.js in this repo. Its \"solution\" fields are deliberately empty: the answers are not published to you, so work each one out from the clue and the crossings, and write what you derive into that entry's \"solution\" field as you go. Do not look for the answers anywhere else in the repo, in git history, or on the web — a derived answer is the point. Where you cannot get an answer with confidence, leave its solution empty and its annotation null rather than guessing."
+        ann_task="Solve AND annotate the cryptic crossword in puzzles/$num.json in this repo. Its \"solution\" fields are deliberately empty: the answers are not published to you, so work each one out from the clue and the crossings, and write what you derive into that entry's \"solution\" field as you go. Do not look for the answers anywhere else in the repo, in git history, or on the web — a derived answer is the point. Where you cannot get an answer with confidence, leave its solution empty and its annotation null rather than guessing."
       fi
       # One session id per puzzle, fixed before the first attempt, because a run
       # that dies has already been paid for: it read the grid, worked out the
@@ -760,7 +760,7 @@ if [ -n "$pending" ]; then
       if session_exists "$ann_prior"; then
         ann_sid="$ann_prior"
         ann_sess=(--resume "$ann_sid")
-        ann_prompt="An earlier run of this task was cut off before it finished. Everything you did before that is intact in this conversation, but the files may have been rolled back since — read puzzles/$num.js to see how far you actually got, and carry on from there rather than starting again. Write in several smaller edits instead of one large one: an edit big enough to hit the output token limit will be cut off. Finish the task you were given and run 'python3 tools/annotate_check.py $num' until it reports clean. Do not commit."
+        ann_prompt="An earlier run of this task was cut off before it finished. Everything you did before that is intact in this conversation, but the files may have been rolled back since — read puzzles/$num.json to see how far you actually got, and carry on from there rather than starting again. Write in several smaller edits instead of one large one: an edit big enough to hit the output token limit will be cut off. Finish the task you were given and run 'python3 tools/annotate_check.py $num' until it reports clean. Do not commit."
         echo "  $num still has the session its last attempt died in — resuming that rather than buying it from scratch"
       else
         # Nothing died, but this grid may have been solved cold half an hour ago
@@ -774,7 +774,7 @@ if [ -n "$pending" ]; then
         if session_exists "$solve_prior"; then
           ann_sid="$solve_prior"
           ann_sess=(--resume "$ann_sid")
-          ann_prompt="You solved this crossword earlier in this conversation, and your fill has since been written into puzzles/$num.js. Read the file as it now stands rather than working from memory, then annotate it from the wordplay you used to derive each answer. $ann_prompt"
+          ann_prompt="You solved this crossword earlier in this conversation, and your fill has since been written into puzzles/$num.json. Read the file as it now stands rather than working from memory, then annotate it from the wordplay you used to derive each answer. $ann_prompt"
           echo "  $num was solved cold tonight — annotating in that same conversation rather than from a cold start"
         fi
       fi
@@ -832,7 +832,7 @@ if [ -n "$pending" ]; then
         session_exists "$ann_sid" || break
         ann_retried=1
         ann_sess=(--resume "$ann_sid")
-        ann_prompt="Your last turn was cut off for going past the output token limit, so whatever it was writing was never saved. Everything you did BEFORE that turn is intact — read puzzles/$num.js to see how far you actually got, and carry on from there rather than starting again. Write in several smaller edits instead of one large one: an edit big enough to hit that limit will be cut off again. Finish the task you were given and run 'python3 tools/annotate_check.py $num' until it reports clean. Do not commit."
+        ann_prompt="Your last turn was cut off for going past the output token limit, so whatever it was writing was never saved. Everything you did BEFORE that turn is intact — read puzzles/$num.json to see how far you actually got, and carry on from there rather than starting again. Write in several smaller edits instead of one large one: an edit big enough to hit that limit will be cut off again. Finish the task you were given and run 'python3 tools/annotate_check.py $num' until it reports clean. Do not commit."
         echo "  $num overran the output ceiling — resuming that same session, told to write in smaller edits, rather than paying for it twice"
       done
       if [ -n "$ann_ok" ]; then
@@ -1023,7 +1023,7 @@ done
 if [ -n "$ann_failed" ]; then
   echo "VALIDATION FAILED on$ann_failed — reverting those puzzle files"
   for num in $ann_failed; do
-    git checkout -- "puzzles/$num.js"
+    git checkout -- "puzzles/$num.json"
     # That puzzle is un-annotated again and back at the head of tomorrow's queue,
     # so the run just discarded gets bought again — and one that trips the
     # validator systematically would repeat that indefinitely. Charged to the

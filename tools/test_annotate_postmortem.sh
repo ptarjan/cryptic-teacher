@@ -21,7 +21,7 @@ mkdir -p "$work/projects/test"
 # A run the shape of independent-12459: one turn that read a file, then a turn
 # that spent the whole output ceiling on thinking and called nothing.
 {
-  printf '{"type":"assistant","timestamp":"2026-09-12T12:00:00Z","message":{"id":"m1","stop_reason":"tool_use","usage":{"output_tokens":900,"output_tokens_details":{"thinking_tokens":400}},"content":[{"type":"tool_use","name":"Read","input":{"file_path":"puzzles/independent-12459.js"}}]}}\n'
+  printf '{"type":"assistant","timestamp":"2026-09-12T12:00:00Z","message":{"id":"m1","stop_reason":"tool_use","usage":{"output_tokens":900,"output_tokens_details":{"thinking_tokens":400}},"content":[{"type":"tool_use","name":"Read","input":{"file_path":"puzzles/independent-12459.json"}}]}}\n'
   printf '{"type":"assistant","timestamp":"2026-09-12T13:21:00Z","message":{"id":"m2","stop_reason":"max_tokens","usage":{"output_tokens":128000,"output_tokens_details":{"thinking_tokens":127997}},"content":[{"type":"thinking","thinking":"","signature":"xx"}]}}\n'
 } > "$work/projects/test/$sid.jsonl"
 
@@ -31,7 +31,7 @@ check "$out" "independent-12459 — 2 turn(s) over 1h21m" "turns and wall clock"
 check "$out" "1 turn(s) hit the 128,000-token output ceiling" "the turn that bought nothing"
 check "$out" "128,000 tokens bought nothing" "what it cost"
 check "$out" "peak thinking in one turn: 127,997 tokens" "thinking read from usage, not from the block"
-check "$out" "last tool call: Read puzzles/independent-12459.js" "what it was doing"
+check "$out" "last tool call: Read puzzles/independent-12459.json" "what it was doing"
 check "$out" "$sid.jsonl" "where to go next"
 
 echo "a session that was never written does not turn one failure into two"

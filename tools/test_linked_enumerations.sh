@@ -6,7 +6,7 @@
 #
 # An answer spanning two lights is stored one way in this corpus: the whole
 # answer's enumeration on the leader, null on the continuation.
-# puzzles/penguin5-3.js is the settled example — 15-down "(9,5,4)" over
+# puzzles/penguin5-3.json is the settled example — 15-down "(9,5,4)" over
 # NEWCASTLE, 17-down "See 15" with no count over UNDERLYME.
 #
 # The solve scripts emit the opposite shape, a per-light count on each half,
@@ -27,7 +27,7 @@
 # without its space, so deriving over it would produce "(9,9)" — a record that
 # is already in leader form is left alone rather than re-derived.
 #
-# The corpus sweep globs puzzles/penguin*.js rather than walking all 15,000
+# The corpus sweep globs puzzles/penguin*.json rather than walking all 15,000
 # puzzles: the Guardian's own pre-2015 markup prints a leg's own count beside
 # its pointer ("See 2 (6)"), which fetch_puzzle.is_continuation and
 # puzzle_integrity.check_length exist to tolerate. That is the paper's shape in
@@ -46,6 +46,7 @@ import re
 import sys
 from pathlib import Path
 
+import fetch_puzzle
 import file_penguin_puzzle as filing
 
 from normalise_linked_enumerations import normalise_record, resolve_groups
@@ -283,9 +284,8 @@ except SystemExit as exc:
 print("every linked answer in the penguin series on disk still reads leader form")
 COUNT = re.compile(r"\((\d[\d,\-–/ ]*)\)\s*$")
 groups_seen = 0
-for path in sorted(Path("puzzles").glob("penguin*.js")):
-    text = path.read_text(encoding="utf-8")
-    puzzle = json.loads(text.split("/*JSON-START*/")[1].split("/*JSON-END*/")[0])
+for path in sorted(Path("puzzles").glob("penguin*.json")):
+    puzzle = fetch_puzzle.read_puzzle_file(path)
     entries = {e["id"]: e for e in puzzle["entries"]}
     for eid, entry in entries.items():
         group = entry.get("group") or []

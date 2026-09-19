@@ -118,7 +118,17 @@ tools/_*
 # impossible rather than merely invisible. README.md's "Run it" says so: a clone
 # runs that one command before opening the page.
 /puzzles/index.json
-/puzzles/index.js
+
+# Every puzzle's script shim, written by the same --reindex. A puzzle is
+# committed as puzzles/<id>.json, which is what every tool in tools/ reads and
+# writes; the .js beside it exists only because README.md promises the site
+# opens from file://, where fetch() is blocked and app.js has to inject a
+# <script> tag instead. It is build output: the same bytes this project used to
+# commit, regenerated from the .json in seconds, and CI uploads the whole tree
+# so the deploy carries them without anything having to remember.
+#
+# This covers /puzzles/index.js too — the manifest's own shim, same argument.
+/puzzles/*.js
 
 # The per-puzzle social cards, screenshotted by tools/make_og.sh. 24MB of PNGs
 # that no page reads from the repo: .github/workflows/pages.yml draws them on the

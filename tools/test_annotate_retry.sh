@@ -179,7 +179,7 @@ check "and opened no new conversation" "$(grep -c -- --session-id <<<"$argv")" "
 check "sent back to the file rather than left to remember the fill" \
   "$(grep -c 'Read the file as it now stands' <<<"$argv")" "1"
 check "and the file it names is the one the fill was written into" \
-  "$(grep -c 'puzzles/test-1\.js' <<<"$argv")" "1"
+  "$(grep -c 'puzzles/test-1\.json' <<<"$argv")" "1"
 check "with the annotation instructions still attached, not replaced" \
   "$(grep -c 'tools/annotate_prompt\.md' <<<"$argv")" "1"
 

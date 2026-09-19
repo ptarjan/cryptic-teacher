@@ -115,8 +115,8 @@ from apply_solution import (check_fill, check_geometry,  # noqa: E402
                             normalise)
 from fetch_puzzle import (ENUMERATION, PER_LIGHT_ENUMERATION,  # noqa: E402
                           PUZZLE_DIR, has_words, is_bare_letters,
-                          is_continuation, prints_own_count, read_puzzle_file,
-                          reindex)
+                          is_continuation, prints_own_count, puzzle_path,
+                          read_puzzle_file, reindex)
 from reconstruct_grid import grid_of, lights_from_grid, lights_of  # noqa: E402
 import provenance  # noqa: E402
 
@@ -1047,7 +1047,9 @@ def audit(rows, today):
     flags = []
     by_content = defaultdict(list)
     for row in rows:
-        puzzle = read_puzzle_file(PUZZLE_DIR / row["file"])
+        # From the id, not from row["file"]: that field names the generated
+        # .js shim the browser loads, and the puzzle itself is the .json.
+        puzzle = read_puzzle_file(puzzle_path(row["series"], row["number"]))
         by_content[content_hash(puzzle)].append(puzzle["id"])
         checkable = check_shape(puzzle, today, flags)
         check_provenance(puzzle, flags)
