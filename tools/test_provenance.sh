@@ -201,15 +201,15 @@ f = flagged(lambda z: z["provenance"].update(publisher="Guardian"))
 print("WRONG_PUBLISHER", len(f) > 0)
 
 # A model fill relabelled as the publisher's, on a puzzle that says model.
-penguin = fetch_puzzle.read_puzzle_file(fetch_puzzle.PUZZLE_DIR / "penguin-5027.json")
-print("PENGUIN_PRISTINE", len(p.check(penguin)))
-lied = copy.deepcopy(penguin)
+book = fetch_puzzle.read_puzzle_file(fetch_puzzle.PUZZLE_DIR / "book-3027.json")
+print("BOOK_PRISTINE", len(p.check(book)))
+lied = copy.deepcopy(book)
 lied["provenance"]["solutionOrigin"] = "published"
-print("PENGUIN_LIE", len(p.check(lied)) > 0)
+print("BOOK_LIE", len(p.check(lied)) > 0)
 # ...and its reconstructed geometry passed off as the printed diagram.
-lied = copy.deepcopy(penguin)
+lied = copy.deepcopy(book)
 lied["provenance"]["gridOrigin"] = "published"
-print("PENGUIN_GRID_LIE", len(p.check(lied)) > 0)
+print("BOOK_GRID_LIE", len(p.check(lied)) > 0)
 PY
 )
 same "the real cyclops passes" "$(field PRISTINE "$out4")" "0"
@@ -231,10 +231,10 @@ same "a capture URL on a publisher fetch is refused" \
   "$(field STRAY_CAPTURE_URL "$out4")" "True"
 same "a publisher contradicting the id's series is refused" \
   "$(field WRONG_PUBLISHER "$out4")" "True"
-same "the real penguin book puzzle passes" "$(field PENGUIN_PRISTINE "$out4")" "0"
-same "its model fill cannot be relabelled published" "$(field PENGUIN_LIE "$out4")" "True"
+same "the real book puzzle passes" "$(field BOOK_PRISTINE "$out4")" "0"
+same "its model fill cannot be relabelled published" "$(field BOOK_LIE "$out4")" "True"
 same "nor its reconstruction relabelled a printed diagram" \
-  "$(field PENGUIN_GRID_LIE "$out4")" "True"
+  "$(field BOOK_GRID_LIE "$out4")" "True"
 
 echo "the backfill is idempotent: a second run over a written corpus changes nothing"
 out5=$(python3 tools/backfill_provenance.py --dry-run --report 2>&1)

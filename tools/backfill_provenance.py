@@ -215,9 +215,10 @@ def machine_solved_ever():
     # different ways, and they are resolved in two different ways.
     #
     # A RENAME IS KNOWN, so it is looked up and never guessed at: the scanned
-    # books were one series per volume until 2026-09-19, and penguin5-18 is
-    # penguin-5018. series.legacy_id() says so for every puzzle on disk. Left to
-    # the by-number fallback below, penguin5-18 would resolve by its "18" to
+    # books were one series per volume, then one per book, and are one series
+    # for the whole shelf, so penguin5-18 and penguin-5018 are both book-3018.
+    # series.legacy_ids() says so for every puzzle on disk. Left to the
+    # by-number fallback below, penguin5-18 would resolve by its "18" to
     # quiptic-18 — filing one puzzle's cold-solve history on another paper's
     # crossword, which is precisely the collision namespacing exists to prevent.
     #
@@ -227,8 +228,7 @@ def machine_solved_ever():
     for path in puzzle_files():
         live.add(path.stem)
         by_number.setdefault(path.stem.rsplit("-", 1)[-1], []).append(path.stem)
-        was = series_table.legacy_id(*series_table.parse_id(path.stem))
-        if was:
+        for was in series_table.legacy_ids(*series_table.parse_id(path.stem)):
             renamed[was] = path.stem
 
     resolved, unresolved = set(), []

@@ -6,7 +6,7 @@
 #
 # An answer spanning two lights is stored one way in this corpus: the whole
 # answer's enumeration on the leader, null on the continuation.
-# puzzles/penguin-5003.json is the settled example — 15-down "(9,5,4)" over
+# puzzles/book-3003.json is the settled example — 15-down "(9,5,4)" over
 # NEWCASTLE, 17-down "See 15" with no count over UNDERLYME.
 #
 # The solve scripts emit the opposite shape, a per-light count on each half,
@@ -27,11 +27,11 @@
 # without its space, so deriving over it would produce "(9,9)" — a record that
 # is already in leader form is left alone rather than re-derived.
 #
-# The corpus sweep globs puzzles/penguin*.json rather than walking all 15,000
+# The corpus sweep globs puzzles/book-*.json rather than walking all 15,000
 # puzzles: the Guardian's own pre-2015 markup prints a leg's own count beside
 # its pointer ("See 2 (6)"), which fetch_puzzle.is_continuation and
 # puzzle_integrity.check_length exist to tolerate. That is the paper's shape in
-# the fetched series and is not this convention. The penguin series is written
+# the fetched series and is not this convention. The book series is written
 # by us, from a solve record, so it is held to one shape exactly. The sweep also
 # asserts it found groups at all, so a glob that stops matching fails instead of
 # passing over nothing.
@@ -109,7 +109,7 @@ SPLIT = record(
      light("8-down", 8, "down", 4, "See 7", "4")],
     {"7-down": "TEAM", "8-down": "MATE"})
 
-# penguin-5003's shape, already right: the whole count on the leader, none on the
+# book-3003's shape, already right: the whole count on the leader, none on the
 # continuation, and the continuation's fill stored without the space that its
 # two words would need — which is exactly what re-deriving would get wrong.
 LEADER = record(
@@ -188,7 +188,7 @@ refuses("a loop of pointers, which has no leader",
         ["leads back to itself", "no leader"])
 
 print("the split shape cannot be FILED, not merely rejected")
-puzzle = filing.build(copy.deepcopy(SPLIT), 5, "opus")
+puzzle = filing.build(copy.deepcopy(SPLIT), "newpenguinbkguar0000perk", "opus")
 built = {e["id"]: e for e in puzzle["entries"]}
 same("the leader's clue prints the whole answer's count",
      built["7-down"]["clue"].endswith("(4,4)"), True)
@@ -245,7 +245,7 @@ same("a puzzle with a countless continuation can be filed unsolved",
      filing.build(unsolved_record(
          [light("7-down", 7, "down", 5, "That's the Berliner's way!", "5"),
           light("17-down", 17, "down", 9, "See 7", None)]),
-         5, "opus", unsolved=True)["entries"][0]["clue"].endswith("(5,9)"), True)
+         "newpenguinbkguar0000perk", "opus", unsolved=True)["entries"][0]["clue"].endswith("(5,9)"), True)
 
 print("with no answer to fall back on it refuses rather than inventing a count")
 refuses("a printed count that does not fit its own light",
@@ -254,7 +254,7 @@ refuses("a printed count that does not fit its own light",
         ["8-down", "the book counts (3)", "the light is 4 cells"])
 
 print("an unsolved puzzle files with the same counts and no answers")
-puzzle = filing.build(copy.deepcopy(SPLIT_UNSOLVED), 7, "opus", unsolved=True)
+puzzle = filing.build(copy.deepcopy(SPLIT_UNSOLVED), "isbn_9780140248098", "opus", unsolved=True)
 built = {e["id"]: e for e in puzzle["entries"]}
 same("the leader's clue prints the whole answer's count",
      built["7-down"]["clue"].endswith("(4,4)"), True)
@@ -273,7 +273,7 @@ short = record([light("7-down", 7, "down", 4, "Fellow player makes anagrams", "4
                 light("8-down", 8, "down", 4, "See 7", "4")],
                {"7-down": "TEAM"})
 try:
-    filing.build(short, 7, "opus")
+    filing.build(short, "isbn_9780140248098", "opus")
     fails.append("a solved filing still refuses a missing answer")
     print("  FAIL: a solved filing still refuses a missing answer\n"
           "    it filed a puzzle with no answer for 8-down")
@@ -281,10 +281,10 @@ except SystemExit as exc:
     same("a missing answer is still fatal without --unsolved",
          "no answer for 8-down" in str(exc), True)
 
-print("every linked answer in the penguin series on disk still reads leader form")
+print("every linked answer in the book series on disk still reads leader form")
 COUNT = re.compile(r"\((\d[\d,\-–/ ]*)\)\s*$")
 groups_seen = 0
-for path in sorted(Path("puzzles").glob("penguin*.json")):
+for path in sorted(Path("puzzles").glob("book-*.json")):
     puzzle = fetch_puzzle.read_puzzle_file(path)
     entries = {e["id"]: e for e in puzzle["entries"]}
     for eid, entry in entries.items():

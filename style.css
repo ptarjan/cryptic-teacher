@@ -43,49 +43,17 @@
   --paper-globeandmail-fg: #6a5817;
   --paper-metro-bg: #e0e2e6;
   --paper-metro-fg: #444a55;
-  /* The Herald's shelf, in plum. It was the last free hue when it arrived, and
-     that is the point at which picking "whatever no one claims" stopped
-     scaling — see the rule under penguin below, which is what the shelves
-     added after it are grouped by. */
-  --paper-herald-bg: #f2dde8;
-  --paper-herald-fg: #7a3358;
-  /* One colour for the whole Penguin shelf, and one chip: the volumes are one
-     series now, and which volume a row is is in the number it prints
-     ("Penguin book 5 No 18"), so five browns a reader cannot tell apart would
-     carry no information the number does not. A series with no rule below falls
-     back to the Guardian's purple, so every series still needs one. */
-  --paper-penguin-bg: #e3ded4;
-  --paper-penguin-fg: #5c4a33;
-  /* ONE COLOUR PER PAPER FROM HERE DOWN, not one per series. Eighteen series
-     is more distinguishable muted tints than exist, and the Telegraph alone
-     prints six book lines — its numbered Pan books, the two omnibuses, two
-     Octopus lines and the Toughie. They are one paper, and the chip's job is
-     which paper this is; WHICH SHELF is the label's job, and each of those six
-     says so ("telegraph book", "telegraph big book", "toughie"). Splitting
-     them six ways would have spent six hues to repeat what the words already
-     say, and left nothing for the next paper.
-     A paper in books gets its own hue rather than its feed's, the way penguin
-     does against the Guardian's mauve: the Independent's books are the lighter
-     olive below, not the feed's. */
-  --paper-telegraph-bg: #dcdcf2;   /* telegraph, telbig, brainsharp, */
-  --paper-telegraph-fg: #3b3a7d;   /* telallnew, telcryptic, toughie  */
-  /* The Sunday paper is the daily's hue a step lighter — the same masthead
-     family, a different paper, which is exactly what it is. */
-  --paper-sundaytel-bg: #e8e6f8;
-  --paper-sundaytel-fg: #565095;
-  --paper-times-bg: #e8ddb6;       /* times, timesbooks, penguintimes */
-  --paper-times-fg: #4e4010;
-  --paper-indybook-bg: #eaefdb;    /* the Independent in books */
-  --paper-indybook-fg: #56703a;
-  /* Salmon, because that is the colour the Financial Times is printed on. */
-  --paper-ft-bg: #f9ddd1;
-  --paper-ft-fg: #97432a;
-  --paper-scotsman-bg: #cfdae3;
-  --paper-scotsman-fg: #244658;
-  --paper-chambers-bg: #d9e8db;    /* araucaria, morse */
-  --paper-chambers-fg: #2e5c3c;
-  --paper-dailymail-bg: #d2e9ee;
-  --paper-dailymail-fg: #1c5566;
+  /* ONE COLOUR FOR THE WHOLE SHELF, because the shelf is one series. Thirty
+     books from a dozen papers were thirty chips a reader cannot tell apart,
+     which is a legend of publishers' imprints and not a way to choose a
+     crossword. Which book a row is, is in the number printed beside it
+     ("Penguin book 5 No 18"), and that says everything a tint was trying to.
+     Bookish brown against the feeds' colours, because that is the distinction
+     left worth drawing: these are out-of-print reprints and they read as one
+     kind of thing. A series with no rule here falls back to the Guardian's
+     purple, so every series still needs one. */
+  --paper-book-bg: #e3ded4;
+  --paper-book-fg: #5c4a33;
   /* One motion language for the hint panel. Everything in there is an entrance —
      a mark arriving on the clue, a verdict arriving under it, the graded clue
      travelling up to the rung it judged — and an entrance is one duration and
@@ -162,26 +130,8 @@
     --paper-globeandmail-fg: #dac479;
     --paper-metro-bg: #2e3238;
     --paper-metro-fg: #b8c0cc;
-    --paper-herald-bg: #43263a;
-    --paper-herald-fg: #e8aecd;
-    --paper-penguin-bg: #3a3229;
-    --paper-penguin-fg: #cbb79a;
-    --paper-telegraph-bg: #2b2a49;
-    --paper-telegraph-fg: #c0bfe9;
-    --paper-sundaytel-bg: #34314f;
-    --paper-sundaytel-fg: #cfcaf0;
-    --paper-times-bg: #3b3212;
-    --paper-times-fg: #d9c887;
-    --paper-indybook-bg: #373f26;
-    --paper-indybook-fg: #cddda9;
-    --paper-ft-bg: #4c2b20;
-    --paper-ft-fg: #efb499;
-    --paper-scotsman-bg: #23333d;
-    --paper-scotsman-fg: #a8c6d8;
-    --paper-chambers-bg: #22392a;
-    --paper-chambers-fg: #a7d3b2;
-    --paper-dailymail-bg: #1c383f;
-    --paper-dailymail-fg: #9ecfdb;
+    --paper-book-bg: #3a3229;
+    --paper-book-fg: #cbb79a;
     /* Brighter than their light-mode twins, not darker: a spark is a light
        source, and on the dark card (#21252b) these land around 7:1. Dark mode
        is the case that has to work — it is what the reports come from. */
@@ -361,24 +311,7 @@ button:disabled:hover { border-color: var(--line); }
 .badge.series-cyclops      { background: var(--paper-cyclops-bg);      color: var(--paper-cyclops-fg); }
 .badge.series-globeandmail { background: var(--paper-globeandmail-bg); color: var(--paper-globeandmail-fg); }
 .badge.series-metro        { background: var(--paper-metro-bg);        color: var(--paper-metro-fg); }
-.badge.series-penguin      { background: var(--paper-penguin-bg);      color: var(--paper-penguin-fg); }
-.badge.series-herald       { background: var(--paper-herald-bg);       color: var(--paper-herald-fg); }
-.badge.series-scotsman     { background: var(--paper-scotsman-bg);     color: var(--paper-scotsman-fg); }
-.badge.series-araucaria    { background: var(--paper-chambers-bg);     color: var(--paper-chambers-fg); }
-.badge.series-morse        { background: var(--paper-chambers-bg);     color: var(--paper-chambers-fg); }
-.badge.series-times        { background: var(--paper-times-bg);        color: var(--paper-times-fg); }
-.badge.series-timesbooks   { background: var(--paper-times-bg);        color: var(--paper-times-fg); }
-.badge.series-penguintimes { background: var(--paper-times-bg);        color: var(--paper-times-fg); }
-.badge.series-penguinindy  { background: var(--paper-indybook-bg);     color: var(--paper-indybook-fg); }
-.badge.series-penguinft    { background: var(--paper-ft-bg);           color: var(--paper-ft-fg); }
-.badge.series-telegraph    { background: var(--paper-telegraph-bg);    color: var(--paper-telegraph-fg); }
-.badge.series-telbig       { background: var(--paper-telegraph-bg);    color: var(--paper-telegraph-fg); }
-.badge.series-brainsharp   { background: var(--paper-telegraph-bg);    color: var(--paper-telegraph-fg); }
-.badge.series-telallnew    { background: var(--paper-telegraph-bg);    color: var(--paper-telegraph-fg); }
-.badge.series-telcryptic   { background: var(--paper-telegraph-bg);    color: var(--paper-telegraph-fg); }
-.badge.series-toughie      { background: var(--paper-telegraph-bg);    color: var(--paper-telegraph-fg); }
-.badge.series-sundaytel    { background: var(--paper-sundaytel-bg);    color: var(--paper-sundaytel-fg); }
-.badge.series-dailymail    { background: var(--paper-dailymail-bg);    color: var(--paper-dailymail-fg); }
+.badge.series-book         { background: var(--paper-book-bg);         color: var(--paper-book-fg); }
 
 /* The anagram ring: fodder laid out with no first letter and no last one, so
    there is no reading order for the eye to fall back into. Absolute placement
