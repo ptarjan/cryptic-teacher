@@ -88,6 +88,18 @@ tools/file_penguin_puzzle.py                 turns one solved Penguin-book puzzl
                                              file: the book's own number, no date because no
                                              volume prints one, and answers marked as a model's
                                              with no official key ever coming
+tools/normalise_linked_enumerations.py       puts a solve record’s linked answers into the
+                                             shape the corpus stores them in — the whole
+                                             answer’s count on the leader, none on the
+                                             continuation — reading the words off the answer
+                                             rather than off the per-light numbers, and
+                                             refusing when a “See N” names two lights it cannot
+                                             choose between
+tools/test_linked_enumerations.sh            proves a per-light solve record is converted
+                                             rather than filed, that a record already in leader
+                                             form is never re-derived, and that every linked
+                                             answer in the penguin series on disk still carries
+                                             its count on the leader alone
 tools/test_blank_clue_carry.sh               proves a re-fetch cannot empty a puzzle whose
                                              clues were recovered by hand off the Guardian’s
                                              old site, that the paper still wins wherever it

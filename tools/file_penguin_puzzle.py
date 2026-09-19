@@ -48,6 +48,13 @@ the wordplay were known. Told "CONFIDENT", an annotator invents authoritative
 wordplay for exactly those clues, which is the worst thing this route could
 produce — a teaching site confidently teaching a parse nobody verified.
 
+A LINKED ANSWER'S COUNT LIVES ON ITS LEADER, and the continuation prints none
+— puzzles/penguin5-3.js's 15-down "(9,5,4)" over NEWCASTLE and 17-down "See 15"
+over UNDERLYME. The solve scripts emit the other shape, a per-light count on
+each half, so this converts it on the way in rather than refusing it: see
+tools/normalise_linked_enumerations.py, which derives the count from the
+answer's own words and refuses loudly when the group cannot be resolved.
+
 The input record is what the solve wrote: `puzzle` (grid geometry and clue text
 from the reconstructor), `fill` (id -> answer), `entries` (id -> answer,
 confidence, parse) and `setter`. This writes the file and checks nothing; run
@@ -66,66 +73,19 @@ from pathlib import Path
 TOOLS = Path(__file__).resolve().parent
 sys.path.insert(0, str(TOOLS))
 from fetch_puzzle import PUZZLE_DIR, write_puzzle_file  # noqa: E402
+# One rule for linked answers, spelled once. That module owns both halves of it:
+# which lights a "See N" ties together, and what the group's enumeration is.
+from normalise_linked_enumerations import (enumeration_parts,  # noqa: E402
+                                           normalise_record, resolve_groups)
 from series import puzzle_id  # noqa: E402
 
 # The scan these were read out of. A real, resolvable source for a book that has
 # no URL of its own; the volume is in the series key, not here.
 SOURCE_URL = "https://archive.org/details/newpenguinbkguar0000perk"
 
-# "See 15", "See 11" — a light whose clue lives on another light. The corpus
-# spells continuations this way already (cryptic-30004's 5-down is "See 2"), and
-# puzzle_integrity.is_continuation reads the same shape.
-CONTINUATION = re.compile(r"^\s*See\s+(\d+)\b", re.IGNORECASE)
-
-# "7,6" / "4-5" / "9,5,4": each count and the punctuation that follows it. The
-# separator after the last count is the end of the answer and is never written.
-ENUM_PART = re.compile(r"(\d+)\s*([,\-–/ ]?)")
-
 
 def normalise(answer):
     return re.sub(r"[^A-Z]", "", str(answer).upper())
-
-
-def enumeration_parts(enumeration):
-    """"9,5,4" -> [(9, ","), (5, ","), (4, "")]."""
-    parts = []
-    for count, sep in ENUM_PART.findall(enumeration):
-        parts.append((int(count), "-" if sep in "-–" else ("," if sep else "")))
-    if not parts:
-        raise SystemExit(f"enumeration {enumeration!r} holds no counts")
-    parts[-1] = (parts[-1][0], "")
-    return parts
-
-
-def build_groups(entries):
-    """Link each "See N" continuation to the light that carries its clue.
-
-    Returns {entry id: [ids in reading order]} for the linked ones only. The
-    reference is by NUMBER — the book prints "See 15", not "See 15 down" — so a
-    number that names two lights is resolved by taking the one that has an
-    enumeration to share, and an ambiguity that survives that is an error rather
-    than a guess: picking wrong would staple one answer's count onto another
-    answer's grid.
-    """
-    by_number = {}
-    for e in entries:
-        by_number.setdefault(e["number"], []).append(e)
-    groups = {}
-    for e in entries:
-        m = CONTINUATION.match(e.get("clue") or "")
-        if not m:
-            continue
-        target = int(m.group(1))
-        leaders = [c for c in by_number.get(target, []) if c.get("enumeration")]
-        if len(leaders) != 1:
-            raise SystemExit(
-                f"{e['id']}: clue {e['clue']!r} points at No {target}, which names "
-                f"{len(leaders)} enumerated light(s) — cannot link it")
-        leader = leaders[0]
-        groups.setdefault(leader["id"], [leader["id"]])
-        groups[leader["id"]].append(e["id"])
-        groups[e["id"]] = groups[leader["id"]]
-    return groups
 
 
 def separators(group_ids, by_id, enumeration, fill):
@@ -177,7 +137,15 @@ def build(record, volume, model):
     missing = [e["id"] for e in entries if e["id"] not in fill]
     if missing:
         raise SystemExit(f"{pid}: no answer for {', '.join(missing)}")
-    groups = build_groups(entries)
+    # A LINKED ANSWER IS STORED ON ITS LEADER. The solve scripts emit a count on
+    # each half, because a light is what they measured; this writes the whole
+    # answer's count on the leader and none on the continuation. Converting here
+    # rather than refusing here is what makes the split shape unfilable instead
+    # of merely rejected — see tools/normalise_linked_enumerations.py for how
+    # the count is read out of the answer. On the copies, so the record on disk
+    # is left exactly as the solve wrote it.
+    normalise_record({"puzzle": {"entries": entries}, "fill": fill})
+    groups = resolve_groups(entries)
 
     seps = {}
     for e in entries:
