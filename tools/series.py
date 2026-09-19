@@ -142,6 +142,14 @@ for _volume, _identifier in PENGUIN_VOLUMES.items():
         "publisher": "Guardian",
         "badge": f"penguin {_volume}",
         "scan": _identifier,
+        # The two facts that make this a BOOK rather than a feed, and the two
+        # that every tool downstream needed and had nowhere to read: what the
+        # book is called, and what one of its puzzles is called. They were a
+        # BOOK_TITLE constant in provenance.py and an f-string in
+        # file_penguin_puzzle.py, which is one book's worth of right.
+        "bookTitle": f"The New Penguin Book of The Guardian Crosswords, "
+                     f"volume {_volume}",
+        "name": f"Guardian cryptic crossword, Penguin book {_volume} No {{number}}",
         # NOTHING WILL EVER GRADE THESE. Penguin prints its solutions as
         # answer-grid IMAGES that OCR to noise, and there is no Guardian number
         # or date to find a key by. It is a fact about the book, so it is stated
@@ -154,6 +162,35 @@ for _volume, _identifier in PENGUIN_VOLUMES.items():
         # nothing can keep.
         "officialKey": "never",
     }
+
+# The Herald Crossword Book, Volume 2 (Black & White Publishing, 2005): the
+# Glasgow Herald's own cryptics by seven named setters, scanned and OCR'd, grids
+# reconstructed from the clue lists exactly as the Penguin volumes were. Not a
+# Penguin volume, and the first book here that is not — which is why the fields
+# above are fields rather than a pattern matched off the key. "penguin(N)" could
+# never have matched this, and volume number alone cannot name a book once two
+# publishers both print a volume 2.
+#
+# A series of its own for the same reason every Penguin volume is: the book
+# numbers its puzzles from 1.
+#
+# kind carries "Book 2" rather than the publisher, because the crawlable page
+# prints "{publisher} {kind} No {number}" — "Herald Book 2 Cryptic No 3" reads,
+# "Herald Herald Book 2 Cryptic No 3" does not.
+SERIES["herald2"] = {
+    "kind": "Book 2 Cryptic",
+    "publisher": "Herald",
+    "badge": "herald 2",
+    "scan": "heraldcrosswordb0000unse",
+    "bookTitle": "The Herald Crossword Book, volume 2",
+    "name": "Herald cryptic crossword, book 2 No {number}",
+    # Same permanent fact as the Penguin volumes, reached differently: this book
+    # DOES print its answers, as text at the back rather than as the answer-grid
+    # images Penguin prints. But it prints them in a 2005 collection, nowhere a
+    # publisher will ever serve, and no puzzle in it carries a Herald number or
+    # a date to look one up by. No official key is coming.
+    "officialKey": "never",
+}
 
 # Unlisted falls back to the Guardian cryptic, which is right both for the daily
 # and for the Saturday prize that shares its number sequence and is recorded
@@ -220,6 +257,33 @@ def scan_url(series):
     """
     identifier = scan_identifier(series)
     return f"https://archive.org/details/{identifier}" if identifier else None
+
+
+def book_title(series):
+    """The printed book this series was scanned out of, or None for a feed.
+
+    Its presence is what makes a series BOOK-SOURCED, and that is asked of this
+    table rather than pattern-matched off the key: "penguin(N)" answered the
+    question correctly only while every book was a Penguin volume, and it would
+    have answered "no" for The Herald in three separate places — no book block
+    on the puzzle, a grid recorded as the publisher's when it was reconstructed
+    here, and an acquisition the provenance table had no row for.
+    """
+    return meta(series).get("bookTitle")
+
+
+def puzzle_name(series, number):
+    """The title on a book puzzle: the paper, the book, and the book's number.
+
+    Templated beside the book it names, so acquiring one is an entry in this
+    file rather than an entry here plus an f-string in the filing tool.
+    """
+    template = meta(series).get("name")
+    if not template:
+        raise KeyError(f"series {series!r} has no puzzle-name template; it is "
+                       f"not a book series, and its puzzles are named by "
+                       f"whatever feed fetched them")
+    return template.format(number=number)
 
 
 # ---------- ids ----------

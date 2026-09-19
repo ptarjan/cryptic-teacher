@@ -65,6 +65,45 @@ import re
 
 SEE_RE = re.compile(r"^see\s+(\d+)\s*\.?$", re.IGNORECASE)
 LEADING_NUM_RE = re.compile(r"^(\d{1,2})\b")
+# THE PRINTED CLUE NUMBER IS NOT PART OF THE CLUE. The book prints "23" and
+# then the clue; the scan sometimes puts a rule fragment, a leader dot or a
+# stray dash between the two ("23 = The little devil...", "11 —Runcinate...",
+# "| Took advantage..."), and the number then fails whatever pattern the
+# segmenter strips a clean "23 " with, so it rides into the clue text and out
+# the far end onto the page a solver reads. Measured on The Herald Crossword
+# Book 2, where the numbers survived the scan: 125 of 1,276 clues, 9.8%.
+#
+# Two things keep this from eating a clue that really does start with a digit.
+# The number must be followed by whitespace or by one of those separator
+# glyphs, so "20th century" is untouched; and the digits must be the number
+# this slot already has, so a number that is part of the clue has nothing to
+# match. A bare glyph with no digits is stripped on its own — no clue starts
+# with a pipe, and a pipe is what this scan makes of a 1.
+GLYPHS = r"|!\[\]l—–‐~=_.,:;«»*•·+<>/\\-"
+LEADING_LABEL_RE = re.compile(
+    rf"^[\s{GLYPHS}]*"
+    rf"(?:(?P<num>\d{{1,2}})(?=[\s{GLYPHS}])|(?P<pipe>[|!\[\]]))?"
+    rf"[\s{GLYPHS}]*(?=[A-Za-z(“‘\"'])")
+
+
+def _strip_label(clue, number):
+    """The clue as the book set it, with the printed number and the scan's
+    leftovers in front of it taken off. Returns the clue unchanged unless the
+    leading digits ARE this light's number."""
+    m = LEADING_LABEL_RE.match(clue)
+    if not m or not m.end():
+        return clue
+    if m.group("num") is not None and (number is None or int(m.group("num")) != number):
+        return clue
+    end = m.end()
+    # An ellipsis in front of a clue is the book's own punctuation — it is how
+    # the second half of a clue split over two lights is printed ("...he was
+    # officially secretary to Mary") — so the separator run stops before one
+    # rather than swallowing it.
+    dots = re.search(r"\.{2,}\s*$", clue[:end])
+    if dots:
+        end = dots.start()
+    return clue[end:]
 NUM_RE = re.compile(r"\d+")
 # "<clue text> (8) <junk> 19 <next clue text>"
 SWALLOW_RE = re.compile(
@@ -204,7 +243,8 @@ def _parse_direction(entries, notes, direction, damage):
             number = None
         tok = _tokens(enum)
         length = sum(tok) or None
-        lights.append([number, length, "plain", {"clue": clue, "enumeration": enum}])
+        lights.append([number, length, "plain",
+                       {"clue": _strip_label(clue, number), "enumeration": enum}])
         if number is not None:
             last = number
     return lights, pending

@@ -1,8 +1,15 @@
 #!/usr/bin/env python3
-"""File one Penguin-book Guardian reprint into puzzles/ from a solve record.
+"""File one scanned-book puzzle into puzzles/ from a solve record.
 
     python3 tools/file_penguin_puzzle.py /tmp/penguin_solve_book3.json --volume 5
     python3 tools/file_penguin_puzzle.py /tmp/penguin_input_vol7_5.json --volume 7 --unsolved
+    python3 tools/file_penguin_puzzle.py /tmp/herald_2_7.json --series herald2 --unsolved
+
+Named for the Penguin volumes it was written for, and it files any book that
+comes down the same route — "The New Penguin Book of The Guardian Crosswords"
+and "The Herald Crossword Book" alike. Which book it is, is one entry in
+tools/series.py: the key, the title, the puzzle-name template and the scan it
+was read out of. --volume is the Penguin shorthand for --series penguin<N>.
 
 These puzzles come from "The New Penguin Book of The Guardian Crosswords",
 scanned and OCR'd (tools/fetch_ia_book.py), parsed into clue lists
@@ -103,23 +110,24 @@ from fetch_puzzle import PUZZLE_DIR, write_puzzle_file  # noqa: E402
 # which lights a "See N" ties together, and what the group's enumeration is.
 from normalise_linked_enumerations import (enumeration_parts,  # noqa: E402
                                            normalise_record, resolve_groups)
-from series import default_setter, official_key, puzzle_id, scan_url  # noqa: E402
+from series import (default_setter, official_key,  # noqa: E402
+                    puzzle_id, puzzle_name, scan_url)
 import provenance  # noqa: E402
 
-def source_url(volume):
+def source_url(series):
     """The archive.org item these clues were read out of.
 
-    The volume decides it, through series.PENGUIN_VOLUMES, and no caller may
-    pass one in. sourceUrl and provenance.book.identifier both come from that
-    one table, so the two cannot name different books; a free identifier beside
-    a free --volume is precisely how they came to.
+    The series decides it, through tools/series.py, and no caller may pass one
+    in. sourceUrl and provenance.book.identifier both come from that one table,
+    so the two cannot name different books; a free identifier beside a free
+    --volume is precisely how they came to.
     """
-    url = scan_url(f"penguin{volume}")
+    url = scan_url(series)
     if not url:
         raise SystemExit(
-            f"volume {volume} has no archive.org identifier in "
-            f"series.PENGUIN_VOLUMES — look its scan up and add it there. "
-            f"Filing it without one makes the puzzle cite another book.")
+            f"{series} has no archive.org identifier in tools/series.py — look "
+            f"its scan up and add it there. Filing it without one makes the "
+            f"puzzle cite another book.")
     return url
 
 
@@ -197,10 +205,16 @@ def coarse_continuations(record):
     return coarse
 
 
-def build(record, volume, model, unsolved=False):
+def build(record, volume, model, unsolved=False, series=None):
     src = record["puzzle"]
     number = record["book_number"]
-    series = f"penguin{volume}"
+    # `series` names the book outright; `volume` is the Penguin shorthand for
+    # it, kept because that is what the Penguin recipes and acquire_book pass.
+    if not series:
+        if volume is None:
+            raise SystemExit("build needs either series= or volume=: without "
+                             "one of them there is no series key")
+        series = f"penguin{volume}"
     pid = puzzle_id(series, number)
     # --unsolved files no answers at all, not the ones the record happens to
     # hold: see the module docstring — a half-filled puzzle file turns away the
@@ -266,7 +280,7 @@ def build(record, volume, model, unsolved=False):
         "id": pid,
         "number": number,
         "series": series,
-        "name": f"Guardian cryptic crossword, Penguin book {volume} No {number}",
+        "name": puzzle_name(series, number),
         # Some books print no byline over a puzzle. "Unknown" is what the rest
         # of the corpus shows for one, and it is the series table's answer — an
         # empty setter would read as a parsing failure instead of as the blank
@@ -276,7 +290,7 @@ def build(record, volume, model, unsolved=False):
         # "nobody knows", not a gap to be filled in later.
         "date": None,
         "dimensions": src["dimensions"],
-        "sourceUrl": source_url(volume),
+        "sourceUrl": source_url(series),
         "entries": out,
     }
     # No solve, no solutionSource. The field says whose answers these are, and
@@ -311,7 +325,11 @@ def build(record, volume, model, unsolved=False):
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("record", help="the solve record, e.g. /tmp/penguin_solve_book3.json")
-    ap.add_argument("--volume", type=int, required=True,
+    ap.add_argument("--series",
+                    help="the series key outright, for a book that is not a "
+                         "Penguin volume (e.g. herald2). One of this and "
+                         "--volume is required")
+    ap.add_argument("--volume", type=int,
                     help="which Penguin volume this book is (the series key is penguin<N>)")
     ap.add_argument("--model", default="opus", help="the model that solved it")
     ap.add_argument("--unsolved", action="store_true",
@@ -320,7 +338,8 @@ def main(argv=None):
     args = ap.parse_args(argv)
 
     record = json.loads(Path(args.record).read_text(encoding="utf-8"))
-    puzzle = build(record, args.volume, args.model, unsolved=args.unsolved)
+    puzzle = build(record, args.volume, args.model, unsolved=args.unsolved,
+                   series=args.series)
     path = PUZZLE_DIR / f"{puzzle['id']}.js"
     if path.exists():
         raise SystemExit(f"{path} already exists — refusing to overwrite a filed puzzle")
