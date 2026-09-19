@@ -430,7 +430,15 @@ echo "$out2" | grep -E "^(NUMBERED|NUMBERLESS|PARTIAL_[0-9]+ |MISS_|BUDGET_)" | 
 
 read -r _ _ n_num _ ex_num _ amb_num _ miss_num _ bud_num _ <<<"$(grep '^NUMBERED ' <<<"$out2")"
 read -r _ _ n_bare _ ex_bare _ amb_bare _ miss_bare _ bud_bare _ <<<"$(grep '^NUMBERLESS ' <<<"$out2")"
-same "every series and size was drawn from" "$(field GROUPS "$out2")" "14"
+# One (series, size) bucket per line of the corpus, counted by hand and written
+# here as a number rather than computed: a sample that stops covering a series
+# is exactly what this file exists to catch, and a count derived from the same
+# files it is checking would agree with itself whatever arrived. A new series
+# fails here and is meant to — read the number off `puzzles/*.js` (index.js is
+# not a puzzle) and update it. 18 = cryptic at five sizes, cyclops at two,
+# everyman, globeandmail, independent, indysunday, metro, quiptic, and one per
+# Penguin volume on disk (2, 3, 5, 7, 11), all 15x15.
+same "every series and size was drawn from" "$(field GROUPS "$out2")" "18"
 same "every attempt lands in exactly one of the four buckets" \
   "$(( ex_num + amb_num + miss_num + bud_num ))" "$n_num"
 # Everything below is stated against the attempts that finished, because
