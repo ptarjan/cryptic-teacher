@@ -62,8 +62,8 @@ window.CRYPTIC_PUZZLES["everyman-3572"] = /*JSON-START*/ {
    "annotation": null
   },
   {
-   "id": "6-across",
-   "number": 6,
+   "id": "3-across",
+   "number": 3,
    "direction": "across",
    "position": {
     "x": 5,

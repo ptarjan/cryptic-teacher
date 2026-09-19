@@ -27,7 +27,7 @@ window.CRYPTIC_PUZZLES["cryptic-25949"] = /*JSON-START*/ {
    "clue": " Sail off to the lowest point, one now back from north Cyprus (4,5)",
    "group": [
     "1-down",
-    "26-across"
+    "24-across"
    ],
    "separatorLocations": {
     ",": [
@@ -343,8 +343,8 @@ window.CRYPTIC_PUZZLES["cryptic-25949"] = /*JSON-START*/ {
    "annotation": null
   },
   {
-   "id": "20-across",
-   "number": 20,
+   "id": "19-across",
+   "number": 19,
    "direction": "across",
    "position": {
     "x": 6,
@@ -382,8 +382,8 @@ window.CRYPTIC_PUZZLES["cryptic-25949"] = /*JSON-START*/ {
    "annotation": null
   },
   {
-   "id": "21-across",
-   "number": 21,
+   "id": "20-across",
+   "number": 20,
    "direction": "across",
    "position": {
     "x": 10,
@@ -396,8 +396,8 @@ window.CRYPTIC_PUZZLES["cryptic-25949"] = /*JSON-START*/ {
    "annotation": null
   },
   {
-   "id": "22-across",
-   "number": 22,
+   "id": "21-across",
+   "number": 21,
    "direction": "across",
    "position": {
     "x": 0,
@@ -410,8 +410,8 @@ window.CRYPTIC_PUZZLES["cryptic-25949"] = /*JSON-START*/ {
    "annotation": null
   },
   {
-   "id": "24-across",
-   "number": 24,
+   "id": "22-across",
+   "number": 22,
    "direction": "across",
    "position": {
     "x": 8,
@@ -456,8 +456,8 @@ window.CRYPTIC_PUZZLES["cryptic-25949"] = /*JSON-START*/ {
    "annotation": null
   },
   {
-   "id": "26-across",
-   "number": 26,
+   "id": "24-across",
+   "number": 24,
    "direction": "across",
    "position": {
     "x": 0,
@@ -467,7 +467,7 @@ window.CRYPTIC_PUZZLES["cryptic-25949"] = /*JSON-START*/ {
    "clue": "See 1",
    "group": [
     "1-down",
-    "26-across"
+    "24-across"
    ],
    "separatorLocations": {
     ",": []
@@ -518,8 +518,8 @@ window.CRYPTIC_PUZZLES["cryptic-25949"] = /*JSON-START*/ {
    "annotation": null
   },
   {
-   "id": "28-across",
-   "number": 28,
+   "id": "26-across",
+   "number": 26,
    "direction": "across",
    "position": {
     "x": 10,
@@ -546,8 +546,8 @@ window.CRYPTIC_PUZZLES["cryptic-25949"] = /*JSON-START*/ {
    "annotation": null
   },
   {
-   "id": "29-across",
-   "number": 29,
+   "id": "28-across",
+   "number": 28,
    "direction": "across",
    "position": {
     "x": 0,
