@@ -109,7 +109,12 @@ rows = [("ct-blank", 900, False, {"present": 0, "total": 28}),
         ("ct-gap", 600, False, {"present": 27, "total": 28}),
         ("ct-whole", 500, False, None),
         ("ct-tried", 400, False, None),
-        ("ct-answered", 300, True, None)]
+        ("ct-answered", 300, True, None),
+        # A book reprint: no date, because no volume prints one. Newest first
+        # is the rule, and a puzzle with no date is not new — it is a 1970s
+        # Guardian we will get to eventually. Listed FIRST here so that a queue
+        # which merely kept the index's own order would put it at the head.
+        ("ct-reprint", None, False, None)]
 json.dump({"puzzles": [
     {"id": i, "date": d, "hasSolutions": s, **({"clues": c} if c else {})}
     for i, d, s, c in rows]}, open(sys.argv[1], "w"))
@@ -121,17 +126,51 @@ run() (  # the block itself against the sandbox; the skip note goes to $sand/not
     eval "$pick" 2>"$sand/note" && printf '%s\n' "$unsolved"
 )
 check "the blank grid and the half-blank one are not handed to a model" \
-  "$(run)" "ct-most ct-gap ct-whole"
+  "$(run 9)" "ct-most ct-gap ct-whole ct-reprint"
 check "and the log says why, by name and by count" \
   "$(grep -c 'ct-blank (0/28 clues), ct-half (14/28 clues)' "$sand/note")" "1"
 check "a puzzle missing one clue of 28 is still a solvable grid" \
   "$(grep -c 'ct-gap\|ct-most\|ct-whole' "$sand/note")" "0"
-check "the one-attempt cap still holds" "$(run | grep -c ct-tried)" "0"
-check "a puzzle with answers is still out of the queue" "$(run | grep -c ct-answered)" "0"
+check "the one-attempt cap still holds" "$(run 9 | grep -c ct-tried)" "0"
+check "a puzzle with answers is still out of the queue" "$(run 9 | grep -c ct-answered)" "0"
 check "SOLVE_MAX still bounds the night" "$(run 2)" "ct-most ct-gap"
+
+echo "a dateless reprint is queued, but behind every puzzle that has a date"
+# Both halves matter and they pull opposite ways. Dropped from the queue, a book
+# nobody can date never gets solved at all; put at the front, it spends the
+# night's SOLVE_MAX on a 1970s reprint while today's crossword — the one someone
+# is actually looking at — waits another day. Last in the list is both.
+check "it is in the queue at all" "$(run 9 | grep -c ct-reprint)" "1"
+check "and it is last, behind every dated puzzle" \
+  "$(run 9 | tr ' ' '\n' | tail -1)" "ct-reprint"
+check "so a night short of budget spends it on the dated ones" \
+  "$(run 3)" "ct-most ct-gap ct-whole"
 check "and a stale count against a puzzle that has answers now is still forgotten" \
   "$(python3 -c "import json; print(sorted(json.load(open('$sand/attempts.json'))))")" \
   "['ct-tried']"
+
+echo "and a grid solved tonight joins the ANNOTATION queue by the same rule"
+# Step 3a prepends what it solved, on the grounds that it is the newest puzzle
+# and the one people are looking at. That reasoning is true of a prize crossword
+# solved the night it was published and false of a dateless reprint, which the
+# queue above deliberately keeps at the back — and the annotation budget is a
+# slice off the front, so prepending one drops a real puzzle off the end. The
+# lines themselves are run here, against a stubbed has_date, rather than grepped
+# for: an ordering asserted by grep is an assertion about the spelling.
+place=$(awk '/^      if has_date "\$num"; then$/,/^      fi$/' tools/daily_update.sh)
+[ -n "$place" ] ||
+  { echo "  FAIL: the queue-placement block is no longer where this test reads it from"
+    fails=$((fails + 1)); }
+run_place() (  # 0 = the puzzle has a date, 1 = it does not
+  dated=$1 num=ct-new pending="ct-today ct-yesterday"
+  has_date() { return "$dated"; }
+  eval "$place" >/dev/null
+  printf '%s\n' "$pending"
+)
+check "a dated solve is annotated first, as it always was" \
+  "$(run_place 0)" "ct-new ct-today ct-yesterday"
+check "a dateless one waits behind tonight's dated puzzles" \
+  "$(run_place 1)" "ct-today ct-yesterday ct-new"
 
 [ "$fails" = 0 ] && echo "solve queue clues: all checks passed" || echo "solve queue clues: $fails FAILED"
 exit $((fails > 0))
