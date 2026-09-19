@@ -622,10 +622,10 @@ const patBoxes = () => (patHTML().match(/class="pat-box [^"]*"/g) || []);
 
      One direction only. `papers` is derived from the puzzles actually on disk,
      while a series is registered in tools/series.py and SERIES_BADGE before its
-     first puzzle is filed -- that is how a book line gets scanned into. So a
-     badge with no puzzles yet is the normal state of a pending acquisition, and
-     only the reverse is a defect: a paper in the index with no badge to render
-     ships a blank pill to a reader. */
+     first puzzle is filed -- a new feed is wired up before it is first fetched.
+     So a badge with no puzzles yet is the normal state, and only the reverse is
+     a defect: a paper in the index with no badge to render ships a blank pill
+     to a reader. */
   const papers = global.CRYPTIC_INDEX.papers || {};
   assert(Object.keys(papers).length > 3,
     "puzzles/index.json carries a `papers` table: " + JSON.stringify(papers));
@@ -654,6 +654,56 @@ const patBoxes = () => (patHTML().match(/class="pat-box [^"]*"/g) || []);
   // missing: a title nobody gets is not an improvement on an unattributed one.
   assert(CTNotify.title({ series: "cryptic", name: "Cryptic crossword No 30,106" }, {})
     === "Cryptic crossword No 30,106", "and an index with no papers table still notifies");
+}
+
+// --- the book shelf: one series, and every puzzle on it names a real book ---
+{
+  /* The scanned books are ONE series with one chip, and which book a puzzle
+     came out of is in its number: book_index * 1000 + position, resolved
+     through tools/data/books.json. tools/fetch_puzzle.py --reindex copies the
+     browser's half of that registry into puzzles/index.json, so app.js prints
+     "Penguin book 5 No 18" without a second table of shelf labels — which is
+     exactly what an 18-key BOOK_SHELF object in app.js used to be.
+
+     A book whose row the index does not carry prints its number raw ("№
+     3018"), which is the right failure for an index deployed before the table
+     existed and the wrong state for this checkout. */
+  const books = global.CRYPTIC_INDEX.books || {};
+  assert(Object.keys(books).length > 0,
+    "puzzles/index.json carries the `books` registry app.js reads shelf labels from");
+  const shelf = (global.CRYPTIC_INDEX.puzzles || []).filter((p) => p.series === "book");
+  assert(shelf.length > 0, "and there are book puzzles to name: " + shelf.length);
+
+  /* EVERY SHELF LABEL IS UNIQUE, which is the whole reason a label exists.
+     One chip says "book" for thirty books, so the only thing on the row that
+     says WHICH is "<shelf> <volume> No <position>" — and a bare "book 2 No 7"
+     would be the Herald's, the Scotsman's, the Sunday Telegraph's and the
+     Daily Mail's at once. Checked over the corpus rather than over the
+     registry, so a row whose shelf and volume collide with another's is caught
+     by the puzzles it would mislabel. */
+  const seen = {};
+  shelf.forEach((p) => {
+    const row = books[String(Math.floor(p.number / 1000))];
+    assert(row, `${p.id} names a book that puzzles/index.json describes`);
+    assert(p.number % 1000 !== 0, `${p.id} carries a position; positions start at 1`);
+    if (!row) return;
+    const label = `${row.shelf} ${row.volume} No ${p.number % 1000}`;
+    assert(!seen[label], `"${label}" names one puzzle: ${p.id} and ${seen[label]}`);
+    seen[label] = p.id;
+  });
+
+  /* A SERIES WITH NO PAPER IS A SHELF, never a lookup that failed. `papers`
+     answers "" for the books because one shelf reprints a dozen papers, and
+     CTNotify.title() then leaves the name alone — which is only right because
+     a book puzzle's own name opens with the paper that printed it. A feed that
+     turned up here would be shipping anonymous notifications. */
+  const papers = global.CRYPTIC_INDEX.papers || {};
+  Object.keys(papers).filter((s) => !papers[s]).forEach((s) => {
+    const rows = (global.CRYPTIC_INDEX.puzzles || []).filter((p) => (p.series || "cryptic") === s);
+    assert(rows.length > 0 && rows.every((p) => books[String(Math.floor(p.number / 1000))]),
+      `series '${s}' has no paper in index.json, so every one of its puzzles has `
+      + `to be out of a registered book — a feed with an empty publisher notifies anonymously`);
+  });
 }
 
 /* --- quiet hours: held until the hour this device asked for, then sent once ---

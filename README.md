@@ -143,7 +143,7 @@ the answers are**.
 **A puzzle can have three different origins, and usually the interesting ones do.**
 A Cyclops comes from Private Eye's own `.puz` download, but Private Eye blanks the
 solution grid, so its answers come from a fifteensquared write-up: `retrievedFrom`
-`publisher`, `solutionOrigin` `writeup`. A Penguin-book puzzle has three — its clues
+`publisher`, `solutionOrigin` `writeup`. A scanned-book puzzle has three — its clues
 off a book scan, its geometry reconstructed here from those clues, its answers solved
 here by a model. That is why these are separate fields rather than one "source".
 
