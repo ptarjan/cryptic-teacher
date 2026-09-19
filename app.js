@@ -15,8 +15,9 @@
     },
     set(key, val) {
       try { localStorage.setItem(key, JSON.stringify(val)); } catch (e) { /* private mode etc. */ }
+      forgetSavedProgress(key);
     },
-    del(key) { try { localStorage.removeItem(key); } catch (e) {} }
+    del(key) { try { localStorage.removeItem(key); } catch (e) {} forgetSavedProgress(key); }
   };
 
   /* ---------- what solvers thought of it ----------
@@ -367,16 +368,47 @@
     document.head.appendChild(s);
   }
 
+  // Every puzzle this browser has letters saved for, id -> progress. Built by
+  // walking localStorage, which holds one key per STARTED puzzle — a handful —
+  // rather than by asking it about each of the 15,992 indexed ones. The picker
+  // asked the long way round on every keystroke, and a chip tap that matched
+  // thousands asked twice per match on top of that.
+  //
+  // Kept until something writes a ct: key, which store.set and store.del below
+  // are the only ways to do: a letter typed, a sync merge landing, a reset, the
+  // id migration. The next reader rebuilds it. Invalidating from the writer
+  // rather than from each caller is what stops a new save path shipping with a
+  // picker that shows yesterday's progress.
+  let savedCache = null;
+  function forgetSavedProgress(key) {
+    if (savedCache && String(key).indexOf("ct:") === 0) savedCache = null;
+  }
+  function savedProgress() {
+    if (savedCache) return savedCache;
+    const found = {};
+    try {
+      for (let i = 0; i < localStorage.length; i++) {
+        const k = localStorage.key(i);
+        if (!k || k.indexOf("ct:") !== 0) continue;
+        // ct:last, ct:sync and ct:votes live under the same prefix and have no
+        // letters, so "has letters saved" is the whole test — no list of
+        // reserved names to keep in step with.
+        const prog = store.get(k, null);
+        if (prog && prog.letters && Object.keys(prog.letters).length) found[k.slice(3)] = prog;
+      }
+    } catch (e) { /* no enumeration: treat it as nothing started */ }
+    savedCache = found;
+    return savedCache;
+  }
+
   // The puzzles the picker needs the answers for: the ones with letters saved.
   // pickerStatus stops at the saved progress for anything else, so fetching the
   // rest would buy nothing. Idempotent, and called again when the picker opens,
   // because a sync pull can hand this browser progress on a puzzle it has never
   // held.
   function loadStartedPuzzles(then) {
-    INDEX.puzzles.forEach((p) => {
-      const prog = store.get("ct:" + p.id, null);
-      if (prog && prog.letters && Object.keys(prog.letters).length) loadPuzzle(p.id, then);
-    });
+    const saved = savedProgress();
+    INDEX.puzzles.forEach((p) => { if (saved[p.id]) loadPuzzle(p.id, then); });
   }
 
   // ---------- state ----------
@@ -4803,8 +4835,8 @@
   // to open next, and "solved" is a search term for the days you do.
   const RECENT_ROWS = 12;
   function pickerProgress(p) {
-    const prog = store.get("ct:" + p.id, null);
-    return prog && prog.letters ? Object.keys(prog.letters).length : 0;
+    const prog = savedProgress()[p.id];
+    return prog ? Object.keys(prog.letters).length : 0;
   }
   // "Have I finished this one?" — the question a list of 78 puzzles has to
   // answer before it can answer anything else. It is computed here rather than
@@ -4821,7 +4853,7 @@
   // the check buttons are for that, and a row in the picker is not the place to
   // tell someone their grid is broken.
   function pickerStatus(p) {
-    const prog = store.get("ct:" + p.id, null);
+    const prog = savedProgress()[p.id];
     const letters = (prog && prog.letters) || {};
     const filled = Object.keys(letters).length;
     const puz = window.CRYPTIC_PUZZLES[p.id];
@@ -4856,25 +4888,43 @@
     const day = WEEKDAYS[dt.getUTCDay()] || "";
     return { iso: dt.toISOString().slice(0, 10), day, short: day.slice(0, 3) };
   }
-  function pickerHaystack(p) {
+  // The half of a puzzle's search text that cannot change while the page is
+  // open: every word in it is read off INDEX, which is loaded once and never
+  // written to. Built on first use and kept for the life of the page — nothing
+  // invalidates it, because nothing can make it wrong.
+  //
+  // Kept because it was the search: rebuilding all 15,992 of these cost ~56 ms
+  // on every keystroke and on every chip tap, before a single row was drawn,
+  // and a quarter of that was the `new Date` + `toISOString` in puzzleDate.
+  const staticHay = {};
+  function pickerStaticHay(p) {
+    const had = staticHay[p.id];
+    if (had !== undefined) return had;
     const dd = puzzleDate(p);
-    const d = dd.iso;
     // Both spellings of the number: the site writes "No 30,074" everywhere, and
     // a solver copying that in shouldn't get nothing back.
-    // "solved" and "started" are searchable for the same reason the row shows
-    // them: with 78 puzzles listed, "which ones have I already done" is a filter,
-    // not just a thing to read off one row at a time.
-    const st = pickerStatus(p);
-    // The weekday is searchable for that same reason — showing "Sat" in the row
-    // and then not matching "saturday" would be the worse half of the feature.
-    // Both the series key and the name on its chip: "cryptic" is what the file
-    // is called, "guardian" is what the paper is, and the one the row shows has
-    // to be the one that matches.
+    //
+    // The weekday is searchable because the row shows it — showing "Sat" in the
+    // row and then not matching "saturday" would be the worse half of the
+    // feature. Both the series key and the name on its chip: "cryptic" is what
+    // the file is called, "guardian" is what the paper is, and the one the row
+    // shows has to be the one that matches.
     const series = p.series || "cryptic";
-    return [p.number, String(p.number).replace(/(\d)(\d{3})$/, "$1,$2"),
-      displayNumber(p), p.setter, d, dd.day,
-      series, (SERIES_BADGE[series] || [""])[0], p.difficulty ? p.difficulty.band : "",
-      st.done ? "solved done" : st.filled ? "started unfinished" : ""].join(" ").toLowerCase();
+    return (staticHay[p.id] = [p.number, String(p.number).replace(/(\d)(\d{3})$/, "$1,$2"),
+      displayNumber(p), p.setter, dd.iso, dd.day,
+      series, (SERIES_BADGE[series] || [""])[0],
+      p.difficulty ? p.difficulty.band : ""].join(" ").toLowerCase());
+  }
+  // "solved" and "started" are searchable for the same reason the row shows
+  // them: "which ones have I already done" is a filter, not just a thing to read
+  // off one row at a time. They are the only part of the haystack that moves
+  // while the page is open, so they are added here instead of being baked into
+  // the cache above — and only for the puzzles that have letters saved, which is
+  // a handful, rather than asked of all 15,992.
+  function pickerHaystack(p) {
+    if (!savedProgress()[p.id]) return pickerStaticHay(p);
+    const st = pickerStatus(p);
+    return pickerStaticHay(p) + (st.done ? " solved done" : " started unfinished");
   }
   // What the panel offers as you type. Only the terms a solver could not be
   // expected to have spelled right from memory — the setters above all, then
