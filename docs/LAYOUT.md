@@ -84,6 +84,10 @@ tools/fetch_ia_book.py                       borrows a lending-restricted archiv
 tools/parse_penguin_book.py                  segments that book's OCR text into puzzles, clues
                                              and enumerations, and reports per-puzzle what OCR
                                              destroyed
+tools/file_penguin_puzzle.py                 turns one solved Penguin-book puzzle into a puzzle
+                                             file: the book's own number, no date because no
+                                             volume prints one, and answers marked as a model's
+                                             with no official key ever coming
 tools/test_blank_clue_carry.sh               proves a re-fetch cannot empty a puzzle whose
                                              clues were recovered by hand off the Guardian’s
                                              old site, that the paper still wins wherever it
