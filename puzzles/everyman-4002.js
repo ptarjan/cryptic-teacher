@@ -14,6 +14,16 @@ window.CRYPTIC_PUZZLES["everyman-4002"] = /*JSON-START*/ {
   "rows": 15
  },
  "sourceUrl": "https://www.theguardian.com/crosswords/everyman/4002",
+ "provenance": {
+  "publisher": "Observer",
+  "series": "everyman",
+  "acquiredBy": "tools/fetch_puzzle.py",
+  "acquiredOn": "2026-09-17",
+  "retrievedFrom": "publisher",
+  "retrievedUrl": null,
+  "gridOrigin": "published",
+  "solutionOrigin": "published"
+ },
  "entries": [
   {
    "id": "1-across",

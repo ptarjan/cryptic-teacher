@@ -14,6 +14,16 @@ window.CRYPTIC_PUZZLES["quiptic-1359"] = /*JSON-START*/ {
   "rows": 15
  },
  "sourceUrl": "https://www.theguardian.com/crosswords/quiptic/1359",
+ "provenance": {
+  "publisher": "Guardian",
+  "series": "quiptic",
+  "acquiredBy": "tools/fetch_puzzle.py",
+  "acquiredOn": "2026-09-08",
+  "retrievedFrom": "publisher",
+  "retrievedUrl": null,
+  "gridOrigin": "published",
+  "solutionOrigin": "published"
+ },
  "entries": [
   {
    "id": "1-across",

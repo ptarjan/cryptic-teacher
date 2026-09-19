@@ -14,6 +14,16 @@ window.CRYPTIC_PUZZLES["globeandmail-3369"] = /*JSON-START*/ {
   "rows": 13
  },
  "sourceUrl": "https://www.theglobeandmail.com/puzzles-and-crosswords/new-cryptic/?date=20260918",
+ "provenance": {
+  "publisher": "Globe and Mail",
+  "series": "globeandmail",
+  "acquiredBy": "tools/fetch_globeandmail.py",
+  "acquiredOn": "2026-09-18",
+  "retrievedFrom": "publisher",
+  "retrievedUrl": null,
+  "gridOrigin": "published",
+  "solutionOrigin": "published"
+ },
  "entries": [
   {
    "id": "1-across",

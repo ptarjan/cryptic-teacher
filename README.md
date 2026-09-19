@@ -116,6 +116,60 @@ Annotation rules (enforced by `tools/validate_annotations.py`):
   the others get `{"linkedTo": "<first-id>"}`.
 - Un-annotated entries keep `"annotation": null` — the app then badges the puzzle `answers only` and offers no teaching ladder.
 
+### Provenance: where the puzzle, its grid and its answers each came from
+
+Every puzzle carries a `provenance` block, next to `sourceUrl`. It exists because
+`sourceUrl` is a *link*, not a record: it names the page a puzzle was printed on and
+says nothing about how the file got here or — the question that matters — **whose
+the answers are**.
+
+```jsonc
+"sourceUrl": "https://www.theguardian.com/crosswords/everyman/3716",
+"provenance": {
+  "publisher": "Observer",          // from tools/series.py, by the id's series
+  "series": "everyman",             // read off the id, never the `series` field
+  "acquiredBy": "tools/fetch_wayback.py",   // the command that actually ran
+  "acquiredOn": "2026-09-17",       // when the file first appeared in git
+  "retrievedFrom": "wayback",       // publisher | wayback | blog | book | authored
+  "retrievedUrl": "https://web.archive.org/web/2016id_/https://…",
+  "gridOrigin": "published",        // published | reconstructed | authored
+  "solutionOrigin": "published"     // published | writeup | model | authored | unsolved
+}
+```
+
+**A puzzle can have three different origins, and usually the interesting ones do.**
+A Cyclops comes from Private Eye's own `.puz` download, but Private Eye blanks the
+solution grid, so its answers come from a fifteensquared write-up: `retrievedFrom`
+`publisher`, `solutionOrigin` `writeup`. A Penguin-book puzzle has three — its clues
+off a book scan, its geometry reconstructed here from those clues, its answers solved
+here by a model. That is why these are separate fields rather than one "source".
+
+**`solutionOrigin` is the one to read before trusting a grid.** `published` means the
+setter's own answer key: ground truth. `model` means *we* solved it from the clues —
+self-consistent, crossing-checked, and still a guess. `writeup` means a human solver's
+published answers, not the setter's. `unsolved` means the grid is empty, which is a
+fact rather than ignorance. A grid we guessed must never be indistinguishable from one
+the paper answered, and this field is what keeps them apart.
+
+`previousSolutionOrigin` appears when the answers in the file have *replaced* ones of a
+different origin — six grids here were cold-solved and the paper later published the
+same answers. `solutionSource`, where present, stays as the detail record behind
+`solutionOrigin` (which write-up, which model, whether an official key can ever exist);
+the validator refuses a file where the two disagree.
+
+Two deliberate omissions. The canonical URL is **not** copied into the block — it stays
+in `sourceUrl`, because a second copy is a second thing that can be wrong. And
+`retrievedUrl` is null for the 542 puzzles recovered from archive captures before the
+field existed: the capture address was printed to stdout and never stored, and guessing
+which snapshot answered on the day would be worse than admitting it.
+
+Every allowed value is enumerated in `tools/provenance.py` and nowhere else —
+`tools/puzzle_integrity.py` validates against those same dicts, and
+`tools/test_provenance.sh` proves it by deleting a value and checking the corpus is
+refused. Write the block with `tools/backfill_provenance.py`, which is idempotent and
+safe to re-run; new puzzles get it automatically, because `write_puzzle_file` stamps it
+on every write.
+
 ## Adding puzzles
 
 ```

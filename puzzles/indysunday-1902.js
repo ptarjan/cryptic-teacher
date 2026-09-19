@@ -2,7 +2,7 @@
 // Annotations (type/definition/indicators/blocks/walkthrough) are original
 // to this project. Edit the annotation objects freely; keep the JSON markers.
 window.CRYPTIC_PUZZLES = window.CRYPTIC_PUZZLES || {};
-window.CRYPTIC_PUZZLES["indysunday-1902"] = /*JSON-START*/{
+window.CRYPTIC_PUZZLES["indysunday-1902"] = /*JSON-START*/ {
  "id": "indysunday-1902",
  "number": 1902,
  "series": "indysunday",
@@ -14,6 +14,16 @@ window.CRYPTIC_PUZZLES["indysunday-1902"] = /*JSON-START*/{
   "rows": 15
  },
  "sourceUrl": "https://puzzles.independent.co.uk/games/cryptic-crossword-independent/",
+ "provenance": {
+  "publisher": "Independent",
+  "series": "indysunday",
+  "acquiredBy": "tools/fetch_independent.py",
+  "acquiredOn": "2026-07-26",
+  "retrievedFrom": "publisher",
+  "retrievedUrl": null,
+  "gridOrigin": "published",
+  "solutionOrigin": "published"
+ },
  "entries": [
   {
    "id": "1-across",
@@ -1269,4 +1279,4 @@ window.CRYPTIC_PUZZLES["indysunday-1902"] = /*JSON-START*/{
    }
   }
  ]
-}/*JSON-END*/;
+} /*JSON-END*/;

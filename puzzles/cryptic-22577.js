@@ -14,6 +14,16 @@ window.CRYPTIC_PUZZLES["cryptic-22577"] = /*JSON-START*/ {
   "rows": 15
  },
  "sourceUrl": "https://www.theguardian.com/crosswords/prize/22577",
+ "provenance": {
+  "publisher": "Guardian",
+  "series": "cryptic",
+  "acquiredBy": "tools/fetch_puzzle.py",
+  "acquiredOn": "2026-09-18",
+  "retrievedFrom": "publisher",
+  "retrievedUrl": null,
+  "gridOrigin": "published",
+  "solutionOrigin": "published"
+ },
  "entries": [
   {
    "id": "1-down",

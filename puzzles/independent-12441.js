@@ -14,6 +14,16 @@ window.CRYPTIC_PUZZLES["independent-12441"] = /*JSON-START*/ {
   "rows": 15
  },
  "sourceUrl": "https://puzzles.independent.co.uk/games/cryptic-crossword-independent/",
+ "provenance": {
+  "publisher": "Independent",
+  "series": "independent",
+  "acquiredBy": "tools/fetch_independent.py",
+  "acquiredOn": "2026-08-22",
+  "retrievedFrom": "publisher",
+  "retrievedUrl": null,
+  "gridOrigin": "published",
+  "solutionOrigin": "published"
+ },
  "entries": [
   {
    "id": "1-across",

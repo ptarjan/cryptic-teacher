@@ -14,6 +14,16 @@ window.CRYPTIC_PUZZLES["everyman-3660"] = /*JSON-START*/ {
   "rows": 15
  },
  "sourceUrl": "https://www.theguardian.com/crosswords/everyman/3660",
+ "provenance": {
+  "publisher": "Observer",
+  "series": "everyman",
+  "acquiredBy": "tools/fetch_wayback.py",
+  "acquiredOn": "2026-09-17",
+  "retrievedFrom": "wayback",
+  "retrievedUrl": null,
+  "gridOrigin": "published",
+  "solutionOrigin": "published"
+ },
  "entries": [
   {
    "id": "1-across",

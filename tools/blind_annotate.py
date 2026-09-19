@@ -102,7 +102,10 @@ def restore():
             for e in puzzle["entries"]:
                 if key.get(e["id"]):
                     e["solution"] = key[e["id"]]
-            write_puzzle_file(path, puzzle, generator="tools/fetch_puzzle.py")
+            # No generator: restoring a stashed key must put back the file's
+            # own banner, not the default, which relabelled every
+            # non-Guardian puzzle this ever touched.
+            write_puzzle_file(path, puzzle)
             print(f"BLIND ANNOTATE: {puzzle['id']} was never attempted — key restored, "
                   f"nothing graded")
             stash.unlink()
@@ -119,7 +122,7 @@ def restore():
                 e["annotation"] = None
             e["solution"] = truth
 
-        write_puzzle_file(path, puzzle, generator="tools/fetch_puzzle.py")
+        write_puzzle_file(path, puzzle)
         total = len(key)
         print(f"BLIND ANNOTATE GRADED {puzzle['id']}: {total - len(wrong)}/{total} "
               f"correct without the key")

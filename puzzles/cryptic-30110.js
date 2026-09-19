@@ -14,6 +14,16 @@ window.CRYPTIC_PUZZLES["cryptic-30110"] = /*JSON-START*/ {
   "rows": 15
  },
  "sourceUrl": "https://www.theguardian.com/crosswords/prize/30110",
+ "provenance": {
+  "publisher": "Guardian",
+  "series": "cryptic",
+  "acquiredBy": "tools/fetch_puzzle.py",
+  "acquiredOn": "2026-09-12",
+  "retrievedFrom": "publisher",
+  "retrievedUrl": null,
+  "gridOrigin": "published",
+  "solutionOrigin": "model"
+ },
  "entries": [
   {
    "id": "1-across",

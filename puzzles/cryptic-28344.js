@@ -14,6 +14,16 @@ window.CRYPTIC_PUZZLES["cryptic-28344"] = /*JSON-START*/ {
   "rows": 15
  },
  "sourceUrl": "https://www.theguardian.com/crosswords/prize/28344",
+ "provenance": {
+  "publisher": "Guardian",
+  "series": "cryptic",
+  "acquiredBy": "tools/fetch_puzzle.py",
+  "acquiredOn": "2026-09-17",
+  "retrievedFrom": "publisher",
+  "retrievedUrl": null,
+  "gridOrigin": "published",
+  "solutionOrigin": "published"
+ },
  "entries": [
   {
    "id": "1-down",

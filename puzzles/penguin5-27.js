@@ -14,6 +14,23 @@ window.CRYPTIC_PUZZLES["penguin5-27"] = /*JSON-START*/ {
   "rows": 15
  },
  "sourceUrl": "https://archive.org/details/newpenguinbkguar0000perk",
+ "provenance": {
+  "publisher": "Guardian",
+  "series": "penguin5",
+  "acquiredBy": "tools/file_penguin_puzzle.py",
+  "acquiredOn": "2026-09-18",
+  "retrievedFrom": "book",
+  "retrievedUrl": null,
+  "gridOrigin": "reconstructed",
+  "solutionOrigin": "model",
+  "book": {
+   "identifier": "newpenguinbkguar0000perk",
+   "title": "The New Penguin Book of The Guardian Crosswords, volume 5",
+   "volume": 5,
+   "numberInBook": 27,
+   "leaf": null
+  }
+ },
  "entries": [
   {
    "id": "1-across",

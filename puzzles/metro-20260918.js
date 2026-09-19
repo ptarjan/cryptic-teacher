@@ -14,6 +14,16 @@ window.CRYPTIC_PUZZLES["metro-20260918"] = /*JSON-START*/ {
   "rows": 13
  },
  "sourceUrl": "https://metro.co.uk/puzzles/cryptic-crossword/",
+ "provenance": {
+  "publisher": "Metro",
+  "series": "metro",
+  "acquiredBy": "tools/fetch_metro.py",
+  "acquiredOn": "2026-09-18",
+  "retrievedFrom": "publisher",
+  "retrievedUrl": null,
+  "gridOrigin": "published",
+  "solutionOrigin": "published"
+ },
  "pmlId": "1086092",
  "entries": [
   {
