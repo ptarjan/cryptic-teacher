@@ -127,6 +127,7 @@ out for the full hour.
 """
 
 import argparse
+import contextlib
 import json
 import os
 import sys
@@ -289,6 +290,39 @@ def borrow(session, identifier):
     return True
 
 
+@contextlib.contextmanager
+def borrowed(identifier, creds_path=None, keep_loan=False):
+    """A logged-in session with the loan already taken, yielded to the caller,
+    and RETURNED ON THE WAY OUT however the block ends — normally, by
+    exception, or by KeyboardInterrupt. That is why this is a context manager
+    and not a pair of calls: these are one-hour, one-copy, no-waitlist loans,
+    so a path that forgets the return locks the book for the next hour, and
+    "remember to call return_loan" is not a guarantee. Any caller that wants
+    text out of a lending item goes through here.
+
+    Yields the session whether or not a loan was needed: an item that needs
+    none is not an error (borrow() says which), and its text is fetched the
+    same way. Only a loan actually taken is returned.
+    """
+    creds_path = creds_path or Path(
+        os.environ.get("IA_CREDS", DEFAULT_CREDS)).expanduser()
+    email, password = load_credentials(creds_path)
+    session = requests.Session()
+    session.headers.update(UA)
+    login(session, email, password, creds_path)
+    loan_held = False
+    try:
+        loan_held = borrow(session, identifier)
+        yield session
+    finally:
+        if loan_held and not keep_loan:
+            try:
+                return_loan(session, identifier)
+            except Exception as err:
+                print(f"warning: could not return loan for {identifier}: {err}",
+                      file=sys.stderr)
+
+
 def return_loan(session, identifier):
     """Best-effort: called from a finally block, so a failure here is
     reported, not raised past cleanup."""
@@ -333,7 +367,7 @@ def _page_text_from_djvu_xml(xml_bytes):
     return "\n\n".join(paragraphs)
 
 
-def fetch_full_text(session, identifier):
+def fetch_full_text(session, identifier, max_pages=None):
     """djvu.txt (see module docstring) stays HTTP 401 even with an active
     loan — archive.org doesn't serve the plain-text dump for lending books
     at all. What the loan *does* unlock is BookReaderGetTextWrapper.php,
@@ -356,6 +390,10 @@ def fetch_full_text(session, identifier):
             "— can't locate per-page OCR without them"
         )
     page_count = int(page_count)
+    if max_pages is not None:
+        # A sample, for checking that the route works without walking 150
+        # pages of somebody else's server to prove it.
+        page_count = min(page_count, max_pages)
     book_path = f"{item_dir}/{identifier}_djvu.xml"
     url = PAGE_TEXT_URL.format(server=server)
 
@@ -387,37 +425,35 @@ def main(argv):
     p.add_argument("identifier", help="archive.org item id, e.g. newpenguinbkguar0000perk")
     p.add_argument("--out", type=Path, default=DEFAULT_OUT,
                     help=f"output directory (default: {DEFAULT_OUT})")
+    p.add_argument("--max-pages", type=int,
+                    help="stop after N pages. A SAMPLE, for checking the route "
+                         "works without walking the whole book; it is written "
+                         "under a .sample-Np.txt name so nothing mistakes it "
+                         "for the complete text")
     p.add_argument("--keep-loan", action="store_true",
                     help="don't return the loan on exit (default: always return it)")
     args = p.parse_args(argv)
 
     creds_path = Path(os.environ.get("IA_CREDS", DEFAULT_CREDS)).expanduser()
-    email, password = load_credentials(creds_path)
 
     args.out.mkdir(parents=True, exist_ok=True)
-    session = requests.Session()
-    session.headers.update(UA)
 
-    loan_held = False
-    try:
-        login(session, email, password, creds_path)
-        loan_held = borrow(session, args.identifier)
-        text = fetch_full_text(session, args.identifier)
-    finally:
-        # Runs on success AND on exception — a crash must not strand a
-        # one-hour lock on a single-copy, no-waitlist book. Only skipped
-        # when no loan was actually taken (login failed, or the item needs
-        # none) or the caller explicitly asked to keep the loan.
-        if loan_held and not args.keep_loan:
-            try:
-                return_loan(session, args.identifier)
-            except Exception as err:
-                print(f"warning: could not return loan for {args.identifier}: {err}",
-                      file=sys.stderr)
+    # The return is the context manager's job, on every path out of the block.
+    with borrowed(args.identifier, creds_path, args.keep_loan) as session:
+        text = fetch_full_text(session, args.identifier, args.max_pages)
 
-    out_path = args.out / f"{args.identifier}.txt"
+    # A sample is never written under the whole-book name. Everything
+    # downstream — tools/acquire_book.py most of all — treats
+    # <out>/<id>.txt as THE book, and a truncated file sitting there would
+    # be read as a complete one and silently acquire half a book.
+    if args.max_pages is None:
+        out_path = args.out / f"{args.identifier}.txt"
+        note = ""
+    else:
+        out_path = args.out / f"{args.identifier}.sample-{args.max_pages}p.txt"
+        note = f" — SAMPLE of the first {args.max_pages} pages, not the book"
     out_path.write_text(text, encoding="utf-8")
-    print(f"wrote {out_path} ({len(text)} chars)")
+    print(f"wrote {out_path} ({len(text)} chars){note}")
     return 0
 
 
