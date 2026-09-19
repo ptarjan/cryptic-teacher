@@ -111,11 +111,16 @@ SERIES = {
 # No 3 in one sequence and walk prev/next between them, which is the reason
 # indysunday is not part of independent.
 #
-# One list, not one hand-copied entry per book: the entries differ only in the
-# volume number, so a sixth volume is a number added here and nothing else. Any
-# volume with a puzzle on disk must be in it — tools/build_readme.py refuses a
-# series it has no name for, and tools/test_reconstruct_grid.sh counts the
-# (series, size) groups it samples.
+# One table, not one hand-copied entry per book: the entries differ only in the
+# volume number and its scan, so a sixth volume is one line added here and
+# nothing else. Any volume with a puzzle on disk must be in it —
+# tools/build_readme.py refuses a series it has no name for, and
+# tools/test_reconstruct_grid.sh counts the (series, size) groups it samples.
+#
+# The value is the archive.org item the volume was scanned from, and it is PER
+# VOLUME: each puzzle cites the book it was actually read out of. One literal
+# written inside the loop below would give every volume the same scan, which is
+# a claim about provenance that is false for four books out of five.
 #
 # No volume prints a Guardian puzzle number or a publication date, checked
 # across all six books, so the number here is the book's own position and
@@ -123,13 +128,20 @@ SERIES = {
 # key, because the crawlable page's heading is "{publisher} {kind} Crossword No
 # {number}" and "Guardian Cryptic Crossword No 3" would claim a Guardian number
 # that this puzzle does not have and nobody can look up.
-PENGUIN_VOLUMES = (2, 3, 5, 7, 11)
+PENGUIN_VOLUMES = {
+    2: "isbn_9780140176438",
+    3: "isbn_9780140176445",
+    5: "newpenguinbkguar0000perk",
+    7: "isbn_9780140248098",
+    11: "isbn_9780140277500",
+}
 
-for _volume in PENGUIN_VOLUMES:
+for _volume, _identifier in PENGUIN_VOLUMES.items():
     SERIES[f"penguin{_volume}"] = {
         "kind": f"Penguin Book {_volume} Cryptic",
         "publisher": "Guardian",
         "badge": f"penguin {_volume}",
+        "scan": _identifier,
         # NOTHING WILL EVER GRADE THESE. Penguin prints its solutions as
         # answer-grid IMAGES that OCR to noise, and there is no Guardian number
         # or date to find a key by. It is a fact about the book, so it is stated
@@ -187,6 +199,27 @@ def official_key(series):
     boolean on every series.
     """
     return meta(series).get("officialKey")
+
+
+def scan_identifier(series):
+    """The archive.org item id this series was scanned from, or None.
+
+    None everywhere a puzzle comes off a feed rather than out of a book. The id
+    belongs to the VOLUME, so it is read through the series key and never taken
+    as a free argument: a caller-supplied identifier is how a puzzle comes to
+    name one book in sourceUrl and another in provenance.book.
+    """
+    return meta(series).get("scan")
+
+
+def scan_url(series):
+    """The archive.org item page for this series' scan, or None.
+
+    The whole 150-leaf volume — there is no URL for a single puzzle in a book,
+    which is why provenance carries the volume and the number within it.
+    """
+    identifier = scan_identifier(series)
+    return f"https://archive.org/details/{identifier}" if identifier else None
 
 
 # ---------- ids ----------

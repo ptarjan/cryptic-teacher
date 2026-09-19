@@ -103,28 +103,23 @@ from fetch_puzzle import PUZZLE_DIR, write_puzzle_file  # noqa: E402
 # which lights a "See N" ties together, and what the group's enumeration is.
 from normalise_linked_enumerations import (enumeration_parts,  # noqa: E402
                                            normalise_record, resolve_groups)
-from series import default_setter, official_key, puzzle_id  # noqa: E402
+from series import default_setter, official_key, puzzle_id, scan_url  # noqa: E402
 import provenance  # noqa: E402
 
-def source_url(volume, identifier=None):
+def source_url(volume):
     """The archive.org item these clues were read out of.
 
-    This USED to be one hardcoded constant while --volume stayed a free
-    parameter, so volumes 2, 3, 7 and 11 were filed carrying volume 5's scan as
-    their source — ten puzzles each citing a book they did not come from, and
-    the real identifiers went unrecorded because the caller had them and threw
-    them away. The identifier is an input now, falling back to
-    provenance.BOOK_IDENTIFIERS for a volume somebody has already written down,
-    and refusing rather than guessing when neither knows.
+    The volume decides it, through series.PENGUIN_VOLUMES, and no caller may
+    pass one in. sourceUrl and provenance.book.identifier both come from that
+    one table, so the two cannot name different books; a free identifier beside
+    a free --volume is precisely how they came to.
     """
-    if identifier:
-        return f"https://archive.org/details/{identifier}"
-    url = provenance.book_url(volume)
+    url = scan_url(f"penguin{volume}")
     if not url:
         raise SystemExit(
-            f"volume {volume} has no recorded archive.org identifier — pass "
-            f"--identifier, or add it to provenance.BOOK_IDENTIFIERS. Filing "
-            f"it without one stamped volume 5's scan on four other books.")
+            f"volume {volume} has no archive.org identifier in "
+            f"series.PENGUIN_VOLUMES — look its scan up and add it there. "
+            f"Filing it without one makes the puzzle cite another book.")
     return url
 
 
@@ -202,7 +197,7 @@ def coarse_continuations(record):
     return coarse
 
 
-def build(record, volume, model, unsolved=False, identifier=None):
+def build(record, volume, model, unsolved=False):
     src = record["puzzle"]
     number = record["book_number"]
     series = f"penguin{volume}"
@@ -281,7 +276,7 @@ def build(record, volume, model, unsolved=False, identifier=None):
         # "nobody knows", not a gap to be filled in later.
         "date": None,
         "dimensions": src["dimensions"],
-        "sourceUrl": source_url(volume, identifier),
+        "sourceUrl": source_url(volume),
         "entries": out,
     }
     # No solve, no solutionSource. The field says whose answers these are, and
@@ -316,9 +311,6 @@ def build(record, volume, model, unsolved=False, identifier=None):
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("record", help="the solve record, e.g. /tmp/penguin_solve_book3.json")
-    ap.add_argument("--identifier",
-                    help="the archive.org item id this volume was scanned from; "
-                         "required for a volume not in provenance.BOOK_IDENTIFIERS")
     ap.add_argument("--volume", type=int, required=True,
                     help="which Penguin volume this book is (the series key is penguin<N>)")
     ap.add_argument("--model", default="opus", help="the model that solved it")
@@ -328,8 +320,7 @@ def main(argv=None):
     args = ap.parse_args(argv)
 
     record = json.loads(Path(args.record).read_text(encoding="utf-8"))
-    puzzle = build(record, args.volume, args.model, unsolved=args.unsolved,
-                   identifier=args.identifier)
+    puzzle = build(record, args.volume, args.model, unsolved=args.unsolved)
     path = PUZZLE_DIR / f"{puzzle['id']}.js"
     if path.exists():
         raise SystemExit(f"{path} already exists — refusing to overwrite a filed puzzle")

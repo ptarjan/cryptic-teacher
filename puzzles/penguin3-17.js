@@ -13,7 +13,7 @@ window.CRYPTIC_PUZZLES["penguin3-17"] = /*JSON-START*/ {
   "cols": 15,
   "rows": 15
  },
- "sourceUrl": "https://archive.org/details/newpenguinbkguar0000perk",
+ "sourceUrl": "https://archive.org/details/isbn_9780140176445",
  "provenance": {
   "publisher": "Guardian",
   "series": "penguin3",
@@ -24,7 +24,7 @@ window.CRYPTIC_PUZZLES["penguin3-17"] = /*JSON-START*/ {
   "gridOrigin": "reconstructed",
   "solutionOrigin": "unsolved",
   "book": {
-   "identifier": "unknown",
+   "identifier": "isbn_9780140176445",
    "title": "The New Penguin Book of The Guardian Crosswords, volume 3",
    "volume": 3,
    "numberInBook": 17,

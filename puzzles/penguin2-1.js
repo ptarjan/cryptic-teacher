@@ -13,7 +13,7 @@ window.CRYPTIC_PUZZLES["penguin2-1"] = /*JSON-START*/ {
   "cols": 15,
   "rows": 15
  },
- "sourceUrl": "https://archive.org/details/newpenguinbkguar0000perk",
+ "sourceUrl": "https://archive.org/details/isbn_9780140176438",
  "provenance": {
   "publisher": "Guardian",
   "series": "penguin2",
@@ -24,7 +24,7 @@ window.CRYPTIC_PUZZLES["penguin2-1"] = /*JSON-START*/ {
   "gridOrigin": "reconstructed",
   "solutionOrigin": "unsolved",
   "book": {
-   "identifier": "unknown",
+   "identifier": "isbn_9780140176438",
    "title": "The New Penguin Book of The Guardian Crosswords, volume 2",
    "volume": 2,
    "numberInBook": 1,

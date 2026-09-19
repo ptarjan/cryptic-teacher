@@ -13,7 +13,7 @@ window.CRYPTIC_PUZZLES["penguin11-55"] = /*JSON-START*/ {
   "cols": 15,
   "rows": 15
  },
- "sourceUrl": "https://archive.org/details/newpenguinbkguar0000perk",
+ "sourceUrl": "https://archive.org/details/isbn_9780140277500",
  "provenance": {
   "publisher": "Guardian",
   "series": "penguin11",
@@ -24,7 +24,7 @@ window.CRYPTIC_PUZZLES["penguin11-55"] = /*JSON-START*/ {
   "gridOrigin": "reconstructed",
   "solutionOrigin": "unsolved",
   "book": {
-   "identifier": "unknown",
+   "identifier": "isbn_9780140277500",
    "title": "The New Penguin Book of The Guardian Crosswords, volume 11",
    "volume": 11,
    "numberInBook": 55,
