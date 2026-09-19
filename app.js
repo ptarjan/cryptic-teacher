@@ -5075,6 +5075,51 @@
     });
   }
 
+  // One row. Pulled out of renderPicker so the list can be built a chunk at a
+  // time rather than all at once.
+  function pickerRow(p) {
+    const li = document.createElement("li");
+    if (P && p.id === P.id) li.className = "current";
+    const st = pickerStatus(p);
+    const dd = puzzleDate(p);
+    // Abbreviated, and the weekday leads. The row is tight — see the note
+    // below about the nowrap element shoving the line — and "Sat" in front is
+    // read at a glance where a trailing full "Saturday" would just be length.
+    const d = dd.iso ? `${dd.short} ${dd.iso}` : "";
+    const btn = document.createElement("button");
+    // Order here is the grid's, not the eye's: the badges are markup-last but
+    // render on their own second line (see .p-tags in style.css). Progress
+    // sits with them because it is a status like they are, and because
+    // gluing it onto the date made the one nowrap element in the row long
+    // enough to shove everything else off the line.
+    btn.innerHTML = `<span class="p-num">${displayNumber(p)}</span>
+        <span class="p-setter">${esc(p.setter)}</span>
+        <span class="p-meta">${d}</span>
+        <span class="p-tags">${seriesBadge(p)}${difficultyBadge(p)}${hintsBadge(p.annotated)}${sourceBadge(p)}
+          ${!st.filled ? ""
+            : st.done ? `<span class="p-prog done" title="Every square filled in and correct">solved ✓</span>`
+            : `<span class="p-prog">${st.filled}${st.total ? "/" + st.total : ""} letters in</span>`}</span>`;
+    btn.onclick = () => { openPuzzle(p.id); togglePicker(false); };
+    li.appendChild(btn);
+    return li;
+  }
+
+  // How many rows go in before the list has to be scrolled, and how many more
+  // each time the bottom of it comes into view.
+  //
+  // A search matches as many puzzles as it matches — the "guardian" chip
+  // matches 8,393 of the 15,992 — and every one of them used to be built and
+  // handed to the browser on the tap that selected the chip: 16,786 elements
+  // and 3.8 MiB of markup to parse and lay out in one go, which is the "takes
+  // a long time to swap" this is here to fix. The eye can see about a dozen.
+  //
+  // Comfortably more than RECENT_ROWS, so the default list — the newest twelve
+  // plus whatever you have open or unfinished — is never a chunked one.
+  const PICKER_CHUNK = 24;
+  // The observer watching the last row drawn, or null. Exactly one at a time:
+  // each render throws away the list the last one was watching.
+  let pickerWatch = null;
+
   function renderPicker() {
     const ul = $("picker-list");
     ul.innerHTML = "";
@@ -5179,44 +5224,65 @@
       };
     });
     const rows = pickerRows(q);
-    const hidden = INDEX.puzzles.length - rows.length;
-    $("picker-more").innerHTML = !hidden ? "" : q
-      ? `${hidden} other puzzle${hidden > 1 ? "s" : ""} don’t match.`
-      : `${hidden} more — search by number, setter, day or “solved”, or `
-        + `<a href="puzzles/">browse the whole archive</a>.`;
+    // This render is throwing away the list the last observer was watching.
+    if (pickerWatch) { pickerWatch.disconnect(); pickerWatch = null; }
+    let drawn = 0;
+    // The line under the list says two different things and has to keep them
+    // apart. "More below" is about scrolling; "don't match" is about searching,
+    // and the answer to it is to type something else. Rolling them into one
+    // count would tell a solver who can see 24 of 8,393 Guardian puzzles that
+    // 15,968 of them "don't match", which is a lie the old single count did not
+    // tell only because it drew all 8,393.
+    const sayRest = () => {
+      const unmatched = INDEX.puzzles.length - rows.length;
+      const below = rows.length - drawn;
+      const bits = [];
+      if (below) bits.push(`${below} more match${below > 1 ? "es" : ""} — keep scrolling.`);
+      if (unmatched) bits.push(q
+        ? `${unmatched} other puzzle${unmatched > 1 ? "s" : ""} don’t match.`
+        : `${unmatched} more — search by number, setter, day or “solved”, or `
+          + `<a href="puzzles/">browse the whole archive</a>.`);
+      setHTML($("picker-more"), bits.join(" "));
+    };
     if (!rows.length) {
       const li = document.createElement("li");
       li.className = "picker-empty";
       li.innerHTML = `<span class="muted">Nothing matches “${esc(q)}”.</span>`;
       ul.appendChild(li);
+      sayRest();
       return;
     }
-    rows.forEach((p) => {
-      const li = document.createElement("li");
-      if (P && p.id === P.id) li.className = "current";
-      const st = pickerStatus(p);
-      const dd = puzzleDate(p);
-      // Abbreviated, and the weekday leads. The row is tight — see the note
-      // below about the nowrap element shoving the line — and "Sat" in front is
-      // read at a glance where a trailing full "Saturday" would just be length.
-      const d = dd.iso ? `${dd.short} ${dd.iso}` : "";
-      const btn = document.createElement("button");
-      // Order here is the grid's, not the eye's: the badges are markup-last but
-      // render on their own second line (see .p-tags in style.css). Progress
-      // sits with them because it is a status like they are, and because
-      // gluing it onto the date made the one nowrap element in the row long
-      // enough to shove everything else off the line.
-      btn.innerHTML = `<span class="p-num">${displayNumber(p)}</span>
-        <span class="p-setter">${esc(p.setter)}</span>
-        <span class="p-meta">${d}</span>
-        <span class="p-tags">${seriesBadge(p)}${difficultyBadge(p)}${hintsBadge(p.annotated)}${sourceBadge(p)}
-          ${!st.filled ? ""
-            : st.done ? `<span class="p-prog done" title="Every square filled in and correct">solved ✓</span>`
-            : `<span class="p-prog">${st.filled}${st.total ? "/" + st.total : ""} letters in</span>`}</span>`;
-      btn.onclick = () => { openPuzzle(p.id); togglePicker(false); };
-      li.appendChild(btn);
-      ul.appendChild(li);
-    });
+    // Without an IntersectionObserver nothing can tell us the bottom has been
+    // reached, so the whole list goes in at once — slow on a search that
+    // matches thousands, which is what this did before, and better than a list
+    // that stops short with no way to go on.
+    const chunk = typeof IntersectionObserver === "function" ? PICKER_CHUNK : rows.length;
+    const drawMore = () => {
+      const upto = Math.min(rows.length, drawn + chunk);
+      while (drawn < upto) ul.appendChild(pickerRow(rows[drawn++]));
+      sayRest();
+      if (pickerWatch) { pickerWatch.disconnect(); pickerWatch = null; }
+      if (drawn >= rows.length) return;
+      // Watching the last row drawn rather than a sentinel node: a sentinel
+      // would be a child of #picker-list that is not a puzzle, and everything
+      // that reads this list — Enter on the search box takes children[0] —
+      // would have to learn about it.
+      //
+      // rootMargin so the next chunk is built while the bottom row is still a
+      // panel-height away, rather than after the scroll has already hit the end.
+      //
+      // Against the PANEL, not the viewport. The panel is the scroller — see
+      // `.panel { max-height: 70vh; overflow: auto }` in style.css — and a
+      // rootMargin only grows the root's own rectangle: with the default root
+      // the margin would be applied to the window and then clipped back by the
+      // panel it is inside, so the lookahead would silently be no lookahead and
+      // rows would arrive only once the scroll had already stopped on them.
+      pickerWatch = new IntersectionObserver((seen) => {
+        if (seen.some((r) => r.isIntersecting)) drawMore();
+      }, { root: $("picker-panel"), rootMargin: "400px" });
+      pickerWatch.observe(ul.children[ul.children.length - 1]);
+    };
+    drawMore();
   }
   // The panels all live in one slot — same corner, same z-index, see .panel in
   // style.css — so two open at once is two panels drawn on top of each other,

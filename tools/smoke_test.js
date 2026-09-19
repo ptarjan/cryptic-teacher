@@ -1201,6 +1201,28 @@ assert(registry["scorebar"].innerHTML.match(/Solved <strong>[1-9]/), "at least o
 const allPuzzles = global.CRYPTIC_INDEX.puzzles || [];
 const pickerRows = () => registry["picker-list"].children;
 const pickerHTMLNow = () => pickerRows().map((li) => li.children[0].innerHTML).join("");
+// How many rows go in before the list has to be scrolled. Read out of app.js
+// rather than written down again: a test that holds its own copy of the chunk
+// size is a test that can agree with a number the app has stopped using.
+const PICKER_CHUNK = Number((/const PICKER_CHUNK = (\d+);/.exec(appSrc) || [])[1]);
+assert(PICKER_CHUNK > 0, "app.js still draws the picker `PICKER_CHUNK` rows at a time");
+// The list is built a chunk at a time and grows as it is scrolled, so
+// pickerRows() is what is ON SCREEN and not what the search matched. Any sweep
+// that means "every row this search found" has to scroll to the end first —
+// without this it would pass by only ever looking at the first two dozen, which
+// is a test that stops testing without ever failing.
+//
+// Scrolling is firing the observer app.js put on the last row drawn, which is
+// exactly what a browser does when that row comes near the bottom of the
+// screen. The bound is a safety net and is asserted, so a list that appends
+// forever fails here rather than hanging the suite.
+const drainPicker = () => {
+  const last = () => pickerRows()[pickerRows().length - 1];
+  let guard = 0;
+  while (last() && global.watchersOf(last()) && guard++ < 2000) global.intersect(last());
+  assert(guard < 2000, "the picker stops appending rows rather than growing forever");
+  return pickerRows();
+};
 const typeInPicker = (q) => {
   registry["picker-search"].value = q;
   registry["picker-search"].listeners.input[0]();
@@ -1221,7 +1243,7 @@ const numberIn = (id) => numberOf(id) || Number(String(id).replace(/^.*-/, ""));
 const pickerSearchFor = (id) => typeInPicker(numberIn(id) + " " + seriesOf(id));
 const pickerRowFor = (id) => {
   pickerSearchFor(id);
-  const rows = pickerRows();
+  const rows = drainPicker();
   const byNumber = rows.find((li) => li.children[0]
     && rowHasNumber(li.children[0].innerHTML, numberIn(id)));
   // A row prints the number a READER reads, and a book's is "Penguin book 2
@@ -1273,7 +1295,9 @@ assert(registry["picker-search"].value === "", "the filter box starts empty on o
   const full = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     .find((d) => d.startsWith(day));
   typeInPicker(full.toLowerCase());
-  const hits = pickerRows();
+  // Drained: "and finds nothing else" is a claim about every row the day
+  // matched, and a day matches a seventh of the archive.
+  const hits = drainPicker();
   assert(hits.length >= seen[day],
     `searching "${full.toLowerCase()}" finds its ${seen[day]} row(s), got ${hits.length}`);
   assert(hits.every((li) => new RegExp(`p-meta">${day} `).test(li.children[0].innerHTML)),
@@ -1527,13 +1551,13 @@ assert(registry["picker-search"].value === "", "the filter box starts empty on o
 {
   const target = allPuzzles.find((p) => p.annotated);
   typeInPicker(String(target.number));
-  assert(pickerRows().length && pickerRows().every((li) =>
+  assert(drainPicker().length && pickerRows().every((li) =>
     rowHasNumber(li.children[0].innerHTML, target.number)),
     "filtering by number finds the puzzles carrying that number and nothing else");
   // The number narrows; the number and the series together identify. A number
   // shared by two series has to come back as two rows there and one row here.
   pickerSearchFor(target.id);
-  assert(pickerRows().length === 1 && pickerHTMLNow().includes("№ " + target.number),
+  assert(drainPicker().length === 1 && pickerHTMLNow().includes("№ " + target.number),
     `number plus series finds exactly one puzzle: ${target.id}`);
   // And that number is the whole number. Every puzzle number of five digits or
   // fewer is a run of digits inside some longer one once an archive is this
@@ -1545,17 +1569,91 @@ assert(registry["picker-search"].value === "", "the filter box starts empty on o
     && numbers.lastIndexOf(n) === i
     && numbers.some((m) => m.length > n.length && m.includes(n)));
   typeInPicker(short);
-  const found = pickerRows().map((li) =>
+  const found = drainPicker().map((li) =>
     (li.children[0].innerHTML.match(/№ ([\d,]+)/) || [])[1]);
   assert(found.length === 1 && found[0].replace(/,/g, "") === short,
     "a number search matches whole numbers only, not digits inside a longer one: "
     + short + " found " + found.join(", "));
   typeInPicker(target.setter.toLowerCase());
-  assert(pickerHTMLNow().includes("№ " + target.number),
+  // A prolific setter has hundreds of puzzles and the one looked for need not be
+  // in the first chunk of them, so this scrolls to the end before it looks.
+  assert(drainPicker().some((li) => rowHasNumber(li.children[0].innerHTML, target.number)),
     "filtering by setter works: " + target.setter);
   typeInPicker("zzzznotasetter");
   assert(pickerRows().length === 1 && /picker-empty/.test(pickerRows()[0].className),
     "a filter that matches nothing says so rather than showing everything");
+  typeInPicker("");
+}
+
+/* --- a search that matches thousands draws a screenful and grows as you scroll ---
+
+   "clicking the puzzle pill now takes a long time to swap, maybe make it
+   infinite scroll?" (Paul, 2026-09-19). A Papers chip matches a whole
+   newspaper — at 15,992 indexed puzzles the biggest is 8,393 of them — and
+   every match used to be built on the tap that selected the chip: 16,786
+   elements and 3.8 MiB of markup handed to the browser in one go, for a list
+   that shows about a dozen rows at a time.
+
+   Driven off the biggest chip rather than a paper named here, so the test
+   follows the corpus instead of a word that was true the day it was written.
+   Papers come biggest-first and before the bands, so pf-0 is that chip.
+
+   The counts are checked against each other rather than against numbers
+   written down: what the line says is below plus what is drawn must BE the
+   match, and the match plus what it says does not match must be the whole
+   archive. Two facts that a single count cannot tell apart — "keep scrolling"
+   is answered by scrolling and "doesn't match" is answered by typing something
+   else, and rolling them together would tell a solver looking at 24 of 8,393
+   Guardian puzzles that 15,968 of them don't match. */
+{
+  if (registry["picker-panel"].classList.contains("hidden")) registry["btn-picker"].onclick();
+  typeInPicker("");
+  registry["pf-0"].onclick();
+  const chip = registry["picker-search"].value;
+  const more = () => registry["picker-more"].innerHTML;
+  const drawn = pickerRows().length;
+  assert(drawn === PICKER_CHUNK,
+    `tapping "${chip}" draws ${PICKER_CHUNK} rows, not every match: ${drawn}`);
+  const below = Number((/(\d+) more match/.exec(more()) || [])[1]);
+  const unmatched = Number((/(\d+) other puzzle/.exec(more()) || [])[1]);
+  assert(below > 0 && unmatched > 0,
+    `the line under the list counts both what is below and what did not match: ${more()}`);
+
+  // Scrolling is what brings the rest, and it is the LAST ROW DRAWN that is
+  // watched — no sentinel node, so Enter on the search box still lands on a
+  // puzzle at children[0] and every sweep above still sees puzzles only.
+  const last = () => pickerRows()[pickerRows().length - 1];
+  assert(global.watchersOf(last()) === 1,
+    "the last row drawn is watched, so reaching it appends the next chunk");
+  assert(global.intersect(last()) === 1 && pickerRows().length === drawn + PICKER_CHUNK,
+    `scrolling to the bottom appends a chunk: ${drawn} -> ${pickerRows().length}`);
+  assert(global.watchersOf(pickerRows()[drawn - 1]) === 0,
+    "and the row that used to be last is let go, so one observer is live at a time");
+  const top = pickerRows()[0].children[0];
+  assert(typeof top.onclick === "function" && /p-num/.test(top.innerHTML),
+    "the first child of the list is still a puzzle button, which is what Enter opens");
+
+  // Nothing is unreachable: the whole match is still there to be scrolled to,
+  // and the count said exactly how much of it was waiting.
+  const all = drainPicker().length;
+  assert(all === drawn + below,
+    `the "more below" count was the truth: said ${below} below ${drawn} drawn, `
+    + `scrolled to ${all}`);
+  assert(all + unmatched === allPuzzles.length,
+    `and the "don't match" count is the rest of the archive: ${all} + ${unmatched} `
+    + `vs ${allPuzzles.length}`);
+  assert(all > PICKER_CHUNK * 4,
+    `the chip this was driven from matches far more than one screenful (${all}), `
+    + "which is the case the chunking is for");
+  assert(!/keep scrolling/.test(more()) && /other puzzle/.test(more()),
+    `at the end the line stops offering more and still says what did not match: ${more()}`);
+
+  // The default list is short by design and must not be chunked: the newest
+  // RECENT_ROWS plus whatever the solver has open or unfinished is an answer to
+  // "what next", not a thing to scroll.
+  typeInPicker("");
+  assert(pickerRows().length <= PICKER_CHUNK && !/keep scrolling/.test(more()),
+    `the default list arrives whole: ${pickerRows().length} rows, ${more()}`);
 }
 
 // --- open an un-annotated puzzle (answers-only degradation) ---
