@@ -1221,8 +1221,16 @@ const numberIn = (id) => numberOf(id) || Number(String(id).replace(/^.*-/, ""));
 const pickerSearchFor = (id) => typeInPicker(numberIn(id) + " " + seriesOf(id));
 const pickerRowFor = (id) => {
   pickerSearchFor(id);
-  return pickerRows().find((li) => li.children[0]
+  const rows = pickerRows();
+  const byNumber = rows.find((li) => li.children[0]
     && rowHasNumber(li.children[0].innerHTML, numberIn(id)));
+  // A row prints the number a READER reads, and a book's is "Penguin book 2
+  // No 52" — the stored 1052 is nowhere in its markup, because one chip covers
+  // thirty books and the shelf label is the only thing on the row that says
+  // which. The search above is the number AND the series, which is what an id
+  // is, so one surviving row is that puzzle and matching its markup would only
+  // be re-deriving what the search already decided.
+  return byNumber || (rows.length === 1 ? rows[0] : undefined);
 };
 // Opens the picker first, because most callers are arriving from another puzzle.
 const openFromPicker = (id) => {
