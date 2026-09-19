@@ -294,6 +294,7 @@ SERIES_NAMES = {
     "cyclops": "Private Eye Cyclops",
     "metro": "Metro cryptic",
     "globeandmail": "Globe and Mail cryptic",
+    "herald2": "Herald book 2",
 }
 
 # One entry per Penguin volume, because one series per volume: every volume

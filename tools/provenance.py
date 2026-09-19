@@ -93,7 +93,34 @@ import series as series_table  # noqa: E402
 # A Penguin volume is its own series ("penguin5"), because every book renumbers
 # from its own 1. Matched rather than listed, so acquiring a book is one entry
 # in series.py and nothing here.
-PENGUIN = re.compile(r"penguin(\d+)$")
+# The volume number trailing a book series key: "penguin5" is volume 5,
+# "herald2" is The Herald's volume 2. It is the number the BOOK prints on its
+# own spine, and two publishers' volume 2 are different books — which is why
+# book-ness itself is asked of the series table below rather than read off this
+# pattern, as it was while every book here was a Penguin volume.
+VOLUME = re.compile(r"(\d+)$")
+
+
+def is_book(series):
+    """Whether this series' puzzles were read out of a scanned printed book."""
+    return bool(series_table.book_title(series))
+
+
+def volume_of(series):
+    """Which volume of its book this series is, from the digits its key ends in.
+
+    A book series key is the book plus its volume ("penguin5", "herald2"),
+    because each volume renumbers from 1 and so has to be its own series. A
+    book that never prints a volume number would need a field here rather than
+    a pattern; none has yet, and inventing the field before the book exists
+    would be guessing at what it will look like.
+    """
+    m = VOLUME.search(series or "")
+    if not m:
+        raise ValueError(
+            f"{series} is book-sourced but its key ends in no volume number, "
+            f"so nothing here can say which volume its puzzles are from")
+    return int(m.group(1))
 
 # ---------------------------------------------------------------- the enums
 #
@@ -231,11 +258,11 @@ ACQUISITION_BY_SOURCE = {
     ("metro", "metro.co.uk"): ("tools/fetch_metro.py",
                                "tools/fetch_metro.py --wayback"),
 }
-# Every Penguin volume is its own series (see series.py), and they all arrive
-# the same way, so they are generated rather than typed — a volume added to
-# series.py must not also need adding here.
+# Every book is its own series (see series.py), and they all arrive the same
+# way, so they are generated rather than typed — a book added to series.py must
+# not also need adding here.
 for _series in series_table.SERIES:
-    if PENGUIN.fullmatch(_series):
+    if is_book(_series):
         ACQUISITION_BY_SOURCE[(_series, "archive.org")] = (
             "tools/file_penguin_puzzle.py", "tools/acquire_book.py")
 
@@ -260,35 +287,31 @@ GRID_ORIGIN_BY_SERIES = {"authored": "authored"}
 # module reads it through series.scan_identifier. Two tables keyed by volume can
 # only drift, and a puzzle whose sourceUrl names one book while its
 # provenance.book names another is exactly what that drift looks like.
-BOOK_TITLE = "The New Penguin Book of The Guardian Crosswords, volume {volume}"
-
-
 def book_of(series):
     """The book block for a book-sourced series, or None.
 
-    Derived from the series key rather than listed, because a volume IS a
-    series here and a table listing them twice would have to be extended in
-    two places every time a book is acquired.
+    Derived from the series table rather than listed, because a book IS a
+    series here and a table listing them twice would have to be extended in two
+    places every time a book is acquired.
 
-    A penguin series with no recorded scan raises. There is no placeholder
+    A book series with no recorded scan raises. There is no placeholder
     identifier: a file saying "unknown" reads afterwards as a fact about the
     book rather than a gap, and it is a gap a human has to close by looking the
     volume up.
     """
-    m = PENGUIN.fullmatch(series or "")
-    if not m:
+    title = series_table.book_title(series)
+    if not title:
         return None
-    volume = int(m.group(1))
     identifier = series_table.scan_identifier(series)
     if not identifier:
         raise ValueError(
-            f"{series} has no archive.org identifier in series.PENGUIN_VOLUMES "
-            f"— look up volume {volume}'s own scan and add it there; filing it "
-            f"without one makes the puzzle cite a book it did not come from")
+            f"{series} has no archive.org identifier in tools/series.py — look "
+            f"up its own scan and add it there; filing it without one makes "
+            f"the puzzle cite a book it did not come from")
     return {
         "identifier": identifier,
-        "title": BOOK_TITLE.format(volume=volume),
-        "volume": volume,
+        "title": title,
+        "volume": volume_of(series),
     }
 
 
@@ -352,7 +375,7 @@ def solution_origin_from_file(puzzle):
 def grid_origin(series):
     """A book puzzle's geometry was worked out from its clue list; everything
     else arrives with the grid the source published."""
-    if PENGUIN.fullmatch(series or ""):
+    if is_book(series):
         return "reconstructed"
     return GRID_ORIGIN_BY_SERIES.get(series, "published")
 
