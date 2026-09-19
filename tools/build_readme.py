@@ -278,6 +278,9 @@ SERIES_NAMES = {
     "cyclops": "Private Eye Cyclops",
     "metro": "Metro cryptic",
     "globeandmail": "Globe and Mail cryptic",
+    # One entry per Penguin volume, because one series per volume: every volume
+    # numbers its puzzles from its own 1 (see tools/series.py).
+    "penguin5": "Penguin book 5",
 }
 
 
