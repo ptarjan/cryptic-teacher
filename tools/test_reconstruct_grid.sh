@@ -123,7 +123,16 @@ for pid, loose in (("everyman-3082", False), ("globeandmail-3146", True)):
 # one whose printed numbering is not what its own grid prints.
 crooked = R.grid_of(read_puzzle_file(resolve_puzzle("cyclops-300")))
 print("NAMES_ASYMMETRY", R.conventions_broken(crooked))
-mislabelled = read_puzzle_file(resolve_puzzle("everyman-3572"))
+# A puzzle on disk that fails this is a corpus defect, not a fixture -- once
+# found, tools/puzzle_integrity.py's NUMBER check gets it fixed, which would
+# make a fixture that names one by id fail the moment the corpus is clean.
+# So this mislabels a real, currently-correct puzzle in memory instead: one
+# entry's stored number is bumped far past every number the grid would ever
+# hand out, which changes nothing about the black squares (grid_of reads
+# position and length, never number) but guarantees the stored and
+# grid-derived lists disagree.
+mislabelled = read_puzzle_file(resolve_puzzle("everyman-3082"))
+mislabelled["entries"][0]["number"] += 1000
 print("SPOTS_BAD_LIST",
       R.conventions_broken(R.grid_of(mislabelled)) == []
       and sorted(R.lights_from_grid(R.grid_of(mislabelled)))
