@@ -114,6 +114,14 @@ tools/grid_verdict.py                        judges a recovered grid by CPU alon
 tools/test_acquire_book.sh                   gates that pipeline on ten control puzzles from
                                              Penguin volume 5, failing if a single recovered
                                              grid or a single search node count moves
+tools/test_ia_borrow.sh                      holds the one archive.org refusal string that
+                                             means two different things apart, so a book whose
+                                             copies are all out is never read as one that needs
+                                             no loan
+tools/test_penguin_layout.sh                 gates the dotted-number print layout — glued
+                                             running head, "13." numbers, "1 & 4 Ac." links —
+                                             whose loss costs a whole book to jigsaw mode and
+                                             0% of its clue numbers
 tools/test_linked_enumerations.sh            proves a per-light solve record is converted
                                              rather than filed, that a record already in leader
                                              form is never re-derived, and that every linked
@@ -422,5 +430,11 @@ tools/data/favourite_grading/scores/         the judge’s five scores per label
                                              numbering as the packets
 tools/suggest_demand.json                    the last autocomplete reading, advisory only:
                                              nothing downstream sorts on it
+tools/backfill_provenance.py                 write a `provenance` block into every puzzle that
+                                             hasn't got one
+tools/provenance.py                          where a puzzle came from — and, the part that
+                                             matters, where its ANSWERS came from
+tools/test_provenance.sh                     does provenance actually REFUSE a puzzle that lies
+                                             about where it came from?
 ```
 <!-- LAYOUT-END -->
