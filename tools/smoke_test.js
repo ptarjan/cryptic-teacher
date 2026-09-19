@@ -368,12 +368,14 @@ assert(!registry["app"].classList.contains("hidden"), "app visible after boot");
 // contents — the puzzle being opened, or one with letters saved, which the
 // picker holds against the solutions. This run starts with an empty store, so
 // the count is exactly one, and any number above it is the regression.
-{
-  const loaded = Object.keys(global.window.CRYPTIC_PUZZLES || {});
-  assert(loaded.length === 1,
-    `boot loaded ${loaded.length} puzzle files of ${global.CRYPTIC_INDEX.puzzles.length}; `
-    + "it must load only the one it opens, and fetch the rest on demand");
-}
+// Also the one structural record of WHICH puzzle opened. The store holds
+// exactly the file the app injected, so the id is read from here and never
+// parsed back out of the rendered title.
+const bootLoaded = Object.keys(global.window.CRYPTIC_PUZZLES || {});
+assert(bootLoaded.length === 1,
+  `boot loaded ${bootLoaded.length} puzzle files of ${global.CRYPTIC_INDEX.puzzles.length}; `
+  + "it must load only the one it opens, and fetch the rest on demand");
+const openId = bootLoaded[0];
 
 // The checks below are about the corpus, not about booting, so they need all of
 // it. Loaded here, deliberately after the assertion above — that ordering is the
@@ -393,15 +395,17 @@ assert(Object.keys(global.window.CRYPTIC_PUZZLES).length >= 25, "the corpus is l
 // version typed "COLOGNE" and silently began failing the day the app stopped
 // booting on No 30,067. Set CT_TEST_QUERY=?p=30067 to pin one while debugging.
 const openTitle = registry["puzzle-title"].innerHTML;
-assert(/No [\d,]+/.test(openTitle), "a Guardian cryptic opened: " + openTitle);
-// The title shows the NUMBER — that is what a solver reads — so the id comes
-// back out of the index rather than off the screen. They stopped being the
-// same string when ids grew their series.
-const openNumber = (openTitle.match(/No ([\d,]+)/) || [, ""])[1].replace(/,/g, "");
-const openId = ((global.CRYPTIC_INDEX.puzzles || [])
-  .find((p) => String(p.number) === openNumber) || {}).id;
 const openPuz = (global.window.CRYPTIC_PUZZLES || {})[openId];
 assert(openPuz, "the opened puzzle's data is loaded: " + openId);
+// The title carries the puzzle's own name, so the check is that it says that
+// name. A number is ONE series' way of naming itself and must not be read as
+// the puzzle's identity: Metro names itself by date and carries no "No", so a
+// /No [\d,]+/ scrape resolves to no puzzle at all the first night a Metro is
+// the newest one. Escaped the way app.js escapes it, so the two cannot drift.
+const escName = String(openPuz.name).replace(/[&<>"']/g, (c) =>
+  ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+assert(openTitle.includes(escName),
+  `the title names the opened puzzle: want ${escName}, got ${openTitle}`);
 // A ?p= URL hands its indexing credit to the static write-up, not to the
 // homepage. It shipped canonicalling to the site root, so every link to a
 // specific puzzle credited the front page and Search Console filed the puzzle
