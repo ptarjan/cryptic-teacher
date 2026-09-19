@@ -575,6 +575,29 @@ spend_session_before=$(python3 tools/weekly_usage.py --group session 2>/dev/null
 # front of tonight's queue, because it is by definition the newest puzzle and
 # the one people are actually looking at. Same session gate as annotation, and
 # the same trailer, since it is the same model spending the same quota.
+#
+# "By definition the newest" stopped being true when the book reprints arrived.
+# A Penguin reprint has no date at all — no volume prints one — so both queues
+# above sort it behind every dated puzzle, deliberately: the backfill does
+# today's crosswords first and gets to a 1970s reprint eventually. Prepending
+# one here would undo that at the last moment and spend a place in tonight's
+# ANNOTATE_MAX on a reprint, dropping a puzzle somebody is solving today off the
+# end of the queue. So a dated solve goes to the front and a dateless one to the
+# back, which is where the ordering had it all along.
+has_date() {   # id -> true when the puzzle file carries a publication date
+  python3 - "$1" <<'EOF'
+import sys
+from pathlib import Path
+sys.path.insert(0, "tools")
+from fetch_puzzle import PUZZLE_DIR, read_puzzle_file
+try:
+    puzzle = read_puzzle_file(PUZZLE_DIR / f"{sys.argv[1]}.js")
+except Exception as err:  # noqa: BLE001 — an unreadable file is not a date
+    print(f"cannot read {sys.argv[1]} to place it in the queue: {err}", file=sys.stderr)
+    sys.exit(1)
+sys.exit(0 if puzzle.get("date") else 1)
+EOF
+}
 solved_ok=0
 # id:session for every grid solved tonight, so the annotation below can carry on
 # in the conversation that worked it out. Same "$num:$sid" list and the same
@@ -619,7 +642,12 @@ if [ -n "$unsolved" ] && command -v claude >/dev/null 2>&1; then
     cat "$verdict"
     if [ "$applied" -eq 0 ]; then
       solved_ok=$((solved_ok + 1))
-      pending="$num $pending"
+      if has_date "$num"; then
+        pending="$num $pending"
+      else
+        echo "  $num has no date — annotating it after tonight's dated puzzles, not before"
+        pending="$pending $num"
+      fi
       solve_sids="$solve_sids $num:$solve_sid"
       python3 - "$num" "$SOLVE_ATTEMPTS_FILE" <<'EOF'
 import json, sys
@@ -655,10 +683,12 @@ EOF
     rm -f "$fill" "$solvelog" "$verdict"
   done
   # Whatever solving cost, the annotation budget is still ANNOTATE_MAX puzzles.
-  # Solving prepends its puzzle, so a queue that was already at the cap loses its
-  # last entry here. Name the ones being dropped: the queue line above has
-  # already promised them by id, and a promise withdrawn in silence reads in the
-  # log as a puzzle that failed rather than one that was never begun.
+  # Solving adds its puzzle, so a queue that was already at the cap loses its
+  # last entry here — which is the dateless reprint itself when that is what was
+  # solved, and a puzzle from today when it is not. Name the ones being dropped:
+  # the queue line above has already promised them by id, and a promise withdrawn
+  # in silence reads in the log as a puzzle that failed rather than one that was
+  # never begun.
   kept=$(echo $pending | tr ' ' '\n' | grep -v '^$' | head -"$ANNOTATE_MAX" | tr '\n' ' ')
   dropped=$(echo $pending | tr ' ' '\n' | grep -v '^$' | tail -n +"$((ANNOTATE_MAX + 1))" | tr '\n' ' ')
   [ -n "$dropped" ] &&
