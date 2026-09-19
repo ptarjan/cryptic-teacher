@@ -329,9 +329,9 @@ window.CRYPTIC_PUZZLES["penguin5-18"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 4,
-   "clue": "Fellow player makes anagrams (4,4)",
+   "clue": "Fellow player makes anagrams (4-4)",
    "separatorLocations": {
-    ",": [
+    "-": [
      4
     ]
    },
