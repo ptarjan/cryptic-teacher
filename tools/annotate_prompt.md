@@ -1,11 +1,13 @@
 # Annotation task for Claude Code
 
 You are annotating a broadsheet cryptic crossword for the Cryptic Teacher app in this
-repository — a Guardian daily or Quiptic, the Observer's Everyman, or the Independent's
-daily. The target file is `puzzles/<ID>.js`, where the ID is the series and the number
-together (`cryptic-30089`, `everyman-4165`, `quiptic-1395`, `independent-12438`,
-`indysunday-1903`); every paper numbers from its own 1, so the number alone names
-nothing. The caller names the file to annotate; that file is the target and picking a
+repository — a Guardian daily or Quiptic, the Observer's Everyman, the Independent's
+daily or Sunday, Private Eye's Cyclops, Metro's daily, the Globe and Mail's, or a
+Guardian reprint out of a Penguin book. The target file is `puzzles/<ID>.js`, where the
+ID is the series and the number together (`cryptic-30089`, `everyman-4165`,
+`quiptic-1395`, `independent-12438`, `indysunday-1903`, `penguin5-3`); every paper
+numbers from its own 1 — and a Penguin volume from its own 1 again — so the number
+alone names nothing. The caller names the file to annotate; that file is the target and picking a
 different one is never right.
 
 ## What to produce
@@ -24,6 +26,27 @@ Do not write a script to do this. The annotations are the work; write only those
 
 Each entry's `"solution"` field is ground truth: your parsing must produce exactly
 those letters. If it does not, the parse is wrong — rethink it, do not stretch it.
+
+**Except where the puzzle says otherwise.** A puzzle carrying a top-level
+`"solutionSource"` was not solved by its paper; the answers are a model's, filled
+cold and checked only for grid consistency. Where that object also says
+`"officialKey": "never"` — the Penguin book reprints — no key is coming to correct
+them either, so the file in front of you is the only account of that puzzle there
+will ever be.
+
+In those puzzles an entry may carry `"solutionConfidence": "LIKELY"`. That means the
+letters were forced by the definition and the crossings and **the wordplay does not
+fully parse**. Its absence means CONFIDENT, which is the normal case.
+
+A `LIKELY` entry is the one place on this site where inventing a parse does real
+damage: the answer is probably right, the site would present your explanation as
+authoritative, and nothing downstream will ever catch it. So do not manufacture
+wordplay to cover the gap. Either you can derive the whole answer from the clue
+yourself — in which case annotate it normally, because you have solved what the
+solver could not — or you cannot, in which case write `null` for that entry. `null`
+is already the allowed answer for a clue you could not parse, and it is the right
+answer here. A hedged walkthrough is not a third option; the validator rejects
+hedges, and it should.
 
 Then apply and check with one command, and repeat until it reports `clean`:
 

@@ -17,6 +17,7 @@ written for a solver deciding what to attempt next, not a machine fact, and it
 lives next to the code that renders it. An unlisted series there simply goes
 unbadged.
 """
+import re
 
 # No series-priority field. The backfill queues by date across every series at
 # once (tools/prereset_backfill.sh), and puzzle difficulty is measured per puzzle
@@ -86,6 +87,28 @@ SERIES = {
         "publisher": "Globe and Mail",
         "badge": "globe & mail",
     },
+    # The New Penguin Book of The Guardian Crosswords, volume 5: Guardian
+    # reprints, scanned and OCR'd, whose grids were reconstructed from the clue
+    # list and whose answers were solved here. A SERIES PER VOLUME, because
+    # every volume numbers its own puzzles from 1 — sharing one "penguin" key
+    # would put six different puzzles at No 3 in one sequence and walk prev/next
+    # between them, which is the reason indysunday is not part of independent.
+    #
+    # No volume prints a Guardian puzzle number or a publication date, checked
+    # across all six books, so the number here is the book's own position and
+    # `date` is null. The kind says "Penguin book 5" rather than leaving it to
+    # the key, because the crawlable page's heading is "{publisher} {kind}
+    # Crossword No {number}" and "Guardian Cryptic Crossword No 3" would claim a
+    # Guardian number that this puzzle does not have and nobody can look up.
+    #
+    # Nothing will ever grade these: Penguin prints its solutions as answer-grid
+    # IMAGES that OCR to noise, and there is no number or date to find a key by.
+    # The puzzles say so themselves in solutionSource.officialKey == "never".
+    "penguin5": {
+        "kind": "Penguin Book 5 Cryptic",
+        "publisher": "Guardian",
+        "badge": "penguin 5",
+    },
     "indysunday": {
         # The Independent on Sunday's own weekly sequence, ~1,900 and climbing
         # by one a week, served from the same feed as the daily (see
@@ -150,14 +173,18 @@ def badge(series):
 #
 # Numbers stay numbers everywhere they are DISPLAYED. This is the storage key.
 #
-# Series keys are one lowercase word, no hyphen — hence "indysunday" rather than
-# "independent-sunday". The id is <series>-<number> and the LAST hyphen is the
-# split, so a hyphenated key parses correctly but stops "^[a-z]+-\d+$" being
-# true, and that shape is asserted on filenames and on progress keys in
-# tools/smoke_test.js. One word keeps the id unambiguous to a reader as well as
-# to rpartition. Use "badge" for anything a solver has to read.
+# Series keys are one lowercase word, digits allowed, no hyphen — hence
+# "indysunday" rather than "independent-sunday", and "penguin5" for a volume.
+# The id is <series>-<number> and the LAST hyphen is the split, so a hyphenated
+# key parses correctly but stops "^[a-z0-9]+-\d+$" being true, and that shape is
+# asserted on filenames and on progress keys in tools/smoke_test.js — where the
+# filename form is a FILTER rather than an assert, so a key that fails it is
+# silently dropped from three corpus sweeps instead of failing one. That is why
+# the shape is enforced here, at the one place ids are made, rather than left to
+# be discovered: a key this refuses cannot reach the corpus at all.
 def puzzle_id(series, number):
-    assert "-" not in (series or ""), f"series key {series!r} must be one word"
+    assert re.fullmatch(r"[a-z0-9]+", series or "cryptic"), \
+        f"series key {series!r} must be one lowercase word, digits allowed, no hyphen"
     return f"{series or 'cryptic'}-{number}"
 
 
