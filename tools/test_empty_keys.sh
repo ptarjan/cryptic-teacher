@@ -133,5 +133,17 @@ strict=$(grep -cE "annotation\s*(===|!==)\s*null|['\"]annotation['\"]\s+in\b|has
   app.js tools/smoke_test.js tools/make_hint_packets.js | grep -v ':0$' | wc -l | tr -d ' ')
 same "nothing in the app tells a null annotation from an absent one" "$strict" "0"
 
+echo "and the corpus carries neither empty form"
+# The whole point of the exercise, asked of the files rather than of the code
+# that writes them: 21.5 MB came out of puzzles/ on 2026-09-19 and nothing is
+# allowed to put it back, one nightly fetch at a time. Read as bytes, because
+# both strings are unambiguous at this indent and parsing 135 MB to learn it
+# would be the slow way round.
+found=$(grep -rlF --include='*.json' \
+  -e '"separatorLocations": {}' -e '"annotation": null' puzzles \
+  | head -5 | tr '\n' ' ')
+same "no puzzle file writes an empty separatorLocations or a null annotation" \
+  "${found:-none}" "none"
+
 if [ "$fails" -gt 0 ]; then echo "empty_keys: $fails check(s) failed"; exit 1; fi
 echo "empty_keys: all checks passed"
