@@ -81,6 +81,9 @@ tools/test_puzzle_integrity.sh               proves the two LENGTH exception tab
 tools/fetch_ia_book.py                       borrows a lending-restricted archive.org book,
                                              saves its OCR text outside the repo, and returns
                                              the loan
+tools/parse_penguin_book.py                  segments that book's OCR text into puzzles, clues
+                                             and enumerations, and reports per-puzzle what OCR
+                                             destroyed
 tools/test_blank_clue_carry.sh               proves a re-fetch cannot empty a puzzle whose
                                              clues were recovered by hand off the Guardian’s
                                              old site, that the paper still wins wherever it
