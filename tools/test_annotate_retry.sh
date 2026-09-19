@@ -37,7 +37,12 @@ block=$(awk '/^      ann_sid=\$\(session_id\)/,/^      done$/' tools/daily_updat
 solve_call=$(awk '/^    solve_sid=\$\(session_id\)/,/^      --max-turns 120 /' tools/daily_update.sh)
 solve_record=$(awk '/^    if \[ "\$applied" -eq 0 \]; then$/,/^    fi$/' tools/daily_update.sh)
 solve_helper=$(grep '^solve_session_of() ' tools/daily_update.sh)
-for name in block solve_call solve_record solve_helper; do
+# solve_record calls has_date, which daily_update.sh defines at the top of the
+# file and so outside every range read above. Read it out too — not to run it,
+# but so that renaming or deleting it fails here by name, rather than becoming a
+# command that is simply not there and takes the queue's else branch in silence.
+has_date_def=$(awk '/^has_date\(\) {/,/^}$/' tools/daily_update.sh)
+for name in block solve_call solve_record solve_helper has_date_def; do
   [ -n "${!name}" ] ||
     { echo "FAIL: the $name block is no longer where this test reads it from"; exit 1; }
 done
@@ -221,6 +226,22 @@ solve() {  # $1 = id, $2 = applied|rejected — the applier's verdict on the fil
 export SOLVE_ATTEMPTS_FILE="$stub/solve_attempts.json"
 SOLVE_ATTEMPTS_MAX=9
 alert() { :; }
+# A block read out of daily_update.sh can call anything daily_update.sh defines,
+# including helpers that live outside the lines read here. Bash answers a call
+# to one of those with "command not found" and a 127 — false to every `if` that
+# tests it — so the block quietly takes its other branch and the failure surfaces
+# somewhere else entirely. Say which name was missing instead.
+# Only records the name. Bash runs this handler in a forked child, so a variable
+# it set would go with that child, and the blocks are run with their output sent
+# to /dev/null, so anything it printed would go there. The tally reads the file.
+command_not_found_handle() { echo "$1" >> "$stub/missing"; return 127; }
+# Which end of the annotation queue a solve enters is has_date's call. Every id
+# below is a bare name with no puzzle file behind it, which the real has_date
+# reads as dateless and sends to the back — correct for a book reprint and
+# beside the point here, because these cases are about WHICH CONVERSATION a
+# solve leaves behind. They run as the dated case. Both branches of the ordering
+# are checked against the real lines in tools/test_solve_queue_clues.sh.
+has_date() { return 0; }
 eval "$solve_helper"
 solve_sids=""; pending=""; solved_ok=0
 
@@ -249,5 +270,11 @@ check "the solve ran with no --session-id rather than a blank one" \
   "$(grep -c -- --session-id <<<"$argv")" "0"
 check "and left the annotation nothing to resume" "$(solve_session_of test-3)" ""
 
+# One missing name is one failure, however many times the blocks called it.
+for name in $([ -f "$stub/missing" ] && sort -u "$stub/missing"); do
+  echo "  FAIL: the block under test calls $name, which daily_update.sh defines"\
+       "outside the lines this test reads — stub it here or read it out too"
+  fails=$((fails + 1))
+done
 [ "$fails" = 0 ] && echo "annotate retry: all checks passed" || echo "annotate retry: $fails FAILED"
 exit $((fails > 0))
