@@ -136,7 +136,7 @@ tools/test_penguin_layout.sh                 gates the dotted-number print layou
 tools/test_linked_enumerations.sh            proves a per-light solve record is converted
                                              rather than filed, that a record already in leader
                                              form is never re-derived, and that every linked
-                                             answer in the penguin series on disk still carries
+                                             answer in the book series on disk still carries
                                              its count on the leader alone
 tools/test_blank_clue_carry.sh               proves a re-fetch cannot empty a puzzle whose
                                              clues were recovered by hand off the Guardian’s

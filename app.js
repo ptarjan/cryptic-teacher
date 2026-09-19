@@ -241,52 +241,59 @@
   // in every browser's saved progress, and in the envelope a phone that has not
   // reloaded is still uploading.
   // ---------- books ----------
-  // A scanned book is ONE series however many volumes it has, and the volume
-  // lives in the number: volume * 1000 + position, so penguin-5018 is volume
-  // 5's No 18.
+  // THE WHOLE SHELF IS ONE SERIES. Every scanned printed book here is `book`,
+  // one chip and one colour however many books arrive, and WHICH book a
+  // puzzle came out of lives in its number: book_index * 1000 + position, so
+  // book-3018 is the eighteenth puzzle of the book registered as index 3.
   //
   // THE SHELF IS NOT SPELLED HERE. tools/data/books.json is the registry —
   // one row per physical book — and tools/fetch_puzzle.py --reindex copies the
-  // browser's half of it into puzzles/index.json, which this reads. An 18-key
-  // table of shelf labels used to sit at this spot, hand-mirrored from
+  // browser's half of it into puzzles/index.json, which is what this reads. An
+  // 18-key table of shelf labels used to sit at this spot, hand-mirrored from
   // tools/series.py, and two copies of one fact is how a shelf comes to be
   // spelled two ways — one of them on the page a reader is looking at.
   //
-  // Keyed by the series a book is filed under, because that is what an index
-  // row carries and nothing in a row says which keys are books. A book series
-  // the index does not describe has its number printed raw ("№ 32007") and its
-  // legacy id silently not built, which is the right failure for an index
-  // deployed before this table existed.
-  const BOOK_SHELF = {};
-  Object.keys(INDEX.books || {}).forEach((i) => {
-    const row = INDEX.books[i];
-    BOOK_SHELF[row.was] = row.shelf;
-  });
+  // The index a number carries is NOT the volume the book prints on itself:
+  // two publishers' volume 2 are different books, so the index is this repo's
+  // and permanent, and the volume comes off the row. A reader is shown the
+  // volume, because that is what is on the cover they might go and find.
+  const BOOKS = INDEX.books || {};
+  // tools/series.py's BOOK_SERIES. A feed's number is its publisher's and
+  // holds no book, so a row is only read as a book when its series says so —
+  // everyman-3018 would otherwise print as "Penguin book 5 No 18".
+  const BOOK_SERIES = "book";
 
-  function bookVolume(series, number) {
-    if (!Object.prototype.hasOwnProperty.call(BOOK_SHELF, series)) return null;
-    const n = Number(number);
-    const volume = Math.floor(n / 1000), position = n % 1000;
-    return position ? { volume, position } : null;
+  // The registry row for a puzzle, or null if it is not out of a book. Null
+  // for a book the index does not describe too, which is the right failure for
+  // an index deployed before this table existed: the number prints raw and no
+  // legacy id is built, rather than a made-up book being named.
+  function bookOf(series, number) {
+    if (series !== BOOK_SERIES) return null;
+    const n = Number(number), position = n % 1000;
+    const row = BOOKS[String(Math.floor(n / 1000))];
+    return row && position ? { row, position } : null;
   }
 
   // What a solver reads instead of the stored number. Mirrors
-  // display_number() in tools/series.py: "No 5,018" names a puzzle no book
+  // display_number() in tools/series.py: "No 3,018" names a puzzle no book
   // prints, and with one chip for the whole shelf a bare "No 18" would name
-  // five different puzzles.
+  // thirty different puzzles.
   function displayNumber(p) {
-    const b = bookVolume(p.series, p.number);
-    return b ? `${BOOK_SHELF[p.series]} ${b.volume} No ${b.position}`
+    const b = bookOf(p.series, p.number);
+    return b ? `${b.row.shelf} ${b.row.volume} No ${b.position}`
              : `№ ${p.number}`;
   }
 
-  // The id this puzzle had while every volume was its own series
-  // ("penguin5-18"). Mirrors legacy_id() in tools/series.py. A rule rather
-  // than a list, so a volume acquired later keeps working without anyone
-  // remembering to add it.
-  function legacyId(p) {
-    const b = bookVolume(p.series, p.number);
-    return b ? `${p.series}${b.volume}-${b.position}` : null;
+  // Every id this puzzle has ever had, from the days when a book was its own
+  // series: "penguin-5018" while each BOOK was a key, "penguin5-18" before
+  // that while each VOLUME was one. Mirrors legacy_ids() in tools/series.py.
+  // A rule rather than a list, so a book acquired later keeps working without
+  // anyone remembering to add it.
+  function legacyIds(p) {
+    const b = bookOf(p.series, p.number);
+    if (!b) return [];
+    return [`${b.row.was}-${b.row.volume * 1000 + b.position}`,
+            `${b.row.was}${b.row.volume}-${b.position}`];
   }
 
   const IS_ID = {}, BY_NUMBER = {}, BY_ID = {}, ALIAS = {};
@@ -299,8 +306,7 @@
     // Saved progress, shared links and one browser's sync envelope all hold the
     // id a puzzle had when they were written. An id that stopped resolving
     // would orphan a grid somebody is halfway through.
-    const was = legacyId(p);
-    if (was) ALIAS[was] = p.id;
+    legacyIds(p).forEach((was) => { ALIAS[was] = p.id; });
   });
   const canonicalId = (id) => {
     const s = String(id == null ? "" : id);
@@ -4745,110 +4751,20 @@
       from the Times of London, and 13x13 rather than the Times' own 15x15, so it
       is the short, crisp end of that house style: tight surfaces, no obscurity,
       and a solve you can finish on a coffee.`],
-    penguin: ["penguin", `Guardian crosswords reprinted in The New Penguin Book
-      of The Guardian Crosswords — volumes 2, 3, 5, 7 and 11 so far. The paper's
-      back catalogue, and older and chewier than today's daily. No volume prints
-      a date or a Guardian number, so each puzzle is numbered by its book and its
-      place in it — Penguin book 5 No 18 — and the answers are our own solve
-      rather than the paper's: the books print their solutions only as pictures
-      of filled grids.`],
     indysunday: ["indy sunday", `The Independent on Sunday's cryptic — its own
       weekly numbering, near 1,900 while the daily is past 12,400. Same stable of
       setters as the daily, and pitched about the same.`],
-    herald: ["herald", `Cryptics from The Herald, Glasgow's broadsheet,
-      reprinted in The Herald Crossword Book — volume 2 so far, seven setters
-      with distinct habits, from Roger Squires' brisk fair play to the Wee
-      Stinker's terse misdirection. The book prints no date and no Herald
-      number, so each puzzle is numbered by its book and its place in it —
-      Herald book 2 No 7 — and the answers are our own solve rather than
-      the paper's.`],
-    scotsman: ["scotsman", `Cryptics from The Scotsman, Edinburgh's broadsheet,
-      reprinted in The Scotsman Crossword Book — volume 2 so far, about 90
-      puzzles from the same publisher and in the same format as the Herald books
-      here. The book prints no date and no Scotsman number, so each puzzle is
-      numbered by its book and its place in it — Scotsman book 2 No 7 — and the
-      answers are our own solve rather than the paper's.`],
-    araucaria: ["araucaria", `The Chambers Book of Araucaria Crosswords, volume
-      2 — about 115 puzzles, every one by Araucaria, John Graham, the Guardian's
-      best-known setter for fifty years: long anagrams, themed puzzles and
-      generous, playful wordplay. Each puzzle is numbered by its book and its
-      place in it — Araucaria book 2 No 7 — and the answers are our own solve
-      rather than the paper's.`],
-    morse: ["morse", `The Chambers Book of Morse Crosswords — about 110 puzzles by
-      Colin Dexter, who wrote the Inspector Morse novels and was a national
-      crossword champion himself. Each puzzle is numbered by its place in the
-      book — Morse book 1 No 7 — and the answers are our own solve rather than
-      the book's.`],
-    times: ["times", `The Times' daily cryptic, reprinted 80 to a volume by
-      HarperCollins — books 13 and 21 so far. The Times prints no setter bylines
-      at all, so these are anonymous by design, and the house style is terse and
-      strictly fair. Each puzzle is numbered by its book and its place in it —
-      Times book 21 No 7 — and the answers are our own solve rather than the
-      paper's.`],
-    timesbooks: ["times books", `The Times Crosswords Book 21 from Times Books,
-      the paper's earlier book line: HarperCollins later restarted the numbering
-      at 1, so there are two different book 21s a decade apart. Same puzzle,
-      older run. Each puzzle is numbered by its book and its place in it — Times
-      Crosswords book 21 No 7 — and the answers are our own solve rather than
-      the paper's.`],
-    penguintimes: ["times penguin", `Times crosswords as Penguin reprinted them
-      — the Ninth and Tenth Penguin Books of The Times Crosswords so far, the
-      same format as the Guardian Penguins here. The paper's back catalogue from
-      the late eighties. Each puzzle is numbered by its book and its place in it
-      — Penguin Times book 9 No 7 — and the answers are our own solve rather
-      than the paper's.`],
-    penguinindy: ["indy penguin", `The First Penguin Book of the Independent
-      Crosswords, from the paper's early years — it launched in 1986. A separate
-      shelf from the Independent's daily feed here, which is numbered by the
-      paper; each puzzle in this one is numbered by its book and its place in
-      it — Penguin Indy book 1 No 7 — and the answers are our own solve rather
-      than the paper's.`],
-    penguinft: ["ft penguin", `The First Penguin Book of Financial Times
-      Crosswords, from 1973 — the oldest book on the site by fifteen years. Each
-      puzzle is numbered by its book and its place in it — Penguin FT book 1 No
-      7 — and the answers are our own solve rather than the paper's.`],
-    telegraph: ["telegraph book", `The Daily Telegraph's daily cryptic, reprinted
-      in Pan's long-running Cryptic Crossword Book line — books 25, 28, 31 and 32
-      so far. Unbylined, and the most approachable of the broadsheet puzzles:
-      short clues and everyday vocabulary. Each puzzle is numbered by its book
-      and its place in it — Telegraph book 32 No 7 — and the answers are our own
-      solve rather than the paper's.`],
-    telbig: ["telegraph big book", `The Daily Telegraph Big Book of Cryptic
-      Crosswords 6 — an omnibus of roughly 250 puzzles, one of the two largest
-      books on the site. Each puzzle is numbered by its book and its place in
-      it — Telegraph big book 6 No 7 — and the answers are our own solve rather
-      than the paper's.`],
-    brainsharp: ["brain sharpener", `The Daily Telegraph Big Book of Brain
-      Sharpener Cryptic Crosswords — the same paper and the same omnibus size as
-      the Big Book, but a one-off title with no number on it. Each puzzle is
-      numbered by its place in the book — Brain Sharpener book 1 No 7 — and the
-      answers are our own solve rather than the paper's.`],
-    telallnew: ["telegraph all new", `The Telegraph All New Cryptic Crosswords 4,
-      a later Telegraph book line from Octopus that started its numbering again
-      at 1. Each puzzle is numbered by its book and its place in it — Telegraph
-      All New book 4 No 7 — and the answers are our own solve rather than the
-      paper's.`],
-    telcryptic: ["telegraph cryptics", `Telegraph Cryptic Crosswords 2 — the same
-      publisher's next line after the All New books, with the numbering restarted
-      at 1 once more. Each puzzle is numbered by its book and its place in it —
-      Telegraph Crosswords book 2 No 7 — and the answers are our own solve rather
-      than the paper's.`],
-    toughie: ["toughie", `The Telegraph All New Toughie Crossword, Book 1. The
-      Toughie is the Telegraph's second daily cryptic, Tuesday to Friday, and a
-      great deal harder than the paper's main puzzle: obscurer vocabulary and
-      much more devious wordplay. Each puzzle is numbered by its book and its
-      place in it — Toughie book 1 No 7 — and the answers are our own solve
-      rather than the paper's.`],
-    sundaytel: ["sunday telegraph", `The Sunday Telegraph Book of Cryptic
-      Crosswords — books 1, 2 and 4 so far. Its own paper, its own setters and
-      its own numbering, separate from the daily's books. Each puzzle is numbered
-      by its book and its place in it — Sunday Telegraph book 4 No 7 — and the
-      answers are our own solve rather than the paper's.`],
-    dailymail: ["daily mail", `Daily Mail New Cryptic Crosswords, volume 2 — 100
-      puzzles. A tabloid cryptic: shorter clues and plainer vocabulary than the
-      broadsheets, so a gentler place to start. Each puzzle is numbered by its
-      book and its place in it — Daily Mail book 2 No 7 — and the answers are our
-      own solve rather than the paper's.`],
+    book: ["book", `Crosswords out of scanned printed books — thirty of them so
+      far, from The New Penguin Book of The Guardian Crosswords to the Daily
+      Mail's, by way of the Herald, the Scotsman, the Times, four Telegraph
+      lines and two collections by a single setter, Araucaria and Colin Dexter.
+      Out-of-print reprints, so they are older and chewier than today's feeds,
+      and the odd one is a great deal harder: the Toughie book is the
+      Telegraph's second daily cryptic. None of these books prints a date or a
+      paper's puzzle number, so each puzzle is named by its book and its place
+      in it — Penguin book 5 No 18 — and the answers are our own solve rather
+      than the paper's, because what a book prints is a picture of a filled
+      grid.`],
   };
 
 

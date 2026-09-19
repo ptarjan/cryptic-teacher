@@ -50,7 +50,7 @@ ONE PUZZLE CAN HAVE THREE DIFFERENT ORIGINS, so they are three fields rather
 than one "source". Cyclops is the ordinary case, not an edge case: the grid and
 clues come from Private Eye's own .puz download, and the answers come from a
 fifteensquared write-up, because Private Eye ships the puzzle with the solution
-grid blanked. A penguin puzzle has three — clues off a book scan, geometry
+grid blanked. A book puzzle has three — clues off a book scan, geometry
 reconstructed here from those clues, answers solved here by a model. Read
 `retrievedFrom` for how the puzzle got here, `gridOrigin` for where its
 geometry came from, and `solutionOrigin` for whose the answers are.
