@@ -27,8 +27,17 @@ cd "$(dirname "$0")/.."
 python3 - <<'PYEOF'
 import json
 import sys
+import types
 
 sys.path.insert(0, "tools")
+try:
+    import requests  # noqa: F401
+except ModuleNotFoundError:
+    # fetch_ia_book.py needs requests only to BUILD a session. Every session
+    # in this file is a stub, so a placeholder import keeps these checks
+    # RUNNING on a runner with no third-party packages — CI installs none —
+    # rather than skipping, which is the same as not having them.
+    sys.modules["requests"] = types.ModuleType("requests")
 import fetch_ia_book as F
 
 failures = []
@@ -41,6 +50,13 @@ def fail(msg):
 
 def ok(msg):
     print(f"  ok   {msg}")
+
+
+def check(label, got, want):
+    if got == want:
+        ok(f"{label}: {got!r}")
+    else:
+        fail(f"{label}: got {got!r}, wanted {want!r}")
 
 
 # The one string archive.org sends for both conditions, recorded live.
@@ -247,6 +263,83 @@ except SystemExit as e:
         fail("spent an availability call on an error that was never ambiguous")
     else:
         ok("passes the server's reason straight through")
+
+# --------------------------------------------------------------- case 9
+# The loan comes back however the block ends. This is the property that
+# matters most: these are one-hour, single-copy, no-waitlist loans, so a path
+# that skips the return locks the book out for the next hour, and every
+# caller now gets the loan through this one context manager.
+print("case 9: borrowed() returns the loan on every way out")
+returned = []
+real = (F.load_credentials, F.login, F.borrow, F.return_loan, F.requests)
+F.load_credentials = lambda path: ("someone@example.com", "hunter2")
+F.login = lambda *a, **k: None
+F.return_loan = lambda session, identifier: returned.append(identifier)
+F.requests = types.SimpleNamespace(
+    Session=lambda: types.SimpleNamespace(headers={}, post=None))
+try:
+    F.borrow = lambda session, identifier: True
+
+    with F.borrowed("normalexit0000xxxx"):
+        pass
+    check("normal exit returns the loan", returned, ["normalexit0000xxxx"])
+
+    returned.clear()
+    try:
+        with F.borrowed("raised0000xxxx"):
+            raise RuntimeError("the read blew up half way through")
+    except RuntimeError:
+        pass
+    check("an exception still returns the loan", returned, ["raised0000xxxx"])
+
+    returned.clear()
+    try:
+        with F.borrowed("interrupted0000xxxx"):
+            raise KeyboardInterrupt
+    except KeyboardInterrupt:
+        pass
+    check("a Ctrl-C still returns the loan", returned, ["interrupted0000xxxx"])
+
+    returned.clear()
+    with F.borrowed("keptloan0000xxxx", keep_loan=True):
+        pass
+    check("--keep-loan keeps it", returned, [])
+
+    # An item needing no loan must not have one "returned": archive.org
+    # answers {"success": true} to a return for a book you never had, so a
+    # spurious call looks like it worked and teaches nobody anything.
+    returned.clear()
+    F.borrow = lambda session, identifier: False
+    with F.borrowed("noloanneeded0000xxxx"):
+        pass
+    check("no loan taken, none returned", returned, [])
+finally:
+    (F.load_credentials, F.login, F.borrow, F.return_loan, F.requests) = real
+
+# -------------------------------------------------------------- case 10
+# tools/acquire_book.py runs the borrow for the whole pipeline, so the two
+# files have to agree about where borrowed text lands, and acquire_book has
+# to stay importable on a runner with no third-party packages — which is the
+# runner CI uses, and tools/test_acquire_book.sh imports it there.
+print("case 10: acquire_book's borrow wiring")
+import acquire_book as A
+
+check("both files agree where borrowed text is cached",
+      A.FETCHED_TEXT_DIR, F.DEFAULT_OUT)
+
+path, how, status = A.fetch_text("someidentifier0000xxxx", override="/nonexistent/x.txt")
+check("a missing --text is a stop, not a borrow", status, "text-not-public")
+
+real_restriction = A.item_restriction
+A.item_restriction = lambda identifier: ("lending", "; a lending item")
+try:
+    path, how, status = A.fetch_text("lending0000xxxx", allow_borrow=False)
+    if status != "text-not-public" or "no loan was taken" not in how:
+        fail(f"--no-borrow must stop rather than borrow: {status} / {how}")
+    else:
+        ok("--no-borrow stops on a lending item without taking a loan")
+finally:
+    A.item_restriction = real_restriction
 
 print()
 if failures:
