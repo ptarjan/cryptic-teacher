@@ -456,9 +456,9 @@ window.CRYPTIC_PUZZLES["penguin7-27"] = /*JSON-START*/ {
     "y": 11
    },
    "length": 4,
-   "clue": "Erudite and fit cardinal, we hear? (4,4)",
+   "clue": "Erudite and fit cardinal, we hear? (4-4)",
    "separatorLocations": {
-    ",": [
+    "-": [
      4
     ]
    },
