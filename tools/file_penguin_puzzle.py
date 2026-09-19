@@ -243,6 +243,12 @@ def build(record, volume, model, unsolved=False):
         out.append(e)
 
     verification = record.get("verification") or {}
+    crossings, conflicts = verification.get("crossing_cells"), verification.get("conflicts")
+    if isinstance(crossings, int) and isinstance(conflicts, int):
+        check = f"{len(out)} entries, {crossings} crossings, {conflicts} conflicts"
+    else:
+        check = (f"{len(out)} entries; the solve record carried no machine check — "
+                 f"run tools/apply_solution.py --check-only and record what it says")
     puzzle = {
         "id": pid,
         "number": number,
@@ -270,9 +276,14 @@ def build(record, volume, model, unsolved=False):
             "kind": "model",
             "model": model,
             "date": datetime.date.today().isoformat(),
-            "check": (f"{len(out)} entries, "
-                      f"{verification.get('crossing_cells', '?')} crossings, "
-                      f"{verification.get('conflicts', '?')} conflicts"),
+            # Counts, or an admission. A solve that was stopped before it ran
+            # check_geometry/check_fill leaves prose in these fields — one
+            # record said conflicts were "unchecked (all crossings were
+            # verified by hand while solving)" — and prose spliced into a
+            # counts field reads afterwards as a count. Either both numbers
+            # are numbers or this says plainly that nothing machine-checked
+            # the fill, which is the thing a later reader needs to know.
+            "check": check,
             # The one fact that separates these from a prize puzzle solved early:
             # nothing is coming later to grade this against. Penguin prints its
             # solutions as answer-grid images that OCR to noise, and the book
