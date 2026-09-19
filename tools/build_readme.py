@@ -27,6 +27,7 @@ cannot drift by more than one run. The second is what makes the other two
 regions safe: a tool added without a description, or a default changed without
 the README following, fails the check rather than rotting quietly.
 """
+import ast
 import json
 import re
 import subprocess
@@ -75,14 +76,11 @@ LAYOUT = [
     ("fetching", "tools/test_repair_fetched.sh", "builds a puzzle file with each of those defects and proves the repair fixes it, leaves a clean file and a real Cyclops per-light group byte-identical, and is clean on the second run"),
     ("fetching", "tools/puzzle_integrity.py", "checks the puzzles themselves: two puzzles that are the same puzzle, an answer that does not fit its clue’s printed length, two entries that cross and disagree"),
     ("fetching", "tools/test_puzzle_integrity.sh", "proves the two LENGTH exception tables match by nothing looser than the exact sentence they’re keyed on, and that baselining one finding never silences the rest of its puzzle"),
-    ("fetching", "tools/provenance.py", "records where each puzzle came from and, the part that matters, whether the letters in its grid are the publisher’s answer key or this repo’s own cold solve; owns the origin enums and the validator that refuses a file claiming the wrong one"),
-    ("fetching", "tools/backfill_provenance.py", "writes that block into every puzzle that hasn’t got one, deriving it from the file, its banner and git’s record of the path, and idempotently so a second run rewrites the same bytes"),
-    ("fetching", "tools/test_provenance.sh", "proves provenance refuses a puzzle that lies about where its answers came from, exercising every refusal the validator is supposed to make against a real puzzle mutated in memory"),
     ("fetching", "tools/fetch_ia_book.py", "borrows a lending-restricted archive.org book, saves its OCR text outside the repo, and returns the loan"),
     ("fetching", "tools/parse_penguin_book.py", "segments that book's OCR text into puzzles, clues and enumerations, and reports per-puzzle what OCR destroyed"),
     ("fetching", "tools/file_penguin_puzzle.py", "turns one solved Penguin-book puzzle into a puzzle file: the book's own number, no date because no volume prints one, and answers marked as a model's with no official key ever coming"),
     ("fetching", "tools/normalise_linked_enumerations.py", "puts a solve record’s linked answers into the shape the corpus stores them in — the whole answer’s count on the leader, none on the continuation — reading the words off the answer rather than off the per-light numbers, and refusing when a “See N” names two lights it cannot choose between"),
-    ("fetching", "tools/acquire_book.py", "takes a book from an archive.org identifier to filed puzzles with no model and no human in the loop: text layer — borrowing the book through tools/fetch_ia_book.py and returning the loan if it is a lending item — split, light spec, reconstructed grid, filed unsolved for the nightly solve queue, and a per-puzzle report of what it got and why the rest failed"),
+    ("fetching", "tools/acquire_book.py", "takes a book from an archive.org identifier to filed puzzles with no model in the loop: public text layer, split, light spec, reconstructed grid, filed unsolved for the nightly solve queue, and a per-puzzle report of what it got and why the rest failed"),
     ("fetching", "tools/light_spec.py", "turns one OCR'd clue list into the light spec the reconstructor wants, repairing linked fields, clues OCR ran together, and numbers that lost a digit, without ever guessing a number"),
     ("fetching", "tools/grid_verdict.py", "judges a recovered grid by CPU alone — whether the clue list can be a 15x15 at all, and whether the fills that come back are a real puzzle, an ambiguous pair a human must pick between, or a light list the OCR ate clues out of; every threshold carries the share of the corpus it costs"),
     ("fetching", "tools/test_acquire_book.sh", "gates that pipeline on ten control puzzles from Penguin volume 5, failing if a single recovered grid or a single search node count moves"),
@@ -226,6 +224,9 @@ LAYOUT = [
     ("tables everything else reads", "tools/data/favourite_grading/packets/", "one blind batch of clues per file, labels only"),
     ("tables everything else reads", "tools/data/favourite_grading/scores/", "the judge’s five scores per label, same batch numbering as the packets"),
     ("tables everything else reads", "tools/suggest_demand.json", "the last autocomplete reading, advisory only: nothing downstream sorts on it"),
+    ("tables everything else reads", "tools/backfill_provenance.py", "write a `provenance` block into every puzzle that hasn't got one"),
+    ("tables everything else reads", "tools/provenance.py", "where a puzzle came from \u2014 and, the part that matters, where its ANSWERS came from"),
+    ("tables everything else reads", "tools/test_provenance.sh", "does provenance actually REFUSE a puzzle that lies about where it came from?"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the
@@ -360,8 +361,10 @@ def build_layout():
     if missing:
         fail("these tracked files have no line in the layout table:\n  "
              + "\n  ".join(missing)
-             + "\nAdd one to LAYOUT in this script (or to LAYOUT_EXEMPT if a "
-               "reader genuinely does not need to know).")
+             + "\nRun `python3 tools/build_readme.py --add-missing` to write a row "
+               "for each from its own docstring, or add one to LAYOUT in this "
+               "script by hand (or to LAYOUT_EXEMPT if a reader genuinely does "
+               "not need to know).")
     # A line that names several files, or a directory, or a glob, stands for a set
     # the exempt list covers; only the lines naming exactly one path can be checked
     # for having outlived it.
@@ -391,6 +394,113 @@ def build_layout():
         wrapped.append(line)
         lines.extend(wrapped)
     return "```\n" + "\n".join(lines) + "\n```"
+
+
+def _first_summary_line(text):
+    """The one-line summary out of a docstring or comment-header paragraph.
+
+    PEP 257 docstrings put the summary on the first line; comment headers put
+    it in the first sentence of the first paragraph. Either way we want one
+    line, not the worked example or the second paragraph that follows it.
+    """
+    first_line = text.strip().splitlines()[0].strip().rstrip(".")
+    if not first_line:
+        return None
+    # "Take a book ..." reads as a row title elsewhere in LAYOUT; the table's
+    # own voice is "takes a book ...". Lowercase the lead word unless it looks
+    # like an acronym or a name (a second capital right after the first).
+    if first_line[0].isupper() and not (len(first_line) > 1 and first_line[1].isupper()):
+        first_line = first_line[0].lower() + first_line[1:]
+    return first_line
+
+
+def derive_description(path):
+    """The one-line description --add-missing writes for `path`, or None.
+
+    Python files: the module docstring's summary line. Shell and JS files:
+    the first paragraph of the leading `#`/`//` comment block (after a shebang,
+    if any), which is where every existing tools/*.sh and tools/*.js file
+    puts its own explanation. Returns None rather than guessing when a file
+    has neither — a data file, an image, a generated artifact — so the caller
+    can refuse to invent a description for it.
+    """
+    try:
+        text = (REPO / path).read_text(encoding="utf-8")
+    except (UnicodeDecodeError, OSError):
+        return None
+    if path.endswith(".py"):
+        try:
+            tree = ast.parse(text)
+        except SyntaxError:
+            return None
+        doc = ast.get_docstring(tree)
+        return _first_summary_line(doc) if doc else None
+    prefix = "//" if path.endswith(".js") else "#"
+    lines = text.splitlines()
+    if lines and lines[0].startswith("#!"):
+        lines = lines[1:]
+    paragraph = []
+    for line in lines:
+        stripped = line.strip()
+        if not stripped.startswith(prefix):
+            break
+        body = stripped[len(prefix):].strip()
+        if not body:
+            if paragraph:
+                break
+            continue
+        paragraph.append(body)
+    if not paragraph:
+        return None
+    return _first_summary_line(" ".join(paragraph))
+
+
+def add_missing_layout_rows():
+    """Write a LAYOUT row for every tracked file that lacks one.
+
+    Only ever adds rows — an existing description, however stale-looking, is
+    left exactly as the person who wrote it phrased it. A file whose docstring
+    or header comment yields nothing usable (a data file, an image, a
+    generated artifact) is reported and skipped rather than given a made-up
+    description; the caller still gets rows for everything that could be
+    derived, but exits non-zero so the leftover file does not go quiet.
+    """
+    described = {path for _, path, _ in LAYOUT}
+    tracked = set(tracked_files())
+    on_disk = {p for p in tracked if not LAYOUT_EXEMPT.search(p)}
+    missing = sorted(on_disk - described)
+    if not missing:
+        print("every tracked file already has a layout row")
+        return 0
+
+    section = LAYOUT[-1][0] if LAYOUT else ""
+    added, unresolved = [], []
+    for path in missing:
+        desc = derive_description(path)
+        if desc is None:
+            unresolved.append(path)
+        else:
+            added.append((section, path, desc))
+
+    if added:
+        src_path = Path(__file__).resolve()
+        text = src_path.read_text(encoding="utf-8")
+        start = text.index("LAYOUT = [\n") + len("LAYOUT = [\n")
+        close = text.index("\n]\n", start)
+        new_lines = "".join(
+            f"    ({json.dumps(sec)}, {json.dumps(p)}, {json.dumps(d)}),\n"
+            for sec, p, d in added)
+        text = text[:close + 1] + new_lines + text[close + 1:]
+        src_path.write_text(text, encoding="utf-8")
+        for _, p, d in added:
+            print(f"added: {p} — {d}")
+
+    if unresolved:
+        fail("no usable docstring or header comment, so no row was written "
+             "for these tracked files:\n  " + "\n  ".join(unresolved)
+             + "\nAdd a docstring/header comment to each, or a row to LAYOUT "
+               "in tools/build_readme.py by hand.")
+    return 0
 
 
 def build_knobs(k):
@@ -497,6 +607,8 @@ def main():
         build_layout()
         print("every tracked file has a layout row")
         return 0
+    if "--add-missing" in sys.argv[1:]:
+        return add_missing_layout_rows()
     check = "--check" in sys.argv[1:]
     stale = []
     for path in REGIONS:
