@@ -61,8 +61,9 @@ fetch_puzzle.py's refresh_unsolved for the same SHAPE of problem even though
 the mechanism differs (there it's the Saturday prize withholding a week; here
 it's every single week).
 
-Writes puzzles/<number>.js (preserving any existing per-clue annotations),
-same file format and same fetch_puzzle.reindex() as every other fetcher here.
+Writes puzzles/everyman-<number>.json (preserving any existing per-clue
+annotations), same file format and same fetch_puzzle.reindex() as every other
+fetcher here.
 """
 
 import json
@@ -310,7 +311,7 @@ def fetch_number(num):
     manifest = puzzle_manifest(uuid)
     data = puzzle_data(manifest)
     puzzle = convert(num, manifest, data)
-    path = PUZZLE_DIR / f"{puzzle['id']}.js"
+    path = puzzle_path("everyman", num)
     is_new = not path.exists()
     if not is_new:
         old = read_puzzle_file(path)

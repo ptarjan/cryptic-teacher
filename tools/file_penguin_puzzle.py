@@ -57,7 +57,7 @@ wordplay for exactly those clues, which is the worst thing this route could
 produce — a teaching site confidently teaching a parse nobody verified.
 
 A LINKED ANSWER'S COUNT LIVES ON ITS LEADER, and the continuation prints none
-— puzzles/penguin5-3.js's 15-down "(9,5,4)" over NEWCASTLE and 17-down "See 15"
+— puzzles/penguin5-3.json's 15-down "(9,5,4)" over NEWCASTLE and 17-down "See 15"
 over UNDERLYME. The solve scripts emit the other shape, a per-light count on
 each half, so this converts it on the way in rather than refusing it: see
 tools/normalise_linked_enumerations.py, which derives the count from the
@@ -105,7 +105,7 @@ from pathlib import Path
 
 TOOLS = Path(__file__).resolve().parent
 sys.path.insert(0, str(TOOLS))
-from fetch_puzzle import PUZZLE_DIR, write_puzzle_file  # noqa: E402
+from fetch_puzzle import puzzle_path, write_puzzle_file  # noqa: E402
 # One rule for linked answers, spelled once. That module owns both halves of it:
 # which lights a "See N" ties together, and what the group's enumeration is.
 from normalise_linked_enumerations import (enumeration_parts,  # noqa: E402
@@ -340,7 +340,7 @@ def main(argv=None):
     record = json.loads(Path(args.record).read_text(encoding="utf-8"))
     puzzle = build(record, args.volume, args.model, unsolved=args.unsolved,
                    series=args.series)
-    path = PUZZLE_DIR / f"{puzzle['id']}.js"
+    path = puzzle_path(puzzle["series"], puzzle["number"])
     if path.exists():
         raise SystemExit(f"{path} already exists — refusing to overwrite a filed puzzle")
     write_puzzle_file(path, puzzle, generator="tools/file_penguin_puzzle.py")

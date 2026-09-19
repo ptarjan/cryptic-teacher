@@ -18,9 +18,12 @@ import html
 import json
 import os
 import re
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from fetch_puzzle import puzzle_files, read_puzzle_file  # noqa: E402 — one glob, one reader
 
 CACHE = os.path.expanduser("~/cryptic-setter-data/fifteensquared")
-PUZZLES = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "puzzles")
 
 # "my favourite was", "COD", "pick of the bunch". Deliberately narrow: the
 # comments are full of favourite songs, films and TV roles, and a loose pattern
@@ -49,17 +52,8 @@ STOPCAPS = {"COD", "LOI", "FOI", "NHO", "DNF", "PDM", "I", "A", "OK", "TV", "US"
 def load_corpus():
     """id -> {answers: {normalised answer: entry id}, refs: {(n, dir): entry id}}."""
     out = {}
-    for path in sorted(glob.glob(os.path.join(PUZZLES, "*.js"))):
-        raw = open(path, encoding="utf-8").read()
-        if "/*JSON-START*/" not in raw:
-            continue
-        body = raw.split("/*JSON-START*/", 1)[1].rsplit("/*JSON-END*/", 1)[0]
-        try:
-            puz = json.loads(body)
-        except ValueError:
-            continue
-        if "entries" not in puz:   # puzzles/index.js is in the same glob
-            continue
+    for path in puzzle_files():
+        puz = read_puzzle_file(path)
         answers, refs = {}, {}
         for e in puz.get("entries", []):
             sol = (e.get("solution") or "").upper()

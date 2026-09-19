@@ -182,10 +182,9 @@ RETRIEVAL_CHANNELS = {
 # stated here once and derived rather than stored twice — nothing may write a
 # channel that disagrees with the tool that fetched it.
 #
-# The banner comment at the top of every puzzle file is written from this same
-# key (see fetch_puzzle.write_puzzle_file), so a tool named here is a tool that
-# exists — asserted by tools/test_provenance.sh, which checks each one resolves
-# to a file in tools/. "tools/fetch_metro.py --wayback" is a separate entry from
+# A tool named here is a tool that exists — asserted by
+# tools/test_provenance.sh, which checks each one resolves to a file in
+# tools/. "tools/fetch_metro.py --wayback" is a separate entry from
 # "tools/fetch_metro.py" on purpose: it is the same script reading a different
 # channel, and the flag is the only thing that distinguishes them.
 ACQUIRED_BY = {
@@ -236,15 +235,13 @@ ACQUIRED_BY = {
 # different series. The value is every tool that can legitimately produce that
 # pair, primary first.
 #
-# This table exists because the banner comment is NOT reliable on its own. It
-# records the last tool to WRITE the file, not the one that fetched it:
-# apply_solution.py stamped its own name on four files, and blind_annotate.py's
-# restore path used to stamp the default "tools/fetch_puzzle.py" over whatever
-# was there. So a globeandmail puzzle claiming fetch_puzzle.py is not a
-# globeandmail puzzle fetched by fetch_puzzle.py — fetch_puzzle.py only knows
-# the three Guardian series (its GUARDIAN_SERIES) and cannot reach
-# theglobeandmail.com at all. The banner is believed when this table says it is
-# possible, and overruled by the table when it is not.
+# This table exists because the tool a file claims is NOT reliable on its own:
+# it can name the last tool to WRITE the file rather than the one that fetched
+# it. So a globeandmail puzzle claiming fetch_puzzle.py is not a globeandmail
+# puzzle fetched by fetch_puzzle.py — fetch_puzzle.py only knows the three
+# Guardian series (its GUARDIAN_SERIES) and cannot reach theglobeandmail.com at
+# all. The claim is believed when this table says it is possible, and overruled
+# by the table when it is not.
 ACQUISITION_BY_SOURCE = {
     ("cryptic", "www.theguardian.com"): ("tools/fetch_puzzle.py",),
     ("quiptic", "www.theguardian.com"): ("tools/fetch_puzzle.py",),
@@ -337,19 +334,20 @@ def series_of_id(pid):
     return series or "cryptic"
 
 
-def acquired_by(series, url, banner):
-    """Which tool fetched this, from the (series, host) table and the banner.
+def acquired_by(series, url, claimed):
+    """Which tool fetched this, from the (series, host) table and the claim.
 
-    The banner is taken when the table agrees it is possible for this source.
-    When it is not — because a later tool overwrote it — the table decides, and
-    it can only decide when the source admits exactly one tool. Two candidates
-    and a banner naming neither is genuinely unrecoverable: "unknown".
+    `claimed` is the tool the file itself names. It is taken when the table
+    agrees it is possible for this source. When it is not — because a later
+    tool overwrote it — the table decides, and it can only decide when the
+    source admits exactly one tool. Two candidates and a claim naming neither
+    is genuinely unrecoverable: "unknown".
     """
     candidates = ACQUISITION_BY_SOURCE.get((series, host_of(url)))
     if not candidates:
         return "unknown"
-    if banner in candidates:
-        return banner
+    if claimed in candidates:
+        return claimed
     return candidates[0] if len(candidates) == 1 else "unknown"
 
 
@@ -385,10 +383,11 @@ def channel_of(tool):
     return ACQUIRED_BY.get(tool, ACQUIRED_BY["unknown"])["channel"]
 
 
-def derive(puzzle, banner, acquired_on, previously=None):
+def derive(puzzle, claimed, acquired_on, previously=None):
     """The provenance object for a puzzle, from what is actually knowable.
 
-    `banner` is the tool named in the file's first-line comment; `acquired_on`
+    `claimed` is the tool the file already names as its acquirer;
+    `acquired_on`
     is the ISO date the file first appeared in git, or None; `previously` is the
     origin this grid's answers had BEFORE the ones in it now — "model" for a
     grid we cold-solved and the paper has since confirmed, which only git
@@ -398,7 +397,7 @@ def derive(puzzle, banner, acquired_on, previously=None):
     """
     series = series_of_id(puzzle["id"])
     origin = solution_origin_from_file(puzzle) or "published"
-    tool = acquired_by(series, puzzle.get("sourceUrl"), banner)
+    tool = acquired_by(series, puzzle.get("sourceUrl"), claimed)
     prov = {
         "publisher": series_table.publisher(series),
         "series": series,

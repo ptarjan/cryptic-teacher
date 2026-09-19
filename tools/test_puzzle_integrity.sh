@@ -141,7 +141,7 @@ from datetime import datetime, timezone
 import puzzle_integrity as pi
 
 today = datetime.now(timezone.utc).date()
-path = pi.PUZZLE_DIR / "cryptic-24104.js"
+path = pi.PUZZLE_DIR / "cryptic-24104.json"
 puzzle = copy.deepcopy(pi.read_puzzle_file(path))
 by_id = {e["id"]: e for e in puzzle["entries"]}
 target = by_id["1-across"]
@@ -179,7 +179,7 @@ today = datetime.now(timezone.utc).date()
 # clueMissing on every entry is the state the 2005-2008 Saturday prize puzzles are
 # in: answers scraped, clue text never fetched. Per-entry forgiveness finds nothing
 # wrong with any single one of them, which is the whole reason the puzzle is asked.
-puzzle = copy.deepcopy(pi.read_puzzle_file(pi.PUZZLE_DIR / "cryptic-24104.js"))
+puzzle = copy.deepcopy(pi.read_puzzle_file(pi.PUZZLE_DIR / "cryptic-24104.json"))
 
 
 def blank(p, entries):
@@ -210,7 +210,7 @@ import puzzle_integrity as pi
 from apply_solution import check_geometry
 
 # A real 15x15, so the fixture cannot drift out of the shape the checker reads.
-puzzle = pi.read_puzzle_file(pi.PUZZLE_DIR / "cryptic-24104.js")
+puzzle = pi.read_puzzle_file(pi.PUZZLE_DIR / "cryptic-24104.json")
 print("PRISTINE", len(check_geometry(puzzle)))
 
 # 1-across is 15 cells of a 15-wide grid. Shifted one column right it is the

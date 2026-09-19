@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate clue annotations in puzzles/*.js.
+"""Validate clue annotations in puzzles/*.json.
 
 Checks, for every annotated entry:
   - annotation has type, definition, walkthrough, answer, blocks
@@ -54,13 +54,10 @@ import unicodedata
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-PUZZLE_DIR = ROOT / "puzzles"
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from fetch_puzzle import (  # noqa: E402 — one glob, one id resolver, one exemption
-    leaders_named, puzzle_files, resolve_puzzle)
+from fetch_puzzle import (  # noqa: E402 — one glob, one id resolver, one reader, one exemption
+    leaders_named, puzzle_files, read_puzzle_file, resolve_puzzle)
 from find_answer_leaks import says  # noqa: E402 — one matcher, shared with the finder
-JSON_START = "/*JSON-START*/"
-JSON_END = "/*JSON-END*/"
 
 # The controlled vocabulary for `type`. Compound types join parts with " + " and
 # must name EVERY mechanism the wordplay uses (see STYLE.md — "honest types").
@@ -1201,11 +1198,6 @@ def check_part_of_speech(tag, ann, warnings):
     # A noisy warning is a warning nobody reads.
 
 
-def load(path):
-    text = path.read_text(encoding="utf-8")
-    return json.loads(text.split(JSON_START, 1)[1].rsplit(JSON_END, 1)[0])
-
-
 def multiset_diff(a, b):
     from collections import Counter
     ca, cb = Counter(a), Counter(b)
@@ -2158,7 +2150,7 @@ def main(argv):
             print(f"MISSING {path}")
             failed = True
             continue
-        puzzle = load(path)
+        puzzle = read_puzzle_file(path)
         annotated, errors, warnings = validate_puzzle(puzzle)
         total = len(puzzle["entries"])
         if annotated == 0 and not argv:

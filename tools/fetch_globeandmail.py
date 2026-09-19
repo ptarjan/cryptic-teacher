@@ -17,7 +17,7 @@ Usage:
                                                            # vendor's own picker
                                                            # currently advertises
   --dry-run     print what would be fetched/written, write nothing
-  --out DIR     write .js files here instead of puzzles/ (also skips reindex(),
+  --out DIR     write .json files here instead of puzzles/ (also skips reindex(),
                 since reindex() always scans the real puzzles/ dir)
 
 Companion to fetch_puzzle.py (Guardian) and fetch_independent.py (Independent);
@@ -86,7 +86,7 @@ PACING. One request per second, max, with a browser-ish User-Agent (reusing
 fetch_puzzle.UA) — this is somebody else's CDN and getting banned would take
 the puzzle away from every future run, not just this one.
 
-Writes puzzles/<series>-<number>.js (preserving any existing per-clue
+Writes puzzles/<series>-<number>.json (preserving any existing per-clue
 annotations, same as the other two fetchers), then rebuilds the index via
 fetch_puzzle.reindex() — unless --out points somewhere other than the real
 puzzles/ dir, in which case reindex() is skipped, because it always rebuilds
@@ -105,8 +105,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from fetch_puzzle import (PUZZLE_DIR, flatten_clue, http_bytes,  # noqa: E402
-                          merge_annotations, puzzle_files, read_puzzle_file,
-                          reindex, write_puzzle_file)
+                          merge_annotations, puzzle_files, puzzle_path,
+                          read_puzzle_file, reindex, write_puzzle_file)
 import series as series_meta  # noqa: E402
 
 SET = "globeandmail-new-cryptic"
@@ -347,7 +347,10 @@ def fetch_date(ymd, out_dir, dry_run=False):
     puzzle_id = f"{SET}_{ymd}"
     data = fetch_raw_json(puzzle_id)
     puzzle = convert(data, ymd)
-    path = out_dir / f"{puzzle['id']}.js"
+    # puzzle_path() always resolves against the real puzzles/ dir, so it can't
+    # stand in here — --out is the one caller in this file that deliberately
+    # writes somewhere else.
+    path = out_dir / f"{puzzle['id']}.json"
     if dry_run:
         print(f"[dry-run] would write {path} ({puzzle['name']}, {len(puzzle['entries'])} entries)")
         return puzzle
@@ -417,7 +420,7 @@ def latest():
                 raise
             continue
         puzzle = convert(data, ymd)
-        if (PUZZLE_DIR / f"{puzzle['id']}.js").exists():
+        if puzzle_path(puzzle["series"], puzzle["number"]).exists():
             # The newest date the picker can see is one we already have, so
             # there is nothing newer to find further down the list either.
             print(f"up-to-date {puzzle['id']}")

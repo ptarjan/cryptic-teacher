@@ -49,10 +49,9 @@ import sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 
-from difficulty import load  # noqa: E402
+from fetch_puzzle import PUZZLE_DIR, read_puzzle_file  # noqa: E402 — one puzzles/, one reader
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-PUZZLE_DIR = ROOT / "puzzles"
 AXES = ["surface", "misdirection", "pennydrop", "economy", "fairness"]
 BATCH = 20
 SEED = 20260909
@@ -72,11 +71,11 @@ def build_pairs(votes, rng):
 
     pairs, skipped = [], []
     for pid in sorted(voted):
-        path = PUZZLE_DIR / (pid + ".js")
+        path = PUZZLE_DIR / (pid + ".json")
         if not path.exists():
             skipped.append((pid, "no puzzle file"))
             continue
-        entries = annotated_entries(load(path))
+        entries = annotated_entries(read_puzzle_file(path))
         yes = [e for e in entries if e["id"] in voted[pid]]
         no = [e for e in entries if e["id"] not in voted[pid]]
         if not yes or not no:
@@ -106,10 +105,10 @@ def build_extra_pairs(votes, rng, used, want):
 
     pools = {}
     for pid in sorted(voted):
-        path = PUZZLE_DIR / (pid + ".js")
+        path = PUZZLE_DIR / (pid + ".json")
         if not path.exists():
             continue
-        entries = annotated_entries(load(path))
+        entries = annotated_entries(read_puzzle_file(path))
         yes = [e for e in entries if e["id"] in voted[pid] and (pid, e["id"]) not in used]
         no = [e for e in entries if e["id"] not in voted[pid] and (pid, e["id"]) not in used]
         if yes and no:

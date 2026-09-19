@@ -469,14 +469,14 @@ run_wave() {
       # Either way it leaves a note for the retry, which resumes this same
       # conversation (see run_claude) — so the note only has to say what changed
       # under it while it was stopped, not restate the job.
-      if [ -n "$(git status --porcelain -- "puzzles/${ids[$i]}.js")" ] &&
+      if [ -n "$(git status --porcelain -- "puzzles/${ids[$i]}.json")" ] &&
          python3 tools/validate_annotations.py "${ids[$i]}" >/dev/null 2>&1; then
         echo "  [${ids[$i]}] run failed — keeping what it finished, the file still validates"
-        printf '%s\n' "You were cut off by a usage limit. The limit has since cleared and your edits to puzzles/${ids[$i]}.js are exactly as you left them. Pick up where you stopped, finish the task you were given, and run python3 tools/annotate_check.py ${ids[$i]} until it reports clean. Do not commit." >"/tmp/ct-prereset-${ids[$i]}.resume"
+        printf '%s\n' "You were cut off by a usage limit. The limit has since cleared and your edits to puzzles/${ids[$i]}.json are exactly as you left them. Pick up where you stopped, finish the task you were given, and run python3 tools/annotate_check.py ${ids[$i]} until it reports clean. Do not commit." >"/tmp/ct-prereset-${ids[$i]}.resume"
       else
         echo "  [${ids[$i]}] run failed — discarding its changes"
-        git checkout -- "puzzles/${ids[$i]}.js" 2>/dev/null
-        printf '%s\n' "You were cut off by a usage limit, mid-edit, so puzzles/${ids[$i]}.js was rolled back to how it was before you started — check it before you assume anything about its contents. The limit has since cleared. You already did the solving, so write out what you had worked out rather than working it out again, finish the task you were given, and run python3 tools/annotate_check.py ${ids[$i]} until it reports clean. Do not commit." >"/tmp/ct-prereset-${ids[$i]}.resume"
+        git checkout -- "puzzles/${ids[$i]}.json" 2>/dev/null
+        printf '%s\n' "You were cut off by a usage limit, mid-edit, so puzzles/${ids[$i]}.json was rolled back to how it was before you started — check it before you assume anything about its contents. The limit has since cleared. You already did the solving, so write out what you had worked out rather than working it out again, finish the task you were given, and run python3 tools/annotate_check.py ${ids[$i]} until it reports clean. Do not commit." >"/tmp/ct-prereset-${ids[$i]}.resume"
       fi
       WAVE_FAILED_IDS+=("${ids[$i]}")
       failed=$((failed + 1))
@@ -608,7 +608,7 @@ commit_puzzle() {
   if ! python3 tools/validate_annotations.py "$num" >/tmp/ct-prereset-validate.txt 2>&1; then
     echo "VALIDATION FAILED after $what $num — discarding that puzzle's changes"
     tail -5 /tmp/ct-prereset-validate.txt
-    git checkout -- "puzzles/$num.js" 2>/dev/null
+    git checkout -- "puzzles/$num.json" 2>/dev/null
     return 1
   fi
   # Solved-but-short is not a failure anywhere else in this pipeline: the nulled
@@ -616,12 +616,12 @@ commit_puzzle() {
   loss=$(python3 tools/check_annotation_loss.py "$num" 2>&1) || \
     alert "pre-reset backfill left clues blank — $loss. They ship with no teaching ladder, and validate_annotations.py fails the puzzle for it."
   echo "$loss"
-  if [ -n "$(git status --porcelain -- "puzzles/$num.js")" ]; then
+  if [ -n "$(git status --porcelain -- "puzzles/$num.json")" ]; then
     # One puzzle, on purpose: this job runs for hours and publishes as it goes,
     # so each finished puzzle reaches the site without waiting for the rest.
     # Named because it was just written, not as an allow-list — the sweep at the
     # end takes everything.
-    git add "puzzles/$num.js"
+    git add "puzzles/$num.json"
     git commit -q -m "$what $num" -m "$ANNOTATE_TRAILER"
     # Nothing generated survives the rebase, because nothing generated is worth
     # carrying: the republish step rewrites every one of these files wholesale
@@ -638,14 +638,14 @@ commit_puzzle() {
     # -A` gives: a named list of generated paths is incomplete the day someone
     # adds a generated path. What is excluded is what a run actually authors —
     # a sibling wave's puzzle, still mid-write, and glossary edits under tools/.
-    git checkout -q -- . ':(exclude)puzzles/*.js' ':(exclude)tools/'
+    git checkout -q -- . ':(exclude)puzzles/*.json' ':(exclude)tools/'
     # checkout only restores files git is tracking HERE. A generated page for a
     # puzzle this worktree's HEAD predates is untracked, so it survives — and the
     # moment origin commits that same path, rebase's checkout refuses to detach
     # HEAD over it ("untracked working tree files would be overwritten"), the &&
     # chain never reaches the push, and every puzzle for the rest of the night
     # commits locally and alerts. Same exclusions, same reason (2026-09-02).
-    git clean -qfd -e 'puzzles/*.js' -e 'tools/'
+    git clean -qfd -e 'puzzles/*.json' -e 'tools/'
     # --autostash still, for what is left: a plain rebase refuses outright with a
     # sibling's half-written puzzle unstaged ("cannot pull with rebase: You have
     # unstaged changes"). Every push in this job failed that way on the nights of
@@ -752,7 +752,7 @@ for p in todo[:5]:
           f"{p['id']}", file=sys.stderr)
 if len(todo) > 5:
     print(f"  ... and {len(todo) - 5} older", file=sys.stderr)
-# IDs, not numbers: the file is puzzles/<id>.js and every consumer below names
+# IDs, not numbers: the file is puzzles/<id>.json and every consumer below names
 # it directly, so nothing downstream has to resolve a number that two papers
 # could one day share.
 print(" ".join(p["id"] for p in todo))
@@ -761,7 +761,7 @@ EOF
 
 # Not "Guardian crossword": since 2026-08-05 some of these are the
 # Independent's. The puzzle file records its own series and publisher.
-ANNOTATE_PROMPT="Annotate the crossword in puzzles/@.js in this repo. Follow the instructions in tools/annotate_prompt.md exactly, including running 'python3 tools/annotate_check.py @' until it reports clean. Every clue needs a definitionFit, and every indicator needs an indicatorNotes entry saying why THAT word carries THAT instruction. Do not commit — the calling script commits."
+ANNOTATE_PROMPT="Annotate the crossword in puzzles/@.json in this repo. Follow the instructions in tools/annotate_prompt.md exactly, including running 'python3 tools/annotate_check.py @' until it reports clean. Every clue needs a definitionFit, and every indicator needs an indicatorNotes entry saying why THAT word carries THAT instruction. Do not commit — the calling script commits."
 
 # The prompt's Reference section, restated from the code that enforces it. Same
 # reason daily_update.sh does it: the run should not have to grep for a rule.
@@ -812,7 +812,7 @@ print(" ".join(n for n,_ in sorted(d.items(), key=lambda kv: kv[1])))' "$field")
     indicatorNotes) what="an object keyed by the exact indicator string, ONE sentence each saying why THAT word carries THAT instruction — never the generic sentence about what the device does, and never a word of the answer" ;;
     *) what="the field as tools/annotate_prompt.md describes it" ;;
   esac
-  prompt="In this repo, add the missing \`$field\` to every annotated clue in puzzles/@.js that lacks one. $field is $what. Read tools/annotate_prompt.md and STYLE.md for the voice, and read an existing puzzle that already has the field so yours match. This is ADDITIVE: change nothing else, do not rewrite existing hints, types, indicators or pieces. Run python3 tools/annotate_check.py @ until it reports clean. Do not commit — the calling script commits."
+  prompt="In this repo, add the missing \`$field\` to every annotated clue in puzzles/@.json that lacks one. $field is $what. Read tools/annotate_prompt.md and STYLE.md for the voice, and read an existing puzzle that already has the field so yours match. This is ADDITIVE: change nothing else, do not rewrite existing hints, types, indicators or pieces. Run python3 tools/annotate_check.py @ until it reports clean. Do not commit — the calling script commits."
   queue=($nums)
   at=0
   while [ "$at" -lt "${#queue[@]}" ]; do
