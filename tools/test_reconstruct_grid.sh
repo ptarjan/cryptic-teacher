@@ -430,7 +430,7 @@ echo "$out2" | grep -E "^(NUMBERED|NUMBERLESS|PARTIAL_[0-9]+ |MISS_|BUDGET_)" | 
 
 read -r _ _ n_num _ ex_num _ amb_num _ miss_num _ bud_num _ <<<"$(grep '^NUMBERED ' <<<"$out2")"
 read -r _ _ n_bare _ ex_bare _ amb_bare _ miss_bare _ bud_bare _ <<<"$(grep '^NUMBERLESS ' <<<"$out2")"
-same "every series and size was drawn from" "$(field GROUPS "$out2")" "13"
+same "every series and size was drawn from" "$(field GROUPS "$out2")" "14"
 same "every attempt lands in exactly one of the four buckets" \
   "$(( ex_num + amb_num + miss_num + bud_num ))" "$n_num"
 # Everything below is stated against the attempts that finished, because
