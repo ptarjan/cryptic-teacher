@@ -87,28 +87,6 @@ SERIES = {
         "publisher": "Globe and Mail",
         "badge": "globe & mail",
     },
-    # The New Penguin Book of The Guardian Crosswords, volume 5: Guardian
-    # reprints, scanned and OCR'd, whose grids were reconstructed from the clue
-    # list and whose answers were solved here. A SERIES PER VOLUME, because
-    # every volume numbers its own puzzles from 1 — sharing one "penguin" key
-    # would put six different puzzles at No 3 in one sequence and walk prev/next
-    # between them, which is the reason indysunday is not part of independent.
-    #
-    # No volume prints a Guardian puzzle number or a publication date, checked
-    # across all six books, so the number here is the book's own position and
-    # `date` is null. The kind says "Penguin book 5" rather than leaving it to
-    # the key, because the crawlable page's heading is "{publisher} {kind}
-    # Crossword No {number}" and "Guardian Cryptic Crossword No 3" would claim a
-    # Guardian number that this puzzle does not have and nobody can look up.
-    #
-    # Nothing will ever grade these: Penguin prints its solutions as answer-grid
-    # IMAGES that OCR to noise, and there is no number or date to find a key by.
-    # The puzzles say so themselves in solutionSource.officialKey == "never".
-    "penguin5": {
-        "kind": "Penguin Book 5 Cryptic",
-        "publisher": "Guardian",
-        "badge": "penguin 5",
-    },
     "indysunday": {
         # The Independent on Sunday's own weekly sequence, ~1,900 and climbing
         # by one a week, served from the same feed as the daily (see
@@ -125,6 +103,45 @@ SERIES = {
         "badge": "indy sunday",
     },
 }
+
+# The New Penguin Book of The Guardian Crosswords: Guardian reprints, scanned
+# and OCR'd, whose grids were reconstructed from the clue list and whose answers
+# are solved here. A SERIES PER VOLUME, because every volume numbers its own
+# puzzles from 1 — sharing one "penguin" key would put six different puzzles at
+# No 3 in one sequence and walk prev/next between them, which is the reason
+# indysunday is not part of independent.
+#
+# One list, not one hand-copied entry per book: the entries differ only in the
+# volume number, so a sixth volume is a number added here and nothing else. Any
+# volume with a puzzle on disk must be in it — tools/build_readme.py refuses a
+# series it has no name for, and tools/test_reconstruct_grid.sh counts the
+# (series, size) groups it samples.
+#
+# No volume prints a Guardian puzzle number or a publication date, checked
+# across all six books, so the number here is the book's own position and
+# `date` is null. The kind says "Penguin book 5" rather than leaving it to the
+# key, because the crawlable page's heading is "{publisher} {kind} Crossword No
+# {number}" and "Guardian Cryptic Crossword No 3" would claim a Guardian number
+# that this puzzle does not have and nobody can look up.
+PENGUIN_VOLUMES = (2, 3, 5, 7, 11)
+
+for _volume in PENGUIN_VOLUMES:
+    SERIES[f"penguin{_volume}"] = {
+        "kind": f"Penguin Book {_volume} Cryptic",
+        "publisher": "Guardian",
+        "badge": f"penguin {_volume}",
+        # NOTHING WILL EVER GRADE THESE. Penguin prints its solutions as
+        # answer-grid IMAGES that OCR to noise, and there is no Guardian number
+        # or date to find a key by. It is a fact about the book, so it is stated
+        # once here and copied onto each puzzle as solutionSource.officialKey by
+        # whichever route fills the grid — tools/file_penguin_puzzle.py when the
+        # answers arrive with the puzzle, tools/apply_solution.py when the
+        # nightly cold solve finishes one filed without them. A puzzle that lost
+        # it would have tools/build_seo_pages.py promise a reader that official
+        # answers replace ours "as soon as those appear", which is a promise
+        # nothing can keep.
+        "officialKey": "never",
+    }
 
 # Unlisted falls back to the Guardian cryptic, which is right both for the daily
 # and for the Saturday prize that shares its number sequence and is recorded
@@ -160,6 +177,16 @@ def badge(series):
     the prose that goes with it.
     """
     return meta(series).get("badge", series or "cryptic")
+
+
+def official_key(series):
+    """"never" where no publisher will ever print an answer key for this series.
+
+    Absent everywhere else, which means "a key may yet arrive" — the Saturday
+    prize whose answers land a week later is the whole reason the field is not a
+    boolean on every series.
+    """
+    return meta(series).get("officialKey")
 
 
 # ---------- ids ----------

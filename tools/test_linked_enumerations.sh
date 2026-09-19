@@ -196,6 +196,89 @@ same("the word break sits in the light it falls in",
 same("the continuation carries no break", built["8-down"]["separatorLocations"], {})
 same("both lights know the group", built["8-down"]["group"], ["7-down", "8-down"])
 
+print("a record with no answers at all is still put into leader form")
+# A puzzle filed UNSOLVED for the nightly cold solve to finish: the book's
+# printed per-light counts are all there is, and the leader still has to end up
+# carrying the whole answer's count, because that is what the app and
+# puzzle_integrity read. The only thing derived is the join between two lights.
+def unsolved_record(entries):
+    return {"book_number": 98, "setter": "Test",
+            "puzzle": {"dimensions": {"cols": 15, "rows": 15}, "entries": entries}}
+
+
+SPLIT_UNSOLVED = unsolved_record(
+    [light("7-down", 7, "down", 4, "Fellow player makes anagrams", "4"),
+     light("8-down", 8, "down", 4, "See 7", "4")])
+rec = copy.deepcopy(SPLIT_UNSOLVED)
+changes = normalise_record(rec)
+same("the leader carries both lights", enum_of(by_id(rec)["7-down"]), "4,4")
+same("the continuation carries null", enum_of(by_id(rec)["8-down"]), None)
+same("it says what it changed", len(changes), 1)
+
+print("each light keeps the words the book printed in it, joined at the split")
+rec = unsolved_record(
+    [light("22-down", 22, "down", 4, "Leaps out of bed", "4"),
+     light("23-down", 23, "down", 4, "See 22", "1,3")])
+normalise_record(rec)
+same('"4" and "1,3" over two lights read as (4,1,3)',
+     enum_of(by_id(rec)["22-down"]), "4,1,3")
+same("and the continuation is cleared", enum_of(by_id(rec)["23-down"]), None)
+
+print("a continuation the book printed no count over counts its own cells")
+# Book 27's shape, and one in four of the volume-5 puzzles: 7-down prints "5"
+# for its own five cells and 17-down, nine cells of UNTER DEN LINDEN, prints
+# nothing at all. Unsolved there is no answer to read the words off, so the
+# unknown light counts as one word — the weakest true statement there is. What
+# it must NOT do is drop the break between the lights and print one total:
+# "(14)" would say the answer is a single fourteen-letter word, which is the one
+# thing the grid already disproves.
+rec = unsolved_record(
+    [light("7-down", 7, "down", 5, "That's the Berliner's way!", "5"),
+     light("17-down", 17, "down", 9, "See 7", None)])
+normalise_record(rec)
+same("the counted light keeps its count and the uncounted one its cells",
+     enum_of(by_id(rec)["7-down"]), "5,9")
+same("and the continuation is still cleared", enum_of(by_id(rec)["17-down"]), None)
+same("a puzzle with a countless continuation can be filed unsolved",
+     filing.build(unsolved_record(
+         [light("7-down", 7, "down", 5, "That's the Berliner's way!", "5"),
+          light("17-down", 17, "down", 9, "See 7", None)]),
+         5, "opus", unsolved=True)["entries"][0]["clue"].endswith("(5,9)"), True)
+
+print("with no answer to fall back on it refuses rather than inventing a count")
+refuses("a printed count that does not fit its own light",
+        unsolved_record([light("7-down", 7, "down", 4, "Fellow player", "4"),
+                         light("8-down", 8, "down", 4, "See 7", "3")]),
+        ["8-down", "the book counts (3)", "the light is 4 cells"])
+
+print("an unsolved puzzle files with the same counts and no answers")
+puzzle = filing.build(copy.deepcopy(SPLIT_UNSOLVED), 7, "opus", unsolved=True)
+built = {e["id"]: e for e in puzzle["entries"]}
+same("the leader's clue prints the whole answer's count",
+     built["7-down"]["clue"].endswith("(4,4)"), True)
+same("the continuation's clue prints no count", built["8-down"]["clue"], "See 7")
+same("the word break is placed without an answer to place it from",
+     built["7-down"]["separatorLocations"], {",": [4]})
+same("every light is answerless", [e["solution"] for e in puzzle["entries"]], [None, None])
+# hasSolutions in puzzles/index.json is all(e["solution"]), and false is what
+# puts the puzzle in the cold-solve queue. A puzzle carrying a solutionSource
+# with no solve behind it would also satisfy apply_solution.py's overwrite
+# guard on behalf of a solve that never happened, and turn that queue away.
+same("and nothing claims to have solved it", "solutionSource" in puzzle, False)
+
+print("and the guard on a SOLVED filing is untouched")
+short = record([light("7-down", 7, "down", 4, "Fellow player makes anagrams", "4"),
+                light("8-down", 8, "down", 4, "See 7", "4")],
+               {"7-down": "TEAM"})
+try:
+    filing.build(short, 7, "opus")
+    fails.append("a solved filing still refuses a missing answer")
+    print("  FAIL: a solved filing still refuses a missing answer\n"
+          "    it filed a puzzle with no answer for 8-down")
+except SystemExit as exc:
+    same("a missing answer is still fatal without --unsolved",
+         "no answer for 8-down" in str(exc), True)
+
 print("every linked answer in the penguin series on disk still reads leader form")
 COUNT = re.compile(r"\((\d[\d,\-–/ ]*)\)\s*$")
 groups_seen = 0

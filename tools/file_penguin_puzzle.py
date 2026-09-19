@@ -2,6 +2,7 @@
 """File one Penguin-book Guardian reprint into puzzles/ from a solve record.
 
     python3 tools/file_penguin_puzzle.py /tmp/penguin_solve_book3.json --volume 5
+    python3 tools/file_penguin_puzzle.py /tmp/penguin_input_vol7_5.json --volume 7 --unsolved
 
 These puzzles come from "The New Penguin Book of The Guardian Crosswords",
 scanned and OCR'd (tools/fetch_ia_book.py), parsed into clue lists
@@ -55,6 +56,31 @@ each half, so this converts it on the way in rather than refusing it: see
 tools/normalise_linked_enumerations.py, which derives the count from the
 answer's own words and refuses loudly when the group cannot be resolved.
 
+ANSWERS ARE OPTIONAL, AND --unsolved IS HOW YOU SAY SO. A book puzzle is worth
+filing the moment its grid and clues are readable: filed with `solution: null`
+on every entry it is a puzzle the site can show, and puzzles/index.json records
+hasSolutions false, which is what puts it in the cold-solve queue in
+tools/daily_update.sh (section 3a) for the nightly backfill to finish. That is
+the cheap way to solve a book — one puzzle a night off an existing job, rather
+than a person driving a solver.
+
+The flag is explicit because the alternative is dangerous. Inferring "unsolved"
+from a record that happens to be missing answers would turn a truncated solve
+into a silently half-filed puzzle; without the flag a missing answer is still
+the hard error it always was. And --unsolved files NO answers rather than the
+ones it has: a partial fill in a puzzle file is worse than none, because
+tools/apply_solution.py refuses to write over a puzzle that already holds
+answers and no solutionSource, so a half-filled file would turn away the very
+job that is meant to finish it. Keep a partial fill beside the record instead —
+tools/data/penguin_partial_fills/ is where the ones we have are kept.
+
+An unsolved file carries no solutionSource either, for the same reason it
+carries no answers: there is no solve to describe yet, and the field is what
+index.json reads to say the answers on this page are ours rather than the
+paper's. apply_solution.py writes it when the backfill lands, and stamps
+`officialKey` from tools/series.py, so the one permanent fact about these books
+survives the route that fills them in.
+
 The input record is what the solve wrote: `puzzle` (grid geometry and clue text
 from the reconstructor), `fill` (id -> answer), `entries` (id -> answer,
 confidence, parse) and `setter`. This writes the file and checks nothing; run
@@ -77,7 +103,7 @@ from fetch_puzzle import PUZZLE_DIR, write_puzzle_file  # noqa: E402
 # which lights a "See N" ties together, and what the group's enumeration is.
 from normalise_linked_enumerations import (enumeration_parts,  # noqa: E402
                                            normalise_record, resolve_groups)
-from series import puzzle_id  # noqa: E402
+from series import default_setter, official_key, puzzle_id  # noqa: E402
 
 # The scan these were read out of. A real, resolvable source for a book that has
 # no URL of its own; the volume is in the series key, not here.
@@ -88,7 +114,7 @@ def normalise(answer):
     return re.sub(r"[^A-Z]", "", str(answer).upper())
 
 
-def separators(group_ids, by_id, enumeration, fill):
+def separators(group_ids, by_id, enumeration, fill=None):
     """Word breaks for one linked group, placed on the light each one falls in.
 
     The enumeration counts the whole answer; the grid holds it in lights. A
@@ -96,6 +122,12 @@ def separators(group_ids, by_id, enumeration, fill):
     — so a break exactly on a light boundary is written at the end of the
     earlier light, which is how cryptic-30004 stores "(2,3,3,4)" over TOTIE and
     THEKNOT: {",": [2, 5]} then {",": [3]}.
+
+    The breaks come from the enumeration and the light lengths, so a puzzle
+    filed with no answers gets the same ones a solved one would: the app draws
+    them, and the count they come from is printed in the clue either way. `fill`
+    is the cross-check that the answers agree with the count, and is skipped
+    when there are none to check — no answer is not a disagreement.
     """
     lights = [(gid, by_id[gid]["length"]) for gid in group_ids]
     total = sum(n for _, n in lights)
@@ -104,9 +136,10 @@ def separators(group_ids, by_id, enumeration, fill):
         raise SystemExit(
             f"{group_ids}: enumeration ({enumeration}) counts "
             f"{sum(n for n, _ in parts)} letters, the grid holds {total}")
-    answer = "".join(normalise(fill[gid]) for gid in group_ids)
-    if len(answer) != total:
-        raise SystemExit(f"{group_ids}: answers hold {len(answer)} letters, grid wants {total}")
+    if fill:
+        answer = "".join(normalise(fill[gid]) for gid in group_ids)
+        if len(answer) != total:
+            raise SystemExit(f"{group_ids}: answers hold {len(answer)} letters, grid wants {total}")
 
     out = {gid: {} for gid, _ in lights}
     at = 0
@@ -125,18 +158,49 @@ def separators(group_ids, by_id, enumeration, fill):
     return out
 
 
-def build(record, volume, model):
+def coarse_continuations(record):
+    """Lights whose enumeration was guessed rather than read, filed unsolved.
+
+    A continuation the book printed no count over counts as ONE word of its own
+    length (see tools/normalise_linked_enumerations.py). That is the weakest true
+    statement available with no answer to read, and it can be coarser than the
+    answer turns out to deserve: book 27's "(5,9)" over UNTER DEN LINDEN, which a
+    solve would enumerate (5,3,6). Nothing catches that later — the clue text is
+    written once, here, and puzzle_integrity's check_length only compares totals
+    — so the lights it happened to are named on the way out. A worklist beats a
+    corpus scan if these are ever re-derived from the answers.
+    """
+    entries = [dict(e) for e in record["puzzle"]["entries"]]
+    by_id = {e["id"]: e for e in entries}
+    coarse = []
+    for leader, group_ids in sorted(resolve_groups(entries).items()):
+        if leader != group_ids[0]:
+            continue
+        total = sum(by_id[gid]["length"] for gid in group_ids)
+        printed = by_id[leader].get("enumeration")
+        if printed and sum(n for n, _ in enumeration_parts(printed)) == total:
+            continue  # already leader form: the book counted the whole answer
+        coarse += [gid for gid in group_ids if not by_id[gid].get("enumeration")]
+    return coarse
+
+
+def build(record, volume, model, unsolved=False):
     src = record["puzzle"]
     number = record["book_number"]
-    pid = puzzle_id(f"penguin{volume}", number)
-    fill = record["fill"]
-    solved = record["entries"]
+    series = f"penguin{volume}"
+    pid = puzzle_id(series, number)
+    # --unsolved files no answers at all, not the ones the record happens to
+    # hold: see the module docstring — a half-filled puzzle file turns away the
+    # backfill that is meant to finish it.
+    fill = {} if unsolved else record["fill"]
+    solved = {} if unsolved else record["entries"]
 
     entries = [dict(e) for e in src["entries"]]
     by_id = {e["id"]: e for e in entries}
-    missing = [e["id"] for e in entries if e["id"] not in fill]
-    if missing:
-        raise SystemExit(f"{pid}: no answer for {', '.join(missing)}")
+    if not unsolved:
+        missing = [e["id"] for e in entries if e["id"] not in fill]
+        if missing:
+            raise SystemExit(f"{pid}: no answer for {', '.join(missing)}")
     # A LINKED ANSWER IS STORED ON ITS LEADER. The solve scripts emit a count on
     # each half, because a light is what they measured; this writes the whole
     # answer's count on the leader and none on the continuation. Converting here
@@ -167,7 +231,9 @@ def build(record, volume, model):
         e["separatorLocations"] = seps.get(e["id"], {})
         if e["id"] in groups:
             e["group"] = list(groups[e["id"]])
-        e["solution"] = normalise(fill[e["id"]])
+        # null, not absent, on an unsolved puzzle: that is how every unsolved
+        # puzzle in this corpus spells an unanswered light.
+        e["solution"] = normalise(fill[e["id"]]) if e["id"] in fill else None
         confidence = (solved.get(e["id"]) or {}).get("confidence", "CONFIDENT")
         if confidence != "CONFIDENT":
             # Read by the annotator, via tools/annotate_prompt.md. Written only
@@ -180,16 +246,27 @@ def build(record, volume, model):
     puzzle = {
         "id": pid,
         "number": number,
-        "series": f"penguin{volume}",
+        "series": series,
         "name": f"Guardian cryptic crossword, Penguin book {volume} No {number}",
-        "setter": record["setter"],
+        # Some books print no byline over a puzzle. "Unknown" is what the rest
+        # of the corpus shows for one, and it is the series table's answer — an
+        # empty setter would read as a parsing failure instead of as the blank
+        # the page actually has.
+        "setter": record.get("setter") or default_setter(series),
         # No volume prints a date. null is the corpus's existing spelling for
         # "nobody knows", not a gap to be filled in later.
         "date": None,
         "dimensions": src["dimensions"],
         "sourceUrl": SOURCE_URL,
         "entries": out,
-        "solutionSource": {
+    }
+    # No solve, no solutionSource. The field says whose answers these are, and
+    # puzzles/index.json turns it into solutionsUnofficial — claiming a model
+    # fill over a grid with no answers in it would mark the puzzle as ours to a
+    # reader and, worse, satisfy apply_solution.py's overwrite guard on behalf
+    # of a solve that never happened. The backfill writes it when it lands.
+    if not unsolved:
+        puzzle["solutionSource"] = {
             "kind": "model",
             "model": model,
             "date": datetime.date.today().isoformat(),
@@ -199,10 +276,11 @@ def build(record, volume, model):
             # The one fact that separates these from a prize puzzle solved early:
             # nothing is coming later to grade this against. Penguin prints its
             # solutions as answer-grid images that OCR to noise, and the book
-            # names no Guardian number or date to look one up by.
-            "officialKey": "never",
-        },
-    }
+            # names no Guardian number or date to look one up by. Stated once in
+            # tools/series.py, because tools/apply_solution.py has to stamp the
+            # same fact when the nightly solve fills one of these in.
+            "officialKey": official_key(series),
+        }
     return puzzle
 
 
@@ -212,14 +290,25 @@ def main(argv=None):
     ap.add_argument("--volume", type=int, required=True,
                     help="which Penguin volume this book is (the series key is penguin<N>)")
     ap.add_argument("--model", default="opus", help="the model that solved it")
+    ap.add_argument("--unsolved", action="store_true",
+                    help="file the grid and clues with no answers at all, for the "
+                         "nightly cold solve to finish (daily_update.sh, step 3a)")
     args = ap.parse_args(argv)
 
     record = json.loads(Path(args.record).read_text(encoding="utf-8"))
-    puzzle = build(record, args.volume, args.model)
+    puzzle = build(record, args.volume, args.model, unsolved=args.unsolved)
     path = PUZZLE_DIR / f"{puzzle['id']}.js"
     if path.exists():
         raise SystemExit(f"{path} already exists — refusing to overwrite a filed puzzle")
     write_puzzle_file(path, puzzle, generator="tools/file_penguin_puzzle.py")
+    if args.unsolved:
+        print(f"wrote {path} — {len(puzzle['entries'])} entries, no date, NO ANSWERS: "
+              f"it is now the cold-solve queue's problem (daily_update.sh, step 3a)")
+        coarse = coarse_continuations(record)
+        if coarse:
+            print(f"  {len(coarse)} light(s) the book printed no count over, enumerated "
+                  f"as one word of their own length: {', '.join(coarse)}")
+        return 0
     likely = [e["id"] for e in puzzle["entries"] if e.get("solutionConfidence")]
     print(f"wrote {path} — {len(puzzle['entries'])} entries, no date, model fill, "
           f"no official key will ever exist")

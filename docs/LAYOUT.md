@@ -385,6 +385,9 @@ tools/data/sample_fill_11.json               the worked 11x11 fill tools/AUTHORI
 tools/data/authored_A001_clues.json          the hand-written clues for that fill
 tools/data/annotate_attempts.json            which puzzles have already had an annotation run
                                              spent on them and lost
+tools/data/penguin_partial_fills/            answers from a Penguin-book solve that stopped
+                                             short; the puzzle itself is filed unsolved for the
+                                             nightly cold solve to finish
 tools/data/blind_misses.json                 which entries the last blind annotate run got
                                              wrong, the one blank check_every_clue_is_annotated
                                              will not fail on
