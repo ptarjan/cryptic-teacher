@@ -1325,7 +1325,7 @@ def correct_source_answers(pid, entries):
 
 
 def convert(data):
-    """Guardian data -> our puzzle object (annotation: null on every entry)."""
+    """Guardian data -> our puzzle object (no annotation on any entry yet)."""
     # Named before the entries are built: correct_source_answers is keyed by the
     # id this puzzle will be filed under, not by the page it arrived from.
     series = series_of(data["id"])
@@ -1352,9 +1352,12 @@ def convert(data):
             # singleton or not; an absent group here means "this clue is its own
             # answer", which is the overwhelming majority of them.
             **({"group": e["group"]} if len(e["group"]) > 1 else {}),
-            "separatorLocations": e.get("separatorLocations") or {},
+            # Written only when the paper actually marks a break, and the
+            # annotation only once one exists: an empty object and a null
+            # on every entry were 16 MB of nothing. Absent reads as empty
+            # everywhere — app.js `|| {}`, the tools `.get(...) or {}`.
+            **({"separatorLocations": seps} if (seps := e.get("separatorLocations") or {}) else {}),
             "solution": bare_letters(e.get("solution")),
-            "annotation": None,
         })
     # Before anything reads the answers: reconcile_groups and the length checks
     # downstream all weigh letters, and the paper's wrong one is not the letter
@@ -1540,7 +1543,7 @@ def grade_model_fill(puzzle, guessed):
     missed = {eid for eid, _, _ in wrong}
     for e in puzzle["entries"]:
         if e["id"] in missed:
-            e["annotation"] = None
+            e.pop("annotation", None)
     record_misses(puzzle["id"], wrong)
     return wrong
 

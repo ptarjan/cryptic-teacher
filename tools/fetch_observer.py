@@ -252,9 +252,8 @@ def convert(num, manifest, data):
                 "length": length,
                 "clue": f"{text} ({fmt})",
                 **({"clueItalics": italics} if italics else {}),
-                "separatorLocations": clue_separators(fmt, length),
+                **({"separatorLocations": s} if (s := clue_separators(fmt, length)) else {}),
                 "solution": None,
-                "annotation": None,
             })
 
     entries.sort(key=lambda e: (e["position"]["y"], e["position"]["x"], e["direction"]))

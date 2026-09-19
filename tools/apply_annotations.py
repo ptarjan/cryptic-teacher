@@ -80,7 +80,11 @@ def apply(path, annotations):
                        " — the ids are " + ", ".join(ids[:4]) + ", ...")
         raise SystemExit(f"apply_annotations: {path.name}: " + "; ".join(why))
     for entry in puzzle["entries"]:
-        entry["annotation"] = annotations[entry["id"]]
+        ann = annotations[entry["id"]]
+        if ann is None:
+            entry.pop("annotation", None)
+        else:
+            entry["annotation"] = ann
     write_puzzle_file(path, puzzle)
     solved = sum(1 for v in annotations.values() if v is not None)
     return solved, len(ids)

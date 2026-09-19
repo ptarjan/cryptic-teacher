@@ -143,6 +143,13 @@ tools/test_blank_clue_carry.sh               proves a re-fetch cannot empty a pu
                                              old site, that the paper still wins wherever it
                                              prints words, and that the sixteen recovered prize
                                              puzzles still carry every clue
+tools/test_empty_keys.sh                     holds the rule that a puzzle file never writes a
+                                             key that says nothing: the fetchers omit an empty
+                                             separatorLocations and an un-written annotation, a
+                                             file without them round-trips, and every reader —
+                                             app.js, the difficulty scorer, the crawlable
+                                             pages, the social cards — takes the absence as the
+                                             empty value it replaced
 tools/test_source_answer_wrong.sh            proves the table of answers the PAPER got wrong
                                              still corrects the letters it names, still leaves
                                              every other light alone, and names itself stale

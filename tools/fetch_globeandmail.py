@@ -364,9 +364,8 @@ def convert(data, ymd):
             "length": length,
             "clue": full_clue,
             **({"clueItalics": italics} if italics else {}),
-            "separatorLocations": seps,
+            **({"separatorLocations": seps} if seps else {}),
             "solution": solution_letters(box, cells),
-            "annotation": None,
         })
     entries.sort(key=lambda e: (e["position"]["y"], e["position"]["x"], e["direction"]))
 

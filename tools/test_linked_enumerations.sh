@@ -194,8 +194,9 @@ same("the leader's clue prints the whole answer's count",
      built["7-down"]["clue"].endswith("(4,4)"), True)
 same("the continuation's clue prints no count at all", built["8-down"]["clue"], "See 7")
 same("the word break sits in the light it falls in",
-     built["7-down"]["separatorLocations"], {",": [4]})
-same("the continuation carries no break", built["8-down"]["separatorLocations"], {})
+     built["7-down"].get("separatorLocations"), {",": [4]})
+same("the continuation carries no break, and writes no empty key for it",
+     "separatorLocations" in built["8-down"], False)
 same("both lights know the group", built["8-down"]["group"], ["7-down", "8-down"])
 
 print("a record with no answers at all is still put into leader form")
@@ -260,7 +261,7 @@ same("the leader's clue prints the whole answer's count",
      built["7-down"]["clue"].endswith("(4,4)"), True)
 same("the continuation's clue prints no count", built["8-down"]["clue"], "See 7")
 same("the word break is placed without an answer to place it from",
-     built["7-down"]["separatorLocations"], {",": [4]})
+     built["7-down"].get("separatorLocations"), {",": [4]})
 same("every light is answerless", [e["solution"] for e in puzzle["entries"]], [None, None])
 # hasSolutions in puzzles/index.json is all(e["solution"]), and false is what
 # puts the puzzle in the cold-solve queue. A puzzle carrying a solutionSource
