@@ -109,9 +109,9 @@ window.CRYPTIC_PUZZLES["penguin7-21"] = /*JSON-START*/ {
     "y": 5
    },
    "length": 4,
-   "clue": "Truck for getting food to mouth? (4,4)",
+   "clue": "Truck for getting food to mouth? (4-4)",
    "separatorLocations": {
-    ",": [
+    "-": [
      4
     ]
    },

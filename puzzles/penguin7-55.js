@@ -173,9 +173,9 @@ window.CRYPTIC_PUZZLES["penguin7-55"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 4,
-   "clue": "Punish molester with short time? It takes money (4,5)",
+   "clue": "Punish molester with short time? It takes money (4-5)",
    "separatorLocations": {
-    ",": [
+    "-": [
      4
     ]
    },
