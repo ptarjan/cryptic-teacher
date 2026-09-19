@@ -352,8 +352,11 @@ def main(argv=None):
         q = quality.get(bn, {})
         if q.get("confidence") == "low":
             reasons.append("the quality pass rated this leaf's OCR confidence low")
-        blank = (q.get("across", {}).get("empty_text", 0)
-                 + q.get("down", {}).get("empty_text", 0))
+        # Both keys are None, not {}, on a puzzle with no across/down split at
+        # all — the two Araucaria jigsaw specials print one flat list under a
+        # "Method:" heading. That is a real shape in this book, not a bug.
+        blank = ((q.get("across") or {}).get("empty_text", 0)
+                 + (q.get("down") or {}).get("empty_text", 0))
         if blank:
             reasons.append(f"{blank} clue(s) have no text at all")
         rows[bn] = {"book_number": bn, "setter": p.get("setter"),
