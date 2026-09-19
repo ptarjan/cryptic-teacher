@@ -20,6 +20,13 @@ Usage:
   --out DIR     write .json files here instead of puzzles/ (also skips reindex(),
                 since reindex() always scans the real puzzles/ dir)
 
+Exit codes: 0 did what was asked, 3 --latest found nothing new, 1 the day asked
+for is expected-but-unfetchable (the Saturday puzzle, a date below the floor) —
+one self-contained line on stderr and no traceback. A weekly event that prints a
+stack trace is indistinguishable from a real crash, which is the whole reason
+ExpectedlyUnfetchable exists; the exit stays non-zero so an unattended run can
+never report success having fetched nothing.
+
 Companion to fetch_puzzle.py (Guardian) and fetch_independent.py (Independent);
 no code is shared with either beyond http_bytes/write_puzzle_file/reindex, because
 nothing else is shared: this is a different vendor with a different payload shape.
@@ -80,7 +87,11 @@ prefer the field the paper actually stamped.
 If `title` is ever NOT "No <digits>" this raises rather than guessing a
 number — matching fetch_independent.py's title parsing, and for the same
 reason: a wrong number silently overwrites the wrong file or reorders the
-archive, so an unrecognised format needs a human, not a fallback.
+archive, so an unrecognised format needs a human, not a fallback. The one
+title that is NOT a surprise is the Globe's own Saturday puzzle — blank early
+on, "The Weekender Cryptic" since 2026-08-08 — which carries no number
+anywhere in its payload and so cannot be filed into this series at all; see
+convert(), which reports it as an expected condition rather than a failure.
 
 PACING. One request per second, max, with a browser-ish User-Agent (reusing
 fetch_puzzle.UA) — this is somebody else's CDN and getting banned would take
@@ -125,6 +136,22 @@ REQUEST_GAP = 1.0  # seconds between requests — see PACING above
 # still aren't fetchable. "No 3106" (2025-11-16) is where the numbered daily
 # series actually starts; nothing below it has ever been found on this CDN.
 GLOBEANDMAIL_FLOOR_DATE = date(2025, 11, 16)
+
+
+class ExpectedlyUnfetchable(ValueError):
+    """A payload this tool understands and is deliberately declining to file.
+
+    The Saturday puzzle carries no publisher number (see convert()), and a
+    date below the floor is simply not on the CDN. Both recur on a schedule,
+    so __main__ prints one line and exits non-zero for them while everything
+    else keeps its traceback. Raise this ONLY where the condition is
+    understood and the message names the date and the reason — anything else
+    is a bug report and has to stay loud to get read.
+    """
+
+
+class PuzzleNotFound(ExpectedlyUnfetchable):
+    """Amuse has no puzzle at this id (see NOT_FOUND_MARKER)."""
 
 
 # ---------- decode (ported from a working brute-force key search; see module
@@ -229,7 +256,7 @@ def fetch_raw_json(puzzle_id):
     m = RAWC_RE.search(html)
     if not m:
         if NOT_FOUND_MARKER in html:
-            raise ValueError(f"{puzzle_id}: not found (Amuse has no puzzle at this id)")
+            raise PuzzleNotFound(f"{puzzle_id}: not found (Amuse has no puzzle at this id)")
         raise ValueError(f"no rawc field found for {puzzle_id} — page shape changed?")
     rawc = json.loads('"' + m.group(1) + '"')  # unescape JSON string escapes (\/ etc)
     return json.loads(deobfuscate_rawc(rawc))
@@ -239,6 +266,13 @@ def fetch_raw_json(puzzle_id):
 
 TITLE_RE = re.compile(r"No\.?\s*([\d,]+)\s*$")
 ENUM_TAIL_RE = re.compile(r"\([\d,\-.\s]+\)\s*$")
+# The Globe's own Saturday puzzle, billed in the payload's `help` field as
+# "Every Saturday, only at The Globe and Mail". Compared exactly rather than
+# matched loosely: a title this tool has genuinely never seen still has to
+# reach the "unrecognised title" raise in convert(), which is what gets a
+# human to look. Widening this to a substring would swallow the next real
+# surprise.
+WEEKENDER_TITLE = "The Weekender Cryptic"
 
 
 def solution_letters(box, cells):
@@ -263,16 +297,37 @@ def setter_name(author):
 def convert(data, ymd):
     title = (data.get("title") or "").strip()
     if not title:
-        # Confirmed at 2025-11-01, 2025-11-08 and 2025-11-15: real box/
-        # placedWords data, but title, subtitle, author, authorEmail,
-        # authorURL, copyright and description are ALL blank — a preview
-        # puzzle published before the numbered daily series started (see
-        # GLOBEANDMAIL_FLOOR_DATE), not a page whose shape changed. There is
-        # no publisher number anywhere in the payload to file it under, and
-        # inventing one would plant a fake gap that trips coverage_report's
-        # STRAY check forever, so this is a distinct, expected error rather
-        # than "unrecognised title" below.
-        raise ValueError(f"{ymd}: blank title — a pre-launch preview puzzle with no publisher number, not fetchable into this series")
+        # Confirmed on 2025-11-01, -08, -15 and -22 — every one a Saturday:
+        # real box/placedWords data in the 15x15 Saturday shape, but title,
+        # subtitle, author, authorEmail, authorURL, copyright and description
+        # are ALL blank. This is the Saturday puzzle before it was given the
+        # Weekender billing below, not a page whose shape changed, and not a
+        # pre-launch artefact either: 2025-11-22 is ABOVE
+        # GLOBEANDMAIL_FLOOR_DATE, so a blank title stays possible anywhere
+        # inside the archive window and --extend has to survive meeting one.
+        # Like the Weekender it carries no publisher number anywhere in the
+        # payload, and inventing one would plant a fake gap that trips
+        # coverage_report's STRAY check forever, so this is a distinct,
+        # expected condition rather than "unrecognised title" below.
+        raise ExpectedlyUnfetchable(
+            f"{ymd}: blank title — the Globe's untitled Saturday puzzle, which "
+            "carries no publisher number, so there is nothing to file it under")
+    if title == WEEKENDER_TITLE:
+        # The Globe runs its own Saturday cryptic and the syndicated numbered
+        # daily never appears that day: 2026-09-11 is No 3363, 2026-09-12 is
+        # the Weekender, 2026-09-13 is No 3364 — the numbering skips Saturday,
+        # which is the "six a week" the module docstring counts. Confirmed on
+        # 2025-12-27 and on every Saturday from 2026-08-08 to 2026-09-19:
+        # 15x15 (the daily is 13x13), set by Fraser Simpson rather than
+        # syndicated from the Times, and — searched field by field across the
+        # whole decoded payload, not just `title` — carrying no number of any
+        # kind. So it is the blank-title case above wearing a name: expected,
+        # due again every Saturday, and unfilable without inventing a number.
+        # If a Weekender ever does turn up numbered it is a new series to be
+        # discussed on its own terms, never something to fold in here.
+        raise ExpectedlyUnfetchable(
+            f"{ymd}: The Weekender Cryptic — the Globe's own unnumbered Saturday "
+            "puzzle, expected every Saturday, not part of this numbered series")
     m = TITLE_RE.search(title)
     if not m:
         raise ValueError(f"unrecognised title {data.get('title')!r} for {ymd}")
@@ -415,6 +470,13 @@ def latest():
     for ymd in dates:
         try:
             data = fetch_raw_json(f"{SET}_{ymd}")
+        except PuzzleNotFound:
+            # The "picker is ahead of the crossword endpoint" case above
+            # arrives as Amuse's HTTP 200 plus a not-found page, never as a
+            # 404 (see NOT_FOUND_MARKER), so walking on to the next date has
+            # to be triggered by class — the HTTPError arm below has never
+            # been the one that fires for it.
+            continue
         except urllib.error.HTTPError as err:
             if err.code != 404:
                 raise
@@ -439,6 +501,11 @@ def run_dates(ymds, out_dir, dry_run):
             fetched += 1
         except urllib.error.HTTPError as err:
             print(f"skip {ymd}: HTTP {err.code}")
+            missing += 1
+        except ExpectedlyUnfetchable as err:
+            # These messages already open with the date (or the puzzle id), so
+            # the generic arm below would print it twice.
+            print(f"skip {err}")
             missing += 1
         except Exception as err:  # noqa: BLE001 — one bad day shouldn't stop the run
             print(f"skip {ymd}: {err}")
@@ -513,4 +580,15 @@ def main(argv):
 
 
 if __name__ == "__main__":
-    sys.exit(main(sys.argv[1:]))
+    try:
+        sys.exit(main(sys.argv[1:]))
+    except ExpectedlyUnfetchable as err:
+        # A traceback means "nobody anticipated this"; these were anticipated,
+        # and the Saturday one is due again in seven days. Printing a stack
+        # trace for a scheduled event trains everyone reading the nightly log
+        # to ignore stack traces, so it gets one self-contained line carrying
+        # the date and the reason instead — no "see the log" — and the exit
+        # stays non-zero so an unattended caller cannot mistake a day with
+        # nothing to fetch for a day that fetched something.
+        print(f"fetch_globeandmail.py: {err}", file=sys.stderr)
+        sys.exit(1)
