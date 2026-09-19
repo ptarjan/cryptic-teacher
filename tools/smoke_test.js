@@ -618,13 +618,21 @@ const patBoxes = () => (patHTML().match(/class="pat-box [^"]*"/g) || []);
      puzzles/index.json, which the fan-out already fetches, written there by
      tools/fetch_puzzle.py out of tools/series.py. That makes the index and
      SERIES_BADGE two views of the same fact, written from opposite ends, so
-     what is checked here is that they name the same set of series. */
+     what is checked here is that every series the index names can be badged.
+
+     One direction only. `papers` is derived from the puzzles actually on disk,
+     while a series is registered in tools/series.py and SERIES_BADGE before its
+     first puzzle is filed -- that is how a book line gets scanned into. So a
+     badge with no puzzles yet is the normal state of a pending acquisition, and
+     only the reverse is a defect: a paper in the index with no badge to render
+     ships a blank pill to a reader. */
   const papers = global.CRYPTIC_INDEX.papers || {};
   assert(Object.keys(papers).length > 3,
     "puzzles/index.json carries a `papers` table: " + JSON.stringify(papers));
-  assert(Object.keys(papers).sort().join(",") === badged.slice().sort().join(","),
-    "index.json's `papers` and app.js's SERIES_BADGE name the same series: "
-    + Object.keys(papers).sort().join(",") + " vs " + badged.slice().sort().join(","));
+  const unbadged = Object.keys(papers).filter((s) => !badged.includes(s));
+  assert(unbadged.length === 0,
+    "every series in index.json's `papers` has an entry in app.js's SERIES_BADGE; "
+    + "unbadged: " + unbadged.join(",") + " (badged: " + badged.slice().sort().join(",") + ")");
 
   const CTNotify = require("../sync/notify.js");
   const sample = {};
