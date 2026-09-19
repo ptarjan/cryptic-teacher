@@ -365,8 +365,7 @@ def entries_from_grid(grid, across, down):
     return entries, problems
 
 
-def file_unsolved(puzzle_meta, grid, across, down, volume, out_dir,
-                  identifier=None):
+def file_unsolved(puzzle_meta, grid, across, down, volume, out_dir):
     """(path, problems). Reuses tools/file_penguin_puzzle.py's own guard, in
     process, so everything it knows about these books -- the id, the null
     date, the absent solutionSource, how a linked group is stored -- is
@@ -382,8 +381,7 @@ def file_unsolved(puzzle_meta, grid, across, down, volume, out_dir,
               "puzzle": {"dimensions": {"cols": len(grid[0]), "rows": len(grid)},
                           "entries": entries}}
     try:
-        built = build_penguin(record, volume, "unsolved", unsolved=True,
-                              identifier=identifier)
+        built = build_penguin(record, volume, "unsolved", unsolved=True)
     except SystemExit as err:
         # file_penguin_puzzle refuses rather than guesses, which is right; a
         # refusal is this puzzle's problem and not the run's, so it is caught,
