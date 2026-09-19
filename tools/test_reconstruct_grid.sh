@@ -257,6 +257,8 @@ echo "reconstruction against the corpus, sampled across every series and size"
 out2=$(SAMPLE="${SAMPLE:-26}" NUMBERLESS_SAMPLE="${NUMBERLESS_SAMPLE:-4}" \
   MAX_NODES="${MAX_NODES:-1000000}" \
   NUMBERLESS_MAX_NODES="${NUMBERLESS_MAX_NODES:-2000000}" \
+  PARTIAL_SAMPLE="${PARTIAL_SAMPLE:-2}" \
+  PARTIAL_MAX_NODES="${PARTIAL_MAX_NODES:-250000}" \
   PYTHONPATH="$REPO/tools" python3 - <<'PY'
 import os
 import random
@@ -301,13 +303,14 @@ def stratify(paths, want):
     return picked, len(keys)
 
 
-def attempt(job):
-    path, numbered, budget = job
-    puzzle = read_puzzle_file(path)
-    cols = puzzle["dimensions"]["cols"]
-    rows = puzzle["dimensions"]["rows"]
+def classify(puzzle, spec, cols, rows, budget):
+    """Run one reconstruction and sort it into the same four buckets everywhere.
+
+    Shared by the fully-numbered, fully-numberless and partially-numbered
+    attempts below, so a miss means the same thing -- the search finished and
+    disagreed with the paper -- regardless of which of the three produced it.
+    """
     published = R.grid_of(puzzle)
-    spec = R.lights_of(puzzle, numbered=numbered)
     started = time.time()
     found, info = R.reconstruct(spec, cols=cols, rows=rows, limit=40,
                                 max_nodes=budget)
@@ -327,13 +330,42 @@ def attempt(job):
             "clue list is not what this grid prints"
             if sorted(R.lights_from_grid(published)) != sorted(R.lights_of(puzzle))
             else "no rule broken: the search is wrong")
-    return path.name, verdict, len(found), info["nodes"], round(elapsed, 2), why
+    return verdict, len(found), info["nodes"], round(elapsed, 2), why
 
 
-def report(tag, paths, numbered, budget):
-    jobs = [(p, numbered, budget) for p in paths]
+def attempt(job):
+    path, numbered, budget = job
+    puzzle = read_puzzle_file(path)
+    cols, rows = puzzle["dimensions"]["cols"], puzzle["dimensions"]["rows"]
+    spec = R.lights_of(puzzle, numbered=numbered)
+    return (path.name,) + classify(puzzle, spec, cols, rows, budget)
+
+
+def attempt_partial(job):
+    """Same as attempt(), but a controlled fraction of numbers are erased --
+    the shape a partially-OCR'd book puzzle is actually in. The seed is
+    derived from the puzzle's own filename and the fraction, not from a
+    counter, so it is stable no matter what order jobs run in or how many
+    other levels are being swept in the same invocation.
+    """
+    path, fraction, budget = job
+    puzzle = read_puzzle_file(path)
+    cols, rows = puzzle["dimensions"]["cols"], puzzle["dimensions"]["rows"]
+    seed = f"reconstruct_grid partial sweep:{path.name}:{fraction}"
+    spec = R.blank_numbers(R.lights_of(puzzle, numbered=True), fraction,
+                           random.Random(seed))
+    return (path.name,) + classify(puzzle, spec, cols, rows, budget)
+
+
+def run_jobs(fn, jobs):
+    """One pool for however many jobs there are -- forking workers is not
+    free on every machine this runs on, and paying it once for a batch of
+    jobs beats paying it once per report() call."""
     with Pool(min(4, os.cpu_count() or 1)) as pool:
-        results = pool.map(attempt, jobs, chunksize=1)
+        return pool.map(fn, jobs, chunksize=1)
+
+
+def summarize(tag, results):
     tally = {"exact": 0, "ambiguous": 0, "miss": 0, "budget": 0}
     for _, verdict, _, _, _, _ in results:
         tally[verdict] += 1
@@ -355,16 +387,46 @@ def report(tag, paths, numbered, budget):
     return results
 
 
+def report(tag, paths, fn, mode, budget):
+    return summarize(tag, run_jobs(fn, [(p, mode, budget) for p in paths]))
+
+
 files = sorted(puzzle_files())
 sample, n_groups = stratify(files, int(os.environ["SAMPLE"]))
 print("GROUPS", n_groups)
 print("SAMPLED", len(sample))
-report("NUMBERED", sample, True, int(os.environ["MAX_NODES"]))
+report("NUMBERED", sample, attempt, True, int(os.environ["MAX_NODES"]))
 smaller = sample[:int(os.environ["NUMBERLESS_SAMPLE"])]
-report("NUMBERLESS", smaller, False, int(os.environ["NUMBERLESS_MAX_NODES"]))
+report("NUMBERLESS", smaller, attempt, False, int(os.environ["NUMBERLESS_MAX_NODES"]))
+
+# The point of this module: 175 of our 398 OCR'd book puzzles have SOME clue
+# numbers but not all. Full numbering (NUMBERED above) and none at all
+# (NUMBERLESS above) are the two ends of one curve; this sweeps the middle of
+# it on a small, fixed-seed sample, small enough to keep this file's runtime
+# close to what it was before partial numbering existed. PARTIAL_SAMPLE and
+# PARTIAL_MAX_NODES take it further, the same way SAMPLE and MAX_NODES do for
+# the fully-numbered pass. All four levels run as one batch of jobs in one
+# pool, not four reports back to back -- forking workers four separate times
+# for two puzzles each was most of what this section used to cost.
+#
+# Drawn from past the first n_groups of `sample`, deliberately: those first
+# picks are one per (series, size) and include the 21x21-and-up outliers that
+# are already the slowest thing NUMBERED runs above, at NUMBERED's much
+# larger node budget. That is the right sample for proving every size is
+# covered; it is the wrong sample for a curve that is supposed to show
+# partial numbering *helping*, since a grid too big to finish at any
+# numbering level tells this sweep nothing a smaller one would not.
+smallest = sample[n_groups:n_groups + int(os.environ["PARTIAL_SAMPLE"])]
+partial_budget = int(os.environ["PARTIAL_MAX_NODES"])
+levels = (10, 25, 50, 75)
+jobs = [(p, pct / 100, partial_budget) for pct in levels for p in smallest]
+all_results = run_jobs(attempt_partial, jobs)
+per_level = len(smallest)
+for i, pct in enumerate(levels):
+    summarize(f"PARTIAL_{pct}", all_results[i * per_level:(i + 1) * per_level])
 PY
 )
-echo "$out2" | grep -E "^(NUMBERED|NUMBERLESS|MISS_|BUDGET_)" | sed 's/^/  /'
+echo "$out2" | grep -E "^(NUMBERED|NUMBERLESS|PARTIAL_[0-9]+ |MISS_|BUDGET_)" | sed 's/^/  /'
 
 read -r _ _ n_num _ ex_num _ amb_num _ miss_num _ bud_num _ <<<"$(grep '^NUMBERED ' <<<"$out2")"
 read -r _ _ n_bare _ ex_bare _ amb_bare _ miss_bare _ bud_bare _ <<<"$(grep '^NUMBERLESS ' <<<"$out2")"
@@ -389,6 +451,29 @@ most "with numbers: at most 3% of those are wrong rather than unfinished" \
 most "without numbers: nothing that finishes comes back with the wrong grid" \
   "$miss_bare" "0"
 
+# Partial numbering: the actual prize, since 175 of our 398 book puzzles sit
+# somewhere on this curve and none of them are usable without it. Each level
+# gets the one invariant that has to hold everywhere on the curve -- a miss
+# is a correctness bug regardless of how much numbering was left -- rather
+# than a percentage threshold, because PARTIAL_SAMPLE is small enough by
+# design that a percentage of it is not a stable number to assert against.
+# What the levels are actually worth is the tally line itself, printed above;
+# reading that curve is how the 175 partially-numbered book puzzles get
+# triaged into "worth running" and "not yet", not a pass/fail here.
+for pct in 10 25 50 75; do
+  read -r _ _ n_p _ ex_p _ amb_p _ miss_p _ bud_p _ <<<"$(grep "^PARTIAL_$pct " <<<"$out2")"
+  same "partial numbering at ${pct}%: every attempt lands in exactly one bucket" \
+    "$(( ex_p + amb_p + miss_p + bud_p ))" "$n_p"
+  most "partial numbering at ${pct}%: nothing that finishes comes back with the wrong grid" \
+    "$miss_p" "0"
+done
+# The lightest damage level is the one book puzzles at 80-99% coverage look
+# like, so it is held to more than "did not crash": most of a small,
+# fixed-seed sample should still resolve to the published grid or a
+# shortlist containing it.
+read -r _ _ n_10 _ ex_10 _ amb_10 _ miss_10 _ bud_10 _ <<<"$(grep '^PARTIAL_10 ' <<<"$out2")"
+least "partial numbering at 10% blanked: most of the sample still resolves" \
+  "$(( (ex_10 + amb_10) * 100 / n_10 ))" "50"
 
 [ "$fails" = 0 ] && echo "reconstruct_grid: all checks passed" || echo "reconstruct_grid: $fails FAILED"
 exit $((fails > 0))
