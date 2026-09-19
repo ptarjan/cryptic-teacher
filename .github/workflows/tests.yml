@@ -68,7 +68,10 @@ jobs:
             echo "::endgroup::"
           done
           if [ "${#fails[@]}" -gt 0 ]; then
-            echo "FAILED: ${fails[*]}"
+            # One per line. Space-joined, two failures read as one name with a
+            # stray word in front of it, which sends the reader to the wrong file.
+            echo "FAILED: ${#fails[@]}"
+            for f in "${fails[@]}"; do echo "  - $f"; done
             exit 1
           fi
           echo "all test scripts passed"
