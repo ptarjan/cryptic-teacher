@@ -105,6 +105,8 @@ LAYOUT = [
 
     ("setting our own puzzles", "tools/AUTHORING.md", "how an original puzzle gets set: the grid is filled first, the clues written by hand after"),
     ("setting our own puzzles", "tools/grid_rules.py", "what makes a British blocked grid legal, in one place"),
+    ("setting our own puzzles", "tools/reconstruct_grid.py", "recovers a puzzle’s black squares from its clue list alone, for grids we have no readable picture of"),
+    ("setting our own puzzles", "tools/test_reconstruct_grid.sh", "scores that reconstruction against real grids, with and without the clue numbers, and re-counts the conventions it leans on"),
     ("setting our own puzzles", "tools/grid_fill.py", "fills a legal grid with answers you can actually write clues for"),
     ("setting our own puzzles", "tools/clueability.py", "scores how easy a fair cryptic clue for a word would be"),
     ("setting our own puzzles", "tools/build_lexicon.js", "extracts the fillable word list (rank, region, family, phonetics) from the lexicon"),
