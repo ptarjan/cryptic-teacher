@@ -215,6 +215,7 @@ LAYOUT = [
     ("tables everything else reads", "tools/data/difficulty_baseline.json", "the frozen distribution difficulty.py normalises against"),
     ("tables everything else reads", "tools/data/lexicon.tsv", "192,738 British-cryptic words by frequency rank; difficulty.py scores obscurity off it"),
     ("tables everything else reads", "tools/data/grading_rubric.md", "the five axes a blind judge scores a clue on"),
+    ("tables everything else reads", "tools/data/book_candidates.json", "which archive.org crossword books are worth acquiring in full, measured one short loan at a time; a measurement, not a permanent fact"),
     ("tables everything else reads", "tools/data/penguin5_control.json", "the ten-puzzle Penguin volume 5 control tools/test_acquire_book.sh gates on: light specs, black-square patterns and a digest of the parser's output, and none of the book's words"),
     ("tables everything else reads", "tools/data/sample_fill_11.json", "the worked 11x11 fill tools/AUTHORING.md walks through"),
     ("tables everything else reads", "tools/data/authored_A001_clues.json", "the hand-written clues for that fill"),
@@ -228,6 +229,7 @@ LAYOUT = [
     ("tables everything else reads", "tools/backfill_provenance.py", "write a `provenance` block into every puzzle that hasn't got one"),
     ("tables everything else reads", "tools/provenance.py", "where a puzzle came from \u2014 and, the part that matters, where its ANSWERS came from"),
     ("tables everything else reads", "tools/test_provenance.sh", "does provenance actually REFUSE a puzzle that lies about where it came from?"),
+    ("tables everything else reads", "tools/rank_book_candidates.py", "rank archive.org crossword books by whether acquiring one in full is worth it"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the
