@@ -95,6 +95,25 @@ tools/normalise_linked_enumerations.py       puts a solve record’s linked answ
                                              rather than off the per-light numbers, and
                                              refusing when a “See N” names two lights it cannot
                                              choose between
+tools/acquire_book.py                        takes a book from an archive.org identifier to
+                                             filed puzzles with no model in the loop: public
+                                             text layer, split, light spec, reconstructed grid,
+                                             filed unsolved for the nightly solve queue, and a
+                                             per-puzzle report of what it got and why the rest
+                                             failed
+tools/light_spec.py                          turns one OCR'd clue list into the light spec the
+                                             reconstructor wants, repairing linked fields,
+                                             clues OCR ran together, and numbers that lost a
+                                             digit, without ever guessing a number
+tools/grid_verdict.py                        judges a recovered grid by CPU alone — whether the
+                                             clue list can be a 15x15 at all, and whether the
+                                             fills that come back are a real puzzle, an
+                                             ambiguous pair a human must pick between, or a
+                                             light list the OCR ate clues out of; every
+                                             threshold carries the share of the corpus it costs
+tools/test_acquire_book.sh                   gates that pipeline on ten control puzzles from
+                                             Penguin volume 5, failing if a single recovered
+                                             grid or a single search node count moves
 tools/test_linked_enumerations.sh            proves a per-light solve record is converted
                                              rather than filed, that a record already in leader
                                              form is never re-derived, and that every linked
@@ -380,6 +399,10 @@ tools/data/difficulty_baseline.json          the frozen distribution difficulty.
 tools/data/lexicon.tsv                       192,738 British-cryptic words by frequency rank;
                                              difficulty.py scores obscurity off it
 tools/data/grading_rubric.md                 the five axes a blind judge scores a clue on
+tools/data/penguin5_control.json             the ten-puzzle Penguin volume 5 control
+                                             tools/test_acquire_book.sh gates on: light specs,
+                                             black-square patterns and a digest of the parser's
+                                             output, and none of the book's words
 tools/data/sample_fill_11.json               the worked 11x11 fill tools/AUTHORING.md walks
                                              through
 tools/data/authored_A001_clues.json          the hand-written clues for that fill
