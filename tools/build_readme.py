@@ -216,6 +216,7 @@ LAYOUT = [
     ("tables everything else reads", "tools/data/difficulty_baseline.json", "the frozen distribution difficulty.py normalises against"),
     ("tables everything else reads", "tools/data/lexicon.tsv", "192,738 British-cryptic words by frequency rank; difficulty.py scores obscurity off it"),
     ("tables everything else reads", "tools/data/grading_rubric.md", "the five axes a blind judge scores a clue on"),
+    ("tables everything else reads", "tools/data/books.json", "the shelf: one row per physical book, with the archive.org scan it was read from, the volume its cover prints, the label a reader sees and a book_index that is never reused \u2014 tools/series.py and app.js both read it and neither holds a copy"),
     ("tables everything else reads", "tools/data/book_candidates.json", "which archive.org crossword books are worth acquiring in full, measured one short loan at a time; a measurement, not a permanent fact"),
     ("tables everything else reads", "tools/data/book_acquisition_plan.json", "the crossword books still to acquire, in the order to take them: archive.org identifier, series and volume, the puzzle count and clean fraction measured off a sample, and the evidence for every volume number \u2014 including the ones marked INVENTED"),
     ("tables everything else reads", "tools/data/penguin5_control.json", "the ten-puzzle Penguin volume 5 control tools/test_acquire_book.sh gates on: light specs, black-square patterns and a digest of the parser's output, and none of the book's words"),

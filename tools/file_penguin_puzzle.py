@@ -290,7 +290,7 @@ def build(record, volume, model, unsolved=False, series=None):
         # of the corpus shows for one, and it is the series table's answer — an
         # empty setter would read as a parsing failure instead of as the blank
         # the page actually has.
-        "setter": record.get("setter") or default_setter(series),
+        "setter": record.get("setter") or default_setter(series, number),
         # No volume prints a date. null is the corpus's existing spelling for
         # "nobody knows", not a gap to be filled in later.
         "date": None,

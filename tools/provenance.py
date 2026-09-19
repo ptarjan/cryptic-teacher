@@ -375,7 +375,7 @@ def derive(puzzle, claimed, acquired_on, previously=None):
     origin = solution_origin_from_file(puzzle) or "published"
     tool = acquired_by(series, puzzle.get("sourceUrl"), claimed)
     prov = {
-        "publisher": series_table.publisher(series),
+        "publisher": series_table.publisher(series, puzzle["number"]),
         "series": series,
         "acquiredBy": tool,
         "acquiredOn": acquired_on if acquired_on else "unknown",
@@ -523,7 +523,7 @@ def check(puzzle):
     if prov.get("series") != series:
         findings.append(f"provenance.series is {prov.get('series')!r} but the id "
                         f"says {series!r}")
-    expected_publisher = series_table.publisher(series)
+    expected_publisher = series_table.publisher(series, puzzle["number"])
     if prov.get("publisher") != expected_publisher:
         findings.append(f"provenance.publisher is {prov.get('publisher')!r} but "
                         f"series.py says {series!r} is published by "

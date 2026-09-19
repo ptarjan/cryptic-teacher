@@ -1707,10 +1707,23 @@ def reindex():
     # crossword No 30,106" never says Guardian — and a Worker cannot import
     # tools/series.py or app.js. One line per series in the file it already
     # fetches beats a second table of papers that would go stale.
+    #
+    # A book series answers "", because one shelf reprints a dozen papers and
+    # there is no one answer. That is not a hole: every book puzzle's own name
+    # opens with the paper that printed it ("Guardian cryptic crossword,
+    # Penguin book 5 No 18"), so CTNotify.title() has nothing to add and adds
+    # nothing.
     papers = {s: series_meta.publisher(s)
               for s in sorted({p["series"] for p in puzzles})}
+    # The browser's half of tools/data/books.json, for the same reason and by
+    # the same route: app.js has to print "Penguin book 5 No 18" beside a
+    # stored number and cannot read a file under tools/. Written from the
+    # registry on every reindex, so the shelf is named in one place and
+    # mirrored nowhere.
+    books = {str(i): {"shelf": r["shelf"], "volume": r["volume"], "was": r["was"]}
+             for i, r in sorted(series_meta.BOOKS.items())}
     index = {"latest": puzzles[0]["id"] if puzzles else None,
-             "papers": papers, "puzzles": puzzles}
+             "papers": papers, "books": books, "puzzles": puzzles}
     (PUZZLE_DIR / "index.json").write_text(
         json.dumps(index, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
     (PUZZLE_DIR / "index.js").write_text(
