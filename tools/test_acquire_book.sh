@@ -174,13 +174,17 @@ else:
             want = PUZZLES[str(bn)]
             a, d, _, _ = build_spec(parsed[bn])
             grid = tuple(want["expected_grids"][0])
-            # bn is the number the BOOK prints. The id carries the volume too
-            # (tools/series.py: volume * 1000 + position), so volume 5's No 18
-            # is penguin-5018 and the control's own numbering is unchanged.
-            pid = f"penguin-{series.book_number('penguin', 5, bn)}"
+            # bn is the number the BOOK prints. The id carries the book too
+            # (tools/series.py: book_index * 1000 + position), so this book's
+            # No 18 is book-3018 and the control's own numbering is unchanged.
+            # The archive.org identifier is the only thing that names the book,
+            # here as in the tool: the run reads that item's text, so that item
+            # decides the number.
+            pid = series.puzzle_id(series.BOOK_SERIES,
+                                   series.book_number(CONTROL["source_identifier"], bn))
             path, problems = file_unsolved(
                 {"book_number": bn, "setter": want["setter"]}, grid, a, d,
-                "penguin", 5, Path(tmp))
+                CONTROL["source_identifier"], Path(tmp))
             if path is None:
                 fail(f"{pid}: could not be filed — {problems[0]}")
                 continue
@@ -213,11 +217,11 @@ else:
                     if me[eid].get(k) != we[eid].get(k):
                         diffs.append(f"{eid}.{k}")
             if diffs:
-                # penguin-5018's 7-down is a KNOWN corpus error, not a
+                # book-3018's 7-down is a KNOWN corpus error, not a
                 # pipeline one: the book prints a hyphenated enumeration and the
                 # file in puzzles/ carries a comma. The pipeline reads what is
                 # printed.
-                known = {"penguin-5018": {"7-down.clue", "7-down.separatorLocations"}}
+                known = {"book-3018": {"7-down.clue", "7-down.separatorLocations"}}
                 unexpected = sorted(set(diffs) - known.get(pid, set()))
                 if unexpected:
                     fail(f"{pid}: differs from puzzles/ in "

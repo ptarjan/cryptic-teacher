@@ -872,27 +872,29 @@ def legacy_ids(solved):
 
     An id is in shared links, in indexed pages, and in the key every browser
     saved its progress under, so it has to keep resolving forever. One family
-    so far: the scanned books were one series PER VOLUME until 2026-09-19 and
-    are one series per book now, with the volume moved into the number, so
-    /puzzles/penguin5-18/ is /puzzles/penguin-5018/.
+    so far, and it has moved twice: the scanned books were one series PER
+    VOLUME ("penguin5-18"), then one series per BOOK with the volume in the
+    number ("penguin-5018"), and are one series for the whole SHELF now, with
+    a registered book index in the number. Both old spellings are pages here.
 
-    Derived from each puzzle rather than listed, by series.legacy_id(), so a
-    volume acquired after the collapse gets its page without anyone remembering
-    to add one. That writes a page for an id that was never published, which is
-    harmless for the same reason the bare-number pages below say "is at" rather
-    than "has moved": the page's job is to say which puzzle a name refers to.
+    Derived from each puzzle rather than listed, by series.legacy_ids(), so a
+    book acquired after the collapse gets its pages without anyone remembering
+    to add them. That writes a page for an id that was never published, which
+    is harmless for the same reason the bare-number pages below say "is at"
+    rather than "has moved": the page's job is to say which puzzle a name
+    refers to.
     """
     out = {}
     for p in solved:
-        was = series_meta.legacy_id(p.get("series") or "cryptic", p["number"])
-        if not was or was == p["id"]:
-            continue
-        target = f"{BASE}/puzzles/{p['id']}/"
-        label = named(p)
-        out.update(moved_page(
-            was, target, f"{label} has moved",
-            f'<p>This puzzle is now at <a href="{target}">{esc(target)}</a>.</p>',
-            label))
+        for was in series_meta.legacy_ids(p.get("series") or "cryptic", p["number"]):
+            if was == p["id"]:
+                continue
+            target = f"{BASE}/puzzles/{p['id']}/"
+            label = named(p)
+            out.update(moved_page(
+                was, target, f"{label} has moved",
+                f'<p>This puzzle is now at <a href="{target}">{esc(target)}</a>.</p>',
+                label))
     return out
 
 

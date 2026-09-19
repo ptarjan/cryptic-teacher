@@ -30,7 +30,7 @@ Three generic rules replace the per-book hand patches:
         not a guess at what the book said: it is the fixed convention every
         one of these books prints over a continuation, it is the exact text
         tools/normalise_linked_enumerations.py parses to tie the group back
-        together, and it is what the corpus already stores (penguin-5003's
+        together, and it is what the corpus already stores (book-3003's
         17-down). The light carries synthesised=True so a caller can report
         which entries were written from convention rather than read.
    The enumeration's tokens are dealt out in the field's number order, the

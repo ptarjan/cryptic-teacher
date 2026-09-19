@@ -88,7 +88,7 @@ LAYOUT = [
     ("fetching", "tools/test_ia_borrow.sh", "holds the one archive.org refusal string that means two different things apart, so a book whose copies are all out is never read as one that needs no loan, and keeps the account-wide lending limit a third answer that stops the run rather than a twenty-fourth per-book failure"),
     ("fetching", "tools/test_ia_loan_leak.sh", "kills a real borrow with SIGTERM and SIGKILL against a stub archive.org to prove the loan does leak, then proves the next run gives it back before borrowing anything of its own"),
     ("fetching", "tools/test_penguin_layout.sh", "gates the dotted-number print layout — glued running head, \"13.\" numbers, \"1 & 4 Ac.\" links — whose loss costs a whole book to jigsaw mode and 0% of its clue numbers"),
-    ("fetching", "tools/test_linked_enumerations.sh", "proves a per-light solve record is converted rather than filed, that a record already in leader form is never re-derived, and that every linked answer in the penguin series on disk still carries its count on the leader alone"),
+    ("fetching", "tools/test_linked_enumerations.sh", "proves a per-light solve record is converted rather than filed, that a record already in leader form is never re-derived, and that every linked answer in the book series on disk still carries its count on the leader alone"),
     ("fetching", "tools/test_blank_clue_carry.sh", "proves a re-fetch cannot empty a puzzle whose clues were recovered by hand off the Guardian’s old site, that the paper still wins wherever it prints words, and that the sixteen recovered prize puzzles still carry every clue"),
     ("fetching", "tools/test_source_answer_wrong.sh", "proves the table of answers the PAPER got wrong still corrects the letters it names, still leaves every other light alone, and names itself stale rather than overriding a key the paper has since fixed"),
     ("fetching", "tools/coverage_report.py", "counts what we hold of every series and names the ones that have gone quiet, were never backfilled, or are full of holes"),
@@ -300,13 +300,12 @@ SERIES_NAMES = {
     "cyclops": "Private Eye Cyclops",
     "metro": "Metro cryptic",
     "globeandmail": "Globe and Mail cryptic",
-    # One entry per BOOK, not per volume: a scanned book is one series however
-    # many of its volumes are on the shelf, and which volume a puzzle is from
-    # is in its number (tools/series.py, volume * 1000 + position). The count
-    # beside it is the whole shelf's, which is what a reader of this corpus
-    # line wants — the volumes are the same puzzle source.
-    "penguin": "Penguin book reprints",
-    "herald": "Herald book reprints",
+    # ONE ENTRY FOR THE WHOLE SHELF: every scanned printed book is the `book`
+    # series, and which book a puzzle came out of is in its number
+    # (tools/series.py, book_index * 1000 + position). The count beside it is
+    # the shelf's, which is what a reader of this corpus line wants — thirty
+    # lines of a few dozen each would be a bibliography, not a corpus.
+    "book": "scanned book reprints",
 }
 
 

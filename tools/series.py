@@ -16,6 +16,11 @@ The one deliberate exception is the badge tooltip in app.js: that is prose
 written for a solver deciding what to attempt next, not a machine fact, and it
 lives next to the code that renders it. An unlisted series there simply goes
 unbadged.
+
+The scanned books are not here either, and for the opposite reason: there are
+thirty of them and the difference between two is data, not code.
+tools/data/books.json is one row per physical book and this module reads it —
+see the books section below.
 """
 import json
 import pathlib
@@ -108,36 +113,44 @@ SERIES = {
 
 # --------------------------------------------------------------------- books
 #
+# THE WHOLE SHELF IS ONE SERIES. `book` covers every scanned printed book here
+# — one key, one badge, one pill and one colour however many books arrive —
+# and WHICH book a puzzle came out of lives in its number:
+# book_index * 1000 + position. book-17023 is the twenty-third puzzle of the
+# book registered as index 17, and display_number() prints it as "Penguin book
+# 5 No 18" off the registry. Thirty books were thirty keys and thirty chips the
+# day before this, and a reader choosing what to solve next was reading a list
+# of publishers' imprints rather than a list of crosswords.
+#
 # THE BOOKS ARE NOT IN THIS FILE. tools/data/books.json is the registry: one
-# row per PHYSICAL BOOK on the shelf, carrying its archive.org identifier, the
-# volume number its own cover prints, the shelf label a reader sees, the
-# publisher, the printed title, the puzzle-name lead, and a stable book_index
-# that is never reused. This module reads it, and app.js reads it too through
-# the copy tools/fetch_puzzle.py --reindex writes into puzzles/index.json.
+# row per PHYSICAL BOOK, carrying its archive.org identifier, the volume number
+# its own cover prints, the shelf label a reader sees, the publisher, the
+# printed title, the lead its puzzles are named with, and a stable book_index.
+# This module reads it, and app.js reads it too through the copy
+# tools/fetch_puzzle.py --reindex writes into puzzles/index.json.
 #
 # NOTHING HAND-COPIES A ROW. An 18-key BOOK_SHELF object in app.js was mirrored
 # by a `shelf` column here, and two copies of one fact is how a shelf comes to
 # be spelled two ways — one of them on the page a reader is looking at.
 #
-# A book series is ONE series per BOOK, not one per volume, and the volume
-# lives in the number: `volume * 1000 + position`. penguin-5018 is volume 5's
-# eighteenth puzzle, herald-2007 is Herald book 2's seventh; read one back with
-# split_number() below, which refuses a position of 0 and a volume no row
-# registers, so a number that names no puzzle cannot be built or read back.
+# THE INDEX IS NOT THE VOLUME. A book_index is this repo's, permanent and never
+# reused; a volume is the number the BOOK prints on itself, and two publishers'
+# volume 2 are different books. The index is in the number so that one key can
+# cover the shelf; the volume is on the page so that a reader can find the
+# book. Neither is ever read as the other — volume_of() goes through the row.
 #
-# The volumes have to be kept apart — every volume numbers its own puzzles from
-# 1, so one shared sequence would put six different puzzles at No 3 and walk
-# prev/next between books. The NUMBER does that, and nothing else has to: one
-# key means one badge, one colour and one tooltip however many volumes the
-# shelf grows to.
+# The books still have to be kept apart: every book numbers its own puzzles
+# from 1, so one flat sequence would put thirty different puzzles at No 3 and
+# walk prev/next from the Herald into the Daily Mail. The NUMBER does that, and
+# nothing else has to.
 #
 # AN INTEGER, NOT A DECIMAL. `number` is a JSON number and String(5.10) is
-# "5.1", so volume 5's puzzles 1 and 10 would collide in app.js's BY_NUMBER
+# "5.1", so a book's puzzles 1 and 10 would collide in app.js's BY_NUMBER
 # resolver and in build_seo_pages.legacy_redirects(). The integer also leaves
 # every \d+ regex, int() and String() key in the repo working untouched:
 # parse_id() below, tools/smoke_test.js's /^[a-z0-9]+-\d+\.json$/ over every
 # filename, sync/worker.js's [a-z]{4,12}-\d{1,6} over every vote id.
-POSITIONS_PER_VOLUME = 1000
+POSITIONS_PER_BOOK = 1000
 
 BOOKS_FILE = pathlib.Path(__file__).resolve().parent / "data" / "books.json"
 
@@ -191,67 +204,40 @@ def _load_books():
 BOOKS = _load_books()
 BOOK_BY_IDENTIFIER = {row["identifier"]: row for row in BOOKS.values()}
 
-# Which badge each book shelf wears, and the one thing about a book that is not
-# in the registry: the badge is the SERIES' and the registry is per book.
+# ONE ENTRY FOR THE SHELF. The eighteen that were here were one per printed
+# line — Pan's "Cryptic Crossword Book" and Pan's "Big Book" are two lines of
+# one publisher's shelf — and that distinction is real, but it belongs on the
+# row that names the book and not on a key that also decides a badge, a colour
+# and a chip in the picker. tools/data/books.json carries it, in the title and
+# in the shelf label, where a reader can see it.
 #
-# ONE KEY PER PRINTED LINE, not per publisher and not per paper. Everything the
-# registry holds is the book's own, so a key can only cover books whose titles
-# differ by their number and by nothing else. The Telegraph alone prints five
-# such lines — Pan's "Cryptic Crossword Book", Pan's "Big Book", Pan's "Big
-# Book of Brain Sharpener", Octopus's "All New Cryptic Crosswords" and
-# Octopus's "Cryptic Crosswords" — each numbering its own volumes from 1.
+# `book` is not a key any feed could take, and it does not have to be: is_book()
+# is asked of this table, never pattern-matched off the key. "penguin(N)"
+# answered correctly only while every book was a Penguin volume, and it
+# answered "no" for The Herald in three separate places.
 #
-# A BOOK KEY IS NEVER A LIVE SERIES' KEY. `independent` is a feed, 8,932-12,465
-# on disk and backfilling downwards, so the Penguin book of the Independent's
-# crosswords is `penguinindy`: its volume 1 is numbers 1001-1099, which sits
-# inside the daily's own sequence, and one key cannot be a feed and a book at
-# once anyway — is_book() is "has a shelf in this table".
-#
-# KEYS ARE 4-12 LETTERS, NO DIGITS. sync/worker.js matches a vote id with
-# [a-z]{4,12}-\d{1,6}, so `times1998` or `sundaytelegraph` would not fail —
-# they would quietly drop that shelf's votes on the floor. Hence `timesbooks`
-# and `sundaytel`.
-BOOK_BADGE = {
-    "penguin": "penguin",
-    "herald": "herald",
-    "scotsman": "scotsman",
-    "araucaria": "araucaria",
-    "morse": "morse",
-    "times": "times",
-    "timesbooks": "times books",
-    "penguintimes": "times penguin",
-    "penguinindy": "indy penguin",
-    "penguinft": "ft penguin",
-    "telegraph": "telegraph book",
-    "telbig": "telegraph big book",
-    "brainsharp": "brain sharpener",
-    "telallnew": "telegraph all new",
-    "telcryptic": "telegraph cryptics",
-    "toughie": "toughie",
-    "sundaytel": "sunday telegraph",
-    "dailymail": "daily mail",
+# KEYS ARE 4-12 LETTERS, NO DIGITS: sync/worker.js matches a vote id with
+# [a-z]{4,12}-\d{1,6}, so a key outside that shape would not fail — it would
+# quietly drop this shelf's votes on the floor.
+BOOK_SERIES = "book"
+SERIES[BOOK_SERIES] = {
+    # No "kind" and no "publisher": both are the BOOK's, and kind() and
+    # publisher() read them off the row. The crawlable page's heading is
+    # "{publisher} {kind} Crossword No {position}", so a shelf-wide answer to
+    # either would put the wrong paper or the wrong book on thirty pages.
+    "badge": "book",
+    # officialKey is "never" for the whole shelf: these are out-of-print
+    # reprint collections that number their puzzles from 1 in the book, so a
+    # puzzle here carries no paper number and no date and there is nothing a
+    # publisher could ever serve an answer key AGAINST. Stated once and copied
+    # onto each puzzle as solutionSource.officialKey by whichever route fills
+    # the grid — a puzzle that lost it would have tools/build_seo_pages.py
+    # promise a reader that official answers replace ours "as soon as those
+    # appear", which is a promise nothing can keep.
+    "officialKey": "never",
+    # What makes this a book series, asked of the table rather than of the key.
+    "books": True,
 }
-
-for _key, _badge in BOOK_BADGE.items():
-    SERIES[_key] = {
-        "badge": _badge,
-        # officialKey is "never" on every book: these are out-of-print reprint
-        # collections that number their puzzles from 1 in the book, so a puzzle
-        # here carries no paper number and no date and there is nothing a
-        # publisher could ever serve an answer key AGAINST. It is a fact about
-        # the shelf, so it is stated once and copied onto each puzzle as
-        # solutionSource.officialKey by whichever route fills the grid — a
-        # puzzle that lost it would have tools/build_seo_pages.py promise a
-        # reader that official answers replace ours "as soon as those appear",
-        # which is a promise nothing can keep.
-        "officialKey": "never",
-        # What makes this a book series. Asked of the table, never
-        # pattern-matched off the key: "penguin(N)" answered correctly only
-        # while every book was a Penguin volume, and it answered "no" for The
-        # Herald in three separate places.
-        "books": True,
-    }
-del _key, _badge
 
 # Unlisted falls back to the Guardian cryptic, which is right both for the daily
 # and for the Saturday prize that shares its number sequence and is recorded
@@ -266,11 +252,10 @@ def meta(series):
 def kind(series, number=None):
     """The noun for this puzzle: "Cryptic", "Quiptic", "Penguin Book 5 Cryptic".
 
-    A book series needs the number, because the volume is in it and the volume
-    is what the heading has to name. Refusing rather than defaulting: a caller
-    that forgot the number would otherwise print "Penguin Book {volume}
-    Cryptic" at a reader, or silently drop the volume from a page whose whole
-    job is saying which puzzle it is.
+    A book series needs the number, because the book is in it and the book is
+    what the heading has to name. Refusing rather than defaulting: a caller
+    that forgot the number would otherwise name a different book on a page
+    whose whole job is saying which puzzle it is.
     """
     if not is_book(series):
         return meta(series)["kind"]
@@ -314,8 +299,10 @@ def badge(series):
     not, so the label is a field. Mirrors SERIES_BADGE in app.js, which carries
     the prose that goes with it.
 
-    Per SERIES, not per volume: five browns reading "penguin 2".."penguin 11"
-    were one shelf spelled five ways, and the volume is on the number now.
+    Per SERIES, and the shelf is one series: thirty books wore thirty chips,
+    which is a list of publishers' imprints and not a list of crosswords. The
+    book is named where it is useful — display_number() prints "Penguin book 5
+    No 18" beside the chip that says "book".
     """
     return meta(series).get("badge", series or "cryptic")
 
@@ -330,12 +317,12 @@ def official_key(series):
     return meta(series).get("officialKey")
 
 
-# ---------- volumes ----------
+# ---------- books ----------
 # Everything below takes the NUMBER as well as the series, because for a book
-# the number is where the volume lives. A book series with no number is an
+# the number is where the book lives. A book series with no number is an
 # error, never a default: the accessors that print — kind, book_title,
 # puzzle_name, scan_identifier — would otherwise name the wrong book, and
-# naming the wrong book is the one failure this table exists to prevent.
+# naming the wrong book is the one failure this registry exists to prevent.
 
 def is_book(series):
     """Whether this series' puzzles were read out of a scanned printed book.
@@ -347,17 +334,6 @@ def is_book(series):
     return "books" in meta(series)
 
 
-def volumes(series):
-    """volume -> the registry row for it, empty for a series off a feed.
-
-    Read out of tools/data/books.json every time rather than cached beside it:
-    a second copy of the registry inside the module that reads the registry is
-    the shape this whole change removed.
-    """
-    return {row["volume"]: row for row in BOOKS.values()
-            if row["was"] == series} if is_book(series) else {}
-
-
 def book_row(series, number):
     """The registry row for the book this puzzle was read out of.
 
@@ -366,60 +342,66 @@ def book_row(series, number):
     through here, so a puzzle cannot cite one book in its heading and another
     in its provenance.
     """
-    volume, _ = split_number(series, _require_number(series, number, "book_row"))
-    return volumes(series)[volume]
+    index, _ = split_number(series, _require_number(series, number, "book_row"))
+    return BOOKS[index]
 
 
 def _require_number(series, number, what):
     if number is None:
         raise ValueError(
             f"{series} is a book series, so {what} needs the puzzle's number "
-            f"as well: the volume is in it (volume * "
-            f"{POSITIONS_PER_VOLUME} + position)")
+            f"as well: the book is in it (book_index * "
+            f"{POSITIONS_PER_BOOK} + position)")
     return number
 
 
-def book_number(series, volume, position):
-    """The stored number for one puzzle: volume 5's No 18 is 5018.
+def book_number(identifier, position):
+    """The stored number for one puzzle, by the scan it was read out of.
 
-    The one place the arithmetic is written. Callers hold a volume and a
-    position — that is what a book prints — and never build the number
-    themselves.
+    The one place the arithmetic is written, and the archive.org identifier is
+    the only thing a caller may name the book with. A free identifier beside a
+    free --volume is exactly how a puzzle came to cite one book in its
+    sourceUrl and another in its provenance: the run reads one item's text, so
+    that item decides the number, the title and the scan alike, and there is no
+    second argument for it to disagree with.
     """
-    if volume not in volumes(series):
+    row = BOOK_BY_IDENTIFIER.get(identifier)
+    if row is None:
         raise ValueError(
-            f"{series} has no volume {volume} in tools/data/books.json — add "
-            f"the book and its archive.org identifier there, or its puzzles "
-            f"will cite a book they did not come from")
-    if not 1 <= position < POSITIONS_PER_VOLUME:
+            f"archive.org item {identifier} is not in tools/data/books.json — "
+            f"register the book there, with the volume its cover prints and "
+            f"the shelf it belongs on, before filing a puzzle out of it")
+    if not 1 <= position < POSITIONS_PER_BOOK:
         raise ValueError(
-            f"{series} volume {volume} position {position} is outside "
-            f"1..{POSITIONS_PER_VOLUME - 1}; no book here prints that many")
-    return volume * POSITIONS_PER_VOLUME + position
+            f"{row['title']}: position {position} is outside "
+            f"1..{POSITIONS_PER_BOOK - 1}; no book here prints that many")
+    return row["book_index"] * POSITIONS_PER_BOOK + position
 
 
 def split_number(series, number):
-    """(5, 18) out of penguin-5018's number.
+    """(17, 23) out of book-17023's number: the book_index and the position.
 
-    Raises on a volume this table does not list and on position 0, so a number
-    that names no puzzle cannot be read back as if it did.
+    The FIRST half is this repo's index for the book, not the volume its cover
+    prints — volume_of() reads that off the row. Raises on an index no row
+    registers and on position 0, so a number that names no puzzle cannot be
+    read back as if it did.
     """
     if not is_book(series):
         raise ValueError(f"{series} is not a book series, so its number is a "
-                         f"publisher's number and holds no volume")
-    volume, position = divmod(int(number), POSITIONS_PER_VOLUME)
+                         f"publisher's number and holds no book")
+    index, position = divmod(int(number), POSITIONS_PER_BOOK)
     if position == 0:
         raise ValueError(f"{series}-{number} has position 0; positions start at 1")
-    if volume not in volumes(series):
+    if index not in BOOKS:
         raise ValueError(
-            f"{series}-{number} is volume {volume}, which no row of "
+            f"{series}-{number} is book_index {index}, which no row of "
             f"tools/data/books.json registers — add the book and its "
             f"archive.org identifier there")
-    return volume, position
+    return index, position
 
 
 def volume_of(series, number):
-    """Which volume of its book this puzzle is: 5, for penguin-5018.
+    """Which volume of its book this puzzle is: 5, for book-3018.
 
     The number the BOOK prints on its own spine — read off a cover scan for
     twenty-eight of the thirty — and two publishers' volume 2 are different
@@ -429,7 +411,7 @@ def volume_of(series, number):
 
 
 def position_of(series, number):
-    """The puzzle's place in its book: 18, for penguin-5018.
+    """The puzzle's place in its book: 18, for book-3018.
 
     A feed puzzle's number IS its position — the publisher counted it — so this
     answers for every series and is what a page prints beside a kind that
@@ -444,11 +426,12 @@ def display_number(series, number):
     """The number as a reader is shown it, with the word that introduces it.
 
     "No 30,089" off a feed. "Penguin book 5 No 18" out of a book, because one
-    key now covers every volume and "No 5,018" would name a puzzle no book
+    key covers the whole shelf and "No 3,018" would name a puzzle no book
     prints. Used everywhere a number is printed WITHOUT the kind beside it —
     archive rows, the homepage list, prev/next — where the badge says only
-    "penguin". Where the kind is printed too it already carries the volume, and
-    the page prints position_of() so the volume is not said twice.
+    "book", so this is the only thing on the row that names the book. Where the
+    kind is printed too it already carries the volume, and the page prints
+    position_of() so the volume is not said twice.
 
     Mirrored by displayNumber() in app.js for the picker and archive rows.
     """
@@ -458,19 +441,30 @@ def display_number(series, number):
     return f"{row['shelf']} {row['volume']} No {position_of(series, number)}"
 
 
-def legacy_id(series, number):
-    """The id this puzzle had while every volume was its own series, or None.
+def legacy_ids(series, number):
+    """Every id this puzzle has ever had, newest first, or [] for a feed.
 
-    "penguin5-18" for penguin-5018. /puzzles/penguin5-18/ is indexed and saved
-    progress is keyed on it, so the id has to keep resolving: it is a rule here
-    rather than a list of the 59 that existed, so a volume acquired later gets
-    its redirect without anyone remembering to add one. Read by
-    build_seo_pages.legacy_redirects() and mirrored by legacyId() in app.js.
+    Two so far, both from the days when a book was its own series:
+    "penguin-5018" while each BOOK was a key and the volume was in the number,
+    and "penguin5-18" before that, while each VOLUME was a key. /puzzles/
+    penguin5-18/ and /puzzles/penguin-5018/ are indexed, are in links people
+    have shared, and are the keys browsers saved progress under, so both have
+    to keep resolving forever.
+
+    Built out of the registry's `was` and `volume` rather than listed, so a
+    book scanned after the collapse gets its pages without anyone remembering
+    to add them — which writes redirects for ids that were never published,
+    harmless for the same reason the bare-number pages say "is at" rather than
+    "has moved": the page's job is to say which puzzle a name refers to.
+
+    Read by build_seo_pages.legacy_ids() and mirrored by legacyIds() in app.js.
     """
     if not is_book(series):
-        return None
-    volume, position = split_number(series, number)
-    return f"{series}{volume}-{position}"
+        return []
+    row = book_row(series, number)
+    position = position_of(series, number)
+    per_book = row["volume"] * POSITIONS_PER_BOOK + position
+    return [f"{row['was']}-{per_book}", f"{row['was']}{row['volume']}-{position}"]
 
 
 def scan_identifier(series, number):
@@ -538,8 +532,9 @@ def puzzle_name(series, number):
 #
 # Series keys are one lowercase word, digits allowed, no hyphen — hence
 # "indysunday" rather than "independent-sunday". Digits are allowed rather than
-# used: the books spelled their volume into the key until 2026-09-19 and carry
-# it in the number now, so no key in the table has a digit in it today.
+# used: no key in the table has one, because a number in a key is a fact about
+# a puzzle wearing a storage token's clothes. The books spelled their volume
+# into the key once; it is in the registry and in the number now.
 # The id is <series>-<number> and the LAST hyphen is the split, so a hyphenated
 # key parses correctly but stops "^[a-z0-9]+-\d+$" being true, and that shape is
 # asserted on filenames and on progress keys in tools/smoke_test.js — where the
