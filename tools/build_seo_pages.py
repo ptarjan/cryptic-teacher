@@ -148,7 +148,9 @@ def display_number(p):
 
 
 def publisher(p):
-    return series_meta.publisher(p.get("series"))
+    # The number as well as the series: a book's paper is the BOOK's, and one
+    # shelf reprints a dozen of them.
+    return series_meta.publisher(p.get("series"), p["number"])
 
 
 def papers(idx):

@@ -274,7 +274,9 @@ def main(argv):
     for r in shown:
         # The publisher is what makes a row actionable: "metro" is a key, "Metro"
         # is where to go looking for an archive.
-        pub = series_meta.SERIES.get(r["series"], {}).get("publisher", "?")
+        # "the shelf" for a book series: it is one key over a dozen papers,
+        # and the row it labels is one line of a coverage report.
+        pub = series_meta.publisher(r["series"]) or "the shelf"
         print(f"{r['series']:<13} {r['held']:>5} held  "
               f"{r['numbers'][0]}-{r['numbers'][1]}  "
               f"{r['oldest'] or '?'} to {r['newest'] or '?'}  ({pub})")

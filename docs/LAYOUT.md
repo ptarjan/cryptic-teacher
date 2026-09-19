@@ -418,6 +418,11 @@ tools/data/difficulty_baseline.json          the frozen distribution difficulty.
 tools/data/lexicon.tsv                       192,738 British-cryptic words by frequency rank;
                                              difficulty.py scores obscurity off it
 tools/data/grading_rubric.md                 the five axes a blind judge scores a clue on
+tools/data/books.json                        the shelf: one row per physical book, with the
+                                             archive.org scan it was read from, the volume its
+                                             cover prints, the label a reader sees and a
+                                             book_index that is never reused — tools/series.py
+                                             and app.js both read it and neither holds a copy
 tools/data/book_candidates.json              which archive.org crossword books are worth
                                              acquiring in full, measured one short loan at a
                                              time; a measurement, not a permanent fact

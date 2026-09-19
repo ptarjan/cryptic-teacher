@@ -243,46 +243,25 @@
   // ---------- books ----------
   // A scanned book is ONE series however many volumes it has, and the volume
   // lives in the number: volume * 1000 + position, so penguin-5018 is volume
-  // 5's No 18. Mirrors tools/series.py, which is where a book is added; what is
-  // here is the half the browser needs, because the index carries a series key
-  // and a number and nothing in it says which keys are books.
+  // 5's No 18.
   //
-  // The value is what goes in front of the volume where no kind is printed
-  // beside it, and it is `shelf` from tools/series.py with the trailing
-  // " {volume}" cut off — that is the whole mirror, and the reason every shelf
-  // template over there ends in {volume}.
+  // THE SHELF IS NOT SPELLED HERE. tools/data/books.json is the registry —
+  // one row per physical book — and tools/fetch_puzzle.py --reindex copies the
+  // browser's half of it into puzzles/index.json, which this reads. An 18-key
+  // table of shelf labels used to sit at this spot, hand-mirrored from
+  // tools/series.py, and two copies of one fact is how a shelf comes to be
+  // spelled two ways — one of them on the page a reader is looking at.
   //
-  // EVERY VALUE NAMES ITS OWN BOOK, because the homepage list that
-  // tools/build_seo_pages.py writes prints this with no badge beside it: a
-  // bare "book 2 No 7" would be the Herald's, the Scotsman's, the Sunday
-  // Telegraph's and the Daily Mail's at once. Where a paper prints several
-  // lines the value says which one — "Telegraph big book 6", "Toughie book 1",
-  // "Telegraph Crosswords book 2" — since those six shelves wear one colour
-  // and differ only by their label.
-  //
-  // MISSING KEY, NOT A MISSING NAME: bookVolume() reads this table to decide
-  // whether a number holds a volume at all, so a book series absent here has
-  // its number printed raw ("№ 32007") and its legacy id silently not built.
-  const BOOK_SHELF = {
-    penguin: "Penguin book",
-    herald: "Herald book",
-    scotsman: "Scotsman book",
-    araucaria: "Araucaria book",
-    morse: "Morse book",
-    times: "Times book",
-    timesbooks: "Times Crosswords book",
-    penguintimes: "Penguin Times book",
-    penguinindy: "Penguin Indy book",
-    penguinft: "Penguin FT book",
-    telegraph: "Telegraph book",
-    telbig: "Telegraph big book",
-    brainsharp: "Brain Sharpener book",
-    telallnew: "Telegraph All New book",
-    telcryptic: "Telegraph Crosswords book",
-    toughie: "Toughie book",
-    sundaytel: "Sunday Telegraph book",
-    dailymail: "Daily Mail book",
-  };
+  // Keyed by the series a book is filed under, because that is what an index
+  // row carries and nothing in a row says which keys are books. A book series
+  // the index does not describe has its number printed raw ("№ 32007") and its
+  // legacy id silently not built, which is the right failure for an index
+  // deployed before this table existed.
+  const BOOK_SHELF = {};
+  Object.keys(INDEX.books || {}).forEach((i) => {
+    const row = INDEX.books[i];
+    BOOK_SHELF[row.was] = row.shelf;
+  });
 
   function bookVolume(series, number) {
     if (!Object.prototype.hasOwnProperty.call(BOOK_SHELF, series)) return null;
