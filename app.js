@@ -4724,6 +4724,12 @@
     indysunday: ["indy sunday", `The Independent on Sunday's cryptic — its own
       weekly numbering, near 1,900 while the daily is past 12,400. Same stable of
       setters as the daily, and pitched about the same.`],
+    herald2: ["herald 2", `Cryptics from The Herald, Glasgow's broadsheet,
+      reprinted in The Herald Crossword Book volume 2 — seven setters with
+      distinct habits, from Roger Squires' brisk fair play to the Wee Stinker's
+      terse misdirection. The book prints no date and no Herald number, so these
+      are numbered by their place in it, and the answers are our own solve rather
+      than the paper's.`],
   };
 
 
