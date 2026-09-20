@@ -1781,8 +1781,8 @@ if (assert(autoRow, `picker finds ${autoPuzzle.id} when searched for`)) {
 // (tools/apply_solution.py), which means the app will happily tell a solver
 // their letter is wrong on the authority of a machine's guess. The disclosure
 // is the whole justification for shipping those answers at all, so it is
-// asserted rather than trusted: it lives in one <p> that one line of app.js
-// unhides, and both are easy to lose in a refactor that nothing else notices.
+// asserted rather than trusted: it is one badge on the puzzle title that one
+// line of app.js appends, easy to lose in a refactor nothing else notices.
 {
   const unofficial = allPuzzles.find((p) => p.solutionsUnofficial && global.window.CRYPTIC_PUZZLES[p.id]);
   if (unofficial) {
@@ -1791,17 +1791,17 @@ if (assert(autoRow, `picker finds ${autoPuzzle.id} when searched for`)) {
     assert(row && row.children[0].innerHTML.includes("unverified answers"),
       `the picker badges No ${unofficial.number} as unverified`);
     row.children[0].onclick();
-    const note = registry["unofficial-note"];
-    assert(note && !note.classList.contains("hidden"),
-      `No ${unofficial.number} shows the unofficial-answers note`);
-    assert(note.textContent && /hasn't published|not published/.test(note.textContent),
-      "the note actually says the paper hasn't published these answers: " + (note && note.textContent));
-    // And the note must disappear again on a puzzle with the paper's own answers.
+    const title = registry["puzzle-title"].innerHTML;
+    assert(/unverified answers/.test(title),
+      `No ${unofficial.number} badges its title as unverified: ` + title);
+    assert(/hasn't published|not published/.test(title),
+      "the badge says the paper hasn't published these answers: " + title);
+    // And the badge must not appear on a puzzle with the paper's own answers.
     const official = allPuzzles.find((p) => p.hasSolutions && !p.solutionsUnofficial
       && global.window.CRYPTIC_PUZZLES[p.id]);
     openFromPicker(official.id);
-    assert(registry["unofficial-note"].classList.contains("hidden"),
-      `No ${official.number} has the paper's answers and shows no note`);
+    assert(!/unverified answers/.test(registry["puzzle-title"].innerHTML),
+      `No ${official.number} has the paper's answers and shows no badge`);
   }
 }
 
