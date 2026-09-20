@@ -2227,7 +2227,10 @@ if (assert(autoRow, `picker finds ${autoPuzzle.id} when searched for`)) {
       // A mark in the picker clue also says whether it is an end of its run
       // (data-edge — see markUp), which is about how it PAINTS and says nothing
       // about which part of the clue it is. Read the class and skip the rest.
-      const re = /<mark class="([a-z0-9]+)"[^>]*>([\s\S]*?)<\/mark>|<[^>]*>|([^<]+)/g;
+      // The class is a LIST: a word that is its own indicator carries both
+      // highlights, class="def ind". Reading it as one token matched no mark at
+      // all, so the word came back unclassed.
+      const re = /<mark class="([a-z0-9 ]+)"[^>]*>([\s\S]*?)<\/mark>|<[^>]*>|([^<]+)/g;
       let m;
       while ((m = re.exec(html)) !== null) {
         if (m[1] === undefined && m[3] === undefined) continue;      // any other tag
@@ -2238,6 +2241,13 @@ if (assert(autoRow, `picker finds ${autoPuzzle.id} when searched for`)) {
       }
       return out;
     };
+    // A multi-class mark read as unclassed makes every assertion below report a
+    // missing highlight, which reads as an app bug and is not one. Proven here,
+    // once, so that the clue-by-clue failures can be believed.
+    assert(JSON.stringify(runs('<mark class="def ind" data-edge="start end">x</mark>'))
+           === '[{"cls":"def ind","text":"x"}]',
+      "runs() must read a mark that wears more than one class, got "
+      + JSON.stringify(runs('<mark class="def ind" data-edge="start end">x</mark>')));
     const checkMarks = (id, e) => {
       const ann = e.annotation;
       if (ann.linkedTo) return;                     // renders its holder's text
