@@ -45,7 +45,15 @@ ASSETS = ["style.css", "app.js", "analytics.js", "abbreviations.js", "qr.js", "s
 
 
 def digest(rel):
-    return hashlib.md5((ROOT / rel).read_bytes()).hexdigest()[:8]
+    # Several of these are generated and gitignored, so a clone has the page
+    # that references them before it has them. Say which one is missing and
+    # that it is built rather than let pathlib raise about a bare path.
+    path = ROOT / rel
+    if not path.exists():
+        raise SystemExit(f"cannot stamp {rel}: it is not on disk. It is generated "
+                         f"output — build it before anything stamps a page that "
+                         f"references it.")
+    return hashlib.md5(path.read_bytes()).hexdigest()[:8]
 
 
 def asset_url(rel, base=""):
