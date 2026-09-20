@@ -46,7 +46,6 @@ LAYOUT_DOC = REPO / "docs" / "LAYOUT.md"
 # README prints; the blank-string keys are section headings.
 LAYOUT = [
     ("", "index.html, style.css, app.js", "the app (vanilla HTML/CSS/JS)"),
-    ("", "abbreviations.js", "generated letter→clue-word map, read by app.js"),
     ("", "analytics.js", "the one shared GA snippet every page loads, so there is exactly one id"),
     ("", "qr.js", "the QR encoder, drawn in the page: the sync code is the account, so it is never handed to an image service"),
     ("", "vendor/", "the one dependency shipped to the browser: jsQR, pinned by filename and sha256, fetched only when someone scans a code"),
