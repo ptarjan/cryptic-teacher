@@ -186,8 +186,9 @@ disagree, it wins.
   convention, and warns if `tools/data/abbreviations.json` has no row for it. If the
   letters came from an operation the clue asked for (a first letter, outer letters, a
   deletion, a sound), say so in the note and it is no longer a convention. If it is one
-  the solver should own forever, add the row and run
-  `python3 tools/build_abbreviations.py`.
+  the solver should own forever, run `python3 tools/add_abbreviation.py LETTERS sense`
+  (never edit the JSON by hand — other sessions are writing it at the same time) and
+  then `python3 tools/build_abbreviations.py`.
 - Linked entries (a `group` of several ids, "See 1"): the full annotation goes on the
   FIRST entry with `"coversGroup": true`; each other entry is `{"linkedTo": "<first-id>"}`
   and nothing else. On the covering entry, `answer` is the group's solutions run
