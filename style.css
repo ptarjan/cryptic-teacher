@@ -261,8 +261,16 @@ button:disabled:hover { border-color: var(--line); }
    the only green in the row, and green already means "right" everywhere else
    in the app (a checked letter, a solved clue in the list). */
 .p-prog.done { color: var(--ok); font-weight: 600; }
+/* No border. A badge is a filled shape or an outlined one, and which it is
+   belongs to the variant below, not to every badge: the picker's chips are
+   <button>s, and the generic button rule above hands every button a 1px
+   var(--line) edge. On a paper chip nothing overrode it, so the chip carried a
+   grey ring it never asked for — invisible while chosen, because the 2px
+   var(--fg) ring sits outside it, and left behind the moment you tapped it off.
+   The variants that DO want an edge (.diff, .term, .help) declare their own
+   below and win on specificity. */
 .badge {
-  font-size: .68rem; padding: 1px 7px; border-radius: 999px;
+  font-size: .68rem; padding: 1px 7px; border-radius: 999px; border: 0;
   text-transform: uppercase; letter-spacing: .4px; white-space: nowrap;
 }
 /* A badge's colour names ONE axis, and no two axes may share a colour. There
