@@ -712,6 +712,46 @@ SURFACE_MAX = 25
 # without letting a new puzzle skip it.
 
 
+# The paper's own word divisions, as the source filed them: separatorLocations
+# maps a separator character to the letter counts it follows, so a clue printed
+# (5,1,1) arrives as {",": [5, 6]}. Tracked data, not a second parse of the
+# enumeration in brackets — app.js already parses that, and one rule spelled
+# twice is a rule that drifts.
+#
+# Only one direction is an error. An answer written solid against a divided
+# enumeration is ordinary: the paper prints I.C.I. as (1,1,1) and we store ICI.
+# An answer that breaks where the paper does not is our own spelling, and the
+# letter strip draws its gaps over the wrong squares.
+def check_answer_matches_separators(tag, ann, entry, errors):
+    seps = entry.get("separatorLocations") or {}
+    answer = ann.get("answer")
+    if not seps or not answer:
+        return
+    # A linked group files the whole group's answer on its leading light while
+    # the separators describe that light alone, so the two are not comparable.
+    if len(entry.get("group") or []) > 1:
+        return
+    # An apostrophe occupies no square and starts no new word, so it comes out
+    # of both sides: DON'T is one four-letter word either way.
+    breaks, letters = [], 0
+    for ch in answer:
+        if ch in "'\u2019":
+            continue
+        if ch in " -\u2013":
+            breaks.append(letters)
+        else:
+            letters += 1
+    if not breaks:
+        return
+    filed = sorted({n for ch, v in seps.items() if ch not in ("'", "\u2019")
+                    for n in v})
+    if breaks != filed:
+        errors.append(
+            f"{tag}: answer {answer!r} breaks after {breaks}, but the paper "
+            f"divides this light after {filed} — respell the answer so the "
+            f"letter strip puts its gaps where the enumeration does")
+
+
 def check_definition_fit(tag, ann, errors, warnings):
     """Why the answer MEANS the definition — the non-mechanical half of a clue.
 
@@ -1964,6 +2004,7 @@ def validate_puzzle(puzzle):
                           f"learner why the mismatch is fair, or drop the note")
 
         check_definition_fit(tag, ann, errors, warnings)
+        check_answer_matches_separators(tag, ann, e, errors)
         check_sound_names_its_source(tag, ann, errors, warnings)
         check_sound_is_not_a_letter_swap(tag, ann, errors, warnings)
         check_indicator_notes(tag, ann, errors, warnings)
