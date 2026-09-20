@@ -5412,10 +5412,34 @@
   // de-indexing bug again, pointed the other way. The front door
   // stays the front door until somebody picks.
   let canonicalHome = null;
+  function homeUrl() {
+    if (canonicalHome === null) {
+      const link = document.querySelector('link[rel="canonical"]');
+      canonicalHome = link ? link.href : location.origin + "/";
+    }
+    return canonicalHome;
+  }
+
+  // What the address bar should say, which is what gets pasted. A crawler
+  // fetching ?p=30114 gets the app shell and the shell's single og:image, so
+  // every link anyone has ever shared previewed as the same card; /puzzles/30114/
+  // is a real page carrying that puzzle's own. Only for a puzzle that HAS one —
+  // an unannotated puzzle has no static page, and ?p= is then the only address
+  // that opens anything.
+  function shareUrl(id, ref) {
+    const p = INDEX.puzzles.find((q) => q.id === id);
+    if (p && p.hasSolutions) {
+      return new URL(`puzzles/${p.id}/${ref ? `?c=${ref}` : ""}`, homeUrl()).href;
+    }
+    return `?p=${encodeURIComponent(id)}${ref ? `&c=${ref}` : ""}`;
+  }
+
+  let urlNamesPuzzle = !!new URLSearchParams(location.search).get("p");
   function pointUrlAtPuzzle(id) {
     const p = INDEX.puzzles.find((q) => q.id === id);
+    urlNamesPuzzle = true;
     if (window.history && window.history.replaceState) {
-      window.history.replaceState(null, "", `?p=${encodeURIComponent(id)}`);
+      window.history.replaceState(null, "", shareUrl(id, null));
     }
     // ?p=30054 is one app URL among thousands, and it shipped declaring the
     // homepage as its canonical — so Google folded every share and every link to
@@ -5429,9 +5453,8 @@
     // Resolved against the ORIGINAL canonical, captured once: after the first
     // switch link.href is itself a /puzzles/<n>/ URL, and resolving the next
     // puzzle against that nests one inside the other.
-    if (canonicalHome === null) canonicalHome = link.href;
     link.href = p && p.hasSolutions
-      ? new URL(`puzzles/${p.id}/`, canonicalHome).href : canonicalHome;
+      ? new URL(`puzzles/${p.id}/`, homeUrl()).href : homeUrl();
   }
 
   function openPuzzle(id, chosen = true) {
@@ -5732,9 +5755,9 @@
     const ref = e ? tag(e) : null;
     if (ref === urlClue) return;
     urlClue = ref;
-    const p = new URLSearchParams(location.search).get("p");
-    if (!p || !ref || !window.history || !window.history.replaceState) return;
-    window.history.replaceState(null, "", `?p=${encodeURIComponent(p)}&c=${ref}`);
+    if (!urlNamesPuzzle || !ref || !meta || !meta.id) return;
+    if (!window.history || !window.history.replaceState) return;
+    window.history.replaceState(null, "", shareUrl(meta.id, ref));
   }
 
   // ---------- boot ----------
