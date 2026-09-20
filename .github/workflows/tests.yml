@@ -5,21 +5,31 @@
 # pages.yml does have one — `group: pages, cancel-in-progress: false` — and even
 # false does not make a check living there safe: GitHub keeps only the newest
 # PENDING run in a concurrency group and cancels the rest, so a queued build
-# dies the moment the next push arrives. tools/smoke_test.js used to be
-# reachable only from there, and a commit once merged with its only real check
-# cancelled that way. A check a later push can cancel is a check that is
-# optional.
+# dies the moment the next push arrives. A check a later push can cancel is a
+# check that is optional.
 #
 # So the loop globs both of the repo's test-file spellings, tools/test_*.{sh,js}
 # and tools/*_test.{sh,js}, rather than naming files: a test is wired in by
 # being written, and a list to add to is a list somebody forgets. The one file
-# that spells it the second way is tools/smoke_test.js, which is precisely the
-# file the first glob silently excluded. tools/test_ci_coverage.js asserts that
-# every test entry point is matched here, so the next file to be named something
-# new fails rather than disappearing.
+# that spells it the second way is tools/smoke_test.js.
+# tools/test_ci_coverage.js asserts that every test entry point is matched here,
+# so the next file to be named something new fails rather than disappearing.
 #
-# All failures are reported rather than stopping at the first: a workflow that
+# The scripts are spread over parallel `test` jobs, because the runner has two
+# cores and backgrounding CPU-bound scripts inside one job cannot beat
+# total-CPU/2. Each job globs the WHOLE list and asks tools/ci_shards.js for one
+# slice of it; the split is a pure function of that list, so the jobs partition
+# it without coordinating and a file matched by the globs runs in exactly one of
+# them. The wall clock is therefore the slowest single script plus setup, and no
+# arrangement of jobs can beat that — the heaviest script is the floor.
+#
+# All failures are reported rather than stopping at the first, within a job
+# (the `fails` array) and across them (`fail-fast: false`): a workflow that
 # stops at the first red script hides the second one.
+#
+# `tests-passed` is the one check that means the suite is green. Branch
+# protection and the CI watcher key on it, so it must stay a single job that
+# needs every other one and fails when any of them did.
 #
 # A separate workflow from pages.yml on purpose: a broken test must never block
 # a site deploy.
@@ -36,15 +46,55 @@ on:
   pull_request:
 
 jobs:
-  test:
+  # The two generated-output checks are not test scripts and need neither the
+  # index nor the pages, so they run on their own without paying for the build.
+  generated:
+    name: generated files are current
     runs-on: ubuntu-latest
+    # Two python builders over files already in the clone; seconds, not minutes.
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check the committed generated files
+        run: |
+          fails=()
+          python3 tools/build_readme.py --check-layout || fails+=("layout table")
+          # abbreviations.js is generated output that is nonetheless committed:
+          # app.js loads it with a <script> tag so the site opens from file://,
+          # and a clone would otherwise need a second build command. Committed
+          # generated output is only correct while it is current, so editing the
+          # JSON without rerunning the builder fails here.
+          python3 tools/build_abbreviations.py && git diff --quiet abbreviations.js \
+            || fails+=("abbreviations table")
+          if [ "${#fails[@]}" -gt 0 ]; then
+            echo "FAILED: ${#fails[@]}"
+            for f in "${fails[@]}"; do echo "  - $f"; done
+            exit 1
+          fi
+          echo "generated files are current"
+
+  test:
+    name: tests ${{ matrix.shard }}
+    runs-on: ubuntu-latest
+    strategy:
+      # Every shard runs to the end. A red shard must not hide a second one.
+      fail-fast: false
+      matrix:
+        # The count is read from `strategy.job-total` below, so adding or
+        # removing an entry here is the only edit a reshard needs. Five is the
+        # point past which more jobs buy nothing: the slowest single script is
+        # already the whole shard.
+        shard: [0, 1, 2, 3, 4]
     # A run that stops making progress otherwise sits on GitHub's 6h default,
-    # holding a red check over every commit behind it. tools/smoke_test.js is
-    # the whole cost — it walks the hint ladder of every clue the suite selects
-    # and the picker it drives re-scans the corpus on each interaction, so the
-    # suite grows with the corpus and has no natural ceiling. A healthy run is
-    # ~14 minutes; 40 fails a stall fast and still leaves room for a slow runner.
-    timeout-minutes: 40
+    # holding a red check over every commit behind it. Measured on a runner, a
+    # healthy shard is 112-225s: about a minute of checkout and page build, then
+    # the heaviest script it was handed. Fifteen is four times the slowest of
+    # those — enough for a slow runner and for a suite that grows with the
+    # corpus, and still fails a stall inside a quarter of an hour.
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -62,23 +112,32 @@ jobs:
       # --reindex also builds puzzles/<id>.js from puzzles/<id>.json, and a
       # clone has only the .json. Every test below that loads a puzzle the way
       # the browser does needs those shims on disk.
+      # Every shard rebuilds rather than downloading one shard's build: the
+      # output is ~440 MB across ~47k files, which costs more to move than the
+      # minute it takes to make.
       - name: Build the pages the tests read
         run: |
           python3 tools/fetch_puzzle.py --reindex
           python3 tools/build_seo_pages.py
-      - name: Run every test script
+      - name: Run this shard of the test scripts
+        env:
+          SHARD: ${{ matrix.shard }}
+          SHARDS: ${{ strategy.job-total }}
         run: |
-          fails=()
-          python3 tools/build_readme.py --check-layout || fails+=("layout table")
-          # abbreviations.js is generated output that is nonetheless committed:
-          # app.js loads it with a <script> tag so the site opens from file://,
-          # and a clone would otherwise need a second build command. Committed
-          # generated output is only correct while it is current, so editing the
-          # JSON without rerunning the builder fails here.
-          python3 tools/build_abbreviations.py && git diff --quiet abbreviations.js \
-            || fails+=("abbreviations table")
+          all=()
           for t in tools/test_*.sh tools/test_*.js tools/*_test.sh tools/*_test.js; do
             [ -e "$t" ] || continue
+            all+=("$t")
+          done
+          mapfile -t mine < <(printf '%s\n' "${all[@]}" | node tools/ci_shards.js "$SHARD" "$SHARDS")
+          # A shard handed nothing would pass by running nothing, which reads as
+          # a green check for a suite that never ran.
+          if [ "${#mine[@]}" -eq 0 ]; then
+            echo "shard $SHARD of $SHARDS was handed no tests out of ${#all[@]}"
+            exit 1
+          fi
+          fails=()
+          for t in "${mine[@]}"; do
             case "$t" in *.sh) run=bash ;; *) run=node ;; esac
             echo "::group::$run $t"
             "$run" "$t" || fails+=("$t")
@@ -91,4 +150,29 @@ jobs:
             for f in "${fails[@]}"; do echo "  - $f"; done
             exit 1
           fi
-          echo "all test scripts passed"
+          echo "shard $SHARD: ${#mine[@]} test script(s) passed"
+
+  # The single check that means the suite is green. It runs even when something
+  # it needs failed — `if: always()` — because a skipped job has no conclusion
+  # and branch protection would wait for it forever.
+  tests-passed:
+    name: tests-passed
+    runs-on: ubuntu-latest
+    needs: [generated, test]
+    if: always()
+    timeout-minutes: 5
+    steps:
+      - name: Report what the other jobs concluded
+        env:
+          GENERATED: ${{ needs.generated.result }}
+          # For a matrix job this is 'success' only when every shard succeeded.
+          TESTS: ${{ needs.test.result }}
+        run: |
+          echo "generated files are current: $GENERATED"
+          echo "test shards: $TESTS"
+          if [ "$GENERATED" = success ] && [ "$TESTS" = success ]; then
+            echo "all test scripts passed"
+            exit 0
+          fi
+          echo "the suite is not green — open the red job above for the scripts that failed"
+          exit 1
