@@ -68,23 +68,27 @@ TYPE_PARTS = {
     # letter-selection mechanisms
     "first letter", "first letters", "last letter", "last letters",
     "middle letter", "middle letters", "outer letters", "alternate letters",
-    # a single letter picked by its position in the word (12420 14D takes the
-    # second letter of master for the A of AGO), and the plural case where a run
-    # of words each give up the same position (30065 6D takes the second letter
-    # of read advertising watchdog's email to spell EDAM). Note the comments in
-    # this block carry no double quotes: tools/smoke_test.js reads every quoted
-    # string between the braces as a type part.
+    # A single letter picked by its position in the word, and the plural case
+    # where a run of words each give up the same position. The ordinal is
+    # whatever the setter counted to, so the whole run is spelled out rather
+    # than the handful that happen to have come up: 12420 14D takes the second
+    # letter of master, 12405 3D the third of students, everyman-4143 13A the
+    # fourth of stamps, 30103 25D the fifth of citizens, indy-12373 18A the
+    # ninth of decompress. Not a middle letter, which is what third of means
+    # only when the word has five letters (30068 6D, those). Note the comments
+    # in this block carry no double quotes: tools/smoke_test.js reads every
+    # quoted string between the braces as a type part.
     "second letter", "second letters",
-    # the same device counted one place further in: 12405 3D takes the third
-    # letter of students for the U of GURU. Not a middle letter, which is what
-    # third of means only when the word has five letters (30068 6D, those).
     "third letter", "third letters",
-    # and one further again: everyman-4143 13A takes the fourth of stamps for the
-    # M of MOISTEN.
     "fourth letter", "fourth letters",
-    # and one further still: 30103 25D takes the fifth of citizens for the Z of
-    # UZBEK, the relative pronoun pointing back at the word to count into.
     "fifth letter", "fifth letters",
+    "sixth letter", "sixth letters",
+    "seventh letter", "seventh letters",
+    "eighth letter", "eighth letters",
+    "ninth letter", "ninth letters",
+    "tenth letter", "tenth letters",
+    "eleventh letter", "eleventh letters",
+    "twelfth letter", "twelfth letters",
     # "alternate letters" is the every-SECOND case; a setter may count in any
     # step (30077 17D takes every third letter of HOPE TO GOD to spell POD)
     "regular letters",
@@ -988,7 +992,11 @@ def words_of(s):
 # such a clue fails, and the annotator is pushed towards typing it as something
 # it is not. Only ever ADDS letters, and only for clues already typed hidden, so
 # it can only make that one check more lenient.
-REFERENCE_RE = re.compile(r"\b(\d+)\s*(across|down|a|d)?\b", re.I)
+# The one-letter forms are written tight against the number ("16d"); spelt out,
+# the direction may be spaced ("16 down"). Allowing a space before a bare "a"
+# reads "from 26 a penny" as a reference to 26 across, which does not exist,
+# and the reference is then dropped instead of expanded.
+REFERENCE_RE = re.compile(r"\b(\d+)(?:\s*(across|down)|([ad]))?\b", re.I)
 
 # The enumeration, and nothing else in brackets. This used to be r"\([^)]*\)",
 # which also deleted a parenthetical aside — and an aside is ordinary clue text
@@ -1010,7 +1018,8 @@ def expand_cross_references(clue, entries):
     expansion would let a wrong hidden claim pass.
     """
     def sub(m):
-        num, direction = int(m.group(1)), (m.group(2) or "").lower()
+        num = int(m.group(1))
+        direction = (m.group(2) or m.group(3) or "").lower()
         hits = [e for e in entries if e.get("number") == num
                 and (not direction or e.get("direction", "").startswith(direction[0]))]
         return f" {hits[0].get('solution', '')} " if len(hits) == 1 else m.group(0)
