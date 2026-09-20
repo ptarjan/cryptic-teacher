@@ -46,29 +46,24 @@ on:
   pull_request:
 
 jobs:
-  # The two generated-output checks are not test scripts and need neither the
-  # index nor the pages, so they run on their own without paying for the build.
+  # The layout check is not a test script and needs neither the index nor the
+  # pages, so it runs on its own without paying for the build. It is the one
+  # generated thing still committed: every other generated file is built by the
+  # workflow that publishes it, and a file nobody commits cannot go stale.
   generated:
     name: generated files are current
     runs-on: ubuntu-latest
-    # Two python builders over files already in the clone; seconds, not minutes.
+    # One python builder over files already in the clone; seconds, not minutes.
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Check the committed generated files
+      - name: Check the committed layout table
         run: |
           fails=()
           python3 tools/build_readme.py --check-layout || fails+=("layout table")
-          # abbreviations.js is generated output that is nonetheless committed:
-          # app.js loads it with a <script> tag so the site opens from file://,
-          # and a clone would otherwise need a second build command. Committed
-          # generated output is only correct while it is current, so editing the
-          # JSON without rerunning the builder fails here.
-          python3 tools/build_abbreviations.py && git diff --quiet abbreviations.js \
-            || fails+=("abbreviations table")
           if [ "${#fails[@]}" -gt 0 ]; then
             echo "FAILED: ${#fails[@]}"
             for f in "${fails[@]}"; do echo "  - $f"; done
@@ -118,6 +113,7 @@ jobs:
       - name: Build the pages the tests read
         run: |
           python3 tools/fetch_puzzle.py --reindex
+          python3 tools/build_abbreviations.py
           python3 tools/build_seo_pages.py
       - name: Run this shard of the test scripts
         env:

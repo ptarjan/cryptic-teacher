@@ -79,6 +79,10 @@ jobs:
       # advertise the site card instead of its own.
       - name: Draw the social cards
         run: bash tools/make_og.sh --all
+      # app.js reads the glossary from a <script> tag, so the file has to exist
+      # before the stamps hash it and before the smoke test loads it.
+      - name: Build the glossary table
+        run: python3 tools/build_abbreviations.py
       - name: Generate the crawlable pages
         run: python3 tools/build_seo_pages.py
       - name: Stamp the assets
