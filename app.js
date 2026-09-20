@@ -1456,7 +1456,19 @@
     // so shortest-first hands the overlap to the more specific of the two and
     // the longer one keeps everything either side. Both stay visible; neither is
     // thrown away.
-    return marks.sort((a, b) => a.len - b.len);
+    //
+    // Two marks on the EXACTLY same range have no more-specific one to choose
+    // between: a word can be its own anagram indicator and the definition at
+    // once ("Held Ruby's piano composition"). They become one mark wearing both
+    // classes, because handing the range to whichever was pushed first takes a
+    // hint the solver has paid for off the screen.
+    const merged = [];
+    for (const m of marks.sort((a, b) => a.len - b.len)) {
+      const same = merged.find((k) => k.i === m.i && k.len === m.len);
+      if (same) same.cls += " " + m.cls;
+      else merged.push({ ...m });
+    }
+    return merged;
   }
 
   const clueHTML = (e) => markUp(e.clue, clueMarks(e), italicsOf(e));
