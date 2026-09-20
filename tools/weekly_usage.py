@@ -59,6 +59,9 @@ Usage:
   python3 tools/weekly_usage.py                    # weekly, prints e.g. "68"
   python3 tools/weekly_usage.py --group session    # the five-hour window
   python3 tools/weekly_usage.py --resets-in        # hours left, e.g. "116.9"
+  CT_SPEND_BY=2026-09-21T12:00:00-07:00 ...              # an earlier deadline
+      than the weekly reset, for "have the remainder spent by Monday noon".
+      Weekly only, sooner only, and ignored once it has passed. See _spend_by.
   python3 tools/weekly_usage.py --gate 50          # "spend" / "skip" / "unknown"
                                        # exits 2, printing why, if it can't tell
 """
@@ -553,12 +556,66 @@ def resets_in_hours(group="weekly"):
                   f"({soonest.astimezone():%b %d %H:%M}) has passed, so the "
                   f"window turned over then and the next is no sooner than "
                   f"{rolled.astimezone():%b %d %H:%M}", file=sys.stderr)
-            return (rolled - _now()).total_seconds() / 3600.0, True
+            return _spend_by(group, rolled, True)
         print(f"note: {exc}; using the last known {group} reset "
               f"{soonest.astimezone():%b %d %H:%M}", file=sys.stderr)
     else:
         _cache_write(f"{group}.resets_at", soonest.isoformat())
-    return (soonest - _now()).total_seconds() / 3600.0, False
+    return _spend_by(group, soonest, derived=False)
+
+
+# An earlier deadline than the account's own reset, for the one case where the
+# window is not what we are racing: "have the remainder spent by Monday noon".
+# Everything downstream — the start gate, still_behind, the wave width, the stop
+# time — asks resets_in_hours() and nothing else, so overriding it here is the
+# only way all five agree. Setting it in one caller and not the others is how a
+# job starts on one deadline and paces itself to another.
+SPEND_BY_VAR = "CT_SPEND_BY"
+
+
+def _spend_by(group, when, derived):
+    """(hours, derived) until `when`, or until $CT_SPEND_BY if that is sooner.
+
+    Three rules, each of which is load-bearing:
+
+    SOONER ONLY. The override can pull the deadline in, never push it out. A
+    later one would have the backfill spending the NEXT week's quota on this
+    week's backlog, which is the opposite of the point, and would do it while
+    reporting hours that no meter agrees with.
+
+    WEEKLY ONLY. The five-hour window is a physical limit, not a target; moving
+    it would mis-size every wave against a turnover that is still going to
+    happen when it was always going to.
+
+    A PASSED DEADLINE IS IGNORED. It expires into ordinary behaviour rather than
+    latching, because the alternative is negative hours-until-reset — which
+    reads as "the reset is behind us", opens the gate, computes a stop time in
+    the past and exits having spent nothing, hourly, forever. A deadline we
+    missed must leave the real reset still to aim at.
+    """
+    raw = os.environ.get(SPEND_BY_VAR, "").strip()
+    if raw and group == "weekly":
+        try:
+            deadline = datetime.datetime.fromisoformat(raw)
+        except ValueError:
+            print(f"note: ignoring {SPEND_BY_VAR}={raw!r}: not an ISO 8601 "
+                  "timestamp", file=sys.stderr)
+        else:
+            if deadline.tzinfo is None:
+                deadline = deadline.astimezone()
+            if deadline <= _now():
+                print(f"note: ignoring {SPEND_BY_VAR} "
+                      f"({deadline.astimezone():%b %d %H:%M}): it has passed, "
+                      "so the real reset is the deadline again",
+                      file=sys.stderr)
+            elif deadline < when:
+                print(f"note: {SPEND_BY_VAR} brings the weekly deadline "
+                      f"forward to {deadline.astimezone():%b %d %H:%M} from "
+                      f"{when.astimezone():%b %d %H:%M}", file=sys.stderr)
+                # Not derived: a deadline handed to us is a fact, and it is the
+                # binding one even when the reset behind it was only inferred.
+                when, derived = deadline, False
+    return (when - _now()).total_seconds() / 3600.0, derived
 
 
 def _live_resets_at(group):
@@ -684,6 +741,79 @@ def reset_self_test():
     finally:
         _live_resets_at, _cache_read, sys.stderr = live, read, err
         _sampled_reading = sample
+    for f in failures:
+        print(f"SELF-TEST FAILED — {f}", file=sys.stderr)
+    return 1 if failures else 0
+
+
+def spend_by_self_test():
+    """Prove $CT_SPEND_BY can only ever pull the weekly deadline closer.
+
+    The override exists so "have the remainder spent by Monday noon" can be
+    asked for without editing five call sites, and every way of getting it
+    wrong spends real quota: one that pushed the deadline out would spend next
+    week's, one that moved the five-hour window would mis-size every wave, and
+    one that stayed set after it passed would wedge the gate open on a stop
+    time already in the past and burn nothing, hourly, forever.
+    """
+    global _live_resets_at, _cache_read, _sampled_reading
+    live, read, err = _live_resets_at, _cache_read, sys.stderr
+    sample = _sampled_reading
+    now = _now()
+    h = datetime.timedelta(hours=1)
+    week = WINDOW_LENGTH_HOURS["weekly"]
+    reset_at = now + 80 * h
+
+    cases = [
+        # label, env value, group, live reset or None for the derived path,
+        # expected (hours, derived)
+        ("unset changes nothing", None, "weekly", reset_at, (80, False)),
+        ("a sooner deadline binds", (now + 41 * h).isoformat(), "weekly",
+         reset_at, (41, False)),
+        ("a later deadline is ignored", (now + 99 * h).isoformat(), "weekly",
+         reset_at, (80, False)),
+        ("a passed deadline is ignored", (now - 1 * h).isoformat(), "weekly",
+         reset_at, (80, False)),
+        ("an unparseable deadline is ignored", "monday noon", "weekly",
+         reset_at, (80, False)),
+        ("the five-hour window is never moved", (now + 1 * h).isoformat(),
+         "session", now + 4 * h, (4, False)),
+        # A deadline is something we were told; an inferred reset is not. The
+        # caller refuses to spend on `derived`, so a binding deadline has to
+        # clear it or the override would be unusable in the hour after a reset.
+        ("a deadline beats an inferred reset, as a fact",
+         (now + 2 * h).isoformat(), "weekly", None, (2, False)),
+    ]
+    failures = []
+    try:
+        _sampled_reading = lambda _group: None
+        sys.stderr = io.StringIO()
+        for label, value, group, stamp, want in cases:
+            if stamp is None:      # nothing live, cache holds a just-passed one
+                def unreachable(_group):
+                    raise RuntimeError("no resets_at in response: ['limits']")
+                _live_resets_at = unreachable
+                _cache_read = lambda: {
+                    f"{group}.resets_at": {"value": (now - 1 * h).isoformat(),
+                                           "at": now.isoformat()}}
+            else:
+                _live_resets_at = lambda _group, at=stamp: at
+                _cache_read = dict
+            if value is None:
+                os.environ.pop(SPEND_BY_VAR, None)
+            else:
+                os.environ[SPEND_BY_VAR] = value
+            try:
+                hours, derived = resets_in_hours(group)
+                got = (round(hours), derived)
+            except READ_ERRORS as exc:
+                got = repr(exc)
+            if got != want:
+                failures.append(f"{label}: got {got!r}, want {want!r}")
+    finally:
+        _live_resets_at, _cache_read, sys.stderr = live, read, err
+        _sampled_reading = sample
+        os.environ.pop(SPEND_BY_VAR, None)
     for f in failures:
         print(f"SELF-TEST FAILED — {f}", file=sys.stderr)
     return 1 if failures else 0
@@ -951,9 +1081,9 @@ def main():
                   f"{', '.join(sorted(LEGACY_FIELD))}", file=sys.stderr)
             return 2
     if "--self-test" in sys.argv:
-        ok = (self_test() or reset_self_test() or fallback_self_test()
-              or credentials_file_self_test() or retry_self_test()
-              or sampler_self_test())
+        ok = (self_test() or reset_self_test() or spend_by_self_test()
+              or fallback_self_test() or credentials_file_self_test()
+              or retry_self_test() or sampler_self_test())
         print("gate self-test: all cases pass" if ok == 0
               else "gate self-test FAILED")
         return ok
