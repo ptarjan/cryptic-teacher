@@ -417,8 +417,12 @@
   // because a sync pull can hand this browser progress on a puzzle it has never
   // held.
   function loadStartedPuzzles(then) {
-    const saved = savedProgress();
-    INDEX.puzzles.forEach((p) => { if (saved[p.id]) loadPuzzle(p.id, then); });
+    // Driven off the SAVES, which are a handful, rather than off the 15,992-row
+    // catalogue filtered down to that handful — the picker calls this every
+    // time it opens. The two are the same set from opposite sides:
+    // savedProgress() holds only ids with letters, and BY_ID is the membership
+    // test the filter was making.
+    Object.keys(savedProgress()).forEach((id) => { if (BY_ID[id]) loadPuzzle(id, then); });
   }
 
   // ---------- state ----------
@@ -4918,6 +4922,10 @@
   // Kept because it was the search: rebuilding all 15,992 of these cost ~56 ms
   // on every keystroke and on every chip tap, before a single row was drawn,
   // and a quarter of that was the `new Date` + `toISOString` in puzzleDate.
+  // A plain object, not a Map, though it holds all 15,992 ids and that puts it
+  // in dictionary mode — which is the argument for a Map, and the measurement
+  // goes the other way: 20M lookups cost 423 ms against the object and 991 ms
+  // against the Map. It is read once per row per render, so that IS the search.
   const staticHay = {};
   function pickerStaticHay(p) {
     const had = staticHay[p.id];
@@ -5087,14 +5095,30 @@
     }
     // INDEX.puzzles is latest-first, so the cap counts down from today. The two
     // exemptions are the solver's own place and don't count against it.
-    let recent = 0;
-    return INDEX.puzzles.filter((p) => {
-      if (P && p.id === P.id) return true;
-      if (pickerProgress(p) > 0 && !pickerStatus(p).done) return true;
-      if (!p.annotated) return false;
-      recent += 1;
-      return recent <= RECENT_ROWS;
+    //
+    // Both exemptions are known BY ID before the walk starts — savedProgress()
+    // is the short list of puzzles with letters saved, and P is one puzzle — so
+    // the walk stops the moment it has its twelve and has passed every
+    // exemption it was looking for, instead of filtering all 15,992 rows to
+    // produce a dozen every time the panel is drawn.
+    //
+    // Restricted to ids the index actually knows, because the stop condition
+    // depends on the set emptying: progress saved for a puzzle that has since
+    // left the corpus would otherwise hold the walk open to the last row
+    // forever, which is the behaviour this replaces.
+    const want = new Set();
+    if (P && BY_ID[P.id]) want.add(P.id);
+    Object.keys(savedProgress()).forEach((id) => {
+      if (BY_ID[id] && !pickerStatus(BY_ID[id]).done) want.add(id);
     });
+    const out = [];
+    let recent = 0;
+    for (const p of INDEX.puzzles) {
+      if (want.has(p.id)) { want.delete(p.id); out.push(p); }
+      else if (p.annotated && recent < RECENT_ROWS) { recent += 1; out.push(p); }
+      if (recent >= RECENT_ROWS && !want.size) break;
+    }
+    return out;
   }
 
   // One row. Pulled out of renderPicker so the list can be built a chunk at a
