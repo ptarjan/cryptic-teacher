@@ -293,11 +293,13 @@ FIRST row below that matches it.
 
 **Hidden**
 
-  `alternate letters` `fifth letter` `fifth letters` `first letter` `first letters`
+  `alternate letters` `eighth letter` `eighth letters` `eleventh letter`
+  `eleventh letters` `fifth letter` `fifth letters` `first letter` `first letters`
   `fourth letter` `fourth letters` `hidden word` `last letter` `last letters`
   `middle letter` `middle letters` `ninth letter` `ninth letters` `outer letters`
-  `prime letters` `regular letters` `second letter` `second letters` `third letter`
-  `third letters`
+  `prime letters` `regular letters` `second letter` `second letters` `seventh letter`
+  `seventh letters` `sixth letter` `sixth letters` `tenth letter` `tenth letters`
+  `third letter` `third letters` `twelfth letter` `twelfth letters`
 
 ### What the validator rejects
 
