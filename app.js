@@ -5087,11 +5087,22 @@
       // "imogen" inside a setter's name is exactly what a search is for.
       const matchers = terms.map((t) => (/^\d+$/.test(t)
         ? new RegExp("(^|[^\\d])" + t) : null));
-      return INDEX.puzzles.filter((p) => {
+      const hits = INDEX.puzzles.filter((p) => {
         const hay = pickerHaystack(p);
         return terms.every((t, i) => (matchers[i] ? matchers[i].test(hay)
                                                   : hay.includes(t)));
       });
+      // Taught first, and the index's own order within each half. The default
+      // view lists only annotated puzzles, so a filtered view that buries them
+      // is the same list making a different promise.
+      //
+      // A dated series hides the problem: annotating follows fetching, so
+      // newest-first already puts the taught ones near the top. A series with
+      // no dates gets none of that. The book puzzles are reprints with no
+      // publication date, which sorts them below every dated puzzle and orders
+      // them among themselves by number — so the eight of them that are
+      // annotated sat at rows 46, 48 and 51-55 of the chip's own list.
+      return hits.filter((p) => p.annotated).concat(hits.filter((p) => !p.annotated));
     }
     // INDEX.puzzles is latest-first, so the cap counts down from today. The two
     // exemptions are the solver's own place and don't count against it.

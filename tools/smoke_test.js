@@ -1622,6 +1622,25 @@ assert(registry["picker-search"].value === "", "the filter box starts empty on o
   typeInPicker("zzzznotasetter");
   assert(pickerRows().length === 1 && /picker-empty/.test(pickerRows()[0].className),
     "a filter that matches nothing says so rather than showing everything");
+  // Taught puzzles lead a filtered list, the way they are the only thing in an
+  // unfiltered one. The badge is the readable proxy for it: an unannotated row
+  // carries "answers only" and an annotated row carries nothing, so the list is
+  // right exactly when no badged row precedes an unbadged one.
+  //
+  // Driven through a series with no dates, because a dated one passes this
+  // without the ordering being there at all: annotating follows fetching, so
+  // newest-first is annotated-first by accident. The book puzzles are reprints
+  // and carry no date, which is what made their taught ones unreachable.
+  const undated = allPuzzles.find((p) => !p.date && p.annotated);
+  if (undated) {
+    typeInPicker(String(undated.series));
+    const badged = drainPicker().map((li) => /answers only/.test(li.children[0].innerHTML));
+    assert(badged.indexOf(false) === -1 || badged.lastIndexOf(false) < badged.indexOf(true)
+      || badged.indexOf(true) === -1,
+      "a filtered list puts the puzzles we have hints for first: " + undated.series
+      + " listed " + badged.filter((b) => !b).length + " annotated among "
+      + badged.length + " rows, first unannotated at " + badged.indexOf(true));
+  }
   typeInPicker("");
 }
 
