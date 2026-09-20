@@ -24,11 +24,15 @@ permissions:
   pages: write
   id-token: write
 
-# One deploy at a time, and the newest wins: two pushes a minute apart must not
-# race to publish, and the older one is not worth waiting for.
+# One deploy at a time. cancel-in-progress must stay FALSE: a build here takes
+# 6-16 minutes and the annotation backfill pushes a commit per puzzle, so
+# cancelling on every push meant no build ever reached the deploy step and the
+# site stopped updating while the corpus grew. There is no pile-up either way —
+# GitHub keeps only the newest PENDING run in a concurrency group and cancels
+# the rest — so false costs one build's latency and buys a site that ships.
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build:
