@@ -93,6 +93,14 @@
      whatever size it is set at. */
   --gw-box: calc(1.35em + 4px);   /* .gw: 1.35em of text, +1px padding +1px border a side */
   --gw-line: calc(var(--gw-box) + 4px);
+  /* How far a mark's colour is painted past its own glyphs. Paint, not layout:
+     an inline box's vertical padding does not raise the line it sits on, and
+     the horizontal padding below is handed straight back as margin, so this
+     grows every coloured band on the page without moving one word of a clue.
+     It stops short of the .gw border it paints under — 1.6px of half-leading
+     plus the chip's own 1px of padding — so a banded word inside the picker
+     keeps its hairline box. Turn it up here, once, for every mark there is. */
+  --band-pad: 2px;
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -1112,13 +1120,13 @@ button.primary:disabled { background: transparent; color: var(--muted); border-c
   .guess-result.fresh .gw.spare { animation: none; }
 }
 
-mark.def { background: var(--def-bg); color: var(--def-fg); padding: 0 2px; border-radius: 3px; }
+mark.def { background: var(--def-bg); color: var(--def-fg); padding: var(--band-pad) 2px; border-radius: 3px; }
 /* second half of a double definition — same family, distinguishable */
 mark.def2 {
-  background: var(--def-bg); color: var(--def-fg); padding: 0 2px; border-radius: 3px;
+  background: var(--def-bg); color: var(--def-fg); padding: var(--band-pad) 2px; border-radius: 3px;
   box-shadow: inset 0 -2px 0 var(--def-fg);
 }
-mark.ind { background: var(--ind-bg); color: var(--ind-fg); padding: 0 2px; border-radius: 3px; }
+mark.ind { background: var(--ind-bg); color: var(--ind-fg); padding: var(--band-pad) 2px; border-radius: 3px; }
 /* One word doing both jobs: its own indicator AND the definition. The
    indicator's colour carries the word; the definition shows underneath it. */
 mark.def.ind { background: var(--ind-bg); color: var(--ind-fg); box-shadow: inset 0 -3px 0 var(--def-bg); }
@@ -1140,25 +1148,24 @@ mark.link {
    the two selectors weigh the same, so source order is what decides, and a mark
    class added later has to arrive already banded rather than beaded.
 
-   The ends keep the pill's own 2px cap, so a run reads as one long pill and a
-   one-word mark in here looks exactly like the same mark anywhere else. Only
-   the ends can afford it: padding on an inline box is width, and width on every
-   piece is the gap between the words that beaded the run in the first place. */
-.guess-clue mark { padding: 0; border-radius: 0; }
-.guess-clue mark[data-edge~="start"] { padding-left: 2px; border-radius: 3px 0 0 3px; }
-.guess-clue mark[data-edge~="end"] { padding-right: 2px; border-radius: 0 3px 3px 0; }
+   A piece keeps the pill's room on all four sides; what it must not keep is the
+   WIDTH. Padding on an inline box is width, and width on every piece is the gap
+   that beaded the run in the first place — so the sides are handed straight back
+   as margin. The colour then paints --band-pad past each piece into its
+   neighbours', which is what makes a run read as one long pill, while the clue
+   measures exactly as it does with no mark on it at all. That overlap is also
+   what carries the band under the 1px border every .gw wears, across the marked
+   space between two words included, so --band-pad has to stay the wider of the
+   two or the run is beaded again at hairline width. The chips are lifted above
+   it — a positioned element paints after its unpositioned siblings — so a picked
+   word's coloured border still draws ON TOP of the band instead of being painted
+   out by it. */
+.guess-clue mark {
+  padding: var(--band-pad); margin: 0 calc(-1 * var(--band-pad)); border-radius: 0;
+}
+.guess-clue mark[data-edge~="start"] { border-radius: 3px 0 0 3px; }
+.guess-clue mark[data-edge~="end"] { border-radius: 0 3px 3px 0; }
 .guess-clue mark[data-edge~="start"][data-edge~="end"] { border-radius: 3px; }
-/* Every .gw carries a 1px border in every state, transparent at rest, and the
-   word's mark lives inside it — so a band painted by the marks alone stops 1px
-   short at each side of every word and the run reads as beads again, hairline
-   width. The mark on the SPACE between two words is the one piece with nothing
-   else in it, so it is the piece that carries the band across: 1px of padding
-   each side to paint under both neighbours' borders, taken straight back as
-   margin so not a pixel of the clue's layout moves. The chips are lifted above
-   it — a positioned element paints after its unpositioned siblings — so a
-   picked word's coloured border still draws ON TOP of the band instead of being
-   painted out by it. */
-.guess-clue > mark { padding: 0 1px; margin: 0 -1px; }
 .guess-clue .gw { position: relative; }
 /* A highlight fades in rather than snapping on. Taking a rung repaints the
    clue, and the coloured span appearing at full strength — padding and all —
