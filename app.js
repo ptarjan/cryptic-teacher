@@ -251,7 +251,9 @@
   const NUX_KEY = "ct:nux";
   const NUX_LINES = [
     { id: "ladder",
-      text: "Every clue here is written up. Take one hint at a time, and stop the moment you can see it." },
+      text: "Stuck? Every clue here is written up, and these buttons open it one step at a time. Take one \u2014 that is what they are for \u2014 and stop the moment you can see it." },
+    { id: "free",
+      text: "Solve a clue and the rest of its write-up costs nothing: open it anyway and see how it was built." },
     { id: "score",
       text: "Hints are what the score counts, not time \u2014 so a clue you get on two is worth more than one you got on six." },
   ];
@@ -267,8 +269,9 @@
     store.set(NUX_KEY, nux);
   }
 
-  // Spends the current line, whichever it is. Solving a clue is proof that the
-  // stage the line describes has been got through, whatever stage that is.
+  // Spends the current line, whichever it is. One rule for every line: taking a
+  // hint or solving a clue is the solver doing the thing the site was trying to
+  // get them to do, so the sentence asking for it has done its job.
   function nuxAdvance() {
     if (typeof nux !== "number" || nux >= NUX_LINES.length) return;
     nux += 1;
@@ -276,14 +279,9 @@
     nuxDraw();
   }
 
-  // Spends a NAMED line, and only if it is the one showing: taking a hint
-  // answers the line about taking hints and nothing further down.
-  function nuxDone(id) {
-    if (typeof nux === "number" && NUX_LINES[nux] && NUX_LINES[nux].id === id) nuxAdvance();
-  }
 
-  // Drawn from refreshAll, after the panel it sits in. Both lines are about the
-  // row of rung buttons, so both wait for that row to exist: a clue with no
+  // Drawn from refreshAll, after the panel it sits in. Every line is about the
+  // row of rung buttons, so every one waits for that row to exist: a clue with no
   // annotation has no ladder to explain, and an unannotated puzzle must not
   // start the lesson.
   function nuxDraw() {
@@ -2628,8 +2626,9 @@
     // would answer nothing: the ladder is built per clue, and no number on that
     // scale appears anywhere a solver can see.
     beacon("hint-" + rung);
-    // Asked for and got: the line telling a newcomer to take one has been read.
-    nuxDone("ladder");
+    // Asked for and got: whatever line is up, the solver has just worked the
+    // ladder, which is what all of them are asking for.
+    nuxAdvance();
     saveState();
   }
 
