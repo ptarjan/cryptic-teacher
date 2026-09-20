@@ -263,13 +263,8 @@ fi
 # the backfill"). The rate limit below is what stops a big import from being a
 # big bill, and it already did that job.
 ANNOTATE_MAX="${ANNOTATE_MAX:-3}"
-# How many nights a puzzle may fail before it leaves the queue for a person to
-# look at. Two, and a night already contains one in-run retry, so this is up to
-# four tries. Exported rather than passed: tools/annotate_attempts.py reads it
-# from the environment, and the default belongs in this file for the same reason
-# every other one does — a value only the scheduler knows is a value this script
-# cannot be run by hand with.
-export ANNOTATE_MAX_ATTEMPTS="${ANNOTATE_MAX_ATTEMPTS:-2}"
+# ANNOTATE_MAX_ATTEMPTS and alert_newly_blocked come from tools/alert.sh: the
+# pre-reset burn charges failures to the same ledger and must use the same limit.
 # Puzzles whose annotation has already been bought and lost twice. Selection
 # here is by date and nothing else, so without this a puzzle that fails is the
 # newest un-annotated puzzle again tomorrow, and again the night after — the
@@ -312,20 +307,6 @@ record_annotate_failure() {   # id, reason, session id of that attempt (may be e
   n=$(python3 tools/annotate_attempts.py record "$id" --reason "$reason" \
         ${sid:+--session "$sid"})
   echo "  $id has now failed ${n:-?} of $ANNOTATE_MAX_ATTEMPTS annotation attempts"
-}
-
-# A puzzle leaving the queue is worth waking someone for exactly once. Nightly
-# it would be worth less than nothing: tools/alert.sh's header says why — the
-# pre-reset job repeated one paragraph four times on 2026-08-07, and a channel
-# that cries wolf on the hour teaches its one reader to scroll past everything
-# in it, including the message that matters. So the set that has already been
-# reported is remembered in the ledger and only a change to it speaks up.
-alert_newly_blocked() {
-  local ids
-  ids=$(python3 tools/annotate_attempts.py blocked --if-changed | tr '\n' ' ')
-  ids="${ids% }"
-  [ -n "$ids" ] || return 0
-  alert "these puzzles have failed $ANNOTATE_MAX_ATTEMPTS annotation runs each and are no longer being tried: $ids. They ship with no hints, and nothing will attempt them again until someone does — annotate one by hand, or clear it with \`python3 tools/annotate_attempts.py clear <id>\`. The reason each one gave up is in tools/data/annotate_attempts.json."
 }
 
 # Puzzles the paper hasn't published answers for — Saturday prize crosswords,
