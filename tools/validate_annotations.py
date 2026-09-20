@@ -1752,6 +1752,16 @@ def check_conventions_are_in_the_glossary(entries, warnings):
 
 
 MARKUP_RE = re.compile(r"</?[a-zA-Z][^>]*>|&(?:[a-zA-Z]+|#\d+);")
+# Bytes 0x80-0x9F are punctuation in Windows-1252 and unprintable control
+# codes in Unicode, so a source decoded as latin-1 turns every dash and curly
+# quote into one of these and the browser draws a box. 1,937 of them reached
+# the site this way. Repairing them is a lookup, so the message carries it.
+CP1252_C1 = {0x82: "\u201a", 0x83: "\u0192", 0x84: "\u201e", 0x85: "\u2026",
+             0x86: "\u2020", 0x87: "\u2021", 0x88: "\u02c6", 0x89: "\u2030",
+             0x8b: "\u2039", 0x91: "\u2018", 0x92: "\u2019", 0x93: "\u201c",
+             0x94: "\u201d", 0x95: "\u2022", 0x96: "\u2013", 0x97: "\u2014",
+             0x99: "\u2122", 0x9b: "\u203a"}
+C1_RE = re.compile(r"[\x80-\x9f\ufffd]")
 
 
 
@@ -1845,6 +1855,15 @@ def check_no_markup(puzzle, errors):
                 errors.append(f"{path.lstrip('.')}: HTML in text — {m.group(0)!r} in "
                               f"{o[:70]!r}. Puzzle text is displayed escaped; run it "
                               f"through fetch_puzzle.plain_text().")
+            c1 = C1_RE.search(o)
+            if c1:
+                want = CP1252_C1.get(ord(c1.group()), "")
+                errors.append(f"{path.lstrip('.')}: U+{ord(c1.group()):04X} is not text "
+                              f"— it draws as a box"
+                              + (f", and is Windows-1252's {want!r}: the source was "
+                                 f"decoded as latin-1, decode it as cp1252"
+                                 if want else ", so a byte was lost in decoding")
+                              + f". In {o[:70]!r}.")
     walk(puzzle, "")
 
 
