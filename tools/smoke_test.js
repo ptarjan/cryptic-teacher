@@ -1749,20 +1749,28 @@ if (assert(autoRow, `picker finds ${autoPuzzle.id} when searched for`)) {
 // A link has to hand over the puzzle on the screen. Left alone, the URL still
 // says whatever the page booted on: the bare site root, which drops the reader
 // on last night's puzzle, or a stale ?p= from the link they followed, which is
-// worse because it looks deliberate. The canonical follows, so a shared ?p=
-// still credits the static write-up that says the same things without JS.
+// worse because it looks deliberate.
+//
+// It says /puzzles/<id>/ rather than ?p=<id> wherever that page exists, because
+// a crawler asking for ?p= is handed the app shell and the shell's single
+// og:image — so every link ever pasted previewed as the same card. The query
+// form survives for a puzzle with no write-up to point at.
 {
   const urls = global.window.history.urls;
+  const last = urls[urls.length - 1];
   // The clue ref is appended once the grid settles on a clue, so what has to
   // hold is that the URL names this puzzle and nothing else — asserting the
   // whole string would break every time the address bar learns to carry one
   // more thing about what is on screen.
-  assert(new RegExp(`^\\?p=${autoPuzzle.id}(&c=\\d+[AD])?$`).test(urls[urls.length - 1]),
-    `opening No ${autoPuzzle.number} should leave ?p=${autoPuzzle.id} in the address bar, `
+  const shared = autoPuzzle.hasSolutions
+    ? new RegExp(`^https://cryptic\\.paultarjan\\.com/puzzles/${autoPuzzle.id}/(\\?c=\\d+[AD])?$`)
+    : new RegExp(`^\\?p=${autoPuzzle.id}(&c=\\d+[AD])?$`);
+  assert(shared.test(last),
+    `opening No ${autoPuzzle.number} should leave its share URL in the address bar, `
       + `got ${JSON.stringify(urls)}`);
   // And the clue really does get named, so "look at 3 down" is a link.
-  assert(/&c=\d+[AD]$/.test(urls[urls.length - 1]),
-    `the address bar should name the selected clue too, got ${urls[urls.length - 1]}`);
+  assert(/[?&]c=\d+[AD]$/.test(last),
+    `the address bar should name the selected clue too, got ${last}`);
   const want = `https://cryptic.paultarjan.com/puzzles/${autoPuzzle.id}/`;
   assert(canonicalLink.href === want,
     `canonical should follow the opened puzzle to ${want}, got ${canonicalLink.href}`);
