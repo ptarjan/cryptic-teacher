@@ -5485,23 +5485,29 @@ global.realSetTimeout(() => {
     .filter((m) => /padding\s*:|border-radius\s*:/.test(m[1]));
   assert(pills.length >= 3, "a mark is still a pill everywhere else: " + pills.length);
   const band = /(?:^|\n)\.guess-clue mark\s*\{([^}]*)\}/.exec(pickCss);
-  assert(band && /padding:\s*0\s*[;}]/.test(band[1] + "}") && /border-radius:\s*0\s*[;}]/.test(band[1] + "}"),
+  const bandPad = Number((/--band-pad:\s*(\d+)px/.exec(pickCss) || [, NaN])[1]);
+  assert(band && /border-radius:\s*0\s*[;}]/.test(band[1] + "}") && bandPad > 0,
     "inside the picker clue a mark is a fragment of a band, not a pill: one rule "
-    + "over every mark class, flattening its padding and its rounding");
+    + "over every mark class, flattening its rounding and painting --band-pad past its own "
+    + "glyphs: " + (band ? band[1] : "no rule"));
+  // Room it PAINTS, never room it measures. Padding on an inline box is width,
+  // and width on every piece of a run is the gap that beaded it, so the sides
+  // have to come back as margin: the overlap is what welds the pieces into one
+  // band, and a clue with a mark on it has to occupy exactly the width the same
+  // clue does with none.
+  assert(band && /padding:\s*var\(--band-pad\)\s*[;}]/.test(band[1] + "}")
+    && /margin:\s*0 calc\(-1 \* var\(--band-pad\)\)/.test(band[1]),
+    "and it paints that room without measuring it, or marking a word moves it: "
+    + (band ? band[1] : "no rule"));
   assert(band && band.index > pills[pills.length - 1].index,
     "and it comes after the pill rules it undoes — same weight, so source order is all there is");
-  // The band still has to cross the 1px border every .gw carries, or the run is
-  // beaded again at hairline width: the mark on the SPACE between two words is
-  // the piece that paints under both neighbours' borders, and the chips are
-  // lifted above it so a picked word's own border draws on top of the band
-  // rather than being painted out by it.
+  // That same overlap is the only thing carrying the band across the 1px border
+  // every .gw wears, the marked SPACE between two words included. Let it fall
+  // under the border width and the run is beaded again at hairline width.
   const gwBorder = (/(?:^|\n)\.gw\s*\{[^}]*\bborder:\s*(\d+)px/.exec(pickCss) || [, null])[1];
-  const seam = /(?:^|\n)\.guess-clue > mark\s*\{([^}]*)\}/.exec(pickCss);
-  assert(gwBorder && seam
-    && new RegExp(`padding:\\s*0 ${gwBorder}px`).test(seam[1])
-    && new RegExp(`margin:\\s*0 -${gwBorder}px`).test(seam[1]),
-    `the marked spaces carry the band under the ${gwBorder}px .gw border on either side of them, `
-    + "and give the width straight back so the clue's layout does not move: " + (seam ? seam[1] : "no rule"));
+  assert(gwBorder && bandPad >= Number(gwBorder),
+    `the band paints ${bandPad}px past each piece, which has to reach under the `
+    + `${gwBorder}px .gw border on either side of it`);
   assert(/(?:^|\n)\.guess-clue \.gw\s*\{[^}]*position:\s*relative/.test(pickCss),
     "and the word boxes paint above that, so a picked word keeps its border");
 
