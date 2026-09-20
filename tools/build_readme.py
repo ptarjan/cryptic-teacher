@@ -657,7 +657,17 @@ def main():
     # in one line, in CI, naming the file.
     if "--check-layout" in sys.argv[1:]:
         build_layout()
-        print("every tracked file has a layout row")
+        # And that docs/LAYOUT.md carries that table as it now stands. The doc is
+        # generated output that is committed, and only a rebuild rewrites it, so
+        # a tool given a row here and never rebuilt into the file rots there with
+        # nothing failing. This region is the one that cannot drift on its own:
+        # it is a function of the tracked file list, not of the corpus, so unlike
+        # --check it stays true between annotations and belongs in CI.
+        if render(LAYOUT_DOC) != LAYOUT_DOC.read_text(encoding="utf-8"):
+            print(f"{LAYOUT_DOC.name} out of date — run tools/build_readme.py",
+                  file=sys.stderr)
+            return 1
+        print("every tracked file has a layout row, and docs/LAYOUT.md has them all")
         return 0
     if "--add-missing" in sys.argv[1:]:
         return add_missing_layout_rows()
