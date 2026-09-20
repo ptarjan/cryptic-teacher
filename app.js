@@ -1439,22 +1439,32 @@
   function clueMarks(e) {
     const ann = annOf(e);
     if (!ann) return [];
-    const shown = (key) => isShown(e, key);
     const marks = [];
-    const push = (text, cls) => {
+    // Every fragment the annotation names claims its position, bought or not,
+    // and the rungs on screen are filtered out of that. A position that
+    // depended on what had been paid for would slide the link word onto a
+    // different "in" the moment the indicators were bought.
+    const claimed = [];
+    const push = (text, cls, rung) => {
       if (!text) return;
-      const i = bestOccurrence(e.clue, text, marks);
-      if (i >= 0) marks.push({ i, len: text.length, cls });
+      const i = bestOccurrence(e.clue, text, claimed);
+      if (i < 0) return;
+      claimed.push({ i, len: text.length });
+      if (isShown(e, rung)) marks.push({ i, len: text.length, cls });
     };
-    if (shown("definition")) {
-      push(ann.definition, "def");
-      push(ann.definition2, "def2");
-      // Link words ride with the definition: their whole job is to show where
-      // the definition stops and the wordplay starts, which gives away the
-      // definition's edge. They are not a rung of their own.
-      (ann.linkWords || []).forEach((w) => push(w, "link"));
-    }
-    if (shown("indicators")) (ann.indicators || []).forEach((ind) => push(ind, "ind"));
+    push(ann.definition, "def", "definition");
+    push(ann.definition2, "def2", "definition");
+    (ann.indicators || []).forEach((ind) => push(ind, "ind", "indicators"));
+    // Link words claim after the indicators, because a connective is a word or
+    // two the clue is free to use twice: "Wears underwear twisted in the middle
+    // in drinking spots" has one "in" inside the indicator and one doing the
+    // linking. Claiming first takes a word off a hint that has been bought,
+    // which is the one thing the highlighter must never do.
+    //
+    // They ride with the definition rung: their whole job is to show where the
+    // definition stops and the wordplay starts, which gives away the
+    // definition's edge. They are not a rung of their own.
+    (ann.linkWords || []).forEach((w) => push(w, "link", "definition"));
     // Where two marks still overlap — an indicator genuinely sitting inside the
     // definition — markUp gives each cut piece to the FIRST mark that covers it,
     // so shortest-first hands the overlap to the more specific of the two and
