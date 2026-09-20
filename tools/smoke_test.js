@@ -1280,6 +1280,35 @@ const openFromPicker = (id) => {
   li.children[0].onclick();
   return li;
 };
+// The corpus sweeps' door, and theirs alone. They walk clue by clue through
+// puzzles that hold dozens of them, and the picker charges a full filter of
+// every row in the index for a row it has already proved findable — transport,
+// not testing, and most of this file's running time when it was the only way
+// in. "ct:last" is the app's own record of what is open, so this cannot drift
+// out of step with the page the way a count kept here would.
+//
+// The repeat visit gets its clean slate from reset-puzzle, which clears MORE
+// than re-opening does: the grid and the save as well as the hint state. That
+// is why anything asserting progress SURVIVES a re-open must keep using
+// openFromPicker — this one throws the progress away.
+//
+// The reset is charged only where a cold ladder is not already guaranteed: on
+// the puzzle's first open, which wipes whatever an earlier section climbed
+// here, and on a SECOND visit to the same clue. A clue this sweep has not
+// opened yet is cold already, because app.js keeps hint state per clue --
+// resetting the whole puzzle in front of each of 3,685 clue opens cost 66s of
+// this file's running time.
+const sweptClues = new Map();  // puzzle id -> clues opened since its last reset
+const reopenForSweep = (id, clueId) => {
+  const fresh = () => { registry["reset-puzzle"].onclick(); sweptClues.set(id, new Set()); };
+  if (storage["ct:last"] !== id) {
+    if (!openFromPicker(id)) return;
+    fresh();
+  }
+  const seen = sweptClues.get(id);
+  if (clueId === undefined || !seen || seen.has(clueId)) fresh();
+  sweptClues.get(id).add(clueId);
+};
 registry["btn-picker"].onclick();
 assert(pickerRows().length >= 5, "picker lists the annotated puzzles: " + pickerRows().length);
 assert(registry["picker-search"].value === "", "the filter box starts empty on open");
@@ -1829,7 +1858,7 @@ if (assert(autoRow, `picker finds ${autoPuzzle.id} when searched for`)) {
     // Searched for rather than scanned out of the default list: the default list
     // is annotated-only, and a puzzle can carry annotated clues while its index
     // flag says otherwise (mid-annotation, or a partial hand-edit).
-    openFromPicker(id);
+    reopenForSweep(id, e.id);
     const row = registry["clue-" + e.id];
     assert(row && row.listeners.click, `clue list shows ${e.number}${e.direction[0]}: ${e.clue}`);
     row.listeners.click[0]();
@@ -2254,7 +2283,7 @@ if (assert(autoRow, `picker finds ${autoPuzzle.id} when searched for`)) {
           `${id} ${e.id}: the definition is not marked at all: ` + registry["hint-clue"].innerHTML);
       }
     };
-    const openPuzzle = (id) => openFromPicker(id);
+    const openPuzzle = (id) => reopenForSweep(id);
     for (const id of Object.keys(puzzles).sort()) {
       const withAnn = (puzzles[id].entries || []).filter((e) => e.annotation);
       if (!withAnn.length) continue;
@@ -5377,11 +5406,16 @@ global.realSetTimeout(() => {
   // the border's colour, style, background and text colour may tell the
   // states apart. A rule here that snuck in a padding, margin or border WIDTH
   // is exactly the bug that used to make the clue resize when tapping began.
-  const gwRules = pickCss.match(/(?:^|\n)((?:[.\w][^{}\n]*,?\s*)+)\{([^}]*)\}/g) || [];
+  // Comments come out first: a selector is whatever precedes a rule's "{", so a
+  // comment naming .gw would be read as part of the selector after it.
+  const gwCss = pickCss.replace(/\/\*[\s\S]*?\*\//g, "");
+  // ONE quantifier over the selector. Two nested ones over overlapping classes
+  // backtrack exponentially, and on a stylesheet this size that regex does not
+  // return at all — it reads as a hung test, not a slow one.
+  const gwRules = [...gwCss.matchAll(/(?:^|\n)([.\w][^{}]*)\{([^}]*)\}/g)];
   const boxProps = /\b(?:padding|margin)\b\s*:|border(?:-(?:top|right|bottom|left))?-width\s*:|(?<!-)\bborder\s*:\s*[\d.]/;
-  gwRules.forEach((rule) => {
-    const [, selector, body] = rule.match(/^\s*\n?([^{]+)\{([^}]*)\}/) || [];
-    if (!selector || selector.trim() === ".gw" || !/\.gw(?:[.\s]|$)/.test(selector)) return;
+  gwRules.forEach(([, selector, body]) => {
+    if (selector.trim() === ".gw" || !/\.gw(?:[.\s]|$)/.test(selector)) return;
     assert(!boxProps.test(body),
       `${selector.trim()} must not redeclare the box .gw sets — only its border's colour ` +
       `or style may differ between states: ${body.trim()}`);
@@ -5395,7 +5429,6 @@ global.realSetTimeout(() => {
   // declared sum, and the arithmetic is checked here because nothing in a
   // headless DOM has a pixel in it: the only place they drift apart is a real
   // phone holding a long clue.
-  const gwCss = pickCss.replace(/\/\*[\s\S]*?\*\//g, "");
   const gwBox = /--gw-box:\s*calc\(([\d.]+)em\s*\+\s*(\d+)px\)/.exec(gwCss);
   const gwLine = /--gw-line:\s*calc\(var\(--gw-box\)\s*\+\s*(\d+)px\)/.exec(gwCss);
   if (assert(gwBox && gwLine && +gwLine[1] > 0,
