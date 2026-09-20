@@ -1,23 +1,33 @@
-/* Every test in tools/ runs somewhere a later push cannot cancel.
+/* Every test in tools/ runs somewhere a later push cannot cancel, exactly once.
 
    A check a later push can cancel is a check that is optional, and a
    `concurrency:` group is what makes one cancellable: GitHub keeps only the
    newest PENDING run in a group and cancels the rest, whatever
    cancel-in-progress says. pages.yml declares one — it must, so that two
-   deploys cannot race — and tools/smoke_test.js was reachable only from there,
-   missed by tests.yml's `tools/test_*` glob for the only reason that it spells
-   the word the other way round. A naming convention that silently excludes a
-   file is a convention that decides what gets tested without anybody choosing.
+   deploys cannot race — so a test reachable only from there is not a test the
+   repo enforces. tests.yml declares none, and that is asserted here rather
+   than assumed.
 
-   So the convention is asserted rather than assumed: a file in tools/ that
-   looks like a test must be matched by the globs in the workflow that cannot be
-   cancelled. A new test is wired in by being named, and a test named something
-   nobody thought of fails here instead of quietly never running.
+   A test can also fail to run by being named something no glob catches, so the
+   convention is asserted too: a file in tools/ that looks like a test must be
+   matched by the globs in tests.yml. A new test is wired in by being named, and
+   a test named something nobody thought of fails here instead of quietly never
+   running.
+
+   tests.yml runs those matched files across parallel shards, which adds a third
+   way to go quiet: a file the globs match but no shard is handed. So this
+   drives tools/ci_shards.js — the same splitter the workflow pipes the glob
+   list into — over the real file list at the real shard count and asserts the
+   shards partition it: every file in one, none in two, no empty shard.
+
+   And a failure has to reach a check name: `tests-passed` is the one job that
+   means the suite is green, so it must need every other job in the workflow.
 
    Usage: node tools/test_ci_coverage.js */
 "use strict";
 const fs = require("fs");
 const path = require("path");
+const { shards } = require("./ci_shards.js");
 const ROOT = path.join(__dirname, "..");
 const WORKFLOWS = path.join(ROOT, ".github/workflows");
 
@@ -47,8 +57,9 @@ assert(grouped("pages.yml"),
 /* --- every test entry point is matched by the globs in tests.yml --- */
 // The globs are read out of the workflow rather than restated here; a second
 // copy of the list of what gets run is a copy to disagree with.
-const loop = undecorated(read("tests.yml")).match(/for\s+t\s+in\s+([^;\n]+?)\s*;?\s*do/);
-assert(loop, "tests.yml still runs its tests from a `for t in <globs>; do` loop");
+const body = undecorated(read("tests.yml"));
+const loop = body.match(/for\s+t\s+in\s+([^;\n]+?)\s*;?\s*do/);
+assert(loop, "tests.yml still collects its tests from a `for t in <globs>; do` loop");
 const globs = loop ? loop[1].trim().split(/\s+/) : [];
 assert(globs.length >= 2, "and the loop names more than one glob: " + globs.join(" "));
 const matches = (rel) => globs.some((g) =>
@@ -82,11 +93,64 @@ assert(entryPoints.includes("smoke_test.js"),
 /* --- and the loop can actually run each of them --- */
 // A glob that matches a file the loop then feeds to the wrong interpreter is a
 // test that fails for the wrong reason.
-const body = undecorated(read("tests.yml"));
 assert(/case\s+"\$t"\s+in\s+\*\.sh\)\s*run=bash/.test(body) && /run=node/.test(body),
   "the loop picks its interpreter from the extension, so both spellings run");
 
+/* --- the shards partition what the globs matched --- */
+// Asserting the splitter is only worth anything while the workflow is the thing
+// calling it.
+assert(/node\s+tools\/ci_shards\.js/.test(body),
+  "tests.yml still pipes its glob list through tools/ci_shards.js to pick a shard");
+const shardList = body.match(/^\s*shard:\s*\[([^\]]*)\]/m);
+assert(shardList, "tests.yml still declares its shards as `shard: [...]`");
+const shardIds = shardList ? shardList[1].split(",").map((s) => s.trim()).filter(Boolean) : [];
+assert(shardIds.length >= 2,
+  "and there is more than one of them, or the fan-out is a single job again: " +
+  shardIds.join(","));
+assert(shardIds.join(",") === shardIds.map((_, i) => String(i)).join(","),
+  "and they are 0..n-1 in order, which is what the job passes as its shard " +
+  `index alongside strategy.job-total: ${shardIds.join(",")}`);
+
+if (shardIds.length >= 2) {
+  const files = entryPoints.map((f) => "tools/" + f);
+  const split = shards(files, shardIds.length);
+  split.forEach((s, i) => assert(s.length > 0,
+    `shard ${i} of ${shardIds.length} is handed no tests — drop a shard rather ` +
+    "than paying for a job that passes by running nothing"));
+  const placed = split.flat();
+  const seen = new Set();
+  placed.forEach((f) => {
+    assert(!seen.has(f), `${f} is in two shards, so the suite pays for it twice`);
+    seen.add(f);
+  });
+  files.forEach((f) => assert(seen.has(f),
+    `${f} is matched by the globs but lands in no shard, so it runs nowhere`));
+  assert(placed.length === files.length,
+    `the shards hold ${placed.length} scripts and the globs matched ${files.length}`);
+}
+
+/* --- one check name carries the verdict --- */
+// Branch protection and the CI watcher key on `tests-passed`. A job it does not
+// need is a job that can go red without turning that check red.
+// Two-space keys under `jobs:` and nowhere else — `on:` has children indented
+// the same way, and `push` is not a job.
+const jobsBlock = body.slice(body.search(/^jobs:\s*$/m));
+const jobs = [...jobsBlock.matchAll(/^ {2}([A-Za-z0-9_-]+):$/gm)].map((m) => m[1]);
+assert(jobs.length >= 2, "tests.yml still declares jobs: " + jobs.join(", "));
+assert(jobs.includes("tests-passed"),
+  "tests.yml still has a `tests-passed` job, the one check name that means the " +
+  "suite is green: " + jobs.join(", "));
+const needs = body.match(/^ {2}tests-passed:[\s\S]*?^\s*needs:\s*(\[[^\]]*\]|.*)$/m);
+assert(needs, "and it declares what it needs");
+const needed = needs ? needs[1].replace(/[[\]]/g, "").split(",").map((s) => s.trim()) : [];
+jobs.filter((j) => j !== "tests-passed").forEach((j) => assert(needed.includes(j),
+  `job '${j}' can fail without failing tests-passed — add it to that job's needs`));
+assert(/^ {2}tests-passed:[\s\S]*?^\s*if:\s*always\(\)/m.test(body),
+  "and it runs with `if: always()`, or a failed shard skips it and branch " +
+  "protection waits on a check that never reports");
+
 console.log(failures
   ? `${failures} failure(s)`
-  : `ok: ${entryPoints.length} test entry point(s), all run by tests.yml`);
+  : `ok: ${entryPoints.length} test entry point(s), all run by tests.yml across ` +
+    `${shardIds.length} shard(s)`);
 process.exit(failures ? 1 : 0);
