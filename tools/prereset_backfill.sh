@@ -732,8 +732,14 @@ todo = [p for p in idx["puzzles"] if not p["annotated"] and p.get("hasSolutions"
 lanes = {}
 for p in todo:
     lanes.setdefault(p["series"], []).append(p)
+# A book reprint carries no publication date and neither do four cyclops
+# puzzles, so `date` is None for 12 of the queue. Undated sorts last inside its
+# lane — "newest first" has nothing to say about a puzzle with no when — and
+# never raises: this key crashed the whole listing, which is read with $(...),
+# so one None emptied the queue and the wave spent itself on definitionFit
+# instead of on the backlog it exists to clear.
 for lane in lanes.values():
-    lane.sort(key=lambda p: -p["date"])
+    lane.sort(key=lambda p: -(p["date"] or 0))
 # Series order within a wave, so a window cut short by a lockout has spent
 # itself on the papers people search for most. This ranks SERIES, never
 # puzzles: every entry in a wave is already its own lane's newest gap. A series
@@ -748,8 +754,9 @@ todo = [lanes[s][i]
 # log. It ran in the wrong order for weeks behind a single line listing 166 ids.
 # stderr, because stdout is the queue itself.
 for p in todo[:5]:
-    print(f"  {datetime.fromtimestamp(p['date'] / 1000, timezone.utc):%Y-%m-%d}  "
-          f"{p['id']}", file=sys.stderr)
+    when = (f"{datetime.fromtimestamp(p['date'] / 1000, timezone.utc):%Y-%m-%d}"
+            if p["date"] else "  undated  ")
+    print(f"  {when}  {p['id']}", file=sys.stderr)
 if len(todo) > 5:
     print(f"  ... and {len(todo) - 5} older", file=sys.stderr)
 # IDs, not numbers: the file is puzzles/<id>.json and every consumer below names
