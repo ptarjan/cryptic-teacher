@@ -194,7 +194,32 @@ function boot(opts) {
     }
   }
 
-  const storage = {};
+  // The page's localStorage, and what the tests plant into directly. A Proxy
+  // over the plain object, for one reason: the iteration half of the Storage
+  // API below has to hand out a key LIST, and rebuilding that list per call is
+  // quadratic. app.js's savedProgress() walks `for (i = 0; i < length; i++)
+  // key(i)`, which is the only shape a browser offers — over a run of this
+  // suite that is 1.9M calls against a store that reaches 438 keys, and
+  // materialising Object.keys() inside each of them cost 48 seconds, a sixth of
+  // the whole file, in an array nobody kept.
+  //
+  // So the list is cached and thrown away when the SET of keys changes. The
+  // trap is what makes that safe: several tests write `storage[k] = v` and
+  // `delete storage[k]` straight, modelling another tab, and a cache keyed off
+  // setItem/removeItem alone would not see them. A value overwritten at an
+  // existing key leaves the list alone and does not invalidate.
+  const storeBack = {};
+  let storeGen = 0;
+  const storage = new Proxy(storeBack, {
+    set(t, k, v) { if (!(k in t)) storeGen++; t[k] = v; return true; },
+    deleteProperty(t, k) { if (k in t) storeGen++; delete t[k]; return true; }
+  });
+  let storeKeys = null;
+  let storeKeysGen = -1;
+  const storageKeys = () => {
+    if (storeKeysGen !== storeGen) { storeKeys = Object.keys(storeBack); storeKeysGen = storeGen; }
+    return storeKeys;
+  };
   const docListeners = {};
   // index.html's <link rel="canonical">, stood up so the ?p= rewrite is testable.
   // Read out of the shipped file rather than retyped, so the harness cannot be
@@ -308,8 +333,8 @@ function boot(opts) {
       // uploads, so the stub needs the iteration half of the Storage API too —
       // without it the whole sync path is unreachable from the smoke test,
       // which is exactly the path that must not break silently.
-      get length() { return Object.keys(storage).length; },
-      key(i) { const ks = Object.keys(storage); return i < ks.length ? ks[i] : null; }
+      get length() { return storageKeys().length; },
+      key(i) { const ks = storageKeys(); return i < ks.length ? ks[i] : null; }
     }
   };
   global.document = document;
@@ -374,7 +399,16 @@ function boot(opts) {
     }
     observe(el) { if (this.live && this.targets.indexOf(el) < 0) this.targets.push(el); }
     unobserve(el) { const i = this.targets.indexOf(el); if (i >= 0) this.targets.splice(i, 1); }
-    disconnect() { this.live = false; this.targets = []; }
+    disconnect() {
+      this.live = false;
+      this.targets = [];
+      // Dropped from the list, not merely flagged. Every renderPicker throws
+      // away the observer the last one made, so a run leaves tens of thousands
+      // of dead ones behind — and intersect() copies the whole list on every
+      // call to stay safe against a callback that makes another.
+      const i = observers.indexOf(this);
+      if (i >= 0) observers.splice(i, 1);
+    }
     takeRecords() { return []; }
   };
   global.window.IntersectionObserver = global.IntersectionObserver;
