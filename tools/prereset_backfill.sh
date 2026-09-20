@@ -653,6 +653,11 @@ commit_puzzle() {
     # alert for; quoting it verbatim is what marks it claimed.
     alert "$what $num was discarded — it did not validate, so that puzzle stays unannotated:"$'\n'"VALIDATION FAILED after $what $num — discarding that puzzle's changes"$'\n'"\`\`\`"$'\n'"$(grep -E '^  ERROR' /tmp/ct-prereset-validate.txt | head -5)"$'\n'"\`\`\`"
     tail -5 /tmp/ct-prereset-validate.txt
+    # Charged to the puzzle, not to the window: this run finished and was
+    # rejected, which is the one failure that says something about the grid.
+    # ANNOTATE_MAX_ATTEMPTS of these and it leaves the queue for a person.
+    python3 tools/annotate_attempts.py record "$num" \
+      --reason "$(grep -E '^  ERROR' /tmp/ct-prereset-validate.txt | head -1)" || true
     git checkout -- "puzzles/$num.json" 2>/dev/null
     return 1
   fi
@@ -748,11 +753,20 @@ fi
 
 # --- 1. un-annotated puzzles, quiptics first ---------------------------------
 echo "un-annotated backlog, newest first:"
-todo=$(python3 - <<'EOF'
+annotate_blocked=$(python3 tools/annotate_attempts.py blocked)
+todo=$(python3 - "$annotate_blocked" <<'EOF'
 import json, sys
 from datetime import datetime, timezone
 idx = json.load(open("puzzles/index.json"))
-todo = [p for p in idx["puzzles"] if not p["annotated"] and p.get("hasSolutions")]
+# Selection here is by date and nothing else, so a puzzle that fails is the
+# newest un-annotated puzzle again on the next wave and on tomorrow's run, and
+# is solved from scratch at a full puzzle's price each time — everyman-4110 was
+# bought three times over one word its setter never wrote. The nightly job has
+# counted these since tools/annotate_attempts.py; this is the same queue and
+# reads the same ledger.
+blocked = set(sys.argv[1].split())
+todo = [p for p in idx["puzzles"] if not p["annotated"] and p.get("hasSolutions")
+        and p["id"] not in blocked]
 # Round-robin across the series, newest first inside each one.
 #
 # Newest first, and nothing else, inside a lane. Recency is the only property
