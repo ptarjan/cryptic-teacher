@@ -107,13 +107,16 @@ jobs:
       # --reindex also builds puzzles/<id>.js from puzzles/<id>.json, and a
       # clone has only the .json. Every test below that loads a puzzle the way
       # the browser does needs those shims on disk.
+      # The glossary comes before all of it because --reindex restamps
+      # index.html, and a stamp is a hash of the file it points at: every asset
+      # the page names has to be on disk by then, glossary included.
       # Every shard rebuilds rather than downloading one shard's build: the
       # output is ~440 MB across ~47k files, which costs more to move than the
       # minute it takes to make.
       - name: Build the pages the tests read
         run: |
-          python3 tools/fetch_puzzle.py --reindex
           python3 tools/build_abbreviations.py
+          python3 tools/fetch_puzzle.py --reindex
           python3 tools/build_seo_pages.py
       - name: Run this shard of the test scripts
         env:

@@ -45,6 +45,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
+      # app.js reads the glossary from a <script> tag, so the file has to exist
+      # before anything hashes it. That is this early because --reindex restamps
+      # index.html on its way past, not only the stamping step further down.
+      - name: Build the glossary table
+        run: python3 tools/build_abbreviations.py
       # puzzles/index.* and the ?v= stamp index.html points at them with are
       # generated from the puzzle files, so the build regenerates them here
       # rather than trusting whatever was committed. The pre-reset backfill
@@ -79,10 +84,6 @@ jobs:
       # advertise the site card instead of its own.
       - name: Draw the social cards
         run: bash tools/make_og.sh --all
-      # app.js reads the glossary from a <script> tag, so the file has to exist
-      # before the stamps hash it and before the smoke test loads it.
-      - name: Build the glossary table
-        run: python3 tools/build_abbreviations.py
       - name: Generate the crawlable pages
         run: python3 tools/build_seo_pages.py
       - name: Stamp the assets
