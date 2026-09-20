@@ -516,7 +516,8 @@ def write_puzzle_file(path, puzzle, generator=None, retrieved_url=None):
     # that could break that: a caller writing a puzzle to a path it did not get
     # from puzzle_path().
     assert path.name == f"{puzzle['id']}.json", (
-        f"{path.name} does not match id {puzzle['id']} — use puzzle_path()")
+        f"{path.name} is not where {puzzle['id']} goes — that is "
+        f"{puzzle['id']}.json. Ask puzzle_path() for it.")
     generator = generator or generator_of(path)
     # Every write of a puzzle file records where the puzzle came from, here,
     # rather than in each of the nine tools that write one. See
@@ -1786,7 +1787,10 @@ def fetch_number(num):
         if forced_number is not None:
             data["number"] = forced_number
     puzzle = convert(data)
-    path = PUZZLE_DIR / f"{puzzle['id']}.js"
+    # Through puzzle_path, never spelled here: this line said ".js" from the
+    # day the fetcher was written, and the assert in write_puzzle_file is what
+    # finally said so.
+    path = puzzle_path(series_of(data["id"]), data["number"])
     is_new = not path.exists()
     graded = None
     if not is_new:
