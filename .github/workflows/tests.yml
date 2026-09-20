@@ -2,13 +2,13 @@
 # `concurrency:` block, so nothing it runs can be cancelled by a later push.
 # That is the point of it.
 #
-# pages.yml does have one — `group: pages, cancel-in-progress: true` — because
-# two pushes a minute apart must not race to publish, and the older build is not
-# worth waiting for. The cost is that every check inside it is abandoned along
-# with the deploy it was gating. tools/smoke_test.js used to be reachable only
-# from there, so on 2026-09-18 a commit merged with its only real check
-# cancelled by the very next push and master went red on somebody else's
-# commit. A check that a later push can cancel is a check that is optional.
+# pages.yml does have one — `group: pages, cancel-in-progress: false` — and even
+# false does not make a check living there safe: GitHub keeps only the newest
+# PENDING run in a concurrency group and cancels the rest, so a queued build
+# dies the moment the next push arrives. tools/smoke_test.js used to be
+# reachable only from there, and a commit once merged with its only real check
+# cancelled that way. A check a later push can cancel is a check that is
+# optional.
 #
 # So the loop globs both of the repo's test-file spellings, tools/test_*.{sh,js}
 # and tools/*_test.{sh,js}, rather than naming files: a test is wired in by
