@@ -38,6 +38,13 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    # A run that stops making progress otherwise sits on GitHub's 6h default,
+    # holding a red check over every commit behind it. tools/smoke_test.js is
+    # the whole cost — it walks the hint ladder of every clue the suite selects
+    # and the picker it drives re-scans the corpus on each interaction, so the
+    # suite grows with the corpus and has no natural ceiling. A healthy run is
+    # ~14 minutes; 40 fails a stall fast and still leaves room for a slow runner.
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
