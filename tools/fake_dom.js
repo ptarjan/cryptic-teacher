@@ -55,6 +55,9 @@ function boot(opts) {
         contains(c) { return this._set.has(c); }
       };
     }
+    // The real thing has this next to .children, and app code reads it to ask
+    // "is anything in here yet" without materialising the list.
+    get childElementCount() { return this.children.length; }
     // Setting an id must publish the element, exactly as a real DOM does. Without
     // this, an element built by createElement() was invisible to getElementById(),
     // which then minted a SECOND, empty element under the same id — so app code and
