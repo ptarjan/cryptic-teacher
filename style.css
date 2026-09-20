@@ -929,15 +929,18 @@ button:disabled:hover { border-color: var(--line); }
   display: inline-block; box-sizing: border-box; vertical-align: baseline;
   -webkit-appearance: none; appearance: none;
   font: inherit; line-height: 1.35; text-align: center;
-  /* A hairline and no more, in either direction. The box is carried in every
-     state, visible or transparent, so breathing room added here is added to the
-     clue AT REST. Across, it lands in the gap between two words and the clue
-     stops reading as a sentence. Down, it is worse: this box is the floor of
-     the clue's line box (see --gw-box), so a pixel added for a thumb is a pixel
-     of white between two lines of a clue that wrapped, and no line-height can
-     take it back. The border hugging the word is the whole budget — grow the
-     target by growing --gw-box, which grows the leading with it, on purpose. */
-  padding: 1px 0; margin: 0;
+  /* A hairline down, and across a box that paints wider than it measures. Room
+     MEASURED here is added to the clue AT REST, because the box is carried in
+     every state, visible or transparent: across it lands in the gap between two
+     words and the clue stops reading as a sentence, and down it is worse still,
+     since this box is the floor of the clue's line box (see --gw-box) and a
+     pixel added for a thumb is a pixel of white between two lines of a clue that
+     wrapped, which no line-height takes back. So the horizontal room is given
+     straight back as margin — the same trick the band's seam uses below — and
+     the border sits 4px off its word without a glyph moving. Down there is no
+     such trick, so a hairline is the whole budget: grow the target by growing
+     --gw-box, which grows the leading with it, on purpose. */
+  padding: 1px 4px; margin: 0 -4px;
   background: transparent; border: 1px solid var(--line); border-radius: 4px;
 }
 /* A hairline in --line is the border every inert box on the page wears, so an
