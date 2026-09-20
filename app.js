@@ -123,7 +123,7 @@
   const SYNC_ENDPOINT = "https://cryptic-teacher-sync.curly-unit-b9e0.workers.dev";
   // Reserved localStorage names, so scanning for saves cannot pick up settings.
   // Every key this app writes is "ct:<something>"; the rest are puzzle ids.
-  const SYNC_RESERVED = { last: 1, sync: 1, seen: 1, notify: 1, "notify-after": 1, votes: 1 };
+  const SYNC_RESERVED = { last: 1, sync: 1, seen: 1, nux: 1, notify: 1, "notify-after": 1, votes: 1 };
   const CODE_ALPHABET = "23456789ABCDEFGHJKMNPQRSTVWXYZ"; // no 0/O/1/I/L to mistype
 
   /* ---------- counting solves, not solvers ----------
@@ -222,8 +222,81 @@
     // this tally says: without that, the day this shipped reports every regular
     // as a new arrival.
     const days = (seen ? seen.days : (hasAnySave() ? 1 : 0)) + 1;
+    nuxSeed(days === 1);
     store.set("ct:seen", { last: today, days });
     beacon(days === 1 ? "visit-new" : days < 5 ? "visit-return" : "visit-regular");
+  }
+
+  /* ---------- the first grid ----------
+     A new arrival lands on a full 15x15 and nothing on it says that every clue
+     is written up: the ladder is the point of the site and it is a row of
+     buttons under a grid, which is what a crossword with a "reveal" looks like.
+     These are the sentences that say otherwise. One at a time, in the hint
+     panel, beside the buttons they are about.
+
+     Not a tour and not a panel to dismiss before you may start. A tour is read
+     in the wrong order, out of reach of the thing it describes, and forgotten
+     before that thing comes up; a line sitting on the control at the moment you
+     reach it is read while it is still true. Each is spent by the solver doing
+     the thing it asked for, so the site teaches itself and then shuts up.
+
+     Only for a browser whose FIRST EVER visit this is — the same fact reportVisit
+     just worked out, taken from it rather than asked again, because a regular
+     whose first visit predates this code has plainly been here before and must
+     not be taught the site.
+
+     A cursor, not a set of flags: the lines are strictly ordered, exactly one is
+     on screen, and everything that spends one advances the same integer. Nothing
+     can show two, show them out of order, or bring one back. */
+  const NUX_KEY = "ct:nux";
+  const NUX_LINES = [
+    { id: "ladder",
+      text: "Every clue here is written up. Take one hint at a time, and stop the moment you can see it." },
+    { id: "score",
+      text: "Hints are what the score counts, not time \u2014 so a clue you get on two is worth more than one you got on six." },
+  ];
+  // An integer index into NUX_LINES, or null for a browser that is owed none of
+  // them. undefined until the first visit this code has seen, which is the only
+  // time the question can still be asked.
+  let nux = store.get(NUX_KEY, undefined);
+  let nuxDrawn = null;   // the id currently on screen, so a keystroke redraws nothing
+
+  function nuxSeed(first) {
+    if (nux !== undefined) return;
+    nux = first ? 0 : null;
+    store.set(NUX_KEY, nux);
+  }
+
+  // Spends the current line, whichever it is. Solving a clue is proof that the
+  // stage the line describes has been got through, whatever stage that is.
+  function nuxAdvance() {
+    if (typeof nux !== "number" || nux >= NUX_LINES.length) return;
+    nux += 1;
+    store.set(NUX_KEY, nux);
+    nuxDraw();
+  }
+
+  // Spends a NAMED line, and only if it is the one showing: taking a hint
+  // answers the line about taking hints and nothing further down.
+  function nuxDone(id) {
+    if (typeof nux === "number" && NUX_LINES[nux] && NUX_LINES[nux].id === id) nuxAdvance();
+  }
+
+  // Drawn from refreshAll, after the panel it sits in. Both lines are about the
+  // row of rung buttons, so both wait for that row to exist: a clue with no
+  // annotation has no ladder to explain, and an unannotated puzzle must not
+  // start the lesson.
+  function nuxDraw() {
+    const el = $("nux");
+    if (!el) return;
+    const line = (typeof nux === "number") ? NUX_LINES[nux] : null;
+    const live = !!line && !$("hint-panel").classList.contains("hidden")
+                 && $("hint-next").childElementCount > 0;
+    const want = live ? line.id : null;
+    if (nuxDrawn === want) return;
+    nuxDrawn = want;
+    el.classList.toggle("hidden", !live);
+    if (live) el.textContent = line.text;
   }
 
   // ---------- puzzles/index.js: the catalogue, not the puzzles ----------
@@ -2125,6 +2198,7 @@
   // were already persisted for scoring before this existed, so the distinction
   // needs no new storage and survives a reload the same way the score does.
   function celebrateSolve(e) {
+    nuxAdvance();
     const clean = noHintsSolve(e);
     const cs = entryCells(e);
     cs.forEach((c) => {
@@ -2554,6 +2628,8 @@
     // would answer nothing: the ladder is built per clue, and no number on that
     // scale appears anywhere a solver can see.
     beacon("hint-" + rung);
+    // Asked for and got: the line telling a newcomer to take one has been read.
+    nuxDone("ladder");
     saveState();
   }
 
@@ -5732,6 +5808,7 @@
     refreshClues();
     renderHintPanel();
     renderScore();
+    nuxDraw();
     checkComplete();
     checkHalfFilled();
     syncClueUrl();

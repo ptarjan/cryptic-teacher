@@ -235,6 +235,12 @@
         <input id="ana-kbd" autocomplete="off" autocapitalize="characters"
                autocorrect="off" spellcheck="false"
                aria-label="Type a letter to add it to the anagram ring, Backspace to remove the last">
+        <!-- The first grid a person ever solves here, one sentence at a time.
+             A fixed slot rather than a node inserted beside whatever the line is
+             about: one place a nudge can be drawn is one nudge. app.js fills it
+             and takes it away again for good once the line has been acted on —
+             see NUX_LINES. Empty and hidden for everyone else, forever. -->
+        <div id="nux" class="nux hidden" role="note"></div>
         <div id="hint-next"></div>
         <div id="hint-escape"></div>
         <!-- "Good clue?", once the answer is out. Its own slot rather than the

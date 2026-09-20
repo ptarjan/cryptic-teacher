@@ -832,6 +832,25 @@ button:disabled:hover { border-color: var(--line); }
 /* The precise (compound) clue type — named only once the family, definition and
    indicators have already been given away. Quieter than the prose above it. */
 .hint-step .mechanism { font-size: .8rem; color: var(--muted); }
+/* The newcomer's line, directly above the buttons it is about. Quiet on
+   purpose: it is not a step of the ladder and must not read as one, so no card,
+   no border box and no colour of its own — a rule down the side, the muted text
+   the rest of the panel uses for asides, and it is gone for good after the
+   first hint. See NUX_LINES in app.js for when each one is spent. */
+.nux {
+  margin: 10px 0 0; padding: 2px 0 2px 10px;
+  border-left: 2px solid var(--accent);
+  font-size: .85rem; color: var(--muted); max-width: 46em;
+  /* Nothing here is tappable, and a tap that landed on it would blur #kbd — the
+     keyboard leaving reflows the viewport just as the next rung opens, which is
+     the flash every other thing in this panel wires a mousedown keeper against.
+     Out of hit testing entirely is the version with no hazard to keep: a tap
+     passes through to the panel, exactly as a tap beside the line already does. */
+  pointer-events: none;
+  animation: nux-in var(--mo-in) var(--mo-ease) both;
+}
+@keyframes nux-in { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .nux { animation: none; } }
 #hint-next { margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap; }
 /* A flex item is squeezed before the strip wraps, so the longest label breaks
    across two lines inside its own box while the box beside it keeps its room —

@@ -806,6 +806,18 @@ const patBoxes = () => (patHTML().match(/class="pat-box [^"]*"/g) || []);
     + "sent again as unexplained\n" + (claimed.stdout || "") + (claimed.stderr || ""));
 }
 
+// --- the newcomer's line: the site teaches itself, once, then shuts up ---
+// This harness boots with empty storage, which is exactly a first-ever visit —
+// the only visit owed these lines. Asserted HERE, before anything below climbs a
+// ladder, because the first rung taken is what spends the first line: run this
+// any later and it passes on a site that never showed it at all.
+assert(!registry["nux"].classList.contains("hidden"),
+  "a first-ever visit gets a line telling it what the buttons under the grid are");
+assert(/written up/.test(registry["nux"].textContent),
+  "and it is the one about every clue being written up: " + registry["nux"].textContent);
+assert(storage["ct:nux"] === "0",
+  "the cursor is written on that first visit, not left for the next one: " + storage["ct:nux"]);
+
 // --- escape hatch: reveal a letter BEFORE using any ladder hints ---
 assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "escape hatch offered at level 0");
 assert(registry["hx-letter"].onclick, "escape-hatch button wired");
@@ -885,6 +897,19 @@ const btnNames = () => registry["hint-next"].children.map((b) => b.textContent).
   assert(lit === wanted.includes("Where is the definition?"),
     `definition highlight should appear only for the definition rung (took "${wanted}", lit=${lit})`);
 }
+// --- ...and the newcomer's line is spent by doing what it asked ---
+// The rung above was this browser's first, which is the moment the first line
+// was asking for. Both halves matter: it has to GO (a nudge that outlives its
+// own advice is furniture), and the next one has to arrive in its place,
+// because the cursor is the only thing keeping exactly one of them on screen.
+// Deliberately after the cold-ladder block rather than before it — everything
+// in there is asserted against a ladder nobody has climbed.
+assert(!/written up/.test(registry["nux"].textContent),
+  "the first hint takes the line about taking hints away: " + registry["nux"].textContent);
+assert(!registry["nux"].classList.contains("hidden") && /score counts/.test(registry["nux"].textContent),
+  "and the next line takes its place, about what the score charges: " + registry["nux"].textContent);
+assert(storage["ct:nux"] === "1", "the cursor moved on with it: " + storage["ct:nux"]);
+
 registry["reset-puzzle"].onclick();   // back to a clean slate for the in-order walk
 
 // --- walk the hint ladder: the ladder is per-clue, so click until it runs out ---
@@ -3608,6 +3633,12 @@ registry["reset-puzzle"].onclick();
   // as though it were a half-finished crossword called "notify-after".
   assert(/SYNC_RESERVED = \{[^}]*"notify-after": 1/.test(src),
     "ct:notify-after is reserved from the sync scan");
+  // Same rule, and this one has a second edge: hasAnySave() reads the same list
+  // to decide whether this browser has been here before. Unreserved, ct:nux is a
+  // save — so writing the newcomer's cursor would itself prove the newcomer is a
+  // regular, and the lines would be cancelled by the act of starting them.
+  assert(/SYNC_RESERVED = \{[^}]*nux: 1/.test(src),
+    "ct:nux is reserved: it is a cursor, not a crossword");
 
   /* The papers in this panel are a checklist — one chip per row, beside its own
      checkbox — and not the picker's column of rows, so they cancel the width
