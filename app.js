@@ -4778,7 +4778,7 @@
   // colour rule in style.css is one colour per axis, not per badge.
   function sourceBadge(p) {
     return p.solutionsUnofficial
-      ? `<span class="badge auto" title="The paper hasn't published this one's answers yet, so these are ours and nothing has checked them">unverified answers</span>`
+      ? `<span class="badge auto" title="The paper hasn't published its answers yet — these are our own solve, consistent at every crossing but not confirmed">unverified answers</span>`
       : "";
   }
 
@@ -5485,20 +5485,14 @@
     $("puzzle-title").innerHTML =
       `${esc(P.name)} — set by <em>${esc(P.setter)}</em>` +
       (when.day ? ` <span class="muted">· ${when.day} ${when.iso}</span>` : "") +
-      (meta.annotated ? "" : " " + hintsBadge(false));
-    // Saturday prize puzzles publish their answers about a week late, and this
-    // site solves them in the meantime rather than leaving its newest puzzle
-    // hintless (tools/apply_solution.py). Every letter the checker marks wrong
-    // is then measured against a machine's answer, not the paper's, and someone
-    // being told they are wrong deserves to know who is telling them.
-    const note = $("unofficial-note");
-    note.classList.toggle("hidden", !meta.solutionsUnofficial);
-    note.textContent = meta.solutionsUnofficial
-      ? "The Guardian hasn't published this prize puzzle's answers yet. "
-        + "The solutions and hints here are our own solve — checked for consistency "
-        + "at every crossing, but not confirmed by the paper. They are replaced by "
-        + "the official ones the day those appear."
-      : "";
+      (meta.annotated ? "" : " " + hintsBadge(false)) +
+      // Prize puzzles publish their answers about a week late, and this site
+      // solves them in the meantime rather than leaving its newest puzzle
+      // hintless (tools/apply_solution.py). Every letter the checker marks wrong
+      // is then measured against a machine's answer, not the paper's, and
+      // someone being told they are wrong deserves to know who is telling them
+      // — which the picker's own badge already says, in the same words.
+      (meta.solutionsUnofficial ? " " + sourceBadge(meta) : "");
     renderGrid();
     renderClues();
     const checkable = canCheck();
