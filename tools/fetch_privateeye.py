@@ -119,10 +119,21 @@ BLACK = "."
 
 # ---------- .puz reading ----------
 
+def puz_text(raw):
+    """Bytes out of a .puz file -> text.
+
+    The format says ISO-8859-1 and every tool that writes one means Windows-1252,
+    so a latin-1 decode turns the en dash Cyclops separates his clauses with into
+    U+0096, an unprintable control code the browser draws as a box. cp1252 leaves
+    five bytes undefined; those fall back rather than losing the whole string.
+    """
+    return raw.decode("cp1252", "replace")
+
+
 def read_cstr(data, pos):
-    """A NUL-terminated ISO-8859-1 string starting at pos -> (text, next pos)."""
+    """A NUL-terminated string starting at pos -> (text, next pos)."""
     end = data.index(b"\x00", pos)
-    return data[pos:end].decode("iso-8859-1"), end + 1
+    return puz_text(data[pos:end]), end + 1
 
 
 def parse_puz(data):
@@ -140,7 +151,7 @@ def parse_puz(data):
     scrambled_tag = struct.unpack_from("<H", data, 0x32)[0]
 
     pos = 0x34
-    solution = data[pos:pos + width * height].decode("iso-8859-1")
+    solution = puz_text(data[pos:pos + width * height])
     pos += width * height
     pos += width * height  # player-state grid — not needed, skipped
     title, pos = read_cstr(data, pos)
