@@ -1,14 +1,13 @@
 /* Every test in tools/ runs somewhere a later push cannot cancel.
 
-   A GitHub workflow with `concurrency: cancel-in-progress: true` abandons
-   everything still running in it the moment another push arrives. That is right
-   for a deploy — nobody wants the older of two builds to publish — and wrong
-   for a check, because a check a later push can cancel is a check that is
-   optional. tools/smoke_test.js was reachable only from pages.yml, which has
-   exactly that block, and the file was missed by tests.yml's `tools/test_*`
-   glob for the only reason that it spells the word the other way round. A
-   naming convention that silently excludes a file is a convention that decides
-   what gets tested without anybody choosing.
+   A check a later push can cancel is a check that is optional, and a
+   `concurrency:` group is what makes one cancellable: GitHub keeps only the
+   newest PENDING run in a group and cancels the rest, whatever
+   cancel-in-progress says. pages.yml declares one — it must, so that two
+   deploys cannot race — and tools/smoke_test.js was reachable only from there,
+   missed by tests.yml's `tools/test_*` glob for the only reason that it spells
+   the word the other way round. A naming convention that silently excludes a
+   file is a convention that decides what gets tested without anybody choosing.
 
    So the convention is asserted rather than assumed: a file in tools/ that
    looks like a test must be matched by the globs in the workflow that cannot be
@@ -35,16 +34,15 @@ const workflows = fs.readdirSync(WORKFLOWS).filter((f) => /\.ya?ml$/.test(f));
 assert(workflows.includes("tests.yml") && workflows.includes("pages.yml"),
   "the repo still has a test workflow and a deploy workflow: " + workflows.join(", "));
 
-const cancellable = (f) =>
-  /^\s*cancel-in-progress:\s*true\b/m.test(undecorated(read(f)));
+const grouped = (f) => /^\s*concurrency\s*:/m.test(undecorated(read(f)));
 
 /* --- the test workflow is the one nothing can cancel --- */
-assert(!/^\s*concurrency\s*:/m.test(undecorated(read("tests.yml"))),
+assert(!grouped("tests.yml"),
   "tests.yml declares no concurrency group, so a later push cannot cancel a check");
-/* --- and the deploy is still superseded by a newer push --- */
-assert(cancellable("pages.yml"),
-  "pages.yml still cancels an in-flight deploy when a newer push arrives, so the " +
-  "older of two builds cannot publish");
+/* --- and the deploy is in a group, so a check living there can still be cancelled --- */
+assert(grouped("pages.yml"),
+  "pages.yml still declares a concurrency group, which is what makes a check " +
+  "reachable only from there optional");
 
 /* --- every test entry point is matched by the globs in tests.yml --- */
 // The globs are read out of the workflow rather than restated here; a second

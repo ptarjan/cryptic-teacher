@@ -234,6 +234,11 @@ LAYOUT = [
     ("tables everything else reads", "tools/provenance.py", "where a puzzle came from \u2014 and, the part that matters, where its ANSWERS came from"),
     ("tables everything else reads", "tools/test_provenance.sh", "does provenance actually REFUSE a puzzle that lies about where it came from?"),
     ("tables everything else reads", "tools/rank_book_candidates.py", "rank archive.org crossword books by whether acquiring one in full is worth it"),
+    ("tables everything else reads", "tools/acquire_books.sh", "read the next archive.org crossword book nobody has read yet \u2014 one book, one loan, one run"),
+    ("tables everything else reads", "tools/add_abbreviation.py", "add one sense to one row of tools/data/abbreviations.json without racing"),
+    ("tables everything else reads", "tools/book_queue.py", "which registered archive.org books have not been read yet, best first"),
+    ("tables everything else reads", "tools/test_add_abbreviation.sh", "does tools/add_abbreviation.py survive the thing that actually happened?"),
+    ("tables everything else reads", "tools/test_book_queue.sh", "does tools/book_queue.py still offer the right book to tools/acquire_books.sh?"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the
