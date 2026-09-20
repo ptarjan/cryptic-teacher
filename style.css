@@ -392,14 +392,20 @@ button:disabled:hover { border-color: var(--line); }
 /* The paper and band legend under the puzzle search.
    Deliberately the same badges the rows wear, because the point is to connect
    the word you can type to the mark you have been seeing — a separate style
-   would read as a different thing. The row badges are padded out to a common
-   width so a column of them lines up; here they sit in a sentence, where that
-   padding is just length, and there are nine of them. Touch gets its own. */
+   would read as a different thing. Touch gets its own. */
 /* One row per question — papers, then difficulty. Column of rows rather than one
    strip that wraps, so where the line breaks is not left to the viewport. */
 .picker-filters { display: flex; flex-direction: column; gap: 6px; margin: 8px 0 0; }
 .picker-group { display: flex; flex-wrap: wrap; gap: 6px; align-items: baseline; }
-.picker-filters .badge.diff, .picker-filters .badge.series { min-width: 0; }
+/* The min-width floor on .badge.series and .badge.diff exists to line a COLUMN
+   of picker rows up with itself. Anywhere a chip is NOT in that column — the
+   legend here, the notify panel's one-paper-per-row checklist — there is
+   nothing to line up with, and the floor only pads the short names ("book",
+   "metro") out to a width the long ones ("independent", "globe & mail")
+   overrun anyway: same-looking pills at four different widths. Off the column,
+   a chip is the width of its word. */
+.picker-filters .badge.diff, .picker-filters .badge.series,
+#notify-list .badge.series { min-width: 0; }
 /* A chip whose word is in the box. app.js already writes aria-pressed on every
    chip it makes, so the mark is one rule for a paper, a band and a completion
    rather than three that drift apart — and a ring reads as chosen on a filled
