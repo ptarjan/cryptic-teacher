@@ -3435,20 +3435,45 @@ registry["reset-puzzle"].onclick();
   assert(shape("Vague (two words)", 9) === null, "prose in the brackets is not an enumeration");
   assert(String(shape("Feed typo (6.6)", 12)) === "6,6", "a period where a comma was meant");
 
+  // The leading light's own share of a linked answer: the first `length`
+  // squares' worth of letters, returned only when the answer really does break
+  // there. Anything else — the entry is not the leader, the answer is too
+  // short, the boundary lands mid-word — is a statement about the group's
+  // shape rather than about the strip, and is not this check's business.
+  const leadShare = (e, ans) => {
+    if (e.group[0] !== e.id) return null;
+    let letters = 0, cut = -1;
+    for (let i = 0; i < ans.length; i++) {
+      if (!/[ \-–'’]/.test(ans[i])) letters++;
+      if (letters === e.length) { cut = i + 1; break; }
+    }
+    if (cut < 0 || cut >= ans.length) return null;
+    return /[ \-–]/.test(ans[cut]) ? ans.slice(0, cut) : null;
+  };
+
   fs.readdirSync(path.join(ROOT, "puzzles")).filter((f) => /^[a-z0-9]+-\d+\.json$/.test(f)).forEach((f) => {
     const puz = JSON.parse(fs.readFileSync(path.join(ROOT, "puzzles", f), "utf8"));
     puz.entries.forEach((e) => {
       const ans = e.annotation && e.annotation.answer;
       const drawn = shape(e.clue, e.length);
       if (!ans || !drawn) return;
+      // A linked group's answer is stored whole on its leading light, but the
+      // strip is drawn over that light's own squares. Usually the paper
+      // enumerates the whole group there too and shape() has already returned
+      // null, the total missing the entry; Private Eye sometimes enumerates
+      // the leading light alone, and then the strip is dividing that light's
+      // share of the answer and only that share is what it can be checked
+      // against. A continuation reads "see 16dn." and has no enumeration at all.
+      const text = e.group && e.group.length > 1 ? leadShare(e, ans) : ans;
+      if (text === null) return;
       // An apostrophe occupies no square, and the Guardian counts HOW'S as four
       // — so it is taken out of both sides rather than compared. An enumeration
       // may legitimately divide an answer that is written solid, (1,1,1) for
       // I.C.I., so only answers that really are several words are compared.
-      const real = ans.replace(/['’]/g, "").split(/[ \-–]/).filter(Boolean).map((w) => w.length);
+      const real = text.replace(/['’]/g, "").split(/[ \-–]/).filter(Boolean).map((w) => w.length);
       if (real.length < 2) return;
       assert(String(drawn) === String(real),
-        `${puz.id} ${e.id}: strip would break ${drawn} but ${ans} breaks ${real}`);
+        `${puz.id} ${e.id}: strip would break ${drawn} but ${text} breaks ${real}`);
     });
   });
 
