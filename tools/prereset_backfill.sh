@@ -169,11 +169,33 @@ echo "=== cryptic-teacher pre-reset backfill $(date '+%Y-%m-%d %H:%M') ==="
 # overlap easily — and two copies would double the width nobody asked for and
 # race each other's commits in the one git index. mkdir is the atomic part.
 LOCK="$REPO/.prereset.lock"
+# The holder writes its pid inside it, because the directory alone cannot say
+# whether it belongs to a live run or to one the machine killed: the EXIT trap
+# that removes it does not get to run when the container goes down. So a lock
+# whose pid names no live backfill — or that carries no pid at all, as every
+# lock taken before this line did — is taken over rather than deferred to. The
+# pid is matched against the command line and not merely tested for existence,
+# because pids are reused and a restart hands them out again from the bottom.
+lock_is_dead() {
+  local pid
+  pid=$(cat "$LOCK/pid" 2>/dev/null) || return 0
+  [ -n "$pid" ] || return 0
+  ps -o command= -p "$pid" 2>/dev/null | grep prereset_backfill >/dev/null || return 0
+  return 1
+}
 if ! mkdir "$LOCK" 2>/dev/null; then
-  echo "another pre-reset backfill is running (started $(date -r "$LOCK" '+%H:%M')) — leaving it alone"
-  exit 0
+  if lock_is_dead; then
+    alert "a pre-reset backfill lock from $(date -r "$LOCK" '+%H:%M') has no live process behind it — the run holding it was killed rather than stopped. Taking the lock over; every hourly fire between then and now did nothing."
+    rm -f "$LOCK/pid"
+    rmdir "$LOCK" 2>/dev/null
+  fi
+  if ! mkdir "$LOCK" 2>/dev/null; then
+    echo "another pre-reset backfill is running (started $(date -r "$LOCK" '+%H:%M')) — leaving it alone"
+    exit 0
+  fi
 fi
-trap 'rmdir "$LOCK" 2>/dev/null; sleep 1; alert_run_failures "$RUN_LOG"; rm -f "$RUN_LOG"' EXIT
+echo "$$" > "$LOCK/pid"
+trap 'rm -f "$LOCK/pid"; rmdir "$LOCK" 2>/dev/null; sleep 1; alert_run_failures "$RUN_LOG"; rm -f "$RUN_LOG"' EXIT
 # Session ids and resume notes belong to the run that wrote them. Left behind by
 # a run that stopped before its retry, they would have tonight's first attempt
 # resume a conversation about a worktree that has since been reset out from
