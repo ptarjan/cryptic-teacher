@@ -281,9 +281,13 @@ tools/test_notify_race.js                    ticks two papers over a slow networ
 tools/test_solve_clock.js                    walks away from a puzzle and comes back, so the
                                              time spent elsewhere is proved never to be counted
                                              as solving
-tools/test_ci_coverage.js                    checks every test in tools/ is run by the workflow
-                                             a later push cannot cancel, so no check is quietly
-                                             optional
+tools/ci_shards.js                           splits the test scripts across the workflow’s
+                                             parallel jobs, so the suite takes as long as its
+                                             slowest single script rather than all of them
+                                             added up
+tools/test_ci_coverage.js                    checks every test in tools/ is run, in exactly one
+                                             shard, by the workflow a later push cannot cancel,
+                                             so no check is quietly optional
 tools/qr_check.py                            decodes qr.js’s own output with a real decoder — a
                                              wrong QR code draws perfectly and simply never
                                              scans
@@ -469,5 +473,17 @@ tools/test_provenance.sh                     does provenance actually REFUSE a p
                                              about where it came from?
 tools/rank_book_candidates.py                rank archive.org crossword books by whether
                                              acquiring one in full is worth it
+tools/acquire_books.sh                       read the next archive.org crossword book nobody
+                                             has read yet — one book, one loan, one run
+tools/add_abbreviation.py                    add one sense to one row of
+                                             tools/data/abbreviations.json without racing
+tools/book_queue.py                          which registered archive.org books have not been
+                                             read yet, best first
+tools/test_add_abbreviation.sh               does tools/add_abbreviation.py survive the thing
+                                             that actually happened?
+tools/test_book_queue.sh                     does tools/book_queue.py still offer the right
+                                             book to tools/acquire_books.sh?
+tools/test_build_readme.sh                   does tools/build_readme.py still read the header
+                                             of every file it is asked about?
 ```
 <!-- LAYOUT-END -->
