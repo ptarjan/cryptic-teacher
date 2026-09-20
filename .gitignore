@@ -30,6 +30,11 @@
 .prereset*
 # The hourly archive.org book reader's transcript, same reasoning as .update.log.
 .books.log
+
+# tools/add_abbreviation.py's mutual-exclusion file: empty, never read for
+# content, just flock-ed so concurrent annotator sessions serialize their
+# writes to abbreviations.json instead of losing each other's rows.
+tools/data/abbreviations.json.lock
 puzzles/__pycache__/
 tools/__pycache__/
 __pycache__/
