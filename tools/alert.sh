@@ -44,6 +44,31 @@ ALERT_STATE_DIR="${ALERT_STATE_DIR:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." \
   && pwd)/.alert-state}"
 ALERT_REPEAT_HOURS="${ALERT_REPEAT_HOURS:-12}"
 
+# How many runs a puzzle may fail before it leaves the queue for a person to
+# look at. Two, and a run already contains one in-run retry, so this is up to
+# four tries. Here rather than in either scheduler because BOTH of them now
+# charge a failure to the ledger — the nightly and the pre-reset burn — and a
+# limit written down twice is a limit that drifts. Exported, because
+# tools/annotate_attempts.py reads it from the environment.
+export ANNOTATE_MAX_ATTEMPTS="${ANNOTATE_MAX_ATTEMPTS:-2}"
+
+# A puzzle leaving the queue is worth waking someone for exactly once. Per run
+# it would be worth less than nothing: the header above says why — a channel
+# that cries wolf on the hour teaches its one reader to scroll past everything
+# in it, including the message that matters. So the set that has already been
+# reported is remembered in the ledger and only a change to it speaks up.
+#
+# Every caller that records a failure must also call this. A puzzle that is
+# blocked and not announced is the worst of both designs: the queue stops
+# buying it, and nobody knows it needs a person.
+alert_newly_blocked() {
+  local ids
+  ids=$(python3 tools/annotate_attempts.py blocked --if-changed | tr '\n' ' ')
+  ids="${ids% }"
+  [ -n "$ids" ] || return 0
+  alert "these puzzles have failed $ANNOTATE_MAX_ATTEMPTS annotation runs each and are no longer being tried: $ids. They ship with no hints, and nothing will attempt them again until someone does — annotate one by hand, or clear it with \`python3 tools/annotate_attempts.py clear <id>\`. The reason each one gave up is in tools/data/annotate_attempts.json."
+}
+
 # Everything in a run's output that means something broke, sent here as the
 # lines themselves.
 #
