@@ -623,11 +623,30 @@ after_wave() {
 # that ran out of room mid-file leaves a half-written annotation behind, and
 # committing that would publish a broken puzzle page at 06:15.
 commit_puzzle() {
-  local num="$1" what="$2"   # num is a puzzle ID, e.g. cryptic-30089
+  local num="$1" what="$2" attempt="${3:-first}"   # num is a puzzle ID, e.g. cryptic-30089
   if [ "$DRY_RUN" = 1 ]; then echo "  would commit $what $num"; return 0; fi
   # This puzzle only. A whole-tree run would fail for a sibling in the same wave
   # that is still mid-write, and discard a good annotation to punish it.
   if ! python3 tools/validate_annotations.py "$num" >/tmp/ct-prereset-validate.txt 2>&1; then
+    # A puzzle is twenty-odd clues of solving and a validation failure is
+    # usually one of them, so the errors go back to the conversation that wrote
+    # them before anything is thrown away. run_claude resumes that same session,
+    # which still holds the solve — a fresh run would buy all of it again to fix
+    # one clue. One attempt only: a second failure means the run cannot see what
+    # is wrong with it, and repeating that is the waste this avoids.
+    if [ "$attempt" = first ]; then
+      printf '%s\n\n%s\n\n%s\n' \
+        "puzzles/$num.json does not validate:" \
+        "$(grep -E '^  ERROR' /tmp/ct-prereset-validate.txt)" \
+        "Fix those clues in puzzles/$num.json and nothing else, following tools/annotate_prompt.md, then run python3 tools/annotate_check.py $num until it reports clean. Do not commit." \
+        >"/tmp/ct-prereset-$num.resume"
+      echo "  [$num] did not validate — handing the errors back rather than discarding the puzzle"
+      # Even a fix run the limit cuts off may have landed its edit, so the
+      # second pass runs either way and decides on what is on disk.
+      run_claude "$num" "$(cat "/tmp/ct-prereset-$num.resume")" || true
+      commit_puzzle "$num" "$what" retry
+      return $?
+    fi
     # The work is thrown away and the puzzle stays unannotated, which is worth
     # saying out loud. Sent through alert so the line goes out explained
     # rather than as one more failure alert.sh found nobody had written an
