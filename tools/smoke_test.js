@@ -2255,7 +2255,10 @@ if (assert(autoRow, `picker finds ${autoPuzzle.id} when searched for`)) {
       const covered = {};
       for (const s of spans) {
         if (!s.cls) continue;
-        for (let k = 0; k < s.text.length; k++) (covered[s.cls] = covered[s.cls] || new Set()).add(s.i + k);
+        // A piece can wear more than one class — see clueMarks on a word that
+        // is its own indicator — so each class covers it, not the pair.
+        for (const cls of s.cls.split(/\s+/).filter(Boolean))
+          for (let k = 0; k < s.text.length; k++) (covered[cls] = covered[cls] || new Set()).add(s.i + k);
       }
       const anyMarked = new Set([].concat(...Object.values(covered).map((v) => [...v])));
       for (const frag of ann.indicators || []) {
@@ -2279,7 +2282,7 @@ if (assert(autoRow, `picker finds ${autoPuzzle.id} when searched for`)) {
       if (def && e.clue.includes(def)) {
         const at = e.clue.indexOf(def);
         const gap = [...Array(def.length).keys()].filter((k) => !anyMarked.has(at + k));
-        assert(!gap.length || spans.some((s) => s.cls === "def"),
+        assert(!gap.length || spans.some((s) => s.cls.split(/\s+/).includes("def")),
           `${id} ${e.id}: the definition is not marked at all: ` + registry["hint-clue"].innerHTML);
       }
     };
