@@ -3515,6 +3515,27 @@ registry["reset-puzzle"].onclick();
   assert(/SYNC_RESERVED = \{[^}]*"notify-after": 1/.test(src),
     "ct:notify-after is reserved from the sync scan");
 
+  /* The papers in this panel are a checklist — one chip per row, beside its own
+     checkbox — and not the picker's column of rows, so they cancel the width
+     floor .badge.series carries. Left on, the floor pads the short names
+     ("book", "metro") out to a width the long ones ("independent",
+     "globe & mail") overrun anyway, which is nine checkboxes wearing pills at
+     four different widths. Asserted on the cancelling rule, because the floor
+     itself is right where it lives and must stay. */
+  const chipCss = fs.readFileSync(path.join(ROOT, "style.css"), "utf8");
+  const seriesFloor = (chipCss.match(/\.badge\.series\s*\{[^}]*\}/) || [""])[0];
+  assert(/min-width:\s*[1-9]/.test(seriesFloor),
+    "the series pill still carries a width floor for the picker's column: "
+    + seriesFloor.replace(/\s+/g, " "));
+  // Comments out first: the selector is whatever precedes the brace, and a
+  // prose comment above a rule would otherwise be quoted back as its name.
+  const unfloored = ((chipCss.replace(/\/\*[\s\S]*?\*\//g, " ")
+    .match(/[^{}]*\{[^}]*min-width:\s*0[^}]*\}/g)) || [])
+    .map((r) => r.slice(0, r.indexOf("{"))).join(" ").replace(/\s+/g, " ");
+  assert(/#notify-list \.badge\.series/.test(unfloored),
+    "and the notify panel's one-per-row chips cancel it, so a short paper name "
+    + "is not padded out to a long one's width; what cancels it today: " + unfloored.trim());
+
   // Changing the time with no paper ticked must not unsubscribe the device:
   // saveNotify([]) IS the unsubscribe, so "not before eight" would read as
   // "never" and the panel would silently empty itself.
