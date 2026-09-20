@@ -628,7 +628,11 @@ commit_puzzle() {
   # This puzzle only. A whole-tree run would fail for a sibling in the same wave
   # that is still mid-write, and discard a good annotation to punish it.
   if ! python3 tools/validate_annotations.py "$num" >/tmp/ct-prereset-validate.txt 2>&1; then
-    echo "VALIDATION FAILED after $what $num — discarding that puzzle's changes"
+    # The work is thrown away and the puzzle stays unannotated, which is worth
+    # saying out loud. Sent through alert so the line goes out explained
+    # rather than as one more failure alert.sh found nobody had written an
+    # alert for; quoting it verbatim is what marks it claimed.
+    alert "$what $num was discarded — it did not validate, so that puzzle stays unannotated:"$'\n'"VALIDATION FAILED after $what $num — discarding that puzzle's changes"$'\n'"\`\`\`"$'\n'"$(grep -E '^  ERROR' /tmp/ct-prereset-validate.txt | head -5)"$'\n'"\`\`\`"
     tail -5 /tmp/ct-prereset-validate.txt
     git checkout -- "puzzles/$num.json" 2>/dev/null
     return 1
