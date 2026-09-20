@@ -195,7 +195,11 @@ if ! mkdir "$LOCK" 2>/dev/null; then
   fi
 fi
 echo "$$" > "$LOCK/pid"
-trap 'rm -f "$LOCK/pid"; rmdir "$LOCK" 2>/dev/null; sleep 1; alert_run_failures "$RUN_LOG"; rm -f "$RUN_LOG"' EXIT
+# alert_newly_blocked rides the trap rather than the tail: a puzzle that has
+# used up its attempts has left the queue for good, and it has to be said even
+# when the run ends on a lockout, a wedged worktree or a kill. Announced once —
+# the ledger remembers what it has already reported.
+trap 'rm -f "$LOCK/pid"; rmdir "$LOCK" 2>/dev/null; sleep 1; alert_newly_blocked; alert_run_failures "$RUN_LOG"; rm -f "$RUN_LOG"' EXIT
 # Session ids and resume notes belong to the run that wrote them. Left behind by
 # a run that stopped before its retry, they would have tonight's first attempt
 # resume a conversation about a worktree that has since been reset out from
