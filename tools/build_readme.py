@@ -240,6 +240,7 @@ LAYOUT = [
     ("tables everything else reads", "tools/book_queue.py", "which registered archive.org books have not been read yet, best first"),
     ("tables everything else reads", "tools/test_add_abbreviation.sh", "does tools/add_abbreviation.py survive the thing that actually happened?"),
     ("tables everything else reads", "tools/test_book_queue.sh", "does tools/book_queue.py still offer the right book to tools/acquire_books.sh?"),
+    ("tables everything else reads", "tools/test_build_readme.sh", "does tools/build_readme.py still read the header of every file it is asked about?"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the
@@ -429,11 +430,14 @@ def derive_description(path):
     """The one-line description --add-missing writes for `path`, or None.
 
     Python files: the module docstring's summary line. Shell and JS files:
-    the first paragraph of the leading `#`/`//` comment block (after a shebang,
-    if any), which is where every existing tools/*.sh and tools/*.js file
-    puts its own explanation. Returns None rather than guessing when a file
-    has neither — a data file, an image, a generated artifact — so the caller
-    can refuse to invent a description for it.
+    the first paragraph of the leading comment block (after a shebang, if
+    any), which is where every existing tools/*.sh and tools/*.js file puts
+    its own explanation. JS is read in both of its spellings — `//` lines and
+    a `/* */` block — because both are in use here and a reader that knows
+    only one silently reports the other as having no description at all.
+    Returns None rather than guessing when a file has neither — a data file,
+    an image, a generated artifact — so the caller can refuse to invent a
+    description for it.
     """
     try:
         text = (REPO / path).read_text(encoding="utf-8")
@@ -446,10 +450,21 @@ def derive_description(path):
             return None
         doc = ast.get_docstring(tree)
         return _first_summary_line(doc) if doc else None
-    prefix = "//" if path.endswith(".js") else "#"
     lines = text.splitlines()
     if lines and lines[0].startswith("#!"):
         lines = lines[1:]
+    if path.endswith(".js") and lines and lines[0].lstrip().startswith("/*"):
+        paragraph = _block_comment_paragraph(lines)
+    else:
+        paragraph = _line_comment_paragraph(
+            lines, "//" if path.endswith(".js") else "#")
+    if not paragraph:
+        return None
+    return _first_summary_line(" ".join(paragraph))
+
+
+def _line_comment_paragraph(lines, prefix):
+    """The first blank-line-delimited paragraph of a leading `prefix` block."""
     paragraph = []
     for line in lines:
         stripped = line.strip()
@@ -461,9 +476,35 @@ def derive_description(path):
                 break
             continue
         paragraph.append(body)
-    if not paragraph:
-        return None
-    return _first_summary_line(" ".join(paragraph))
+    return paragraph
+
+
+def _block_comment_paragraph(lines):
+    """The first paragraph of a leading `/* ... */` block.
+
+    The block ends at `*/` wherever it falls, so a one-line `/* x */` header
+    reads the same as a boxed one; the decorative leading `*` that most of
+    them carry is not part of the sentence and comes off.
+    """
+    paragraph = []
+    for line in lines:
+        body = line.strip()
+        if body.startswith("/*"):
+            body = body[2:]
+        end = body.find("*/")
+        if end != -1:
+            body = body[:end]
+        body = body.strip()
+        if body.startswith("*"):
+            body = body[1:].strip()
+        if not body:
+            if paragraph:
+                break
+        else:
+            paragraph.append(body)
+        if "*/" in line:
+            break
+    return paragraph
 
 
 def add_missing_layout_rows():
