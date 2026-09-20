@@ -906,8 +906,9 @@ const btnNames = () => registry["hint-next"].children.map((b) => b.textContent).
 // in there is asserted against a ladder nobody has climbed.
 assert(!/written up/.test(registry["nux"].textContent),
   "the first hint takes the line about taking hints away: " + registry["nux"].textContent);
-assert(!registry["nux"].classList.contains("hidden") && /score counts/.test(registry["nux"].textContent),
-  "and the next line takes its place, about what the score charges: " + registry["nux"].textContent);
+assert(!registry["nux"].classList.contains("hidden") && /costs nothing/.test(registry["nux"].textContent),
+  "and the next line takes its place, about the write-up being free once solved: "
+  + registry["nux"].textContent);
 assert(storage["ct:nux"] === "1", "the cursor moved on with it: " + storage["ct:nux"]);
 
 registry["reset-puzzle"].onclick();   // back to a clean slate for the in-order walk
@@ -948,6 +949,11 @@ while (leadRung() && clicks < 12) {
       ? "Spot the indicator words" : "Where is the definition?";
     const first = registry["hint-body"].innerHTML;
     assert(first.includes(want), `rung 1 leads with "${want}": ` + first);
+    // One rung into this walk is one more hint, so the third and last line is
+    // up: what the score actually charges for. Asserted here rather than after
+    // the loop because the same climb spends it again a click later.
+    assert(/score counts/.test(registry["nux"].textContent),
+      "the last line is about what the score charges: " + registry["nux"].textContent);
   }
   // Wherever the family rung lands, it gives the FAMILY only — never the
   // precise (often compound) type, which is the blocks rung's to give.
@@ -968,6 +974,12 @@ while (leadRung() && clicks < 12) {
     "escape hatch still available at level " + rungs);
 }
 assert(rungs >= 3 && rungs <= 5, "ladder has a sane number of rungs, got " + rungs);
+// ...and having taught the site, the site shuts up. The cursor is past the last
+// line, the slot is empty, and nothing in the app moves it back: a newcomer gets
+// three sentences in their life, not a banner that returns every session.
+assert(registry["nux"].classList.contains("hidden"),
+  "the lines are finite: " + registry["nux"].textContent);
+assert(Number(storage["ct:nux"]) >= 3, "the cursor is spent past the last line: " + storage["ct:nux"]);
 // Each rung reports itself by name. beacon() drops anything not on the shared
 // list, so this is where a rung whose key never reaches the beacon shows up:
 // "hint-undefined" is silently discarded and nothing is counted at all.
