@@ -1211,7 +1211,12 @@ if [ -n "$(git status --porcelain)" ]; then
     # stamp_assets.py last, and not optional: index.html's ?v= is the content
     # hash of the very files this rebuild rewrites, so skipping it pushes a page
     # that points every cache at bytes that no longer exist.
-    python3 tools/fetch_puzzle.py --reindex >/dev/null &&
+    # The glossary leads, because --reindex restamps index.html on its way
+    # past and a stamp is a hash of the file it names. It is gitignored
+    # generated output, so a checkout that has never built it has the page
+    # before it has the file.
+    python3 tools/build_abbreviations.py >/dev/null &&
+      python3 tools/fetch_puzzle.py --reindex >/dev/null &&
       python3 tools/build_seo_pages.py >/dev/null &&
       python3 tools/build_readme.py >/dev/null &&
       python3 tools/stamp_assets.py >/dev/null || return 1
