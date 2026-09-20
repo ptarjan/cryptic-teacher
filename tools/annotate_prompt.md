@@ -295,8 +295,9 @@ FIRST row below that matches it.
 
   `alternate letters` `fifth letter` `fifth letters` `first letter` `first letters`
   `fourth letter` `fourth letters` `hidden word` `last letter` `last letters`
-  `middle letter` `middle letters` `outer letters` `prime letters` `regular letters`
-  `second letter` `second letters` `third letter` `third letters`
+  `middle letter` `middle letters` `ninth letter` `ninth letters` `outer letters`
+  `prime letters` `regular letters` `second letter` `second letters` `third letter`
+  `third letters`
 
 ### What the validator rejects
 

@@ -82,6 +82,9 @@ TYPE_PARTS = {
     "third letter", "third letters",
     "fourth letter", "fourth letters",
     "fifth letter", "fifth letters",
+    # and further in again, as far as a setter has yet counted: 12373 18A takes
+    # the ninth letter of decompress for the S of SALT, the position written as
+    # No.9 in front of the word.
     "sixth letter", "sixth letters",
     "seventh letter", "seventh letters",
     "eighth letter", "eighth letters",
@@ -1020,9 +1023,21 @@ def expand_cross_references(clue, entries):
     def sub(m):
         num = int(m.group(1))
         direction = (m.group(2) or m.group(3) or "").lower()
-        hits = [e for e in entries if e.get("number") == num
-                and (not direction or e.get("direction", "").startswith(direction[0]))]
-        return f" {hits[0].get('solution', '')} " if len(hits) == 1 else m.group(0)
+
+        def find(d):
+            return [e for e in entries if e.get("number") == num
+                    and (not d or e.get("direction", "").startswith(d[0]))]
+
+        hits, tail = find(direction), ""
+        # "26 a penny" is not 26 across: a direction that names no entry at that
+        # number is an ordinary word of the clue, so the bare number is tried
+        # again on its own and the word is handed back to the clue (12373 16A
+        # hides CHEAP across 26 down's solution and the a of a penny).
+        if not hits and direction:
+            hits, tail = find(""), (m.group(2) or m.group(3) or "")
+        if len(hits) != 1:
+            return m.group(0)
+        return f" {hits[0].get('solution', '')} {tail} "
     return REFERENCE_RE.sub(sub, ENUMERATION_RE.sub(" ", clue or ""))
 
 
