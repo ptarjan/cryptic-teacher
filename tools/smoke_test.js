@@ -1373,8 +1373,19 @@ assert(registry["scorebar"].innerHTML.match(/Solved <strong>[1-9]/), "at least o
   assert(!entryFull(), "found an entry with a gap in it to put a wrong letter in: " + patHTML());
   const cur = currentEntry();
   assert(cur && cur.solution, "the cursor sits in an entry with a published solution");
-  clickBox(0);
-  kd(ev(wrongLetter(cur.solution[0])));
+  // Into a BLANK square, not square 0. A square already holding a letter can
+  // belong to a confirmed crossing word, and a confirmed letter refuses to be
+  // overwritten — the keystroke vanishes and the check honestly reports every
+  // letter present as correct. The entry is known to have a gap (asserted just
+  // above); put the wrong letter in the gap.
+  const blankAt = () => {
+    const m = [...patHTML().matchAll(/data-i="(\d+)"\s*title="Jump to this square — blank/g)];
+    return m.length ? Number(m[0][1]) : -1;
+  };
+  const gap = blankAt();
+  assert(gap >= 0, "found a blank square in the entry to mistype into: " + patHTML());
+  clickBox(gap);
+  kd(ev(wrongLetter(cur.solution[gap])));
   registry["chk-entry"].onclick();
   assert(/wrong letter/.test(msg()), "wrong letters are reported: " + JSON.stringify(msg()));
   assert(box.className.includes("bad"), "wrong result styled as bad: " + box.className);
