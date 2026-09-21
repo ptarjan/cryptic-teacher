@@ -414,11 +414,55 @@ const openId = bootLoaded[0];
 // only thing keeping the two apart.
 // p.file is the generated script the page injects, not the puzzle source, because
 // this arm is testing what the browser loads. The boot above rebuilt it.
-global.CRYPTIC_INDEX.puzzles.forEach((p) => {
+//
+// Which puzzles get loaded is the ONE dial that sets this file's running time.
+// Every corpus sweep below walks `window.CRYPTIC_PUZZLES` and re-opens each
+// puzzle through the picker, so the whole suite costs roughly what this loop
+// loads: the full index is ~16,000 puzzles and about three minutes, which is
+// not a loop anyone runs between edits. Locally it therefore loads a SAMPLE —
+// the newest annotated puzzle of every series, so each series' generator is
+// still exercised — and CI loads all of it. FULL is the flag every sweep-wide
+// count below is gated on, because those counts are statements about the whole
+// corpus and a sample cannot make them.
+const FULL = !!process.env.CI || !!process.env.CT_FULL;
+const corpus = (() => {
+  const all = global.CRYPTIC_INDEX.puzzles;
+  if (FULL) return all;
+  const newest = (f) => all.filter(f)
+    .sort((a, b) => String(b.date || "").localeCompare(String(a.date || "")));
+  const bySeries = new Map();
+  for (const p of newest((p) => p.annotated)) if (!bySeries.has(p.series)) bySeries.set(p.series, p);
+  // The shapes individual sections go looking for, each one the newest of its
+  // kind. A section that hunts the corpus for a puzzle shaped a certain way
+  // finds nothing in a sample that holds none, so the sample owes one of each:
+  // without it those sections do not fail, they throw, and the stack trace ends
+  // the run. Un-annotated takes several because the index flag means "some clue
+  // lacks an annotation" and the degradation section wants one where EVERY clue
+  // does, which is only knowable once the file is loaded.
+  return [].concat(
+    [...bySeries.values()],
+    newest((p) => !p.annotated && p.hasSolutions).slice(0, 5),
+    newest((p) => p.solutionsUnofficial).slice(0, 1),
+    newest((p) => p.annotated && p.hasSolutions && !p.solutionsUnofficial).slice(0, 1),
+    newest((p) => !p.date && p.annotated).slice(0, 1),
+    // Already loaded, but the sections above derive their expectations from
+    // whatever booted and the sample must not be read as dropping it.
+    all.filter((p) => p.id === openId));
+})();
+corpus.forEach((p) => {
   if (global.window.CRYPTIC_PUZZLES[p.id]) return;
   new Function("window", fs.readFileSync(path.join(ROOT, "puzzles", p.file), "utf8"))(global.window);
 });
-assert(Object.keys(global.window.CRYPTIC_PUZZLES).length >= 25, "the corpus is loaded for the checks below");
+assert(Object.keys(global.window.CRYPTIC_PUZZLES).length >= (FULL ? 25 : 5),
+  "the corpus is loaded for the checks below");
+if (!FULL) console.log(`(sampled ${corpus.length} puzzles of ${global.CRYPTIC_INDEX.puzzles.length}; `
+  + "CI and CT_FULL=1 sweep all of them)");
+// A floor under how much a sweep found is a statement about the CORPUS, and a
+// sample cannot make it. What the floor is really guarding against is a sweep
+// that quietly stopped finding anything — a filter that matches nothing passes
+// every assertion inside the loop by never running one — and a sample can make
+// that statement. So the floor stands in CI and becomes "more than none" here.
+const enough = (n, floor) => n > (FULL ? floor : 0);
 // Which puzzle boots is NOT pinned here on purpose: the nightly job adds one
 // every day, and a test that only ever exercises a frozen fixture stops
 // covering the puzzles people actually land on. Everything below therefore
@@ -793,38 +837,45 @@ const patBoxes = () => (patHTML().match(/class="pat-box [^"]*"/g) || []);
      require()d from here. Its output is printed on failure and swallowed on
      success: it has its own ok/FAIL lines, and duplicating a passing suite
      inside a passing suite is noise. */
-  const hold = require("child_process").spawnSync(
-    process.execPath, [path.join(ROOT, "tools/test_push_hold.js")], { encoding: "utf8" });
-  assert(hold.status === 0,
-    "tools/test_push_hold.js: the cron holds an out-of-hours puzzle and delivers it "
-    + "exactly once\n" + (hold.stdout || "") + (hold.stderr || ""));
+  // Four processes, and about seven seconds of a run that is otherwise under
+  // ten: each one boots a second node or bash to test the Worker, the cron and
+  // the burn's shell, none of which app.js can break. CI pays for them; the
+  // edit-and-run loop does not, because a loop nobody waits out is the only
+  // kind that gets run before a push. Change any of these and run CT_FULL=1.
+  if (FULL) {
+    const hold = require("child_process").spawnSync(
+      process.execPath, [path.join(ROOT, "tools/test_push_hold.js")], { encoding: "utf8" });
+    assert(hold.status === 0,
+      "tools/test_push_hold.js: the cron holds an out-of-hours puzzle and delivers it "
+      + "exactly once\n" + (hold.stdout || "") + (hold.stderr || ""));
 
-  /* Ticking a second paper while the first tick is still being saved. Shelled
-     out for the same reason and a different one: the suite here is synchronous,
-     and a race only exists between two promises. */
-  const race = require("child_process").spawnSync(
-    process.execPath, [path.join(ROOT, "tools/test_notify_race.js")], { encoding: "utf8" });
-  assert(race.status === 0,
-    "tools/test_notify_race.js: a paper ticked while another is saving is queued, "
-    + "not dropped and then unticked\n" + (race.stdout || "") + (race.stderr || ""));
+    /* Ticking a second paper while the first tick is still being saved. Shelled
+       out for the same reason and a different one: the suite here is synchronous,
+       and a race only exists between two promises. */
+    const race = require("child_process").spawnSync(
+      process.execPath, [path.join(ROOT, "tools/test_notify_race.js")], { encoding: "utf8" });
+    assert(race.status === 0,
+      "tools/test_notify_race.js: a paper ticked while another is saving is queued, "
+      + "not dropped and then unticked\n" + (race.stdout || "") + (race.stderr || ""));
 
-  /* Shell paths the pre-reset burn resolves at runtime. Shelled out because
-     they are bash, and checked here because nothing else runs on a schedule
-     that would notice: both were wrong for two days and the failure of one was
-     to silence the alert about the other. */
-  const paths = require("child_process").spawnSync(
-    "bash", [path.join(ROOT, "tools/test_prereset_paths.sh")], { encoding: "utf8" });
-  assert(paths.status === 0,
-    "tools/test_prereset_paths.sh: the burn finds the bridge transcripts and "
-    + "wake.sh from its worktree\n" + (paths.stdout || "") + (paths.stderr || ""));
+    /* Shell paths the pre-reset burn resolves at runtime. Shelled out because
+       they are bash, and checked here because nothing else runs on a schedule
+       that would notice: both were wrong for two days and the failure of one was
+       to silence the alert about the other. */
+    const paths = require("child_process").spawnSync(
+      "bash", [path.join(ROOT, "tools/test_prereset_paths.sh")], { encoding: "utf8" });
+    assert(paths.status === 0,
+      "tools/test_prereset_paths.sh: the burn finds the bridge transcripts and "
+      + "wake.sh from its worktree\n" + (paths.stdout || "") + (paths.stderr || ""));
 
-  /* The catch-all alert, which exists to report failures nobody thought of --
-     and so must not re-report the one the run already explained. */
-  const claimed = require("child_process").spawnSync(
-    "bash", [path.join(ROOT, "tools/test_alert_claimed.sh")], { encoding: "utf8" });
-  assert(claimed.status === 0,
-    "tools/test_alert_claimed.sh: a traceback an alert already quoted is not "
-    + "sent again as unexplained\n" + (claimed.stdout || "") + (claimed.stderr || ""));
+    /* The catch-all alert, which exists to report failures nobody thought of --
+       and so must not re-report the one the run already explained. */
+    const claimed = require("child_process").spawnSync(
+      "bash", [path.join(ROOT, "tools/test_alert_claimed.sh")], { encoding: "utf8" });
+    assert(claimed.status === 0,
+      "tools/test_alert_claimed.sh: a traceback an alert already quoted is not "
+      + "sent again as unexplained\n" + (claimed.stdout || "") + (claimed.stderr || ""));
+  }
 }
 
 // --- the newcomer's line: the site teaches itself, once, then shuts up ---
@@ -2142,7 +2193,7 @@ if (assert(autoRow, `picker finds ${autoPuzzle.id} when searched for`)) {
         }
       }
     }
-    assert(anas.length > 300, "the corpus has anagram fodder to ring: " + anas.length);
+    assert(enough(anas.length, 300), "the corpus has anagram fodder to ring: " + anas.length);
     let drawn = 0;
     for (const r of anas) {
       openClue(r);
@@ -2169,7 +2220,7 @@ if (assert(autoRow, `picker finds ${autoPuzzle.id} when searched for`)) {
         break;
       }
     }
-    assert(drawn > 300, "anagram rings drawn across the corpus: " + drawn);
+    assert(enough(drawn, 300), "anagram rings drawn across the corpus: " + drawn);
   }
 
   // --- a multi-word answer breaks the ring where its words end ---
@@ -2190,7 +2241,7 @@ if (assert(autoRow, `picker finds ${autoPuzzle.id} when searched for`)) {
             && words.join("").length === fod.length) multi.push({ id, e, words });
       }
     }
-    assert(multi.length > 50, "the corpus has multi-word anagram answers: " + multi.length);
+    assert(enough(multi.length, 50), "the corpus has multi-word anagram answers: " + multi.length);
     let split = 0;
     for (const m of multi.slice(0, 40)) {
       openClue(m);
@@ -2555,7 +2606,7 @@ if (assert(autoRow, `picker finds ${autoPuzzle.id} when searched for`)) {
         if (/homophone|spoonerism/.test(t)) sound.push({ id, e });
       }
     }
-    assert(sound.length > 20, "the corpus still has sound clues to check: " + sound.length);
+    assert(enough(sound.length, 20), "the corpus still has sound clues to check: " + sound.length);
     for (const s of sound) {
       const heard = (s.e.annotation.blocks || []).filter((b) => b.soundsLike);
       assert(heard.length,
@@ -4880,10 +4931,16 @@ global.realSetTimeout(() => {
 
   // Probed with the openings of the words themselves, taken from the index, so
   // this cannot pass by suggesting a vocabulary the rows do not have.
-  const probes = new Set(["so", "un"]);
+  const openings = new Set();
   (window.CRYPTIC_INDEX.puzzles || []).forEach((p) => {
-    if (p.setter && p.setter.length >= 2) probes.add(p.setter.slice(0, 2).toLowerCase());
+    if (p.setter && p.setter.length >= 2) openings.add(p.setter.slice(0, 2).toLowerCase());
   });
+  // Every distinct opening in CI. Locally a fixed slice of them, because each
+  // probe re-filters all 16,000 rows and the rule under test — a suggestion
+  // that finds nothing is worse than no suggestion — is about one probe at a
+  // time, so the hundredth setter is re-proving what the first proved.
+  const probes = new Set(["so", "un"].concat(
+    FULL ? [...openings] : [...openings].sort().slice(0, 12)));
   const offered = new Set();
   probes.forEach((q) => {
     typeInPicker(q);
@@ -5456,7 +5513,9 @@ global.realSetTimeout(() => {
     }
     if (dd) break;
   }
-  assert(dd, `the corpus has a two-piece clue whose pieces give the same thing (tried ${tried})`);
+  // Whether any clue is shaped like this is a fact about the corpus, so the
+  // sample is not owed one and only CI is.
+  assert(dd || !FULL, `the corpus has a two-piece clue whose pieces give the same thing (tried ${tried})`);
 
   if (dd) {
     // And it asks WITHOUT naming the letters, because on a DD they are the
