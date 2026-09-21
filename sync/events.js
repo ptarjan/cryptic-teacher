@@ -48,6 +48,10 @@
   // fails rather than becoming a counter that reads zero forever.
   return Object.freeze([
     "visit-new", "visit-return", "visit-regular",
+    // The first-visit dialog, which sits between arriving and opening a grid:
+    // one of these two is the answer to "did the worked example get anybody as
+    // far as the hint buttons, or did they wave it away".
+    "nux-start", "nux-skip",
     "open", "letter",
     "hint-indicators", "hint-definition", "hint-type",
     "hint-blocks", "hint-walkthrough", "hint-answer",

@@ -829,41 +829,6 @@ assert(registry["hint-next"].children.filter((c) => /rung-point/.test(c.classNam
   "exactly one rung is pointed at, and it is the one the line means: "
   + registry["hint-next"].children.map((c) => c.className).join("|"));
 
-// A first visit is a BROWSER that has been here one day, not a page load that
-// happened to be the first of a day. reportVisit stops early once it has sent
-// today's beacon, and while the cursor was decided below that stop, anyone who
-// opened the site twice in a day saw the lines on neither load — which is every
-// person who reloads to look again, and was how this shipped broken. The seeded
-// tally says days: 1, so these lines are still owed.
-{
-  const today = new Date().toISOString().slice(0, 10);
-  const again = require("./fake_dom.js").boot({
-    storage: { "ct:seen": JSON.stringify({ last: today, days: 1 }) } });
-  assert(!again.registry["welcome"].classList.contains("hidden"),
-    "a second load on a browser's first day is still met by the dialog");
-  assert(again.storage["ct:nux"] === "0",
-    "and the cursor is seeded past the once-a-day beacon gate: " + again.storage["ct:nux"]);
-  // Saying you already solve cryptics spends the whole cursor, not one step of
-  // it: everything left is the same lesson, and offering the next sentence to
-  // someone who just said no is the tour this is not.
-  again.registry["welcome-skip"].onclick();
-  assert(again.registry["welcome"].classList.contains("hidden")
-         && again.registry["nux"].classList.contains("hidden"),
-    "skipping puts the whole thing away, dialog and lines both");
-  assert(Number(again.storage["ct:nux"]) >= 4,
-    "and spends the cursor past the last line: " + again.storage["ct:nux"]);
-  // The other side of the same decision: a tally of more than one day is a
-  // returning solver, who must never be taught the site.
-  const regular = require("./fake_dom.js").boot({
-    storage: { "ct:seen": JSON.stringify({ last: today, days: 5 }) } });
-  assert(regular.registry["welcome"].classList.contains("hidden"),
-    "a regular is not stopped by the dialog");
-  assert(regular.registry["nux"].classList.contains("hidden"),
-    "a regular gets no line: " + regular.registry["nux"].textContent);
-  assert(regular.storage["ct:nux"] === "null",
-    "and is marked owed none of them, once: " + regular.storage["ct:nux"]);
-}
-
 // --- escape hatch: reveal a letter BEFORE using any ladder hints ---
 assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "escape hatch offered at level 0");
 assert(registry["hx-letter"].onclick, "escape-hatch button wired");
@@ -6057,4 +6022,45 @@ global.realSetTimeout(() => {
     "the clue is solved: " + reg["scorebar"].innerHTML);
   assert(/<strong>2<\/strong> hint levels used/.test(reg["scorebar"].innerHTML),
     "and only the two rungs actually bought are charged: " + reg["scorebar"].innerHTML);
+}
+
+
+// --- the first-visit cursor, on browsers this harness cannot be ---
+// Down here with the other fresh boots, not up beside the rest of the NUX
+// checks: a second boot() takes the globals over, and the primary instance
+// every test above drives goes on writing its beacons through them.
+//
+// A first visit is a BROWSER that has been here one day, not a page load that
+// happened to be the first of a day. reportVisit stops early once it has sent
+// today's beacon, and while the cursor was decided below that stop, anyone who
+// opened the site twice in a day saw the lines on neither load — which is every
+// person who reloads to look again, and was how this shipped broken. The seeded
+// tally says days: 1, so these lines are still owed.
+{
+  const today = new Date().toISOString().slice(0, 10);
+  const again = require("./fake_dom.js").boot({
+    storage: { "ct:seen": JSON.stringify({ last: today, days: 1 }) } });
+  assert(!again.registry["welcome"].classList.contains("hidden"),
+    "a second load on a browser's first day is still met by the dialog");
+  assert(again.storage["ct:nux"] === "0",
+    "and the cursor is seeded past the once-a-day beacon gate: " + again.storage["ct:nux"]);
+  // Saying you already solve cryptics spends the whole cursor, not one step of
+  // it: everything left is the same lesson, and offering the next sentence to
+  // someone who just said no is the tour this is not.
+  again.registry["welcome-skip"].onclick();
+  assert(again.registry["welcome"].classList.contains("hidden")
+         && again.registry["nux"].classList.contains("hidden"),
+    "skipping puts the whole thing away, dialog and lines both");
+  assert(Number(again.storage["ct:nux"]) >= 4,
+    "and spends the cursor past the last line: " + again.storage["ct:nux"]);
+  // The other side of the same decision: a tally of more than one day is a
+  // returning solver, who must never be taught the site.
+  const regular = require("./fake_dom.js").boot({
+    storage: { "ct:seen": JSON.stringify({ last: today, days: 5 }) } });
+  assert(regular.registry["welcome"].classList.contains("hidden"),
+    "a regular is not stopped by the dialog");
+  assert(regular.registry["nux"].classList.contains("hidden"),
+    "a regular gets no line: " + regular.registry["nux"].textContent);
+  assert(regular.storage["ct:nux"] === "null",
+    "and is marked owed none of them, once: " + regular.storage["ct:nux"]);
 }
