@@ -84,10 +84,21 @@ if [ "${CT_IN_WORKTREE:-0}" != 1 ] && [ "${CT_NO_WORKTREE:-0}" != 1 ]; then
     }
     # Tracked files back to the branch, untracked state left alone. A leftover
     # from a crashed run is discarded here rather than committed tonight.
-    git -C "$_ct_tree" reset -q --hard origin/master || {
-      echo "WORKTREE: cannot reset $_ct_tree — running in place instead" >&2
-      _ct_tree=""
-    }
+    if ! git -C "$_ct_tree" reset -q --hard origin/master; then
+      # git holds an index.lock for the length of one command, so one still
+      # there minutes later belongs to a process that is gone. Nothing will
+      # ever clear it on its own, and while it sits there every run of this job
+      # fails the same way, so it is taken over rather than waited on.
+      _ct_lock="$(git -C "$_ct_tree" rev-parse --git-dir)/index.lock"
+      if [ -f "$_ct_lock" ] && [ -z "$(find "$_ct_lock" -mmin -10)" ]; then
+        echo "WORKTREE: clearing an index.lock from $(date -r "$_ct_lock" '+%H:%M') with no live git behind it" >&2
+        rm -f "$_ct_lock"
+      fi
+      git -C "$_ct_tree" reset -q --hard origin/master || {
+        echo "WORKTREE: cannot reset $_ct_tree — running in place instead" >&2
+        _ct_tree=""
+      }
+    fi
   fi
 
   if [ -n "$_ct_tree" ]; then
@@ -109,4 +120,22 @@ if [ "${CT_IN_WORKTREE:-0}" != 1 ] && [ "${CT_NO_WORKTREE:-0}" != 1 ]; then
     echo "=== running in $_ct_tree @ $(git -C "$_ct_tree" rev-parse --short HEAD) ==="
     exec /bin/bash "$_ct_tree/tools/$(basename "$0")" "$@"
   fi
+
+  # Reaching here means the worktree could not be had and the job would run in
+  # the main checkout — the tree everything above exists to keep it out of. It
+  # may, but only when that tree is already exactly origin/master with nothing
+  # modified in it. A job plans from the tree it can see: one commit behind is
+  # a stale puzzle index, which is work already on origin/master handed out
+  # again and duplicate commits that cannot be rebased back on. Stopping costs
+  # one window; running against the wrong tree costs the window and leaves the
+  # tree wedged for the person who owns it.
+  if [ -n "$(git -C "$_ct_main" status --porcelain --untracked-files=no)" ] ||
+     [ "$(git -C "$_ct_main" rev-parse HEAD)" != "$(git -C "$_ct_main" rev-parse origin/master)" ]; then
+    _ct_why="$_ct_main is $(git -C "$_ct_main" rev-list --count HEAD..origin/master) commit(s) behind origin/master with $(git -C "$_ct_main" status --porcelain --untracked-files=no | wc -l | tr -d ' ') tracked file(s) modified"
+    echo "WORKTREE: no worktree for $_ct_job, and $_ct_why — stopping without running." >&2
+    . "$_ct_main/tools/alert.sh" 2>/dev/null &&
+      alert "$_ct_job could not get its own worktree and refused to run in the main checkout: $_ct_why. Nothing ran and nothing was spent. Fix the worktree under ${CT_WORKTREE_ROOT:-$HOME/.cryptic-teacher}, or bring $_ct_main to a clean origin/master."
+    exit 1
+  fi
+  echo "=== running in place in $_ct_main, clean at origin/master ===" >&2
 fi
