@@ -254,6 +254,14 @@
      can show two, show them out of order, or bring one back. */
   const NUX_KEY = "ct:nux";
   const NUX_LINES = [
+    // Step one is a dialog, not a line, and it is the only modal on the site.
+    // The lines below it are read beside the control they are about, which is
+    // the right place for everything EXCEPT the sentence that has to arrive
+    // before the grid does: on a phone the hint panel they live in starts two
+    // screens down, so a newcomer met the crossword and nothing else. Its text
+    // is in index.html (#welcome) because it is a worked example with markup in
+    // it, not a sentence.
+    { id: "welcome", modal: true },
     { id: "ladder",
       text: "Stuck? Every clue here is written up, and these buttons open it one step at a time. Take one \u2014 that is what they are for \u2014 and stop the moment you can see it." },
     { id: "free",
@@ -288,11 +296,46 @@
   // row of rung buttons, so every one waits for that row to exist: a clue with no
   // annotation has no ladder to explain, and an unannotated puzzle must not
   // start the lesson.
+  // Whether the rung the welcome dialog just promised should be pointed at. Read
+  // by renderHintPanel as it builds the row: "take the first one" is no use to
+  // someone looking at five identical buttons for the first time.
+  function nuxPointsAtRung() {
+    return typeof nux === "number" && NUX_LINES[nux] && NUX_LINES[nux].id === "ladder";
+  }
+
+  // The dialog is spent by starting, like every line is spent by doing. Going on
+  // leaves the cursor on the ladder line, which is the sentence the dialog just
+  // promised and the rung it points at; saying you have solved cryptics before
+  // spends the lot, because everything left is the same lesson.
+  function bindWelcome() {
+    const go = $("welcome-go"), skip = $("welcome-skip");
+    if (!go) return;
+    go.onclick = () => {
+      nuxAdvance();
+      // The rung row was built while the dialog was still up, so it carries no
+      // mark: the thing the dialog promised to point at only becomes pointable
+      // the moment the cursor moves off it.
+      refreshAll();
+      beacon("nux-start");
+      // The panel it just sent them to is below the fold on a phone, which is
+      // the whole reason this dialog exists; landing them back at the top of the
+      // grid would rebuild the problem one step later.
+      const panel = $("hint-panel");
+      if (panel && panel.scrollIntoView) panel.scrollIntoView({ behavior: "smooth", block: "center" });
+    };
+    if (skip) skip.onclick = () => { nux = NUX_LINES.length; store.set(NUX_KEY, nux); nuxDraw(); beacon("nux-skip"); };
+  }
+
   function nuxDraw() {
     const el = $("nux");
     if (!el) return;
     const line = (typeof nux === "number") ? NUX_LINES[nux] : null;
-    const live = !!line && !$("hint-panel").classList.contains("hidden")
+    const modal = $("welcome");
+    // Toggled above the redraw guard below: the dialog and the line are two
+    // states of one cursor, and whichever is not current has to be gone.
+    if (modal) modal.classList.toggle("hidden", !(line && line.modal));
+    const live = !!line && !line.modal
+                 && !$("hint-panel").classList.contains("hidden")
                  && $("hint-next").childElementCount > 0;
     const want = live ? line.id : null;
     if (nuxDrawn === want) return;
@@ -4534,7 +4577,11 @@
         // free, but the decision to open one is made at the button, and a button
         // that reads the same as it did when it charged is not telling you
         // (the meter line alone was not enough).
-        nextSpec.push({ rung: s.key, cls: (j || left ? "ghost small" : "") + (solved ? " free" : ""),
+        // The welcome dialog says "take the first one"; this is which one that
+        // is. Only while the cursor is still on the ladder line, so it stops at
+        // the first hint along with the sentence that asked for it.
+        nextSpec.push({ rung: s.key,
+          cls: (j || left ? "ghost small" : (nuxPointsAtRung() ? "rung-point" : "")) + (solved ? " free" : ""),
           text: `${n} · ${s.label}${solved ? " · free" : ""}` });
       });
       togo.filter((t) => open.indexOf(t) < 0).forEach(({ s, n }) => {
@@ -5878,6 +5925,7 @@
 
   function boot() {
     bindFeedback();
+    bindWelcome();
     // The lesson is /learn/ — a page, reached by a plain link in the header.
     // It is a document you read end to end, and it outgrew the collapsible
     // section it used to live in on this page.
