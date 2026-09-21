@@ -840,11 +840,11 @@ assert(registry["hint-next"].children.filter((c) => /rung-point/.test(c.classNam
   pointed.layout(700, 44);
   global.window.scrollTo({ top: 200 });
   assert(!spot.classList.contains("hidden"), "the scrim is up while the line is asking for a press");
-  // The step they have already earned is in the island with the rung it names.
-  // The rungs NOT being pointed at are what stays dark — and so is the line,
-  // which the spotlight says for itself, beside the hole rather than inside it.
-  assert(spot.style.top === "554px" && spot.style.height === "196px",
-    "the light covers the panel's own words and the rung it names, padded: "
+  // The hole holds the rung and nothing else: not the other rungs, not the
+  // steps already climbed above it, and not the line, which the spotlight says
+  // for itself beside the hole rather than inside it.
+  assert(spot.style.top === "694px" && spot.style.height === "56px",
+    "the light covers the rung the line names, padded, and nothing else: "
     + spot.style.top + " / " + spot.style.height);
   assert(registry["spot-say"].textContent === registry["nux"].textContent
          && /in-spot/.test(registry["nux"].className || ""),
@@ -853,7 +853,7 @@ assert(registry["hint-next"].children.filter((c) => /rung-point/.test(c.classNam
   // a hole that has to be redrawn on every frame of it is wrong on the frame it
   // misses — which is the one where it sits over the wrong row.
   global.window.scrollTo({ top: 260 });
-  assert(spot.style.top === "554px", "the hole is welded to the page: " + spot.style.top);
+  assert(spot.style.top === "694px", "the hole is welded to the page: " + spot.style.top);
   pointed.layout(0, 0);
   registry["nux"].layout(0, 0);
   registry["hint-body"].layout(0, 0);
@@ -6152,12 +6152,12 @@ global.realSetTimeout(() => {
   // and type it in, which is the one way of finishing a clue that costs nothing.
   let typing = false;
   for (let i = 0; i < 12 && !typing; i += 1) {
-    if (/type the answer into the grid/.test(press.registry["nux"].textContent)) { typing = true; break; }
+    if (/type the answer into the lit boxes/.test(press.registry["nux"].textContent)) { typing = true; break; }
     if (!pressTake()) break;
   }
   assert(typing, "the walk ends by asking them for the answer: " + press.registry["nux"].textContent);
-  assert(press.registry["grid"].children.some((c) => c.classList.contains("walk-point")),
-    "and the empty squares are what is lit by then");
+  assert(/walk-point/.test(press.registry["hint-pattern"].innerHTML || ""),
+    "and the boxes lit are the strip in the panel, beside the pieces they are worked out from");
   assert(!press.registry["spotlight"].classList.contains("hidden"),
     "with the scrim still up around them — the walk lightboxes every step it has");
   for (let i = 0; i < 12 && Number(press.storage["ct:nux"]) < 2; i += 1) {
@@ -6171,9 +6171,19 @@ global.realSetTimeout(() => {
   for (let i = 0; i < 12 && Number(press.storage["ct:nux"]) < 4; i += 1) {
     if (!pressTake()) break;
   }
+  // The walk ends by saying it has ended, rather than by a line simply not
+  // coming back — and with nothing lit, because there is nothing left to show.
+  assert(!press.registry["nux"].classList.contains("hidden")
+         && /that is the tour/i.test(press.registry["nux"].textContent),
+    "the last line says the tour is over: " + press.registry["nux"].textContent);
+  assert(press.registry["spotlight"].classList.contains("hidden"),
+    "and points at nothing: the page is handed back");
+  for (let i = 0; i < 12 && Number(press.storage["ct:nux"]) < 5; i += 1) {
+    if (!pressTake()) break;
+  }
   assert(press.registry["nux"].classList.contains("hidden"),
     "the lines are finite: " + press.registry["nux"].textContent);
-  assert(Number(press.storage["ct:nux"]) >= 4,
+  assert(Number(press.storage["ct:nux"]) >= 5,
     "the cursor is spent past the last line: " + press.storage["ct:nux"]);
 
   // The other side of the same decision: a tally of more than one day is a

@@ -273,6 +273,12 @@
       text: "Solve a clue and the rest of its write-up costs nothing: open it anyway and see how it was built." },
     { id: "score",
       text: "Hints are what the score counts, not time \u2014 so a clue you get on two is worth more than one you got on six." },
+    // The walk ends by saying it has ended. Without this the last line simply
+    // stops appearing, which reads as the site having lost its place rather
+    // than as a tour that finished. Nothing is pointed at: there is nothing
+    // left to be shown, so the scrim stays down and the page is handed back.
+    { id: "done",
+      text: "That is the tour \u2014 the ladder, the steps you can answer for free, and what the score counts. From here the page stays out of your way." },
   ];
   // An integer index into NUX_LINES, or null for a browser that is owed none of
   // them. undefined until the first visit this code has seen, which is the only
@@ -409,7 +415,7 @@
   // Named, because the walk both says it and acts on it: saying it is what
   // sends the eye to the grid, so the two cannot be allowed to drift apart.
   const TYPE_IT_LINE = "That is every piece. Put them together and type the answer"
-    + " into the grid \u2014 the one way of finishing a clue that charges nothing.";
+    + " into the lit boxes \u2014 the one way of finishing a clue that charges nothing.";
 
   function nuxDraw() {
     const el = $("nux");
@@ -437,13 +443,13 @@
       nuxDrawn = want;
       el.classList.toggle("hidden", !live);
       if (live) el.textContent = text;
-      // The one step of the walk that points somewhere else on the page. The
-      // last rung press scrolled the panel up, so the squares being lit are
-      // off the top of a phone: the light is useless until the grid is where
-      // the eye is.
-      const grid = live && typeIt ? $("grid") : null;
-      if (grid && grid.scrollIntoView) {
-        grid.scrollIntoView({ behavior: "smooth", block: "center" });
+      // The step that needs a different part of the panel in view: the pieces
+      // are read from the top of it and the strip is above them, while the last
+      // rung press left the eye at the bottom of the row. Brought to the top of
+      // the window rather than the middle, so the blocks below it come with it.
+      const strip = live && typeIt ? $("hint-pattern") : null;
+      if (strip && strip.scrollIntoView) {
+        strip.scrollIntoView({ behavior: "smooth", block: "start" });
         // The hole is in page coordinates, so the scroll carries it along and
         // there is nothing to redraw as the page moves. Only the caption needs
         // a second look: which side of the hole it goes on is a question about
@@ -500,20 +506,29 @@
       // A question on the table. The words that would answer it are marked
       // where they sit, which for most rungs is up in the clue, not in the panel.
       if (clue && /walk-point/.test(clue.innerHTML || "")) out.push(clue);
-      if (body) out.push(body);
+      // The question itself, not the whole panel. Everything already bought sits
+      // in the same box above it, and a hole big enough to hold that lights the
+      // part of the lesson that is over. The question is written last into the
+      // body, so it is the body's last child.
+      const kids = (body && body.children) || [];
+      if (body) out.push(kids[kids.length - 1] || body);
     } else if (nuxTypeIt(on)) {
-      // Work it out and type it in: the empty squares, and nothing else. Read
-      // off the model rather than the class the grid paints, because the line
-      // is redrawn either side of refreshGrid and a hole that waited for the
-      // class would be empty on one of the two passes.
-      (entryCells(on) || []).forEach((c) => { if (c.el && !c.letter) out.push(c.el); });
+      // Work it out and type it in. The boxes to type into are the letter strip
+      // in the panel, not the squares up in the grid: working the answer out
+      // takes every piece the blocks rung just put on the table, and a hole over
+      // the grid leaves all of them in the dark. The strip types into the same
+      // entry the grid does, so nothing is lost by staying here.
+      const strip = $("hint-pattern");
+      if (strip) out.push(strip);
+      if (body) out.push(body);
       if (!out.length) return [];
     } else {
       const rung = nuxRung();
       if (!rung) return [];
+      // The rung and nothing else: the step being pointed at is the one thing
+      // to act on, and the rungs already climbed are behind the scrim with the
+      // rest of the page.
       out.push(rung);
-      // What the ladder has said so far, directly above the line.
-      if (body && body.innerHTML) out.push(body);
     }
     return out;
   }
@@ -4353,6 +4368,9 @@
   // nothing will ever cross them, so they have to come out of the wordplay.
   function patternHTML(e) {
     const cs = entryCells(e);
+    // The walk's last instruction points at this strip, so the strip is what
+    // wears the pulse — same mark the grid's own empty squares take.
+    const typeIt = nuxTypeIt(e);
     const breaks = enumBreaks(e.clue, cs.length);
     let filled = 0, checked = 0;
     const boxes = cs.map((c, idx) => {
@@ -4364,6 +4382,7 @@
       if (c.wrong) cls.push("wrong");
       else if (c.revealed) cls.push("revealed");
       if (c.x === cur.x && c.y === cur.y) cls.push("cur");
+      if (typeIt && !c.letter) cls.push("walk-point");
       const title = (c.letter ? esc(c.letter) : "blank") + (isChecked ? ", checked" : ", unchecked");
       // A button, not a span: the strip doubles as a way to move the cursor
       // without hunting for the square in the grid (data-i is the index in the
