@@ -105,13 +105,16 @@ if [ "${CT_IN_WORKTREE:-0}" != 1 ] && [ "${CT_NO_WORKTREE:-0}" != 1 ]; then
   fi
 
   if [ -n "$_ct_tree" ]; then
-    # The puzzle manifest is generated and not tracked, so a tree just reset to
-    # origin/master has either no index at all (a tree made tonight) or the one
-    # the last run left, describing puzzle files the reset has since changed.
-    # Every job here reads it long before it reaches its own reindex, so it is
-    # rebuilt once, here, where the tree changed.
+    # The generated files are not tracked, so a tree just reset to origin/master
+    # has either none of them (a tree made tonight) or the ones the last run
+    # left, describing files the reset has since changed. Every job reads them —
+    # and every page in the tree names them by content hash — long before the
+    # job reaches its own build step, so they are rebuilt once, here, where the
+    # tree changed.
     (cd "$_ct_tree" && python3 tools/fetch_puzzle.py --reindex >/dev/null) ||
       echo "WORKTREE: could not rebuild puzzles/index.* in $_ct_tree — the job will read a stale or missing manifest" >&2
+    (cd "$_ct_tree" && python3 tools/build_abbreviations.py >/dev/null) ||
+      echo "WORKTREE: could not rebuild abbreviations.js in $_ct_tree — every tool that stamps a page referencing it will stop" >&2
     # One copy of each, in the main checkout, reached from everywhere.
     for _ct_share in .claude .alert-state .usage_cache.json; do
       [ -e "$_ct_tree/$_ct_share" ] && continue
