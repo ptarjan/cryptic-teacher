@@ -835,21 +835,24 @@ assert(registry["hint-next"].children.filter((c) => /rung-point/.test(c.classNam
 {
   const pointed = registry["hint-next"].children.filter((c) => /rung-point/.test(c.className || ""))[0];
   const spot = registry["spotlight"];
+  registry["hint-body"].layout(560, 60);   // whatever the ladder has said so far
   registry["nux"].layout(640, 50);   // the line, sitting just above the row
   pointed.layout(700, 44);
   global.window.scrollTo({ top: 200 });
   assert(!spot.classList.contains("hidden"), "the scrim is up while the line is asking for a press");
-  // Both boxes, as one island: the sentence explaining the press cannot be the
-  // thing the scrim hides.
-  assert(spot.style.top === "434px" && spot.style.height === "116px",
-    "and the light covers the line and the rung it names, padded: "
+  // Three boxes, as one island: neither the sentence explaining the press nor
+  // the step they have already earned can be the thing the scrim hides. The
+  // rungs NOT being pointed at are what stays dark.
+  assert(spot.style.top === "354px" && spot.style.height === "196px",
+    "the light covers the panel's own words, the line and the rung it names, padded: "
     + spot.style.top + " / " + spot.style.height);
   // Viewport space, and the dialog hands off with a smooth scroll: a hole that
   // is only right where it was measured is wrong by the time anyone sees it.
   global.window.scrollTo({ top: 260 });
-  assert(spot.style.top === "374px", "the hole follows the page: " + spot.style.top);
+  assert(spot.style.top === "294px", "the hole follows the page: " + spot.style.top);
   pointed.layout(0, 0);
   registry["nux"].layout(0, 0);
+  registry["hint-body"].layout(0, 0);
   global.window.scrollTo({ top: 0 });
   global.window.scrolls.length = 0;
 }
@@ -940,12 +943,14 @@ const btnNames = () => registry["hint-next"].children.map((b) => b.textContent).
 // because the cursor is the only thing keeping exactly one of them on screen.
 // Deliberately after the cold-ladder block rather than before it — everything
 // in there is asserted against a ladder nobody has climbed.
-assert(!/written up/.test(registry["nux"].textContent),
-  "the first hint takes the line about taking hints away: " + registry["nux"].textContent);
-assert(!registry["nux"].classList.contains("hidden") && /costs nothing/.test(registry["nux"].textContent),
-  "and the next line takes its place, about the write-up being free once solved: "
-  + registry["nux"].textContent);
-assert(storage["ct:nux"] === "2", "the cursor moved on with it: " + storage["ct:nux"]);
+// The ladder line is the one exception to "a line is spent by the first thing
+// that answers it". It is about a ROW of buttons, and one press has taught what
+// one button does, so it rewords itself and the light moves down the ladder.
+assert(!/written up/.test(registry["nux"].textContent)
+       && /a bit more/.test(registry["nux"].textContent),
+  "one rung rewords the ladder line rather than spending it: " + registry["nux"].textContent);
+assert(storage["ct:nux"] === "1",
+  "and the cursor stays on it for the rest of the walk: " + storage["ct:nux"]);
 
 registry["reset-puzzle"].onclick();   // back to a clean slate for the in-order walk
 
@@ -988,8 +993,8 @@ while (leadRung() && clicks < 12) {
     // One rung into this walk is one more hint, so the third and last line is
     // up: what the score actually charges for. Asserted here rather than after
     // the loop because the same climb spends it again a click later.
-    assert(/score counts/.test(registry["nux"].textContent),
-      "the last line is about what the score charges: " + registry["nux"].textContent);
+    assert(/a bit more/.test(registry["nux"].textContent),
+      "one rung in, the line is still walking them down the ladder: " + registry["nux"].textContent);
   }
   // Wherever the family rung lands, it gives the FAMILY only — never the
   // precise (often compound) type, which is the blocks rung's to give.
@@ -1013,9 +1018,13 @@ assert(rungs >= 3 && rungs <= 5, "ladder has a sane number of rungs, got " + run
 // ...and having taught the site, the site shuts up. The cursor is past the last
 // line, the slot is empty, and nothing in the app moves it back: a newcomer gets
 // three sentences in their life, not a banner that returns every session.
-assert(registry["nux"].classList.contains("hidden"),
-  "the lines are finite: " + registry["nux"].textContent);
-assert(Number(storage["ct:nux"]) >= 4, "the cursor is spent past the last line: " + storage["ct:nux"]);
+assert(!registry["nux"].classList.contains("hidden") && /costs nothing/.test(registry["nux"].textContent),
+  "a finished ladder hands over to the next line: " + registry["nux"].textContent);
+assert(storage["ct:nux"] === "2",
+  "and the whole walk spent exactly one line, not one per rung: " + storage["ct:nux"]);
+// The site shutting up for good is checked on its own boot, below: doing it
+// here means resetting the puzzle, and everything after this line is asserted
+// against the ladder this walk just exhausted.
 // Each rung reports itself by name. beacon() drops anything not on the shared
 // list, so this is where a rung whose key never reaches the beacon shows up:
 // "hint-undefined" is silently discarded and nothing is counted at all.
@@ -6085,18 +6094,58 @@ global.realSetTimeout(() => {
   const press = require("./fake_dom.js").boot({
     storage: { "ct:seen": JSON.stringify({ last: today, days: 1 }) } });
   press.registry["welcome-go"].onclick();
-  const lit = press.registry["hint-next"].children.filter(
+  const litRung = () => press.registry["hint-next"].children.filter(
     (c) => /rung-point/.test(c.className || ""))[0];
+  const lit = litRung();
   assert(lit && !press.registry["spotlight"].classList.contains("hidden"),
     "starting lights one rung and darkens the rest of the page");
+  const firstLabel = lit.textContent;
   lit.onclick();
   assert(press.registry["spotlight"].classList.contains("hidden"),
-    "and taking that rung puts the scrim away, not just the sentence");
+    "a question on the table takes the scrim down — it is the thing they now have to read");
   // The sentence outlives the scrim on purpose: this rung asks before it tells,
-  // and the line is spent by the rung opening, not by the button going down.
+  // and the line is spent by the ladder running out, not by a button going down.
   assert(/\?|hint-step/.test(press.registry["hint-body"].innerHTML),
     "the press put something in the panel to read: "
     + press.registry["hint-body"].innerHTML.slice(0, 200));
+  // And the walk goes on. One press teaches what one button does; the row is
+  // what the line is about, so opening a rung hands the light to the next one
+  // rather than ending the lesson.
+  press.registry["guess-tell"].onclick();
+  const second = litRung();
+  assert(second && second.textContent !== firstLabel,
+    "the light moves down the ladder instead of going out: "
+    + (second ? second.textContent : "nothing lit"));
+  assert(!press.registry["spotlight"].classList.contains("hidden"),
+    "and the scrim comes back around it");
+  assert(/a bit more/.test(press.registry["nux"].textContent),
+    "the line changes its words once they have taken one: " + press.registry["nux"].textContent);
+  // ...and having taught the site, the site shuts up. The ladder line is spent
+  // by the last rung rather than the first, and the two after it are spent one
+  // hint each, so a second ladder empties the slot for good: a newcomer gets
+  // these sentences once in their life, not a banner that returns every session.
+  const pressTake = () => {
+    const b = press.registry["hint-next"].children[0];
+    if (!b || !b.onclick || b.disabled || b.id === "hx-entry") return false;
+    b.onclick();
+    if (isAsking(press.registry["hint-body"])) press.registry["guess-tell"].onclick();
+    return true;
+  };
+  for (let i = 0; i < 12 && Number(press.storage["ct:nux"]) < 2; i += 1) {
+    if (!pressTake()) break;
+  }
+  assert(press.storage["ct:nux"] === "2",
+    "the whole ladder spends exactly one line: " + press.storage["ct:nux"]);
+  assert(press.registry["spotlight"].classList.contains("hidden"),
+    "and the scrim goes out with it — there is no next rung to point at");
+  press.registry["reset-puzzle"].onclick();
+  for (let i = 0; i < 12 && Number(press.storage["ct:nux"]) < 4; i += 1) {
+    if (!pressTake()) break;
+  }
+  assert(press.registry["nux"].classList.contains("hidden"),
+    "the lines are finite: " + press.registry["nux"].textContent);
+  assert(Number(press.storage["ct:nux"]) >= 4,
+    "the cursor is spent past the last line: " + press.storage["ct:nux"]);
 
   // The other side of the same decision: a tally of more than one day is a
   // returning solver, who must never be taught the site.

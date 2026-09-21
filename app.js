@@ -263,7 +263,12 @@
     // it, not a sentence.
     { id: "welcome", modal: true },
     { id: "ladder",
-      text: "Stuck? Every clue here is written up, and these buttons open it one step at a time. Take one \u2014 that is what they are for \u2014 and stop the moment you can see it." },
+      text: "Stuck? Every clue here is written up, and these buttons open it one step at a time. Take one \u2014 that is what they are for \u2014 and stop the moment you can see it.",
+      // The one line that outlives its first press. A newcomer who takes a rung
+      // has learned what one button does, not what the row is for, so the light
+      // moves down the ladder with them and the sentence changes to the thing
+      // that is still worth saying. Spent by the last rung or by solving.
+      again: "That is one step. Each button below says a bit more than the one above it \u2014 keep going, and stop the moment you can see the answer." },
     { id: "free",
       text: "Solve a clue and the rest of its write-up costs nothing: open it anyway and see how it was built." },
     { id: "score",
@@ -274,10 +279,9 @@
   // time the question can still be asked.
   let nux = store.get(NUX_KEY, undefined);
   let nuxDrawn = null;   // the id currently on screen, so a keystroke redraws nothing
-  // The scrim is spent by the press, which is earlier than the line it belongs
-  // to: a rung asks its question before it tells, and the page must be lit to
-  // read that question. The sentence stays until the rung actually opens.
-  let spotSpent = false;
+  // Whether this browser has taken a rung since the ladder line went up, which
+  // is the difference between the two wordings of that line.
+  let nuxWalked = false;
 
   function nuxSeed(first) {
     if (nux !== undefined) return;
@@ -296,6 +300,18 @@
   }
 
 
+  // What taking a rung does to the cursor. Every line but the ladder one is
+  // spent by the first thing that answers it; the ladder line is about a row of
+  // buttons and is spent by the last of them, so until then the press only
+  // clears the scrim, which the next row build puts back over the next rung.
+  function nuxRungTaken(e) {
+    if (!nuxPointsAtRung()) { nuxAdvance(); return; }
+    nuxWalked = true;
+    const steps = ladderSteps(annOf(e), e.clue);
+    if (steps.every((st) => isShown(e, st.key))) { nuxAdvance(); return; }
+    nuxDraw();
+  }
+
   // Drawn from refreshAll, after the panel it sits in. Every line is about the
   // row of rung buttons, so every one waits for that row to exist: a clue with no
   // annotation has no ladder to explain, and an unannotated puzzle must not
@@ -305,6 +321,19 @@
   // someone looking at five identical buttons for the first time.
   function nuxPointsAtRung() {
     return typeof nux === "number" && NUX_LINES[nux] && NUX_LINES[nux].id === "ladder";
+  }
+
+  // Which rung the lesson is allowed to light. A rung that simply hands its
+  // hint over costs score, and marching a newcomer into that teaches them the
+  // ladder is a shop. A rung that asks before it tells is free to anyone who
+  // answers it, and every rung is free once the clue is solved; those are the
+  // ones worth walking someone through. When the lead rung is not one of them
+  // the light goes out and the walk waits, rather than spending their score
+  // for them.
+  function nuxFreeRung(e, key, solved) {
+    if (!nuxPointsAtRung()) return false;
+    if (solved) return true;
+    return !!(GUESSABLE[key] && guessAsk(e, key, 0));
   }
 
   // The dialog is spent by starting, like every line is spent by doing. Going on
@@ -341,11 +370,14 @@
     const live = !!line && !line.modal
                  && !$("hint-panel").classList.contains("hidden")
                  && $("hint-next").childElementCount > 0;
-    const want = live ? line.id : null;
+    const text = (line && line.again && nuxWalked) ? line.again : (line ? line.text : "");
+    // The id alone is not the identity of what is on screen: the ladder line
+    // stays current across the whole walk and changes its words halfway.
+    const want = live ? line.id + "/" + text.length : null;
     if (nuxDrawn !== want) {
       nuxDrawn = want;
       el.classList.toggle("hidden", !live);
-      if (live) el.textContent = line.text;
+      if (live) el.textContent = text;
     }
     // Outside the redraw guard: the sentence does not change while it is up, but
     // the button it is about moves under every scroll.
@@ -377,7 +409,12 @@
     if (!spot) return;
     // nuxDrawn, not nux: the line and the light are the same instruction, so the
     // scrim is up exactly when the sentence explaining it is on screen.
-    const el = (nuxDrawn && !spotSpent) ? nuxRung() : null;
+    // A question on the table takes the scrim down: the rung asks before it
+    // tells, the question is what the solver now has to read and tap, and the
+    // page cannot be dark over it. It comes back when the rung opens.
+    const on = currentEntry();
+    const asking = !!(guessing && on && guessing.key === entryKey(on));
+    const el = (nuxDrawn && !asking) ? nuxRung() : null;
     if (!el) { spot.classList.add("hidden"); return; }
     // The line goes in the lit island with the button. Lifting it above the
     // scrim instead needs a z-index that beats a FIXED element, which a box
@@ -385,8 +422,13 @@
     // the number is spent against its siblings and the scrim still paints over
     // it. One rect over both is the version with nothing to get wrong.
     const line = $("nux");
+    const body = $("hint-body");
     const boxes = [el.getBoundingClientRect()];
     if (line && !line.classList.contains("hidden")) boxes.push(line.getBoundingClientRect());
+    // What the ladder has said so far. It sits directly above the line, so the
+    // union is still one block, and the rungs NOT being pointed at stay dark —
+    // which is the whole point of the scrim.
+    if (body && body.innerHTML) boxes.push(body.getBoundingClientRect());
     const pad = 6;
     const top = Math.min.apply(null, boxes.map((b) => b.top)) - pad;
     const left = Math.min.apply(null, boxes.map((b) => b.left)) - pad;
@@ -2735,7 +2777,7 @@
     beacon("hint-" + rung);
     // Asked for and got: whatever line is up, the solver has just worked the
     // ladder, which is what all of them are asking for.
-    nuxAdvance();
+    nuxRungTaken(e);
     saveState();
   }
 
@@ -4314,9 +4356,6 @@
         // one, and only its "next piece" button sets it; everything else asks
         // its single question at step 0.
         const at = b.step || 0;
-        // They did the thing the scrim was asking for, whatever this rung does
-        // next: keeping the page dark over a question would darken the answer.
-        spotSpent = true;
         const asked = GUESSABLE[b.rung] && !isEntrySolved(on) && guessAsk(on, b.rung, at);
         if (asked) {
           guessing = { key: entryKey(on), rung: b.rung, step: at, picked: [],
@@ -4625,7 +4664,11 @@
       const left = !solved && isShown(e, "blocks") ? piecesLeft(e) : 0;
       if (left) {
         const total = blockPieces(e).length;
+        // The piece is already paid for, so the walk follows it: this button
+        // leads the row, and a light that skipped it would go dark in the
+        // middle of the one rung that takes several presses.
         nextSpec.push({ rung: "blocks", step: total - left,
+          cls: nuxPointsAtRung() ? "rung-point" : "",
           text: `Next piece · ${total - left + 1} of ${total}` });
       }
       open.forEach(({ s, n }, j) => {
@@ -4644,7 +4687,7 @@
         // is. Only while the cursor is still on the ladder line, so it stops at
         // the first hint along with the sentence that asked for it.
         nextSpec.push({ rung: s.key,
-          cls: (j || left ? "ghost small" : (nuxPointsAtRung() ? "rung-point" : "")) + (solved ? " free" : ""),
+          cls: (j || left ? "ghost small" : (nuxFreeRung(e, s.key, solved) ? "rung-point" : "")) + (solved ? " free" : ""),
           text: `${n} · ${s.label}${solved ? " · free" : ""}` });
       });
       togo.filter((t) => open.indexOf(t) < 0).forEach(({ s, n }) => {
