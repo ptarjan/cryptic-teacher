@@ -811,12 +811,23 @@ const patBoxes = () => (patHTML().match(/class="pat-box [^"]*"/g) || []);
 // the only visit owed these lines. Asserted HERE, before anything below climbs a
 // ladder, because the first rung taken is what spends the first line: run this
 // any later and it passes on a site that never showed it at all.
-assert(!registry["nux"].classList.contains("hidden"),
-  "a first-ever visit gets a line telling it what the buttons under the grid are");
-assert(/written up/.test(registry["nux"].textContent),
-  "and it is the one about every clue being written up: " + registry["nux"].textContent);
+assert(!registry["welcome"].classList.contains("hidden"),
+  "a first-ever visit is met by the worked example, over the grid and before it");
+assert(registry["nux"].classList.contains("hidden"),
+  "and by nothing else: the dialog and the lines are one cursor, so only one is ever up");
 assert(storage["ct:nux"] === "0",
   "the cursor is written on that first visit, not left for the next one: " + storage["ct:nux"]);
+// Starting is what spends it, the way taking a hint spends every line after.
+// The rung the dialog promised to point at is marked only once the dialog is
+// gone, because the row was built while it was still up.
+registry["welcome-go"].onclick();
+assert(registry["welcome"].classList.contains("hidden"), "the dialog goes when you start");
+assert(!registry["nux"].classList.contains("hidden") && /written up/.test(registry["nux"].textContent),
+  "and hands over to the line about the buttons: " + registry["nux"].textContent);
+assert(storage["ct:nux"] === "1", "cursor moved to the ladder line: " + storage["ct:nux"]);
+assert(registry["hint-next"].children.filter((c) => /rung-point/.test(c.className || "")).length === 1,
+  "exactly one rung is pointed at, and it is the one the line means: "
+  + registry["hint-next"].children.map((c) => c.className).join("|"));
 
 // A first visit is a BROWSER that has been here one day, not a page load that
 // happened to be the first of a day. reportVisit stops early once it has sent
@@ -828,16 +839,25 @@ assert(storage["ct:nux"] === "0",
   const today = new Date().toISOString().slice(0, 10);
   const again = require("./fake_dom.js").boot({
     storage: { "ct:seen": JSON.stringify({ last: today, days: 1 }) } });
-  assert(!again.registry["nux"].classList.contains("hidden")
-         && /written up/.test(again.registry["nux"].textContent),
-    "a second load on a browser's first day still gets the line: "
-    + again.registry["nux"].textContent);
+  assert(!again.registry["welcome"].classList.contains("hidden"),
+    "a second load on a browser's first day is still met by the dialog");
   assert(again.storage["ct:nux"] === "0",
     "and the cursor is seeded past the once-a-day beacon gate: " + again.storage["ct:nux"]);
+  // Saying you already solve cryptics spends the whole cursor, not one step of
+  // it: everything left is the same lesson, and offering the next sentence to
+  // someone who just said no is the tour this is not.
+  again.registry["welcome-skip"].onclick();
+  assert(again.registry["welcome"].classList.contains("hidden")
+         && again.registry["nux"].classList.contains("hidden"),
+    "skipping puts the whole thing away, dialog and lines both");
+  assert(Number(again.storage["ct:nux"]) >= 4,
+    "and spends the cursor past the last line: " + again.storage["ct:nux"]);
   // The other side of the same decision: a tally of more than one day is a
   // returning solver, who must never be taught the site.
   const regular = require("./fake_dom.js").boot({
     storage: { "ct:seen": JSON.stringify({ last: today, days: 5 }) } });
+  assert(regular.registry["welcome"].classList.contains("hidden"),
+    "a regular is not stopped by the dialog");
   assert(regular.registry["nux"].classList.contains("hidden"),
     "a regular gets no line: " + regular.registry["nux"].textContent);
   assert(regular.storage["ct:nux"] === "null",
@@ -935,7 +955,7 @@ assert(!/written up/.test(registry["nux"].textContent),
 assert(!registry["nux"].classList.contains("hidden") && /costs nothing/.test(registry["nux"].textContent),
   "and the next line takes its place, about the write-up being free once solved: "
   + registry["nux"].textContent);
-assert(storage["ct:nux"] === "1", "the cursor moved on with it: " + storage["ct:nux"]);
+assert(storage["ct:nux"] === "2", "the cursor moved on with it: " + storage["ct:nux"]);
 
 registry["reset-puzzle"].onclick();   // back to a clean slate for the in-order walk
 
@@ -1005,7 +1025,7 @@ assert(rungs >= 3 && rungs <= 5, "ladder has a sane number of rungs, got " + run
 // three sentences in their life, not a banner that returns every session.
 assert(registry["nux"].classList.contains("hidden"),
   "the lines are finite: " + registry["nux"].textContent);
-assert(Number(storage["ct:nux"]) >= 3, "the cursor is spent past the last line: " + storage["ct:nux"]);
+assert(Number(storage["ct:nux"]) >= 4, "the cursor is spent past the last line: " + storage["ct:nux"]);
 // Each rung reports itself by name. beacon() drops anything not on the shared
 // list, so this is where a rung whose key never reaches the beacon shows up:
 // "hint-undefined" is silently discarded and nothing is counted at all.
