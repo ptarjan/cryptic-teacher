@@ -100,5 +100,58 @@ check "a matching page and commit is live" \
 check "a stale stamp fails, after looking, and says which asset and what it got" \
   "$(printf '%s' "$out" | grep -c '^stale 1 fetched 1 names True$')" 1
 
+echo "a build that has not finished is not a site that never came back"
+# The github-pages environment deploys one commit at a time, so a push that
+# lands behind another waits in the queue for minutes before its own build
+# starts. On 2026-09-21 the nightly ran out of its five minutes while its build
+# was still queued and alerted that the site had not published — it published
+# four minutes later. The clock running out is only a failure if nothing is
+# coming, so the verdict now asks.
+out=$(python3 - <<'EOF'
+import io, sys
+from contextlib import redirect_stderr, redirect_stdout
+sys.path.insert(0, "tools")
+import wait_for_deploy as w
+
+head = "0" * 40
+want = w.want_stamps()
+stale = " ".join(f'"{k}?v=deadbeef"' for k in want)
+w.fetch = lambda: stale
+w.built_commit = lambda: "f" * 40
+w.subprocess.run = lambda *a, **k: type("R", (), {"stdout": head, "returncode": 0})()
+w.time.sleep = lambda _s: None
+
+asked = []
+
+
+def run(states, max_wait):
+    asked.clear()
+
+    def deploy_status(sha):
+        asked.append(sha)
+        return states[min(len(asked) - 1, len(states) - 1)]
+    w.deploy_status = deploy_status
+    err, out = io.StringIO(), io.StringIO()
+    sys.argv = ["wait_for_deploy.py", "--timeout", "0", "--max-wait", str(max_wait)]
+    with redirect_stderr(err), redirect_stdout(out):
+        code = w.main()
+    return code, (err.getvalue() + out.getvalue()).strip()
+
+
+code, note = run(["in_progress", "in_progress", "failure"], 60)
+print(f"queued {code} asked {len(asked)} says {'failure' in note}")
+code, note = run(["in_progress"], 0)
+print(f"ceiling {code} asked {len(asked)} says {'in_progress' in note}")
+code, note = run([""], 60)
+print(f"norun {code} asked {len(asked)}")
+EOF
+) || out="raised: $out"
+check "it waits out a queued build and then reports what the build actually did" \
+  "$(printf '%s' "$out" | grep -c '^queued 1 asked 3 says True$')" 1
+check "it gives up at --max-wait and names the state it gave up on" \
+  "$(printf '%s' "$out" | grep -c '^ceiling 1 asked 1 says True$')" 1
+check "and with no build for the commit at all it fails on the first look" \
+  "$(printf '%s' "$out" | grep -c '^norun 1 asked 1$')" 1
+
 [ "$fails" = 0 ] && echo "wait for deploy: all checks passed" || echo "wait for deploy: $fails FAILED"
 exit $((fails > 0))
