@@ -6105,6 +6105,12 @@ global.realSetTimeout(() => {
     "a question on the table takes the scrim down — it is the thing they now have to read");
   // The sentence outlives the scrim on purpose: this rung asks before it tells,
   // and the line is spent by the ladder running out, not by a button going down.
+  // And while the question is up it says the answer to it. That pointing at the
+  // right words yourself opens a rung for nothing is the one thing a newcomer
+  // cannot discover by pressing buttons, so the walk shows it being done.
+  assert(/costs you nothing/.test(press.registry["nux"].textContent)
+         && /\u201c/.test(press.registry["nux"].textContent),
+    "the line answers the question it walked them into: " + press.registry["nux"].textContent);
   assert(/\?|hint-step/.test(press.registry["hint-body"].innerHTML),
     "the press put something in the panel to read: "
     + press.registry["hint-body"].innerHTML.slice(0, 200));
