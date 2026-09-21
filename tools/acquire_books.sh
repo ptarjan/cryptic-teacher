@@ -54,16 +54,47 @@ python3 tools/acquire_book.py "$id" --file --puzzle-dir puzzles
 rc=$?
 
 # 3 is EXIT_LENDING_LIMIT: the account is over its allowance, which says
-# nothing about this book and nothing this run can act on. No alert — an hourly
-# poll that shouts on every refusal is a channel nobody reads by Tuesday.
+# nothing about this book and nothing this run can act on. One refusal is not
+# worth an alert — an hourly poll that shouts on every refusal is a channel
+# nobody reads by Tuesday. A refusal that never stops is a different thing: on
+# 2026-09-21 this job had been refused 39 hours running, the 24 books were
+# still at zero puzzles, and the only reason anyone found out was a ranked
+# audit of a question being asked for the 16th time. A streak past a day is no
+# longer "not yet", it is an account archive.org will not unblock on its own,
+# and the message it returns names the address to write to. So: silent for the
+# first day, once at a day, then once a week while it lasts, and once more when
+# it clears.
+STREAK_FILE="${XDG_STATE_HOME:-$HOME/.local/state}/cryptic-teacher/lending-refusals"
+streak="$(cat "$STREAK_FILE" 2>/dev/null || echo 0)"
+case "$streak" in ''|*[!0-9]*) streak=0 ;; esac
+streak_write() {
+  mkdir -p "$(dirname "$STREAK_FILE")" 2>/dev/null || true
+  printf '%s\n' "$1" > "$STREAK_FILE" 2>/dev/null || true
+}
+STREAK_ALERT_AT=24      # a full day of hourly asks
+STREAK_ALERT_EVERY=168  # and weekly after that
+
 if [ "$rc" = 3 ]; then
-  echo "lending limit — no loan taken, nothing filed; next run asks again"
+  streak=$((streak + 1))
+  streak_write "$streak"
+  echo "lending limit — no loan taken, nothing filed; next run asks again (refusal $streak in a row)"
+  if [ "$streak" = "$STREAK_ALERT_AT" ] ||
+     { [ "$streak" -gt "$STREAK_ALERT_AT" ] &&
+       [ $((streak % STREAK_ALERT_EVERY)) = 0 ]; }
+  then
+    alert "archive.org has refused this account a loan $streak hours in a row, so $(python3 tools/book_queue.py --count) registered books are still at zero puzzles and nothing here will change that. Every one of them reports a free copy — the block is on the account, not the books, and archive.org holds no loan of ours. Its own answer is \"Please try again later or contact info@archive.org\", and later has now been $((streak / 24)) day(s). Write to them, or accept that the book shelf stops here."
+  fi
   exit 0
 fi
 if [ "$rc" != 0 ]; then
   alert "reading $id off archive.org failed (exit $rc) and it was NOT a lending refusal, so the hourly retry will hit the same wall on the same book every hour until someone looks. See .books.log."
   exit 1
 fi
+
+if [ "$streak" -ge "$STREAK_ALERT_AT" ]; then
+  ALERT_ICON="✅" alert "archive.org is lending to this account again after $streak hours of refusals — the hourly book job is reading $id now and will work through the remaining queue an hour at a time."
+fi
+streak_write 0
 
 filed="$(git status --porcelain -- puzzles/ | wc -l | tr -d ' ')"
 if [ "$filed" = 0 ]; then
