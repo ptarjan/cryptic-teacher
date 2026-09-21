@@ -10,6 +10,12 @@ let failures = 0;
 // Returns the condition, so a check whose failure would crash the checks after it
 // can guard them: a stack trace stops the suite dead and hides every other result.
 const assert = (cond, msg) => { if (!cond) { failures++; console.error("FAIL:", msg); } return !!cond; };
+// The walk says its sentence in exactly ONE node: the caption beside the
+// spotlight while there is a hole, the line down in the panel when there is
+// not, and the other one is emptied (sayIt in app.js). Read whichever is
+// saying it — an assertion pinned to one of the two nodes passes or fails on
+// where the sentence happens to be, which is not what any of them are about.
+const nuxLine = (reg) => reg["spot-say"].textContent || reg["nux"].textContent;
 
 // The crawlable pages this test reads are generated and not committed, so a
 // checkout that has not built them cannot be smoke-tested at all. Stop with the
@@ -914,8 +920,8 @@ assert(storage["ct:nux"] === "0",
 // gone, because the row was built while it was still up.
 registry["welcome-go"].onclick();
 assert(registry["welcome"].classList.contains("hidden"), "the dialog goes when you start");
-assert(!registry["nux"].classList.contains("hidden") && /written up/.test(registry["nux"].textContent),
-  "and hands over to the line about the buttons: " + registry["nux"].textContent);
+assert(!registry["nux"].classList.contains("hidden") && /written up/.test(nuxLine(registry)),
+  "and hands over to the line about the buttons: " + nuxLine(registry));
 assert(storage["ct:nux"] === "1", "cursor moved to the ladder line: " + storage["ct:nux"]);
 assert(registry["hint-next"].children.filter((c) => /rung-point/.test(c.className || "")).length === 1,
   "exactly one rung is pointed at, and it is the one the line means: "
@@ -938,9 +944,14 @@ assert(registry["hint-next"].children.filter((c) => /rung-point/.test(c.classNam
   assert(spot.style.top === "694px" && spot.style.height === "56px",
     "the light covers the rung the line names, padded, and nothing else: "
     + spot.style.top + " / " + spot.style.height);
-  assert(registry["spot-say"].textContent === registry["nux"].textContent
+  // Said ONCE, by the light — and the panel's own line is left EMPTY rather than
+  // merely hidden. Two nodes holding the same sentence put a stylesheet between
+  // the solver and reading it twice, which is a thing that happened.
+  assert(/written up/.test(registry["spot-say"].textContent)
+         && registry["nux"].textContent === ""
          && /in-spot/.test(registry["nux"].className || ""),
-    "and the sentence is said once, by the light: " + registry["spot-say"].textContent);
+    "and the sentence is said once, by the light: " + registry["spot-say"].textContent
+    + " / line: " + JSON.stringify(registry["nux"].textContent));
   // Page space, not window space: the dialog hands off with a smooth scroll, and
   // a hole that has to be redrawn on every frame of it is wrong on the frame it
   // misses — which is the one where it sits over the wrong row.
@@ -1042,9 +1053,9 @@ const btnNames = () => registry["hint-next"].children.map((b) => b.textContent).
 // The ladder line is the one exception to "a line is spent by the first thing
 // that answers it". It is about a ROW of buttons, and one press has taught what
 // one button does, so it rewords itself and the light moves down the ladder.
-assert(!/written up/.test(registry["nux"].textContent)
-       && /a bit more/.test(registry["nux"].textContent),
-  "one rung rewords the ladder line rather than spending it: " + registry["nux"].textContent);
+assert(!/written up/.test(nuxLine(registry))
+       && /a bit more/.test(nuxLine(registry)),
+  "one rung rewords the ladder line rather than spending it: " + nuxLine(registry));
 assert(storage["ct:nux"] === "1",
   "and the cursor stays on it for the rest of the walk: " + storage["ct:nux"]);
 
@@ -1089,8 +1100,8 @@ while (leadRung() && clicks < 12) {
     // One rung into this walk is one more hint, so the third and last line is
     // up: what the score actually charges for. Asserted here rather than after
     // the loop because the same climb spends it again a click later.
-    assert(/a bit more/.test(registry["nux"].textContent),
-      "one rung in, the line is still walking them down the ladder: " + registry["nux"].textContent);
+    assert(/a bit more/.test(nuxLine(registry)),
+      "one rung in, the line is still walking them down the ladder: " + nuxLine(registry));
   }
   // Wherever the family rung lands, it gives the FAMILY only — never the
   // precise (often compound) type, which is the blocks rung's to give.
@@ -1114,8 +1125,8 @@ assert(rungs >= 3 && rungs <= 5, "ladder has a sane number of rungs, got " + run
 // ...and having taught the site, the site shuts up. The cursor is past the last
 // line, the slot is empty, and nothing in the app moves it back: a newcomer gets
 // three sentences in their life, not a banner that returns every session.
-assert(!registry["nux"].classList.contains("hidden") && /costs nothing/.test(registry["nux"].textContent),
-  "a finished ladder hands over to the next line: " + registry["nux"].textContent);
+assert(!registry["nux"].classList.contains("hidden") && /costs nothing/.test(nuxLine(registry)),
+  "a finished ladder hands over to the next line: " + nuxLine(registry));
 assert(storage["ct:nux"] === "2",
   "and the whole walk spent exactly one line, not one per rung: " + storage["ct:nux"]);
 // The site shutting up for good is checked on its own boot, below: doing it
@@ -6212,9 +6223,9 @@ global.realSetTimeout(() => {
   // And while the question is up it says the answer to it. That pointing at the
   // right words yourself opens a rung for nothing is the one thing a newcomer
   // cannot discover by pressing buttons, so the walk shows it being done.
-  assert(/costs you nothing/.test(press.registry["nux"].textContent)
-         && /tap what is lit up/.test(press.registry["nux"].textContent),
-    "the line says the step is theirs to win: " + press.registry["nux"].textContent);
+  assert(/costs you nothing/.test(nuxLine(press.registry))
+         && /tap what is lit up/.test(nuxLine(press.registry)),
+    "the line says the step is theirs to win: " + nuxLine(press.registry));
   // And it POINTS rather than reading the answer out: naming the words in the
   // sentence would teach this one clue, where pointing at them teaches the
   // gesture that makes a rung free anywhere on the site.
@@ -6234,8 +6245,8 @@ global.realSetTimeout(() => {
     + (second ? second.textContent : "nothing lit"));
   assert(!press.registry["spotlight"].classList.contains("hidden"),
     "and the scrim comes back around it");
-  assert(/a bit more/.test(press.registry["nux"].textContent),
-    "the line changes its words once they have taken one: " + press.registry["nux"].textContent);
+  assert(/a bit more/.test(nuxLine(press.registry)),
+    "the line changes its words once they have taken one: " + nuxLine(press.registry));
   // ...and having taught the site, the site shuts up. The ladder line is spent
   // by the last rung rather than the first, and the two after it are spent one
   // hint each, so a second ladder empties the slot for good: a newcomer gets
@@ -6252,10 +6263,10 @@ global.realSetTimeout(() => {
   // and type it in, which is the one way of finishing a clue that costs nothing.
   let typing = false;
   for (let i = 0; i < 12 && !typing; i += 1) {
-    if (/type the answer into the lit boxes/.test(press.registry["nux"].textContent)) { typing = true; break; }
+    if (/type the answer into the lit boxes/.test(nuxLine(press.registry))) { typing = true; break; }
     if (!pressTake()) break;
   }
-  assert(typing, "the walk ends by asking them for the answer: " + press.registry["nux"].textContent);
+  assert(typing, "the walk ends by asking them for the answer: " + nuxLine(press.registry));
   assert(/walk-point/.test(press.registry["hint-pattern"].innerHTML || ""),
     "and the boxes lit are the strip in the panel, beside the pieces they are worked out from");
   assert(!press.registry["spotlight"].classList.contains("hidden"),
@@ -6274,15 +6285,15 @@ global.realSetTimeout(() => {
   // The walk ends by saying it has ended, rather than by a line simply not
   // coming back — and with nothing lit, because there is nothing left to show.
   assert(!press.registry["nux"].classList.contains("hidden")
-         && /that is the tour/i.test(press.registry["nux"].textContent),
-    "the last line says the tour is over: " + press.registry["nux"].textContent);
+         && /that is the tour/i.test(nuxLine(press.registry)),
+    "the last line says the tour is over: " + nuxLine(press.registry));
   assert(press.registry["spotlight"].classList.contains("hidden"),
     "and points at nothing: the page is handed back");
   for (let i = 0; i < 12 && Number(press.storage["ct:nux"]) < 5; i += 1) {
     if (!pressTake()) break;
   }
   assert(press.registry["nux"].classList.contains("hidden"),
-    "the lines are finite: " + press.registry["nux"].textContent);
+    "the lines are finite: " + nuxLine(press.registry));
   assert(Number(press.storage["ct:nux"]) >= 5,
     "the cursor is spent past the last line: " + press.storage["ct:nux"]);
 
@@ -6293,7 +6304,7 @@ global.realSetTimeout(() => {
   assert(regular.registry["welcome"].classList.contains("hidden"),
     "a regular is not stopped by the dialog");
   assert(regular.registry["nux"].classList.contains("hidden"),
-    "a regular gets no line: " + regular.registry["nux"].textContent);
+    "a regular gets no line: " + nuxLine(regular.registry));
   assert(regular.storage["ct:nux"] === "null",
     "and is marked owed none of them, once: " + regular.storage["ct:nux"]);
 }

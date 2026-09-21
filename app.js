@@ -285,6 +285,13 @@
   // time the question can still be asked.
   let nux = store.get(NUX_KEY, undefined);
   let nuxDrawn = null;   // the id currently on screen, so a keystroke redraws nothing
+  // The sentence the walk is saying right now, "" for none. It is held here
+  // rather than in the element because there are two places it can be said —
+  // the line in the panel, or the caption beside the spotlight — and the node
+  // that is not saying it has to be EMPTY. Left in both and hidden in CSS, one
+  // stale stylesheet is all it takes for the solver to read the same
+  // instruction twice ("I see your text twice", Paul, 2026-09-21).
+  let nuxSaid = "";
   // Whether this browser has taken a rung since the ladder line went up, which
   // is the difference between the two wordings of that line.
   let nuxWalked = false;
@@ -439,10 +446,13 @@
     // stays current across the whole walk and rewords itself twice under it,
     // once per question it answers and once for the rest of the climb.
     const want = live ? line.id + "/" + text : null;
+    // Outside the guard, and before the draw below: the words are the same on
+    // a redraw that changes nothing, and spotlightDraw is what puts them on
+    // screen either way.
+    nuxSaid = live ? text : "";
     if (nuxDrawn !== want) {
       nuxDrawn = want;
       el.classList.toggle("hidden", !live);
-      if (live) el.textContent = text;
       // The step that needs a different part of the panel in view: the pieces
       // are read from the top of it and the strip is above them, while the last
       // rung press left the eye at the bottom of the row. Brought to the top of
@@ -493,7 +503,6 @@
   // that charges is ever inside the light.
   function walkTargets() {
     const on = currentEntry();
-    const clue = $("hint-clue");
     const body = $("hint-body");
     const out = [];
     // Branched in the same order as the sentence beside it, off the same two
@@ -502,10 +511,20 @@
     // talking about. The panel's own markup says whether a question is up:
     // `guessing` outlives the question it asked, so it cannot be the test.
     const open = !!(body && /guess-tell/.test(body.innerHTML || ""));
-    if (nuxAsk() || (open && !nuxTypeIt(on))) {
-      // A question on the table. The words that would answer it are marked
-      // where they sit, which for most rungs is up in the clue, not in the panel.
-      if (clue && /walk-point/.test(clue.innerHTML || "")) out.push(clue);
+    const ask = nuxAsk();
+    if (ask || (open && !nuxTypeIt(on))) {
+      // The words being pointed at, and nothing else. A hole around the whole
+      // clue lights every word in it, which is the opposite of pointing at one
+      // ("you should just highlight that part", Paul, 2026-09-21) — and the
+      // clue stretches the hole across the question below it too, so the light
+      // ends up over most of the panel. Picked off the same predicate that
+      // painted the pulse, so the hole and the pulse cannot name different
+      // words, and the light moves to the question below the moment the last
+      // pointed word is taken.
+      const lit = (ask && ask.target ? ask.target : [])
+        .filter((i) => nuxPointsWord(ask, i, (guessing && guessing.picked) || []))
+        .map((i) => $("gw-" + i)).filter((el) => !!el);
+      if (lit.length) return lit;
       // The question itself, not the whole panel. Everything already bought sits
       // in the same box above it, and a hole big enough to hold that lights the
       // part of the lesson that is over. The question is written last into the
@@ -533,6 +552,23 @@
     return out;
   }
 
+  // Puts the walk's current sentence in ONE of the two places it can be said,
+  // and empties the other. `say` is the caption beside the hole when there is a
+  // hole; `lit` is false when there is no hole and the line in the panel has to
+  // say it, which empties the caption rather than leaving last step's words in
+  // a node that is only hidden. Also
+  // the write guard: this runs on every scroll event, and rewriting text that
+  // has not changed is a layout on every frame of a phone scroll.
+  function sayIt(line, say, lit) {
+    const inSpot = !!(lit && nuxSaid && say);
+    const words = { line: inSpot ? "" : nuxSaid, say: inSpot ? nuxSaid : "" };
+    if (line) {
+      line.classList.toggle("in-spot", inSpot);
+      if (line.textContent !== words.line) line.textContent = words.line;
+    }
+    if (say && say.textContent !== words.say) say.textContent = words.say;
+  }
+
   function spotlightDraw() {
     const spot = $("spotlight");
     if (!spot) return;
@@ -541,8 +577,7 @@
     const els = nuxDrawn ? walkTargets() : [];
     if (!els.length) {
       spot.classList.add("hidden");
-      const back = $("nux");
-      if (back) back.classList.remove("in-spot");
+      sayIt($("nux"), $("spot-say"), false);
       return;
     }
     const boxes = els.map((e) => e.getBoundingClientRect());
@@ -563,13 +598,9 @@
     // hole is then only ever the thing to tap, which is the point of darkening
     // the page at all: a hole stretched to reach the line in the panel is most
     // of a phone screen, and lights nothing.
-    const say = $("spot-say");
-    const line = $("nux");
-    const words = (line && !line.classList.contains("hidden")) ? line.textContent : "";
-    if (say) say.textContent = words;
     // Below the hole, unless the hole is near the foot of the window.
     spot.classList.toggle("say-above", bottom + 96 > (window.innerHeight || 800));
-    if (line) line.classList.toggle("in-spot", !!words && !!say);
+    sayIt($("nux"), $("spot-say"), true);
     spot.classList.remove("hidden");
   }
 
@@ -4970,10 +5001,20 @@
           // A drag ends in a click on the word it started from. That click has
           // already been answered by the drag.
           if (swallowClick) { swallowClick = false; return; }
-          if (!currentAsk()) return;
+          const a = currentAsk();
+          if (!a) return;
           const j = guessing.picked.indexOf(i);
           if (j >= 0) guessing.picked.splice(j, 1); else guessing.picked.push(i);
-          renderHintPanel();
+          // Repainted in place, exactly as a drag across the same words already
+          // is. A tap changes which words are lit and whether the check button
+          // is live, and nothing else on the page says either — so rebuilding
+          // the panel to report it marked the clue up again, rewrote three
+          // blocks of HTML and rebound every word, under the finger that had
+          // just tapped. On a phone that is long enough to read as a tap that
+          // missed ("on iPhone clicking it is slow to move to the next step",
+          // Paul, 2026-09-21).
+          paintPicked(a);
+          spotlightDraw();
         };
         if (el.addEventListener) {
           el.addEventListener("pointerdown", (ev) => {
