@@ -438,11 +438,14 @@
   }
 
   /* The spotlight. A sentence beside five identical buttons still leaves a
-     newcomer choosing, so while a line is asking for a press the rest of the
-     page goes behind a scrim and the one control it means keeps the light.
+     newcomer choosing, so for every step of the walk the rest of the page goes
+     behind a scrim and the thing the line is talking about keeps the light:
+     the rung to press, the question to answer, or the squares to type into.
+     The scrim never goes down mid-walk — a lightbox that comes and goes reads
+     as a bug, and the step it skipped is the step with nothing pointing at it.
 
-     The hole is put over whichever rung already carries the pulse, rather than
-     over "the first rung": one answer to "which button", read by both, so they
+     The hole is put over whatever already carries the pulse, rather than over
+     "the first rung": one answer to "which thing", read by both, so they
      cannot come apart. It is measured in viewport space and re-measured on
      every scroll and resize, because the dialog hands off with a smooth scroll
      and the rect is stale before the page has stopped moving. Nothing here is
@@ -457,31 +460,60 @@
     return null;
   }
 
+  // What the walk is pointing at, in the order the page has it. One hole covers
+  // all of it, and one hole is enough for every step because #nux sits between
+  // the hint body and the rungs: whatever is being pointed at, the sentence
+  // asking for it is inside the same block. The row of rungs is below the line,
+  // so a step that is not about a rung leaves the whole ladder dark — nothing
+  // that charges is ever inside the light.
+  function walkTargets() {
+    const on = currentEntry();
+    const clue = $("hint-clue");
+    const body = $("hint-body");
+    const out = [];
+    if (nuxPointsAtRung() && guessing && on && guessing.key === entryKey(on)) {
+      // A question on the table. The words that would answer it are marked
+      // where they sit, which for most rungs is up in the clue, not in the panel.
+      if (clue && /walk-point/.test(clue.innerHTML || "")) out.push(clue);
+      if (body) out.push(body);
+    } else if (nuxTypeIt(on)) {
+      // Work it out and type it in. The squares take the light, and with them
+      // the clue and every piece already on the table: that is the whole of
+      // what the answer has to be got from.
+      const grid = $("grid");
+      const cells = (grid && grid.children) || [];
+      for (let i = 0; i < cells.length; i += 1) {
+        if (/\bwalk-point\b/.test(cells[i].className || "")) out.push(cells[i]);
+      }
+      if (!out.length) return [];
+      if (clue) out.push(clue);
+      if (body && body.innerHTML) out.push(body);
+    } else {
+      const rung = nuxRung();
+      if (!rung) return [];
+      out.push(rung);
+      // What the ladder has said so far, directly above the line.
+      if (body && body.innerHTML) out.push(body);
+    }
+    if (!out.length) return [];
+    // The line goes in the lit island with whatever it names. Lifting it above
+    // the scrim instead needs a z-index that beats a FIXED element, which a box
+    // inside the panel cannot have — the panel is its own stacking context, so
+    // the number is spent against its siblings and the scrim still paints over
+    // it. One rect over both is the version with nothing to get wrong.
+    const line = $("nux");
+    if (line && !line.classList.contains("hidden")) out.push(line);
+    return out;
+  }
+
   function spotlightDraw() {
     const spot = $("spotlight");
     if (!spot) return;
     // nuxDrawn, not nux: the line and the light are the same instruction, so the
     // scrim is up exactly when the sentence explaining it is on screen.
-    // A question on the table takes the scrim down: the rung asks before it
-    // tells, the question is what the solver now has to read and tap, and the
-    // page cannot be dark over it. It comes back when the rung opens.
-    const on = currentEntry();
-    const asking = !!(guessing && on && guessing.key === entryKey(on));
-    const el = (nuxDrawn && !asking) ? nuxRung() : null;
-    if (!el) { spot.classList.add("hidden"); return; }
-    // The line goes in the lit island with the button. Lifting it above the
-    // scrim instead needs a z-index that beats a FIXED element, which a box
-    // inside the panel cannot have — the panel is its own stacking context, so
-    // the number is spent against its siblings and the scrim still paints over
-    // it. One rect over both is the version with nothing to get wrong.
-    const line = $("nux");
-    const body = $("hint-body");
-    const boxes = [el.getBoundingClientRect()];
-    if (line && !line.classList.contains("hidden")) boxes.push(line.getBoundingClientRect());
-    // What the ladder has said so far. It sits directly above the line, so the
-    // union is still one block, and the rungs NOT being pointed at stay dark —
-    // which is the whole point of the scrim.
-    if (body && body.innerHTML) boxes.push(body.getBoundingClientRect());
+    const els = nuxDrawn ? walkTargets() : [];
+    if (!els.length) { spot.classList.add("hidden"); return; }
+    const boxes = els.map((e) => e.getBoundingClientRect());
     const pad = 6;
     const top = Math.min.apply(null, boxes.map((b) => b.top)) - pad;
     const left = Math.min.apply(null, boxes.map((b) => b.left)) - pad;

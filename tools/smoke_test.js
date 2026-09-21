@@ -6101,8 +6101,8 @@ global.realSetTimeout(() => {
     "starting lights one rung and darkens the rest of the page");
   const firstLabel = lit.textContent;
   lit.onclick();
-  assert(press.registry["spotlight"].classList.contains("hidden"),
-    "a question on the table takes the scrim down — it is the thing they now have to read");
+  assert(!press.registry["spotlight"].classList.contains("hidden"),
+    "a question on the table keeps the scrim — the hole moves to the question");
   // The sentence outlives the scrim on purpose: this rung asks before it tells,
   // and the line is spent by the ladder running out, not by a button going down.
   // And while the question is up it says the answer to it. That pointing at the
@@ -6154,6 +6154,8 @@ global.realSetTimeout(() => {
   assert(typing, "the walk ends by asking them for the answer: " + press.registry["nux"].textContent);
   assert(press.registry["grid"].children.some((c) => c.classList.contains("walk-point")),
     "and the empty squares are what is lit by then");
+  assert(!press.registry["spotlight"].classList.contains("hidden"),
+    "with the scrim still up around them — the walk lightboxes every step it has");
   for (let i = 0; i < 12 && Number(press.storage["ct:nux"]) < 2; i += 1) {
     if (!pressTake()) break;
   }
