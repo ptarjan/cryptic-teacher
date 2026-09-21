@@ -35,7 +35,7 @@
  "author":{"@type":"Person","name":"Paul Tarjan","url":"https://paultarjan.com/"}}
 </script>
 
-<link rel="stylesheet" href="style.css?v=ba64fab4">
+<link rel="stylesheet" href="style.css?v=33f9ce87">
 <!-- Not deferred: app.js reports its milestones through gtag, and a deferred
      script runs after the parser-blocking one at the end of the body, so the
      first events of a session would find no gtag to call. -->
@@ -45,7 +45,7 @@
 <script src="sync/merge.js?v=b53999f4"></script>
 <!-- The names the page may report about a session, shared verbatim with the same
      Worker, so a name it has never heard of cannot be sent. -->
-<script src="sync/events.js?v=dad9d6fd"></script>
+<script src="sync/events.js?v=46c55e95"></script>
 </head>
 <body>
 <header>
@@ -152,7 +152,7 @@
      is no position in this file to fall out of step. Decoration only, and
      aria-hidden, because the instruction is the .nux line and a screen reader
      is already being told it. -->
-<div id="spotlight" class="spotlight hidden" aria-hidden="true"></div>
+<div id="spotlight" class="spotlight hidden" aria-hidden="true"><div id="spot-say" class="spot-say"></div></div>
 <div id="welcome" class="welcome hidden" role="dialog" aria-modal="true" aria-labelledby="welcome-h">
   <div class="welcome-card">
     <h2 id="welcome-h">Never solved a cryptic?</h2>
@@ -322,7 +322,7 @@
 <!-- Only the sync panel draws one, and only once it is opened, so this sits with
      app.js at the end rather than blocking the first paint. -->
 <script src="qr.js?v=b795920c"></script>
-<script src="app.js?v=2a23d370"></script>
+<script src="app.js?v=5edd55ac"></script>
 <script>
 // Reload once when the page in the cache is older than the page on the server.
 //
