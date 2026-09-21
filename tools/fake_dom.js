@@ -211,7 +211,11 @@ function boot(opts) {
   // `delete storage[k]` straight, modelling another tab, and a cache keyed off
   // setItem/removeItem alone would not see them. A value overwritten at an
   // existing key leaves the list alone and does not invalidate.
-  const storeBack = {};
+  // options.storage seeds the browser BEFORE app.js runs, which is the only way
+  // to model a device that has been here before: everything the app decides once
+  // and remembers — the visit tally, the first-grid cursor — is read at boot and
+  // cannot be put back afterwards from outside the closure.
+  const storeBack = Object.assign({}, options.storage || {});
   let storeGen = 0;
   const storage = new Proxy(storeBack, {
     set(t, k, v) { if (!(k in t)) storeGen++; t[k] = v; return true; },

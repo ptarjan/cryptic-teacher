@@ -818,6 +818,32 @@ assert(/written up/.test(registry["nux"].textContent),
 assert(storage["ct:nux"] === "0",
   "the cursor is written on that first visit, not left for the next one: " + storage["ct:nux"]);
 
+// A first visit is a BROWSER that has been here one day, not a page load that
+// happened to be the first of a day. reportVisit stops early once it has sent
+// today's beacon, and while the cursor was decided below that stop, anyone who
+// opened the site twice in a day saw the lines on neither load — which is every
+// person who reloads to look again, and was how this shipped broken. The seeded
+// tally says days: 1, so these lines are still owed.
+{
+  const today = new Date().toISOString().slice(0, 10);
+  const again = require("./fake_dom.js").boot({
+    storage: { "ct:seen": JSON.stringify({ last: today, days: 1 }) } });
+  assert(!again.registry["nux"].classList.contains("hidden")
+         && /written up/.test(again.registry["nux"].textContent),
+    "a second load on a browser's first day still gets the line: "
+    + again.registry["nux"].textContent);
+  assert(again.storage["ct:nux"] === "0",
+    "and the cursor is seeded past the once-a-day beacon gate: " + again.storage["ct:nux"]);
+  // The other side of the same decision: a tally of more than one day is a
+  // returning solver, who must never be taught the site.
+  const regular = require("./fake_dom.js").boot({
+    storage: { "ct:seen": JSON.stringify({ last: today, days: 5 }) } });
+  assert(regular.registry["nux"].classList.contains("hidden"),
+    "a regular gets no line: " + regular.registry["nux"].textContent);
+  assert(regular.storage["ct:nux"] === "null",
+    "and is marked owed none of them, once: " + regular.storage["ct:nux"]);
+}
+
 // --- escape hatch: reveal a letter BEFORE using any ladder hints ---
 assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "escape hatch offered at level 0");
 assert(registry["hx-letter"].onclick, "escape-hatch button wired");
