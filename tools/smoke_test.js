@@ -840,16 +840,20 @@ assert(registry["hint-next"].children.filter((c) => /rung-point/.test(c.classNam
   pointed.layout(700, 44);
   global.window.scrollTo({ top: 200 });
   assert(!spot.classList.contains("hidden"), "the scrim is up while the line is asking for a press");
-  // Three boxes, as one island: neither the sentence explaining the press nor
-  // the step they have already earned can be the thing the scrim hides. The
-  // rungs NOT being pointed at are what stays dark.
-  assert(spot.style.top === "354px" && spot.style.height === "196px",
-    "the light covers the panel's own words, the line and the rung it names, padded: "
+  // The step they have already earned is in the island with the rung it names.
+  // The rungs NOT being pointed at are what stays dark — and so is the line,
+  // which the spotlight says for itself, beside the hole rather than inside it.
+  assert(spot.style.top === "554px" && spot.style.height === "196px",
+    "the light covers the panel's own words and the rung it names, padded: "
     + spot.style.top + " / " + spot.style.height);
-  // Viewport space, and the dialog hands off with a smooth scroll: a hole that
-  // is only right where it was measured is wrong by the time anyone sees it.
+  assert(registry["spot-say"].textContent === registry["nux"].textContent
+         && /in-spot/.test(registry["nux"].className || ""),
+    "and the sentence is said once, by the light: " + registry["spot-say"].textContent);
+  // Page space, not window space: the dialog hands off with a smooth scroll, and
+  // a hole that has to be redrawn on every frame of it is wrong on the frame it
+  // misses — which is the one where it sits over the wrong row.
   global.window.scrollTo({ top: 260 });
-  assert(spot.style.top === "294px", "the hole follows the page: " + spot.style.top);
+  assert(spot.style.top === "554px", "the hole is welded to the page: " + spot.style.top);
   pointed.layout(0, 0);
   registry["nux"].layout(0, 0);
   registry["hint-body"].layout(0, 0);

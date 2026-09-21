@@ -897,11 +897,34 @@ button:disabled:hover { border-color: var(--line); }
    takes a tap — the press it is asking for has to reach the button under the
    hole — so it is out of hit testing entirely, like the .nux line below. */
 .spotlight {
-  position: fixed; z-index: 50;
+  /* Absolute, in page coordinates, so the hole is welded to the thing it is
+     pointing at: a fixed hole has to be redrawn on every frame of a scroll,
+     and the frame it misses is the one where it sits over the wrong row. The
+     shadow is spread far enough to darken any viewport the page can show. */
+  position: absolute; z-index: 50;
   border-radius: 10px; pointer-events: none;
   outline: 2px solid var(--accent);
   box-shadow: 0 0 0 9999px rgba(0,0,0,.55);
 }
+
+/* The walk's sentence, beside the hole rather than inside it. What is being
+   pointed at can be anywhere on the page — the squares to type into are
+   nowhere near the panel the line lives in — and one hole big enough to hold
+   both is the whole screen, which lights nothing. It rides the spotlight, so
+   it paints over the scrim without needing a z-index the panel cannot give it,
+   and it flips above the hole when the hole is near the foot of the screen. */
+.spot-say {
+  position: absolute; left: 0; top: 100%; margin: 8px 0 0;
+  min-width: 14em; max-width: 24em; padding: 7px 10px;
+  border-radius: 8px; border-left: 2px solid var(--accent);
+  background: var(--card); color: var(--fg);
+  font-size: .85rem; line-height: 1.35; text-align: left;
+  box-shadow: 0 2px 10px rgba(0,0,0,.35);
+}
+.spotlight.say-above .spot-say { top: auto; bottom: 100%; margin: 0 0 8px; }
+/* One sentence, one place. While the spotlight is saying it, the copy down in
+   the panel would be the same words a second time, dimmed. */
+.nux.in-spot { display: none; }
 
 .nux {
   margin: 10px 0 0; padding: 2px 0 2px 10px;
