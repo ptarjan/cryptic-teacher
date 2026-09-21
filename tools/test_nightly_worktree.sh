@@ -18,12 +18,17 @@ trap 'rm -rf "$tmp"' EXIT
 git config --global --get init.defaultBranch >/dev/null 2>&1 || true
 
 # A repo with an origin, and a job that reports nothing but the tree it woke up
-# in. fetch_puzzle.py stands in for the reindex the helper runs after a reset.
+# in. The two builders stand in for the generated output the helper rebuilds
+# after a reset; each leaves a marker in the tree it was run from.
 git init -q --bare "$tmp/origin.git"
 git init -q "$tmp/main"
 mkdir -p "$tmp/main/tools"
 cp "$ROOT/tools/nightly_worktree.sh" "$ROOT/tools/alert.sh" "$tmp/main/tools/"
-printf '#!/usr/bin/env python3\n' > "$tmp/main/tools/fetch_puzzle.py"
+for stub in fetch_puzzle build_abbreviations; do
+  printf '%s\n' '#!/usr/bin/env python3' 'import os, sys' \
+    'open(os.path.basename(sys.argv[0]) + ".ran", "w").close()' \
+    > "$tmp/main/tools/$stub.py"
+done
 cat > "$tmp/main/tools/faketask.sh" <<'JOB'
 #!/bin/bash
 . "$(dirname "$0")/nightly_worktree.sh"
@@ -45,6 +50,15 @@ run() { # run() <worktree-root> -> the job's output, stderr folded in
 # 1. The happy path, and the baseline the next two are read against.
 got="$(run "$tmp/trees" | grep '^RAN IN ')"
 check "a job gets its own worktree" "$got" "RAN IN $tmp/trees/faketask"
+
+# Generated output is gitignored, so the reset that pins the tree to
+# origin/master deletes it and a tree made tonight never had it. The job reads
+# it — and stamps pages that name it by content hash — long before its own
+# build step, so a tree handed over without it fails the job, not the helper.
+for built in fetch_puzzle.py.ran build_abbreviations.py.ran; do
+  check "the worktree has its $built rebuilt after the reset" \
+    "$([ -e "$tmp/trees/faketask/$built" ] && echo yes || echo no)" "yes"
+done
 
 # 2. An index.lock outlives the process that took it — nothing in git ever
 #    clears one — so a single crashed command otherwise fails every future run

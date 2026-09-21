@@ -174,7 +174,7 @@ fi
 # alert every night until the walk ends, and an alert that always fires is not
 # read.
 python3 tools/coverage_report.py || true
-coverage_stale=$(python3 tools/coverage_report.py --stale-only) || alert "a series has stopped arriving:"$'\n'"\`\`\`"$'\n'"$coverage_stale"$'\n'"\`\`\`"
+coverage_stale=$(python3 tools/coverage_report.py --stale-only 2>&1) || alert "a series has stopped arriving:"$'\n'"\`\`\`"$'\n'"$coverage_stale"$'\n'"\`\`\`"
 
 # The puzzles themselves, as opposed to what we have written about them.
 # tools/puzzle_integrity.py forgives, by exact finding, the LENGTH sentences
@@ -182,7 +182,10 @@ coverage_stale=$(python3 tools/coverage_report.py --stale-only) || alert "a seri
 # alerts only on a NEW defect: two puzzles that are the same puzzle, an answer
 # that does not fit its clue's printed length, two crossing entries that
 # disagree.
-integrity=$(python3 tools/puzzle_integrity.py --quiet) ||
+# 2>&1 because the failure that is not a finding — an import error, a missing
+# generated file — is on stderr, and an alert quoting an empty block says only
+# that something happened.
+integrity=$(python3 tools/puzzle_integrity.py --quiet 2>&1) ||
   alert "the corpus has picked up a defect:"$'\n'"\`\`\`"$'\n'"$integrity"$'\n'"\`\`\`"
 
 # --- 2. pick up solutions that have since been published (prize puzzles, and
@@ -1074,11 +1077,15 @@ fi
 # built here because the checks below read the pages — the stamp sweep and the
 # glossary test have nothing to look at otherwise — and because a generator that
 # has stopped working is worth finding out about tonight rather than at deploy.
-python3 tools/build_seo_pages.py
-
 # The solver's abbreviation glossary, republished from the clue-writer's copy.
-# Before the stamp, because a rebuild changes the bytes the stamp is of.
+# It leads, because it is gitignored generated output that every generated page
+# names by content hash: a tree that has not built it has the pages before it
+# has the file, and the builder below stops dead rather than stamp a hash of
+# something missing. Before the stamp for the same reason — a rebuild changes
+# the bytes the stamp is of.
 python3 tools/build_abbreviations.py
+
+python3 tools/build_seo_pages.py
 
 # The README's generated regions, so the corpus counts in it are never more than
 # one run behind. This can also fail, on purpose: a tool added without a line
