@@ -1,5 +1,5 @@
 #!/bin/bash
-# Which tree a scheduled job ends up running in, checked by running one.
+# Which tree does a scheduled job end up running in? Checked by running one.
 #
 # The three outcomes tools/nightly_worktree.sh can produce — its own worktree,
 # the main checkout, or nothing at all — differ only in what the job then reads
