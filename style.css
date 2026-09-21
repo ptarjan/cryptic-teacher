@@ -837,6 +837,53 @@ button:disabled:hover { border-color: var(--line); }
    no border box and no colour of its own — a rule down the side, the muted text
    the rest of the panel uses for asides, and it is gone for good after the
    first hint. See NUX_LINES in app.js for when each one is spent. */
+/* The welcome modal: step one of the same cursor the .nux lines are, drawn as a
+   dialog instead of a line because it is the only one that has to be read BEFORE
+   the grid, and the panel it would otherwise sit in is below the fold on a
+   phone. Fixed and centred over a scrim, so there is nothing else to look at and
+   nothing to scroll past — the two buttons are the only way out. */
+.welcome {
+  position: fixed; inset: 0; z-index: 60;
+  display: flex; align-items: center; justify-content: center;
+  padding: 16px; background: rgba(0,0,0,.45);
+  overflow: auto;
+}
+.welcome-card {
+  background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+  box-shadow: 0 16px 48px rgba(0,0,0,.35);
+  padding: 18px 20px; width: min(30em, 100%); max-height: 100%; overflow: auto;
+}
+.welcome-card h2 { margin: 0 0 8px; font-size: 1.25rem; }
+.welcome-card p { margin: 8px 0; }
+/* The worked example is the whole point of the dialog — a rule of prose about
+   definitions teaches nobody, one clue taken apart teaches everybody — so it is
+   the one block with a box of its own. */
+.welcome-eg {
+  margin: 12px 0; padding: 10px 12px;
+  background: var(--bg); border: 1px solid var(--line); border-radius: 8px;
+}
+.welcome-eg .eg-clue { margin: 0 0 8px; font-size: 1.05rem; }
+.welcome-eg .eg-hit u { text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; }
+.welcome-eg ul { margin: 0; padding-left: 1.1em; }
+.welcome-eg li { margin: 3px 0; font-size: .9rem; color: var(--muted); }
+.welcome-do { margin-top: 14px; }
+/* The call to action is the one button on the site that has to be pressed, so it
+   is the one button that does not look like the toolbar. */
+.welcome-cta { font-size: 1rem; padding: 10px 16px; background: var(--accent); color: var(--card); border-color: var(--accent); }
+
+/* The rung the welcome dialog just promised. Pulses only while the first-grid
+   cursor is on the ladder line and only on the rung that line is about: the
+   dialog says "take the first one", and on a phone the solver arrives at a row
+   of five identical buttons with no idea which. Stops for good at the first
+   hint, like every other part of this. */
+.rung-point { box-shadow: 0 0 0 0 var(--accent); animation: rung-point 1.8s ease-out 3; }
+@keyframes rung-point {
+  0% { box-shadow: 0 0 0 0 rgba(120,120,120,.55); }
+  70% { box-shadow: 0 0 0 10px rgba(120,120,120,0); }
+  100% { box-shadow: 0 0 0 0 rgba(120,120,120,0); }
+}
+@media (prefers-reduced-motion: reduce) { .rung-point { animation: none; } }
+
 .nux {
   margin: 10px 0 0; padding: 2px 0 2px 10px;
   border-left: 2px solid var(--accent);
