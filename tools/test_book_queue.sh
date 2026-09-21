@@ -3,7 +3,7 @@
 #
 #     bash tools/test_book_queue.sh
 #
-# This queue drives an UNATTENDED hourly job that spends a one-hour archive.org
+# This queue drives an UNATTENDED scheduled job that spends a one-hour archive.org
 # loan on whatever it names. Two ways to get that wrong, and both are silent:
 # offering a book the corpus already holds burns the account's allowance
 # re-reading it, and dropping a book nobody has read leaves it unread forever
