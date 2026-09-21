@@ -4908,8 +4908,17 @@ global.realSetTimeout(() => {
   fire("pointermove", { clientX: 0, clientY: 0 });
   fire("pointerup", {});
   registry["gw-0"].onclick();
-  assert(onNow() === 1, "a tap that never left the word still toggles it: "
-    + registry["hint-body"].innerHTML);
+  // Read off the elements, not the panel's HTML. A tap repaints the words where
+  // they stand and rebuilds nothing, so the string the panel was last built from
+  // still describes the moment before the tap. In a browser the class attribute
+  // and innerHTML are one fact; in this DOM they are two, and the class is the
+  // one a tap writes.
+  assert(registry["gw-0"].classList.contains("on")
+         && !registry["gw-1"].classList.contains("on")
+         && !registry["guess-check"].disabled,
+    "a tap that never left the word still toggles it, and only it: "
+    + registry["gw-0"].className + " / " + registry["gw-1"].className
+    + " / check disabled: " + registry["guess-check"].disabled);
 
   // Settled words: take the definition, then be asked about the indicators.
   open();
