@@ -217,12 +217,16 @@
     // itself on one day and was filed under another would double on the seam.
     const today = new Date().toISOString().slice(0, 10);
     const seen = store.get("ct:seen", null);
+    // Decided ABOVE the once-a-day gate, and from the tally rather than from
+    // reaching this line: the gate exists to send one beacon a day, and hanging
+    // the first-visit lines off it meant a browser that had already loaded the
+    // site once today was never offered them at all — including the reload that
+    // is how anyone checks. A tally of one is a browser on its first ever day,
+    // however many times it opens the grid; a browser with grids already in it
+    // has plainly been here before, whatever the tally says.
+    nuxSeed(seen ? seen.days === 1 : !hasAnySave());
     if (seen && seen.last === today) return;
-    // A browser with grids already in it has plainly been here before, whatever
-    // this tally says: without that, the day this shipped reports every regular
-    // as a new arrival.
     const days = (seen ? seen.days : (hasAnySave() ? 1 : 0)) + 1;
-    nuxSeed(days === 1);
     store.set("ct:seen", { last: today, days });
     beacon(days === 1 ? "visit-new" : days < 5 ? "visit-return" : "visit-regular");
   }
