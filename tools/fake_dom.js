@@ -94,7 +94,12 @@ function boot(opts) {
       this.children.push(el);
       if (el.tagName === "SCRIPT" && el.onload) {
         // emulate script loading synchronously
-        const p = path.join(ROOT, el.src.split("?")[0]); // strip ?v= cache-buster
+        // app.js resolves the URLs it builds against the site root (see at()
+        // there), because the address bar is /puzzles/<id>/ once a puzzle is
+        // open. What a browser would fetch from the root is what this reads out
+        // of the repo. The ?v= cache-buster is not part of the path.
+        const rel = el.src.split("?")[0].replace(/^https?:\/\/[^/]+\//, "");
+        const p = path.join(ROOT, rel);
         new Function("window", fs.readFileSync(p, "utf8"))(global.window);
         el.onload();
       }
