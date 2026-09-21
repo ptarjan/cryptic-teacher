@@ -454,20 +454,19 @@ function boot(opts) {
     }
     text() { return Promise.resolve(this.parts); }
   };
+  // The harness is the iPad in portrait its window sizes describe, and that is
+  // the machine every scroll bug was reported from. maxTouchPoints is how the
+  // app knows a tap on a clue is about to raise a soft keyboard, and so that
+  // silence from the viewport does not yet mean the viewport has settled.
+  const navigator = {
+    clipboard,
+    maxTouchPoints: 5,
+    sendBeacon(url, body) { beacons.push({ url, body }); return true; }
+  };
   // defineProperty, not assignment: Node 22 ships its own read-only global
   // navigator, and a plain `global.navigator = …` throws.
-  Object.defineProperty(global, "navigator", {
-    // The harness is the iPad in portrait its window sizes describe, and that is
-    // the machine every scroll bug was reported from. maxTouchPoints is how the
-    // app knows a tap on a clue is about to raise a soft keyboard, and so that
-    // silence from the viewport does not yet mean the viewport has settled.
-    value: {
-      clipboard,
-      maxTouchPoints: 5,
-      sendBeacon(url, body) { beacons.push({ url, body }); return true; }
-    },
-    writable: true, configurable: true
-  });
+  Object.defineProperty(global, "navigator",
+    { value: navigator, writable: true, configurable: true });
   global.localStorage = global.window.localStorage;
   global.confirm = () => true;
   // app.js reads ?p=<number> so the static answer pages can hand off into the app.
@@ -503,8 +502,13 @@ function boot(opts) {
   // gives each source its own scope instead, so the two are concatenated to put
   // them back in one — the same arrangement the page has.
   const abbrevSrc = fs.readFileSync(path.join(ROOT, "abbreviations.js"), "utf8");
-  new Function("window", "document", "localStorage", "confirm",
-    abbrevSrc + "\n" + appSrc)(global.window, document, global.window.localStorage, global.confirm);
+  // navigator goes in as an argument rather than being read off the global: the
+  // beacon sink is this instance's array, and a later boot() replaces the global
+  // one, which would silently send an earlier instance's beacons to the newer
+  // instance's list.
+  new Function("window", "document", "localStorage", "confirm", "navigator",
+    abbrevSrc + "\n" + appSrc)(global.window, document, global.window.localStorage,
+                               global.confirm, navigator);
 
   // appSrc goes back out because the smoke test greps app.js's own source for the
   // FAMILIES table — an assertion about the code, not about the rendered DOM.
