@@ -875,6 +875,16 @@ const patBoxes = () => (patHTML().match(/class="pat-box [^"]*"/g) || []);
     assert(claimed.status === 0,
       "tools/test_alert_claimed.sh: a traceback an alert already quoted is not "
       + "sent again as unexplained\n" + (claimed.stdout || "") + (claimed.stderr || ""));
+
+    /* Which tree a scheduled job runs in. The wrong one is not an error there:
+       the job runs, plans from a stale corpus, and hands out work that is
+       already pushed. */
+    const tree = require("child_process").spawnSync(
+      "bash", [path.join(ROOT, "tools/test_nightly_worktree.sh")], { encoding: "utf8" });
+    assert(tree.status === 0,
+      "tools/test_nightly_worktree.sh: a job gets its own worktree, or refuses "
+      + "to run in a checkout that is dirty or behind\n"
+      + (tree.stdout || "") + (tree.stderr || ""));
   }
 }
 
