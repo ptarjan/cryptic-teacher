@@ -336,6 +336,35 @@
     return !!(GUESSABLE[key] && guessAsk(e, key, 0));
   }
 
+  // The one thing about this site a newcomer cannot get by pressing buttons:
+  // that pointing at the right words yourself opens the rung for nothing. So
+  // while the walk has a question on the table the line stops describing the
+  // ladder and hands over the answer to that question — they tap it, the rung
+  // opens free, and what they have learned is the mechanic rather than one
+  // clue. Only during the walk: once the ladder line is spent, nothing on the
+  // page gives an answer away again.
+  function nuxAnswerLine() {
+    if (!nuxPointsAtRung() || !guessing) return "";
+    const e = currentEntry();
+    if (!e || entryKey(e) !== guessing.key) return "";
+    const ask = guessAsk(e, guessing.rung, guessing.step);
+    const said = ask && askAnswerText(ask);
+    return said ? "Point at it yourself and the step costs you nothing \u2014 that is the whole trick. The answer is " + said + "." : "";
+  }
+
+  // What would answer the question in front of a rung, in words. Span by span,
+  // because "which words tell you what to do" can be answered by two separate
+  // phrases and running them together would name a phrase the clue never had.
+  function askAnswerText(ask) {
+    const quote = (t) => "\u201c" + t + "\u201d";
+    if (ask.choices) return ask.answer ? quote(ask.answer) : "";
+    if (ask.pairs) return ask.pairs.map((p) => quote(p.frag) + " \u2192 " + p.gives).join(", ");
+    const spans = (ask.spans && ask.spans.length ? ask.spans : [ask.target || []])
+      .map((ts) => ts.map((n) => ask.tokens[n] && ask.tokens[n].text).filter(Boolean).join(" "))
+      .filter(Boolean);
+    return spans.length ? spans.map(quote).join(" and ") : "";
+  }
+
   // The dialog is spent by starting, like every line is spent by doing. Going on
   // leaves the cursor on the ladder line, which is the sentence the dialog just
   // promised and the rung it points at; saying you have solved cryptics before
@@ -370,10 +399,12 @@
     const live = !!line && !line.modal
                  && !$("hint-panel").classList.contains("hidden")
                  && $("hint-next").childElementCount > 0;
-    const text = (line && line.again && nuxWalked) ? line.again : (line ? line.text : "");
+    const telling = nuxAnswerLine();
+    const text = telling || ((line && line.again && nuxWalked) ? line.again : (line ? line.text : ""));
     // The id alone is not the identity of what is on screen: the ladder line
-    // stays current across the whole walk and changes its words halfway.
-    const want = live ? line.id + "/" + text.length : null;
+    // stays current across the whole walk and rewords itself twice under it,
+    // once per question it answers and once for the rest of the climb.
+    const want = live ? line.id + "/" + text : null;
     if (nuxDrawn !== want) {
       nuxDrawn = want;
       el.classList.toggle("hidden", !live);
