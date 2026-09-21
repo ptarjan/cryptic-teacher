@@ -406,6 +406,11 @@
     if (skip) skip.onclick = () => { nux = NUX_LINES.length; store.set(NUX_KEY, nux); nuxDraw(); beacon("nux-skip"); };
   }
 
+  // Named, because the walk both says it and acts on it: saying it is what
+  // sends the eye to the grid, so the two cannot be allowed to drift apart.
+  const TYPE_IT_LINE = "That is every piece. Put them together and type the answer"
+    + " into the grid \u2014 the one way of finishing a clue that charges nothing.";
+
   function nuxDraw() {
     const el = $("nux");
     if (!el) return;
@@ -417,10 +422,11 @@
     const live = !!line && !line.modal
                  && !$("hint-panel").classList.contains("hidden")
                  && $("hint-next").childElementCount > 0;
+    const typeIt = !nuxAsk() && nuxTypeIt(currentEntry());
     const telling = nuxAsk()
       ? "Answer it yourself and the step costs you nothing \u2014 tap what is lit up."
-      : nuxTypeIt(currentEntry())
-      ? "That is every piece. Put them together and type the answer into the grid \u2014 the one way of finishing a clue that charges nothing."
+      : typeIt
+      ? TYPE_IT_LINE
       : "";
     const text = telling || ((line && line.again && nuxWalked) ? line.again : (line ? line.text : ""));
     // The id alone is not the identity of what is on screen: the ladder line
@@ -431,6 +437,19 @@
       nuxDrawn = want;
       el.classList.toggle("hidden", !live);
       if (live) el.textContent = text;
+      // The one step of the walk that points somewhere else on the page. The
+      // last rung press scrolled the panel up, so the squares being lit are
+      // off the top of a phone: the light is useless until the grid is where
+      // the eye is.
+      const grid = live && typeIt ? $("grid") : null;
+      if (grid && grid.scrollIntoView) {
+        grid.scrollIntoView({ behavior: "smooth", block: "center" });
+        // The hole is in page coordinates, so the scroll carries it along and
+        // there is nothing to redraw as the page moves. Only the caption needs
+        // a second look: which side of the hole it goes on is a question about
+        // the window, and the window is still moving.
+        [200, 500, 900].forEach((ms) => setTimeout(spotlightDraw, ms));
+      }
     }
     // Outside the redraw guard: the sentence does not change while it is up, but
     // the button it is about moves under every scroll.
@@ -471,23 +490,24 @@
     const clue = $("hint-clue");
     const body = $("hint-body");
     const out = [];
-    if (nuxPointsAtRung() && guessing && on && guessing.key === entryKey(on)) {
+    // Branched in the same order as the sentence beside it, off the same two
+    // tests: the hole and the line are one instruction, so a hole that decided
+    // for itself would sooner or later point at something the line is not
+    // talking about. The panel's own markup says whether a question is up:
+    // `guessing` outlives the question it asked, so it cannot be the test.
+    const open = !!(body && /guess-tell/.test(body.innerHTML || ""));
+    if (nuxAsk() || (open && !nuxTypeIt(on))) {
       // A question on the table. The words that would answer it are marked
       // where they sit, which for most rungs is up in the clue, not in the panel.
       if (clue && /walk-point/.test(clue.innerHTML || "")) out.push(clue);
       if (body) out.push(body);
     } else if (nuxTypeIt(on)) {
-      // Work it out and type it in. The squares take the light, and with them
-      // the clue and every piece already on the table: that is the whole of
-      // what the answer has to be got from.
-      const grid = $("grid");
-      const cells = (grid && grid.children) || [];
-      for (let i = 0; i < cells.length; i += 1) {
-        if (/\bwalk-point\b/.test(cells[i].className || "")) out.push(cells[i]);
-      }
+      // Work it out and type it in: the empty squares, and nothing else. Read
+      // off the model rather than the class the grid paints, because the line
+      // is redrawn either side of refreshGrid and a hole that waited for the
+      // class would be empty on one of the two passes.
+      (entryCells(on) || []).forEach((c) => { if (c.el && !c.letter) out.push(c.el); });
       if (!out.length) return [];
-      if (clue) out.push(clue);
-      if (body && body.innerHTML) out.push(body);
     } else {
       const rung = nuxRung();
       if (!rung) return [];
@@ -495,14 +515,6 @@
       // What the ladder has said so far, directly above the line.
       if (body && body.innerHTML) out.push(body);
     }
-    if (!out.length) return [];
-    // The line goes in the lit island with whatever it names. Lifting it above
-    // the scrim instead needs a z-index that beats a FIXED element, which a box
-    // inside the panel cannot have — the panel is its own stacking context, so
-    // the number is spent against its siblings and the scrim still paints over
-    // it. One rect over both is the version with nothing to get wrong.
-    const line = $("nux");
-    if (line && !line.classList.contains("hidden")) out.push(line);
     return out;
   }
 
@@ -512,17 +524,37 @@
     // nuxDrawn, not nux: the line and the light are the same instruction, so the
     // scrim is up exactly when the sentence explaining it is on screen.
     const els = nuxDrawn ? walkTargets() : [];
-    if (!els.length) { spot.classList.add("hidden"); return; }
+    if (!els.length) {
+      spot.classList.add("hidden");
+      const back = $("nux");
+      if (back) back.classList.remove("in-spot");
+      return;
+    }
     const boxes = els.map((e) => e.getBoundingClientRect());
     const pad = 6;
     const top = Math.min.apply(null, boxes.map((b) => b.top)) - pad;
     const left = Math.min.apply(null, boxes.map((b) => b.left)) - pad;
-    spot.style.setProperty("top", Math.round(top) + "px");
-    spot.style.setProperty("left", Math.round(left) + "px");
+    // Page coordinates: the rects come back in viewport space, and the hole is
+    // placed in the page so that scrolling moves the two together.
+    const sy = window.pageYOffset || 0;
+    const sx = window.pageXOffset || 0;
+    spot.style.setProperty("top", Math.round(top + sy) + "px");
+    spot.style.setProperty("left", Math.round(left + sx) + "px");
     spot.style.setProperty("width",
       Math.round(Math.max.apply(null, boxes.map((b) => b.right)) - left + pad) + "px");
-    spot.style.setProperty("height",
-      Math.round(Math.max.apply(null, boxes.map((b) => b.bottom)) - top + pad) + "px");
+    const bottom = Math.max.apply(null, boxes.map((b) => b.bottom)) + pad;
+    spot.style.setProperty("height", Math.round(bottom - top) + "px");
+    // The sentence rides the spotlight instead of sitting inside the hole. The
+    // hole is then only ever the thing to tap, which is the point of darkening
+    // the page at all: a hole stretched to reach the line in the panel is most
+    // of a phone screen, and lights nothing.
+    const say = $("spot-say");
+    const line = $("nux");
+    const words = (line && !line.classList.contains("hidden")) ? line.textContent : "";
+    if (say) say.textContent = words;
+    // Below the hole, unless the hole is near the foot of the window.
+    spot.classList.toggle("say-above", bottom + 96 > (window.innerHeight || 800));
+    if (line) line.classList.toggle("in-spot", !!words && !!say);
     spot.classList.remove("hidden");
   }
 
