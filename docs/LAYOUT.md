@@ -486,5 +486,7 @@ tools/test_build_readme.sh                   does tools/build_readme.py still re
                                              of every file it is asked about?
 tools/test_prereset_lock.sh                  does the pre-reset backfill still take over a lock
                                              nobody is holding?
+tools/test_nightly_worktree.sh               which tree does a scheduled job end up running in?
+                                             checked by running one
 ```
 <!-- LAYOUT-END -->

@@ -837,6 +837,16 @@ const patBoxes = () => (patHTML().match(/class="pat-box [^"]*"/g) || []);
      require()d from here. Its output is printed on failure and swallowed on
      success: it has its own ok/FAIL lines, and duplicating a passing suite
      inside a passing suite is noise. */
+  /* Every tracked file has a row in the layout table. Outside the block below
+     on purpose: it is a tenth of a second, and adding a file is precisely what
+     this loop gets run after, so CI is the wrong place to first hear that one
+     went in undescribed. */
+  const layout = require("child_process").spawnSync(
+    "python3", [path.join(ROOT, "tools/build_readme.py"), "--check-layout"], { encoding: "utf8" });
+  assert(layout.status === 0,
+    "tools/build_readme.py --check-layout: every tracked file has a layout row, and "
+    + "docs/LAYOUT.md has them all\n" + (layout.stdout || "") + (layout.stderr || ""));
+
   // Four processes, and about seven seconds of a run that is otherwise under
   // ten: each one boots a second node or bash to test the Worker, the cron and
   // the burn's shell, none of which app.js can break. CI pays for them; the
