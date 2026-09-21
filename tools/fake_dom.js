@@ -288,6 +288,9 @@ function boot(opts) {
       const top = opt && typeof opt === "object" ? opt.top : opt;
       global.window.pageYOffset = Math.max(0, Number(top) || 0);
       global.window.scrolls.push(global.window.pageYOffset);
+      // A browser fires this, so the stub does: anything the page positions in
+      // viewport space is wrong from here until it hears about the move.
+      (winListeners.scroll || []).forEach((fn) => fn());
       const px = global.window.scrollPans;
       if (px) {
         const vv = global.window.visualViewport;

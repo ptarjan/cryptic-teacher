@@ -274,6 +274,10 @@
   // time the question can still be asked.
   let nux = store.get(NUX_KEY, undefined);
   let nuxDrawn = null;   // the id currently on screen, so a keystroke redraws nothing
+  // The scrim is spent by the press, which is earlier than the line it belongs
+  // to: a rung asks its question before it tells, and the page must be lit to
+  // read that question. The sentence stays until the rung actually opens.
+  let spotSpent = false;
 
   function nuxSeed(first) {
     if (nux !== undefined) return;
@@ -338,10 +342,66 @@
                  && !$("hint-panel").classList.contains("hidden")
                  && $("hint-next").childElementCount > 0;
     const want = live ? line.id : null;
-    if (nuxDrawn === want) return;
-    nuxDrawn = want;
-    el.classList.toggle("hidden", !live);
-    if (live) el.textContent = line.text;
+    if (nuxDrawn !== want) {
+      nuxDrawn = want;
+      el.classList.toggle("hidden", !live);
+      if (live) el.textContent = line.text;
+    }
+    // Outside the redraw guard: the sentence does not change while it is up, but
+    // the button it is about moves under every scroll.
+    spotlightDraw();
+  }
+
+  /* The spotlight. A sentence beside five identical buttons still leaves a
+     newcomer choosing, so while a line is asking for a press the rest of the
+     page goes behind a scrim and the one control it means keeps the light.
+
+     The hole is put over whichever rung already carries the pulse, rather than
+     over "the first rung": one answer to "which button", read by both, so they
+     cannot come apart. It is measured in viewport space and re-measured on
+     every scroll and resize, because the dialog hands off with a smooth scroll
+     and the rect is stale before the page has stopped moving. Nothing here is
+     clickable — the scrim lets taps through — so a solver who wants to ignore
+     it is not trapped by it. */
+  function nuxRung() {
+    const row = $("hint-next");
+    if (!row || !nuxPointsAtRung()) return null;
+    for (let i = 0; i < row.children.length; i += 1) {
+      if (/\brung-point\b/.test(row.children[i].className || "")) return row.children[i];
+    }
+    return null;
+  }
+
+  function spotlightDraw() {
+    const spot = $("spotlight");
+    if (!spot) return;
+    // nuxDrawn, not nux: the line and the light are the same instruction, so the
+    // scrim is up exactly when the sentence explaining it is on screen.
+    const el = (nuxDrawn && !spotSpent) ? nuxRung() : null;
+    if (!el) { spot.classList.add("hidden"); return; }
+    // The line goes in the lit island with the button. Lifting it above the
+    // scrim instead needs a z-index that beats a FIXED element, which a box
+    // inside the panel cannot have — the panel is its own stacking context, so
+    // the number is spent against its siblings and the scrim still paints over
+    // it. One rect over both is the version with nothing to get wrong.
+    const line = $("nux");
+    const boxes = [el.getBoundingClientRect()];
+    if (line && !line.classList.contains("hidden")) boxes.push(line.getBoundingClientRect());
+    const pad = 6;
+    const top = Math.min.apply(null, boxes.map((b) => b.top)) - pad;
+    const left = Math.min.apply(null, boxes.map((b) => b.left)) - pad;
+    spot.style.setProperty("top", Math.round(top) + "px");
+    spot.style.setProperty("left", Math.round(left) + "px");
+    spot.style.setProperty("width",
+      Math.round(Math.max.apply(null, boxes.map((b) => b.right)) - left + pad) + "px");
+    spot.style.setProperty("height",
+      Math.round(Math.max.apply(null, boxes.map((b) => b.bottom)) - top + pad) + "px");
+    spot.classList.remove("hidden");
+  }
+
+  if (window.addEventListener) {
+    window.addEventListener("scroll", spotlightDraw);
+    window.addEventListener("resize", spotlightDraw);
   }
 
   // ---------- puzzles/index.js: the catalogue, not the puzzles ----------
@@ -4254,6 +4314,9 @@
         // one, and only its "next piece" button sets it; everything else asks
         // its single question at step 0.
         const at = b.step || 0;
+        // They did the thing the scrim was asking for, whatever this rung does
+        // next: keeping the page dark over a question would darken the answer.
+        spotSpent = true;
         const asked = GUESSABLE[b.rung] && !isEntrySolved(on) && guessAsk(on, b.rung, at);
         if (asked) {
           guessing = { key: entryKey(on), rung: b.rung, step: at, picked: [],

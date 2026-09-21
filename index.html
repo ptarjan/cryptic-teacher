@@ -146,6 +146,13 @@
      grid does cannot be down there with them. One worked example, one button,
      shown to a first-ever visit and then never again: see NUX_LINES in app.js,
      where this is step one of the same ordered cursor as the inline lines. -->
+<!-- The scrim the dialog hands off to: everything except the rung the next line
+     is about goes dark, so "take the first one" has somewhere to point. Its box
+     is set from app.js (spotlightDraw), which measures the rung itself — there
+     is no position in this file to fall out of step. Decoration only, and
+     aria-hidden, because the instruction is the .nux line and a screen reader
+     is already being told it. -->
+<div id="spotlight" class="spotlight hidden" aria-hidden="true"></div>
 <div id="welcome" class="welcome hidden" role="dialog" aria-modal="true" aria-labelledby="welcome-h">
   <div class="welcome-card">
     <h2 id="welcome-h">Never solved a cryptic?</h2>
