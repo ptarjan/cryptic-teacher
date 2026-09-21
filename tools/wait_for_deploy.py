@@ -36,6 +36,7 @@ from stamp_assets import digest                      # noqa: E402 - needs ROOT o
 
 URL = "https://cryptic.paultarjan.com/"
 REPO = "ptarjan/cryptic-teacher"
+WORKFLOW = ".github/workflows/pages.yml"
 ASSETS = ["app.js", "style.css", "puzzles/index.js"]
 STAMP = re.compile(r'(app\.js|style\.css|puzzles/index\.js)\?v=([a-f0-9]+)')
 
@@ -108,10 +109,36 @@ def built_commit():
         return None
 
 
+def deploy_status(sha):
+    """How far the Pages workflow has got with `sha`.
+
+    "queued" or "in_progress" is a build that has not finished, which is not
+    the same thing as a site that is never going to update: the github-pages
+    environment takes one deployment at a time, so a push that lands while
+    another holds it sits in the queue for minutes before its own build
+    starts. Otherwise the conclusion ("success", "failure", "cancelled"), ""
+    when GitHub knows of no run for the commit, and None when it cannot be
+    asked at all.
+    """
+    runs = _gh(f"repos/{REPO}/actions/runs?head_sha={sha}&per_page=20")
+    if runs is None:
+        return None
+    for run in runs.get("workflow_runs", []):
+        if run.get("path") == WORKFLOW:
+            if run.get("status") != "completed":
+                return run.get("status") or ""
+            return run.get("conclusion") or ""
+    return ""
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--check", action="store_true", help="one look, do not wait")
     ap.add_argument("--timeout", type=int, default=300)
+    # The ceiling on extending that timeout while a build is still coming. It
+    # only has to be longer than a queue plus a build, because the wait ends
+    # the moment the site answers.
+    ap.add_argument("--max-wait", type=int, default=1800)
     args = ap.parse_args()
 
     want = want_stamps()
@@ -119,6 +146,7 @@ def main():
     head = subprocess.run(["git", "rev-parse", "HEAD"], capture_output=True,
                           text=True, cwd=ROOT).stdout.strip()
     deadline = time.time() + (0 if args.check else args.timeout)
+    ceiling = time.time() + (0 if args.check else args.max_wait)
     while True:
         try:
             built = built_commit()
@@ -135,6 +163,19 @@ def main():
         except Exception as exc:                      # noqa: BLE001 - any failure is "not live yet"
             note = f"{type(exc).__name__}: {exc}"
         if time.time() >= deadline:
+            # Out of clock is not the same as out of hope. Ask what the build
+            # is doing before calling it a failure: one that is still queued or
+            # running will publish, and the alert this returns says the site
+            # never came back, which is a different and alarming claim. Not
+            # under --check, which promises one look and no waiting.
+            state = "" if args.check else deploy_status(head)
+            if state in ("queued", "in_progress") and time.time() < ceiling:
+                deadline = min(ceiling, time.time() + args.timeout)
+                print(f"still {state} for {head[:8]}, waiting on ({note})", flush=True)
+                time.sleep(10)
+                continue
+            if state:
+                note += f"; the Pages build for {head[:8]} is {state}"
             print(f"NOT DEPLOYED: {note}", file=sys.stderr)
             return 1
         print(f"waiting for deploy ({note})", flush=True)
