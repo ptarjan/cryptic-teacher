@@ -6109,8 +6109,14 @@ global.realSetTimeout(() => {
   // right words yourself opens a rung for nothing is the one thing a newcomer
   // cannot discover by pressing buttons, so the walk shows it being done.
   assert(/costs you nothing/.test(press.registry["nux"].textContent)
-         && /\u201c/.test(press.registry["nux"].textContent),
-    "the line answers the question it walked them into: " + press.registry["nux"].textContent);
+         && /tap what is lit up/.test(press.registry["nux"].textContent),
+    "the line says the step is theirs to win: " + press.registry["nux"].textContent);
+  // And it POINTS rather than reading the answer out: naming the words in the
+  // sentence would teach this one clue, where pointing at them teaches the
+  // gesture that makes a rung free anywhere on the site.
+  assert(/walk-point/.test(press.registry["hint-clue"].innerHTML)
+         || /walk-point/.test(press.registry["hint-body"].innerHTML),
+    "what would answer it wears the pulse: " + press.registry["hint-clue"].innerHTML.slice(0, 300));
   assert(/\?|hint-step/.test(press.registry["hint-body"].innerHTML),
     "the press put something in the panel to read: "
     + press.registry["hint-body"].innerHTML.slice(0, 200));
@@ -6137,6 +6143,17 @@ global.realSetTimeout(() => {
     if (isAsking(press.registry["hint-body"])) press.registry["guess-tell"].onclick();
     return true;
   };
+  // The walk's last instruction. Once the pieces are out, the only rung left in
+  // the row charges, so the light leaves the ladder for the grid: work it out
+  // and type it in, which is the one way of finishing a clue that costs nothing.
+  let typing = false;
+  for (let i = 0; i < 12 && !typing; i += 1) {
+    if (/type the answer into the grid/.test(press.registry["nux"].textContent)) { typing = true; break; }
+    if (!pressTake()) break;
+  }
+  assert(typing, "the walk ends by asking them for the answer: " + press.registry["nux"].textContent);
+  assert(press.registry["grid"].children.some((c) => c.classList.contains("walk-point")),
+    "and the empty squares are what is lit by then");
   for (let i = 0; i < 12 && Number(press.storage["ct:nux"]) < 2; i += 1) {
     if (!pressTake()) break;
   }

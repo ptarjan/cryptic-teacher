@@ -884,6 +884,14 @@ button:disabled:hover { border-color: var(--line); }
 }
 @media (prefers-reduced-motion: reduce) { .rung-point { animation: none; } }
 
+/* The walk pointing INSIDE a question, and at the empty squares once the pieces
+   are out. It keeps a steady ring as well as the pulse, and the pulse does not
+   stop: the line beside it says to tap what is lit up, and a pointer that times
+   out after three beats leaves that sentence pointing at nothing. */
+.walk-point { outline: 2px solid var(--accent); outline-offset: 1px;
+  box-shadow: 0 0 0 0 var(--accent); animation: rung-point 1.8s ease-out infinite; }
+@media (prefers-reduced-motion: reduce) { .walk-point { animation: none; } }
+
 /* The scrim, cut through at one control. A huge spread rather than four edge
    divs: one box, no seams, and it follows the rung with a single rect. It never
    takes a tap — the press it is asking for has to reach the button under the

@@ -336,33 +336,51 @@
     return !!(GUESSABLE[key] && guessAsk(e, key, 0));
   }
 
-  // The one thing about this site a newcomer cannot get by pressing buttons:
-  // that pointing at the right words yourself opens the rung for nothing. So
-  // while the walk has a question on the table the line stops describing the
-  // ladder and hands over the answer to that question — they tap it, the rung
-  // opens free, and what they have learned is the mechanic rather than one
-  // clue. Only during the walk: once the ladder line is spent, nothing on the
-  // page gives an answer away again.
-  function nuxAnswerLine() {
-    if (!nuxPointsAtRung() || !guessing) return "";
-    const e = currentEntry();
-    if (!e || entryKey(e) !== guessing.key) return "";
-    const ask = guessAsk(e, guessing.rung, guessing.step);
-    const said = ask && askAnswerText(ask);
-    return said ? "Point at it yourself and the step costs you nothing \u2014 that is the whole trick. The answer is " + said + "." : "";
+  // The last move of the walk. Once the pieces are on the table, the thing
+  // still worth teaching is not another rung: it is that you work the answer
+  // out and type it in yourself, which is the one way of finishing a clue that
+  // charges nothing. What is left in the row by then is the full walkthrough,
+  // which charges, so the light leaves the ladder and the grid takes it.
+  function nuxTypeIt(e) {
+    if (!nuxPointsAtRung() || !e || isEntrySolved(e)) return false;
+    const steps = ladderSteps(annOf(e), e.clue);
+    if (!steps.length) return false;
+    // A rung taken in pieces is not finished until its last piece is out.
+    if (isShown(e, "blocks") && piecesLeft(e)) return false;
+    // Not before they have been taught anything: a clue with no askable rung at
+    // all would otherwise open the walk by demanding the answer.
+    if (!shownRungs(e).some((r) => r !== ANSWER_RUNG)) return false;
+    return steps.every((st) => isShown(e, st.key) || !nuxFreeRung(e, st.key, false));
   }
 
-  // What would answer the question in front of a rung, in words. Span by span,
-  // because "which words tell you what to do" can be answered by two separate
-  // phrases and running them together would name a phrase the clue never had.
-  function askAnswerText(ask) {
-    const quote = (t) => "\u201c" + t + "\u201d";
-    if (ask.choices) return ask.answer ? quote(ask.answer) : "";
-    if (ask.pairs) return ask.pairs.map((p) => quote(p.frag) + " \u2192 " + p.gives).join(", ");
-    const spans = (ask.spans && ask.spans.length ? ask.spans : [ask.target || []])
-      .map((ts) => ts.map((n) => ask.tokens[n] && ask.tokens[n].text).filter(Boolean).join(" "))
-      .filter(Boolean);
-    return spans.length ? spans.map(quote).join(" and ") : "";
+  // The one thing about this site a newcomer cannot get by pressing buttons:
+  // that pointing at the right words yourself opens the rung for nothing. So
+  // while the walk has a question on the table, the thing that would answer it
+  // takes the same pulse the rung itself wore — the tour points, it does not
+  // read the answer out, because what has to be learned is the gesture and a
+  // sentence naming the words teaches only this one clue.
+  function nuxPointing() { return nuxPointsAtRung() && !!guessing; }
+
+  // The question the walk is pointing inside, if there is anything in it to
+  // point at. A question with nothing pointable is left alone and the line goes
+  // on saying what it was saying.
+  function nuxAsk() {
+    if (!nuxPointing()) return null;
+    const e = currentEntry();
+    if (!e || entryKey(e) !== guessing.key) return null;
+    const ask = guessAsk(e, guessing.rung, guessing.step);
+    if (!ask) return null;
+    if (ask.choices) return ask.answer ? ask : null;
+    if (ask.pairs) return ask;
+    return (ask.target || []).length ? ask : null;
+  }
+
+  // Whether word `i` of the clue is what the walk is pointing at. A word
+  // already picked stops pulsing: the pulse is an instruction, and an
+  // instruction that has been carried out is noise.
+  function nuxPointsWord(ask, i, picked) {
+    return !!(ask && nuxPointing() && (ask.target || []).indexOf(i) >= 0
+              && (picked || []).indexOf(i) < 0);
   }
 
   // The dialog is spent by starting, like every line is spent by doing. Going on
@@ -399,7 +417,11 @@
     const live = !!line && !line.modal
                  && !$("hint-panel").classList.contains("hidden")
                  && $("hint-next").childElementCount > 0;
-    const telling = nuxAnswerLine();
+    const telling = nuxAsk()
+      ? "Answer it yourself and the step costs you nothing \u2014 tap what is lit up."
+      : nuxTypeIt(currentEntry())
+      ? "That is every piece. Put them together and type the answer into the grid \u2014 the one way of finishing a clue that charges nothing."
+      : "";
     const text = telling || ((line && line.again && nuxWalked) ? line.again : (line ? line.text : ""));
     // The id alone is not the identity of what is on screen: the ladder line
     // stays current across the whole walk and rewords itself twice under it,
@@ -1521,6 +1543,7 @@
 
   function refreshGrid() {
     const e = currentEntry();
+    const typeIt = nuxTypeIt(e);
     forEachCell((c) => {
       const el = c.el;
       if (!el) return;
@@ -1531,6 +1554,9 @@
         || (e.direction === "down" && c.x === e.position.x && c.y >= e.position.y && c.y < e.position.y + e.length));
       el.classList.toggle("hl", !!inEntry && !(c.x === cur.x && c.y === cur.y));
       el.classList.toggle("sel", c.x === cur.x && c.y === cur.y);
+      // The walk's last instruction is "type it in", and this is where that
+      // happens: the empty squares wear the walk's pointer.
+      el.classList.toggle("walk-point", !!inEntry && !c.letter && typeIt);
     });
   }
 
@@ -3802,7 +3828,7 @@
   // "it flashes too fast for me to read". Nothing here is on
   // a timer now. The animations are entrances — they say a thing has arrived,
   // they do not say how long you have with it.
-  function guessWordsHTML(tokens, mk, picked, known, rung) {
+  function guessWordsHTML(tokens, mk, picked, known, rung, target) {
     const settled = known || [];
     const cls = (i) => {
       if (!mk) return picked.indexOf(i) >= 0 ? " on" : "";
@@ -3816,7 +3842,8 @@
     // picked, so it must not look pickable and must not answer to a tap.
     const words = tokens.map((t, i) => (mk || settled.indexOf(i) >= 0)
       ? `<span class="gw${settled.indexOf(i) >= 0 ? " known" : cls(i)}">${esc(t.text)}</span>`
-      : `<button type="button" id="gw-${i}" class="gw${cls(i)}">${esc(t.text)}</button>`);
+      : `<button type="button" id="gw-${i}" class="gw${cls(i)}${
+          nuxPointsWord({ target: target }, i, picked) ? " walk-point" : ""}">${esc(t.text)}</button>`);
     // "ask" while it is the question, "mk" once it has been graded. The two are
     // the same words in two places, and flipCapture/flipPlay use the pair to
     // measure the journey between them.
@@ -3873,7 +3900,8 @@
         : settled
         ? `<span class="gw known">${inner}</span>`
         : `<button type="button" id="gw-${i}" class="gw${
-            picked.indexOf(i) >= 0 ? " on" : ""}">${inner}</button>`);
+            picked.indexOf(i) >= 0 ? " on" : ""}${
+            nuxPointsWord(ask, i, picked) ? " walk-point" : ""}">${inner}</button>`);
       at = t.i + t.text.length;
     });
     return `<span class="guess-clue ${ask ? "ask" : "still"} pick-${rung || "indicators"}">${
@@ -3907,7 +3935,8 @@
     ask.tokens.forEach((t, i) => {
       if (ask.known.indexOf(i) >= 0) return;
       const el = $("gw-" + i);
-      if (el) el.className = "gw" + (guessing.picked.indexOf(i) >= 0 ? " on" : "");
+      if (el) el.className = "gw" + (guessing.picked.indexOf(i) >= 0 ? " on"
+        : (nuxPointsWord(ask, i, guessing.picked) ? " walk-point" : ""));
     });
     const check = $("guess-check");
     if (check) check.disabled = !guessing.picked.length;
@@ -4013,7 +4042,8 @@
   function guessChoicesHTML(ask) {
     return `<p class="guess-choices">${
       ask.choices.map((c, i) =>
-        `<button type="button" id="gc-${i}" class="gc">${esc(c)}</button>`).join("")}</p>`;
+        `<button type="button" id="gc-${i}" class="gc${
+          nuxPointing() && c === ask.answer ? " walk-point" : ""}">${esc(c)}</button>`).join("")}</p>`;
   }
 
   // Words are pointed at up in the clue itself, so a words question has no answer
@@ -4044,7 +4074,7 @@
       ? guessChoicesHTML(ask)
       : ask.pairs ? guessMatchHTML(ask)
       : inClue ? ""
-      : guessWordsHTML(ask.tokens, null, guessing.picked, ask.known, guessing.rung);
+      : guessWordsHTML(ask.tokens, null, guessing.picked, ask.known, guessing.rung, ask.target);
     const ready = ask.pairs
       ? (guessing.slots || []).every((n) => n >= 0)
       : guessing.picked.length;
