@@ -1,10 +1,10 @@
 #!/bin/bash
 # Which tree does a scheduled job end up running in? Checked by running one.
 #
-# The three outcomes tools/nightly_worktree.sh can produce — its own worktree,
-# the main checkout, or nothing at all — differ only in what the job then reads
-# out of the tree, so none of them announces itself as wrong. A job that plans
-# from a checkout behind origin/master hands out work that is already pushed.
+# tools/nightly_worktree.sh has two outcomes — its own worktree, or nothing at
+# all — and they differ only in what the job then reads out of the tree, so
+# neither announces itself as wrong. There is no third: the main checkout is
+# refused in every state, because a job sharing a tree with a person wedges it.
 #
 # Run standalone or from tools/smoke_test.js.
 set -uo pipefail
@@ -58,31 +58,33 @@ check "a stale index.lock is cleared, not waited on" \
 check "and the job still gets its worktree" \
   "$(echo "$out" | grep '^RAN IN ')" "RAN IN $tmp/trees/faketask"
 
-# 3. With no worktree to be had, the main checkout is the only tree left. Behind
-#    origin/master it holds a stale view of the corpus, and a job that plans
-#    from one hands out work that is already pushed, so the run must not happen.
+# 3. With no worktree to be had, nothing runs. The main checkout is the only
+#    other tree, and it is refused in the state that looks safest too: clean and
+#    at origin/master is a snapshot, and says nothing about the edit that lands
+#    while the job is mid-rebase.
 : > "$tmp/blocked"   # a file where the worktree root wants a directory
+out="$(run "$tmp/blocked/trees")"
+check "a clean checkout at origin/master is refused" \
+  "$(echo "$out" | grep -c 'stopping without running')" "1"
+check "and nothing runs there" "$(echo "$out" | grep -c '^RAN IN ')" "0"
+
+# 4. Behind origin/master it is refused for a second reason as well: a job that
+#    plans from a stale corpus hands out work that is already pushed.
 git -C "$tmp/main" -c user.email=t@t -c user.name=t commit -q --allow-empty -m ahead
 git -C "$tmp/main" push -q origin master
 git -C "$tmp/main" reset -q --hard HEAD~1
 out="$(run "$tmp/blocked/trees")"
 check "a checkout behind origin/master is refused" \
-  "$(echo "$out" | grep -c 'stopping without running')" "1"
-check "and nothing runs there" "$(echo "$out" | grep -c '^RAN IN ')" "0"
+  "$(echo "$out" | grep -c '^RAN IN ')" "0"
 
-# 4. Dirty is refused for the same reason from the other side: the job would
-#    sweep somebody's unstaged work into its own commit.
+# 5. And dirty, for a third: the job would sweep somebody's unstaged work into
+#    its own commit.
 git -C "$tmp/main" merge -q --ff-only origin/master
 echo dirt >> "$tmp/main/tools/faketask.sh"
 out="$(run "$tmp/blocked/trees")"
 check "a dirty checkout is refused" \
-  "$(echo "$out" | grep -c 'stopping without running')" "1"
+  "$(echo "$out" | grep -c '^RAN IN ')" "0"
 git -C "$tmp/main" checkout -q -- tools/faketask.sh
-
-# 5. Clean and current, it is the same tree the worktree would have been.
-out="$(run "$tmp/blocked/trees")"
-check "a clean checkout at origin/master runs in place" \
-  "$(echo "$out" | grep '^RAN IN ')" "RAN IN $tmp/main"
 
 [ "$fails" = 0 ] && echo "NIGHTLY WORKTREE PASSED" || echo "$fails check(s) failed"
 exit $((fails > 0))

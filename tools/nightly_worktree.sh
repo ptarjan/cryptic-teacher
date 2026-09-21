@@ -41,6 +41,9 @@
 # .update.log / .prereset.log. Where the script ran from does not change where
 # its output lands — which is why they are also trimmed from here.
 #
+# There is no fallback. If the worktree cannot be had the job stops and says so,
+# because the only other tree is the one all of this exists to stay out of.
+#
 # Set CT_NO_WORKTREE=1 to run in place — for testing a change to one of these
 # scripts before it is pushed, since the worktree only ever runs committed code.
 
@@ -71,7 +74,7 @@ if [ "${CT_IN_WORKTREE:-0}" != 1 ] && [ "${CT_NO_WORKTREE:-0}" != 1 ]; then
     # Quiet: the first run checks out 600 files and the progress meter writes a
     # line per percent into a log somebody has to read a failure out of.
     git -C "$_ct_main" worktree add -q --detach "$_ct_tree" origin/master || {
-      echo "WORKTREE: cannot create $_ct_tree — running in place instead" >&2
+      echo "WORKTREE: cannot create $_ct_tree" >&2
       _ct_tree=""
     }
   fi
@@ -95,7 +98,7 @@ if [ "${CT_IN_WORKTREE:-0}" != 1 ] && [ "${CT_NO_WORKTREE:-0}" != 1 ]; then
         rm -f "$_ct_lock"
       fi
       git -C "$_ct_tree" reset -q --hard origin/master || {
-        echo "WORKTREE: cannot reset $_ct_tree — running in place instead" >&2
+        echo "WORKTREE: cannot reset $_ct_tree" >&2
         _ct_tree=""
       }
     fi
@@ -121,21 +124,14 @@ if [ "${CT_IN_WORKTREE:-0}" != 1 ] && [ "${CT_NO_WORKTREE:-0}" != 1 ]; then
     exec /bin/bash "$_ct_tree/tools/$(basename "$0")" "$@"
   fi
 
-  # Reaching here means the worktree could not be had and the job would run in
-  # the main checkout — the tree everything above exists to keep it out of. It
-  # may, but only when that tree is already exactly origin/master with nothing
-  # modified in it. A job plans from the tree it can see: one commit behind is
-  # a stale puzzle index, which is work already on origin/master handed out
-  # again and duplicate commits that cannot be rebased back on. Stopping costs
-  # one window; running against the wrong tree costs the window and leaves the
-  # tree wedged for the person who owns it.
-  if [ -n "$(git -C "$_ct_main" status --porcelain --untracked-files=no)" ] ||
-     [ "$(git -C "$_ct_main" rev-parse HEAD)" != "$(git -C "$_ct_main" rev-parse origin/master)" ]; then
-    _ct_why="$_ct_main is $(git -C "$_ct_main" rev-list --count HEAD..origin/master) commit(s) behind origin/master with $(git -C "$_ct_main" status --porcelain --untracked-files=no | wc -l | tr -d ' ') tracked file(s) modified"
-    echo "WORKTREE: no worktree for $_ct_job, and $_ct_why — stopping without running." >&2
-    . "$_ct_main/tools/alert.sh" 2>/dev/null &&
-      alert "$_ct_job could not get its own worktree and refused to run in the main checkout: $_ct_why. Nothing ran and nothing was spent. Fix the worktree under ${CT_WORKTREE_ROOT:-$HOME/.cryptic-teacher}, or bring $_ct_main to a clean origin/master."
-    exit 1
-  fi
-  echo "=== running in place in $_ct_main, clean at origin/master ===" >&2
+  # No worktree, no run. The main checkout is not a fallback: it is somebody's
+  # editor window, and "clean and at origin/master" is a snapshot, not a lease —
+  # it says nothing about the edit that lands a minute later. A job that rebases
+  # over one wedges that tree with a conflict it cannot resolve and throws away
+  # the annotation it just paid for. Stopping costs one window; the next run
+  # clears whatever was stuck and gets its worktree back.
+  echo "WORKTREE: no worktree for $_ct_job under ${CT_WORKTREE_ROOT:-$HOME/.cryptic-teacher} — stopping without running." >&2
+  . "$_ct_main/tools/alert.sh" 2>/dev/null &&
+    alert "$_ct_job could not get its own worktree and will not run in the main checkout. Nothing ran and nothing was spent. Fix the worktree under ${CT_WORKTREE_ROOT:-$HOME/.cryptic-teacher}."
+  exit 1
 fi
