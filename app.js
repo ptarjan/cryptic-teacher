@@ -711,7 +711,7 @@
     puzzleLoad[id] = [done];
     const s = document.createElement("script");
     // ?v=<content hash> so an updated puzzle is never served from cache
-    s.src = "puzzles/" + p.file + (p.v ? "?v=" + p.v : "");
+    s.src = at("puzzles/" + p.file + (p.v ? "?v=" + p.v : ""));
     s.onload = s.onerror = () => {
       const waiting = puzzleLoad[id];
       puzzleLoad[id] = 1;
@@ -5684,7 +5684,7 @@
       if (unmatched) bits.push(q
         ? `${unmatched} other puzzle${unmatched > 1 ? "s" : ""} don’t match.`
         : `${unmatched} more — search by number, setter, day or “solved”, or `
-          + `<a href="puzzles/">browse the whole archive</a>.`);
+          + `<a href="${at("puzzles/")}">browse the whole archive</a>.`);
       setHTML($("picker-more"), bits.join(" "));
     };
     if (!rows.length) {
@@ -5795,6 +5795,14 @@
     }
     return canonicalHome;
   }
+
+  // Every URL the app builds is resolved against the front door, never against
+  // the address bar. Opening a puzzle rewrites the bar to /puzzles/<id>/, so a
+  // relative "puzzles/..." then resolves one level deeper —
+  // /puzzles/<id>/puzzles/... — and 404s. That broke the archive link at the
+  // foot of the picker, and the script tag for the NEXT puzzle opened, so the
+  // app could only ever load one puzzle per page load.
+  function at(rel) { return new URL(rel, homeUrl()).href; }
 
   // What the address bar should say, which is what gets pasted. A crawler
   // fetching ?p=30114 gets the app shell and the shell's single og:image, so

@@ -214,6 +214,27 @@ const rowHasNumber = (html, num) => new RegExp("№ " + num + "(?!\\d)").test(ht
     `every stamp resolved back to a real file: ${stampsChecked} of ${stampedHere}`);
 }
 
+// --- the app's own URLs resolve against the front door, not the address bar ---
+// Opening a puzzle replaceState's the address bar to /puzzles/<id>/, so a bare
+// relative "puzzles/..." built anywhere in app.js resolves one level deeper —
+// /puzzles/<id>/puzzles/... — and 404s. It took out "browse the whole archive"
+// at the foot of the picker AND the script tag that fetches the next puzzle, so
+// the app could only ever open one puzzle per page load.
+// A source rule, because this harness's DOM has no URL resolution and so cannot
+// fail on the thing a browser fails on.
+{
+  const offenders = appSrc.split("\n").map((l, i) => ({ l, n: i + 1 }))
+    .filter(({ l }) => /["'`]puzzles\//.test(l))
+    .filter(({ l }) => !/\bat\(/.test(l) && !/new URL\(/.test(l) && !/^\s*(\/\/|\*)/.test(l));
+  assert(!offenders.length,
+    "app.js builds a URL from a bare \"puzzles/…\" literal. Once a puzzle is open "
+    + "the address bar says /puzzles/<id>/, so that resolves one level deeper and "
+    + "404s — wrap it in at(): "
+    + offenders.map((o) => `app.js:${o.n} ${o.l.trim()}`).join(" | "));
+  assert(/function at\(rel\) \{ return new URL\(rel, homeUrl\(\)\)\.href; \}/.test(appSrc),
+    "app.js still resolves the URLs it builds against the front door, with at()");
+}
+
 // --- the solver's abbreviation glossary is the clue-writer's, not a copy ---
 // abbreviations.js is generated from tools/data/abbreviations.json so that the
 // table the hints teach and the table clueability.py builds words from cannot
