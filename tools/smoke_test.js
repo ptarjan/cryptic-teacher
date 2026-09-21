@@ -828,6 +828,31 @@ assert(storage["ct:nux"] === "1", "cursor moved to the ladder line: " + storage[
 assert(registry["hint-next"].children.filter((c) => /rung-point/.test(c.className || "")).length === 1,
   "exactly one rung is pointed at, and it is the one the line means: "
   + registry["hint-next"].children.map((c) => c.className).join("|"));
+// And the page goes dark around it. The sentence says "take one"; the scrim is
+// what makes it a button rather than a paragraph, so it is asserted against the
+// SAME rung the pulse is on and against a box measured off that rung — a hole
+// somewhere else on the page is worse than no hole.
+{
+  const pointed = registry["hint-next"].children.filter((c) => /rung-point/.test(c.className || ""))[0];
+  const spot = registry["spotlight"];
+  registry["nux"].layout(640, 50);   // the line, sitting just above the row
+  pointed.layout(700, 44);
+  global.window.scrollTo({ top: 200 });
+  assert(!spot.classList.contains("hidden"), "the scrim is up while the line is asking for a press");
+  // Both boxes, as one island: the sentence explaining the press cannot be the
+  // thing the scrim hides.
+  assert(spot.style.top === "434px" && spot.style.height === "116px",
+    "and the light covers the line and the rung it names, padded: "
+    + spot.style.top + " / " + spot.style.height);
+  // Viewport space, and the dialog hands off with a smooth scroll: a hole that
+  // is only right where it was measured is wrong by the time anyone sees it.
+  global.window.scrollTo({ top: 260 });
+  assert(spot.style.top === "374px", "the hole follows the page: " + spot.style.top);
+  pointed.layout(0, 0);
+  registry["nux"].layout(0, 0);
+  global.window.scrollTo({ top: 0 });
+  global.window.scrolls.length = 0;
+}
 
 // --- escape hatch: reveal a letter BEFORE using any ladder hints ---
 assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "escape hatch offered at level 0");
@@ -6053,6 +6078,26 @@ global.realSetTimeout(() => {
     "skipping puts the whole thing away, dialog and lines both");
   assert(Number(again.storage["ct:nux"]) >= 4,
     "and spends the cursor past the last line: " + again.storage["ct:nux"]);
+  // Pressing the rung the scrim is holding open is the whole point of the
+  // sequence, so it is walked end to end once: dialog, hole over one button,
+  // press, and the page comes back up. A scrim that outlived the press would
+  // leave the site dark for a solver who did exactly what it asked.
+  const press = require("./fake_dom.js").boot({
+    storage: { "ct:seen": JSON.stringify({ last: today, days: 1 }) } });
+  press.registry["welcome-go"].onclick();
+  const lit = press.registry["hint-next"].children.filter(
+    (c) => /rung-point/.test(c.className || ""))[0];
+  assert(lit && !press.registry["spotlight"].classList.contains("hidden"),
+    "starting lights one rung and darkens the rest of the page");
+  lit.onclick();
+  assert(press.registry["spotlight"].classList.contains("hidden"),
+    "and taking that rung puts the scrim away, not just the sentence");
+  // The sentence outlives the scrim on purpose: this rung asks before it tells,
+  // and the line is spent by the rung opening, not by the button going down.
+  assert(/\?|hint-step/.test(press.registry["hint-body"].innerHTML),
+    "the press put something in the panel to read: "
+    + press.registry["hint-body"].innerHTML.slice(0, 200));
+
   // The other side of the same decision: a tally of more than one day is a
   // returning solver, who must never be taught the site.
   const regular = require("./fake_dom.js").boot({
