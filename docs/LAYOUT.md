@@ -167,6 +167,9 @@ tools/recover_minutecryptic.py               refills days that capture missed fr
 tools/fetch_fifteensquared.py                caches the blog that covers all five series, and
                                              its comments — fetched once each, at their
                                              20-second crawl delay
+tools/fetch_timesforthetimes.py              caches the blog that covers the Times series, the
+                                             only archive that prints its clues — fetched once
+                                             each, at their 10-second crawl delay
 tools/fetch_lexicon.sh                       downloads the Lufz/Exet lexicon the grid filler
                                              needs
 
