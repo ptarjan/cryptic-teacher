@@ -586,16 +586,19 @@ class _Solver:
         return out
 
 
-def lights_from_grid(grid):
-    """The forward function: what clue list would this grid print?
+def light_cells(grid):
+    """The forward function: which cells does each light of this grid cover?
 
     Row-major scan; a cell takes the next number when it starts an across
     light (two or more cells, a block or the edge to its left) or a down one.
-    Everything in this module exists to invert exactly this.
+    Everything in this module exists to invert exactly this, so the numbering
+    is written once, here, and lights_from_grid is a view of it.
+
+    Returns {(number, direction): [(y, x), ...]} in printed order.
     """
     rows, cols = len(grid), len(grid[0])
     white = [[c == "." for c in row] for row in grid]
-    lights, number = [], 0
+    cells, number = {}, 0
     for y in range(rows):
         for x in range(cols):
             if not white[y][x]:
@@ -608,16 +611,21 @@ def lights_from_grid(grid):
                 continue
             number += 1
             if across:
-                run = 1
-                while x + run < cols and white[y][x + run]:
-                    run += 1
-                lights.append((number, "across", run))
+                run = []
+                while x + len(run) < cols and white[y][x + len(run)]:
+                    run.append((y, x + len(run)))
+                cells[(number, "across")] = run
             if down:
-                run = 1
-                while y + run < rows and white[y + run][x]:
-                    run += 1
-                lights.append((number, "down", run))
-    return lights
+                run = []
+                while y + len(run) < rows and white[y + len(run)][x]:
+                    run.append((y + len(run), x))
+                cells[(number, "down")] = run
+    return cells
+
+
+def lights_from_grid(grid):
+    """What clue list would this grid print? (number, direction, length)."""
+    return [(n, d, len(cells)) for (n, d), cells in light_cells(grid).items()]
 
 
 def conventions_broken(grid, symmetry=True):
