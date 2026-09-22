@@ -96,6 +96,7 @@ LAYOUT = [
     ("fetching", "tools/fetch_minutecryptic.js", "Minute Cryptic’s daily hints, as a corpus to be measured against"),
     ("fetching", "tools/recover_minutecryptic.py", "refills days that capture missed from Minute Cryptic’s own video titles, dated by clue number because the upload date lags"),
     ("fetching", "tools/fetch_fifteensquared.py", "caches the blog that covers all five series, and its comments — fetched once each, at their 20-second crawl delay"),
+    ("fetching", "tools/fetch_timesforthetimes.py", "caches the blog that covers the Times series, the only archive that prints its clues — fetched once each, at their 10-second crawl delay"),
     ("fetching", "tools/fetch_lexicon.sh", "downloads the Lufz/Exet lexicon the grid filler needs"),
 
     ("annotating", "tools/annotate_prompt.md", "the prompt the daily Claude Code job follows to annotate"),
