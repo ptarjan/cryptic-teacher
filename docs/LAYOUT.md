@@ -176,6 +176,11 @@ tools/parse_timesforthetimes.py              reads that cache into clue, answer 
 tools/test_parse_timesforthetimes.sh         holds that parser to one fixture per era of the
                                              blog's markup, because a misread answer becomes a
                                              wrong light length
+tools/times_grids.py                         runs the numbering backwards on those records to
+                                             rebuild the grids The Times withholds, narrowing a
+                                             shortlist by where the answers cross
+tools/test_times_grids.sh                    holds that rebuilder to a hand-built grid, because
+                                             a wrong grid looks exactly like a right one
 tools/fetch_lexicon.sh                       downloads the Lufz/Exet lexicon the grid filler
                                              needs
 
