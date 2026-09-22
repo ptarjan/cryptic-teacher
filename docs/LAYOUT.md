@@ -170,6 +170,12 @@ tools/fetch_fifteensquared.py                caches the blog that covers all fiv
 tools/fetch_timesforthetimes.py              caches the blog that covers the Times series, the
                                              only archive that prints its clues — fetched once
                                              each, at their 10-second crawl delay
+tools/parse_timesforthetimes.py              reads that cache into clue, answer and
+                                             light-length records — the input a withheld Times
+                                             grid is rebuilt from
+tools/test_parse_timesforthetimes.sh         holds that parser to one fixture per era of the
+                                             blog's markup, because a misread answer becomes a
+                                             wrong light length
 tools/fetch_lexicon.sh                       downloads the Lufz/Exet lexicon the grid filler
                                              needs
 
