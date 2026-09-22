@@ -62,10 +62,10 @@ CATEGORIES = {
     26: "Other Crosswords",
 }
 
-#: Before this the blog prints the answer and the wordplay but not the clue,
-#: so those years can rebuild a grid and still teach nothing. Overridable,
-#: because the grid alone is worth having if the clues ever turn up elsewhere.
-DEFAULT_SINCE = "2017-01-01"
+#: No date floor by default. Before about 2017 the blog prints the answer and
+#: the wordplay but not the clue, and those years still carry the numbers and
+#: letter-counts a grid is rebuilt from, so they are worth the bytes. `--since`
+#: bounds a spot-check.
 
 #: Only the fields a parser or a grid needs. The API will otherwise send
 #: rendered excerpts, yoast metadata and a _links block per post, which is most
@@ -83,7 +83,7 @@ def cached_ids():
     return {int(p.stem) for p in POSTS.glob("*.json")}
 
 
-def fetch_category(cid, name, since, pages_cap=None):
+def fetch_category(cid, name, since=None, pages_cap=None):
     """Walk every page the API reports for one category.
 
     Walk them all: a page cap silently truncates an archive, and a run that
@@ -93,11 +93,13 @@ def fetch_category(cid, name, since, pages_cap=None):
     have = cached_ids()
     page, total_pages, new = 1, None, 0
     while True:
-        q = urllib.parse.urlencode({
+        args = {
             "categories": cid, "per_page": 100, "page": page,
-            "after": since + "T00:00:00", "orderby": "date", "order": "desc",
-            "_fields": FIELDS,
-        })
+            "orderby": "date", "order": "desc", "_fields": FIELDS,
+        }
+        if since:
+            args["after"] = since + "T00:00:00"
+        q = urllib.parse.urlencode(args)
         try:
             posts, headers = get(API + "posts?" + q)
         except urllib.error.HTTPError as e:
@@ -107,7 +109,8 @@ def fetch_category(cid, name, since, pages_cap=None):
             break
         if total_pages is None:
             total_pages = int(headers.get("X-WP-TotalPages") or 1)
-            print(f"  {name}: {headers.get('X-WP-Total')} posts since {since}, "
+            span = f" since {since}" if since else ""
+            print(f"  {name}: {headers.get('X-WP-Total')} posts{span}, "
                   f"{total_pages} page(s)", flush=True)
         if not posts:
             break
@@ -141,8 +144,8 @@ def status():
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    ap.add_argument("--since", default=DEFAULT_SINCE,
-                    help=f"earliest post date to fetch (default {DEFAULT_SINCE})")
+    ap.add_argument("--since",
+                    help="earliest post date to fetch (default: the whole archive)")
     ap.add_argument("--category", action="append",
                     help="one category name; repeatable, default all puzzle ones")
     ap.add_argument("--pages", type=int,
