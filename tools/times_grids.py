@@ -63,8 +63,10 @@ def answers_fit(grid, rec):
 #: How hard to look before giving up on one puzzle. A search that runs out
 #: of nodes is reported as `truncated`, never as `no grid`: the difference is
 #: a budget we chose and a light list the blog got wrong, and only one of them
-#: is worth re-reading the post over.
-DEFAULT_MAX_NODES = 400000
+#: is worth re-reading the post over. Measured on a 120-puzzle sample: 400k
+#: left 28% truncated, 6M leaves 9% and costs about 17 seconds a puzzle. This
+#: is a batch job nobody waits on, so it buys the grids.
+DEFAULT_MAX_NODES = 6_000_000
 
 
 def solve(rec, limit=50, max_nodes=DEFAULT_MAX_NODES):
