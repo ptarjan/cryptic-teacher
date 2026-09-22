@@ -1,0 +1,88 @@
+#!/bin/bash
+# Does tools/times_grids.py rebuild the right grid, and admit it when it cannot?
+#
+#     bash tools/test_times_grids.sh
+#
+# This module turns a blog post into a GRID that gets published as if The Times
+# had printed it, and a wrong grid is not obviously wrong to anyone looking at
+# it. Two ways to get that wrong quietly: narrowing a shortlist with the
+# answers and keeping a candidate whose crossings disagree, and reporting a
+# search that ran out of budget as a puzzle no grid fits — the first ships a
+# lie, the second sends someone back to re-read a blog post that was fine.
+#
+# The fixture is a hand-built 5x5 with a made-up series, so nothing here
+# depends on the corpus, on the cache, or on how long a real search takes.
+set -uo pipefail
+REPO="$(cd "$(dirname "$0")/.." && pwd)"
+fails=0
+check() {  # check <what> <expected> <got>
+  if [ "$2" = "$3" ]; then echo "ok   $1"; else
+    echo "FAIL $1: expected [$2], got [$3]"; fails=$((fails + 1)); fi
+}
+
+out=$(PYTHONPATH="$REPO/tools" python3 - <<'PY'
+import reconstruct_grid as rg
+import times_grids as T
+import parse_timesforthetimes as P
+
+TINY = ("..#..",
+        ".....",
+        "#...#",
+        ".....",
+        "..#..")
+T.SIZE["Test"] = 5
+
+# Letters that actually constrain each other: every white cell gets its own,
+# so two lights that cross agree on one square and on no other.
+letter = lambda y, x: chr(ord("A") + (y * 5 + x) % 26)
+cells = rg.light_cells(TINY)
+rec = {"series": "Test", "entries": [
+    {"number": n, "direction": d, "answer": "".join(letter(*c) for c in cs)}
+    for (n, d), cs in cells.items()]}
+
+# The light list this module feeds the solver must BE the one the grid would
+# print, in printed order. A different order is a different puzzle.
+print("PRINTED_ORDER", T.triples(rec) == rg.lights_from_grid(TINY))
+
+grids, how = T.solve(rec)
+print("SOLVED_HOW", how)
+print("SOLVED_IS_IT", len(grids) == 1 and grids[0] == TINY)
+
+print("FIT_TRUE", T.answers_fit(TINY, rec))
+clash = {"series": "Test", "entries": [dict(e) for e in rec["entries"]]}
+clash["entries"][0]["answer"] = "Z" * len(clash["entries"][0]["answer"])
+print("FIT_CLASH", T.answers_fit(TINY, clash))
+
+# Out of budget is not the same fact as no grid fits, and the caller acts on
+# the difference: one is a knob, the other is a blog post to go and re-read.
+print("BUDGET", T.solve(rec, max_nodes=1)[1])
+
+# A light list no grid of this size can print is a light list, not a budget:
+# it must read as "no grid" even though the search also finished, because the
+# only fix for it is to go back to the blog post.
+toolong = {"series": "Test", "entries": [
+    {"number": 1, "direction": "across", "answer": "A" * 9}]}
+print("TOOLONG", T.solve(toolong)[1])
+
+# Barred puzzles have no black squares, so numbering inverts to nothing. They
+# are parsed and then deliberately not sized here; a typo in the name would
+# look identical, so check both halves.
+print("BARRED", sorted(s for s in P.SERIES.values() if s not in T.SIZE))
+PY
+)
+echo "$out"
+field() { awk -v k="$1" '$1==k {$1=""; sub(/^ /,""); print}' <<<"$out"; }
+
+check "the solver is fed the light list the grid would print" True "$(field PRINTED_ORDER)"
+check "a complete light list pins one grid down" unique "$(field SOLVED_HOW)"
+check "and it is the grid the lights came from" True "$(field SOLVED_IS_IT)"
+check "answers that agree at every crossing fit" True "$(field FIT_TRUE)"
+check "one answer that disagrees at a crossing does not" False "$(field FIT_CLASH)"
+check "a search that ran out of budget says so" truncated "$(field BUDGET)"
+check "a light no grid could hold reads as no grid, not as truncated" \
+      "no grid" "$(field TOOLONG)"
+check "barred series are excluded, by their parsed names" \
+      "['Mephisto', 'Monthly Club Special', 'Other Crosswords']" "$(field BARRED)"
+
+if [ "$fails" -gt 0 ]; then echo "$fails FAILURE(S)"; exit 1; fi
+echo "times_grids: all checks passed"
