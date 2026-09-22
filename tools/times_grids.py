@@ -122,6 +122,7 @@ def run(limit_puzzles=None, series=None, write=True, seed=None,
                 "post_id": rec["post_id"], "series": rec["series"],
                 "number": rec["number"], "date": rec["date"],
                 "grid": list(grids[0]), "how": why}, ensure_ascii=False) + "\n")
+            out.flush()   # hours per run; a killed one keeps what it solved
     if out:
         out.close()
     return {"n": len(recs), "how": how, "by_series": by_series, "holes": holes}
