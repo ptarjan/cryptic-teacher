@@ -138,6 +138,17 @@ def open_out(fresh):
     return OUT.open("w" if fresh else "a", encoding="utf-8")
 
 
+def has_clues(rec):
+    """Did the blogger write out the clues, not just the answers?
+
+    Until about 2016 most posts gave answers and wordplay only. A grid with no
+    clues in it is not a puzzle anyone can solve, so it is not worth hours of
+    search.
+    """
+    es = rec["entries"]
+    return bool(es) and sum(bool(e.get("clue")) for e in es) >= 0.9 * len(es)
+
+
 def run(limit_puzzles=None, series=None, write=True, seed=None,
         max_nodes=DEFAULT_MAX_NODES, fresh=False):
     if not PARSED.exists():
@@ -146,7 +157,8 @@ def run(limit_puzzles=None, series=None, write=True, seed=None,
     recs = []
     for line in PARSED.open(encoding="utf-8"):
         r = json.loads(line)
-        if r["series"] in SIZE and (series is None or r["series"] == series):
+        if (r["series"] in SIZE and (series is None or r["series"] == series)
+                and has_clues(r)):
             recs.append(r)
     # Newest first: recent posts write out their clues, and recent puzzles are
     # the ones people look for.
