@@ -89,6 +89,17 @@ T.ATTEMPTS.write_text(
 print("TRIED", sorted(T.attempted(6000000)))
 print("BIGGER", sorted(T.attempted(400000)))
 
+# Answers that refute EVERY candidate are the opposite of an ambiguous grid:
+# the right grid is not in the list, so the light list or an answer is wrong.
+# This said "crossings ruled out none", which reads as the exact opposite, and
+# the one puzzle it fired on got quoted as a grid the crossings could not
+# settle. Two candidates, neither of which the answers fit.
+real = rg.reconstruct
+rg.reconstruct = lambda *a, **k: ([TINY, (".#...", ".....", "#...#", ".....", "...#.")],
+                                  {"truncated": False})
+print("REFUTED", T.solve(clash)[1])
+rg.reconstruct = real
+
 # Barred puzzles have no black squares, so numbering inverts to nothing. They
 # are parsed and then deliberately not sized here; a typo in the name would
 # look identical, so check both halves.
@@ -111,6 +122,8 @@ check "and appends to it rather than truncating" True "$(field KEPT)"
 check "only --fresh starts the file over" "" "$(field FRESH)"
 check "a failure is not re-ground on the next run" "[1]" "$(field TRIED)"
 check "but a bigger budget retries what it truncated" "[1, 2]" "$(field BIGGER)"
+check "answers refuting every candidate does not read as an unsettled tie" \
+      "answers fit none of 2" "$(field REFUTED)"
 check "barred series are excluded, by their parsed names" \
       "['Mephisto', 'Monthly Club Special', 'Other Crosswords']" "$(field BARRED)"
 
