@@ -347,5 +347,29 @@ spec = importlib.util.spec_from_file_location("p", os.path.join(os.environ["REPO
 m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
 print(m.puzzle_number({"slug": "times-quick-cryptic-25184-by-felix", "title": {"rendered": ""}}))')"
 
+# A clue can open with a number of its own, including one that looks like a
+# linked head. The row after a bare number cell is that number's clue.
+numclue='<table><tr><td><strong>Across</strong></td></tr>
+<tr><td>2</td><td>100 rhinos travelling from south-west? (7)</td></tr>
+<tr><td></td><td><b>CORNISH</b> &#8211; C(100) + (RHINOS)*</td></tr>
+<tr><td>16</td><td>4/7 of 19 is a very small amount (4)</td></tr>
+<tr><td></td><td><b>IOTA</b> &#8211; four of RIOT ACT</td></tr></table>'
+got="$(run "$numclue")"
+check "a clue opening with a number stays with the bare cell before it" \
+  "2|across|CORNISH|7|100 rhinos travelling from south-west? (7)" \
+  "$(echo "$got" | sed -n 1p)"
+check "a clue opening with a fraction is not a linked head" \
+  "16|across|IOTA|4|4/7 of 19 is a very small amount (4)" \
+  "$(echo "$got" | sed -n 2p)"
+
+# An answer printed with its accents writes bare letters into the grid;
+# dropping the accented letter, or the whole answer, loses the light.
+accent='<table><tr><td><strong>Across</strong></td></tr>
+<tr><td>3</td><td>Stand from beginning of extra time: add time on (7)</td></tr>
+<tr><td></td><td><b>ÉTAGÈRE</b> &#8211; a display stand</td></tr></table>'
+check "an accented answer is read as its bare letters" \
+  "3|across|ETAGERE|7|Stand from beginning of extra time: add time on (7)" \
+  "$(run "$accent")"
+
 if [ "$fails" -gt 0 ]; then echo "$fails FAILURE(S)"; exit 1; fi
 echo "all checks passed"
