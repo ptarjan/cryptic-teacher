@@ -148,6 +148,9 @@ def run(limit_puzzles=None, series=None, write=True, seed=None,
         r = json.loads(line)
         if r["series"] in SIZE and (series is None or r["series"] == series):
             recs.append(r)
+    # Newest first: recent posts write out their clues, and recent puzzles are
+    # the ones people look for.
+    recs.sort(key=lambda r: (r.get("date") or "", r["post_id"]), reverse=True)
     if seed is not None:
         import random
         random.Random(seed).shuffle(recs)
