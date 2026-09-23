@@ -104,6 +104,9 @@ rg.reconstruct = real
 # are parsed and then deliberately not sized here; a typo in the name would
 # look identical, so check both halves.
 print("BARRED", sorted(s for s in P.SERIES.values() if s not in T.SIZE))
+e = {"number": 1, "direction": "across", "answer": "AB"}
+print("CLUES", T.has_clues({"entries": [dict(e, clue="Clue (2)")] * 10}),
+      T.has_clues({"entries": [dict(e, clue="")] * 10}))
 PY
 )
 echo "$out"
@@ -126,6 +129,7 @@ check "answers refuting every candidate does not read as an unsettled tie" \
       "answers fit none of 2" "$(field REFUTED)"
 check "barred series are excluded, by their parsed names" \
       "['Mephisto', 'Monthly Club Special', 'Other Crosswords']" "$(field BARRED)"
+check "a post that gives only the answers is not searched" "True False" "$(field CLUES)"
 
 if [ "$fails" -gt 0 ]; then echo "$fails FAILURE(S)"; exit 1; fi
 echo "times_grids: all checks passed"
