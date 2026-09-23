@@ -53,8 +53,8 @@ import urllib.error
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from fetch_puzzle import (http_bytes, has_words, puzzle_path,  # noqa: E402
-                          reindex, write_puzzle_file)
+from fetch_puzzle import (flatten_clue, http_bytes, has_words,  # noqa: E402
+                          puzzle_path, reindex, write_puzzle_file)
 from fetch_wayback import maybe_gunzip, SLEEP_SECONDS  # noqa: E402 — shared Wayback plumbing
 import series as series_meta  # noqa: E402 — for puzzle_id()/default_setter() only
 
@@ -206,7 +206,12 @@ def convert(data):
         for cell, ch in zip(cells, answer):
             grid[cell] = ch
 
-        clue = item["clue"].strip()
+        # Metro italicises inside a clue like everyone else — "<i>Jack and the
+        # Beanstalk</i>, it's incredible" — and the app escapes puzzle text, so
+        # a tag left in the string is read by the solver. flatten_clue lifts it
+        # into ranges beside a plain clue, which is what every other fetcher
+        # here stores and what the annotation offsets are measured against.
+        clue, italics = flatten_clue(item["clue"].strip())
         entries.append({
             "id": f"{item['num']}-{direction}",
             "number": item["num"],
@@ -214,6 +219,7 @@ def convert(data):
             "position": {"x": col, "y": row},
             "length": length,
             "clue": clue,
+            **({"clueItalics": italics} if italics else {}),
             **({} if has_words(clue) else {"clueMissing": True}),
             # Metro ships no separators; the enumeration stays in the clue text.
             "solution": answer,
