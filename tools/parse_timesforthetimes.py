@@ -20,6 +20,7 @@ import html
 import json
 import re
 import sys
+import unicodedata
 from pathlib import Path
 
 CACHE = Path.home() / "cryptic-setter-data" / "timesforthetimes"
@@ -288,6 +289,9 @@ def printed_answer(rest):
     caller needs them: a linked clue is split between its lights AT a word
     break, and the printing is where those breaks are.
     """
+    # A grid square holds a bare letter: ETAGERE is what ÉTAGÈRE writes in.
+    rest = "".join(c for c in unicodedata.normalize("NFKD", rest)
+                   if not unicodedata.combining(c))
     rest = DROPPED_LETTERS.sub("", WORDPLAY_COMMA.split(_drop_asides(rest), 1)[0])
     m = ANSWER.match(rest)
     if not m:
