@@ -9,6 +9,14 @@
 # twenty years and the old eras write the answer with the wordplay inside it
 # — S(L)OUGH, YOR[I+C]K, ANN,ULET=lute*, SWANSON[g] — so each era gets a
 # fixture here. They are inline snippets, not cached posts: CI has no cache.
+#
+# A LINKED clue covers two or more lights under one heading ("10/11") and the
+# blog prints its answer once, whole. One entry for it is two mistakes at once
+# — a light that is longer than any the grid holds, and a light that is not in
+# the list at all — and both read downstream as a blog post with a hole in it.
+# Splitting it wrongly is worse than not splitting it: the grid that comes back
+# is wrong and looks fine, so every form the blog actually uses is a fixture
+# here, and so is every shape that must be refused instead of guessed.
 set -uo pipefail
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 fails=0
@@ -33,6 +41,9 @@ if rec is None:
 for e in rec["entries"]:
     print("|".join([str(e["number"]), e["direction"], e["answer"],
                     e["enumeration"] or "", e["clue"] or ""]))
+for u in rec.get("unsplit", []):
+    print("|".join(["UNSPLIT", " ".join(f"{n}{d[0]}" for n, d in u["lights"]),
+                    u["answer"], u["enumeration"] or ""]))
 PY
 }
 
@@ -99,6 +110,135 @@ check "old era: a braced deletion is dropped" "RAKISH" \
 check "old era: no clue text, and none invented" "" \
   "$(echo "$got" | sed -n 1p | cut -d'|' -f5)"
 check "old era: every entry found" "8" "$(echo "$got" | grep -c .)"
+
+# LINKED CLUES, old era: the head names the lights and the answer is printed
+# once, whole. Every separator and suffix below is a real line from the
+# archive. A light boundary inside a linked answer is a WORD boundary, so the
+# printed words are the slice points: one word per light and the split is
+# forced.
+linked='<p><b>Across</b></p><table>
+<tr><td>10/11</td></tr>
+<tr><td>YORKSHIRE DALES = (DRAY-HORSES LIKE)*</td></tr>
+<tr><td>16,8</td></tr>
+<tr><td>BRUSSELS SPROUTS; BRUSSELS + S.P. + ROUTS</td></tr>
+<tr><td>3 &amp; 17</td></tr>
+<tr><td>SPIKE MILLIGAN = (I + SPEAKING)* about MILL</td></tr>
+<tr><td>18 and 14</td></tr>
+<tr><td>BEEF STROGANOFF = (GOT SAFFRON)* after BEEF</td></tr>
+<tr><td>6/6dn</td></tr>
+<tr><td>GOOSE FLESH</td></tr>
+<tr><td>1/29/19dn</td></tr>
+<tr><td>GERARD MANLEY HOPKINS; (ONE PHRASING MARKEDLY)*</td></tr></table>'
+got="$(run "$linked")"
+check "linked: a slash head splits at the word break" \
+  "10|across|YORKSHIRE|| 11|across|DALES||" \
+  "$(echo "$got" | sed -n 1p) $(echo "$got" | sed -n 2p)"
+check "linked: a comma head is the same clue" \
+  "16|across|BRUSSELS|| 8|across|SPROUTS||" \
+  "$(echo "$got" | sed -n 3p) $(echo "$got" | sed -n 4p)"
+check "linked: an ampersand head is the same clue" \
+  "3|across|SPIKE|| 17|across|MILLIGAN||" \
+  "$(echo "$got" | sed -n 5p) $(echo "$got" | sed -n 6p)"
+check "linked: a spelled-out and is the same clue" \
+  "18|across|BEEF|| 14|across|STROGANOFF||" \
+  "$(echo "$got" | sed -n 7p) $(echo "$got" | sed -n 8p)"
+# 6/6dn is two lights, not one written twice: without the suffix a light runs
+# in the direction of the heading it was printed under.
+check "linked: a direction suffix moves that light to the other direction" \
+  "6|across|GOOSE|| 6|down|FLESH||" \
+  "$(echo "$got" | sed -n 9p) $(echo "$got" | sed -n 10p)"
+check "linked: three lights, three words, one per light" \
+  "1|across|GERARD|| 29|across|MANLEY|| 19|down|HOPKINS||" \
+  "$(echo "$got" | sed -n 11p) $(echo "$got" | sed -n 12p) $(echo "$got" | sed -n 13p)"
+check "linked: no entry is invented beyond the lights the head named" "13" \
+  "$(echo "$got" | grep -c .)"
+
+# The corpus's leader form for a split answer: the WHOLE answer's enumeration
+# on the light that carries the clue, null on every continuation, and the
+# continuation points back with the "See N" the blog itself writes. Anything
+# reading a linked answer's count reads it off the leader.
+leader='<p><b>Across</b></p><table>
+<tr><td>7/10</td><td>for one dirty side&#8217;s outside right (6,8)</td></tr>
+<tr><td>VULGAR FRACTION &#8212; VULGAR, &#8220;dirty&#8221; + F(R)ACTION</td></tr></table>'
+got="$(run "$leader")"
+check "linked: the leader carries the whole enumeration and the clue" \
+  "7|across|VULGAR|6,8|for one dirty side’s outside right (6,8)" \
+  "$(echo "$got" | sed -n 1p)"
+check "linked: the continuation carries null and points back" \
+  "10|across|FRACTION||See 7" "$(echo "$got" | sed -n 2p)"
+
+# REFUSALS. The blog does not always say where the light break is, and a wrong
+# split reconstructs a wrong grid that nobody can see is wrong. Each of these
+# must emit NOTHING for the clue and say so, rather than pick one.
+refuse='<p><b>Across</b></p><table>
+<tr><td>23, 24</td><td>Is drunk with alcohol, emerge healthier (4,4,2,4,5)</td></tr>
+<tr><td>COME HELL OR HIGH WATER &#8211; anagram</td></tr>
+<tr><td>4/5</td></tr>
+<tr><td>GO SLOWLY</td></tr>
+<tr><td>30/48</td><td>Red-suited caller (5,5)</td></tr>
+<tr><td>SANT ACLAUS &#8211; anagram</td></tr></table>'
+got="$(run "$refuse")"
+check "refusal: more words than lights names no break, so none is chosen" \
+  "UNSPLIT|23a 24a|COMEHELLORHIGHWATER|4,4,2,4,5" "$(echo "$got" | sed -n 1p)"
+# A light of one or two letters is not a light in any of these puzzles, so a
+# split that produces one has found a word break that is not a light break.
+check "refusal: a piece too short to be a light is not a split" \
+  "UNSPLIT|4a 5a|GOSLOWLY|" "$(echo "$got" | sed -n 2p)"
+# The enumeration and the answer are read off different lines. When they count
+# the same letters into different words, one of them was misread.
+check "refusal: enumeration and answer disagreeing about the words" \
+  "UNSPLIT|30a 48a|SANTACLAUS|5,5" "$(echo "$got" | sed -n 3p)"
+check "refusal: a refused clue puts no entry in the record at all" "0" \
+  "$(echo "$got" | grep -vc UNSPLIT || true)"
+
+# A line can open with numbers and not be a linked head. Fewer words than
+# lights cannot be a split answer — a light cannot be part of a word — so this
+# is the ordinary clue its first number names, and refusing it would throw
+# away a light that was right.
+notlinked='<p><b>Across</b></p><table>
+<tr><td>4/7 of 19 is a very small amount (4)</td></tr>
+<tr><td>IOTA &#8211; The answer to 19 is RIOT ACT</td></tr></table>'
+check "not linked: four sevenths of 19 is one clue, not two lights" \
+  "4|across|IOTA|4|4/7 of 19 is a very small amount (4)" "$(run "$notlinked")"
+
+# Before the first heading the blogger is writing ABOUT the puzzle. A preamble
+# that quotes a linked answer would otherwise file it as a clue, and file it
+# under numbers the clue list then contradicts.
+preamble='<p>23ac / 24ac CHARACTER ACTORS was the theme.</p>
+<p><b>Across</b></p><table>
+<tr><td>24</td><td>Thespian to go off (5)</td></tr>
+<tr><td>ACTOR &#8211; anagram</td></tr></table>'
+check "preamble: a linked answer quoted before the heading is not a clue" \
+  "24|across|ACTOR|5|Thespian to go off (5)" "$(run "$preamble")"
+
+# Some bloggers print a linked answer whole under the leader AND again under
+# the continuation. The continuation's printing is the exact one, so the
+# leader gives those letters back; left alone it is one light four letters too
+# long and one light counted twice.
+carried='<p><b>Across</b></p><table>
+<tr><td>18</td></tr>
+<tr><td>See 3 (4)</td></tr>
+<tr><td>GEAR &#8211; See explanation at 3 down</td></tr></table>
+<p><b>Down</b></p><table>
+<tr><td>3</td></tr>
+<tr><td>Drunk most of huge gin with a large mug (8)</td></tr>
+<tr><td>LAUGHING GEAR &#8211; anagram</td></tr></table>'
+got="$(run "$carried")"
+check "carried: the continuation keeps its own printing" "18|across|GEAR|4|See 3 (4)" \
+  "$(echo "$got" | sed -n 1p)"
+check "carried: and the leader gives back the letters it does not hold" \
+  "3|down|LAUGHING|8|Drunk most of huge gin with a large mug (8)" \
+  "$(echo "$got" | sed -n 2p)"
+
+# One light, one entry: a linked group emits every light it covers, and the
+# blogger may have printed one of them on a line of its own as well.
+twice='<p><b>Across</b></p><table>
+<tr><td>1/5</td></tr>
+<tr><td>COSTA BRAVA</td></tr>
+<tr><td>5</td></tr>
+<tr><td>BRAVA</td></tr></table>'
+check "one light, one entry, however many times the blog printed it" "2" \
+  "$(run "$twice" | grep -c .)"
 
 # An announcement is not a puzzle. Emitting one would put a post with no
 # entries into the output and let it be counted as coverage.
