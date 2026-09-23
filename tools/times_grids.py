@@ -91,7 +91,11 @@ def solve(rec, limit=50, max_nodes=DEFAULT_MAX_NODES):
         return narrowed, "unique after crossings"
     if narrowed:
         return narrowed, f"{len(narrowed)} of {len(sols)} after crossings"
-    return list(sols), f"{len(sols)}, crossings ruled out none"
+    # Every candidate contradicts the answers, which is the opposite of an
+    # ambiguous grid: the right grid is not in the list at all, so the light
+    # list or one of the answers is wrong. It read as "crossings ruled out
+    # none" and got quoted as a puzzle the crossings had failed to settle.
+    return list(sols), f"answers fit none of {len(sols)}"
 
 
 def solved_already():
@@ -162,8 +166,11 @@ def run(limit_puzzles=None, series=None, write=True, seed=None,
     log = ATTEMPTS.open("w" if fresh else "a", encoding="utf-8") if write else None
     for rec in recs:
         grids, why = solve(rec, max_nodes=max_nodes)
-        key = why if why.startswith(("unique", "no grid", "truncated", "rejected")) else "shortlist"
-        key = "rejected" if why.startswith("rejected") else key
+        # A bucket is a category, not a sentence: the two outcomes that carry
+        # a count in their text would otherwise each be their own bucket.
+        key = why if why.startswith(("unique", "no grid", "truncated")) else "shortlist"
+        for prefix in ("rejected", "answers fit none"):
+            key = prefix if why.startswith(prefix) else key
         how[key] += 1
         if log:
             log.write(json.dumps({"post_id": rec["post_id"], "how": why,
@@ -190,7 +197,7 @@ def report(r):
     pct = lambda k: f"{100.0 * r['how'][k] / n:.1f}%" if n else "-"
     print(f"{n} puzzle(s) tried")
     for k in ("unique", "unique after crossings", "shortlist", "no grid",
-              "truncated", "rejected"):
+              "truncated", "rejected", "answers fit none"):
         if r["how"][k]:
             print(f"  {r['how'][k]:>6}  {pct(k):>6}  {k}")
     print("\nBY SERIES")
