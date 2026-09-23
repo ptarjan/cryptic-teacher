@@ -55,8 +55,9 @@ BREAKS = re.compile(r"</?(?:br|p|div|tr|td|th|li|h[1-6]|table|tbody)\b[^>]*>",
 TAG = re.compile(r"<[^>]+>")
 HEADING = re.compile(r"^(across|down)\b[\s:.]*$", re.I)
 #: A clue can open with a time or a decimal -- "5:37, perhaps, is when most
-#: are watching?" -- and that is clue text, not clue number 5.
-NUMBERED = re.compile(r"^(\d{1,2})(?![.:]\d)\s*[.):]?\s*(.*)$")
+#: are watching?" -- and that is clue text, not clue number 5. Nor is a longer
+#: number a clue number: "1066 Pevensey event" is not clue 10.
+NUMBERED = re.compile(r"^(\d{1,2})(?!\d|[.:]\d)\s*[.):]?\s*(.*)$")
 #: An answer is the line's leading run of capitals, ended by whichever mark
 #: the wordplay hangs off — a dash, an equals sign or a semicolon. A plain
 #: hyphen ends it only when a space is on either side of it, or WELL-KNOWN
@@ -114,6 +115,9 @@ DIRECTION_OF = {"a": "across", "ac": "across", "across": "across",
                 "d": "down", "dn": "down", "down": "down"}
 #: What a linked head leaves before the clue starts: "4 & 29: A notable…".
 LINK_TAIL = re.compile(r"^[\s.:;)\-–—]+")
+#: A number cell can name its direction too -- "12d", "20a", "5ac" -- and is
+#: still a bare number cell, not clue number 12 with clue text "d".
+BARE_SUFFIX = re.compile(r"^(across|ac|a|down|dn|d)\.?$", re.I)
 #: "See 15", "See 3 (9)", "See 12 across" — a light whose clue lives on another
 #: light. tools/normalise_linked_enumerations.py reads the same shape; this is
 #: how the whole corpus spells a continuation.
@@ -433,10 +437,30 @@ def parse_post(post):
 
     entries, unsplit = [], []
     direction, lights, clue, enum, head_clue = None, None, None, None, None
+    # A bare number cell owns the line after it: in the table eras the clue
+    # (or the answer) sits in the next cell, and a clue that opens with a
+    # number -- "24-hour periods", "10 pence secured", "3D viewer" -- is that
+    # light's clue, not a new light.
+    bare = False
+    # A light is answered once, so a number line naming one that already has
+    # its answer is the blogger's prose -- "1 SEN = 1/100th of a yen" under
+    # 12's answer -- not the light again. A number that merely goes backwards
+    # is left alone: that is a typo ("28" for 18), and refusing it would take
+    # every light after the typo with it. A post with no Down heading at all
+    # starts its Down list where the numbers restart at 1 or 2.
+    rendered = lines(post["content"]["rendered"])
+    headed_down = any(HEADING.match(ln) and HEADING.match(ln).group(1).lower()
+                      == "down" for ln in rendered)
+    last, answered = 0, set()
 
     def flush(printed):
+        nonlocal last
         if not lights or not printed:
             return
+        if lights[0][1] == direction:  # a linked group sits at its leader
+            last = max(last, lights[0][0])
+        if len(lights) == 1:
+            answered.add(lights[0])
         letters = re.sub(r"[^A-Z]", "", printed)
         pieces = ([(lights[0], letters)] if len(lights) == 1
                   else link_pieces(lights, printed, enum))
@@ -461,18 +485,23 @@ def parse_post(post):
                 "enumeration": enum if i == 0 else None,
             })
 
-    for ln in lines(post["content"]["rendered"]):
+    for ln in rendered:
         if not ln:
             continue
         if HEADING.match(ln):
             direction = HEADING.match(ln).group(1).lower()
+            last = 0
             lights, clue, enum = None, None, None
             continue
         rest, these = None, None
+        owned, bare = bare, False
+        m = NUMBERED.match(ln)
+        if owned and m and (not m.group(2) or BARE_SUFFIX.match(m.group(2))):
+            owned = False             # another bare number: a new light
         # A linked head only counts inside a clue list. Before the first
         # heading the blogger is writing about the puzzle, and "23ac / 24ac
         # CHARACTER ACTORS" in a preamble is a remark, not a clue.
-        m = LINK_HEAD.match(ln) if direction else None
+        m = LINK_HEAD.match(ln) if direction and not owned else None
         if m:
             these = link_lights(m, direction)
             rest = LINK_TAIL.sub("", ln[m.end():]).strip()
@@ -482,15 +511,24 @@ def parse_post(post):
             # anything else after them is somebody talking about the puzzle.
             if rest and not (ENUM.search(rest) or printed_answer(rest)):
                 these = None
-        if these is None:
+        if these is None and not owned:
             m = NUMBERED.match(ln)
             if m:
-                these = [(int(m.group(1)), direction or "across")]
-                rest = m.group(2).strip()
+                number, rest = int(m.group(1)), m.group(2).strip()
+                way = direction or "across"
+                suffix = BARE_SUFFIX.match(rest)
+                if suffix:
+                    rest, way = "", DIRECTION_OF[suffix.group(1).lower()]
+                if (direction == "across" and not headed_down and not suffix
+                        and number <= 2 < last):
+                    direction, way, last = "down", "down", 0
+                if (number, way) not in answered:
+                    these = [(number, way)]
         if these is not None:
             lights, clue, enum = these, None, None
             head_clue = ln if len(these) > 1 else None
             if not rest:              # a bare number cell; its row follows
+                bare = True
                 continue
             printed = printed_answer(rest)
             if printed:               # number and answer on one line
