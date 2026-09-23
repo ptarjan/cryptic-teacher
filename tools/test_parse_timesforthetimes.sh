@@ -280,6 +280,48 @@ got="$(run '<p>Across</p><p>15</p><p>5:37, perhaps, is when most are watching? (
 check "a clue opening with a time is clue text" \
   "15|across|PRIMETIME|5,4|5:37, perhaps, is when most are watching? (5,4)" "$got"
 
+# ONE NUMBER, ONE LIGHT. A light read twice is a list no grid fits, and each
+# of these shapes printed the same number twice from a real post.
+# A clue that opens with a number, in the cell after its bare number cell.
+got="$(run '<p>Across</p><p>22</p><p>24-hour periods are stunning, reportedly (4)</p><p>DAYS &#8211; sounds like DAZE</p>
+<p>24</p><p>Person imitating bird like a thrush (8)</p><p>EMULATOR &#8211; EMU + LATOR</p>')"
+check "a clue opening with a number belongs to the bare cell before it" \
+  "22|across|DAYS|4|24-hour periods are stunning, reportedly (4)
+24|across|EMULATOR|8|Person imitating bird like a thrush (8)" "$got"
+# A longer number is not its first two digits: "1066" is not clue 10.
+check "a four-digit number is not a clue number" "" \
+  "$(run '<p>Across</p><p>1066 and all that</p><p>HAROLD &#8211; x</p>' | grep -v NONE)"
+check "a time in the preamble is not clue 1" "" \
+  "$(run '<p>10:07 for me.</p><p>TYROL &#8211; my LOI</p><p>Across</p>' | grep -v NONE)"
+# A number cell that names its direction is still a bare number cell.
+got="$(run '<p>Down</p><p>12d</p><p>Chatted about paradise (13)</p><p>PREDESTINATED &#8211; x</p>
+<p>29d</p><p>12 remade Badlands in Arizona (7,6)</p><p>PAINTED DESERT &#8211; x</p>')"
+check "a direction-suffixed number cell is bare" \
+  "12|down|PREDESTINATED|13|Chatted about paradise (13)
+29|down|PAINTEDDESERT|7,6|12 remade Badlands in Arizona (7,6)" "$got"
+# Prose under an answer that opens with an answered light's number.
+got="$(run '<p>Across</p><p>1</p><p>Boozy yob (5,4)</p><p>LAGER LOUT &#8211; x</p>
+<p>12</p><p>Eastern money consumed for legislative body (6)</p><p>SENATE &#8211; SEN ATE</p>
+<p>1 SEN = 1/100th of a Japanese yen</p><p>Down</p>')"
+check "prose naming an answered light is not that light again" \
+  "1|across|LAGERLOUT|5,4|Boozy yob (5,4)
+12|across|SENATE|6|Eastern money consumed for legislative body (6)" "$got"
+# No Down heading: the Down list is where the numbers restart.
+got="$(run '<p>Across</p><p>1 Absorbed (7)<br />ENGROSS &#8211; x</p><p>12 Liquid (9)<br />GLYCERINE &#8211; x</p>
+<p>1 Hospitality (12)<br />ENTERTAINING &#8211; x</p>' | cut -d'|' -f1-3)"
+check "a post with no Down heading restarts into Down" \
+  "1|across|ENGROSS
+12|across|GLYCERINE
+1|down|ENTERTAINING" "$got"
+# ...and a number that only goes backwards is a typo, kept, not refused.
+got="$(run '<p>Across</p><p>17 ANTHILL &#8211; x</p><p>28 THE STICKS &#8211; x</p><p>19 OPENING &#8211; x</p>
+<p>Down</p><p>1 ABC &#8211; x</p>' | cut -d'|' -f1-3)"
+check "a typo'd number does not take the lights after it" \
+  "17|across|ANTHILL
+28|across|THESTICKS
+19|across|OPENING
+1|down|ABC" "$got"
+
 # An announcement is not a puzzle. Emitting one would put a post with no
 # entries into the output and let it be counted as coverage.
 check "a post in no puzzle category is skipped" "NONE" \
