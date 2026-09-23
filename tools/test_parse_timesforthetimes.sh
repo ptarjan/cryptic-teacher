@@ -261,6 +261,25 @@ twice='<p><b>Across</b></p><table>
 check "one light, one entry, however many times the blog printed it" "2" \
   "$(run "$twice" | grep -c .)"
 
+# Three ways a light went missing, each one a hole no grid fits. A clue-type
+# label is not wordplay, so the answer before it ends there; a dash typed with
+# no space after it still ends the answer; and a clue that opens with a time
+# is clue text, not the next clue number.
+got="$(run '<p>Across</p><p>1</p><p>AIRMAIL (cryptic definition)</p>
+<p>5</p><p>CROW’S FEET (2 defs) – nice</p>
+<p>9</p><p>SHOW-JUMPERS (1 def, 1 literal interpretation)</p>')"
+check "clue-type aside: a cryptic definition" "1|across|AIRMAIL||" "$(echo "$got" | sed -n 1p)"
+check "clue-type aside: two defs after a two-word answer" "5|across|CROWSFEET||" \
+  "$(echo "$got" | sed -n 2p)"
+check "clue-type aside: a hyphenated answer" "9|across|SHOWJUMPERS||" "$(echo "$got" | sed -n 3p)"
+check "clue-type aside: an ordinary aside still refuses a restated answer" "" \
+  "$(run '<p>Across</p><p>1</p><p>MANNISH M (married) ANN (name of woman)</p>' | grep -v NONE)"
+check "dash typed short: 'NISAN -Granny'" "4|across|NISAN|5|Granny is being kept inside for a month (5)" \
+  "$(run '<p>Across</p><p>4 Granny is being kept inside for a month (5)<br />NISAN -Granny NAN and IS</p>')"
+got="$(run '<p>Across</p><p>15</p><p>5:37, perhaps, is when most are watching? (5,4)</p><p>PRIME TIME</p>')"
+check "a clue opening with a time is clue text" \
+  "15|across|PRIMETIME|5,4|5:37, perhaps, is when most are watching? (5,4)" "$got"
+
 # An announcement is not a puzzle. Emitting one would put a post with no
 # entries into the output and let it be counted as coverage.
 check "a post in no puzzle category is skipped" "NONE" \
