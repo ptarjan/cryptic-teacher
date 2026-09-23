@@ -70,6 +70,21 @@ ANSWER_MARKUP = re.compile(r"[()\[\]+.]")
 WORDPLAY_COMMA = re.compile(r",\s+(?=[a-z])")
 #: A deleted letter written in lower case inside the answer: SWANSON[g], IN(v).
 DROPPED_LETTERS = re.compile(r"[\[(][a-z]+[\])]")
+#: A mark that already ends a printed answer outside of any aside -- see
+#: ANSWER below. Found ahead of an aside, it means the printed answer ended
+#: before the aside was ever reached: "RED,LEICESTER -- (I ELDER
+#: reversed)-CE-STER(n)" stops at the dash with the comma still part of the
+#: answer, so nothing about the aside that follows is this module's to read.
+HARD_TERMINATOR = re.compile(r"[–—;]")
+#: A parenthetical the blogger wrote as commentary on a fragment, not as part
+#: of the answer: "(= 'amount of business')" glosses what a charade piece
+#: means, "(canvasser, i.e. painter)" is an aside. Wordplay written INTO the
+#: answer -- S(L)OUGH, (GIN)* -- is always upper case inside the parens; a
+#: lower case letter anywhere inside is what marks this one as prose instead.
+#: This also matches DROPPED_LETTERS' short pure-letter markers -- (v), (w)
+#: -- but _aside_cut below leaves anything it cannot place safely untouched,
+#: so DROPPED_LETTERS, run after, still takes them exactly as it always has.
+ASIDE = re.compile(r"\([^()]*[a-z][^()]*\)")
 #: Deleted letters, marked two ways across the eras, are not in the answer.
 DELETED = re.compile(r"<(s|strike|del)\b[^>]*>.*?</\1>", re.I | re.S)
 BRACED = re.compile(r"\{[^}]*\}")
@@ -123,6 +138,131 @@ def puzzle_number(post):
     return int(m.group(1)) if m else None
 
 
+def _aside_cut(rest, kept_so_far, prefix, m):
+    """Where to cut for one aside, or None to leave it untouched.
+
+    A real terminator (a dash, a semicolon) ahead of the aside already ended
+    the printed answer earlier in the line -- "RED,LEICESTER -- (I ELDER
+    reversed)-CE-STER(n)" stops at the dash, comma and all, so the aside is
+    commentary on the CLUE and is not ours to read.
+
+    A comma ahead of it, short of that, already opened a wordplay clause --
+    "SPOON-FEED, SPOON (the golf club) + FEED" restates the answer's own
+    fragments in upper case once the derivation starts, so the whole clause
+    from the comma on is cut. This is WORDPLAY_COMMA's own rule (a comma
+    opens the derivation), just no longer blind to a derivation that
+    capitalises its restated fragments -- UNLESS an earlier, untouched aside
+    already sits in the kept text, because then the comma is not the first
+    sign of trouble and cutting back to it would still keep that aside's own
+    unresolved parenthesis.
+
+    A gloss written "(= ...)" is definitional -- "TURN OVER (= 'amount of
+    business')" -- and the answer can run on past it when a '+' follows,
+    because that is how this corpus writes a second charade fragment on:
+    "... + A NEW LEAF". Anything else after a '=' gloss is where the printed
+    answer actually stops, same as it always has (a bare '=' is already one
+    of the marks that ends one); the gloss becomes a semicolon rather than
+    nothing, so the regex has a terminator to find there instead of running
+    on or hunting for one that was never there.
+
+    Any OTHER aside -- "(canvasser, i.e. painter)" -- is commentary on a
+    fragment already written in upper case, never a gloss of its own, so it
+    never grants a continuation either; it only ends the answer, and only
+    when the text since the last cut is a single '+'-joined run with no
+    earlier untouched aside. That combination is what tells a charade still
+    being built ("N + A + GOYA (canvasser, i.e. painter)") apart from an
+    answer some bloggers restate right after stating it in full ("AWARD A +
+    WARD (rev of DRAW...)", "MANNISH M (married) ANN (name of woman)..."),
+    where nothing marks where the restatement should stop and the whole
+    line is refused rather than guessed at.
+
+    None of the above ever applies to an aside fused straight onto a letter
+    with no space, on either side. Before it: "M(otor) S(hip) = MODEMS" is a
+    charade of abbreviations, each gloss naming what the ONE letter in front
+    of it stands for, not a definition to read past or stop at -- the answer
+    is already complete in the fragments themselves, same as DROPPED_LETTERS'
+    own short markers. After it: "ST + A + (i)MPEDE" drops the 'i' and runs
+    straight into "MPEDE", not into more of this module's answer, and
+    touching it here would cut the answer off before the letters the
+    deletion glues onto. Nor does any of this apply inside a still-open
+    square bracket: "BRI[O + CH(eck)]E" nests a gloss INSIDE an insertion,
+    and the insertion, not the gloss, is what decides where this stretch of
+    the answer ends.
+    """
+    combined = kept_so_far + prefix
+    if (rest[m.end():m.end() + 1].isalnum()
+            or (prefix and prefix[-1].isalnum())
+            or (not prefix and kept_so_far and kept_so_far[-1].isalnum())
+            or combined.count("[") > combined.count("]")):
+        return None
+    if HARD_TERMINATOR.search(prefix):
+        return None
+    comma = prefix.find(",")
+    if comma != -1:
+        kept = kept_so_far + prefix[:comma]
+        # A period ahead of the comma is itself already a break between the
+        # answer and its derivation -- "CUTLASS. CUTL,A,S,S (a couple of
+        # Seconds)" -- so the comma is inside the derivation's own listing,
+        # not the boundary that starts it, and cutting back to it would
+        # still keep part of that listing.
+        if "(" in kept or "." in kept:
+            return None
+        # The word right after the comma has to be a REPEAT of something
+        # already in the kept answer for the comma to be where a derivation
+        # starts. "BEST,RADDLES(hurdles)" is a genuine two-word answer --
+        # RADDLES is not anywhere in BEST -- so the comma stays exactly the
+        # kind of word break RICE,PAPER already relies on, and cutting there
+        # would throw away the second word instead of an aside. A fragment
+        # under MIN_LIGHT letters is too short to trust either way --
+        # "GAL,A,GE=(earth) goddess" would misread its own single "A" as a
+        # repeat of the "A" already sitting inside "GAL" -- so it is treated
+        # as not a repeat, same as a longer one that plainly is not. And it
+        # has to repeat a WHOLE earlier word, not just share letters with
+        # one -- "AWAY -A, WAY (path)" builds AWAY out of A and WAY, and WAY
+        # is plain substring of AWAY without restating anything.
+        word = re.match(r"[A-Z]+", prefix[comma + 1:].lstrip())
+        if (not word or len(word.group()) < MIN_LIGHT
+                or word.group() not in WORD_BREAK.split(kept)):
+            return None
+        return prefix[:comma], ";"
+    if rest[m.start() + 1] == "=":
+        after = rest[m.end():].lstrip()
+        return prefix, (" " if after.startswith("+") else ";")
+    if "+" in prefix and "(" not in kept_so_far:
+        # Every '+'-joined fragment before the aside has to be a single
+        # token, not just the first: "C + ASUS BE (anag) + ILL (rev)" would
+        # otherwise pass on "C" alone and still cut ASUS BE off, the same
+        # restatement risk AWARD's "AWARD A + WARD (rev...)" already guards
+        # against, just one fragment further in.
+        parts = [seg.strip() for seg in prefix.split("+")]
+        if all(parts) and all(" " not in seg for seg in parts):
+            # "TRIP + O (round) + LI" is already, visibly, a charade in
+            # progress -- a '+' both sides of the aside -- so a '+' after it
+            # is one more fragment of the SAME charade, not a new one, and
+            # the answer reads on past it exactly as a '(= ...)' gloss does.
+            after = rest[m.end():].lstrip()
+            return prefix, (" " if after.startswith("+") else ";")
+    return None
+
+
+def _drop_asides(rest):
+    """Cut every aside the printed answer can be read past, per _aside_cut."""
+    out, pos = [], 0
+    for m in ASIDE.finditer(rest):
+        prefix = rest[pos:m.start()]
+        cut = _aside_cut(rest, "".join(out), prefix, m)
+        if cut is None:
+            out.append(prefix)
+            out.append(m.group(0))            # not ours to touch: put it back
+        else:
+            kept, filler = cut
+            out.append(kept)
+            out.append(filler)
+        pos = m.end()
+    out.append(rest[pos:])
+    return "".join(out)
+
+
 def printed_answer(rest):
     """This line's answer as the blogger printed it, or None if it is a clue.
 
@@ -130,7 +270,7 @@ def printed_answer(rest):
     caller needs them: a linked clue is split between its lights AT a word
     break, and the printing is where those breaks are.
     """
-    rest = DROPPED_LETTERS.sub("", WORDPLAY_COMMA.split(rest, 1)[0])
+    rest = DROPPED_LETTERS.sub("", WORDPLAY_COMMA.split(_drop_asides(rest), 1)[0])
     m = ANSWER.match(rest)
     if not m:
         return None
