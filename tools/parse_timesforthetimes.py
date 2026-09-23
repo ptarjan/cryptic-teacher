@@ -43,7 +43,8 @@ PLAUSIBLE = {
     "Daily Cryptic": (24, 34),
     "Quick Cryptic": (20, 30),
     "Weekend Cryptic": (24, 34),
-    "Jumbo Cryptic": (40, 60),
+    # A Times Jumbo runs to 62 lights, a Sunday Times Jumbo to 70.
+    "Jumbo Cryptic": (40, 72),
     "Mephisto": (24, 42),
     "Monthly Club Special": (24, 42),
 }
@@ -53,13 +54,16 @@ BREAKS = re.compile(r"</?(?:br|p|div|tr|td|th|li|h[1-6]|table|tbody)\b[^>]*>",
                     re.I)
 TAG = re.compile(r"<[^>]+>")
 HEADING = re.compile(r"^(across|down)\b[\s:.]*$", re.I)
-NUMBERED = re.compile(r"^(\d{1,2})\s*[.):]?\s*(.*)$")
+#: A clue can open with a time or a decimal -- "5:37, perhaps, is when most
+#: are watching?" -- and that is clue text, not clue number 5.
+NUMBERED = re.compile(r"^(\d{1,2})(?![.:]\d)\s*[.):]?\s*(.*)$")
 #: An answer is the line's leading run of capitals, ended by whichever mark
 #: the wordplay hangs off — a dash, an equals sign or a semicolon. A plain
-#: hyphen ends it only when a space follows, or WELL-KNOWN truncates to WELL.
+#: hyphen ends it only when a space is on either side of it, or WELL-KNOWN
+#: truncates to WELL: "NISAN -Granny NAN" is a dash typed short.
 ANSWER = re.compile(
     r"^([A-Z][A-Z0-9'\u2019()\[\]+,. \-]{1,70}?)"
-    r"\s*(?:[\u2013\u2014=;]|-\s|-\s*$|$)")
+    r"(?:\s*(?:[\u2013\u2014=;]|-\s|-\s*$|$)|\s+-)")
 #: Wordplay written into the answer itself: S(L)OUGH, YOR[I+C]K, RICE,PAPER.
 #: The letters in order are the answer — the brackets are the blogger showing
 #: their working, and the comma is the space between two words.
@@ -85,6 +89,13 @@ HARD_TERMINATOR = re.compile(r"[–—;]")
 #: -- but _aside_cut below leaves anything it cannot place safely untouched,
 #: so DROPPED_LETTERS, run after, still takes them exactly as it always has.
 ASIDE = re.compile(r"\([^()]*[a-z][^()]*\)")
+#: An aside that names the clue's type -- "AIRMAIL (cryptic definition)",
+#: "TOSH (2 defs)", "SHOW-JUMPERS (1 def, 1 literal interpretation)" -- says
+#: nothing about the letters, so a printed answer standing alone before it
+#: ends there.
+CLUE_TYPE = re.compile(
+    r"^\((?:\d|one|two|three|double|triple|cryptic|straight|&\s*lit)"
+    r"[^()]*\bdef", re.I)
 #: Deleted letters, marked two ways across the eras, are not in the answer.
 DELETED = re.compile(r"<(s|strike|del)\b[^>]*>.*?</\1>", re.I | re.S)
 BRACED = re.compile(r"\{[^}]*\}")
@@ -197,6 +208,9 @@ def _aside_cut(rest, kept_so_far, prefix, m):
         return None
     if HARD_TERMINATOR.search(prefix):
         return None
+    if (not kept_so_far and CLUE_TYPE.match(m.group(0))
+            and re.fullmatch(r"[A-Z][A-Z'\u2019 \-]*[A-Z]\s*", prefix)):
+        return prefix, ";"
     comma = prefix.find(",")
     if comma != -1:
         kept = kept_so_far + prefix[:comma]
