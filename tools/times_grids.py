@@ -27,6 +27,11 @@ import reconstruct_grid as rg
 CACHE = Path.home() / "cryptic-setter-data" / "timesforthetimes"
 PARSED = CACHE / "parsed.jsonl"
 OUT = CACHE / "grids.jsonl"
+#: Every puzzle TRIED, with the budget it was tried at. Resuming off the grids
+#: alone re-grinds the failures on every relaunch, and the failures are the
+#: expensive ones — a 23x23 Jumbo spends the whole budget and finds nothing, so
+#: the puzzles a restart repeats are exactly the ones it can least afford.
+ATTEMPTS = CACHE / "attempts.jsonl"
 
 #: Blocked grids only, and their size. Mephisto and the Club Monthly are
 #: BARRED puzzles — thick lines between cells, no black squares at all — so
@@ -106,6 +111,24 @@ def solved_already():
     return ids
 
 
+def attempted(max_nodes):
+    """post_id of every puzzle already tried at this budget or a bigger one.
+
+    Tried at a SMALLER budget is not skipped: raising --max-nodes is how a
+    `truncated` puzzle gets another go, and that has to still work.
+    """
+    ids = set()
+    if ATTEMPTS.exists():
+        for line in ATTEMPTS.open(encoding="utf-8"):
+            try:
+                a = json.loads(line)
+            except ValueError:
+                continue       # the last line of a killed run, half written
+            if a.get("max_nodes", 0) >= max_nodes:
+                ids.add(a["post_id"])
+    return ids
+
+
 def open_out(fresh):
     """The output handle. Appends, unless asked to start the file over."""
     return OUT.open("w" if fresh else "a", encoding="utf-8")
@@ -124,7 +147,8 @@ def run(limit_puzzles=None, series=None, write=True, seed=None,
     if seed is not None:
         import random
         random.Random(seed).shuffle(recs)
-    done = set() if (fresh or not write) else solved_already()
+    done = set() if (fresh or not write) else (solved_already()
+                                               | attempted(max_nodes))
     if done:
         recs = [r for r in recs if r["post_id"] not in done]
         print(f"resuming: {len(done)} grid(s) already in {OUT.name}")
@@ -135,11 +159,16 @@ def run(limit_puzzles=None, series=None, write=True, seed=None,
     by_series = collections.defaultdict(collections.Counter)
     holes = []
     out = open_out(fresh) if write else None
+    log = ATTEMPTS.open("w" if fresh else "a", encoding="utf-8") if write else None
     for rec in recs:
         grids, why = solve(rec, max_nodes=max_nodes)
         key = why if why.startswith(("unique", "no grid", "truncated", "rejected")) else "shortlist"
         key = "rejected" if why.startswith("rejected") else key
         how[key] += 1
+        if log:
+            log.write(json.dumps({"post_id": rec["post_id"], "how": why,
+                                  "max_nodes": max_nodes}) + "\n")
+            log.flush()
         by_series[rec["series"]][key] += 1
         if not grids:
             holes.append((rec["series"], rec["slug"], len(rec["entries"])))
@@ -151,6 +180,8 @@ def run(limit_puzzles=None, series=None, write=True, seed=None,
             out.flush()   # hours per run; a killed one keeps what it solved
     if out:
         out.close()
+    if log:
+        log.close()
     return {"n": len(recs), "how": how, "by_series": by_series, "holes": holes}
 
 

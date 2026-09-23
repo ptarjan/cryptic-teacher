@@ -77,6 +77,18 @@ print("KEPT", tmp.read_text().startswith('{"post_id": 111}'))
 T.open_out(True).close()
 print("FRESH", tmp.read_text())
 
+# A relaunch must skip what it already TRIED, not just what it solved: the
+# failures are the expensive ones — a Jumbo spends the whole budget and finds
+# nothing — so resuming off the grids alone re-grinds them every time. Raising
+# the budget is still how a truncated puzzle gets another go, so a smaller
+# recorded budget must not skip it.
+T.ATTEMPTS = tmp.parent / "attempts.jsonl"
+T.ATTEMPTS.write_text(
+    json.dumps({"post_id": 1, "how": "no grid", "max_nodes": 6000000}) + "\n"
+    + json.dumps({"post_id": 2, "how": "truncated", "max_nodes": 400000}) + "\n")
+print("TRIED", sorted(T.attempted(6000000)))
+print("BIGGER", sorted(T.attempted(400000)))
+
 # Barred puzzles have no black squares, so numbering inverts to nothing. They
 # are parsed and then deliberately not sized here; a typo in the name would
 # look identical, so check both halves.
@@ -97,6 +109,8 @@ check "a light no grid could hold reads as no grid, not as truncated" \
 check "a killed run reads back what it already solved" "[111]" "$(field RESUME)"
 check "and appends to it rather than truncating" True "$(field KEPT)"
 check "only --fresh starts the file over" "" "$(field FRESH)"
+check "a failure is not re-ground on the next run" "[1]" "$(field TRIED)"
+check "but a bigger budget retries what it truncated" "[1, 2]" "$(field BIGGER)"
 check "barred series are excluded, by their parsed names" \
       "['Mephisto', 'Monthly Club Special', 'Other Crosswords']" "$(field BARRED)"
 
