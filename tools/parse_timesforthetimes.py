@@ -74,6 +74,32 @@ DROPPED_LETTERS = re.compile(r"[\[(][a-z]+[\])]")
 DELETED = re.compile(r"<(s|strike|del)\b[^>]*>.*?</\1>", re.I | re.S)
 BRACED = re.compile(r"\{[^}]*\}")
 ENUM = re.compile(r"\((\d+[\d,\-–\s]*)\)\s*$")
+#: A clue that covers two or more lights heads its list of them: "10/11",
+#: "1,5", "4, 9", "9 & 27", "16 and 8", "20/17a", "59/53ac", "1/29/19dn",
+#: "6/6dn", "3 & 18A.". A suffix names the light's direction; without one the
+#: light runs in the direction of the heading it was printed under, which is
+#: why 6/6dn is two different lights and 10/10 is not a linked clue at all.
+LINK_HEAD = re.compile(
+    r"^(\d{1,2})\s*(across|ac|a|down|dn|d)?"
+    r"((?:\s*(?:,|/|&|and)\s*\d{1,2}\s*(?:across|ac|a|down|dn|d)?\b){1,3})",
+    re.I)
+LINK_PART = re.compile(r"(\d{1,2})\s*(across|ac|a|down|dn|d)?\b", re.I)
+DIRECTION_OF = {"a": "across", "ac": "across", "across": "across",
+                "d": "down", "dn": "down", "down": "down"}
+#: What a linked head leaves before the clue starts: "4 & 29: A notable…".
+LINK_TAIL = re.compile(r"^[\s.:;)\-–—]+")
+#: "See 15", "See 3 (9)", "See 12 across" — a light whose clue lives on another
+#: light. tools/normalise_linked_enumerations.py reads the same shape; this is
+#: how the whole corpus spells a continuation.
+CONTINUATION = re.compile(r"^\s*See\s+(\d+)\b", re.IGNORECASE)
+#: Where one word of an answer ends and the next begins, as printed. An
+#: apostrophe is inside a word (CAT O' NINE TAILS is four words); a comma is a
+#: word break in the eras that print RICE,PAPER.
+WORD_BREAK = re.compile(r"[ ,\-–—]+")
+#: No light in any of these puzzles, blocked or barred, is shorter than this.
+#: A "split" that hands a light one or two letters has found a word break that
+#: is not a light break — A,TSIXES,AND,SEVENS is one light and four words.
+MIN_LIGHT = 3
 #: Blog slugs put the puzzle number first: times-29572-…, qc-1255-by-hurley,
 #: monthly-club-special-20231-…. The title is the fallback when it does not.
 NUMBER_IN = re.compile(r"(\d{3,5})")
@@ -97,8 +123,13 @@ def puzzle_number(post):
     return int(m.group(1)) if m else None
 
 
-def is_answer(rest):
-    """Is this line's head an answer, rather than a clue that opens in caps?"""
+def printed_answer(rest):
+    """This line's answer as the blogger printed it, or None if it is a clue.
+
+    The word breaks are kept here and thrown away by is_answer, because one
+    caller needs them: a linked clue is split between its lights AT a word
+    break, and the printing is where those breaks are.
+    """
     rest = DROPPED_LETTERS.sub("", WORDPLAY_COMMA.split(rest, 1)[0])
     m = ANSWER.match(rest)
     if not m:
@@ -107,11 +138,136 @@ def is_answer(rest):
     letters = re.sub(r"[^A-Z]", "", word)
     if len(letters) < 3 or len(word) > 60:
         return None
-    # Keep the letters, not the printing. A comma means a word break in one
-    # era and a wordplay join in another (RICE,PAPER against A,CADE,MIA), and
-    # a light is contiguous letters either way — the enumeration off the clue
-    # is where the word breaks come from.
-    return letters
+    return word
+
+
+def is_answer(rest):
+    """The letters of this line's answer, or None if it is a clue.
+
+    A light is contiguous letters, so a comma means a word break in one era
+    and a wordplay join in another (RICE,PAPER against A,CADE,MIA) and neither
+    survives into the answer.
+    """
+    word = printed_answer(rest)
+    return None if word is None else re.sub(r"[^A-Z]", "", word)
+
+
+def answer_words(printed):
+    """The words of a printed answer: "YORKSHIRE DALES" -> ["YORKSHIRE", "DALES"]."""
+    return [w for w in (re.sub(r"[^A-Z]", "", part)
+                        for part in WORD_BREAK.split(printed)) if w]
+
+
+def link_lights(match, direction):
+    """The lights a linked head names, in the order the answer runs through them.
+
+    None when the numbers are not a linked head: two names for the same light
+    ("10/10, but I'm in Denver airport") is a blogger writing prose, and the
+    order the lights are printed in is the only thing that says which letters
+    go where, so a repeat has nothing to say.
+    """
+    lights = [(int(match.group(1)),
+               DIRECTION_OF.get((match.group(2) or "").lower(), direction))]
+    for number, suffix in LINK_PART.findall(match.group(3)):
+        lights.append((int(number),
+                       DIRECTION_OF.get(suffix.lower(), direction)))
+    return None if len(set(lights)) != len(lights) else lights
+
+
+def link_pieces(lights, printed, enum):
+    """Which letters of a linked answer belong to which light, or None to refuse.
+
+    A light boundary inside a linked answer is a WORD boundary — that is how
+    this corpus reads every split answer — so the printed answer's own words
+    are the only slice points there are. One word per light is therefore the
+    one case the blog settles; with more words than lights it does not say
+    which break is the light break, and nothing chooses between COME HELL /
+    OR HIGH WATER and COME HELL OR HIGH / WATER. Refused, never guessed: a
+    wrong split reconstructs a wrong grid that nobody can see is wrong.
+
+    Fewer words than lights is not a linked answer at all — a light cannot be
+    part of a word — so the line opened with numbers that meant something else
+    ("4/7 of 19 is a very small amount") and is read as the clue its first
+    number names.
+
+    The enumeration is the cross-check, not the slicer: it and the answer come
+    off different lines, so a disagreement between them means one was misread.
+    It only gets a vote when it counts the whole answer, because a blogger who
+    prints a linked clue's enumeration as the LEADING light's count alone —
+    "(8)" over LAUGHING GEAR — is not disagreeing about anything.
+    """
+    words = answer_words(printed)
+    if len(words) < len(lights):
+        return [(lights[0], "".join(words))]
+    if len(words) != len(lights) or min(len(w) for w in words) < MIN_LIGHT:
+        return None
+    counts = [int(n) for n in re.findall(r"\d+", enum or "")]
+    if sum(counts) == sum(len(w) for w in words) and counts != [len(w) for w in words]:
+        return None
+    return list(zip(lights, words))
+
+
+def continuation_target(clue):
+    """The number a "See N" clue points at, or None if this clue is a real one."""
+    m = CONTINUATION.match(clue or "")
+    return int(m.group(1)) if m else None
+
+
+def one_entry_per_light(entries):
+    """One light, one entry — two answers on one light is a list no grid fits.
+
+    A linked group emits an entry for every light it covers and the blogger
+    may ALSO have printed one of those lights on a line of its own. Where the
+    two agree the repeat is dropped.
+
+    Where they disagree, the light is already spoken for and the continuation
+    is the one in the wrong place: the blog numbered it without a direction —
+    "7/10", not "7/10dn" — so it took the direction of the heading its clue
+    was printed under, and the other direction is the only one left for it.
+    """
+    seen, kept = {}, []
+    for e in entries:
+        key = (e["number"], e["direction"])
+        if seen.get(key) == e["answer"]:
+            continue
+        if key in seen and continuation_target(e["clue"]) is not None:
+            other = "down" if e["direction"] == "across" else "across"
+            if (e["number"], other) not in seen:
+                e["direction"] = other
+                key = (e["number"], other)
+        seen[key] = e["answer"]
+        kept.append(e)
+    entries[:] = kept
+
+
+def trim_continuations(entries):
+    """Take back the letters a leader printed that belong to another light.
+
+    Some bloggers print a linked answer once under its leading light and then
+    print it AGAIN under the continuation, whose clue is "See 3": LAUGHING
+    GEAR at 3 down and GEAR at 18 across. Left alone that is one light four
+    letters too long and one light counted twice, which is a light list no
+    grid fits. The continuation's own printing is exact, so the leader gives
+    those letters back.
+
+    The leader is found by its letters, not by its direction: "See 3" does not
+    say which 3, and the light whose answer ENDS in the continuation's answer
+    is the one that is carrying it. A number where both directions would
+    answer is left alone.
+    """
+    by_number = {}
+    for e in entries:
+        by_number.setdefault(e["number"], []).append(e)
+    for e in entries:
+        target = continuation_target(e["clue"])
+        if target is None:
+            continue
+        leaders = [x for x in by_number.get(target, [])
+                   if x is not e and len(x["answer"]) > len(e["answer"])
+                   and x["answer"].endswith(e["answer"])]
+        if len(leaders) == 1:
+            leader = leaders[0]
+            leader["answer"] = leader["answer"][:-len(e["answer"])]
 
 
 def parse_post(post):
@@ -121,66 +277,117 @@ def parse_post(post):
     if series is None:
         return None
 
-    entries, direction, num, clue, enum = [], None, None, None, None
+    entries, unsplit = [], []
+    direction, lights, clue, enum, head_clue = None, None, None, None, None
 
-    def flush(answer):
-        if num is None or not answer:
+    def flush(printed):
+        if not lights or not printed:
             return
-        entries.append({
-            "number": num, "direction": direction or "across",
-            "answer": answer,
-            "clue": clue, "enumeration": enum,
-        })
+        letters = re.sub(r"[^A-Z]", "", printed)
+        pieces = ([(lights[0], letters)] if len(lights) == 1
+                  else link_pieces(lights, printed, enum))
+        if pieces is None:            # a linked clue whose split the blog
+            unsplit.append({          # does not settle: reported, not guessed
+                "lights": [[n, d] for n, d in lights],
+                "answer": letters, "enumeration": enum,
+            })
+            return
+        # link_pieces handing back one light for a head that named several is
+        # it saying those numbers were never a linked head, so the numbers are
+        # part of the clue and go back into its text.
+        text = head_clue if len(pieces) < len(lights) else clue
+        leader = pieces[0][0][0]
+        for i, ((n, d), piece) in enumerate(pieces):
+            entries.append({
+                "number": n, "direction": d, "answer": piece,
+                # The corpus's leader form: the WHOLE answer's enumeration sits
+                # on the light that carries the clue and every continuation
+                # carries null, pointing back with the "See N" the blog writes.
+                "clue": text if i == 0 else (f"See {leader}" if text else None),
+                "enumeration": enum if i == 0 else None,
+            })
 
     for ln in lines(post["content"]["rendered"]):
         if not ln:
             continue
         if HEADING.match(ln):
             direction = HEADING.match(ln).group(1).lower()
-            num, clue, enum = None, None, None
+            lights, clue, enum = None, None, None
             continue
-        m = NUMBERED.match(ln)
+        rest, these = None, None
+        # A linked head only counts inside a clue list. Before the first
+        # heading the blogger is writing about the puzzle, and "23ac / 24ac
+        # CHARACTER ACTORS" in a preamble is a remark, not a clue.
+        m = LINK_HEAD.match(ln) if direction else None
         if m:
-            n, rest = int(m.group(1)), m.group(2).strip()
+            these = link_lights(m, direction)
+            rest = LINK_TAIL.sub("", ln[m.end():]).strip()
+            # A line of prose can open with numbers too ("4, 11 & 15 were also
+            # pretty similar"). What a clue line always ends in is its own
+            # enumeration, and a bare head cell ends at the numbers, so
+            # anything else after them is somebody talking about the puzzle.
+            if rest and not (ENUM.search(rest) or printed_answer(rest)):
+                these = None
+        if these is None:
+            m = NUMBERED.match(ln)
+            if m:
+                these = [(int(m.group(1)), direction or "across")]
+                rest = m.group(2).strip()
+        if these is not None:
+            lights, clue, enum = these, None, None
+            head_clue = ln if len(these) > 1 else None
             if not rest:              # a bare number cell; its row follows
-                num, clue, enum = n, None, None
                 continue
-            answer = is_answer(rest)
-            if answer:                # number and answer on one line
-                num, clue, enum = n, None, None
-                flush(answer)
-                num = None
+            printed = printed_answer(rest)
+            if printed:               # number and answer on one line
+                flush(printed)
+                lights = None
                 continue
-            num, clue = n, rest       # number and clue text on one line
+            clue = rest               # number and clue text on one line
             e = ENUM.search(rest)
             enum = e.group(1).strip() if e else None
             continue
-        answer = is_answer(ln)
-        if answer and num is not None:
-            flush(answer)
-            num, clue, enum = None, None, None
+        printed = printed_answer(ln)
+        if printed and lights is not None:
+            flush(printed)
+            lights, clue, enum = None, None, None
             continue
-        if num is not None and clue is None and ENUM.search(ln):
+        if lights is not None and clue is None and (ENUM.search(ln)
+                                                    or CONTINUATION.match(ln)):
             clue = ln                 # the clue arrived in its own cell
-            enum = ENUM.search(ln).group(1).strip()
+            e = ENUM.search(ln)
+            enum = e.group(1).strip() if e else None
 
-    if not entries:
+    one_entry_per_light(entries)
+    trim_continuations(entries)
+    if not entries and not unsplit:
         return None
-    return {
+    rec = {
         "post_id": post["id"], "date": post["date"][:10], "slug": post["slug"],
         "link": post.get("link"), "series": series, "number": puzzle_number(post),
         "entries": entries,
     }
+    if unsplit:
+        rec["unsplit"] = unsplit
+    return rec
 
 
-def enum_agrees(entry):
+def leader_numbers(entries):
+    """The numbers that lead a linked group, named by their continuations."""
+    return {n for n in (continuation_target(e["clue"]) for e in entries) if n}
+
+
+def enum_agrees(entry, leaders=()):
     """Does the answer have the length its own enumeration claims?
 
     The two come from different halves of the post — the clue line and the
     answer line — so agreement is the one check that catches a misread answer
-    without a human reading it. Entries with no enumeration cannot be checked.
+    without a human reading it. Entries with no enumeration cannot be checked,
+    and neither can a light that LEADS a linked group: it holds the whole
+    group's enumeration by the corpus's leader form and only its own letters,
+    so the two disagree by design.
     """
-    if not entry["enumeration"]:
+    if not entry["enumeration"] or entry.get("number") in leaders:
         return None
     want = sum(int(n) for n in re.findall(r"\d+", entry["enumeration"]))
     return want == len(entry["answer"])
@@ -198,7 +405,7 @@ def run(write=True, limit=None):
     if not files:
         print(f"no cached posts in {POSTS} — run tools/fetch_timesforthetimes.py")
         return None
-    by_year, by_series, odd = {}, {}, []
+    by_year, by_series, odd, unsplit = {}, {}, [], []
     kept = withtext = checked = agreed = 0
     out = open(OUT, "w", encoding="utf-8") if write else None
     for f in files:
@@ -223,8 +430,11 @@ def run(write=True, limit=None):
             continue
         kept += 1
         withtext += full_text
+        for u in rec.get("unsplit", ()):
+            unsplit.append((rec["slug"], rec["series"], u))
+        leaders = leader_numbers(rec["entries"])
         for e in rec["entries"]:
-            a = enum_agrees(e)
+            a = enum_agrees(e, leaders)
             if a is not None:
                 checked += 1
                 agreed += a
@@ -233,7 +443,7 @@ def run(write=True, limit=None):
     if out:
         out.close()
     return {"files": len(files), "kept": kept, "withtext": withtext,
-            "checked": checked, "agreed": agreed,
+            "checked": checked, "agreed": agreed, "unsplit": unsplit,
             "odd": odd, "by_year": by_year, "by_series": by_series}
 
 
@@ -244,6 +454,8 @@ def report(r):
           f"{r['kept'] - r['withtext']} number+answer only")
     print(f"{len(r['odd'])} post(s) failed the entry-count check "
           f"(parsed, not emitted)")
+    print(f"{len(r['unsplit'])} linked clue(s) the blog does not split "
+          f"(no entry emitted for their lights)")
     if r["checked"]:
         pct = 100.0 * r["agreed"] / r["checked"]
         print(f"{r['agreed']}/{r['checked']} entries ({pct:.1f}%) have the "
@@ -283,6 +495,11 @@ def main():
         print("\nFAILED THE ENTRY-COUNT CHECK")
         for slug, series, n in r["odd"][:80]:
             print(f"  {n:>3}  {series:<22} {slug}")
+        print("\nLINKED CLUES LEFT UNSPLIT")
+        for slug, series, u in r["unsplit"][:80]:
+            where = " ".join(f"{n}{d[0]}" for n, d in u["lights"])
+            print(f"  {where:<14} {u['answer']:<26} ({u['enumeration']}) "
+                  f"{series:<16} {slug}")
     if not a.status:
         print(f"\nwrote {OUT}")
     return 0
