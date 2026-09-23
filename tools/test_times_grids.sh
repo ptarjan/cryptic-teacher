@@ -64,6 +64,19 @@ toolong = {"series": "Test", "entries": [
     {"number": 1, "direction": "across", "answer": "A" * 9}]}
 print("TOOLONG", T.solve(toolong)[1])
 
+# A run over the whole corpus is tens of hours and gets killed. The next one
+# has to keep what the last one solved: read back the ids it wrote, tolerate
+# the torn last line a kill leaves, and append rather than truncate.
+import json, pathlib, tempfile
+tmp = pathlib.Path(tempfile.mkdtemp()) / "grids.jsonl"
+tmp.write_text(json.dumps({"post_id": 111}) + "\n" + '{"post_id": 222, "gri')
+T.OUT = tmp
+print("RESUME", sorted(T.solved_already()))
+T.open_out(False).close()
+print("KEPT", tmp.read_text().startswith('{"post_id": 111}'))
+T.open_out(True).close()
+print("FRESH", tmp.read_text())
+
 # Barred puzzles have no black squares, so numbering inverts to nothing. They
 # are parsed and then deliberately not sized here; a typo in the name would
 # look identical, so check both halves.
@@ -81,6 +94,9 @@ check "one answer that disagrees at a crossing does not" False "$(field FIT_CLAS
 check "a search that ran out of budget says so" truncated "$(field BUDGET)"
 check "a light no grid could hold reads as no grid, not as truncated" \
       "no grid" "$(field TOOLONG)"
+check "a killed run reads back what it already solved" "[111]" "$(field RESUME)"
+check "and appends to it rather than truncating" True "$(field KEPT)"
+check "only --fresh starts the file over" "" "$(field FRESH)"
 check "barred series are excluded, by their parsed names" \
       "['Mephisto', 'Monthly Club Special', 'Other Crosswords']" "$(field BARRED)"
 

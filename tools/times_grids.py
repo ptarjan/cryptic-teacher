@@ -89,8 +89,30 @@ def solve(rec, limit=50, max_nodes=DEFAULT_MAX_NODES):
     return list(sols), f"{len(sols)}, crossings ruled out none"
 
 
+def solved_already():
+    """post_id of every grid already written.
+
+    A pass over the whole corpus is tens of hours and will be killed before it
+    ends. Opening the output with "w" threw away everything the last one found,
+    so a relaunch starts where the kill landed instead.
+    """
+    ids = set()
+    if OUT.exists():
+        for line in OUT.open(encoding="utf-8"):
+            try:
+                ids.add(json.loads(line)["post_id"])
+            except ValueError:
+                pass           # the last line of a killed run, half written
+    return ids
+
+
+def open_out(fresh):
+    """The output handle. Appends, unless asked to start the file over."""
+    return OUT.open("w" if fresh else "a", encoding="utf-8")
+
+
 def run(limit_puzzles=None, series=None, write=True, seed=None,
-        max_nodes=DEFAULT_MAX_NODES):
+        max_nodes=DEFAULT_MAX_NODES, fresh=False):
     if not PARSED.exists():
         print(f"no records at {PARSED} — run tools/parse_timesforthetimes.py")
         return None
@@ -102,13 +124,17 @@ def run(limit_puzzles=None, series=None, write=True, seed=None,
     if seed is not None:
         import random
         random.Random(seed).shuffle(recs)
+    done = set() if (fresh or not write) else solved_already()
+    if done:
+        recs = [r for r in recs if r["post_id"] not in done]
+        print(f"resuming: {len(done)} grid(s) already in {OUT.name}")
     if limit_puzzles:
         recs = recs[:limit_puzzles]
 
     how = collections.Counter()
     by_series = collections.defaultdict(collections.Counter)
     holes = []
-    out = OUT.open("w", encoding="utf-8") if write else None
+    out = open_out(fresh) if write else None
     for rec in recs:
         grids, why = solve(rec, max_nodes=max_nodes)
         key = why if why.startswith(("unique", "no grid", "truncated", "rejected")) else "shortlist"
@@ -154,11 +180,13 @@ def main():
     ap.add_argument("--max-nodes", type=int, default=DEFAULT_MAX_NODES,
                     help="search budget per puzzle; a `truncated` count that "
                          "falls when this rises was never a missing grid")
+    ap.add_argument("--fresh", action="store_true",
+                    help="start the output file over; the default adds to it")
     ap.add_argument("--holes", action="store_true",
                     help="name the puzzles whose light list has a hole in it")
     a = ap.parse_args()
     r = run(a.limit, a.series, write=not a.status, seed=a.seed,
-            max_nodes=a.max_nodes)
+            max_nodes=a.max_nodes, fresh=a.fresh)
     if r is None:
         return 1
     report(r)
