@@ -191,6 +191,27 @@ check "refusal: enumeration and answer disagreeing about the words" \
 check "refusal: a refused clue puts no entry in the record at all" "0" \
   "$(echo "$got" | grep -vc UNSPLIT || true)"
 
+# A "(= ...)" is the blogger glossing a charade fragment, not the answer
+# stopping: "TURN OVER (= 'amount of business') + A NEW LEAF (= '...')" is
+# one printed answer of five words, not "TURN OVER" cut short at the '=' its
+# own gloss happens to contain. With only two lights named, five words is a
+# split the blog does not settle (one word per light is the one case it
+# does), so this is a REFUSAL too — but the letters it refuses on have to be
+# the whole answer, not a truncated one, or the refusal is hiding the bug
+# rather than proving it is fixed. This is the real shape of times.co.uk
+# post 11738, clue 12/21.
+gloss='<p><b>Across</b></p><table>
+<tr><td>12/21</td></tr>
+<tr><td>TURN OVER (= &#8216;amount of business&#8217;) + A NEW LEAF (= &#8216;an encouraging sign&#8217;) &#8211; the answer here was clear</td></tr>
+<tr><td>18</td><td>FAT (= &#8216;big&#8217;)</td></tr></table>'
+got="$(run "$gloss")"
+# The plain case this must keep working: nothing follows the gloss, so it IS
+# where the answer ends, same as it always has (a bare '=' already ends one).
+check "gloss: a '(= ...)' with nothing after it still ends the answer there" \
+  "18|across|FAT||" "$(echo "$got" | sed -n 1p)"
+check "gloss: a '(= ...)' the answer runs past is not where it truncates" \
+  "UNSPLIT|12a 21a|TURNOVERANEWLEAF|" "$(echo "$got" | sed -n 2p)"
+
 # A line can open with numbers and not be a linked head. Fewer words than
 # lights cannot be a split answer — a light cannot be part of a word — so this
 # is the ordinary clue its first number names, and refusing it would throw
