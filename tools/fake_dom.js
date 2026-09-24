@@ -22,6 +22,7 @@ const fs = require("fs");
 const path = require("path");
 const { reindex } = require("./reindex.js");
 const ROOT = path.join(__dirname, "..");
+const NATIVE_FETCH = global.fetch;
 
 function boot(opts) {
   const options = opts || {};
@@ -481,6 +482,15 @@ function boot(opts) {
   // Override CT_TEST_QUERY to boot the harness on a specific puzzle.
   global.location = { search: options.query || process.env.CT_TEST_QUERY || "", href: "", hash: "" };
   global.URLSearchParams = URLSearchParams;
+  // Node's own fetch would carry app.js to the live sync worker: every grid a
+  // test or a sweep opens is a GET /v against production quota. A harness has
+  // no server behind it, so a request simply never answers. Only the native
+  // fetch is replaced; a test that installed its own stub, or deleted fetch to
+  // take the no-fetch path, keeps what it set.
+  if (global.fetch === NATIVE_FETCH) {
+    const inFlight = { then: () => inFlight, catch: () => inFlight, finally: () => inFlight };
+    global.fetch = () => inFlight;
+  }
 
   // load index + tutorial + app
   // sync/events.js goes in the way the page loads it, as a plain script: app.js
