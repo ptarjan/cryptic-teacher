@@ -152,6 +152,67 @@ first["enumeration"] = None
 g, how = T.solve(wrong)
 print("ONE_WRONG", how, g == [TINY])
 
+# A grid taken despite an answer that disagrees with it carries the corrected
+# answer, and only when the correction is determined: each letter a correct
+# crossing's or the blogger's own, the result a real word. DIAG's 5 down is
+# EJOTY; its middle square is crossed by nothing.
+def rec_of(grid, **typo):
+    r = {"series": "Test", "entries": [
+        {"number": k[0], "direction": k[1], "enumeration": None,
+         "answer": "".join(letter(*c) for c in v)} for k, v in rg.light_cells(grid).items()]}
+    for e in r["entries"]:
+        e["answer"] = typo.get(f"{e['number']}{e['direction'][0]}", e["answer"])
+    return r
+vocab = {5: {"EJOTY"}}
+fixes = lambda r, v=vocab: T.settle(DIAG, r, v)
+show = lambda f: (" ".join(f"{c['number']}{c['direction'][0]}:{c['blogged']}>{c['answer']}"
+                           for c in f[0]) if f[1] is None else f[1])
+print("FIX_NONE", show(fixes(rec_of(DIAG))))
+print("FIX_LETTER", show(fixes(rec_of(DIAG, **{"5d": "EXOTY"}))))
+print("FIX_SWAP", show(fixes(rec_of(DIAG, **{"5d": "EOJTY"}))))
+print("FIX_LENGTH", show(fixes(rec_of(DIAG, **{"5d": "EJOTYEJOTY"}))))
+print("FIX_UNCHECKED", show(fixes(rec_of(DIAG, **{"5d": "EJTY"}))))
+print("FIX_NOT_A_WORD", show(fixes(rec_of(DIAG, **{"5d": "EXOTY"}), {5: set()})))
+print("FIX_EITHER", show(fixes(rec_of(DIAG, **{"5d": "EXOTY"}), {5: {"EJOTY", "FGHIX"}})))
+print("FIX_TWO_WORDS", show(fixes(rec_of(DIAG, **{"5d": "EOJTY"}), {5: {"EJOTY", "EJJTY", "FGHIO"}})))
+print("FIX_WRONG_GRID", show(T.settle(TINY, rec_of(DIAG), vocab))[:39])
+
+# The job itself applies it: a run writes the corrections into the grid row,
+# answers() reads them back, a refused puzzle gets no row and its attempt says
+# why, and --resettle does the same to grids a run wrote before.
+d = pathlib.Path(tempfile.mkdtemp())
+T.PARSED, T.OUT, T.ATTEMPTS = d / "parsed.jsonl", d / "grids.jsonl", d / "attempts.jsonl"
+T.LEXICON = d / "none.tsv"
+post = lambda pid, r, clue: dict(r, post_id=pid, slug=str(pid), number=pid, date="2026-01-0" + str(pid),
+                                 entries=[dict(e, clue=clue) for e in r["entries"]])
+typo = post(1, rec_of(TINY), "a clue")
+T.printed(typo)[5]["answer"] = "Z" + T.printed(typo)[5]["answer"][1:]
+lone = post(2, rec_of(TINY), "a clue")
+T.printed(lone)[6]["answer"] = "Z" + T.printed(lone)[6]["answer"][1:]
+# No clues, so never solved; but the one answer it blogs is a word.
+elsewhere = post(3, dict(rec_of(TINY), entries=[T.printed(rec_of(TINY))[5]]), None)
+T.PARSED.write_text("".join(json.dumps(r) + "\n" for r in (typo, elsewhere)))
+T.run()
+rows = [json.loads(l) for l in T.OUT.open()]
+print("RUN_ROW", [(r["post_id"], [(c["blogged"], c["answer"]) for c in r.get("corrections", [])]) for r in rows])
+print("RUN_ANSWERS", T.answers_fit(TINY, {"entries": T.answers(typo, rows[0])}))
+T.PARSED.write_text("".join(json.dumps(r) + "\n" for r in (lone, elsewhere)))
+T.OUT.write_text("")
+T.run(fresh=True)
+print("RUN_REFUSED", T.OUT.read_text() == "", json.loads(T.ATTEMPTS.read_text())["how"][:7])
+# More wrong answers than typos explain is a wrong grid.
+messy = post(4, rec_of(TINY), "a clue")
+for e in T.printed(messy)[:T.MAX_WRONG + 1]:
+    e["answer"] += "Q"
+T.PARSED.write_text("".join(json.dumps(r) + "\n" for r in (typo, messy, elsewhere)))
+T.OUT.write_text("".join(json.dumps({"post_id": r["post_id"], "series": "Test", "number": 1,
+                                     "date": None, "grid": list(TINY), "how": "unique"}) + "\n"
+                         for r in (typo, messy, elsewhere)))
+T.ATTEMPTS.write_text("")
+T.resettle()
+print("RESETTLE", [(r["post_id"], len(r.get("corrections", []))) for r in map(json.loads, T.OUT.open())],
+      [json.loads(l)["post_id"] for l in T.ATTEMPTS.open()])
+
 # Barred puzzles have no black squares, so numbering inverts to nothing. They
 # are parsed and then deliberately not sized here; a typo in the name would
 # look identical, so check both halves.
@@ -189,6 +250,29 @@ check "an answer at the wrong length is rebuilt at its enumeration's" \
       "unique, enumeration length True" "$(field ENUM_LENGTH)"
 check "one wrong light with no enumeration is found by freeing it" \
       "unique, one light wrong at 1 across True" "$(field ONE_WRONG)"
+check "answers that fit the grid need no correction" "" "$(field FIX_NONE)"
+check "a letter a crossing contradicts is corrected from the crossing" \
+      "5d:EXOTY>EJOTY" "$(field FIX_LETTER)"
+check "two letters typed the wrong way round are put back" \
+      "5d:EOJTY>EJOTY" "$(field FIX_SWAP)"
+check "an answer at the wrong length is corrected to the light's" \
+      "5d:EJOTYEJOTY>EJOTY" "$(field FIX_LENGTH)"
+check "a letter no crossing and no blogger gives is not filled in" \
+      "refused: 5 down EJTY fits no word" "$(field FIX_UNCHECKED)"
+check "a correction that is not a word is refused" \
+      "refused: 5 down EXOTY fits no word; 6 across FGHIJ fits no word" "$(field FIX_NOT_A_WORD)"
+check "two corrections that are both words are refused" \
+      "refused: answers correct 5 down EJOTY or 6 across FGHIX" "$(field FIX_EITHER)"
+check "a light that could be either of two words is refused, whatever else fits" \
+      "refused: answers correct 5 down EJJTY or EJOTY or 6 across FGHIO" "$(field FIX_TWO_WORDS)"
+check "a grid its answers do not number is refused, not corrected" \
+      "refused: lights differ from the grid at" "$(field FIX_WRONG_GRID)"
+check "a run writes the corrected answer into the grid row" \
+      "[(1, [('ZJ', 'EJ')])]" "$(field RUN_ROW)"
+check "and answers() reads the corrected answers back" True "$(field RUN_ANSWERS)"
+check "a run refuses a puzzle whose typo no word corrects" "True refused" "$(field RUN_REFUSED)"
+check "--resettle corrects the grids already written and refuses the rest" \
+      "[(1, 1)] [4]" "$(field RESETTLE)"
 check "barred series are excluded, by their parsed names" \
       "['Mephisto', 'Monthly Club Special', 'Other Crosswords']" "$(field BARRED)"
 check "a post that gives only the answers is not searched" "True False" "$(field CLUES)"
