@@ -1448,7 +1448,23 @@ def merge_annotations(new_puzzle, old_puzzle):
     would wipe the fill and the annotations written off it; with it, the day
     the official key appears it simply replaces the model's, the unofficial
     marker comes off, and the differences get printed — which is the only
-    grading of a blind solve that ever happens automatically."""
+    grading of a blind solve that ever happens automatically.
+
+    provenance travels the same way and for the same reason: new_puzzle is
+    built fresh from whatever the fetcher just downloaded, so it never has a
+    provenance block of its own. Left alone, provenance.stamp (called from
+    write_puzzle_file right after this) reads that absence as "never stamped
+    before" and dates the puzzle today — which is wrong the moment this is a
+    re-fetch, and refresh_unsolved calls fetch_number on the very same pending
+    puzzle every night until its answers land, so every one of those nights
+    relabelled the puzzle's true, days-old arrival date as today's. Carrying
+    the old block forward is what stamp() needs to see the real acquiredOn (and
+    retrievedUrl, previousSolutionOrigin, book.leaf) instead of nothing; every
+    field that should change with this fetch — solutionOrigin chief among
+    them — is re-derived from new_puzzle's own content regardless of what
+    provenance said before."""
+    if old_puzzle.get("provenance"):
+        new_puzzle["provenance"] = old_puzzle["provenance"]
     old = {e["id"]: e.get("annotation") for e in old_puzzle.get("entries", [])}
     for e in new_puzzle["entries"]:
         if old.get(e["id"]) is not None:
