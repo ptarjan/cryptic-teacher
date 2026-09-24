@@ -76,7 +76,7 @@ from datetime import datetime
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from fetch_puzzle import (PUZZLE_DIR, UA, http_bytes, flatten_clue, grade_model_fill,  # noqa: E402
+from fetch_puzzle import (PUZZLE_DIR, http_bytes, flatten_clue, grade_model_fill,  # noqa: E402
                           merge_annotations, print_grade, puzzle_files, puzzle_path,
                           read_puzzle_file, reindex, write_puzzle_file)
 from fetch_independent import span  # noqa: E402 — same 1-based "2-7"/"7" span format
@@ -415,31 +415,35 @@ def refresh_unsolved():
             pending.append(p["number"])
     filled = 0
     for num in pending:
-        uuid = article_uuid(num)
-        manifest = puzzle_manifest(uuid)
-        data = puzzle_data(manifest)
-        solution = data["copy"]["settings"].get("solution")
-        if not solution:
-            print(f"{num}: still within its competition window — solutions still withheld")
+        # One puzzle's bad page must not stop the rest from being checked.
+        try:
+            uuid = article_uuid(num)
+            manifest = puzzle_manifest(uuid)
+            data = puzzle_data(manifest)
+            solution = data["copy"]["settings"].get("solution")
+            if not solution:
+                print(f"{num}: still within its competition window — solutions still withheld")
+                time.sleep(1)
+                continue
+            path = puzzle_path("everyman", num)
+            puzzle = read_puzzle_file(path)
+            guessed = ({e["id"]: e.get("solution") for e in puzzle["entries"]}
+                       if (puzzle.get("solutionSource") or {}).get("kind") == "model" else None)
+            fill_solutions(puzzle["entries"], solution,
+                            puzzle["dimensions"]["rows"], puzzle["dimensions"]["cols"], num)
+            if guessed is not None:
+                # The paper has spoken, so our fill stops being the answer and
+                # starts being an attempt that can be marked. Same grading the
+                # Guardian gets on re-fetch, from the same function.
+                graded = grade_model_fill(puzzle, guessed)
+                puzzle.pop("solutionSource", None)
+                print_grade(puzzle, graded)
+            write_puzzle_file(path, puzzle, generator="tools/fetch_observer.py")
+            print(f"solutions now published for {num}")
+            filled += 1
             time.sleep(1)
-            continue
-        path = puzzle_path("everyman", num)
-        puzzle = read_puzzle_file(path)
-        guessed = ({e["id"]: e.get("solution") for e in puzzle["entries"]}
-                   if (puzzle.get("solutionSource") or {}).get("kind") == "model" else None)
-        fill_solutions(puzzle["entries"], solution,
-                        puzzle["dimensions"]["rows"], puzzle["dimensions"]["cols"], num)
-        if guessed is not None:
-            # The paper has spoken, so our fill stops being the answer and
-            # starts being an attempt that can be marked. Same grading the
-            # Guardian gets on re-fetch, from the same function.
-            graded = grade_model_fill(puzzle, guessed)
-            puzzle.pop("solutionSource", None)
-            print_grade(puzzle, graded)
-        write_puzzle_file(path, puzzle, generator="tools/fetch_observer.py")
-        print(f"solutions now published for {num}")
-        filled += 1
-        time.sleep(1)
+        except Exception as err:  # noqa: BLE001 — reported, then the next puzzle
+            print(f"refresh {num} failed: {err}")
     if pending:
         reindex()
     print(f"refresh-unsolved: {filled}/{len(pending)} puzzle(s) gained solutions")

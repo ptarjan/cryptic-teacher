@@ -13,12 +13,10 @@
 .usage_cache.json
 .alert-state
 .claude
-# How many cold solves each unpublished puzzle has already burned, so a grid
-# that cannot be solved stops being attempted (see SOLVE_ATTEMPTS_MAX in
-# daily_update.sh). Written straight to the main checkout rather than shared by
-# symlink, because a count that lives in the nightly worktree is a count the
-# worktree rebuild throws away.
-.solve_attempts.json
+# Nightly work that failed, with a hash of the inputs it failed on, so it is not
+# retried until they change (tools/failed_inputs.py). Written straight to the
+# main checkout, because the nightly worktree is reset every run.
+.failed_inputs.json
 # The published answers a blind annotation is currently hiding, and the only
 # copy of them while it runs (tools/blind_annotate.py). Untracked because it
 # exists for the length of one claude call and is deleted by the grading pass;

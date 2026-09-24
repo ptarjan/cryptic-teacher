@@ -195,11 +195,7 @@ if ! mkdir "$LOCK" 2>/dev/null; then
   fi
 fi
 echo "$$" > "$LOCK/pid"
-# alert_newly_blocked rides the trap rather than the tail: a puzzle that has
-# used up its attempts has left the queue for good, and it has to be said even
-# when the run ends on a lockout, a wedged worktree or a kill. Announced once —
-# the ledger remembers what it has already reported.
-trap 'rm -f "$LOCK/pid"; rmdir "$LOCK" 2>/dev/null; sleep 1; alert_newly_blocked; alert_run_failures "$RUN_LOG"; rm -f "$RUN_LOG"' EXIT
+trap 'rm -f "$LOCK/pid"; rmdir "$LOCK" 2>/dev/null; sleep 1; alert_run_failures "$RUN_LOG"; rm -f "$RUN_LOG"' EXIT
 # Session ids and resume notes belong to the run that wrote them. Left behind by
 # a run that stopped before its retry, they would have tonight's first attempt
 # resume a conversation about a worktree that has since been reset out from
@@ -657,10 +653,10 @@ commit_puzzle() {
     # alert for; quoting it verbatim is what marks it claimed.
     alert "$what $num was discarded — it did not validate, so that puzzle stays unannotated:"$'\n'"VALIDATION FAILED after $what $num — discarding that puzzle's changes"$'\n'"\`\`\`"$'\n'"$(grep -E '^  ERROR' /tmp/ct-prereset-validate.txt | head -5)"$'\n'"\`\`\`"
     tail -5 /tmp/ct-prereset-validate.txt
-    # Charged to the puzzle, not to the window: this run finished and was
-    # rejected, which is the one failure that says something about the grid.
-    # ANNOTATE_MAX_ATTEMPTS of these and it leaves the queue for a person.
-    python3 tools/annotate_attempts.py record "$num" \
+    # Recorded against the puzzle's inputs, not the window: this run finished
+    # and was rejected, which is the one failure that says something about the
+    # grid. It stays out of the queue until those inputs change.
+    python3 tools/failed_inputs.py record annotate "$num" --judged \
       --reason "$(grep -E '^  ERROR' /tmp/ct-prereset-validate.txt | head -1)" || true
     git checkout -- "puzzles/$num.json" 2>/dev/null
     return 1
@@ -757,7 +753,7 @@ fi
 
 # --- 1. un-annotated puzzles, quiptics first ---------------------------------
 echo "un-annotated backlog, newest first:"
-annotate_blocked=$(python3 tools/annotate_attempts.py blocked)
+annotate_blocked=$(python3 tools/failed_inputs.py skipped annotate)
 todo=$(python3 - "$annotate_blocked" <<'EOF'
 import json, sys
 from datetime import datetime, timezone
@@ -766,7 +762,7 @@ idx = json.load(open("puzzles/index.json"))
 # newest un-annotated puzzle again on the next wave and on tomorrow's run, and
 # is solved from scratch at a full puzzle's price each time — everyman-4110 was
 # bought three times over one word its setter never wrote. The nightly job has
-# counted these since tools/annotate_attempts.py; this is the same queue and
+# skipped these since tools/failed_inputs.py; this is the same queue and
 # reads the same ledger.
 blocked = set(sys.argv[1].split())
 todo = [p for p in idx["puzzles"] if not p["annotated"] and p.get("hasSolutions")

@@ -89,6 +89,15 @@ T.ATTEMPTS.write_text(
     + json.dumps({"post_id": 3, "how": "truncated", "max_nodes": 6000000}) + "\n")
 print("TRIED", sorted(T.attempted(6000000)))
 print("BIGGER", sorted(T.attempted(400000)))
+# A settled answer is an input: a post tried with the answers it has now is
+# skipped, and one whose settled answers changed since is tried again.
+fix = {(1, "across"): "CAT"}
+T.ATTEMPTS.write_text(
+    json.dumps({"post_id": 4, "how": "no grid", "max_nodes": 6000000, "search": T.SEARCH,
+                "settled": T.settled_digest(fix)}) + "\n"
+    + json.dumps({"post_id": 5, "how": "no grid", "max_nodes": 6000000, "search": T.SEARCH,
+                  "settled": T.settled_digest(fix)}) + "\n")
+print("RETRY_SETTLED", sorted(T.attempted(6000000, {4: fix, 5: {(1, "across"): "COT"}})))
 
 # Answers that refute EVERY candidate are the opposite of an ambiguous grid:
 # the right grid is not in the list, so the light list or an answer is wrong.
@@ -247,6 +256,7 @@ check "and appends to it rather than truncating" True "$(field KEPT)"
 check "only --fresh starts the file over" "" "$(field FRESH)"
 check "a failure is not re-ground on the next run, an older search's is" "[1]" "$(field TRIED)"
 check "but a bigger budget retries what it truncated" "[1, 2]" "$(field BIGGER)"
+check "a settled post is retried only when its settled answers change" "[4]" "$(field RETRY_SETTLED)"
 check "answers refuting every candidate does not read as an unsettled tie" \
       "answers fit none of 2" "$(field REFUTED)"
 check "the search itself refuses a grid its answers clash in" "[] 1" "$(field WORDS_PRUNE)"
