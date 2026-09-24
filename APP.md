@@ -241,6 +241,21 @@ is why the two are separate files rather than two halves of one.
   already knows. Concretely: after the level-5 walkthrough names the answer,
   the final rung is "Fill in answer" — never letter reveals (feedback
   2026-07-26).
+- A double definition has no building blocks of its own. Its halves are its two
+  definitions, which the definition rung already names and asks the solver to
+  tap, and each one's letters are the whole answer, so a blocks rung made of
+  them asks the same question a second time. A block that is one of the
+  definitions and shows only a note renders its note on the definition rung,
+  beside the split (`senseBlock` in `app.js`). What the split never named is
+  still a block: a third definition, a wordplay half, a sounded form.
+- A question with one answer is not asked. A piece of the blocks rung whose
+  words are all the clue has left once the definition, indicators, link words
+  and earlier pieces are lit is handed over with the piece before it: pointing
+  at it is elimination, not a skill. This takes the fodder question off a pure
+  anagram whose fodder is the rest of the clue, and the last question off a
+  charade whose every word is claimed. It does not apply to the definition
+  rung, where nothing is settled yet and seeing that the whole clue defines is
+  the judgement being tested.
 - Every check must SAY what it found (feedback 2026-07-29: "I clicked it and
   didn't see anything change"). Checking used to mark wrong letters and nothing
   else, so checking a correct entry was indistinguishable from a dead button.

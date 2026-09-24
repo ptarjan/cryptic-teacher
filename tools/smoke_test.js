@@ -5483,120 +5483,138 @@ global.realSetTimeout(() => {
     "but dropping a word that carries the meaning is still wrong on " + found.e.clue);
 }
 
-// --- a double definition never asks which half comes first ---
-// Both halves of a DD are asked for in the same words — "which words give
-// SCRAMBLER?", twice — so if both were pickable at once, which one the annotation
-// happens to list first would be a thing the solver has to guess. They are not:
-// the definition rung is always up before the pieces rung opens, and on a DD it
-// names BOTH halves, so the half not being asked for is already settled and inert.
-// One answer is available, and it is the right one.
-//
-// If this ever fails because both halves are pickable, the ordering stops being
-// moot and gradeGuess has to accept either half of a DD, in either order.
+// --- a double definition has no building blocks of its own ---
+// Its halves are its two definitions: the definition rung names both and asks
+// for them, and each one's letters are the whole answer, so a blocks rung made
+// of them asked "which words give the answer?" of words the solver had just
+// tapped. What such a block adds is its note on that sense, and the note rides
+// on the definition rung instead. A block the split never named — a third
+// definition — is still a building block, and the mirror below holds that.
 {
   const puzzles = global.window.CRYPTIC_PUZZLES;
   const bare = (t) => String(t || "").replace(/[^A-Za-z]/g, "").toUpperCase();
-  const tokensOf = (clue) => {
-    const body = String(clue || "").replace(/\s*\([^()]*\)\s*$/, "");
-    const out = [];
-    const re = /\S+/g;
-    let m;
-    while ((m = re.exec(body))) out.push({ i: m.index, text: m[0] });
-    return out;
+  const isDef = (a, b) => [a.definition, a.definition2].some((d) => bare(d) === bare(b.clueFragment));
+  const plain = (b) => b.note && /^[A-Za-z ,.;:-]+$/.test(b.note) && !b.soundsLike;
+  const open = (id, e) => {
+    registry["btn-picker"].onclick();
+    const li = pickerRowFor(id);
+    if (!li) return false;
+    li.children[0].onclick();
+    registry["reset-puzzle"].onclick();
+    registry["clue-" + e.id].listeners.click[0]();
+    return true;
   };
-  // Locatable without a copy of the app's matcher: one occurrence, whole words.
-  const spanTokens = (clue, frag) => {
-    const at = clue.indexOf(frag);
-    if (at < 0 || clue.indexOf(frag, at + 1) >= 0) return null;
-    const hit = tokensOf(clue).map((t, n) => ({ t, n }))
-      .filter(({ t }) => t.i < at + frag.length && at < t.i + t.text.length);
-    if (!hit.length) return null;
-    const first = hit[0].t, last = hit[hit.length - 1].t;
-    if (first.i !== at || last.i + last.text.length !== at + frag.length) return null;
-    return hit.map(({ n }) => n);
-  };
-  const asking = () => isAsking(registry["hint-body"]);
-  const rungs = () => registry["hint-next"].children;
-  // A settled word gets no button, so the ids in the question ARE what is
-  // pickable. Read off the panel rather than worked out here.
-  const pickable = () => {
-    const seen = (panelHTML().match(/id="gw-(\d+)"/g) || [])
-      .map((m) => Number(m.slice(7, -1)));
-    return seen.sort((a, b) => a - b);
-  };
-
-  let dd = null, tried = 0;
+  const labels = () => registry["hint-next"].children.map((b) => b.textContent || "").join(" | ");
+  let pure = null, third = null;
   for (const id of Object.keys(puzzles).sort()) {
     for (const e of puzzles[id].entries || []) {
-      if (dd || tried > 40) break;
       const a = e.annotation;
-      const bl = ((a && a.blocks) || []).filter((b) => b.clueFragment && b.gives);
-      if (bl.length !== 2 || bl[0].gives !== bl[1].gives) continue;
-      // Both halves giving the same letters is not enough to be a DD: "Type of
-      // dieting you endlessly repeated" gives YO twice and is a charade, where
-      // the half not being asked for is a piece the solver has not reached yet
-      // and is rightly still pickable. A double definition is the case where
-      // each half gives the WHOLE answer, and only there has the definition
-      // rung already named both.
-      if (bare(bl[0].gives) !== bare(a.answer)) continue;
-      const spans = bl.map((b) => spanTokens(e.clue, b.clueFragment));
-      if (spans.some((s) => !s) || spans[0].some((n) => spans[1].indexOf(n) >= 0)) continue;
-      tried++;
-      registry["btn-picker"].onclick();
-      const li = pickerRowFor(id);
-      if (!li) continue;
-      li.children[0].onclick();
-      registry["reset-puzzle"].onclick();
-      registry["clue-" + e.id].listeners.click[0]();
-      // Climb, declining every question on the way, until the pieces rung is up.
-      let pieces = null;
-      for (let i = 0; i < 8 && !pieces; i++) {
-        const open = rungs().filter((b) => !b.disabled);
-        const want = open.find((b) => /building blocks|each half/i.test(b.textContent || ""));
-        const b = want || open[0];
-        if (!b) break;
-        b.onclick();
-        if (want) { pieces = true; break; }
-        if (asking()) registry["guess-tell"].onclick();
-      }
-      if (!pieces || !asking()) continue;
-      dd = { id, e, bl, spans };
+      if (!a || a.linkedTo || a.type !== "double definition" || !a.definition2) continue;
+      const bl = a.blocks || [];
+      if (!pure && bl.length === 2 && bl.every((b) => isDef(a, b) && plain(b))) pure = { id, e, bl };
+      if (!third && bl.some((b) => !isDef(a, b) && plain(b) && !(a.definition + " " + a.definition2)
+        .includes(b.clueFragment))) third = { id, e };
     }
-    if (dd) break;
+    if (pure && third) break;
   }
-  // Whether any clue is shaped like this is a fact about the corpus, so the
-  // sample is not owed one and only CI is.
-  assert(dd || !FULL, `the corpus has a two-piece clue whose pieces give the same thing (tried ${tried})`);
+  assert(pure || !FULL, "the corpus has a double definition whose blocks are its two definitions");
+  if (pure && open(pure.id, pure.e)) {
+    assert(!/building blocks/i.test(labels()),
+      `${pure.id} ${pure.e.id}: "${pure.e.clue}" offers no building blocks: ${labels()}`);
+    const def = registry["hint-next"].children.find((b) => /definition/i.test(b.textContent || ""));
+    if (assert(def, `${pure.id} ${pure.e.id}: the definition rung is offered: ${labels()}`)) {
+      def.onclick();
+      if (isAsking(registry["hint-body"])) registry["guess-tell"].onclick();
+      const said = bare(registry["hint-body"].innerHTML.replace(/<[^>]*>/g, " "));
+      pure.bl.forEach((b) => assert(said.includes(bare(b.note)),
+        `${pure.id} ${pure.e.id}: the note on "${b.clueFragment}" is on the definition rung: `
+          + registry["hint-body"].innerHTML));
+    }
+  }
+  assert(third || !FULL, "the corpus has a double definition with a sense the split does not name");
+  if (third && open(third.id, third.e)) {
+    assert(/building blocks/i.test(labels()),
+      `${third.id} ${third.e.id}: "${third.e.clue}" keeps the building blocks for the sense `
+        + `the definition rung never named: ${labels()}`);
+  }
+}
 
-  if (dd) {
-    // And it asks WITHOUT naming the letters, because on a DD they are the
-    // answer: a prompt that reads them off the annotation hands over the solve
-    // on the way in to the rung bought to avoid being handed it.
-    assert(!/class="gives"/.test(registry["hint-body"].innerHTML),
-      `${dd.id} ${dd.e.id}: the question names the letters it is asking for, and they are the answer — `
+// --- a piece that is all the clue has left is not asked ---
+// Once the definition, the indicators and the link words are lit, a pure
+// anagram's fodder is whatever remains, and "which words give it?" is a tap with
+// one answer. The same holds for the last piece of a charade whose every word is
+// claimed. The mirror: the first piece of that charade still asks, because
+// there the solver has a real split to make.
+{
+  const puzzles = global.window.CRYPTIC_PUZZLES;
+  const words = (s) => String(s || "").replace(/\s*\([^()]*\)\s*$/, "").split(/\s+/).filter((w) => /[A-Za-z0-9]/.test(w));
+  const count = (list) => list.reduce((n, s) => n + words(s).length, 0);
+  // Every word of the clue named exactly once, by counting: the rungs' spans and
+  // the pieces add up to the clue and no fragment is written twice in it.
+  const claimed = (e, a) => {
+    const parts = [a.definition, ...(a.indicators || []), ...(a.linkWords || []),
+      ...(a.blocks || []).map((b) => b.clueFragment)];
+    return parts.every((p) => p && e.clue.split(p).length === 2)
+      && count(parts) === words(e.clue).length;
+  };
+  const open = (id, e) => {
+    registry["btn-picker"].onclick();
+    const li = pickerRowFor(id);
+    if (!li) return false;
+    li.children[0].onclick();
+    registry["reset-puzzle"].onclick();
+    registry["clue-" + e.id].listeners.click[0]();
+    return true;
+  };
+  const asking = () => isAsking(registry["hint-body"]);
+  const climbToBlocks = () => {
+    for (let i = 0; i < 8; i++) {
+      const open = registry["hint-next"].children.filter((b) => !b.disabled && b.onclick);
+      const want = open.find((b) => /building blocks/i.test(b.textContent || ""));
+      if (want) return want;
+      if (!open[0]) return null;
+      open[0].onclick();
+      if (asking()) registry["guess-tell"].onclick();
+    }
+    return null;
+  };
+  let ana = null, cha = null;
+  for (const id of Object.keys(puzzles).sort()) {
+    for (const e of puzzles[id].entries || []) {
+      const a = e.annotation;
+      if (!a || a.linkedTo || a.definition2 || !claimed(e, a)) continue;
+      const bl = a.blocks || [];
+      const bare = (t) => String(t || "").replace(/[^A-Za-z]/g, "").toUpperCase();
+      // Fodder written as its own letters never asked; fodder that resolves to
+      // the answer did, and is the case this is about.
+      if (!ana && a.type === "anagram" && bl.length === 1 && bl[0].gives
+        && bare(bl[0].gives) !== bare(bl[0].clueFragment)) ana = { id, e };
+      if (!cha && a.type === "charade" && bl.length === 2 && bl[0].gives !== bl[1].gives
+        && bl.every((b) => b.gives && bare(b.gives) !== bare(b.clueFragment))) cha = { id, e, bl };
+    }
+    if (ana && cha) break;
+  }
+  assert(ana || !FULL, "the corpus has a pure anagram whose fodder is every unnamed word");
+  if (ana && open(ana.id, ana.e)) {
+    const b = climbToBlocks();
+    if (assert(b, `${ana.id} ${ana.e.id}: the building blocks are reachable`)) {
+      b.onclick();
+      assert(!asking(), `${ana.id} ${ana.e.id}: "${ana.e.clue}" hands its fodder over unasked: `
         + registry["hint-body"].innerHTML);
-    const first = pickable();
-    assert(JSON.stringify(first) === JSON.stringify(dd.spans[0]),
-      `${dd.id} ${dd.e.id}: "${dd.e.clue}" offers only the half it is asking for — `
-        + `pickable ${JSON.stringify(first)}, asked for ${JSON.stringify(dd.spans[0])}`);
-    first.forEach((n) => registry["gw-" + n].onclick());
-    registry["guess-check"].onclick();
-    // Right, so that half is handed over and the question is done. The other
-    // half is a piece the solver has not asked for yet.
-    assert(/guess-verdict right/.test(registry["hint-body"].innerHTML) && !asking(),
-      `${dd.id} ${dd.e.id}: the only answer available is graded right`);
-    const rest = registry["hint-next"].children.find(
-      (b) => /next piece/i.test(b.textContent || "") && !b.disabled);
-    assert(rest, `${dd.id} ${dd.e.id}: the other half is still to come: `
-      + registry["hint-next"].innerHTML);
-    rest.onclick();
-    // And it is asked for by elimination, which is the whole of question 2.
-    assert(asking() && JSON.stringify(pickable()) === JSON.stringify(dd.spans[1]),
-      `${dd.id} ${dd.e.id}: the second question offers exactly the other half`);
-    pickable().forEach((n) => registry["gw-" + n].onclick());
-    registry["guess-check"].onclick();
-    assert(/guess-verdict right/.test(registry["hint-body"].innerHTML) && !asking(),
-      `${dd.id} ${dd.e.id}: naming the other half finishes the rung`);
+    }
+  }
+  assert(cha || !FULL, "the corpus has a two-piece charade whose every word is claimed");
+  if (cha && open(cha.id, cha.e)) {
+    const b = climbToBlocks();
+    if (assert(b, `${cha.id} ${cha.e.id}: the building blocks are reachable`)) {
+      b.onclick();
+      if (assert(asking(), `${cha.id} ${cha.e.id}: the first piece of "${cha.e.clue}" is asked`)) {
+        registry["guess-tell"].onclick();
+        assert(!registry["hint-next"].children.some((x) => /next piece/i.test(x.textContent || "")),
+          `${cha.id} ${cha.e.id}: the last piece comes with it, not behind a question: `
+            + registry["hint-next"].children.map((x) => x.textContent).join(" | "));
+      }
+    }
   }
 }
 

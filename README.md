@@ -11,7 +11,7 @@ answer key. The rungs, in the order the ladder numbers them:
 1. **Spot the indicator words** — the anagram, container, reversal and homophone signal words are highlighted.
 2. **Where is the definition?** — the definition part of the clue is highlighted.
 3. **What kind of clue is this?** — anagram? charade? container? hidden word? …
-4. **The building blocks** — the fodder and the synonym breakdown, a piece at a time (“host = ARMY; part of TV duo = ANT”).
+4. **The building blocks** — the fodder and the synonym breakdown, a piece at a time (“host = ARMY; part of TV duo = ANT”). A double definition has none: its halves are the definition rung's.
 5. **Full walkthrough** — the whole assembly, step by step.
 
 **Fill in answer** writes the solution into the grid. It is the way out of a clue rather than a step in it, so it is offered alongside the rungs once the building blocks are up, and it is not counted as one.
@@ -23,7 +23,8 @@ words?", and you answer by tapping those words in the clue itself; *What kind of
 this?* asks by offering the seven families, since its answer is not words in the clue. Get
 it right and the rung is yours without spending a hint; "Just tell me" answers it for you
 at the usual price. Guessing is how the skill transfers, so a rung you worked out is scored
-apart from one you bought.
+apart from one you bought. A piece that is all the clue has left once the other rungs are up
+is handed over rather than asked, because pointing at it would be a tap with one answer.
 
 The ladder is **tiers, not a chain**. The three spotting rungs (indicators, definition,
 type) can be taken in any order, because which one you want is your business. The

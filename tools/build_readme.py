@@ -585,7 +585,8 @@ RUNG_NOTES = {
     "indicators": "the anagram, container, reversal and homophone signal words "
                   "are highlighted",
     "blocks": "the fodder and the synonym breakdown, a piece at a time "
-              "(\u201chost = ARMY; part of TV duo = ANT\u201d)",
+              "(\u201chost = ARMY; part of TV duo = ANT\u201d). A double "
+              "definition has none: its halves are the definition rung's",
     "walkthrough": "the whole assembly, step by step",
 }
 
