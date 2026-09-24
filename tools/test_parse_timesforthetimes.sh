@@ -490,5 +490,39 @@ check "an unnumbered clue takes the one number it can be, or none" \
   "1:PROFESSORSHIP 9:EDGE 10:SMELT 11:STEAL" \
   "$(run "$orphan" | cut -d'|' -f1,3 | tr '|\n' ': ' | sed 's/ $//')"
 
+# Answers the blog printed that an earlier parser dropped, leaving the light
+# list a hole no grid fits. Each line is from a real post; the ones
+# refused are refused because reading them any other way writes a wrong
+# answer.
+holes='<p>ACROSS</p><p>13 Drink in The Feathers? (4)</p><p>DOWN :</p><p>Two meanings.</p>
+<p>18 Yankee to give away clothes for children&#8217;s store (7)</p><p>TOY SHOP: Y for Yankee inside TO SHOP</p>
+<p>19 Has funny new girl changed a blissful situation? (7-</p><p>2)</p><p>SHANGRI-LA &#8211; anagram</p>
+<p>20 Very popular star I&#8217;m mean about (10)</p><p>&#8230;He&#8217;s so sappy, I just can&#8217;t help it!</p><p>MAINSTREAM (star I&#8217;m mean)*</p>
+<p>21 Pinch and pinch again, very decorative (6)</p><p>POM POM A rather vague definition</p>
+<p>22 Flowers making Easter so special (3,5)</p><p>TEA ROSE A neat anagram of EASTER SO</p>
+<p>24 Military supplies from a group, not the dance</p><p>O.R. D(N)ANCE &#8211; easy</p>
+<p>Down</p><p>1 University given commendation, put at a higher level (8)</p><p>UPRAISE U(niversity) and PRAISE</p></div>'
+got="$(run "$holes" | cut -d'|' -f1,2,3 | tr '\n' ' ')"
+for want in "13|across|DOWN" "18|across|TOYSHOP" "19|across|SHANGRILA" \
+    "20|across|MAINSTREAM" "21|across|POMPOM" "24|across|ORDNANCE"; do
+  check "a dropped answer is read: $want" "yes" \
+    "$(case " $got" in *" $want "*) echo yes;; *) echo "no: $got";; esac)"
+done
+check "the rest of the list is still across after an answer that is DOWN" \
+  "no" "$(case " $got" in *"|down|TOYSHOP"*) echo yes;; *) echo no;; esac)"
+check "the tail of a broken enumeration is not clue 2" \
+  "no" "$(case " $got" in *" 2|"*) echo yes;; *) echo no;; esac)"
+for bad in "TEAROSEA" "|OR " "UPRAISEU"; do
+  check "a typo is refused, not guessed: no $bad" "no" \
+    "$(case " $got" in *"$bad"*) echo "yes: $got";; *) echo no;; esac)"
+done
+
+# A preamble that names a light, and a glossary line after it that reads as
+# its answer, is not the puzzle: the Across list starts at its heading.
+preamble='<p>1ac END UP went straight in</p><p>DDCDH: DD/CD hybrid where a straight definition is combined with a cryptic hint.</p>
+<p>Across</p><p>1 Finish with nothing to do, beginning to despair (3,2)</p><p>END UP &#8211; double definition</p>'
+check "a preamble before the Across heading is not an entry" "1|across|ENDUP" \
+  "$(run "$preamble" | cut -d'|' -f1,2,3 | tr '\n' ' ' | sed 's/ $//')"
+
 if [ "$fails" -gt 0 ]; then echo "$fails FAILURE(S)"; exit 1; fi
 echo "all checks passed"

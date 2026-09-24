@@ -60,13 +60,13 @@ HEADING = re.compile(r"^(across|down)\b[\s:.]*$", re.I)
 #: number a clue number: "1066 Pevensey event" is not clue 10.
 NUMBERED = re.compile(r"^(\d{1,2})(?!\d|[.:]\d)\s*[.):]?\s*(.*)$")
 #: An answer is the line's leading run of capitals, ended by whichever mark
-#: the wordplay hangs off — a dash, an equals sign or a semicolon. A plain
-#: hyphen ends it only when a space is on either side of it, or WELL-KNOWN
-#: truncates to WELL: "NISAN -Granny NAN" is a dash typed short. A full stop
-#: ends it when a sentence follows: "IDEA. Less than perfect (IDEA)l".
+#: the wordplay hangs off — a dash, an equals sign, a colon or a semicolon. A
+#: plain hyphen ends it only when a space is on either side of it, or
+#: WELL-KNOWN truncates to WELL: "NISAN -Granny NAN" is a dash typed short. A
+#: full stop ends it when a sentence follows: "IDEA. Less than perfect (IDEA)l".
 ANSWER = re.compile(
     r"^([A-Z][A-Z0-9'\u2019()\[\]+,. \-]{1,70}?)"
-    r"(?:\s*(?:[\u2013\u2014=;]|-\s|-\s*$|$)|\s+-|\.\s+(?=[A-Z][a-z]))")
+    r"(?:\s*(?:[\u2013\u2014=;:]|-\s|-\s*$|$)|\s+-|\.\s+(?=[A-Z][a-z]))")
 #: Wordplay written into the answer itself: S(L)OUGH, YOR[I+C]K, RICE,PAPER.
 #: The letters in order are the answer — the brackets are the blogger showing
 #: their working, and the comma is the space between two words.
@@ -104,6 +104,8 @@ DELETED = re.compile(r"<(s|strike|del)\b[^>]*>.*?</\1>", re.I | re.S)
 #: A braced deletion never crosses a line: "{bu}RI{ed{" mistypes its closing
 #: brace, and a brace that may run on to the next "}" deletes every clue between.
 BRACED = re.compile(r"\{[^{}\n]*\}")
+#: An enumeration still open at the end of a line: "(7-", "(4,".
+OPEN_ENUM = re.compile(r"\(\d{1,2}(?:[,\-\u2013\s]+\d{1,2})*[,\-\u2013]$")
 #: A clue's enumeration: word lengths, none of them longer than a grid is
 #: wide. "Special Providence (1930)" ends in a year, not in a count.
 ENUM = re.compile(r"\((\d{1,2}(?:[,\-–\s]+\d{1,2})*)[,\-–\s]*\)\s*$")
@@ -152,7 +154,18 @@ def lines(rendered):
     text = html.unescape(text)
     text = BRACED.sub("", text)
     text = text.replace("\t", "\n").replace("\xa0", " ")
-    return [re.sub(r"\s+", " ", ln).strip() for ln in text.split("\n")]
+    # An enumeration broken over a tag, "(7-" then "2)", is one line: its tail
+    # read alone is a bare clue number 2.
+    out, open_at = [], None
+    for ln in (re.sub(r"\s+", " ", ln).strip() for ln in text.split("\n")):
+        if open_at is not None and re.match(r"\d", ln):
+            out[open_at] += ln
+            open_at = None
+            continue
+        out.append(ln)
+        if ln:
+            open_at = len(out) - 1 if OPEN_ENUM.search(ln) else None
+    return out
 
 
 def puzzle_number(post):
@@ -347,6 +360,8 @@ def printed_answer(rest):
 #: One word of a printed answer as answer_by_enum reads it: capitals, with an
 #: apostrophe inside (O'ER), ended by anything that is not a lower-case letter.
 CAPS_WORD = re.compile(r"[\s,\-\u2013\u2014]*([A-Z][A-Z'\u2019]*)(?![a-z])")
+#: One word of answer_by_enum's fallback: capitals, not glossed by a bracket.
+GLOSSLESS_WORD = re.compile(r"[ \-]*([A-Z][A-Z'\u2019]+)(?![a-z(\[])")
 #: An answer typed in ordinary case -- "Champion - double definition",
 #: "Estonia - E and STONIA" -- counts only with the dash after it, because a
 #: line of wordplay opens with an ordinary word too: "Anagram of..." is (7).
@@ -386,7 +401,19 @@ def answer_by_enum(line, enum):
         else:
             if ender is None or ender.match(line, pos):
                 return " ".join(words)
-    return None
+    # The blog's enumeration can be the one mistyped -- "POM POM" under (6),
+    # "GRACENOTE" under (5,4) -- so leading capitals that count the
+    # enumeration's total are the answer too. A word the blogger glosses,
+    # "U(niversity)", is wordplay, and ends the search; so does a dash or a
+    # one-letter word, which is where the prose starts: "TEA ROSE A neat...".
+    total, got, pos = sum(counts), [], 0
+    while sum(map(len, got)) < total:
+        m = GLOSSLESS_WORD.match(line, pos)
+        if not m:
+            return None
+        got.append(re.sub(r"[^A-Z]", "", m.group(1)))
+        pos = m.end()
+    return " ".join(got) if sum(map(len, got)) == total else None
 
 
 #: A printed answer the blogger ended with a dash: "PINCH POINT - PINCH...".
@@ -487,6 +514,9 @@ def continuation_target(clue):
     m = CONTINUATION.match(clue or "")
     return int(m.group(1)) if m else None
 
+
+#: How many lines after a clue its enumeration may pick the answer out of.
+CLUED_REACH = 2
 
 #: The number an unnumbered clue carries until number_orphans places it.
 ORPHAN = 0
@@ -591,7 +621,10 @@ def parse_post(post):
     # (or the answer) sits in the next cell, and a clue that opens with a
     # number -- "24-hour periods", "10 pence secured", "3D viewer" -- is that
     # light's clue, not a new light.
-    bare = just_clued = False
+    bare = False
+    # Lines after a clue still read by its enumeration: the answer, or one
+    # aside first ("…He's so sappy, I just can't help it!") and then it.
+    just_clued = 0
     # A light is answered once, so a number line naming one that already has
     # its answer is the blogger's prose -- "1 SEN = 1/100th of a yen" under
     # 12's answer -- not the light again. A number that merely goes backwards
@@ -641,15 +674,25 @@ def parse_post(post):
         stray = STRAY_NUMBER.match(ln)
         if stray:
             ln = stray.group(1) or stray.group(2)
-        if HEADING.match(ln):
-            direction = HEADING.match(ln).group(1).lower()
+        # DOWN and ACROSS are answers too: under a clue still waiting for its
+        # answer, a heading-shaped line its enumeration counts is that answer.
+        if HEADING.match(ln) and not (lights and clue and enum_fits(ln.upper(), enum)):
+            heading = HEADING.match(ln).group(1).lower()
+            if direction is None and heading == "across":
+                # Whatever came before the Across list is the blogger's
+                # preamble -- "1ac END UP went straight in", then a glossary
+                # line "DDCDH: DD/CD hybrid" to answer it -- not the puzzle.
+                entries.clear()
+                unsplit.clear()
+                answered.clear()
+            direction = heading
             last = 0
             lights, clue, enum = None, None, None
             continue
         rest, these = None, None
         owned, bare = bare, False
-        # Only the line straight after a clue is read by its enumeration.
-        clued, just_clued = just_clued, False
+        clued = just_clued > 0 and lights is not None
+        just_clued = max(just_clued - 1, 0)
         m = NUMBERED.match(ln)
         if owned and m and (not m.group(2) or BARE_SUFFIX.match(m.group(2))):
             owned = False             # another bare number: a new light
@@ -693,7 +736,7 @@ def parse_post(post):
             clue = rest               # number and clue text on one line
             e = ENUM.search(rest)
             enum = e.group(1).strip() if e else None
-            just_clued = True
+            just_clued = CLUED_REACH
             continue
         printed = answer_line(ln)
         # A linked answer may carry only its leading light's count, "(8)" over
@@ -711,14 +754,14 @@ def parse_post(post):
             clue = ln                 # the clue arrived in its own cell
             e = ENUM.search(ln)
             enum = e.group(1).strip() if e else None
-            just_clued = True
+            just_clued = CLUED_REACH
         elif lights is None and direction and ENUM.search(ln):
             # A clue with no light of its own: its number was left off, or
             # was one already answered ("7" typed for 17). number_orphans
             # decides what it is once the whole list has been read.
             lights, clue = [(ORPHAN, direction)], ln
             enum = ENUM.search(ln).group(1).strip()
-            just_clued = True
+            just_clued = CLUED_REACH
 
     number_orphans(entries)
     one_entry_per_light(entries)
