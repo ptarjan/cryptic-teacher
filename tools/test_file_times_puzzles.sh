@@ -195,7 +195,12 @@ page = ('<a href="/puzzles/crossword/sunday-times-cryptic-no-5078-t38g8lcjm" dat
         '<a href="/puzzles/crossword/times-cryptic-jumbo-no-1680-abc">'
         '<span class="a">Monday December 27</span><span class="b">| No 1680</span>'  # a Wednesday
         '<a href="/puzzles/crossword/times-cryptic-no-29000-abc">'
-        '<span class="a">Tuesday December 26</span><span class="b">| No 29000</span>')
+        '<span class="a">Tuesday December 26</span><span class="b">| No 29000</span>'
+        # Since 2025: no "No", more attributes, and "Today" (no date to read).
+        '<a href="/puzzles/crossword/sunday-times-cryptic-no-5143-abc">'
+        '<span class=" c" color="inkBase">Today</span><span class=" d" color="inkBase">| 5143</span>'
+        '<a href="/puzzles/crossword/sunday-times-cryptic-no-5142-abc">'
+        '<span class=" c" color="inkBase">Sunday December 31</span><span class=" d">| 5142</span>')
 print("CARDS", [(s, n, str(d)) for s, n, d in L.cards("20240103120000", page)])
 PY
 )
@@ -210,6 +215,6 @@ check "a Jumbo gap holding a bank holiday stays undated" "None None" "$(got JUMB
 check "a bank holiday the blog names lets the cadence past it" "Mon 09 Sat 14" "$(got JUMBO_HOLIDAY)"
 check "the Times's listing dates what the cadence cannot" "Sun 01 Mon 05 Sat 10" "$(got LISTED)"
 check "listing cards: year off the capture, weekday checked" \
-  "[('sundaytimes', 5078, '2023-09-24'), ('times', 29000, '2023-12-26')]" "$(got CARDS)"
+  "[('sundaytimes', 5078, '2023-09-24'), ('times', 29000, '2023-12-26'), ('sundaytimes', 5142, '2023-12-31')]" "$(got CARDS)"
 
 [ "$fails" -eq 0 ] && echo "all passed" || { echo "$fails failed"; exit 1; }
