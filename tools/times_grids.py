@@ -14,10 +14,15 @@ blog post that skipped an entry, or typed one wrong — not a grid that defies
 numbering. One wrong light is found when freeing it lands on a single grid;
 anything more is counted and named, never guessed at.
 
+A grid taken although one of the blog's answers disagrees with it carries the
+corrected answer in its row, and read through answers() that is what gets
+published. A typo nothing determines refuses the puzzle instead.
+
 Reads the records parse_timesforthetimes.py writes; no network, no solving.
 """
 import argparse
 import collections
+import itertools
 import json
 import re
 import sys
@@ -163,6 +168,150 @@ def one_light_wrong(lights, words, n):
     return None, None
 
 
+LEXICON = Path(__file__).resolve().parent / "data" / "lexicon.tsv"
+
+
+def vocabulary(recs):
+    """Every word a correction may be, by length: the lexicon's, and every
+    answer the blog gave anywhere. The lexicon has no phrases (URSA MINOR) and
+    few proper nouns (PHARAOH); the blog has both."""
+    words = set()
+    if LEXICON.exists():
+        for line in LEXICON.open(encoding="utf-8"):
+            if not line.startswith("#"):
+                words.add(line.split("\t", 1)[0])
+    for r in recs:
+        words.update(e["answer"] for e in r["entries"])
+    by_len = collections.defaultdict(set)
+    for w in words:
+        by_len[len(w)].add(w)
+    return by_len
+
+
+LIGHTS_DIFFER = "refused: lights differ from the grid at "
+
+#: More wrong answers than this in one grid is a wrong grid, not typos.
+MAX_WRONG = 3
+
+
+def _key(k):
+    return f"{k[0]} {k[1]}"
+
+
+def _subsequence(short, long):
+    it = iter(long)
+    return all(c in it for c in short)
+
+
+def _fixes(cells, known, blogged, entry, leaders, vocab):
+    """The words one wrong light can be. `known` holds the letters its correct
+    crossings put in it; every other letter is the blogger's own -- at the same
+    place when the blogged answer has the light's length, and in the same order
+    when it does not. Only real words that match the enumeration count.
+
+    The one other correction taken is two adjacent letters typed the wrong way
+    round (PHAROAH, GYLPH), and only as the blogger typed every letter: the
+    crossing letter that exposes a swap cannot also stand in for the letter
+    beside it."""
+    n = len(cells)
+    fixed = {i: known[c] for i, c in enumerate(cells) if c in known}
+    if len(blogged) == n:
+        pool = ["".join(fixed.get(i, blogged[i]) for i in range(n))] + [
+            blogged[:i] + blogged[i + 1] + blogged[i] + blogged[i + 2:]
+            for i in range(n - 1)]
+    else:
+        pool = vocab.get(n, ())
+    out = set()
+    for w in pool:
+        if len(w) != n or any(w[i] != c for i, c in fixed.items()):
+            continue
+        if len(blogged) != n and not _subsequence(
+                [w[i] for i in range(n) if i not in fixed], blogged):
+            continue
+        if w in vocab.get(n, ()) and parser.enum_agrees(dict(entry, answer=w),
+                                                       leaders) is not False:
+            out.add(w)
+    return out
+
+
+def settle(grid, rec, vocab):
+    """(corrections, None) when the answers as blogged fit this grid, or can be
+    made to by correcting the fewest answers in exactly one way; else
+    (None, why).
+
+    A grid is taken despite an answer that disagrees with it -- PHAROAH across
+    a crossing that wants PHARAOH, STAND-IN in an eight-letter light -- and
+    the answer is still the blogger's typo. A correction is only made when it
+    is determined: each letter is a correct crossing's or the blogger's own,
+    and the result is a real word of the light's enumeration. When two ways
+    of correcting it both give words, or none does, the puzzle is refused.
+    Each correction is {"number", "direction", "blogged", "answer"}.
+    """
+    lights = rg.light_cells(grid)
+    entries = {(e["number"], e["direction"]): e for e in rec["entries"]}
+    if set(entries) != set(lights):
+        odd = sorted(set(entries) ^ set(lights))
+        return None, LIGHTS_DIFFER + ", ".join(map(_key, odd))
+    forced = {k for k, e in entries.items() if len(e["answer"]) != len(lights[k])}
+    at = collections.defaultdict(list)
+    for k, cells in lights.items():
+        if k not in forced:
+            for c, letter in zip(cells, entries[k]["answer"]):
+                at[c].append((k, letter))
+    edges = {frozenset(k for k, _ in v) for v in at.values()
+             if len(v) == 2 and v[0][1] != v[1][1]}
+    if not forced and not edges:
+        return [], None
+    suspects = sorted({k for e in edges for k in e})
+    leaders = parser.leader_numbers(rec["entries"])
+    for size in range(0, MAX_WRONG - len(forced) + 1):
+        covers = [set(c) for c in itertools.combinations(suspects, size)
+                  if all(e & set(c) for e in edges)]
+        if not covers:
+            continue
+        outcomes, why, maybe = set(), [], []
+        for cover in covers:
+            wrong = forced | cover
+            known = {c: entries[k]["answer"][i] for k, cells in lights.items()
+                     if k not in wrong for i, c in enumerate(cells)}
+            fix = {}
+            for k in sorted(wrong):
+                ws = _fixes(lights[k], known, entries[k]["answer"], entries[k],
+                            leaders, vocab)
+                if len(ws) > 1:
+                    maybe.append(f"{_key(k)} {' or '.join(sorted(ws)[:4])}")
+                    break
+                if not ws:
+                    why.append(f"{_key(k)} {entries[k]['answer']} fits no word")
+                    break
+                fix[k] = ws.pop()
+            else:
+                fixed = {"entries": [dict(e, answer=fix.get(k, e["answer"]))
+                                     for k, e in entries.items()]}
+                if answers_fit(grid, fixed):
+                    outcomes.add(tuple(sorted(fix.items())))
+                else:
+                    why.append("corrected " + ", ".join(map(_key, sorted(wrong)))
+                               + " still clash")
+        if len(outcomes) == 1 and not maybe:
+            return [{"number": k[0], "direction": k[1],
+                     "blogged": entries[k]["answer"], "answer": w}
+                    for k, w in outcomes.pop()], None
+        if outcomes or maybe:
+            return None, "refused: answers correct " + " or ".join(sorted(
+                ["/".join(f"{_key(k)} {w}" for k, w in o) for o in outcomes] + maybe))
+        return None, "refused: " + "; ".join(why)
+    return None, f"refused: more than {MAX_WRONG} answers disagree with the grid"
+
+
+def answers(rec, row):
+    """This puzzle's entries with the grid row's corrections applied: the
+    answers to publish, which are not always the blog's."""
+    fix = {(c["number"], c["direction"]): c["answer"] for c in row.get("corrections", ())}
+    return [dict(e, answer=fix.get((e["number"], e["direction"]), e["answer"]))
+            for e in rec["entries"]]
+
+
 def solve(rec, limit=50, max_nodes=DEFAULT_MAX_NODES):
     """(grids, how) for one puzzle. `how` is why it ended where it did.
 
@@ -281,17 +430,67 @@ def has_clues(rec):
     return bool(es) and sum(bool(e.get("clue")) for e in es) >= 0.9 * len(es)
 
 
+def row(rec, grid, how, fixes):
+    """One line of grids.jsonl. `corrections` is only there when the blog got
+    an answer wrong; read the answers through answers(), never off the post."""
+    r = {"post_id": rec["post_id"], "series": rec["series"],
+         "number": rec["number"], "date": rec["date"], "grid": list(grid),
+         "how": how}
+    if fixes:
+        r["corrections"] = fixes
+    return r
+
+
+def resettle():
+    """Correct or refuse every grid already written, against the parsed
+    records as they are now. A grid rebuilt before settle() existed carries
+    its typos, and a resumed run never looks at it again.
+
+    Rewrites grids.jsonl, dropping each refused grid, and records the refusal
+    as that puzzle's attempt so a resumed run does not rebuild it."""
+    every = {r["post_id"]: r for r in map(json.loads, PARSED.open(encoding="utf-8"))}
+    vocab = vocabulary(every.values())
+    kept, refused, fixed = [], {}, 0
+    for line in OUT.open(encoding="utf-8"):
+        try:
+            g = json.loads(line)
+        except ValueError:
+            continue           # the last line of a killed run, half written
+        rec = every.get(g["post_id"])
+        if rec is None:
+            refused[g["post_id"]] = "refused: no parsed record"
+            continue
+        fixes, why = settle(g["grid"], rec, vocab)
+        if why and why.startswith(LIGHTS_DIFFER):
+            continue           # the post parses differently now: rebuild it
+        if why:
+            refused[g["post_id"]] = why
+            continue
+        fixed += len(fixes)
+        kept.append(row(rec, g["grid"], g["how"], fixes))
+    tmp = OUT.with_suffix(".tmp")
+    tmp.write_text("".join(json.dumps(r, ensure_ascii=False) + "\n" for r in kept),
+                   encoding="utf-8")
+    tmp.replace(OUT)
+    if refused:
+        with ATTEMPTS.open("a", encoding="utf-8") as log:
+            for pid, why in refused.items():
+                log.write(json.dumps({"post_id": pid, "how": why,
+                                      "max_nodes": DEFAULT_MAX_NODES,
+                                      "search": SEARCH}) + "\n")
+    return {"kept": len(kept), "fixed": fixed, "refused": refused}
+
+
 def run(limit_puzzles=None, series=None, write=True, seed=None,
         max_nodes=DEFAULT_MAX_NODES, fresh=False):
     if not PARSED.exists():
         print(f"no records at {PARSED} — run tools/parse_timesforthetimes.py")
         return None
-    recs = []
-    for line in PARSED.open(encoding="utf-8"):
-        r = json.loads(line)
-        if (r["series"] in SIZE and (series is None or r["series"] == series)
-                and has_clues(r)):
-            recs.append(r)
+    every = [json.loads(line) for line in PARSED.open(encoding="utf-8")]
+    recs = [r for r in every if r["series"] in SIZE
+            and (series is None or r["series"] == series) and has_clues(r)]
+    vocab = vocabulary(every)
+    del every
     # Newest first: recent posts write out their clues, and recent puzzles are
     # the ones people look for.
     recs.sort(key=lambda r: (r.get("date") or "", r["post_id"]), reverse=True)
@@ -313,10 +512,15 @@ def run(limit_puzzles=None, series=None, write=True, seed=None,
     log = ATTEMPTS.open("w" if fresh else "a", encoding="utf-8") if write else None
     for rec in recs:
         grids, why = solve(rec, max_nodes=max_nodes)
+        fixes = []
+        if len(grids) == 1:
+            fixes, refused = settle(grids[0], rec, vocab)
+            if refused:
+                grids, why = [], refused
         # A bucket is a category, not a sentence: the two outcomes that carry
         # a count in their text would otherwise each be their own bucket.
         key = why if why.startswith(("unique", "no grid", "truncated")) else "shortlist"
-        for prefix in ("rejected", "answers fit none"):
+        for prefix in ("rejected", "answers fit none", "refused"):
             key = prefix if why.startswith(prefix) else key
         how[key] += 1
         if log:
@@ -328,10 +532,8 @@ def run(limit_puzzles=None, series=None, write=True, seed=None,
         if not grids:
             holes.append((rec["series"], rec["slug"], len(rec["entries"])))
         elif out and len(grids) == 1:
-            out.write(json.dumps({
-                "post_id": rec["post_id"], "series": rec["series"],
-                "number": rec["number"], "date": rec["date"],
-                "grid": list(grids[0]), "how": why}, ensure_ascii=False) + "\n")
+            out.write(json.dumps(row(rec, grids[0], why, fixes),
+                                 ensure_ascii=False) + "\n")
             out.flush()   # hours per run; a killed one keeps what it solved
     if out:
         out.close()
@@ -344,8 +546,8 @@ def report(r):
     n = r["n"]
     pct = lambda k: f"{100.0 * r['how'][k] / n:.1f}%" if n else "-"
     print(f"{n} puzzle(s) tried")
-    for k in ("unique", "shortlist", "no grid",
-              "truncated", "rejected", "answers fit none"):
+    for k in ("unique", "shortlist", "no grid", "truncated", "rejected",
+              "answers fit none", "refused"):
         if r["how"][k]:
             print(f"  {r['how'][k]:>6}  {pct(k):>6}  {k}")
     print("\nBY SERIES")
@@ -370,7 +572,17 @@ def main():
                     help="start the output file over; the default adds to it")
     ap.add_argument("--holes", action="store_true",
                     help="name the puzzles whose light list has a hole in it")
+    ap.add_argument("--resettle", action="store_true",
+                    help="correct or refuse the grids already written, "
+                         "against the parsed records as they are now")
     a = ap.parse_args()
+    if a.resettle:
+        r = resettle()
+        for pid, why in sorted(r["refused"].items()):
+            print(f"  {pid:>6}  {why}")
+        print(f"{r['kept']} grid(s) kept, {r['fixed']} answer(s) corrected, "
+              f"{len(r['refused'])} refused; wrote {OUT}")
+        return 0
     r = run(a.limit, a.series, write=not a.status, seed=a.seed,
             max_nodes=a.max_nodes, fresh=a.fresh)
     if r is None:
