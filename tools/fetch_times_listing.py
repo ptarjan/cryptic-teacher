@@ -6,13 +6,16 @@ the one first-party source for which day each Times puzzle number was printed.
     python3 tools/fetch_times_listing.py --status   # what the cache proves
 
 thetimes.com/puzzles/crossword lists each puzzle of the last week or two as a
-card: "Sunday June 2 | No 5114". The live page refuses a script, but the
+card: "Sunday June 2 | No 5114", or since late 2024 "Sunday December 22 |
+5143". The live page refuses a script, but the
 Wayback Machine has captured it most days since September 2023 (the
 thetimes.co.uk host until mid-2024, thetimes.com since), so one capture every
 few days covers every number printed since. The card gives weekday, month and
 day but no year; the year is the capture's, or the one before when the month
 is later than the capture's. The weekday is then a check: a card whose weekday
-disagrees with the date that yields is dropped, not trusted.
+disagrees with the date that yields is dropped, not trusted. A card saying
+"Today" or "Yesterday" is skipped: the next capture, five days on, names
+its day.
 
 The prize puzzles (Saturday's Times, the Jumbo, the Sunday Times) are blogged
 after entries close, so the blog's post date is not their print date. This is
@@ -20,6 +23,7 @@ the fact tools/file_times_puzzles.py dates them from.
 """
 import argparse
 import datetime
+import gzip
 import json
 import re
 import sys
@@ -49,15 +53,22 @@ SLUGS = {"times-cryptic": "times", "times-cryptic-jumbo": "timesjumbo",
 
 CARD = re.compile(
     r'href="/puzzles/crossword/([a-z0-9-]+?)-no-(\d+)-[a-z0-9]+"'
-    r'.{0,600}?<span class="[^"]*">([A-Za-z]+) ([A-Za-z]+) (\d{1,2})</span>'
-    r'<span class="[^"]*">\s*\|\s*No (\d+)</span>', re.DOTALL)
+    r'.{0,900}?<span[^>]*>([A-Za-z]+)(?: ([A-Za-z]+) (\d{1,2}))?</span>'
+    r'<span[^>]*>\s*\|\s*(?:No\s*)?(\d+)</span>', re.DOTALL)
 MONTHS = {datetime.date(2000, i, 1).strftime("%B"): i for i in range(1, 13)}
 
 
 def get(url):
     req = urllib.request.Request(url, headers={"User-Agent": UA})
     with urllib.request.urlopen(req, timeout=90) as r:
-        return r.read()
+        return gunzip(r.read())
+
+
+def gunzip(raw):
+    """The page as captured. Wayback sends some captures gzipped whatever the
+    request said, and urllib does not undo it: the cards are then unreadable
+    bytes and the capture proves nothing, silently."""
+    return gzip.decompress(raw) if raw[:2] == b"\x1f\x8b" else raw
 
 
 def captures():
@@ -85,8 +96,8 @@ def cards(ts, page):
     """[(series, number, date)] a capture proves."""
     taken = datetime.date(int(ts[:4]), int(ts[4:6]), int(ts[6:8]))
     out = []
-    for slug, _, weekday, month, day, number in CARD.findall(page):
-        if slug not in SLUGS or month not in MONTHS:
+    for slug, linked, weekday, month, day, number in CARD.findall(page):
+        if slug not in SLUGS or month not in MONTHS or linked != number:
             continue
         year = taken.year - (MONTHS[month] > taken.month)
         try:
@@ -105,7 +116,8 @@ def paper_dates(cache=CACHE):
     fact, and a fact that contradicts itself proves nothing."""
     seen = {}
     for path in sorted(cache.glob("*.html")):
-        for series, number, date in cards(path.stem, path.read_text(encoding="utf-8", errors="replace")):
+        page = gunzip(path.read_bytes()).decode("utf-8", errors="replace")
+        for series, number, date in cards(path.stem, page):
             seen.setdefault((series, number), set()).add(date)
     return {k: next(iter(v)) for k, v in seen.items() if len(v) == 1}
 
