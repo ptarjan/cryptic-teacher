@@ -10,18 +10,21 @@ right if the answers written into it agree wherever two lights cross, and a
 wrong candidate puts different letters in the same square.
 
 A puzzle that reconstructs to nothing is a light list with a hole in it — a
-blog post that skipped an entry — not a grid that defies numbering. Those are
-counted and named, never guessed at.
+blog post that skipped an entry, or typed one wrong — not a grid that defies
+numbering. One wrong light is found when freeing it lands on a single grid;
+anything more is counted and named, never guessed at.
 
 Reads the records parse_timesforthetimes.py writes; no network, no solving.
 """
 import argparse
 import collections
 import json
+import re
 import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import parse_timesforthetimes as parser
 import reconstruct_grid as rg
 
 CACHE = Path.home() / "cryptic-setter-data" / "timesforthetimes"
@@ -86,7 +89,78 @@ MAX_BLACK_RUN = 5
 #: Which search wrote an attempt. A failure logged by an older search is not
 #: a failure of this one -- 414 Jumbos this search solves in seconds sat in
 #: the log as `truncated` -- so it is tried again. Bump it with the search.
-SEARCH = 2
+SEARCH = 3
+
+
+def by_enumeration(rec):
+    """(lights, words) with each light its clue's enumeration disagrees with
+    given the enumeration's length and no letters, or None if none disagree.
+
+    The clue line and the answer line are typed separately, and when they
+    disagree either can be the typo: "STYLE – STYE [fashion, without its L]"
+    puts the fodder where the answer goes and "(4)" is right, while "(6-3)"
+    over RUNNER-UP is the enumeration mistyped. So this is a second try, taken
+    only when the answers as blogged fit no grid.
+    """
+    if not any(e.get("enumeration") for e in rec["entries"]):
+        return None
+    leaders = parser.leader_numbers(rec["entries"])
+    lights, words, changed = [], [], False
+    for e in printed(rec):
+        length, word = len(e["answer"]), e["answer"]
+        if parser.enum_agrees(e, leaders) is False:
+            length = sum(int(n) for n in re.findall(r"\d+", e["enumeration"]))
+            word, changed = None, True
+        lights.append((e["number"], e["direction"], length))
+        words.append(word)
+    return (lights, words) if changed else None
+
+
+def mirrored(grid):
+    """Is this grid its own reflection in a diagonal or a centre line?
+
+    The Times' Quick Cryptic prints some grids with no half-turn symmetry at
+    all, symmetric instead about a diagonal. A grid with no symmetry of any
+    kind is what the search builds round a light the list lost, so an
+    asymmetric grid is only taken if it has one of these.
+    """
+    n = len(grid)
+    flips = (lambda y, x: grid[x][y], lambda y, x: grid[n - 1 - x][n - 1 - y],
+             lambda y, x: grid[n - 1 - y][x], lambda y, x: grid[y][n - 1 - x])
+    return any(all(grid[y][x] == f(y, x) for y in range(n) for x in range(n))
+               for f in flips)
+
+
+#: The search budget for each light one_light_wrong lets go of. Every other
+#: light is still held to its answer, so a list with one wrong light finds its
+#: grid in a few thousand nodes; this only bounds the lights that are right.
+LOOSE_NODES = 200_000
+
+
+def one_light_wrong(lights, words, n):
+    """(grid, why) when freeing exactly one light's length and letters fits
+    one grid, whichever light it is freed from; else (None, None).
+
+    One mistyped answer -- STAND-IN for an eight-letter light, PHAROAH across
+    a crossing that wants PHARAOH -- is a list no grid fits and one light away
+    from the list that fits. Two freed lights that cross at the typo both land
+    on the same grid, so agreement is what is asked for, not a single light.
+    """
+    found, freed = set(), []
+    for i, (num, d, _) in enumerate(lights):
+        spec, ws = list(lights), list(words)
+        spec[i], ws[i] = (num, d, None), None
+        sols, info = rg.reconstruct(spec, cols=n, rows=n, limit=2,
+                                    max_nodes=LOOSE_NODES, words=ws,
+                                    max_black_run=MAX_BLACK_RUN)
+        if sols:
+            found.update(sols)
+            freed.append(f"{num} {d}")
+        if len(found) > 1 or (sols and info["truncated"]):
+            return None, None
+    if len(found) == 1:
+        return found.pop(), "one light wrong at " + ", ".join(freed)
+    return None, None
 
 
 def solve(rec, limit=50, max_nodes=DEFAULT_MAX_NODES):
@@ -99,8 +173,11 @@ def solve(rec, limit=50, max_nodes=DEFAULT_MAX_NODES):
     without either, because one mistyped answer on the blog is not a missing
     grid, and the cap is a count, not a law.
 
-    Symmetry is never dropped: every grid this module rebuilt asymmetric was
-    one built round a light the parser had not read.
+    When the list fits nothing, three second tries, each taken only if it
+    lands on one grid: lights at their enumeration's length, a grid symmetric
+    about a diagonal or a centre line instead of a half turn, and one light
+    freed. A grid with no symmetry at all is never taken: every one this
+    module rebuilt was built round a light the parser had not read.
     """
     n = SIZE[rec["series"]]
     lights = triples(rec)
@@ -121,6 +198,25 @@ def solve(rec, limit=50, max_nodes=DEFAULT_MAX_NODES):
         return list(sols), f"{len(sols)} grids fit the answers"
     if info["truncated"]:
         return [], "truncated"
+    # Two ways the list can be right and still fit no grid with a half-turn
+    # symmetry: an answer blogged at the wrong length under an enumeration
+    # that has it right, and a grid symmetric some other way.
+    alt = by_enumeration(rec)
+    tries = ([(alt, True, "enumeration length")] if alt else []) + [
+        ((lights, words), False, "mirror symmetry")]
+    if alt:
+        tries.append((alt, False, "enumeration length, mirror symmetry"))
+    for (spec, ws), symmetric, why in tries:
+        sols, info = rg.reconstruct(spec, cols=n, rows=n, limit=limit,
+                                    max_nodes=max_nodes, words=ws,
+                                    symmetry=symmetric,
+                                    max_black_run=MAX_BLACK_RUN)
+        if (len(sols) == 1 and not info["truncated"]
+                and (symmetric or mirrored(sols[0]))):
+            return list(sols), "unique, " + why
+    grid, why = one_light_wrong(lights, words, n)
+    if grid:
+        return [grid], "unique, " + why
     sols, info = rg.reconstruct(lights, cols=n, rows=n, limit=limit,
                                 max_nodes=max_nodes)
     if not sols:

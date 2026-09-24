@@ -124,6 +124,34 @@ print("CAP", rg.reconstruct(bl, 5, 5, strict=False)[0] == [BARS],
       rg.reconstruct(bl, 5, 5, strict=False, max_black_run=2)[0],
       rg.reconstruct(bl, 5, 5, strict=False, max_black_run=3)[0] == [BARS])
 
+# A grid symmetric about a diagonal and not under a half turn -- the shape
+# some Quick Cryptics print -- is rebuilt, and said to be; a grid with no
+# symmetry of any kind is what a lost light builds, and is not taken.
+def solved(grid, **edit):
+    cs = rg.light_cells(grid)
+    r = {"series": "Test", "entries": [
+        {"number": k[0], "direction": k[1], "enumeration": None,
+         "answer": "".join(letter(*c) for c in v)} for k, v in cs.items()]}
+    return r, T.solve(r)
+DIAG = (".....", ".....", "...#.", "..#..", ".....")
+NONE = (".....", ".#...", "...#.", ".#...", "..#..")
+r, (g, how) = solved(DIAG)
+print("DIAGONAL", how, g == [DIAG], rg.reconstruct(rg.lights_from_grid(DIAG), 5, 5)[0])
+print("NO_SYMMETRY", T.solve(solved(NONE)[0])[1].startswith("unique"))
+
+# An answer blogged at the wrong length under an enumeration that has it right
+# is rebuilt at the enumeration's length; with no enumeration to say so, one
+# wrong light is still found, when freeing it lands on one grid.
+wrong = {"series": "Test", "entries": [dict(e) for e in rec["entries"]]}
+first = T.printed(wrong)[0]
+first["enumeration"] = str(len(first["answer"]))
+first["answer"] += "Q"
+g, how = T.solve(wrong)
+print("ENUM_LENGTH", how, g == [TINY])
+first["enumeration"] = None
+g, how = T.solve(wrong)
+print("ONE_WRONG", how, g == [TINY])
+
 # Barred puzzles have no black squares, so numbering inverts to nothing. They
 # are parsed and then deliberately not sized here; a typo in the name would
 # look identical, so check both halves.
@@ -154,6 +182,13 @@ check "answers refuting every candidate does not read as an unsettled tie" \
 check "the search itself refuses a grid its answers clash in" "[] 1" "$(field WORDS_PRUNE)"
 check "a list that skips a number is no grid, found without search" "no grid: no light numbered 2" "$(field GAP)"
 check "a line of blocks past the cap is refused, one at the cap is not" "True [] True" "$(field CAP)"
+check "a diagonal-symmetric grid is rebuilt, and no half-turn one fits it" \
+      "unique, mirror symmetry True []" "$(field DIAGONAL)"
+check "a grid with no symmetry at all is not taken" False "$(field NO_SYMMETRY)"
+check "an answer at the wrong length is rebuilt at its enumeration's" \
+      "unique, enumeration length True" "$(field ENUM_LENGTH)"
+check "one wrong light with no enumeration is found by freeing it" \
+      "unique, one light wrong at 1 across True" "$(field ONE_WRONG)"
 check "barred series are excluded, by their parsed names" \
       "['Mephisto', 'Monthly Club Special', 'Other Crosswords']" "$(field BARRED)"
 check "a post that gives only the answers is not searched" "True False" "$(field CLUES)"
