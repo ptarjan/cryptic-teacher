@@ -157,15 +157,15 @@ PUZZLE_URLS = [
 ENUMERATION = re.compile(r"\(([^()]*)\)\s*$")
 
 # Series whose LINKED clues are enumerated one light at a time, so a leg's count
-# is its own and not the answer's. Private Eye does this: Cyclops 401's 2-down
-# reads "(& 22dn.) … (4-6)" for its own ten cells while 22-down reads "see 2dn.
-# (6)" for its six. The Guardian and the Independent do the opposite — the whole
-# count on the leading clue, nothing at all on the continuations ("See 3").
-# Beside ENUMERATION and for the same reason: dissolve_false_groups() reads a
+# is its own and not the answer's — `perLightEnumeration` in tools/series.py.
+# Private Eye does this: Cyclops 401's 2-down reads "(& 22dn.) … (4-6)" for its
+# own ten cells while 22-down reads "see 2dn. (6)" for its six. The Guardian and
+# the Independent do the opposite — the whole count on the leading clue,
+# nothing at all on the continuations ("See 3"). dissolve_false_groups() reads a
 # group's counts as evidence and tools/puzzle_integrity.py weighs the same
-# counts in check_length, and two copies of this set could drift into
-# disagreeing about which papers are allowed to count light by light.
-PER_LIGHT_ENUMERATION = {"cyclops"}
+# counts in check_length, and both read this set.
+PER_LIGHT_ENUMERATION = {s for s, m in series_meta.SERIES.items()
+                         if m.get("perLightEnumeration")}
 
 JSON_START = "/*JSON-START*/"
 JSON_END = "/*JSON-END*/"

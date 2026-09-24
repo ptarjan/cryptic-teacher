@@ -195,6 +195,10 @@ ACQUIRED_BY = {
         "what": "a scanned and OCR'd Penguin book (tools/fetch_ia_book.py -> "
                 "tools/parse_penguin_book.py -> tools/reconstruct_grid.py -> "
                 "a model solve)"},
+    "tools/file_times_puzzles.py": {
+        "channel": "blog",
+        "what": "a times-for-the-times write-up's clue list and answers, the "
+                "grid rebuilt from them by tools/times_grids.py"},
     "tools/build_authored_puzzle.py": {
         "channel": "authored", "what": "set here, not fetched"},
     "unknown": {
@@ -239,13 +243,16 @@ for _series in series_table.SERIES:
     if is_book(_series):
         ACQUISITION_BY_SOURCE[(_series, "archive.org")] = (
             "tools/file_penguin_puzzle.py", "tools/acquire_book.py")
+    if "blog" in series_table.meta(_series):
+        ACQUISITION_BY_SOURCE[(_series, series_table.meta(_series)["blog"])] = (
+            "tools/file_times_puzzles.py",)
 
 # Series whose grid geometry is NOT the publisher's. Everything absent here is
-# "published", and that is checked rather than assumed: file_penguin_puzzle.py
-# is the only tool in the repo that BUILDS a puzzle out of
-# reconstruct_grid.py's output — every other fetcher parses a grid the source
-# shipped, and puzzle_integrity.py's use of reconstruct_grid is a check on
-# geometry that already exists, not a source of it.
+# "published", and that is checked rather than assumed: the book filers and
+# file_times_puzzles.py are the only tools that BUILD a puzzle out of
+# reconstruct_grid.py's output (grid_origin below) — every other fetcher parses
+# a grid the source shipped, and puzzle_integrity.py's use of reconstruct_grid
+# is a check on geometry that already exists, not a source of it.
 GRID_ORIGIN_BY_SERIES = {"authored": "authored"}
 
 # ------------------------------------------------------ book-sourced puzzles
@@ -327,6 +334,10 @@ def acquired_by(series, url, claimed):
     return candidates[0] if len(candidates) == 1 else "unknown"
 
 
+#: solutionSource.kind for answers taken from a solver's blog write-up.
+WRITEUP_KINDS = ("fifteensquared", "timesforthetimes")
+
+
 def solution_origin_from_file(puzzle):
     """The solution origin the file's OWN contents establish, or None.
 
@@ -341,15 +352,15 @@ def solution_origin_from_file(puzzle):
     kind = (puzzle.get("solutionSource") or {}).get("kind")
     if kind == "model":
         return "model"
-    if kind == "fifteensquared":
+    if kind in WRITEUP_KINDS:
         return "writeup"
     return None
 
 
 def grid_origin(series):
-    """A book puzzle's geometry was worked out from its clue list; everything
-    else arrives with the grid the source published."""
-    if is_book(series):
+    """A book or blog puzzle's geometry was worked out from its clue list;
+    everything else arrives with the grid the source published."""
+    if is_book(series) or "blog" in series_table.meta(series):
         return "reconstructed"
     return GRID_ORIGIN_BY_SERIES.get(series, "published")
 
