@@ -98,7 +98,8 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from fetch_puzzle import (PUZZLE_DIR, grade_model_fill, http_bytes,  # noqa: E402
                           merge_annotations, print_grade, puzzle_files,
-                          puzzle_path, read_puzzle_file, write_puzzle_file)
+                          puzzle_path, read_puzzle_file, still_worth_refreshing,
+                          write_puzzle_file)
 
 INDEX_URL = "https://www.private-eye.co.uk/crossword"
 PUZ_URL = "https://www.private-eye.co.uk/pictures/crossword/download/{num}.puz"
@@ -1057,6 +1058,12 @@ def refresh_unsolved():
         if p.get("series") != SERIES:
             continue
         if (p.get("solutionSource") or {}).get("kind") == "fifteensquared":
+            continue
+        # A Cyclops old enough is never getting a fifteensquared write-up
+        # either — 78 of them, from 2006-2009, were being searched for on
+        # fifteensquared every night before this. See still_worth_refreshing
+        # in fetch_puzzle.py for the cutoff and why it lives there once.
+        if not still_worth_refreshing(p):
             continue
         pending.append(p["number"])
 

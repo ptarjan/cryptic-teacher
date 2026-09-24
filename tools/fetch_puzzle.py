@@ -1913,6 +1913,52 @@ def extend(count, series="cryptic"):
     return walk(range(oldest - 1, max(oldest - 1 - count, floor - 1), -1), series, "extend")
 
 
+# How long a nightly refresh keeps asking after a puzzle's real answers before
+# giving up on ever seeing them. Every source this repo refreshes publishes far
+# inside this window when it publishes at all — a Guardian prize crossword's
+# solution lands roughly two weeks after the puzzle, an Observer Everyman's
+# within a week of its competition closing, and a fifteensquared write-up of a
+# Cyclops within weeks of the puzzle appearing there — so a puzzle already this
+# old is not "still pending", it is a source that will never answer it: five
+# Guardian prize puzzles from 2000-2006 and 78 Cyclops puzzles from 2006-2009
+# were being asked for anyway, every night, forever, until this existed. One
+# number for every source kept here, rather than three, because none of them
+# is anywhere near this slow and a single constant is the one place to widen it
+# if that ever stops being true. Read by refresh_unsolved below and by its
+# equivalents in tools/fetch_observer.py and tools/fetch_privateeye.py, both of
+# which import still_worth_refreshing from here rather than restating it.
+REFRESH_WINDOW_DAYS = 90
+
+
+def still_worth_refreshing(puzzle, now=None):
+    """Should a nightly refresh still ask this puzzle's source for answers?
+
+    Anchored on `date` — the puzzle's own publication day, epoch milliseconds —
+    when the puzzle has one. A puzzle with no date (an un-backfilled Cyclops;
+    see tools/fetch_privateeye.py's backfill_dates) falls back to
+    provenance.acquiredOn, the day this repo first saw it: not the same fact,
+    but the only other anchor a dateless puzzle has, and one that ages the same
+    way. A puzzle with neither is never refreshed — nothing on it can ever
+    become "too old" if nothing dates it in the first place, so without an
+    anchor it would stay in the nightly queue forever, which is the exact
+    failure REFRESH_WINDOW_DAYS exists to end.
+    """
+    when = None
+    ms = puzzle.get("date")
+    if ms:
+        when = datetime.fromtimestamp(ms / 1000, timezone.utc)
+    else:
+        acquired = (puzzle.get("provenance") or {}).get("acquiredOn")
+        if acquired:
+            try:
+                when = datetime.strptime(acquired, "%Y-%m-%d").replace(tzinfo=timezone.utc)
+            except ValueError:
+                when = None
+    if when is None:
+        return False
+    return ((now or datetime.now(timezone.utc)) - when).days <= REFRESH_WINDOW_DAYS
+
+
 def refresh_unsolved():
     """Re-fetch on-disk puzzles whose solutions weren't published yet.
 
@@ -1924,7 +1970,9 @@ def refresh_unsolved():
     and walking past it is exactly the failure worth avoiding, because it would
     mean the one puzzle whose answers are a guess is the one puzzle we stop
     checking. It stays on this list until the paper publishes and the merge can
-    grade the guess.
+    grade the guess — unless still_worth_refreshing has already given up on it,
+    which is what keeps the queue from re-fetching puzzles no answer is ever
+    coming for.
 
     Annotations are preserved by fetch_number's merge."""
     pending = []
@@ -1937,6 +1985,8 @@ def refresh_unsolved():
         # own fetcher with its own --refresh-unsolved; daily_update.sh runs all
         # three.
         if p.get("series") not in FETCHABLE:
+            continue
+        if not still_worth_refreshing(p):
             continue
         if not all(e.get("solution") for e in p["entries"]) or p.get("solutionSource"):
             pending.append(p["number"])

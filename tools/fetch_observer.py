@@ -78,7 +78,8 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from fetch_puzzle import (PUZZLE_DIR, http_bytes, flatten_clue, grade_model_fill,  # noqa: E402
                           merge_annotations, print_grade, puzzle_files, puzzle_path,
-                          read_puzzle_file, reindex, write_puzzle_file)
+                          read_puzzle_file, reindex, still_worth_refreshing,
+                          write_puzzle_file)
 from fetch_independent import span  # noqa: E402 — same 1-based "2-7"/"7" span format
                                      # for a different paper's crossword
 import series as series_meta  # noqa: E402
@@ -411,6 +412,14 @@ def refresh_unsolved():
         # is the one puzzle whose answers are a guess, so it is the last one
         # that should stop being checked. everyman-4165 sat model-solved for
         # weeks behind exactly that gap, with the paper's key long since out.
+        #
+        # still_worth_refreshing is the other half: an Everyman old enough that
+        # its competition window is long closed is never getting a `solution`
+        # field either way, so it is dropped before it can join a queue that
+        # would otherwise ask for it every night forever (see fetch_puzzle.py,
+        # where the cutoff and the reasoning both live).
+        if not still_worth_refreshing(p):
+            continue
         if not all(e.get("solution") for e in p["entries"]) or p.get("solutionSource"):
             pending.append(p["number"])
     filled = 0
