@@ -182,7 +182,7 @@ print("FIX_WRONG_GRID", show(T.settle(TINY, rec_of(DIAG), vocab))[:39])
 # why, and --resettle does the same to grids a run wrote before.
 d = pathlib.Path(tempfile.mkdtemp())
 T.PARSED, T.OUT, T.ATTEMPTS = d / "parsed.jsonl", d / "grids.jsonl", d / "attempts.jsonl"
-T.LEXICON = d / "none.tsv"
+T.LEXICON, T.ANSWERS = d / "none.tsv", d / "answers.json"
 post = lambda pid, r, clue: dict(r, post_id=pid, slug=str(pid), number=pid, date="2026-01-0" + str(pid),
                                  entries=[dict(e, clue=clue) for e in r["entries"]])
 typo = post(1, rec_of(TINY), "a clue")
@@ -200,6 +200,15 @@ T.PARSED.write_text("".join(json.dumps(r) + "\n" for r in (lone, elsewhere)))
 T.OUT.write_text("")
 T.run(fresh=True)
 print("RUN_REFUSED", T.OUT.read_text() == "", json.loads(T.ATTEMPTS.read_text())["how"][:7])
+# An answer settled from the wordplay puts the refused puzzle back in, though
+# it was already tried.
+k = T.printed(lone)[6]
+T.ANSWERS.write_text(json.dumps({"_doc": "", "2": {"_puzzle": "", f"{k['number']} {k['direction']}": {
+    "answer": T.printed(rec_of(TINY))[6]["answer"], "wordplay": ""}}}))
+T.run()
+print("SETTLED", [(r["post_id"], [c["blogged"][0] for c in r.get("corrections", [])])
+                  for r in map(json.loads, T.OUT.open())])
+T.ANSWERS.unlink()
 # More wrong answers than typos explain is a wrong grid.
 messy = post(4, rec_of(TINY), "a clue")
 for e in T.printed(messy)[:T.MAX_WRONG + 1]:
@@ -271,6 +280,8 @@ check "a run writes the corrected answer into the grid row" \
       "[(1, [('ZJ', 'EJ')])]" "$(field RUN_ROW)"
 check "and answers() reads the corrected answers back" True "$(field RUN_ANSWERS)"
 check "a run refuses a puzzle whose typo no word corrects" "True refused" "$(field RUN_REFUSED)"
+check "a wordplay-settled answer rebuilds a refused puzzle, as a correction" \
+      "[(2, ['Z'])]" "$(field SETTLED)"
 check "--resettle corrects the grids already written and refuses the rest" \
       "[(1, 1)] [4]" "$(field RESETTLE)"
 check "barred series are excluded, by their parsed names" \

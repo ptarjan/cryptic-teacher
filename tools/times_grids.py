@@ -169,6 +169,37 @@ def one_light_wrong(lights, words, n):
 
 
 LEXICON = Path(__file__).resolve().parent / "data" / "lexicon.tsv"
+#: Answers settled by reading the wordplay, where the grid allowed several
+#: fixes or none the word lists knew.
+ANSWERS = Path(__file__).resolve().parent / "data" / "times_answers.json"
+
+
+def settled_answers():
+    """{post_id: {(number, direction): answer}} from ANSWERS."""
+    raw = json.loads(ANSWERS.read_text(encoding="utf-8")) if ANSWERS.exists() else {}
+    out = {}
+    for pid, lights in raw.items():
+        if pid.startswith("_"):
+            continue
+        out[int(pid)] = {(int(k.split()[0]), k.split()[1]): v["answer"]
+                         for k, v in lights.items() if not k.startswith("_")}
+    return out
+
+
+def amend(rec, settled):
+    """(rec with its settled answers in, the corrections that makes)."""
+    fix = settled.get(rec["post_id"])
+    if not fix:
+        return rec, []
+    entries, made = [], []
+    for e in rec["entries"]:
+        k = (e["number"], e["direction"])
+        if k in fix and fix[k] != e["answer"]:
+            made.append({"number": k[0], "direction": k[1],
+                         "blogged": e["answer"], "answer": fix[k]})
+            e = dict(e, answer=fix[k])
+        entries.append(e)
+    return dict(rec, entries=entries), made
 
 
 def vocabulary(recs):
@@ -450,6 +481,7 @@ def resettle():
     as that puzzle's attempt so a resumed run does not rebuild it."""
     every = {r["post_id"]: r for r in map(json.loads, PARSED.open(encoding="utf-8"))}
     vocab = vocabulary(every.values())
+    settled = settled_answers()
     kept, refused, fixed = [], {}, 0
     for line in OUT.open(encoding="utf-8"):
         try:
@@ -460,12 +492,14 @@ def resettle():
         if rec is None:
             refused[g["post_id"]] = "refused: no parsed record"
             continue
+        rec, made = amend(rec, settled)
         fixes, why = settle(g["grid"], rec, vocab)
         if why and why.startswith(LIGHTS_DIFFER):
             continue           # the post parses differently now: rebuild it
         if why:
             refused[g["post_id"]] = why
             continue
+        fixes = made + fixes
         fixed += len(fixes)
         kept.append(row(rec, g["grid"], g["how"], fixes))
     tmp = OUT.with_suffix(".tmp")
@@ -490,6 +524,7 @@ def run(limit_puzzles=None, series=None, write=True, seed=None,
     recs = [r for r in every if r["series"] in SIZE
             and (series is None or r["series"] == series) and has_clues(r)]
     vocab = vocabulary(every)
+    settled = settled_answers()
     del every
     # Newest first: recent posts write out their clues, and recent puzzles are
     # the ones people look for.
@@ -497,8 +532,9 @@ def run(limit_puzzles=None, series=None, write=True, seed=None,
     if seed is not None:
         import random
         random.Random(seed).shuffle(recs)
-    done = set() if (fresh or not write) else (solved_already()
-                                               | attempted(max_nodes))
+    # A newly settled answer is a reason to try its puzzle again.
+    done = set() if (fresh or not write) else (
+        solved_already() | (attempted(max_nodes) - set(settled)))
     if done:
         recs = [r for r in recs if r["post_id"] not in done]
         print(f"resuming: {len(done)} grid(s) already in {OUT.name}")
@@ -511,6 +547,7 @@ def run(limit_puzzles=None, series=None, write=True, seed=None,
     out = open_out(fresh) if write else None
     log = ATTEMPTS.open("w" if fresh else "a", encoding="utf-8") if write else None
     for rec in recs:
+        rec, made = amend(rec, settled)
         grids, why = solve(rec, max_nodes=max_nodes)
         fixes = []
         if len(grids) == 1:
@@ -532,7 +569,7 @@ def run(limit_puzzles=None, series=None, write=True, seed=None,
         if not grids:
             holes.append((rec["series"], rec["slug"], len(rec["entries"])))
         elif out and len(grids) == 1:
-            out.write(json.dumps(row(rec, grids[0], why, fixes),
+            out.write(json.dumps(row(rec, grids[0], why, made + fixes),
                                  ensure_ascii=False) + "\n")
             out.flush()   # hours per run; a killed one keeps what it solved
     if out:
