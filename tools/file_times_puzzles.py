@@ -36,6 +36,7 @@ import bisect
 import collections
 import datetime
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -48,6 +49,15 @@ import times_grids as tg
 from fetch_puzzle import has_words, puzzle_path, read_puzzle_file, write_puzzle_file
 from file_penguin_puzzle import separators
 from normalise_linked_enumerations import enumeration_parts, resolve_groups
+
+#: C1 controls: bytes the blog lost in decoding, never text.
+C1 = re.compile(r"[\x80-\x9f]")
+
+
+def clean(clue):
+    """The clue as text: the blog's markup and lost bytes removed."""
+    return C1.sub("", fetch_puzzle.plain_text(clue)) if clue else clue
+
 
 #: Below this a Weekend Cryptic number is the Sunday Times' (~5,200 in 2026,
 #: one a week); above it, Saturday's Times (~29,600, six a week).
@@ -114,7 +124,7 @@ def reprinted_from():
 
 def build(rec, row, series, dated):
     """(puzzle, None) or (None, reason it is not filed)."""
-    entries = tg.answers(rec, row)
+    entries = [dict(e, clue=clean(e.get("clue"))) for e in tg.answers(rec, row)]
     if not tg.answers_fit(row["grid"], {"entries": entries}):
         return None, "answers disagree with the grid"
     lights = rg.light_cells(row["grid"])

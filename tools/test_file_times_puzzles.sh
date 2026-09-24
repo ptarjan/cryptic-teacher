@@ -62,6 +62,9 @@ recs = [rec(1, 100, "2026-01-05"), rec(2, 101, "2026-01-06"),
 for e in recs[0]["entries"]:
     if (e["number"], e["direction"]) == (2, "down"):
         e["clue"], e["enumeration"] = "Two words (2,3)", "2,3"
+    # The blog's underlining and a byte lost in its decoding.
+    if (e["number"], e["direction"]) == (1, "down"):
+        e["clue"] = "Say \u201cit\u201d\x9d </u>quietly</u> (2)"
 # The blog mistyped 1-across on post 2; the grid row corrects it.
 blog_typo = recs[1]["entries"][[(e["number"], e["direction"]) for e in recs[1]["entries"]].index((1, "across"))]
 right = blog_typo["answer"]
@@ -84,6 +87,7 @@ print("REPRINTED", skipped["globeandmail reprints it"])
 p = json.loads((fetch_puzzle.PUZZLE_DIR / "times-100.json").read_text())
 by_id = {e["id"]: e for e in p["entries"]}
 print("CLUE_KEEPS_COUNT", by_id["2-down"]["clue"])
+print("CLEAN", by_id["1-down"]["clue"])
 print("SEPARATORS", json.dumps(by_id["2-down"].get("separatorLocations")))
 print("SOLVED", all(e["solution"] for e in p["entries"]))
 print("DATED", p["date"])
@@ -114,6 +118,7 @@ check "a light with no clue, or only its count, refuses the puzzle" "2" "$(got N
 check "a misread number is refused" "1" "$(got OUT_OF_SEQUENCE)"
 check "a number the Globe and Mail reprints is left to it" "1" "$(got REPRINTED)"
 check "the clue keeps its enumeration" "Two words (2,3)" "$(got CLUE_KEEPS_COUNT)"
+check "markup and lost bytes are stripped from a clue" "Say “it” quietly (2)" "$(got CLEAN)"
 check "word breaks come from the enumeration" '{",": [2]}' "$(got SEPARATORS)"
 check "filed with every answer" "True" "$(got SOLVED)"
 check "a daily is dated by its post" "1767571200000" "$(got DATED)"
