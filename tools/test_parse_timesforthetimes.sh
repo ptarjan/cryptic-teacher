@@ -347,6 +347,28 @@ spec = importlib.util.spec_from_file_location("p", os.path.join(os.environ["REPO
 m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
 print(m.puzzle_number({"slug": "times-quick-cryptic-25184-by-felix", "title": {"rendered": ""}}))')"
 
+check "a slug WordPress made from the post id defers to the title" "27365 2162" \
+  "$(REPO="$REPO" python3 -c '
+import os, importlib.util
+spec = importlib.util.spec_from_file_location("p", os.path.join(os.environ["REPO"], "tools", "parse_timesforthetimes.py"))
+m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
+print(m.puzzle_number({"id": 50707, "slug": "50707-2", "title": {"rendered": "Times 27,365: Candy"}}),
+      m.puzzle_number({"id": 9, "slug": "times-quick-cryptic-no-2162-by-tracy", "title": {"rendered": ""}}))')"
+
+# The category is set by hand; the number moves a misfiled post back, and a
+# daily whose title number reads short stays put unless its title says Quick.
+check "a misfiled series is corrected by the puzzle number, and only then" \
+  "Daily Cryptic|Quick Cryptic|Daily Cryptic|Quick Cryptic" \
+  "$(REPO="$REPO" python3 -c '
+import os, importlib.util
+spec = importlib.util.spec_from_file_location("p", os.path.join(os.environ["REPO"], "tools", "parse_timesforthetimes.py"))
+m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
+t = lambda s: {"title": {"rendered": s}}
+print("|".join([m.filed_series(t("Times 27,365: Candy"), "Quick Cryptic", 27365),
+                m.filed_series(t("Times Quick Cryptic No 2162 by Tracy"), "Daily Cryptic", 2162),
+                m.filed_series(t("Times 27,365 is a quick one"), "Daily Cryptic", 365),
+                m.filed_series(t("QC 3005 by Wurm"), "Quick Cryptic", 3005)]))')"
+
 # A clue can open with a number of its own, including one that looks like a
 # linked head. The row after a bare number cell is that number's clue.
 numclue='<table><tr><td><strong>Across</strong></td></tr>
@@ -370,6 +392,103 @@ accent='<table><tr><td><strong>Across</strong></td></tr>
 check "an accented answer is read as its bare letters" \
   "3|across|ETAGERE|7|Stand from beginning of extra time: add time on (7)" \
   "$(run "$accent")"
+
+# A braced deletion with its closing brace mistyped must not run on to the
+# next "}" in the post and delete every clue in between.
+brace='<table><tr><td><strong>Across</strong></td></tr>
+<tr><td>11</td><td>State failure over university essentially buried (8)</td></tr>
+<tr><td></td><td><b>MISSOURI</b> &#8211; MISS, O, U, {bu}RI{ed{ [essentially]</td></tr>
+<tr><td>12</td><td>Relax earl beset by very painful condition (3,3)</td></tr>
+<tr><td></td><td><b>VEG OUT</b> &#8211; E in V GOUT</td></tr>
+<tr><td>13</td><td>Writer&#8217;s guild met periodically (4)</td></tr>
+<tr><td></td><td><b>GIDE</b> &#8211; G{u}I{l}D {m}E{t}</td></tr></table>'
+check "an unclosed brace deletes nothing past its own line" \
+  "MISSOURI VEGOUT GIDE" "$(run "$brace" | cut -d'|' -f3 | tr '\n' ' ' | sed 's/ $//')"
+
+# An answer with no dash after it is read off the clue's enumeration: the
+# leading words are the answer when their lengths are the enumeration's.
+# Mixed case counts only with a dash after it, since wordplay opens with an
+# ordinary word too, and a length that disagrees is never an answer.
+nodash='<table><tr><td><strong>Across</strong></td></tr>
+<tr><td>8</td><td>Case I mixed up, going round information bureaux (8)</td></tr>
+<tr><td></td><td>AGENCIES GEN (information) inside an anagram of CASE I</td></tr>
+<tr><td>9</td><td>Spy, English &#8212; or Flemish? (4)</td></tr>
+<tr><td></td><td>BOND, James Bond</td></tr>
+<tr><td>10</td><td>Pair of hacks get a move on! (4,4)</td></tr>
+<tr><td></td><td>CHOP CHOP! &#8211; CHOP * 2</td></tr>
+<tr><td>11</td><td>This is the end of many inflammatory diseases (3)</td></tr>
+<tr><td></td><td>&#8216;TIS -many diseases end in -iTIS</td></tr>
+<tr><td>12</td><td>Back winner (8)</td></tr>
+<tr><td></td><td>Champion &#8211; double definition</td></tr>
+<tr><td>13</td><td>Contrary gardener to come down in a state (8)</td></tr>
+<tr><td></td><td>MARY (gardener) LAND (to come down)</td></tr>
+<tr><td>14</td><td>Twisted relation (7)</td></tr>
+<tr><td></td><td>Anagram of RELATION less one letter</td></tr></table>'
+check "an answer with no dash is read off its enumeration, and only then" \
+  "8:AGENCIES 9:BOND 10:CHOPCHOP 11:TIS 12:CHAMPION" \
+  "$(run "$nodash" | cut -d'|' -f1,3 | tr '|\n' ': ' | sed 's/ $//')"
+
+# The enumeration also cuts wordplay run on with no dash off an answer -- but
+# an answer the blogger ended with a dash is theirs, and an enumeration
+# disagreeing with it is the typo.
+runon='<table><tr><td><strong>Across</strong></td></tr>
+<tr><td>5</td><td>Paper attempted with no editor (5)</td></tr>
+<tr><td></td><td><b>ESSAY</b>    ESSAY<del>ed</del></td></tr>
+<tr><td>11</td><td>Congestion likely here: take train? (5)</td></tr>
+<tr><td></td><td>PINCH POINT &#8211; PINCH + POINT</td></tr></table>'
+check "run-on wordplay is cut to the enumeration; a dashed answer is kept" \
+  "5:ESSAY 11:PINCHPOINT" \
+  "$(run "$runon" | cut -d'|' -f1,3 | tr '|\n' ': ' | sed 's/ $//')"
+
+# A clue can open in capitals; it ends in an enumeration those capitals do
+# not have the length of, so it is the clue, not the answer. A year in
+# brackets is not an enumeration, so an answer before one still counts.
+capsclue='<table><tr><td><strong>Across</strong></td></tr>
+<tr><td>24</td></tr>
+<tr><td>RIP, weightlifter? Sentimental stuff (4-6)</td></tr>
+<tr><td><b>TEAR JERKER</b> &#8211; RIP for TEAR, and JERKER</td></tr>
+<tr><td>26</td></tr>
+<tr><td>SPECIAL &#8211; Hamilton wrote Special Providence (1930)</td></tr></table>'
+check "a clue opening in capitals is a clue; a year is no enumeration" \
+  "24:TEARJERKER:4-6 26:SPECIAL:" \
+  "$(run "$capsclue" | cut -d'|' -f1,3,4 | tr '|\n' ': ' | sed 's/ $//')"
+
+# A full stop ends an answer when a sentence follows it.
+stop='<p>ACROSS<br />5. Suggestion less than perfect.<br />IDEA. Less than perfect (IDEA)l.</p>'
+check "a full stop before a sentence ends the answer" "IDEA" \
+  "$(run "$stop" | cut -d'|' -f3)"
+
+# A number cell with a stray mark in it is still that number; a closed pair
+# on its own is an enumeration, not a number.
+stray='<table><tr><td><strong>Across</strong></td></tr>
+<tr><td>(10</td><td>Plain French, neutral in translation (2,7)</td></tr>
+<tr><td></td><td><b>AU NATUREL</b> &#8211; A U + NEUTRAL*</td></tr>
+<tr><td>.7</td><td>Long distance runner&#8217;s leg under floor mostly (6)</td></tr>
+<tr><td></td><td><b>AMAZON</b> &#8211; ON under MAZ(e)</td></tr>
+<tr><td>12</td><td>Fall (4)</td></tr>
+<tr><td>(4)</td></tr>
+<tr><td></td><td><b>DROP</b> &#8211; double definition</td></tr></table>'
+check "a stray mark in a number cell is dropped; a lone (4) is no number" \
+  "10:AUNATUREL 7:AMAZON 12:DROP" \
+  "$(run "$stray" | cut -d'|' -f1,3 | tr '|\n' ': ' | sed 's/ $//')"
+
+# A clue printed with no number is the one number between its neighbours
+# that its direction lacks -- and dropped when there are two, because the
+# whole-grid gap may be a different light the blogger left out.
+orphan='<table><tr><td><strong>Across</strong></td></tr>
+<tr><td>1</td><td>Claim gold&#8217;s fashionable for chair (13)</td></tr>
+<tr><td></td><td><b>PROFESSORSHIP</b> &#8211; PROFESS OR&#8217;S HIP</td></tr>
+<tr><td></td><td>Eastern, rockier-sounding land (7)</td></tr>
+<tr><td></td><td><b>ESTONIA</b> &#8211; E STONIA</td></tr>
+<tr><td>9</td><td>Advantage of clipping front of boundary shrubs (4)</td></tr>
+<tr><td></td><td><b>EDGE</b> &#8211; hEDGE</td></tr>
+<tr><td></td><td>Fish emitted unpleasant odour (5)</td></tr>
+<tr><td></td><td><b>SMELT</b> &#8211; double definition</td></tr>
+<tr><td>11</td><td>Pinch small duck (5)</td></tr>
+<tr><td></td><td><b>STEAL</b> &#8211; S TEAL</td></tr></table>'
+check "an unnumbered clue takes the one number it can be, or none" \
+  "1:PROFESSORSHIP 9:EDGE 10:SMELT 11:STEAL" \
+  "$(run "$orphan" | cut -d'|' -f1,3 | tr '|\n' ': ' | sed 's/ $//')"
 
 if [ "$fails" -gt 0 ]; then echo "$fails FAILURE(S)"; exit 1; fi
 echo "all checks passed"
