@@ -439,6 +439,9 @@ tools/data/abbreviations.json                the hand-built starter table of sta
                                              abbreviations
 tools/data/unclueable.json                   words rejected as answers, with reasons;
                                              grid_fill.py vetoes them
+tools/data/times_answers.json                Times-blog answers settled from the clue's
+                                             wordplay; times_grids.py applies them before
+                                             rebuilding
 tools/data/difficulty_baseline.json          the frozen distribution difficulty.py normalises
                                              against
 tools/data/lexicon.tsv                       192,738 British-cryptic words by frequency rank;
