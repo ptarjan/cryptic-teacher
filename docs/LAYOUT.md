@@ -520,5 +520,7 @@ tools/test_prereset_lock.sh                  does the pre-reset backfill still t
                                              nobody is holding?
 tools/test_nightly_worktree.sh               which tree does a scheduled job end up running in?
                                              checked by running one
+tools/test_refresh_window.sh                 does refresh_unsolved ever stop asking for an
+                                             answer that is never coming?
 ```
 <!-- LAYOUT-END -->
