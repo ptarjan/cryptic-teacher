@@ -2502,10 +2502,15 @@ if (assert(autoRow, `picker finds ${autoPuzzle.id} when searched for`)) {
         if (!frag || !e.clue.includes(frag)) continue;
         // An indicator is short and specific, so shortest-first guarantees it
         // wins any overlap outright: it must appear whole, in its own colour,
-        // on a whole word.
+        // on a whole word — unless the clue never has it as one, as in a
+        // run-together hashtag clue, where the part-word is all there is.
+        const hits = [];
+        for (let i = e.clue.indexOf(frag); i >= 0; i = e.clue.indexOf(frag, i + 1)) hits.push(i);
+        const anyWhole = hits.some((i) => whole(i, frag.length));
         let ok = false;
-        for (let i = e.clue.indexOf(frag); i >= 0 && !ok; i = e.clue.indexOf(frag, i + 1)) {
-          if (!whole(i, frag.length)) continue;
+        for (const i of hits) {
+          if (ok) break;
+          if (anyWhole && !whole(i, frag.length)) continue;
           ok = [...Array(frag.length).keys()].every((k) => (covered.ind || new Set()).has(i + k));
         }
         assert(ok,
