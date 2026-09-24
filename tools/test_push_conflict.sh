@@ -21,7 +21,7 @@
 # no builder owns must NOT be resolved, or the job silently publishes one side
 # of somebody's real edit.
 set -uo pipefail
-cd "$(dirname "$0")/.."
+cd "$(dirname "$0")/.." || exit 1
 REPO="$PWD"
 fails=0
 check() { if [ "$2" = "$3" ]; then echo "  ok: $1"; else
