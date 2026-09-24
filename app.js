@@ -5276,6 +5276,22 @@
       from the Times of London, and 13x13 rather than the Times' own 15x15, so it
       is the short, crisp end of that house style: tight surfaces, no obscurity,
       and a solve you can finish on a coffee.`],
+    times: ["times", `The Times's daily cryptic, Monday to Saturday, set
+      anonymously in the house style the others are measured against: exact
+      definitions, no obscurity, nothing unfair. The Times prints no grid or
+      answers online, so the grid here is rebuilt from the Times for the Times
+      blog's write-up and the answers are that blog's.`],
+    timesquick: ["times quick", `The Times Quick Cryptic, weekdays: 13x13, short
+      clues and everyday words, built as a way in to the daily. Grid rebuilt and
+      answers taken from the Times for the Times blog; the most recent ones are
+      under the Globe and Mail, which reprints it.`],
+    timesjumbo: ["times jumbo", `The Times Jumbo Cryptic, Saturdays: a 23x23
+      with sixty-odd clues in the daily's style, for a long weekend solve. Grid
+      rebuilt and answers taken from the Times for the Times blog.`],
+    sundaytimes: ["sunday times", `The Sunday Times cryptic — its own paper and
+      its own weekly numbering, near 5,200, with named setters and a slightly
+      freer hand than the daily. Grid rebuilt and answers taken from the Times
+      for the Times blog.`],
     indysunday: ["indy sunday", `The Independent on Sunday's cryptic — its own
       weekly numbering, near 1,900 while the daily is past 12,400. Same stable of
       setters as the daily, and pitched about the same.`],
