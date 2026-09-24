@@ -181,6 +181,13 @@ tools/times_grids.py                         runs the numbering backwards on tho
                                              shortlist by where the answers cross
 tools/test_times_grids.sh                    holds that rebuilder to a hand-built grid, because
                                              a wrong grid looks exactly like a right one
+tools/file_times_puzzles.py                  files those rebuilt grids as puzzles with the
+                                             blog's answers — only complete, correctly numbered
+                                             ones — and never rewrites a filed one; the nightly
+                                             top-up
+tools/test_file_times_puzzles.sh             holds that filer to a hand-built grid: what it
+                                             refuses, what it dates, and that a second run
+                                             touches nothing
 tools/fetch_lexicon.sh                       downloads the Lufz/Exet lexicon the grid filler
                                              needs
 

@@ -101,6 +101,8 @@ LAYOUT = [
     ("fetching", "tools/test_parse_timesforthetimes.sh", "holds that parser to one fixture per era of the blog's markup, because a misread answer becomes a wrong light length"),
     ("fetching", "tools/times_grids.py", "runs the numbering backwards on those records to rebuild the grids The Times withholds, narrowing a shortlist by where the answers cross"),
     ("fetching", "tools/test_times_grids.sh", "holds that rebuilder to a hand-built grid, because a wrong grid looks exactly like a right one"),
+    ("fetching", "tools/file_times_puzzles.py", "files those rebuilt grids as puzzles with the blog's answers — only complete, correctly numbered ones — and never rewrites a filed one; the nightly top-up"),
+    ("fetching", "tools/test_file_times_puzzles.sh", "holds that filer to a hand-built grid: what it refuses, what it dates, and that a second run touches nothing"),
     ("fetching", "tools/fetch_lexicon.sh", "downloads the Lufz/Exet lexicon the grid filler needs"),
 
     ("annotating", "tools/annotate_prompt.md", "the prompt the daily Claude Code job follows to annotate"),
@@ -316,6 +318,10 @@ SERIES_NAMES = {
     "cyclops": "Private Eye Cyclops",
     "metro": "Metro cryptic",
     "globeandmail": "Globe and Mail cryptic",
+    "times": "Times cryptic",
+    "timesquick": "Times Quick Cryptic",
+    "timesjumbo": "Times Jumbo",
+    "sundaytimes": "Sunday Times cryptic",
     # ONE ENTRY FOR THE WHOLE SHELF: every scanned printed book is the `book`
     # series, and which book a puzzle came out of is in its number
     # (tools/series.py, book_index * 1000 + position). The count beside it is
