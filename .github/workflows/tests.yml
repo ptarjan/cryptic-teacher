@@ -135,12 +135,27 @@ jobs:
             echo "shard $SHARD of $SHARDS was handed no tests out of ${#all[@]}"
             exit 1
           fi
+          before=$(git status --porcelain)
           fails=()
           for t in "${mine[@]}"; do
             case "$t" in *.sh) run=bash ;; *) run=node ;; esac
             echo "::group::$run $t"
             "$run" "$t" || fails+=("$t")
             echo "::endgroup::"
+            # A script that writes to a tracked file or the real puzzles/ index
+            # and restores it with a trap still fails this the moment it is
+            # killed before the trap runs — which is the point: every test here
+            # writes to its own temp dir or a throwaway copy, never to the tree
+            # the next commit is built from. Checked after every script, not
+            # just at the end, so the FAILED line below names the one at fault
+            # instead of whichever ran last.
+            after=$(git status --porcelain)
+            if [ "$after" != "$before" ]; then
+              echo "$t left the working tree dirty:"
+              diff <(printf '%s\n' "$before") <(printf '%s\n' "$after") || true
+              fails+=("$t left the working tree dirty")
+              before="$after"
+            fi
           done
           if [ "${#fails[@]}" -gt 0 ]; then
             # One per line. Space-joined, two failures read as one name with a

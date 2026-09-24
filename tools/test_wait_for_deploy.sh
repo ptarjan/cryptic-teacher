@@ -40,22 +40,26 @@ echo "and an unstamped index.html does not hide them"
 # immediately afterwards, so the real working tree it runs against looks like
 # this. Reading the expected hashes out of index.html made that deliberate
 # state indistinguishable from a site that never deployed, and this script
-# failed on its own precondition without ever looking at the site. Done to the
-# real index.html because that is the file the real run reads; the stored form
-# is unstamped anyway, so the restore is exact.
-cp index.html "$sand/index.html"
-trap 'cp "$sand/index.html" index.html; rm -rf "$sand"' EXIT
-python3 tools/stamp_assets.py --unstamp >/dev/null
-out=$(python3 - <<'EOF'
-import pathlib, sys
+# failed on its own precondition without ever looking at the site. Run against
+# a scratch copy of index.html and stamp_assets.py rather than the real
+# tracked file: stamp_assets.INDEX_HTML is resolved from the script's own
+# __file__, so copying the script alongside the copy is what points --unstamp
+# at the copy instead of the real one, and a crash here can never leave the
+# working tree dirty the way a backup-and-restore of the real file would.
+scratch="$sand/scratch"
+mkdir -p "$scratch/tools"
+cp index.html "$scratch/index.html"
+cp tools/stamp_assets.py "$scratch/tools/stamp_assets.py"
+python3 "$scratch/tools/stamp_assets.py" --unstamp >/dev/null
+out=$(SCRATCH_INDEX="$scratch/index.html" python3 - <<'EOF'
+import os, pathlib, sys
 sys.path.insert(0, "tools")
 import wait_for_deploy
-page = pathlib.Path("index.html").read_text()
+page = pathlib.Path(os.environ["SCRATCH_INDEX"]).read_text()
 print("unstamped" if not wait_for_deploy.stamps(page) else "still stamped",
       len(wait_for_deploy.want_stamps()))
 EOF
 ) || out="raised: $out"
-cp "$sand/index.html" index.html
 check "the expected stamps come from the assets, not from the page" "$out" "unstamped 3"
 
 echo "no verdict is reached without reading the live page"
