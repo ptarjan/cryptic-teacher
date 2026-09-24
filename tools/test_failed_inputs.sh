@@ -115,6 +115,31 @@ check "skipped" "$(ledger skipped solve)" "ct-4"
 puzzle ct-4 GNU
 check "answers arriving are a new input" "$(ledger skipped solve)" ""
 
+echo "new arrivals are not capped; ANNOTATE_MAX bounds only the older backlog"
+# shellcheck disable=SC2154 # $fresh is set by the eval of $pick
+fresh_q() { ( cd "$sand" && ANNOTATE_MAX=2 eval "$pick" && printf '%s\n' "$fresh" ); }
+now=$(python3 -c 'import time; print(int(time.time() * 1000))')
+day=86400000
+for i in 1 2 3; do puzzle "nw-$i" CAT; done
+puzzle old-1 CAT; puzzle old-2 CAT; puzzle old-3 CAT
+index "nw-1:$now:no" "nw-2:$((now - day)):no" "nw-3:$((now - day - 1000)):no" \
+      old-1:300:no old-2:200:no old-3:100:no
+check "all three of the last two days' puzzles" "$(fresh_q)" "nw-1 nw-2 nw-3"
+check "and the backlog still gets its two" "$(queue)" "old-1 old-2"
+index "nw-1:$((now - 3 * day)):no" old-1:300:no
+check "three days old is backlog" "$(fresh_q)" ""
+
+echo "a puzzle whose official key landed tonight is a new arrival too"
+git -C "$sand" init -q
+puzzle old-1 ""
+git -C "$sand" add puzzles/old-1.json
+git -C "$sand" -c user.name=t -c user.email=t@t commit -qm keyless
+puzzle old-1 CAT
+index old-1:300:no old-2:200:no old-3:100:no
+check "old-1 jumps the cap" "$(fresh_q)" "old-1"
+check "and the backlog is the rest" "$(queue)" "old-2 old-3"
+rm -rf "$sand/.git"
+
 echo "the working tree is untouched"
 check "git status unchanged" "$(git status --porcelain)" "$tree_before"
 
