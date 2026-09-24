@@ -81,11 +81,12 @@ print("FRESH", tmp.read_text())
 # failures are the expensive ones — a Jumbo spends the whole budget and finds
 # nothing — so resuming off the grids alone re-grinds them every time. Raising
 # the budget is still how a truncated puzzle gets another go, so a smaller
-# recorded budget must not skip it.
+# recorded budget must not skip it, and neither must an older search's failure.
 T.ATTEMPTS = tmp.parent / "attempts.jsonl"
 T.ATTEMPTS.write_text(
-    json.dumps({"post_id": 1, "how": "no grid", "max_nodes": 6000000}) + "\n"
-    + json.dumps({"post_id": 2, "how": "truncated", "max_nodes": 400000}) + "\n")
+    json.dumps({"post_id": 1, "how": "no grid", "max_nodes": 6000000, "search": T.SEARCH}) + "\n"
+    + json.dumps({"post_id": 2, "how": "truncated", "max_nodes": 400000, "search": T.SEARCH}) + "\n"
+    + json.dumps({"post_id": 3, "how": "truncated", "max_nodes": 6000000}) + "\n")
 print("TRIED", sorted(T.attempted(6000000)))
 print("BIGGER", sorted(T.attempted(400000)))
 
@@ -95,10 +96,33 @@ print("BIGGER", sorted(T.attempted(400000)))
 # the one puzzle it fired on got quoted as a grid the crossings could not
 # settle. Two candidates, neither of which the answers fit.
 real = rg.reconstruct
-rg.reconstruct = lambda *a, **k: ([TINY, (".#...", ".....", "#...#", ".....", "...#.")],
-                                  {"truncated": False})
+# The search given the answers finds neither; without them, both.
+rg.reconstruct = lambda *a, **k: (
+    [] if k.get("words") else
+    [TINY, (".#...", ".....", "#...#", ".....", "...#.")], {"truncated": False})
 print("REFUTED", T.solve(clash)[1])
 rg.reconstruct = real
+
+# The answers are written in DURING the search: a light whose letters clash
+# with a crossing one is never placed, so the real search, given the answers,
+# returns no grid the answers do not fit.
+spec = T.triples(clash)
+words = [e["answer"] for e in T.printed(clash)]
+print("WORDS_PRUNE", rg.reconstruct(spec, cols=5, rows=5, words=words)[0],
+      len(rg.reconstruct(spec, cols=5, rows=5)[0]))
+
+# Numbering is dense: a list that skips a number lost a light, and says so
+# without searching.
+gappy = {"series": "Test", "entries": [e for e in rec["entries"] if e["number"] != 2]}
+print("GAP", T.solve(gappy)[1])
+
+# The cap on a line of blocks is enforced, and only as long as the caller asks:
+# this grid's only fill has a row of three.
+BARS = (".....", ".###.", ".....", ".###.", ".....")
+bl = rg.lights_from_grid(BARS)
+print("CAP", rg.reconstruct(bl, 5, 5, strict=False)[0] == [BARS],
+      rg.reconstruct(bl, 5, 5, strict=False, max_black_run=2)[0],
+      rg.reconstruct(bl, 5, 5, strict=False, max_black_run=3)[0] == [BARS])
 
 # Barred puzzles have no black squares, so numbering inverts to nothing. They
 # are parsed and then deliberately not sized here; a typo in the name would
@@ -123,10 +147,13 @@ check "a light no grid could hold reads as no grid, not as truncated" \
 check "a killed run reads back what it already solved" "[111]" "$(field RESUME)"
 check "and appends to it rather than truncating" True "$(field KEPT)"
 check "only --fresh starts the file over" "" "$(field FRESH)"
-check "a failure is not re-ground on the next run" "[1]" "$(field TRIED)"
+check "a failure is not re-ground on the next run, an older search's is" "[1]" "$(field TRIED)"
 check "but a bigger budget retries what it truncated" "[1, 2]" "$(field BIGGER)"
 check "answers refuting every candidate does not read as an unsettled tie" \
       "answers fit none of 2" "$(field REFUTED)"
+check "the search itself refuses a grid its answers clash in" "[] 1" "$(field WORDS_PRUNE)"
+check "a list that skips a number is no grid, found without search" "no grid: no light numbered 2" "$(field GAP)"
+check "a line of blocks past the cap is refused, one at the cap is not" "True [] True" "$(field CAP)"
 check "barred series are excluded, by their parsed names" \
       "['Mephisto', 'Monthly Club Special', 'Other Crosswords']" "$(field BARRED)"
 check "a post that gives only the answers is not searched" "True False" "$(field CLUES)"

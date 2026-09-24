@@ -68,7 +68,9 @@ Beyond the numbering the search enforces these, and only these:
   * every row and every column holds at least two white cells;
   * no two adjacent rows both lack an across light, and no two adjacent
     columns both lack a down light;
-  * the white cells are all connected.
+  * the white cells are all connected;
+  * when the caller gives them: the answers agree wherever two lights cross,
+    and no line of blocks is longer than the caller's cap.
 
 The last three are `strict`, and they are here because they hold for every
 published grid we have — recounted over the whole corpus every time
@@ -152,7 +154,8 @@ def _sequence_bounds(nums):
 
 class _Solver:
     def __init__(self, across, down, anum, dnum, cols, rows,
-                 limit, symmetry, max_nodes, strict=True):
+                 limit, symmetry, max_nodes, strict=True, words=None,
+                 max_black_run=None):
         self.across, self.down = across, down
         # Numbers are always a per-light list from here on, `None` standing for
         # "not known" light by light -- the single generalisation that makes a
@@ -173,6 +176,16 @@ class _Solver:
         self.strict = strict
         self.prev_across = True     # there is no row above row 0 to pair with
         self.cells = [None] * (cols * rows)
+        # The answers, when the caller has them: (across words, down words),
+        # each parallel to its length list, None for a light with no answer.
+        # A light is written into the grid letter by letter the moment it is
+        # placed, so two lights that disagree on a shared cell die there.
+        # Letter writes go on the same trail as cells, offset by the grid
+        # size, so one undo takes back both.
+        self.ncell = cols * rows
+        self.max_black_run = max_black_run or max(cols, rows)
+        self.letters = [None] * self.ncell
+        self.awords, self.dwords = words if words else (None, None)
         self.solutions = []
         self.nodes = 0
         self.hit_cap = False
@@ -230,9 +243,28 @@ class _Solver:
         return was == value
 
     def undo(self, trail, mark):
+        ncell, cells, letters = self.ncell, self.cells, self.letters
         for i in trail[mark:]:
-            self.cells[i] = None
+            if i < ncell:
+                cells[i] = None
+            else:
+                letters[i - ncell] = None
         del trail[mark:]
+
+    def write(self, word, x, y, dx, dy, trail):
+        """Write an answer from (x, y) along (dx, dy); False on a clash."""
+        if word is None:
+            return True
+        letters, cols = self.letters, self.cols
+        for k, ch in enumerate(word):
+            i = (y + k * dy) * cols + x + k * dx
+            was = letters[i]
+            if was is None:
+                letters[i] = ch
+                trail.append(i + self.ncell)
+            elif was != ch:
+                return False
+        return True
 
     @staticmethod
     def number_ok(lo, hi, i, n):
@@ -281,7 +313,7 @@ class _Solver:
 
         if here != WHITE:
             mark = len(trail)
-            if self.put(x, y, BLACK, trail):
+            if self.put(x, y, BLACK, trail) and self.black_run_ok(x, y):
                 self.column(y, x + 1, ai, di, n, trail)
             self.undo(trail, mark)
 
@@ -343,8 +375,12 @@ class _Solver:
                 return
             if not self.number_ok(self.alo, self.ahi, ai, n):
                 return
-            self.branch_down(y, x, length, i, ai + 1, di, n, top_blocked,
-                             numbered=True, trail=trail)
+            mark = len(trail)
+            if self.awords is None or self.write(self.awords[ai], x, y, 1, 0,
+                                                 trail):
+                self.branch_down(y, x, length, i, ai + 1, di, n, top_blocked,
+                                 numbered=True, trail=trail)
+            self.undo(trail, mark)
             return
 
         if not top_blocked:
@@ -378,7 +414,9 @@ class _Solver:
             spans = [want] if want is not None else range(2, self.rows - y + 1)
             for down_len in spans:
                 mark = len(trail)
-                if self.commit_down(x, y, down_len, trail):
+                if self.commit_down(x, y, down_len, trail) and (
+                        self.dwords is None
+                        or self.write(self.dwords[di], x, y, 0, 1, trail)):
                     self.in_run(y, x0, length, i + 1, ai, di + 1, n + 1, trail)
                 self.undo(trail, mark)
 
@@ -416,23 +454,10 @@ class _Solver:
         """
         mirror = self.rows - 1 - y
         saved = (self.at, self.dt)
+        mark = len(trail)
         ok = True
         if self.symmetry and mirror > y:
-            for length in self.across_runs(y):
-                self.at -= 1
-                want = self.across[self.at] if self.at >= ai else False
-                if want is not False and (want is None or want == length):
-                    continue
-                ok = False
-                break
-            if ok:
-                for down_len in self.down_ends(y):
-                    self.dt -= 1
-                    want = self.down[self.dt] if self.dt >= di else False
-                    if want is not False and (want is None or want == down_len):
-                        continue
-                    ok = False
-                    break
+            ok = self.claim_mirror_row(y, ai, di, trail)
         if ok and di < self.nd and self.deepest[di] > self.rows - (y + 1):
             ok = False          # a long down light with no row left to start in
         if ok:
@@ -454,9 +479,75 @@ class _Solver:
         if ok and self.strict:
             ok = self.row_ok(y)
         if ok:
+            ok = self.column_runs_ok(y)
+        if ok:
             self.row(y + 1, ai, di, n, trail)
         self.prev_across = saved_across
         self.at, self.dt = saved
+        self.undo(trail, mark)
+
+    def black_run_ok(self, x, y):
+        """Is the row of blocks ending at (x, y) no longer than the cap?"""
+        cells, k, i = self.cells, self.max_black_run, y * self.cols + x
+        lo = y * self.cols
+        run = 0
+        while i >= lo and cells[i] == BLACK:
+            run += 1
+            if run > k:
+                return False
+            i -= 1
+        return True
+
+    def column_runs_ok(self, y):
+        """No column's blocks ending in row y run longer than the cap."""
+        cells, cols, k = self.cells, self.cols, self.max_black_run
+        if y + 1 < k:
+            return True
+        for x in range(cols):
+            run, yy = 0, y
+            while yy >= 0 and cells[yy * cols + x] == BLACK:
+                run += 1
+                yy -= 1
+            if run > k:
+                return False
+        return True
+
+    def claim_mirror_row(self, y, ai, di, trail):
+        """Claim the mirrored row's lights off the tails, and write them in.
+
+        Cell (x, y) ending a light is its twin starting one, so walking row y
+        left to right walks the mirror row right to left, and meets its lights
+        in the reverse of their printed order: the tail of each list, read
+        backwards. Their answers go in now, so the bottom half checks the
+        crossings of the top one from the first row on.
+        """
+        cols, rows, cells = self.cols, self.rows, self.cells
+        base, my = y * cols, rows - 1 - y
+        run = 0
+        for x in range(cols):
+            if cells[base + x] != WHITE:
+                run = 0
+                continue
+            run += 1
+            if run >= 2 and (x + 1 == cols or cells[base + x + 1] != WHITE):
+                self.at -= 1
+                if self.at < ai or self.across[self.at] not in (None, run):
+                    return False
+                if self.awords is not None and not self.write(
+                        self.awords[self.at], cols - 1 - x, my, 1, 0, trail):
+                    return False
+            if cells[base + cols + x] != WHITE:
+                k = 1
+                while y - k >= 0 and cells[(y - k) * cols + x] == WHITE:
+                    k += 1
+                if k >= 2:
+                    self.dt -= 1
+                    if self.dt < di or self.down[self.dt] not in (None, k):
+                        return False
+                    if self.dwords is not None and not self.write(
+                            self.dwords[self.dt], cols - 1 - x, my, 0, 1, trail):
+                        return False
+        return True
 
     def next_row_fits(self, y, lo, hi):
         """Look one row down before banking this one.
@@ -570,19 +661,6 @@ class _Solver:
                 if run >= 2:
                     out.append(run)
                 run = 0
-        return out
-
-    def down_ends(self, y):
-        """Lengths of the down lights that finish in row y, left to right."""
-        out = []
-        for x in range(self.cols):
-            if self.get(x, y) != WHITE or self.get(x, y + 1) == WHITE:
-                continue
-            k = 1
-            while self.get(x, y - k) == WHITE:
-                k += 1
-            if k >= 2:
-                out.append(k)
         return out
 
 
@@ -725,8 +803,35 @@ def parse_lights(spec):
     return lengths["across"], lengths["down"], numbers["across"], numbers["down"]
 
 
+def number_gaps(anum, dnum):
+    """Numbers 1..N that no light carries, when every light's number is known.
+
+    Numbering is dense, so a skipped number is a light the list lost and no
+    grid can print it -- which the search can take its whole budget to prove.
+    """
+    if anum is None or dnum is None:
+        return []
+    nums = list(anum) + list(dnum)
+    if not nums or None in nums:
+        return []
+    return sorted(set(range(1, max(nums) + 1)) - set(nums))
+
+
+def split_words(spec, words):
+    """(across words, down words), parallel to parse_lights' length lists."""
+    if words is None:
+        return None
+    if isinstance(spec, dict) or len(words) != len(spec):
+        raise ValueError("words must be one per triple, in the order given")
+    out = {"across": [], "down": []}
+    for (_, direction, _), word in zip(spec, words):
+        out[str(direction).lower()].append(word.upper() if word else None)
+    return out["across"], out["down"]
+
+
 def reconstruct(spec, cols=15, rows=15, limit=DEFAULT_LIMIT, symmetry=True,
-                max_nodes=DEFAULT_MAX_NODES, fallback=False, strict=True):
+                max_nodes=DEFAULT_MAX_NODES, fallback=False, strict=True,
+                words=None, max_black_run=None):
     """Every grid whose numbering would print these lights.
 
     Returns (solutions, info). Each solution is a tuple of row strings, '#'
@@ -742,19 +847,40 @@ def reconstruct(spec, cols=15, rows=15, limit=DEFAULT_LIMIT, symmetry=True,
     easier version is the one way this call can waste a minute for nothing.
     About one puzzle in 450 here is asymmetric; on a 13x13 the unconstrained
     search still lands in a tenth of a second, on a 23x23 it does not land.
+
+    `words`, one answer per triple of `spec` (None where unknown), writes each
+    answer in as its light is placed, so only grids the answers agree in come
+    back -- and they come back fast, because two lights that disagree on a
+    square die when the second is placed instead of after the whole grid is.
+    A list that skips a number is refused before any search, `info["gaps"]`
+    naming the numbers.
+
+    `max_black_run` caps how many blocks may stand in a line, across or down.
+    It is not a rule of crosswords -- the Independent prints eleven -- so it
+    is the caller's, for a series it has been counted on. It is what makes a
+    23x23 finish: without it the search's first move is a top row of sixteen
+    blocks, legal and hopeless, and the budget goes on refuting that.
     """
     across, down, anum, dnum = parse_lights(spec)
     if not across and not down:
         raise ValueError("no lights given")
+    gaps = number_gaps(anum, dnum)
+    if gaps:
+        return [], {"symmetric": bool(symmetry), "nodes": 0,
+                    "truncated": False, "gaps": gaps}
+    split = split_words(spec, words)
+    # The search recurses a few frames per cell; a 23x23 is past the default.
+    sys.setrecursionlimit(max(sys.getrecursionlimit(), 8 * cols * rows + 200))
     solver = _Solver(across, down, anum, dnum, cols, rows,
-                     limit, bool(symmetry), max_nodes, strict)
+                     limit, bool(symmetry), max_nodes, strict, split,
+                     max_black_run)
     found = solver.run()
     info = {"symmetric": bool(symmetry), "nodes": solver.nodes,
             "truncated": solver.hit_cap or len(found) >= limit}
     if found or not (symmetry and fallback) or info["truncated"]:
         return found, info
     loose = _Solver(across, down, anum, dnum, cols, rows,
-                    limit, False, max_nodes, strict)
+                    limit, False, max_nodes, strict, split, max_black_run)
     found = loose.run()
     return found, {"symmetric": False, "nodes": solver.nodes + loose.nodes,
                    "truncated": loose.hit_cap or len(found) >= limit}

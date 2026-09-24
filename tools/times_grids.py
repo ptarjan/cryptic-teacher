@@ -44,11 +44,15 @@ SIZE = {
 }
 
 
+def printed(rec):
+    """The entries in printed order: by number, across before down."""
+    order = {"across": 0, "down": 1}
+    return sorted(rec["entries"], key=lambda e: (e["number"], order[e["direction"]]))
+
+
 def triples(rec):
     """The light list a reader of the blog has, in printed order."""
-    order = {"across": 0, "down": 1}
-    entries = sorted(rec["entries"], key=lambda e: (e["number"], order[e["direction"]]))
-    return [(e["number"], e["direction"], len(e["answer"])) for e in entries]
+    return [(e["number"], e["direction"], len(e["answer"])) for e in printed(rec)]
 
 
 def answers_fit(grid, rec):
@@ -73,28 +77,59 @@ def answers_fit(grid, rec):
 #: is a batch job nobody waits on, so it buys the grids.
 DEFAULT_MAX_NODES = 6_000_000
 
+#: The most blocks The Times puts in a line, across or down: 5, over all 4,760
+#: grids this module had rebuilt without the cap (Daily, Weekend, Quick and
+#: Jumbo; the Jumbos never pass 3). Other papers go higher -- the Independent
+#: prints 11 -- so this is the Times' number, not the solver's.
+MAX_BLACK_RUN = 5
+
+#: Which search wrote an attempt. A failure logged by an older search is not
+#: a failure of this one -- 414 Jumbos this search solves in seconds sat in
+#: the log as `truncated` -- so it is tried again. Bump it with the search.
+SEARCH = 2
+
 
 def solve(rec, limit=50, max_nodes=DEFAULT_MAX_NODES):
-    """(grids, how) for one puzzle. `how` is why it ended where it did."""
+    """(grids, how) for one puzzle. `how` is why it ended where it did.
+
+    The answers and the Times' longest line of blocks go into the search, not
+    after it. On the numbering alone a 23x23 spends its budget in its first
+    six rows, under a top row of sixteen blocks no Times grid has; with them
+    it finishes in seconds. When that search finds nothing it is run again
+    without either, because one mistyped answer on the blog is not a missing
+    grid, and the cap is a count, not a law.
+
+    Symmetry is never dropped: every grid this module rebuilt asymmetric was
+    one built round a light the parser had not read.
+    """
     n = SIZE[rec["series"]]
+    lights = triples(rec)
+    words = [e["answer"] for e in printed(rec)]
     try:
-        sols, info = rg.reconstruct(triples(rec), cols=n, rows=n, limit=limit,
-                                    max_nodes=max_nodes, fallback=True)
+        sols, info = rg.reconstruct(lights, cols=n, rows=n, limit=limit,
+                                    max_nodes=max_nodes, words=words,
+                                    max_black_run=MAX_BLACK_RUN)
     except Exception as e:                       # a light longer than the grid
         return [], f"rejected: {e}"
+    if info.get("gaps"):
+        return [], "no grid: no light numbered " + ", ".join(map(str, info["gaps"]))
+    if sols:
+        if info["truncated"]:
+            return list(sols), f"{len(sols)} found, search truncated"
+        if len(sols) == 1:
+            return list(sols), "unique"
+        return list(sols), f"{len(sols)} grids fit the answers"
+    if info["truncated"]:
+        return [], "truncated"
+    sols, info = rg.reconstruct(lights, cols=n, rows=n, limit=limit,
+                                max_nodes=max_nodes)
     if not sols:
-        return [], "truncated" if info.get("truncated") else "no grid"
-    if len(sols) == 1:
-        return list(sols), "unique"
-    narrowed = [g for g in sols if answers_fit(g, rec)]
-    if len(narrowed) == 1:
-        return narrowed, "unique after crossings"
-    if narrowed:
-        return narrowed, f"{len(narrowed)} of {len(sols)} after crossings"
+        return [], "no grid" if not info["truncated"] else "no grid fits the answers"
+    if len(sols) == 1 and not info["truncated"]:
+        return list(sols), "unique, answers clash"
     # Every candidate contradicts the answers, which is the opposite of an
     # ambiguous grid: the right grid is not in the list at all, so the light
-    # list or one of the answers is wrong. It read as "crossings ruled out
-    # none" and got quoted as a puzzle the crossings had failed to settle.
+    # list or one of the answers is wrong.
     return list(sols), f"answers fit none of {len(sols)}"
 
 
@@ -116,10 +151,11 @@ def solved_already():
 
 
 def attempted(max_nodes):
-    """post_id of every puzzle already tried at this budget or a bigger one.
+    """post_id of every puzzle this search already tried, at this budget or more.
 
     Tried at a SMALLER budget is not skipped: raising --max-nodes is how a
-    `truncated` puzzle gets another go, and that has to still work.
+    `truncated` puzzle gets another go, and that has to still work. Nor is one
+    an older SEARCH tried.
     """
     ids = set()
     if ATTEMPTS.exists():
@@ -128,7 +164,7 @@ def attempted(max_nodes):
                 a = json.loads(line)
             except ValueError:
                 continue       # the last line of a killed run, half written
-            if a.get("max_nodes", 0) >= max_nodes:
+            if a.get("search") == SEARCH and a.get("max_nodes", 0) >= max_nodes:
                 ids.add(a["post_id"])
     return ids
 
@@ -189,7 +225,8 @@ def run(limit_puzzles=None, series=None, write=True, seed=None,
         how[key] += 1
         if log:
             log.write(json.dumps({"post_id": rec["post_id"], "how": why,
-                                  "max_nodes": max_nodes}) + "\n")
+                                  "max_nodes": max_nodes,
+                                  "search": SEARCH}) + "\n")
             log.flush()
         by_series[rec["series"]][key] += 1
         if not grids:
@@ -211,14 +248,14 @@ def report(r):
     n = r["n"]
     pct = lambda k: f"{100.0 * r['how'][k] / n:.1f}%" if n else "-"
     print(f"{n} puzzle(s) tried")
-    for k in ("unique", "unique after crossings", "shortlist", "no grid",
+    for k in ("unique", "shortlist", "no grid",
               "truncated", "rejected", "answers fit none"):
         if r["how"][k]:
             print(f"  {r['how'][k]:>6}  {pct(k):>6}  {k}")
     print("\nBY SERIES")
     for s, c in sorted(r["by_series"].items(), key=lambda kv: -sum(kv[1].values())):
         tot = sum(c.values())
-        got = c["unique"] + c["unique after crossings"]
+        got = c["unique"]
         print(f"  {s:<18} {got:>5} of {tot:>5} pinned down "
               f"({100.0 * got / tot:.0f}%)")
 
