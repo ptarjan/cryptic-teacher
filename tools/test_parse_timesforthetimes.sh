@@ -524,5 +524,37 @@ preamble='<p>1ac END UP went straight in</p><p>DDCDH: DD/CD hybrid where a strai
 check "a preamble before the Across heading is not an entry" "1|across|ENDUP" \
   "$(run "$preamble" | cut -d'|' -f1,2,3 | tr '\n' ' ' | sed 's/ $//')"
 
+# A remark between the clue and its answer does not stop the answer being
+# read by its enumeration: nothing ends PANHANDLE but the count.
+remark='<p>DOWN</p><p>1</p><p>Ask for money in God&#8217;s name? (9)</p>
+<p>Televangelist scum!</p><p>PANHANDLE PAN, &#8220;God&#8221; + HANDLE, &#8220;name&#8221;</p>
+<p>2</p><p>Chap is absorbed by bogus religion (9)</p>
+<p>Isn&#8217;t that redundant? (Sorry, couldn&#8217;t help it.)</p>
+<p>SHAMANISM SHA(MAN)(IS)M</p>'
+check "a remark between clue and answer" "1:PANHANDLE 2:SHAMANISM" \
+  "$(run "$remark" | cut -d'|' -f1,3 | tr '|\n' ': ' | sed 's/ $//')"
+
+# A full stop ends an answer when capitals of wordplay follow it; an initial
+# or an abbreviation the answer runs on past does not.
+stops='<p>ACROSS<br />15. Take notice? No point (6)<br />ADOPT. AD=notice. O=no. PT=point.<br />
+21. Misbehave in a court (3,2)<br />ACT UP. A &#8211; CT &#8211; UP.<br />
+9. Bug I planted on advocate to be avenged ( 3,4,3,4)<br />GET ONES OWN BACK. BUG=get to. ONE=I.<br />
+13<br />ST. HELENA &#8211; S for Society, then N in THE LEA.<br />
+27<br />T + R. ELLIS &#8211; Ruth Ellis.<br />
+22<br />A N.Y. WAY = &#8220;It could be Fifth Avenue&#8221;</p>'
+check "a full stop before capitals of wordplay; not after an initial" \
+  "15:ADOPT 21:ACTUP 9:GETONESOWNBACK 13:STHELENA 27:TRELLIS 22:ANYWAY" \
+  "$(run "$stops" | cut -d'|' -f1,3 | tr '|\n' ': ' | sed 's/ $//')"
+check "an enumeration with a space inside its bracket" "3,4,3,4" \
+  "$(run "$stops" | grep '^9|' | cut -d'|' -f4)"
+
+# A first name typed ahead of the answer is not part of it.
+named='<p>ACROSS</p><p>20</p><p>French film-maker&#8217;s company facing acute distress (7)</p>
+<p>Jean COCTEAU &#8211; CO(company) then an anagram of ACUTE</p>
+<p>8</p><p>Primate, one of two in Africa (4)</p>
+<p>(Desmond) TUTU &#8211; TU = Trade Union, twice over</p>'
+check "a first name ahead of the answer" "20:COCTEAU 8:TUTU" \
+  "$(run "$named" | cut -d'|' -f1,3 | tr '|\n' ': ' | sed 's/ $//')"
+
 if [ "$fails" -gt 0 ]; then echo "$fails FAILURE(S)"; exit 1; fi
 echo "all checks passed"

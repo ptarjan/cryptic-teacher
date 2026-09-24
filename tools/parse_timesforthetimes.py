@@ -63,10 +63,14 @@ NUMBERED = re.compile(r"^(\d{1,2})(?!\d|[.:]\d)\s*[.):]?\s*(.*)$")
 #: the wordplay hangs off — a dash, an equals sign, a colon or a semicolon. A
 #: plain hyphen ends it only when a space is on either side of it, or
 #: WELL-KNOWN truncates to WELL: "NISAN -Granny NAN" is a dash typed short. A
-#: full stop ends it when a sentence follows: "IDEA. Less than perfect (IDEA)l".
+#: full stop ends it when a sentence follows, "IDEA. Less than perfect
+#: (IDEA)l", or wordplay in capitals does: "ADOPT. AD=notice", "ACT UP. A – CT
+#: – UP" -- but not after an initial, "T + R. ELLIS", "A N.Y. WAY =", nor after
+#: an abbreviation the answer goes on past, "ST. HELENA – S for Society".
 ANSWER = re.compile(
     r"^([A-Z][A-Z0-9'\u2019()\[\]+,. \-]{1,70}?)"
-    r"(?:\s*(?:[\u2013\u2014=;:]|-\s|-\s*$|$)|\s+-|\.\s+(?=[A-Z][a-z]))")
+    r"(?:\s*(?:[\u2013\u2014=;:]|-\s|-\s*$|$)|\s+-"
+    r"|\.\s+(?=[A-Z][a-z])|(?<=[A-Z]{2})\.\s+(?=[A-Z']+\s*=|[A-Z]\s*[\u2013\u2014-]))")
 #: Wordplay written into the answer itself: S(L)OUGH, YOR[I+C]K, RICE,PAPER.
 #: The letters in order are the answer — the brackets are the blogger showing
 #: their working, and the comma is the space between two words.
@@ -107,8 +111,9 @@ BRACED = re.compile(r"\{[^{}\n]*\}")
 #: An enumeration still open at the end of a line: "(7-", "(4,".
 OPEN_ENUM = re.compile(r"\(\d{1,2}(?:[,\-\u2013\s]+\d{1,2})*[,\-\u2013]$")
 #: A clue's enumeration: word lengths, none of them longer than a grid is
-#: wide. "Special Providence (1930)" ends in a year, not in a count.
-ENUM = re.compile(r"\((\d{1,2}(?:[,\-–\s]+\d{1,2})*)[,\-–\s]*\)\s*$")
+#: wide. "Special Providence (1930)" ends in a year, not in a count; "( 3,4)"
+#: is a space typed inside the bracket.
+ENUM = re.compile(r"\(\s*(\d{1,2}(?:[,\-–\s]+\d{1,2})*)[,\-–\s]*\)\s*$")
 #: A clue that covers two or more lights heads its list of them: "10/11",
 #: "1,5", "4, 9", "9 & 27", "16 and 8", "20/17a", "59/53ac", "1/29/19dn",
 #: "6/6dn", "3 & 18A.". A suffix names the light's direction; without one the
@@ -369,6 +374,10 @@ TITLE_WORD = re.compile(r"[\s\-]*([A-Za-z][A-Za-z'\u2019]*)")
 TITLE_END = re.compile(r"\s*[\u2013\u2014-]\s")
 
 
+#: A first name, bracketed or not, typed ahead of an answer in capitals.
+NAME_FIRST = re.compile(r"\(?[A-Z][a-z]+\)?\s+(?=[A-Z]{2})")
+
+
 def answer_by_enum(line, enum):
     """The answer on the line after a clue, read off its enumeration.
 
@@ -390,8 +399,14 @@ def answer_by_enum(line, enum):
     line = "".join(c for c in unicodedata.normalize("NFKD", line)
                    if not unicodedata.combining(c))
     line = line.lstrip("\u2018\u201c'\"")
-    for word_re, ender in ((CAPS_WORD, None), (TITLE_WORD, TITLE_END)):
-        words, pos = [], 0
+    # A name can stand in front of the answer, "Jean COCTEAU – CO + ..." or
+    # "(Desmond) TUTU – TU", and then the dash after the answer is required.
+    named = NAME_FIRST.match(line)
+    tries = [(CAPS_WORD, None, 0), (TITLE_WORD, TITLE_END, 0)]
+    if named:
+        tries.append((CAPS_WORD, TITLE_END, named.end()))
+    for word_re, ender, start in tries:
+        words, pos = [], start
         for n in counts:
             m = word_re.match(line, pos)
             if not m or len(re.sub(r"[^A-Za-z]", "", m.group(1))) != n:
@@ -782,7 +797,7 @@ def parse_post(post):
 
 def leader_numbers(entries):
     """The numbers that lead a linked group, named by their continuations."""
-    return {n for n in (continuation_target(e["clue"]) for e in entries) if n}
+    return {n for n in (continuation_target(e.get("clue")) for e in entries) if n}
 
 
 def enum_agrees(entry, leaders=()):
@@ -795,7 +810,7 @@ def enum_agrees(entry, leaders=()):
     group's enumeration by the corpus's leader form and only its own letters,
     so the two disagree by design.
     """
-    if not entry["enumeration"] or entry.get("number") in leaders:
+    if not entry.get("enumeration") or entry.get("number") in leaders:
         return None
     want = sum(int(n) for n in re.findall(r"\d+", entry["enumeration"]))
     return want == len(entry["answer"])
