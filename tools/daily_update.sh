@@ -9,12 +9,14 @@
 #      from the posts' light lists (step 1b).
 #   2. Re-fetches puzzles whose solutions weren't published yet (Saturday prize
 #      crosswords publish theirs about a week late).
-#   3. Asks Claude Code (headless) to annotate the newest un-annotated puzzles,
-#      following tools/annotate_prompt.md — ANNOTATE_MAX per run (default 3),
-#      while the account's weekly usage window is under ANNOTATE_MAX_WEEKLY_PCT
-#      (default 50) and its five-hour window is under ANNOTATE_MAX_SESSION_PCT
-#      (default 70), re-read between puzzles. The Guardian publishes six puzzles
-#      a week, so one per run never drains a backlog; it barely keeps up. Stops
+#   3. Asks Claude Code (headless) to annotate un-annotated puzzles, newest
+#      first, following tools/annotate_prompt.md. Every new arrival is annotated
+#      — dated within the last two days, or given its official key tonight —
+#      however many there are. ANNOTATE_MAX (default 3) bounds only the rest:
+#      tonight's cold solves plus the older backlog, on top of the new arrivals.
+#      All of it runs only while the account's weekly usage window is under
+#      ANNOTATE_MAX_WEEKLY_PCT (default 50) and its five-hour window is under
+#      ANNOTATE_MAX_SESSION_PCT (default 70), re-read between puzzles. Stops
 #      early if a run fails rather than burning the rest of the quota on doomed
 #      attempts — except when the wall-clock cap kills it, which says this grid
 #      is lost and nothing about the next one, so the queue carries on.
@@ -301,19 +303,59 @@ ANNOTATE_MAX="${ANNOTATE_MAX:-3}"
 # Puzzles whose annotation already failed on the inputs they have now. Selection
 # here is by date and nothing else, so without this a puzzle that fails is the
 # newest un-annotated puzzle again tomorrow, bought from scratch each time (see
-# tools/failed_inputs.py). Excluded before the slice below, not skipped inside
-# the loop: that slice is the night's whole budget.
+# tools/failed_inputs.py). Excluded before the queues are cut, not skipped inside
+# the loop: the cut is the night's whole budget.
+#
+# Two queues. `fresh` is every new arrival, uncapped: a puzzle dated within the
+# last two days, or one whose official key landed tonight (a tracked file that
+# had no complete published key at HEAD and has one now — the step 2 refetch).
+# `pending` is everything older, newest first, and ANNOTATE_MAX bounds it
+# together with tonight's cold solves, which join it in step 3a. Only the usage
+# gates below limit `fresh`.
+#
+# puzzles/index.json is generated and untracked, so the copy on disk here was
+# written by whatever code ran last, not by this checkout's. Both queues read
+# fields off it and read a missing field as a puzzle with nothing wrong, so an
+# index older than a field silently answers "fine" for every puzzle — which is
+# how cryptic-24577 was handed to a model the night clue counts were added.
+# Nine seconds over the whole corpus; the rest of the script reindexes anyway.
+python3 tools/fetch_puzzle.py --reindex
 annotate_blocked=$(python3 tools/failed_inputs.py skipped annotate)
-pending=$(python3 - "$ANNOTATE_MAX" "$annotate_blocked" <<'EOF'
-import json, sys
+{ read -r fresh; read -r pending; } < <(python3 - "$ANNOTATE_MAX" "$annotate_blocked" <<'EOF'
+import json, subprocess, sys, time
 idx = json.load(open("puzzles/index.json"))
 blocked = set(sys.argv[2].split())
+FRESH_MS = 2 * 86400 * 1000
+cutoff = time.time() * 1000 - FRESH_MS
+
+def keyed(text):
+    """True when a puzzle file's text carries the paper's complete key."""
+    puzzle = json.loads(text)
+    return (not puzzle.get("solutionSource")
+            and all(e.get("solution") for e in puzzle.get("entries", [])))
+
+def show(*args):
+    """git's stdout, or "" outside a checkout; a missing git means no key news."""
+    run = subprocess.run(["git", *args], capture_output=True, text=True)
+    return run.stdout if run.returncode == 0 else ""
+
+keyed_tonight = set()
+for path in show("diff", "--name-only", "HEAD", "--", "puzzles/").split():
+    try:
+        if not keyed(show("show", f"HEAD:{path}") or "{}") and keyed(open(path).read()):
+            keyed_tonight.add(path.rsplit("/", 1)[-1].removesuffix(".json"))
+    except (OSError, ValueError):
+        continue  # deleted or half-written; the validator reports those
+
 # IDs, not numbers: puzzles/<id>.json is what every step below names, so no
 # consumer has to resolve a number two papers could share.
 todo = sorted(((p.get("date") or 0, p["id"]) for p in idx["puzzles"]
                if not p["annotated"] and p.get("hasSolutions")
                and p["id"] not in blocked), reverse=True)
-print(" ".join(i for _, i in todo[:int(sys.argv[1])]))
+fresh = [i for d, i in todo if d >= cutoff or i in keyed_tonight]
+older = [i for _, i in todo if i not in fresh]
+print(" ".join(fresh))
+print(" ".join(older[:int(sys.argv[1])]))
 EOF
 )
 
@@ -360,13 +402,6 @@ SOLVE_MAX="${SOLVE_MAX:-5}"
 # one again tomorrow, with the same grid and the same rejection. The reason one
 # fails is usually us — a crashing applier, a moved prompt file — and a fix to
 # either changes the hash, so the puzzle comes back by itself.
-# puzzles/index.json is generated and untracked, so the copy on disk here was
-# written by whatever code ran last, not by this checkout's. The queue reads
-# fields off it and reads a missing field as a puzzle with nothing wrong, so an
-# index older than a field silently answers "fine" for every puzzle — which is
-# how cryptic-24577 was handed to a model the night clue counts were added.
-# Nine seconds over the whole corpus; the rest of the script reindexes anyway.
-python3 tools/fetch_puzzle.py --reindex
 solve_blocked=$(python3 tools/failed_inputs.py skipped solve)
 unsolved=$(python3 - "$SOLVE_MAX" "$solve_blocked" <<'EOF'
 import json, sys
@@ -452,15 +487,16 @@ ANNOTATE_MODEL="${ANNOTATE_MODEL:-opus}"
 # somewhere else cannot be read back out of the log.
 ANNOTATE_BLIND="${ANNOTATE_BLIND:-}"
 . "$REPO/tools/annotate_model.sh"
-if [ -n "$pending$unsolved" ] && ! python3 tools/weekly_usage.py --self-test; then
+if [ -n "$fresh$pending$unsolved" ] && ! python3 tools/weekly_usage.py --self-test; then
   # The gate's own four cases, run offline before its verdict is believed. A
   # gate whose logic is broken says "spend" as confidently as a working one, so
   # a failing self-test is treated as the worst verdict rather than ignored.
   alert "the weekly usage gate is failing its own self-test, so annotation was skipped. The gate logic itself is wrong — see the SELF-TEST lines in .update.log."
+  fresh=""
   pending=""
   unsolved=""
 fi
-if [ -n "$pending$unsolved" ]; then
+if [ -n "$fresh$pending$unsolved" ]; then
   # The gate explains itself on stderr; keep it so the alert can carry the
   # reason instead of pointing at a log. "can't read the quota" was the same
   # sentence whether the API was down or the CLI was simply logged out — and
@@ -471,9 +507,10 @@ if [ -n "$pending$unsolved" ]; then
   cat "$gate_why" >&2
   case "$gate_verdict" in
     spend)
-      echo "weekly usage under ${ANNOTATE_MAX_WEEKLY_PCT}% — annotating $pending${unsolved:+, solving $unsolved}" ;;
+      echo "weekly usage under ${ANNOTATE_MAX_WEEKLY_PCT}% — annotating $fresh $pending${unsolved:+, solving $unsolved}" ;;
     skip)
-      echo "weekly usage over ${ANNOTATE_MAX_WEEKLY_PCT}% — skipping annotation of $pending${unsolved:+ and solving of $unsolved}"
+      echo "weekly usage over ${ANNOTATE_MAX_WEEKLY_PCT}% — skipping annotation of $fresh $pending${unsolved:+ and solving of $unsolved}"
+      fresh=""
       pending=""
       unsolved="" ;;
     *)
@@ -482,6 +519,7 @@ if [ -n "$pending$unsolved" ]; then
       else
         alert "the weekly usage gate can't read the quota, so tonight's annotation was skipped rather than run ungated. Nothing is broken on the site — the newest puzzle still published, just without hints."$'\n'"\`\`\`"$'\n'"$(cut -c1-300 "$gate_why")"$'\n'"\`\`\`"
       fi
+      fresh=""
       pending=""
       unsolved="" ;;
   esac
@@ -543,8 +581,9 @@ spend_session_before=$(python3 tools/weekly_usage.py --group session 2>/dev/null
 
 # --- 3a. solve the unsolved, so step 3b has something to annotate ---
 # Runs before the annotation loop and feeds it: a grid solved tonight joins the
-# front of tonight's queue, because it is by definition the newest puzzle and
-# the one people are actually looking at. Same session gate as annotation, and
+# front of the capped backlog queue (`pending`, behind `fresh`), because it is
+# by definition the newest puzzle there and the one people are actually looking
+# at. Same session gate as annotation, and
 # the same trailer, since it is the same model spending the same quota.
 #
 # "By definition the newest" stopped being true when the book reprints arrived.
@@ -637,19 +676,21 @@ if [ -n "$unsolved" ] && command -v claude >/dev/null 2>&1; then
     fi
     rm -f "$fill" "$solvelog" "$verdict"
   done
-  # Whatever solving cost, the annotation budget is still ANNOTATE_MAX puzzles.
-  # Solving adds its puzzle, so a queue that was already at the cap loses its
-  # last entry here — which is the dateless reprint itself when that is what was
-  # solved, and a puzzle from today when it is not. Name the ones being dropped:
-  # the queue line above has already promised them by id, and a promise withdrawn
-  # in silence reads in the log as a puzzle that failed rather than one that was
-  # never begun.
+  # The backlog budget is still ANNOTATE_MAX puzzles, cold solves included.
+  # Solving adds its puzzle, so a backlog already at the cap loses its last
+  # entry here — the dateless reprint itself when that is what was solved, and
+  # the oldest backlog puzzle when it is not. `fresh` is not cut. Name the ones
+  # being dropped: the queue line above has already promised them by id, and a
+  # promise withdrawn in silence reads in the log as a puzzle that failed rather
+  # than one that was never begun.
   kept=$(echo $pending | tr ' ' '\n' | grep -v '^$' | head -"$ANNOTATE_MAX" | tr '\n' ' ')
   dropped=$(echo $pending | tr ' ' '\n' | grep -v '^$' | tail -n +"$((ANNOTATE_MAX + 1))" | tr '\n' ' ')
   [ -n "$dropped" ] &&
-    echo "over the ANNOTATE_MAX=$ANNOTATE_MAX budget once solving was prepended — not annotating tonight: $dropped"
+    echo "over the ANNOTATE_MAX=$ANNOTATE_MAX backlog budget once solving was prepended — not annotating tonight: $dropped"
   pending=$kept
 fi
+# New arrivals first, then the capped backlog: newest-first either way.
+pending="${fresh:+$fresh }$pending"
 
 if [ -n "$pending" ]; then
   # Restate the controlled vocabulary and the validator's limits in the prompt
