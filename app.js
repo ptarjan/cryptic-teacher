@@ -2779,6 +2779,27 @@
   // see. No clue in the corpus does that, and this is what keeps it that way.
   const blockShows = (ann, b) => !!(b.note || b.soundsLike || blockLetters(ann, b));
 
+  // A double definition's halves are its definitions, and a block that is one
+  // of them and shows nothing but a note is not a building block. The
+  // definition rung has already named those words and asked the solver to tap
+  // them, and its letters are the whole answer, so a blocks rung made of them
+  // asks the same question again and shows nothing new but the note. The note
+  // is about that sense of that definition, so it renders on the definition
+  // rung beside the split, and the block is no piece of the blocks rung.
+  //
+  // What the definition rung never named still is one: a third definition, a
+  // half that is wordplay, a sounded form. So a compound type keeps its rung,
+  // and a clue with three senses keeps the one the split did not mention.
+  function senseBlock(ann, b) {
+    if (!ann.definition2 || !(ann.type || "").toLowerCase().includes("double definition")) return false;
+    if (b.soundsLike || blockLetters(ann, b)) return false;
+    const frag = wholeWord(b.clueFragment);
+    return !!frag && [ann.definition, ann.definition2].map(wholeWord)
+      .some((d) => d && (d.includes(frag) || frag.includes(d)));
+  }
+  const buildingBlocks = (ann) => (ann.blocks || []).filter((b) => !senseBlock(ann, b));
+  const senseBlocks = (ann) => (ann.blocks || []).filter((b) => b.note && senseBlock(ann, b));
+
   // What an indicator actually INSTRUCTS, and how to recognise its family next
   // time. The rung used to read "these tell you what to do with the rest", which
   // is true of every indicator in every clue ever written — content-free, and a
@@ -2847,8 +2868,9 @@
   // The pieces of the blocks rung, in clue order — the order they are read in
   // and the order the assembly runs in. Every block is one, including the ones
   // whose letters are suppressed: those still show their fragment, which is the
-  // whole lesson on a hidden word.
-  const blockPieces = (e) => { const a = annOf(e); return (a && a.blocks) || []; };
+  // whole lesson on a hidden word. A double definition's own halves are not
+  // (see senseBlock): the definition rung carries them.
+  const blockPieces = (e) => { const a = annOf(e); return a ? buildingBlocks(a) : []; };
   // How many of them are on screen.
   function piecesShown(e) {
     const key = entryKey(e);
@@ -3306,7 +3328,7 @@
     const isCD = t.includes("cryptic definition");
     const isLit = t.includes("&lit");
     const inds = ann.indicators || [];
-    const blocks = ann.blocks || [];
+    const blocks = buildingBlocks(ann);
     const steps = [];
 
     // Every rung is NAMED for the question it asks, never for the answer it is
@@ -3372,14 +3394,17 @@
 
     // Where the definition lives. For a double definition the news is not "there
     // are two" — the family rung says that, and says it later — it is WHERE the
-    // clue splits.
+    // clue splits, and which sense each half is read in.
     if (isDD && ann.definition2) {
+      const senses = senseBlocks(ann).map((b) =>
+        `<li>“${esc(b.clueFragment)}” <span class="muted">— ${esc(b.note)}</span></li>`).join("");
       steps.push({
         key: "definition",
         label: LABELS.definition,
         html: `<p>It splits between <mark class="def">${esc(ann.definition)}</mark> and
           <mark class="def2">${esc(ann.definition2)}</mark> — two unrelated senses of the same
-          word, which is where the surface reading misleads you.</p>`
+          word, which is where the surface reading misleads you.</p>` +
+          (senses ? `<ul>${senses}</ul>` : "")
       });
     } else if (isLit) {
       steps.push({
@@ -3793,8 +3818,8 @@
   }
 
   // The optional words of this rung's question: the ends of every span of it
-  // that is a definition. A double definition's pieces are its two definitions,
-  // so the blocks rung inherits the same latitude when it asks for one of them.
+  // that is a definition. A piece that is also a definition — the sounded half
+  // of a double definition + homophone — inherits the same latitude.
   function rungEdges(e, rung, step) {
     const ann = annOf(e);
     if (!ann || rung === "indicators") return [];
@@ -3846,7 +3871,11 @@
   // to point at, it asks, even when what is left to point at IS the whole answer.
   // An easy question is a free rung; a rung handed over
   // unasked is a rung the solver paid for and was never given the chance to
-  // win. The only rung that cannot ask is one with nothing to point at at all.
+  // win. The only rung that cannot ask is one with nothing to point at at all,
+  // and the only piece that cannot is one that is all the clue has left. A
+  // definition that is the whole clue is still asked: nothing is settled yet,
+  // so seeing that every word defines is the judgement being tested. A piece
+  // is asked once everything else is named, and there it is only arithmetic.
   // A charade has more than one piece, and "it isn't knowing it is a charade
   // that is hard, it is DOING the charade" — so the blocks rung asks for
   // each piece in turn rather than one and done. step says which piece; a piece
@@ -3885,10 +3914,9 @@
         prompt = `Which words give <span class="gives">${esc(gives)}</span>?${of}`;
       } else if (wholeWord(b.gives) === wholeWord(ann.answer)) {
         // Held back letters are not a missing question. Which words carry the
-        // whole answer is still a real thing to point at, and on a double
-        // definition or a hidden word it is the only question there is. Asked
-        // unnamed, it keeps the free way off a rung that would otherwise have to
-        // be bought.
+        // whole answer is still a real thing to point at, and on a hidden word
+        // it is the only question there is. Asked unnamed, it keeps the free way
+        // off a rung that would otherwise have to be bought.
         prompt = `Which words give the answer?${of}`;
       } else {
         // A fragment that is its own letters has nothing to point at: "which
@@ -3903,6 +3931,20 @@
       .reduce((a, k) => a.concat(rungTokens(e, k)), []);
     for (let n = 0; n < at; n++) named.push.apply(named, rungTokens(e, rung, n));
     const known = named.filter((n) => target.indexOf(n) < 0);
+    // A piece whose words are all the clue has left is a tap with one answer:
+    // the definition, the indicators, the link words and the pieces before it
+    // are on screen, so what remains is this piece by elimination. That is not
+    // a question, so the piece is handed over like one with nothing to point at.
+    // Unlit means what the solver sees, so it is read off clueMarks, which is
+    // also the only place the link words are placed. Bare punctuation is no
+    // word anyone would pick.
+    if (rung === "blocks") {
+      const lit = clueMarks(e);
+      const open = tokens.filter((tok, n) => target.indexOf(n) < 0 && known.indexOf(n) < 0 &&
+        /[A-Za-z0-9]/.test(tok.text) &&
+        !lit.some((m) => m.i < tok.i + tok.text.length && tok.i < m.i + m.len));
+      if (!open.length) return null;
+    }
     // The spans, not just their union: which words belong to which indicator is
     // what lets a pick be graded phrase by phrase.
     return { prompt, target, tokens, known, gives, step: at,
