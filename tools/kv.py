@@ -3,10 +3,12 @@
 Two copies of a wrangler call is two places to fix when wrangler changes, and
 the retry below is exactly the kind of thing that gets added to one of them.
 
-Lists keys and deletes them. Nothing here writes a value.
+Lists keys, reads and deletes them, and bulk-writes values for the one-off
+rebuilds that need it (tools/vote_tally_backfill.py).
 """
 import json
 import subprocess
+import tempfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -72,3 +74,19 @@ def delete_key(name, timeout=120):
     out = _run(["kv", "key", "delete", name, "--namespace-id", NAMESPACE, "--remote"],
                timeout)
     return True if out.returncode == 0 else (out.stderr or out.stdout)[-400:]
+
+
+def put_many(pairs, timeout=300):
+    """Write every {"key", "value", optional "expiration_ttl"} dict in one
+    wrangler call. Same expiry retry as list_keys."""
+    with tempfile.NamedTemporaryFile("w", suffix=".json") as f:
+        json.dump(pairs, f)
+        f.flush()
+        args = ["kv", "bulk", "put", f.name, "--namespace-id", NAMESPACE, "--remote"]
+        out = _run(args, timeout)
+        if out.returncode != 0:
+            _run(["whoami"], 60)
+            out = _run(args, timeout)
+    if out.returncode != 0:
+        raise SystemExit("wrangler bulk put failed: "
+                         + ((out.stderr or out.stdout).strip()[-500:] or "no output"))
