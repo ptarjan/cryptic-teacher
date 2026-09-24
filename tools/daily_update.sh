@@ -169,12 +169,14 @@ fi
 # light list, file what passes into puzzles/. Each step reads the one before
 # it off ~/cryptic-setter-data/timesforthetimes/, so a step that fails ends
 # the chain — anything after it would read a half-written file — except the
-# fetch, whose failure only means the cache is as it was last night.
+# fetches, whose failure only means the cache is as it was last night. The
+# second fetch is the Times's own puzzle listing, as the Wayback Machine keeps
+# it, which is what dates the prize puzzles the blog writes up a week late.
 # Before the queue below reads puzzles/index.json, and the filer does not
 # reindex, so it is done here: otherwise the day's Times would sit out
 # tonight's annotation.
 times_out="$(mktemp "${TMPDIR:-/tmp}/cryptic-times.XXXXXX")"
-for step in fetch_timesforthetimes parse_timesforthetimes times_grids file_times_puzzles; do
+for step in fetch_timesforthetimes fetch_times_listing parse_timesforthetimes times_grids file_times_puzzles; do
   step_start=$SECONDS
   python3 "tools/$step.py" >"$times_out" 2>&1
   step_rc=$?
@@ -183,6 +185,8 @@ for step in fetch_timesforthetimes parse_timesforthetimes times_grids file_times
   [ $step_rc -eq 0 ] && continue
   if [ "$step" = fetch_timesforthetimes ]; then
     alert "the Times blog fetch failed (rc=$step_rc), so tonight's Times puzzles are filed from the posts already cached:"$'\n'"\`\`\`"$'\n'"$(tail -8 "$times_out" | cut -c1-200)"$'\n'"\`\`\`"
+  elif [ "$step" = fetch_times_listing ]; then
+    alert "the Times listing fetch failed (rc=$step_rc), so tonight's prize puzzles are dated only from the captures already cached:"$'\n'"\`\`\`"$'\n'"$(tail -8 "$times_out" | cut -c1-200)"$'\n'"\`\`\`"
   else
     alert "the Times chain stopped at $step (rc=$step_rc); the steps after it were skipped, so no new Times puzzle is filed until it is fixed:"$'\n'"\`\`\`"$'\n'"$(tail -12 "$times_out" | cut -c1-200)"$'\n'"\`\`\`"
     break
