@@ -26,7 +26,6 @@ const COST = {
   "tools/test_acquire_book.sh": 56,
   "tools/test_provenance.sh": 46,
   "tools/test_solve_queue_clues.sh": 23,
-  "tools/test_annotate_attempts.sh": 20,
   "tools/test_alert_claimed.sh": 6,
   "tools/test_repair_fetched.sh": 5,
   "tools/test_ia_borrow.sh": 3,
