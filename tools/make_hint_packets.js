@@ -61,8 +61,7 @@ const text = (html) => String(html)
 
 // Some rungs hand over the answer by construction, and that is not a bug in the
 // annotation. A hidden word is one block, so "drunk now nobody" -> UNKNOWN IS the
-// building-blocks rung; ditto a double definition whose halves each spell the whole
-// word. Redacting keeps the judge honest — a solve at that rung has to be a solve,
+// building-blocks rung. Redacting keeps the judge honest — a solve at that rung has to be a solve,
 // not a copy — but the rung is also marked givesAnswer, because a clue solved there
 // measures nothing and scoring must drop it rather than bank it as a win. On 30078
 // that is 3 clues of 25, all of them correct annotations.
@@ -115,8 +114,8 @@ for (const e of puz.entries) {
 }
 
 if (leaked) {
-  console.error(`note: ${leaked} rung(s) spell the answer out (hidden words, whole-word ` +
-    "double definitions). Redacted, and marked givesAnswer — score them as unmeasurable, not as solves.");
+  console.error(`note: ${leaked} rung(s) spell the answer out (hidden words). ` +
+    "Redacted, and marked givesAnswer — score them as unmeasurable, not as solves.");
 }
 if (keyPath) {
   fs.writeFileSync(keyPath, JSON.stringify(key, null, 2) + "\n");

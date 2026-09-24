@@ -100,6 +100,24 @@ def def_place(clue, definition):
     return f", sitting mid-clue, so the wordplay is \"{before}\" and \"{after}\" either side of it."
 
 
+def _whole_word(s):
+    return re.sub(r"[^A-Z]", "", str(s or "").upper())
+
+
+def sense_block(ann, b):
+    """app.js senseBlock(): a double definition's half that shows only a note."""
+    if not ann.get("definition2") or "double definition" not in (ann.get("type") or "").lower():
+        return False
+    answer = _whole_word(ann.get("answer"))
+    gives = _whole_word(b.get("gives"))
+    if b.get("soundsLike") or (gives and gives != answer
+                               and gives != _whole_word(b.get("clueFragment"))):
+        return False
+    frag = _whole_word(b.get("clueFragment"))
+    defs = [_whole_word(ann.get("definition")), _whole_word(ann.get("definition2"))]
+    return bool(frag) and any(d and (frag in d or d in frag) for d in defs)
+
+
 def ladder_steps(ann, clue_text):
     """Python port of app.js ladderSteps(): returns [(rung_key, plain_text), ...]
     in the exact order app.js emits them. This IS the order our UI shows rungs
@@ -111,19 +129,25 @@ def ladder_steps(ann, clue_text):
     is_cd = "cryptic definition" in t
     is_lit = "&lit" in t
     inds = ann.get("indicators") or []
-    blocks = ann.get("blocks") or []
+    senses = [b for b in ann.get("blocks") or [] if sense_block(ann, b)]
+    blocks = [b for b in ann.get("blocks") or [] if not sense_block(ann, b)]
     steps = []
 
     fam_label, fam_blurb = family_of(ann.get("type"))
     steps.append(("type", f"{fam_label}. {fam_blurb}"))
 
-    mechanics = f"Mechanism: {ann.get('type', '')}. {type_blurb(ann.get('type'))}"
+    # Named on every type; the blurb is held back on the two whose definition
+    # rung already says it, as in app.js.
+    mechanics = f"Mechanism: {ann.get('type', '')}." + (
+        "" if (is_dd or is_cd) else f" {type_blurb(ann.get('type'))}")
 
     definition = ann.get("definition") or ""
     if is_dd and ann.get("definition2"):
         def_text = (f"It splits between {definition} and {ann['definition2']} — two "
                     "unrelated senses of the same word, which is where the surface "
                     "reading misleads you.")
+        def_text += "".join(f" \"{b['clueFragment']}\" -- {b['note']}"
+                            for b in senses if b.get("note"))
     elif is_lit:
         def_text = (f"Read {definition} straight through as a description of the "
                     "answer, then read the very same words again as wordplay.")
@@ -169,7 +193,7 @@ def ladder_steps(ann, clue_text):
             if b.get("note"):
                 s += f" -- {b['note']}"
             items.append(s)
-        prefix = "" if (is_dd or is_cd) else mechanics + " "
+        prefix = mechanics + " "
         steps.append(("blocks", prefix + " ".join(items)))
 
     fit = ""
@@ -180,7 +204,7 @@ def ladder_steps(ann, clue_text):
         fit += f" -> {ann.get('answer', '')}: {ann['definitionFit']}"
     note = f" {ann['definitionNote']}" if ann.get("definitionNote") else ""
     has_blocks = any(k == "blocks" for k, _ in steps)
-    walk_prefix = "" if (has_blocks or is_dd or is_cd) else mechanics + " "
+    walk_prefix = "" if has_blocks else mechanics + " "
     walk_text = walk_prefix + (ann.get("walkthrough") or "") + fit + note + \
         f" Answer: {ann.get('answer', '')}"
     steps.append(("walkthrough", walk_text))
