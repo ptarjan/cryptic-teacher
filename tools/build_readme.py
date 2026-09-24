@@ -220,6 +220,7 @@ LAYOUT = [
     ("tables everything else reads", "tools/data/README.md", "what in tools/data is committed, what is fetched, and under what licence"),
     ("tables everything else reads", "tools/data/abbreviations.json", "the hand-built starter table of standard abbreviations"),
     ("tables everything else reads", "tools/data/unclueable.json", "words rejected as answers, with reasons; grid_fill.py vetoes them"),
+    ("tables everything else reads", "tools/data/times_answers.json", "Times-blog answers settled from the clue's wordplay; times_grids.py applies them before rebuilding"),
     ("tables everything else reads", "tools/data/difficulty_baseline.json", "the frozen distribution difficulty.py normalises against"),
     ("tables everything else reads", "tools/data/lexicon.tsv", "192,738 British-cryptic words by frequency rank; difficulty.py scores obscurity off it"),
     ("tables everything else reads", "tools/data/grading_rubric.md", "the five axes a blind judge scores a clue on"),
