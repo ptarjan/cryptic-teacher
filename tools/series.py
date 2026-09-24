@@ -84,6 +84,9 @@ SERIES = {
         "kind": "Cryptic",
         "publisher": "Private Eye",
         "badge": "cyclops",
+        # A linked clue's count covers its own light, not the whole answer
+        # (fetch_puzzle.PER_LIGHT_ENUMERATION).
+        "perLightEnumeration": True,
     },
     "globeandmail": {
         # The Globe and Mail prints it, but the byline arrives stamped
@@ -93,6 +96,10 @@ SERIES = {
         "kind": "Cryptic",
         "publisher": "Globe and Mail",
         "badge": "globe & mail",
+        # It is the Times Quick Cryptic under the same number, about seven
+        # weeks later and with the published grid and answers, so from its
+        # first number on the Quick is filed here and not from the blog.
+        "reprints": "timesquick",
     },
     "indysunday": {
         # The Independent on Sunday's own weekly sequence, ~1,900 and climbing
@@ -108,6 +115,48 @@ SERIES = {
         "kind": "Sunday Cryptic",
         "publisher": "Independent",
         "badge": "indy sunday",
+    },
+    # The Times publishes no grid and no answer key online, so these four are
+    # filed by tools/file_times_puzzles.py from the times-for-the-times blog:
+    # the clue list and answers are the blog's, the grid is rebuilt from them.
+    # `blog` is the host that route reads, and what makes provenance call the
+    # geometry reconstructed and the answers a write-up.
+    #
+    # Saturday's cryptic shares the daily's number sequence, so it files under
+    # "times" the way the Guardian's prize does under "cryptic".
+    "times": {
+        "kind": "Cryptic",
+        "publisher": "Times",
+        # The daily cryptic prints no setter's name.
+        "setter": "Times",
+        "badge": "times",
+        "blog": "timesforthetimes.co.uk",
+        # The blog counts a linked clue over its own light, as Private Eye does.
+        "perLightEnumeration": True,
+    },
+    "timesquick": {
+        "kind": "Quick Cryptic",
+        "publisher": "Times",
+        "badge": "times quick",
+        "blog": "timesforthetimes.co.uk",
+        "perLightEnumeration": True,
+    },
+    "timesjumbo": {
+        "kind": "Jumbo Cryptic",
+        "publisher": "Times",
+        "setter": "Times",
+        "badge": "times jumbo",
+        "blog": "timesforthetimes.co.uk",
+        "perLightEnumeration": True,
+    },
+    # A separate paper with its own weekly sequence, ~5,200 against the
+    # daily's ~29,600.
+    "sundaytimes": {
+        "kind": "Cryptic",
+        "publisher": "Sunday Times",
+        "badge": "sunday times",
+        "blog": "timesforthetimes.co.uk",
+        "perLightEnumeration": True,
     },
 }
 
