@@ -93,8 +93,9 @@ check "the counts in the index are the counts in the files" \
 
 echo "the queue takes the readable grids and leaves the rest"
 # A sandbox index of its own, so nothing here depends on which puzzles the
-# corpus happens to hold tonight, and a ledger of its own: the real
-# .solve_attempts.json is live state this test must not read or rewrite.
+# corpus happens to hold tonight. The failure ledger is represented by
+# $solve_blocked, the one line daily_update.sh reads it into (see
+# tools/test_failed_inputs.sh for the ledger itself).
 sand=$(mktemp -d)
 trap 'rm -rf "$sand"' EXIT
 ln -s "$REPO/tools" "$sand/tools"
@@ -119,10 +120,8 @@ json.dump({"puzzles": [
     {"id": i, "date": d, "hasSolutions": s, **({"clues": c} if c else {})}
     for i, d, s, c in rows]}, open(sys.argv[1], "w"))
 EOF
-echo '{"ct-tried": 1, "ct-answered": 1}' > "$sand/attempts.json"
 run() (  # the block itself against the sandbox; the skip note goes to $sand/note
-  cd "$sand" && SOLVE_MAX=${1:-5} SOLVE_ATTEMPTS_MAX=1 REPO="$sand" \
-    CT_MAIN_CHECKOUT="$sand" SOLVE_ATTEMPTS_FILE="$sand/attempts.json" \
+  cd "$sand" && SOLVE_MAX=${1:-5} solve_blocked="ct-tried ct-answered" \
     eval "$pick" 2>"$sand/note" && printf '%s\n' "$unsolved"
 )
 check "the blank grid and the half-blank one are not handed to a model" \
@@ -131,7 +130,7 @@ check "and the log says why, by name and by count" \
   "$(grep -c 'ct-blank (0/28 clues), ct-half (14/28 clues)' "$sand/note")" "1"
 check "a puzzle missing one clue of 28 is still a solvable grid" \
   "$(grep -c 'ct-gap\|ct-most\|ct-whole' "$sand/note")" "0"
-check "the one-attempt cap still holds" "$(run 9 | grep -c ct-tried)" "0"
+check "a puzzle that failed on its current inputs stays out" "$(run 9 | grep -c ct-tried)" "0"
 check "a puzzle with answers is still out of the queue" "$(run 9 | grep -c ct-answered)" "0"
 check "SOLVE_MAX still bounds the night" "$(run 2)" "ct-most ct-gap"
 
@@ -145,9 +144,6 @@ check "and it is last, behind every dated puzzle" \
   "$(run 9 | tr ' ' '\n' | tail -1)" "ct-reprint"
 check "so a night short of budget spends it on the dated ones" \
   "$(run 3)" "ct-most ct-gap ct-whole"
-check "and a stale count against a puzzle that has answers now is still forgotten" \
-  "$(python3 -c "import json; print(sorted(json.load(open('$sand/attempts.json'))))")" \
-  "['ct-tried']"
 
 echo "and a grid solved tonight joins the ANNOTATION queue by the same rule"
 # Step 3a prepends what it solved, on the grounds that it is the newest puzzle

@@ -358,11 +358,12 @@ tools/annotate_postmortem.py                 why an annotation run died, read of
                                              not a pointer to a log
 tools/test_annotate_postmortem.sh            checks that post-mortem reports the right shape
                                              and that the nightly actually sends it
-tools/annotate_attempts.py                   counts the annotation runs a puzzle has lost, so a
-                                             failing one stops being bought every night
-tools/test_annotate_attempts.sh              drives that ledger out of daily_update.sh itself:
-                                             what is charged, what is forgiven, what leaves the
-                                             queue
+tools/failed_inputs.py                       records a failed annotation or cold solve with a
+                                             hash of its inputs, so it is skipped until they
+                                             change
+tools/test_failed_inputs.sh                  drives that ledger out of daily_update.sh itself:
+                                             a failed puzzle is skipped, a transient failure is
+                                             not, a changed input brings it back
 tools/test_solve_queue_clues.sh              drives the cold-solve queue out of daily_update.sh
                                              against made-up clue counts, so a grid with
                                              nothing to read is never bought a model run
@@ -474,8 +475,6 @@ tools/data/penguin5_control.json             the ten-puzzle Penguin volume 5 con
 tools/data/sample_fill_11.json               the worked 11x11 fill tools/AUTHORING.md walks
                                              through
 tools/data/authored_A001_clues.json          the hand-written clues for that fill
-tools/data/annotate_attempts.json            which puzzles have already had an annotation run
-                                             spent on them and lost
 tools/data/penguin_partial_fills/            answers from a Penguin-book solve that stopped
                                              short; the puzzle itself is filed unsolved for the
                                              nightly cold solve to finish

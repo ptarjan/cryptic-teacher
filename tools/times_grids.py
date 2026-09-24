@@ -22,6 +22,7 @@ Reads the records parse_timesforthetimes.py writes; no network, no solving.
 """
 import argparse
 import collections
+import hashlib
 import itertools
 import json
 import re
@@ -426,13 +427,23 @@ def solved_already():
     return ids
 
 
-def attempted(max_nodes):
-    """post_id of every puzzle this search already tried, at this budget or more.
+def settled_digest(fix):
+    """A short hash of one post's settled answers, "" when it has none."""
+    if not fix:
+        return ""
+    lights = sorted((f"{n} {d}", a) for (n, d), a in fix.items())
+    return hashlib.sha256(json.dumps(lights).encode()).hexdigest()[:12]
+
+
+def attempted(max_nodes, settled=None):
+    """post_id of every puzzle this search already tried, at this budget or more,
+    with the settled answers it has now.
 
     Tried at a SMALLER budget is not skipped: raising --max-nodes is how a
     `truncated` puzzle gets another go, and that has to still work. Nor is one
-    an older SEARCH tried.
+    an older SEARCH tried, or one tried before its settled answers last changed.
     """
+    settled = settled or {}
     ids = set()
     if ATTEMPTS.exists():
         for line in ATTEMPTS.open(encoding="utf-8"):
@@ -440,7 +451,8 @@ def attempted(max_nodes):
                 a = json.loads(line)
             except ValueError:
                 continue       # the last line of a killed run, half written
-            if a.get("search") == SEARCH and a.get("max_nodes", 0) >= max_nodes:
+            if (a.get("search") == SEARCH and a.get("max_nodes", 0) >= max_nodes
+                    and a.get("settled", "") == settled_digest(settled.get(a["post_id"]))):
                 ids.add(a["post_id"])
     return ids
 
@@ -511,7 +523,8 @@ def resettle():
             for pid, why in refused.items():
                 log.write(json.dumps({"post_id": pid, "how": why,
                                       "max_nodes": DEFAULT_MAX_NODES,
-                                      "search": SEARCH}) + "\n")
+                                      "search": SEARCH,
+                                      "settled": settled_digest(settled.get(pid))}) + "\n")
     return {"kept": len(kept), "fixed": fixed, "refused": refused}
 
 
@@ -532,9 +545,10 @@ def run(limit_puzzles=None, series=None, write=True, seed=None,
     if seed is not None:
         import random
         random.Random(seed).shuffle(recs)
-    # A newly settled answer is a reason to try its puzzle again.
+    # A changed settled answer is a reason to try its puzzle again; an
+    # unchanged one is not.
     done = set() if (fresh or not write) else (
-        solved_already() | (attempted(max_nodes) - set(settled)))
+        solved_already() | attempted(max_nodes, settled))
     if done:
         recs = [r for r in recs if r["post_id"] not in done]
         print(f"resuming: {len(done)} grid(s) already in {OUT.name}")
@@ -563,7 +577,8 @@ def run(limit_puzzles=None, series=None, write=True, seed=None,
         if log:
             log.write(json.dumps({"post_id": rec["post_id"], "how": why,
                                   "max_nodes": max_nodes,
-                                  "search": SEARCH}) + "\n")
+                                  "search": SEARCH,
+                                  "settled": settled_digest(settled.get(rec["post_id"]))}) + "\n")
             log.flush()
         by_series[rec["series"]][key] += 1
         if not grids:
