@@ -149,18 +149,20 @@ export default {
 
     /* What solvers thought of a clue, and of the puzzle.
 
-       Same shape as the counting above and for the same reasons: THE KEY NAME
-       IS THE RECORD, the value is empty, and a tally is a `list` by prefix, so
-       two people rating the same clue in the same second cannot lose each
-       other's vote. A key carries what was rated, which way, and the day — and
-       nothing about who, which is why one device can be stopped from voting
+       Each vote is a raw key named like the counting above — THE KEY NAME IS
+       THE RECORD, value empty — carrying what was rated, which way, and the
+       day, and nothing about who. So one device can be stopped from voting
        twice only by that device remembering it already did. That is the trade:
        a ballot box that cannot identify a voter cannot spot a second ballot.
 
        GET answers with the tally for a whole puzzle in one request — every
        clue, plus the puzzle itself — because the page needs all of it the
-       moment a grid opens and thirty requests for thirty clues is not a thing
-       to do to a phone.
+       moment a grid opens. It reads ONE key, `t:<puzzle>`, and never lists:
+       a list is 1,000 a day on the free tier against 100,000 reads, and every
+       grid opened spends one of these. POST keeps that key up to date with a
+       read-modify-write, which can lose a vote to a concurrent one. That is
+       accepted: the raw v: keys are the source of truth, and
+       tools/vote_tally_backfill.py rebuilds every t: key from them.
 
        POST always answers 204, whatever it thought of the body, for the same
        reason /e does: there is a solver typing into the page that sent it. */
@@ -174,30 +176,17 @@ export default {
         const day = new Date().toISOString().slice(0, 10);
         await env.SAVES.put(`v:${target}:${verdict}:${day}:${crypto.randomUUID()}`, "",
                             { expirationTtl: VOTE_TTL });
+        const tallyKey = "t:" + target.split(":")[1];
+        const tally = (await env.SAVES.get(tallyKey, "json")) || {};
+        (tally[target] = tally[target] || { up: 0, down: 0 })[verdict]++;
+        await env.SAVES.put(tallyKey, JSON.stringify(tally), { expirationTtl: VOTE_TTL });
         return ok;
       }
       if (request.method === "GET") {
         const puzzle = url.searchParams.get("p") || "";
         if (!/^[a-z]{4,12}-\d{1,6}$/.test(puzzle))
           return json({ error: "p must be a puzzle id" }, 400, origin);
-        const tally = {};
-        for (const prefix of [`v:c:${puzzle}:`, `v:p:${puzzle}:`]) {
-          let cursor;
-          do {
-            const page = await env.SAVES.list({ prefix, cursor, limit: 1000 });
-            for (const k of page.keys) {
-              // v:<kind>:<puzzle>[:<clue>]:<verdict>:<day>:<uuid> — the verdict
-              // is always third from the end, so this does not care which kind
-              // of target it is reading.
-              const parts = k.name.split(":");
-              const verdict = parts[parts.length - 3];
-              if (VOTE_VERDICTS.indexOf(verdict) < 0) continue;
-              const target = parts.slice(1, parts.length - 3).join(":");
-              (tally[target] = tally[target] || { up: 0, down: 0 })[verdict]++;
-            }
-            cursor = page.list_complete ? null : page.cursor;
-          } while (cursor);
-        }
+        const tally = (await env.SAVES.get("t:" + puzzle, "json")) || {};
         return json(tally, 200, origin);
       }
     }

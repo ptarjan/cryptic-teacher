@@ -26,13 +26,11 @@
      "was that a good clue" is a question about how stuck you are, not about the
      clue. The puzzle gets the same question when the last square goes in.
 
-     Counted the way the milestones are — the Worker stores a key per vote and
-     tallies by listing them (see /v in sync/worker.js) — so there is nothing
-     stored about who voted, and two people rating the same clue at the same
-     moment cannot overwrite each other. The cost of that is the honest one: a
-     ballot box that cannot identify a voter cannot spot a second ballot either,
-     so one-vote-per-clue is this device remembering, and clearing the browser
-     buys another vote. That is a fair price for keeping the votes anonymous.
+     The Worker stores a key per vote plus one running tally per puzzle (see /v
+     in sync/worker.js), and nothing about who voted. The cost of that is the
+     honest one: a ballot box that cannot identify a voter cannot spot a second
+     ballot either, so one-vote-per-clue is this device remembering, and
+     clearing the browser buys another vote. That is a fair price for keeping the votes anonymous.
 
      The whole puzzle's tally arrives in ONE request when the grid opens, not one
      per clue. Everything here is best-effort: no tally is a row with no numbers
