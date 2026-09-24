@@ -25,6 +25,7 @@ matters more here than it did for fifteensquared, because the pre-2025 posts
 are prose and every blogger formats their prose differently.
 
   python3 tools/fetch_timesforthetimes.py               # top up the cache
+  python3 tools/fetch_timesforthetimes.py --full        # walk every page again
   python3 tools/fetch_timesforthetimes.py --status      # what is cached
   python3 tools/fetch_timesforthetimes.py --since 2020-01-01
 
@@ -83,12 +84,18 @@ def cached_ids():
     return {int(p.stem) for p in POSTS.glob("*.json")}
 
 
-def fetch_category(cid, name, since=None, pages_cap=None):
-    """Walk every page the API reports for one category.
+class FetchError(Exception):
+    """The API refused a page, so the category's walk did not finish."""
 
-    Walk them all: a page cap silently truncates an archive, and a run that
-    stopped early looks exactly like a finished one. `--pages` bounds a
-    spot-check, never a top-up.
+
+def fetch_category(cid, name, since=None, pages_cap=None, full=False):
+    """Walk one category newest first, and stop at the first page that is
+    already wholly cached: everything older than it was cached by an earlier
+    walk. That makes a top-up one page per category rather than the whole
+    archive, which at the crawl delay is twenty-odd minutes.
+
+    `full` walks every page, for a cache an interrupted walk left with a hole
+    below its newest page. `--pages` bounds a spot-check, never a top-up.
     """
     have = cached_ids()
     page, total_pages, new = 1, None, 0
@@ -105,8 +112,7 @@ def fetch_category(cid, name, since=None, pages_cap=None):
         except urllib.error.HTTPError as e:
             if e.code == 400 and total_pages and page > total_pages:
                 break  # walked off the end; the API 400s rather than emptying
-            print(f"  {name} page {page}: HTTP {e.code} {e.reason}", flush=True)
-            break
+            raise FetchError(f"{name} page {page}: HTTP {e.code} {e.reason}") from e
         if total_pages is None:
             total_pages = int(headers.get("X-WP-TotalPages") or 1)
             span = f" since {since}" if since else ""
@@ -114,11 +120,13 @@ def fetch_category(cid, name, since=None, pages_cap=None):
                   f"{total_pages} page(s)", flush=True)
         if not posts:
             break
-        for p in posts:
-            if p["id"] not in have:
-                (POSTS / f"{p['id']}.json").write_text(
-                    json.dumps(p, ensure_ascii=False), encoding="utf-8")
-                new += 1
+        fresh = [p for p in posts if p["id"] not in have]
+        for p in fresh:
+            (POSTS / f"{p['id']}.json").write_text(
+                json.dumps(p, ensure_ascii=False), encoding="utf-8")
+        new += len(fresh)
+        if not fresh and not full:
+            break
         page += 1
         if page > total_pages or (pages_cap and page > pages_cap):
             break
@@ -150,6 +158,8 @@ def main():
                     help="one category name; repeatable, default all puzzle ones")
     ap.add_argument("--pages", type=int,
                     help="stop after N pages per category — a spot-check, not a top-up")
+    ap.add_argument("--full", action="store_true",
+                    help="walk every page, not just down to the first cached one")
     ap.add_argument("--status", action="store_true", help="what is cached, then exit")
     a = ap.parse_args()
 
@@ -168,12 +178,18 @@ def main():
             return 2
 
     before = len(cached_ids())
+    failed = []
     for cid, name in wanted.items():
-        fetch_category(cid, name, a.since, a.pages)
+        try:
+            fetch_category(cid, name, a.since, a.pages, a.full)
+        except (FetchError, urllib.error.URLError, TimeoutError) as e:
+            failed.append(str(e))
         time.sleep(CRAWL_DELAY)
     after = len(cached_ids())
     print(f"cached {after} post(s), {after - before} new")
-    return 0
+    for why in failed:
+        print(f"ERROR: fetch_timesforthetimes: {why}", file=sys.stderr)
+    return 1 if failed else 0
 
 
 if __name__ == "__main__":
