@@ -5,6 +5,8 @@
 #   1. Fetches the newest puzzle of every series we follow — the Guardian daily
 #      cryptic, the Monday Quiptic (their beginner tier), the Sunday Everyman
 #      from the Observer, and the Independent's daily — if we don't have it yet.
+#      The Times comes from the times-for-the-times blog, its grids rebuilt
+#      from the posts' light lists (step 1b).
 #   2. Re-fetches puzzles whose solutions weren't published yet (Saturday prize
 #      crosswords publish theirs about a week late).
 #   3. Asks Claude Code (headless) to annotate the newest un-annotated puzzles,
@@ -162,6 +164,34 @@ done
 if [ "$(printf %s "$fetch_broken" | wc -w)" -ge "$(printf %s "$FETCHERS" | wc -w)" ]; then
   alert "every fetcher failed tonight ($fetch_broken) — no new puzzle can arrive from any paper until this is fixed. The rc lines are in .update.log."
 fi
+
+# --- 1b. The Times, rebuilt from the times-for-the-times blog ---
+# The Times publishes no grids, so a Times puzzle is a chain rather than a
+# fetch: cache the new blog posts, parse them, rebuild each grid from its
+# light list, file what passes into puzzles/. Each step reads the one before
+# it off ~/cryptic-setter-data/timesforthetimes/, so a step that fails ends
+# the chain — anything after it would read a half-written file — except the
+# fetch, whose failure only means the cache is as it was last night.
+# Before the queue below reads puzzles/index.json, and the filer does not
+# reindex, so it is done here: otherwise the day's Times would sit out
+# tonight's annotation.
+times_out="$(mktemp "${TMPDIR:-/tmp}/cryptic-times.XXXXXX")"
+for step in fetch_timesforthetimes parse_timesforthetimes times_grids file_times_puzzles; do
+  step_start=$SECONDS
+  python3 "tools/$step.py" >"$times_out" 2>&1
+  step_rc=$?
+  cat "$times_out"
+  echo "$step: rc=$step_rc in $((SECONDS - step_start))s"
+  [ $step_rc -eq 0 ] && continue
+  if [ "$step" = fetch_timesforthetimes ]; then
+    alert "the Times blog fetch failed (rc=$step_rc), so tonight's Times puzzles are filed from the posts already cached:"$'\n'"\`\`\`"$'\n'"$(tail -8 "$times_out" | cut -c1-200)"$'\n'"\`\`\`"
+  else
+    alert "the Times chain stopped at $step (rc=$step_rc); the steps after it were skipped, so no new Times puzzle is filed until it is fixed:"$'\n'"\`\`\`"$'\n'"$(tail -12 "$times_out" | cut -c1-200)"$'\n'"\`\`\`"
+    break
+  fi
+done
+[ "$step" = file_times_puzzles ] && [ $step_rc -eq 0 ] && python3 tools/fetch_puzzle.py --reindex
+rm -f "$times_out"
 
 # What we hold of every series, printed every night whether or not anything is
 # wrong, because the two ways a series dies are both silent: a fetcher that can
