@@ -252,6 +252,7 @@ LAYOUT = [
     ("tables everything else reads", "tools/test_build_readme.sh", "does tools/build_readme.py still read the header of every file it is asked about?"),
     ("tables everything else reads", "tools/test_prereset_lock.sh", "does the pre-reset backfill still take over a lock nobody is holding?"),
     ("tables everything else reads", "tools/test_nightly_worktree.sh", "which tree does a scheduled job end up running in? checked by running one"),
+    ("tables everything else reads", "tools/test_refresh_window.sh", "does refresh_unsolved ever stop asking for an answer that is never coming?"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the
