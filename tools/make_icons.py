@@ -76,36 +76,30 @@ def write_png(path, px):
 
 
 GAP_PCT = 0.013     # gridline
-MASK_INSET = 0.10   # app icons: clear of the corner iOS and Android round off
+MASK_INSET = 0.20   # app icons: a glyph centred on a coloured field, like a native app
 TAB_INSET = 0.03    # favicons: nothing masks these, so give the cells the room
 
 
 def icon(size, inset_pct=MASK_INSET):
-    """Square icon at `size`px: the motif full-bleed on ink.
+    """Square icon at `size`px: the motif centred on a field.
 
-    Full bleed, and dark, because of where this is actually seen. It used to be
-    the motif inset in a page-coloured square with hairline gridlines, which is a
-    near-white tile on a Home Screen — no silhouette against a light wallpaper,
-    and the mark itself only four fifths of an already small icon. iOS and Android
-    both mask the corners into a shape of their own choosing, so the field has to
-    run to the edge or the result looks like a sticker with a margin.
+    App icons (MASK_INSET) put the grid on an accent-blue field with a fifth of
+    the icon clear on every side. That is the shape of a native Home Screen icon:
+    a coloured tile with a mark in the middle. A grid run nearly to the edge on
+    ink reads as a framed screenshot next to them, and loses its corner cells to
+    the mask. Favicons (TAB_INSET) are never masked and are too small for a
+    margin, so they keep the grid full-bleed on ink.
 
-    The gridlines stay hairline and the frame does the work. Fat gutters were
-    tried and are worse: at 5% of the icon the cells stop touching and read as
-    five rows of loose tiles, and a block becomes indistinguishable from the gap
-    beside it. A crossword is a solid white field cut by thin lines, so that is
-    what this draws — the ink frame is what gives it an edge.
-
-    The frame is also the mask allowance. Both platforms round the corners off an
-    app icon, and at 10% the grid's own corner clears the arc with room to spare;
-    at the 8% tried first it sat about two pixels inside it, which is the kind of
-    margin that survives one phone and clips on the next.
+    The gridlines stay hairline; fat gutters make the cells read as loose tiles.
     """
-    px = canvas(size, size, BLOCK)
+    app = inset_pct >= MASK_INSET
+    px = canvas(size, size, ACCENT if app else BLOCK)
     gap = max(1, round(size * GAP_PCT))
     inset = round(size * inset_pct)
     cell = (size - 2 * inset - 4 * gap) // 5
     off = (size - (5 * cell + 4 * gap)) // 2
+    span = 5 * cell + 4 * gap
+    rect(px, off, off, off + span, off + span, BLOCK)
     for r in range(5):
         for c in range(5):
             x, y = off + c * (cell + gap), off + r * (cell + gap)
