@@ -762,7 +762,7 @@ fi
 echo "un-annotated backlog, newest first:"
 annotate_blocked=$(python3 tools/failed_inputs.py skipped annotate)
 todo=$(python3 - "$annotate_blocked" <<'EOF'
-import json, sys
+import json, os, sys
 from datetime import datetime, timezone
 idx = json.load(open("puzzles/index.json"))
 # Selection here is by date and nothing else, so a puzzle that fails is the
@@ -774,6 +774,11 @@ idx = json.load(open("puzzles/index.json"))
 blocked = set(sys.argv[1].split())
 todo = [p for p in idx["puzzles"] if not p["annotated"] and p.get("hasSolutions")
         and p["id"] not in blocked]
+# $CT_SERIES, a space-separated list of series keys, narrows the burn to those
+# papers. Unset or empty means every series.
+only = set(os.environ.get("CT_SERIES", "").split())
+if only:
+    todo = [p for p in todo if p["series"] in only]
 # Round-robin across the series, newest first inside each one.
 #
 # Newest first, and nothing else, inside a lane. Recency is the only property
