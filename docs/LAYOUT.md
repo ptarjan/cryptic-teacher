@@ -217,7 +217,7 @@ tools/fetch_lexicon.sh                       downloads the Lufz/Exet lexicon the
 annotating
 tools/annotate_prompt.md                     the prompt the daily Claude Code job follows to
                                              annotate
-tools/build_annotate_prompt.py               regenerates that prompt’s reference block from the
+tools/build_annotate_prompt.py               regenerates that prompt’s type vocabulary from the
                                              code’s own tables
 STYLE.md                                     the standing style rules, read whole by every
                                              annotating run
@@ -230,6 +230,10 @@ BACKFILLS.md                                 the sweeps over already-published c
 tools/annotate_check.py                      the one command an annotation run needs after
                                              every edit: applies, validates, audits, reindexes,
                                              and says everything wrong at once
+tools/test_annotate_disclosure.sh            proves each rule cut from the annotation prompt
+                                             still arrives through its check, and that the blog
+                                             lookup is disclosed only once the last few clues
+                                             are null — never earlier, never blind
 tools/validate_annotations.py                proves every annotation actually spells its
                                              answer, plus the other rules about what a rung may
                                              and may not say
