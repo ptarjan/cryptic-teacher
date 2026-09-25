@@ -3875,6 +3875,13 @@ registry["reset-puzzle"].onclick();
   assert(/#notify-list \.badge\.series/.test(unfloored),
     "and the notify panel's one-per-row chips cancel it, so a short paper name "
     + "is not padded out to a long one's width; what cancels it today: " + unfloored.trim());
+  // A panel scrolls once its content passes 70vh, and a classic scrollbar
+  // takes its width out of the content box. Without a reserved gutter the
+  // picker's paper chips re-wrap as the list crosses that height.
+  const panelRule = (chipCss.replace(/\/\*[\s\S]*?\*\//g, " ")
+    .match(/(^|\})\s*\.panel\s*\{[^}]*\}/) || [""])[0];
+  assert(/overflow:\s*auto/.test(panelRule) && /scrollbar-gutter:\s*stable/.test(panelRule),
+    "a .panel scrolls and reserves its scrollbar gutter: " + panelRule.replace(/\s+/g, " "));
 
   // Changing the time with no paper ticked must not unsubscribe the device:
   // saveNotify([]) IS the unsubscribe, so "not before eight" would read as

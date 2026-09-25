@@ -234,6 +234,10 @@ button:disabled:hover { border-color: var(--line); }
 .panel {
   position: absolute; z-index: 30; right: 16px; top: 64px;
   width: min(430px, calc(100vw - 32px)); max-height: 70vh; overflow: auto;
+  /* The gutter is kept whether or not the content scrolls. Without it the
+     content box is a scrollbar wider once the content fits, and every
+     wrapping row inside (the picker's paper chips) breaks somewhere else. */
+  scrollbar-gutter: stable;
   background: var(--card); border: 1px solid var(--line); border-radius: 10px;
   box-shadow: 0 10px 30px rgba(0,0,0,.25); padding: 12px 14px;
 }
