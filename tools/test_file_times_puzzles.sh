@@ -141,7 +141,7 @@ check "a second run files nothing" "0" "$(got RERUN_FILED)"
 check "a second run rewrites nothing" "True" "$(got RERUN_UNTOUCHED)"
 check "a drifted file is named" "times-102" "$(got DRIFTED)"
 check "the Sunday Times takes its setter from the title; the Times stays anonymous" \
-  "Dean Mayer Times" "$(got SETTERS)"
+  "Dean Mayer Unknown" "$(got SETTERS)"
 check "a placeholder setter already filed is named" "Dean Mayer" "$(got RENAMED_PLACEHOLDER)"
 check "a setter already named is never overwritten" "Someone" "$(got RENAMED_NAMED)"
 
