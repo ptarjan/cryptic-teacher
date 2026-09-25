@@ -255,12 +255,7 @@ def convert(data):
         "number": number,
         "series": SERIES,
         "name": f"Metro cryptic crossword, {date.day} {date.strftime('%B %Y')}",
-        # "metro" isn't in tools/series.py's SERIES table yet (that's the main
-        # session's job when it registers this series). Until it is, meta()
-        # falls back to the cryptic entry, which has no "setter" key either —
-        # so this returns "Unknown" today for the right reason (Metro's feed
-        # names no setter) and will pick up a real default automatically the
-        # day someone adds one for "metro", with no change needed here.
+        # Metro prints no byline, so this is null unless series.py names one.
         "setter": series_meta.default_setter(SERIES),
         "date": epoch_millis,
         "dimensions": {"cols": cols, "rows": rows},

@@ -113,9 +113,9 @@ print("RERUN_UNTOUCHED", before == {q.name: q.read_bytes() for q in fetch_puzzle
 print("DRIFTED", ",".join(drifted))
 print("SETTERS", sunday["setter"], json.loads((fetch_puzzle.PUZZLE_DIR / "times-29000.json").read_text())["setter"])
 
-# A placeholder setter on disk is replaced by the title's; a name never is.
+# A null setter on disk is replaced by the title's; a name never is.
 sp = fetch_puzzle.PUZZLE_DIR / "sundaytimes-4321.json"
-for key, held in (("PLACEHOLDER", "Unknown"), ("NAMED", "Someone")):
+for key, held in (("PLACEHOLDER", None), ("NAMED", "Someone")):
     sp.write_text(json.dumps({**sunday, "setter": held}))
     F.run(grids, parsed, listing={})
     print(f"RENAMED_{key}", json.loads(sp.read_text())["setter"])
@@ -141,8 +141,8 @@ check "a second run files nothing" "0" "$(got RERUN_FILED)"
 check "a second run rewrites nothing" "True" "$(got RERUN_UNTOUCHED)"
 check "a drifted file is named" "times-102" "$(got DRIFTED)"
 check "the Sunday Times takes its setter from the title; the Times stays anonymous" \
-  "Dean Mayer Unknown" "$(got SETTERS)"
-check "a placeholder setter already filed is named" "Dean Mayer" "$(got RENAMED_PLACEHOLDER)"
+  "Dean Mayer None" "$(got SETTERS)"
+check "a null setter already filed is named" "Dean Mayer" "$(got RENAMED_PLACEHOLDER)"
 check "a setter already named is never overwritten" "Someone" "$(got RENAMED_NAMED)"
 
 # Print dates. The prize puzzles are blogged a week or more after they are

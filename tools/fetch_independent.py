@@ -320,7 +320,7 @@ def metadata_title(title):
     """
     m = re.match(r"\|?\s*(?:No[.,]?\s*)?(\d[\d,\s]*\d|\d)\s*(?:by\s*(.+))?$", title)
     if m:
-        return (m.group(2) or "").strip() or "Unknown", m.group(1)
+        return (m.group(2) or "").strip() or None, m.group(1)
     # A fifth, older shape drops "No." AND "by" both and just reverses the
     # order: "Raich 9897" (2018-07-03) — setter name, then the number bare.
     # The number is trustworthy (it slots exactly between 9896 the day before
