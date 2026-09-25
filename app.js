@@ -92,7 +92,7 @@
       ? `<span class="vote-said">${t.up} of ${said} liked it</span>` : "";
     if (mine) {
       return `<div class="vote-row"><span class="vote-mine">${
-        mine === "up" ? "You liked it" : "Not one of yours"}</span>${crowd}</div>`;
+        mine === "up" ? "You liked it" : "You didn’t like it"}</span>${crowd}</div>`;
     }
     return `<div class="vote-row"><span class="vote-ask">${ask}</span>` +
       `<button type="button" class="ghost small vote-btn" data-vote="${esc(target)}|up">${yes}</button>` +
@@ -261,22 +261,22 @@
     // it, not a sentence.
     { id: "welcome", modal: true },
     { id: "ladder",
-      text: "Stuck? Every clue here is written up, and these buttons open it one step at a time. Take one \u2014 that is what they are for \u2014 and stop the moment you can see it.",
+      text: "Stuck? These buttons are hints, and every clue here is written up in them. Each one shows a bit more of how the clue works. Press one, and stop as soon as you can see the answer.",
       // The one line that outlives its first press. A newcomer who takes a rung
       // has learned what one button does, not what the row is for, so the light
       // moves down the ladder with them and the sentence changes to the thing
       // that is still worth saying. Spent by the last rung or by solving.
-      again: "That is one step. Each button below says a bit more than the one above it \u2014 keep going, and stop the moment you can see the answer." },
+      again: "That was one hint. Each one below gives away a bit more than the one before \u2014 keep going, and stop as soon as you can see the answer." },
     { id: "free",
-      text: "Solve a clue and the rest of its write-up costs nothing: open it anyway and see how it was built." },
+      text: "Once you solve a clue, the rest of its hints costs nothing and your score stays the same. Open them anyway to see how the clue was built." },
     { id: "score",
-      text: "Hints are what the score counts, not time \u2014 so a clue you get on two is worth more than one you got on six." },
+      text: "Your score counts hints, not time \u2014 so solving a clue with two hints beats solving it with six." },
     // The walk ends by saying it has ended. Without this the last line simply
     // stops appearing, which reads as the site having lost its place rather
     // than as a tour that finished. Nothing is pointed at: there is nothing
     // left to be shown, so the scrim stays down and the page is handed back.
     { id: "done",
-      text: "That is the tour \u2014 the ladder, the steps you can answer for free, and what the score counts. From here the page stays out of your way." },
+      text: "That is the tour: the hints, how to answer them for free, and what the score counts. There are no more tips after this one." },
   ];
   // An integer index into NUX_LINES, or null for a browser that is owed none of
   // them. undefined until the first visit this code has seen, which is the only
@@ -419,8 +419,8 @@
 
   // Named, because the walk both says it and acts on it: saying it is what
   // sends the eye to the grid, so the two cannot be allowed to drift apart.
-  const TYPE_IT_LINE = "That is every piece. Put them together and type the answer"
-    + " into the lit boxes \u2014 the one way of finishing a clue that charges nothing.";
+  const TYPE_IT_LINE = "You have every piece now. Put them together and type the answer"
+    + " into the highlighted squares in the grid \u2014 typing it in yourself is the only way to finish a clue without using a hint.";
 
   function nuxDraw() {
     const el = $("nux");
@@ -435,7 +435,7 @@
                  && $("hint-next").childElementCount > 0;
     const typeIt = !nuxAsk() && nuxTypeIt(currentEntry());
     const telling = nuxAsk()
-      ? "Answer it yourself and the step costs you nothing \u2014 tap what is lit up."
+      ? "Answer this question yourself and the hint costs you nothing \u2014 tap what is lit up."
       : typeIt
       ? TYPE_IT_LINE
       : "";
@@ -1098,7 +1098,7 @@
         if (applyEnvelope(merged)) { restoreState(); refreshAll(); }
         syncNote("Synced");
       })
-      .catch(() => syncNote("Offline — will retry"))
+      .catch(() => syncNote("Can’t reach the sync server — will try again"))
       .then(() => {
         syncBusy = false;
         if (syncAgain) { syncAgain = false; syncPushSoon(); }
@@ -1121,7 +1121,7 @@
         // machine you just opened is not the only one holding your morning.
         if (JSON.stringify(merged) !== JSON.stringify(remote)) return syncPush();
       })
-      .catch(() => syncNote("Offline — will retry"));
+      .catch(() => syncNote("Can’t reach the sync server — will try again"));
   }
 
   // One line of state, under the code, and never a modal or a toast: syncing is
@@ -1240,7 +1240,7 @@
   function startScan() {
     const media = navigator.mediaDevices;
     if (!media || !media.getUserMedia) {
-      syncNote("This browser will not hand over its camera — type the code instead.");
+      syncNote("This browser can’t use the camera here — type the code instead.");
       return;
     }
     const video = $("sync-scan-video");
@@ -1261,7 +1261,7 @@
         };
         video.srcObject = stream;
         if (video.play) video.play();
-        syncNote("Point this at the square on the other device.");
+        syncNote("Point the camera at the QR code on your other device.");
         // A frame every eighth of a second, not every frame: decoding is the
         // expensive part and a code held up to a camera is held there.
         const tick = () => {
@@ -1282,8 +1282,8 @@
         tick();
       })
       .catch((err) => stopScan(err && err.name === "NotAllowedError"
-        ? "The camera was refused — type the code in instead."
-        : "That camera would not start — type the code in instead."));
+        ? "Camera access was blocked — type the code instead."
+        : "The camera wouldn’t start — type the code instead."));
   }
 
   /* What the square holds is a join URL, but a code photographed off a screen or
@@ -1302,12 +1302,12 @@
 
   function joinCode(text) {
     const raw = String(text || "").toUpperCase().replace(/[^A-Z0-9]/g, "");
-    if (raw.length !== 8) { syncNote("A code is 8 characters."); return; }
+    if (raw.length !== 8) { syncNote("A sync code is 8 characters long."); return; }
     // CODE_ALPHABET has no 0, O, 1, I, L or U, so a code containing one was
     // misread rather than mistyped, and the character names itself.
     const stray = raw.split("").filter((ch) => CODE_ALPHABET.indexOf(ch) < 0);
     if (stray.length) {
-      syncNote("No code contains " + stray.join(", ") + " — look again at the other device.");
+      syncNote("Sync codes never contain " + stray.join(", ") + " — check the code on the other device again.");
       return;
     }
     const had = store.get("ct:sync", null);
@@ -1321,8 +1321,8 @@
       // so a typo costs a sentence rather than the code it was on.
       if (had) store.set("ct:sync", had); else store.del("ct:sync");
       renderSyncPanel();
-      syncNote("No grids are stored under " + raw + ". Nothing here has changed — check it "
-               + "on the other device, or start a code here.");
+      syncNote("No progress is saved under " + raw + ". Nothing on this device has changed — "
+               + "check the code on the other device, or make a new code here.");
     });
   }
 
@@ -1341,9 +1341,9 @@
     // Taking a code is offered in both states, so the wording has to say what
     // pressing it does to a device that already has one.
     $("sync-join-label").textContent = code
-      ? "Scanned another device? Its code replaces this one here, and these grids merge into it."
-      : "Already syncing on another device? Type its code in here.";
-    syncNote(code ? "" : "Not syncing — this machine only.");
+      ? "Want this device on another device’s code instead? Enter it here. It replaces this code, and the progress on both is combined."
+      : "Already syncing on another device? Enter its code here.";
+    syncNote(code ? "" : "Not syncing — progress is saved on this device only.");
   }
 
   /* ---------- being told when the next one is up ----------
@@ -1438,9 +1438,9 @@
     if (!list) return;
     const when = $("notify-when");
     if (iosNeedsHomeScreen()) {
-      list.innerHTML = `<li class="muted small-note">On an iPhone or iPad, notifications reach a
-        site only once it is on your Home Screen — share this page, “Add to Home Screen”, and
-        tick your papers in there.</li>`;
+      list.innerHTML = `<li class="muted small-note">On an iPhone or iPad, a site can only send
+        notifications once it is on your Home Screen. Tap Share, then “Add to Home Screen”, open
+        the site from that icon, and tick your papers there.</li>`;
       // Nothing here can be notified yet, so a time to be notified AT is a
       // control that promises something the browser will not do.
       if (when) when.classList.add("hidden");
@@ -1526,7 +1526,7 @@
       renderNotifyPanel();
       notifyNote(msg);
     };
-    notifyNote(next.length ? "Saving…" : "Turning these off…");
+    notifyNote(next.length ? "Saving…" : "Turning notifications off…");
     /* Permission is asked for on the first tick and never on load: a prompt
        nobody asked for is how a site gets permanently blocked. And "denied" is
        final — the browser will not ask again however often we do — so the panel
@@ -1536,9 +1536,9 @@
       .then((perm) => {
         if (next.length && perm !== "granted") {
           done(perm === "denied"
-            ? "This browser blocks notifications for the site and will not ask again — turn them "
-              + "back on in its settings for this site."
-            : "Notifications weren’t allowed, so nothing is turned on.");
+            ? "Your browser is blocking notifications from this site and won’t ask again — "
+              + "allow them in the browser’s settings for this site."
+            : "You didn’t allow notifications, so none are turned on.");
           return null;
         }
         return pushSubscription();
@@ -1550,9 +1550,9 @@
         // still holding is dead weight: dropping it means the next tick asks for
         // a fresh one instead of reviving one that may already have been retired.
         return sub.unsubscribe().catch(() => {})
-          .then(() => done("Off — nothing will be sent to this device."));
+          .then(() => done("Notifications are off — nothing will be sent to this device."));
       }))
-      .catch((err) => done("Didn’t save (" + ((err && err.message) || err) + ")."));
+      .catch((err) => done("Couldn’t save — please try again (error: " + ((err && err.message) || err) + ")."));
   }
 
   /* Re-assert the subscription on load, in the background.
@@ -2644,15 +2644,15 @@
   const FILL_LABEL = "Fill in answer";
 
   const TYPE_BLURBS = [
-    ["anagram", "An anagram: some words in the clue are raw letter fodder to be rearranged. Find the indicator, then count letters against the enumeration."],
+    ["anagram", "An anagram: the letters of some words in the clue are rearranged to make the answer. Find the indicator, then check those letters add up to the number in brackets."],
     ["charade", "A charade: the answer is built from parts placed one after another, each clued separately."],
     ["container", "A container: one part is placed inside another. Look for words like holding, in, covering, swallowing."],
-    ["hidden", "A hidden word: the answer is spelled out consecutively inside the clue itself."],
+    ["hidden", "A hidden word: the answer is spelled out, letter by letter in order, inside the words of the clue."],
     ["homophone", "A homophone: the wordplay describes something that sounds like the answer."],
-    ["reversal", "A reversal: something is spelled backwards (in a down clue, 'up'-words signal this)."],
+    ["reversal", "A reversal: something is spelled backwards (in a down clue, words meaning 'up' can signal this)."],
     ["deletion", "A deletion: letters are removed from a longer word — heads, tails or insides."],
     ["double definition", "A double definition: two definitions sit side by side; there is no other wordplay."],
-    ["&lit", "An &lit: the whole clue is both the definition and the wordplay at once."],
+    ["&lit", "An &lit (short for \u201cand literally so\u201d): the whole clue is both the definition and the wordplay at once."],
     ["alternate letters", "Alternate letters: take every other letter of an indicated word."],
     ["regular letters", "Regular letters: count through an indicated phrase at a fixed step — every third letter, say — and keep the ones you land on."],
     ["first letter", "First letters: take the initial letter(s) of indicated word(s)."],
@@ -2661,7 +2661,7 @@
     ["second letter", "Second letters: count into the indicated word(s) and keep only the letter in position two."],
     ["fifth letter", "Fifth letters: count five letters into the indicated word and keep the one you land on."],
     ["outer letters", "Outer letters: keep only the outside letters of an indicated word."],
-    ["cryptic definition", "A cryptic definition: no separable wordplay — the whole clue is one sly description."],
+    ["cryptic definition", "A cryptic definition: there is no separate wordplay — the whole clue is one playful, misleading description of the answer."],
     ["spoonerism", "A spoonerism: swap the opening sounds of two words to get the answer."],
     ["cycling", "Cycling: letters move from one end to the other without changing their order — the word rotates rather than shuffles."],
     ["substitution", "A substitution: one indicated letter or chunk stands in for another — make the swap and the answer appears."],
@@ -2691,13 +2691,13 @@
       // the generic sentence spelled it out before the solver had bought a
       // single hint. Family blurbs are shown on every clue in the family, so
       // they cannot use a word that is ever an answer if a synonym will do.
-      blurb: "No letter mechanics at all — nothing is shuffled, hidden or spelled out. Either two plain definitions sit side by side, or one sly one describes the answer the long way round.",
+      blurb: "No letter tricks at all — nothing is shuffled, hidden or spelled out. Either two plain definitions sit side by side, or one playful, misleading description stands for the answer.",
       match: (t) => t.includes("double definition") || t.includes("cryptic definition") },
     { label: "&lit", n: 160,
-      blurb: "The whole clue does double duty: read it once as a definition, then read the very same words again as wordplay.",
+      blurb: "&lit is short for \u201cand literally so\u201d. The whole clue does double duty: read it once as a definition, then read the very same words again as wordplay.",
       match: (t) => t.includes("&lit") },
     { label: "Anagram", n: 2181,
-      blurb: "Letters handed to you in the clue get shuffled into the answer. Find the fodder and count it against the enumeration.",
+      blurb: "Letters handed to you in the clue get shuffled into the answer. Find those letters and check they add up to the number in brackets.",
       match: (t) => t.includes("anagram") || t.includes("cycling") },
     { label: "Homophone", n: 475,
       blurb: "The wordplay describes how the answer sounds rather than how it is spelled.",
@@ -2706,7 +2706,7 @@
       blurb: "The answer is built from pieces laid end to end, each clued separately — read the wordplay left to right.",
       match: (t) => t.includes("charade") },
     { label: "Container, reversal or deletion", n: 4434,
-      blurb: "A piece of the wordplay is changed rather than just joined on: put inside something, turned around, or trimmed.",
+      blurb: "A piece of the wordplay is changed, not just placed next to the others: it is put inside something, turned around, or trimmed.",
       match: (t) => t.includes("container") || t.includes("reversal") || t.includes("deletion") || t.includes("substitution") || t.includes("palindrome") },
     { label: "Hidden", n: 2200,
       blurb: "The answer's letters are already sitting in the clue in order — the job is working out which ones to pick out.",
@@ -2819,7 +2819,7 @@
   // content — naming the term would only be the label.
   const INDICATOR_OPS = [
     ["anagram", "rearrange the letters it points at",
-      "Anagram indicators describe a mess rather than a meaning: disorder, drunkenness, cooking, damage, movement. If a word tells you something is broken, stirred or at sea, suspect fodder nearby."],
+      "Anagram indicators describe a mess rather than a meaning: disorder, drunkenness, cooking, damage, movement. If a word tells you something is broken, stirred or at sea, the letters to shuffle are probably next to it."],
     ["container", "put one piece inside another",
       "Containers are clued by words for holding and swallowing — in, about, around, eating, grips, hosting. The tricky ones read as ordinary prepositions."],
     ["reversal", "write a piece backwards",
@@ -2841,9 +2841,9 @@
     ["last letter", "take the final letter of the words it points at",
       "Finals come from trailing words: finally, last, ends, tails, ultimately."],
     ["middle letter", "take just the middle of a word",
-      "Centre words: heart of, middle, centrally, core."],
+      "Middle-letter words: heart of, middle, centrally, core."],
     ["outer letters", "keep only the outside letters of a word",
-      "Outer words: outskirts, extremes, borders, bookends, both sides."],
+      "Outside-letter words: outskirts, extremes, borders, bookends, both sides."],
     ["cycling", "move letters from one end to the other, keeping their order",
       "Cycling is rarer than an anagram and looks like one until you notice the order survives: cycles, rotated, circulating."],
     ["substitution", "swap one letter or chunk for another",
@@ -3190,7 +3190,7 @@
         return `<button type="button" class="ana-tile${ring.struck[idx] ? " struck" : ""}${
             pinnedTile[idx] ? " fixed" : ""}"
           data-ana="${idx}" data-word="${w}" aria-pressed="${ring.struck[idx] ? "true" : "false"}"
-          title="${pinnedTile[idx] ? "Already in the grid — pinned where it goes" : "Cross off once used"}"
+          title="${pinnedTile[idx] ? "Already in the crossword grid — fixed in its place" : "Tap to cross off once used"}"
           style="left:calc(50% + ${Math.round(Math.cos(a) * radius)}px);
                  top:calc(50% + ${Math.round(Math.sin(a) * radius)}px)">${ring.letters[idx]}</button>`;
       }).join("");
@@ -3206,8 +3206,8 @@
       <div class="ana-discs">${discs}</div>
       <p class="muted">${cuts.length > 1
         ? `The gaps are where the answer's words end, ${cuts.join(" then ")} letters. Letters`
-        : "Letters"} already in the grid are pinned where they go, reading clockwise from
-        the top. Tap a letter to cross it off once you've used it. Click the ring and type
+        : "Letters"} you already have in the crossword grid are fixed in their places on the ring,
+        reading clockwise from the top. Tap a letter to cross it off once you've used it. Click the ring and type
         to add a letter, Backspace to remove the last. Shuffle for a fresh arrangement.</p>
       <button type="button" id="ana-shuffle" class="ghost small">Shuffle</button>
     </div>`;
@@ -3409,8 +3409,8 @@
         key: "definition",
         label: LABELS.definition,
         html: `<p>It splits between <mark class="def">${esc(ann.definition)}</mark> and
-          <mark class="def2">${esc(ann.definition2)}</mark> — two unrelated senses of the same
-          word, which is where the surface reading misleads you.</p>` +
+          <mark class="def2">${esc(ann.definition2)}</mark> — two unrelated meanings of the same
+          answer. The clue reads like one sentence so that you don't notice it is two definitions side by side.</p>` +
           (senses ? `<ul>${senses}</ul>` : "")
       });
     } else if (isLit) {
@@ -3424,8 +3424,8 @@
       steps.push({
         key: "definition",
         label: LABELS.definition,
-        html: `<p>There's no separable wordplay here: <mark class="def">${esc(ann.definition)}</mark>
-          is a whole-clue description that only makes sense once you see it the setter's way.</p>`
+        html: `<p>There's no separate wordplay here: <mark class="def">${esc(ann.definition)}</mark>
+          is a whole-clue description of the answer, worded to make you picture something else at first.</p>`
       });
     } else {
       // Not "everything else is wordplay, and definitions sit at one end" — that
@@ -3457,7 +3457,7 @@
     if ((ann.linkWords || []).length) {
       const lw = ann.linkWords.map((w) => `<mark class="link">${esc(w)}</mark>`).join(", ");
       defStep.html += `<p class="muted">${lw} ${ann.linkWords.length > 1 ? "are" : "is"}
-        just a link — words that join the definition to the wordplay and contribute
+        just a link — words that join the definition to the wordplay and add
         no letters of their own.</p>`;
     }
 
@@ -3502,7 +3502,7 @@
         const HOWMANY = ["no", "one", "two", "three", "four", "five", "six"];
         html = `<p>${marks} — this clue does ${HOWMANY[ops.length] || ops.length} things, and
           the indicators are what tell them apart:</p><ul>${ops.map(([, op]) => `<li>${op}</li>`).join("")}</ul>
-          <p class="muted">Which word calls for which is the step to work out here.</p>`;
+          <p class="muted">Your job here is to work out which word asks for which.</p>`;
       } else {
         html = `<p>${marks} — ${inds.length > 1 ? "these tell" : "this tells"} you
           what to do with the rest of the wordplay.</p>`;
@@ -3570,7 +3570,7 @@
           const href = glossaryHref(b);
           const gives = `<span class="gives">${esc(letters)}</span>`;
           s += " → " + (href
-            ? `<a class="gloss" href="${href}" title="Standard abbreviation — look it up once">${gives}</a>`
+            ? `<a class="gloss" href="${href}" title="A standard crossword abbreviation — tap to see the list">${gives}</a>`
             : gives);
         }
         if (b.note) s += ` <span class="muted">— ${esc(b.note)}</span>`;
@@ -3628,7 +3628,7 @@
     // cryptic definitions, idioms) correctly have none and show "The trick"
     // alone, exactly as they do today.
     const joke = ann.surface
-      ? `<p><b class="wt-part">The joke</b>${esc(ann.surface)}</p>` : "";
+      ? `<p><b class="wt-part">What it seems to say</b>${esc(ann.surface)}</p>` : "";
     steps.push({
       key: "walkthrough",
       label: LABELS.walkthrough,
@@ -3738,7 +3738,7 @@
     if (chips.join("|") === pairs.map((p) => p.gives).join("|")) {
       const swap = chips[0]; chips[0] = chips[1]; chips[1] = swap;
     }
-    return { prompt: "Which piece of the clue gives which letters?",
+    return { prompt: "Match each part of the clue to the letters it gives.",
              pairs, chips, step: 0 };
   }
 
@@ -3748,9 +3748,9 @@
   function gradeMatch(ask, slots) {
     const got = ask.pairs.filter((p, i) => slots[i] >= 0 && ask.chips[slots[i]] === p.gives).length;
     const n = ask.pairs.length;
-    if (got === n) return { right: true, said: "Yes — every piece where it belongs." };
-    if (!got) return { right: false, said: "None of those pair up. Here is how it splits." };
-    return { right: false, said: `${got} of the ${n} in the right place — here is the whole split.` };
+    if (got === n) return { right: true, said: "Yes — every part matched correctly." };
+    if (!got) return { right: false, said: "None of those match. Here is how the clue breaks down." };
+    return { right: false, said: `${got} of the ${n} matched correctly — here is how the whole clue breaks down.` };
   }
 
   // Which words of the clue a rung names. Kept apart from guessAsk because a
@@ -3857,7 +3857,7 @@
     // other clue with no question in it.
     const bare = (t) => String(t || "").replace(/[^A-Za-z]/g, "").toUpperCase();
     if (FAMILY_CHIPS.some((c) => bare(c) === bare(ann.answer))) return null;
-    return { prompt: "Which of these is it?", choices: FAMILY_CHIPS,
+    return { prompt: "Which kind of clue is it? Each kind is explained once you answer.", choices: FAMILY_CHIPS,
              answer: right[0], answers: right, step: 0 };
   }
 
@@ -3901,7 +3901,7 @@
     if (rung === "definition") {
       prompt = "Which words define the answer?";
     } else if (rung === "indicators") {
-      prompt = "Which words tell you what to do to the rest?";
+      prompt = "Which words tell you what to do with the rest?";
     } else if (rung === "blocks") {
       // The matching question covers the rung entire, so it is only ever the
       // first thing asked. A puzzle resumed part-way through the old paced
@@ -4244,7 +4244,7 @@
         ? ` <span class="tap-hint">Tap them in the clue above.</span>` : ""}</p>
       ${answer}
       <p class="guess-actions">${check}<button id="guess-tell" class="ghost small">Just tell me</button>
-      <button id="guess-later" class="ghost small">Not yet</button></p></div>`;
+      <button id="guess-later" class="ghost small">Skip for now</button></p></div>`;
   }
 
   // Right or not, and which one you said — never what the right one was. The
@@ -4291,7 +4291,7 @@
     if (!spare.length && hit.length && missed.every((x) => edge.indexOf(x) >= 0)) {
       const words = missed.map((x) => ask.tokens[x].text).join(" ");
       return { hit: target, spare, missed: [], right: true,
-               said: `Yes — whether “${words}” belongs to the definition is a matter of taste.` };
+               said: `Yes — solvers disagree on whether “${words}” is part of the definition, so either way counts.` };
     }
     // An indicator is a phrase, and which of its words carry the instruction is
     // not the lesson: "according to Spooner", "for Spooner" and "Spooner" all
@@ -4312,7 +4312,7 @@
     }
     if (hit.length === n) {
       return { ...v, right: false, said: `You had all ${n}, plus ${spare.length} word${
-        spare.length > 1 ? "s" : ""} that isn’t doing that job.` };
+        spare.length > 1 ? "s that aren’t" : " that isn’t"} doing that job.` };
     }
     if (hit.length) {
       // "Close" only when it is close. It used to be the verdict on any overlap
@@ -4463,7 +4463,7 @@
       else if (c.revealed) cls.push("revealed");
       if (c.x === cur.x && c.y === cur.y) cls.push("cur");
       if (typeIt && !c.letter) cls.push("walk-point");
-      const title = (c.letter ? esc(c.letter) : "blank") + (isChecked ? ", checked" : ", unchecked");
+      const title = (c.letter ? esc(c.letter) : "blank") + (isChecked ? ", shared with a crossing answer" : ", no crossing answer");
       // A button, not a span: the strip doubles as a way to move the cursor
       // without hunting for the square in the grid (data-i is the index in the
       // entry, read by the delegated handler in boot()).
@@ -4492,8 +4492,8 @@
     const unchecked = cs.length - checked;
     const note = `${filled} of ${cs.length} letter${cs.length > 1 ? "s" : ""} in place · `
       + (segs.length ? `in words of ${segs.join(", ")} · ` : "")
-      + (unchecked ? `${checked} checked, ${unchecked} unchecked (dashed — no crossing clue)`
-                   : `all ${checked} checked`);
+      + (unchecked ? `${checked} shared with crossing answers, ${unchecked} not (dashed boxes)`
+                   : `all ${checked} shared with crossing answers`);
     // The note is for screen readers only. Printed next to the boxes it restated
     // what the boxes already show — which squares have letters, and which are
     // dashed — in twenty words of prose sitting directly under the clue you are
@@ -4624,7 +4624,7 @@
     // The reason, not "try again later": a reader told only that it failed cannot
     // tell an outage from something they did.
     if (report.phase === "failed") {
-      return `<span class="muted">Didn’t send (${esc(report.msg)}).</span> `
+      return `<span class="muted">Couldn’t send (error: ${esc(report.msg)}).</span> `
         + `<button id="rp-open" class="ghost small">Try again</button>`;
     }
     // A box you can see what you wrote in. The 400 characters this accepts were
@@ -4722,7 +4722,7 @@
       clueLine += `<span class="clue-done${clean ? " clean" : ""}" title="${
         clean ? "Solved with no hints at all" : "Solved"}">${clean ? "★" : "✓"}</span>`;
     }
-    if (holder !== e) clueLine += `<span class="muted">(linked with ${tag(holder)}) </span>`;
+    if (holder !== e) clueLine += `<span class="muted">(one answer whose letters are divided between ${tag(e)} and ${tag(holder)}; its clue is printed at ${tag(holder)} and shown here) </span>`;
     setHTML($("hint-pattern"), patternHTML(e));
 
     // A report is about the clue it was started on, and moving on abandons it —
@@ -4742,8 +4742,8 @@
       // no longer called hints: a rung you answered yourself was never one, and
       // the score has never charged for it. What you worked out is reported
       // beside it, because that is the number this is all for.
-      : (ann ? `<strong>${level}</strong>/${ladderSteps(ann, e.clue).length} shown${
-                 earnedRungs(e).length ? ` · ${earnedRungs(e).length} worked out` : ""}${revealsNote}`
+      : (ann ? `<strong>${level}</strong>/${ladderSteps(ann, e.clue).length} hints shown${
+                 earnedRungs(e).length ? ` · ${earnedRungs(e).length} of those worked out by answering its question, so free` : ""}${revealsNote}`
              : revealsNote.replace(" · ", ""));
     // Whether there is anything left on the ladder, filled in below once the
     // steps are known: a solved clue's score is settled, so the rest of the
@@ -4782,9 +4782,9 @@
         this clue — the words above are not the ones this answer came from, so there is no
         wordplay in them to explain. ${esc(e.clueCorrupt)}
         ${canCheck() ? "You can reveal the answer below." : ""}</p></div>`
-        : `<div class="hint-step"><p class="muted">This clue hasn’t been hand-annotated yet
-        (<span class="badge auto">answers only</span>), so there’s no teaching ladder for it.
-        You can still check your letters${canCheck() ? " and reveal below" : ""}.</p></div>`;
+        : `<div class="hint-step"><p class="muted">This clue hasn’t been explained yet
+        (<span class="badge auto">answers only</span>), so it has no hints.
+        You can still check your letters${canCheck() ? " and reveal the answer below" : ""}.</p></div>`;
       if (canCheck() && !solved) nextSpec.push({ fill: true, text: "Reveal answer" });
     } else {
       // Revealed rungs always read in ladder order and keep their ladder
@@ -4834,7 +4834,7 @@
         legend.push('<mark class="ind">indicator</mark>');
       }
       if (isShown(e, "definition") && (ann.linkWords || []).length) {
-        legend.push('<mark class="link">link</mark>');
+        legend.push('<mark class="link">link words</mark>');
       }
       if (legend.length) {
         bodyHTML += `<div class="legend">${legend.join(" · ")} highlighted in the clue above</div>`;
@@ -4858,8 +4858,8 @@
       // ask; a clue with no question in it must not be sold as one.
       if (!bodyHTML && !solved && !Object.keys(hintsEarned).some((k) => hintsEarned[k].length)
           && steps.some((s) => GUESSABLE[s.key] && guessAsk(e, s.key))) {
-        bodyHTML = `<div class="hint-step"><p class="muted">Every step asks before it tells —
-          answer it yourself and it’s free.</p></div>`;
+        bodyHTML = `<div class="hint-step"><p class="muted">Each hint asks you a question before it tells you —
+          answer it yourself and the hint is free.</p></div>`;
       }
 
       // Every unlocked rung is offered at once, not just the next one: wanting
@@ -4893,7 +4893,7 @@
         // middle of the one rung that takes several presses.
         nextSpec.push({ rung: "blocks", step: total - left,
           cls: nuxPointsAtRung() ? "rung-point" : "",
-          text: `Next piece · ${total - left + 1} of ${total}` });
+          text: `Next building block · ${total - left + 1} of ${total}` });
       }
       open.forEach(({ s, n }, j) => {
         // Every rung reads as its own question and nothing else. The lead one
@@ -4916,7 +4916,7 @@
       });
       togo.filter((t) => open.indexOf(t) < 0).forEach(({ s, n }) => {
         nextSpec.push({ cls: "ghost small locked", disabled: true, text: `${n} · ${s.label}`,
-          title: "Take the hints above first — this one gives them away" });
+          title: "Open the hints above first — this one would give them away" });
       });
       freeRest = solved && togo.length > 0;
       // Offered once the building blocks are up, not only once the whole ladder
@@ -4964,7 +4964,7 @@
     // same chip markup, so it stopped telling picking apart from reading.
     $("hint-clue").classList.toggle("picking", tapping);
 
-    setHTML($("hint-meter"), meterHTML + (freeRest ? " · the rest are free now" : ""));
+    setHTML($("hint-meter"), meterHTML + (freeRest ? " · the remaining hints are free now" : ""));
 
     const bodyWrote = setHTML(body, bodyHTML);
     setButtons(next, nextSpec);
@@ -5206,8 +5206,8 @@
       lettersRevealed += revealsUsed[key] || 0;
     });
     $("scorebar").innerHTML =
-      `Solved <strong>${solved}/${total}</strong> clues · <strong>${noHints}</strong> with no hints · <strong>${levelsUsed}</strong> hint levels used`
-      + (lettersRevealed ? ` · <strong>${lettersRevealed}</strong> letter${lettersRevealed > 1 ? "s" : ""} revealed` : "");
+      `Solved <strong>${solved}/${total}</strong> clues · <strong>${noHints}</strong> with no hints · <strong>${levelsUsed}</strong> hints used`
+      + (lettersRevealed ? ` · plus <strong>${lettersRevealed}</strong> letter${lettersRevealed > 1 ? "s" : ""} revealed` : "");
   }
 
   // ---------- picker ----------
@@ -5222,7 +5222,7 @@
       ` — harder than ${d.percentile}% of the puzzles here`;
     const basis = (d.basis || []).join(", ");
     return `<span class="badge diff diff-${d.band.toLowerCase()}" title="${esc(
-      d.band + pct + ". Judged on " + basis + ", relative to the other puzzles here."
+      d.band + pct + ". Based on " + basis + ", compared with the other puzzles on this site."
     )}">${esc(d.band.toLowerCase())}</span>`;
   }
 
@@ -5236,7 +5236,7 @@
   // (tools/build_seo_pages.py) still badges both, and correctly — it lists
   // every puzzle, so there the two states are a real distinction.
   function hintsBadge(annotated) {
-    return annotated ? "" : `<span class="badge auto">answers only</span>`;
+    return annotated ? "" : `<span class="badge auto" title="No hints for this puzzle yet: you can check your letters and reveal answers, but nothing is explained">answers only</span>`;
   }
 
   // Shares the coverage axis (neutral) with the hints badge on purpose: both
@@ -5244,7 +5244,7 @@
   // colour rule in style.css is one colour per axis, not per badge.
   function sourceBadge(p) {
     return p.solutionsUnofficial
-      ? `<span class="badge auto" title="The paper hasn't published its answers yet — these are our own solve, consistent at every crossing but not confirmed">unverified answers</span>`
+      ? `<span class="badge auto" title="The paper hasn't published its answers yet. These are our own answers: they fit every crossing, but nobody has confirmed them.">unverified answers</span>`
       : "";
   }
 
@@ -5260,55 +5260,54 @@
   // which worked only while every key happened to read as a word — and then
   // "indysunday" arrived. Keep it a label; keys are storage, not English.
   const SERIES_BADGE = {
-    cryptic: ["guardian", `The Guardian's daily cryptic, Monday to Saturday. A
-      rotating cast of setters and no house line on difficulty, so one day is a
-      gentle Vulcan and the next is a Paul full of puns.`],
-    quiptic: ["quiptic", `Guardian Quiptic — their beginner crossword, published
-      Mondays. Same clue types as the daily cryptic, but gentler: plainer
-      definitions and fewer buried indicators.`],
+    cryptic: ["guardian", `The Guardian's daily cryptic, Monday to Saturday. The
+      setters take turns and the difficulty varies a lot, so one day is a gentle
+      Vulcan and the next is a Paul full of puns.`],
+    quiptic: ["quiptic", `Guardian Quiptic — their crossword for beginners, published
+      Mondays. The same kinds of clue as the daily cryptic, but gentler: plainer
+      definitions and indicators that are easier to spot.`],
     everyman: ["everyman", `Everyman — the Observer's Sunday cryptic. The gentlest
-      of the broadsheet puzzles and scrupulously fair: definitions sit at one end,
-      and the wordplay always spells the answer out if you can hear it.`],
+      of the big-paper cryptics and strictly fair: the definition is always at one
+      end, and the wordplay always leads to the answer once you see how it works.`],
     independent: ["independent", `The Independent's daily cryptic, Monday to
-      Saturday. About as hard as the Guardian, with a regular cast of setters —
-      Phi, Quince, Eccles, Hippogryph — so their habits are worth learning if you
-      like one of them.`],
-    cyclops: ["cyclops", `Cyclops — Private Eye's fortnightly cryptic, and the only
-      one here that swears at you. The wordplay is scrupulously fair, but the
-      surfaces are about whoever is currently in trouble, so a solve leans on the
-      last fortnight's news as much as on the dictionary.`],
+      Saturday. About as hard as the Guardian, with a regular team of setters —
+      Phi, Quince, Eccles, Hippogryph — so if you like one, their habits are worth
+      learning.`],
+    cyclops: ["cyclops", `Cyclops — Private Eye's cryptic, every two weeks, and the
+      only one here that swears. The wordplay is strictly fair, but the clues read
+      as jokes about whoever is in the news, so solving leans on the last two
+      weeks' headlines as much as on the dictionary.`],
     metro: ["metro", `Metro's daily cryptic — the free London paper's commuter
-      puzzle, 13x13 and pitched a long way below the broadsheets: short clues,
-      everyday words, and a solve that fits a tube journey. A good place to start
-      if the Guardian's daily is still a wall.`],
-    globeandmail: ["globe & mail", `The Globe and Mail's daily cryptic — syndicated
-      from the Times of London, and 13x13 rather than the Times' own 15x15, so it
-      is the short, crisp end of that house style: tight surfaces, no obscurity,
-      and a solve you can finish on a coffee.`],
-    times: ["times", `The Times's daily cryptic, Monday to Saturday, set
-      anonymously in the house style the others are measured against: exact
-      definitions, no obscurity, nothing unfair. The Times prints no grid or
-      answers online, so the grid here is rebuilt from the Times for the Times
-      blog's write-up and the answers are that blog's.`],
-    timesquick: ["times quick", `The Times Quick Cryptic, weekdays: 13x13, short
-      clues and everyday words, built as a way in to the daily. Grid rebuilt and
-      answers taken from the Times for the Times blog; the most recent ones are
-      under the Globe and Mail, which reprints it.`],
-    timesjumbo: ["times jumbo", `The Times Jumbo Cryptic, Saturdays: a 23x23
-      with sixty-odd clues in the daily's style, for a long weekend solve. Grid
-      rebuilt and answers taken from the Times for the Times blog.`],
-    sundaytimes: ["sunday times", `The Sunday Times cryptic — its own paper and
-      its own weekly numbering, near 5,200, with named setters and a slightly
-      freer hand than the daily. Grid rebuilt and answers taken from the Times
-      for the Times blog.`],
-    indysunday: ["indy sunday", `The Independent on Sunday's cryptic — its own
-      weekly numbering, near 1,900 while the daily is past 12,400. Same stable of
-      setters as the daily, and pitched about the same.`],
+      puzzle, on a small 13x13 grid and much easier than the big papers: short
+      clues, everyday words, and a solve that fits a train ride. A good place to
+      start if the Guardian's daily still feels impossible.`],
+    globeandmail: ["globe & mail", `The Globe and Mail's daily cryptic — reprinted
+      from the Times of London's smaller 13x13 puzzles rather than its 15x15 ones:
+      neat clues, no obscure words, and a solve you can finish over a coffee.`],
+    times: ["times", `The Times's daily cryptic, Monday to Saturday. Setters
+      are not named, and its style is the one other papers are measured against:
+      exact definitions, no obscure words, nothing unfair. The Times doesn't put
+      its grid or answers online, so the grid here is rebuilt from the write-up
+      on the “Times for the Times” blog, and the answers are that blog's.`],
+    timesquick: ["times quick", `The Times Quick Cryptic, weekdays: a 13x13 grid, short
+      clues and everyday words, made as a way in to the daily. Grid rebuilt and
+      answers taken from the “Times for the Times” blog. The newest ones are
+      listed under the Globe and Mail, which reprints it.`],
+    timesjumbo: ["times jumbo", `The Times Jumbo Cryptic, Saturdays: a big 23x23 grid
+      with about sixty clues in the daily's style, for a long weekend solve. Grid
+      rebuilt and answers taken from the “Times for the Times” blog.`],
+    sundaytimes: ["sunday times", `The Sunday Times cryptic — a separate paper with
+      its own weekly puzzle numbers, now near 5,200. Setters are named, and the clues are a
+      little more playful than the daily's. Grid rebuilt and answers taken from
+      the “Times for the Times” blog.`],
+    indysunday: ["indy sunday", `The Independent on Sunday's cryptic, with its own
+      weekly puzzle numbers: now near 1,900, while the daily's are past 12,400. The same
+      setters as the daily, and about as hard.`],
     book: ["book", `Crosswords out of scanned printed books — thirty of them so
       far, from The New Penguin Book of The Guardian Crosswords to the Daily
       Mail's, by way of the Herald, the Scotsman, the Times, four Telegraph
       lines and two collections by a single setter, Araucaria and Colin Dexter.
-      Out-of-print reprints, so they are older and chewier than today's feeds,
+      Out-of-print reprints, so the puzzles are older and harder than today's papers,
       and the odd one is a great deal harder: the Toughie book is the
       Telegraph's second daily cryptic. None of these books prints a date or a
       paper's puzzle number, so each puzzle is named by its book and its place
@@ -5512,12 +5511,12 @@
     const counts = pickerBandList().filter((b) => n[b])
       .map((b) => `<span class="badge diff diff-${esc(b)}">${esc(b)}</span> ${n[b]}`)
       .join(" · ");
-    return "A band ranks a puzzle against the others here, not against crosswords "
-      + "in general: nobody publishes a rating for these papers, and no solving "
-      + "times go into it. What does: how many of the grid\u2019s letters cross "
-      + "another answer, how rare the answers are as words, and how much "
-      + "confirmation the clue types give you back. "
-      + (counts ? "Right now " + counts + "." : "");
+    return "Difficulty compares a puzzle with the others on this site, not with "
+      + "crosswords in general: the papers don\u2019t publish ratings, and solving "
+      + "times aren\u2019t used. A puzzle rates harder when fewer of its squares belong "
+      + "to both an across and a down answer, when its answers are unusual words, and "
+      + "when the wordplay gives less help checking that a guess is right. "
+      + (counts ? "Puzzles in each band now: " + counts + "." : "");
   }
 
   let pickerBands = null;
@@ -5647,7 +5646,7 @@
         <span class="p-tags">${seriesBadge(p)}${difficultyBadge(p)}${hintsBadge(p.annotated)}${sourceBadge(p)}
           ${!st.filled ? ""
             : st.done ? `<span class="p-prog done" title="Every square filled in and correct">solved ✓</span>`
-            : `<span class="p-prog">${st.filled}${st.total ? "/" + st.total : ""} letters in</span>`}</span>`;
+            : `<span class="p-prog">${st.filled}${st.total ? "/" + st.total : ""} letters filled</span>`}</span>`;
     btn.onclick = () => { openPuzzle(p.id); togglePicker(false); };
     li.appendChild(btn);
     return li;
@@ -5746,7 +5745,7 @@
                 (w) => "series series-" + esc(seriesKeyForLabel(w)), "pf-", 2, "", true)
         + group("Difficulty", pickerBandList(), (b) => "diff diff-" + esc(b), "pf-", 2,
                 `<button type="button" id="pf-diff-help" class="badge help" aria-expanded="${
-                  pickerNote === "diff"}" aria-label="What the difficulty bands mean">?</button>`,
+                  pickerNote === "diff"}" aria-label="What the difficulty levels mean">?</button>`,
                 true));
     setHTML($("picker-note"), pickerNote === "diff" ? difficultyNoteHTML() : "");
     const help = $("pf-diff-help");
@@ -5794,7 +5793,7 @@
       if (below) bits.push(`${below} more match${below > 1 ? "es" : ""} — keep scrolling.`);
       if (unmatched) bits.push(q
         ? `${unmatched} other puzzle${unmatched > 1 ? "s" : ""} don’t match.`
-        : `${unmatched} more — search by number, setter, day or “solved”, or `
+        : `${unmatched} more — search by puzzle number, setter (the puzzle’s author) or day, type “solved” in the search box to see the ones you finished, or `
           + `<a href="${at("puzzles/")}">browse the whole archive</a>.`);
       setHTML($("picker-more"), bits.join(" "));
     };
@@ -6095,10 +6094,10 @@
     const mins = Math.round((timing.solvedMs || timing.activeMs || 0) / 60000);
     const bits = [`<strong>${total}</strong> clues`];
     if (noHints) bits.push(`<strong>${noHints}</strong> of them with no hint at all`);
-    bits.push(levels ? `<strong>${levels}</strong> hint${levels === 1 ? "" : "s"} spent`
-                     : "not one hint spent");
+    bits.push(levels ? `<strong>${levels}</strong> hint${levels === 1 ? "" : "s"} used`
+                     : "not one hint used");
     if (mins) bits.push(`<strong>${mins}</strong> minute${mins === 1 ? "" : "s"} at it`);
-    parts.line.innerHTML = `<p class="shout">Finished — the whole grid.</p>`
+    parts.line.innerHTML = `<p class="shout">Finished — you completed the whole grid.</p>`
       + `<p class="tally">${bits.join(" · ")}</p>`
       + voteRowHTML(voteTarget(null), "How was the puzzle?", "Enjoyed it", "Not really");
     wireVotes(parts.line, () => celebrate(true, false));
@@ -6285,11 +6284,11 @@
       }).then((r) => {
         if (!r.ok) throw new Error("HTTP " + r.status);
         note.value = "";
-        msg.textContent = "Thank you — that goes somewhere it gets read.";
+        msg.textContent = "Thank you — sent. A person reads every note.";
       }).catch((err) => {
         // The error itself, never "see the log": this box is the only place the
         // sender will ever hear anything back about it.
-        msg.textContent = "Didn't send: " + ((err && err.message) || String(err));
+        msg.textContent = "Couldn’t send — please try again (error: " + ((err && err.message) || String(err)) + ").";
       });
     };
     $("fb-send").onclick = send;
@@ -6334,7 +6333,7 @@
       if (!already) $("sync-join-code").value = scanned;
       renderSyncPanel();
       syncNote(already ? "Already syncing with this code."
-                       : "Scanned — press “Use this code” to join.");
+                       : "Code scanned — press “Use this code” to sync with it.");
     }
 
     // ---- notifications ----
@@ -6363,7 +6362,7 @@
       if (!/^([01]\d|2[0-3]):[0-5]\d$/.test(value)) { renderNotifyPanel(); return; }
       store.set(NOTIFY_AFTER_KEY, value);
       const series = notifyWanted();
-      if (!series.length) { notifyNote("Saved — tick a paper to hear about one."); return; }
+      if (!series.length) { notifyNote("Time saved — now tick a series to get notifications."); return; }
       saveNotify(series);
     });
     $("sync-start").onclick = () => {
@@ -6410,7 +6409,7 @@
     });
 
     $("chk-letter").onclick = () => { const c = cells[cur.y][cur.x]; if (c) checkCells([c], "square"); };
-    $("chk-entry").onclick = () => { const e = currentEntry(); if (e) checkCells(entryCells(e), "entry"); };
+    $("chk-entry").onclick = () => { const e = currentEntry(); if (e) checkCells(entryCells(e), "word"); };
     $("chk-grid").onclick = () => { const all = []; forEachCell((c) => all.push(c)); checkCells(all, "grid"); };
     $("clear-entry").onclick = () => {
       const e = currentEntry();
@@ -6419,7 +6418,7 @@
       refreshAll(); saveState();
     };
     $("reset-puzzle").onclick = () => {
-      if (!confirm("Clear the grid and all hint history for this puzzle?")) return;
+      if (!confirm("Clear every letter and every hint you have used on this puzzle? This can’t be undone.")) return;
       // Deleting the save is not enough once there is a second device: an empty
       // slot reads as "never played this", so the other machine would hand the
       // whole grid back on the next pull. The reset is recorded as a moment
