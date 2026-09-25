@@ -290,10 +290,10 @@ def setter_name(author):
     a solver looking for another Hurley puzzle needs the name alone.
     """
     if not author:
-        return "Unknown"
+        return None
     name = re.sub(r"\s*\([^)]*(?:©|Licensing|Limited|Ltd)[^)]*\)", "", author).strip()
     name = re.sub(r"\s*/?\s*©.*$", "", name).strip()
-    return name or "Unknown"
+    return name or None
 
 
 def convert(data, ymd):
