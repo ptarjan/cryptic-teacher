@@ -4,7 +4,7 @@
 # Why this exists, separately from daily_update.sh: unspent quota does not roll
 # over. Whatever is left when the weekly window turns over is simply gone.
 # daily_update.sh deliberately refuses to annotate above ANNOTATE_MAX_WEEKLY_PCT
-# (50%) because a crossword backlog is never worth being rate-limited for real
+# because a crossword backlog is never worth being rate-limited for real
 # work — but that reasoning stops applying at the end of the window, when there
 # is no real work left to protect. So this job runs with NO usage gate at all,
 # on purpose, and ONLY then.
