@@ -440,6 +440,9 @@ run_claude() {
     sess=(--session-id "$sid")
   fi
   rm -f "$resume_at"
+  # The annotate prompt names this copy, which leaves out solutionSource: that
+  # names the blog, which annotate_check.py discloses only once the run is stuck.
+  python3 tools/annotate_check.py --view "$tag" >/dev/null
   claude -p "$prompt" "${sess[@]}" \
     --model "$MODEL" \
     --allowedTools "Read,Write,Edit,Bash(python3 *),Bash(node *),WebSearch,WebFetch" \
@@ -491,14 +494,18 @@ run_wave() {
       # Either way it leaves a note for the retry, which resumes this same
       # conversation (see run_claude) — so the note only has to say what changed
       # under it while it was stopped, not restate the job.
+      # What the retry is told to look at: the annotate run's copy, never the
+      # puzzle itself, which names the blog (see run_claude).
+      local seen="puzzles/${ids[$i]}.json"
+      [ "$what" = Annotate ] && seen="tools/_puzzle_${ids[$i]}.json"
       if [ -n "$(git status --porcelain -- "puzzles/${ids[$i]}.json")" ] &&
          python3 tools/validate_annotations.py "${ids[$i]}" >/dev/null 2>&1; then
         echo "  [${ids[$i]}] run failed — keeping what it finished, the file still validates"
-        printf '%s\n' "You were cut off by a usage limit. The limit has since cleared and your edits to puzzles/${ids[$i]}.json are exactly as you left them. Pick up where you stopped, finish the task you were given, and run python3 tools/annotate_check.py ${ids[$i]} until it reports clean. Do not commit." >"/tmp/ct-prereset-${ids[$i]}.resume"
+        printf '%s\n' "You were cut off by a usage limit. The limit has since cleared and your edits to $seen are exactly as you left them. Pick up where you stopped, finish the task you were given, and run python3 tools/annotate_check.py ${ids[$i]} until it reports clean. Do not commit." >"/tmp/ct-prereset-${ids[$i]}.resume"
       else
         echo "  [${ids[$i]}] run failed — discarding its changes"
         git checkout -- "puzzles/${ids[$i]}.json" 2>/dev/null
-        printf '%s\n' "You were cut off by a usage limit, mid-edit, so puzzles/${ids[$i]}.json was rolled back to how it was before you started — check it before you assume anything about its contents. The limit has since cleared. You already did the solving, so write out what you had worked out rather than working it out again, finish the task you were given, and run python3 tools/annotate_check.py ${ids[$i]} until it reports clean. Do not commit." >"/tmp/ct-prereset-${ids[$i]}.resume"
+        printf '%s\n' "You were cut off by a usage limit, mid-edit, so $seen was rolled back to how it was before you started — check it before you assume anything about its contents. The limit has since cleared. You already did the solving, so write out what you had worked out rather than working it out again, finish the task you were given, and run python3 tools/annotate_check.py ${ids[$i]} until it reports clean. Do not commit." >"/tmp/ct-prereset-${ids[$i]}.resume"
       fi
       WAVE_FAILED_IDS+=("${ids[$i]}")
       failed=$((failed + 1))
@@ -827,7 +834,7 @@ EOF
 
 # Not "Guardian crossword": since 2026-08-05 some of these are the
 # Independent's. The puzzle file records its own series and publisher.
-ANNOTATE_PROMPT="Annotate the crossword in puzzles/@.json in this repo. Follow the instructions in tools/annotate_prompt.md exactly, including running 'python3 tools/annotate_check.py @' until it reports clean. Do not commit — the calling script commits."
+ANNOTATE_PROMPT="Annotate the crossword @ in this repo, whose clues and answers are in tools/_puzzle_@.json. Follow the instructions in tools/annotate_prompt.md exactly, including running 'python3 tools/annotate_check.py @' until it reports clean. Do not commit — the calling script commits."
 
 # The prompt's Reference section, restated from the code that enforces it. Same
 # reason daily_update.sh does it: the run should not have to grep for a rule.
@@ -956,7 +963,7 @@ if command -v node >/dev/null 2>&1; then
 fi
 # The annotation payloads apply_annotations.py consumed, swept for the same
 # reason daily_update.sh sweeps them: ignored is not the same as cleaned up.
-rm -f "$REPO/tools/_ann_"*.json
+rm -f "$REPO/tools/_ann_"*.json "$REPO/tools/_puzzle_"*.json
 
 # The stamps come back off before staging, for the reason daily_update.sh gives
 # at its own --unstamp: a ?v= hash in a tracked file is churn, and the deploy

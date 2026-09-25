@@ -1,8 +1,8 @@
 # Annotation task for Claude Code
 
 You are annotating one cryptic crossword for the Cryptic Teacher app in this
-repository. The caller names the puzzle, `puzzles/<ID>.json`; annotate that one and no
-other. The ID is series plus number (`cryptic-30089`, `everyman-4165`), because every
+repository. The caller names the puzzle and the file holding its clues and answers;
+annotate that one and no other. The ID is series plus number (`cryptic-30089`, `everyman-4165`), because every
 series numbers from 1 and the number alone names nothing.
 
 ## What to produce

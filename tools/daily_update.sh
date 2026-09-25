@@ -729,8 +729,13 @@ if [ -n "$pending" ]; then
       # ourselves) is annotated sighted as usual.
       ann_tools="Read,Write,Edit,Bash(python3 *),Bash(node *),WebSearch,WebFetch"
       ann_turns=80
-      ann_task="Annotate the cryptic crossword in puzzles/$num.json in this repo."
+      # The run reads a copy of the puzzle without solutionSource, which names
+      # the blog the key came from (see annotate_check.py VIEW_KEYS). Blind runs
+      # have no web and write their answers into the puzzle itself.
+      ann_file=$(python3 tools/annotate_check.py --view "$num")
+      ann_task="Annotate the cryptic crossword $num in this repo, whose clues and answers are in $ann_file."
       if [ -n "$ANNOTATE_BLIND" ] && python3 tools/blind_annotate.py hide "$num"; then
+        ann_file="puzzles/$num.json"
         ann_tools="Read,Write,Edit,Bash(python3 *),Bash(node *)"
         ann_turns=120
         ann_task="Solve AND annotate the cryptic crossword in puzzles/$num.json in this repo. Its \"solution\" fields are deliberately empty: the answers are not published to you, so work each one out from the clue and the crossings, and write what you derive into that entry's \"solution\" field as you go. Do not look for the answers anywhere else in the repo, in git history, or on the web — a derived answer is the point. Where you cannot get an answer with confidence, leave its solution empty and its annotation null rather than guessing."
@@ -753,7 +758,7 @@ if [ -n "$pending" ]; then
       if session_exists "$solve_prior"; then
         ann_sid="$solve_prior"
         ann_sess=(--resume "$ann_sid")
-        ann_prompt="You solved this crossword earlier in this conversation, and your fill has since been written into puzzles/$num.json. Read the file as it now stands rather than working from memory, then annotate it from the wordplay you used to derive each answer. $ann_prompt"
+        ann_prompt="You solved this crossword earlier in this conversation, and your fill has since been written into $ann_file. Read the file as it now stands rather than working from memory, then annotate it from the wordplay you used to derive each answer. $ann_prompt"
         echo "  $num was solved cold tonight — annotating in that same conversation rather than from a cold start"
       fi
       ann_ok=""
@@ -809,7 +814,7 @@ if [ -n "$pending" ]; then
         session_exists "$ann_sid" || break
         ann_retried=1
         ann_sess=(--resume "$ann_sid")
-        ann_prompt="Your last turn was cut off for going past the output token limit, so whatever it was writing was never saved. Everything you did BEFORE that turn is intact — read puzzles/$num.json to see how far you actually got, and carry on from there rather than starting again. Write in several smaller edits instead of one large one: an edit big enough to hit that limit will be cut off again. Finish the task you were given and run 'python3 tools/annotate_check.py $num' until it reports clean. Do not commit."
+        ann_prompt="Your last turn was cut off for going past the output token limit, so whatever it was writing was never saved. Everything you did BEFORE that turn is intact — read $ann_file to see how far you actually got, and carry on from there rather than starting again. Write in several smaller edits instead of one large one: an edit big enough to hit that limit will be cut off again. Finish the task you were given and run 'python3 tools/annotate_check.py $num' until it reports clean. Do not commit."
         echo "  $num overran the output ceiling — resuming that same session, told to write in smaller edits, rather than paying for it twice"
       done
       if [ -n "$ann_ok" ]; then
@@ -1124,7 +1129,7 @@ fi
 # The annotation payloads apply_annotations.py consumed. Gitignored (tools/_*),
 # so this is housekeeping rather than safety — but the throwaway scripts these
 # replaced were gitignored too, and they piled up one per puzzle for months.
-rm -f "$REPO/tools/_ann_"*.json
+rm -f "$REPO/tools/_ann_"*.json "$REPO/tools/_puzzle_"*.json
 
 # Stamping is a build step, so the stamps come back off before anything is
 # staged. A ?v= hash committed into index.html changes on every asset edit and

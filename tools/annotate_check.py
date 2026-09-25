@@ -2,6 +2,7 @@
 """Everything that must be true of a puzzle's annotations, in one command.
 
     python3 tools/annotate_check.py cryptic-30098
+    python3 tools/annotate_check.py --view cryptic-30098   # the run's input
 
 Applies tools/_ann_<ID>.json, validates, runs both audit tools, syntax-checks
 the file and refreshes the index — and prints one report with a count at the
@@ -86,6 +87,29 @@ def is_blind(puzzle):
             or any(not e.get("solution") for e in puzzle["entries"]))
 
 
+# What the annotate run reads the puzzle from: the clues, answers and grid, and
+# nothing that says where the answers came from. solutionSource names the blog
+# the key was taken from, and a run that can see that URL fetches it before
+# trying a single clue; the blog is disclosed by notes() below, once the run is
+# stuck, and not before. A whitelist, so a new top-level field stays hidden
+# until someone decides the run should see it.
+VIEW_KEYS = ("id", "number", "series", "name", "setter", "dimensions", "entries")
+
+
+def view_path(path):
+    """Beside the annotations file, ignored by git (`tools/_*`)."""
+    return TOOLS / f"_puzzle_{path.stem}.json"
+
+
+def write_view(path):
+    """Write the annotate run's copy of puzzles/<ID>.json, current as of now."""
+    puzzle = read_puzzle_file(path)
+    view = {k: puzzle[k] for k in VIEW_KEYS if k in puzzle}
+    view_path(path).write_text(json.dumps(view, indent=1, ensure_ascii=False) + "\n",
+                               encoding="utf-8")
+    return view_path(path)
+
+
 def stuck_allowance(total):
     """How few nulls count as the last few: everything else is done."""
     return max(3, total // 10)
@@ -139,6 +163,9 @@ def notes(puzzle):
 def main(argv):
     if not argv or argv[0] in ("-h", "--help"):
         print(__doc__.strip())
+        return 0
+    if argv[0] == "--view":
+        print(write_view(resolve_puzzle(argv[1])).relative_to(ROOT))
         return 0
     path = resolve_puzzle(argv[0])
     stem = path.stem
@@ -202,6 +229,7 @@ def main(argv):
         print(f"\nthe index was not rebuilt:\n{out}")
         issues.append("puzzles/index.json and index.js were not rebuilt")
 
+    write_view(path)
     advice = notes(read_puzzle_file(path))
     if advice:
         print("\nworth knowing now (not failures):")
