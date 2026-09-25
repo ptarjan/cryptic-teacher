@@ -194,6 +194,11 @@ if ! mkdir "$LOCK" 2>/dev/null; then
   fi
 fi
 echo "$$" > "$LOCK/pid"
+# bash skips the EXIT trap when a signal kills it, which strands the lock; so a
+# signal is turned into an ordinary exit and the trap below runs for it too.
+trap 'exit 129' HUP
+trap 'exit 130' INT
+trap 'exit 143' TERM
 trap 'rm -f "$LOCK/pid"; rmdir "$LOCK" 2>/dev/null; sleep 1; alert_run_failures "$RUN_LOG"; rm -f "$RUN_LOG"' EXIT
 # Session ids and resume notes belong to the run that wrote them. Left behind by
 # a run that stopped before its retry, they would have tonight's first attempt
