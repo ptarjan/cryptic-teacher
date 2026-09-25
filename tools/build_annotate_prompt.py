@@ -5,15 +5,16 @@
     python3 tools/build_annotate_prompt.py --check    # non-zero if stale
 
 The prompt is hand-written prose except for one block between REFERENCE-START and
-REFERENCE-END: the controlled `type` vocabulary and the validator's hard limits.
-Those live in code — `TYPE_PARTS` in validate_annotations.py, `FAMILIES` in app.js
+REFERENCE-END: the controlled `type` vocabulary, which the run has to choose from
+before any check can tell it it chose wrong. It lives in code — `TYPE_PARTS` in validate_annotations.py, `FAMILIES` in app.js
 — and a hand-kept copy drifts, so the block is generated from the code on every
 nightly run and committed with whatever else the run changed. Edit the tables,
 not the prose.
 
-The block is deliberately small. A rule the validator reports by name at run time
-does not need restating here; the run finds it in seconds with `annotate_check.py`
-and reads the source with `validate_annotations.py --explain <check>`.
+Nothing else belongs in it. A rule a check can see being broken is explained in
+that check's own message, where it arrives at the moment it applies; restated
+here it is paid for on every turn of every run and still loses to the job in
+front of the model.
 """
 import sys
 from pathlib import Path
@@ -42,19 +43,14 @@ def wrap(items, width=86, indent="  "):
     return "\n".join(lines)
 
 
-def bullet(text):
-    """A markdown bullet, wrapped at 86 cols with its continuations indented."""
-    return "- " + wrap(text.split(), indent="  ").lstrip()
-
-
 def section():
     fams = app_tables.families()
     parts = sorted(V.TYPE_PARTS)
     out = [START, "",
            "## Reference",
            "",
-           "Generated from the code that enforces it. Do not edit it by hand, and do not",
-           "read app.js or the validator to check it.",
+           "Generated from the code that enforces it; do not read app.js or the validator",
+           "to check it.",
            "",
            "### The controlled vocabulary for `type`",
            "",
@@ -81,28 +77,7 @@ def section():
         out.append(wrap([f"`{p}`" for p in orphans]))
         out.append("")
 
-    limits = [
-        f"A `walkthrough` over **{V.WALKTHROUGH_HARD_MAX}** words.",
-        "Blocks whose letters are not the answer's, blocks that hand the answer over "
-        "in one lump where `pieces` takes it apart, and blocks out of answer order. "
-        "Exempt from the letter count, because their blocks claim no letters: "
-        + ", ".join(f"`{t}`" for t in V.UNBALANCED_TYPES)
-        + ". That exemption is what makes those types the easy way out of a clue you "
-          "have not parsed.",
-        f"More than **{V.MAX_DEFINITION_REUSE}** clues in one puzzle whose blocks take "
-        f"their letters from their own definition (exempt: "
-        + ", ".join(f"`{t}`" for t in V.DEFINITION_REUSE_EXEMPT) + ").",
-        "In `walkthrough`, `surface`, `definitionFit` or a block `note`, working-out: "
-        + " ".join(f"`{w}`" for w in sorted(V.BACKTRACKS))
-        + ". In `walkthrough`, hedges: "
-        + " ".join(f"`{w}`" for w in sorted(V.HEDGES)) + ".",
-        f"Over **{V.MAX_CRYPTIC_DEFINITIONS}** `cryptic definition` clues, in a puzzle "
-        f"we set ourselves. In a published puzzle, {V.MAX_CRYPTIC_DEFINITIONS} or more "
-        f"only warns, naming each one for a human to check.",
-    ]
-    out += ["### What the validator rejects", ""]
-    out += [bullet(t) for t in limits]
-    out += ["", END]
+    out.append(END)
     return "\n".join(out) + "\n"
 
 

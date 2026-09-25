@@ -427,9 +427,10 @@ run_claude() {
   fi
   # WebSearch/WebFetch are here for the last rung only: when a clue will not come
   # apart, a solvers' blog is the difference between an annotation and a `null`,
-  # and a `null` ships a clue with no teaching ladder. tools/annotate_prompt.md
-  # bounds the use — stuck first, and the explanation written from scratch rather
-  # than lifted, because the blog's prose teaches nobody in rungs.
+  # and a `null` ships a clue with no teaching ladder. tools/annotate_check.py
+  # names the blog only once every clue but the last few is done, and says to
+  # write the explanation from scratch, because the blog's prose teaches nobody
+  # in rungs.
   if [ -s "$resume_at" ] && [ -s "$sidfile" ] && session_exists "$(cat "$sidfile")"; then
     sess=(--resume "$(cat "$sidfile")")
     prompt=$(cat "$resume_at")
@@ -826,7 +827,7 @@ EOF
 
 # Not "Guardian crossword": since 2026-08-05 some of these are the
 # Independent's. The puzzle file records its own series and publisher.
-ANNOTATE_PROMPT="Annotate the crossword in puzzles/@.json in this repo. Follow the instructions in tools/annotate_prompt.md exactly, including running 'python3 tools/annotate_check.py @' until it reports clean. Every clue needs a definitionFit, and every indicator needs an indicatorNotes entry saying why THAT word carries THAT instruction. Do not commit — the calling script commits."
+ANNOTATE_PROMPT="Annotate the crossword in puzzles/@.json in this repo. Follow the instructions in tools/annotate_prompt.md exactly, including running 'python3 tools/annotate_check.py @' until it reports clean. Do not commit — the calling script commits."
 
 # The prompt's Reference section, restated from the code that enforces it. Same
 # reason daily_update.sh does it: the run should not have to grep for a rule.

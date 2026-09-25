@@ -44,7 +44,8 @@ BLIND_STASH = ROOT / ".blind"
 # Per kind: the code whose change can turn this failure into a success. The
 # puzzle's own clues, answers and grid are always part of the hash too.
 KINDS = {
-    "annotate": ["tools/annotate_prompt.md", "tools/validate_annotations.py"],
+    "annotate": ["tools/annotate_prompt.md", "tools/validate_annotations.py",
+                 "tools/annotate_check.py"],
     "solve": ["tools/solve_prompt.md", "tools/apply_solution.py"],
 }
 
