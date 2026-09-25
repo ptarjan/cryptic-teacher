@@ -5084,6 +5084,11 @@ global.realSetTimeout(() => {
     assert(registry["picker-search"].value === w,
       `tapping "${w}" searches for it: ` + registry["picker-search"].value);
     assert(registry["picker-list"].children.length > 0, `"${w}" finds puzzles`);
+    // Only the chip tapped is ringed: "times jumbo" in the box holds every word
+    // of "times", and that must not light the Times chip too.
+    const ringed = [...registry["picker-filters"].innerHTML.matchAll(
+      /id="pf-(\d+)"[^>]*aria-pressed="true"/g)].map((m) => want[+m[1]]);
+    assert(ringed.join("|") === w, `tapping "${w}" rings it alone: ${ringed.join(", ")}`);
     registry["pf-" + i].onclick();
     assert(!registry["picker-search"].value,
       `and tapping "${w}" again is the way back out: ` + registry["picker-search"].value);
