@@ -823,7 +823,7 @@ def homepage_nav(idx):
     """
     recent = [p for p in idx["puzzles"] if p.get("hasSolutions")][:12]
     items = "".join(
-        f'<li><a href="puzzles/{p["id"]}/">{display_number(p)}'
+        f'<li><a href="{BASE}/puzzles/{p["id"]}/">{display_number(p)}'
         + (f' &middot; {esc(s)}' if (s := known_setter(p.get("setter"))) else "")
         + "</a></li>" for p in recent)
     return f"""{NAV_START}
@@ -832,9 +832,9 @@ def homepage_nav(idx):
   <p>These are real published crosswords — {papers(idx)} — set by the named humans
      above, not clues generated to order. Every one of their clues is written up in
      full: answer, definition and wordplay.
-     Start with <a href="learn/">how cryptic clues work</a>, learn the
-     <a href="abbreviations/">standard abbreviations</a>, or browse
-     <a href="puzzles/">all {sum(1 for p in idx["puzzles"] if p.get("hasSolutions"))} puzzles</a>.</p>
+     Start with <a href="{BASE}/learn/">how cryptic clues work</a>, learn the
+     <a href="{BASE}/abbreviations/">standard abbreviations</a>, or browse
+     <a href="{BASE}/puzzles/">all {sum(1 for p in idx["puzzles"] if p.get("hasSolutions"))} puzzles</a>.</p>
   <ul>{items}</ul>
 </section>
 {NAV_END}"""

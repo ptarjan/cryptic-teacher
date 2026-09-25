@@ -241,6 +241,18 @@ const rowHasNumber = (html, num) => new RegExp("№ " + num + "(?!\\d)").test(ht
     "app.js still resolves the URLs it builds against the front door, with at()");
 }
 
+// The same hazard in index.html's own links: the page stays loaded while the
+// address bar moves to /puzzles/<id>/, so a relative link to a page of the site
+// 404s from the second puzzle on. Links to pages are rooted; assets are not,
+// because they are fetched before the address bar moves.
+{
+  const html = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
+  const bare = [...html.matchAll(/<a\b[^>]*\bhref="([^"]*)"/g)].map((m) => m[1])
+    .filter((u) => !/^(\/|#|https?:|mailto:)/.test(u));
+  assert(!bare.length, "index.html links to a page by a relative URL, which 404s once a "
+    + "puzzle is open — root it with /: " + bare.slice(0, 5).join(" "));
+}
+
 // --- the solver's abbreviation glossary is the clue-writer's, not a copy ---
 // abbreviations.js is generated from tools/data/abbreviations.json so that the
 // table the hints teach and the table clueability.py builds words from cannot
