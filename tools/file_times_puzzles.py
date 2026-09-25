@@ -30,10 +30,14 @@ entries close, so theirs comes from the Times's own listing
 (tools/fetch_times_listing.py), the post's slug, and the paper's cadence
 between them, and stays null where those prove nothing.
 
+The setter of a Quick or Sunday Times puzzle is the one the post's title
+names; the Times Cryptic and the Jumbo stay anonymous.
+
 A file already on disk is never rewritten but for its date, which facts
-arriving later (the next week's posts, the listing) can prove: by then it may
-carry annotations. One whose clues or answers no longer match what this would
-write is named, so a correction made upstream is seen rather than lost.
+arriving later (the next week's posts, the listing) can prove, and a
+placeholder setter the title names: by then it may carry annotations. One
+whose clues or answers no longer match what this would write is named, so a
+correction made upstream is seen rather than lost.
 """
 import argparse
 import bisect
@@ -48,6 +52,7 @@ from pathlib import Path
 TOOLS = Path(__file__).resolve().parent
 sys.path.insert(0, str(TOOLS))
 import fetch_puzzle
+import parse_timesforthetimes as tftt
 import reconstruct_grid as rg
 import series as series_meta
 import times_grids as tg
@@ -67,6 +72,16 @@ def clean(clue):
 #: Below this a Weekend Cryptic number is the Sunday Times' (~5,200 in 2026,
 #: one a week); above it, Saturday's Times (~29,600, six a week).
 SUNDAY_TIMES_BELOW = 10_000
+
+#: The series whose blog titles name the setter. The Times Cryptic and the
+#: Jumbo are anonymous: a "by" in their titles is the blogger's prose.
+BYLINED = {"timesquick", "sundaytimes"}
+
+
+def setter(rec, series):
+    """The setter the post's title names, where the series prints one."""
+    named = series in BYLINED and tftt.setter_from_title(rec.get("title"))
+    return named or series_meta.default_setter(series)
 
 
 def target(row):
@@ -471,7 +486,7 @@ def build(rec, row, series, date):
         "number": number,
         "series": series,
         "name": f"{series_meta.publisher(series)} {kind.lower()} crossword No {number:,}",
-        "setter": series_meta.default_setter(series),
+        "setter": setter(rec, series),
         "date": date and epoch_ms(date),
         "dimensions": {"cols": len(row["grid"][0]), "rows": len(row["grid"])},
         "sourceUrl": rec["link"],
@@ -513,7 +528,7 @@ def run(grids=tg.OUT, parsed=tg.PARSED, write=True, listing=None):
     dates, notes = print_dates(recs.values(), listing)
     reprints = reprinted_from()
     filed, kept, drifted = collections.Counter(), 0, []
-    redated = collections.Counter()
+    redated, renamed = collections.Counter(), collections.Counter()
     for (series, number), claim in sorted(claims.items()):
         if len(claim) > 1:
             skipped["number claimed twice"] += len(claim)
@@ -535,12 +550,19 @@ def run(grids=tg.OUT, parsed=tg.PARSED, write=True, listing=None):
             held = read_puzzle_file(path)
             if content(held) != content(puzzle):
                 drifted.append(puzzle["id"])
-            # Only the date is ever rewritten: it is derived from facts that
-            # arrive after the file (the next Saturday's title, the listing).
+            # Only the date and a placeholder setter are ever rewritten: the
+            # date is derived from facts that arrive after the file (the next
+            # Saturday's title, the listing), and a name never replaces a name.
+            fix = {}
             if puzzle["date"] and held.get("date") != puzzle["date"]:
-                if write:
-                    write_puzzle_file(path, {**held, "date": puzzle["date"]})
+                fix["date"] = puzzle["date"]
                 redated[series] += 1
+            if (held.get("setter") == series_meta.default_setter(series)
+                    and puzzle["setter"] != held["setter"]):
+                fix["setter"] = puzzle["setter"]
+                renamed[series] += 1
+            if fix and write:
+                write_puzzle_file(path, {**held, **fix})
             continue
         if write:
             write_puzzle_file(path, puzzle, generator="tools/file_times_puzzles.py")
@@ -555,6 +577,10 @@ def run(grids=tg.OUT, parsed=tg.PARSED, write=True, listing=None):
     if redated:
         print(f"{'would redate' if not write else 'redated'} {sum(redated.values())}: "
               + ", ".join(f"{s} {n}" for s, n in sorted(redated.items())))
+    if renamed:
+        print(f"{'would name the setter of' if not write else 'named the setter of'} "
+              f"{sum(renamed.values())}: "
+              + ", ".join(f"{s} {n}" for s, n in sorted(renamed.items())))
     for note in notes:
         print(f"  date: {note}")
     if drifted:
