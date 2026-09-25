@@ -1596,11 +1596,37 @@ assert(registry["picker-search"].value === "", "the filter box starts empty on o
   };
 
   const pickerRowHTML = pickerRows().map((li) => li.children[0].innerHTML);
-  // The hub page links puzzles from its prose and its pager too, so the rows are
-  // taken from the list itself rather than from every <li> that holds a link.
-  const archiveList = (readBuilt("puzzles/index.html")
-    .match(/<ul class="s-index">([\s\S]*?)<\/ul>/) || ["", ""])[1];
-  const archiveRowHTML = archiveList.match(/<li><a [\s\S]*?<\/a><\/li>/g) || [];
+  // The hub lists series and years, never puzzles; the rows are on the
+  // per-series-year listings it links, and every one of those is read. The
+  // pages link puzzles from their prose and pager too, so rows are taken from
+  // the list itself rather than from every <li> that holds a link.
+  const hub = readBuilt("puzzles/index.html");
+  assert(!/class="s-index"/.test(hub),
+    "the archive hub carries no puzzle rows: as one list of every puzzle it was 7 MB");
+  const listingPaths = [...new Set([...hub.matchAll(
+    /href="https:\/\/cryptic\.paultarjan\.com\/(puzzles\/series\/[a-z]+\/(?:\d{4}|undated)\/)"/g)]
+    .map((m) => m[1]))];
+  const listedIds = [];
+  const archiveRowHTML = listingPaths.flatMap((rel) => {
+    const page = readBuilt(rel + "index.html");
+    assert(page.length < 300 * 1024,
+      `${rel} is ${Math.round(page.length / 1024)} KB; a listing page stays under 300 KB`);
+    const list = (page.match(/<ul class="s-index">([\s\S]*?)<\/ul>/) || ["", ""])[1];
+    const rows = list.match(/<li><a [\s\S]*?<\/a><\/li>/g) || [];
+    rows.forEach((r) => listedIds.push((r.match(/\/puzzles\/([^/"]+)\/"/) || [])[1]));
+    return rows;
+  });
+  // Two clicks from the hub to any puzzle: each one with solutions is on
+  // exactly one listing the hub links.
+  {
+    const want = allPuzzles.filter((p) => p.hasSolutions).map((p) => p.id).sort();
+    const got = [...listedIds].sort();
+    const listed = new Set(listedIds);
+    assert(got.length === want.length && got.every((id, i) => id === want[i]),
+      `the hub's listings hold every puzzle with solutions once: ${got.length} rows, `
+        + `${want.length} puzzles, missing `
+        + want.filter((id) => !listed.has(id)).slice(0, 5).join(", "));
+  }
   assert(pickerRowHTML.length && archiveRowHTML.length,
     `both lists render rows: picker ${pickerRowHTML.length}, archive ${archiveRowHTML.length}`);
 
