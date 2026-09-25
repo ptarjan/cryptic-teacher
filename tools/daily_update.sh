@@ -469,11 +469,9 @@ python3 tools/failed_inputs.py summary
 # case this gate actually met on 08-08 — it was holding a 10-hour-old 75%
 # against a 50% limit and called itself blind.
 ANNOTATE_MAX_WEEKLY_PCT="${ANNOTATE_MAX_WEEKLY_PCT:-90}"
-# The annotating model, and the commit trailer derived FROM it rather than typed
-# beside it. The trailer used to be a hardcoded "Claude Fable 5", which survived
-# the 07-30 accidental switch to Opus and credited the wrong model in every
-# commit for a week. One name, one place: change the model and the history
-# follows.
+# The annotating model. An alias, so it names whichever model it points at
+# tonight; the exact id that ran is recorded in each puzzle's
+# provenance.annotatedBy, and the commit trailer is read back from there.
 ANNOTATE_MODEL="${ANNOTATE_MODEL:-opus}"
 # Annotate without being shown the published answers, and grade what the model
 # derives against them afterwards. See tools/blind_annotate.py for what this
@@ -486,7 +484,6 @@ ANNOTATE_MODEL="${ANNOTATE_MODEL:-opus}"
 # only thing that survives the machine, and a night whose mode was set
 # somewhere else cannot be read back out of the log.
 ANNOTATE_BLIND="${ANNOTATE_BLIND:-}"
-. "$REPO/tools/annotate_model.sh"
 if [ -n "$fresh$pending$unsolved" ] && ! python3 tools/weekly_usage.py --self-test; then
   # The gate's own four cases, run offline before its verdict is believed. A
   # gate whose logic is broken says "spend" as confidently as a working one, so
@@ -1158,7 +1155,7 @@ if [ -n "$(git status --porcelain)" ]; then
     printf '%s\n' "$symlinks" | while IFS= read -r link; do git rm -q --cached "$link"; done
     alert "the daily update tried to commit machine-local symlink(s): $(printf '%s ' $symlinks)- unstaged, because committed they break the Pages build for everyone. Add them to .gitignore, spelled without a trailing slash."
   fi
-  git commit -m "$(printf 'Daily update: fetch latest cryptic / annotate backlog\n\n%s' "$ANNOTATE_TRAILER")"
+  git commit -m "$(printf 'Daily update: fetch latest cryptic / annotate backlog\n\n%s' "$(python3 tools/provenance.py trailer)")"
   # Nothing may be left behind. With one writer this is no longer a judgement
   # call about whose file it was: anything still showing here after `add -A` and
   # a commit is a bug, and it is work that will never reach the site. Read with

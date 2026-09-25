@@ -168,7 +168,8 @@ got here and, most importantly, **whose answers these are**.
   "retrievedFrom": "wayback",       // publisher | wayback | blog | book | authored
   "retrievedUrl": "https://web.archive.org/web/2016id_/https://…",
   "gridOrigin": "published",        // published | reconstructed | authored
-  "solutionOrigin": "published"     // published | writeup | model | authored | unsolved
+  "solutionOrigin": "published",    // published | writeup | model | authored | unsolved
+  "annotatedBy": ["claude-opus-5"]  // who wrote the hints: exact model ids, or human | published | unknown
 }
 ```
 
@@ -200,6 +201,12 @@ Other fields:
 - `previousSolutionOrigin` appears when the answers in the file replaced answers
   of a different origin. Example: a grid was cold-solved, then the paper
   published the same answers.
+- `annotatedBy` is on every puzzle with hints and says who wrote them: exact
+  model ids such as `claude-opus-5`, never an alias like `opus`, because an alias
+  points at a different model from one month to the next. One entry per run, in
+  the order they ran; a run that was cut off and resumed by the same model
+  counts once. `tools/apply_annotations.py` writes it from the running
+  session's transcript. Hints no model wrote say `human` or `published`.
 - `solutionSource`, where present, is the detail behind `solutionOrigin`: which
   write-up, which model, whether an official key can ever exist. The validator
   rejects a file where the two disagree.
