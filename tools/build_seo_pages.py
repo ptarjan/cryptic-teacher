@@ -13,7 +13,10 @@ So this writes real HTML files alongside the app:
   puzzles/<n>/index.html   one page per puzzle: every clue, its answer, its
                            definition, its wordplay breakdown and its
                            walkthrough, as text in the document.
-  puzzles/index.html       the archive hub, and the crawl path to all of them.
+  puzzles/index.html       the archive hub: each series, its count, its years.
+  puzzles/series/<series>/<year>/index.html
+                           one listing per series per year, linking every
+                           puzzle; the hub reaches any puzzle in two clicks.
   learn/index.html         the lesson, from tools/tutorial.html — the only place
                            it is published.
   abbreviations/index.html the glossary, on its own URL. "cryptic crossword
@@ -444,7 +447,11 @@ def puzzle_page(puz, meta, prev_p, next_p):
             f"{paper} {lower} crossword"
             + (f", {when}." if when else "."))
 
+    if meta:
+        ls, ly = listing_key(meta)     # the listing page this puzzle is on
     crumbs = [("Cryptic Teacher", "/"), ("Puzzles", "/puzzles/"),
+              *([(f"{series_name(ls)}, {ly}", listing_path(ls, ly))]
+                if meta else []),
               (f"{what} No {pretty}", "")]
 
     across = [e for e in puz["entries"] if e["direction"] == "across" and e.get("clue")]
@@ -563,39 +570,87 @@ def puzzle_page(puz, meta, prev_p, next_p):
 
 # ------------------------------------------------------------------ hub page
 
-def hub_page(idx):
-    who = papers(idx)                 # "Guardian, Independent and Observer"
-    title = f"Cryptic crossword answers and explanations — {who}"
-    desc = (f"Every cryptic crossword we have annotated from the {who}, with answers "
-            "and a full wordplay explanation for each clue, newest first.")
-    canonical = f"{BASE}/puzzles/"
-    crumbs = [("Cryptic Teacher", "/"), ("Puzzles", "")]
-
-    rows = []
-    for p in idx["puzzles"]:
-        if not p.get("hasSolutions"):
-            continue
-        d = p.get("difficulty") or {}
-        when = datestr(p.get("date"))
-        badge = (f'<span class="badge diff diff-{esc(d["band"].lower())}">'
-                 f'{esc(d["band"].lower())}</span>') if d.get("band") else ""
-        hints = ('<span class="badge full">full hints</span>' if p.get("annotated")
-                 else '<span class="badge auto">answers only</span>')
-        # Same coverage axis as the hints badge, same neutral colour — see
-        # sourceBadge() in app.js.
-        ours = ('<span class="badge auto">unverified answers</span>'
-                if p.get("solutionsUnofficial") else "")
-        # Every row is badged, because the numbers alone ("No 1,393" among the
-        # 30,000s) don't explain themselves and an unbadged row reads as one we
-        # forgot rather than as the default. Mirrors seriesBadge() in app.js.
-        series = (f'<span class="badge series">'
-                  f'{esc(series_meta.badge(p.get("series") or "cryptic"))}</span>')
-        rows.append(
-            f'<li><a href="{BASE}/puzzles/{p["id"]}/">'
+def hub_row(p):
+    """One archive row. Every listing page is made of these and nothing else."""
+    d = p.get("difficulty") or {}
+    when = datestr(p.get("date"))
+    badge = (f'<span class="badge diff diff-{esc(d["band"].lower())}">'
+             f'{esc(d["band"].lower())}</span>') if d.get("band") else ""
+    hints = ('<span class="badge full">full hints</span>' if p.get("annotated")
+             else '<span class="badge auto">answers only</span>')
+    # Same coverage axis as the hints badge, same neutral colour — see
+    # sourceBadge() in app.js.
+    ours = ('<span class="badge auto">unverified answers</span>'
+            if p.get("solutionsUnofficial") else "")
+    # Every row is badged, because the numbers alone ("No 1,393" among the
+    # 30,000s) don't explain themselves and an unbadged row reads as one we
+    # forgot rather than as the default. Mirrors seriesBadge() in app.js.
+    series = (f'<span class="badge series">'
+              f'{esc(series_meta.badge(p.get("series") or "cryptic"))}</span>')
+    return (f'<li><a href="{BASE}/puzzles/{p["id"]}/">'
             f'<span class="p-num">{display_number(p)}</span>'
             f'<span class="p-setter">{esc(known_setter(p.get("setter")))}</span>'
             f'<span class="p-meta">{esc(when)}</span>'
             f'<span class="p-tags">{series}{badge}{hints}{ours}</span></a></li>')
+
+
+# The archive is one page per series per year, under /puzzles/series/, and the
+# hub only links to those. As a single list of every puzzle it was 22,000 rows
+# and 7 MB. A year of the busiest series is ~315 rows, about 100 KB.
+# "series" is not a puzzle id, bare number or legacy id, so it cannot collide.
+UNDATED = "undated"
+
+
+def series_name(series):
+    if series_meta.is_book(series):
+        return "Crossword books"      # kind and publisher are each book's own
+    return f"{series_meta.publisher(series)} {series_meta.kind(series)}"
+
+
+def listing_key(p):
+    """(series, year) of the listing page a puzzle is on; year may be UNDATED."""
+    return (p.get("series") or "cryptic",
+            datestr(p.get("date"), "%Y") or UNDATED)
+
+
+def listing_path(series, year):
+    return f"/puzzles/series/{series}/{year}/"
+
+
+def listings(idx):
+    """{series: {year: [rows' puzzles, newest first]}}, busiest series first,
+    newest year first, undated last."""
+    out = {}
+    for p in idx["puzzles"]:
+        if p.get("hasSolutions"):
+            s, y = listing_key(p)
+            out.setdefault(s, {}).setdefault(y, []).append(p)
+    order = sorted(out, key=lambda s: (-sum(map(len, out[s].values())), s))
+    return {s: dict(sorted(out[s].items(),
+                           key=lambda kv: (kv[0] != UNDATED, kv[0]), reverse=True))
+            for s in order}
+
+
+def hub_page(idx):
+    who = papers(idx)                 # "Guardian, Independent and Observer"
+    title = f"Cryptic crossword answers and explanations — {who}"
+    desc = (f"Every cryptic crossword we have annotated from the {who}, with answers "
+            "and a full wordplay explanation for each clue, by series and year.")
+    canonical = f"{BASE}/puzzles/"
+    crumbs = [("Cryptic Teacher", "/"), ("Puzzles", "")]
+
+    sections = []
+    for s, years in listings(idx).items():
+        n = sum(map(len, years.values()))
+        links = " &middot; ".join(
+            f'<a href="{site_url(listing_path(s, y))}">{esc(y)}</a> ({len(ps):,})'
+            for y, ps in years.items())
+        sections.append(
+            f'<section class="s-series" id="{esc(s)}">'
+            f'<h2>{esc(series_name(s))} <span class="badge series">'
+            f'{esc(series_meta.badge(s))}</span></h2>'
+            f'<p class="muted">{n:,} puzzle{"s" if n != 1 else ""}</p>'
+            f'<p class="s-years">{links}</p></section>')
 
     list_ld = {"@context": "https://schema.org", "@type": "CollectionPage",
                "name": title, "url": canonical, "description": desc}
@@ -604,7 +659,7 @@ def hub_page(idx):
         masthead(crumbs),
         '<main class="static-main">',
         "<h1>Cryptic crosswords, explained</h1>",
-        "<p>Every puzzle we hold, newest first. A <strong>full hints</strong> puzzle has "
+        "<p>Every puzzle we hold, by series and year. A <strong>full hints</strong> puzzle has "
         "every clue hand-annotated: the clue family, where the definition hides, and the "
         "wordplay taken apart step by step. An <strong>answers only</strong> puzzle has the "
         "solutions but is still waiting for its annotations.</p>",
@@ -612,11 +667,59 @@ def hub_page(idx):
         "not in the abstract — it combines how many letters the grid leaves unchecked, how "
         "rare the answers are, and which wordplay devices the setter leaned on. "
         f'<a href="{BASE}/learn/">Start with how cryptic clues work</a> if any of that is new.</p>',
-        f'<ul class="s-index">{"".join(rows)}</ul>',
+        *sections,
         "</main>",
     ]
     return head(title, desc, canonical, ld(list_ld) + ld(breadcrumb_ld(crumbs))) \
         + "\n".join(body) + "\n" + FOOTER
+
+
+def listing_page(series, year, ps, prev_year, next_year):
+    """One series' puzzles for one year, newest first."""
+    name = series_name(series)
+    label = f"{name}, {year}" if year != UNDATED else f"{name}, undated"
+    title = f"{label} — cryptic crossword answers and explanations"
+    desc = (f"All {len(ps):,} {name} crosswords we hold"
+            + (f" from {year}" if year != UNDATED else " with no publication date")
+            + ", with answers and wordplay explanations for each clue.")
+    path = listing_path(series, year)
+    canonical = site_url(path)
+    crumbs = [("Cryptic Teacher", "/"), ("Puzzles", "/puzzles/"),
+              (name, f"/puzzles/#{series}"), (year, "")]
+    nav = []
+    if prev_year:
+        nav.append(f'<a rel="prev" href="{site_url(listing_path(series, prev_year))}">'
+                   f'&larr; {esc(prev_year)}</a>')
+    if next_year:
+        nav.append(f'<a rel="next" href="{site_url(listing_path(series, next_year))}">'
+                   f'{esc(next_year)} &rarr;</a>')
+    list_ld = {"@context": "https://schema.org", "@type": "CollectionPage",
+               "name": title, "url": canonical, "description": desc}
+    body = [
+        masthead(crumbs),
+        '<main class="static-main">',
+        f"<h1>{esc(label)}</h1>",
+        (f'<p>{len(ps):,} puzzle{"s" if len(ps) != 1 else ""}, newest first. '
+         f'<a href="{BASE}/puzzles/#difficulty">How difficulty is judged</a> &middot; '
+         f'<a href="{BASE}/puzzles/">every series</a>.</p>'),
+        f'<ul class="s-index">{"".join(hub_row(p) for p in ps)}</ul>',
+        *([f'<nav class="s-pager">{" ".join(nav)}</nav>'] if nav else []),
+        "</main>",
+    ]
+    return head(title, desc, canonical, ld(list_ld) + ld(breadcrumb_ld(crumbs))) \
+        + "\n".join(body) + "\n" + FOOTER
+
+
+def listing_pages(idx):
+    out = {}
+    for s, years in listings(idx).items():
+        ys = list(years)          # newest first
+        for i, y in enumerate(ys):
+            # prev = the newer year, matching the puzzle pager's newest-first order
+            out[ROOT / listing_path(s, y).strip("/") / "index.html"] = listing_page(
+                s, y, years[y], ys[i - 1] if i > 0 else None,
+                ys[i + 1] if i + 1 < len(ys) else None)
+    return out
 
 
 # ----------------------------------------------------------------- learn page
@@ -794,6 +897,9 @@ def sitemap(idx):
             (f"{BASE}/puzzles/", "daily", "0.9", None),
             (f"{BASE}/learn/", "monthly", "0.8", None),
             (f"{BASE}/abbreviations/", "weekly", "0.8", None)]
+    for s, years in listings(idx).items():
+        for y in years:
+            urls.append((site_url(listing_path(s, y)), "weekly", "0.6", None))
     for p in idx["puzzles"]:
         if p.get("hasSolutions"):
             urls.append((f"{BASE}/puzzles/{p['id']}/", "monthly", "0.7",
@@ -983,6 +1089,7 @@ def outputs():
     for path, page in legacy_ids(solved).items():
         files[path] = page
     files[PUZZLE_DIR / "index.html"] = hub_page(idx)
+    files.update(listing_pages(idx))
     files[ROOT / "learn" / "index.html"] = learn_page()
     files[ROOT / "abbreviations" / "index.html"] = abbreviations_page(solved, pages)
     files[ROOT / "sitemap.xml"] = sitemap(idx)
@@ -1035,7 +1142,8 @@ def orphans(files):
     The rule is narrow on purpose, because this walks the directory that also
     holds the site's real data:
 
-      * only direct child DIRECTORIES of puzzles/ are candidates, so no flat
+      * only direct child DIRECTORIES of puzzles/, and the listing directories
+        puzzles/series/<series>/<year>/, are candidates, so no flat
         puzzles/<series>-<number>.* file can be reached at all;
       * a directory qualifies only if its entire content is one index.html,
         which is the exact shape this generator creates;
@@ -1048,9 +1156,11 @@ def orphans(files):
     Anything that does not fit the shape is returned as a leftover rather than
     removed — an unexpected file under puzzles/ is a question, not a target.
     """
-    wanted = {p.parent for p in files if p.parent.parent == PUZZLE_DIR}
+    series_dir = PUZZLE_DIR / "series"
+    wanted = {p.parent for p in files} | {series_dir}
     dead, unexpected = [], []
-    for d in sorted(PUZZLE_DIR.iterdir()):
+    # series/<series>/<year>/ is the one nested shape, so it gets the same test.
+    for d in sorted([*PUZZLE_DIR.iterdir(), *series_dir.glob("*/*")]):
         if not d.is_dir() or d in wanted:
             continue
         if [x.name for x in d.iterdir()] == ["index.html"]:
@@ -1085,6 +1195,8 @@ def main():
     for d in dead:
         (d / "index.html").unlink()
         d.rmdir()
+        if d.parent.parent == PUZZLE_DIR / "series" and not any(d.parent.iterdir()):
+            d.parent.rmdir()          # a series with no listing pages left
     print(f"wrote {len(files)} page(s); {len(stale)} changed; "
           f"{len(dead)} orphan(s) removed")
     return 0
