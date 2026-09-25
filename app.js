@@ -2211,6 +2211,16 @@
     window.visualViewport.addEventListener("resize", settling);
     window.visualViewport.addEventListener("scroll", settling);
   }
+  // A keyboard raised for another field is that field's, so focus landing
+  // anywhere but the hidden inputs ends the tap's watch: the picker's search
+  // box must not drag the page back down to the clue.
+  if (document.addEventListener) document.addEventListener("focusin", (ev) => {
+    const id = ev.target && ev.target.id;
+    if (id === "kbd" || id === "ana-kbd") return;
+    watchUntil = 0; settleBy = 0;
+    if (settleTimer) { clearTimeout(settleTimer); settleTimer = null; }
+    if (confirmTimer) { clearTimeout(confirmTimer); confirmTimer = null; }
+  });
 
   // Every tap on the grid brings the clue to you, including a tap on the entry
   // already selected. This used to fire only when the SELECTED ENTRY CHANGED,
