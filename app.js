@@ -666,15 +666,6 @@
              : `№ ${p.number}`;
   }
 
-  // What a solver reads for the setter: the real byline, or nothing. Sources
-  // that ship no byline get "Unknown" from default_setter() in
-  // tools/series.py, which is a fact worth keeping in the data — a puzzle we
-  // could not attribute is different from one we never asked about — but
-  // reads as a scraping failure wherever it is shown, so it is shown nowhere.
-  function knownSetter(p) {
-    return p.setter && p.setter !== "Unknown" ? p.setter : "";
-  }
-
   // Every id this puzzle has ever had, from the days when a book was its own
   // series: "penguin-5018" while each BOOK was a key, "penguin5-18" before
   // that while each VOLUME was one. Mirrors legacy_ids() in tools/series.py.
@@ -5511,7 +5502,7 @@
     if (pickerTerms === null) {
       const seen = { solved: 1, unfinished: 1 };
       INDEX.puzzles.forEach((p) => {
-        [knownSetter(p), (SERIES_BADGE[p.series || "cryptic"] || [""])[0],
+        [p.setter, (SERIES_BADGE[p.series || "cryptic"] || [""])[0],
          p.difficulty ? p.difficulty.band : "",
          puzzleDate(p).day].forEach((t) => { if (t) seen[t] = 1; });
       });
@@ -5680,7 +5671,7 @@
     // gluing it onto the date made the one nowrap element in the row long
     // enough to shove everything else off the line.
     btn.innerHTML = `<span class="p-num">${displayNumber(p)}</span>
-        <span class="p-setter">${esc(knownSetter(p))}</span>
+        <span class="p-setter">${esc(p.setter || "")}</span>
         <span class="p-meta">${d}</span>
         <span class="p-tags">${seriesBadge(p)}${difficultyBadge(p)}${hintsBadge(p.annotated)}${sourceBadge(p)}
           ${!st.filled ? ""
@@ -6042,7 +6033,7 @@
     // solver about to start wants to know whether they picked a Monday or a
     // Saturday prize before they wonder why it is fighting back.
     const when = puzzleDate(meta);
-    const setter = knownSetter(P);
+    const setter = P.setter || "";
     $("puzzle-title").innerHTML =
       esc(P.name) +
       (setter ? ` — set by <em>${esc(setter)}</em>` : "") +

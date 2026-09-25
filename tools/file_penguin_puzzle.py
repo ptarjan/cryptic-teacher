@@ -286,10 +286,8 @@ def build(record, identifier, model, unsolved=False):
         "number": number,
         "series": series,
         "name": puzzle_name(series, number),
-        # Some books print no byline over a puzzle. "Unknown" is what the rest
-        # of the corpus shows for one, and it is the series table's answer — an
-        # empty setter would read as a parsing failure instead of as the blank
-        # the page actually has.
+        # Some books print no byline over a puzzle: the series table's answer,
+        # which is null unless the whole book is one setter's.
         "setter": record.get("setter") or default_setter(series, number),
         # No volume prints a date. null is the corpus's existing spelling for
         # "nobody knows", not a gap to be filled in later.

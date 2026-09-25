@@ -75,14 +75,6 @@ def esc(s):
     return html.escape(str(s or ""), quote=True)
 
 
-# Mirrors knownSetter() in app.js. A source that ships no byline gets
-# "Unknown" from default_setter() in tools/series.py — a fact worth keeping in
-# the data, but one that reads as a scraping failure wherever it is shown, so
-# it is shown nowhere.
-def known_setter(setter):
-    return setter if setter and setter != "Unknown" else ""
-
-
 def asset(rel):
     """An absolute, content-stamped URL for one of our own static files.
 
@@ -427,7 +419,7 @@ def app_return(pid):
 
 
 def puzzle_page(puz, meta, prev_p, next_p):
-    setter = known_setter(puz.get("setter"))
+    setter = puz.get("setter") or ""
     what = kind(puz)                  # "Cryptic", "Quiptic", "Everyman"
     paper = publisher(puz)            # "Guardian", "Observer"
     pretty = f"{position(puz):,}"
@@ -442,7 +434,7 @@ def puzzle_page(puz, meta, prev_p, next_p):
     # "Everyman Crossword No 4,096 by Everyman" is the setter's pseudonym said
     # twice. Where the series name IS the byline — the Observer has kept Everyman
     # anonymous since 1945 — the attribution is already in the title, so drop it.
-    # Also empty when the source shipped no byline at all — see known_setter().
+    # Also empty when the source shipped no byline at all — a null setter.
     by = "" if not setter or setter == what else f" by {setter}"
 
     # Intent word early, identifier early, paper last. A result is chosen on the
@@ -622,7 +614,7 @@ def hub_row(p):
               f'{esc(series_meta.badge(p.get("series") or "cryptic"))}</span>')
     return (f'<li><a href="{BASE}/puzzles/{p["id"]}/">'
             f'<span class="p-num">{display_number(p)}</span>'
-            f'<span class="p-setter">{esc(known_setter(p.get("setter")))}</span>'
+            f'<span class="p-setter">{esc(p.get("setter"))}</span>'
             f'<span class="p-meta">{esc(when)}</span>'
             f'<span class="p-tags">{series}{badge}{hints}{ours}</span></a></li>')
 
@@ -1021,7 +1013,7 @@ def homepage_nav(idx):
     # "No 3,374" beside "No 30,120" says nothing about which is which.
     items = "".join(
         f'<li><a href="{BASE}/puzzles/{p["id"]}/">{esc(named(p))}'
-        + (f' &middot; {esc(s)}' if (s := known_setter(p.get("setter")))
+        + (f' &middot; {esc(s)}' if (s := p.get("setter"))
            and s != kind(p) and s != publisher(p) else "")
         + "</a></li>" for p in solved[:12])
     return f"""{NAV_START}

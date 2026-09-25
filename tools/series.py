@@ -31,8 +31,7 @@ import re
 # in tools/difficulty.py — a per-series ranking here would be a third opinion
 # nothing asks for.
 # setter — used only when the source publishes no byline. Absent means the
-#   feed always names a setter and a missing one is a scraping bug worth
-#   showing as "Unknown".
+#   puzzle's setter is null: nobody is known to have set it.
 SERIES = {
     "cryptic": {
         "kind": "Cryptic",
@@ -50,8 +49,7 @@ SERIES = {
         "publisher": "Observer",
         # "Everyman" IS the byline — the Observer has kept the setter anonymous
         # since 1945 — so the feed ships no creator. Without this every one of
-        # them reads "Unknown", which looks like a scraping failure rather than
-        # the deliberate anonymity it is.
+        # them has a null setter, which hides a byline the paper really prints.
         "setter": "Everyman",
     },
     # Ours. Not a paper, so it has no publisher's numbering and no feed — it is
@@ -69,7 +67,7 @@ SERIES = {
     "metro": {
         # Supplied to Metro by Puzzler Digital and printed with no byline at
         # all. The paper is not a setter: unlike "Everyman" it is no byline
-        # anyone signs, so these stay "Unknown" and the byline is not shown.
+        # anyone signs, so these have a null setter and no byline is shown.
         "kind": "Cryptic",
         "publisher": "Metro",
         "badge": "metro",
@@ -125,8 +123,8 @@ SERIES = {
     "times": {
         "kind": "Cryptic",
         "publisher": "Times",
-        # The daily cryptic prints no setter's name, so the setter is
-        # "Unknown" and not the paper's name.
+        # The daily cryptic prints no setter's name, so the setter is null
+        # and not the paper's name.
         "badge": "times",
         "blog": "timesforthetimes.co.uk",
         # The blog counts a linked clue over its own light, as Private Eye does.
@@ -326,7 +324,7 @@ def publisher(series, number=None):
 
 
 def default_setter(series, number=None):
-    """Used only where the source publishes no byline.
+    """Used only where the source publishes no byline; None when nobody is known.
 
     Per BOOK for a book: the Araucaria and Morse collections are one setter
     from cover to cover, and a blank byline in either is anonymity of the
@@ -334,8 +332,8 @@ def default_setter(series, number=None):
     individual puzzle still wins — this is the fallback, not an override.
     """
     if is_book(series) and number is not None:
-        return book_row(series, number).get("setter", "Unknown")
-    return meta(series).get("setter", "Unknown")
+        return book_row(series, number).get("setter")
+    return meta(series).get("setter")
 
 
 def badge(series):
