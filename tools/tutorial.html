@@ -1,118 +1,187 @@
 <!-- The lesson. tools/build_seo_pages.py renders it as /learn/ — the one
      place it exists. Headings shift down a level there, under the page's h1. -->
-<p>Nearly every cryptic clue contains the same two things, side by side:</p>
+<h3>Every clue has two parts</h3>
+<p>A cryptic clue is two clues joined into one sentence:</p>
 <ul>
-  <li>a <mark class="def">definition</mark> — a normal crossword-style definition of the answer,
-      always at the <em>start or end</em> of the clue, and</li>
-  <li>the <em>wordplay</em> — a recipe for building the answer letter by letter, often
-      flagged by <mark class="ind">indicator words</mark>.</li>
+  <li>The <mark class="def">definition</mark>. This is a plain clue for the answer, like one in
+      an ordinary crossword. It can be one word or several. It always sits at the <em>start</em>
+      or the <em>end</em> of the clue, never in the middle.</li>
+  <li>The <em>wordplay</em>. This is a set of instructions for building the answer out of
+      letters. It fills the rest of the clue.</li>
 </ul>
-<p>The clue is written so the two halves read as one misleading sentence (the
-<em>surface</em>). Your job is to find the seam between definition and wordplay. When you
-solve a clue you get <strong>two independent confirmations</strong> — the definition fits
-and the wordplay builds the same word — so you can be certain without checking any answers.</p>
+<p>The number in brackets at the end is the <em>letter count</em>: how many letters the answer
+has. (3,4) means two words, of 3 and then 4 letters.</p>
+<p>Read as a normal sentence, the clue is about something else entirely. That normal reading is
+called the <em>surface</em>, and it is there to mislead you. Ignore it. Your job is to find where
+the definition stops and the wordplay starts.</p>
+<p>Here is how you know you are right. The definition means the answer, <em>and</em> the wordplay
+builds the same answer. When both work, you have it.</p>
+
+<h3>Indicators and link words</h3>
+<p>Most wordplay contains an <mark class="ind">indicator</mark>: a word that tells you what to do
+with the words right next to it. "Broken" might mean "rearrange these letters". "Back" might mean
+"write this word backwards". The words an indicator works on are called the <em>fodder</em>. An
+indicator can come just before its fodder or just after it.</p>
+<p>Each clue type below lists some common indicators. The lists are examples, not complete. Any
+word with a similar meaning can do the same job.</p>
+<p>A few clues also have a <em>link word</em> between the definition and the wordplay, such as
+<em>for</em>, <em>is</em>, <em>'s</em>, <em>gives</em>, <em>makes</em> or <em>from</em>. It joins
+the two parts, like an equals sign. It adds no letters.</p>
+<p>Punctuation is mostly there for the surface, so you can usually ignore it. Two exceptions: a
+question mark often warns you that a word is being used in an odd sense, and an exclamation mark
+can mean an &amp;lit (see the end of the list below).</p>
+<p>In the examples below, the <mark class="def">definition</mark> is green and the
+<mark class="ind">indicator</mark> is pink. Here is one clue with every part labelled:</p>
+<div class="mini"><span class="clue">Stale, <mark class="ind">broken</mark>, is <mark class="def">smallest</mark> (5)</span><br>
+The definition is "smallest", at the end. The rest is the wordplay. "Broken" is the indicator:
+it says "rearrange". STALE is the fodder. "Is" is a link word. Rearrange STALE to get
+<strong>LEAST</strong>, which means "smallest", and has 5 letters.</div>
 
 <h3>The main clue types</h3>
 
 <h4>Anagram</h4>
-<div class="mini"><span class="clue">Destroying <mark class="ind">climate, sun</mark> <mark class="def">reaches highest point</mark> (10)</span><br>
-"Destroying" signals an anagram of CLIMATE SUN (10 letters) → <strong>CULMINATES</strong>.
-Anagram indicators suggest disorder: <em>broken, wild, drunk, confused, cooked, at sea…</em>
-Count the fodder letters — they must exactly match the enumeration.</div>
+<div class="mini"><span class="clue"><mark class="ind">Destroying</mark> climate, sun <mark class="def">reaches highest point</mark> (10)</span><br>
+Rearrange the letters of some words in the clue. "Destroying" is the indicator. CLIMATE SUN is
+the fodder: 10 letters, the same as the letter count. Rearranged, they spell
+<strong>CULMINATES</strong>, which means "reaches highest point".<br>
+Anagram indicators suggest mess or change: <em>broken, wild, drunk, confused, cooked, at sea</em>.
+Always count the fodder's letters. They must match the letter count exactly.</div>
 
 <h4>Charade</h4>
 <div class="mini"><span class="clue"><mark class="def">Give authority?</mark> Those people might (7)</span><br>
-Pieces are simply chained: "those people" = 'EM + "might" = POWER → <strong>EMPOWER</strong>.
-No indicator needed — the parts just follow each other.</div>
+Build the answer from small pieces placed one after another, like beads on a string. "Those
+people" is <strong>'EM</strong> (as in "give 'em"). "Might" is <strong>POWER</strong>. Together:
+<strong>EMPOWER</strong>, which means "give authority".<br>
+A charade often has no indicator. The pieces simply follow each other in the order the clue
+gives them. Small words like <em>and</em>, <em>with</em> or <em>by</em> often just join the
+pieces, and add no letters.</div>
 
-<h4>Container (insertion)</h4>
-<div class="mini"><span class="clue">Stylish attempt <mark class="ind">to cover</mark> butt (6)</span><br>
-One part goes inside another: TRY ("attempt") covering END ("butt") → TR(END)Y =
-<strong>TRENDY</strong> ("stylish"). Watch for <em>holding, swallowing, wearing, about, in</em>.</div>
+<h4>Container</h4>
+<div class="mini"><span class="clue"><mark class="def">Stylish</mark> attempt <mark class="ind">to cover</mark> butt (6)</span><br>
+Put one piece inside another. "Attempt" is TRY. "Butt" is END (the end of something). TRY covers
+END, so END goes inside TRY: TR + END + Y = <strong>TRENDY</strong>, which means "stylish".
+The outer word can split at any point. Try each gap until you get a real word of the right
+length.<br>
+Container indicators: <em>holding, swallowing, wearing, about, in, covering</em>.</div>
 
 <h4>Hidden word</h4>
 <div class="mini"><span class="clue"><mark class="def">Unyielding</mark> squad a man triumphantly <mark class="ind">arrests</mark> (7)</span><br>
-The answer is sitting in plain sight: squ<strong>AD A MAN T</strong>riumphantly →
-<strong>ADAMANT</strong>. Indicators: <em>some, part of, held by, arrests</em>.</div>
+The answer is written inside the clue, in consecutive letters that run across the gaps between
+words: squ<strong>AD A MAN T</strong>riumphantly gives <strong>ADAMANT</strong>, which means
+"unyielding". The words "arrest" (hold) the answer inside them.<br>
+Hidden word indicators: <em>in, found in, some, part of, held by, arrests, conceals</em>.</div>
 
 <h4>Homophone</h4>
-<div class="mini"><span class="clue"><mark class="ind">Reportedly</mark> a cheap fastener for a horse (4)</span><br>
-Sounds like another word: "cheap fastener" ≈ MANE/"main"… e.g. <em>we hear, on the radio,
-called out</em> all flag sound-alikes. (Answer here: MANE, sounding like "main".)</div>
+<div class="mini"><span class="clue">Deer, <mark class="ind">we hear</mark>, is <mark class="def">precious</mark> (4)</span><br>
+The answer sounds like another word but is spelled differently. Say "deer" out loud: it sounds
+like <strong>DEAR</strong>, which means "precious". "We hear" is the indicator. "Is" is a link
+word.<br>
+Homophone indicators: <em>we hear, reportedly, on the radio, said, called out</em>.</div>
 
 <h4>Reversal</h4>
 <div class="mini"><span class="clue">Apple device <mark class="ind">set up</mark> date <mark class="def">feature on smartphone</mark> (6)</span><br>
-MAC reversed ("set up" — this works in Down clues) + ERA ("date") → <strong>CAMERA</strong>.
-Indicators: <em>back, returned, over, rising / set up</em> (down clues only).</div>
+Write a word backwards. "Apple device" is MAC. This is a down clue, where the answer is written
+from top to bottom, so "set up" means "read it from the bottom up": MAC becomes CAM. "Date" is
+ERA. CAM + ERA = <strong>CAMERA</strong>, which is a "feature on smartphone".<br>
+Reversal indicators in across clues: <em>back, returned, reflected</em>. In down clues:
+<em>up, rising, climbing, set up</em>. Some, like <em>over</em> or <em>turned</em>, work in
+either.</div>
 
 <h4>Deletion</h4>
 <div class="mini"><span class="clue">Sexpot <mark class="ind">stripped</mark> for <mark class="def">show</mark> (4)</span><br>
-Remove letters: (s)EXPO(t) "stripped" of its outside → <strong>EXPO</strong>.
-Look for <em>headless, endless, gutted, short, almost, without</em>.</div>
+Take letters away from a word. "Stripped" means remove the outside letters, so SEXPOT loses its
+first and last letters: (S)EXPO(T) gives <strong>EXPO</strong>, which is a "show". "For" is a
+link word.<br>
+Deletion indicators: <em>headless</em> (lose the first letter), <em>endless</em> (lose the last),
+<em>gutted</em> (lose all the middle letters), <em>almost, short, without</em>.</div>
+
+<h4>First letters</h4>
+<div class="mini"><span class="clue"><mark class="def">Taxi</mark> <mark class="ind">initially</mark> carrying a businessman (3)</span><br>
+Take the first letter of each word. "Initially" is the indicator, so take the first letters of
+"carrying a businessman": C, A, B gives <strong>CAB</strong>, which means "taxi". Take letters
+only from the words the indicator points at, and stop when you have the letter count. The rest
+of the clue is the definition.<br>
+First letter indicators: <em>initially, at first, leaders of, heads of</em>. Last letter
+indicators: <em>finally, ultimately, at last, ends of</em>.</div>
 
 <h4>Double definition</h4>
 <div class="mini"><span class="clue"><mark class="def">Lousy payment</mark> for <mark class="def">cartoon</mark> (7)</span><br>
-Two definitions of the same word, no wordplay at all → <strong>PEANUTS</strong>.
-Often the shortest clues in the puzzle.</div>
+The clue is two definitions of the same word, and there is no wordplay. Each definition can
+be one word or several. A very small wage is
+called "peanuts", and <em>Peanuts</em> is also a cartoon strip, so the answer is
+<strong>PEANUTS</strong>. "For" is a link word joining the two definitions.<br>
+These are often the shortest clues in the puzzle.</div>
 
-<h4>&amp;lit ("and literally so")</h4>
-<div class="mini">Rare and prized: the <em>whole clue</em> is simultaneously the definition
-<em>and</em> the wordplay, traditionally flagged with an exclamation mark. Classic teaching
-example: <span class="clue"><mark class="ind">Terribly</mark> angered!</span> — an anagram
-("terribly") of ANGERED gives <strong>ENRAGED</strong>, and the entire clue, read plainly,
-also defines it.</div>
+<h4>Cryptic definition</h4>
+<div class="mini"><span class="clue"><mark class="def">Flower of London</mark> (6)</span><br>
+The whole clue is one definition with a trick in it, and there is no wordplay. The trick is
+that "flower" here means "something that flows". The river that flows through London is
+the <strong>THAMES</strong>. Clues like this often end with a question mark, to warn you that
+a word means something unusual.</div>
+
+<h4>&amp;lit</h4>
+<div class="mini"><span class="clue"><mark class="ind">Terribly</mark> angered! (7)</span><br>
+The whole clue is the wordplay <em>and</em> the whole clue is the definition. As wordplay:
+"terribly" is an anagram indicator, and ANGERED rearranged spells <strong>ENRAGED</strong>. As
+a definition: "terribly angered" means enraged. The name is short for "and literally so".
+These clues are rare, and often end with an exclamation mark.</div>
 
 <h3>Common indicator words</h3>
 <table>
-<tr><th>Type</th><th>Typical indicators</th></tr>
+<tr><th>Clue type</th><th>Indicators to watch for</th></tr>
 <tr><td>Anagram</td><td>broken, destroyed, confused, drunk, wild, cooked, exercising, mobile, at sea, in a mess, perished, transformed</td></tr>
 <tr><td>Container</td><td>in, inside, holding, swallowing, wearing, about, around, covering, accepting, picking up, boxing</td></tr>
-<tr><td>Hidden</td><td>some, part of, a bit of, held by, within, arrests, conceals</td></tr>
+<tr><td>Hidden word</td><td>some, part of, a bit of, held by, within, arrests, conceals</td></tr>
 <tr><td>Homophone</td><td>we hear, reportedly, on the radio, said, called out, audibly</td></tr>
-<tr><td>Reversal</td><td>back, returned, reflected, over, rejected; in down clues: up, rising, climbing, served up</td></tr>
+<tr><td>Reversal</td><td>across clues: back, returned, reflected, rejected; down clues: up, rising, climbing, served up; either: over, turned</td></tr>
 <tr><td>Deletion</td><td>headless, endless, almost, most(ly), short, gutted, stripped, without, wanting, losing</td></tr>
-<tr><td>First/last letters</td><td>initially, at first, opening of, finally, ultimately, at last, extremes of</td></tr>
+<tr><td>First or last letters</td><td>initially, at first, opening of, leaders of, finally, ultimately, at last, extremes of</td></tr>
 </table>
 
 <!-- ABBREVIATIONS-START -->
 <!-- tools/build_seo_pages.py writes the pointer to /abbreviations/ here. -->
 <!-- ABBREVIATIONS-END -->
 
-<h3>A method that works</h3>
+<h3>How to solve a clue, step by step</h3>
 <ol>
-  <li>Read the clue once for fun, then <strong>forget the surface</strong> — it is designed to mislead.</li>
-  <li>Try the <strong>first word(s) and last word(s) as the definition</strong>; the rest is wordplay.</li>
-  <li>Hunt for <strong>indicator words</strong> — they tell you which machinery is in play.</li>
-  <li>Count letters relentlessly. If "confused" sits next to exactly 9 letters and the answer has 9, it's an anagram.</li>
-  <li>Use crossing letters, and don't be too proud for the hint ladder — each level is designed to teach you the next skill, not to give the game away. The first few — which words are indicators, where the definition sits, what kind of clue it is — can be taken in any order you like, so if you only want the definition, take the definition. The building blocks and the full walkthrough wait until you've had those, because they give them away.</li>
+  <li>Read the clue once. Then <strong>ignore what it seems to be about</strong>.</li>
+  <li><strong>Test the first word or two as the definition, then the last word or two.</strong>
+      Whatever is left is the wordplay. If both ends could work, pick the one where the rest
+      of the clue builds a word with the right letter count.</li>
+  <li><strong>Look for indicators.</strong> They tell you which clue type you have.</li>
+  <li><strong>Count letters.</strong> If "confused" sits next to words with 9 letters in total,
+      and the letter count is (9), it is probably an anagram.</li>
+  <li><strong>Use the letters you already have</strong> from answers that cross this one.</li>
+  <li><strong>Use the hints when you are stuck.</strong> Each hint teaches you one step, without
+      giving away the answer. The first three are "Spot the indicator words", "Where is the
+      definition?" and "What kind of clue is this?". You can take them in any order. "The building
+      blocks" opens after those, and "Full walkthrough" opens last, because they give more
+      away.</li>
 </ol>
 
-<h3 id="notation">Reading other people's explanations</h3>
-<p>Every daily broadsheet cryptic gets blogged, clue by clue, by solvers who
-   explain the whole grid the morning after — Fifteensquared covers the Guardian
-   and the Independent, Big Dave's the Telegraph, Times for the Times the Times.
-   They are the best free resource in the hobby and the natural place to go for a
-   puzzle we do not hold. But they all write in a shorthand nobody explains,
-   because it grew up among people who already knew it, and it stops beginners
-   before the wordplay ever gets a chance to. Here it is:</p>
+<h3 id="notation">Reading solving blogs</h3>
+<p>Solvers write free blogs that explain every clue in the big daily cryptics, the morning after
+each puzzle. Fifteensquared covers the Guardian and the Independent. Big Dave's Crossword Blog
+covers the Telegraph. Times for the Times covers the Times. They are the best place to look up a
+puzzle this site does not have.</p>
+<p>The bloggers use a shorthand that they rarely explain. Here is what it means:</p>
 <table>
   <tr><th>You'll see</th><th>It means</th></tr>
   <tr><td><u>underlined</u></td><td>the definition</td></tr>
-  <tr><td>CAPITALS</td><td>the fodder — the letters actually being worked on</td></tr>
-  <tr><td>(brackets)</td><td>the indicator, quoted from the clue</td></tr>
-  <tr><td>[square brackets]</td><td>letters deleted, or the instruction that deletes them</td></tr>
-  <tr><td>*</td><td>anagram — <em>RETAIL*</em> means "anagram of RETAIL"</td></tr>
-  <tr><td>&lt;, &lt;&lt;, rev</td><td>reversed</td></tr>
-  <tr><td>dd</td><td>double definition</td></tr>
-  <tr><td>cd</td><td>cryptic definition — the whole clue is one sly definition</td></tr>
+  <tr><td>CAPITALS</td><td>the fodder, or the letters that go into the answer</td></tr>
+  <tr><td>(round brackets)</td><td>the indicator, copied from the clue</td></tr>
+  <tr><td>[square brackets]</td><td>letters that are removed, or the words that remove them</td></tr>
+  <tr><td>*</td><td>an anagram: <em>RETAIL*</em> means "rearrange RETAIL"</td></tr>
+  <tr><td>&lt;, &lt;&lt; or rev</td><td>a reversal: write it backwards</td></tr>
+  <tr><td>dd</td><td>a double definition</td></tr>
+  <tr><td>cd</td><td>a cryptic definition</td></tr>
   <tr><td>&amp;lit</td><td>the whole clue is both the definition and the wordplay</td></tr>
-  <tr><td>lift and separate</td><td>read two words that look like a phrase as two
-      separate words — "flowerbed" as "flower" then "bed"</td></tr>
-  <tr><td>Ximenean / libertarian</td><td>strict about the rules, or relaxed about
-      them; setters are argued over on this axis</td></tr>
+  <tr><td>lift and separate</td><td>split what looks like one phrase into separate words: read
+      "flowerbed" as "flower" and "bed"</td></tr>
+  <tr><td>Ximenean / libertarian</td><td>a setter who follows the rules strictly, or one who
+      bends them</td></tr>
 </table>
-<p>So a blogger writes <em><u>Chaperone</u> gets (shredded) CORSET* = ESCORT</em>,
-   and that is exactly what the rungs here would have told you one at a time:
-   the definition is "Chaperone", the indicator is "shredded", the fodder is
-   "corset". Same explanation, denser dialect. Once the shorthand reads as
-   English, every blog in the hobby opens up.</p>
+<p>For example, a blogger might write: <em><u>Chaperone</u> (shredded) CORSET* = ESCORT</em>.
+That means: the definition is "Chaperone", the indicator is "shredded", and rearranging CORSET
+gives ESCORT, which means "chaperone". The hints on this site tell you the same things, one at
+a time.</p>
