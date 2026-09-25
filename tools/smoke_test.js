@@ -1475,7 +1475,13 @@ const pickerRowFor = (id) => {
   // which. The search above is the number AND the series, which is what an id
   // is, so one surviving row is that puzzle and matching its markup would only
   // be re-deriving what the search already decided.
-  return byNumber || (rows.length === 1 ? rows[0] : undefined);
+  // A number search can still return several books, since "3003" is inside
+  // 30033; the shelf label the row prints is the last part of the puzzle's name.
+  const name = (allPuzzles.find((p) => p.id === id) || {}).name || "";
+  const shelf = name.includes(", ") && name.split(", ").pop();
+  const byShelf = shelf && rows.find((li) => li.children[0] && new RegExp(
+    ">" + shelf.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "(?!\\d)").test(li.children[0].innerHTML));
+  return byNumber || byShelf || (rows.length === 1 ? rows[0] : undefined);
 };
 // Opens the picker first, because most callers are arriving from another puzzle.
 const openFromPicker = (id) => {
