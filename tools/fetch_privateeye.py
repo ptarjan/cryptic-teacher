@@ -351,7 +351,9 @@ def issue_number(num, title):
     """
     match = re.search(r"Eye\s*(\d+)\s*/\s*(\d+)", title or "")
     if not match:
-        return None
+        # "Eye 1279": a title naming one number names the issue alone.
+        alone = re.match(r"\s*Eye\s*(\d+)\b(?!\s*/)", title or "")
+        return int(alone.group(1)) if alone and int(alone.group(1)) != num else None
     left, right = int(match.group(1)), int(match.group(2))
     if left == num and right != num:
         return right
@@ -396,17 +398,20 @@ def cover_date(num, title):
     the day with no offset.
 
     A date that is not a Friday is discarded rather than written. The Eye dates
-    every issue to a Friday, so a non-Friday means the issue was misread, not
-    that the magazine moved.
+    every issue to a Friday but its Christmas double issue, which it dates to
+    a day from 18 to 31 December (Mon 23 Dec 2013, Tue 20 Dec 2016), so a
+    non-Friday outside that means the issue was misread, not that the
+    magazine moved.
     """
     issue = issue_number(num, title)
     if issue is None:
         return None
     found = fetch_cover_date(issue)
-    if found is None or found.weekday() != PUBLICATION_WEEKDAY:
+    if found is None or not (found.weekday() == PUBLICATION_WEEKDAY
+                             or (found.month == 12 and found.day >= 18)):
         if found is not None:
             print(f"  {SERIES}-{num}: cover-{issue} says {found} "
-                  f"({found:%A}), not a Friday — left undated")
+                  f"({found:%A}), not a Friday nor Christmas — left undated")
         return None
     return int(datetime.datetime.combine(
         found, datetime.time(), datetime.timezone.utc).timestamp() * 1000)
@@ -1114,9 +1119,16 @@ def stamp_date(path, epoch_ms):
 def backfill_dates(out_dir, dry_run=False):
     """Fill in the publication date of every on-disk Cyclops that lacks one.
 
-    The dates come from the Eye's own issue cover pages; see cover_date.
+    The dates come from the Eye's own issue cover pages; see cover_date. The
+    Eye prints one Cyclops an issue, so a date another Cyclops already holds
+    means the title named the wrong issue, and is refused.
     """
     written = skipped = 0
+    held = {}
+    for num in on_disk_numbers(out_dir):
+        date = read_puzzle_file(out_path(out_dir, num)).get("date")
+        if date:
+            held[date] = num
     for num in on_disk_numbers(out_dir):
         path = out_path(out_dir, num)
         puzzle = read_puzzle_file(path)
@@ -1128,9 +1140,13 @@ def backfill_dates(out_dir, dry_run=False):
         except Exception as err:  # noqa: BLE001 — one bad puzzle shouldn't stop the walk
             print(f"skip {SERIES}-{num}: {err}")
             epoch_ms = None
+        if epoch_ms in held:
+            print(f"skip {SERIES}-{num}: its title's issue is {SERIES}-{held[epoch_ms]}'s")
+            epoch_ms = None
         if epoch_ms is None:
             skipped += 1
         else:
+            held[epoch_ms] = num
             shown = datetime.datetime.fromtimestamp(
                 epoch_ms / 1000, datetime.timezone.utc).date()
             if not dry_run:

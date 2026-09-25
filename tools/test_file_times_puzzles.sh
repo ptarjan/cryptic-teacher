@@ -217,6 +217,26 @@ page = ('<a href="/puzzles/crossword/sunday-times-cryptic-no-5078-t38g8lcjm" dat
         '<a href="/puzzles/crossword/sunday-times-cryptic-no-5142-abc">'
         '<span class=" c" color="inkBase">Sunday December 31</span><span class=" d">| 5142</span>')
 print("CARDS", [(s, n, str(d)) for s, n, d in L.cards("20240103120000", page)])
+
+# A Jumbo title states its date as the slug may not: "(18/11/17)", "April1,
+# 2017", or a holiday's name. Before the title was read these stayed null.
+said = lambda posted, title: str(F.blog_date(
+    {"date": posted, "slug": "jumbo", "title": title}, "timesjumbo"))
+print("TITLE_NUMERIC", said("2017-12-02", "Times Cryptic Jumbo No 1294 (18/11/17): Feline Groovy"))
+print("TITLE_GLUED", said("2017-04-15", "Jumbo 1257 April1, 2017 – a classical clanger?"))
+print("TITLE_HOLIDAYS", said("2018-01-06", "Boxing Day Jumbo 1300"),
+      said("2017-04-29", "Easter Monday Bank Holiday Jumbo Cryptic 1260"),
+      said("2018-09-08", "Summer Bank Holiday Jumbo 1340"),
+      said("2019-01-13", "Jumbo 1360 (New Year’s Day)"))
+print("TITLE_BARE_HOLIDAY", said("2018-06-09", "Bank Holiday Jumbo 1326"))
+# Two stated Saturdays with a bank holiday's number between them: no cadence
+# joins them, but the numbers fit the days, so both dates stand.
+fit = [rec(40, "Jumbo Cryptic", 1810, "2026-03-14", "jumbo-1810-7-march-2026"),
+       rec(41, "Jumbo Cryptic", 1811, "2026-03-21", "jumbo-1811"),
+       rec(42, "Jumbo Cryptic", 1812, "2026-03-21", "jumbo-1812"),
+       rec(43, "Jumbo Cryptic", 1813, "2026-03-28", "jumbo-1813-21-march-2026")]
+dates, _ = F.print_dates(fit, listing={})
+print("JUMBO_FITS", day("timesjumbo", 1810), day("timesjumbo", 1813), day("timesjumbo", 1811))
 PY
 )
 echo "$out" | grep -v "^[A-Z_]* " | sed 's/^/  | /'
@@ -229,6 +249,12 @@ check "a Sunday past the last anchor stays undated" "None" "$(got SUNDAY_PAST)"
 check "a Jumbo gap holding a bank holiday stays undated" "None None" "$(got JUMBO_GAP)"
 check "a bank holiday the blog names lets the cadence past it" "Mon 09 Sat 14" "$(got JUMBO_HOLIDAY)"
 check "the Times's listing dates what the cadence cannot" "Sun 01 Mon 05 Sat 10" "$(got LISTED)"
+check "a Jumbo title's d/m/yy date dates it" "2017-11-18" "$(got TITLE_NUMERIC)"
+check "a Jumbo title's month glued to its day dates it" "2017-04-01" "$(got TITLE_GLUED)"
+check "a Jumbo title naming a holiday dates it" "2017-12-26 2017-04-17 2018-08-27 2019-01-01" "$(got TITLE_HOLIDAYS)"
+check "a bare 'Bank Holiday' names no day" "None" "$(got TITLE_BARE_HOLIDAY)"
+check "stated Jumbo dates stand where the numbers fit the days; the gap stays undated" \
+  "Sat 07 Sat 21 None" "$(got JUMBO_FITS)"
 check "listing cards: year off the capture, weekday checked" \
   "[('sundaytimes', 5078, '2023-09-24'), ('times', 29000, '2023-12-26'), ('sundaytimes', 5142, '2023-12-31')]" "$(got CARDS)"
 
