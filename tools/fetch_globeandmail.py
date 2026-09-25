@@ -284,13 +284,15 @@ def solution_letters(box, cells):
 def setter_name(author):
     """The byline without the syndication notice.
 
-    Amuse ships the author as "Hurley (©News Licensing/Times Media Limited)" —
-    the puzzle is a Times syndication. The rights holder is not the setter, and
+    Amuse ships the author as "Hurley (©News Licensing/Times Media Limited)" or
+    "Hurley / ©News Licensing/Times Media Limited" — the puzzle is a Times
+    syndication. The rights holder is not the setter, and
     a solver looking for another Hurley puzzle needs the name alone.
     """
     if not author:
         return "Unknown"
     name = re.sub(r"\s*\([^)]*(?:©|Licensing|Limited|Ltd)[^)]*\)", "", author).strip()
+    name = re.sub(r"\s*/?\s*©.*$", "", name).strip()
     return name or "Unknown"
 
 
