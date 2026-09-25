@@ -68,12 +68,10 @@ SERIES = {
     },
     "metro": {
         # Supplied to Metro by Puzzler Digital and printed with no byline at
-        # all, so there is no name to scrape and a blank one is not a scraping
-        # failure. The paper stands in as the attribution, the way "Everyman"
-        # does for the Observer.
+        # all. The paper is not a setter: unlike "Everyman" it is no byline
+        # anyone signs, so these stay "Unknown" and the byline is not shown.
         "kind": "Cryptic",
         "publisher": "Metro",
-        "setter": "Metro",
         "badge": "metro",
     },
     "cyclops": {
@@ -127,8 +125,8 @@ SERIES = {
     "times": {
         "kind": "Cryptic",
         "publisher": "Times",
-        # The daily cryptic prints no setter's name.
-        "setter": "Times",
+        # The daily cryptic prints no setter's name, so the setter is
+        # "Unknown" and not the paper's name.
         "badge": "times",
         "blog": "timesforthetimes.co.uk",
         # The blog counts a linked clue over its own light, as Private Eye does.
@@ -144,7 +142,6 @@ SERIES = {
     "timesjumbo": {
         "kind": "Jumbo Cryptic",
         "publisher": "Times",
-        "setter": "Times",
         "badge": "times jumbo",
         "blog": "timesforthetimes.co.uk",
         "perLightEnumeration": True,
