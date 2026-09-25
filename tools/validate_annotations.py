@@ -752,6 +752,15 @@ def check_answer_matches_separators(tag, ann, entry, errors):
             f"letter strip puts its gaps where the enumeration does")
 
 
+DEFINITION_FIT_HOW = (
+    "Name the relation rather than asserting it: a plain synonym, a definition by "
+    "example, a crossword-only sense, a regional use, an idiom. Never read the "
+    "definition back — 'army ants move in a crawling column, and crawler also "
+    "carries the grovelling sense the surface points at', not 'an army ant is a "
+    "crawler'. A double definition covers both senses; an &lit says why the whole "
+    "clue reads straight")
+
+
 def check_definition_fit(tag, ann, errors, warnings):
     """Why the answer MEANS the definition — the non-mechanical half of a clue.
 
@@ -763,14 +772,13 @@ def check_definition_fit(tag, ann, errors, warnings):
     """
     fit = ann.get("definitionFit")
     if fit is None:
-        msg = (f"{tag}: no definitionFit — say in one sentence why the answer means "
-               f"the definition (tools/annotate_prompt.md)")
+        msg = (f"{tag}: no definitionFit — say in one sentence (30 words max) why the "
+               f"answer means the definition. {DEFINITION_FIT_HOW}")
         warnings.append(msg)
         return
     fit = str(fit).strip()
     if len(fit) < 25:
-        errors.append(f"{tag}: definitionFit {fit!r} is too thin — name the relation "
-                      f"(synonym, definition by example, crossword sense), don't assert it")
+        errors.append(f"{tag}: definitionFit {fit!r} is too thin. {DEFINITION_FIT_HOW}")
         return
     if len(fit.split()) > 30:
         warnings.append(f"{tag}: definitionFit is {len(fit.split())} words — 30 max")
@@ -781,7 +789,7 @@ def check_definition_fit(tag, ann, errors, warnings):
              if w not in known and w not in FILLER_WORDS and len(w) > 2]
     if len(fresh) < 3:
         errors.append(f"{tag}: definitionFit {fit!r} just restates the definition with the "
-                      f"answer in it — explain WHY the two mean the same")
+                      f"answer in it. {DEFINITION_FIT_HOW}")
 
 # An early rung must not contain the answer. The hint ladder is a ladder: the
 # spotting rungs name the indicators, the definition and the family, and only the
@@ -869,6 +877,12 @@ def check_block_notes_dont_name_the_answer(tag, ann, errors, warnings):
 # see the ratchet at the bottom of this file.
 
 
+INDICATOR_NOTE_HOW = (
+    "One sentence saying which sense of THIS word carries the instruction: "
+    "\"'stable? No' means unstable, and something unstable will not stay in the "
+    "order it is given\", not \"'stable? No' is the anagram indicator\"")
+
+
 def check_indicator_notes(tag, ann, errors, warnings):
     """Why THIS word is the indicator — one sentence per indicator."""
     inds = ann.get("indicators") or []
@@ -878,8 +892,8 @@ def check_indicator_notes(tag, ann, errors, warnings):
             errors.append(f"{tag}: indicatorNotes but no indicators to explain")
         return
     if not notes:
-        msg = (f"{tag}: no indicatorNotes — say in one sentence per indicator why "
-               f"that word does that job (tools/annotate_prompt.md)")
+        msg = (f"{tag}: no indicatorNotes — give an object keyed by each indicator "
+               f"string exactly as it appears in `indicators`. {INDICATOR_NOTE_HOW}")
         warnings.append(msg)
         return
     if not isinstance(notes, dict):
@@ -892,15 +906,15 @@ def check_indicator_notes(tag, ann, errors, warnings):
         note = str(note or "").strip()
         if len(note) < 25:
             errors.append(f"{tag}: indicatorNote for {key!r} is {note!r} — too thin to "
-                          f"teach; name the sense of the word that does the work")
+                          f"teach. {INDICATOR_NOTE_HOW}")
         # "'shuffled' tells you to shuffle" is the failure this catches: a note
         # made only of words already in the indicator has restated it.
         elif not (set(words_of(note)) - set(words_of(key)) - DEFINITION_STOPWORDS):
-            errors.append(f"{tag}: indicatorNote for {key!r} only says {key!r} again — "
-                          f"say WHY the word means that, in words the clue does not use")
+            errors.append(f"{tag}: indicatorNote for {key!r} only says {key!r} again. "
+                          f"{INDICATOR_NOTE_HOW}")
     for missing in [i for i in inds if i not in notes]:
         msg = (f"{tag}: indicator {missing!r} has no note — every indicator gets one, "
-               f"or the rung is content-free for the ones that do not")
+               f"keyed by the identical string. {INDICATOR_NOTE_HOW}")
         warnings.append(msg)
 
 
@@ -946,7 +960,11 @@ def check_sound_names_its_source(tag, ann, errors, warnings):
             f"{tag}: type {ann.get('type')!r} but no block says what is said aloud. "
             f"Add `soundsLike` to the block that does the sounding: the word you "
             f"HEAR is the clue's whole mechanism, and a block that jumps a "
-            f"fragment straight to the answer has taught none of it")
+            f"fragment straight to the answer has taught none of it. The note "
+            f"carries the step before the sound: \"Cockney mob loudly\" -> OARED is "
+            f"soundsLike ’ORDE, gives OARED, the note saying a mob is a HORDE and a "
+            f"Cockney drops the aitch. A mechanism feeding the sound gets its own "
+            f"earlier block")
 
 
 def check_sound_is_not_a_letter_swap(tag, ann, errors, warnings):
@@ -1101,7 +1119,11 @@ def check_coverage(tag, ann, clue, warnings):
     if loose:
         warnings.append(
             f"{tag}: clue word(s) {', '.join(sorted(set(loose)))} belong to neither the "
-            f"definition, an indicator, nor a block — wordplay may be unaccounted for")
+            f"definition, an indicator, a linkWord nor a block's clueFragment. A leftover "
+            f"word is one of: a link word; an indicator you missed; a letter you never "
+            f"named (a deletion needs a block for the letter removed, `hard` = H); or "
+            f"surface padding, recorded as a block with an empty `gives` and a note "
+            f"saying so")
 
 
 def is_word(s):
@@ -1198,6 +1220,8 @@ def check_features(tag, ann, clue, errors, warnings):
     """
     feats = ann.get("features")
     if feats is None:
+        warnings.append(f"{tag}: no features — add the block: misdirectedWord, joke, "
+                        f"answerInScene, aptDefinition (null/false where absent)")
         return
     if not isinstance(feats, dict):
         errors.append(f"{tag}: features must be an object, got {type(feats).__name__}")
@@ -1248,15 +1272,21 @@ def check_part_of_speech(tag, ann, warnings):
     # = TICKING), where the -ing test says nothing; only short ones are meaningful.
     if is_gerund(ans) and len(dwords) <= 2 and not ends(("ing",)):
         warnings.append(f"{tag}: answer ends -ING but no word in the definition does "
-                        f"({ann.get('definition')!r}) — check the part of speech, or "
-                        f"add a definitionNote saying why it is fair")
+                        f"({ann.get('definition')!r}). The definition must substitute "
+                        f"for the answer in a sentence: say the swap out loud. If it "
+                        f"does not, the definition is probably a different span of the "
+                        f"clue; if the setter really is loose, add a definitionNote "
+                        f"saying in a sentence why that is fair")
     # Multi-word answers are phrases whose trailing -S is rarely the head's
     # inflection: PICK UP THE PIECES is a verb phrase, defined by a verb phrase.
     elif (is_plural(ans) and " " not in (ann.get("answer") or "")
           and not ends(("s",)) and not (set(dwords) & INVARIANT_PLURALS)):
         warnings.append(f"{tag}: answer looks plural but the definition "
-                        f"({ann.get('definition')!r}) is not — check the part of speech, "
-                        f"or add a definitionNote saying why it is fair")
+                        f"({ann.get('definition')!r}) is not. The definition must "
+                        f"substitute for the answer in a sentence: say the swap out "
+                        f"loud. If the setter really is loose (\"Lousy payment\" = "
+                        f"PEANUTS), add a definitionNote saying in a sentence why that "
+                        f"is fair; do not stretch the definition to fit")
     # Deliberately NOT checked: -LY (plenty of adverbs don't end in -ly: "always"),
     # and -ing definitions for non-ing answers ("Working vessel" = DREDGER is fine).
     # A noisy warning is a warning nobody reads.
@@ -1334,6 +1364,11 @@ def blind_misses(pid):
         return {}
 
 
+def is_blank_clue(clue):
+    """A grid entry the setter left without a clue: only an enumeration, if that."""
+    return not re.sub(r"\([\d,\-\s]+\)\s*$", "", clue).strip()
+
+
 def check_every_clue_is_annotated(entries, errors, warnings, misses=()):
     """Once a puzzle is annotated at all, every clue in it must be annotated.
 
@@ -1368,15 +1403,28 @@ def check_every_clue_is_annotated(entries, errors, warnings, misses=()):
                 f"{misses[e['id']]!r} wrongly and the grader dropped its "
                 f"explanation. It ships with answers only until someone annotates it")
             continue
-        if not re.sub(r"\([\d,\-\s]+\)\s*$", "", e["clue"]).strip():
+        if is_blank_clue(e["clue"]):
             warnings.append(f"{tag}: no annotation, and no clue to annotate — "
                             f"the setter left this entry blank on purpose")
             continue
+        group = e.get("group") or []
+        if len(group) > 1 and group[0] != e["id"]:
+            errors.append(
+                f"{tag}: no annotation. It is a later leg of the linked group "
+                f"{group}, so its annotation is {{\"linkedTo\": \"{group[0]}\"}} and the "
+                f"whole group is annotated once, on {group[0]}")
+            continue
+        likely = (" Its letters are a model's LIKELY fill, not the paper's: annotate "
+                  "it only if you can derive the whole answer from the clue yourself."
+                  if e.get("solutionConfidence") == "LIKELY" else "")
         errors.append(
             f"{tag}: no annotation. Every clue in an annotated puzzle needs one — "
             f"a blank ships a clue with nothing to teach, and no other check can "
             f"see it. If a rule elsewhere is what stopped you, break that rule "
-            f"loudly instead: it names the clue, a blank does not")
+            f"loudly instead: it names the clue, a blank does not.{likely} Only a "
+            f"clue you cannot parse without inventing wordplay stays null: the "
+            f"puzzle fails and can be retried, whereas a confident wrong "
+            f"explanation ships and nothing catches it")
 
 
 def check_cryptic_definition_blocks(tag, ann, errors, warnings):
@@ -1786,9 +1834,11 @@ def check_conventions_are_in_the_glossary(entries, warnings):
             if hit and hit[1] not in known.get(hit[0], ()):
                 warnings.append(
                     f"{tag}: {hit[1]!r} = {hit[0]} is a convention the glossary does not "
-                    f"have. Add it to tools/data/abbreviations.json and rerun "
-                    f"tools/build_abbreviations.py, or say in the note what was done to "
-                    f"the letters if it was an operation rather than a standing sense")
+                    f"have. If an operation produced the letters (a first letter, a "
+                    f"deletion, a sound), say so in the block note and it stops being "
+                    f"a convention. If it is a standing sense a solver should learn, run "
+                    f"`python3 tools/add_abbreviation.py {hit[0]} {hit[1]!r}` then "
+                    f"`python3 tools/build_abbreviations.py` — never edit the JSON by hand")
 
 
 MARKUP_RE = re.compile(r"</?[a-zA-Z][^>]*>|&(?:[a-zA-Z]+|#\d+);")
@@ -1803,6 +1853,55 @@ CP1252_C1 = {0x82: "\u201a", 0x83: "\u0192", 0x84: "\u201e", 0x85: "\u2026",
              0x99: "\u2122", 0x9b: "\u203a"}
 C1_RE = re.compile(r"[\x80-\x9f\ufffd]")
 
+
+
+# Characters that print alike and compare unequal. Guardian clues use curly
+# quotes and en dashes, the Independent's straight ones and hyphens, and a model
+# retyping a fragment writes whichever it prefers.
+LOOKALIKES = str.maketrans({"\u2018": "'", "\u2019": "'", "\u201c": '"',
+                            "\u201d": '"', "\u2013": "-", "\u2014": "-"})
+
+
+def verbatim_hint(fragment, clue):
+    """What to say when a fragment is not verbatim in its clue: the clue's own
+    spelling of it, where only lookalike punctuation stood in the way."""
+    want, have = str(fragment).translate(LOOKALIKES), clue.translate(LOOKALIKES)
+    at = have.find(want)
+    if at < 0:
+        return (" — copy it character for character from the clue, which is the "
+                "only text it may be")
+    return (f" — the clue spells it {clue[at:at + len(want)]!r}: copy its quotes "
+            f"and dashes from the file rather than retyping them")
+
+
+def check_linked_entries(puzzle, errors):
+    """A linked answer is annotated once, on the group's first entry.
+
+    The page renders the group's teaching from its leading light, and every
+    other leg points there. Written the other way — a full annotation on each
+    leg, or the whole answer on a later leg — the answer-letters check fires
+    with a mismatch that says nothing about groups, so this says it instead.
+
+    CALIBRATION (2026-09-25): 467 annotated legs of linked groups in the corpus,
+    0 hits.
+    """
+    by_id = {e["id"]: e for e in puzzle["entries"]}
+    for e in puzzle["entries"]:
+        group, ann = e.get("group") or [], e.get("annotation")
+        if len(group) < 2 or not ann or group[0] not in by_id:
+            continue
+        lead = group[0]
+        if e["id"] == lead:
+            if "linkedTo" in ann or not ann.get("coversGroup"):
+                errors.append(
+                    f"{e['id']}: leads the linked group {group}, so it carries the "
+                    f"whole annotation with \"coversGroup\": true and an `answer` of "
+                    f"the group's solutions run together in group order, no spaces")
+        elif ann.get("linkedTo") != lead or len(ann) != 1:
+            errors.append(
+                f"{e['id']}: is a later leg of the linked group {group}, so its "
+                f"annotation is exactly {{\"linkedTo\": \"{lead}\"}} and nothing "
+                f"else; the full annotation goes on {lead}")
 
 
 def check_groups_agree(puzzle, errors):
@@ -1911,6 +2010,7 @@ def validate_puzzle(puzzle):
     errors, warnings = [], []
     check_no_markup(puzzle, errors)
     check_groups_agree(puzzle, errors)
+    check_linked_entries(puzzle, errors)
     by_id = {e["id"]: e for e in puzzle["entries"]}
     annotated = 0
     authored = is_authored(puzzle)
@@ -1938,8 +2038,10 @@ def validate_puzzle(puzzle):
         for part in (ann.get("type") or "").split(" + "):
             if part and part not in TYPE_PARTS:
                 errors.append(
-                    f"{tag}: type part {part!r} not in the controlled vocabulary "
-                    f"(see TYPE_PARTS in this script / STYLE.md)")
+                    f"{tag}: type part {part!r} is not in the controlled vocabulary "
+                    f"(the Reference list in tools/annotate_prompt.md). The list is "
+                    f"closed and this run cannot extend it, so if no part fits, the "
+                    f"parse is wrong: find the mechanism the list does name")
 
         # What letters must the wordplay produce?
         if ann.get("coversGroup"):
@@ -1955,15 +2057,18 @@ def validate_puzzle(puzzle):
         for field in ("definition", "definition2"):
             d = ann.get(field)
             if d and d not in clue:
-                errors.append(f"{tag}: {field} {d!r} not found in clue {clue!r}")
+                errors.append(f"{tag}: {field} {d!r} not found in clue {clue!r}"
+                              + verbatim_hint(d, clue))
         for ind in ann.get("indicators", []):
             if ind not in clue:
-                errors.append(f"{tag}: indicator {ind!r} not found in clue {clue!r}")
+                errors.append(f"{tag}: indicator {ind!r} not found in clue {clue!r}"
+                              + verbatim_hint(ind, clue))
         # Link words ("to locate", "indicating") join definition to wordplay and
         # carry no letters of their own — they must still be named, not ignored.
         for lw in ann.get("linkWords", []):
             if lw not in clue:
-                errors.append(f"{tag}: linkWord {lw!r} not found in clue {clue!r}")
+                errors.append(f"{tag}: linkWord {lw!r} not found in clue {clue!r}"
+                              + verbatim_hint(lw, clue))
         for b in ann.get("blocks", []):
             frag = b.get("clueFragment")
             if frag and frag not in clue:
@@ -1994,14 +2099,22 @@ def validate_puzzle(puzzle):
                 or "hidden" in (ann.get("type") or "")
                 or "definition" in (ann.get("type") or "")
                 or "homophone" in (ann.get("type") or "")):
-            warnings.append(f"{tag}: no machine-checkable assembly (pieces/anagram) provided")
+            warnings.append(f"{tag}: no machine-checkable assembly. Give `pieces` (the "
+                            f"final chunks in answer order) for a charade, container or "
+                            f"deletion, `anagram.fodder` (every letter shuffled, added "
+                            f"ones included) for an anagram, and `subAnagrams` / "
+                            f"`subReversals` for any embedded step")
 
         # A definitionNote silences the part-of-speech check, so it has to say
         # something: a one-word "fine" would turn the check into an off switch.
         note = ann.get("definitionNote")
         if note is not None and len(str(note).strip()) < 25:
-            errors.append(f"{tag}: definitionNote {note!r} is too thin — explain to the "
-                          f"learner why the mismatch is fair, or drop the note")
+            errors.append(f"{tag}: definitionNote {note!r} is too thin — it exists only "
+                          f"where the definition disagrees with the answer in number or "
+                          f"part of speech, and it must say in a real sentence why the "
+                          f"setter is allowed that (\"Lousy payment\" = PEANUTS: a "
+                          f"mass noun defining a plural, fair because peanuts is itself "
+                          f"used as a mass noun for a pittance). Explain it or drop it")
 
         check_definition_fit(tag, ann, errors, warnings)
         check_answer_matches_separators(tag, ann, e, errors)
@@ -2114,6 +2227,7 @@ BACKLOG_PATH = ROOT / "tools" / "annotation_backlog.json"
 BACKLOG_MARKERS = {
     "definitionFit": ("no definitionFit",),
     "indicatorNotes": ("no indicatorNotes", "has no note"),
+    "features": ("no features",),
 }
 
 
@@ -2257,8 +2371,8 @@ def main(argv):
             if n > cap:
                 errors.append(
                     f"{n} clue(s) with no {field}, and this puzzle is allowed {cap} — "
-                    f"{field} is required on everything annotated since it was added "
-                    f"(tools/annotate_prompt.md). The warnings above name them.")
+                    f"{field} is required on everything annotated since it was added. "
+                    f"The warnings above name them and say what to write.")
         status = "OK" if not errors else "FAIL"
         print(f"{puzzle['id']} ({puzzle['setter']}): {annotated}/{total} annotated — {status}")
         for w in warnings:

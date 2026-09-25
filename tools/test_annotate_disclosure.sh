@@ -1,0 +1,139 @@
+#!/bin/bash
+# Do the annotation rules arrive where they are broken?
+#
+#     bash tools/test_annotate_disclosure.sh
+#
+# tools/annotate_prompt.md keeps only what no check can see. Every other rule
+# lives in the message of the check that catches it, and a few pieces of advice
+# are printed by tools/annotate_check.py only in the state that makes them
+# matter. That trade only holds if the checks fire on the broken shape and stay
+# quiet on the right one, so each is tested from both sides here. The blog
+# lookup most of all: it must appear once only the last few clues are null, and
+# never earlier, never on a blind run and never for a series nobody blogs.
+set -uo pipefail
+cd "$(dirname "$0")/.."
+fails=0
+same() { if [ "$2" = "$3" ]; then echo "  ok: $1"; else
+  echo "  FAIL: $1"$'\n'"    want $3"$'\n'"    got  $2"; fails=$((fails + 1)); fi; }
+
+out=$(PYTHONPATH=tools python3 - <<'PY'
+import copy
+import annotate_check as AC
+import validate_annotations as V
+
+
+def entry(eid, clue="Some words here (4)", sol="ABCD", group=None, **kw):
+    num, _, d = eid.partition("-")
+    e = {"id": eid, "number": int(num), "direction": d, "clue": clue,
+         "solution": sol, **kw}
+    if group:
+        e["group"] = group
+    return e
+
+
+def say(name, ok):
+    print(f"{name}={'yes' if ok else 'no'}")
+
+
+# Linked groups: the lead covers the group, every other leg only points at it.
+lead_ann = {"type": "charade", "answer": "ABCDEFGH", "definition": "Some",
+            "walkthrough": "w", "blocks": [{"clueFragment": "words", "gives": "X"}],
+            "coversGroup": True}
+g = ["1-across", "2-down"]
+good = {"id": "t-1", "entries": [
+    entry("1-across", group=g, annotation=lead_ann),
+    entry("2-down", sol="EFGH", group=g, annotation={"linkedTo": "1-across"})]}
+errs = []
+V.check_linked_entries(good, errs)
+say("linked_good_quiet", not errs)
+
+bad_lead = copy.deepcopy(good)
+del bad_lead["entries"][0]["annotation"]["coversGroup"]
+errs = []
+V.check_linked_entries(bad_lead, errs)
+say("linked_lead_flagged", any("coversGroup" in e for e in errs))
+
+bad_leg = copy.deepcopy(good)
+bad_leg["entries"][1]["annotation"] = dict(lead_ann)
+errs = []
+V.check_linked_entries(bad_leg, errs)
+say("linked_leg_flagged", any('{"linkedTo": "1-across"}' in e for e in errs))
+
+null_leg = copy.deepcopy(good)
+del null_leg["entries"][1]["annotation"]
+errs, warns = [], []
+V.check_every_clue_is_annotated(null_leg["entries"], errs, warns)
+say("null_leg_names_linkedTo", any('{"linkedTo": "1-across"}' in e for e in errs))
+
+# A fragment retyped with straight quotes where the clue has curly ones.
+clue = "Setter’s back (4)"
+say("hint_names_clue_spelling",
+    "'Setter’s'" in V.verbatim_hint("Setter's", clue))
+say("hint_without_lookalike_says_copy",
+    "character for character" in V.verbatim_hint("Nowhere", clue))
+
+# features: absent warns (and counts against the ratchet), present is quiet.
+w = []
+V.check_features("1A", {}, "Some words", [], w)
+say("features_absent_warns", any("no features" in x for x in w))
+say("features_counted_by_ratchet", V.count_backlog(w)["features"] == 1)
+w = []
+V.check_features("1A", {"features": {"misdirectedWord": None, "joke": None,
+                                     "answerInScene": False,
+                                     "aptDefinition": False}}, "Some words", [], w)
+say("features_present_quiet", not w)
+
+
+# The blog lookup, from annotate_check's notes.
+def puzzle(series="cryptic", nulls=0, total=30, solutions=True):
+    es = []
+    for i in range(total):
+        e = entry(f"{i + 1}-across", sol="ABCD" if solutions else "")
+        if i >= nulls:
+            e["annotation"] = {"type": "charade"}
+        es.append(e)
+    return {"id": f"{series}-99999", "series": series, "number": 99999,
+            "entries": es}
+
+
+def blog_line(p):
+    return [n for n in AC.notes(p) if n.startswith("Stuck on")]
+
+
+say("blog_hidden_when_many_null", not blog_line(puzzle(nulls=12)))
+say("blog_hidden_when_all_done", not blog_line(puzzle(nulls=0)))
+last = blog_line(puzzle(nulls=3))
+say("blog_shown_for_last_few", bool(last) and "fifteensquared Guardian 99999" in last[0])
+say("blog_hidden_when_blind", not blog_line(puzzle(nulls=2, solutions=False)))
+say("blog_hidden_without_a_blog", not blog_line(puzzle(series="metro", nulls=2)))
+times = blog_line(puzzle(series="times", nulls=1))
+say("times_names_its_own_blog", bool(times) and "timesforthetimes.co.uk" in times[0])
+
+# A cryptic definition and a LIKELY letter get their advice; plain clues none.
+p = puzzle()
+say("plain_puzzle_no_notes", not AC.notes(p))
+p["entries"][0]["annotation"] = {"type": "cryptic definition"}
+p["entries"][1]["solutionConfidence"] = "LIKELY"
+ns = AC.notes(p)
+say("cd_note", any("1-across typed `cryptic definition`" in n for n in ns))
+say("likely_note", any(n.startswith("2-across have LIKELY") for n in ns))
+PY
+)
+echo "$out" | sed 's/^/  /'
+
+for k in linked_good_quiet linked_lead_flagged linked_leg_flagged \
+         null_leg_names_linkedTo hint_names_clue_spelling \
+         hint_without_lookalike_says_copy features_absent_warns \
+         features_counted_by_ratchet features_present_quiet \
+         blog_hidden_when_many_null blog_hidden_when_all_done \
+         blog_shown_for_last_few blog_hidden_when_blind \
+         blog_hidden_without_a_blog times_names_its_own_blog \
+         plain_puzzle_no_notes cd_note likely_note; do
+  same "$k" "$(grep -c "^$k=yes$" <<<"$out")" "1"
+done
+
+echo "the prompt no longer names the blog, so the only way to it is the check"
+same "no blog in the prompt" "$(grep -ci 'fifteensquared\|timesforthetimes' tools/annotate_prompt.md)" "0"
+
+if [ "$fails" -gt 0 ]; then echo "FAILED: $fails"; exit 1; fi
+echo "all passed"

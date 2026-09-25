@@ -30,9 +30,10 @@ TOOLS = Path(__file__).resolve().parent
 ROOT = TOOLS.parent
 sys.path.insert(0, str(TOOLS))
 
+import series  # noqa: E402
 import validate_annotations  # noqa: E402
 from apply_annotations import default_input  # noqa: E402
-from fetch_puzzle import resolve_puzzle  # noqa: E402
+from fetch_puzzle import read_puzzle_file, resolve_puzzle  # noqa: E402
 from find_answer_leaks import leaks  # noqa: E402
 from find_renarration import scan  # noqa: E402
 
@@ -48,6 +49,91 @@ def run(args):
     except FileNotFoundError:
         return None, f"{args[0]} is not on PATH, so this step did not run"
     return p.returncode, (p.stdout + p.stderr).strip()
+
+
+# Which blog explains a series clue by clue, where tools/series.py does not
+# already say. Every series here is covered by fifteensquared.net.
+FIFTEENSQUARED = {"cryptic", "quiptic", "everyman", "independent", "indysunday",
+                  "cyclops"}
+
+
+def blog_of(puzzle):
+    """(host, search words) for a blog that explains this puzzle, or None."""
+    s = puzzle.get("series")
+    host = (series.meta(s) or {}).get("blog") if s in series.SERIES else None
+    host = host or ("fifteensquared.net" if s in FIFTEENSQUARED else None)
+    if not host:
+        return None
+    kind = series.SERIES[s].get("kind", "")
+    words = [host.split(".")[0], series.SERIES[s].get("publisher", "")]
+    if kind not in ("", "Cryptic") and kind not in words[1]:
+        words.append(kind)
+    return host, " ".join(w for w in words + [str(puzzle.get("number", ""))] if w)
+
+
+def unsolved(puzzle):
+    """Entries still null that need an annotation: not a clue the setter left
+    blank, and not a blind run's miss (validate_annotations decides both)."""
+    misses = validate_annotations.blind_misses(puzzle["id"])
+    return [e for e in puzzle["entries"]
+            if not e.get("annotation") and e["id"] not in misses
+            and not validate_annotations.is_blank_clue(e["clue"])]
+
+
+def is_blind(puzzle):
+    """A blind run is hiding the key: a blog would hand it back."""
+    return ((ROOT / ".blind" / f"{puzzle['id']}.json").exists()
+            or any(not e.get("solution") for e in puzzle["entries"]))
+
+
+def stuck_allowance(total):
+    """How few nulls count as the last few: everything else is done."""
+    return max(3, total // 10)
+
+
+def notes(puzzle):
+    """Things worth knowing at this point in the run that are not failures.
+
+    Each is said here rather than in tools/annotate_prompt.md because it only
+    matters in the state that triggers it, and a rule in the prompt is paid for
+    on every run whether or not it is about to matter.
+
+    The blog lookup in particular is disclosed only once every clue but the
+    last few is done. Stated up front as "look it up last", every trial run
+    looked it up first, and a blog read before the clue is attempted replaces
+    the solve rather than rescuing it.
+    """
+    out = []
+    cds = [e["id"] for e in puzzle["entries"]
+           if (e.get("annotation") or {}).get("type") == "cryptic definition"]
+    if cds:
+        out.append(
+            f"{', '.join(cds)} typed `cryptic definition`: the one type with no "
+            f"checkable wordplay, and the one an unparsed clue can hide in. Hunt for "
+            f"the charade or container first (\"Periods on horseback where British "
+            f"king into himself?\" reads as a whole-clue definition of CHUKKAS and is "
+            f"CHAS around UK + K); keep the type only if the clue has no wordplay.")
+    likely = [e["id"] for e in puzzle["entries"]
+              if e.get("solutionConfidence") == "LIKELY" and e.get("annotation")]
+    if likely:
+        out.append(
+            f"{', '.join(likely)} have LIKELY letters: a model filled them from the "
+            f"definition and crossings and their wordplay did not parse, and no "
+            f"official key will ever correct them. Keep an annotation only if you "
+            f"derived the whole answer from the clue yourself; otherwise set it to "
+            f"null, because the site would present an invented parse as fact.")
+    left = unsolved(puzzle)
+    blog = blog_of(puzzle)
+    if (left and blog and not is_blind(puzzle)
+            and len(left) <= stuck_allowance(len(puzzle["entries"]))):
+        host, words = blog
+        out.append(
+            f"Stuck on {', '.join(e['id'] for e in left)}? {host} blogs this puzzle "
+            f"clue by clue: WebSearch `{words}`, then WebFetch the post (its comments "
+            f"often have what the blogger missed). Take only the mechanism and write "
+            f"every field yourself in this file's voice; if the blog does not settle "
+            f"it either, the clue stays null.")
+    return out
 
 
 def main(argv):
@@ -115,6 +201,12 @@ def main(argv):
     if rc:
         print(f"\nthe index was not rebuilt:\n{out}")
         issues.append("puzzles/index.json and index.js were not rebuilt")
+
+    advice = notes(read_puzzle_file(path))
+    if advice:
+        print("\nworth knowing now (not failures):")
+        for line in advice:
+            print(f"  - {line}")
 
     counts = ([f"{errors} ERROR"] if errors else []) + \
              ([f"{warns} warn"] if warns else []) + issues

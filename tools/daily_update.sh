@@ -714,7 +714,8 @@ if [ -n "$pending" ]; then
       # for a third of the cost, because the bill is nearly all output tokens.
       # Web lookup belongs to the annotate call and to no other: a clue nobody
       # can parse ships with no teaching ladder, so a solvers' blog is worth a
-      # fetch as a last resort (bounded in tools/annotate_prompt.md). The cold
+      # fetch as a last resort (disclosed by tools/annotate_check.py only once
+      # every clue but the last few is done, never up front). The cold
       # solve above gets none on purpose — the paper's answers are unpublished
       # but the blogs are not, and a solve that reads the answers measures
       # nothing.
@@ -740,7 +741,7 @@ if [ -n "$pending" ]; then
       # that again. --resume replays the transcript and carries on from it.
       ann_sid=$(session_id) || ann_sid=""
       ann_sess=(--session-id "$ann_sid")
-      ann_prompt="$ann_task Follow the instructions in tools/annotate_prompt.md exactly, including running 'python3 tools/annotate_check.py <ID>' until it reports clean. Every clue needs a definitionFit, and every indicator needs an indicatorNotes entry saying why THAT word carries THAT instruction. Do not commit — the calling script commits."
+      ann_prompt="$ann_task Follow the instructions in tools/annotate_prompt.md exactly, including running 'python3 tools/annotate_check.py <ID>' until it reports clean. Do not commit — the calling script commits."
       # This grid may have been solved cold half an hour ago in a conversation
       # that is still on disk. That run derived every answer and the wordplay
       # that reached it, which is exactly what an annotation has to say;
