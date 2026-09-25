@@ -399,7 +399,7 @@ button:disabled:hover { border-color: var(--line); }
    one, and it must never be where a stray tap can land instead of on a tile
    or the disc's own click handler. */
 #ana-kbd {
-  position: fixed; opacity: 0; left: 0; top: 50%; width: 1px; height: 1px;
+  position: fixed; opacity: 0; left: 0; top: 0; width: 1px; height: 1px;
   border: none; padding: 0; pointer-events: none;
 }
 
@@ -685,13 +685,14 @@ button:disabled:hover { border-color: var(--line); }
    scrolls the focused element into view when the keyboard opens, so an input
    parked at the top of the document drags the page there and overrides the
    scroll the app just computed. Fixed means it is always in view and there is
-   nothing to scroll to. Halfway down rather than at the top edge, so it stays
-   inside the visible band even when the keyboard has panned the viewport, and
-   pointer-events:none so a stray pixel cannot swallow a tap — focus is only
-   ever set from code. It must not be nested inside a query container
-   (#grid-wrap), or "fixed" quietly means "absolute" again. */
+   nothing to scroll to — provided it is somewhere the keys cannot cover, which
+   is the top of the visible band: focusHidden() in app.js sets `top` to it on
+   every focus, since iOS can pan that band down. pointer-events:none so a
+   stray pixel cannot swallow a tap — focus is only ever set from code. It must
+   not be nested inside a query container (#grid-wrap), or "fixed" quietly
+   means "absolute" again. */
 #kbd {
-  position: fixed; opacity: 0; left: 0; top: 50%; width: 1px; height: 1px;
+  position: fixed; opacity: 0; left: 0; top: 0; width: 1px; height: 1px;
   border: none; padding: 0; pointer-events: none;
 }
 
