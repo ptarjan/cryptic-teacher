@@ -2022,6 +2022,35 @@ if (assert(autoRow, `picker finds ${autoPuzzle.id} when searched for`)) {
   }
 }
 
+// --- a reload of the /puzzles/<id>/ address lands back in the app ---
+// The address bar says /puzzles/<id>/ so that it copies and previews well, but
+// that is also what a reload fetches: the static write-up. The app flags the
+// tab in sessionStorage and the write-up's <head> sends a flagged tab back to
+// ?p=, keeping the clue. No flag, as for a crawler or a fresh visitor, and the
+// write-up stays.
+{
+  const key = `ct:app:${autoPuzzle.id}`;
+  assert(global.sessionStorage.getItem(key) === "1",
+    `opening ${autoPuzzle.id} should flag the tab in sessionStorage as ${key}`);
+  const page = readBuilt(`puzzles/${autoPuzzle.id}/index.html`);
+  const head = page.slice(0, page.indexOf("</head>"));
+  const inline = [...head.matchAll(/<script>([\s\S]*?)<\/script>/g)].map((m) => m[1])
+    .find((src) => src.includes("sessionStorage"));
+  if (assert(inline, `puzzles/${autoPuzzle.id}/ should carry the reload-back script in <head>`)) {
+    const land = (flagged) => {
+      let to = null;
+      const store = { getItem: (k) => (flagged && k === key ? "1" : null) };
+      const loc = { search: "?c=3A", replace: (u) => { to = u; } };
+      new Function("sessionStorage", "location", "URLSearchParams", inline)(store, loc, URLSearchParams);
+      return to;
+    };
+    const back = land(true);
+    assert(back === `../../?p=${autoPuzzle.id}&c=3A`,
+      `a flagged reload of puzzles/${autoPuzzle.id}/?c=3A should go to ../../?p=${autoPuzzle.id}&c=3A, got ${back}`);
+    assert(land(false) === null, "an unflagged visit must stay on the static write-up");
+  }
+}
+
 // --- a puzzle we solved ourselves says so ---
 // Prize crosswords get solved here before the paper publishes its key
 // (tools/apply_solution.py), which means the app will happily tell a solver
