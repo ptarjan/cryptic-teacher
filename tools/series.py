@@ -598,12 +598,30 @@ def puzzle_id(series, number):
     return f"{series or 'cryptic'}-{number}"
 
 
+AUTHORED_ID = re.compile(r"[A-Z]\d+")
+
+
 def parse_id(pid):
     """("everyman", 4165) out of "everyman-4165".
 
     A bare number is a pre-namespacing id and says nothing about its series —
     every series used them — so resolving one means asking the index which
     puzzle has that number, not asking this function.
+
+    An authored draft's id ("A001") is also bare — no hyphen — but for the
+    opposite reason: tools/build_authored_puzzle.py spells it that way
+    deliberately, to stay off the "*-[0-9]*.json" glob the nightly sweep and
+    puzzle_files() use, so an unpublished draft is never walked by mistake.
+    It is still one puzzle in one series, so unlike a pre-namespacing number
+    it resolves to "authored" here rather than to None, and its number is the
+    id itself — the digits alone would drop the letter that makes it authored
+    in the first place, and no caller has needed an int out of it.
     """
     series, sep, number = str(pid).rpartition("-")
-    return (series if sep else None), int(number)
+    if sep:
+        return series, int(number)
+    if number.isdigit():
+        return None, int(number)
+    assert AUTHORED_ID.fullmatch(number), \
+        f"id {pid!r} has no series and is not an authored id (letter + digits)"
+    return "authored", number
