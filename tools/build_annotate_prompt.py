@@ -53,7 +53,7 @@ def section():
     out = [START, "",
            "## Reference",
            "",
-           "Generated from the code that enforces it — do not edit by hand, and do not",
+           "Generated from the code that enforces it. Do not edit it by hand, and do not",
            "read app.js or the validator to check it.",
            "",
            "### The controlled vocabulary for `type`",
@@ -82,23 +82,23 @@ def section():
         out.append("")
 
     limits = [
-        f"More than **{V.MAX_CRYPTIC_DEFINITIONS}** `cryptic definition` clues in one "
-        f"puzzle; the second one already warns.",
-        f"A `walkthrough` over **{V.WALKTHROUGH_HARD_MAX}** words (over "
-        f"**{V.MAX_WALKTHROUGH_WORDS}** warns).",
+        f"A `walkthrough` over **{V.WALKTHROUGH_HARD_MAX}** words.",
         "Blocks whose letters are not the answer's, blocks that hand the answer over "
         "in one lump where `pieces` takes it apart, and blocks out of answer order. "
         "Exempt from the letter count, because their blocks claim no letters: "
         + ", ".join(f"`{t}`" for t in V.UNBALANCED_TYPES)
-        + " — which is what makes those types the easy way out of a clue you have "
-          "not parsed.",
-        f"The same word used as a definition in more than **{V.MAX_DEFINITION_REUSE}** "
-        f"clues in one puzzle (exempt: "
+        + ". That exemption is what makes those types the easy way out of a clue you "
+          "have not parsed.",
+        f"More than **{V.MAX_DEFINITION_REUSE}** clues in one puzzle whose blocks take "
+        f"their letters from their own definition (exempt: "
         + ", ".join(f"`{t}`" for t in V.DEFINITION_REUSE_EXEMPT) + ").",
-        "In `walkthrough`, `definitionFit` or a block `note` — hedges: "
-        + " ".join(f"`{w}`" for w in sorted(V.HEDGES))
-        + "; working-out left in: "
-        + " ".join(f"`{w}`" for w in sorted(V.BACKTRACKS)) + ".",
+        "In `walkthrough`, `surface`, `definitionFit` or a block `note`, working-out: "
+        + " ".join(f"`{w}`" for w in sorted(V.BACKTRACKS))
+        + ". In `walkthrough`, hedges: "
+        + " ".join(f"`{w}`" for w in sorted(V.HEDGES)) + ".",
+        f"Over **{V.MAX_CRYPTIC_DEFINITIONS}** `cryptic definition` clues, in a puzzle "
+        f"we set ourselves. In a published puzzle, {V.MAX_CRYPTIC_DEFINITIONS} or more "
+        f"only warns, naming each one for a human to check.",
     ]
     out += ["### What the validator rejects", ""]
     out += [bullet(t) for t in limits]
