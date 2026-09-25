@@ -2884,7 +2884,7 @@ if (assert(autoRow, `picker finds ${autoPuzzle.id} when searched for`)) {
 // app carries no copy of the lesson at all.
 {
   const home = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
-  assert(/<a class="ghost" href="https:\/\/cryptic\.paultarjan\.com\/learn\/" aria-label="How cryptic clues work">/.test(home),
+  assert(/<a class="ghost" href="https:\/\/cryptic\.paultarjan\.com\/learn\/" aria-label="How cryptic clues work"[^>]*>/.test(home),
     "the header links to the lesson at /learn/, and the aria-label carries its full name behind the one-word button");
   assert(!home.includes('id="tutorial"') && !home.includes("tutorial.js"),
     "index.html carries no in-page copy of the lesson");
@@ -5230,8 +5230,8 @@ global.realSetTimeout(() => {
   assert(!note(), "the explanation takes no room until it is asked for: " + note());
   registry["pf-diff-help"].onclick();
   const open = note();
-  assert(/against the others here/.test(open), "the ? says what a band is measured against: " + open);
-  assert(/no solving times/.test(open), "and what is not in it: " + open);
+  assert(/with the others on this site/.test(open), "the ? says what a band is measured against: " + open);
+  assert(/solving times aren.t used/.test(open), "and what is not in it: " + open);
   // The shares are read off the collection, never written down: one pasted into
   // prose is true on the day it is pasted, and this one moves with every puzzle.
   const bands = {};
@@ -5361,7 +5361,7 @@ global.realSetTimeout(() => {
   // whole ladder, so once a rung has been worked out it has been demonstrated,
   // and a solver who has done it does not need telling again on every clue they
   // open after.
-  assert(/asks before it tells/.test(cold), "a cold clue says what the ladder is: " + cold);
+  assert(/asks you a question before it tells you/.test(cold), "a cold clue says what the ladder is: " + cold);
   const other = (puzzles[found.id].entries || []).find(
     (x) => x.id !== found.e.id && x.annotation && x.annotation.type);
   assert(other, "the puzzle has a second annotated clue to open cold");
@@ -5523,7 +5523,7 @@ global.realSetTimeout(() => {
     // The name, not the generic sentence: on these two types the TYPE_BLURBS
     // wording only re-says the definition rung, and no rung may restate another.
     assert(!body.includes("there is no other wordplay")
-        && !body.includes("no separable wordplay — the whole clue"),
+        && !body.includes("no separate wordplay — the whole clue"),
       "and it does not restate the definition rung on a " + want + ": " + body);
   }
 }
