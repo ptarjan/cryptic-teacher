@@ -18,7 +18,10 @@
   "retrievedFrom": "blog",
   "retrievedUrl": null,
   "gridOrigin": "reconstructed",
-  "solutionOrigin": "writeup"
+  "solutionOrigin": "writeup",
+  "annotatedBy": [
+   "claude-opus-5-5"
+  ]
  },
  "solutionSource": {
   "kind": "timesforthetimes",
@@ -37,7 +40,43 @@
    },
    "length": 4,
    "clue": "Weight you lost back in the day (4)",
-   "solution": "ONCE"
+   "solution": "ONCE",
+   "annotation": {
+    "type": "deletion",
+    "answer": "ONCE",
+    "definition": "back in the day",
+    "indicators": [
+     "lost"
+    ],
+    "indicatorNotes": {
+     "lost": "the weight has lost the letter standing for 'you', so it drops out"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Weight",
+      "gives": "OUNCE",
+      "note": "an ounce is a unit of weight"
+     },
+     {
+      "clueFragment": "you lost",
+      "gives": "",
+      "note": "U, text-speak for 'you', is taken out of OUNCE"
+     }
+    ],
+    "pieces": [
+     "O",
+     "NCE"
+    ],
+    "surface": "A dieter looking back wistfully on the pounds they shed years ago.",
+    "walkthrough": "U standing for 'you' is text-message shorthand. 'Back in the day' reads like part of the dieting story but is the definition.",
+    "definitionFit": "Once means at some time in the past, which is what 'back in the day' says.",
+    "features": {
+     "misdirectedWord": "Weight",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "1-down",
@@ -49,7 +88,37 @@
    },
    "length": 10,
    "clue": "You might say an artist in residence (10)",
-   "solution": "OCCUPATION"
+   "solution": "OCCUPATION",
+   "annotation": {
+    "type": "double definition",
+    "answer": "OCCUPATION",
+    "definition": "You might say an artist",
+    "definition2": "residence",
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "You might say an artist",
+      "gives": "OCCUPATION",
+      "note": "asked what you do for a living, you might say 'an artist': a definition by example"
+     },
+     {
+      "clueFragment": "residence",
+      "gives": "OCCUPATION",
+      "note": "residence as the act of living in a house, as a tenant does"
+     }
+    ],
+    "surface": "An artist in residence, a painter given a studio by a college or gallery.",
+    "walkthrough": "'Artist in residence' reads as one fixed phrase; split it after 'artist' and the 'in' is only a joint between two definitions.",
+    "definitionFit": "Artist is an answer to 'What is your occupation?', and occupation also means living in a place.",
+    "features": {
+     "misdirectedWord": "in",
+     "joke": "pun",
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "2-down",
@@ -61,7 +130,48 @@
    },
    "length": 5,
    "clue": "Disturbance curtailed by copper is a rare thing (5)",
-   "solution": "CURIO"
+   "solution": "CURIO",
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "CURIO",
+    "definition": "a rare thing",
+    "indicators": [
+     "curtailed",
+     "by"
+    ],
+    "indicatorNotes": {
+     "curtailed": "to curtail is to cut the tail off, so the last letter goes",
+     "by": "beside: the copper goes next to the shortened word"
+    },
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "copper",
+      "gives": "CU",
+      "note": "Cu is the chemical symbol for copper"
+     },
+     {
+      "clueFragment": "Disturbance curtailed",
+      "gives": "RIO",
+      "note": "RIOT without its last letter"
+     }
+    ],
+    "pieces": [
+     "CU",
+     "RIO"
+    ],
+    "surface": "A rare disturbance being cut short by a police officer.",
+    "walkthrough": "'Copper' pretends to be a police officer arriving at the riot; here it is the metal.",
+    "definitionFit": "A curio is an unusual object prized for its rarity.",
+    "features": {
+     "misdirectedWord": "copper",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "3-across",
@@ -73,7 +183,31 @@
    },
    "length": 10,
    "clue": "Ongoing issue for one wrecked on Madeira? (10)",
-   "solution": "ALCOHOLISM"
+   "solution": "ALCOHOLISM",
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "ALCOHOLISM",
+    "definition": "Ongoing issue for one wrecked on Madeira?",
+    "blocks": [
+     {
+      "clueFragment": "Ongoing issue for one",
+      "note": "a lasting problem someone lives with"
+     },
+     {
+      "clueFragment": "wrecked on Madeira?",
+      "note": "the surface wants a shipwreck on the Atlantic island; wrecked is slang for very drunk, and Madeira is the fortified wine"
+     }
+    ],
+    "surface": "A castaway shipwrecked on the island of Madeira, with a long-running problem.",
+    "walkthrough": "Madeira is an Atlantic island and also the wine made there; wrecked is slang for very drunk, so the castaway turns into a drinker.",
+    "definitionFit": "Alcoholism is the lasting problem of someone repeatedly drunk on wine.",
+    "features": {
+     "misdirectedWord": "wrecked",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "4-down",
@@ -85,7 +219,45 @@
    },
    "length": 7,
    "clue": "Roast meat served with endless lasagne? (7)",
-   "solution": "LAMBAST"
+   "solution": "LAMBAST",
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "LAMBAST",
+    "definition": "Roast",
+    "indicators": [
+     "served with",
+     "endless"
+    ],
+    "indicatorNotes": {
+     "served with": "put on the plate alongside, so one piece follows the other",
+     "endless": "without its ends: both the first and last letter go"
+    },
+    "blocks": [
+     {
+      "clueFragment": "meat",
+      "gives": "LAMB",
+      "note": "lamb is a meat"
+     },
+     {
+      "clueFragment": "endless lasagne?",
+      "gives": "AST",
+      "note": "lasagne is an example of PASTA; drop both ends to leave AST"
+     }
+    ],
+    "pieces": [
+     "LAMB",
+     "AST"
+    ],
+    "surface": "A roast joint put on the table beside a dish of lasagne.",
+    "walkthrough": "The question mark flags that lasagne stands for its category, PASTA, not its own letters. 'Roast' looks like cooking but is the verb to criticise.",
+    "definitionFit": "To lambast someone is to criticise them harshly, as a critic roasts them.",
+    "features": {
+     "misdirectedWord": "Roast",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "5-down",
@@ -97,7 +269,46 @@
    },
    "length": 7,
    "clue": "Out-of-head louts smoke in secret (7)",
-   "solution": "OBSCURE"
+   "solution": "OBSCURE",
+   "annotation": {
+    "type": "deletion + charade",
+    "answer": "OBSCURE",
+    "definition": "secret",
+    "indicators": [
+     "Out-of-head"
+    ],
+    "indicatorNotes": {
+     "Out-of-head": "the head, or first letter, is put out"
+    },
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Out-of-head louts",
+      "gives": "OBS",
+      "note": "louts are YOBS; without the head Y, OBS"
+     },
+     {
+      "clueFragment": "smoke",
+      "gives": "CURE",
+      "note": "to cure fish or meat can mean to smoke it"
+     }
+    ],
+    "pieces": [
+     "OBS",
+     "CURE"
+    ],
+    "surface": "Stoned hooligans lighting up where nobody can see them.",
+    "walkthrough": "'Out-of-head' reads as intoxicated, which suits the smoking louts; YOBS is British slang for louts.",
+    "definitionFit": "Obscure means little known or hidden, so secret.",
+    "features": {
+     "misdirectedWord": "Out-of-head",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "6-down",
@@ -109,7 +320,45 @@
    },
    "length": 5,
    "clue": "Senior is more daring going topless (5)",
-   "solution": "OLDER"
+   "solution": "OLDER",
+   "annotation": {
+    "type": "deletion",
+    "answer": "OLDER",
+    "definition": "Senior",
+    "indicators": [
+     "going topless"
+    ],
+    "indicatorNotes": {
+     "going topless": "losing the top, the first letter in a down answer"
+    },
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "more daring",
+      "gives": "BOLDER",
+      "note": "bolder means more daring"
+     },
+     {
+      "clueFragment": "going topless",
+      "gives": "",
+      "note": "the B at the top goes"
+     }
+    ],
+    "pieces": [
+     "OLDER"
+    ],
+    "surface": "A pensioner growing more daring by sunbathing topless.",
+    "walkthrough": "The surface is saucy, but 'topless' just means the top letter comes off.",
+    "definitionFit": "Senior means greater in age, which is older.",
+    "features": {
+     "misdirectedWord": "topless",
+     "joke": "absurd",
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "7-down",
@@ -121,7 +370,50 @@
    },
    "length": 9,
    "clue": "Your setter’s on strike with his boss? Shut up! (9)",
-   "solution": "IMPOUNDED"
+   "solution": "IMPOUNDED",
+   "annotation": {
+    "type": "charade",
+    "answer": "IMPOUNDED",
+    "definition": "Shut up!",
+    "indicators": [
+     "on"
+    ],
+    "indicatorNotes": {
+     "on": "in a down answer, one piece goes on top of the next"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Your setter’s",
+      "gives": "IM",
+      "note": "the setter is 'I', so 'your setter is' is I'M"
+     },
+     {
+      "clueFragment": "strike",
+      "gives": "POUND",
+      "note": "to pound is to strike"
+     },
+     {
+      "clueFragment": "his boss",
+      "gives": "ED",
+      "note": "the setter's boss is the editor, ED"
+     }
+    ],
+    "pieces": [
+     "IM",
+     "POUND",
+     "ED"
+    ],
+    "surface": "A crossword setter walking out with the editor, then being told to be quiet.",
+    "walkthrough": "'On strike' sounds like industrial action; here 'on' only stacks I'M above POUND. The exclamation 'Shut up!' is really the past participle of shut up, meaning locked away.",
+    "definitionFit": "Impounded means shut up in a pound, as a stray animal or towed car is.",
+    "definitionNote": "reads as a command but means locked away, a past participle like the answer",
+    "features": {
+     "misdirectedWord": "strike",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "8-down",
@@ -133,7 +425,35 @@
    },
    "length": 4,
    "clue": "Red targets released from trap (4)",
-   "solution": "MARX"
+   "solution": "MARX",
+   "annotation": {
+    "type": "homophone",
+    "answer": "MARX",
+    "definition": "Red",
+    "indicators": [
+     "released from trap"
+    ],
+    "indicatorNotes": {
+     "released from trap": "a trap is slang for the mouth, so words released from it are spoken"
+    },
+    "blocks": [
+     {
+      "clueFragment": "targets",
+      "soundsLike": "MARKS",
+      "gives": "MARX",
+      "note": "targets are MARKS, which is what gets spoken; the spelling that sounds the same names a famous Red"
+     }
+    ],
+    "surface": "A red target springing out of a trap, as at a clay-pigeon shoot.",
+    "walkthrough": "'Trap' is slang for the mouth ('shut your trap'), so what leaves it is heard. Red is the usual label for a communist, and Karl Marx is the founding one.",
+    "definitionFit": "Karl Marx, the father of communism, is the archetypal Red.",
+    "features": {
+     "misdirectedWord": "trap",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "9-down",
@@ -145,7 +465,50 @@
    },
    "length": 8,
    "clue": "A vault cracked by one with ambitious plans? (8)",
-   "solution": "ASPIRING"
+   "solution": "ASPIRING",
+   "annotation": {
+    "type": "container + charade",
+    "answer": "ASPIRING",
+    "definition": "with ambitious plans?",
+    "indicators": [
+     "cracked by"
+    ],
+    "indicatorNotes": {
+     "cracked by": "the vault is broken open by the one, which goes inside"
+    },
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "as written"
+     },
+     {
+      "clueFragment": "vault",
+      "gives": "SPRING",
+      "note": "to vault is to spring or leap"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman one; it goes inside SPRING to make SPIRING"
+     }
+    ],
+    "pieces": [
+     "A",
+     "SP",
+     "I",
+     "RING"
+    ],
+    "surface": "A safecracker with ambitious plans breaking into a bank vault.",
+    "walkthrough": "The bank vault is a leap, SPRING. 'One with ambitious plans' tempts as the definition, but 'one' is only the I.",
+    "definitionFit": "A plain synonym: to aspire is to set your sights high, so a person who is aspiring has big plans.",
+    "features": {
+     "misdirectedWord": "vault",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "10-across",
@@ -157,7 +520,52 @@
    },
    "length": 9,
    "clue": "My Charlie’s smartish pants (9)",
-   "solution": "CHRISTMAS"
+   "solution": "CHRISTMAS",
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "CHRISTMAS",
+    "definition": "My",
+    "indicators": [
+     "pants"
+    ],
+    "indicatorNotes": {
+     "pants": "British slang for rubbish or badly done, so the letters are a mess"
+    },
+    "linkWords": [
+     "’s"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "SMARTISH",
+      "gives": "HRISTMAS"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Charlie",
+      "gives": "C",
+      "note": "Charlie is C in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "smartish",
+      "gives": "HRISTMAS",
+      "note": "SMARTISH rearranged"
+     }
+    ],
+    "pieces": [
+     "C",
+     "HRISTMAS"
+    ],
+    "surface": "Someone showing off their boyfriend's rather smart trousers.",
+    "walkthrough": "'My' is the exclamation of surprise, and 'Christmas!' is another. In Britain pants are underpants and, as slang, rubbish.",
+    "definitionFit": "'Christmas!' is an old exclamation of surprise, just like 'My!'.",
+    "features": {
+     "misdirectedWord": "My",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "11-across",
@@ -168,8 +576,35 @@
     "y": 2
    },
    "length": 5,
-   "clue": "One administers drug in awkwaration (5)",
-   "solution": "DOPER"
+   "clue": "One administers drug in awkward operation (5)",
+   "solution": "DOPER",
+   "annotation": {
+    "type": "hidden word",
+    "answer": "DOPER",
+    "definition": "One administers drug",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "the answer is found inside the words that follow"
+    },
+    "blocks": [
+     {
+      "clueFragment": "awkward operation",
+      "gives": "DOPER",
+      "note": "the letters run from the end of awkwaRD into OPERation"
+     }
+    ],
+    "surface": "A medic giving a drug during a clumsy operation.",
+    "walkthrough": "The hidden word straddles the gap between the two words, so read through the space.",
+    "definitionFit": "A doper is one who administers drugs, especially to racehorses or athletes.",
+    "features": {
+     "misdirectedWord": null,
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "12-across",
@@ -181,7 +616,46 @@
    },
    "length": 5,
    "clue": "Bread having little bit of iron (5)",
-   "solution": "POORI"
+   "solution": "POORI",
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "POORI",
+    "definition": "Bread",
+    "indicators": [
+     "bit of"
+    ],
+    "indicatorNotes": {
+     "bit of": "only a small piece, the first letter, is taken"
+    },
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "little",
+      "gives": "POOR",
+      "note": "poor means meagre or little"
+     },
+     {
+      "clueFragment": "bit of iron",
+      "gives": "I",
+      "note": "first letter of iron"
+     }
+    ],
+    "pieces": [
+     "POOR",
+     "I"
+    ],
+    "surface": "A loaf with a trace of iron in it, as a health label might boast.",
+    "walkthrough": "Poori is a puffed, deep-fried Indian flatbread. 'Iron' tempts as FE, its chemical symbol, but only its first letter is wanted.",
+    "definitionFit": "A poori is an Indian bread, deep-fried until it puffs up.",
+    "features": {
+     "misdirectedWord": "iron",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "13-across",
@@ -193,7 +667,43 @@
    },
    "length": 8,
    "clue": "Tank with rear turned to small house (8)",
-   "solution": "AQUARIUS"
+   "solution": "AQUARIUS",
+   "annotation": {
+    "type": "substitution",
+    "answer": "AQUARIUS",
+    "definition": "house",
+    "indicators": [
+     "with rear turned to"
+    ],
+    "indicatorNotes": {
+     "with rear turned to": "the last letter is changed into another"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Tank",
+      "gives": "AQUARIUM",
+      "note": "an aquarium is a fish tank"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the clothing-size abbreviation for small; it replaces the final M"
+     }
+    ],
+    "pieces": [
+     "AQUARIU",
+     "S"
+    ],
+    "surface": "Converting a water tank at the back of a property into a little cottage.",
+    "walkthrough": "'House' here is astrological: the zodiac is divided into twelve houses, and Aquarius is one of them.",
+    "definitionFit": "Aquarius is one of the twelve signs, or houses, of the zodiac.",
+    "features": {
+     "misdirectedWord": "house",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "14-down",
@@ -205,7 +715,52 @@
    },
    "length": 10,
    "clue": "Uncle is man without money heading for ruin (10)",
-   "solution": "PAWNBROKER"
+   "solution": "PAWNBROKER",
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "PAWNBROKER",
+    "definition": "Uncle",
+    "indicators": [
+     "heading for"
+    ],
+    "indicatorNotes": {
+     "heading for": "the head, or first letter, of the next word"
+    },
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "man",
+      "gives": "PAWN",
+      "note": "a chess piece is a man, and the pawn is the humblest"
+     },
+     {
+      "clueFragment": "without money",
+      "gives": "BROKE",
+      "note": "broke means having no money"
+     },
+     {
+      "clueFragment": "heading for ruin",
+      "gives": "R",
+      "note": "first letter of ruin"
+     }
+    ],
+    "pieces": [
+     "PAWN",
+     "BROKE",
+     "R"
+    ],
+    "surface": "A penniless relative on the road to financial ruin.",
+    "walkthrough": "'Uncle' is old slang for a pawnbroker, so the relative is really the lender the penniless man visits.",
+    "definitionFit": "Uncle is old slang for a pawnbroker, the lender who holds your goods against a loan.",
+    "features": {
+     "misdirectedWord": "Uncle",
+     "joke": "pun",
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "15-across",
@@ -217,7 +772,40 @@
    },
    "length": 7,
    "clue": "Is tutor mistaken for lady who does? (7)",
-   "solution": "TOURIST"
+   "solution": "TOURIST",
+   "annotation": {
+    "type": "anagram",
+    "answer": "TOURIST",
+    "definition": "lady who does?",
+    "indicators": [
+     "mistaken"
+    ],
+    "indicatorNotes": {
+     "mistaken": "the letters have been taken the wrong way, so rearrange them"
+    },
+    "linkWords": [
+     "for"
+    ],
+    "anagram": {
+     "fodder": "ISTUTOR"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Is tutor",
+      "gives": "ISTUTOR",
+      "note": "anagram fodder, 7 letters"
+     }
+    ],
+    "surface": "A private tutor being taken for the cleaning lady.",
+    "walkthrough": "A 'lady who does' is British for a cleaner, but the question mark allows the other sense of 'do': a tourist does Rome or the Louvre.",
+    "definitionFit": "A tourist is someone who does the sights, the sense of 'do' as in 'doing Paris'.",
+    "features": {
+     "misdirectedWord": "does",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "16-down",
@@ -229,7 +817,53 @@
    },
    "length": 9,
    "clue": "Around noon, a Parisian loved to get naked (9)",
-   "solution": "UNADORNED"
+   "solution": "UNADORNED",
+   "annotation": {
+    "type": "charade + container",
+    "answer": "UNADORNED",
+    "definition": "naked",
+    "indicators": [
+     "Around"
+    ],
+    "indicatorNotes": {
+     "Around": "the word for loved goes around the N"
+    },
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a Parisian",
+      "gives": "UN",
+      "note": "un is French for 'a'"
+     },
+     {
+      "clueFragment": "loved",
+      "gives": "ADORED",
+      "note": "adored means loved"
+     },
+     {
+      "clueFragment": "noon",
+      "gives": "N",
+      "note": "N is the abbreviation for noon"
+     }
+    ],
+    "pieces": [
+     "UN",
+     "ADOR",
+     "N",
+     "ED"
+    ],
+    "surface": "A Parisian at midday who loved stripping off.",
+    "walkthrough": "'A Parisian' looks like a person, but it means the word 'a' as a Parisian would say it.",
+    "definitionFit": "Unadorned means bare, without decoration, so naked.",
+    "features": {
+     "misdirectedWord": "Parisian",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "17-across",
@@ -241,7 +875,50 @@
    },
    "length": 7,
    "clue": "English pal burying dead animal (7)",
-   "solution": "ECHIDNA"
+   "solution": "ECHIDNA",
+   "annotation": {
+    "type": "charade + container",
+    "answer": "ECHIDNA",
+    "definition": "animal",
+    "indicators": [
+     "burying"
+    ],
+    "indicatorNotes": {
+     "burying": "the pal holds the dead inside it, like a grave"
+    },
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "pal",
+      "gives": "CHINA",
+      "note": "rhyming slang: china plate = mate"
+     },
+     {
+      "clueFragment": "dead",
+      "gives": "D",
+      "note": "D is the abbreviation for dead, as in genealogies"
+     }
+    ],
+    "pieces": [
+     "E",
+     "CHI",
+     "D",
+     "NA"
+    ],
+    "surface": "An English friend giving a dead pet a burial.",
+    "walkthrough": "China is Cockney rhyming slang for a mate (china plate). The echidna is a spiny Australian anteater.",
+    "definitionFit": "The echidna is a spiny egg-laying mammal of Australia and New Guinea.",
+    "features": {
+     "misdirectedWord": "burying",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "18-down",
@@ -258,7 +935,49 @@
      4
     ]
    },
-   "solution": "HEATRASH"
+   "solution": "HEATRASH",
+   "annotation": {
+    "type": "charade",
+    "answer": "HEAT RASH",
+    "definition": "complaint",
+    "indicators": [
+     "with"
+    ],
+    "indicatorNotes": {
+     "with": "the pieces go together, one after another"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Man",
+      "gives": "HE",
+      "note": "he is a man"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "as written"
+     },
+     {
+      "clueFragment": "rubbish",
+      "gives": "TRASH",
+      "note": "trash is rubbish"
+     }
+    ],
+    "pieces": [
+     "HE",
+     "A",
+     "TRASH"
+    ],
+    "surface": "A man grumbling about the rubbish.",
+    "walkthrough": "'Complaint' reads as a grumble about bin collections but is a medical complaint, an ailment.",
+    "definitionFit": "Heat rash is a skin ailment, and a complaint is any minor illness.",
+    "features": {
+     "misdirectedWord": "complaint",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "19-across",
@@ -270,7 +989,46 @@
    },
    "length": 7,
    "clue": "Abrupt official in outsize shades (7)",
-   "solution": "ORANGES"
+   "solution": "ORANGES",
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "ORANGES",
+    "definition": "shades",
+    "indicators": [
+     "Abrupt",
+     "in"
+    ],
+    "indicatorNotes": {
+     "Abrupt": "cut short, so the last letter goes",
+     "in": "the shortened official goes inside"
+    },
+    "blocks": [
+     {
+      "clueFragment": "outsize",
+      "gives": "OS",
+      "note": "OS is the clothing abbreviation for outsize"
+     },
+     {
+      "clueFragment": "Abrupt official",
+      "gives": "RANGE",
+      "note": "a park ranger is an official; cut short, RANGE"
+     }
+    ],
+    "pieces": [
+     "O",
+     "RANGE",
+     "S"
+    ],
+    "surface": "A brusque official wearing oversized sunglasses.",
+    "walkthrough": "'Shades' looks like sunglasses to go with the official, but it means colours.",
+    "definitionFit": "Oranges are shades, meaning colours, like tangerine or amber.",
+    "features": {
+     "misdirectedWord": "shades",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "20-down",
@@ -282,7 +1040,44 @@
    },
    "length": 7,
    "clue": "I’m one to defend large, decisive blow (7)",
-   "solution": "SETTLER"
+   "solution": "SETTLER",
+   "annotation": {
+    "type": "container",
+    "answer": "SETTLER",
+    "definition": "decisive blow",
+    "indicators": [
+     "to defend"
+    ],
+    "indicatorNotes": {
+     "to defend": "to guard something by surrounding it"
+    },
+    "blocks": [
+     {
+      "clueFragment": "I’m one",
+      "gives": "SETTER",
+      "note": "the one writing the clue is the setter"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the clothing abbreviation for large"
+     }
+    ],
+    "pieces": [
+     "SETT",
+     "L",
+     "ER"
+    ],
+    "surface": "A boxer defending with a big, fight-ending punch.",
+    "walkthrough": "'I'm one' is the setter speaking of himself. Settler here is the old sense: something that settles an argument or a fight.",
+    "definitionFit": "A settler is a blow or argument that decides the matter, settling it.",
+    "features": {
+     "misdirectedWord": "defend",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "21-across",
@@ -299,7 +1094,52 @@
      5
     ]
    },
-   "solution": "STANDIN"
+   "solution": "STANDIN",
+   "annotation": {
+    "type": "charade + container",
+    "answer": "STAND IN",
+    "definition": "sub",
+    "indicators": [
+     "sandwiches"
+    ],
+    "indicatorNotes": {
+     "sandwiches": "the first pieces hold the next between them, like bread round a filling"
+    },
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Good man",
+      "gives": "ST",
+      "note": "a saint is a good man, abbreviated ST"
+     },
+     {
+      "clueFragment": "hot",
+      "gives": "IN",
+      "note": "in means fashionable, hot"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "AND",
+      "note": "and means together with"
+     }
+    ],
+    "pieces": [
+     "ST",
+     "AND",
+     "IN"
+    ],
+    "surface": "A good man eating hot sandwiches, the kind served in a sub roll.",
+    "walkthrough": "'Sandwiches' and 'sub' both look like food; one is the container and the other the definition, a substitute.",
+    "definitionFit": "A stand-in is a substitute, which is what sub is short for.",
+    "features": {
+     "misdirectedWord": "sandwiches",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "21-down",
@@ -311,7 +1151,44 @@
    },
    "length": 7,
    "clue": "Uranium found in aslant, mutated fruit (7)",
-   "solution": "SULTANA"
+   "solution": "SULTANA",
+   "annotation": {
+    "type": "container + anagram",
+    "answer": "SULTANA",
+    "definition": "fruit",
+    "indicators": [
+     "found in",
+     "mutated"
+    ],
+    "indicatorNotes": {
+     "found in": "the uranium is placed inside",
+     "mutated": "changed in form, so the letters rearrange"
+    },
+    "anagram": {
+     "fodder": "UASLANT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Uranium",
+      "gives": "U",
+      "note": "chemical symbol"
+     },
+     {
+      "clueFragment": "aslant",
+      "gives": "ASLANT",
+      "note": "anagram fodder, with U among it"
+     }
+    ],
+    "surface": "Radioactive uranium leaking at an angle and producing mutant fruit.",
+    "walkthrough": "The radioactive surface makes 'mutated' look natural; it only tells you to rearrange ASLANT with the U inside.",
+    "definitionFit": "A sultana is a dried white grape, a fruit.",
+    "features": {
+     "misdirectedWord": "mutated",
+     "joke": "absurd",
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "22-across",
@@ -323,7 +1200,40 @@
    },
    "length": 8,
    "clue": "Apish lot monkeying in theatre seat? (8)",
-   "solution": "HOSPITAL"
+   "solution": "HOSPITAL",
+   "annotation": {
+    "type": "anagram",
+    "answer": "HOSPITAL",
+    "definition": "theatre seat?",
+    "indicators": [
+     "monkeying"
+    ],
+    "indicatorNotes": {
+     "monkeying": "messing about, so the letters are jumbled"
+    },
+    "linkWords": [
+     "in"
+    ],
+    "anagram": {
+     "fodder": "APISHLOT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Apish lot",
+      "gives": "APISHLOT",
+      "note": "anagram fodder, 8 letters"
+     }
+    ],
+    "surface": "A troop of apes misbehaving in the stalls of a theatre.",
+    "walkthrough": "'Theatre' is the operating theatre, and a seat is where something is housed, so a hospital is the home of theatres.",
+    "definitionFit": "A hospital is where operating theatres are sited, their seat.",
+    "features": {
+     "misdirectedWord": "theatre",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "23-down",
@@ -335,7 +1245,37 @@
    },
    "length": 5,
    "clue": "Make a vinyl record for Squeeze (5)",
-   "solution": "PRESS"
+   "solution": "PRESS",
+   "annotation": {
+    "type": "double definition",
+    "answer": "PRESS",
+    "definition": "Make a vinyl record",
+    "definition2": "Squeeze",
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Make a vinyl record",
+      "gives": "PRESS",
+      "note": "vinyl discs are stamped out of hot plastic by a master disc"
+     },
+     {
+      "clueFragment": "Squeeze",
+      "gives": "PRESS",
+      "note": "the plain verb, to push hard on something"
+     }
+    ],
+    "surface": "Cutting a vinyl album for Squeeze, the London pop band.",
+    "walkthrough": "The capital S dresses 'Squeeze' up as the British band; capitals can be ignored, and it is the plain verb.",
+    "definitionFit": "Records are pressed from a master, and to press is to squeeze.",
+    "features": {
+     "misdirectedWord": "Squeeze",
+     "joke": "pun",
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "24-across",
@@ -347,7 +1287,35 @@
    },
    "length": 5,
    "clue": "Belligerent boatman? (5)",
-   "solution": "ROWER"
+   "solution": "ROWER",
+   "annotation": {
+    "type": "double definition",
+    "answer": "ROWER",
+    "definition": "Belligerent",
+    "definition2": "boatman?",
+    "definitionNote": "belligerent is used as a noun, a fighter",
+    "blocks": [
+     {
+      "clueFragment": "Belligerent",
+      "gives": "ROWER",
+      "note": "one who rows, rhyming with cows, is a quarreller"
+     },
+     {
+      "clueFragment": "boatman?",
+      "gives": "ROWER",
+      "note": "one who rows, rhyming with goes, a boat"
+     }
+    ],
+    "surface": "An aggressive man in a boat.",
+    "walkthrough": "The same spelling has two pronunciations: a row (rhyming with cow) is a quarrel, and to row (rhyming with go) is to pull oars.",
+    "definitionFit": "A rower is one who rows: either a quarrelsome person or an oarsman.",
+    "features": {
+     "misdirectedWord": null,
+     "joke": "pun",
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "25-down",
@@ -359,7 +1327,46 @@
    },
    "length": 5,
    "clue": "Spirit I polished off in anger (5)",
-   "solution": "WRATH"
+   "solution": "WRATH",
+   "annotation": {
+    "type": "deletion",
+    "answer": "WRATH",
+    "definition": "anger",
+    "indicators": [
+     "polished off"
+    ],
+    "indicatorNotes": {
+     "polished off": "to polish something off is to finish it or dispose of it, so the I is done away with"
+    },
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spirit",
+      "gives": "WRAITH",
+      "note": "a wraith is a ghost, a spirit"
+     },
+     {
+      "clueFragment": "I polished off",
+      "gives": "",
+      "note": "the I is removed"
+     }
+    ],
+    "pieces": [
+     "WRA",
+     "TH"
+    ],
+    "surface": "Someone angrily knocking back a glass of spirits.",
+    "walkthrough": "'Spirit' and 'polished off' suggest a drink downed in a temper; the spirit is a ghost.",
+    "definitionFit": "A plain synonym, though wrath is the grander, biblical word for fierce anger.",
+    "features": {
+     "misdirectedWord": "Spirit",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "26-down",
@@ -371,7 +1378,46 @@
    },
    "length": 4,
    "clue": "Rocks primarily found in, say, cold gin? (4)",
-   "solution": "TRAP"
+   "solution": "TRAP",
+   "annotation": {
+    "type": "container + first letter",
+    "answer": "TRAP",
+    "definition": "gin?",
+    "indicators": [
+     "primarily",
+     "found in"
+    ],
+    "indicatorNotes": {
+     "primarily": "first, so the first letter",
+     "found in": "the R is to be found inside the other word, so it goes within it"
+    },
+    "blocks": [
+     {
+      "clueFragment": "say, cold",
+      "gives": "TAP",
+      "note": "a cold tap is one example of a tap, hence 'say'"
+     },
+     {
+      "clueFragment": "Rocks primarily",
+      "gives": "R",
+      "note": "first letter of Rocks; it goes inside TAP"
+     }
+    ],
+    "pieces": [
+     "T",
+     "R",
+     "AP"
+    ],
+    "surface": "Ordering gin on the rocks, with ice.",
+    "walkthrough": "'On the rocks' and 'gin' set up a bar order, but a gin is also a snare for animals. 'Say' shows that cold is an example of a tap.",
+    "definitionFit": "A gin, as in gin trap, is a snare for catching animals.",
+    "features": {
+     "misdirectedWord": "gin",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "27-across",
@@ -383,7 +1429,37 @@
    },
    "length": 5,
    "clue": "Wander in grassland (5)",
-   "solution": "RANGE"
+   "solution": "RANGE",
+   "annotation": {
+    "type": "double definition",
+    "answer": "RANGE",
+    "definition": "Wander",
+    "definition2": "grassland",
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wander",
+      "gives": "RANGE",
+      "note": "a verb: to roam freely over an area"
+     },
+     {
+      "clueFragment": "grassland",
+      "gives": "RANGE",
+      "note": "a noun: the open grazing country of the American West"
+     }
+    ],
+    "surface": "Walking through open grassland.",
+    "walkthrough": "Both halves live in the same prairie scene, which hides the join at 'in'.",
+    "definitionFit": "To range is to roam, and the range is open grazing country.",
+    "features": {
+     "misdirectedWord": null,
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "28-across",
@@ -400,7 +1476,54 @@
      4
     ]
    },
-   "solution": "LOANSHARK"
+   "solution": "LOANSHARK",
+   "annotation": {
+    "type": "anagram + charade",
+    "answer": "LOAN SHARK",
+    "definition": "One has undue interest",
+    "indicators": [
+     "out",
+     "on"
+    ],
+    "indicatorNotes": {
+     "out": "not in order, so the letters rearrange",
+     "on": "placed after: the jumbled letters sit on the L"
+    },
+    "linkWords": [
+     "in"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "NOAHSARK",
+      "gives": "OANSHARK"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lake",
+      "gives": "L",
+      "note": "L is the map abbreviation for lake"
+     },
+     {
+      "clueFragment": "Noah’s ark",
+      "gives": "OANSHARK",
+      "note": "NOAHSARK rearranged"
+     }
+    ],
+    "pieces": [
+     "L",
+     "OANSHARK"
+    ],
+    "surface": "Someone oddly fascinated by Noah's Ark afloat on a lake.",
+    "walkthrough": "'Undue interest' looks like obsession but is excessive interest on a loan.",
+    "definitionFit": "A loan shark charges extortionate interest, which is undue interest.",
+    "features": {
+     "misdirectedWord": "interest",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "29-across",
@@ -412,7 +1535,34 @@
    },
    "length": 10,
    "clue": "Dull type passing on plates of meat? (10)",
-   "solution": "PEDESTRIAN"
+   "solution": "PEDESTRIAN",
+   "annotation": {
+    "type": "double definition",
+    "answer": "PEDESTRIAN",
+    "definition": "Dull",
+    "definition2": "type passing on plates of meat?",
+    "blocks": [
+     {
+      "clueFragment": "Dull",
+      "gives": "PEDESTRIAN",
+      "note": "an adjective: plodding, lacking any spark"
+     },
+     {
+      "clueFragment": "type passing on plates of meat?",
+      "gives": "PEDESTRIAN",
+      "note": "plates of meat is rhyming slang for feet"
+     }
+    ],
+    "surface": "A boring person turning down a dinner of meat.",
+    "walkthrough": "Plates of meat is Cockney rhyming slang for feet, so the one going past on them is walking. 'Dull type' looks like one definition, but it splits after 'Dull'.",
+    "definitionFit": "Pedestrian means dull, and a pedestrian is someone travelling on foot.",
+    "features": {
+     "misdirectedWord": "passing",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "30-across",
@@ -424,7 +1574,34 @@
    },
    "length": 4,
    "clue": "One who cleans burn (4)",
-   "solution": "CHAR"
+   "solution": "CHAR",
+   "annotation": {
+    "type": "double definition",
+    "answer": "CHAR",
+    "definition": "One who cleans",
+    "definition2": "burn",
+    "blocks": [
+     {
+      "clueFragment": "One who cleans",
+      "gives": "CHAR",
+      "note": "a noun: a cleaning woman, in dated British usage"
+     },
+     {
+      "clueFragment": "burn",
+      "gives": "CHAR",
+      "note": "a verb: to scorch until blackened"
+     }
+    ],
+    "surface": "A cleaner with a burn.",
+    "walkthrough": "A char is British for a cleaning woman, short for charwoman.",
+    "definitionFit": "Two senses: a British regional word for a cleaner, and a plain synonym for scorching wood or food black.",
+    "features": {
+     "misdirectedWord": null,
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
