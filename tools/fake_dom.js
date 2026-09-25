@@ -162,7 +162,10 @@ function boot(opts) {
     // Counted as well as modelled: on iOS a focus() lands on an already-focused
     // input as a fresh request for the keys, so "did anything call focus" is a
     // question activeElement cannot answer — it reads the same either way.
-    focus() { this.focusCalls = (this.focusCalls | 0) + 1; document.activeElement = this; }
+    focus() {
+      this.focusCalls = (this.focusCalls | 0) + 1; document.activeElement = this;
+      (docListeners.focusin || []).forEach((fn) => fn({ target: this }));
+    }
     blur() { if (document.activeElement === this) document.activeElement = null; }
     scrollIntoView() {}
     // Scrolling is modelled rather than stubbed away, because the bug it hides

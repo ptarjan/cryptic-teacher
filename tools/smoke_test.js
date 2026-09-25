@@ -3159,6 +3159,30 @@ registry["reset-puzzle"].onclick();
     clue.layout(0, 0); strip.layout(0, 0); panel.layout(1200, 400);
   }
 
+  // --- another field's keyboard is not the clue's to correct for ---
+  // Picking a clue leaves a watch open for keys on their way in. Opening the
+  // picker inside it focuses the search box, whose keyboard is a keys-up like
+  // any other, and the correction dragged the page back down to the clue.
+  {
+    vv.height = 1000; vv.offsetTop = 0;
+    win.pageYOffset = 0; win.scrolls.length = 0;
+    clues[0].listeners.click[0]();
+    global.flushTimers(100);
+    assert(win.scrolls.length === 1, "picking the clue brings it to you: " + JSON.stringify(win.scrolls));
+    win.pageYOffset = 0; win.scrolls.length = 0;
+    registry["btn-picker"].onclick();
+    assert(document.activeElement === registry["picker-search"], "the picker focuses its search box");
+    vv.raiseKeyboard(400);
+    drain();
+    assert(win.scrolls.length === 0,
+      "the search box's keyboard does not move the page back to the clue: " + JSON.stringify(win.scrolls));
+    registry["btn-picker-close"].onclick();
+    vv.height = 1000;
+    registry["kbd"].focus();
+    drain();
+    win.pageYOffset = 0; win.scrolls.length = 0;
+  }
+
   // --- but a keyboard that is GONE is not a keyboard that is coming ---
   // "Owed" used to be read off the input: focused, with no keys showing. That is
   // also exactly what an iPad looks like the moment you dismiss the keyboard with
