@@ -1,81 +1,58 @@
-# Solving a puzzle the paper hasn't published answers for
+# Solving a puzzle that has no published answers
 
-Saturday prize crosswords appear without solutions and only get them about a
-week later. Rather than leave the newest and most-visited puzzle on the site
-with no hints for a week, we solve it here. This is the instruction set for
-that job. `tools/annotate_prompt.md` takes over afterwards; it needs a solved
-grid to work from, and this is where that grid comes from.
+Prize crosswords appear without solutions, which follow about a week later.
+You solve the puzzle cold so it can have hints in the meantime.
+`tools/annotate_prompt.md` then annotates your grid. The answers are published
+as ours, and when the paper's key arrives it grades them. Any entry you got
+wrong has its annotation thrown away and rewritten.
 
-Solve it as a solver would, and be honest about the difference between an
-answer you have worked out and an answer you have guessed.
-
-## What you are given
+## Input
 
     python3 tools/solve_packet.py <number>
 
-prints every clue with its length, plus a crossing map: for each entry, which
-of its letters are shared with which letter of which other entry. Read the
-crossing map. It is most of the information in the grid, and it is the only
-thing that can tell you an answer is wrong without an answer key.
+This prints every clue with its length, plus a crossing map. The map shows, for
+each entry, which of its letters are shared with which letter of which other
+entry. Use it. It is the only thing that can tell you an answer is wrong.
 
-## What you must produce
+## Output
 
-A JSON file mapping entry id to answer:
+Write a JSON file, at the path your task gives you, mapping every entry id to
+its answer:
 
     {"1-across": "POPULAR FRONT", "9-across": "AGAIN", ...}
 
-Spaces, hyphens and apostrophes are fine — they are stripped. Every entry must
-be present.
+Spaces, hyphens and apostrophes are stripped. Then run the check:
 
-## The check you run yourself
+    python3 tools/apply_solution.py <number> --fill <path> --check-only
 
-    python3 tools/apply_solution.py <number> --fill /tmp/fill-<number>.json --check-only
+It lists missing entries, wrong lengths and crossings that disagree, and it
+writes nothing. Fix what it reports and run it again until it passes. The
+caller reruns it and refuses the whole fill unless it passes, so a partial or
+conflicting fill publishes nothing.
 
-This reports missing entries, wrong lengths and disagreeing crossings, and
-writes nothing. Run it, fix what it complains about, run it again. Do not stop
-until it says every crossing agrees. The calling script runs it again for real
-afterwards and will refuse the whole fill if it does not pass, so an unchecked
-fill is simply a wasted night.
+## Method
 
-## How to actually solve
+1. **Cold pass.** Answer only the clues you are sure of. A wrong early answer
+   costs more than a blank, because every crossing it touches then argues
+   against the right answers.
+2. **Crossing pass.** Work the entries with the most letters already crossed.
+3. **Last few.** When the crossings refuse a parse, the parse is wrong.
 
-1. **First pass, cold.** Take every clue in order and answer the ones you are
-   sure of. Skip freely — a wrong answer written early costs more than a blank,
-   because every crossing it touches then argues against the right answers
-   around it.
-2. **Second pass, with crossings.** Now the checked letters constrain things.
-   Work the entries with the most crossed letters filled. Most of the puzzle
-   falls out here.
-3. **Last few.** Where you have a pattern but no parse, say so rather than
-   inventing wordplay. Where you have a parse but the crossings refuse it, the
-   crossings win — the parse is wrong.
-4. **Verify.** Run the check. Zero conflicts across every crossing, or keep
-   going.
+The check cannot catch two errors: a pair of wrong answers that happen to share
+their crossing letter, and an answer that fits the letters with no wordplay
+behind it. Both show up as a clue you cannot parse, so treat an unparsed answer
+as suspect.
 
-Two things a crossing map cannot catch, so watch for them yourself: a
-consistent-but-wrong pair of answers that happen to share their crossing
-letter, and an answer that fits the letters with no wordplay behind it at all.
-Both show up as "I could not parse this", which is worth writing down.
+## Confidence
 
-## Confidence, and when to stop
+When you finish, list each entry as one of:
 
-Alongside the fill, report for each entry one of:
+* **CONFIDENT**: the wordplay accounts for every letter.
+* **LIKELY**: the definition and crossings fit, but the wordplay is only partly
+  parsed.
+* **GUESS**: it fits the letters and nothing more.
 
-* **CONFIDENT** — the wordplay accounts for every letter.
-* **LIKELY** — definition and crossings both fit, wordplay only partly parsed.
-* **GUESS** — it fits the letters and nothing more.
-
-An honest GUESS is a fine outcome and a useful signal. An answer dressed up as
-CONFIDENT with invented wordplay is the one genuinely bad outcome, because the
-annotation step will then explain, in detail and with authority, something that
-never happened. If you cannot complete the grid, say which entries defeated you
-and stop: a rejected fill costs one night, and the puzzle simply gets its
-answers from the paper next week.
-
-## Afterwards
-
-These answers are published marked as ours, not the paper's, and the puzzle
-keeps getting re-fetched every night until the official key appears — at which
-point the fill is graded against it automatically and any entry you got wrong
-has its annotation thrown away and rewritten. So the cost of being wrong is
-paid later and in public. Prefer the blank.
+Never invent wordplay to promote a GUESS. The annotation step will explain
+whatever you claim with full authority. If you cannot get the check to pass
+honestly, stop and name the entries that beat you. The puzzle then waits for
+the paper's key, and that is a fine outcome.
