@@ -2004,6 +2004,11 @@ if (assert(autoRow, `picker finds ${autoPuzzle.id} when searched for`)) {
       `No ${unofficial.number} badges its title as unverified: ` + title);
     assert(/hasn't published|not published/.test(title),
       "the badge says the paper hasn't published these answers: " + title);
+    // Nor on a blog's published solve: every Times Quick answer is read off
+    // timesforthetimes, which anyone can look up, so none of them is ours.
+    const blogBadged = allPuzzles.filter((p) => p.series === "timesquick" && p.solutionsUnofficial);
+    assert(blogBadged.length === 0,
+      `no blog-sourced puzzle is badged unverified: ${blogBadged.map((p) => p.id).slice(0, 5)}`);
     // And the badge must not appear on a puzzle with the paper's own answers.
     const official = allPuzzles.find((p) => p.hasSolutions && !p.solutionsUnofficial
       && global.window.CRYPTIC_PUZZLES[p.id]);

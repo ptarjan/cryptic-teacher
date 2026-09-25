@@ -1702,10 +1702,12 @@ def reindex():
             # on every first load to state the default. Readers take the absence
             # as full coverage; the 38 puzzles with a gap say so by name.
             **({"clues": coverage} if coverage["present"] < coverage["total"] else {}),
-            # True where the grid was solved here rather than published by the
-            # paper. The site says so wherever it shows those answers: a learner
-            # checking their grid is entitled to know whose answer they lost to.
-            "solutionsUnofficial": bool(p.get("solutionSource")),
+            # True where the grid was solved here by a model. The site says so
+            # wherever it shows those answers: a learner checking their grid is
+            # entitled to know whose answer they lost to. A blog's write-up
+            # (timesforthetimes, fifteensquared) is a published solve that
+            # anyone can look up, so it is not ours and is not badged.
+            "solutionsUnofficial": (p.get("solutionSource") or {}).get("kind") == "model",
             # Absent for puzzles with too little to go on — an unrated puzzle
             # shows no badge rather than a made-up one.
             "difficulty": rating and {
