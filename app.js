@@ -6201,16 +6201,14 @@
   // waiting, and the long stop throws the shells away rather than burning them,
   // marked "missed" so the throwing-away is on the record.
   const FIREWORK_ABANDON_MS = 60000;
-  // Ten volleys of three, each volley at fresh spots so the box fills rather
-  // than one patch flashing ten times. The spots are fixed, not random, so the
-  // show is the same every time and a test can count it.
-  const VOLLEYS = 10;
-  const VOLLEY_GAP_S = 0.6;
-  const SHELLS = Array.from({ length: VOLLEYS * 3 }, (_, n) => ({
-    x: [18, 50, 82][n % 3] + ((n * 37) % 17) - 8,
-    y: 20 + ((n * 7) % 11) * 5,
-    delay: Math.floor(n / 3) * VOLLEY_GAP_S + (n % 3) * 0.18,
-  }));
+  // Ten shells, one after another, at spots spread across the box so it fills
+  // rather than one patch flashing ten times. Fixed, not random, so the show is
+  // the same every time and a test can count it.
+  const SHELLS = [
+    { x: 14, y: 30 }, { x: 50, y: 62 }, { x: 84, y: 26 }, { x: 32, y: 48 },
+    { x: 68, y: 40 }, { x: 22, y: 70 }, { x: 58, y: 22 }, { x: 88, y: 64 },
+    { x: 40, y: 32 }, { x: 74, y: 56 },
+  ].map((sh, n) => ({ ...sh, delay: n * 0.32 }));
   // The last shell's delay, its 1.5s burn, and a beat. After this there is
   // nothing left to look at, so the shells come out of the page.
   const BURST_MS = Math.ceil((Math.max(...SHELLS.map((sh) => sh.delay)) + 1.5) * 1000) + 300;
