@@ -49,10 +49,10 @@
 #      forever. The fields are read from the file, so this job needs no edit
 #      when the next rule lands.
 #
-# It stops on the FIRST failed claude run rather than retrying. Out here that
-# almost always means the window is finally exhausted, which is exactly the
-# state this job is trying to reach; hammering it after that just produces a
-# log full of identical errors.
+# A failed wave is read off the meters, never off the CLI's words: past
+# EXHAUSTED weekly the job stops, past LOCKOUT_PCT five-hour it waits for the
+# window to turn over, and below both the runs failed for reasons of their own,
+# so those puzzles are dropped and the queue carries on. See after_wave.
 #
 # Install: a line in the bridge container's tools/crontab (household repo), at
 # :05 every hour, and that line is the only schedule this job has. `flock -n`
@@ -118,6 +118,9 @@ FORCE_HOURS="${FORCE_HOURS:-1}"
 # involved, only a plan limit with no paid overflow to fall through to. So which
 # limit was hit is read off the seven-day number here, never off the message.
 EXHAUSTED="${EXHAUSTED:-97}"
+# Below this on the five-hour meter a failed run was not locked out: the window
+# had room, so waiting for it to turn over buys nothing.
+LOCKOUT_PCT="${LOCKOUT_PCT:-90}"
 # Transcripts live under the CLI's config dir, which is exported above and is
 # NOT $HOME/.claude in the container: $HOME is /data/home there and the config
 # dir is the /data/claude volume. Spelled $HOME this pointed at a directory that
@@ -393,6 +396,7 @@ wave_width() {
 # Once each. A puzzle failing for its own reasons — a clue the model cannot solve
 # — must not be able to hold the queue open, and MAX_NAPS bounds the rest.
 WAVE_FAILED_IDS=()
+WAVE_WHAT=""
 NAPPED=0
 requeued=" "
 requeue_failed() {
@@ -476,6 +480,7 @@ run_wave() {
   local what="$1" tmpl="$2"; shift 2
   local ids=("$@") pids=() i failed=0
   WAVE_FAILED_IDS=()
+  WAVE_WHAT="$what"
   echo "--- wave of ${#ids[@]}: ${ids[*]} ---"
   local again=()
   for i in "${!ids[@]}"; do
@@ -525,10 +530,10 @@ run_wave() {
 # Returns non-zero when the caller should stop.
 after_wave() {
   local before="$1" hours="$2" wide="$3" failed="$4" before_s="$5" now now_s climb climb_s
-  local reserve_hold=0
+  local reserve_hold=0 s_read=1
   NAPPED=0
   now=$(python3 tools/weekly_usage.py 2>/dev/null || echo "$before")
-  now_s=$(python3 tools/weekly_usage.py --group session 2>/dev/null || echo "$before_s")
+  now_s=$(python3 tools/weekly_usage.py --group session 2>/dev/null) || { now_s="$before_s"; s_read=0; }
   # awk -v, never string interpolation: an unset or empty number splices into the
   # program text and awk dies of a syntax error, which reads as a broken script
   # rather than as the missing reading it is.
@@ -589,13 +594,21 @@ after_wave() {
     fi
   fi
   [ "${failed:-1}" -eq 0 ] && return 0
-  # A failed wave with room still on the weekly clock is almost always the
-  # FIVE-hour limit, which clears by itself. Treating that as "the week is
-  # over" is how a job built to spend the remainder leaves most of it behind.
-  # Only the seven-day number gets to end the run.
+  # A failed wave with room still on the weekly clock is the FIVE-hour limit
+  # only when that meter says so, and that clears by itself. Treating it as "the
+  # week is over" is how a job built to spend the remainder leaves most of it
+  # behind. Only the seven-day number gets to end the run.
   if awk -v n="$now" -v e="$EXHAUSTED" 'BEGIN{exit !(n >= e)}'; then
     echo "  weekly window is spent (${now}%) — stopping"
     return 1
+  fi
+  # With the five-hour meter read and below LOCKOUT_PCT the window had room, so
+  # no nap clears whatever failed these runs. An unread meter counts as locked:
+  # a nap wasted is an hour, a lockout read as a bad puzzle loses the puzzle.
+  if [ "$reserve_hold" = 0 ] && [ "$s_read" = 1 ] \
+     && awk -v s="$now_s" -v l="$LOCKOUT_PCT" 'BEGIN{exit !(s < l)}'; then
+    drop_failed "$now_s"
+    return 0
   fi
   naps=$((naps + 1))
   if [ "$naps" -gt "$MAX_NAPS" ]; then
@@ -629,6 +642,28 @@ after_wave() {
   NAPPED=1
   sleep "$nap"
   return 0
+}
+
+# Drop the puzzles a wave failed on for reasons of their own. Resuming their
+# conversations only replays the failure, so the session, the resume note and
+# the half-done edit all go; the queue has already walked past them and
+# requeue_failed only runs after a nap, so this run does not come back to them.
+# A new annotation is also entered in tools/failed_inputs.py, which keeps it
+# out of later runs until its inputs change — and which refuses the entry
+# itself when the run's last words were a limit or the network.
+#   $1 the five-hour meter the failure was read at
+drop_failed() {
+  local id
+  for id in ${WAVE_FAILED_IDS[@]+"${WAVE_FAILED_IDS[@]}"}; do
+    echo "  [$id] failed with the five-hour window at ${1}% — not a lockout, dropped for this run"
+    rm -f "/tmp/ct-prereset-$id.resume" "/tmp/ct-prereset-$id.sid"
+    [ "$DRY_RUN" = 1 ] && continue
+    git checkout -- "puzzles/$id.json" 2>/dev/null
+    [ "$WAVE_WHAT" = Annotate ] || continue
+    python3 tools/failed_inputs.py record annotate "$id" --reason \
+      "$(grep -v '^[[:space:]]*$' "/tmp/ct-prereset-$id.txt" | tail -8 | tr '\n' ' ')" \
+      | sed 's/^/  /'
+  done
 }
 
 # Commit whatever a task produced, but only if the tree still validates. A run

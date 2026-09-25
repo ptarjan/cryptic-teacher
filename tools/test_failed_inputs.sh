@@ -82,6 +82,7 @@ echo "a transient failure is not recorded, so it retries next night"
 record_annotate_failure ct-2 "ct-2 failed: API Error: 529 overloaded" >/dev/null
 record_annotate_failure ct-2 "ct-2 failed: Claude AI usage limit reached" >/dev/null
 record_annotate_failure ct-2 "five-hour window 92% spent (limit 70%)" >/dev/null
+record_annotate_failure ct-2 "You've hit your monthly spend limit" >/dev/null
 check "only ct-1 is skipped" "$(ledger skipped annotate)" "ct-1"
 
 echo "the next night the failed puzzle is left out and the budget refilled"
