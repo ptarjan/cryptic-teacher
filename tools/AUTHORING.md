@@ -509,7 +509,8 @@ puzzle **by id**:
 
 ```bash
 python3 tools/build_authored_puzzle.py --clues tools/data/authored_A001_clues.json \
-    --id A001 --name "Cryptic Teacher No 1" --setter "Cryptic Teacher" --date 1785283200000
+    --id A001 --name "Cryptic Teacher No 1" --setter "Cryptic Teacher" --date 1785283200000 \
+    --annotated-by human
 python3 tools/validate_annotations.py A001
 rm puzzles/A001.json
 ```

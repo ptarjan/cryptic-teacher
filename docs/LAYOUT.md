@@ -251,8 +251,6 @@ tools/blind_annotate.py                      hides a published key from the anno
                                              grades what it derived — an explanation that lands
                                              on the wrong answer is the only proof the wordplay
                                              wasn’t reverse-engineered
-tools/annotate_model.sh                      sourced: turns $ANNOTATE_MODEL into the right
-                                             Co-Authored-By trailer
 tools/app_tables.py                          the clue-family table, read by the tools so there
                                              is no port of the app’s wording to keep in step
 

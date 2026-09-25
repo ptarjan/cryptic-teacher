@@ -77,6 +77,22 @@ different object from one that was right the first time, and which is the only
 evidence there will ever be about how good the guessing is.
 
 
+`annotatedBy` SAYS WHO WROTE THE HINTS, which is a separate question from
+whose answers they explain. It is a list of exact model ids ("claude-opus-5",
+never the "opus" alias a script passed, because an alias names whichever model
+it points at that week), or one of ANNOTATORS below for hints no model wrote.
+It is a list because one puzzle's hints can come from several runs: a run cut
+off by a usage limit and resumed, or one clue a later run went back and
+finished. Each run adds its model once, in the order they ran. Annotating a
+puzzle that had no hints starts the list afresh, and a puzzle whose hints are
+all removed loses the field, so the list never credits hints that are gone.
+tools/apply_annotations.py writes it, because every annotation run lands its
+hints through that tool; it reads the model off the running Claude Code
+session's own transcript rather than off the script's --model flag.
+tools/build_authored_puzzle.py, the one other writer of hints, is told who
+wrote them with --annotated-by.
+
+
 WHAT IS NOT KNOWABLE IS WRITTEN AS UNKNOWN. Every field below has an "unknown"
 value and the backfill uses it freely. An invented provenance is strictly worse
 than an absent one: absent, someone goes and looks; invented, nobody ever does.
@@ -133,6 +149,44 @@ SOLUTION_ORIGINS = {
     "unknown": "the grid holds answers and nothing in the corpus establishes "
                "whether they are the publisher's or ours",
 }
+
+# Who wrote a puzzle's hints, when it was not a model. Everything else in
+# `annotatedBy` is an exact model id and must match MODEL_ID.
+ANNOTATORS = {
+    "human": "written by hand by a person, with no model drafting them",
+    "published": "taken from a published explanation of the puzzle (the "
+                 "setter's or a blogger's), not written here",
+    "unknown": "the hints are here and nothing that survives says who wrote "
+               "them",
+}
+
+# An exact model id as the API reports it: claude-opus-5, claude-opus-5-5,
+# claude-haiku-4-5-20251001. An alias ("opus") is refused, because it is a
+# pointer that moves.
+MODEL_ID = re.compile(r"claude-[a-z]+(?:-\d+)+")
+
+
+def has_hints(puzzle):
+    return any(e.get("annotation") for e in puzzle.get("entries") or [])
+
+
+def credit_annotator(puzzle, who, had_hints):
+    """The puzzle with `who` added to provenance.annotatedBy.
+
+    `had_hints` is whether the file carried any hints BEFORE this write. When
+    it did not, this run wrote every hint now in it, so the list restarts
+    rather than keeping credits for hints that were removed.
+    """
+    if who not in ANNOTATORS and not MODEL_ID.fullmatch(who or ""):
+        raise ValueError(f"{who!r} is neither an exact model id (claude-...) "
+                         f"nor one of: " + ", ".join(sorted(ANNOTATORS)))
+    prov = dict(puzzle.get("provenance") or {})
+    credits = list(prov.get("annotatedBy") or []) if had_hints else []
+    if who not in credits:
+        credits.append(who)
+    prov["annotatedBy"] = credits
+    return {**puzzle, "provenance": prov}
+
 
 # WHERE THE BYTES ACTUALLY CAME FROM — the publisher's own site, or somewhere
 # else. This is the distinction `sourceUrl` cannot make and was never meant to:
@@ -413,7 +467,13 @@ def derive(puzzle, claimed, acquired_on, previously=None):
         "previousSolutionOrigin")
     if previously and previously != origin:
         prov["previousSolutionOrigin"] = previously
-    book = book_of(series, puzzle["number"]) if is_book(series) else None
+    # Carried across for the same reason: only the run that wrote the hints
+    # knew its model. Dropped with the hints themselves — a re-fetch that
+    # replaces the answers discards the annotations written off them.
+    annotated_by = (puzzle.get("provenance") or {}).get("annotatedBy")
+    if annotated_by and has_hints(puzzle):
+        prov["annotatedBy"] = annotated_by
+    book =book_of(series, puzzle["number"]) if is_book(series) else None
     if book:
         # The book's own number, not the file's: the file's carries the volume
         # (series.py, volume * 1000 + position) and the book prints No 18.
@@ -505,6 +565,30 @@ def check(puzzle):
             f"provenance.previousSolutionOrigin repeats solutionOrigin "
             f"({prov.get('solutionOrigin')!r}) — it is only written when the "
             f"answers have since been replaced by ones of a different origin")
+
+    credits = prov.get("annotatedBy")
+    if has_hints(puzzle) and not credits:
+        findings.append("the puzzle has hints but provenance.annotatedBy does "
+                        "not say who wrote them — tools/apply_annotations.py "
+                        "records it when it writes them")
+    elif credits is not None and not has_hints(puzzle):
+        findings.append(f"provenance.annotatedBy is {credits!r} but the puzzle "
+                        f"has no hints for anyone to have written")
+    if credits is not None and has_hints(puzzle):
+        if not isinstance(credits, list) or not credits:
+            findings.append(f"provenance.annotatedBy is {credits!r} — want a "
+                            f"non-empty list")
+        else:
+            for who in credits:
+                if who not in ANNOTATORS and not (isinstance(who, str)
+                                                  and MODEL_ID.fullmatch(who)):
+                    findings.append(
+                        f"provenance.annotatedBy has {who!r}, which is neither "
+                        f"an exact model id (claude-...) nor one of: "
+                        + ", ".join(sorted(ANNOTATORS)))
+            if len(set(map(str, credits))) != len(credits):
+                findings.append(f"provenance.annotatedBy repeats a name: "
+                                f"{credits!r}")
 
     # The channel is a property of the tool, so it cannot be stated freely.
     expected_channel = channel_of(prov.get("acquiredBy"))
@@ -599,3 +683,48 @@ def check(puzzle):
 
 def today():
     return datetime.date.today().isoformat()
+
+
+# ---------------------------------------------------------- commit trailers
+#
+# A job's commit credits the models its commit ADDS to annotatedBy, read off
+# the staged files, so the trailer names the model that ran rather than the
+# alias the script passed it.
+def display_name(model_id):
+    """claude-opus-5-5 -> "Claude Opus 5.5"; a trailing date stamp is dropped."""
+    family, *version = model_id.split("-")[1:]
+    version = [v for v in version if len(v) < 8]
+    return " ".join(["Claude", family.title()] + ([".".join(version)] if version else []))
+
+
+def staged_annotators():
+    """Model ids the staged puzzle files credit that HEAD's copies did not."""
+    import json
+    import subprocess
+
+    def credits(spec):
+        shown = subprocess.run(["git", "show", spec], capture_output=True, text=True)
+        if shown.returncode:
+            return []
+        return (json.loads(shown.stdout).get("provenance") or {}).get("annotatedBy") or []
+
+    staged = subprocess.run(
+        ["git", "diff", "--cached", "--name-only", "--", "puzzles/*.json"],
+        capture_output=True, text=True, check=True).stdout.split()
+    added = []
+    for path in staged:
+        if "/" in path[len("puzzles/"):]:
+            continue
+        old = credits(f"HEAD:{path}")
+        for who in credits(f":{path}"):
+            if MODEL_ID.fullmatch(who) and who not in old and who not in added:
+                added.append(who)
+    return added
+
+
+if __name__ == "__main__":
+    if sys.argv[1:] != ["trailer"]:
+        sys.exit("usage: python3 tools/provenance.py trailer   (one Co-Authored-By "
+                 "line per model the staged puzzles newly credit)")
+    for who in staged_annotators():
+        print(f"Co-Authored-By: {display_name(who)} <noreply@anthropic.com>")

@@ -94,7 +94,6 @@ exec > >(tee -a "$RUN_LOG") 2>&1
 # here than anywhere: this script exists to burn the tail of the weekly window,
 # so a cheaper annotator is straightforwardly more puzzles per reset.
 ANNOTATE_MODEL="${ANNOTATE_MODEL:-opus}"
-. "$REPO/tools/annotate_model.sh"
 MODEL="$ANNOTATE_MODEL"
 # How much of each FIVE-hour window is kept back for whoever else is on this
 # account — but only while they are actually using it, and only while the week
@@ -672,7 +671,7 @@ commit_puzzle() {
     # Named because it was just written, not as an allow-list — the sweep at the
     # end takes everything.
     git add "puzzles/$num.json"
-    git commit -q -m "$what $num" -m "$ANNOTATE_TRAILER"
+    git commit -q -m "$(printf '%s %s\n\n%s' "$what" "$num" "$(python3 tools/provenance.py trailer)")"
     # Nothing generated survives the rebase, because nothing generated is worth
     # carrying: the republish step rewrites every one of these files wholesale
     # from the puzzle sources, so the copy sitting in the tree right now is
@@ -968,7 +967,7 @@ if [ -n "$(git status --porcelain)" ]; then
   # is a worktree of the job's own, and a named list is both incomplete and
   # fatal — git add aborts on a path that matches nothing, staging none of it.
   git add -A
-  git commit -q -m "$(printf 'Republish after pre-reset backfill\n\n%s' "$ANNOTATE_TRAILER")"
+  git commit -q -m "$(printf 'Republish after pre-reset backfill\n\n%s' "$(python3 tools/provenance.py trailer)")"
   left=$(git status --porcelain | cut -c4- | tr '\n' ' ')
   [ -n "$left" ] && alert "the pre-reset backfill committed, and left these behind in its own worktree: $left"
   # HEAD is detached here, so master is named on both sides — `pull --rebase`
