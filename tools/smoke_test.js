@@ -4800,6 +4800,25 @@ global.realSetTimeout(() => {
   registry["gm-chip-" + chipAt[walked.pairs[0].gives]].onclick();
   assert(/id="gm-slot-0" class="gm-slot on"/.test(panelHTML()),
     "and the next chunk tapped lands in it: " + panelHTML());
+  // A pair made leaves the strip exactly where it was, the placed chunk's
+  // space kept and hidden. Closing the gap slid the next chunk under the finger
+  // that had just placed one, and it wore that finger's hover border — the page
+  // appearing to pick out the next answer.
+  {
+    const strip = (h) => ((String(h).match(/<p class="gm-chips">([\s\S]*?)<\/p>/) || [])[1] || "")
+      .match(/<button[^>]*>[^<]*<\/button>/g) || [];
+    const text = (b) => b.replace(/<[^>]*>/g, "");
+    const after = strip(panelHTML());
+    assert(after.map(text).join("|") === strip(html).map(text).join("|"),
+      "placing a chunk moves no other chunk on the strip: "
+        + strip(html).map(text).join("|") + " became " + after.map(text).join("|"));
+    const spent = after.filter((b) => !/id="gm-chip-/.test(b));
+    assert(spent.length === 1 && /class="gc spent"/.test(spent[0]) && /disabled/.test(spent[0]),
+      "and the placed one stays as a dead placeholder, not a chip to tap: " + after.join(""));
+    const bare = fs.readFileSync(path.join(ROOT, "style.css"), "utf8").replace(/\/\*[\s\S]*?\*\//g, "");
+    assert(/\.gm-chips \.gc\.spent\s*\{[^}]*visibility:\s*hidden/.test(bare),
+      "and it is hidden by visibility, which keeps its space, not display, which gives it up");
+  }
   // Hand it back, so the walk below starts from the empty board it expects.
   registry["gm-slot-0"].onclick();
   registry["gm-chip-" + chipAt[walked.pairs[0].gives]].onclick();

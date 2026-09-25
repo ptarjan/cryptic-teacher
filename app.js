@@ -4222,7 +4222,12 @@
         has ? " on" : ""}${armed ? " armed" : ""}">“${
         esc(p.frag)}” → <span class="gives">${has ? esc(ask.chips[at]) : "?"}</span></button></li>`;
     }).join("");
-    const chips = ask.chips.map((c, i) => slots.indexOf(i) >= 0 ? ""
+    // A placed chunk leaves its space on the strip behind it, invisible. If the
+    // strip closed up instead, the next chunk would slide under the finger or
+    // pointer that just placed one and wear its hover border — which reads as
+    // the page picking the next answer out.
+    const chips = ask.chips.map((c, i) => slots.indexOf(i) >= 0
+      ? `<button type="button" class="gc spent" tabindex="-1" aria-hidden="true" disabled>${esc(c)}</button>`
       : `<button type="button" id="gm-chip-${i}" class="gc${
           guessing.held === i ? " on" : ""}">${esc(c)}</button>`).join("");
     return `<ul class="gm-rows">${rows}</ul><p class="gm-chips">${chips}</p>`;
