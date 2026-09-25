@@ -36,15 +36,17 @@ check_shape passes a null date through untouched, and reindex sorts it to the
 back of the archive instead of the front. An invented date would be a fact
 nobody could ever correct.
 
-THERE WILL NEVER BE AN ANSWER KEY. Penguin prints its solutions as answer-grid
-IMAGES, which OCR to noise, and with no Guardian number or date there is nothing
-to look one up by either. So solutionSource carries `officialKey: "never"` on
-top of the usual `kind: "model"`. `kind` keeps every existing model-fill rule
-working — blind_annotate.py refuses to grade the fill against itself,
-index.json's solutionsUnofficial goes true, the crawlable page qualifies the
-answers it prints — and `officialKey` says the one thing that is different
-about these: no later job should wait for, or grade against, a key that is not
-coming.
+NO JOB CAN FETCH THE ANSWER KEY. The book does print one — solved answer grids
+at the back — but as page IMAGES: their OCR text is noise, and archive.org
+serves a loan's page images encrypted for its in-browser reader only. With no
+Guardian number or date there is no other key to look up. So solutionSource
+carries `officialKey: "never"` on top of the usual `kind: "model"`. `kind`
+keeps every existing model-fill rule working — blind_annotate.py refuses to
+grade the fill against itself, index.json's solutionsUnofficial goes true, the
+crawlable page qualifies the answers it prints — and `officialKey` says no
+scheduled job should wait for a key. The printed grids stay readable by a
+person holding the loan; answers read from them replace the model's and drop
+`kind: "model"`.
 
 CONFIDENCE IS PER ENTRY AND IT SURVIVES. A model solve is not uniformly sure of
 itself: most entries parse completely, and a few are a definition plus enough

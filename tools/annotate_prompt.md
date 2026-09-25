@@ -31,9 +31,9 @@ those letters. If it does not, the parse is wrong — rethink it, do not stretch
 **Except where the puzzle says otherwise.** A puzzle carrying a top-level
 `"solutionSource"` was not solved by its paper; the answers are a model's, filled
 cold and checked only for grid consistency. Where that object also says
-`"officialKey": "never"` — the Penguin book reprints — no key is coming to correct
-them either, so the file in front of you is the only account of that puzzle there
-will ever be.
+`"officialKey": "never"` — the Penguin book reprints — no automatic key is coming to
+correct them either, so treat the file in front of you as the only account of that
+puzzle you will get.
 
 In those puzzles an entry may carry `"solutionConfidence": "LIKELY"`. That means the
 letters were forced by the definition and the crossings and **the wordplay does not
