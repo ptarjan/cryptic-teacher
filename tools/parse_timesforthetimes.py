@@ -187,6 +187,28 @@ def puzzle_number(post):
     return int(m.group(1)) if m else None
 
 
+WEEKDAY = r"(?:Mon|Tues|Wednes|Thurs|Fri|Satur|Sun)day\b"
+NAME = rf"(?!{WEEKDAY})[A-Z][\w'’]*"
+#: The byline sits between the title's first number and the title's own dash or
+#: colon: "QC 2426 from Hurley: Make your peace", "Times Quick Cryptic No
+#: 919 – by Teazel", "1348by Tracy". A struck-out name or an aside right after
+#: "by" is skipped for the one after it. The name is up to three capitalised
+#: words ("Robert Price", "Bob and Margaret"), ending before a weekday.
+BYLINE = re.compile(
+    r"\D*\d[\d,]*\s*(?:[–—-]\s*(?=by\b))?(?:[^–—:]*?\b)?(?:by|By|from)\s+"
+    r"(?:<del>.*?</del>\s*|\([^)]*\)\s*)?"
+    rf"({NAME}(?: (?:and )?{NAME}){{0,2}})")
+#: Titles that spell a setter two ways.
+SETTER_ALIAS = {"Tracey": "Tracy", "Margaret and Bob": "Bob and Margaret"}
+
+
+def setter_from_title(title):
+    """The setter the post's title names, or None: the blog is the only
+    source of a Times Quick or Sunday Times byline."""
+    m = BYLINE.match(html.unescape(title or ""))
+    return m and SETTER_ALIAS.get(m.group(1), m.group(1))
+
+
 #: The Times Cryptic passed 20000 decades before the blog began, and the Quick
 #: Cryptic has yet to reach 4000, so a puzzle number says which of the two a
 #: post is when its category disagrees.
@@ -788,6 +810,7 @@ def parse_post(post):
         "post_id": post["id"], "date": post["date"][:10], "slug": post["slug"],
         "link": post.get("link"), "series": filed_series(post, series, number),
         "number": number,
+        "title": html.unescape(post.get("title", {}).get("rendered", "")),
         "entries": entries,
     }
     if unsplit:

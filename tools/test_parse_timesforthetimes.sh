@@ -556,5 +556,32 @@ named='<p>ACROSS</p><p>20</p><p>French film-maker&#8217;s company facing acute d
 check "a first name ahead of the answer" "20:COCTEAU 8:TUTU" \
   "$(run "$named" | cut -d'|' -f1,3 | tr '|\n' ': ' | sed 's/ $//')"
 
+# The title is the only place the blog names a Quick or Sunday Times setter.
+# Each case is "title=>setter"; an empty setter means the title names none.
+setters="$(REPO="$REPO" python3 - <<'PY'
+import os, sys
+sys.path.insert(0, os.path.join(os.environ["REPO"], "tools"))
+from parse_timesforthetimes import setter_from_title
+CASES = """\
+Times Quick Cryptic No 3013 by Asp=>Asp
+QC 2426 from Hurley: Make your peace=>Hurley
+Sunday Times Cryptic 4989, by Robert Price — With wit and cunning=>Robert Price
+Times Quick Cryptic No 1348by Tracy=>Tracy
+Times Quick Cryptic No 919 &#8211; by Teazel=>Teazel
+Quick Cryptic 1394 by Bob and Margaret=>Bob and Margaret
+Quick Cryptic Number 317 by Tracey=>Tracy
+Times Quick Cryptic no 674 by Flamande Friday 7th October 2016=>Flamande
+QC 2000 by &lt;del&gt;Joker&lt;/del&gt; Oink=>Oink
+QC 2001 by (a guest) Mara=>Mara
+Sunday Times Cryptic No 5079 — Anchors aweigh by Dean=>
+Times QC 2326 &#8211; St Withins Day=>"""
+for case in CASES.splitlines():
+    title, want = case.split("=>")
+    got = setter_from_title(title) or ""
+    print("ok" if got == want else f"FAIL {title!r}: expected [{want}], got [{got}]")
+PY
+)"
+check "every title names its setter, or none" "" "$(echo "$setters" | grep -v '^ok$')"
+
 if [ "$fails" -gt 0 ]; then echo "$fails FAILURE(S)"; exit 1; fi
 echo "all checks passed"

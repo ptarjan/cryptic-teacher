@@ -32,7 +32,7 @@ letter = lambda y, x: chr(ord("A") + (y * 5 + x) % 26)
 cells = rg.light_cells(TINY)
 answer = {k: "".join(letter(*c) for c in cs) for k, cs in cells.items()}
 
-def rec(post_id, number, date, label="Daily Cryptic", clue=lambda k: f"Words for {k[0]} (%d)"):
+def rec(post_id, number, date, label="Daily Cryptic", clue=lambda k: f"Words for {k[0]} (%d)", title=""):
     entries = []
     for k, a in answer.items():
         text = clue(k)
@@ -40,7 +40,8 @@ def rec(post_id, number, date, label="Daily Cryptic", clue=lambda k: f"Words for
                         "clue": text and (text % len(a) if "%d" in text else text),
                         "enumeration": str(len(a))})
     return {"post_id": post_id, "date": date, "series": label, "number": number,
-            "link": f"https://timesforthetimes.co.uk/p{post_id}", "entries": entries}
+            "link": f"https://timesforthetimes.co.uk/p{post_id}", "title": title,
+            "entries": entries}
 
 def row(r, **extra):
     return {"post_id": r["post_id"], "series": r["series"], "number": r["number"],
@@ -55,8 +56,10 @@ recs = [rec(1, 100, "2026-01-05"), rec(2, 101, "2026-01-06"),
         rec(4, 102, "2026-01-08"),
         rec(5, 103, "2026-01-09", clue=lambda k: None if k == (1, "across") else "Clue (%d)"),
         rec(6, 104, "2026-01-10", clue=lambda k: "(%d)"),   # only the enumeration survived
-        rec(7, 4321, "2026-01-11", label="Weekend Cryptic"),
-        rec(8, 29000, "2026-01-12", label="Weekend Cryptic"),
+        rec(7, 4321, "2026-01-11", label="Weekend Cryptic",
+            title="Sunday Times Cryptic No 4321, by Dean Mayer — x"),
+        rec(8, 29000, "2026-01-12", label="Weekend Cryptic",
+            title="Times 29000 by the seaside"),
         rec(9, 3200, "2026-01-12", label="Quick Cryptic")]
 # The two-word light: 2-down is five cells, enumerated (2,3).
 for e in recs[0]["entries"]:
@@ -108,6 +111,14 @@ filed, _, drifted = F.run(grids, parsed, listing={})
 print("RERUN_FILED", sum(filed.values()))
 print("RERUN_UNTOUCHED", before == {q.name: q.read_bytes() for q in fetch_puzzle.PUZZLE_DIR.iterdir()})
 print("DRIFTED", ",".join(drifted))
+print("SETTERS", sunday["setter"], json.loads((fetch_puzzle.PUZZLE_DIR / "times-29000.json").read_text())["setter"])
+
+# A placeholder setter on disk is replaced by the title's; a name never is.
+sp = fetch_puzzle.PUZZLE_DIR / "sundaytimes-4321.json"
+for key, held in (("PLACEHOLDER", "Unknown"), ("NAMED", "Someone")):
+    sp.write_text(json.dumps({**sunday, "setter": held}))
+    F.run(grids, parsed, listing={})
+    print(f"RENAMED_{key}", json.loads(sp.read_text())["setter"])
 PY
 )
 echo "$out" | grep -v "^[A-Z_]* " | sed 's/^/  | /'
@@ -129,6 +140,10 @@ check "a prize puzzle nothing dates carries no date" "None None" "$(got PRIZE_UN
 check "a second run files nothing" "0" "$(got RERUN_FILED)"
 check "a second run rewrites nothing" "True" "$(got RERUN_UNTOUCHED)"
 check "a drifted file is named" "times-102" "$(got DRIFTED)"
+check "the Sunday Times takes its setter from the title; the Times stays anonymous" \
+  "Dean Mayer Times" "$(got SETTERS)"
+check "a placeholder setter already filed is named" "Dean Mayer" "$(got RENAMED_PLACEHOLDER)"
+check "a setter already named is never overwritten" "Someone" "$(got RENAMED_NAMED)"
 
 # Print dates. The prize puzzles are blogged a week or more after they are
 # printed, so their post date is not their date; filing one by it put
