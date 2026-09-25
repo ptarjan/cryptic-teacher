@@ -477,6 +477,12 @@ function boot(opts) {
   Object.defineProperty(global, "navigator",
     { value: navigator, writable: true, configurable: true });
   global.localStorage = global.window.localStorage;
+  const session = {};
+  global.sessionStorage = {
+    getItem: (k) => (k in session ? session[k] : null),
+    setItem: (k, v) => { session[k] = String(v); },
+    removeItem: (k) => { delete session[k]; },
+  };
   global.confirm = () => true;
   // app.js reads ?p=<number> so the static answer pages can hand off into the app.
   // Override CT_TEST_QUERY to boot the harness on a specific puzzle.
