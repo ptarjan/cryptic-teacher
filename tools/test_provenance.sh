@@ -295,6 +295,30 @@ same "crediting an alias raises" "$(field REFUSES_ALIAS "$out7")" "True"
 same "a rewrite keeps the credit" "$(field SURVIVES_WRITE "$out7")" "['claude-fable-5']"
 same "and removing the hints removes it" "$(field DROPPED_WITH_HINTS "$out7")" "False"
 
+echo "a model fill replaced by real answers remembers it was ours"
+out8=$(PYTHONPATH="$REPO/tools" python3 - <<'PY'
+import copy
+import fetch_puzzle
+import provenance as p
+
+# book-3027 is a model solve. Swap its solutionSource for a write-up's, as
+# fetch_fifteensquared.py does when a blogger posts the answers, and stamp it:
+# the block it is written over still says "model", and nothing else will.
+book = fetch_puzzle.read_puzzle_file(fetch_puzzle.PUZZLE_DIR / "book-3027.json")
+print("WAS_MODEL", book["provenance"]["solutionOrigin"])
+confirmed = copy.deepcopy(book)
+confirmed["solutionSource"] = {"kind": "fifteensquared"}
+prov = p.stamp(confirmed, "tools/file_penguin_puzzle.py")["provenance"]
+print("NOW", prov["solutionOrigin"])
+print("REMEMBERS", prov.get("previousSolutionOrigin"))
+print("STILL_MODEL", "previousSolutionOrigin" in p.stamp(book, "tools/file_penguin_puzzle.py")["provenance"])
+PY
+)
+same "the fixture really is a model solve" "$(field WAS_MODEL "$out8")" "model"
+same "its answers are now the write-up's" "$(field NOW "$out8")" "writeup"
+same "and the file remembers they were once ours" "$(field REMEMBERS "$out8")" "model"
+same "a model fill rewritten as a model fill records nothing" "$(field STILL_MODEL "$out8")" "False"
+
 echo "the backfill is idempotent: a second run over a written corpus changes nothing"
 out5=$(python3 tools/backfill_provenance.py --dry-run --report 2>&1)
 same "nothing left to change" \
