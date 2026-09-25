@@ -572,7 +572,7 @@ def main(argv):
         return 0
     if argv[0] == "--check":
         puzzle = parse(http_get(FEED.format(ymd=days_back(2)[1])), days_back(2)[1])
-        print(f"feed ok: No {puzzle['number']:,} by {puzzle['setter']}, "
+        print(f"feed ok: No {puzzle['number']:,} by {puzzle['setter'] or 'no named setter'}, "
               f"{len(puzzle['entries'])} entries")
         return 0
     if argv[0] == "--backfill":
