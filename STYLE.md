@@ -1,9 +1,10 @@
 # Cryptic Teacher style guide
 
 These are the standing rules for annotating puzzles. `tools/annotate_prompt.md`
-tells the nightly annotation run to read this file whole, so a rule added here
-applies to every future puzzle. Where this file and `tools/annotate_prompt.md`
-disagree, this file wins.
+is the nightly annotation run's condensed copy of them and points here, so a rule
+added here must be carried into that prompt or into a validator check to reach
+future puzzles. Where this file and `tools/annotate_prompt.md` disagree, this file
+wins.
 
 When Paul gives feedback on a puzzle, a hint or the app, fix it in two places:
 the instance he pointed at, and a rule here. Where you can, also add a
@@ -12,7 +13,7 @@ mechanical check in `tools/validate_annotations.py` or an assertion in
 
 Rules for how the app *presents* annotations (the hint ladder, the reference
 corpus, deploy and cache-busting) live in `APP.md`, not here. The annotator
-reads this file whole and cannot act on them. Put each rule in the file that
+cannot act on them. Put each rule in the file that
 its reader reads.
 
 "The validator" below means `tools/validate_annotations.py`. ERROR means the
