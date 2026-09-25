@@ -253,6 +253,7 @@ LAYOUT = [
     ("tables everything else reads", "tools/test_prereset_lock.sh", "does the pre-reset backfill still take over a lock nobody is holding?"),
     ("tables everything else reads", "tools/test_nightly_worktree.sh", "which tree does a scheduled job end up running in? checked by running one"),
     ("tables everything else reads", "tools/test_refresh_window.sh", "does refresh_unsolved ever stop asking for an answer that is never coming?"),
+    ("tables everything else reads", "tools/test_privateeye_dates.sh", "does tools/fetch_privateeye.py read the issue off every title shape the archive ships, and take the Eye's Christmas cover date as it prints it?"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the
