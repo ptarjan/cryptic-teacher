@@ -316,54 +316,57 @@ def indicator_gloss(ann, ind, family):
     return head
 
 
+# The order the app numbers its rungs, read from app.js's LABELS. The card sorts
+# its rungs by this, so a reordered ladder reorders every card with no edit here.
+LADDER = [key for key, _ in app_tables.ladder()]
+
+
 def rungs_for(p):
-    """Three rungs, close to the app's words but in the card's own order.
+    """Three rungs, close to the app's words and in the app's order.
 
     Trimmed, because a card is read in a thumbnail — but never rephrased into a
-    claim the app doesn't make, and never carrying the answer.
-
-    Family first, then the definition, then the indicator: a card is read by
-    somebody who has not opened the clue and is not climbing anything, so it
-    opens by saying what kind of thing they are looking at. The app's ladder
-    starts from the other end, because there the solver is being asked to do
-    the work rather than shown what the work is.
+    claim the app doesn't make, and never carrying the answer. Each rung is
+    tagged with the app rung it stands for and the list is sorted by LADDER, so
+    the card climbs the same ladder the app does.
     """
     ann = p["ann"]
     label, blurb, _ = p["family"]
-    out = [(html.escape(label), html.escape(first_sentence(blurb)))]
-    out.append((f'The definition is <mark class="def">'
+    out = [("type", html.escape(label), html.escape(first_sentence(blurb)))]
+    out.append(("definition",
+                f'The definition is <mark class="def">'
                 f'{html.escape(ann["definition"])}</mark>',
                 "Everything else is wordplay."))
     gloss = (indicator_gloss(ann, p["indicator"], p["family"])
              if p["indicator"] else None)
     if p["hidden"] and p["indicator"]:
-        out.append((gloss or
+        out.append(("indicators", gloss or
                     (f'<mark class="ind">{html.escape(p["indicator"])}</mark> '
                      "says it is hidden here"),
                     "The underline is the answer, in order, straddling the words."))
     elif p["fodder"]:
         # Name the indicator, don't just paint it. The card marks it pink in the
         # clue either way, and a pink word the rungs never mention reads as an
-        # unexplained claim — on 30,079 it was enough to make me doubt a correct
-        # annotation, when the actual answer was that the obvious-looking
-        # candidate was inside the fodder and this word was the real one.
+        # unexplained claim.
         n = len(re.sub(r"[^A-Za-z]", "", p["fodder"]))
+        key = "blocks"
         head = f'Shuffle <span class="fodder">{html.escape(p["fodder"])}</span>'
         if p["indicator"]:
+            key = "indicators"
             head = (f'<mark class="ind">{html.escape(p["indicator"])}</mark> '
                     f'says to shuffle <span class="fodder">'
                     f'{html.escape(p["fodder"])}</span>')
-        out.append((head,
+        out.append((key, head,
                     f"{n} letters, and the enumeration says where they land."))
     elif p["indicator"]:
-        out.append((gloss or
+        out.append(("indicators", gloss or
                     (f'The instruction is <mark class="ind">'
                      f'{html.escape(p["indicator"])}</mark>'),
                     "It tells you what to do with the rest."))
     else:
-        out.append(("The answer is hiding in the clue itself",
+        out.append(("blocks", "The answer is hiding in the clue itself",
                     "The underline is where its letters sit, in order."))
-    return out
+    out.sort(key=lambda r: LADDER.index(r[0]))
+    return [(head, tail) for _, head, tail in out]
 
 
 def check_no_answer(clue_html, prose_html, answer):
