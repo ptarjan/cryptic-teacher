@@ -2013,6 +2013,24 @@ if (assert(autoRow, `picker finds ${autoPuzzle.id} when searched for`)) {
   }
 }
 
+// --- an unattributed puzzle names no setter ---
+// A source that ships no byline gets "Unknown" from default_setter() in
+// tools/series.py — a fact worth keeping in the data, since a puzzle we could
+// not attribute is different from one we never asked about, but one that reads
+// as a scraping failure wherever a solver sees it. Both the picker row and the
+// puzzle title leave the setter out entirely rather than print the word.
+{
+  const anon = allPuzzles.find((p) => p.setter === "Unknown" && global.window.CRYPTIC_PUZZLES[p.id]);
+  if (anon) {
+    const row = openFromPicker(anon.id);
+    assert(row && !/Unknown/.test(row.children[0].innerHTML),
+      `No ${anon.number}'s picker row does not print "Unknown" as its setter`);
+    const title = registry["puzzle-title"].innerHTML;
+    assert(!/set by|Unknown/.test(title),
+      `No ${anon.number} has no known setter, so its title says nothing about one: ` + title);
+  }
+}
+
 // --- the picker says which puzzles you have finished ---
 // With 78 rows listed, "have I done this one?" is the first question the list
 // has to answer. It is derived, not stored — from the saved letters against the

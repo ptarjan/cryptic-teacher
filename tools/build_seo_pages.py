@@ -70,6 +70,14 @@ def esc(s):
     return html.escape(str(s or ""), quote=True)
 
 
+# Mirrors knownSetter() in app.js. A source that ships no byline gets
+# "Unknown" from default_setter() in tools/series.py — a fact worth keeping in
+# the data, but one that reads as a scraping failure wherever it is shown, so
+# it is shown nowhere.
+def known_setter(setter):
+    return setter if setter and setter != "Unknown" else ""
+
+
 def asset(rel):
     """An absolute, content-stamped URL for one of our own static files.
 
@@ -394,7 +402,7 @@ def clue_html(e):
 
 
 def puzzle_page(puz, meta, prev_p, next_p):
-    num, setter = puz["number"], puz.get("setter") or "unknown setter"
+    num, setter = puz["number"], known_setter(puz.get("setter"))
     what = kind(puz)                  # "Cryptic", "Quiptic", "Everyman"
     paper = publisher(puz)            # "Guardian", "Observer"
     lower = what.lower()
@@ -410,7 +418,8 @@ def puzzle_page(puz, meta, prev_p, next_p):
     # "Everyman Crossword No 4,096 by Everyman" is the setter's pseudonym said
     # twice. Where the series name IS the byline — the Observer has kept Everyman
     # anonymous since 1945 — the attribution is already in the title, so drop it.
-    by = "" if setter == what else f" by {setter}"
+    # Also empty when the source shipped no byline at all — see known_setter().
+    by = "" if not setter or setter == what else f" by {setter}"
 
     # Intent word early, identifier early, paper last. A result is chosen on the
     # first few words of its title, and a searcher after "everyman 4117 answers"
@@ -443,7 +452,7 @@ def puzzle_page(puz, meta, prev_p, next_p):
     across.sort(key=lambda e: e["number"])
     down.sort(key=lambda e: e["number"])
 
-    facts = [f"Setter: <strong>{esc(setter)}</strong>"]
+    facts = [f"Setter: <strong>{esc(setter)}</strong>"] if setter else []
     if when:
         facts.append(f"Published: <strong>{esc(when)}</strong>")
     if diff.get("band"):
@@ -584,7 +593,7 @@ def hub_page(idx):
         rows.append(
             f'<li><a href="{BASE}/puzzles/{p["id"]}/">'
             f'<span class="p-num">{display_number(p)}</span>'
-            f'<span class="p-setter">{esc(p.get("setter") or "")}</span>'
+            f'<span class="p-setter">{esc(known_setter(p.get("setter")))}</span>'
             f'<span class="p-meta">{esc(when)}</span>'
             f'<span class="p-tags">{series}{badge}{hints}{ours}</span></a></li>')
 
@@ -815,7 +824,7 @@ def homepage_nav(idx):
     recent = [p for p in idx["puzzles"] if p.get("hasSolutions")][:12]
     items = "".join(
         f'<li><a href="puzzles/{p["id"]}/">{display_number(p)}'
-        + (f' &middot; {esc(p.get("setter"))}' if p.get("setter") else "")
+        + (f' &middot; {esc(s)}' if (s := known_setter(p.get("setter"))) else "")
         + "</a></li>" for p in recent)
     return f"""{NAV_START}
 <section class="seo-nav">
