@@ -73,6 +73,7 @@ head = "0" * 40
 want = w.want_stamps()
 live_page = " ".join(f'"{k}?v={v}"' for k, v in want.items())
 w.built_commit = lambda: head
+w.shipped_index_stamp = lambda sha: want["puzzles/index.js"]
 w.subprocess.run = lambda *a, **k: type("R", (), {"stdout": head, "returncode": 0})()
 
 looked = []
@@ -122,6 +123,7 @@ want = w.want_stamps()
 stale = " ".join(f'"{k}?v=deadbeef"' for k in want)
 w.fetch = lambda: stale
 w.built_commit = lambda: "f" * 40
+w.shipped_index_stamp = lambda sha: w.want_stamps()["puzzles/index.js"]
 w.subprocess.run = lambda *a, **k: type("R", (), {"stdout": head, "returncode": 0})()
 w.time.sleep = lambda _s: None
 
