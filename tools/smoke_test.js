@@ -1007,7 +1007,7 @@ function takeRung(btn) {
 // body it never finished buying. One predicate, used by every climb here, so
 // there is nowhere left for a sixth copy to disagree.
 const CLIMBABLE = (btn) => !!(btn && btn.onclick && !btn.disabled
-  && (/^\d+ · /.test(btn.textContent || "") || /^Next piece · /.test(btn.textContent || "")));
+  && (/^\d+ · /.test(btn.textContent || "") || /^Next building block · /.test(btn.textContent || "")));
 
 // Every button in the ladder row, by label. The row is real elements, so its
 // innerHTML says nothing about what is on screen — asserting against that
@@ -1683,8 +1683,8 @@ assert(registry["picker-search"].value === "", "the filter box starts empty on o
   // this holds them together: the app's wording is read out of its own source
   // and matched against what the archive page actually rendered, so changing
   // either surface alone fails here, naming both.
-  const appCoverageWords = [...appSrc.matchAll(/<span class="badge auto">([^<]+)<\/span>/g)]
-    .map((m) => m[1]);
+  const appCoverageWords = [...appSrc.matchAll(/<span class="badge auto"(?: title="[^"]*")?>([^<]+)<\/span>/g)]
+    .map((m) => m[1]).filter((w) => !/unverified/i.test(w));
   const archiveCoverageWords = [...new Set(
     [...archiveRowHTML.join("").matchAll(/<span class="badge auto"[^>]*>([^<]+)</g)]
       .map((m) => m[1]).filter((w) => !/unverified/i.test(w)))];
@@ -2148,7 +2148,7 @@ if (assert(autoRow, `picker finds ${autoPuzzle.id} when searched for`)) {
   delete oneShort[Object.keys(oneShort)[0]];
   saveFromAnotherTab(key, JSON.stringify({ letters: oneShort, updated: 1 }));
   const partial = rowHTML();
-  const want = Object.keys(letters).length + " letters in";
+  const want = Object.keys(letters).length + " letters filled";
   assert(!/solved ✓/.test(partial) && new RegExp(want).test(partial),
     `one square short is not solved and says how far along it is: the row says `
     + `"${progressIn(partial)}", wanted "${want}"`);
@@ -2806,7 +2806,7 @@ if (assert(autoRow, `picker finds ${autoPuzzle.id} when searched for`)) {
         const label = btn.textContent;
         btn.onclick();
         const asking = isAsking(registry["hint-body"]);
-        assert(asking || !/^Next piece · /.test(label),
+        assert(asking || !/^Next building block · /.test(label),
           `${s.id} ${s.e.id}: "${label}" handed a piece over without asking anything`);
         if (asking) registry["guess-tell"].onclick();
       }
@@ -4569,7 +4569,7 @@ global.realSetTimeout(() => {
       "and the spaces between its words are marked too, so the band is unbroken: "
         + JSON.stringify(bare));
   }
-  assert(/\b0<\/strong> hint levels used/.test(registry["scorebar"].innerHTML),
+  assert(/\b0<\/strong> hints used/.test(registry["scorebar"].innerHTML),
     "a rung you earned costs nothing: " + registry["scorebar"].innerHTML);
 
   // Wrong: every word in the clue is never the answer to any of these.
@@ -4588,7 +4588,7 @@ global.realSetTimeout(() => {
   global.flushTimers(10000);
   assert(panelHTML() === html,
     "a miss is left on screen to be read too: " + registry["hint-body"].innerHTML);
-  assert(/\b1<\/strong> hint levels used/.test(registry["scorebar"].innerHTML),
+  assert(/\b1<\/strong> hints used/.test(registry["scorebar"].innerHTML),
     "a rung you did not earn still costs one: " + registry["scorebar"].innerHTML);
 
   // And the escape hatch out of the question itself.
@@ -4599,7 +4599,7 @@ global.realSetTimeout(() => {
   assert(registry["hint-body"].innerHTML.includes("hint-step"), "“Just tell me” tells you");
   assert(!registry["hint-body"].innerHTML.includes("guess-verdict"),
     "declining to guess is not graded");
-  assert(/\b1<\/strong> hint levels used/.test(registry["scorebar"].innerHTML),
+  assert(/\b1<\/strong> hints used/.test(registry["scorebar"].innerHTML),
     "and costs what the rung has always cost: " + registry["scorebar"].innerHTML);
 
   // And the other way out: you stop hunting for the definition because you have
@@ -5942,7 +5942,7 @@ global.realSetTimeout(() => {
         + r.text);
     assert(r.offered.indexOf(r.locked[0]) >= 0 && r.offered.length - r.locked.length === 2,
       `${how}: the assembly rung and the type rung are both takeable: ` + r.text);
-    assert(new RegExp(`\\b${earn ? 0 : 2}</strong> hint levels used`).test(r.score),
+    assert(new RegExp(`\\b${earn ? 0 : 2}</strong> hints used`).test(r.score),
       `${how}: skipping the type rung is free, and changes nothing else's price: `
         + r.score);
   }
@@ -6314,7 +6314,7 @@ global.realSetTimeout(() => {
     "solving the clue answers the question it was asking: " + body().slice(0, 600));
   assert(/Solved <strong>1\/30<\/strong>/.test(reg["scorebar"].innerHTML),
     "the clue is solved: " + reg["scorebar"].innerHTML);
-  assert(/<strong>2<\/strong> hint levels used/.test(reg["scorebar"].innerHTML),
+  assert(/<strong>2<\/strong> hints used/.test(reg["scorebar"].innerHTML),
     "and only the two rungs actually bought are charged: " + reg["scorebar"].innerHTML);
 }
 
@@ -6408,7 +6408,7 @@ global.realSetTimeout(() => {
   // and type it in, which is the one way of finishing a clue that costs nothing.
   let typing = false;
   for (let i = 0; i < 12 && !typing; i += 1) {
-    if (/type the answer into the lit boxes/.test(nuxLine(press.registry))) { typing = true; break; }
+    if (/type the answer into the highlighted squares/.test(nuxLine(press.registry))) { typing = true; break; }
     if (!pressTake()) break;
   }
   assert(typing, "the walk ends by asking them for the answer: " + nuxLine(press.registry));

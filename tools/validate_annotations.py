@@ -2042,7 +2042,7 @@ def validate_puzzle(puzzle):
                           f"(max {WALKTHROUGH_HARD_MAX}) — that length is working-out, "
                           f"not an explanation; the blocks already did the mechanics")
         # Notes and definitionFit are published too, so they get the same check.
-        # Published under "The joke" on the walkthrough rung, so it is held to the
+        # Published under "What it seems to say" on the walkthrough rung, so it is held to the
         # length it was specified at rather than to the walkthrough's: it is one
         # sentence of picture, and a paragraph there pushes the trick off the screen.
         surface = ann.get("surface") or ""
