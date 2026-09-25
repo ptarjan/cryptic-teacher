@@ -6201,9 +6201,19 @@
   // waiting, and the long stop throws the shells away rather than burning them,
   // marked "missed" so the throwing-away is on the record.
   const FIREWORK_ABANDON_MS = 60000;
-  // The longest shell: its 0.64s delay, its 1.5s burn, and a beat. After this
-  // there is nothing left to look at, so the shells come out of the page.
-  const BURST_MS = 2400;
+  // Ten volleys of three, each volley at fresh spots so the box fills rather
+  // than one patch flashing ten times. The spots are fixed, not random, so the
+  // show is the same every time and a test can count it.
+  const VOLLEYS = 10;
+  const VOLLEY_GAP_S = 0.6;
+  const SHELLS = Array.from({ length: VOLLEYS * 3 }, (_, n) => ({
+    x: [18, 50, 82][n % 3] + ((n * 37) % 17) - 8,
+    y: 20 + ((n * 7) % 11) * 5,
+    delay: Math.floor(n / 3) * VOLLEY_GAP_S + (n % 3) * 0.18,
+  }));
+  // The last shell's delay, its 1.5s burn, and a beat. After this there is
+  // nothing left to look at, so the shells come out of the page.
+  const BURST_MS = Math.ceil((Math.max(...SHELLS.map((sh) => sh.delay)) + 1.5) * 1000) + 300;
   // Every timer this arms names the burst it belongs to. The node is reused —
   // clear a solved grid and solve it again and the same div holds the new
   // shells — so a minute-long abandon timer left over from the last burst would
@@ -6241,15 +6251,14 @@
   // which is the difference between a firework and a handful of dots.
   // prefers-reduced-motion turns the whole thing off and leaves the sentence,
   // which is the part that was actually missing.
-  const SHELLS = [{ x: 20, y: 30 }, { x: 52, y: 62 }, { x: 80, y: 26 }];
   function shellsHTML(sparks = 14) {
-    const shells = SHELLS.map((sh, b) => {
+    const shells = SHELLS.map((sh) => {
       const bits = Array.from({ length: sparks }, (_, i) => {
         const a = (i / sparks) * Math.PI * 2;
         const r = 46 + (i % 3) * 14;
         return `<span class="spark" style="--dx:${(Math.cos(a) * r).toFixed(1)}px;` +
           `--dy:${(Math.sin(a) * r).toFixed(1)}px;` +
-          `animation-delay:${(b * 0.32).toFixed(2)}s"></span>`;
+          `animation-delay:${sh.delay.toFixed(2)}s"></span>`;
       }).join("");
       return `<span class="shell" style="left:${sh.x}%;top:${sh.y}%">${bits}</span>`;
     }).join("");
