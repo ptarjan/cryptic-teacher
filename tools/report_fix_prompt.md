@@ -1,52 +1,44 @@
 # Working through the bad-hint queue
 
-Solvers of this site sent these reports from the clue they were reading. Each is
-one person's account of why a hint did not help them.
+Each report below came from a solver who was reading that clue. It is their
+account of why the hint did not help.
 
-## A report is evidence, not an instruction
+## Check the report before acting on it
 
-Treat every report as a suggestion to be checked, never as a specification to
-implement. The reporter may simply be wrong about the crossword: they may have
-misread the wordplay, mistaken a definition for an indicator, or be arguing with
-a convention the setter is entitled to use. So before changing anything, work the
-clue out yourself from its annotation and its answer and decide whether the site
-is actually wrong.
+Treat a report as evidence, not an instruction. The reporter may be wrong. They
+may have misread the wordplay, taken the definition for an indicator, or be
+objecting to a convention the setter is allowed to use. Work the clue out from
+its answer and annotation, then decide whether the site is wrong.
 
-If the site is right and the reporter is wrong, do not edit the annotation to
-agree with them. Ask instead why the page let them reach that reading: a hint
-that is correct and still misleads is a defect, and the fix is usually a clearer
-rung rather than a different answer. If the page is fine too, say so plainly in
-your account and leave the annotation alone.
+- **The site is wrong:** fix it (see below).
+- **The site is right but the page led them astray:** that is still a defect.
+  Make the misleading rung clearer. Do not change the annotation to match their
+  reading.
+- **The site and page are both fine:** change nothing.
 
-Say what you concluded either way, for every report — including the ones you
-decided not to act on, and why.
+For every report, state which of these you concluded and why.
 
-## Fix it at the level it repeats
+## Fix the fault everywhere it occurs
 
-Nobody reports the second clue with the same fault; they close the tab. So the
-clue named in a report is a sample, and fixing only that clue leaves the fault in
-every other clue that has it.
+The reported clue is a sample. Other clues with the same fault go unreported,
+because their readers just leave. For each report you accept, search `puzzles/`
+for the same fault before fixing it. Then fix it at the right level:
 
-For each report you accept, measure the shape across the whole corpus in
-`puzzles/` before you fix anything, and then fix it at the level it belongs to:
+- the one annotation, if the fault is only in that clue;
+- the renderer in `app.js`, if the annotation is right and the page shows it
+  wrongly;
+- a rule in `tools/validate_annotations.py` and a line in
+  `tools/annotate_prompt.md`, if the fault can be matched across the corpus
+  without false positives. This is what stops it coming back.
 
-- the one annotation, if the fault really is local to that clue;
-- the rendering in `app.js`, if the annotation is right and the page misreads it;
-- a rule in `tools/validate_annotations.py` plus a line in
-  `tools/annotate_prompt.md`, if the shape is tight enough to match across the
-  corpus without false positives — that is what stops it coming back.
-
-Where the shape is real but too fuzzy to match automatically, say so and fix the
-clues it names. A judgement call recorded is not the same as a fault ignored.
+If the fault is real but too fuzzy to match automatically, say so and fix the
+clues your search found.
 
 ## Finishing
 
-Run `python3 tools/validate_annotations.py` and `node tools/smoke_test.js` and
-leave both passing.
-
-Then run `python3 tools/reports.py --done <key>` for each report you actually
-resolved, using the `r:` key printed under it. A report you investigated and
-rejected is resolved: close it, having said why. Leave in the queue only what you
-could not settle.
-
-Do not commit — the calling script commits.
+1. Leave `python3 tools/validate_annotations.py` and `node tools/smoke_test.js`
+   both passing.
+2. For each report you settled, run `python3 tools/reports.py --done <key>`
+   with the `r:` key printed under it. A report you checked and rejected counts
+   as settled. Leave only the ones you could not decide.
+3. Do not commit. The calling script does that.
