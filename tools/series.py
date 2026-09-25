@@ -278,7 +278,8 @@ SERIES[BOOK_SERIES] = {
     # officialKey is "never" for the whole shelf: these are out-of-print
     # reprint collections that number their puzzles from 1 in the book, so a
     # puzzle here carries no paper number and no date and there is nothing a
-    # publisher could ever serve an answer key AGAINST. Stated once and copied
+    # publisher could ever serve an answer key AGAINST. The book's own printed
+    # answer grids are page images no job can read (see file_penguin_puzzle.py). Stated once and copied
     # onto each puzzle as solutionSource.officialKey by whichever route fills
     # the grid — a puzzle that lost it would have tools/build_seo_pages.py
     # promise a reader that official answers replace ours "as soon as those
