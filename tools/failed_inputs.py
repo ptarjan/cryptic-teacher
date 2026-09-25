@@ -51,7 +51,7 @@ KINDS = {
 
 # Failures that are about us or the network, not the item.
 TRANSIENT = re.compile(
-    r"usage limit|limit reached|rate limit|five-hour window|Not logged in|"
+    r"usage limit|spend limit|limit reached|rate limit|five-hour window|Not logged in|"
     r"authenticate|OAuth|credit balance|overloaded|API Error: (?:5\d\d|429)|"
     r"Connection error|ECONNRESET|ETIMEDOUT|ENOTFOUND|EAI_AGAIN|fetch failed|"
     r"Request timed out|network", re.IGNORECASE)
