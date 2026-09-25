@@ -495,7 +495,7 @@ button:disabled:hover { border-color: var(--line); }
 
 /* Scoped to the finish box, because the finish is the only thing worth a
    firework: a single clue coming out is a square at a time, and 28 of these is
-   28 interruptions. Three shells, going off once, behind the scoreline rather
+   28 interruptions. Ten volleys of three shells, going off once, behind the scoreline rather
    than over it — the sentence is still the celebration, so the scoreline takes
    a layer of its own and the sparks paint under it.
    Each spark is flown by --dx/--dy, set per spark in shellsHTML(). */
@@ -512,10 +512,10 @@ button:disabled:hover { border-color: var(--line); }
   border-radius: 50%; opacity: 0;
   background: var(--burst-1); box-shadow: 0 0 12px 2px var(--burst-1);
 }
-#celebrate .shell:nth-child(2) .spark {
+#celebrate .shell:nth-child(3n+2) .spark {
   background: var(--burst-2); box-shadow: 0 0 12px 2px var(--burst-2);
 }
-#celebrate .shell:nth-child(3) .spark {
+#celebrate .shell:nth-child(3n) .spark {
   background: var(--burst-3); box-shadow: 0 0 12px 2px var(--burst-3);
 }
 /* Held until the box is actually on screen, and held by NOT HAVING the
