@@ -16,7 +16,11 @@ hyphen before its digits) until we choose to publish one.
   python3 tools/build_authored_puzzle.py \
       --fill tools/data/sample_fill_11.json \
       --clues tools/data/authored_A001_clues.json \
-      --id A001 --name "Cryptic Teacher No 1" --setter "Cryptic Teacher"
+      --id A001 --name "Cryptic Teacher No 1" --setter "Cryptic Teacher" \
+      --annotated-by human
+
+--annotated-by says who wrote the clues' annotations — `human`, or the exact
+model id that drafted them — and lands in provenance.annotatedBy.
 """
 
 import argparse
@@ -28,6 +32,7 @@ ROOT = Path(__file__).resolve().parent.parent
 PUZZLE_DIR = ROOT / "puzzles"
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import provenance  # noqa: E402
 from fetch_puzzle import write_puzzle_file  # noqa: E402
 
 
@@ -94,9 +99,17 @@ def main():
     ap.add_argument("--setter", default="Cryptic Teacher")
     ap.add_argument("--date", type=int, required=True,
                     help="publication date in epoch milliseconds")
+    ap.add_argument("--annotated-by", required=True,
+                    help="who wrote the annotations: human, or an exact model id")
     args = ap.parse_args()
 
     puzzle = build(args.fill, args.clues, args.id, args.name, args.setter, args.date)
+    if provenance.has_hints(puzzle):
+        try:
+            puzzle = provenance.credit_annotator(puzzle, args.annotated_by,
+                                                 had_hints=False)
+        except ValueError as err:
+            sys.exit(f"--annotated-by: {err}")
     out = PUZZLE_DIR / f"{args.id}.json"
     write_puzzle_file(out, puzzle, generator="tools/build_authored_puzzle.py")
     print(f"wrote {out} — {len(puzzle['entries'])} entries")

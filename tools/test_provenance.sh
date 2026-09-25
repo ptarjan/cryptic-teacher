@@ -62,7 +62,7 @@ print("BAD_CHANNEL", len(bad), *bad)
 # Every enum carries prose saying what the value MEANS -- a bare value added
 # without one is a value nobody can use correctly.
 undocumented = [v for table in (p.GRID_ORIGINS, p.SOLUTION_ORIGINS,
-                                p.RETRIEVAL_CHANNELS)
+                                p.RETRIEVAL_CHANNELS, p.ANNOTATORS)
                 for v, why in table.items() if not (why or "").strip()]
 print("UNDOCUMENTED", len(undocumented), *undocumented)
 PY
@@ -235,6 +235,65 @@ same "the real book puzzle passes" "$(field BOOK_PRISTINE "$out4")" "0"
 same "its model fill cannot be relabelled published" "$(field BOOK_LIE "$out4")" "True"
 same "nor its reconstruction relabelled a printed diagram" \
   "$(field BOOK_GRID_LIE "$out4")" "True"
+
+echo "hints say who wrote them, and cannot say it wrongly"
+out7=$(PYTHONPATH="$REPO/tools" python3 - <<'PY'
+import copy
+import fetch_puzzle
+import provenance as p
+
+# cryptic-30078 is annotated; cyclops-550 has no hints at all.
+hinted = fetch_puzzle.read_puzzle_file(fetch_puzzle.PUZZLE_DIR / "cryptic-30078.json")
+bare = fetch_puzzle.read_puzzle_file(fetch_puzzle.PUZZLE_DIR / "cyclops-550.json")
+print("HINTED_PRISTINE", len(p.check(hinted)))
+
+
+def flagged(puzzle, mutate):
+    puzzle = copy.deepcopy(puzzle)
+    mutate(puzzle)
+    return p.check(puzzle)
+
+
+print("NO_CREDIT", len(flagged(hinted, lambda z: z["provenance"].pop("annotatedBy"))))
+# An alias is a pointer that moves; the id it resolved to is the record.
+print("ALIAS", len(flagged(hinted, lambda z: z["provenance"].update(annotatedBy=["opus"]))))
+print("NOT_A_LIST", len(flagged(hinted, lambda z: z["provenance"].update(annotatedBy="claude-opus-5"))))
+print("HUMAN_OK", len(flagged(hinted, lambda z: z["provenance"].update(annotatedBy=["human"]))))
+print("STALE", len(flagged(bare, lambda z: z["provenance"].update(annotatedBy=["claude-opus-5"]))))
+
+# A run on a puzzle that had hints adds itself once; a run on a puzzle that had
+# none wrote every hint in it, so the old credits go.
+once = p.credit_annotator(hinted, "claude-opus-5-5", had_hints=True)
+twice = p.credit_annotator(once, "claude-opus-5-5", had_hints=True)
+print("APPENDS", ",".join(twice["provenance"]["annotatedBy"]))
+fresh = p.credit_annotator(hinted, "claude-opus-5-5", had_hints=False)
+print("RESTARTS", ",".join(fresh["provenance"]["annotatedBy"]))
+try:
+    p.credit_annotator(hinted, "opus", had_hints=True)
+    print("REFUSES_ALIAS", False)
+except ValueError:
+    print("REFUSES_ALIAS", True)
+
+# Every write re-derives provenance: the credit survives it, and goes when the
+# hints do.
+print("SURVIVES_WRITE", p.stamp(hinted, "tools/fetch_puzzle.py")["provenance"].get("annotatedBy"))
+stripped = copy.deepcopy(hinted)
+for e in stripped["entries"]:
+    e.pop("annotation", None)
+print("DROPPED_WITH_HINTS", "annotatedBy" in p.stamp(stripped, "tools/fetch_puzzle.py")["provenance"])
+PY
+)
+same "an annotated puzzle with its credit passes" "$(field HINTED_PRISTINE "$out7")" "0"
+same "hints with no annotatedBy are one finding" "$(field NO_CREDIT "$out7")" "1"
+same "an alias is not an author" "$(field ALIAS "$out7")" "1"
+same "annotatedBy must be a list" "$(field NOT_A_LIST "$out7")" "1"
+same "a person is a valid author" "$(field HUMAN_OK "$out7")" "0"
+same "credit on a puzzle with no hints is refused" "$(field STALE "$out7")" "1"
+same "a second run by the same model is credited once" "$(field APPENDS "$out7")" "claude-fable-5,claude-opus-5-5"
+same "annotating an unhinted puzzle starts the list afresh" "$(field RESTARTS "$out7")" "claude-opus-5-5"
+same "crediting an alias raises" "$(field REFUSES_ALIAS "$out7")" "True"
+same "a rewrite keeps the credit" "$(field SURVIVES_WRITE "$out7")" "['claude-fable-5']"
+same "and removing the hints removes it" "$(field DROPPED_WITH_HINTS "$out7")" "False"
 
 echo "the backfill is idempotent: a second run over a written corpus changes nothing"
 out5=$(python3 tools/backfill_provenance.py --dry-run --report 2>&1)
