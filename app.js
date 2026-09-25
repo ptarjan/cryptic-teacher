@@ -2079,10 +2079,15 @@
   // the hint panel keeps every existing caller saying what it said; the finish
   // box passes its own, because the viewport rules here are the VIEWPORT'S —
   // a keyboard covers a scoreline exactly the way it covers a hint.
-  let placeTargetId = "hint-panel", placeOwnerId = "hint-panel";
-  function scrollToHintPanel(targetId, ownerId) {
+  // And where the target ends, when it is a run of the panel rather than one
+  // box: the letter strip's tap targets the clue down to the strip, because
+  // that is what someone typing reads. Both are on screen when the strip is
+  // tapped, so nothing moves until the keys cover them, and then once.
+  let placeTargetId = "hint-panel", placeOwnerId = "hint-panel", placeEndId = null;
+  function scrollToHintPanel(targetId, ownerId, endId) {
     placeTargetId = targetId || "hint-panel";
     placeOwnerId = ownerId || "hint-panel";
+    placeEndId = endId || null;
     const now = Date.now();
     settleBy = now + HINT_DEADLINE_MS;
     watchUntil = now + HINT_WATCH_MS;
@@ -2147,6 +2152,11 @@
     if (!p.getBoundingClientRect) return;
     let r = p.getBoundingClientRect();
     if (!r.height && p !== panel) { p = panel; r = panel.getBoundingClientRect(); }
+    const end = p !== panel && placeEndId && $(placeEndId);
+    const er = end && end.getBoundingClientRect();
+    if (er && er.height && er.bottom > r.bottom) {
+      r = { top: r.top, bottom: er.bottom, height: er.bottom - r.top };
+    }
     const band = visibleBand();
     const vh = band.bottom - band.top;
     if (vh <= 0 || !r.height) return;
@@ -2156,6 +2166,12 @@
     // wrong answer as any other.
     placedKeys = keyboardUp();
     if (r.top >= band.top && r.bottom <= band.bottom) return;   // all there already
+    // A run only decides WHETHER to move. Once it must, the whole panel goes if
+    // it fits, so the rungs being typed from stay on screen with it.
+    if (end) {
+      const pr = panel.getBoundingClientRect();
+      if (pr.height <= vh - HINT_SCROLL_GAP) r = pr;
+    }
     const y = window.pageYOffset || 0;
     // Too tall to fit, or hanging off the top: line its top up with the top of
     // the band. Otherwise it is below, so pull its bottom up to the band's floor.
@@ -2370,7 +2386,18 @@
   function focusKbd() {
     const kbd = $("kbd");
     kbd.value = "";
-    kbd.focus({ preventScroll: true });
+    focusHidden(kbd);
+  }
+  // The hidden inputs are focused at the top of the band you can see, because
+  // iOS scrolls the focused element clear of the keyboard as the keys come up,
+  // and preventScroll does not stop that one. Anywhere the keys can cover is a
+  // second scroll racing placeHintPanel's: halfway down the layout viewport is
+  // under an iPad's landscape keyboard. Placed on every focus rather than once,
+  // because the band's top moves whenever iOS pans the visual viewport.
+  function focusHidden(el) {
+    const vv = window.visualViewport;
+    el.style.top = ((vv && vv.offsetTop) || 0) + "px";
+    el.focus({ preventScroll: true });
   }
 
   // Decline to dismiss a keyboard that is already up, and never summon one.
@@ -5140,7 +5167,7 @@
           // first so the ring's focus ring is already drawn on the redraw that
           // follows, the same order addRingLetter/removeLastRingLetter use.
           const ak = $("ana-kbd");
-          if (ak) ak.focus({ preventScroll: true });
+          if (ak) focusHidden(ak);
           renderHintPanel();
         }
       };
@@ -5173,7 +5200,7 @@
     const disc = panel.querySelector(".ana-disc");
     if (disc && ring) disc.onclick = () => {
       const ak = $("ana-kbd");
-      if (ak) ak.focus({ preventScroll: true });
+      if (ak) focusHidden(ak);
       renderHintPanel();
     };
   }
@@ -6510,7 +6537,7 @@
     $("hint-pattern").addEventListener("mousedown", () => {
       const up = document.activeElement === $("kbd");
       focusKbd();
-      if (!up) scrollToHintPanel();
+      if (!up) scrollToHintPanel("hint-clue", "hint-panel", "hint-pattern");
     });
 
     // Everything else keeps a keyboard and never raises one. The grid used to
