@@ -51,16 +51,16 @@
 <header>
   <div class="brand">
     <h1>Cryptic Teacher</h1>
-    <p class="tagline">Real puzzles, real setters. Hints that teach, not spoil.</p>
+    <p class="tagline">Real published crosswords, with hints that show how each clue works.</p>
   </div>
   <!-- The four ▾ buttons open a panel in place; Learn is the only thing in here
        that leaves the page, so it sits at the end rather than interrupting them. -->
   <div class="header-controls">
     <button id="btn-picker" class="ghost" title="Choose a puzzle">Puzzles ▾</button>
-    <button id="btn-sync" class="ghost" title="Carry your progress to another device">Sync ▾</button>
-    <button id="btn-notify" class="ghost" title="Be told when a new puzzle is ready">Notify ▾</button>
-    <button id="btn-feedback" class="ghost" title="Tell me what is wrong with this site">Feedback ▾</button>
-    <a class="ghost" href="https://cryptic.paultarjan.com/learn/" aria-label="How cryptic clues work">Learn</a>
+    <button id="btn-sync" class="ghost" title="Use your progress on another device">Sync ▾</button>
+    <button id="btn-notify" class="ghost" title="Get a notification when a new puzzle is ready">Notify ▾</button>
+    <button id="btn-feedback" class="ghost" title="Report a problem or suggest an idea">Feedback ▾</button>
+    <a class="ghost" href="https://cryptic.paultarjan.com/learn/" aria-label="How cryptic clues work" title="How cryptic clues work">Learn</a>
   </div>
 </header>
 
@@ -69,26 +69,26 @@
 <div id="sync-panel" class="panel hidden" role="dialog" aria-label="Sync progress">
   <div class="panel-head">
     <strong>Sync progress</strong>
-    <button class="ghost small" id="btn-sync-close">✕</button>
+    <button class="ghost small" id="btn-sync-close" aria-label="Close">✕</button>
   </div>
   <div id="sync-off">
-    <p class="muted small-note">Your grids live in this browser only. Start a code here and scan
-       or type it on the other device — if that one is already syncing, take its code above
-       instead of starting a second one.</p>
-    <p><button id="sync-start" class="tool">Start a new code</button></p>
+    <p class="muted small-note">Your progress is saved in this browser only. To carry on
+       on another device, make a code here, then scan or type it on that device. If the other
+       device already has a code, enter that code above instead of making a new one.</p>
+    <p><button id="sync-start" class="tool">Make a new code</button></p>
   </div>
   <div id="sync-on" class="hidden">
-    <p class="muted small-note">Point the other device's camera at this. There is no app to
-       install: the square is a link to this page, carrying the code.</p>
+    <p class="muted small-note">On your other device, point the camera at this square. It
+       opens this site with your code already filled in. There is no app to install.</p>
     <canvas id="sync-qr" class="sync-qr" role="img" width="0" height="0"
-            aria-label="Scan to carry this progress to another device"></canvas>
-    <p class="muted small-note">Or type it in by hand over there — same panel, “Use this code”.</p>
+            aria-label="QR code. Scan it with another device to sync your progress there."></canvas>
+    <p class="muted small-note">Or type the code on the other device: open Sync there, enter it and press “Use this code”.</p>
     <p class="sync-code-row"><span class="sync-code" id="sync-code">—</span><button
        id="sync-copy" class="ghost small" title="Copy the code">Copy</button></p>
-    <p class="muted small-note">Anyone with the code can see and change these grids, so it is a
-       code and not a password: there is nothing here but crossword letters. Progress only ever
-       merges, so no device can wipe another's work.</p>
-    <p><button id="sync-stop" class="tool danger">Stop syncing this device</button></p>
+    <p class="muted small-note">Anyone with this code can see and change your progress. That is
+       all it unlocks: it holds crossword letters and nothing personal. Syncing combines the letters
+       from every device, so filling in squares on one never erases squares filled on another.</p>
+    <p><button id="sync-stop" class="tool danger">Stop syncing (your progress stays here)</button></p>
   </div>
 
   <!-- Outside both blocks, because taking a code is offered whether or not this
@@ -100,7 +100,7 @@
               autocapitalize="characters" maxlength="9" placeholder="ABCD2345"
               aria-label="Sync code from your other device">
        <button id="sync-join" class="tool">Use this code</button>
-       <button id="sync-scan" class="tool">Scan it</button></p>
+       <button id="sync-scan" class="tool">Scan a QR code</button></p>
     <!-- The camera opens inside the panel, not over the page: it is one step of
          taking a code, and putting it away must not put the panel away too. -->
     <div id="sync-scan-box" class="hidden">
@@ -117,19 +117,19 @@
      arrives. -->
 <div id="notify-panel" class="panel hidden" role="dialog" aria-label="Notifications about new puzzles">
   <div class="panel-head">
-    <strong>Tell me about new puzzles</strong>
-    <button class="ghost small" id="btn-notify-close">✕</button>
+    <strong>Get notified about new puzzles</strong>
+    <button class="ghost small" id="btn-notify-close" aria-label="Close">✕</button>
   </div>
-  <p class="muted small-note">Tick a paper and this browser is notified when its next puzzle is
-     annotated and ready to solve — not when it is merely fetched.</p>
+  <p class="muted small-note">Tick a crossword series (a newspaper’s puzzle, or our book
+     collection) to get a notification in this browser when its next puzzle is ready here with hints.</p>
   <ul id="notify-list"></ul>
   <!-- The annotation run finishes in the small hours, so without this the first
        thing a subscriber hears is a phone at 3am. A floor and not a window: a
        puzzle that lands after this time is sent straight away. -->
-  <p id="notify-when" class="notify-when"><label for="notify-after">Not before</label>
+  <p id="notify-when" class="notify-when"><label for="notify-after">Not before this time each day</label>
      <input type="time" id="notify-after" value="07:00"></p>
-  <p class="muted small-note">This device only, in this device's own time zone. There is no account
-     here, so ticking a paper on your phone does nothing to your laptop.</p>
+  <p class="muted small-note">These settings apply to this device only, in its own time zone.
+     There are no accounts, so ticking a paper on your phone won't notify your laptop.</p>
   <p class="muted small-note" id="notify-status" role="status" aria-live="polite"></p>
 </div>
 
@@ -156,19 +156,19 @@
 <div id="welcome" class="welcome hidden" role="dialog" aria-modal="true" aria-labelledby="welcome-h">
   <div class="welcome-card">
     <h2 id="welcome-h">Never solved a cryptic?</h2>
-    <p>Every clue is two clues stuck together: a plain <strong>definition</strong> at one
-       end, and <strong>wordplay</strong> that spells the same answer. Both are always there.</p>
+    <p>Every clue has two parts: a plain <strong>definition</strong> of the answer at one
+       end, and <strong>wordplay</strong> that builds the same answer another way.</p>
     <figure class="welcome-eg">
       <p class="eg-clue">Woman found in <span class="eg-hit">Oreg<u>on or Ma</u>ine</span> (5)</p>
       <ul>
-        <li><strong>Woman</strong> — the definition, sitting at the front</li>
-        <li><strong>found in</strong> — the wordplay's instruction: it is hidden here</li>
-        <li>Oreg<strong>on or ma</strong>ine — <strong>NORMA</strong>, a woman, five letters</li>
+        <li><strong>Woman</strong> — the definition, at the start of the clue</li>
+        <li><strong>found in</strong> — the <em>indicator</em>, a word telling you what to do: here, look for the answer hidden inside the next words</li>
+        <li>Oreg<strong>on or Ma</strong>ine — <strong>NORMA</strong>: a woman, and 5 letters long. The number in brackets is always the answer’s length.</li>
       </ul>
     </figure>
-    <p>You are not meant to spot that alone on day one. Every clue here is written up
-       as a ladder, and the first rung only points at the words doing the work —
-       take it, and stop the moment you can see it.</p>
+    <p>Nobody spots that on day one. Every clue here comes with a row of hints, and
+       each one gives away a little more than the one before. Start with the first,
+       and stop as soon as you can see the answer.</p>
     <p class="welcome-do"><button type="button" id="welcome-go" class="tool welcome-cta">Show me on today's puzzle</button></p>
     <p><button type="button" id="welcome-skip" class="ghost small">I've solved cryptics before</button></p>
   </div>
@@ -177,10 +177,10 @@
 <div id="fb-panel" class="panel hidden" role="dialog" aria-label="Send feedback">
   <div class="panel-head">
     <strong>Send feedback</strong>
-    <button class="ghost small" id="btn-feedback-close">✕</button>
+    <button class="ghost small" id="btn-feedback-close" aria-label="Close">✕</button>
   </div>
-  <p class="muted small-note">Anything about the site — what is confusing, what is missing, what
-     is broken. A bad hint on one clue has its own button under that clue.</p>
+  <p class="muted small-note">Tell me anything about the site: what is confusing, missing or
+     broken. To report a wrong hint on one clue, use “Report a bad hint” under that clue.</p>
   <textarea id="fb-note" class="rp-note" rows="3" maxlength="400"
     placeholder="What would make this better?"></textarea>
   <p><button type="button" id="fb-send" class="tool">Send</button>
@@ -190,14 +190,14 @@
 <div id="picker-panel" class="panel hidden" role="dialog" aria-label="Choose a puzzle">
   <div class="panel-head">
     <strong>Choose a puzzle</strong>
-    <button class="ghost small" id="btn-picker-close">✕</button>
+    <button class="ghost small" id="btn-picker-close" aria-label="Close">✕</button>
   </div>
   <!-- No list= and no datalist. The browser's own completion popup is native UI
        a page cannot place, and on iPad it opens away from the box (Paul,
        2026-09-14). The words it offered are chips in #picker-filters instead:
        in the panel, under the box, tappable, and the same on every device. -->
   <input id="picker-search" type="search" autocomplete="off" spellcheck="false"
-         placeholder="Filter by number, setter, paper or difficulty…" aria-label="Filter puzzles">
+         placeholder="Search by number, setter, paper or difficulty…" aria-label="Search puzzles">
   <!-- The papers and the bands: the part of the search's vocabulary a solver
        cannot arrive at on their own. app.js fills it. -->
   <p id="picker-filters" class="picker-filters"></p>
@@ -232,7 +232,7 @@
 
   <div class="puzzle-head">
     <h2 id="puzzle-title"></h2>
-    <div id="scorebar" title="Solve clues with as few hints as you can"></div>
+    <div id="scorebar" title="Your score for this puzzle: the fewer hints you use, the better"></div>
   </div>
   <!-- Shown once, in the session that earns it, when the last square goes in.
        app.js fills it; empty and hidden otherwise. -->
@@ -245,10 +245,10 @@
       <div class="toolbar">
         <span class="toolbar-label">Check:</span>
         <button id="chk-letter" class="tool">letter</button>
-        <button id="chk-entry" class="tool">entry</button>
+        <button id="chk-entry" class="tool">word</button>
         <button id="chk-grid" class="tool">grid</button>
         <span class="toolbar-gap"></span>
-        <button id="clear-entry" class="tool">clear entry</button>
+        <button id="clear-entry" class="tool">clear word</button>
         <button id="reset-puzzle" class="tool danger">reset puzzle</button>
       </div>
       <div id="check-result" class="check-result" role="status" aria-live="polite"></div>
@@ -313,7 +313,7 @@
 
 <footer>
   <p class="muted">Puzzles © their original publishers, reproduced here for personal study.
-  Annotations and hints are original to this project.
+  The explanations and hints were written for this site.
   <a href="https://github.com/ptarjan/cryptic-teacher">Source</a>.</p>
 </footer>
 
