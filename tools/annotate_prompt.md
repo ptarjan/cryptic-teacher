@@ -89,8 +89,9 @@ disagree, it wins.
   none, and an invented one is worse than none. Every "the X" must be an X the reader
   can see in the clue.
 - Many readers are not British. Where a clue turns on everyday British knowledge (a
-  county, a soap, a cricket position, an old coin, rhyming slang), say what the thing is
-  in one clause where it is needed: `THE OVAL is a London cricket ground`. Not for
+  county, a soap, a cricket position, an old coin, rhyming slang, a word like banger or
+  jumper), say what the thing is in one clause where it is needed: `THE OVAL is a London
+  cricket ground`, `a banger is a sausage`. Brevity never drops this clause. Not for
   crossword conventions, which the app teaches.
 - `features` is data for analysis, never shown to a solver. Honest nulls and falses are
   a usable row; a guessed `joke` poisons it. `joke` asks whether a joke is present, not
